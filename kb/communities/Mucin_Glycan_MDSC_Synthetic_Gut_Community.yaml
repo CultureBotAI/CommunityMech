@@ -1,0 +1,683 @@
+id: CommunityMech:000392
+name: Mucin Glycan-Degrading MDSC Synthetic Gut Community
+description: >-
+  A 14-strain in vitro synthetic community of human colonic mucus-associated
+  mucin glycan degraders, secondary degraders, and hydrogen consumers. The MDSC
+  was assembled from Akkermansia, Bacteroides, Phocaeicola, Ruminococcus,
+  Lachnospiraceae, Faecalibacterium, and Desulfovibrio type strains, grown
+  anaerobically in sequential 24 h serum-bottle batches at 37 C, and compared
+  across porcine gastric mucin, bovine submaxillary mucin, mixed PGM/BSM, and
+  PGM plus two sialylated-glycan conditions. Mucin type drove distinct
+  stabilized community compositions, mucin glycan degradation patterns, and
+  metabolite profiles after four transfers.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: >-
+    Test how distinct porcine gastric and bovine submaxillary mucin glycan
+    landscapes shape an in vitro synthetic mucosal-gut community.
+  assembly_strategy: >-
+    Combine 14 anaerobic strains selected as mucin glycan degraders,
+    secondary degraders, and hydrogen consumers that commonly reside in the
+    human colonic mucus layer.
+  inoculation_strategy: >-
+    Individually preculture each strain anoxically, combine precultures 1:1 by
+    OD600, and inoculate serum bottles at 5% v/v.
+  passaging_regimen: >-
+    Incubate each bottle statically for 24 h at 37 C, transfer 1% v/v into
+    fresh medium, and repeat for four transfers to adapt the community and
+    reach a stable composition by 96 to 120 h.
+  perturbation_design: >-
+    Compare porcine gastric mucin, bovine submaxillary mucin, equal mixed
+    PGM/BSM, and PGM plus the sialylated glycans 3'-sialylgalacto-N-biose and
+    6'-alpha-sialyl-N-acetyllactosamine.
+  measurement_endpoints:
+  - 16S rRNA amplicon sequencing integrated with qPCR
+  - Porous graphitized carbon LC-MS/MS O-glycan profiling
+  - MALDI-TOF MS N-glycan profiling
+  - HPLC metabolite profiling
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: MDSC consisted of primary mucin degraders and cross-feeders that scavenge released glycans, metabolites and/or gases
+    explanation: Supports the functional design of the in vitro mucin glycan-degrading synthetic community.
+environment_term:
+  preferred_term: anaerobic laboratory serum-bottle culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >-
+    The 14-strain MDSC was serially transferred in anoxic serum bottles with
+    defined mucin substrates.
+modeled_environment:
+- preferred_term: human colonic mucus layer
+  term:
+    id: ENVO:2100002
+    label: intestine environment
+  notes: >-
+    The strains were selected as common residents of the human colonic mucus
+    layer and used as an in vitro model of mucin-driven gut community function.
+taxonomy:
+- taxon_term:
+    preferred_term: Akkermansia muciniphila DSM 22959T
+    term:
+      id: NCBITaxon:239935
+      label: Akkermansia muciniphila
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      NCBI species identity verified locally; source strain DSM 22959T is
+      retained in the strain designation.
+  strain_designation:
+    strain_name: DSM 22959T
+    culture_collections:
+    - collection: DSM
+      accession: '22959'
+    type_strain: true
+  abundance_value: Defined MDSC member
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Akkermansia muciniphila DSM 22959T
+    explanation: Names Akkermansia muciniphila DSM 22959T as an MDSC member.
+- taxon_term:
+    preferred_term: Bacteroides caccae DSM 19024T
+    term:
+      id: NCBITaxon:47678
+      label: Bacteroides caccae
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      NCBI species identity verified by exact Taxonomy search; the local
+      NCBI2GTDB crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: DSM 19024T
+    culture_collections:
+    - collection: DSM
+      accession: '19024'
+    type_strain: true
+  abundance_value: Defined MDSC member
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacteroides caccae DSM 19024T
+    explanation: Names Bacteroides caccae DSM 19024T as an MDSC member.
+- taxon_term:
+    preferred_term: Bacteroides fragilis DSM 2151T
+    term:
+      id: NCBITaxon:817
+      label: Bacteroides fragilis
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Bacteroides_fragilis
+    - GTDB:s__Bacteroides_hominis
+    - GTDB:s__Bacteroides_ovatus
+    - GTDB:s__Chlamydophila_gallinacea
+    notes: >-
+      NCBI species identity verified locally; the NCBI species is split across
+      multiple GTDB species in the local KB's previous grounding.
+  strain_designation:
+    strain_name: DSM 2151T
+    culture_collections:
+    - collection: DSM
+      accession: '2151'
+    type_strain: true
+  abundance_value: Defined MDSC member
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacteroides fragilis DSM 2151T
+    explanation: Names Bacteroides fragilis DSM 2151T as an MDSC member.
+- taxon_term:
+    preferred_term: Bacteroides thetaiotaomicron DSM 2079T
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacteroides_thetaiotaomicron
+      gtdb_taxon: Bacteroides thetaiotaomicron
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__Bacteroides thetaiotaomicron
+      ncbi_source_id: NCBITaxon:818
+      majority_fraction: 0.99
+      total_genomes: 1011
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: DSM 2079T
+    culture_collections:
+    - collection: DSM
+      accession: '2079'
+    type_strain: true
+  abundance_value: Defined MDSC member
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacteroides thetaiotaomicron DSM 2079T
+    explanation: Names Bacteroides thetaiotaomicron DSM 2079T as an MDSC member.
+- taxon_term:
+    preferred_term: Phocaeicola vulgatus ATCC 8482T
+    term:
+      id: NCBITaxon:821
+      label: Phocaeicola vulgatus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Phocaeicola_vulgatus
+      gtdb_taxon: Phocaeicola vulgatus
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Phocaeicola;s__Phocaeicola vulgatus
+      ncbi_source_id: NCBITaxon:821
+      majority_fraction: 0.86
+      total_genomes: 1446
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: The source gives the current name and notes that this strain was previously named Bacteroides vulgatus.
+  strain_designation:
+    strain_name: ATCC 8482T
+    culture_collections:
+    - collection: ATCC
+      accession: '8482'
+    type_strain: true
+  abundance_value: Defined MDSC member
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Phocaeicola vulgatus ATCC 8482T
+    explanation: Names Phocaeicola vulgatus ATCC 8482T as an MDSC member.
+- taxon_term:
+    preferred_term: Ruminococcus gnavus ATCC 29149T
+    term:
+      id: NCBITaxon:33038
+      label: Mediterraneibacter gnavus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Ruminococcus_B_gnavus
+      gtdb_taxon: Ruminococcus_B gnavus
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Ruminococcus_B;s__Ruminococcus_B gnavus
+      ncbi_source_id: NCBITaxon:33038
+      majority_fraction: 0.99
+      total_genomes: 311
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: The source name Ruminococcus gnavus is retained; NCBI Taxonomy currently labels this species as Mediterraneibacter gnavus.
+  strain_designation:
+    strain_name: ATCC 29149T
+    culture_collections:
+    - collection: ATCC
+      accession: '29149'
+    type_strain: true
+  abundance_value: Defined MDSC member
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Ruminococcus gnavus ATCC 29149T
+    explanation: Names Ruminococcus gnavus ATCC 29149T as an MDSC member.
+- taxon_term:
+    preferred_term: Ruminococcus torques ATCC 27756T
+    term:
+      id: NCBITaxon:33039
+      label: Mediterraneibacter torques
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      NCBI species identity verified under the current name Mediterraneibacter
+      torques; the source's Ruminococcus torques name is retained.
+  strain_designation:
+    strain_name: ATCC 27756T
+    culture_collections:
+    - collection: ATCC
+      accession: '27756'
+    type_strain: true
+  abundance_value: Defined MDSC member
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Ruminococcus torques ATCC 27756T
+    explanation: Names Ruminococcus torques ATCC 27756T as an MDSC member.
+- taxon_term:
+    preferred_term: Anaerostipes caccae DSM 14662T
+    term:
+      id: NCBITaxon:105841
+      label: Anaerostipes caccae
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Anaerostipes_caccae
+      gtdb_taxon: Anaerostipes caccae
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Anaerostipes;s__Anaerostipes caccae
+      ncbi_source_id: NCBITaxon:105841
+      majority_fraction: 1.0
+      total_genomes: 35
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: DSM 14662T
+    culture_collections:
+    - collection: DSM
+      accession: '14662'
+    type_strain: true
+  abundance_value: Defined MDSC member
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Anaerostipes caccae DSM 14662T
+    explanation: Names Anaerostipes caccae DSM 14662T as an MDSC member.
+- taxon_term:
+    preferred_term: Anaerobutyricum hallii DSM 3353T
+    term:
+      id: NCBITaxon:39488
+      label: Anaerobutyricum hallii
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Anaerobutyricum_hallii
+      gtdb_taxon: Anaerobutyricum hallii
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Anaerobutyricum;s__Anaerobutyricum hallii
+      ncbi_source_id: NCBITaxon:39488
+      majority_fraction: 1.0
+      total_genomes: 157
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name - no species-level NCBI id in table]
+    notes: The source gives the current name and notes that this strain was previously named Eubacterium hallii.
+  strain_designation:
+    strain_name: DSM 3353T
+    culture_collections:
+    - collection: DSM
+      accession: '3353'
+    type_strain: true
+  abundance_value: Defined MDSC member
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Anaerobutyricum hallii DSM 3353T
+    explanation: Names Anaerobutyricum hallii DSM 3353T as an MDSC member.
+- taxon_term:
+    preferred_term: Agathobacter rectalis ATCC 33656T
+    term:
+      id: NCBITaxon:515619
+      label: Agathobacter rectalis ATCC 33656
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Agathobacter_rectalis
+      gtdb_taxon: Agathobacter rectalis
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Agathobacter;s__Agathobacter rectalis
+      ncbi_source_id: NCBITaxon:515619
+      majority_fraction: 1.0
+      total_genomes: 13850
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: The source gives the current name and notes that this strain was previously named Eubacterium rectale.
+  strain_designation:
+    strain_name: ATCC 33656T
+    culture_collections:
+    - collection: ATCC
+      accession: '33656'
+    type_strain: true
+  abundance_value: Defined MDSC member
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Agathobacter rectalis ATCC 33656T
+    explanation: Names Agathobacter rectalis ATCC 33656T as an MDSC member.
+- taxon_term:
+    preferred_term: Faecalibacterium duncaniae DSM 17677T
+    term:
+      id: NCBITaxon:411483
+      label: Faecalibacterium duncaniae
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      NCBI species identity verified under the current name Faecalibacterium
+      duncaniae; the source notes that this strain was previously named
+      Faecalibacterium prausnitzii.
+  strain_designation:
+    strain_name: DSM 17677T
+    culture_collections:
+    - collection: DSM
+      accession: '17677'
+    type_strain: true
+  abundance_value: Defined MDSC member
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Faecalibacterium duncaniae DSM 17677T
+    explanation: Names Faecalibacterium duncaniae DSM 17677T as an MDSC member.
+- taxon_term:
+    preferred_term: Roseburia intestinalis DSM 14610T
+    term:
+      id: NCBITaxon:166486
+      label: Roseburia intestinalis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Roseburia_intestinalis
+      gtdb_taxon: Roseburia intestinalis
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Roseburia;s__Roseburia intestinalis
+      ncbi_source_id: NCBITaxon:166486
+      majority_fraction: 1.0
+      total_genomes: 78
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: DSM 14610T
+    culture_collections:
+    - collection: DSM
+      accession: '14610'
+    type_strain: true
+  abundance_value: Defined MDSC member
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Roseburia intestinalis DSM 14610T
+    explanation: Names Roseburia intestinalis DSM 14610T as an MDSC member.
+- taxon_term:
+    preferred_term: Blautia hydrogenotrophica DSM 10507T
+    term:
+      id: NCBITaxon:53443
+      label: Blautia hydrogenotrophica
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      NCBI species identity verified by exact Taxonomy search; the local
+      NCBI2GTDB crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: DSM 10507T
+    culture_collections:
+    - collection: DSM
+      accession: '10507'
+    type_strain: true
+  abundance_value: Defined MDSC member
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Blautia hydrogenotrophica DSM 10507T
+    explanation: Names Blautia hydrogenotrophica DSM 10507T as an MDSC member.
+- taxon_term:
+    preferred_term: Desulfovibrio piger DSM 749T
+    term:
+      id: NCBITaxon:901
+      label: Desulfovibrio piger
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      NCBI species identity verified by exact Taxonomy search; the local
+      NCBI2GTDB crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: DSM 749T
+    culture_collections:
+    - collection: DSM
+      accession: '749'
+    type_strain: true
+  abundance_value: Defined MDSC member
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Desulfovibrio piger DSM 749T
+    explanation: Names Desulfovibrio piger DSM 749T as an MDSC member.
+ecological_interactions:
+- name: Mucin-Type-Dependent MDSC Restructuring
+  description: >-
+    After four sequential transfers, the MDSC stabilized into distinct
+    species-level compositions on PGM, PGM plus BSM, and PGM plus added
+    sialylated glycans, with BSM alone supporting limited growth.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Substrate-Dependent Mucin Glycan Degradation
+    description: >-
+      Community composition tracked with different O- and N-glycan degradation
+      patterns on the four mucin substrate regimes.
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After four transfers, the composition of the community differed as a result of mucin type condition
+    explanation: Supports mucin-type-dependent restructuring of the synthetic community.
+- name: Substrate-Dependent Mucin Glycan Degradation
+  description: >-
+    The MDSC degraded PGM O-glycans, PGM plus BSM O-glycans, and PGM plus
+    added sialylated glycans in sequential batch culture, but showed limited
+    growth and only minimal O-glycan degradation when BSM was supplied alone.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Furthermore, glycan degradation and metabolite production were also affected by mucin type
+    explanation: Supports the substrate-dependent mucin glycan degradation and metabolic output of the MDSC.
+- name: Mucin-Type-Dependent Fermentation Profile
+  description: >-
+    HPLC measurements of acetate, propionate, butyrate, formate, succinate,
+    lactate, ethanol, glucose, and 1,2-propanediol showed that PGM, BSM,
+    PGM/BSM, and PGM plus sialylated glycans yielded distinct metabolite
+    profiles.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: propionate
+    term:
+      id: CHEBI:17272
+      label: propionate
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Incubation of the MDSC with different mucin types resulted in distinct metabolite profiles
+    explanation: Supports mucin-type-dependent extracellular metabolite output.
+environmental_factors:
+- name: Porcine gastric mucin
+  value: '0.5'
+  unit: '% w/v'
+  description: Porcine gastric mucin type III was supplied as the sole mucin carbon source in the PGM condition.
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: porcine gastric mucin type III (PGM, purified powder, 0.5% w/v
+    explanation: Supports the porcine gastric mucin identity and 0.5% w/v concentration.
+- name: Bovine submaxillary mucin
+  value: '0.5'
+  unit: '% w/v'
+  description: Bovine submaxillary mucin type I-S was supplied as the sole mucin carbon source in the BSM condition.
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: bovine submaxillary mucin type I-S (BSM, 0.5% w/v
+    explanation: Supports the bovine submaxillary mucin identity and 0.5% w/v concentration.
+- name: Mixed PGM plus BSM
+  value: 2 x 0.25
+  unit: '% w/v'
+  description: The mixed mucin condition contained equal PGM and BSM at 0.25% w/v each.
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a combination of both (PGM + BSM, 2 × 0.25% w/v)
+    explanation: Supports the mixed PGM/BSM substrate condition.
+- name: Added sialylated glycans
+  value: 0.025 each
+  unit: '% w/v'
+  description: >-
+    3'-sialylgalacto-N-biose and 6'-alpha-sialyl-N-acetyllactosamine were
+    added to PGM in the PGM plus SG condition.
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 3'-sialylgalacto-N-biose
+    explanation: Supports the added sialylated-glycan perturbation.
+growth_media:
+- name: Anoxic bicarbonate buffered mucin medium
+  composition:
+  - name: yeast extract
+    concentration: '1'
+    unit: g/L
+  temperature: '37'
+  temperature_unit: C
+  atmosphere: ANAEROBIC
+  inoculum_size: '5'
+  inoculum_unit: '% v/v'
+  incubation_time: '24'
+  incubation_time_unit: h
+  shaking_speed: '0'
+  shaking_speed_unit: rpm
+  vessel_type: serum bottle
+  preparation_notes: >-
+    The anoxic bicarbonate buffered medium was reduced with cysteine-HCl and
+    supplied with PGM, BSM, equal PGM/BSM, or PGM plus sialylated glycans as the
+    carbon source. The 5% v/v mixed inoculum was prepared from individual
+    precultures combined in a 1:1 ratio based on OD600.
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The medium was an anoxic bicarbonate buffered medium prepared as described previously
+    explanation: Supports the base anoxic bicarbonate buffered medium.
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Serum bottles were incubated without shaking at 37°C for 24 h
+    explanation: Supports the serum-bottle incubation temperature, duration, and static growth condition.
+cultivation_setup:
+- cultivation_mode: OTHER
+  system_type: SERUM_BOTTLE
+  instrument_detail: static anoxic serum bottles with 1% v/v transfer to fresh medium every 24 h
+  operating_temperature: 37
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: >-
+    Four mucin substrate conditions were carried out in triplicate, and a PGM
+    plus BSM bottle without bacteria was used as a negative control.
+  notes: >-
+    Community samples were taken at the initial inoculation and at each 24 h
+    batch endpoint through 120 h.
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In total, the community was transferred four times to adapt to the carbon source and reach a stable composition
+    explanation: Supports the four-transfer sequential batch design.
+associated_datasets:
+- title: MDSC 16S rRNA amplicon sequencing ENA project
+  accession: PRJEB83805
+  dataset_type: AMPLICON_16S
+  repository: ENA
+  url: https://www.ebi.ac.uk/ena/browser/view/PRJEB83805
+  description: ENA project for 16S rRNA gene amplicon sequencing from the MDSC mucin-type experiment.
+  publication: PMID:42109165
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: available in the ENA repository, under project accession number PRJEB83805
+    explanation: Links the MDSC 16S amplicon data to ENA project PRJEB83805.
+- title: MDSC mucin glycan Yoda dataset
+  accession: doi:10.17887/WUR01-8PT7T6
+  dataset_type: OTHER
+  repository: OTHER
+  url: https://doi.org/10.17887/WUR01-8PT7T6
+  description: Yoda raw and processed glycan dataset generated in the MDSC mucin-type experiment.
+  publication: PMID:42109165
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >-
+      The glycan dataset that was generated and analysed in this study (raw and
+      processed data files) is available in Yoda
+    explanation: Links the generated glycan dataset to the paper's Yoda deposition.
+external_resources:
+- name: Primary publication - MDSC mucin glycan SynCom
+  repository: OTHER
+  resource_id: PMID:42109165
+  url: https://pubmed.ncbi.nlm.nih.gov/42109165/
+  description: Environmental Microbiology article reporting the 14-member MDSC and mucin-type sequential-batch experiment.
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Mucin Type Drives Composition and Mucin Glycan Degradation of an In Vitro Synthetic Microbial Community
+    explanation: Identifies the PubMed-indexed primary publication for the MDSC study.
+- name: Primary publication DOI - MDSC mucin glycan SynCom
+  repository: OTHER
+  resource_id: doi:10.1111/1462-2920.70288
+  url: https://doi.org/10.1111/1462-2920.70288
+  description: DOI landing page for the Environmental Microbiology MDSC primary publication.
+  evidence:
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 10.1111/1462-2920.70288
+    explanation: Identifies the DOI assigned to the primary publication.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this mucin glycan-degrading gut SynCom.
+discussions:
+- discussion_id: mucin-mdsc-pairwise-crossfeeding-resolution
+  prompt: >-
+    Which exact MDSC members acted as primary mucin glycan degraders, secondary
+    degraders, and hydrogen consumers in each mucin condition?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions
+  rationale: >-
+    The 2026 MDSC paper states that the community design included primary mucin
+    degraders, secondary degraders, and hydrogen consumers and measured
+    condition-level community composition, glycan degradation, and metabolite
+    production. Pairwise member-to-member carbon or gas fluxes in the exact
+    14-strain MDSC were not resolved from this paper alone, so this record
+    captures only community-level mucin responses.
+  posed_by: codex
+  posed_date: '2026-09-20'
+curation_history:
+- timestamp: '2026-09-20T10:22:27Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: >-
+    Created CommunityMech:000392 for the 14-member MDSC synthetic gut
+    community from PMID:42109165, including exact type-strain membership,
+    mucin-substrate sequential-batch cultivation, community-level
+    mucin-dependent composition, glycan-degradation and metabolite responses,
+    and linked ENA/Yoda datasets.
+  llm_assisted: true
