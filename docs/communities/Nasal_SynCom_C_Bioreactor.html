@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasal SynCom C Bioreactor - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #3D7DD6;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FBD3E3, #CBDDF6);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: var(--background);
+            color: var(--text);
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: var(--background);
+            color: var(--text);
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .empty-state {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .empty-state p {
+            margin: 0.5rem 0;
+        }
+
+        .empty-state-note {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .dataset-description {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Network diagram */
+        .network-container {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0 2rem;
+            position: relative;
+        }
+
+        .network-container svg {
+            width: 100%;
+            display: block;
+        }
+
+        .network-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.75rem 0 0;
+            border-top: 1px solid var(--border);
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .legend-swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .legend-circle {
+            border-radius: 50%;
+        }
+
+        .network-tooltip {
+            position: absolute;
+            background: rgba(30, 41, 59, 0.95);
+            color: #f8fafc;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            max-width: 280px;
+            z-index: 10;
+        }
+
+        .network-tooltip strong {
+            color: #93c5fd;
+        }
+    /* ---- Dark theme (OS default; superseded by the toggle) ---- */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --net-label:#cbd5e1;}
+  :root:not([data-theme="light"]) header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+  :root:not([data-theme="light"]) th{background:#232a3d}
+  :root:not([data-theme="light"]) .interaction-type{background:rgba(52,211,153,.14);color:#34d399}
+  :root:not([data-theme="light"]) .interaction-flow{background:rgba(255,255,255,.04)}
+  :root:not([data-theme="light"]) .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
+  :root:not([data-theme="light"]) .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
+  :root:not([data-theme="light"]) .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+}
+:root[data-theme="dark"]{--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --net-label:#cbd5e1;}
+:root[data-theme="dark"] header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+:root[data-theme="dark"] th{background:#232a3d}
+:root[data-theme="dark"] .interaction-type{background:rgba(52,211,153,.14);color:#34d399}
+:root[data-theme="dark"] .interaction-flow{background:rgba(255,255,255,.04)}
+:root[data-theme="dark"] .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
+:root[data-theme="dark"] .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
+:root[data-theme="dark"] .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <h1>Nasal SynCom C Bioreactor</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Community ID</span>
+                    <span class="metadata-value">
+                        <code style="background: var(--border); color: var(--text); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000395</code>
+                    </span>
+                </div>
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        continuous nasal SynCom bioreactor
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
+                           class="term-link" target="_blank" rel="noopener noreferrer">
+                            ENVO:01001405
+                        </a>
+                    </span>
+                </div>
+
+
+            </div>
+        </section>
+
+        <!-- Description -->
+
+        <section class="description">
+            <p>A nine-strain synthetic nasal community assembled from LaCa collection isolates recovered from Volunteer 1 and cultivated in a continuously fed glass bioreactor with synthetic nasal medium to maintain a stable S. aureus-free nasal microbiome before Day-20 S. aureus strain challenges.</p>
+        </section>
+
+
+        <!-- Taxonomy -->
+
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <strong>Staphylococcus epidermidis Se C</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1282"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1282
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://doi.org/10.64898/2026.03.16.712028"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2026.03.16.712028</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Staphylococcus epidermidis Se C Vol. C BHI Overnight Aerobiosis Included"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Staphylococcus capitis Sc C</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=29388"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:29388
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://doi.org/10.64898/2026.03.16.712028"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2026.03.16.712028</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Staphylococcus capitis Sc C Vol. C BHI Overnight Aerobiosis Included"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Micrococcus luteus Ml C</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1270"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1270
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://doi.org/10.64898/2026.03.16.712028"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2026.03.16.712028</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Micrococcus luteus Ml C Vol. C BHI Overnight Aerobiosis Included"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Corynebacterium tuberculostearicum Ct C</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=38304"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:38304
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://doi.org/10.64898/2026.03.16.712028"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2026.03.16.712028</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Corynebacterium tuberculostearicum Ct C Vol. C BHI + 0.2% Tween 80 1 day Aerobiosis Included"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Cutibacterium avidum Cv C</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=33010"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:33010
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://doi.org/10.64898/2026.03.16.712028"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2026.03.16.712028</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Cutibacterium avidum Cv C Vol. C TSB 2 days Anaerobiosis Included"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Cutibacterium acnes Cc C</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1747"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1747
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://doi.org/10.64898/2026.03.16.712028"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2026.03.16.712028</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Cutibacterium acnes Cc C Vol. C TSB 4 days Anaerobiosis Included"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Cutibacterium granulosum Cg C</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=33011"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:33011
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://doi.org/10.64898/2026.03.16.712028"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2026.03.16.712028</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Cutibacterium granulosum Cg C Vol. C TSB 4 days Anaerobiosis Included"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Anaerococcus octavius Ao C</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=54007"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:54007
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://doi.org/10.64898/2026.03.16.712028"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2026.03.16.712028</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Anaerococcus octavius Ao C Vol. C TSA + 5% sheep blood 7 days Anaerobiosis Included"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Peptoniphilus harei Ph C</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=54005"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:54005
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://doi.org/10.64898/2026.03.16.712028"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2026.03.16.712028</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Peptoniphilus harei Ph C Vol. C TSA + 5% sheep blood 7 days Anaerobiosis Included"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </section>
+        <!-- Ecological Interactions -->
+        <section>
+            <h2>Ecological Interactions</h2>
+
+            <div class="empty-state">
+                <p>ℹ️ No detailed ecological interaction data is available for this community.</p>
+                <p class="empty-state-note">This record may be a metabolic model or minimal entry containing only taxonomy and external resource links.</p>
+            </div>
+
+        </section>
+
+        <!-- Associated Datasets -->
+
+        <section>
+            <h2>Associated Datasets</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dataset</th>
+                        <th>Type</th>
+                        <th>Repository</th>
+                        <th>Accession</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <strong>Continuous nasal bioreactor sequencing BioProject</strong>
+
+                            <br><span class="dataset-description">NCBI BioProject for sequencing datasets generated and analyzed across the continuous nasal bioreactor study, including the SynCom C S. aureus decolonization experiment.</span>
+
+                        </td>
+                        <td><span class="role-badge">AMPLICON_OTHER</span></td>
+                        <td>NCBI_BIOPROJECT</td>
+                        <td>
+
+                            <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1414135" class="term-link" target="_blank" rel="noopener noreferrer">PRJNA1414135</a>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+
+
+        <!-- Environmental Factors -->
+
+        <section>
+            <h2>External Resources</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Repository</th>
+                        <th>Resource ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <strong>Primary biorxiv preprint - continuous nasal SynCom C bioreactor</strong>
+
+                            <br><span class="dataset-description">bioRxiv preprint reporting the SynCom C continuous bioreactor and S. aureus challenge experiment.</span>
+
+                        </td>
+                        <td>OTHER</td>
+                        <td>
+
+                            <a href="https://doi.org/10.64898/2026.03.16.712028" class="term-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2026.03.16.712028</a>
+
+                        </td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://doi.org/10.64898/2026.03.16.712028"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2026.03.16.712028</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Development of a continuous bioreactor to maintain stable nasal microbiomes from swab specimens and synthetic communities"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </section>
+
+
+
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>Day-20 Staphylococcus aureus challenge</strong></td>
+                        <td>Sa C, Sa A, or no S. aureus after 20 days of SynCom C stabilization</td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://doi.org/10.64898/2026.03.16.712028"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2026.03.16.712028</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"We first maintained stable nasal microbiomes of the SynCom without S. aureus"</div>
+
+                                </li>
+
+                                <li class="evidence-item">
+
+                                    <a href="https://doi.org/10.64898/2026.03.16.712028"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2026.03.16.712028</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"we added two different S. aureus strains ( i.e. , Sa C or Sa A) (Table S2) to the bioreactor on Day 20"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </section>
+
+
+        <!-- Growth Media -->
+
+        <section>
+            <h2>Growth Media</h2>
+
+            <div class="metadata">
+                <h3>
+                    synthetic nasal medium 3
+
+                </h3>
+
+
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+
+                    <div class="metadata-item">
+                        <span class="metadata-label">pH</span>
+                        <span class="metadata-value">6.5</span>
+                    </div>
+
+
+
+                    <div class="metadata-item">
+                        <span class="metadata-label">Temperature</span>
+                        <span class="metadata-value">30 degrees Celsius</span>
+                    </div>
+
+
+
+                    <div class="metadata-item">
+                        <span class="metadata-label">Atmosphere</span>
+                        <span class="metadata-value">MICROAEROBIC</span>
+                    </div>
+
+                </div>
+
+
+
+
+                <p style="margin-top: 1rem; padding: 0.75rem; background: var(--background); color: var(--text); border: 1px solid var(--border); border-radius: 4px;">
+                    <strong>Preparation notes:</strong> Synthetic nasal medium was supplied in continuous mode at the optimized 1 d-1 dilution rate and pH 6.5. SynCom C was inoculated on Day 0 and stabilized to Day 20 before S. aureus challenge.
+                </p>
+
+
+
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+
+                    <div class="evidence-item">
+
+                        <a href="https://doi.org/10.64898/2026.03.16.712028"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            doi:10.64898/2026.03.16.712028
+                        </a>
+
+
+
+                        <p class="snippet">"a continuous mode, a dilution rate of 1 d-1"</p>
+
+                    </div>
+
+                    <div class="evidence-item">
+
+                        <a href="https://doi.org/10.64898/2026.03.16.712028"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            doi:10.64898/2026.03.16.712028
+                        </a>
+
+
+
+                        <p class="snippet">"a temperature of 30xlink:href=&#34; a pH of 6.5, and a medium concentration with SNM 3"</p>
+
+                    </div>
+
+                    <div class="evidence-item">
+
+                        <a href="https://doi.org/10.64898/2026.03.16.712028"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            doi:10.64898/2026.03.16.712028
+                        </a>
+
+
+
+                        <p class="snippet">"a pH of 6.5, and a medium concentration with SNM 3"</p>
+
+                    </div>
+
+                    <div class="evidence-item">
+
+                        <a href="https://doi.org/10.64898/2026.03.16.712028"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            doi:10.64898/2026.03.16.712028
+                        </a>
+
+
+
+                        <p class="snippet">"We inoculated 1 mL of fresh nasal-swab specimens or 2.5 mL of the SynCom (OD600nm=1) into the bioreactor on Day 0."</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+
+
+    <script src="../theme-toggle.js"></script>
+</body>
+</html>

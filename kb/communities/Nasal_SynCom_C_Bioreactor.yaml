@@ -1,0 +1,359 @@
+id: CommunityMech:000395
+name: Nasal SynCom C Bioreactor
+description: A nine-strain synthetic nasal community assembled from LaCa collection isolates recovered from Volunteer 1 and
+  cultivated in a continuously fed glass bioreactor with synthetic nasal medium to maintain a stable S. aureus-free nasal
+  microbiome before Day-20 S. aureus strain challenges.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Develop a defined bottom-up nasal microbiome in a continuous bioreactor to test strain-specific Staphylococcus
+    aureus colonization resistance.
+  assembly_strategy: Combine nine LaCa collection nasal strains from Volunteer 1 in equal proportions while excluding both
+    S. aureus challenge isolates.
+  inoculation_strategy: Wash rich-medium precultures, resuspend each strain in a phosphate-buffered saline-glycerol solution
+    to OD600 5, combine them equally into SynCom C, freeze aliquots, and inoculate 2.5 mL of OD600 1 SynCom into each bioreactor
+    on Day 0.
+  perturbation_design: Operate five SynCom C bioreactors through Day 20 before adding no S. aureus, Sa C, or Sa A to duplicate
+    challenge bioreactors.
+  measurement_endpoints:
+  - daily optical density at 600 nm
+  - total bacterial and S. aureus qPCR copy numbers
+  - 16S-ITS-23S rRNA operon amplicon profiles
+  counter_selection:
+  - criterion: Excluded Staphylococcus aureus isolates Sa A and Sa C were reserved as Day-20 challenge strains rather than
+      resident members of the nine-strain SynCom C inoculum.
+    excluded_count: 2
+    evidence:
+    - reference: doi:10.64898/2026.03.16.712028
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Staphylococcus aureus Sa A Vol. A BHI Overnight Aerobiosis Excluded
+      explanation: Table S2 marks S. aureus Sa A as excluded from SynCom C.
+    - reference: doi:10.64898/2026.03.16.712028
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Staphylococcus aureus Sa C Vol. C BHI Overnight Aerobiosis Excluded
+      explanation: Table S2 marks S. aureus Sa C as excluded from SynCom C.
+    - reference: doi:10.64898/2026.03.16.712028
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: For the decolonization experiment, we added two different S. aureus strains
+      explanation: The excluded S. aureus strains were introduced later as perturbations.
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We designed a single SynCom from nine nasal strains that were isolated from Volunteer 1
+    explanation: Supports the defined nine-strain SynCom C construction from one nasal donor.
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We then assembled the SynCom by combining the resuspended nasal strains in an equal ratio.
+    explanation: Supports the equal-ratio assembly strategy.
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Following stabilization, we added to duplicate bioreactors two S. aureus strains
+    explanation: Supports the post-stabilization S. aureus challenge design.
+environment_term:
+  preferred_term: continuous nasal SynCom bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: SynCom C was a defined in-vitro bioreactor culture modeling the human nasal habitat, not a direct natural nasal-swab
+    community.
+taxonomy:
+- taxon_term:
+    preferred_term: Staphylococcus epidermidis Se C
+    term:
+      id: NCBITaxon:1282
+      label: Staphylococcus epidermidis
+    gtdb_grounding_status: UNRESOLVED
+    notes: LaCa collection nasal isolate Se C; Table S2 reports source Vol. C, corresponding to Volunteer 1 in the bioreactor
+      study.
+  strain_designation:
+    strain_name: Se C
+    isolation_source: human nasal swab from Volunteer C
+    notes: LaCa collection isolate included in SynCom C.
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Staphylococcus epidermidis Se C Vol. C BHI Overnight Aerobiosis Included
+    explanation: Table S2 identifies Se C as an included SynCom C nasal strain.
+- taxon_term:
+    preferred_term: Staphylococcus capitis Sc C
+    term:
+      id: NCBITaxon:29388
+      label: Staphylococcus capitis
+    gtdb_grounding_status: UNRESOLVED
+    notes: LaCa collection nasal isolate Sc C; Table S2 reports source Vol. C, corresponding to Volunteer 1 in the bioreactor
+      study.
+  strain_designation:
+    strain_name: Sc C
+    isolation_source: human nasal swab from Volunteer C
+    notes: LaCa collection isolate included in SynCom C.
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Staphylococcus capitis Sc C Vol. C BHI Overnight Aerobiosis Included
+    explanation: Table S2 identifies Sc C as an included SynCom C nasal strain.
+- taxon_term:
+    preferred_term: Micrococcus luteus Ml C
+    term:
+      id: NCBITaxon:1270
+      label: Micrococcus luteus
+    gtdb_grounding_status: UNRESOLVED
+    notes: LaCa collection nasal isolate Ml C; Table S2 reports source Vol. C, corresponding to Volunteer 1 in the bioreactor
+      study.
+  strain_designation:
+    strain_name: Ml C
+    isolation_source: human nasal swab from Volunteer C
+    notes: LaCa collection isolate included in SynCom C.
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Micrococcus luteus Ml C Vol. C BHI Overnight Aerobiosis Included
+    explanation: Table S2 identifies Ml C as an included SynCom C nasal strain.
+- taxon_term:
+    preferred_term: Corynebacterium tuberculostearicum Ct C
+    term:
+      id: NCBITaxon:38304
+      label: Corynebacterium tuberculostearicum
+    gtdb_grounding_status: UNRESOLVED
+    notes: LaCa collection nasal isolate Ct C; Table S2 reports source Vol. C, corresponding to Volunteer 1 in the bioreactor
+      study.
+  strain_designation:
+    strain_name: Ct C
+    isolation_source: human nasal swab from Volunteer C
+    notes: LaCa collection isolate included in SynCom C.
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Corynebacterium tuberculostearicum Ct C Vol. C BHI + 0.2% Tween 80 1 day Aerobiosis Included
+    explanation: Table S2 identifies Ct C as an included SynCom C nasal strain.
+- taxon_term:
+    preferred_term: Cutibacterium avidum Cv C
+    term:
+      id: NCBITaxon:33010
+      label: Cutibacterium avidum
+    gtdb_grounding_status: UNRESOLVED
+    notes: LaCa collection nasal isolate Cv C; Table S2 reports source Vol. C, corresponding to Volunteer 1 in the bioreactor
+      study.
+  strain_designation:
+    strain_name: Cv C
+    isolation_source: human nasal swab from Volunteer C
+    notes: LaCa collection isolate included in SynCom C.
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cutibacterium avidum Cv C Vol. C TSB 2 days Anaerobiosis Included
+    explanation: Table S2 identifies Cv C as an included SynCom C nasal strain.
+- taxon_term:
+    preferred_term: Cutibacterium acnes Cc C
+    term:
+      id: NCBITaxon:1747
+      label: Cutibacterium acnes
+    gtdb_grounding_status: UNRESOLVED
+    notes: LaCa collection nasal isolate Cc C; Table S2 reports source Vol. C, corresponding to Volunteer 1 in the bioreactor
+      study.
+  strain_designation:
+    strain_name: Cc C
+    isolation_source: human nasal swab from Volunteer C
+    notes: LaCa collection isolate included in SynCom C.
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cutibacterium acnes Cc C Vol. C TSB 4 days Anaerobiosis Included
+    explanation: Table S2 identifies Cc C as an included SynCom C nasal strain.
+- taxon_term:
+    preferred_term: Cutibacterium granulosum Cg C
+    term:
+      id: NCBITaxon:33011
+      label: Cutibacterium granulosum
+    gtdb_grounding_status: UNRESOLVED
+    notes: LaCa collection nasal isolate Cg C; Table S2 reports source Vol. C, corresponding to Volunteer 1 in the bioreactor
+      study.
+  strain_designation:
+    strain_name: Cg C
+    isolation_source: human nasal swab from Volunteer C
+    notes: LaCa collection isolate included in SynCom C.
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cutibacterium granulosum Cg C Vol. C TSB 4 days Anaerobiosis Included
+    explanation: Table S2 identifies Cg C as an included SynCom C nasal strain.
+- taxon_term:
+    preferred_term: Anaerococcus octavius Ao C
+    term:
+      id: NCBITaxon:54007
+      label: Anaerococcus octavius
+    gtdb_grounding_status: UNRESOLVED
+    notes: LaCa collection nasal isolate Ao C; Table S2 reports source Vol. C, corresponding to Volunteer 1 in the bioreactor
+      study.
+  strain_designation:
+    strain_name: Ao C
+    isolation_source: human nasal swab from Volunteer C
+    notes: LaCa collection isolate included in SynCom C.
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Anaerococcus octavius Ao C Vol. C TSA + 5% sheep blood 7 days Anaerobiosis Included
+    explanation: Table S2 identifies Ao C as an included SynCom C nasal strain.
+- taxon_term:
+    preferred_term: Peptoniphilus harei Ph C
+    term:
+      id: NCBITaxon:54005
+      label: Peptoniphilus harei
+    gtdb_grounding_status: UNRESOLVED
+    notes: LaCa collection nasal isolate Ph C; Table S2 reports source Vol. C, corresponding to Volunteer 1 in the bioreactor
+      study.
+  strain_designation:
+    strain_name: Ph C
+    isolation_source: human nasal swab from Volunteer C
+    notes: LaCa collection isolate included in SynCom C.
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Peptoniphilus harei Ph C Vol. C TSA + 5% sheep blood 7 days Anaerobiosis Included
+    explanation: Table S2 identifies Ph C as an included SynCom C nasal strain.
+environmental_factors:
+- name: Day-20 Staphylococcus aureus challenge
+  value: Sa C, Sa A, or no S. aureus after 20 days of SynCom C stabilization
+  description: SynCom C was first maintained without S. aureus and then challenged with one of two excluded S. aureus isolates
+    at a 1000-fold lower OD600 than the established nasal microbiome.
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We first maintained stable nasal microbiomes of the SynCom without S. aureus
+    explanation: Supports the S. aureus-free stabilization phase.
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we added two different S. aureus strains ( i.e. , Sa C or Sa A) (Table S2) to the bioreactor on Day 20
+    explanation: Supports the timing and identity of the S. aureus perturbation.
+growth_media:
+- name: synthetic nasal medium 3
+  temperature: '30'
+  temperature_unit: degrees Celsius
+  ph: '6.5'
+  atmosphere: MICROAEROBIC
+  inoculum_source: equal-ratio frozen SynCom C aliquot
+  inoculum_size: '2.5'
+  inoculum_unit: mL of OD600nm=1 SynCom
+  incubation_time: '20'
+  incubation_time_unit: d
+  vessel_type: 250 mL continuously fed glass bioreactor
+  preparation_notes: Synthetic nasal medium was supplied in continuous mode at the optimized 1 d-1 dilution rate and pH 6.5.
+    SynCom C was inoculated on Day 0 and stabilized to Day 20 before S. aureus challenge.
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a continuous mode, a dilution rate of 1 d-1
+    explanation: Supports continuous operation at the optimized 1 per day dilution rate.
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a temperature of 30xlink:href=" a pH of 6.5, and a medium concentration with SNM 3
+    explanation: Supports the 30 degrees Celsius optimal operating temperature; the cached article text has a malformed
+      degree-symbol artifact after 30.
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a pH of 6.5, and a medium concentration with SNM 3
+    explanation: Supports the pH 6.5 synthetic nasal medium 3 condition.
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We inoculated 1 mL of fresh nasal-swab specimens or 2.5 mL of the SynCom (OD600nm=1) into the bioreactor on Day
+      0.
+    explanation: Supports the Day-0 SynCom inoculum volume and OD600.
+cultivation_setup:
+- cultivation_mode: CONTINUOUS
+  system_type: CHEMOSTAT_VESSEL
+  instrument_detail: 250 mL glass bioreactors supplied with synthetic nasal medium by peristaltic pumps and mixed with magnetic
+    stirrers at 250 rpm.
+  feed_or_dilution_rate: 1.0
+  feed_or_dilution_rate_unit: 1/d
+  ph_controlled: true
+  do_controlled: false
+  temperature_controlled: true
+  controls_notes: pH was actively controlled; microaerobic conditions were maintained with a large air filter and measured
+    with a real-time oxygen sensor.
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We operated six 250-mL, glass bioreactors (DWK Life Sciences, Mainz, Germany) as axenic chemostats in a continuously-fed
+      mode
+    explanation: Supports the glass continuous chemostat vessel configuration.
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We maintained a fully stirred liquid within the bioreactors using a magnetic stirrer
+    explanation: Supports stirred operation for homogeneous liquid conditions.
+associated_datasets:
+- title: Continuous nasal bioreactor sequencing BioProject
+  accession: PRJNA1414135
+  dataset_type: AMPLICON_OTHER
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1414135
+  description: NCBI BioProject for sequencing datasets generated and analyzed across the continuous nasal bioreactor study,
+    including the SynCom C S. aureus decolonization experiment.
+  publication: doi:10.64898/2026.03.16.712028
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: available in the NCBI BioProject repository under accession PRJNA1414135
+    explanation: Links the nasal bioreactor study datasets to BioProject PRJNA1414135.
+external_resources:
+- name: Primary biorxiv preprint - continuous nasal SynCom C bioreactor
+  repository: OTHER
+  resource_id: doi:10.64898/2026.03.16.712028
+  url: https://doi.org/10.64898/2026.03.16.712028
+  description: bioRxiv preprint reporting the SynCom C continuous bioreactor and S. aureus challenge experiment.
+  evidence:
+  - reference: doi:10.64898/2026.03.16.712028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Development of a continuous bioreactor to maintain stable nasal microbiomes from swab specimens and synthetic
+      communities
+    explanation: Identifies the DOI-backed primary source for this SynCom C bioreactor record.
+curation_history:
+- timestamp: '2026-09-20T15:21:48Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000395 for the nine-strain LaCa SynCom C continuous nasal bioreactor, including exact member
+    strain identifiers from Table S2, S. aureus counter-selection and challenge context, SNM 3 growth conditions, and the
+    continuous chemostat setup.
+  llm_assisted: true
+- timestamp: '2026-09-20T15:23:47Z'
+  curator: codex
+  action: UPDATE_RECORD
+  changes: Removed non-targeted metabolomics as a SynCom C endpoint because Table S3 schedules OD/qPCR and sequencing, not
+    metabolomics, for the decolonization experiment.
+  llm_assisted: true
+- timestamp: '2026-09-20T15:48:00Z'
+  curator: codex
+  action: UPDATE_RECORD
+  changes: Added the source-declared NCBI BioProject accession for the continuous nasal bioreactor study as an associated
+    dataset.
+  llm_assisted: true
+- timestamp: '2026-09-20T15:54:00Z'
+  curator: codex
+  action: UPDATE_RECORD
+  changes: Added the optimized 30 degrees Celsius operating temperature that was reported alongside the SNM 3 and pH 6.5
+    conditions.
+  llm_assisted: true
