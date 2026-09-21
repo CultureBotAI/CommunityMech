@@ -146,6 +146,10 @@ request is to audit or improve one named community, isolate, or reusable taxon
 record. It is read-only for review requests and applies the evidence, guarded
 write, and append-only history contracts below.
 
+Use [review-yaml-category](.claude/skills/review-yaml-category/SKILL.md) to
+audit a coherent community, isolate, or reusable taxon category without editing
+records, including member selection and lump/split boundaries.
+
 1. Read the target, schema, and strong neighboring records.
 2. Check whether the same taxon should reference a reusable record in `kb/taxa`.
 3. Make the smallest source-supported change; preserve experimental context and
