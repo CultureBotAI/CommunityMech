@@ -244,6 +244,7 @@ USERS = {
     "Mesorhizobium_Synechococcus_B12_Synthetic_Consortium.yaml",
     "Methane_MFC_Electrogenesis_Nitrogen_Fixation_Consortium.yaml",
     "Methane_Oxidation_CrVI_Reduction_SynCom.yaml",
+    "Microhabitat_Mineral_Fungal_Bacterial_SOM_SynCom.yaml",
     "Mixed_Gallium_LED_Recovery_Consortium.yaml",
     "Mushroom_Spring_Hot_Spring_Phototrophic_Mat_Community.yaml",
     "Naica_Deep_Subsurface_Thermophilic.yaml",
