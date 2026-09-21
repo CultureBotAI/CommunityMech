@@ -500,10 +500,11 @@ def test_the_status_distribution_is_what_was_measured():
     # #945 adds a 6-member GenX consortium, #968 adds a 9-member Nasal SynCom
     # C bioreactor, #987 adds a 4-member PMSX SynCom with three taxa whose
     # members lack committed GTDB groundings, #1003 adds five Choysum
-    # genus-level isolates, #1006 adds six hexamine/formaldehyde isolates, and
-    # #1013 adds two Viili lactic-acid bacterial strains, so leave headroom
-    # above 307 without tolerating a domain-lookup collapse.
-    assert counts["UNRESOLVED"] < 310, (
+    # genus-level isolates, #1006 adds six hexamine/formaldehyde isolates,
+    # #1013 adds two Viili lactic-acid bacterial strains, and #1023 adds two
+    # DCPP enrichment-culture strains, so leave headroom above 311 without
+    # tolerating a domain-lookup collapse.
+    assert counts["UNRESOLVED"] < 314, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
