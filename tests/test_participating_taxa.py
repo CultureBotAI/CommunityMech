@@ -262,6 +262,7 @@ USERS = {
     "SF356_Cellulose_Degrader.yaml",
     "SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
     "Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml",
+    "Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml",
     "Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml",
     "Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.yaml",
     "Soil_Corrinoid_B12_Reservoir_Community.yaml",
