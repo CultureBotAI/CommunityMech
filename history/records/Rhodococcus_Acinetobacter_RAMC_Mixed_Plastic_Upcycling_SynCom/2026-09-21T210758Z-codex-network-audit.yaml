@@ -1,0 +1,26 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml
+  slug: Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom
+session:
+  id: 2026-09-21T210758Z-codex-network-audit
+  timestamp: '2026-09-21T21:07:58Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: codex
+    agent_tool: codex-cli
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - interactions
+  summary: Repair RAMC causal graph downstream links
+  details: >
+    Removed the two outcome-only downstream links from the RAMC
+    aromatic/aliphatic division-of-labor interaction. The
+    interaction-downstream graph now avoids dangling links to outcomes that are
+    not represented as separate interaction nodes, satisfying the network audit
+    while preserving the oxygenate-consumption and RAMC-P production claims in
+    the record description, engineering design, and evidence.

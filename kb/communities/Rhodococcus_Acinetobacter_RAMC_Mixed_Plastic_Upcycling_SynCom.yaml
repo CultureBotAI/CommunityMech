@@ -216,14 +216,6 @@ ecological_interactions:
     term:
       id: GO:0006805
       label: xenobiotic metabolic process
-  downstream:
-  - target: Complete mixed-plastic oxygenate consumption
-    description: RAMC consumed aromatic and aliphatic substrates from the simulated mixed-plastic deconstruction medium.
-  - target: RAMC-P lycopene and lipid production
-    description: >
-      The same two-specialist architecture supported engineered SR-P and SA-P
-      derivatives that produced lycopene and lipids from real post-consumer
-      mixed-plastic effluents.
   evidence:
   - reference: PMID:41381587
     supports: SUPPORT
@@ -497,4 +489,12 @@ curation_history:
     the Acinetobacter-side aliphatic carboxylates in the division-of-labor edge
     and simulated medium, and changing the glass-tube cultivation setup from
     FLASK to OTHER.
+  llm_assisted: true
+- timestamp: '2026-09-21T21:07:58Z'
+  curator: codex
+  action: REPAIR_RAMC_CAUSAL_GRAPH
+  changes: >
+    Removed two outcome-only downstream links from the RAMC
+    aromatic/aliphatic division-of-labor interaction so the causal graph only
+    names interactions that exist as nodes in this record.
   llm_assisted: true
