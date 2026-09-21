@@ -479,7 +479,7 @@
 
                                     - SUPPORT (IN_VITRO)
 
-                                    <div class="snippet">"P. amylolyticus is enriched at the periphery of those clusters"</div>
+                                    <div class="snippet">"the red curve is the mean g(r) of the putative primary degrader P against the other three members"</div>
 
                                 </li>
 
@@ -638,7 +638,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for PMSX Carbon-Substrate Biofilm SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, niche partitioning).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -651,65 +651,12 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
                              aria-hidden="true" data-symbol="symbolSquare2"
                              data-color="#1212ed"></svg> Niche partitioning
                     </div>
                 </div>
             </div>
 
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>PMSX synergistic biofilm formation</h3>
-                    <span class="interaction-type">MUTUALISM</span>
-                </div>
-
-
-
-
-
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biofilm formation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0042710"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0042710</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/42658845/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42658845</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"Across all tested conditions, the SynCom consistently formed more biofilm biomass than any of its subsets, indicating a robust synergistic phenotype."</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
 
             <div class="interaction-card">
                 <div class="interaction-header">
@@ -1285,34 +1232,6 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
-            var metabolites = [];
-
-            var processes = [];
-
-
-            processes.push("biofilm formation");
-
-
-            var evidenceCount = 1;
-
-            nodes.push({
-                id: intId,
-                label: "PMSX synergistic biofilm formation",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:1";
             var intType = "NICHE_PARTITIONING";
             var metabolites = [];
 
@@ -1353,7 +1272,7 @@
         })();
 
         (function() {
-            var intId = "interaction:2";
+            var intId = "interaction:1";
             var intType = "CROSS_FEEDING";
             var metabolites = [];
 
@@ -1398,7 +1317,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 7;
+        var nodeCount = 6;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 
