@@ -162,27 +162,6 @@ ecological_interactions:
     and, when inoculated into DEHP-contaminated choysum soil, reduced rhizosphere DEHP residues and plant DEHP accumulation
     relative to uninoculated controls.
   scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Flavobacterium sp. L11
-    term:
-      id: NCBITaxon:237
-      label: Flavobacterium
-  - preferred_term: Pseudomonas sp. L29
-    term:
-      id: NCBITaxon:286
-      label: Pseudomonas
-  - preferred_term: Sphingomonas sp. L75
-    term:
-      id: NCBITaxon:13687
-      label: Sphingomonas
-  - preferred_term: Rhodococcus sp. L44
-    term:
-      id: NCBITaxon:1827
-      label: Rhodococcus <high G+C Gram-positive bacteria>
-  - preferred_term: Gordonia sp. L115
-    term:
-      id: NCBITaxon:2053
-      label: Gordonia <high G+C Gram-positive bacteria>
   metabolites:
   - preferred_term: DEHP
     term:
@@ -380,4 +359,10 @@ curation_history:
   action: FIX_NETWORK_AUDIT
   changes: Added the Choysum DEHP accumulation reduction interaction named by the SynLAV downstream edge so the causal graph
     no longer points at a missing ecological interaction.
+  llm_assisted: true
+- timestamp: '2026-09-21T05:58:07Z'
+  curator: claude
+  action: FIX_VALIDATE_STRICT
+  changes: 'Removed the redundant participating_taxa list from the community-level SynLAV DEHP degradation interaction after
+    validate-strict showed that #1003 should not be treated as a new partial-participation record.'
   llm_assisted: true
