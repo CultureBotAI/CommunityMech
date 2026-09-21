@@ -359,9 +359,6 @@ ecological_interactions:
     term:
       id: GO:0043448
       label: alkane catabolic process
-  downstream:
-  - target: Statistically significant C15-C28 alkane degradation
-    description: The whole consortium promoted intermediate-chain n-alkane removal that isolated strains did not match.
   evidence:
   - reference: PMID:41893893
     supports: SUPPORT
@@ -444,9 +441,6 @@ ecological_interactions:
     term:
       id: GO:0043448
       label: alkane catabolic process
-  downstream:
-  - target: Early and late alkane degradation phases
-    description: Rapid degraders drove most early consortium degradation, followed by a Bacillus-linked late phase.
   evidence:
   - reference: PMID:41893893
     supports: SUPPORT
@@ -593,4 +587,10 @@ curation_history:
   curator: claude
   action: ADDRESS_ADVERSARIAL_REVIEW
   changes: 'Clarified RA2 genus grounding for #1032 and tightened the unresolved-member bounded-search rationale for #1033.'
+  llm_assisted: true
+- timestamp: '2026-09-21T22:57:08Z'
+  curator: claude
+  action: FIX_REVIEW_FINDINGS
+  changes: Removed two dangling downstream edges whose targets were phenotypic endpoints rather than ecological interaction
+    names.
   llm_assisted: true
