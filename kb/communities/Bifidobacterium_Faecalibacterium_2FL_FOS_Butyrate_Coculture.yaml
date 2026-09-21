@@ -1,0 +1,438 @@
+id: CommunityMech:000401
+name: Bifidobacterium-Faecalibacterium 2′-FL/FOS Butyrate Coculture
+description: Defined two-strain anaerobic gut coculture containing Bifidobacterium bifidum JCM1254 and Faecalibacterium prausnitzii
+  A2-165 (JCM31915). The strains were grown in 48-well batch cultures of sugar- and volatile-fatty-acid-free YCFA broth supplied
+  with 0.5% total carbohydrate as 2′-fucosyllactose, fructooligosaccharides, or mixtures of the two. Monocultures showed B.
+  bifidum responding to 2′-FL-rich substrates and F. prausnitzii growing in FOS-containing conditions; in the two-member coculture,
+  total OD600 and lactate/acetate accumulation increased under 2′-FL-rich conditions, but butyrate peaked specifically at
+  10% 2′-FL plus 90% FOS, indicating ratio-dependent substrate complementarity and metabolite-mediated interaction.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: DIET
+engineering_design:
+  objective: Test whether the mixing ratio of 2′-fucosyllactose and fructooligosaccharides nonlinearly controls butyrate output
+    in a minimal B. bifidum / F. prausnitzii gut coculture.
+  assembly_strategy: Combine Bifidobacterium bifidum JCM1254 and Faecalibacterium prausnitzii A2-165 from OD600-standardized
+    YCFA− suspensions in the same 48-well-plate well.
+  perturbation_design: Compare monocultures and two-strain cocultures across no-substrate, 2′-FL-only, FOS-only, and mixed
+    2′-FL/FOS treatments while holding total carbohydrate at 0.5% (w/v).
+  measurement_endpoints:
+  - OD600 after 24 h
+  - F. prausnitzii and B. bifidum relative abundance by qPCR
+  - Lactate, acetate, and butyrate concentrations by liquid chromatography
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Faecalibacterium prausnitzii A2-165 (JCM31915) and Bifidobacterium bifidum JCM1254
+    explanation: Names the two exact JCM strains assembled in the co-culture.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For co-culture experiments, 8 μL of the OD600-adjusted suspension of each species was added to the same well
+    explanation: Supports the equalized two-strain co-inoculation into one 48-well-plate well.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2′-FL and FOS were mixed at various weight ratios while maintaining a total carbohydrate concentration of 0.5%
+      (w/v)
+    explanation: Defines the 2′-FL/FOS perturbation series at constant total carbohydrate.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The relative abundance of F. prausnitzii and B. bifidum in the co-culture was quantified using qPCR
+    explanation: Supports qPCR as the species-composition readout.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The concentrations of the organic acids were calculated from calibration curves generated using authentic standards
+    explanation: Supports quantitative organic-acid measurement as an endpoint.
+environment_term:
+  preferred_term: anaerobic 48-well gut-bacterium coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The strains were studied as defined in vitro anaerobic cocultures in YCFA− medium with controlled 2′-FL/FOS supplementation.
+modeled_environment:
+- preferred_term: adult intestine environment
+  term:
+    id: ENVO:2100002
+    label: intestine environment
+  notes: The model pairs a 2′-FL-utilizing bifidobacterium with the adult gut butyrate producer F. prausnitzii to evaluate
+    prebiotic substrate ratios for adult intestinal butyrate production.
+taxonomy:
+- taxon_term:
+    preferred_term: Bifidobacterium bifidum JCM1254
+    term:
+      id: NCBITaxon:1681
+      label: Bifidobacterium bifidum
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bifidobacterium_bifidum
+      gtdb_taxon: Bifidobacterium bifidum
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Bifidobacteriaceae;g__Bifidobacterium;s__Bifidobacterium
+        bifidum
+      ncbi_source_id: NCBITaxon:1681
+      majority_fraction: 1.0
+      total_genomes: 472
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: JCM1254
+    culture_collections:
+    - collection: JCM
+      accession: '1254'
+  abundance_value: One of two OD600-standardized co-culture members
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Faecalibacterium prausnitzii A2-165 (JCM31915) and Bifidobacterium bifidum JCM1254
+    explanation: Names the two exact JCM strains assembled in the co-culture.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The growth of B. bifidum increased progressively as the proportion of 2′-FL in the substrate mixture increased
+    explanation: Supports B. bifidum as the 2′-FL-responsive bifidobacterial member.
+- taxon_term:
+    preferred_term: Faecalibacterium prausnitzii A2-165
+    term:
+      id: NCBITaxon:853
+      label: Faecalibacterium prausnitzii
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the strain was verified at NCBI species rank.
+  strain_designation:
+    strain_name: A2-165
+    culture_collections:
+    - collection: JCM
+      accession: '31915'
+  abundance_value: One of two OD600-standardized co-culture members
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Faecalibacterium prausnitzii A2-165 (JCM31915) and Bifidobacterium bifidum JCM1254
+    explanation: Names the two exact JCM strains assembled in the co-culture.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: F. prausnitzii did not grow when 2′-FL was provided as the sole carbohydrate source
+    explanation: Supports F. prausnitzii as dependent on FOS-containing substrate mixtures rather than direct 2′-FL use.
+ecological_interactions:
+- name: 2′-FL/FOS ratio-dependent butyrate peak
+  description: 'Mixed 2′-FL/FOS substrates uncoupled total co-culture growth from butyrate production: OD600 and lactate/acetate
+    were highest under 2′-FL-rich conditions, whereas butyrate was maximal at 10% 2′-FL plus 90% FOS. The authors interpreted
+    that nonlinear optimum as a balance between FOS-supported F. prausnitzii abundance and metabolites supplied by active
+    B. bifidum.'
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bifidobacterium bifidum JCM1254
+    term:
+      id: NCBITaxon:1681
+      label: Bifidobacterium bifidum
+  - preferred_term: Faecalibacterium prausnitzii A2-165
+    term:
+      id: NCBITaxon:853
+      label: Faecalibacterium prausnitzii
+  metabolites:
+  - preferred_term: 2′-fucosyllactose
+    term:
+      id: CHEBI:147155
+      label: 2'-fucosyllactose
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  biological_processes:
+  - preferred_term: carbohydrate fermentation
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: butyrate production was highest at 10% 2′-FL and 90% FOS
+    explanation: Supports the nonmonotonic butyrate maximum in the mixed-substrate co-culture.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: conditions that maximized total co-culture growth did not necessarily maximize butyrate production
+    explanation: Supports the non-growth-proportional butyrate response in the co-culture.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: this study showed that the mixing ratio of 2′-FL and FOS could nonlinearly regulate butyrate production through
+      substrate complementarity and metabolite-mediated interactions between B. bifidum and F. prausnitzii
+    explanation: Supports the source interpretation that the co-culture butyrate peak reflects substrate complementarity and
+      metabolite-mediated interaction.
+- name: Putative B. bifidum metabolite support of F. prausnitzii butyrate output
+  description: B. bifidum alone grew best and accumulated lactate and acetate as 2′-FL increased, but did not produce detectable
+    butyrate. In co-culture, F. prausnitzii persisted best in FOS-containing conditions and butyrate peaked at the 10:90 2′-FL/FOS
+    ratio, consistent with B. bifidum-derived acetate or other fermentation products contributing to butyrate formation when
+    enough F. prausnitzii biomass was maintained. Stable-isotope flux was not measured.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bifidobacterium bifidum JCM1254
+    term:
+      id: NCBITaxon:1681
+      label: Bifidobacterium bifidum
+  target_taxon:
+    preferred_term: Faecalibacterium prausnitzii A2-165
+    term:
+      id: NCBITaxon:853
+      label: Faecalibacterium prausnitzii
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: carbohydrate fermentation
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In contrast, butyrate production was not detected under any of the tested conditions
+    explanation: Shows that B. bifidum monocultures accumulated lactate and acetate but not butyrate.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: butyrate production was highest at 10% 2′-FL and 90% FOS
+    explanation: Supports the nonmonotonic butyrate maximum in the mixed-substrate co-culture.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acetate and possibly other fermentation products derived from B. bifidum may have contributed to butyrate formation
+      by F. prausnitzii
+    explanation: Supports the authors’ inferred B. bifidum-to-F. prausnitzii metabolite contribution while leaving direct
+      flux unresolved.
+environmental_factors:
+- name: 2′-FL/FOS substrate ratio
+  value: 0:100 to 100:0
+  unit: '% w/w within 0.5% w/v total carbohydrate'
+  description: The carbon-source perturbation varied 2′-fucosyllactose and fructooligosaccharides as reciprocal fractions
+    of a fixed 0.5% (w/v) total carbohydrate addition.
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2′-FL and FOS were mixed at various weight ratios while maintaining a total carbohydrate concentration of 0.5%
+      (w/v)
+    explanation: Defines the 2′-FL/FOS perturbation series at constant total carbohydrate.
+- name: Anaerobic 37 °C batch incubation
+  value: '37'
+  unit: °C
+  description: 48-well YCFA− cocultures were incubated anaerobically for 24 h at 37 °C before OD600, qPCR, and organic-acid
+    assays.
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After anaerobic incubation at 37 °C for 24 h, OD600 was measured
+    explanation: Supports the co-culture incubation temperature and 24 h endpoint.
+growth_media:
+- name: YCFA− with 2′-FL/FOS carbohydrate
+  composition:
+  - name: 2′-fucosyllactose
+    concentration: 0-0.5
+    unit: '% w/v, varied within 0.5% total carbohydrate'
+    chebi_term:
+      preferred_term: 2′-fucosyllactose
+      term:
+        id: CHEBI:147155
+        label: 2'-fucosyllactose
+    from_source: community_curated
+  - name: fructooligosaccharides
+    concentration: 0-0.5
+    unit: '% w/v, varied within 0.5% total carbohydrate'
+    from_source: community_curated
+  temperature: 37.0
+  temperature_unit: °C
+  atmosphere: ANAEROBIC
+  inoculum_source: OD600 = 1.0 suspensions of each strain in YCFA−
+  inoculum_size: 8 μL per strain into 800 μL medium
+  incubation_time: '24'
+  incubation_time_unit: hours
+  vessel_type: 48-well plate
+  preparation_notes: Cells were revived on glucose-supplemented YCFA, washed into YCFA lacking sugars and volatile fatty acids,
+    OD600-adjusted to 1.0 by species, and combined as 8 μL of each suspension into 800 μL YCFA− with 0.5% total carbohydrate.
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 8 μL of each bacterial suspension was inoculated into 800 μL of YCFA− supplemented with 0.5% (w/v) carbohydrate
+      in 48-well plates
+    explanation: Supports the medium, working volume, carbohydrate concentration, and vessel format.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For co-culture experiments, 8 μL of the OD600-adjusted suspension of each species was added to the same well
+    explanation: Supports the equalized two-strain co-inoculation into one 48-well-plate well.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2′-FL and FOS were mixed at various weight ratios while maintaining a total carbohydrate concentration of 0.5%
+      (w/v)
+    explanation: Defines the 2′-FL/FOS perturbation series at constant total carbohydrate.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: 48-well plates in a Whitley A25 anaerobic workstation
+  working_volume: 816
+  working_volume_unit: uL
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  controls_notes: Monoculture wells received the same 8 μL OD600-adjusted inoculum for one strain; co-culture wells received
+    8 μL from each of the two species.
+  notes: 'The co-culture is modeled as an 816 μL final batch culture: 800 μL YCFA− medium plus two 8 μL OD600-adjusted strain
+    inocula. `system_type` is OTHER because a 48-well microplate is neither a flask nor a serum-bottle format.'
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For co-culture experiments, 8 μL of the OD600-adjusted suspension of each species was added to the same well
+    explanation: Supports the equalized two-strain co-inoculation into one 48-well-plate well.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After anaerobic incubation at 37 °C for 24 h, OD600 was measured
+    explanation: Supports 37 °C anaerobic batch incubation through the 24 h endpoint.
+related_ingredients:
+- preferred_term: 2′-fucosyllactose
+  chebi_term:
+    id: CHEBI:147155
+    label: 2'-fucosyllactose
+  relevance: 2′-FL was the bifidogenic human milk oligosaccharide varied against FOS in the mixed-substrate series.
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2′-FL and FOS were mixed at various weight ratios while maintaining a total carbohydrate concentration of 0.5%
+      (w/v)
+    explanation: Defines the 2′-FL/FOS perturbation series at constant total carbohydrate.
+- preferred_term: fructooligosaccharides
+  relevance: FOS was the prebiotic substrate that supported F. prausnitzii growth and maintained the butyrate-producing partner
+    in the mixed-substrate coculture.
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2′-FL and FOS were mixed at various weight ratios while maintaining a total carbohydrate concentration of 0.5%
+      (w/v)
+    explanation: Defines the 2′-FL/FOS perturbation series at constant total carbohydrate.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: growth was observed in media containing mixed substrates with 0–90% 2′-FL, corresponding to 100–10% FOS
+    explanation: Supports FOS-containing conditions as permissive for F. prausnitzii growth.
+- preferred_term: acetate
+  chebi_term:
+    id: CHEBI:30089
+    label: acetate
+  relevance: Acetate accumulated with lactate under 2′-FL-rich co-culture conditions and was considered a possible B. bifidum-derived
+    contributor to F. prausnitzii butyrate formation.
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lactate and acetate production showed a similar trend, increasing with the proportion of 2′-FL
+    explanation: Supports acetate as a measured fermentation product that increased with 2′-FL in B. bifidum monoculture.
+- preferred_term: butyrate
+  chebi_term:
+    id: CHEBI:17968
+    label: butyrate
+  relevance: Butyrate was the focal short-chain fatty-acid output whose co-culture production peaked at the 10:90 2′-FL/FOS
+    ratio.
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: butyrate production was highest at 10% 2′-FL and 90% FOS
+    explanation: Supports the nonmonotonic butyrate maximum in the mixed-substrate co-culture.
+associated_datasets: []
+external_resources:
+- name: Primary publication for the 2′-FL/FOS butyrate coculture
+  repository: OTHER
+  resource_id: PMID:42655156
+  url: https://pubmed.ncbi.nlm.nih.gov/42655156/
+  description: PubMed record for Iguchi et al. 2026 Microorganisms article on 2′-FL/FOS ratio-dependent B. bifidum / F. prausnitzii
+    butyrate production.
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study investigated how different 2′-FL/FOS ratios affect butyrate production in a two-species co-culture
+      of Bifidobacterium bifidum and Faecalibacterium prausnitzii
+    explanation: Identifies the primary paper and the focal two-species co-culture.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.3390/microorganisms14081812
+  url: https://doi.org/10.3390/microorganisms14081812
+  description: DOI link to the Microorganisms article.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this defined gut-derived 2′-FL/FOS coculture.
+discussions:
+- discussion_id: bifido_faecali_2fl_fos_flux_unresolved
+  prompt: Does B. bifidum-derived acetate directly enter F. prausnitzii butyrate, and how much of the 10:90 2′-FL/FOS butyrate
+    peak is controlled by pH or residual substrate depletion?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Putative B. bifidum metabolite support of F. prausnitzii butyrate output
+  - environmental_factors#2′-FL/FOS substrate ratio
+  rationale: The paper measured only a 24 h endpoint, did not measure or control culture pH, did not quantify residual 2′-FL
+    or FOS, and did not trace metabolic flux. Those source limitations leave the exact acetate-transfer contribution and pH/substrate
+    constraints unresolved even though butyrate peaked in the 10:90 2′-FL/FOS co-culture.
+  evidence:
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the culture pH was neither measured nor controlled
+    explanation: Names the unresolved pH constraint.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: residual 2′-FL and FOS concentrations after 24 h were not quantified
+    explanation: Names the unresolved substrate-depletion constraint.
+  - reference: PMID:42655156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the metabolic flux was not directly measured in this study
+    explanation: Names the direct-flux measurement gap for the inferred cross-feeding step.
+  posed_by: codex
+  posed_date: '2026-09-21'
+curation_history:
+- timestamp: '2026-09-21T02:35:24Z'
+  curator: claude
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000401 for the defined Bifidobacterium bifidum JCM1254 / Faecalibacterium prausnitzii A2-165
+    2′-FL/FOS butyrate coculture from PMID:42655156, including exact JCM strain membership, YCFA− 48-well anaerobic batch
+    cultivation, ratio-dependent butyrate output, measured qPCR and organic-acid endpoints, and unresolved pH/substrate/flux
+    limitations.
+  llm_assisted: true
+- timestamp: '2026-09-21T02:40:29Z'
+  curator: claude
+  action: FIX_ADVERSARIAL_REVIEW_FINDINGS
+  changes: 'Addressed adversarial review issues #991-#994 by adding explicit Discussion/Conclusions support for the 2′-FL/FOS
+    butyrate interaction, narrowing the putative B. bifidum-to-F. prausnitzii metabolite list to acetate, adding FOS-containing
+    F. prausnitzii growth evidence to the fructooligosaccharides ingredient, and correcting the 48-well final co-culture volume
+    to 816 μL.'
+  llm_assisted: true

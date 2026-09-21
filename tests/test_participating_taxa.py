@@ -184,6 +184,7 @@ USERS = {
     "Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml",
     "Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml",
     "Bayan_Obo_REE_Tailings_Consortium.yaml",
+    "Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml",
     "Bifidobacterium_Ruminococcus_Infant_HMO_CrossFeeding.yaml",
     "Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml",
     "BioAsteroid_ISS_Chondrite_Biomining_Consortium.yaml",
