@@ -1,0 +1,419 @@
+id: CommunityMech:000400
+name: PMSX Carbon-Substrate Biofilm SynCom
+description: A defined four-member bacterial SynCom, abbreviated PMSX, containing Paenibacillus amylolyticus, Microbacterium
+  oxydans, Stenotrophomonas rhizophila, and a strain reclassified as Stenotrophomonas maltophilia. Zhu et al. grew the soil
+  isolates in M9 media and chemically defined 3D-printed hydrogels with diffusible sugars or polymeric cellulose/xylan carbon
+  sources, measured crystal-violet biofilm biomass and FISH spatial patterning, and found that the complete SynCom robustly
+  formed more biofilm than subsets while polymer-rich carbon sources drove self-organization around the Paenibacillus member.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Test whether carbon substrate type controls spatial self-organization and synergistic biomass formation in a
+    tractable four-member bacterial biofilm SynCom.
+  assembly_strategy: 'Combine four soil isolates as community PMSX: P. amylolyticus (P), M. oxydans (M), S. rhizophila (S),
+    and S. maltophilia (X).'
+  perturbation_design: Grow mono-, subset-, and four-member cultures on M9 media or 3D-printed cellulose-nanofiber hydrogels
+    containing soluble glucose, xylose, or cellobiose and polymeric CMC, cellulose, alginate, or corncob xylan carbon sources.
+  measurement_endpoints:
+  - 96-well growth curves on individual carbon sources
+  - crystal-violet biofilm biomass in static culture
+  - Congo red binding on mono-, dual-, triple-, and quad-species colonies
+  - FISH microscopy and pair-correlation analysis of biofilm spatial organization
+  - conditioned-supernatant biofilm assays
+  - CAZyme repertoire analysis
+  - genome-scale metabolic modeling with SMETANA
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we focus on how carbon substrate type, distinguishing between diffusible sugars and polymeric substrates, affects
+      biofilm self-organization in a four-member synthetic bacterial community (SynCom)
+    explanation: Supports the central four-member carbon-substrate biofilm design.
+    confidence_score: 0.9
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Using chemically defined, 3D-printed hydrogel substrates with consistent physical properties, we varied carbon
+      source composition to identify its impact on biofilm assembly.
+    explanation: Supports 3D-printed hydrogels with controlled carbon-source variation.
+    confidence_score: 0.9
+environment_term:
+  preferred_term: M9 carbon-substrate biofilm laboratory assay
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled M9 minimal-medium and 3D-printed hydrogel assays comparing diffusible simple sugars with polymer-rich
+    cellulose/xylan substrates.
+taxonomy:
+- taxon_term:
+    preferred_term: Paenibacillus amylolyticus
+    term:
+      id: NCBITaxon:1451
+      label: Paenibacillus amylolyticus
+    gtdb_grounding_status: UNRESOLVED
+    notes: PMSX abbreviation P; ENA reference genome project PRJEB15262. NCBI label and species rank verified via E-utilities;
+      local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation.
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: One of four equal-starting members of community PMSX.
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strain Abbreviation Gram Reference genome from European Nucleotide Archive (ENA) Stenotrophomonas rhizophila
+      S Negative PRJEB15263 Stenotrophomonas maltophilia* X Negative PRJEB18431 Microbacterium oxydans M Positive PRJEB15265
+      Paenibacillus amylolyticus P Positive PRJEB15262
+    explanation: Table S1 maps abbreviation P to the P. amylolyticus soil isolate.
+    confidence_score: 0.9
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. amylolyticus is enriched at the periphery of those clusters
+    explanation: Supports peripheral enrichment of P. amylolyticus around non-degrader clusters.
+    confidence_score: 0.8
+- taxon_term:
+    preferred_term: Microbacterium oxydans
+    term:
+      id: NCBITaxon:82380
+      label: Microbacterium oxydans
+    gtdb_grounding_status: UNRESOLVED
+    notes: PMSX abbreviation M; ENA reference genome project PRJEB15265. Kept in the same unresolved GTDB state as the existing
+      Microbacterium oxydans DB2 record.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_value: One of four equal-starting members of community PMSX.
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strain Abbreviation Gram Reference genome from European Nucleotide Archive (ENA) Stenotrophomonas rhizophila
+      S Negative PRJEB15263 Stenotrophomonas maltophilia* X Negative PRJEB18431 Microbacterium oxydans M Positive PRJEB15265
+      Paenibacillus amylolyticus P Positive PRJEB15262
+    explanation: Table S1 maps abbreviation M to the M. oxydans soil isolate.
+    confidence_score: 0.9
+- taxon_term:
+    preferred_term: Stenotrophomonas rhizophila
+    term:
+      id: NCBITaxon:216778
+      label: Stenotrophomonas rhizophila
+    gtdb_grounding_status: UNRESOLVED
+    notes: PMSX abbreviation S; ENA reference genome project PRJEB15263. NCBI label and species rank verified via E-utilities;
+      local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_value: One of four equal-starting members of community PMSX.
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strain Abbreviation Gram Reference genome from European Nucleotide Archive (ENA) Stenotrophomonas rhizophila
+      S Negative PRJEB15263 Stenotrophomonas maltophilia* X Negative PRJEB18431 Microbacterium oxydans M Positive PRJEB15265
+      Paenibacillus amylolyticus P Positive PRJEB15262
+    explanation: Table S1 maps abbreviation S to the S. rhizophila soil isolate.
+    confidence_score: 0.9
+- taxon_term:
+    preferred_term: Stenotrophomonas maltophilia
+    term:
+      id: NCBITaxon:40324
+      label: Stenotrophomonas maltophilia
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Stenotrophomonas_bentonitica_A
+    - GTDB:s__Stenotrophomonas_geniculata
+    - GTDB:s__Stenotrophomonas_hibiscicola
+    - GTDB:s__Stenotrophomonas_indicatrix
+    - GTDB:s__Stenotrophomonas_maltophilia
+    - GTDB:s__Stenotrophomonas_maltophilia_AJ
+    - GTDB:s__Stenotrophomonas_maltophilia_L
+    - GTDB:s__Stenotrophomonas_muris
+    - GTDB:s__Stenotrophomonas_nematodicola
+    - GTDB:s__Stenotrophomonas_sepilia
+    notes: PMSX abbreviation X. The underlying ENA project PRJEB18431 used the earlier Xanthomonas retroflexus name; Zhu et
+      al. curate this genome as S. maltophilia.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_value: One of four equal-starting members of community PMSX.
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strain Abbreviation Gram Reference genome from European Nucleotide Archive (ENA) Stenotrophomonas rhizophila
+      S Negative PRJEB15263 Stenotrophomonas maltophilia* X Negative PRJEB18431 Microbacterium oxydans M Positive PRJEB15265
+      Paenibacillus amylolyticus P Positive PRJEB15262
+    explanation: Table S1 maps abbreviation X to the corrected S. maltophilia soil isolate.
+    confidence_score: 0.9
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: '* Genome-wide taxonomy analysis by Genome BLAST Distance Phylogeny (GBDP) shows this genome should refer to
+      Stenotrophomonas maltophilia instead of Xanthomonas retroflexus in ENA.'
+    explanation: Supports the paper-specific correction of the X strain from X. retroflexus to S. maltophilia.
+    confidence_score: 0.9
+ecological_interactions:
+- name: PMSX synergistic biofilm formation
+  description: The complete four-member PMSX SynCom produced more crystal-violet biofilm biomass than any of its mono-, dual-,
+    or triple-species subsets across the tested carbon-source conditions.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Across all tested conditions, the SynCom consistently formed more biofilm biomass than any of its subsets, indicating
+      a robust synergistic phenotype.
+    explanation: Supports a measured community-level synergistic biofilm phenotype.
+    confidence_score: 0.9
+- name: Polymeric carbon-driven spatial self-organization
+  description: 'Carbon substrate type altered the PMSX biofilm architecture: cellobiose left the four members relatively intermixed,
+    whereas CMC and xylan produced non-degrader clusters with P. amylolyticus enriched at their periphery.'
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Paenibacillus amylolyticus
+    term:
+      id: NCBITaxon:1451
+      label: Paenibacillus amylolyticus
+  metabolites:
+  - preferred_term: cellobiose
+    term:
+      id: CHEBI:17057
+      label: cellobiose
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: (1->4)-beta-D-glucan
+  - preferred_term: xylan
+    term:
+      id: CHEBI:37166
+      label: xylan
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: On the simple substrates (e.g. cellobiose) both curves stay near 1, indicating a well-mixed, unstructured community;
+      while on the polymeric substrates (e.g. CMC, xylan) the non-degrader members show strong short-range co-clustering
+    explanation: Supports different FISH pair-correlation structure on simple versus polymeric carbon sources.
+    confidence_score: 0.9
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. amylolyticus is enriched at the periphery of those clusters which is consistent with substrate complexity
+      driving spatial self-organization around P. amylolyticus.
+    explanation: Supports peripheral localization of the putative primary degrader on polymer-rich substrates.
+    confidence_score: 0.85
+- name: Bidirectional conditioned-supernatant support
+  description: Genome-scale SMETANA predictions and conditioned-supernatant biofilm assays support bidirectional soluble metabolite
+    exchange among the four PMSX members under cellobiose, cellobiose-xylan, and cellobiose-CMC regimes.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: cellobiose
+    term:
+      id: CHEBI:17057
+      label: cellobiose
+  - preferred_term: xylan
+    term:
+      id: CHEBI:37166
+      label: xylan
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Bioinformatic analyses of carbohydrate-active enzyme (CAZyme) repertoires and genome-scale metabolic modeling
+      suggested bidirectional metabolite exchange among the SynCom members
+    explanation: Supports model-predicted bidirectional exchange among the four members.
+    confidence_score: 0.55
+    computational_provenance:
+      prediction_type: FLUX_BALANCE_ANALYSIS
+      tools:
+      - tool_name: SMETANA
+        role: metabolite exchange prediction from genome-scale metabolic models
+      model_source: genome-scale metabolic models inferred from ENA genomes PRJEB15262, PRJEB15263, PRJEB15265, and PRJEB18431
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For each SynCom member, biofilm formation in PMSX-conditioned supernatants exceeded that in P-conditioned supernatants
+      in the majority of conditions.
+    explanation: Supports conditioned-community supernatants as more biofilm-supportive than P-only supernatants.
+    confidence_score: 0.8
+environmental_factors:
+- name: diffusible versus polymeric carbon substrates
+  value: glucose, xylose, cellobiose, CMC, microcrystalline cellulose, sodium alginate, and corncob xylan
+  description: The SynCom was screened against monosaccharides, a disaccharide, cellulose and alginate polysaccharides, and
+    hemicellulose xylan to separate diffusible sugar effects from polymer-rich biofilm organization effects.
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Carbon source name Abbrev. Final Conc. Carbon source type D-(+)-Glucose Glu 10 mM Monosaccharide D-(+)-Xylose
+      Xylose 12 mM Monosaccharide D-(+)-Cellobiose Clbs 5 mM Disaccharide
+    explanation: Supports the soluble carbon-source panel used for screening.
+    confidence_score: 0.9
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Carboxymethyl cellulose CMC 1.0 wt% Polysaccharide (cellulose) Microcrystalline cellulose Cellulose 1.0 wt% Polysaccharide
+      (cellulose) Sodium alginate Alginate 1.0 wt% Polysaccharide (alginate) Xylan (from corncob) Xylan 1.0 wt% Polysaccharide
+      (hemicellulose)
+    explanation: Supports the polymeric carbon-source panel used for screening.
+    confidence_score: 0.9
+growth_media:
+- name: M9 carbon-source biofilm media
+  composition:
+  - name: D-(+)-Glucose
+    concentration: '10'
+    unit: mM
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+  - name: D-(+)-Xylose
+    concentration: '12'
+    unit: mM
+  - name: D-(+)-Cellobiose
+    concentration: '5'
+    unit: mM
+    chebi_term:
+      preferred_term: cellobiose
+      term:
+        id: CHEBI:17057
+        label: cellobiose
+  - name: Carboxymethyl cellulose
+    concentration: '1.0'
+    unit: wt%
+    from_source: cellulose polymer substrate
+  - name: Microcrystalline cellulose
+    concentration: '1.0'
+    unit: wt%
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: (1->4)-beta-D-glucan
+  - name: Sodium alginate
+    concentration: '1.0'
+    unit: wt%
+    from_source: alginate polymer substrate
+  - name: Xylan (from corncob)
+    concentration: '1.0'
+    unit: wt%
+    chebi_term:
+      preferred_term: xylan
+      term:
+        id: CHEBI:37166
+        label: xylan
+  temperature: '24'
+  temperature_unit: °C
+  atmosphere: AEROBIC
+  incubation_time: '24'
+  incubation_time_unit: h
+  vessel_type: 96-well plates; 3D-printed hydrogel substrates
+  preparation_notes: M9 media were amended with one carbon source for utilization screens or with cellobiose, cellobiose plus
+    xylan, or cellobiose plus CMC for supernatant assays.
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Growth curves of the mono- and quadruple-cultures in M9 supplemented with different carbon sources (Table S2)
+      were measured using a plate reader
+    explanation: Supports M9 as the carbon-source screening medium.
+    confidence_score: 0.9
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The supernatants of P. amylolyticus (P) and the SynCom were prepared from cultures on different carbon sources
+      in M9 media with cellobiose, cellobiose+xylan, and cellobiose+CMC, respectively.
+    explanation: Supports the M9 plus cellobiose/polymer conditions used for conditioned-supernatant assays.
+    confidence_score: 0.9
+- name: cellulose-nanofiber 3D-printed hydrogel substrates
+  composition:
+  - name: cellulose nanofiber
+    concentration: '1'
+    unit: '%'
+    from_source: base hydrogel for 3D printing
+  - name: Carboxymethyl cellulose or xylan
+    concentration: '1'
+    unit: '%'
+    from_source: polymeric carbon source mixed into cellulose-nanofiber hydrogels
+  temperature: '24'
+  temperature_unit: °C
+  atmosphere: AEROBIC
+  vessel_type: 3D-printed hydrogel artificial leaves
+  preparation_notes: Cellulose-nanofiber hydrogels were printed with CMC or xylan, with or without glucose or cellobiose,
+    to compare spatial biofilm assembly on polymer-rich structured surfaces.
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CNF+CMC 1 % cellulose nanofiber mixed with 1 % CMC CNF+Xylan 1 % cellulose nanofiber mixed with 1 % Xylan
+    explanation: Supports the cellulose-nanofiber hydrogel compositions used for structured substrates.
+    confidence_score: 0.9
+related_ingredients:
+- preferred_term: glucose
+  chebi_term:
+    id: CHEBI:17234
+    label: glucose
+  relevance: Diffusible monosaccharide carbon source in the M9 utilization screen and hydrogel variants.
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: D-(+)-Glucose Glu 10 mM Monosaccharide
+    explanation: Names glucose and its final concentration in the carbon-source panel.
+    confidence_score: 0.9
+- preferred_term: cellobiose
+  chebi_term:
+    id: CHEBI:17057
+    label: cellobiose
+  relevance: Diffusible disaccharide carbon source used alone and with xylan or CMC.
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: D-(+)-Cellobiose Clbs 5 mM Disaccharide
+    explanation: Names cellobiose and its final concentration in the carbon-source panel.
+    confidence_score: 0.9
+- preferred_term: cellulose
+  chebi_term:
+    id: CHEBI:18246
+    label: (1->4)-beta-D-glucan
+  relevance: Polymeric carbon context supplied as CMC, microcrystalline cellulose, or cellulose nanofiber.
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Carboxymethyl cellulose CMC 1.0 wt% Polysaccharide (cellulose) Microcrystalline cellulose Cellulose 1.0 wt% Polysaccharide
+      (cellulose)
+    explanation: Supports cellulose polymers as experimental carbon substrates.
+    confidence_score: 0.9
+- preferred_term: xylan
+  chebi_term:
+    id: CHEBI:37166
+    label: xylan
+  relevance: Hemicellulose polymer carbon source used alone or with cellobiose.
+  evidence:
+  - reference: PMID:42658845
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Xylan (from corncob) Xylan 1.0 wt% Polysaccharide (hemicellulose)
+    explanation: Names corncob xylan and its final concentration in the carbon-source panel.
+    confidence_score: 0.9
+curation_history:
+- timestamp: '2026-09-21T00:27:29Z'
+  curator: claude
+  action: CURATE_CARBON_SUBSTRATE_BIOFILM_SYNCOM
+  changes: Added the PMSX four-member carbon-substrate biofilm SynCom from Zhu et al. 2026 with PMID-backed membership, carbon-source,
+    spatial-organization, and conditioned-supernatant evidence.
+  llm_assisted: true
