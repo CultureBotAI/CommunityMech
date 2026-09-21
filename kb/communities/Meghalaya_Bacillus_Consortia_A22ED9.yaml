@@ -1,0 +1,277 @@
+id: CommunityMech:000406
+name: Meghalaya Bacillus Consortia-A22ED9
+description: Consortia-A22ED9 is a defined two-member Bacillus consortium assembled from SK22 and KHED9, two native isolates
+  recovered from active rat-hole coal-mine sites in Meghalaya, India. The consortium was selected after compatibility screening
+  for growth stimulation and then assayed in pH 5.0 LB medium for in vitro removal of iron, cadmium, and chromium across sublethal
+  metal concentrations.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Assemble site-specific native Bacillus isolates into an in vitro consortium for acidic heavy-metal biosorption
+    and pH-buffering bioremediation relevant to rat-hole coal-mine acid mine drainage.
+  assembly_strategy: Screen 16 isolates from active mines, abandoned mines, and a non-mining control site for low-pH and heavy-metal
+    tolerance; retain five isolates with the strongest heavy-metal resistance and pH reversal; then pair mutually compatible
+    isolates and retain SK22 plus KHED9 as Consortia-A22ED9.
+  inoculation_strategy: Construct A22ED9 by transferring 1 mL each of OD600 0.5 SK22 and KHED9 culture into fresh LB broth,
+    growing the mixed co-culture to a combined OD600 of 0.5, and inoculating heavy-metal-removal flasks at 1% v/v.
+  perturbation_design: Challenge A22ED9 at pH 5.0 with Fe across 50-1000 mg/L and Cd or Cr across 1-32 mg/L, then compare
+    metal depletion, OD600, and final pH after 24 h.
+  measurement_endpoints:
+  - iron removal percentage
+  - chromium removal percentage
+  - cadmium removal percentage
+  - OD600 after 24 h
+  - pH after 24 h
+  - FTIR and SEM-EDX evidence of metal binding
+  evidence:
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sixteen (16) isolates were initially screened to develop the microbial consortia and five isolates (05) were
+      finally selected
+    explanation: Supports the candidate-screening step before SK22 and KHED9 were chosen for the two-member A22ED9 consortium.
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Isolate SK22 was highly stimulated by KHED9 and form one consortium, Consortia-A22ED9
+    explanation: Identifies SK22 and KHED9 as the compatible isolates used to form Consortia-A22ED9.
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each of the consortia were constructed by transferring 1 mL each of 0.5 OD culture
+    explanation: Supports the equal-volume assembly of OD600 0.5 isolate cultures before the removal assay.
+environment_term:
+  preferred_term: pH 5.0 LB heavy-metal bioremediation assay
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Consortia-A22ED9 was assembled and tested in controlled LB shake-flask assays rather than in mine water or a field
+    reactor.
+modeled_environment:
+- preferred_term: rat-hole coal-mine acid mine drainage
+  term:
+    id: ENVO:00001997
+    label: acid mine drainage
+  notes: The source isolates were native to active Meghalaya rat-hole coal mines, and the pH 5.0 assay modeled partial neutralization
+    of acidic, Fe/Cd/Cr-contaminated coal-mine drainage.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus sp. SK22
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article resolves SK22 only to Bacillus sp.; the local NCBI2GTDB mapping was unavailable during curation, so
+      no reproducible GTDB grounding was stored.
+  strain_designation:
+    strain_name: SK22
+    isolation_source: active Meghalaya rat-hole coal-mine site
+    notes: The 16S rRNA sequence was deposited in GenBank as KX896657.
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The five isolates were Bacillus sp. SK22 ( KX896657 ) and Bacillus sp. KHED9 ( MK554507 ) from active mine sites
+    explanation: Names SK22 as a Bacillus sp. isolate recovered from an active mine site and gives its GenBank accession.
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Isolate SK22 was highly stimulated by KHED9 and form one consortium, Consortia-A22ED9
+    explanation: Places SK22 in the A22ED9 consortium with KHED9.
+- taxon_term:
+    preferred_term: Bacillus sp. KHED9
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article resolves KHED9 only to Bacillus sp.; the local NCBI2GTDB mapping was unavailable during curation, so
+      no reproducible GTDB grounding was stored.
+  strain_designation:
+    strain_name: KHED9
+    isolation_source: active Meghalaya rat-hole coal-mine site
+    notes: The 16S rRNA sequence was deposited in GenBank as MK554507.
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The five isolates were Bacillus sp. SK22 ( KX896657 ) and Bacillus sp. KHED9 ( MK554507 ) from active mine sites
+    explanation: Names KHED9 as a Bacillus sp. isolate recovered from an active mine site and gives its GenBank accession.
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Isolate SK22 was highly stimulated by KHED9 and form one consortium, Consortia-A22ED9
+    explanation: Places KHED9 in the A22ED9 consortium with SK22.
+ecological_interactions:
+- name: Consortia-A22ED9 Fe-Cd-Cr removal
+  description: A22ED9 removed iron, chromium, and cadmium from pH 5.0 LB cultures over 24 h, with mean removal values of 92.08%
+    Fe across 50-1000 mg/L, 74.15% Cr across 1-32 mg/L, and 97.587% Cd across 1-32 mg/L.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: iron(2+)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+  - preferred_term: chromium
+    term:
+      id: CHEBI:28073
+      label: chromium atom
+  - preferred_term: cadmium(2+)
+    term:
+      id: CHEBI:48775
+      label: cadmium(2+)
+  evidence:
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The iron removal percentage (%) of Consortia-A22ED9 is 92.08 ± 10.281
+    explanation: Quantifies mean iron removal by A22ED9 across the tested Fe concentration series.
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The chromium removal percentage (%) of Consortia-A22ED9 is 74.15 ± 12.906
+    explanation: Quantifies mean chromium removal by A22ED9 across the tested Cr concentration series.
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Consortia-A22ED9 removed 97.587 ± 0.958% and Consortia-B18-4M11 removed 97.673 ± 0.475% of Cd respectively
+    explanation: Quantifies mean cadmium removal by A22ED9 across the tested Cd concentration series.
+environmental_factors:
+- name: Acidic assay pH
+  value: '5.0'
+  unit: pH
+  description: The consortium was tested at the lowest acidic pH at which the isolates grew in vitro.
+  evidence:
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bioremediation of heavy metals by both individual isolates and their consortia were studied at pH 5.0
+    explanation: Identifies the acidic pH used for the consortium heavy-metal assay.
+- name: Ferrous iron challenge range
+  value: 50-1000
+  unit: mg/L
+  description: A22ED9 was challenged with an FeSO4-derived iron concentration series from 50 to 1000 mg/L.
+  evidence:
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Fe (50-1000 mg/L)
+    explanation: Reports the iron concentration range summarized for A22ED9 in Table 3.
+- name: Chromium and cadmium challenge range
+  value: 1-32
+  unit: mg/L
+  description: A22ED9 was challenged with separate cadmium nitrate and potassium dichromate concentration series from 1 to
+    32 mg/L.
+  evidence:
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cr (1-32 mg/L)
+    explanation: Reports the chromium concentration range summarized for A22ED9 in Table 3.
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cd (1-32 mg/L)
+    explanation: Reports the cadmium concentration range summarized for A22ED9 in Table 3.
+growth_media:
+- name: pH 5.0 LB Fe-Cd-Cr removal assay
+  ph: 5.0
+  temperature: 37
+  temperature_unit: degrees Celsius
+  inoculum_source: Consortia-A22ED9 grown to OD600 0.5 from equal 1 mL SK22 and KHED9 cultures
+  inoculum_size: 1
+  inoculum_unit: '% v/v of OD600 0.5 co-culture'
+  incubation_time: 24
+  incubation_time_unit: hours
+  shaking_speed: 150
+  shaking_speed_unit: rpm
+  vessel_type: 250 mL conical flask
+  preparation_notes: The heavy-metal-removal assay used 100 mL LB medium at pH 5.0 with either 50-1000 mg/L Fe or 1-32 mg/L
+    Cd or Cr.
+  evidence:
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 100 mL LB medium, incubated at 37 °C for 24 h in 250 mL conical flasks at 150 rpm
+    explanation: Reports the LB medium volume, incubation temperature and duration, vessel, and shaking speed.
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To each flask, 1% v/v of 0.5 OD culture was inoculated and incubated for 24 h
+    explanation: Reports the inoculum size used for the consortium heavy-metal-removal flasks.
+external_resources:
+- name: PubMed record for the Meghalaya A22ED9 bioremediation article
+  repository: OTHER
+  resource_id: PMID:42135302
+  url: https://pubmed.ncbi.nlm.nih.gov/42135302/
+  description: PubMed record for the 2026 Scientific Reports A22ED9 heavy-metal bioremediation article.
+  evidence:
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Insights into the bioremediation potential of native Bacillus isolates and their consortia against Iron, Cadmium
+      and Chromium at pH 5.0
+    explanation: Identifies the primary publication used to curate the A22ED9 record.
+- name: DOI for the Meghalaya A22ED9 bioremediation article
+  repository: OTHER
+  resource_id: doi:10.1038/s41598-026-49136-4
+  url: https://doi.org/10.1038/s41598-026-49136-4
+  description: Publisher DOI for the primary Scientific Reports article.
+  evidence:
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1038/s41598-026-49136-4'
+    explanation: Links the DOI resource to the PubMed record for the primary A22ED9 publication.
+- name: PubMed Central full text for the Meghalaya A22ED9 bioremediation article
+  repository: OTHER
+  resource_id: PMCID:PMC13443631
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13443631/
+  description: Open-access PubMed Central full text used for method and result snippets.
+  evidence:
+  - reference: PMID:42135302
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'PMCID: PMC13443631'
+    explanation: Identifies the PubMed Central full-text record used for A22ED9 curation.
+discussions:
+- discussion_id: a22ed9_species_grounding_and_field_performance
+  prompt: Which species within Bacillus do SK22 and KHED9 belong to, and does A22ED9 retain Fe, Cd, and Cr removal in pilot-scale
+    or field acid-mine-drainage treatments?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy#Bacillus sp. SK22
+  - taxonomy#Bacillus sp. KHED9
+  - modeled_environment#rat-hole coal-mine acid mine drainage
+  rationale: The inspected study reports 16S rRNA accessions and in vitro pH 5.0 shake-flask assays, while noting that field
+    trials and laboratory-scale fermentor validation remained future work.
+  posed_by: codex
+  posed_date: '2026-09-21'
+- discussion_id: a22ed9_no_enhanced_consortium_removal
+  prompt: Does A22ED9 provide reproducibly higher Fe, Cd, or Cr removal than its single-isolate members?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Consortia-A22ED9 Fe-Cd-Cr removal
+  rationale: The paper reports high Fe, Cd, and Cr removal for A22ED9, but the abstract explicitly states that consortia did
+    not show significant differences in heavy-metal removal, so the curated interaction does not assert an emergent metal-removal
+    advantage.
+  posed_by: codex
+  posed_date: '2026-09-21'
+metals_present:
+- IRON
+- CHROMIUM
+rare_earth_elements_present: []
+metal_relevance: PRIMARY
+metal_notes: A22ED9 was selected and assayed for removal of Fe, Cr, and Cd at pH 5.0. Cadmium is represented in the interaction
+  as CHEBI:48775, but the current MetalElementEnum does not include cadmium as an enum value.
+curation_history:
+- timestamp: '2026-09-21T10:58:01Z'
+  curator: codex
+  action: CREATE_COMMUNITY_RECORD
+  changes: Created CommunityMech:000406 for the Meghalaya Bacillus Consortia-A22ED9 Fe/Cd/Cr bioremediation consortium from
+    PMID:42135302.
+  llm_assisted: true
