@@ -1,0 +1,326 @@
+id: CommunityMech:000408
+name: Viili Fungus-Bacterium EPS SynCom
+description: A top-down three-strain synthetic microbial consortium from Viili fermented milk, composed of Lactococcus lactis
+  V9, Lacticaseibacillus paracasei V21, and Geotrichum candidum Y1. Hu et al. 2026 used monoculture, co-culture, supernatant-supplementation,
+  metabolomics, amino-acid depletion, amino-acid supplementation, and AI-2 perturbation assays to show that G. candidum supplies
+  lactic-acid bacteria with nitrogen sources including valine, increases AI-2/luxS quorum-sensing activity, and gives the
+  three-member community the highest measured exopolysaccharide concentration among the tested microbial combinations.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Construct a simplified fungus-lactic-acid-bacterium Viili consortium to resolve how fungal-bacterial metabolic
+    interactions regulate exopolysaccharide production in fermented milk.
+  assembly_strategy: Assemble a top-down Viili synthetic microbial consortium from Lactococcus lactis V9, Lacticaseibacillus
+    paracasei V21, and Geotrichum candidum Y1, then compare monocultures, two-member lactic-acid bacterial co-cultures, and
+    the three-member fungus-bacterium consortium.
+  measurement_endpoints:
+  - viable lactic acid bacterial counts
+  - exopolysaccharide concentration
+  - untargeted metabolomics
+  - amino acid depletion and supplementation responses
+  - AI-2 production
+  - luxS gene transcription
+  evidence:
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Viili fermentation was employed as a model system using a synthetic microbial consortium, consisting of Lactococcus
+      lactis V9, Lacticaseibacillus paracasei V21, and Geotrichum candidum Y1, which was constructed using a top-down strategy.
+    explanation: Supports the Viili model system, top-down construction strategy, and exact three-strain SynCom membership.
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Results from supernatant supplementation, monoculture, and co-culture assays demonstrated that the introduction
+      of G. candidum markedly promoted the growth of lactic acid bacteria, resulting in increased quorum sensing activity,
+      and EPS production.
+    explanation: Identifies the assay families used to test how the fungal member affected lactic-acid-bacterial growth, signaling,
+      and EPS output.
+environment_term:
+  preferred_term: Viili fermented milk model
+  term:
+    id: ENVO:03600040
+    label: fermentation starter
+  notes: The three-strain SynCom is a defined starter-like model of Viili fermented milk.
+modeled_environment:
+- preferred_term: dairy
+  term:
+    id: ENVO:00003862
+    label: dairy
+taxonomy:
+- taxon_term:
+    preferred_term: Lactococcus lactis V9
+    term:
+      id: NCBITaxon:1358
+      label: Lactococcus lactis
+    gtdb_grounding_status: UNRESOLVED
+    notes: GTDB grounding was not resolved locally during initial abstract-backed curation.
+  strain_designation:
+    strain_name: V9
+  functional_role:
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lactococcus lactis V9, Lacticaseibacillus paracasei V21, and Geotrichum candidum Y1, which was constructed using
+      a top-down strategy.
+    explanation: Names the three Viili-derived strains assembled into the top-down synthetic microbial consortium.
+- taxon_term:
+    preferred_term: Lacticaseibacillus paracasei V21
+    term:
+      id: NCBITaxon:1597
+      label: Lacticaseibacillus paracasei
+    gtdb_grounding_status: UNRESOLVED
+    notes: GTDB grounding was not resolved locally during initial abstract-backed curation.
+  strain_designation:
+    strain_name: V21
+  functional_role:
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lactococcus lactis V9, Lacticaseibacillus paracasei V21, and Geotrichum candidum Y1, which was constructed using
+      a top-down strategy.
+    explanation: Names the three Viili-derived strains assembled into the top-down synthetic microbial consortium.
+- taxon_term:
+    preferred_term: Geotrichum candidum Y1
+    term:
+      id: NCBITaxon:1173061
+      label: Geotrichum candidum
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Filamentous yeast/fungal member; GTDB classifies bacteria and archaea, not fungi.
+  strain_designation:
+    strain_name: Y1
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lactococcus lactis V9, Lacticaseibacillus paracasei V21, and Geotrichum candidum Y1, which was constructed using
+      a top-down strategy.
+    explanation: Names the three Viili-derived strains assembled into the top-down synthetic microbial consortium.
+ecological_interactions:
+- name: Geotrichum nitrogen supply to lactic acid bacteria
+  description: Metabolomics and amino-acid perturbation assays linked G. candidum to nitrogen-source supply, including valine,
+    that enhanced lactic-acid-bacterial growth, biofilm formation, and EPS production.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Geotrichum candidum Y1
+    term:
+      id: NCBITaxon:1173061
+      label: Geotrichum candidum
+  - preferred_term: Lactococcus lactis V9
+    term:
+      id: NCBITaxon:1358
+      label: Lactococcus lactis
+  - preferred_term: Lacticaseibacillus paracasei V21
+    term:
+      id: NCBITaxon:1597
+      label: Lacticaseibacillus paracasei
+  metabolites:
+  - preferred_term: valine
+    term:
+      id: CHEBI:27266
+      label: valine
+  - preferred_term: amino acid
+    term:
+      id: CHEBI:33709
+      label: amino acid
+  downstream:
+  - target: G. candidum activation of AI-2-linked EPS production
+    description: The fungus-associated nitrogen supply was coupled with stronger lactic-acid-bacterial growth, quorum-sensing
+      activity, and EPS production.
+  evidence:
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Untargeted metabolomics combined with validation experiments revealed that G. candidum supplied lactic acid bacteria
+      with nitrogen sources, including valine.
+    explanation: Supports G. candidum as a nitrogen-source supplier to the lactic acid bacteria and names valine as one implicated
+      amino acid.
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Amino acid depletion and supplementation experiments indicated that valine, as a key amino acid, is closely associated
+      with enhanced growth, biofilm formation, and EPS production in lactic acid bacteria.
+    explanation: Connects valine availability to growth, biofilm formation, and EPS production in the bacterial partners.
+- name: G. candidum activation of AI-2-linked EPS production
+  description: Co-culture with G. candidum increased AI-2 production and luxS transcription in the lactic acid bacteria; AI-2
+    activation and inhibition assays linked this quorum-sensing response to EPS synthesis.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Geotrichum candidum Y1
+    term:
+      id: NCBITaxon:1173061
+      label: Geotrichum candidum
+  - preferred_term: Lactococcus lactis V9
+    term:
+      id: NCBITaxon:1358
+      label: Lactococcus lactis
+  - preferred_term: Lacticaseibacillus paracasei V21
+    term:
+      id: NCBITaxon:1597
+      label: Lacticaseibacillus paracasei
+  metabolites:
+  - preferred_term: AI-2
+    term:
+      id: CHEBI:40646
+      label: autoinducer-2
+  - preferred_term: exopolysaccharide
+    term:
+      id: CHEBI:72813
+      label: exopolysaccharide
+  biological_processes:
+  - preferred_term: quorum sensing
+    term:
+      id: GO:0009372
+      label: quorum sensing
+  downstream:
+  - target: Three-species Viili EPS maximum
+    description: AI-2-mediated quorum sensing positively regulated EPS synthesis in the three-member Viili consortium.
+  evidence:
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culture with G. candidum significantly enhanced AI-2 production and luxS gene transcription in lactic acid
+      bacteria.
+    explanation: Supports stronger AI-2 production and luxS transcription when the fungal member was present with the lactic
+      acid bacteria.
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: AI-2 activation and inhibition assays confirmed that AI-2-mediated quorum sensing positively regulates EPS synthesis.
+    explanation: Supports the causal link from AI-2-mediated quorum sensing to EPS synthesis.
+- name: Three-species Viili EPS maximum
+  description: Among the microbial combinations tested in the Viili model, the complete L. lactis V9 plus L. paracasei V21
+    plus G. candidum Y1 consortium had the highest measured exopolysaccharide concentration.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: exopolysaccharide
+    term:
+      id: CHEBI:72813
+      label: exopolysaccharide
+  downstream: []
+  evidence:
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the three-species consortium (L. lactis V9 + L. paracasei V21 + G. candidum Y1) exhibited the highest EPS concentration
+      among all tested microbial combinations, reaching 1.09 mg/mL.
+    explanation: Supports the highest-EPS output of the full three-strain Viili SynCom relative to the other tested microbial
+      combinations.
+related_ingredients:
+- preferred_term: valine
+  chebi_term:
+    id: CHEBI:27266
+    label: valine
+  shared_environment_term:
+    id: ENVO:03600040
+    label: fermentation starter
+  relevance: G. candidum-supplied valine was implicated as a nitrogen source that enhanced lactic-acid-bacterial growth, biofilm
+    formation, and EPS production.
+  evidence:
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Amino acid depletion and supplementation experiments indicated that valine, as a key amino acid, is closely associated
+      with enhanced growth, biofilm formation, and EPS production in lactic acid bacteria.
+    explanation: Names valine as a key amino acid associated with the growth, biofilm, and EPS responses in the lactic acid
+      bacteria.
+- preferred_term: autoinducer-2
+  chebi_term:
+    id: CHEBI:40646
+    label: autoinducer-2
+  shared_environment_term:
+    id: ENVO:03600040
+    label: fermentation starter
+  relevance: AI-2 was the quorum-sensing signal measured in G. candidum co-culture and perturbed to confirm positive regulation
+    of EPS synthesis.
+  evidence:
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: AI-2 activation and inhibition assays confirmed that AI-2-mediated quorum sensing positively regulates EPS synthesis.
+    explanation: Names AI-2-mediated quorum sensing as a positive regulator of EPS synthesis.
+- preferred_term: exopolysaccharide
+  chebi_term:
+    id: CHEBI:72813
+    label: exopolysaccharide
+  shared_environment_term:
+    id: ENVO:03600040
+    label: fermentation starter
+  relevance: EPS production was the Viili texture-associated community function maximized by including G. candidum with the
+    two lactic-acid bacteria.
+  evidence:
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the three-species consortium (L. lactis V9 + L. paracasei V21 + G. candidum Y1) exhibited the highest EPS concentration
+      among all tested microbial combinations, reaching 1.09 mg/mL.
+    explanation: Supports EPS as the measured output maximized by the complete three-strain Viili SynCom.
+external_resources:
+- name: PubMed - Viili fungus-bacterium EPS SynCom
+  repository: OTHER
+  resource_id: PMID:42372608
+  url: https://pubmed.ncbi.nlm.nih.gov/42372608/
+  description: PubMed record for the 2026 International Journal of Food Microbiology article describing the three-strain Viili
+    synthetic microbial consortium.
+  evidence:
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Synthetic microbial communities reveal the mechanisms of fungus-bacterium metabolic interactions regulating exopolysaccharide
+      production in Viili.
+    explanation: Identifies the PMID-linked primary Viili SynCom publication.
+- name: DOI - Viili fungus-bacterium EPS SynCom
+  repository: OTHER
+  resource_id: doi:10.1016/j.ijfoodmicro.2026.111922
+  url: https://doi.org/10.1016/j.ijfoodmicro.2026.111922
+  description: DOI for the 2026 International Journal of Food Microbiology article describing fungus-bacterium metabolic interactions
+    in a Viili SynCom.
+  evidence:
+  - reference: PMID:42372608
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1016/j.ijfoodmicro.2026.111922'
+    explanation: Names the DOI assigned to the primary Viili SynCom publication.
+discussions:
+- discussion_id: viili_syncom_methods_paywalled
+  prompt: Which Viili media, incubation parameters, inoculation ratios, and original isolation details were used for strains
+    V9, V21, and Y1?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - growth_media
+  - taxonomy
+  rationale: The PubMed/Europe PMC abstract names the strains and assays but the International Journal of Food Microbiology
+    full Methods text was not legally open during initial curation, so medium composition, inoculation ratios, temperature,
+    and original isolate sources remain uncited.
+  posed_by: codex
+  posed_date: '2026-09-21'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: The cited paper reports fermented-milk EPS production, amino-acid exchange, and quorum sensing rather than metal
+  or rare-earth transformation.
+curation_history:
+- timestamp: '2026-09-21T14:25:16Z'
+  curator: codex
+  action: CREATE_VIILI_EPS_SYNCOM
+  changes: Added the Viili fungus-bacterium EPS SynCom from PMID:42372608 with exact V9/V21/Y1 membership, fungus-to-lactic-acid-bacteria
+    nitrogen and AI-2 quorum-sensing interactions, EPS outcome evidence, PubMed and DOI resources, and a methods-access knowledge
+    gap.
+  llm_assisted: true
+- timestamp: '2026-09-21T14:36:09Z'
+  curator: codex
+  action: ADDRESS_VIILI_EPS_REVIEW
+  changes: >-
+    Addressed adversarial review issues #1014 and #1015 by scoping the
+    top-level EPS maximum to the tested microbial combinations and removing
+    exopolysaccharide from the nitrogen-source metabolite list.
+  llm_assisted: true
