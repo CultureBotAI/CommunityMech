@@ -1,0 +1,335 @@
+id: CommunityMech:000404
+name: Wollastonite Ramichloridium-Talaromyces Fungal Consortium
+description: A defined two-fungus mixed culture of Ramichloridium apiculatum CMS-1 and Talaromyces pseudofuniculosus hzt-3′
+  grown with wollastonite in modified Czapek liquid medium. The source study varied the CMS-1:hzt-3′ inoculation ratio and
+  found that 20% CMS-1 plus 80% hzt-3′ gave the strongest Ca2+ and Si4+ leaching, with CMS-1-derived extracellular polysaccharides
+  and proteins cross-feeding hzt-3′ organic-acid and amino-acid production.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOMINING
+engineering_design:
+  objective: Test whether a defined fungal mixed culture can synergistically accelerate wollastonite bioleaching as a biological
+    activation strategy for silicate mineral carbonation.
+  assembly_strategy: Combine the mineral-rich-soil isolates R. apiculatum CMS-1 and T. pseudofuniculosus hzt-3′ as spore suspensions
+    across six CMS-1:hzt-3′ starting ratios in modified Czapek liquid medium supplemented with wollastonite powder.
+  inoculation_strategy: Inoculate 1 mL of mixed fungal spore suspension into 100 mL of modified Czapek liquid medium with
+    0.5 g wollastonite in 250 mL conical flasks; the tested ratios were 100:0, 80:20, 60:40, 40:60, 20:80, and 0:100 CMS-1:hzt-3′.
+  perturbation_design: Vary the initial CMS-1:hzt-3′ fungal inoculation proportion while measuring element leaching and extracellular
+    metabolite profiles.
+  measurement_endpoints:
+  - Ca2+ leaching efficiency
+  - Si4+ leaching efficiency
+  - extracellular polysaccharides and proteins
+  - organic acid and amino acid production
+  - pH of the leaching solution
+  - FT-IR, XRD, SEM-EDS, and XPS analysis of wollastonite residues
+  evidence:
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study systematically investigated their dissolution patterns on wollastonite using a mixed culture of Ramichloridium
+      apiculatum CMS-1 and Talaromyces pseudofuniculosus hzt-3′
+    explanation: Supports the exact two-fungus mixed culture and the wollastonite-leaching design.
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'The mixed-strain proportions were set to six ratios: 100% CMS-1, 80% CMS-1 + 20% hzt-3′, 60% CMS-1 + 40% hzt-3′,
+      40% CMS-1 + 60% hzt-3′, 20% CMS-1 + 80% hzt-3′, and 100% hzt-3′.'
+    explanation: Supports the ratio-perturbation design.
+environment_term:
+  preferred_term: wollastonite fungal bioleaching laboratory culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The two fungal strains were assembled and grown under controlled shake-flask conditions with wollastonite powder.
+modeled_environment:
+- preferred_term: mineral-rich soil
+  term:
+    id: ENVO:00001998
+    label: soil
+  notes: The two fungal strains were described as mineral-rich-soil isolates.
+taxonomy:
+- taxon_term:
+    preferred_term: Ramichloridium apiculatum CMS-1
+    term:
+      id: NCBITaxon:470080
+      label: Ramichloridium apiculatum
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic fungal member; GTDB classifies bacteria and archaea, not fungi.
+  strain_designation:
+    strain_name: CMS-1
+  evidence:
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Ramichloridium apiculatum CMS-1 and Talaromyces pseudofuniculosus hzt-3′ in different ratios
+    explanation: Identifies R. apiculatum CMS-1 as a member of the defined fungal mixed culture.
+- taxon_term:
+    preferred_term: Talaromyces pseudofuniculosus hzt-3′
+    term:
+      id: NCBITaxon:2015341
+      label: Talaromyces pseudofuniculosus
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic fungal member; GTDB classifies bacteria and archaea, not fungi.
+  strain_designation:
+    strain_name: hzt-3′
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Ramichloridium apiculatum CMS-1 and Talaromyces pseudofuniculosus hzt-3′ in different ratios
+    explanation: Identifies T. pseudofuniculosus hzt-3′ as a member of the defined fungal mixed culture.
+ecological_interactions:
+- name: CMS-1 Extracellular Polymer Cross-Feeding
+  description: R. apiculatum CMS-1 synthesized extracellular polysaccharides and proteins during mixed cultivation; T. pseudofuniculosus
+    hzt-3′ utilized these extracellular products, which was associated with increased hzt-3′ gluconic-acid, isocitric-acid,
+    L-glutamine, and L-tyrosine production.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Ramichloridium apiculatum CMS-1
+    term:
+      id: NCBITaxon:470080
+      label: Ramichloridium apiculatum
+  target_taxon:
+    preferred_term: Talaromyces pseudofuniculosus hzt-3′
+    term:
+      id: NCBITaxon:2015341
+      label: Talaromyces pseudofuniculosus
+  metabolites:
+  - preferred_term: polysaccharide
+    term:
+      id: CHEBI:18154
+      label: polysaccharide
+  - preferred_term: protein
+    term:
+      id: CHEBI:36080
+      label: protein
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Mixed-Culture Organic-Acid and Amino-Acid Upregulation
+    description: Cross-feeding of CMS-1 extracellular polymers and protein was linked to increased hzt-3′ acid and amino-acid
+      production in the mixed culture.
+  evidence:
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In mixed culture, CMS-1 synthesized extracellular polysaccharides and proteins that were utilized by hzt-3′
+    explanation: Supports the directed extracellular-polysaccharide and protein cross-feeding edge from CMS-1 to hzt-3′.
+- name: Mixed-Culture Organic-Acid and Amino-Acid Upregulation
+  description: The 20% CMS-1 plus 80% hzt-3′ mixed culture had elevated organic acids and amino acids relative to pure cultures;
+    CMS-1 chiefly produced oxalic acid, while hzt-3′ chiefly generated gluconic acid and increased secretion of gluconic acid,
+    isocitric acid, L-glutamine, and L-tyrosine after receiving CMS-1 extracellular products.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Ramichloridium apiculatum CMS-1
+    term:
+      id: NCBITaxon:470080
+      label: Ramichloridium apiculatum
+  - preferred_term: Talaromyces pseudofuniculosus hzt-3′
+    term:
+      id: NCBITaxon:2015341
+      label: Talaromyces pseudofuniculosus
+  metabolites:
+  - preferred_term: oxalic acid
+    term:
+      id: CHEBI:16995
+      label: oxalic acid
+  - preferred_term: gluconic acid
+    term:
+      id: CHEBI:24266
+      label: gluconic acid
+  - preferred_term: amino acid
+    term:
+      id: CHEBI:33709
+      label: amino acid
+  biological_processes:
+  - preferred_term: organic acid biosynthetic process
+    term:
+      id: GO:0016053
+      label: organic acid biosynthetic process
+  downstream:
+  - target: Optimized Wollastonite Calcium and Silicon Leaching
+    description: Increased acids and amino acids lowered pH and intensified the chemical dissolution of wollastonite by the
+      mixed fungal culture.
+  evidence:
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The strain CMS-1 primarily produced oxalic acid (0.66 ± 0.033 mg/mL), while strain hzt-3′ mainly generated gluconic
+      acid (1.60 ± 0.0798 mg/mL).
+    explanation: Supports the distinct dominant organic acids measured for each fungal strain.
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hzt-3′, which upregulated the production of gluconic acid, isocitric acid, L-glutamine, and L-tyrosine
+    explanation: Supports increased hzt-3′ acid and amino-acid production in the mixed system.
+- name: Optimized Wollastonite Calcium and Silicon Leaching
+  description: The 20% CMS-1 plus 80% hzt-3′ inoculation ratio produced the strongest wollastonite dissolution among the tested
+    ratios, reaching 79.95% calcium leaching and 18.59% silicon leaching and visibly disrupting wollastonite residue structure.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Ramichloridium apiculatum CMS-1
+    term:
+      id: NCBITaxon:470080
+      label: Ramichloridium apiculatum
+  - preferred_term: Talaromyces pseudofuniculosus hzt-3′
+    term:
+      id: NCBITaxon:2015341
+      label: Talaromyces pseudofuniculosus
+  evidence:
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The 20% CMS-1 + 80% hzt-3′ ratio achieved leaching efficiency of 79.95% ± 6.37% for Ca2+ and 18.59% ± 0.11% for
+      Si4+
+    explanation: Supports the optimum mixed-culture ratio and Ca/Si leaching efficiencies.
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: surface cracks and grooves on leaching residues indicated additional biophysical disruption
+    explanation: Supports fungal physical disruption of wollastonite residues as an additional leaching mechanism.
+environmental_factors:
+- name: Optimum CMS-1:hzt-3′ inoculation ratio
+  value: 20% Ramichloridium apiculatum CMS-1 plus 80% Talaromyces pseudofuniculosus hzt-3′
+  description: Among six starting ratios, the 20:80 CMS-1:hzt-3′ mixed culture was the highest-performing wollastonite bioleaching
+    condition.
+  evidence:
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The 20% CMS-1 + 80% hzt-3′ ratio achieved leaching efficiency of 79.95% ± 6.37% for Ca2+ and 18.59% ± 0.11% for
+      Si4+
+    explanation: Identifies the optimum ratio and measured wollastonite-leaching endpoint.
+- name: Wollastonite loading
+  value: '0.5'
+  unit: g per 100 mL medium
+  description: Wollastonite powder added to each 100 mL modified Czapek liquid culture.
+  evidence:
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A 100 mL volume of modified Czapek liquid medium
+    explanation: Supports the 100 mL batch culture volume.
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: was poured into a 250 mL conical flask, and 0.5 g of the wollastonite sample was added.
+    explanation: Supports the 0.5 g wollastonite amendment in a 250 mL conical flask.
+- name: Shake-flask incubation
+  value: '30'
+  unit: C; 150 rpm
+  description: Temperature and agitation used for fungal wollastonite bioleaching.
+  evidence:
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Finally, the flask was placed in a constant-temperature incubator shaker at 30°C and 150 rpm for cultivation.
+    explanation: Supports the incubation temperature and shaking speed.
+growth_media:
+- name: Modified Czapek liquid medium with wollastonite
+  composition:
+  - name: sucrose
+    concentration: '30'
+    unit: g/L
+  - name: NaNO3
+    concentration: '3'
+    unit: g/L
+  - name: K2HPO4-3H2O
+    concentration: '1'
+    unit: g/L
+  - name: KCl
+    concentration: '0.5'
+    unit: g/L
+  - name: wollastonite
+    concentration: '5'
+    unit: g/L
+  temperature: '30'
+  temperature_unit: °C
+  shaking_speed: '150'
+  shaking_speed_unit: rpm
+  vessel_type: 250 mL conical flask
+  preparation_notes: 100 mL medium plus 0.5 g wollastonite was autoclaved at 121 C for 20 min, cooled, and inoculated with
+    1 mL mixed fungal spore suspension.
+  evidence:
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A 100 mL volume of modified Czapek liquid medium (sucrose, 30 g; NaNO3, 3 g; K2HPO4·3H2O, 1 g; KCl, 0.5 g; and
+      deionized water, 1,000 mL
+    explanation: Supports the modified Czapek liquid formulation and 100 mL culture volume.
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: was poured into a 250 mL conical flask, and 0.5 g of the wollastonite sample was added.
+    explanation: Supports the 250 mL flask and 0.5 g wollastonite amendment.
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Finally, the flask was placed in a constant-temperature incubator shaker at 30°C and 150 rpm for cultivation.
+    explanation: Supports the incubation temperature and shaking speed.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  instrument_detail: 250 mL conical flask in a constant-temperature incubator shaker
+  working_volume: 100
+  working_volume_unit: mL
+  operating_temperature: 30
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: Cultures were shaken at 150 rpm.
+  evidence:
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A 100 mL volume of modified Czapek liquid medium
+    explanation: Supports the 100 mL batch working volume.
+  - reference: PMID:42478817
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: was poured into a 250 mL conical flask, and 0.5 g of the wollastonite sample was added.
+    explanation: Supports the 250 mL conical flask setup and wollastonite amendment.
+curation_history:
+- timestamp: '2026-09-21T07:22:13Z'
+  curator: claude
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000404 for the Ramichloridium apiculatum CMS-1 / Talaromyces pseudofuniculosus hzt-3′ wollastonite
+    fungal mixed-culture consortium from PMID:42478817, including taxonomy, cross-feeding and bioleaching interactions, cultivation
+    conditions, and claim-level evidence snippets.
+  llm_assisted: true
+- timestamp: '2026-09-21T07:39:56Z'
+  curator: claude
+  action: FIX_REFERENCE_SNIPPETS
+  changes: Split the modified-Czapek method evidence around the bracketed pH clause stripped by reference validation, removed
+    the unsupported pH field, and tightened the hzt-3′ organic-acid upregulation quote.
+  llm_assisted: true
+- timestamp: '2026-09-21T07:40:33Z'
+  curator: claude
+  action: FIX_ONTOLOGY_LABEL
+  changes: Updated the GO:0044419 label on the extracellular polymer cross-feeding interaction to the canonical term-validator
+    label.
+  llm_assisted: true
+- timestamp: '2026-09-21T07:45:20Z'
+  curator: claude
+  action: FIX_STRAIN_DESIGNATION
+  changes: Restored the prime mark in the Talaromyces pseudofuniculosus hzt-3′ strain designation and member references so
+    the record preserves the strain identifier reported by PMID:42478817.
+  llm_assisted: true
+- timestamp: '2026-09-21T07:46:24Z'
+  curator: claude
+  action: FIX_REFERENCE_SNIPPETS
+  changes: Removed doubled prime/apostrophe artifacts introduced while restoring the hzt-3′ strain prime mark.
+  llm_assisted: true
+- timestamp: '2026-09-21T07:47:28Z'
+  curator: claude
+  action: FIX_REFERENCE_SNIPPETS
+  changes: Collapsed doubled hzt-3′ prime marks in the mixed-strain ratio evidence snippet.
+  llm_assisted: true
