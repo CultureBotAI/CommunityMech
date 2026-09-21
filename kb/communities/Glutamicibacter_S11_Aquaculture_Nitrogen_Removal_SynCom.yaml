@@ -1,0 +1,233 @@
+id: CommunityMech:000411
+name: Glutamicibacter S11 Aquaculture Nitrogen Removal SynCom
+description: A two-strain synthetic Glutamicibacter consortium, S11, composed of Glutamicibacter arilaitensis NFB2-4
+  and Glutamicibacter nicotianae CYN-C5. Su et al. isolated both heterotrophic nitrification-aerobic denitrification
+  strains from cattle manure and aquaculture sediments, combined them as consortium S11, and reported synergistic
+  ammonium- and nitrite-nitrogen removal in aquaculture wastewater assays, a hydrophilic sponge recirculating
+  system, and an industrial-scale recirculating aquaculture trial.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Construct a two-strain Glutamicibacter consortium for inorganic nitrogen removal from aquaculture wastewater.
+  assembly_strategy: Combine the heterotrophic nitrification-aerobic denitrification strains Glutamicibacter arilaitensis
+    NFB2-4 and Glutamicibacter nicotianae CYN-C5 as the synthetic consortium S11.
+  measurement_endpoints:
+  - NH4+-N removal
+  - NO2--N removal
+  - nitrogen removal synergy relative to single-strain cultures
+  - hydrophilic sponge recirculating-system performance
+  - industrial-scale recirculating aquaculture performance
+  evidence:
+  - &strain_evidence
+    reference: PMID:41260371
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Two high efficiency heterotrophic nitrification-aerobic denitrification strains were isolated from cattle
+      manure and aquaculture sediments and identified as G. arilaitensis NFB2-4 and G. nicotianae CYN-C5.
+    explanation: Identifies the two source strains that were assembled into S11.
+  - &s11_synergy_evidence
+    reference: PMID:41260371
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A synthetic consortium S11, composed of these two strains, exhibited marked synergistic nitrogen removal
+    explanation: Supports assembly of the two Glutamicibacter strains as synthetic consortium S11 and its synergistic
+      nitrogen-removal phenotype.
+environment_term:
+  preferred_term: aquaculture wastewater nitrogen-removal assay
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The S11 consortium was constructed and tested in controlled aquaculture wastewater nitrogen-removal assays before
+    recirculating-system and industrial-scale aquaculture trials.
+modeled_environment:
+- preferred_term: aquaculture wastewater
+  term:
+    id: ENVO:00002001
+    label: waste water
+  notes: S11 was designed to remove ammonium and nitrite from aquaculture wastewater and was also tested in an
+    industrial-scale recirculating aquaculture trial.
+taxonomy:
+- taxon_term:
+    preferred_term: Glutamicibacter arilaitensis NFB2-4
+    term:
+      id: NCBITaxon:256701
+      label: Glutamicibacter arilaitensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI Taxonomy resolves the species name exactly; GTDB grounding was left unresolved because the local
+      NCBI2GTDB crosswalk was not available during first-pass curation.
+  strain_designation:
+    strain_name: NFB2-4
+  abundance_level: DOMINANT
+  evidence:
+  - *strain_evidence
+- taxon_term:
+    preferred_term: Glutamicibacter nicotianae CYN-C5
+    term:
+      id: NCBITaxon:37929
+      label: Glutamicibacter nicotianae
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI Taxonomy resolves the species name exactly; GTDB grounding was left unresolved because the local
+      NCBI2GTDB crosswalk was not available during first-pass curation.
+  strain_designation:
+    strain_name: CYN-C5
+  abundance_level: DOMINANT
+  evidence:
+  - *strain_evidence
+ecological_interactions:
+- name: Synergistic S11 ammonium and nitrite removal
+  description: The two-strain S11 consortium removed ammonium and nitrite nitrogen more efficiently than the corresponding
+    single-strain cultures under the reported pH and C/N ranges.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Glutamicibacter arilaitensis NFB2-4
+    term:
+      id: NCBITaxon:256701
+      label: Glutamicibacter arilaitensis
+  - preferred_term: Glutamicibacter nicotianae CYN-C5
+    term:
+      id: NCBITaxon:37929
+      label: Glutamicibacter nicotianae
+  metabolites:
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  biological_processes:
+  - preferred_term: ammonia oxidation
+    term:
+      id: GO:0019329
+      label: ammonia oxidation
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  evidence:
+  - *s11_synergy_evidence
+  - reference: PMID:41260371
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This represents a 15 %-25 % improvement over single-strain cultures.
+    explanation: Quantifies the S11 consortium's ammonium/nitrite nitrogen-removal improvement over monocultures.
+environmental_factors:
+- name: S11 assay pH and C/N range
+  value: pH 6-9 and C/N >= 15
+  description: The abstract reports S11 ammonium and nitrite removal under pH 6-9 and C/N at least 15.
+  evidence:
+  - reference: PMID:41260371
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: at pH 6-9 and C/N >= 15, it removed 95 % of NH4+-N and 97 % of NO2--N
+    explanation: Supports the pH and carbon-to-nitrogen range for the S11 nitrogen-removal assay.
+growth_media:
+- name: S11 aquaculture wastewater nitrogen-removal assay
+  ph_range: 6-9
+  atmosphere: AEROBIC
+  preparation_notes: S11 was assayed for NH4+-N and NO2--N removal at a 30 mg/L initial concentration of each inorganic
+    nitrogen species and at C/N >= 15; the accessible PubMed abstract does not report the full wastewater or medium
+    formulation.
+  evidence:
+  - reference: PMID:41260371
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: it removed 95 % of NH4+-N and 97 % of NO2--N (initial concentration 30 mg L-1 each) within 24 h
+    explanation: Supports the assayed ammonium- and nitrite-nitrogen concentrations and 24 h endpoint.
+cultivation_setup:
+- cultivation_mode: CONTINUOUS
+  system_type: BIOREACTOR_UNSPECIFIED
+  instrument_detail: hydrophilic sponge-immobilized S11 consortium in a recirculating aquaculture system
+  retention_time: 20
+  retention_time_unit: min
+  retention_time_type: HRT
+  notes: The PubMed abstract reports sponge immobilization, a recirculating system, and a later industrial-scale recirculating
+    aquaculture trial, but not the vessel geometry or exact reactor model.
+  evidence:
+  - reference: PMID:41260371
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After immobilizing the consortium on hydrophilic sponges, 76 % of NH4+-N and 96 % of NO2--N were removed
+      at a hydraulic retention time of only 20 min in a recirculating system.
+    explanation: Supports sponge immobilization and recirculating-system operation of the S11 consortium.
+related_ingredients:
+- preferred_term: ammonium
+  chebi_term:
+    id: CHEBI:28938
+    label: ammonium
+  relevance: Ammonium nitrogen was one of the two inorganic nitrogen targets removed by the synthetic Glutamicibacter S11
+    consortium.
+  evidence:
+  - reference: PMID:41260371
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: it removed 95 % of NH4+-N and 97 % of NO2--N (initial concentration 30 mg L-1 each) within 24 h
+    explanation: Names ammonium nitrogen as an S11 removal target and quantifies the 24 h assay result.
+- preferred_term: nitrite
+  chebi_term:
+    id: CHEBI:16301
+    label: nitrite
+  relevance: Nitrite nitrogen was one of the two inorganic nitrogen targets removed by the synthetic Glutamicibacter S11
+    consortium and was monitored in the industrial recirculating aquaculture trial.
+  evidence:
+  - reference: PMID:41260371
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In an industrial-scale recirculating aquaculture trial, the consortium reduced NO2--N to a residual level
+      of 23.91 % after 24 d, or 24.31 % after 90 d
+    explanation: Names nitrite nitrogen as an S11 removal target in the industrial-scale recirculating aquaculture trial.
+external_resources:
+- name: PubMed entry for the Glutamicibacter S11 aquaculture SynCom
+  repository: OTHER
+  resource_id: PMID:41260371
+  url: https://pubmed.ncbi.nlm.nih.gov/41260371/
+  description: PubMed record for Su et al. 2026.
+  evidence:
+  - reference: PMID:41260371
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: A synthetic Glutamicibacter consortium efficiently removes ammonium and nitrite from aquaculture wastewater.
+    explanation: Identifies the PubMed-indexed article describing the S11 consortium.
+- name: DOI for the Glutamicibacter S11 aquaculture SynCom article
+  repository: OTHER
+  resource_id: doi:10.1016/j.biortech.2025.133683
+  url: https://doi.org/10.1016/j.biortech.2025.133683
+  description: Version-of-record DOI for Su et al. 2026.
+  evidence:
+  - reference: PMID:41260371
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.1016/j.biortech.2025.133683'
+    explanation: PubMed metadata gives the DOI for the article.
+discussions:
+- discussion_id: glutamicibacter_s11_methods_details
+  prompt: Resolve S11 inoculation ratios, full wastewater or medium chemistry, sponge immobilization protocol, reactor geometry,
+    operating temperature, and field-trial deployment details from the full article.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - engineering_design
+  - growth_media
+  - cultivation_setup
+  rationale: The accessible PubMed abstract identifies the two member strains, S11 consortium identity, inorganic nitrogen
+    endpoints, pH/C:N assay envelope, and headline sponge and industrial recirculating-aquaculture results, but Europe PMC
+    reports the full article as subscription-only and not in PMC. Exact method details should be filled only after inspecting
+    the version of record or author-accepted text.
+  posed_by: codex
+  posed_date: '2026-09-21'
+curation_history:
+- timestamp: '2026-09-21T19:14:24Z'
+  curator: codex
+  action: CREATE_COMMUNITY_RECORD
+  changes: Created CommunityMech:000411 for the two-member Glutamicibacter arilaitensis NFB2-4 / Glutamicibacter nicotianae
+    CYN-C5 S11 ammonium- and nitrite-removal SynCom from PMID:41260371.
+  llm_assisted: true
+- timestamp: '2026-09-21T19:26:54Z'
+  curator: codex
+  action: ADD_MODELED_ENVIRONMENT
+  changes: 'Added an aquaculture wastewater modeled_environment to address adversarial-review issue #1027 while preserving
+    ENVO:01001405 laboratory environment as the controlled-assay setting.'
+  llm_assisted: true

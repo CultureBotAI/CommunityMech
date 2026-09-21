@@ -229,6 +229,7 @@ USERS = {
     "Ferroplasma_Leptospirillum_Syntrophy.yaml",
     "Geobacter_Methanosarcina_DIET.yaml",
     "Ginseng_CL95_Rusty_Root_Rot_Biocontrol_SynCom.yaml",
+    "Glutamicibacter_S11_Aquaculture_Nitrogen_Removal_SynCom.yaml",
     "Honeybee_Core20_Defined_Microbiota.yaml",
     "Hualgayoc_Acidic_Sulfate_Reducing_AMD_Consortium.yaml",
     "Iberian_Pit_Lake_Stratified_Community.yaml",
