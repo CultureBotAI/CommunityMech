@@ -282,6 +282,7 @@ USERS = {
     "Syntrophus_Benzoate_Degrader.yaml",
     "Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.yaml",
     "Urine_Nitrification_SynCom.yaml",
+    "Viili_Fungus_Bacterium_EPS_SynCom.yaml",
     "Wheat_Consortium_C1.yaml",
     "Wheat_Consortium_C6.yaml",
     "Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml",
