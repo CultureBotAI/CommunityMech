@@ -105,7 +105,7 @@ taxonomy:
     snippet: Isolate SK22 was highly stimulated by KHED9 and form one consortium, Consortia-A22ED9
     explanation: Places KHED9 in the A22ED9 consortium with SK22.
 ecological_interactions:
-- name: Consortia-A22ED9 Fe-Cd-Cr removal
+- name: Consortia-A22ED9 single-metal Fe-Cd-Cr removal
   description: A22ED9 removed iron, chromium, and cadmium from pH 5.0 LB cultures over 24 h, with mean removal values of 92.08%
     Fe across 50-1000 mg/L, 74.15% Cr across 1-32 mg/L, and 97.587% Cd across 1-32 mg/L.
   scope: COMMUNITY_LEVEL
@@ -176,7 +176,7 @@ environmental_factors:
     snippet: Cd (1-32 mg/L)
     explanation: Reports the cadmium concentration range summarized for A22ED9 in Table 3.
 growth_media:
-- name: pH 5.0 LB Fe-Cd-Cr removal assay
+- name: pH 5.0 LB single-metal Fe-Cd-Cr removal assay
   ph: 5.0
   temperature: 37
   temperature_unit: degrees Celsius
@@ -255,7 +255,7 @@ discussions:
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
-  - ecological_interactions#Consortia-A22ED9 Fe-Cd-Cr removal
+  - ecological_interactions#Consortia-A22ED9 single-metal Fe-Cd-Cr removal
   rationale: The paper reports high Fe, Cd, and Cr removal for A22ED9, but the abstract explicitly states that consortia did
     not show significant differences in heavy-metal removal, so the curated interaction does not assert an emergent metal-removal
     advantage.
@@ -274,4 +274,9 @@ curation_history:
   action: CREATE_COMMUNITY_RECORD
   changes: Created CommunityMech:000406 for the Meghalaya Bacillus Consortia-A22ED9 Fe/Cd/Cr bioremediation consortium from
     PMID:42135302.
+  llm_assisted: true
+- timestamp: '2026-09-21T11:08:35Z'
+  curator: codex
+  action: FIX_SINGLE_METAL_LABELS
+  changes: Renamed A22ED9 Fe/Cd/Cr assay labels to make the separate single-metal challenge scope explicit; fixes #1009.
   llm_assisted: true
