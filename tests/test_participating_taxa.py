@@ -260,6 +260,7 @@ USERS = {
     "Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom.yaml",
     "Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml",
     "Rhizorhabdus_Cupriavidus_BDE47_Degradation_SynCom.yaml",
+    "Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml",
     "Rhodococcus_Pseudomonas_PPOW_Consortium.yaml",
     "Rifle_Aquifer_Bioanode_EET_Community.yaml",
     "SF356_Cellulose_Degrader.yaml",
