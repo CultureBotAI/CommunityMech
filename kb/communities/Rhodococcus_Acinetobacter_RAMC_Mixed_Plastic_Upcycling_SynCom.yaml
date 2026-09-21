@@ -1,0 +1,500 @@
+id: CommunityMech:000412
+name: Rhodococcus-Acinetobacter RAMC Mixed Plastic Upcycling SynCom
+description: >
+  A bottom-up, two-member synthetic bacterial consortium, termed RAMC, that
+  couples Rhodococcus jostii strain PET aromatic-carboxylate metabolism with
+  Acinetobacter baylyi ADP1 aliphatic-carboxylate metabolism to consume
+  oxygenated products from post-consumer mixed plastic deconstruction. The
+  platform was optimized across SR:SA starting ratios of 9:1 through 1:9,
+  completely consumed aromatic plus aliphatic model oxygenates that neither
+  monoculture fully depleted, and supported an engineered RAMC-P_9/1 derivative
+  that converted real mixed-plastic effluents into lycopene and microbial
+  lipids.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: >
+    Construct a robust division-of-labor SynCom that converts chemically
+    depolymerized post-consumer mixed plastic waste into microbial biomass and
+    value-added products.
+  assembly_strategy: >
+    Pair specialist R. jostii strain PET (SR), which consumes aromatic
+    carboxylic acids such as terephthalic acid and benzoic acid, with specialist
+    A. baylyi ADP1 (SA), which consumes the acetic, lactic, succinic, glutaric,
+    adipic, and pimelic acid mixture generated from polyolefin deconstruction.
+  inoculation_strategy: >
+    Wash glucose-grown seed cultures twice with sterile deionized water,
+    resuspend each to OD600 2, and mix SR and SA to an initial total OD600 0.2
+    at SR:SA ratios of 9:1, 7:3, 5:5, 3:7, or 1:9; RAMC-P_9/1 used the product
+    strains SR-P and SA-P at the 9:1 starting ratio selected for follow-up
+    plastic upcycling assays.
+  perturbation_design: >
+    Compare specialist monocultures to RAMC, vary total carbon from 125 to
+    750 mM, vary the SR:SA starting cell-density ratio, replace simulated media
+    with real post-consumer mixed-plastic deconstruction effluents, spike
+    additional PET- or PS-derived aromatic acids to mimic waste-stream
+    variability, and repeat product assays with altered PE:PP ratios.
+  measurement_endpoints:
+  - HPLC depletion of individual aromatic and aliphatic oxygenates
+  - dry cell weight and OD600 biomass accumulation
+  - population balance by CFU counts
+  - lycopene concentration
+  - total lipid concentration
+  notes: >
+    RAMC denotes the wild-type SR plus SA platform, while RAMC-P denotes the
+    corresponding lycopene/lipid-producing engineered-derivative platform.
+  evidence:
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      we construct engineered microbial consortia by leveraging DOL
+    explanation: Supports the bottom-up division-of-labor assembly strategy.
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      SR completely consumed the aromatic carboxylic acids (TPA and BEN) but
+      showed a limited utilization of aliphatic carboxylic acids
+    explanation: Supports the aromatic-carboxylate specialization of SR.
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      These results suggest that ADP1 can be an ideal aliphatic carboxylic acid
+      specialist for assembling a consortium for mixed plastic upcycling.
+    explanation: Supports selecting ADP1 as the aliphatic-acid specialist.
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Next, we assembled a co-culture of SR-P and SA-P, referred to as RAMC-P
+    explanation: Supports the RAMC-P engineered-derivative assembly from SR-P and SA-P.
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      When cultivated in BM, RAMC-P_9/1 produced ~1248 μg/L of lycopene and
+      0.37 g/L of total lipids
+    explanation: Supports RAMC-P_9/1 lycopene and lipid production from basal real-plastic medium.
+environment_term:
+  preferred_term: mixed-plastic upcycling laboratory culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    Controlled aerobic batch cultures in minimal salts medium containing
+    simulated or real oxygenated products from post-consumer mixed plastic
+    deconstruction.
+taxonomy:
+- taxon_term:
+    preferred_term: Rhodococcus jostii strain PET
+    term:
+      id: NCBITaxon:132919
+      label: Rhodococcus jostii
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      NCBI exact scientific-name search resolves R. jostii to NCBITaxon:132919;
+      the source reports strain PET from an in-house collection, and the local
+      GTDB crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: PET
+    notes: Wild-type strain PET is the R. jostii specialist referred to as RPET or SR in the RAMC experiments.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The wild type (WT) Rhodococcus jostii strain PET (RPET) was from our
+      in-house strain collection
+    explanation: Identifies strain PET as the Rhodococcus member of RAMC.
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      with each strain specializing in the degradation of aromatic and aliphatic
+      carboxylic acids, respectively
+    explanation: Supports the aromatic-carboxylate specialist role for R. jostii strain PET.
+- taxon_term:
+    preferred_term: Acinetobacter baylyi ADP1
+    term:
+      id: NCBITaxon:202950
+      label: Acinetobacter baylyi
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Acinetobacter_baylyi
+      gtdb_taxon: Acinetobacter baylyi
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Moraxellaceae;g__Acinetobacter;s__Acinetobacter baylyi
+      ncbi_source_id: NCBITaxon:202950
+      majority_fraction: 0.96
+      total_genomes: 28
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: >
+      ADP1 is the A. baylyi specialist referred to as SA; the GTDB block was
+      reused from an existing validated CommunityMech record for the same NCBI
+      species.
+  strain_designation:
+    strain_name: ADP1
+    culture_collections:
+    - collection: ATCC
+      accession: '33305'
+      notes: The paper reports wild-type A. baylyi ADP1 was purchased from ATCC as 33305.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      the WT Acinetobacter baylyi ADP1 was purchased from American Type Culture
+      Collection (ATCC identification number: 33305; Manassas, VA)
+    explanation: Identifies ADP1 as the Acinetobacter member of RAMC and ties it to ATCC 33305.
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      ADP1 can be an ideal aliphatic carboxylic acid specialist for assembling
+      a consortium for mixed plastic upcycling
+    explanation: Supports the aliphatic-carboxylate specialist role for A. baylyi ADP1.
+ecological_interactions:
+- name: RAMC aromatic-aliphatic oxygenate division of labor
+  description: >
+    R. jostii strain PET specializes on aromatic carboxylates generated from
+    PET and PS deconstruction, while A. baylyi ADP1 specializes on aliphatic
+    carboxylates generated from PE and PP deconstruction; pairing the two
+    specialists in RAMC allows complete consumption of the simulated mixed
+    oxygenate pool that neither monoculture depleted.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Rhodococcus jostii strain PET
+    term:
+      id: NCBITaxon:132919
+      label: Rhodococcus jostii
+  - preferred_term: Acinetobacter baylyi ADP1
+    term:
+      id: NCBITaxon:202950
+      label: Acinetobacter baylyi
+  metabolites:
+  - preferred_term: terephthalic acid
+    term:
+      id: CHEBI:15702
+      label: terephthalic acid
+  - preferred_term: benzoic acid
+    term:
+      id: CHEBI:30746
+      label: benzoic acid
+  - preferred_term: acetic acid
+    term:
+      id: CHEBI:15366
+      label: acetic acid
+  - preferred_term: lactic acid
+    term:
+      id: CHEBI:749277
+      label: lactic acid
+  - preferred_term: succinic acid
+    term:
+      id: CHEBI:15741
+      label: succinic acid
+  - preferred_term: glutaric acid
+    term:
+      id: CHEBI:17859
+      label: glutaric acid
+  - preferred_term: adipic acid
+    term:
+      id: CHEBI:30832
+      label: adipic acid
+  - preferred_term: pimelic acid
+    term:
+      id: CHEBI:30531
+      label: pimelic acid
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  downstream:
+  - target: Complete mixed-plastic oxygenate consumption
+    description: RAMC consumed aromatic and aliphatic substrates from the simulated mixed-plastic deconstruction medium.
+  - target: RAMC-P lycopene and lipid production
+    description: >
+      The same two-specialist architecture supported engineered SR-P and SA-P
+      derivatives that produced lycopene and lipids from real post-consumer
+      mixed-plastic effluents.
+  evidence:
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The consortium consists of Rhodococcus jostii strain PET and
+      Acinetobacter baylyi ADP1, with each strain specializing in the
+      degradation of aromatic and aliphatic carboxylic acids, respectively.
+    explanation: Directly supports the aromatic/aliphatic division of labor.
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Distinct from either monoculture, RAMC completely consumed all the
+      substrates
+    explanation: Supports complete substrate consumption as a community-level property of RAMC.
+environmental_factors:
+- name: Simulated mixed-plastic oxygenate pool
+  value: 125-750 mM total carbon
+  description: >
+    The RAMC optimization used simulated mixed-plastic deconstruction products
+    made from terephthalic acid, benzoic acid, acetic acid, lactic acid, and
+    C4-C7 dicarboxylic acids across 125, 250, 375, 500, 625, and 750 mM total
+    carbon.
+  evidence:
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      the specific carbon concentrations of 125, 250, 375, 500, and 625 mM
+    explanation: Supports the simulated-media carbon-concentration range.
+- name: RAMC initial SR-to-SA ratios
+  value: 9:1, 7:3, 5:5, 3:7, and 1:9
+  unit: OD600-normalized inoculum ratio
+  description: >
+    SR and SA were mixed at several starting ratios to tune RAMC performance;
+    RAMC_9/1 was selected as the most robust composition for subsequent
+    real-plastic sensitivity assays.
+  evidence:
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      cell density ratios of SR to SA set at 9:1, 7:3, 5:5, 3:7, and 1:9
+    explanation: Supports the inoculation-ratio perturbation series.
+growth_media:
+- name: Minimal salts medium with simulated mixed-plastic deconstruction products
+  composition:
+  - name: terephthalic acid
+    concentration: '30'
+    unit: mM in 750 mM simulated stock
+    chebi_term:
+      preferred_term: terephthalic acid
+      term:
+        id: CHEBI:15702
+        label: terephthalic acid
+  - name: benzoic acid
+    concentration: '30'
+    unit: mM in 750 mM simulated stock
+    chebi_term:
+      preferred_term: benzoic acid
+      term:
+        id: CHEBI:30746
+        label: benzoic acid
+  - name: acetic acid
+    concentration: '33.3'
+    unit: mM in 750 mM simulated stock
+    chebi_term:
+      preferred_term: acetic acid
+      term:
+        id: CHEBI:15366
+        label: acetic acid
+  - name: lactic acid
+    concentration: '22.2'
+    unit: mM in 750 mM simulated stock
+    chebi_term:
+      preferred_term: lactic acid
+      term:
+        id: CHEBI:749277
+        label: lactic acid
+  - name: succinic acid
+    concentration: '16.7'
+    unit: mM in 750 mM simulated stock
+    chebi_term:
+      preferred_term: succinic acid
+      term:
+        id: CHEBI:15741
+        label: succinic acid
+  - name: glutaric acid
+    concentration: '13.3'
+    unit: mM in 750 mM simulated stock
+    chebi_term:
+      preferred_term: glutaric acid
+      term:
+        id: CHEBI:17859
+        label: glutaric acid
+  - name: adipic acid
+    concentration: '11.1'
+    unit: mM in 750 mM simulated stock
+    chebi_term:
+      preferred_term: adipic acid
+      term:
+        id: CHEBI:30832
+        label: adipic acid
+  - name: pimelic acid
+    concentration: '9.5'
+    unit: mM in 750 mM simulated stock
+    chebi_term:
+      preferred_term: pimelic acid
+      term:
+        id: CHEBI:30531
+        label: pimelic acid
+  - name: ammonium sulfate
+    concentration: '1'
+    unit: g/L
+  ph: '7'
+  temperature: '30'
+  temperature_unit: °C
+  atmosphere: AEROBIC
+  inoculum_size: '0.2'
+  inoculum_unit: initial OD600
+  shaking_speed: '250'
+  shaking_speed_unit: rpm
+  vessel_type: 50 mL glass tubes with 10 mL working volume
+  preparation_notes: >
+    The 750 mM simulated stock was serially diluted to 625, 500, 375, 250, and
+    125 mM total carbon before adding minimal medium salts.
+  evidence:
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The simulated, mixed plastic deconstruction products with a total carbon
+      concentration of 750 mM were prepared by adding 30 mM TPA, 30 mM BEN,
+      33.3 mM acetic acid, 22.2 mM lactic acid, 16.7 mM succinic acid,
+      13.3 mM glutaric acid, 11.1 mM adipic acid, and 9.5 mM pimelic acid
+    explanation: Supports the simulated mixed-plastic carbon-source formulation.
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      all the cell cultures were performed in 50 mL glass tubes containing
+      10 mL minimal salts medium, supplemented with 1 g/L ammonium sulfate as
+      the nitrogen source and appropriate carbon sources
+    explanation: Supports the base medium, tube vessel, working volume, and nitrogen source.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: 50 mL glass tubes shaken in a benchtop incubator
+  working_volume: 10
+  working_volume_unit: mL
+  operating_temperature: 30
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: Aerobic shaking at 250 rpm; no pH or dissolved-oxygen control was reported.
+  notes: >
+    Cells were seeded from washed glucose-grown overnight cultures and mixed at
+    the SR:SA OD600 ratio selected for each experiment.
+  evidence:
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Cultivations were carried out at 30 C with shaking at 250 rpm in a
+      benchtop incubator
+    explanation: Supports the batch temperature and agitation setup.
+related_ingredients:
+- preferred_term: terephthalic acid
+  chebi_term:
+    id: CHEBI:15702
+    label: terephthalic acid
+  relevance: >
+    PET deconstruction contributed terephthalic acid, one of the two aromatic
+    carboxylates primarily consumed by R. jostii strain PET.
+  evidence:
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 10 mM TPA and BEN derived from post-consumer PET and PS, respectively
+    explanation: Names terephthalic acid as the PET-derived aromatic substrate.
+- preferred_term: benzoic acid
+  chebi_term:
+    id: CHEBI:30746
+    label: benzoic acid
+  relevance: >
+    Polystyrene deconstruction supplied benzoic acid, the second aromatic
+    carboxylate assigned to the R. jostii specialist.
+  evidence:
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 10 mM TPA and BEN derived from post-consumer PET and PS, respectively
+    explanation: Names benzoic acid as the PS-derived aromatic substrate in the real-plastic medium.
+external_resources:
+- name: PubMed record for Diao et al. 2025 mixed-plastic RAMC paper
+  repository: OTHER
+  resource_id: PMID:41381587
+  url: https://pubmed.ncbi.nlm.nih.gov/41381587/
+  description: PubMed entry for the primary RAMC mixed-plastic upcycling article.
+  evidence:
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Engineering microbial consortia for mixed plastic upcycling
+    explanation: Confirms that the PubMed record corresponds to the curated primary article.
+- name: DOI for Engineering microbial consortia for mixed plastic upcycling
+  repository: OTHER
+  resource_id: doi:10.1038/s41467-025-67409-w
+  url: https://doi.org/10.1038/s41467-025-67409-w
+  description: Version-of-record DOI for the Nature Communications article.
+  evidence:
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 10.1038/s41467-025-67409-w
+    explanation: Confirms the version-of-record DOI.
+- name: PubMed Central full text for Diao et al. 2025
+  repository: OTHER
+  resource_id: PMC:PMC12816627
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12816627/
+  description: Open full text used to curate the RAMC construction, media, and cultivation details.
+  evidence:
+  - reference: PMID:41381587
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: PMC12816627
+    explanation: Confirms the open PubMed Central full-text identifier.
+discussions:
+- discussion_id: ramc_succinate_node_cross_feeding
+  prompt: Determine whether A. baylyi ADP1 consumes succinate released by R. jostii strain PET during RAMC growth on
+    mixed-plastic oxygenates.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#RAMC aromatic-aliphatic oxygenate division of labor
+  rationale: >
+    The paper observed succinic acid accumulation in SR monoculture but not
+    after adding the SA specialist, and it proposed a possible cross-feeding
+    relationship at the succinate node. The authors explicitly state that this
+    should be investigated with multi-omics and/or isotope labeling, so the
+    first RAMC record keeps the demonstrated mechanism at community-level
+    aromatic/aliphatic niche partitioning and does not assert a directional
+    succinate cross-feeding edge.
+  evidence:
+  - reference: PMID:41381587
+    supports: SUPPORT
+    snippet: >
+      suggesting a potential cross-feeding relationship at the succinate node
+      between the two specialist strains in the RAMC system
+  posed_by: codex
+  posed_date: '2026-09-21'
+curation_history:
+- timestamp: '2026-09-21T20:56:33Z'
+  curator: codex
+  action: CREATE_RAMC_MIXED_PLASTIC_RECORD
+  changes: >
+    Created CommunityMech:000412 for the Rhodococcus jostii strain PET /
+    Acinetobacter baylyi ADP1 RAMC mixed-plastic upcycling SynCom from
+    PMID:41381587, including exact NCBI species IDs, ADP1 ATCC 33305 provenance,
+    the aromatic/aliphatic oxygenate division of labor, simulated minimal-medium
+    composition, aerobic glass-tube batch cultivation conditions, open PMID/DOI
+    and PMCID resources, and a knowledge gap for the unresolved succinate-node
+    mechanism.
+  llm_assisted: true
+- timestamp: '2026-09-21T21:03:42Z'
+  curator: codex
+  action: ADDRESS_RAMC_ADVERSARIAL_REVIEW
+  changes: >
+    Addressed adversarial-review issues #1028, #1029, and #1030 by adding
+    narrow RAMC-P evidence for engineered SR-P/SA-P production claims, grounding
+    the Acinetobacter-side aliphatic carboxylates in the division-of-labor edge
+    and simulated medium, and changing the glass-tube cultivation setup from
+    FLASK to OTHER.
+  llm_assisted: true
