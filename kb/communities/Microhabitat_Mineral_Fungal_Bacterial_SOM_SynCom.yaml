@@ -72,7 +72,8 @@ taxonomy:
         taxon under the NCBI taxon]
   strain_designation:
     strain_name: PTCC 1316
-    isolation_source: culture collection
+    notes: The article identifies this Curtobacterium isolate by PTCC culture-collection accession; original isolation source
+      was not reported.
   abundance_level: COMMON
   evidence:
   - reference: PMID:42218210
@@ -89,7 +90,8 @@ taxonomy:
     notes: Fungal member of the artificial SOM SynCom; GTDB does not classify eukaryotes.
   strain_designation:
     strain_name: IBRC-M30059
-    isolation_source: Industrial Microorganism Collection Center and National Center for Genetic Resources of Iran
+    notes: The article identifies this T. harzianum isolate by IBRC culture-collection accession; original isolation source
+      was not reported.
   abundance_level: COMMON
   functional_role:
   - PRIMARY_DEGRADER
@@ -109,7 +111,8 @@ taxonomy:
       Phanerodontia chrysosporium, and GTDB does not classify eukaryotes.
   strain_designation:
     strain_name: IBRC-M30144
-    isolation_source: Industrial Microorganism Collection Center and National Center for Genetic Resources of Iran
+    notes: The article identifies this P. chrysosporium isolate by IBRC culture-collection accession; original isolation source
+      was not reported.
   abundance_level: COMMON
   functional_role:
   - PRIMARY_DEGRADER
@@ -151,7 +154,8 @@ taxonomy:
     - GTDB:s__Pseudomonas_E_sp002874965
   strain_designation:
     strain_name: IBRC-M10752
-    isolation_source: Industrial Microorganism Collection Center and National Center for Genetic Resources of Iran
+    notes: The article identifies this P. fluorescens isolate by IBRC culture-collection accession; original isolation source
+      was not reported.
   abundance_level: COMMON
   evidence:
   - reference: PMID:42218210
@@ -161,9 +165,9 @@ taxonomy:
     explanation: Names P. fluorescens IBRC-M10752 as a bacterial member of the artificial inoculum.
 ecological_interactions:
 - name: Mineral-litter SOM turnover by the fungal-bacterial inoculum
-  description: The synthetic Curtobacterium / Trichoderma / Phanerochaete / Pseudomonas inoculum mineralized wheat and alfalfa
-    litter in clay-CaCO3-quartz microcosms, with respiration kinetics and microbial biomass carbon shaped by clay mineralogy,
-    calcium carbonate level, litter chemistry, and comparison to native-soil inoculum.
+  description: The synthetic Curtobacterium / Trichoderma / Phanerochaete / Pseudomonas inoculum was assayed for net wheat-
+    and alfalfa-litter turnover in clay-CaCO3-quartz microcosms, where total CO2 efflux and microbial biomass carbon were
+    shaped by clay mineralogy, calcium carbonate level, litter chemistry, and comparison to native-soil inoculum.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Curtobacterium sp. PTCC 1316
@@ -193,8 +197,8 @@ ecological_interactions:
   - reference: PMID:42218210
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: In wheat microcosms, fungi+ bacteria treatments maintained higher MBC than soil microbiome inocula
-    explanation: Supports higher wheat-litter microbial biomass carbon for the synthetic fungal-bacterial inoculum.
+    snippet: In contrast, mixed fungal and bacterial inocula generally supported higher MBC in both litter types.
+    explanation: Supports higher microbial biomass carbon for the mixed fungal-bacterial inoculum.
 environmental_factors:
 - name: Clay mineral type and content
   value: bentonite or palygorskite at 0, 10, or 20
@@ -338,4 +342,10 @@ curation_history:
   curator: codex
   action: CREATE_COMMUNITY_RECORD
   changes: Created CommunityMech:000407 for the four-member fungal-bacterial artificial SOM microcosm SynCom from PMID:42218210.
+  llm_assisted: true
+- timestamp: '2026-09-21T12:52:16Z'
+  curator: codex
+  action: ADDRESS_ADVERSARIAL_REVIEW
+  changes: 'Reworded the net microcosm respiration interaction and moved PTCC/IBRC collection accessions out of isolation_source;
+    fixes #1011 and #1012.'
   llm_assisted: true
