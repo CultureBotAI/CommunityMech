@@ -183,6 +183,7 @@ USERS = {
     "Bacillus_Saccharomyces_Daqu_Spatial_Cooperation_SynCom.yaml",
     "Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml",
     "Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml",
+    "Baia_de_Todos_os_Santos_Mangrove_Alkane_Degrading_Consortium.yaml",
     "Bayan_Obo_REE_Tailings_Consortium.yaml",
     "Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml",
     "Bifidobacterium_Ruminococcus_Infant_HMO_CrossFeeding.yaml",
