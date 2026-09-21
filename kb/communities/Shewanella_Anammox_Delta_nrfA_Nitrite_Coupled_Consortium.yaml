@@ -1,0 +1,530 @@
+id: CommunityMech:000402
+name: Delta nrfA Shewanella-Anammox Nitrite Coupled Consortium
+description: Engineered anaerobic batch-culture consortium pairing activated anammox sludge from a full-scale municipal wastewater
+  process with an nrfA-deficient Shewanella oneidensis MR-1 mutant. The Delta nrfA strain was inoculated into nitrate- and
+  ammonium-containing mixed medium with sludge from an up-flow anaerobic sludge blanket reactor; blocking the terminal nitrite-to-ammonium
+  DNRA step favored nitrite accumulation, enriched Candidatus Brocadia anammox bacteria, and made the 5:1 anammox-sludge-to-mutant
+  culture the fastest and highest total-nitrogen removal treatment at 97%.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Couple anammox sludge with nitrate-respiring S. oneidensis MR-1 while using an nrfA knockout to accumulate nitrite
+    for anammox instead of completing DNRA to ammonium.
+  assembly_strategy: Activate municipal anammox sludge in a UASB reactor, grow wild-type or Delta nrfA S. oneidensis MR-1
+    separately in LB, and add OD600-standardized Shewanella culture to anammox sludge in sealed 500 mL mixed-medium reagent
+    bottles.
+  perturbation_design: Compare anammox-only controls, wild-type S. oneidensis MR-1 additions, and Delta nrfA S. oneidensis
+    MR-1 additions across 25:0 through 25:25 mL sludge:Shewanella inoculum volumes in 500 mL batch cultures.
+  measurement_endpoints:
+  - NH4+-N, NO2--N, NO3--N, COD, and total nitrogen through 9-11 sampling points
+  - Final-time-point metagenomic community structure by Illumina NovaSeq X Plus sequencing and DIAMOND/Micro_NR LCA species
+    annotation
+  - Nitrogen- and carbon-metabolism functional gene abundance
+  - Dissolved EPS by three-dimensional excitation-emission matrix fluorescence
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we constructed a novel coupled system integrating anammox with Shewanella oneidensis MR‐1
+    explanation: Names the engineered anammox/S. oneidensis coupling design.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both S. oneidensis MR‐1 and Δ nrfA S. oneidensis MR‐1 were provided by Professor Qiu
+    explanation: Names the wild-type and Delta nrfA MR-1 strains compared in the batch-culture design.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'ΔB1: M (470 mL) + A (25 mL) + ΔS (5 mL)'
+    explanation: Defines the optimized Delta nrfA treatment as 470 mL mixed medium, 25 mL anammox sludge, and 5 mL mutant
+      culture.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Samples were collected every 8 h, totaling 9–11 sampling events
+    explanation: Supports the repeated sampling scheme for nitrogen-removal measurements.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The sequencing was performed using the Illumina NovaSeq X Plus sequencing system.
+    explanation: Supports metagenomic sequencing as the community-structure endpoint.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Approximately 30 mL of the sludge–water mixture from the final time point was stored at −80°C
+    explanation: Supports the final-time-point sludge-water mixture used for metagenomics.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Unigenes were aligned against Micro_NR using DIAMOND software
+    explanation: Supports DIAMOND/Micro_NR alignment for taxonomic annotation.
+environment_term:
+  preferred_term: anaerobic Shewanella-anammox nitrate-removal batch assay
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The curated community existed in sealed 500 mL laboratory reagent bottles containing mixed nitrate/ammonium medium,
+    UASB anammox sludge, and mutant S. oneidensis MR-1 culture after nitrogen purging.
+modeled_environment:
+- preferred_term: municipal wastewater treatment plant
+  term:
+    id: ENVO:00002043
+    label: wastewater treatment plant
+  notes: The anammox seed sludge came from the anaerobic zone of a full-scale municipal A2/O wastewater treatment process,
+    and the assay was designed for nitrate-laden wastewater nitrogen removal.
+taxonomy:
+- taxon_term:
+    preferred_term: Delta nrfA Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:211586
+      label: Shewanella oneidensis MR-1
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Shewanella_oneidensis
+      gtdb_taxon: Shewanella oneidensis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Shewanellaceae;g__Shewanella;s__Shewanella
+        oneidensis
+      ncbi_source_id: NCBITaxon:211586
+      majority_fraction: 1.0
+      total_genomes: 3
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: An nrfA-deficient derivative of the MR-1 model strain, represented by the MR-1 NCBI taxon with the knockout genotype
+      in the strain designation because the mutant itself has no separate NCBITaxon term.
+  strain_designation:
+    strain_name: Delta nrfA MR-1
+    genetic_modification: S. oneidensis MR-1 mutant lacking the nrfA nitrite reductase gene.
+  abundance_value: 5 mL OD600 approximately 0.6 culture in the optimized 500 mL Delta B1 batch
+  common_taxon: CommunityMech:taxon:000001
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both S. oneidensis MR‐1 and Δ nrfA S. oneidensis MR‐1 were provided by Professor Qiu
+    explanation: Names the Delta nrfA MR-1 mutant added to the mutant coupling assay.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Abbreviations: ΔS, Δ nrfA S. oneidensis MR‐1 culture; A, anammox sludge; M, mixed medium; S, S. oneidensis MR‐1
+      culture.'
+    explanation: Confirms that the Delta-B groups used Delta nrfA S. oneidensis MR-1 culture.
+- taxon_term:
+    preferred_term: Candidatus Brocadia anammox bacteria
+    term:
+      id: NCBITaxon:203682
+      label: Planctomycetota
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:p__Planctomycetota
+      gtdb_taxon: Planctomycetota
+      gtdb_lineage: d__Bacteria;p__Planctomycetota
+      ncbi_source_id: NCBITaxon:203682
+      majority_fraction: 1.0
+      total_genomes: 519
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+    notes: Metagenomic LCA analysis resolved Candidatus Brocadia as the only detected anammox genus in Delta controls and
+      Delta-B treatments; the record grounds the anammox guild broadly at Planctomycetota rather than inventing a closed Brocadia
+      species inventory.
+  abundance_value: Candidatus Brocadia 7% to 10% in Delta CK2 and Delta-B groups
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Planctomycetota , which accounted for 15%~21% of the community and represented the primary taxonomic group of
+      anammox bacteria
+    explanation: Supports the Planctomycetota anammox guild in sludge-amended cultures.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Candidatus Brocadia (7%~10%) emerged as the dominant genus and was identified as the only detected anammox bacterium
+    explanation: Identifies Brocadia as the only detected anammox genus in the Delta CK2 and Delta-B groups.
+- taxon_term:
+    preferred_term: endogenous activated-sludge heterotrophic bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:d__Bacteria
+      gtdb_taxon: Bacteria
+      gtdb_lineage: d__Bacteria
+      ncbi_source_id: NCBITaxon:2
+      majority_fraction: 1.0
+      total_genomes: 1603049
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+    notes: The activated sludge carried non-anammox municipal sludge bacteria, including Pseudomonadota and Bacteroidota in
+      Delta treatments; these are retained as a broad guild because the paper does not curate isolate-resolved membership
+      for every endogenous population.
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Following the addition of ΔnrfA S. oneidensis MR‐1 in the ΔB groups, the abundance of Pseudomonadota decreased
+      significantly compared to the ΔCK groups, whereas the proportion of Planctomycetota increased markedly.
+    explanation: Supports endogenous non-anammox bacterial structure in the Delta-B sludge cultures.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Notably, the relative abundance of Bacteroidota in ΔCK1 was considerably lower than in all other experimental
+      groups.
+    explanation: Supports Bacteroidota as another endogenous non-anammox phylum in sludge-amended Delta groups.
+ecological_interactions:
+- name: Delta nrfA nitrate-to-nitrite supply for anammox
+  description: Deleting nrfA in S. oneidensis MR-1 blocks terminal DNRA reduction of nitrite to ammonium. In the Delta-B batch
+    cultures this diverted nitrate reduction toward nitrite accumulation, enriched the Brocadia-containing anammox guild,
+    and let the sludge community route ammonium plus nitrite toward total-nitrogen removal instead of losing anammox contribution
+    to excess ammonium production.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Delta nrfA Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:211586
+      label: Shewanella oneidensis MR-1
+  target_taxon:
+    preferred_term: Candidatus Brocadia anammox bacteria
+    term:
+      id: NCBITaxon:203682
+      label: Planctomycetota
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  biological_processes:
+  - preferred_term: nitrogen cycle metabolic process
+    term:
+      id: GO:0071941
+      label: nitrogen cycle metabolic process
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: all experimental groups achieved 100% NO 3 − ‐N removal efficiency
+    explanation: Supports complete nitrate removal in the mutant experimental groups.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the addition of ΔnrfA S. oneidensis MR‐1 enhanced the reduction of NO 3 − ‐N to NO 2 − ‐N
+    explanation: Supports nitrate-to-nitrite enhancement by the Delta nrfA strain.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Crucially, the ΔnrfA mutant may effectively block the terminal reduction of nitrite to ammonium via the Nap/Nrf
+      pathway.
+    explanation: Supports nrfA deletion as the engineered block in terminal DNRA to ammonium.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Metagenomic analysis revealed that this configuration enriched anammox bacteria (Candidatus Brocadia ) and enhanced
+      the abundance of key anammox genes ( hzs and hdh )
+    explanation: Supports Brocadia/anammox-gene enrichment in the optimized 5:1 mutant coupled system.
+- name: Mutant dosage window for anammox performance
+  description: Adding a small Delta nrfA S. oneidensis MR-1 inoculum to anammox sludge improved nitrogen-removal kinetics,
+    but increasing the mutant culture fraction caused nitrite and ammonium accumulation patterns consistent with reduced anammox
+    contribution. The optimal Delta B1 treatment kept 25 mL anammox sludge with 5 mL mutant culture in 500 mL total liquid,
+    a 5:1 sludge-to-mutant culture-volume ratio.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Delta nrfA Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:211586
+      label: Shewanella oneidensis MR-1
+  - preferred_term: Candidatus Brocadia anammox bacteria
+    term:
+      id: NCBITaxon:203682
+      label: Planctomycetota
+  - preferred_term: endogenous activated-sludge heterotrophic bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  biological_processes:
+  - preferred_term: nitrogen cycle metabolic process
+    term:
+      id: GO:0071941
+      label: nitrogen cycle metabolic process
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Final NH 4 + ‐N levels in ΔB4 and ΔB5 were higher than in ΔCK1
+    explanation: Supports loss of nitrogen-removal performance at higher Delta nrfA mutant fractions.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: an excessive proportion of ΔnrfA S. oneidensis MR‐1 could compete with anammox bacteria for ecological niches
+    explanation: Supports the authors' competition interpretation for high mutant proportions.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ΔB1 achieved the highest TN removal efficiency (97%) and reached above 90% removal faster
+    explanation: Supports Delta B1 as the highest-performing inoculation ratio.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ΔB1 exhibited the optimal N removal performance, which corresponded to a volumetric ratio of anammox sludge to
+      ΔnrfA S. oneidensis MR‐1 of 5:1
+    explanation: Ties the optimal nitrogen-removal result to the 5:1 sludge-to-mutant ratio.
+environmental_factors:
+- name: Anammox sludge to Delta nrfA Shewanella inoculation ratio
+  value: '5:1'
+  unit: mL:mL culture volume in optimized Delta B1
+  description: The best-performing Delta B1 group combined 25 mL anammox sludge with 5 mL Delta nrfA S. oneidensis MR-1 culture
+    in a 500 mL batch.
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'ΔB1: M (470 mL) + A (25 mL) + ΔS (5 mL)'
+    explanation: Defines the optimized Delta B1 bottle composition.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Abbreviations: ΔS, Δ nrfA S. oneidensis MR‐1 culture; A, anammox sludge; M, mixed medium; S, S. oneidensis MR‐1
+      culture.'
+    explanation: Defines the A, M, and Delta-S abbreviations used in the table.
+growth_media:
+- name: Anaerobic nitrate/ammonium/lactate mixed medium
+  composition:
+  - name: ammonium chloride
+    concentration: 0.306
+    unit: g/L
+    from_source: community_curated
+  - name: sodium nitrate
+    concentration: 0.6419
+    unit: g/L
+    from_source: community_curated
+  - name: sodium lactate
+    concentration: 25
+    unit: mM
+    from_source: community_curated
+  - name: calcium chloride
+    concentration: 0.136
+    unit: g/L
+  - name: sodium chloride
+    concentration: 0.46
+    unit: g/L
+  - name: sodium bicarbonate
+    concentration: 0.5
+    unit: g/L
+  - name: dipotassium phosphate
+    concentration: 0.225
+    unit: g/L
+  - name: monopotassium phosphate
+    concentration: 0.252
+    unit: g/L
+  - name: magnesium sulfate heptahydrate
+    concentration: 0.65
+    unit: g/L
+  - name: trace element Solutions I and II
+    concentration: 1.25
+    unit: mL/L
+  - name: Wolfe's trace element solution
+    concentration: 10
+    unit: mL/L
+  ph_range: 7.4 +/- 0.2
+  atmosphere: ANAEROBIC
+  headspace_gas: N2 purge for 10 min
+  inoculum_source: 25 mL activated anammox sludge from the UASB reactor plus 5 mL OD600 approximately 0.6 Delta nrfA S. oneidensis
+    MR-1 culture in Delta B1
+  inoculum_size: 30
+  inoculum_unit: mL total sludge plus mutant culture per 500 mL batch
+  vessel_type: 500 mL reagent bottle
+  preparation_notes: Mixed medium, anammox sludge, and OD600 approximately 0.6 Shewanella culture were dispensed separately
+    into 500 mL reagent bottles and purged with ultra-high-purity N2 for 10 min before 8 h interval sampling.
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The mixed medium was composed of NH 4 Cl (0.306 g/L) and NaNO 3 (0.6419 g/L)
+    explanation: Names the two inorganic nitrogen salts in the coupling medium.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 25‐mM sodium lactate (electron donor)
+    explanation: Names sodium lactate as the added electron donor.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The mixed medium pH was adjusted to 7.4 ± 0.2 using 1‐M HCl and 1‐M NaOH.
+    explanation: Supports the starting pH range of the mixed medium.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The mixed medium, anammox sludge (UASB), and microbial culture (OD 600 ≈0.6) were separately dispensed into 500
+      mL reagent bottles.
+    explanation: Supports the 500 mL bottle format and OD600 of the microbial culture.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: N 2 gas (99.999%) was purged for 10 min to remove dissolved oxygen from the reagent bottles.
+    explanation: Supports anaerobic preparation by nitrogen purging.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: 500 mL reagent bottles for sealed anaerobic batch coupling assays
+  working_volume: 500
+  working_volume_unit: mL
+  controls_notes: The study included mixed-medium-only, anammox-only, wild-type S. oneidensis MR-1, and Delta nrfA S. oneidensis
+    MR-1 treatments.
+  notes: Each group was prepared in triplicate and sampled every 8 h; the source does not report a separate incubator temperature
+    for the 500 mL coupling-assay bottles.
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The mixed medium, anammox sludge (UASB), and microbial culture (OD 600 ≈0.6) were separately dispensed into 500
+      mL reagent bottles.
+    explanation: Supports the reagent-bottle batch cultivation format.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Note: Each group was prepared in triplicate.'
+    explanation: Supports triplicate preparation of every coupling-assay group.
+related_ingredients:
+- preferred_term: nitrate
+  chebi_term:
+    id: CHEBI:17632
+    label: nitrate
+  relevance: Nitrate was the oxidized nitrogen species that Delta nrfA S. oneidensis MR-1 reduced toward nitrite in the mixed
+    medium.
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the addition of ΔnrfA S. oneidensis MR‐1 enhanced the reduction of NO 3 − ‐N to NO 2 − ‐N
+    explanation: Supports nitrate reduction to nitrite in the Delta-B groups.
+- preferred_term: nitrite
+  chebi_term:
+    id: CHEBI:16301
+    label: nitrite
+  relevance: Nitrite accumulated when the engineered mutant blocked nrfA-dependent DNRA and was the intended electron acceptor
+    for anammox ammonium oxidation.
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: This targeted genetic blockade could facilitate the accumulation of NO 2 − ‐N
+    explanation: Supports nitrite accumulation from the engineered nrfA blockade.
+- preferred_term: ammonium
+  chebi_term:
+    id: CHEBI:28938
+    label: ammonium
+  relevance: Ammonium chloride supplied the ammonium substrate consumed with nitrite by anammox bacteria during nitrogen removal.
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The mixed medium was composed of NH 4 Cl (0.306 g/L) and NaNO 3 (0.6419 g/L)
+    explanation: Names ammonium chloride as a defined mixed-medium substrate.
+- preferred_term: sodium lactate
+  chebi_term:
+    id: CHEBI:75228
+    label: sodium lactate
+  relevance: Sodium lactate was supplied as the electron donor in the coupling medium.
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 25‐mM sodium lactate (electron donor)
+    explanation: Names sodium lactate as the mixed-medium electron donor.
+associated_datasets: []
+external_resources:
+- name: Primary publication for the Delta nrfA Shewanella-anammox consortium
+  repository: OTHER
+  resource_id: PMID:42655905
+  url: https://pubmed.ncbi.nlm.nih.gov/42655905/
+  description: PubMed record for Yi et al. 2026 Water Environment Research article on nrfA-deficient S. oneidensis MR-1 coupled
+    with anammox sludge.
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The coupled system achieved a maximum total N removal efficiency of 97% with the fastest reaction kinetics at
+      an optimal anammox‐to‐mutant volume ratio of 5:1
+    explanation: Identifies the primary publication's optimized anammox-to-mutant result.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1002/wer.70526
+  url: https://doi.org/10.1002/wer.70526
+  description: DOI link to the Water Environment Research article.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this wastewater nitrogen-removal Shewanella-anammox
+  consortium.
+discussions:
+- discussion_id: shewanella_anammox_sludge_membership_and_flux_unresolved
+  prompt: Which endogenous sludge populations directly exchanged nitrite or electrons with the Delta nrfA S. oneidensis mutant,
+    and does the optimized 5:1 phenotype remain stable in a continuous reactor?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy#endogenous activated-sludge heterotrophic bacteria
+  - ecological_interactions#Delta nrfA nitrate-to-nitrite supply for anammox
+  rationale: The source profiled the final time point by metagenomics and reported the dominant anammox genus, but it did
+    not isotope-trace nitrate, nitrite, or ammonium flux through the mutant, Brocadia, and endogenous denitrifiers. Its Perspective
+    explicitly calls for long-term continuous trials, gaseous-nitrogen measurements, time-series metagenomics, and isotope
+    labeling to resolve those mechanisms.
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Future long‐term continuous reactor trials are required to evaluate the stable performance of the coupled system
+      under practical running conditions
+    explanation: Names the unresolved need for continuous-reactor validation.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Subsequent tests should quantify gaseous nitrogen metabolites alongside liquid nitrogen pollutants
+    explanation: Names the unresolved nitrogen-product partitioning gap.
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: future research could carry out isotope labeling tests to quantitatively differentiate the contribution of anammox,
+      denitrification, and DNRA
+    explanation: Names the unresolved isotope-flux attribution gap.
+  posed_by: codex
+  posed_date: '2026-09-21'
+curation_history:
+- timestamp: '2026-09-21T04:08:55Z'
+  curator: claude
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000402 for the Delta nrfA Shewanella oneidensis MR-1 / anammox-sludge nitrate-removal consortium
+    from PMID:42655905, including mutant/sludge assembly, 5:1 optimized Delta B1 dosing, nitrate-to-nitrite coupling, Brocadia
+    anammox metagenomic enrichment, 500 mL anaerobic mixed-medium cultivation, and unresolved flux/stability gaps.
+  llm_assisted: true
+- timestamp: '2026-09-21T04:15:15Z'
+  curator: claude
+  action: FIX_ADVERSARIAL_REVIEW_FINDINGS
+  changes: 'Addressed adversarial-review issues #996, #997, and #998 by moving final-time-point metagenomic annotation out
+    of environmental_factors, adding Bacteroidota evidence for endogenous activated-sludge heterotrophs, and repairing the
+    PMID:42655905 PMCID provenance header.'
+  llm_assisted: true
