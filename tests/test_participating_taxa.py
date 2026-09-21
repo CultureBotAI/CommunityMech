@@ -285,6 +285,7 @@ USERS = {
     "Wheat_Consortium_C6.yaml",
     "Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml",
     "Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml",
+    "Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml",
     "Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml",
     "mCAFEs_Brachypodium_RCC.yaml",
 }
