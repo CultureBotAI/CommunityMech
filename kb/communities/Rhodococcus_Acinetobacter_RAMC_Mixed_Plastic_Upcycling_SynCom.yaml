@@ -193,8 +193,8 @@ ecological_interactions:
       label: acetic acid
   - preferred_term: lactic acid
     term:
-      id: CHEBI:749277
-      label: lactic acid
+      id: CHEBI:28358
+      label: rac-lactic acid
   - preferred_term: succinic acid
     term:
       id: CHEBI:15741
@@ -294,8 +294,8 @@ growth_media:
     chebi_term:
       preferred_term: lactic acid
       term:
-        id: CHEBI:749277
-        label: lactic acid
+        id: CHEBI:28358
+        label: rac-lactic acid
   - name: succinic acid
     concentration: '16.7'
     unit: mM in 750 mM simulated stock
@@ -497,4 +497,12 @@ curation_history:
     Removed two outcome-only downstream links from the RAMC
     aromatic/aliphatic division-of-labor interaction so the causal graph only
     names interactions that exist as nodes in this record.
+  llm_assisted: true
+- timestamp: '2026-09-21T21:15:09Z'
+  curator: codex
+  action: REPAIR_RAMC_LACTIC_ACID_CHEBI
+  changes: >
+    Replaced unresolved CHEBI:749277 lactic acid grounding with the existing
+    ChEBI rac-lactic acid term, CHEBI:28358, in the division-of-labor
+    interaction and simulated mixed-plastic medium.
   llm_assisted: true
