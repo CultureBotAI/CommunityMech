@@ -231,6 +231,24 @@ ecological_interactions:
     snippet: SynLA V significantly reduced rhizosphere soil DEHP residues and plant DEHP accumulation in comparison to uninoculated
       controls.
     explanation: Supports the SynLAV pot-level DEHP reduction outcome.
+- name: Choysum DEHP accumulation reduction
+  description: SynLAV inoculation of DEHP-contaminated choysum pots reduced DEHP residues in the rhizosphere soil and decreased
+    DEHP accumulation in choysum plants relative to uninoculated controls.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: DEHP
+    term:
+      id: CHEBI:17747
+      label: bis(2-ethylhexyl) phthalate
+    concentration: 100 mg/kg in pot soil
+    notes: The paper abbreviates di(2-ethylhexyl) phthalate as DEHP.
+  evidence:
+  - reference: PMID:42482240
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynLA V significantly reduced rhizosphere soil DEHP residues and plant DEHP accumulation in comparison to uninoculated
+      controls.
+    explanation: Supports the downstream plant-accumulation and rhizosphere-residue outcome that followed SynLAV inoculation.
 environmental_factors:
 - name: DEHP-contaminated choysum pot soil
   value: '100'
@@ -356,4 +374,10 @@ curation_history:
   changes: 'Addressed review findings from issues #1000 and #1001 by correcting the canonical Rhodococcus NCBITaxon label,
     removing the unsupported MUTUALISM type from the community-level DEHP outcome, and adding narrow evidence for the 5 mL
     SynCom inoculum volume.'
+  llm_assisted: true
+- timestamp: '2026-09-21T05:47:39Z'
+  curator: claude
+  action: FIX_NETWORK_AUDIT
+  changes: Added the Choysum DEHP accumulation reduction interaction named by the SynLAV downstream edge so the causal graph
+    no longer points at a missing ecological interaction.
   llm_assisted: true

@@ -831,6 +831,50 @@
 
             </div>
 
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Choysum DEHP accumulation reduction</h3>
+                </div>
+
+
+
+
+
+
+                <p><strong>Metabolites:</strong>
+
+                    DEHP
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17747"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17747</a>)
+
+                </p>
+
+
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42482240/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42482240</a>
+
+                            - SUPPORT (IN_VIVO)
+                        </div>
+
+                        <div class="snippet">"SynLA V significantly reduced rhizosphere soil DEHP residues and plant DEHP accumulation in comparison to uninoculated controls."</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
 
         </section>
 
@@ -1330,6 +1374,34 @@
 
         })();
 
+        (function() {
+            var intId = "interaction:1";
+            var intType = "UNKNOWN";
+            var metabolites = [];
+
+
+            metabolites.push("DEHP");
+
+
+            var processes = [];
+
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Choysum DEHP accumulation reduction",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+
+
+        })();
+
 
         // Remove taxon nodes with no connections
         var connectedIds = new Set();
@@ -1346,7 +1418,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 6;
+        var nodeCount = 7;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 
