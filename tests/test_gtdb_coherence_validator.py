@@ -497,10 +497,11 @@ def test_the_status_distribution_is_what_was_measured():
     # eukaryotes back into UNRESOLVED would pass (#393). Recent curated
     # strain-level bacterial rows with no crosswalk hit can still move this
     # count by small increments. #922 adds a 15-member marine algal SynCom,
-    # #945 adds a 6-member GenX consortium, and #968 adds a 9-member Nasal
-    # SynCom C bioreactor whose taxa lack committed GTDB groundings, so leave
-    # headroom above 282 without tolerating a domain-lookup collapse.
-    assert counts["UNRESOLVED"] < 291, (
+    # #945 adds a 6-member GenX consortium, #968 adds a 9-member Nasal SynCom
+    # C bioreactor, and #987 adds a 4-member PMSX SynCom with three taxa whose
+    # members lack committed GTDB groundings, so leave headroom above 291
+    # without tolerating a domain-lookup collapse.
+    assert counts["UNRESOLVED"] < 294, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
