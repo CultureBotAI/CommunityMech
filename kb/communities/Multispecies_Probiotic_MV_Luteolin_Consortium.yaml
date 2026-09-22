@@ -1,0 +1,361 @@
+id: CommunityMech:000425
+name: CICC Three-Strain Probiotic M-MV Luteolin Consortium
+description: Defined anaerobic co-culture of Bifidobacterium longum CICC25033, Clostridium butyricum CICC23847, and Limosilactobacillus
+  reuteri CICC6131 used to produce mixed-species probiotic membrane vesicles (M-MVs). Hou et al. grew the strains singly,
+  pairwise, and as a 1:1:1 three-strain combination in MRS broth, observed higher viable counts in co-culture and with cell-free
+  supernatants from partner strains, isolated M-MVs from the supernatant of the co-culture, found a distinct M-MV proteomic
+  profile with antioxidant activity, and loaded luteolin into the resulting M-MVs for in-vitro and DSS-induced mouse-colitis
+  assays.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Test whether co-culturing three probiotic species can produce mixed-species membrane vesicles with distinct proteomic
+    and antioxidant properties for luteolin encapsulation.
+  assembly_strategy: Resuscitate B. longum CICC25033, C. butyricum CICC23847, and L. reuteri CICC6131 freeze-dried powders
+    obtained from the China Center of Industrial Culture Collection, then compare mono-cultures, pairwise 1:1 combinations,
+    and the 1:1:1 three-strain co-culture.
+  inoculation_strategy: Inoculate the three-strain combination at 1% into fresh MRS broth at a 1:1:1 ratio; supplement groups
+    containing C. butyricum with 0.1 mg/mL L-cysteine hydrochloride.
+  perturbation_design: Compare the co-cultured three-strain M-MVs against B-MVs, C-MVs, and L-MVs from matched mono-cultures,
+    then compare blank M-MVs, free luteolin, and luteolin-loaded M-MVs.
+  measurement_endpoints:
+  - viable cell counts after mono-, pairwise-, and three-strain anaerobic culture
+  - viable cell counts after growth with cell-free supernatants from partner strains
+  - membrane-vesicle morphology and particle-size distribution by TEM and DLS
+  - vesicle proteins by SDS-PAGE and LC-MS/MS
+  - DPPH and ABTS radical-scavenging activity
+  - luteolin loading, solubility, and simulated gastrointestinal stability
+  - RAW264.7 cytotoxicity and cellular uptake
+  - DSS-induced mouse-colitis histology, antioxidant, inflammatory, and 16S readouts
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each probiotic strain, their pairwise combinations (1:1) and a three-strain combination (1:1:1) were inoculated
+      at 1% into fresh MRS broth
+    explanation: Supports the mono-culture, pairwise, and 1:1:1 assembly design.
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: From the supernatant of the co-cultured three strains, we isolated M-MVs
+    explanation: Links the three-strain co-culture to the mixed-species membrane-vesicle output.
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lut, a flavonoid with antioxidant and anti-inflammatory properties, was loaded into M-MVs
+    explanation: Supports luteolin loading into the mixed-species vesicles.
+environment_term:
+  preferred_term: anaerobic MRS probiotic co-culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The three CICC strains were co-cultured anaerobically in MRS broth at 37 °C for 24 h before supernatant harvest and
+    M-MV isolation.
+modeled_environment:
+- preferred_term: intestinal colitis model environment
+  term:
+    id: ENVO:2100002
+    label: intestine environment
+  notes: The live co-culture was grown in vitro to produce M-MVs and Lut-MVs that were evaluated as an intestinal-colitis
+    intervention in a DSS mouse model.
+taxonomy:
+- taxon_term:
+    preferred_term: Bifidobacterium longum CICC25033
+    term:
+      id: NCBITaxon:216816
+      label: Bifidobacterium longum
+    gtdb_grounding_status: AMBIGUOUS
+    notes: NCBI species identity was verified through E-utilities. The local NCBI-to-GTDB mapping has previously split B.
+      longum between the GTDB Bifidobacterium infantis and Bifidobacterium longum species.
+    gtdb_candidates:
+    - GTDB:s__Bifidobacterium_infantis
+    - GTDB:s__Bifidobacterium_longum
+  strain_designation:
+    strain_name: CICC25033
+    notes: The source reports this as a CICC accession from the China Center of Industrial Culture Collection; CICC is not
+      in the local culture-collection enum.
+  abundance_value: One of three probiotic strains mixed 1:1:1 to generate M-MVs.
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. longum CICC25033, C. butyricum CICC23847, and L. reuteri CICC6131
+    explanation: Names the three exact CICC probiotic strains assembled in the M-MV co-culture.
+- taxon_term:
+    preferred_term: Clostridium butyricum CICC23847
+    term:
+      id: NCBITaxon:1492
+      label: Clostridium butyricum
+    gtdb_grounding_status: GROUNDED
+    notes: NCBI species identity was verified through E-utilities.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Clostridium_butyricum
+      gtdb_taxon: Clostridium butyricum
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Clostridiales;f__Clostridiaceae;g__Clostridium;s__Clostridium
+        butyricum
+      ncbi_source_id: NCBITaxon:1492
+      majority_fraction: 0.97
+      total_genomes: 327
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: CICC23847
+    notes: The source reports this as a CICC accession from the China Center of Industrial Culture Collection; CICC is not
+      in the local culture-collection enum.
+  abundance_value: One of three probiotic strains mixed 1:1:1 to generate M-MVs.
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. longum CICC25033, C. butyricum CICC23847, and L. reuteri CICC6131
+    explanation: Names the three exact CICC probiotic strains assembled in the M-MV co-culture.
+- taxon_term:
+    preferred_term: Limosilactobacillus reuteri CICC6131
+    term:
+      id: NCBITaxon:1598
+      label: Limosilactobacillus reuteri
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source reports L. reuteri; NCBI taxid 1598 is active with the canonical scientific name Limosilactobacillus
+      reuteri. GTDB grounding was left unresolved because the local NCBI-to-GTDB crosswalk was not available during curation.
+  strain_designation:
+    strain_name: CICC6131
+    notes: The source reports this as a CICC accession from the China Center of Industrial Culture Collection; CICC is not
+      in the local culture-collection enum.
+  abundance_value: One of three probiotic strains mixed 1:1:1 to generate M-MVs.
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. longum CICC25033, C. butyricum CICC23847, and L. reuteri CICC6131
+    explanation: Names the three exact CICC probiotic strains assembled in the M-MV co-culture.
+ecological_interactions:
+- name: Three-Strain Co-Culture Growth Enhancement
+  description: B. longum CICC25033, C. butyricum CICC23847, and L. reuteri CICC6131 grew without detectable antagonism when
+    paired or assembled as a 1:1:1 MRS co-culture, and cell-free supernatants from partner strains enhanced mono-culture growth,
+    especially for L. reuteri. The authors attributed these responses to a putative cross-feeding relationship.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: interspecies interaction
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: viable cell counts in the co-cultured strains increased significantly
+    explanation: Supports higher viable counts in co-cultures than in mono-cultures.
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This could be attributed to a cross-feeding relationship
+    explanation: Supports the source's cross-feeding interpretation for the growth enhancement.
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each probiotic strain was cultured in MRS medium supplemented with 1% cell-free supernatant
+    explanation: Supports the partner-supernatant experiment used to assay diffusible growth effects.
+growth_media:
+- name: anaerobic MRS broth with C. butyricum L-cysteine amendment
+  composition:
+  - name: MRS broth
+  - name: L-cysteine hydrochloride
+    concentration: '0.1'
+    unit: mg/mL for C. butyricum-containing groups
+  temperature: '37'
+  temperature_unit: °C
+  atmosphere: ANAEROBIC
+  inoculum_size: '1'
+  inoculum_unit: '% v/v'
+  incubation_time: '24'
+  incubation_time_unit: h
+  preparation_notes: B. longum and L. reuteri were first revived in MRS broth at 37 °C for 24 h under anaerobic conditions;
+    C. butyricum was revived under the same conditions with 0.1 mg/mL L-cysteine hydrochloride.
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. longum and L. reuteri were cultured anaerobically in MRS broth at 37 °C for 24 h
+    explanation: Supports anaerobic MRS revival at 37 °C for B. longum and L. reuteri.
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. butyricum was cultured under the same conditions with the addition of 0.1 mg/mL L-cysteine hydrochloride
+    explanation: Supports the L-cysteine hydrochloride amendment for C. butyricum cultures.
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: three-strain combination (1:1:1) were inoculated at 1% into fresh MRS broth
+    explanation: Supports the 1:1:1 three-strain co-culture and 1% inoculum.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: Anaerobic MRS broth batch cultures; the source did not specify the culture vessel.
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  controls_notes: Each strain, all pairwise 1:1 combinations, and the 1:1:1 three-strain combination were incubated for 24
+    h and counted by plating.
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each probiotic strain, their pairwise combinations (1:1) and a three-strain combination (1:1:1)
+    explanation: Supports the mono-culture, pairwise, and three-strain batch arms.
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Viable cells were determined using the plate counting method
+    explanation: Supports plate counting as the co-culture growth readout.
+related_ingredients:
+- preferred_term: luteolin
+  chebi_term:
+    id: CHEBI:15864
+    label: luteolin
+  shared_environment_term:
+    id: ENVO:2100002
+    label: intestine environment
+  relevance: Luteolin was the hydrophobic flavonoid cargo encapsulated in M-MVs produced from the three-strain co-culture
+    to generate Lut-MVs.
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lut, a hydrophobic flavonoid, was loaded into M-MVs to generate Lut-MVs
+    explanation: Supports luteolin as the cargo loaded into the mixed-species vesicles.
+associated_datasets:
+- accession: PXD071787
+  title: M-MV and single-strain probiotic MV LC-MS/MS proteomics
+  description: ProteomeXchange accession for LC-MS/MS proteomics comparing proteins in mixed-species M-MVs and B. longum,
+    C. butyricum, and L. reuteri mono-culture MVs.
+  organism: B. longum / C. butyricum / L. reuteri membrane vesicles
+  dataset_type: PROTEOMICS
+  repository: OTHER
+  url: http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD071787
+  publication: PMID:42604006
+  findings: LC-MS/MS identified 200 proteins in M-MVs and four proteins detected only in M-MVs.
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: The MS proteomics data have been deposited into the ProteomeXchange Consortium
+    explanation: Links the vesicle proteomics data to ProteomeXchange PXD071787.
+- accession: IPX0014605000
+  title: iProX record for M-MV LC-MS/MS proteomics
+  description: iProX partner-repository accession for the same LC-MS/MS vesicle proteomics deposition.
+  organism: B. longum / C. butyricum / L. reuteri membrane vesicles
+  dataset_type: PROTEOMICS
+  repository: OTHER
+  url: https://www.iprox.cn/page/project.html?id=IPX0014605000
+  publication: PMID:42604006
+  findings: iProX hosts the PXD071787 LC-MS/MS data for probiotic membrane vesicles.
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: 'via the iProX partner repository: https://www.iprox.cn/page/project.html?id=IPX0014605000'
+    explanation: Links the ProteomeXchange deposition to iProX accession IPX0014605000.
+- accession: PRJNA1482721
+  title: Lut-MV DSS mouse-colitis 16S rDNA amplicon BioProject
+  description: NCBI BioProject containing raw 16S rDNA sequencing reads from intestinal microbiota analysis of mice treated
+    with M-MVs, luteolin, or Lut-MVs.
+  dataset_type: AMPLICON_16S
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1482721
+  publication: PMID:42604006
+  findings: The reads underpin the mouse gut-microbiota comparisons after DSS and M-MV/Lut/Lut-MV intervention.
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: 'under BioProject accession: PRJNA1482721'
+    explanation: Links the raw 16S rDNA sequencing data to BioProject PRJNA1482721.
+external_resources:
+- name: PubMed - multi-species probiotic-derived vesicles for luteolin delivery
+  repository: OTHER
+  resource_id: PMID:42604006
+  url: https://pubmed.ncbi.nlm.nih.gov/42604006/
+  description: PubMed record for the iScience study of B. longum/C. butyricum/L. reuteri M-MVs.
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'PMID: 42604006'
+    explanation: Identifies the PubMed accession for the primary publication.
+- name: Version-of-record DOI
+  repository: OTHER
+  resource_id: doi:10.1016/j.isci.2026.117105
+  url: https://doi.org/10.1016/j.isci.2026.117105
+  description: DOI landing page for the iScience primary publication.
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.1016/j.isci.2026.117105'
+    explanation: Identifies the DOI for the primary publication.
+- name: PMC open-access full text
+  repository: OTHER
+  resource_id: PMC13476518
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13476518/
+  description: Open-access PMC full text for the iScience primary publication.
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: PMC13476518
+    explanation: Identifies the PMC identifier for the full text.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: The three-strain probiotic co-culture was used to produce membrane vesicles for luteolin delivery; no metal or
+  rare-earth element processing role was reported.
+discussions:
+- discussion_id: cicc_mmv_msra_causality_unresolved
+  prompt: Does the M-MV-only methionine sulfoxide reductase MsrA protein causally drive the improved antioxidant and colitis-protective
+    phenotype of mixed-species vesicles?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions
+  - associated_datasets#PXD071787
+  rationale: The LC-MS/MS dataset identified MsrA as unique to M-MVs and its known antioxidant role is directionally consistent
+    with higher radical scavenging, but the study did not test an MsrA knockout, inhibition, or add-back design.
+  proposed_experiments:
+  - name: MsrA-deficient M-MV comparison
+    description: Generate an MsrA-deficient M-MV preparation and compare vesicle protein composition, DPPH/ABTS scavenging,
+      and DSS-colitis rescue against wild-type M-MVs.
+    approach: genetic perturbation of probiotic MsrA followed by vesicle proteomics and activity assays
+    model_systems:
+    - defined three-strain MRS co-culture
+    - probiotic membrane vesicles
+    - DSS mouse-colitis model
+    perturbations:
+    - MsrA knockout or inhibition
+    readouts:
+    - M-MV LC-MS/MS
+    - DPPH and ABTS scavenging
+    - DSS-colitis endpoints
+    decision_criterion: A specific loss of M-MV antioxidant and colitis-protective activity would support a causal MsrA contribution;
+      retention of activity would point to other vesicle cargo.
+  evidence:
+  - reference: PMID:42604006
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: we did not perform direct functional validation to establish causality
+    explanation: Documents the paper's stated absence of direct MsrA causal validation.
+  posed_by: codex
+  posed_date: '2026-09-22'
+curation_history:
+- timestamp: '2026-09-22T19:55:11Z'
+  curator: codex
+  action: ADD_COMMUNITY_RECORD
+  changes: Added CommunityMech:000425 for the B. longum CICC25033, C. butyricum CICC23847, and L. reuteri CICC6131 M-MV probiotic
+    co-culture from PMID:42604006.
+  llm_assisted: true
+- timestamp: '2026-09-22T19:55:11Z'
+  curator: codex
+  action: ADVERSARIAL_REVIEW_FIX
+  changes: 'Changed community_category from DIET to BIOTECHNOLOGY after issue #1065; DIET denotes direct interspecies electron
+    transfer rather than probiotic membrane-vesicle biotechnology.'
+  llm_assisted: true
