@@ -1,0 +1,377 @@
+id: CommunityMech:000414
+name: Wheat Crown-Rot Six-Strain Cross-Kingdom SMC
+description: A six-strain cross-kingdom wheat-rhizosphere synthetic microbial community that combined Trichoderma harzianum
+  T19, Bacillus subtilis BS-Z15, Bacillus spizizenii PM9, Bacillus rugosus PM16, Bacillus rugosus S32, and Bacillus halotolerans
+  S8 for nonsterile-soil wheat pot assays against Fusarium pseudograminearum Fusarium crown rot. Zhou et al. 2026 assembled
+  the SMC from antagonistic, growth-promoting, and auxiliary wheat-rhizosphere isolates and compared sterile-water, Fusarium-only,
+  SMC-only, and SMC-plus-Fusarium treatments for plant growth, disease severity, resident rhizosphere amplicon profiles, co-occurrence
+  networks, and rhizosphere metabolomics.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Assemble a cross-kingdom synthetic microbial community that suppresses Fusarium pseudograminearum wheat crown
+    rot while promoting wheat growth.
+  assembly_strategy: Combine equal volumes of Bacillus subtilis BS-Z15, Bacillus spizizenii PM9, Bacillus rugosus PM16, Bacillus
+    rugosus S32, Bacillus halotolerans S8, and Trichoderma harzianum T19 suspensions immediately before inoculation.
+  inoculation_strategy: Produce T19 conidia in CMC liquid medium at 28 °C for 5 d, grow each Bacillus strain in nutrient broth
+    at 37 °C for 8 h, resuspend the five bacterial cultures in sterile water after OD600 adjustment to 0.1, and mix equal
+    volumes of the five bacterial suspensions with the T19 spore suspension to form the SMC.
+  perturbation_design: Compare sterile-water, Fusarium pseudograminearum, SMC, and SMC+Fusarium treatments in nonsterile wheat
+    pots arranged as randomized complete blocks.
+  measurement_endpoints:
+  - wheat Fusarium crown-rot disease severity index
+  - wheat plant height, root length, stem diameter, biomass, chlorophyll, and thousand-kernel weight
+  - rhizosphere soil physicochemical and enzyme activities
+  - rhizosphere full-length 16S rRNA and ITS amplicon profiles
+  - rhizosphere bacterial and fungal co-occurrence networks
+  - rhizosphere soil metabolomics profiles
+  evidence:
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: assembled a cross-kingdom synthetic microbial community (SMC) of Trichoderma harzianum T19 and five Bacillus
+      strains and tested it in nonsterile soil challenged with Fusarium pseudograminearum.
+    explanation: Identifies the SMC as T19 plus five Bacillus strains and the nonsterile Fusarium-challenged soil test system.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Equal volumes of the five bacterial suspensions and the T19 spore suspension were then combined to constitute
+      the SynCom SMC.
+    explanation: Reports that the six separately prepared strain suspensions were mixed by equal volume to make the SMC.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Based on prior screening, we assembled an SMC comprising antagonists (T19 and BS-Z15), growth-promoting strains
+      (PM9 and PM16), and auxiliary strains (S8 and S32) (Figure G).
+    explanation: Describes the design roles assigned to the antagonistic, growth-promoting, and auxiliary member strains.
+environment_term:
+  preferred_term: wheat rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: The SMC was soil-drenched into nonsterile pots supporting wheat roots.
+modeled_environment:
+- preferred_term: wheat plant-associated environment
+  term:
+    id: ENVO:01001001
+    label: plant-associated environment
+  notes: The pot assay models a wheat rhizosphere exposed to Fusarium crown rot pressure.
+taxonomy:
+- taxon_term:
+    preferred_term: Trichoderma harzianum T19
+    term:
+      id: NCBITaxon:5544
+      label: Trichoderma harzianum
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Fungal SMC antagonist; GTDB does not classify eukaryotes.
+  strain_designation:
+    strain_name: T19
+    isolation_source: healthy wheat rhizosphere soil
+    notes: Identified from rhizosphere soil and deposited as CCTCC M 20251896.
+  evidence:
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The core microbial strains used in this study were isolated from the rhizosphere soils of healthy wheat plants
+      collected from experimental fields at Xinjiang Normal University (Urumqi, China).
+    explanation: Reports the healthy-wheat-rhizosphere source for strain T19.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'The six functional strains were identified as follows: B. subtilis BS-Z15 (CCTCC M 20251892), B. spizizenii
+      PM9 (CCTCC M 20251894), B. rugosus PM16 (CCTCC M 20251895), T. harzianum T19 (CCTCC M 20251896), B. rugosus S32 (CCTCC
+      M 20251897), and B. halotolerans S8 (CCTCC M 20251898).'
+    explanation: Identifies strain T19 as Trichoderma harzianum and lists its CCTCC deposit.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Based on prior screening, we assembled an SMC comprising antagonists (T19 and BS-Z15), growth-promoting strains
+      (PM9 and PM16), and auxiliary strains (S8 and S32) (Figure G).
+    explanation: Names strain T19 as a designed pathogen_antagonist member of the six-strain SMC.
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+- taxon_term:
+    preferred_term: Bacillus subtilis BS-Z15
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_subtilis
+      gtdb_taxon: Bacillus subtilis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis
+      ncbi_source_id: NCBITaxon:1423
+      majority_fraction: 0.91
+      total_genomes: 1256
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: BS-Z15
+    isolation_source: healthy wheat rhizosphere soil
+    notes: Identified from rhizosphere soil and deposited as CCTCC M 20251892.
+  evidence:
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The core microbial strains used in this study were isolated from the rhizosphere soils of healthy wheat plants
+      collected from experimental fields at Xinjiang Normal University (Urumqi, China).
+    explanation: Reports the healthy-wheat-rhizosphere source for strain BS-Z15.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'The six functional strains were identified as follows: B. subtilis BS-Z15 (CCTCC M 20251892), B. spizizenii
+      PM9 (CCTCC M 20251894), B. rugosus PM16 (CCTCC M 20251895), T. harzianum T19 (CCTCC M 20251896), B. rugosus S32 (CCTCC
+      M 20251897), and B. halotolerans S8 (CCTCC M 20251898).'
+    explanation: Identifies strain BS-Z15 as Bacillus subtilis and lists its CCTCC deposit.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Based on prior screening, we assembled an SMC comprising antagonists (T19 and BS-Z15), growth-promoting strains
+      (PM9 and PM16), and auxiliary strains (S8 and S32) (Figure G).
+    explanation: Names strain BS-Z15 as a designed pathogen_antagonist member of the six-strain SMC.
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+- taxon_term:
+    preferred_term: Bacillus spizizenii PM9
+    term:
+      id: NCBITaxon:96241
+      label: Bacillus spizizenii
+    gtdb_grounding_status: UNRESOLVED
+    notes: Growth-promoting Bacillus member; GTDB grounding was not resolved because the local NCBI2GTDB mapping was unavailable
+      during curation.
+  strain_designation:
+    strain_name: PM9
+    isolation_source: healthy wheat rhizosphere soil
+    notes: Identified from rhizosphere soil and deposited as CCTCC M 20251894.
+  evidence:
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The core microbial strains used in this study were isolated from the rhizosphere soils of healthy wheat plants
+      collected from experimental fields at Xinjiang Normal University (Urumqi, China).
+    explanation: Reports the healthy-wheat-rhizosphere source for strain PM9.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'The six functional strains were identified as follows: B. subtilis BS-Z15 (CCTCC M 20251892), B. spizizenii
+      PM9 (CCTCC M 20251894), B. rugosus PM16 (CCTCC M 20251895), T. harzianum T19 (CCTCC M 20251896), B. rugosus S32 (CCTCC
+      M 20251897), and B. halotolerans S8 (CCTCC M 20251898).'
+    explanation: Identifies strain PM9 as Bacillus spizizenii and lists its CCTCC deposit.
+- taxon_term:
+    preferred_term: Bacillus rugosus PM16
+    term:
+      id: NCBITaxon:2715209
+      label: Bacillus rugosus
+    gtdb_grounding_status: UNRESOLVED
+    notes: Growth-promoting Bacillus member; GTDB grounding was not resolved because the local NCBI2GTDB mapping was unavailable
+      during curation.
+  strain_designation:
+    strain_name: PM16
+    isolation_source: healthy wheat rhizosphere soil
+    notes: Identified from rhizosphere soil and deposited as CCTCC M 20251895.
+  evidence:
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The core microbial strains used in this study were isolated from the rhizosphere soils of healthy wheat plants
+      collected from experimental fields at Xinjiang Normal University (Urumqi, China).
+    explanation: Reports the healthy-wheat-rhizosphere source for strain PM16.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'The six functional strains were identified as follows: B. subtilis BS-Z15 (CCTCC M 20251892), B. spizizenii
+      PM9 (CCTCC M 20251894), B. rugosus PM16 (CCTCC M 20251895), T. harzianum T19 (CCTCC M 20251896), B. rugosus S32 (CCTCC
+      M 20251897), and B. halotolerans S8 (CCTCC M 20251898).'
+    explanation: Identifies strain PM16 as Bacillus rugosus and lists its CCTCC deposit.
+- taxon_term:
+    preferred_term: Bacillus rugosus S32
+    term:
+      id: NCBITaxon:2715209
+      label: Bacillus rugosus
+    gtdb_grounding_status: UNRESOLVED
+    notes: Auxiliary Bacillus member with the same species-level NCBITaxon grounding as PM16; GTDB grounding was not resolved
+      because the local NCBI2GTDB mapping was unavailable during curation.
+  strain_designation:
+    strain_name: S32
+    isolation_source: healthy wheat rhizosphere soil
+    notes: Identified from rhizosphere soil and deposited as CCTCC M 20251897.
+  evidence:
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The core microbial strains used in this study were isolated from the rhizosphere soils of healthy wheat plants
+      collected from experimental fields at Xinjiang Normal University (Urumqi, China).
+    explanation: Reports the healthy-wheat-rhizosphere source for strain S32.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'The six functional strains were identified as follows: B. subtilis BS-Z15 (CCTCC M 20251892), B. spizizenii
+      PM9 (CCTCC M 20251894), B. rugosus PM16 (CCTCC M 20251895), T. harzianum T19 (CCTCC M 20251896), B. rugosus S32 (CCTCC
+      M 20251897), and B. halotolerans S8 (CCTCC M 20251898).'
+    explanation: Identifies strain S32 as Bacillus rugosus and lists its CCTCC deposit.
+- taxon_term:
+    preferred_term: Bacillus halotolerans S8
+    term:
+      id: NCBITaxon:260554
+      label: Bacillus halotolerans
+    gtdb_grounding_status: UNRESOLVED
+    notes: Auxiliary Bacillus member; GTDB grounding was not resolved because the local NCBI2GTDB mapping was unavailable
+      during curation.
+  strain_designation:
+    strain_name: S8
+    isolation_source: healthy wheat rhizosphere soil
+    notes: Identified from rhizosphere soil and deposited as CCTCC M 20251898.
+  evidence:
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The core microbial strains used in this study were isolated from the rhizosphere soils of healthy wheat plants
+      collected from experimental fields at Xinjiang Normal University (Urumqi, China).
+    explanation: Reports the healthy-wheat-rhizosphere source for strain S8.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'The six functional strains were identified as follows: B. subtilis BS-Z15 (CCTCC M 20251892), B. spizizenii
+      PM9 (CCTCC M 20251894), B. rugosus PM16 (CCTCC M 20251895), T. harzianum T19 (CCTCC M 20251896), B. rugosus S32 (CCTCC
+      M 20251897), and B. halotolerans S8 (CCTCC M 20251898).'
+    explanation: Identifies strain S8 as Bacillus halotolerans and lists its CCTCC deposit.
+ecological_interactions:
+- name: Six-strain SMC suppression of Fusarium crown rot
+  description: The complete six-strain SMC was soil-drenched into nonsterile wheat pots after Fusarium pseudograminearum challenge
+    and reduced the disease severity index relative to the pathogen-only treatment while sustaining plant growth.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  evidence:
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: With SMC treatment, the DSI decreased to 25.93%, a 70.01% reduction relative to Fp, demonstrating marked control
+      efficacy.
+    explanation: Reports the Fusarium crown-rot disease-severity reduction in the SMC+Fp treatment.
+- name: SMC-associated wheat rhizosphere remodeling
+  description: The SMC shifted the resident wheat rhizosphere toward fungal and bacterial genera associated with antagonism,
+    plant growth promotion, and nutrient supply under Fusarium challenge.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: regulation of defense response
+    term:
+      id: GO:0031347
+      label: regulation of defense response
+  evidence:
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SMC and SMC+Fp increased the relative abundances of growth-promoting and antagonistic genera, including Chaetomium,
+      Trichoderma, and Mortierella.
+    explanation: Supports SMC-associated remodeling of the resident fungal rhizosphere community.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Full-length ITS and 16S profiling revealed that SMC suppressed pathogenic Fusarium in favor of beneficial fungi
+      (Mortierella, Trichoderma, Chaetomium) and plant growth-promoting bacteria (Pseudomonas, Paenibacillus).
+    explanation: Supports SMC-associated enrichment of resident fungal and bacterial taxa with plant-beneficial trait annotations.
+growth_media:
+- name: nonsterile wheat soil pot assay
+  temperature: 25
+  temperature_unit: °C
+  light_regime: 16 h light / 8 h dark
+  incubation_time: 45
+  incubation_time_unit: days
+  vessel_type: pot
+  preparation_notes: Each pot contained 1,100 g of air-dried nonsterile soil. Fusarium pseudograminearum was applied first,
+    and the SMC was inoculated one week later.
+  evidence:
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Each pot contained 1,100 g of air-dried, nonsterile soil. The pot experiment was conducted in the plant tissue
+      culture room at Xinjiang Normal University (25 °C; 16 h light/8 h dark photoperiod).
+    explanation: Reports the nonsterile soil mass and controlled pot-assay light and temperature conditions.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Fp was applied at 1 × 106 CFU mL–1, and the SMC was inoculated 1 week later.
+    explanation: Reports the pathogen challenge timing relative to SMC inoculation.
+- name: six-strain SMC liquid precultures
+  temperature_unit: °C
+  vessel_type: liquid preculture
+  preparation_notes: T19 conidia were produced in carboxymethyl cellulose liquid medium at 28 °C for 5 d; each Bacillus member
+    was grown in nutrient broth at 37 °C for 8 h, adjusted to OD600 0.1, and mixed with T19 by equal volume.
+  evidence:
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Conidia of T. harzianum T19 were produced in carboxymethyl cellulose (CMC) liquid medium at 28 °C for 5 d, then
+      filtered through four layers of sterile gauze.
+    explanation: Reports the fungal CMC liquid preculture conditions.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The five core bacterial strains were grown in nutrient broth (NB) at 37 °C for 8 h; each culture was adjusted
+      to an OD600 of 0.1 and resuspended in sterile water.
+    explanation: Reports the Bacillus nutrient-broth preculture conditions.
+cultivation_setup:
+- system_type: OTHER
+  instrument_detail: plant tissue culture room with potted wheat in nonsterile soil
+  operating_temperature: 25
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: 16 h light / 8 h dark photoperiod; randomized complete-block design with CK, Fp, SMC, and SMC+Fp arms.
+  evidence:
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 'Wheat was grown under four treatments: sterile water control (CK), inoculation with F. pseudograminearum (Fp),
+      inoculation with the SynCom (SMC), and coinoculation with Fp and the SynCom (SMC+Fp).'
+    explanation: Reports the four-arm pot-assay treatment structure.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Pots were arranged in a randomized complete block design.
+    explanation: Reports the pot layout as a randomized complete-block design.
+external_resources:
+- name: Primary publication - six-strain wheat cross-kingdom SMC
+  repository: OTHER
+  resource_id: PMID:41504167
+  url: https://pubmed.ncbi.nlm.nih.gov/41504167/
+  description: Journal of Agricultural and Food Chemistry study reporting the six-strain T19-plus-Bacillus SMC for wheat Fusarium
+    crown-rot suppression.
+  evidence:
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Cross-Kingdom Synthetic Microbiota Suppresses Wheat Fusarium Crown Rot by Remodeling the Rhizosphere Microbiome
+      and Metabolome
+    explanation: Identifies the PMID:41504167 primary publication.
+- name: DOI - six-strain wheat cross-kingdom SMC
+  repository: OTHER
+  resource_id: doi:10.1021/acs.jafc.5c11786
+  url: https://doi.org/10.1021/acs.jafc.5c11786
+  description: DOI landing page for PMID:41504167.
+  evidence:
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.1021/acs.jafc.5c11786'
+    explanation: Lists the article DOI.
+curation_history:
+- timestamp: '2026-09-22T00:20:14Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000414 for the six-strain Trichoderma/Bacillus cross-kingdom wheat Fusarium crown-rot SMC
+    from PMID:41504167, including strain membership, SynCom assembly design, nonsterile wheat-pot cultivation, Fusarium challenge,
+    and SMC disease-suppression and rhizosphere-remodeling outcomes.
+  llm_assisted: true
+- timestamp: '2026-09-22T00:33:44Z'
+  curator: codex
+  action: FIX_REVIEW_FINDING
+  changes: Fixed CommunityMech#1035 by removing redundant participating_taxa from the whole-community Fusarium crown-rot suppression
+    edge; omitted participating_taxa already credits every SMC member.
+  llm_assisted: true
