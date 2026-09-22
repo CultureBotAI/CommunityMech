@@ -1,0 +1,280 @@
+id: CommunityMech:000420
+name: PPCP Wastewater Sphingopyxis-Ochrobactrum-Apiotrichum SMC
+description: A three-member synthetic microbial community comprising Sphingopyxis sp. GC21, Ochrobactrum sp. TCC-2, and
+  Apiotrichum sp. IB-1. Xu et al. assembled the two bacterial strains and one fungal strain to enhance simultaneous removal
+  of the pharmaceutical and personal care products chloramphenicol, triclocarban, and naproxen from simulated wastewater
+  and real domestic wastewater under aerobic and anoxic conditions.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Assemble a defined bacterial-fungal synthetic microbial community that improves simultaneous removal of
+    chloramphenicol, triclocarban, and naproxen from domestic wastewater.
+  assembly_strategy: Combine the bacterial strains Sphingopyxis sp. GC21 and Ochrobactrum sp. TCC-2 with the fungal strain
+    Apiotrichum sp. IB-1 for PPCP-removal bioaugmentation of simulated and real wastewater reactors.
+  perturbation_design: Test the three-member SMC against chloramphenicol, triclocarban, and naproxen in simulated wastewater
+    and real wastewater under both aerobic and anoxic conditions.
+  measurement_endpoints:
+  - Chloramphenicol removal efficiency
+  - Triclocarban removal efficiency
+  - Naproxen removal efficiency
+  - Persistence of introduced Sphingopyxis, Ochrobactrum, and Apiotrichum in the SMC reactor
+  - Mobile genetic element, pathogen, and antibiotic resistance gene responses
+  evidence:
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SMC) comprising two bacterial strains (Sphingopyxis sp. GC21 and Ochrobactrum sp. TCC-2) and one fungal
+      strain (Apiotrichum sp. IB-1)
+    explanation: Supports the defined two-bacterium plus one-fungus construction of the PPCP-removal SMC.
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: for the enhanced simultaneous removal of three representative PPCPs
+    explanation: Supports the engineered wastewater PPCP-removal objective.
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The relative abundance of introduced Sphingopyxis was 6.45%, Ochrobactrum was 0.23%, and Apiotrichum was
+      51.06%
+    explanation: Supports persistence of all three introduced genera in the SMC reactor.
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SMC alleviated the selection pressure imposed by pollutants, thereby reducing the enrichment of mobile genetic
+      elements and pathogens and suppressing the dissemination of ARGs.
+    explanation: Supports the mobile genetic element, pathogen, and antibiotic resistance gene response endpoint.
+environment_term:
+  preferred_term: PPCP-amended wastewater SMC reactor
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The defined community was evaluated in controlled simulated-wastewater and real-wastewater reactor assays.
+modeled_environment:
+- preferred_term: domestic wastewater
+  term:
+    id: ENVO:00002001
+    label: waste water
+  notes: The source title and abstract describe domestic, simulated, and real wastewater as the wastewater-treatment context for
+    the PPCP-removal SMC.
+taxonomy:
+- taxon_term:
+    preferred_term: Sphingopyxis sp. GC21
+    term:
+      id: NCBITaxon:165697
+      label: Sphingopyxis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source identifies GC21 at genus level; no species-level assignment is asserted here.
+  strain_designation:
+    strain_name: GC21
+  evidence:
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SMC) comprising two bacterial strains (Sphingopyxis sp. GC21 and Ochrobactrum sp. TCC-2)
+    explanation: Identifies Sphingopyxis sp. GC21 as one of the three introduced PPCP-removal SMC members.
+- taxon_term:
+    preferred_term: Ochrobactrum sp. TCC-2
+    term:
+      id: NCBITaxon:528
+      label: Ochrobactrum
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source identifies TCC-2 at genus level; no species-level assignment is asserted here.
+  strain_designation:
+    strain_name: TCC-2
+  evidence:
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sphingopyxis sp. GC21 and Ochrobactrum sp. TCC-2
+    explanation: Identifies Ochrobactrum sp. TCC-2 as one of the three introduced PPCP-removal SMC members.
+- taxon_term:
+    preferred_term: Apiotrichum sp. IB-1
+    term:
+      id: NCBITaxon:105983
+      label: Apiotrichum
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source identifies IB-1 at genus level; no species-level assignment is asserted here.
+  strain_designation:
+    strain_name: IB-1
+  evidence:
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: one fungal strain (Apiotrichum sp. IB-1)
+    explanation: Identifies Apiotrichum sp. IB-1 as one of the three introduced PPCP-removal SMC members.
+ecological_interactions:
+- name: Simultaneous chloramphenicol-triclocarban-naproxen removal
+  description: The SMC enhanced simultaneous removal of chloramphenicol, triclocarban, and naproxen in both simulated and
+    real wastewater, with removal supported under aerobic and anoxic operation.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Sphingopyxis sp. GC21
+    term:
+      id: NCBITaxon:165697
+      label: Sphingopyxis
+  - preferred_term: Ochrobactrum sp. TCC-2
+    term:
+      id: NCBITaxon:528
+      label: Ochrobactrum
+  - preferred_term: Apiotrichum sp. IB-1
+    term:
+      id: NCBITaxon:105983
+      label: Apiotrichum
+  metabolites:
+  - preferred_term: chloramphenicol
+    term:
+      id: CHEBI:17698
+      label: chloramphenicol
+  - preferred_term: triclocarban
+    term:
+      id: CHEBI:48347
+      label: triclocarban
+  - preferred_term: naproxen
+    term:
+      id: CHEBI:7476
+      label: naproxen
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  evidence:
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "simultaneous removal of three representative PPCPs: chloramphenicol (CAP), triclocarban (TCC), and naproxen (NPX)"
+    explanation: Supports the three PPCP substrates targeted by the constructed SMC.
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: reached 97.83% for CAP, 68.19% for TCC, and 85.34% for NPX
+    explanation: Supports aerobic removal of chloramphenicol, triclocarban, and naproxen by the SMC in simulated wastewater.
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Under anoxic conditions, REs exceeded 60% for CAP, TCC and NPX both in SW and RW.
+    explanation: Supports anoxic SMC removal of the three PPCPs in both simulated and real wastewater.
+environmental_factors:
+- name: Chloramphenicol, triclocarban, and naproxen PPCP mixture
+  value: target PPCPs
+  description: Chloramphenicol, triclocarban, and naproxen were the three representative pharmaceutical and personal care
+    products targeted for simultaneous removal.
+  evidence:
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "three representative PPCPs: chloramphenicol (CAP), triclocarban (TCC), and naproxen (NPX)"
+    explanation: Identifies the three PPCPs whose simultaneous removal was measured.
+- name: Aerobic and anoxic wastewater operation
+  value: aerobic and anoxic
+  description: The SMC removed the PPCP mixture under both aerobic and anoxic wastewater operating conditions.
+  evidence:
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Under aerobic conditions, the removal efficiencies (REs)
+    explanation: Supports an aerobic SMC removal condition.
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Under anoxic conditions, REs exceeded 60% for CAP, TCC and NPX both in SW and RW.
+    explanation: Supports an anoxic SMC removal condition.
+related_ingredients:
+- preferred_term: chloramphenicol
+  chebi_term:
+    id: CHEBI:17698
+    label: chloramphenicol
+  shared_environment_term:
+    id: ENVO:00002001
+    label: waste water
+  relevance: Target PPCP removed by the Sphingopyxis-Ochrobactrum-Apiotrichum SMC in simulated and real wastewater.
+  evidence:
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: chloramphenicol (CAP), triclocarban (TCC), and naproxen (NPX)
+    explanation: Identifies chloramphenicol as one of the three PPCP substrates targeted by the SMC.
+- preferred_term: triclocarban
+  chebi_term:
+    id: CHEBI:48347
+    label: triclocarban
+  shared_environment_term:
+    id: ENVO:00002001
+    label: waste water
+  relevance: Target PPCP removed by the Sphingopyxis-Ochrobactrum-Apiotrichum SMC in simulated and real wastewater.
+  evidence:
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: triclocarban (TCC), and naproxen (NPX)
+    explanation: Identifies triclocarban as one of the three PPCP substrates targeted by the SMC.
+- preferred_term: naproxen
+  chebi_term:
+    id: CHEBI:7476
+    label: naproxen
+  shared_environment_term:
+    id: ENVO:00002001
+    label: waste water
+  relevance: Target PPCP removed by the Sphingopyxis-Ochrobactrum-Apiotrichum SMC in simulated and real wastewater.
+  evidence:
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: naproxen (NPX) in simulated wastewater
+    explanation: Identifies naproxen as one of the three PPCP substrates targeted by the SMC.
+external_resources:
+- name: Primary publication - PPCP wastewater SMC
+  repository: OTHER
+  resource_id: PMID:42526243
+  url: https://pubmed.ncbi.nlm.nih.gov/42526243/
+  description: PubMed record for the Journal of Hazardous Materials study of the defined Sphingopyxis-Ochrobactrum-Apiotrichum
+    PPCP-removal SMC.
+  evidence:
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: A synthetic microbial community for the enhanced removal of complex emerging
+      pollutants from domestic wastewater.
+    explanation: Identifies the primary publication for the curated PPCP wastewater SMC.
+- name: Publication DOI - PPCP wastewater SMC
+  repository: OTHER
+  resource_id: doi:10.1016/j.jhazmat.2026.143098
+  url: https://doi.org/10.1016/j.jhazmat.2026.143098
+  description: DOI for the primary Journal of Hazardous Materials study of the PPCP wastewater SMC.
+  evidence:
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.1016/j.jhazmat.2026.143098'
+    explanation: Supports the DOI for the primary PPCP wastewater SMC publication.
+discussions:
+- discussion_id: ppcp_wastewater_smc_strain_mechanisms
+  prompt: Which PPCP transformation reactions were carried out by Sphingopyxis sp. GC21, Ochrobactrum sp. TCC-2, Apiotrichum
+    sp. IB-1, and indigenous wastewater members, and what inoculation ratio and medium recipe were used for the simulated-
+    and real-wastewater reactors?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - engineering_design
+  - ecological_interactions#Simultaneous chloramphenicol-triclocarban-naproxen removal
+  rationale: The accessible PubMed abstract reports the three introduced strains, the three target PPCPs, aerobic and anoxic
+    removal endpoints, and aggregate CAP/TCC/NPX transformation chemistry, but it does not allocate each reaction to a
+    specific strain or report inoculation ratios, wastewater composition, or reactor operating details.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is reported for this PPCP-removal wastewater synthetic community.
+curation_history:
+- timestamp: '2026-09-22T12:06:12Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000420 for the three-member Sphingopyxis sp. GC21, Ochrobactrum sp. TCC-2, and Apiotrichum
+    sp. IB-1 SMC that removes chloramphenicol, triclocarban, and naproxen from simulated and real wastewater in PMID:42526243.
+  llm_assisted: true
+- timestamp: '2026-09-22T12:13:20Z'
+  curator: codex
+  action: FIX_REVIEW_FINDINGS
+  changes: >-
+    Addressed adversarial-review issues #1048, #1049, and #1050 by removing unsupported taxon-level DOMINANT and
+    PRIMARY_DEGRADER assertions and adding direct engineering evidence for the MGE, pathogen, and ARG measurement endpoint.
+  llm_assisted: true
