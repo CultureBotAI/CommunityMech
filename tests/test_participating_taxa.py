@@ -198,6 +198,7 @@ USERS = {
     "Bothnian_Bay_GAC_Dependent_CIET_SAO_Consortium.yaml",
     "Brachypodium_Young_Root_Rhizosphere_EcoFAB_Community.yaml",
     "Buchnera_Serratia_Cinara_Cedri_Endosymbiont_Consortium.yaml",
+    "Burkholderia_Pseudomonas_YB2_PET_Degradation_Consortium.yaml",
     "Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml",
     "Cable_Bacteria_Photosynthetic_Biofilm_Sediment.yaml",
     "Caldicellulosiruptor_TwoSpecies_Hydrogen_Coculture.yaml",
