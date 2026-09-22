@@ -1,0 +1,151 @@
+id: CommunityMech:000422
+name: Chlorella vulgaris Whey Co-culture
+description: A defined microalgal co-culture pairing the Chlorella vulgaris culture abbreviated CVB with Chlorella
+  vulgaris CCAP 211/19 in casein whey-based media for dairy-whey valorization. Kelarijani et al. 2026 reported that
+  the Chlorella vulgaris co-culture exhibited synergistic growth relative to single cultures and to a four-species
+  algal mix in the casein whey panel.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Test whether the Chlorella vulgaris co-culture improved dairy-whey valorization through microalgal growth
+    in whey-supplemented medium.
+  assembly_strategy: Pair the two Chlorella vulgaris cultures named in the four-microalga cultivation panel, the
+    culture abbreviated CVB and Chlorella vulgaris CCAP 211/19, in casein whey-based media.
+  measurement_endpoints:
+  - cell proliferation
+  - biomass yield
+  - nitrate assimilation
+  - ammonia assimilation
+  - protein removal from whey
+  evidence:
+  - &whey_panel
+    reference: PMID:42249951
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Different combinations of four-species-comprising Scenedesmus sp. (SC), Tetradesmus obliquus (TO), Chlorella vulgaris
+      Beijerinck (CVB), and Chlorella vulgaris CCAP 211/19 (CV)-were cultivated in casein whey-based media
+    explanation: Identifies both Chlorella vulgaris strains and the casein whey-based cultivation setting.
+  - &chlorella_synergy
+    reference: PMID:42249951
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the co-culture of Chlorella vulgaris strains exhibited synergistic growth, outperforming single cultures and the mixed
+      culture of all four species
+    explanation: Supports the two-strain Chlorella co-culture as a synergistic member combination from the tested panel.
+environment_term:
+  preferred_term: laboratory dairy-whey microalgal co-culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The Chlorella vulgaris culture pair was assembled and assayed as a laboratory co-culture in casein whey-based
+    media for dairy-whey valorization.
+taxonomy:
+- taxon_term:
+    preferred_term: Chlorella vulgaris CVB
+    term:
+      id: NCBITaxon:3077
+      label: Chlorella vulgaris
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: The PubMed abstract named this C. vulgaris culture as Chlorella vulgaris Beijerinck and abbreviated it CVB;
+      GTDB does not classify eukaryotic green algae.
+  strain_designation:
+    strain_name: CVB
+    notes: Paper-local abbreviation for the Chlorella vulgaris Beijerinck culture; no formal strain or culture
+      collection accession was available from the PubMed abstract.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - *whey_panel
+- taxon_term:
+    preferred_term: Chlorella vulgaris CCAP 211/19
+    term:
+      id: NCBITaxon:3077
+      label: Chlorella vulgaris
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Chlorella vulgaris CCAP 211/19 was one of the two C. vulgaris cultures in the synergistic co-culture; GTDB
+      does not classify eukaryotic green algae.
+  strain_designation:
+    strain_name: CCAP 211/19
+    notes: Named as Chlorella vulgaris CCAP 211/19, abbreviated CV, in the PubMed abstract.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - *whey_panel
+ecological_interactions:
+- name: Chlorella Whey Growth Synergy
+  description: The two C. vulgaris cultures exhibited synergistic growth in co-culture, outperforming the corresponding
+    single-strain cultures and the mixed culture of all four assayed microalgae.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Chlorella vulgaris CVB
+    term:
+      id: NCBITaxon:3077
+      label: Chlorella vulgaris
+  - preferred_term: Chlorella vulgaris CCAP 211/19
+    term:
+      id: NCBITaxon:3077
+      label: Chlorella vulgaris
+  evidence:
+  - *chlorella_synergy
+growth_media:
+- name: Casein whey-based microalgal medium
+  preparation_notes: Casein whey-based media were used to cultivate the tested Chlorella vulgaris co-culture.
+  evidence:
+  - *whey_panel
+external_resources:
+- name: Primary publication - Chlorella vulgaris whey co-culture
+  repository: OTHER
+  resource_id: PMID:42249951
+  url: https://pubmed.ncbi.nlm.nih.gov/42249951/
+  description: PubMed record for the Current Microbiology study of microalgal single cultures and co-cultures grown in
+    whey-supplemented media.
+  evidence:
+  - reference: PMID:42249951
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'Boosted Biomass Production of Single and Co-Cultures of Microalgae Grown in Whey Supplemented Media:
+      a Sustainable Approach.'
+    explanation: Identifies the primary publication for the Chlorella vulgaris whey co-culture.
+- name: Publication DOI - Chlorella vulgaris whey co-culture
+  repository: OTHER
+  resource_id: doi:10.1007/s00284-026-05004-y
+  url: https://doi.org/10.1007/s00284-026-05004-y
+  description: DOI for the Current Microbiology study of Chlorella vulgaris co-culture in casein whey-based media.
+  evidence:
+  - reference: PMID:42249951
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.1007/s00284-026-05004-y'
+    explanation: Supports the DOI for the primary Chlorella vulgaris whey co-culture publication.
+discussions:
+- discussion_id: chlorella_vulgaris_whey_coculture_conditions
+  prompt: Which inoculation ratio, casein whey dilution and supplementation, illumination, temperature, vessel, duration,
+    and formal Chlorella strain or culture collection records were used for the C. vulgaris CVB and C. vulgaris CCAP
+    211/19 co-culture, and which exact nitrate, ammonia, protein, and biomass values correspond to this culture pair?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - engineering_design
+  - ecological_interactions#Chlorella Whey Growth Synergy
+  - growth_media#Casein whey-based microalgal medium
+  rationale: The accessible PubMed abstract names the Chlorella vulgaris CVB and CCAP 211/19 cultures, casein whey-based
+    media, synergistic co-culture growth, and improved nitrogen removal by algal co-cultures, but it does not report
+    inoculation ratios, medium recipes, culture vessels, illumination, temperature, duration, or exact nitrate,
+    ammonia, protein, and biomass values for this culture pair.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal processing role is reported for the Chlorella vulgaris whey co-culture.
+curation_history:
+- timestamp: '2026-09-22T15:09:33Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000422 for the two-strain Chlorella vulgaris co-culture grown in casein whey-based media
+    in PMID:42249951.
+  llm_assisted: true
+- timestamp: '2026-09-22T15:17:32Z'
+  curator: codex
+  action: ADDRESS_REVIEW
+  changes: Addressed issues 1055, 1056, and 1057 by removing an over-scoped nitrate and ammonia removal interaction,
+    removing unsupported MUTUALISM typing from the Chlorella growth-synergy interaction, and representing CVB as a
+    paper-local culture label rather than a formal Chlorella vulgaris Beijerinck strain accession.
+  llm_assisted: true

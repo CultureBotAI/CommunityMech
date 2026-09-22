@@ -207,6 +207,7 @@ USERS = {
     "Chlamydomonas_Methylobacterium_Mutualism.yaml",
     "Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml",
     "Chlorella_Rhizobium_Bioflocculation.yaml",
+    "Chlorella_Vulgaris_Whey_Coculture.yaml",
     "Chromium_Sulfur_Reduction_Enrichment.yaml",
     "Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture.yaml",
     "Clostridium_Caldicellulosiruptor_Minimal_Medium_Coculture.yaml",
