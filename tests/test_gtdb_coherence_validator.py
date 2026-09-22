@@ -504,9 +504,10 @@ def test_the_status_distribution_is_what_was_measured():
     # #1013 adds two Viili lactic-acid bacterial strains, #1023 adds two DCPP
     # enrichment-culture strains, #1031 adds one RAMC Rhodococcus member, and
     # #1034 adds two Baia Bacillus representatives without committed GTDB
-    # groundings, so tolerate the measured 316 without tolerating a domain-lookup
-    # collapse.
-    assert counts["UNRESOLVED"] < 317, (
+    # groundings, and #1036 adds four wheat-rhizosphere Bacillus representatives
+    # without committed GTDB groundings, so tolerate the measured 320 without
+    # tolerating a domain-lookup collapse.
+    assert counts["UNRESOLVED"] < 321, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
