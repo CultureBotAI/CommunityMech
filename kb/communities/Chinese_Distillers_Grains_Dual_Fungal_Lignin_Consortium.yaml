@@ -1,0 +1,212 @@
+id: CommunityMech:000421
+name: Chinese Distillers Grains Dual Fungal Lignin Consortium
+description: A two-member fungal solid-state fermentation system consisting of Phanerochaete chrysosporium and Pleurotus
+  eryngii that was constructed to convert the recalcitrant lignin fraction of Chinese Distillers' grains. Chen et al. 2026
+  measured 58.66% lignin degradation in Chinese Distillers' grains, day-10 peaks in laccase and manganese peroxidase
+  activity, a day-15 peak in lignin peroxidase activity, and transcriptomic/metabolomic evidence that P. chrysosporium was
+  most active in early oxidative lignin cleavage while P. eryngii became dominant during later aromatic catabolism.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Construct a dual-fungal solid-state fermentation system that improves conversion of recalcitrant lignin in
+    Chinese Distillers' grains.
+  assembly_strategy: Combine the ligninolytic fungi Phanerochaete chrysosporium and Pleurotus eryngii in a constructed CDG
+    solid-state fermentation system.
+  measurement_endpoints:
+  - lignin degradation ratio in Chinese Distillers' grains
+  - laccase activity
+  - manganese peroxidase activity
+  - lignin peroxidase activity
+  - transcriptomic and metabolomic stage dominance
+  evidence:
+  - &primary_system
+    reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a dual-fungal solid-state fermentation system consisting of Phanerochaete chrysosporium and Pleurotus eryngii was constructed for lignin conversion in CDGs.
+    explanation: Identifies the two fungi and the CDG solid-state fermentation design.
+  - &temporal_division
+    reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Integrated transcriptomic and metabolomic analyses revealed a clear temporal division of labor between the dual-fungal.
+    explanation: Supports the multi-omics evidence for a temporal division of labor in the two-fungus system.
+environment_term:
+  preferred_term: Chinese Distillers' grains solid-state fungal fermentation
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The two-fungus consortium was constructed and assayed under solid-state fermentation conditions on Chinese Distillers'
+    grains rather than in an open natural environment.
+taxonomy:
+- taxon_term:
+    preferred_term: Phanerochaete chrysosporium
+    term:
+      id: NCBITaxon:2822231
+      label: Phanerodontia chrysosporium
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: The PubMed abstract names Phanerochaete chrysosporium; Phanerochaete chrysosporium is the basionym for the current
+      NCBI taxon Phanerodontia chrysosporium, and GTDB does not classify eukaryotic fungi.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - *primary_system
+  - reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: During the early stage, P. chrysosporium predominantly expressed AA2 family peroxidase genes
+    explanation: Supports the early-stage ligninolytic role assigned to P. chrysosporium.
+- taxon_term:
+    preferred_term: Pleurotus eryngii
+    term:
+      id: NCBITaxon:5323
+      label: Pleurotus eryngii
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic fungal member of the dual-fungal CDG lignin-conversion system; GTDB does not classify eukaryotes.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - *primary_system
+  - reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. eryngii became dominant during the middle and late stages through the upregulation of AA1 family laccase genes and aromatic catabolic pathways
+    explanation: Supports the middle- and late-stage lignin-derived aromatic conversion role assigned to P. eryngii.
+ecological_interactions:
+- name: Temporal Dual-Fungal Lignin Conversion
+  description: P. chrysosporium dominated the early phase by expressing AA2 family peroxidase genes involved in oxidative
+    lignin cleavage, while P. eryngii dominated the middle and late phases by upregulating AA1 family laccase genes and
+    aromatic-catabolic pathways that further converted lignin-derived compounds.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+  biological_processes:
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  evidence:
+  - *temporal_division
+  - reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: During the early stage, P. chrysosporium predominantly expressed AA2 family peroxidase genes, promoting oxidative cleavage of lignin β-O-4 linkages
+    explanation: Supports the P. chrysosporium early-stage oxidative lignin-cleavage arm of the division of labor.
+  - reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. eryngii became dominant during the middle and late stages through the upregulation of AA1 family laccase genes and aromatic catabolic pathways
+    explanation: Supports the P. eryngii middle- and late-stage aromatic-catabolism arm of the division of labor.
+- name: CDG Lignin Degradation by Dual-Fungal Fermentation
+  description: The Phanerochaete/Pleurotus consortium converted lignin in CDGs, reaching 58.66% lignin degradation with
+    laccase and manganese peroxidase activity peaking at day 10 and lignin peroxidase activity peaking at day 15.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+  biological_processes:
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  evidence:
+  - reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The lignin degradation ratio reached 58.66%, indicating that the system can effectively convert lignin.
+    explanation: Quantifies lignin degradation by the two-fungus solid-state fermentation.
+  - reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Laccase (Lac) and manganese peroxidase (MnP) activities peaked at 10 d
+    explanation: Supports the day-10 laccase and manganese peroxidase peak during dual-fungal lignin conversion.
+  - reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: lignin peroxidase (LiP) reached its maximum activity (51.67 U/g) at 15 d.
+    explanation: Supports the day-15 lignin peroxidase peak during dual-fungal lignin conversion.
+environmental_factors:
+- name: Chinese Distillers' grains solid substrate
+  value: lignin-rich Chinese Distillers' grains
+  description: Chinese Distillers' grains were the lignin-rich agro-industrial byproduct supplied to the dual-fungal
+    solid-state fermentation.
+  evidence:
+  - reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Chinese Distillers' grains (CDGs), a typical agro-industrial byproduct, contain a highly recalcitrant lignin
+    explanation: Identifies CDGs as the recalcitrant lignin-containing solid substrate.
+related_ingredients:
+- preferred_term: lignin
+  chebi_term:
+    id: CHEBI:6457
+    label: lignin
+  relevance: The recalcitrant CDG polymer converted by the dual-fungal solid-state fermentation system.
+  evidence:
+  - reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a highly recalcitrant lignin that limits the utilization
+    explanation: Supports lignin as the recalcitrant CDG component targeted by the dual-fungal consortium.
+external_resources:
+- name: Primary publication - CDG dual-fungal lignin consortium
+  repository: OTHER
+  resource_id: PMID:42660361
+  url: https://pubmed.ncbi.nlm.nih.gov/42660361/
+  description: PubMed record for the Bioresource Technology study of the P. chrysosporium and P. eryngii dual-fungal
+    solid-state fermentation system for lignin conversion in Chinese Distillers' grains.
+  evidence:
+  - reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Mechanisms of gradient enzymatic conversion of lignin by a dual-fungal system consisting of Phanerochaete chrysosporium and Pleurotus eryngii.
+    explanation: Identifies the primary publication for the curated dual-fungal CDG lignin consortium.
+- name: Publication DOI - CDG dual-fungal lignin consortium
+  repository: OTHER
+  resource_id: doi:10.1016/j.biortech.2026.135734
+  url: https://doi.org/10.1016/j.biortech.2026.135734
+  description: DOI for the primary Bioresource Technology study of the dual-fungal CDG lignin consortium.
+  evidence:
+  - reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.1016/j.biortech.2026.135734'
+    explanation: Supports the DOI for the primary CDG dual-fungal lignin consortium publication.
+discussions:
+- discussion_id: cdg_dual_fungal_strains_and_conditions
+  prompt: Which P. chrysosporium and P. eryngii strains, inoculation ratio, moisture content, temperature, aeration state,
+    fermentation duration, and omics accessions were used to construct and analyze the CDG dual-fungal solid-state
+    fermentation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - engineering_design
+  - ecological_interactions#Temporal Dual-Fungal Lignin Conversion
+  rationale: The accessible PubMed abstract names the two fungal species, CDGs as the solid lignin-rich substrate, ligninolytic
+    enzyme timing, and transcriptomic/metabolomic evidence for temporal division of labor, but it does not report strain
+    designations, inoculation ratio, moisture content, incubation temperature, aeration state, total fermentation duration,
+    or omics accessions.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is reported for this CDG lignin-conversion fungal consortium.
+curation_history:
+- timestamp: '2026-09-22T13:52:55Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000421 for the two-member Phanerochaete chrysosporium and Pleurotus eryngii solid-state
+    fermentation consortium that converts lignin in Chinese Distillers' grains in PMID:42660361.
+  llm_assisted: true
+- timestamp: '2026-09-22T14:02:51Z'
+  curator: codex
+  action: FIX_REVIEW_FINDINGS
+  changes: >-
+    Addressed adversarial-review issues #1053 and #1054 by removing outcome-valued environmental factors and rewriting
+    the assembly strategy so observed temporal division of labor is no longer framed as design intent.
+  llm_assisted: true
