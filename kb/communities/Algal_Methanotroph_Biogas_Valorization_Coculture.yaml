@@ -1,0 +1,478 @@
+id: CommunityMech:000415
+name: Algal-Methanotroph Biogas Valorization Coculture
+description: A laboratory enriched haloalkaliphilic microalga-methanotroph co-culture assembled by mixing a halotolerant methanotrophic
+  consortium with a non-axenic algal culture. Triplicate 2.1 L gas-tight glass bioreactors containing 450 mL 6% NaCl mineral
+  salt medium were supplied with a 70:30 CH4:CO2 biogas headspace under light; after two external O2 additions, the culture
+  maintained methane oxidation via algal O2 production and removed 92% CH4 and 89% CO2 while producing ectoine, hydroxyectoine,
+  and carotenoids. Shotgun metagenomics identified Chlorella vulgaris and Dunaliella viridis as the dominant Chlorophyta,
+  Methylotuvimicrobium as the dominant methanotroph, and Methylophaga plus Methylonatrum as co-dominant methylotrophs.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Convert biogas methane and carbon dioxide into microbial biomass, ectoine, hydroxyectoine, and carotenoid products
+    under saline laboratory photobioreactor conditions.
+  assembly_strategy: Mix a halotolerant methanotrophic bacterial consortium with a non-axenic algal enrichment culture in
+    6% NaCl mineral salt medium.
+  inoculation_strategy: Inoculate each 450 mL co-culture with 350 mL sterile mineral salt medium and 100 mL fresh inoculum
+    split 50:50 v/v between the algal and methanotrophic cultures.
+  perturbation_design: Compare triplicate algal, methanotrophic, and algal-methanotrophic co-culture reactors fed CH4/CO2
+    biogas; add external O2 on days 13 and 15 as a start-up perturbation.
+  measurement_endpoints:
+  - Biomass accumulation
+  - Methane and carbon dioxide removal
+  - Shotgun metagenomic taxonomic composition
+  - pmoCAB-bearing methanotroph relative abundance
+  - Ectoine and hydroxyectoine production
+  - Carotenoid production
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The methanotrophic inoculum was obtained from a Taylor reactor
+    explanation: Identifies the source of the methane-oxidizing enrichment used to seed the co-culture.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The algal inoculum consisted of a non-axenic culture
+    explanation: Identifies the source algal enrichment used to assemble the co-culture.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 50% algal culture and 50% methanotrophic culture
+    explanation: Supports the mixed algal/methanotrophic inoculation design for the co-culture reactors.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: an external supply of O2 was added on days 13 and 15
+    explanation: Supports external oxygen addition as a start-up perturbation.
+environment_term:
+  preferred_term: laboratory haloalkaliphilic biogas photobioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled illuminated gas-tight glass bioreactors seeded with enriched methanotrophic and algal cultures and supplied
+    with 70:30 CH4:CO2 biogas.
+taxonomy:
+- taxon_term:
+    preferred_term: Chlorella vulgaris
+    term:
+      id: NCBITaxon:3077
+      label: Chlorella vulgaris
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. vulgaris represented 42.0
+    explanation: Supports Chlorella vulgaris as an abundant Chlorophyta member in the co-culture.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Chlorophyta was also the major phototrophic group
+    explanation: Supports assigning oxygenic primary-production roles to green algae in the co-culture.
+- taxon_term:
+    preferred_term: Dunaliella viridis
+    term:
+      id: NCBITaxon:140095
+      label: Dunaliella viridis
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dunaliella viridis represented 32.3
+    explanation: Supports Dunaliella viridis as an abundant Chlorophyta member in the co-culture.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Chlorophyta was also the major phototrophic group
+    explanation: Supports assigning oxygenic primary-production roles to green algae in the co-culture.
+- taxon_term:
+    preferred_term: Leptolyngbya
+    term:
+      id: NCBITaxon:47251
+      label: Leptolyngbya
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: RARE
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cyanobacteria belonging to the genus Leptolyngbya were detected
+    explanation: Supports Leptolyngbya as a detected oxygenic member of the co-culture.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2.5 ± 0.8 and 0.3 ± 0.05% of the total bacterial community
+    explanation: Reports the low Leptolyngbya abundance in the co-culture relative to the algal assay.
+- taxon_term:
+    preferred_term: Methylotuvimicrobium
+    term:
+      id: NCBITaxon:2822410
+      label: Methylotuvimicrobium
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylotuvimicrobium clearly dominated CH4 oxidation
+    explanation: Supports Methylotuvimicrobium as the main methane-oxidizing genus.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 9.1 ± 0.6% in the mixed culture
+    explanation: Quantifies the total methanotroph fraction in the mixed co-culture.
+- taxon_term:
+    preferred_term: Methylophaga
+    term:
+      id: NCBITaxon:40222
+      label: Methylophaga
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylophaga and Methylonatrum (50:40%)
+    explanation: Identifies Methylophaga as one of the two dominant methylotrophs in the co-culture.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylotrophs were also abundant when CH4 was present
+    explanation: Supports a methane-linked methylotroph guild in the co-culture.
+- taxon_term:
+    preferred_term: Methylonatrum
+    term:
+      id: NCBITaxon:455252
+      label: Methylonatrum
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylophaga and Methylonatrum (50:40%)
+    explanation: Identifies Methylonatrum as one of the two dominant methylotrophs in the co-culture.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylotrophs were also abundant when CH4 was present
+    explanation: Supports a methane-linked methylotroph guild in the co-culture.
+ecological_interactions:
+- name: Photosynthetic O2 Support for Methane Oxidation
+  description: Oxygenic green algae accumulate O2 under illumination and support aerobic methane oxidation by the methanotrophic
+    fraction; after two external oxygen pulses, algal O2 production supported methanotrophic growth without further oxygen
+    addition.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Chlorella vulgaris
+    term:
+      id: NCBITaxon:3077
+      label: Chlorella vulgaris
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+  - preferred_term: Dunaliella viridis
+    term:
+      id: NCBITaxon:140095
+      label: Dunaliella viridis
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+  - preferred_term: Methylotuvimicrobium
+    term:
+      id: NCBITaxon:2822410
+      label: Methylotuvimicrobium
+    gtdb_grounding_status: UNRESOLVED
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methanotrophs were inoculated when O2 concentrations reached
+    explanation: Supports oxygen build-up by the algal culture before methanotroph addition.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: functionally self-sustaining state
+    explanation: Supports photosynthetic oxygen production sustaining methane oxidation after start-up.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: removal efficiencies of 92 and 89%, respectively
+    explanation: Reports final CH4 and CO2 removal efficiencies by the co-culture.
+- name: Methane-Linked Methylotroph Cross-Feeding
+  description: Methanotrophs oxidize CH4 to intermediates including methanol and formaldehyde, which can be assimilated by
+    methylotrophs; Methylophaga and Methylonatrum were dominant methylotrophic genera in the CH4-fed co-culture.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Methylotuvimicrobium
+    term:
+      id: NCBITaxon:2822410
+      label: Methylotuvimicrobium
+    gtdb_grounding_status: UNRESOLVED
+  - preferred_term: Methylophaga
+    term:
+      id: NCBITaxon:40222
+      label: Methylophaga
+    gtdb_grounding_status: UNRESOLVED
+  - preferred_term: Methylonatrum
+    term:
+      id: NCBITaxon:455252
+      label: Methylonatrum
+    gtdb_grounding_status: UNRESOLVED
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: methanol
+    term:
+      id: CHEBI:17790
+      label: methanol
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methanotrophs oxidize CH4 to intermediates such as methanol and formaldehyde
+    explanation: Supports methanotroph-to-methylotroph metabolite cross-feeding.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylophaga and Methylonatrum (50:40%)
+    explanation: Identifies the co-dominant methylotrophs linked to methane-containing assays.
+environmental_factors:
+- name: Biogas headspace
+  value: 70% CH4:30% CO2
+  unit: v/v
+  description: Initial headspace for algal and algal-methanotrophic co-culture assays.
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 70% CH4:30% CO2, v/v
+    explanation: Supports the methane/carbon dioxide composition supplied to the co-culture.
+- name: Sodium chloride salinity
+  value: '6'
+  unit: '% w/w NaCl'
+  description: NaCl concentration in the mineral salt medium.
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 6% w/w NaCl
+    explanation: Supports the saline mineral-medium condition.
+- name: Start-up oxygen additions
+  value: days 13 and 15
+  description: External O2 was added twice before the co-culture became self-sustaining.
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: on days 13 and 15
+    explanation: Supports the timing of the two external oxygen additions.
+growth_media:
+- name: 6% NaCl mineral salt medium with biogas headspace
+  composition:
+  - name: methane
+    chebi_term:
+      preferred_term: methane
+      term:
+        id: CHEBI:16183
+        label: methane
+    from_source: community_curated
+  - name: carbon dioxide
+    chebi_term:
+      preferred_term: carbon dioxide
+      term:
+        id: CHEBI:16526
+        label: carbon dioxide
+    from_source: community_curated
+  headspace_gas: 70% CH4:30% CO2 for the algal-methanotrophic co-culture
+  salinity: '6'
+  salinity_unit: '% w/w NaCl'
+  light_regime: illuminated at 700 umol m-2 s-1
+  inoculum_source: 50:50 v/v mixture of halotolerant methanotrophic bacterial consortium and non-axenic algal enrichment culture
+  vessel_type: 2.1 L gas-tight glass bioreactor
+  preparation_notes: The sterile mineral salt medium contained MgSO4*7H2O, CaCl2*2H2O, KNO3, NaHCO3 buffer, Na2CO3 buffer,
+    trace elements, and 6% w/w NaCl.
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The mineral salt medium (MSM) was composed of
+    explanation: Supports use of a defined mineral salt medium for the co-culture.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 50% algal culture and 50% methanotrophic culture
+    explanation: Supports the composition of the fresh co-culture inoculum.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 70% CH4:30% CO2, v/v
+    explanation: Supports the methane/carbon dioxide headspace gas used for the co-culture.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: exposed to light (700 μmol m−2 s−1)
+    explanation: Supports the illumination intensity used for the co-culture assays.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: PHOTOBIOREACTOR
+  instrument_detail: 2.1 L gas-tight glass bioreactors operated under illumination
+  working_volume: 450.0
+  working_volume_unit: mL
+  controls_notes: Three algal, three methanotrophic, and three algal-methanotrophic co-culture reactors were run as biological
+    replicates.
+  notes: The co-culture received 350 mL sterile mineral salt medium plus 100 mL fresh inoculum and was supplied with a 70:30
+    CH4:CO2 headspace.
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2.1 L gas-tight glass bioreactors
+    explanation: Supports the reactor vessel type and nominal volume.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each reactor contained a working volume of 450 mL
+    explanation: Supports the curated working volume.
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: three for algal–methanotrophic co-cultures
+    explanation: Supports triplicate co-culture reactor operation.
+related_ingredients:
+- preferred_term: methane
+  chebi_term:
+    id: CHEBI:16183
+    label: methane
+  relevance: Methane was the reduced biogas component oxidized by the methanotrophic fraction and the greenhouse gas removed
+    at 92% efficiency.
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: removal efficiencies of 92 and 89%, respectively
+    explanation: Supports methane removal as a major co-culture endpoint.
+- preferred_term: carbon dioxide
+  chebi_term:
+    id: CHEBI:16526
+    label: carbon dioxide
+  relevance: Carbon dioxide was the second major biogas component and the inorganic carbon source removed at 89% efficiency.
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: removal efficiencies of 92 and 89%, respectively
+    explanation: Supports carbon dioxide removal as a major co-culture endpoint.
+- preferred_term: oxygen
+  chebi_term:
+    id: CHEBI:15379
+    label: dioxygen
+  relevance: Oxygen supplied by photosynthetic community members sustained aerobic methane oxidation after two external oxygen
+    pulses.
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: functionally self-sustaining state
+    explanation: Supports in situ oxygen production as a driver of methane oxidation.
+external_resources:
+- name: PubMed entry for algal-methanotroph biogas valorization
+  repository: OTHER
+  resource_id: PMID:41745484
+  url: https://pubmed.ncbi.nlm.nih.gov/41745484/
+  description: PubMed record for Serna-Garcia et al. 2026, the primary publication for this algal-methanotrophic co-culture.
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Harnessing Biogas into High-Value Chemicals
+    explanation: Identifies the PubMed-indexed exact-system publication.
+- name: DOI for algal-methanotroph biogas valorization article
+  repository: OTHER
+  resource_id: doi:10.3390/md24020081
+  url: https://doi.org/10.3390/md24020081
+  description: Version-of-record DOI for Serna-Garcia et al. 2026.
+  evidence:
+  - reference: PMID:41745484
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.3390/md24020081'
+    explanation: Identifies the DOI for the exact-system publication.
+associated_datasets:
+- accession: PRJNA1369521
+  title: Algal-methanotrophic co-culture shotgun metagenome BioProject
+  description: NCBI BioProject for the whole-genome shotgun data generated from the algal, methanotrophic, and algal-methanotrophic
+    assays.
+  dataset_type: METAGENOMICS
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1369521
+  publication: PMID:41745484
+  findings: Shotgun metagenomics resolved Chlorophyta, Leptolyngbya, Methylotuvimicrobium, Methylophaga, and Methylonatrum
+    as key members of the methane-fed co-culture.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this methane-fed algal-methanotrophic biogas valorization
+  co-culture.
+curation_history:
+- timestamp: '2026-09-22T02:16:29Z'
+  curator: codex
+  action: CREATE_COMMUNITY_RECORD
+  changes: Created CommunityMech:000415 for the saline algal-methanotrophic biogas valorization co-culture from PMID:41745484.
+  llm_assisted: true
+- timestamp: '2026-09-22T02:23:25Z'
+  curator: codex
+  action: FIX_GROWTH_MEDIA_SCOPE
+  changes: Removed dioxygen from the CH4/CO2 growth-feed composition and corrected the illuminated co-culture light intensity
+    to the source-reported 700 umol m-2 s-1.
+  llm_assisted: true
+- timestamp: '2026-09-22T02:30:02Z'
+  curator: codex
+  action: FIX_NETWORK_INTEGRITY
+  changes: 'Removed a dangling downstream pointer whose phenotype label did not name another ecological interaction in this
+    record; fixes #1039.'
+  llm_assisted: true

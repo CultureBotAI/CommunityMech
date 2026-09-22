@@ -1,0 +1,30 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml
+  slug: Algal_Methanotroph_Biogas_Valorization_Coculture
+session:
+  id: 2026-09-22T023024Z-codex-7b6bb4
+  timestamp: '2026-09-22T02:30:24Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-5-codex
+    agent_tool: codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1039
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - interactions
+  - causal_graphs
+  summary: Remove dangling biogas-removal downstream edge
+  details: >-
+    Fixed issue #1039 by removing the Photosynthetic O2 Support for Methane
+    Oxidation interaction's downstream pointer to the phenotype label Biogas
+    Removal and Bioproduct Formation. The network audit requires
+    downstream.target to name another ecological interaction in the same record,
+    and this record does not curate biogas removal as a separate interaction
+    node.
