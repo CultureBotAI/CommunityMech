@@ -219,10 +219,6 @@ ecological_interactions:
     term:
       id: GO:0015947
       label: methane metabolic process
-  downstream:
-  - target: Biogas Removal and Bioproduct Formation
-    description: Coupled algal oxygen production and aerobic methane oxidation allowed simultaneous methane and carbon dioxide
-      removal from biogas.
   evidence:
   - reference: PMID:41745484
     supports: SUPPORT
@@ -473,4 +469,10 @@ curation_history:
   action: FIX_GROWTH_MEDIA_SCOPE
   changes: Removed dioxygen from the CH4/CO2 growth-feed composition and corrected the illuminated co-culture light intensity
     to the source-reported 700 umol m-2 s-1.
+  llm_assisted: true
+- timestamp: '2026-09-22T02:30:02Z'
+  curator: codex
+  action: FIX_NETWORK_INTEGRITY
+  changes: 'Removed a dangling downstream pointer whose phenotype label did not name another ecological interaction in this
+    record; fixes #1039.'
   llm_assisted: true
