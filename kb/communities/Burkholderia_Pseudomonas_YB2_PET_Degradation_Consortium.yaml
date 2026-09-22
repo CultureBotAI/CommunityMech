@@ -1,0 +1,340 @@
+id: CommunityMech:000426
+name: Burkholderia-Pseudomonas YB2 PET Degradation Consortium
+description: >
+  A defined two-strain synthetic consortium, YB2, constructed from
+  Burkholderia cepacia ZY1 and Pseudomonas harudinis G1B at an optimized 4:5
+  inoculation ratio to improve polyethylene terephthalate (PET)
+  depolymerization and downstream PET-hydrolysis-product conversion. At pH 7.0
+  and 30 °C, YB2 reached 4.30% +/- 0.11% PET film mass loss after 3 days,
+  outperformed the individual strains, released BHET, MHET, TPA, and ethylene
+  glycol, and converted 96.4% of BHET plus 97.3% of MHET within 2 days.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: >
+    Construct a two-strain consortium that pairs PET depolymerization activity
+    with stronger downstream growth on BHET- and MHET-containing media to
+    enhance PET degradation and hydrolysis-product conversion.
+  assembly_strategy: >
+    Compare Burkholderia cepacia ZY1 and Pseudomonas harudinis G1B as individual
+    strains, then combine them as consortium YB2 at an optimized ZY1:G1B
+    inoculation ratio of 4:5.
+  perturbation_design: >
+    Compare YB2 against the individual strains in PET film degradation and PET
+    hydrolysis-product conversion assays.
+  measurement_endpoints:
+  - PET film mass loss
+  - BHET conversion
+  - MHET conversion
+  - TPA utilization
+  - ethylene glycol release and decline
+  - PET surface erosion and ester-related structural changes
+  notes: >
+    The accessible PubMed cache is abstract-only because Europe PMC does not
+    serve open full text for this Elsevier article; curation is therefore
+    limited to abstract-supported strain membership, the 4:5 inoculation ratio,
+    the pH 7.0 and 30 °C YB2 condition, and the reported PET/BHET/MHET/TPA/EG
+    endpoints.
+  evidence:
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Burkholderia cepacia ZY1 and Pseudomonas harudinis G1B were compared, and
+      a two-strain consortium, YB2, was constructed at an optimal inoculation
+      ratio of 4:5.
+    explanation: Supports the two-member YB2 composition and optimized 4:5 inoculation ratio.
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      YB2 achieved 4.30% ± 0.11% PET film mass loss after 3 d, significantly
+      exceeding the individual strains.
+    explanation: Supports enhanced PET film degradation by YB2 relative to either strain alone.
+environment_term:
+  preferred_term: PET-degrading laboratory consortium
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    YB2 was assembled and assayed as a defined two-strain synthetic consortium
+    under controlled in vitro PET/BHET/MHET degradation conditions.
+taxonomy:
+- taxon_term:
+    preferred_term: Burkholderia cepacia ZY1
+    term:
+      id: NCBITaxon:292
+      label: Burkholderia cepacia
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      The source identifies strain ZY1 as Burkholderia cepacia; NCBI Taxonomy
+      resolves the species to NCBITaxon:292, and the local GTDB grounding step
+      has not yet assigned a genome-based classification for this strain.
+  strain_designation:
+    strain_name: ZY1
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: One of two YB2 members in the optimized 4:5 inoculation.
+  evidence:
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Burkholderia cepacia ZY1 and Pseudomonas harudinis G1B were compared
+    explanation: Identifies Burkholderia cepacia ZY1 as one YB2 member.
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      ZY1 showed relatively stronger PET depolymerization-related activity
+    explanation: Supports the stronger PET-depolymerization role assigned to ZY1.
+- taxon_term:
+    preferred_term: Pseudomonas harudinis G1B
+    term:
+      id: NCBITaxon:2833596
+      label: Pseudomonas harudinis
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      The source identifies strain G1B as Pseudomonas harudinis; NCBI Taxonomy
+      resolves the species to NCBITaxon:2833596, and the local GTDB grounding
+      step has not yet assigned a genome-based classification for this strain.
+  strain_designation:
+    strain_name: G1B
+  functional_role:
+  - CROSS_FEEDER
+  abundance_value: One of two YB2 members in the optimized 4:5 inoculation.
+  evidence:
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Burkholderia cepacia ZY1 and Pseudomonas harudinis G1B were compared
+    explanation: Identifies Pseudomonas harudinis G1B as one YB2 member.
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      G1B exhibited greater growth in bis(2-hydroxyethyl) terephthalate
+      (BHET)- and mono(2-hydroxyethyl) terephthalate (MHET)-containing media
+    explanation: >
+      Supports the stronger downstream PET-hydrolysis-product growth phenotype
+      assigned to G1B.
+ecological_interactions:
+- name: YB2 PET hydrolysis-product complementarity
+  description: >
+    B. cepacia ZY1 and P. harudinis G1B have overlapping PET-related functions
+    with relative differences: ZY1 shows stronger PET depolymerization-related
+    activity, while G1B grows better in BHET- and MHET-containing media and
+    tends toward faster BHET conversion.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Burkholderia cepacia ZY1
+    term:
+      id: NCBITaxon:292
+      label: Burkholderia cepacia
+  - preferred_term: Pseudomonas harudinis G1B
+    term:
+      id: NCBITaxon:2833596
+      label: Pseudomonas harudinis
+  metabolites:
+  - preferred_term: poly(ethylene terephthalate) macromolecule
+    term:
+      id: CHEBI:53259
+      label: poly(ethylene terephthalate) macromolecule
+  - preferred_term: bis(2-hydroxyethyl) terephthalate
+    term:
+      id: CHEBI:231672
+      label: bis(2-hydroxyethyl) terephthalate
+  - preferred_term: terephthalic acid
+    term:
+      id: CHEBI:15702
+      label: terephthalic acid
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  downstream:
+  - target: YB2 enhanced PET-film degradation
+    description: >
+      The complementary PET-depolymerization and downstream-conversion
+      phenotypes of the two strains support YB2's enhanced PET film mass loss.
+  evidence:
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Overall, ZY1 and G1B exhibited overlapping functions with relative
+      functional differences and potential complementarity
+    explanation: Supports non-directional complementarity between the two YB2 members.
+- name: YB2 enhanced PET-film degradation
+  description: >
+    At pH 7.0 and 30 °C, the YB2 consortium reached 4.30% +/- 0.11% PET film
+    mass loss after 3 days, exceeding either individual strain and causing PET
+    surface erosion, ester-related structural changes, and increased residual
+    PET crystallinity.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Burkholderia cepacia ZY1
+    term:
+      id: NCBITaxon:292
+      label: Burkholderia cepacia
+  - preferred_term: Pseudomonas harudinis G1B
+    term:
+      id: NCBITaxon:2833596
+      label: Pseudomonas harudinis
+  metabolites:
+  - preferred_term: poly(ethylene terephthalate) macromolecule
+    term:
+      id: CHEBI:53259
+      label: poly(ethylene terephthalate) macromolecule
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  evidence:
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      At pH 7.0 and 30 °C, YB2 achieved 4.30% ± 0.11% PET film mass loss after
+      3 d, significantly exceeding the individual strains.
+    explanation: Supports the pH 7.0, 30 C PET film mass-loss phenotype of YB2.
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      YB2 treatment caused surface erosion, ester-related structural changes,
+      and increased residual PET crystallinity.
+    explanation: Supports physical and chemical evidence of YB2 action on PET film.
+environmental_factors:
+- name: Optimized ZY1 to G1B inoculation ratio
+  value: '4:5'
+  description: YB2 was assembled at an optimized Burkholderia cepacia ZY1 to Pseudomonas harudinis G1B inoculation ratio.
+  evidence:
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      YB2, was constructed at an optimal inoculation ratio of 4:5
+    explanation: Supports the optimized starting ratio used to define YB2.
+- name: PET film mass loss at pH 7.0 and 30 C
+  value: 4.30 +/- 0.11
+  unit: percent after 3 days
+  description: YB2 PET film mass loss exceeded the individual-strain controls after 3 days.
+  evidence:
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      At pH 7.0 and 30 °C, YB2 achieved 4.30% ± 0.11% PET film mass loss after
+      3 d, significantly exceeding the individual strains.
+    explanation: Supports the measured PET film mass loss by YB2.
+- name: BHET and MHET conversion
+  value: 96.4% BHET and 97.3% MHET within 2 days
+  description: YB2 converted the PET hydrolysis products BHET and MHET over a 2-day interval.
+  evidence:
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      YB2 converted 96.4% of BHET and 97.3% of MHET within 2 d
+    explanation: Supports the BHET and MHET conversion endpoints for YB2.
+growth_media:
+- name: pH 7.0 PET and PET-hydrolysis-product degradation cultures
+  temperature: '30'
+  temperature_unit: C
+  ph: '7.0'
+  inoculum_source: Burkholderia cepacia ZY1 and Pseudomonas harudinis G1B laboratory cultures.
+  inoculum_size: '4:5'
+  inoculum_unit: ZY1:G1B starting ratio
+  preparation_notes: >
+    The abstract reports YB2 PET degradation at pH 7.0 and 30 °C, with PET film
+    mass loss after 3 days, BHET/MHET conversion within 2 days, and near-complete
+    TPA utilization within 5 days, but does not report basal medium composition
+    or vessel details.
+  evidence:
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      At pH 7.0 and 30 °C, YB2 achieved 4.30% ± 0.11% PET film mass loss after
+      3 d
+    explanation: Supports the pH, temperature, and 3-day PET film assay duration.
+external_resources:
+- name: Primary publication - YB2 Burkholderia-Pseudomonas PET consortium
+  repository: OTHER
+  resource_id: PMID:42664909
+  url: https://pubmed.ncbi.nlm.nih.gov/42664909/
+  description: >
+    Journal of Environmental Management primary article describing the YB2
+    Burkholderia cepacia ZY1 and Pseudomonas harudinis G1B two-strain
+    consortium for enhanced PET degradation.
+  evidence:
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Enhanced degradation of polyethylene terephthalate by a two-strain microbial consortium.
+    explanation: Lists the exact primary publication for the YB2 PET-degrading consortium.
+related_ingredients:
+- preferred_term: poly(ethylene terephthalate) macromolecule
+  chebi_term:
+    id: CHEBI:53259
+    label: poly(ethylene terephthalate) macromolecule
+  relevance: PET film was the insoluble polymer substrate degraded by the YB2 consortium.
+  evidence:
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PET film mass loss
+    explanation: Names PET film as the assayed insoluble substrate.
+- preferred_term: bis(2-hydroxyethyl) terephthalate
+  chebi_term:
+    id: CHEBI:231672
+    label: bis(2-hydroxyethyl) terephthalate
+  relevance: BHET is a PET hydrolysis product that YB2 converted efficiently within 2 days.
+  evidence:
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      YB2 converted 96.4% of BHET
+    explanation: Names BHET as a PET hydrolysis product converted by YB2.
+- preferred_term: terephthalic acid
+  chebi_term:
+    id: CHEBI:15702
+    label: terephthalic acid
+  relevance: TPA was detected as a PET depolymerization product and almost completely utilized by YB2 within 5 days.
+  evidence:
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: almost completely utilized TPA within 5 d
+    explanation: Names TPA as a downstream PET hydrolysis product utilized by YB2.
+- preferred_term: ethylene glycol
+  chebi_term:
+    id: CHEBI:30742
+    label: ethylene glycol
+  relevance: EG was released during YB2 PET depolymerization and later declined in the assay.
+  evidence:
+  - reference: PMID:42664909
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      EG initially accumulated and then declined, suggesting possible subsequent
+      microbial utilization.
+    explanation: Names EG as a PET hydrolysis product whose level declined after initial accumulation.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for this PET biodegradation consortium.
+curation_history:
+- timestamp: '2026-09-22T21:32:02Z'
+  curator: codex
+  action: ADD_COMMUNITY_RECORD
+  changes: >
+    Added CommunityMech:000426 for the Burkholderia cepacia ZY1 and Pseudomonas
+    harudinis G1B YB2 PET-degrading consortium from PMID:42664909.
+  llm_assisted: true
