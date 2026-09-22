@@ -1,0 +1,238 @@
+id: CommunityMech:000418
+name: Staged Ensifer-Bacillus Cattle-Manure Wastewater SynCom
+description: A defined two-member staged consortium, SYC, pairing the heterotrophic ammonia-oxidizing core strain Ensifer
+  sp. S2-8-1 with an auxiliary Bacillus subtilis strain to convert cattle manure wastewater into a bioactive fermentation
+  broth for maize growth promotion. The primary study compared an S2-8-1 monoculture, simultaneous co-culture, and the staged
+  consortium, and reported that SYC had the best overall performance, enhanced rhizosphere nitrification, increased NO3--N
+  availability, promoted maize growth, and increased whole-plant dry matter in a soil-maize pot experiment.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Stage Ensifer sp. S2-8-1 and Bacillus subtilis so cattle manure wastewater is converted into a stable, bioactive
+    fermentation broth for compound microbial fertilizer development.
+  assembly_strategy: Use Ensifer sp. S2-8-1 as the core strain, Bacillus subtilis as the auxiliary strain, and compare S2-8-1
+    monoculture, simultaneous co-culture, and a staged consortium named SYC.
+  perturbation_design: Compare staged SYC to a monoculture and simultaneous co-culture, then assay the resulting fermentation
+    broth in a soil-maize pot experiment.
+  measurement_endpoints:
+  - viable bacterial density
+  - rhizosphere nitrification
+  - NO3--N availability
+  - maize whole-plant dry matter
+  - photosynthetic performance
+  - cytokinin accumulation
+  - metatranscriptomic response of heterotrophic ammonia oxidation and cytokinin-related genes
+  evidence:
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study aimed to develop a low-cost and stable microbial consortium for converting cattle manure wastewater
+      into a bioactive fermentation broth
+    explanation: Supports the engineered wastewater-valorization objective for the consortium.
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The heterotrophic ammonia-oxidizing bacterium Ensifer sp. S2-8-1 was used as the core strain, and Bacillus subtilis
+      was employed as the auxiliary strain.
+    explanation: Identifies the two-member composition and their design roles.
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Three cultivation systems were compared: S2-8-1 monoculture, simultaneous co-culture, and a staged consortium
+      (SYC).'
+    explanation: Supports the staged consortium design relative to monoculture and simultaneous co-culture controls.
+environment_term:
+  preferred_term: staged cattle-manure wastewater fermentation
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The two-member SYC consortium was assembled and assayed under controlled laboratory conditions before its broth was
+    tested in a soil-maize pot experiment.
+modeled_environment:
+- preferred_term: cattle manure wastewater
+  term:
+    id: ENVO:00002001
+    label: waste water
+  notes: The growth substrate was cattle manure wastewater that the staged consortium converted into bioactive fermentation
+    broth.
+taxonomy:
+- taxon_term:
+    preferred_term: Ensifer sp. S2-8-1
+    term:
+      id: NCBITaxon:106591
+      label: Ensifer
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:g__Ensifer
+    - GTDB:g__Sinorhizobium
+    notes: The article resolves S2-8-1 to Ensifer sp.; GTDB candidates match the ambiguous genus-level NCBI grounding used
+      for other Ensifer sp. isolates in the corpus.
+  strain_designation:
+    strain_name: S2-8-1
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The heterotrophic ammonia-oxidizing bacterium Ensifer sp. S2-8-1 was used as the core strain
+    explanation: Identifies Ensifer sp. S2-8-1 as the core strain in the SYC consortium.
+- taxon_term:
+    preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_subtilis
+      gtdb_taxon: Bacillus subtilis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis
+      ncbi_source_id: NCBITaxon:1423
+      majority_fraction: 0.91
+      total_genomes: 1256
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacillus subtilis was employed as the auxiliary strain
+    explanation: Identifies B. subtilis as the auxiliary strain in the SYC consortium.
+ecological_interactions:
+- name: Staged cattle-manure wastewater valorization
+  description: The staged two-member SYC consortium converted cattle manure wastewater into stable bioactive fermentation
+    broth and maintained stronger viable bacterial density than the S2-8-1 monoculture or simultaneous co-culture.
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Among them, SYC exhibited the best overall performance, maintaining the highest viable bacterial density
+    explanation: Supports the staged consortium as the best-performing cultivation system.
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The staged "pre-modification followed by synergy" consortium effectively converts cattle manure wastewater into
+      a stable and bioactive fermentation broth
+    explanation: Supports conversion of cattle manure wastewater by the staged consortium.
+- name: SYC rhizosphere nitrification and maize promotion
+  description: Fermentation broth from SYC increased rhizosphere nitrification, nitrate availability, photosynthetic performance,
+    cytokinin accumulation, and maize whole-plant dry matter in a soil-maize pot experiment.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  evidence:
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SYC significantly enhanced rhizosphere nitrification, increased NO3--N availability, and promoted maize growth
+    explanation: Supports the pot-experiment nitrogen and maize-growth effects of SYC.
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: resulting in a 41.4% increase in whole-plant dry matter compared with the water control
+    explanation: Quantifies the maize dry-matter increase after SYC treatment.
+- name: S2-8-1 nitrogen and cytokinin-related gene upregulation
+  description: Comparative metatranscriptomics under SYC conditions found significant upregulation of S2-8-1 heterotrophic
+    ammonia oxidation-related genes and cytokinin-related genes.
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Comparative metatranscriptomic analysis revealed significant upregulation of heterotrophic ammonia oxidation-related
+      genes (CYP450) and cytokinin-related genes (miaA and LOG) in S2-8-1 under SYC conditions
+    explanation: Supports S2-8-1 transcriptional activation in the staged consortium.
+related_ingredients:
+- preferred_term: nitrate
+  chebi_term:
+    id: CHEBI:17632
+    label: nitrate
+  relevance: Nitrate nitrogen availability increased in the rhizosphere after the SYC fermentation broth was applied in the
+    soil-maize pot experiment.
+  evidence:
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: increased NO3--N availability
+    explanation: Links the staged consortium to increased nitrate nitrogen availability.
+- preferred_term: cytokinin
+  chebi_term:
+    id: CHEBI:23530
+    label: cytokinin
+  relevance: The SYC treatment improved cytokinin accumulation in the soil-maize pot experiment, and S2-8-1 upregulated cytokinin-related
+    genes under SYC conditions.
+  evidence:
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The consortium also improved photosynthetic performance and cytokinin accumulation.
+    explanation: Supports cytokinin as a reported plant-growth endpoint of the consortium.
+growth_media:
+- name: cattle manure wastewater
+  preparation_notes: The accessible abstract identifies cattle manure wastewater as the substrate converted by the staged
+    consortium, but it does not report the wastewater composition, medium amendments, staging interval, inoculation ratio,
+    temperature, or aeration regime.
+  evidence:
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: converting cattle manure wastewater into a bioactive fermentation broth
+    explanation: Supports cattle manure wastewater as the feedstock for the staged consortium.
+environmental_factors:
+- name: staged consortium assembly
+  description: SYC was assembled as a staged cultivation system rather than as simultaneous co-culture of the two strains.
+  evidence:
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Three cultivation systems were compared: S2-8-1 monoculture, simultaneous co-culture, and a staged consortium
+      (SYC).'
+    explanation: Identifies staging as the cultivation architecture tested for SYC.
+external_resources:
+- name: Primary publication - staged SYC cattle manure wastewater consortium
+  repository: OTHER
+  resource_id: PMID:42341825
+  url: https://pubmed.ncbi.nlm.nih.gov/42341825/
+  description: Journal of Applied Microbiology 2026 primary article describing staged Ensifer sp. S2-8-1 plus Bacillus subtilis
+    cultivation in cattle manure wastewater and maize pot testing.
+  evidence:
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Staged microbial consortium valorizes cattle manure wastewater and promotes maize growth.
+    explanation: Lists the primary publication for the SYC consortium.
+discussions:
+- discussion_id: syc_staging_and_manure_wastewater_recipe
+  prompt: Which precise cattle-manure wastewater composition, pre-modification sequence, staging interval, inoculation ratio,
+    temperature, and aeration conditions were used for the Ensifer sp. S2-8-1/Bacillus subtilis SYC consortium?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - growth_media#cattle manure wastewater
+  - environmental_factors#staged consortium assembly
+  rationale: The PubMed abstract names the two strains, staged design, cattle manure wastewater feedstock, and day-12 outcome,
+    but it does not expose the full staging or medium protocol needed to reproduce the fermentation.
+  posed_by: codex
+  posed_date: '2026-09-22'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: The cited abstract reports agricultural-waste valorization, nitrogen transformation, and maize-growth endpoints,
+  not metal or rare-earth transformation.
+curation_history:
+- timestamp: '2026-09-22T09:18:04Z'
+  curator: codex
+  action: ADD_COMMUNITY_RECORD
+  changes: Added a staged two-member Ensifer sp. S2-8-1 and Bacillus subtilis cattle-manure wastewater SynCom from PMID:42341825.
+  llm_assisted: true
+- timestamp: '2026-09-22T09:24:41Z'
+  curator: codex
+  action: FIX_ADVERSARIAL_REVIEW_FINDINGS
+  changes: Removed unsupported cross-feeder roles, reclassified soil-maize pot evidence as in vivo, and narrowed the metatranscriptomic
+    interaction to observed S2-8-1 gene upregulation under SYC conditions.
+  llm_assisted: true
