@@ -285,6 +285,7 @@ USERS = {
     "Syntrophobacter_Methanospirillum_Syntrophy.yaml",
     "Syntrophomonas_Methanospirillum_Syntrophy.yaml",
     "Syntrophus_Benzoate_Degrader.yaml",
+    "Thermophilic_ExSitu_Biomethanation_Mixed_Culture.yaml",
     "Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.yaml",
     "Urine_Nitrification_SynCom.yaml",
     "Viili_Fungus_Bacterium_EPS_SynCom.yaml",

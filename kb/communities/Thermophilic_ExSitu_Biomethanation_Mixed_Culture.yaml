@@ -1,0 +1,528 @@
+id: CommunityMech:000416
+name: Thermophilic Ex-Situ Biomethanation Mixed Culture
+description: An engineered mixed microbial culture for ex-situ thermophilic biomethanation that was enriched from autoclaved
+  anaerobic digested sewage sludge in a 0.4 L working-volume continuously stirred tank reactor. The proof-of-concept reactor
+  was conditioned with intermittent washouts and reached sustained H2/CO2 4:1 throughput of 500 L/L/d at 50 C in the final
+  phase, where Euryarchaeota, Firmicutes, and Coprothermobacterota dominated the 16S phylum profile and Methanobacteria, Methanosarcina,
+  and Methanosaeta were tracked by qPCR as methane content rose to 86% by day 69.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: METHANOGENESIS
+engineering_design:
+  objective: Select and stabilize a mixed anaerobic-digestate consortium for high-throughput ex-situ H2/CO2 biomethanation
+    in a thermophilic CSTR at atmospheric pressure.
+  assembly_strategy: Filter anaerobic digested sewage sludge, autoclave it to partially reduce competing biomass without fully
+    eliminating methanogens, and condition the surviving consortium with thermophilic H2/CO2 gas feed.
+  inoculation_strategy: Load 0.4 L of autoclaved digestate sludge from a local wastewater treatment multi-stage mesophilic
+    digestion plant into a single custom CSTR proof-of-concept reactor.
+  passaging_regimen: Use pH- and CH4-triggered 50% culture washouts during early conditioning, followed by 25% daily washouts
+    during phase 4 at 50 C and 500 L/L/d H2/CO2.
+  perturbation_design: Progress from mesophilic 37 C operation, to 2-3 C daily temperature increases up to 55 C, to final
+    50 C operation with H2:CO2 throughput increased to 500 L/L/d.
+  measurement_endpoints:
+  - Effluent CH4, CO2, and H2 composition
+  - 16S rRNA phylum-level community structure
+  - Methanobacteria, Methanosarcina, Methanosaeta, and bacterial qPCR gene copies
+  - Volatile fatty acid concentration and composition
+  - pH during washout-managed operation
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study presents a novel operational strategy integrating autoclave pretreatment
+    explanation: Supports the combination of autoclaving, microbial conditioning, and washouts as the engineered strategy.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Ex-situ biomethanation was carried out in a custom-designed Continuous Stirred Tank Reactor (CSTR)
+    explanation: Identifies the reactor format used to cultivate the mixed culture.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Anaerobic digested sewage sludge, sourced from a local wastewater treatment multi-stage mesophilic digestion
+      plant
+    explanation: Identifies the source sludge used to seed the mixed culture.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: autoclaved at 121
+    explanation: Supports heat treatment of the digestate before cultivation.
+environment_term:
+  preferred_term: thermophilic ex-situ biomethanation CSTR
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+  notes: Custom continuous stirred tank reactor fed H2/CO2 for ex-situ biomethanation of an autoclaved anaerobic-digestate-derived
+    culture.
+modeled_environment:
+- preferred_term: anaerobic digester sludge
+  term:
+    id: ENVO:00003965
+    label: anaerobic digester sludge
+taxonomy:
+- taxon_term:
+    preferred_term: Euryarchaeota
+    term:
+      id: NCBITaxon:28890
+      label: Methanobacteriota
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source reports the final archaeal community at phylum level as Euryarchaeota.
+  abundance_level: DOMINANT
+  relative_abundance: 0.78
+  relative_abundance_unit: fraction of day-69 16S phylum-level reads
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The results indicate that Euryarchaeota, Firmicutes, and Coprothermobacterota dominated
+    explanation: Supports Euryarchaeota as a dominant archaeal phylum in the final conditioned culture.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Euryarchaeota (78%), Firmicutes (16%), and Coprothermobacterota (4%)
+    explanation: Reports the day-69 phylum percentages used for the final-phase community profile.
+- taxon_term:
+    preferred_term: Firmicutes
+    term:
+      id: NCBITaxon:1239
+      label: Bacillota
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source uses Firmicutes; NCBI now labels NCBITaxon:1239 as Bacillota.
+  abundance_level: ABUNDANT
+  relative_abundance: 0.16
+  relative_abundance_unit: fraction of day-69 16S phylum-level reads
+  functional_role:
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The results indicate that Euryarchaeota, Firmicutes, and Coprothermobacterota dominated
+    explanation: Supports Firmicutes as a major bacterial phylum in the final conditioned culture.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Firmicutes producing VFAs
+    explanation: Supports the fermentative VFA-producing role assigned to Firmicutes in the final-phase interpretation.
+- taxon_term:
+    preferred_term: Coprothermobacterota
+    term:
+      id: NCBITaxon:2138240
+      label: Coprothermobacterota
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source links the Coprothermobacterota phylum increase to Coprothermobacter-like syntrophic acetate-oxidizing
+      bacteria under thermophilic operation.
+  abundance_level: COMMON
+  relative_abundance: 0.04
+  relative_abundance_unit: average fraction of phase-4 16S phylum-level reads
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Coprothermobacterota dominated, accounting for an average relative abundance of 78, 16, and 4%
+    explanation: Supports Coprothermobacterota as a recurrent bacterial phylum in the final phase.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Coprothermobacterota converting acetate
+    explanation: Supports the acetate-converting syntrophic role assigned to Coprothermobacterota.
+- taxon_term:
+    preferred_term: Methanobacteria
+    term:
+      id: NCBITaxon:183925
+      label: Methanobacteria
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: COMMON
+  absolute_abundance: 7500000000.0
+  absolute_abundance_unit: gene copies/mL on day 69 by qPCR
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanobacteria, Methanosarcina, and Methanosaeta increased to 7.5 × 109, 8 × 105,
+      and 3.8 × 107
+    explanation: Supports Methanobacteria as a qPCR-tracked methanogenic group that increased by day 69.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The primary vertical axis shows gene copies/mL
+    explanation: Supports gene copies per milliliter as the unit for the Figure 4 qPCR abundance readout.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: favoured hydrogenotrophic Methanobacteria
+    explanation: Supports the hydrogenotrophic methanogen role assigned to Methanobacteria.
+- taxon_term:
+    preferred_term: Methanosarcina
+    term:
+      id: NCBITaxon:2207
+      label: Methanosarcina
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: RARE
+  absolute_abundance: 800000.0
+  absolute_abundance_unit: gene copies/mL on day 69 by qPCR
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanobacteria, Methanosarcina, and Methanosaeta increased to 7.5 × 109, 8 × 105,
+      and 3.8 × 107
+    explanation: Supports Methanosarcina as a qPCR-tracked methanogenic group that increased by day 69.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The primary vertical axis shows gene copies/mL
+    explanation: Supports gene copies per milliliter as the unit for the Figure 4 qPCR abundance readout.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanosarcina, though less abundant, contributed to system stability
+    explanation: Supports Methanosarcina as a lower-abundance methanogenic group in the final-phase interpretation.
+- taxon_term:
+    preferred_term: Methanosaeta qPCR target (Methanothrix)
+    term:
+      id: NCBITaxon:2222
+      label: Methanothrix
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source reports Methanosaeta qPCR targets; NCBI resolves the genus to Methanothrix.
+  abundance_level: COMMON
+  absolute_abundance: 38000000.0
+  absolute_abundance_unit: gene copies/mL on day 69 by qPCR
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanobacteria, Methanosarcina, and Methanosaeta increased to 7.5 × 109, 8 × 105,
+      and 3.8 × 107
+    explanation: Supports Methanosaeta/Methanothrix as a qPCR-tracked methanogenic group that increased by day 69.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The primary vertical axis shows gene copies/mL
+    explanation: Supports gene copies per milliliter as the unit for the Figure 4 qPCR abundance readout.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanosaeta converting acetate
+    explanation: Supports the acetoclastic role assigned to the Methanosaeta target.
+ecological_interactions:
+- name: Thermophilic H2/CO2 Biomethanation
+  description: The conditioned archaeal fraction used H2 and CO2 to produce CH4 under a 4:1 H2:CO2 gas feed at 50 C; the final
+    phase favoured hydrogenotrophic Methanobacteria, with Methanosarcina contributing at lower abundance through hydrogenotrophic
+    and acetoclastic metabolism.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Euryarchaeota
+    term:
+      id: NCBITaxon:28890
+      label: Methanobacteriota
+  - preferred_term: Methanobacteria
+    term:
+      id: NCBITaxon:183925
+      label: Methanobacteria
+  - preferred_term: Methanosarcina
+    term:
+      id: NCBITaxon:2207
+      label: Methanosarcina
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'The high H₂: CO₂ throughput at 50'
+    explanation: Supports high-throughput H2/CO2 feeding as the operational context for methanogen selection.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: favoured hydrogenotrophic Methanobacteria
+    explanation: Supports hydrogenotrophic methanogenesis by Methanobacteria in the final phase.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: levels in the output gas steadily increased with each washout, reaching 86% by day 69
+    explanation: Reports the final methane-content outcome under the conditioned final-phase regime.
+- name: VFA Syntrophic Turnover
+  description: Thermophilic bacterial partners produced and transformed volatile fatty acids while archaeal acetoclastic methanogens
+    consumed acetate for methane production; by day 69, VFA concentrations fell to approximately 3.5 g/L and were dominated
+    by acetate.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Firmicutes
+    term:
+      id: NCBITaxon:1239
+      label: Bacillota
+  - preferred_term: Coprothermobacterota
+    term:
+      id: NCBITaxon:2138240
+      label: Coprothermobacterota
+  - preferred_term: Methanosarcina
+    term:
+      id: NCBITaxon:2207
+      label: Methanosarcina
+  - preferred_term: Methanosaeta qPCR target (Methanothrix)
+    term:
+      id: NCBITaxon:2222
+      label: Methanothrix
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: propionate
+    term:
+      id: CHEBI:17272
+      label: propionate
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: At this point, the VFAs comprised 73% acetate, 16% propionic acid, and 10% n-butyric acid
+    explanation: Reports the final VFA pool available to syntrophic acetate turnover and acetoclastic methanogenesis.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Overall, in the final phase, the system exhibited a balanced microbial community
+    explanation: Supports the final-phase syntrophic interpretation linking Firmicutes, Coprothermobacterota, and Methanosaeta.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Coprothermobacterota converting acetate
+    explanation: Supports the acetate-oxidizing role assigned to Coprothermobacterota.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanosaeta converting acetate
+    explanation: Supports acetoclastic methane production by the Methanosaeta qPCR target.
+environmental_factors:
+- name: Thermophilic operating temperature
+  value: '50'
+  unit: C
+  description: Final high-throughput biomethanation was operated at 50 C.
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 500 L/L/d at 50
+    explanation: Supports the final 50 C operating temperature paired with the 500 L/L/d gas throughput.
+- name: H2/CO2 gas throughput
+  value: '500'
+  unit: L/L/d
+  description: Phase 4 sustained a 4:1 H2:CO2 gas throughput of 500 L/L/d.
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'sustained H2: CO2 (4:1) throughput (500'
+    explanation: Supports the 4:1 H2:CO2 gas feed and high final gas-throughput rate.
+- name: Intermittent phase-4 washout
+  value: '25'
+  unit: percent culture volume every 24 h
+  description: Daily 25% washouts maintained the final 50 C, 500 L/L/d condition from days 64 to 69.
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Subsequent washouts were performed every 24
+    explanation: Supports daily washouts after the 25% day-64 washout during phase 4.
+- name: Day-69 VFA concentration
+  value: '3.5'
+  unit: g/L
+  description: Total volatile fatty acids dropped to about 3.5 g/L by day 69.
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: dropping to 3.5
+    explanation: Supports the terminal VFA concentration measured during phase 4.
+growth_media:
+- name: Autoclaved digested sewage sludge H2/CO2 CSTR medium
+  composition:
+  - name: filtered autoclaved anaerobic digested sewage sludge
+  - name: dihydrogen
+    chebi_term:
+      preferred_term: dihydrogen
+      term:
+        id: CHEBI:18276
+        label: dihydrogen
+  - name: carbon dioxide
+    chebi_term:
+      preferred_term: carbon dioxide
+      term:
+        id: CHEBI:16526
+        label: carbon dioxide
+  temperature: '50'
+  temperature_unit: C
+  atmosphere: ANAEROBIC
+  headspace_gas: H2/CO2 4:1 at 500 L/L/d
+  pressure: atmospheric
+  vessel_type: custom-designed Continuous Stirred Tank Reactor
+  preparation_notes: Digestate was filtered through a 300 um sieve and autoclaved at 121 C and 15 psi for 1 h before H2/CO2
+    biomethanation in the CSTR.
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Anaerobic digested sewage sludge, sourced from a local wastewater treatment multi-stage mesophilic digestion
+      plant
+    explanation: Supports the sludge inoculum and cultivation matrix used for the CSTR culture.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: autoclaved at 121
+    explanation: Supports autoclaving as the digestate pretreatment before reactor operation.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: atmospheric pressure and 50
+    explanation: Supports atmospheric pressure as the reactor-pressure regime reported for the thermophilic CSTR.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: gases were supplied from pressurised gas cylinders
+    explanation: Supports H2 and CO2 as the gaseous feedstocks supplied to the culture.
+cultivation_setup:
+- cultivation_mode: SEMI_CONTINUOUS
+  system_type: STIRRED_TANK_BIOREACTOR
+  instrument_detail: Custom 1.73 L CSTR with a 0.4 L working volume and a 60 mm Rushton-type impeller operated at 2,500 rpm.
+  working_volume: 0.4
+  working_volume_unit: L
+  operating_temperature: 50
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: External heating controlled reactor temperature; intermittent washouts regulated volatile fatty acids and
+    restored the working volume.
+  notes: Gas feed was continuous, while liquid replacement in the final phase was a daily 25% draw-and-fill washout.
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: total volume of 1.73
+    explanation: Supports the custom CSTR total and working volumes.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 60 mm Rushton-type impeller
+    explanation: Supports the stirred-tank impeller design.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: external heating pad
+    explanation: Supports controlled heating of the thermophilic CSTR.
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 500 L/L/d at 50
+    explanation: Supports the final thermophilic operating temperature recorded for the CSTR.
+external_resources:
+- name: Primary publication - thermophilic ex-situ biomethanation mixed culture
+  repository: OTHER
+  resource_id: PMID:42293522
+  url: https://pubmed.ncbi.nlm.nih.gov/42293522/
+  description: Open-access Frontiers in Microbiology study developing an autoclaved-sludge mixed microbial culture for high-throughput
+    thermophilic ex-situ biomethanation.
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Development of a mixed microbial culture for robust high-throughput ex-situ thermophilic biomethanation
+    explanation: Identifies the primary publication used to curate this record.
+discussions:
+- discussion_id: taxonomy_resolution
+  prompt: The final reactor community is resolved primarily at phylum level by 16S rRNA sequencing and by group-specific qPCR.
+    Species- or MAG-level assignments for the dominant Euryarchaeota, Firmicutes, and Coprothermobacterota partners remain
+    unresolved.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  rationale: Genome-resolved metagenomics or isolates from the day-69 culture would determine which exact hydrogenotrophic,
+    acetoclastic, and acetate-oxidizing taxa executed the inferred final-phase metabolism.
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: The microbial community structure was analysed at the phylum level
+    explanation: Confirms that the final amplicon composition was reported at phylum resolution.
+  posed_by: codex
+  posed_date: '2026-09-21'
+- discussion_id: industrial_nonsterile_stability
+  prompt: Long-term robustness under continuous, non-sterile industrial feeding is unvalidated because the proof-of-concept
+    system used autoclaved digestate.
+  kind: HUMAN_MODEL_MISMATCH
+  status: OPEN
+  attaches_to:
+  - engineering_design
+  - cultivation_setup
+  rationale: A non-sterile continuous-feeding trial would test whether the selected thermophilic consortium remains stable
+    under industrially realistic operation rather than washout-managed autoclaved-sludge proof-of-concept conditions.
+  evidence:
+  - reference: PMID:42293522
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: long-term stability under non-sterile conditions typical of industrial operation remains to be validated
+    explanation: Names the industrial robustness gap stated by the authors.
+  posed_by: codex
+  posed_date: '2026-09-21'
+curation_history:
+- timestamp: '2026-09-22T04:09:10Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000416 for PMID:42293522, a thermophilic ex-situ biomethanation CSTR mixed culture enriched
+    from autoclaved anaerobic digestate sludge.
+  llm_assisted: true
