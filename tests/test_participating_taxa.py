@@ -271,6 +271,7 @@ USERS = {
     "Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml",
     "Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml",
     "Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.yaml",
+    "Sichuan_Shai_Vinegar_Yeast_Flavor_SynCom.yaml",
     "Soil_Corrinoid_B12_Reservoir_Community.yaml",
     "Soybean_Chlorophyll_Selected_Biofertilizer_SynCom.yaml",
     "Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml",
