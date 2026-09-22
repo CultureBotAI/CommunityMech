@@ -1,0 +1,511 @@
+id: CommunityMech:000423
+name: HAMBI Carbon-Gradient 16-species SynCom
+description: A 16-species HAMBI synthetic bacterial community serially transferred for 16 days in a fully factorial panel
+  of 96 glucose/R2A resource environments spanning eight total-carbon concentrations and 12 levels of R2A-derived carbon.
+  The experiment tested how total carbon availability and resource complexity structure community-state shifts, with Aeromonas
+  caviae, Pseudomonas chlororaphis, and Citrobacter koseri dominating low-, intermediate-, and high-carbon states.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Test whether resource complexity and total carbon availability alter composition, diversity, and state transitions
+    in a defined 16-species synthetic community.
+  assembly_strategy: Assemble 16 bacterial strains from the HAMBI culture collection into a modified version of a previously
+    used synthetic community spanning aquatic, soil, and host-associated origins.
+  inoculation_strategy: Pre-culture each strain for one growth cycle, equalize optical density, pool the cultures at equal
+    volume, and inoculate eight replicate communities for each of 96 resource conditions.
+  passaging_regimen: Serially transfer each 1 mL deep-well culture every 48 h for 16 days, moving 1% of the culture into fresh
+    medium with the same R2A and glucose-derived carbon concentrations.
+  perturbation_design: Cross eight total-carbon concentrations from 0.031 to 4 g C/L with 12 resource-complexity levels generated
+    by varying the fraction of carbon supplied by R2A.
+  measurement_endpoints:
+  - OD600 at each 48 h transfer
+  - endpoint 16S rRNA amplicon-derived relative abundances
+  - monoculture growth traits of the three dominant species across glucose-derived carbon levels
+  - pH in the 16-species community and in individual species grown on glucose
+  - Shannon diversity and t-SNE/DBSCAN community-state clustering
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: transferring a 16-species synthetic community in 96 different resource environments
+    explanation: Supports the bounded 16-member, 96-environment experimental design.
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After pre-culturing each of the 16 species of the community for one growth cycle, we adjusted the optical density
+      of each culture, pooled them at equal volume
+    explanation: Supports equal-volume pooling after individual pre-culture and OD adjustment.
+environment_term:
+  preferred_term: serially passaged laboratory SynCom
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: This is a defined in-vitro HAMBI SynCom assayed in synthetic M9/R2A/glucose media rather than a natural sample community.
+taxonomy:
+- taxon_term:
+    preferred_term: Pseudomonas putida HAMBI 6
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 6 as Pseudomonas putida. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation;
+      the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 6
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 6
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas putida (HAMBI-ID 6)
+    explanation: Names Pseudomonas putida HAMBI 6 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Agrobacterium tumefaciens HAMBI 105
+    term:
+      id: NCBITaxon:358
+      label: Agrobacterium tumefaciens
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 105 as Agrobacterium tumefaciens. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during
+      curation; the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 105
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 105
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Agrobacterium tumefaciens ( 105)
+    explanation: Names Agrobacterium tumefaciens HAMBI 105 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Comamonas testosteroni HAMBI 403
+    term:
+      id: NCBITaxon:285
+      label: Comamonas testosteroni
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 403 as Comamonas testosteroni. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during
+      curation; the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 403
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 403
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Comamonas testosteroni (403)
+    explanation: Names Comamonas testosteroni HAMBI 403 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Citrobacter koseri HAMBI 1287
+    term:
+      id: NCBITaxon:545
+      label: Citrobacter koseri
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 1287 as Citrobacter koseri. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during
+      curation; the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 1287
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 1287
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Citrobacter koseri (1287)
+    explanation: Names Citrobacter koseri HAMBI 1287 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Morganella morganii HAMBI 1292
+    term:
+      id: NCBITaxon:582
+      label: Morganella morganii
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 1292 as Morganella morganii. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during
+      curation; the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 1292
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 1292
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Morganella morganii (1292)
+    explanation: Names Morganella morganii HAMBI 1292 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Kluyvera intermedia HAMBI 1299
+    term:
+      id: NCBITaxon:61648
+      label: Kluyvera intermedia
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 1299 as Kluyvera intermedia. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during
+      curation; the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 1299
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 1299
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Kluyvera intermedia (1299)
+    explanation: Names Kluyvera intermedia HAMBI 1299 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Sphingobium yanoikuyae HAMBI 1842
+    term:
+      id: NCBITaxon:13690
+      label: Sphingobium yanoikuyae
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 1842 as Sphingobium yanoikuyae. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during
+      curation; the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 1842
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 1842
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sphingobium yanoikuyae (1842)
+    explanation: Names Sphingobium yanoikuyae HAMBI 1842 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Sphingobacterium spiritivorum HAMBI 1896
+    term:
+      id: NCBITaxon:258
+      label: Sphingobacterium spiritivorum
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 1896 as Sphingobacterium spiritivorum. The local NCBI2GTDB.tsv.gz crosswalk was unavailable
+      during curation; the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 1896
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 1896
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sphingobacterium spiritivorum (1896)
+    explanation: Names Sphingobacterium spiritivorum HAMBI 1896 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Aeromonas caviae HAMBI 1972
+    term:
+      id: NCBITaxon:648
+      label: Aeromonas caviae
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 1972 as Aeromonas caviae. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation;
+      the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 1972
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 1972
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Aeromonas caviae (1972)
+    explanation: Names Aeromonas caviae HAMBI 1972 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Pseudomonas chlororaphis HAMBI 1977
+    term:
+      id: NCBITaxon:587753
+      label: Pseudomonas chlororaphis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 1977 as Pseudomonas chlororaphis. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during
+      curation; the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 1977
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 1977
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas chlororaphis (1977)
+    explanation: Names Pseudomonas chlororaphis HAMBI 1977 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Bordetella avium HAMBI 2160
+    term:
+      id: NCBITaxon:521
+      label: Bordetella avium
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 2160 as Bordetella avium. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation;
+      the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 2160
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 2160
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bordetella avium (2160)
+    explanation: Names Bordetella avium HAMBI 2160 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Cupriavidus oxalaticus HAMBI 2164
+    term:
+      id: NCBITaxon:96344
+      label: Cupriavidus oxalaticus
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 2164 as Cupriavidus oxalaticus. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during
+      curation; the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 2164
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 2164
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cupriavidus oxalaticus (2164)
+    explanation: Names Cupriavidus oxalaticus HAMBI 2164 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Paracoccus denitrificans HAMBI 2443
+    term:
+      id: NCBITaxon:266
+      label: Paracoccus denitrificans
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 2443 as Paracoccus denitrificans. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during
+      curation; the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 2443
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 2443
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Paracoccus denitrificans (2443)
+    explanation: Names Paracoccus denitrificans HAMBI 2443 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Stenotrophomonas maltophilia HAMBI 2659
+    term:
+      id: NCBITaxon:40324
+      label: Stenotrophomonas maltophilia
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 2659 as Stenotrophomonas maltophilia. The local NCBI2GTDB.tsv.gz crosswalk was unavailable
+      during curation; the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 2659
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 2659
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Stenotrophomonas maltophilia (2659)
+    explanation: Names Stenotrophomonas maltophilia HAMBI 2659 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Niabella yanshanensis HAMBI 3031
+    term:
+      id: NCBITaxon:577386
+      label: Niabella yanshanensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 3031 as Niabella yanshanensis. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during
+      curation; the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 3031
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 3031
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Niabella yanshanensis (3031)
+    explanation: Names Niabella yanshanensis HAMBI 3031 as a member of the SynCom.
+- taxon_term:
+    preferred_term: Microvirga lotononidis HAMBI 3237
+    term:
+      id: NCBITaxon:864069
+      label: Microvirga lotononidis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names HAMBI 3237 as Microvirga lotononidis. The local NCBI2GTDB.tsv.gz crosswalk was unavailable during
+      curation; the species was resolved through NCBI Taxonomy.
+  strain_designation:
+    strain_name: HAMBI 3237
+    culture_collections:
+    - collection: OTHER
+      accession: HAMBI 3237
+    notes: HAMBI culture collection strain from the University of Helsinki.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Microvirga lotononidis (3237)
+    explanation: Names Microvirga lotononidis HAMBI 3237 as a member of the SynCom.
+ecological_interactions:
+- name: Total-carbon-driven community state shifts
+  description: The full 16-member SynCom reproducibly shifted among states along the total-carbon gradient, with A. caviae
+    dominating low total carbon, P. chlororaphis rising to high abundance with A. caviae at intermediate carbon, and C. koseri
+    dominating high carbon. The source attributed these state transitions principally to total carbon availability, with R2A-derived
+    resource complexity acting as a secondary modulator.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we observed a repeatable state shift pattern in the serially transferred multispecies synthetic community
+    explanation: Supports state shifts as a repeatable community-level outcome of the serial-transfer SynCom.
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: total carbon availability was the principal driver of community-level state transitions
+    explanation: Identifies total carbon availability as the primary driver of the SynCom state transitions.
+environmental_factors:
+- name: total carbon concentration
+  value: 0.031 to 4 g C/L
+  description: Eight total-carbon concentrations were generated by 1:2 serial dilution of glucose/R2A media with carbon-free
+    M9 minimal medium.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: generate eight total carbon concentrations ranging from 0.031 to 4
+    explanation: Supports the range and count of total-carbon concentrations in the resource grid.
+- name: R2A-derived carbon fraction
+  value: 0 to 100% of total carbon
+  description: Twelve mixtures varied the fraction of carbon supplied by R2A medium versus glucose while holding total carbon
+    constant before serial dilution.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the proportion of R2A-derived carbon ranged from 0 to 100% of total carbon
+    explanation: Supports the resource-complexity gradient across R2A-derived carbon fractions.
+growth_media:
+- name: M9 glucose/R2A carbon-gradient media
+  composition:
+  - name: M9 minimal medium salts
+  - name: D-glucose
+    chebi_term:
+      preferred_term: D-glucose
+      term:
+        id: CHEBI:17634
+        label: D-glucose
+  - name: R2A Broth powder
+  inoculum_source: equal-volume pooled HAMBI 16-species pre-culture
+  inoculum_size: '1'
+  inoculum_unit: '% transferred every 48 h'
+  incubation_time: '16'
+  incubation_time_unit: d
+  vessel_type: 96-well deep-well plate
+  preparation_notes: Glucose minimal medium and R2A medium were each prepared at 4 g C/L in M9 minimal medium, mixed to 12
+    R2A-derived carbon fractions, and then diluted with carbon-free M9 to eight total-carbon concentrations.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Glucose minimal media were prepared by adding glucose stock to M9 minimal medium
+    explanation: Supports use of glucose-supplemented M9 minimal medium in the 96-condition grid.
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R2A medium was prepared by dissolving R2A Broth powder (Neogen, UK) in M9 minimal medium
+    explanation: Supports R2A broth powder as the complex-resource source.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: 1 mL cultures in 96-well deep-well plates with 1% serial transfer every 48 h.
+  working_volume: 1.0
+  working_volume_unit: mL
+  controls_notes: Each of 96 resource conditions was replicated eight times and propagated in fresh media with the same glucose/R2A
+    carbon composition at every transfer.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: new 96-well deep-well plates containing 1 ml of fresh growth medium
+    explanation: Supports the deep-well plate cultivation system and 1 mL working volume.
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Every 48 h, 1% of each culture from the previous plates was transferred
+    explanation: Supports the serial-transfer interval and inoculum fraction.
+external_resources:
+- name: PubMed - HAMBI Carbon-Gradient 16-species SynCom
+  repository: OTHER
+  resource_id: PMID:42367191
+  url: https://pubmed.ncbi.nlm.nih.gov/42367191/
+  description: PubMed record for the ISME Communications paper on HAMBI 16-species SynCom community state shifts along total-carbon
+    and R2A-complexity gradients.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Community state shifts driven by total carbon availability over resource
+    explanation: Identifies the primary publication for the HAMBI carbon-gradient SynCom.
+- name: Publication DOI - HAMBI Carbon-Gradient 16-species SynCom
+  repository: OTHER
+  resource_id: doi:10.1093/ismeco/ycag149
+  url: https://doi.org/10.1093/ismeco/ycag149
+  description: DOI for the primary ISME Communications publication.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1093/ismeco/ycag149'
+    explanation: Supports the DOI for the primary publication.
+- name: PMC full text - HAMBI Carbon-Gradient 16-species SynCom
+  repository: OTHER
+  resource_id: PMC:PMC13298641
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13298641/
+  description: Open-access PMC full text for the primary ISME Communications publication.
+  evidence:
+  - reference: PMID:42367191
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'PMCID: PMC13298641'
+    explanation: Supports the PMC identifier for the open-access full text.
+metal_relevance: NOT_APPLICABLE
+metal_notes: This serial-transfer experiment tested carbon-availability and resource-complexity effects on a synthetic bacterial
+  community; it did not assay metal processing.
+curation_history:
+- timestamp: '2026-09-22T16:28:16Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000423 for the 16-species HAMBI carbon-gradient SynCom from PMID:42367191 with exact strain
+    membership, 96-condition glucose/R2A resource-gradient design, serial-transfer cultivation, and community-state-shift
+    evidence.
+  llm_assisted: true
+- timestamp: '2026-09-22T16:28:16Z'
+  curator: codex
+  action: ADDRESS_REVIEW
+  changes: 'Addressed review issues #1059 and #1060 by removing unsupported serial-passage temperature/atmosphere fields and
+    replacing the truncated glucose evidence snippet with exact M9/R2A medium-preparation evidence from PMID:42367191.'
+  llm_assisted: true
