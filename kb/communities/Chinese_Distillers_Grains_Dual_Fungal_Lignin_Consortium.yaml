@@ -11,8 +11,8 @@ community_category: LIGNOCELLULOSE
 engineering_design:
   objective: Construct a dual-fungal solid-state fermentation system that improves conversion of recalcitrant lignin in
     Chinese Distillers' grains.
-  assembly_strategy: Combine the ligninolytic fungi Phanerochaete chrysosporium and Pleurotus eryngii to create a temporal
-    division of labor across early oxidative lignin cleavage and later aromatic-catabolite conversion.
+  assembly_strategy: Combine the ligninolytic fungi Phanerochaete chrysosporium and Pleurotus eryngii in a constructed CDG
+    solid-state fermentation system.
   measurement_endpoints:
   - lignin degradation ratio in Chinese Distillers' grains
   - laccase activity
@@ -102,6 +102,37 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: P. eryngii became dominant during the middle and late stages through the upregulation of AA1 family laccase genes and aromatic catabolic pathways
     explanation: Supports the P. eryngii middle- and late-stage aromatic-catabolism arm of the division of labor.
+- name: CDG Lignin Degradation by Dual-Fungal Fermentation
+  description: The Phanerochaete/Pleurotus consortium converted lignin in CDGs, reaching 58.66% lignin degradation with
+    laccase and manganese peroxidase activity peaking at day 10 and lignin peroxidase activity peaking at day 15.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+  biological_processes:
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  evidence:
+  - reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The lignin degradation ratio reached 58.66%, indicating that the system can effectively convert lignin.
+    explanation: Quantifies lignin degradation by the two-fungus solid-state fermentation.
+  - reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Laccase (Lac) and manganese peroxidase (MnP) activities peaked at 10 d
+    explanation: Supports the day-10 laccase and manganese peroxidase peak during dual-fungal lignin conversion.
+  - reference: PMID:42660361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: lignin peroxidase (LiP) reached its maximum activity (51.67 U/g) at 15 d.
+    explanation: Supports the day-15 lignin peroxidase peak during dual-fungal lignin conversion.
 environmental_factors:
 - name: Chinese Distillers' grains solid substrate
   value: lignin-rich Chinese Distillers' grains
@@ -113,31 +144,6 @@ environmental_factors:
     evidence_source: IN_VITRO
     snippet: Chinese Distillers' grains (CDGs), a typical agro-industrial byproduct, contain a highly recalcitrant lignin
     explanation: Identifies CDGs as the recalcitrant lignin-containing solid substrate.
-- name: Lignin degradation ratio
-  value: '58.66'
-  unit: percent
-  description: The dual-fungal fermentation degraded 58.66% of lignin in CDGs.
-  evidence:
-  - reference: PMID:42660361
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The lignin degradation ratio reached 58.66%, indicating that the system can effectively convert lignin.
-    explanation: Quantifies the lignin degradation outcome for the two-fungus consortium.
-- name: Ligninolytic enzyme activity timing
-  value: Lac and MnP peaked at 10 d; LiP peaked at 15 d
-  description: Laccase and manganese peroxidase reached peak activity at day 10, while lignin peroxidase reached peak activity
-    at day 15.
-  evidence:
-  - reference: PMID:42660361
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Laccase (Lac) and manganese peroxidase (MnP) activities peaked at 10 d
-    explanation: Supports the day-10 laccase and manganese peroxidase peak.
-  - reference: PMID:42660361
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: lignin peroxidase (LiP) reached its maximum activity (51.67 U/g) at 15 d.
-    explanation: Supports the day-15 lignin peroxidase peak.
 related_ingredients:
 - preferred_term: lignin
   chebi_term:
@@ -196,4 +202,11 @@ curation_history:
   action: CREATE_RECORD
   changes: Created CommunityMech:000421 for the two-member Phanerochaete chrysosporium and Pleurotus eryngii solid-state
     fermentation consortium that converts lignin in Chinese Distillers' grains in PMID:42660361.
+  llm_assisted: true
+- timestamp: '2026-09-22T14:02:51Z'
+  curator: codex
+  action: FIX_REVIEW_FINDINGS
+  changes: >-
+    Addressed adversarial-review issues #1053 and #1054 by removing outcome-valued environmental factors and rewriting
+    the assembly strategy so observed temporal division of labor is no longer framed as design intent.
   llm_assisted: true

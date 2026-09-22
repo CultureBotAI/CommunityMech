@@ -651,6 +651,88 @@
 
             </div>
 
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>CDG Lignin Degradation by Dual-Fungal Fermentation</h3>
+                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                </div>
+
+
+
+
+
+
+                <p><strong>Metabolites:</strong>
+
+                    lignin
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=6457"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:6457</a>)
+
+                </p>
+
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        lignin catabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0046274"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0046274</a>)
+                    </li>
+
+                </ul>
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42660361/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42660361</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"The lignin degradation ratio reached 58.66%, indicating that the system can effectively convert lignin."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42660361/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42660361</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Laccase (Lac) and manganese peroxidase (MnP) activities peaked at 10 d"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42660361/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42660361</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"lignin peroxidase (LiP) reached its maximum activity (51.67 U/g) at 15 d."</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
 
         </section>
 
@@ -804,69 +886,6 @@
                     </tr>
 
 
-                    <tr>
-                        <td><strong>Lignin degradation ratio</strong></td>
-                        <td>58.66</td>
-                        <td>percent</td>
-                    </tr>
-
-                    <tr class="evidence-row-container">
-                        <td colspan="3">
-                            <ul class="evidence-list">
-
-                                <li class="evidence-item">
-
-                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42660361/"
-                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42660361</a>
-
-                                    - SUPPORT (IN_VITRO)
-
-                                    <div class="snippet">"The lignin degradation ratio reached 58.66%, indicating that the system can effectively convert lignin."</div>
-
-                                </li>
-
-                            </ul>
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td><strong>Ligninolytic enzyme activity timing</strong></td>
-                        <td>Lac and MnP peaked at 10 d; LiP peaked at 15 d</td>
-                        <td>N/A</td>
-                    </tr>
-
-                    <tr class="evidence-row-container">
-                        <td colspan="3">
-                            <ul class="evidence-list">
-
-                                <li class="evidence-item">
-
-                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42660361/"
-                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42660361</a>
-
-                                    - SUPPORT (IN_VITRO)
-
-                                    <div class="snippet">"Laccase (Lac) and manganese peroxidase (MnP) activities peaked at 10 d"</div>
-
-                                </li>
-
-                                <li class="evidence-item">
-
-                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42660361/"
-                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42660361</a>
-
-                                    - SUPPORT (IN_VITRO)
-
-                                    <div class="snippet">"lignin peroxidase (LiP) reached its maximum activity (51.67 U/g) at 15 d."</div>
-
-                                </li>
-
-                            </ul>
-                        </td>
-                    </tr>
-
-
                 </tbody>
             </table>
         </section>
@@ -988,6 +1007,38 @@
 
         })();
 
+        (function() {
+            var intId = "interaction:1";
+            var intType = "NICHE_PARTITIONING";
+            var metabolites = [];
+
+
+            metabolites.push("lignin");
+
+
+            var processes = [];
+
+
+            processes.push("lignin catabolic process");
+
+
+            var evidenceCount = 3;
+
+            nodes.push({
+                id: intId,
+                label: "CDG Lignin Degradation by Dual-Fungal Fermentation",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+
+
+        })();
+
 
         // Remove taxon nodes with no connections
         var connectedIds = new Set();
@@ -1004,7 +1055,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 3;
+        var nodeCount = 4;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 
