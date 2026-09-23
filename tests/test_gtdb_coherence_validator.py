@@ -511,9 +511,10 @@ def test_the_status_distribution_is_what_was_measured():
     # rhizosphere strains, #1051 adds three PPCP wastewater SMC members, #1061
     # adds sixteen HAMBI carbon-gradient SynCom members, #1064 adds one QY2-S1
     # Dehalogenimonas genus, the probiotic MV luteolin record adds one
-    # L. reuteri strain, and #1067 adds two YB2 PET-degradation strains, so
-    # tolerate the measured 357 without tolerating a domain-lookup collapse.
-    assert counts["UNRESOLVED"] < 358, (
+    # L. reuteri strain, #1067 adds two YB2 PET-degradation strains, and
+    # #1068 adds twelve Lupinus SC-7 strains, so tolerate the measured 369
+    # without tolerating a domain-lookup collapse.
+    assert counts["UNRESOLVED"] < 370, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
