@@ -103,19 +103,6 @@ ecological_interactions:
     combined ROAV and VIP analyses prioritized geraniol, phenylethyl alcohol, trans-β-ionone, and 1-octen-3-ol as aroma-active
     volatiles.
   scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Saccharomyces cerevisiae
-    term:
-      id: NCBITaxon:4932
-      label: Saccharomyces cerevisiae
-  - preferred_term: Rhizopus arrhizus
-    term:
-      id: NCBITaxon:64495
-      label: Rhizopus arrhizus
-  - preferred_term: Aspergillus niger
-    term:
-      id: NCBITaxon:5061
-      label: Aspergillus niger
   biological_processes:
   - preferred_term: fermentation
     term:
@@ -223,4 +210,11 @@ curation_history:
   changes: Removed the post-inoculation Aspergillus/Rasamsonia metagenomic succession from ecological_interactions after
     adversarial review in issue 1075. The source supports this as a whole-pile succession readout, not as an ecological
     interaction among the three starter fungi.
+  llm_assisted: true
+- timestamp: '2026-09-24T10:48:12Z'
+  curator: codex
+  action: FIX_PARTICIPATING_TAXA_SCOPE
+  changes: Removed redundant participating_taxa from the remaining community-level aroma interaction. The record taxonomy
+    already contains exactly the three starter fungi, so the community-level edge still applies to the intended full
+    starter while avoiding an unnecessary new user of the narrowed participant slot.
   llm_assisted: true
