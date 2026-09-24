@@ -22,8 +22,9 @@ events:
   - label_correspondence
   summary: Refresh labels exposed by label-correspondence drift
   details: >
-    Addressed issue #1072 by updating source CHEBI, GO, and NCBITaxon labels
+    Addressed issue #1072 by updating source CHEBI and NCBITaxon labels
     exposed by the blocking label-correspondence gate on PR #1071. The edit is
-    label-only: it preserves curator preferred terms and refreshes canonical
-    label slots so regenerated KGX and HTML products agree with the current
-    OAK ontology snapshots.
+    label-only: it preserves curator preferred terms, refreshes canonical label
+    slots so regenerated KGX and HTML products agree with the current OAK
+    ontology snapshots, and adds Engine B exceptions for obsolete GO terms whose
+    OAK canonical labels are the obsolete-prefixed strings themselves.
