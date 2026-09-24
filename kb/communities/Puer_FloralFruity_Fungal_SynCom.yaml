@@ -132,16 +132,6 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: geraniol, phenylethyl alcohol, trans-β-ionone, and 1-octen-3-ol also exhibited VIP > 1
     explanation: Names the ROAV-prioritized volatiles that were also important variables in the VIP analysis.
-- name: Fungal succession after Pu'er starter inoculation
-  description: Metagenomic sequencing showed an early Aspergillus-predominant stage followed by Rasamsonia dominance during
-    days 14-21 of the inoculated solid-state Pu'er tea fermentation.
-  scope: COMMUNITY_LEVEL
-  evidence:
-  - reference: PMID:42331835
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: At the genus level, Aspergillus was predominant at D7. From D14 to D21, Rasamsonia became dominant
-    explanation: Supports the fungal succession observed after three-fungus starter inoculation.
 growth_media:
 - name: ripe Pu'er tea solid-state pile fermentation
   composition:
@@ -226,4 +216,11 @@ curation_history:
   changes: Created CommunityMech:000430 for PMID:42331835 / doi:10.1038/s41538-026-00945-x, a defined three-fungus ripe
     Pu'er tea starter with fungal species membership, 2:1:2 starter assembly, solid-state pile-fermentation context, floral-fruity
     aroma and metagenomic-succession outcomes, PubMed and DOI resources, and a knowledge gap for recoverable strain accessions.
+  llm_assisted: true
+- timestamp: '2026-09-24T10:08:42Z'
+  curator: codex
+  action: FIX_INTERACTION_SCOPE
+  changes: Removed the post-inoculation Aspergillus/Rasamsonia metagenomic succession from ecological_interactions after
+    adversarial review in issue 1075. The source supports this as a whole-pile succession readout, not as an ecological
+    interaction among the three starter fungi.
   llm_assisted: true
