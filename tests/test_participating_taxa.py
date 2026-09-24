@@ -259,6 +259,7 @@ USERS = {
     "PET_Artificial_FourSpecies_Degradation_Consortium.yaml",
     "PPCP_Wastewater_Sphingopyxis_Ochrobactrum_Apiotrichum_SMC.yaml",
     "PSY_Transgenic_Rice_Rhizosphere_Methane_Community.yaml",
+    "Parmigiano_NWS_Set2_LAB_Triculture.yaml",
     "Phenol_Carboxylation_Consortium.yaml",
     "Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml",
     "Prymnesium_Parvum_B12_Limited_SynCom.yaml",
