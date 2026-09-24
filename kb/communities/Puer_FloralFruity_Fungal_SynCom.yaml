@@ -1,0 +1,229 @@
+id: CommunityMech:000430
+name: Pu'er Floral-Fruity Fungal SynCom
+description: A defined three-fungus starter for controlled ripe Pu'er tea pile fermentation. Yan et al. 2026 inoculated
+  sun-dried green tea leaves with a patented Saccharomyces cerevisiae, Rhizopus arrhizus, and Aspergillus niger starter
+  at a 2:1:2 weight ratio, then integrated sensory evaluation, physicochemical measurements, volatile and non-volatile
+  metabolomics, and metagenomic sequencing across six fermentation stages to profile the emergence of a floral-fruity
+  aroma.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Use a patented three-fungus synthetic starter to generate and mechanistically profile floral-fruity aroma during
+    ripe Pu'er tea fermentation.
+  assembly_strategy: Assemble Saccharomyces cerevisiae, Rhizopus arrhizus, and Aspergillus niger in a 2:1:2 weight ratio
+    for inoculation into Yunnan sun-dried green tea leaves.
+  inoculation_strategy: Inoculate the fungal starter at 0.1% weight/weight of tea leaves and add water at 30% weight/weight
+    of the leaf mass before covered solid-state pile fermentation at ambient temperature.
+  measurement_endpoints:
+  - descriptive sensory evaluation across six fermentation stages
+  - physicochemical profiles of the tea pile and leaves
+  - volatile profiling by HS-SPME-GC x GC-TOFMS
+  - non-volatile metabolomics by UHPLC-Q-Exactive/MS
+  - metagenomic sequencing of microbial succession
+  - Random Forest prediction of genera associated with aroma-active volatiles
+  notes: The article reports patent identifiers for the three starter components, not culture-collection accessions or formal
+    strain names. Machine-learning associations linked the prioritized aroma compounds to Sphingomonas, Rothia, and Bacteroides
+    in the broader fermentation succession, so this record keeps the starter's floral-fruity aroma output at community scope
+    and does not assign a compound-specific biosynthetic edge to any inoculated fungus.
+  evidence:
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic fungal consortium composed of Saccharomyces cerevisiae, Rhizopus arrhizus, and Aspergillus niger
+    explanation: Identifies the three starter taxa used for the ripe Pu'er tea fungal SynCom.
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The three strains were mixed at a ratio of 2:1:2 (w/w).
+    explanation: Supports the starter composition ratio.
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The starter was inoculated at a rate of 0.1% (w/w) of the tea leaves.
+    explanation: Supports the starter inoculation rate.
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Random forest modeling identified several microbial genera with potential associations with the volatile compounds
+    explanation: Supports the Random Forest analysis used to associate successional microbial genera with measured aroma volatiles.
+environment_term:
+  preferred_term: Pu'er tea fungal fermentation starter
+  term:
+    id: ENVO:03600040
+    label: fermentation starter
+  notes: The three-member synthetic fungal consortium is represented as a fermentation starter for controlled ripe Pu'er tea
+    solid-state fermentation.
+taxonomy:
+- taxon_term:
+    preferred_term: Saccharomyces cerevisiae
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic yeast member; GTDB classifies bacteria and archaea, not fungi. The article lists patent identifier
+      ZL200510010940.X for this starter component.
+  evidence:
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic fungal consortium composed of Saccharomyces cerevisiae, Rhizopus arrhizus, and Aspergillus niger
+    explanation: Identifies S. cerevisiae as one of the three inoculated fungi in the Pu'er tea starter.
+- taxon_term:
+    preferred_term: Rhizopus arrhizus
+    term:
+      id: NCBITaxon:64495
+      label: Rhizopus arrhizus
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic fungal member; GTDB classifies bacteria and archaea, not fungi. The article lists patent identifier
+      200710065787.X for this starter component.
+  evidence:
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic fungal consortium composed of Saccharomyces cerevisiae, Rhizopus arrhizus, and Aspergillus niger
+    explanation: Identifies R. arrhizus as one of the three inoculated fungi in the Pu'er tea starter.
+- taxon_term:
+    preferred_term: Aspergillus niger
+    term:
+      id: NCBITaxon:5061
+      label: Aspergillus niger
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic fungal member; GTDB classifies bacteria and archaea, not fungi. The article lists patent identifier
+      ZL200510010941.4 for this starter component.
+  evidence:
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic fungal consortium composed of Saccharomyces cerevisiae, Rhizopus arrhizus, and Aspergillus niger
+    explanation: Identifies A. niger as one of the three inoculated fungi in the Pu'er tea starter.
+ecological_interactions:
+- name: Floral-fruity aroma emergence under three-fungus inoculation
+  description: Pu'er tea inoculated with the three-fungus starter was associated with a distinct floral-fruity aroma, while
+    combined ROAV and VIP analyses prioritized geraniol, phenylethyl alcohol, trans-β-ionone, and 1-octen-3-ol as aroma-active
+    volatiles.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Saccharomyces cerevisiae
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  - preferred_term: Rhizopus arrhizus
+    term:
+      id: NCBITaxon:64495
+      label: Rhizopus arrhizus
+  - preferred_term: Aspergillus niger
+    term:
+      id: NCBITaxon:5061
+      label: Aspergillus niger
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Inoculation was associated with a distinct floral-fruity aroma.
+    explanation: Supports floral-fruity aroma emergence in the inoculated fermentation.
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: geraniol, phenylethyl alcohol, trans-β-ionone, and 1-octen-3-ol also exhibited VIP > 1
+    explanation: Names the ROAV-prioritized volatiles that were also important variables in the VIP analysis.
+- name: Fungal succession after Pu'er starter inoculation
+  description: Metagenomic sequencing showed an early Aspergillus-predominant stage followed by Rasamsonia dominance during
+    days 14-21 of the inoculated solid-state Pu'er tea fermentation.
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: At the genus level, Aspergillus was predominant at D7. From D14 to D21, Rasamsonia became dominant
+    explanation: Supports the fungal succession observed after three-fungus starter inoculation.
+growth_media:
+- name: ripe Pu'er tea solid-state pile fermentation
+  composition:
+  - name: sun-dried green tea leaves
+    from_source: community_curated
+  inoculum_source: Patented Saccharomyces cerevisiae, Rhizopus arrhizus, and Aspergillus niger starter mixed at a 2:1:2
+    weight ratio.
+  inoculum_size: 0.1
+  inoculum_unit: percent weight/weight of tea leaves
+  preparation_notes: Sun-dried green tea leaves from Lancang County, Yunnan Province were mixed, split into three replicate
+    piles, inoculated with starter, supplemented with water at 30% of leaf weight, stacked to 1 m, covered with a moist cloth,
+    and incubated in a fermentation room at ambient temperature.
+  evidence:
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sun-dried green tea leaves from Lancang County, Yunnan Province, were used as the raw material.
+    explanation: Identifies the tea material used for the inoculated pile fermentations.
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The starter was inoculated at a rate of 0.1% (w/w) of the tea leaves.
+    explanation: Supports the initial starter inoculum size.
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Water was added at 30% (w/w) of the leaf weight.
+    explanation: Supports the water addition used for pile fermentation.
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Solid -state fermentation proceeded at ambient temperature.
+    explanation: Supports the controlled solid-state ambient-temperature fermentation context.
+external_resources:
+- name: PubMed - Pu'er fungal floral-fruity SynCom
+  repository: OTHER
+  resource_id: PMID:42331835
+  url: https://pubmed.ncbi.nlm.nih.gov/42331835/
+  description: PubMed record for the npj Science of Food article describing multi-omics profiling of floral-fruity aroma
+    formation in Pu'er tea inoculated with a synthetic fungal community.
+  evidence:
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Multi-omics insights into floral-fruity aroma formation during Pu'er tea
+    explanation: Identifies the primary publication title.
+- name: DOI - Pu'er fungal floral-fruity SynCom
+  repository: OTHER
+  resource_id: doi:10.1038/s41538-026-00945-x
+  url: https://doi.org/10.1038/s41538-026-00945-x
+  description: DOI landing page for the npj Science of Food article describing a three-fungus synthetic starter for Pu'er
+    tea fermentation.
+  evidence:
+  - reference: PMID:42331835
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1038/s41538-026-00945-x'
+    explanation: Lists the DOI for the Pu'er tea synthetic fungal community publication.
+discussions:
+- discussion_id: puer_fungal_patented_starter_accessions
+  prompt: Which culture-collection accessions or formal strain designations correspond to the patented S. cerevisiae,
+    R. arrhizus, and A. niger starter components used for the 2:1:2 ripe Pu'er tea fungal SynCom?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy#Saccharomyces cerevisiae
+  - taxonomy#Rhizopus arrhizus
+  - taxonomy#Aspergillus niger
+  rationale: PMID:42331835 names three species and lists patent identifiers for each starter component, but the paper does
+    not expose culture-collection accessions or formal strain names that would make the components independently recoverable.
+  posed_by: codex
+  posed_date: '2026-09-24'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: PMID:42331835 describes fungal starter-driven aroma formation during ripe Pu'er tea fermentation, not metal
+  stress, metal transformation, biomining, or rare-earth-element cycling.
+curation_history:
+- timestamp: '2026-09-24T10:03:11Z'
+  curator: codex
+  action: CREATE_COMMUNITY
+  changes: Created CommunityMech:000430 for PMID:42331835 / doi:10.1038/s41538-026-00945-x, a defined three-fungus ripe
+    Pu'er tea starter with fungal species membership, 2:1:2 starter assembly, solid-state pile-fermentation context, floral-fruity
+    aroma and metagenomic-succession outcomes, PubMed and DOI resources, and a knowledge gap for recoverable strain accessions.
+  llm_assisted: true
