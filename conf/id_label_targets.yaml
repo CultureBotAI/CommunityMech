@@ -76,9 +76,6 @@ targets:
       - { id: "ENVO:00002229", label: "anaerobic environment", reason: "no clean ENVO term; canonical (arenosol) is wrong" }
       - { id: "ENVO:01001442", label: "phyllosphere", reason: "no clean ENVO term; canonical (agriculture) is wrong" }
       # --- GO (12) ---
-      - { id: "GO:0006082", label: "organic acid metabolic process", reason: "obsolete; OAK canonical is the obsolete-prefixed string itself; no clean current BP term" }
-      - { id: "GO:0006568", label: "L-tryptophan metabolic process", reason: "obsolete; OAK canonical is the obsolete-prefixed string itself; no clean current BP term" }
-      - { id: "GO:0016053", label: "organic acid biosynthetic process", reason: "obsolete; OAK canonical is the obsolete-prefixed string itself; no clean current BP term" }
       - { id: "GO:0015103", label: "inorganic anion transmembrane transporter activity", reason: "obsolete; OAK canonical is the obsolete-prefixed string itself; no clean current MF term" }
       - { id: "GO:0019439", label: "aromatic compound catabolic process", reason: "obsolete; replaced_by (catabolic process) is too broad" }
       - { id: "GO:0050151", label: "nitrite oxidoreductase activity", reason: "no current GO term for nitrite oxidase activity" }
@@ -86,7 +83,6 @@ targets:
       - { id: "GO:0051704", label: "multi-organism process", reason: "true terminal obsolete; no replaced_by" }
       - { id: "GO:0055114", label: "oxidation-reduction process", reason: "true terminal obsolete; no replaced_by" }
       - { id: "GO:0070812", label: "organohalide respiration", reason: "no replaced_by; closest is GO:0090345 organohalogen metabolic (not respiration)" }
-      - { id: "GO:0070221", label: "sulfide oxidation, using sulfide:quinone oxidoreductase", reason: "obsolete; OAK canonical is the obsolete-prefixed string itself; no clean current BP term" }
       - { id: "GO:0071704", label: "organic substance catabolic process", reason: "obsolete; no clean replaced_by" }
       - { id: "GO:0071704", label: "organic substance metabolic process", reason: "obsolete; no clean replaced_by" }
       - { id: "GO:0080001", label: "regulation of primary cell wall biogenesis", reason: "no current GO term; only plant-type variant exists" }
@@ -123,10 +119,6 @@ targets:
     required: true
     pairs:
       - [id, label]
-    exceptions:
-      - { id: "GO:0006082", label: "organic acid metabolic process", reason: "obsolete; OAK canonical is the obsolete-prefixed string itself; no clean current BP term" }
-      - { id: "GO:0016053", label: "organic acid biosynthetic process", reason: "obsolete; OAK canonical is the obsolete-prefixed string itself; no clean current BP term" }
-
   # data product: KGX node export carries (id, name) — canonical OR synonym
   - name: kgx_nodes
     kind: tabular
