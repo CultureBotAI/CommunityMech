@@ -60,9 +60,6 @@ taxonomy:
     notes: GTDB grounding was not resolved because the local NCBI2GTDB crosswalk was unavailable during initial curation.
   strain_designation:
     strain_name: LBB04
-  functional_role:
-  - SECONDARY_FERMENTER
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:41859451
     supports: SUPPORT
@@ -87,9 +84,6 @@ taxonomy:
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
   strain_designation:
     strain_name: C001.27
-  functional_role:
-  - SECONDARY_FERMENTER
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:41859451
     supports: SUPPORT
@@ -105,9 +99,6 @@ taxonomy:
     notes: GTDB grounding was not resolved because the local NCBI2GTDB crosswalk was unavailable during initial curation.
   strain_designation:
     strain_name: C5I3
-  functional_role:
-  - SECONDARY_FERMENTER
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:41859451
     supports: SUPPORT
@@ -119,7 +110,6 @@ ecological_interactions:
   description: The complete three-member LAB triculture increased maximum milk acidification rate and total lactic acid production
     relative to the monocultures and most pairwise co-cultures, supporting a positive mixed-culture effect during milk fermentation.
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   metabolites:
   - preferred_term: lactate
     term:
@@ -157,7 +147,6 @@ ecological_interactions:
   description: In the set 2 pairwise subset, S. thermophilus C001.27 co-cultured with L. delbrueckii subsp. lactis C5I3 produced
     maximum acidification rates comparable with the complete triculture.
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   participating_taxa:
   - preferred_term: Streptococcus thermophilus C001.27
     term:
@@ -223,8 +212,8 @@ ecological_interactions:
       and the St + Lh and St + Ld co-cultures
     explanation: Supports lower total lactic acid production for the Lh/Ld subset in set 2.
 - name: C5I3 activity enhancement in mixed culture
-  description: D-lactate measurements showed that the L. delbrueckii subsp. lactis C5I3 member remained active in the set
-    2 triculture and produced more D-lactate than its monoculture.
+  description: D-lactate measurements showed that the set 2 triculture accumulated more D-lactate than the C5I3 monoculture,
+    consistent with L. delbrueckii subsp. lactis remaining viable and metabolically active in mixed culture.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lactate
@@ -242,8 +231,8 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: In two of the three sets (sets 1 and 2), D-lactate levels in tri-cultures were significantly higher than those
       detected in the corresponding Ld monocultures (p < 0.05)
-    explanation: Supports enhanced D-lactate production by the L. delbrueckii member in the set 2 triculture relative to the
-      C5I3 monoculture.
+    explanation: Supports significantly higher D-lactate in the set 2 triculture than in the C5I3 monoculture, a mixed-culture
+      readout consistent with enhanced L. delbrueckii activity.
 growth_media:
 - name: Partially skimmed UHT milk cross-feeding medium
   vessel_type: 100 mL screw-cap Erlenmeyer flask
@@ -322,4 +311,12 @@ curation_history:
     natural-whey-starter LAB triculture with exact L. helveticus LBB04, S. thermophilus C001.27, and L. delbrueckii subsp.
     lactis C5I3 membership, milk cross-feeding design, acidification and lactate interactions, the partially skimmed UHT milk
     setup, PubMed and DOI resources, and a knowledge gap for molecule-level interaction mechanisms.
+  llm_assisted: true
+- timestamp: '2026-09-24T11:58:36Z'
+  curator: codex
+  action: UPDATE_COMMUNITY
+  changes: >-
+    Addressed adversarial-review issues #1077, #1078, and #1079 by removing unsupported MUTUALISM labels and taxon functional
+    roles, then rewriting the D-lactate interaction to report the set 2 mixed-culture measurement without assigning all
+    triculture D-lactate to C5I3.
   llm_assisted: true
