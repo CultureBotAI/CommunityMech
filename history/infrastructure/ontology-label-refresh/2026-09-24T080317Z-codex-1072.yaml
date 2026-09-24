@@ -1,0 +1,29 @@
+history_version: 1
+target:
+  kind: infrastructure
+  path: .
+  slug: ontology-label-refresh
+session:
+  id: 2026-09-24T080317Z-codex-1072
+  timestamp: '2026-09-24T08:03:17Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-5
+    agent_tool: codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1072
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - ontology_labels
+  - label_correspondence
+  summary: Refresh labels exposed by label-correspondence drift
+  details: >
+    Addressed issue #1072 by updating source CHEBI, GO, and NCBITaxon labels
+    exposed by the blocking label-correspondence gate on PR #1071. The edit is
+    label-only: it preserves curator preferred terms and refreshes canonical
+    label slots so regenerated KGX and HTML products agree with the current
+    OAK ontology snapshots.
