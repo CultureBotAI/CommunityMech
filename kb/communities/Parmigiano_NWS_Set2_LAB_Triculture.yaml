@@ -1,0 +1,325 @@
+id: CommunityMech:000431
+name: Parmigiano NWS Set 2 LAB Triculture
+description: A defined three-strain lactic-acid-bacterial triculture assembled from Parmigiano Reggiano natural whey starter
+  isolates. Cristofolini et al. 2026 combined Lactobacillus helveticus LBB04, Streptococcus thermophilus C001.27, and Lactobacillus
+  delbrueckii subsp. lactis C5I3 in a 1:1:1 milk triculture to test whether natural-whey-starter partners could enhance the
+  impaired cultivability and acidification activity of L. delbrueckii subsp. lactis. Across the milk cross-feeding panel,
+  tricultures showed the highest maximum acidification rates and total lactic acid production, with positive S. thermophilus-linked
+  effects and weaker L. helveticus/L. delbrueckii pair performance in set 2.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Reconstruct a simplified three-species Parmigiano Reggiano natural-whey-starter consortium to test how S. thermophilus
+    and L. helveticus alter milk acidification by otherwise poorly cultivable L. delbrueckii subsp. lactis isolates.
+  assembly_strategy: Combine L. helveticus LBB04, S. thermophilus C001.27, and L. delbrueckii subsp. lactis C5I3 at a 1:1:1
+    species ratio in partially skimmed UHT milk.
+  perturbation_design: Compare monocultures, 1:1 pairwise co-cultures, and 1:1:1 tricultures from three natural-whey-starter
+    strain sets while holding the total inoculum size constant.
+  measurement_endpoints:
+  - maximum milk acidification rate
+  - maximum acidification efficiency
+  - D- and L-lactate concentrations after fermentation
+  evidence:
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: set 2 (Lh LBB04, St C001.27, Ld C5I3)
+    explanation: Names the exact three strains assembled in inoculation set 2 for milk cross-feeding assays.
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the strains S. thermophilus RBC06 and C001.27, L. helveticus C001.15 and LBB04, and L. delbrueckii subsp.
+      lactis T1104 and C5I3 were originally isolated from NWS using M17 and MRS media
+    explanation: Supports the natural-whey-starter origin of the set 2 strains used for milk cross-feeding.
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Milk fermentations were performed using single monocultures (St, Lh, and Ld), 1:1 co-cultures (St + Lh, St +
+      Ld, and Lh + Ld), and 1:1:1 tri-cultures (St + Lh + Ld)
+    explanation: Supports the monoculture, pairwise co-culture, and triculture perturbation design.
+environment_term:
+  preferred_term: Parmigiano Reggiano natural-whey-starter milk cross-feeding culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The defined triculture was assembled and assayed in laboratory partially skimmed UHT milk fermentations.
+modeled_environment:
+- preferred_term: dairy
+  term:
+    id: ENVO:00003862
+    label: dairy
+  notes: The three strains were isolated from natural whey starters used for Parmigiano Reggiano PDO cheesemaking.
+taxonomy:
+- taxon_term:
+    preferred_term: Lactobacillus helveticus LBB04
+    term:
+      id: NCBITaxon:1587
+      label: Lactobacillus helveticus
+    gtdb_grounding_status: UNRESOLVED
+    notes: GTDB grounding was not resolved because the local NCBI2GTDB crosswalk was unavailable during initial curation.
+  strain_designation:
+    strain_name: LBB04
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: set 2 (Lh LBB04, St C001.27, Ld C5I3)
+    explanation: Identifies L. helveticus LBB04 as the Lh member of set 2.
+- taxon_term:
+    preferred_term: Streptococcus thermophilus C001.27
+    term:
+      id: NCBITaxon:1308
+      label: Streptococcus thermophilus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Streptococcus_thermophilus
+      gtdb_taxon: Streptococcus thermophilus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__Streptococcus
+        thermophilus
+      ncbi_source_id: NCBITaxon:1308
+      majority_fraction: 0.99
+      total_genomes: 2093
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: C001.27
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: set 2 (Lh LBB04, St C001.27, Ld C5I3)
+    explanation: Identifies S. thermophilus C001.27 as the St member of set 2.
+- taxon_term:
+    preferred_term: Lactobacillus delbrueckii subsp. lactis C5I3
+    term:
+      id: NCBITaxon:29397
+      label: Lactobacillus delbrueckii subsp. lactis
+    gtdb_grounding_status: UNRESOLVED
+    notes: GTDB grounding was not resolved because the local NCBI2GTDB crosswalk was unavailable during initial curation.
+  strain_designation:
+    strain_name: C5I3
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: set 2 (Lh LBB04, St C001.27, Ld C5I3)
+    explanation: Identifies L. delbrueckii subsp. lactis C5I3 as the Ld member of set 2.
+ecological_interactions:
+- name: Set 2 milk acidification enhancement
+  description: The complete three-member LAB triculture increased maximum milk acidification rate and total lactic acid production
+    relative to the monocultures and most pairwise co-cultures, supporting a positive mixed-culture effect during milk fermentation.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: C5I3 activity enhancement in mixed culture
+    description: Higher D-lactate in set 2 tricultures than in the corresponding C5I3 monoculture indicated that the Ld member
+      remained viable and metabolically active in the mixed culture.
+  evidence:
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Across all inoculation sets, tri-cultures consistently displayed the highest μmax values (p < 0.05), followed
+      by the co-cultures St + Lh and St + Ld.
+    explanation: Supports the strongest maximum acidification rate in the tricultures, including the set 2 LBB04/C001.27/C5I3
+      community.
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Across all three strain combinations, total lactic acid production was highest in tri-cultures, followed by St
+      + Lh and St + Ld co-cultures (p < 0.05)
+    explanation: Supports stronger total lactic acid production by tricultures than by their monoculture and pairwise comparison
+      conditions.
+- name: C001.27-C5I3 acidification enhancement
+  description: In the set 2 pairwise subset, S. thermophilus C001.27 co-cultured with L. delbrueckii subsp. lactis C5I3 produced
+    maximum acidification rates comparable with the complete triculture.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  participating_taxa:
+  - preferred_term: Streptococcus thermophilus C001.27
+    term:
+      id: NCBITaxon:1308
+      label: Streptococcus thermophilus
+  - preferred_term: Lactobacillus delbrueckii subsp. lactis C5I3
+    term:
+      id: NCBITaxon:29397
+      label: Lactobacillus delbrueckii subsp. lactis
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Set 2 milk acidification enhancement
+    description: The strong St + Ld pairwise response was retained within the complete LBB04/C001.27/C5I3 triculture.
+  evidence:
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-cultivation of St strain C001.27 with Ld strain C5I3 resulted in μmax values comparable to those observed
+      under tri-culture conditions
+    explanation: Supports the strong positive set 2 acidification response when C001.27 and C5I3 were combined.
+- name: LBB04-C5I3 reduced acidification subset
+  description: The L. helveticus LBB04 plus L. delbrueckii subsp. lactis C5I3 pairwise subset had weaker acidification than
+    the matched C001.27/C5I3 co-culture and lower total lactic acid than tricultures and S. thermophilus-containing co-cultures
+    in the set 2 lactate assay.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Lactobacillus helveticus LBB04
+    term:
+      id: NCBITaxon:1587
+      label: Lactobacillus helveticus
+  - preferred_term: Lactobacillus delbrueckii subsp. lactis C5I3
+    term:
+      id: NCBITaxon:29397
+      label: Lactobacillus delbrueckii subsp. lactis
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-cultivation with Lh strain LBB04 yielded significantly lower μmax values compared to the corresponding St
+      + Ld interaction
+    explanation: Supports lower set 2 milk acidification by the LBB04/C5I3 subset than by the C001.27/C5I3 subset.
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In inoculation sets 2 and 3, Lh + Ld co-cultures yielded significantly lower total lactic acid than tri-cultures
+      and the St + Lh and St + Ld co-cultures
+    explanation: Supports lower total lactic acid production for the Lh/Ld subset in set 2.
+- name: C5I3 activity enhancement in mixed culture
+  description: D-lactate measurements showed that the L. delbrueckii subsp. lactis C5I3 member remained active in the set
+    2 triculture and produced more D-lactate than its monoculture.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In two of the three sets (sets 1 and 2), D-lactate levels in tri-cultures were significantly higher than those
+      detected in the corresponding Ld monocultures (p < 0.05)
+    explanation: Supports enhanced D-lactate production by the L. delbrueckii member in the set 2 triculture relative to the
+      C5I3 monoculture.
+growth_media:
+- name: Partially skimmed UHT milk cross-feeding medium
+  vessel_type: 100 mL screw-cap Erlenmeyer flask
+  inoculum_source: L. helveticus LBB04, S. thermophilus C001.27, and L. delbrueckii subsp. lactis C5I3 cell suspensions from
+    stationary-phase pre-cultures.
+  preparation_notes: Stationary-phase cells were collected, resuspended in sterile physiological solution, combined immediately
+    before inoculation for co-cultures and tricultures, inoculated into 40 mL of partially skimmed UHT milk at the same total
+    final concentration, and fermented at 42°C for 160 h.
+  evidence:
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cell suspensions were then inoculated in 40 mL of partially skimmed UHT milk (Parmalat, Reggio Emilia, Italy)
+    explanation: Names the milk fermentation medium and volume.
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cell suspensions of the respective species were combined in 1:1 or 1:1:1 ratio immediately prior to inoculation
+      to reach the same final concentration (2 × 107 CFU/mL)
+    explanation: Supports the 1:1:1 set 2 triculture inoculation ratio and total final cell concentration.
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Inoculated milk samples were incubated at 42°C for 160 h in a temperature-controlled water bath.
+    explanation: Supports the incubation temperature, duration, and water-bath setup used for milk cross-feeding.
+external_resources:
+- name: PubMed - Parmigiano NWS Set 2 LAB triculture
+  repository: OTHER
+  resource_id: PMID:41859451
+  url: https://pubmed.ncbi.nlm.nih.gov/41859451/
+  description: PubMed record for the Frontiers in Microbiology article describing milk cross-feeding among L. helveticus,
+    L. delbrueckii subsp. lactis, and S. thermophilus natural-whey-starter isolates.
+  evidence:
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Role of microbial interactions in the impaired cultivability of thermophilic lactic acid bacteria in natural
+      whey starter for Parmigiano Reggiano PDO cheese production
+    explanation: Identifies the primary article for the set 2 LAB triculture.
+- name: DOI - Parmigiano NWS microbial interactions
+  repository: OTHER
+  resource_id: doi:10.3389/fmicb.2026.1755652
+  url: https://doi.org/10.3389/fmicb.2026.1755652
+  description: DOI landing page for the Frontiers in Microbiology article describing Parmigiano Reggiano natural-whey-starter
+    LAB cross-feeding assays.
+  evidence:
+  - reference: PMID:41859451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.3389/fmicb.2026.1755652'
+    explanation: Lists the DOI for the set 2 LAB triculture primary publication.
+discussions:
+- discussion_id: nws_set2_molecular_cross_feeding_mechanisms
+  prompt: Which exchanged metabolites or inhibitory molecules specifically explain the C001.27/C5I3 stimulation and LBB04/C5I3
+    weaker pairwise acidification in the Parmigiano Reggiano natural-whey-starter set 2 assays?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#C001.27-C5I3 acidification enhancement
+  - ecological_interactions#LBB04-C5I3 reduced acidification subset
+  rationale: PMID:41859451 directly measured acidification and D-/L-lactate outcomes for monocultures, pairwise co-cultures,
+    and tricultures, but the source's formate, folate, urease, NADH oxidase, and antimicrobial-molecule explanations are literature-backed
+    hypotheses rather than molecule-level measurements in this exact set 2 community.
+  posed_by: codex
+  posed_date: '2026-09-24'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: PMID:41859451 describes milk fermentation by thermophilic lactic-acid bacteria, not metal stress, metal transformation,
+  biomining, or rare-earth-element cycling.
+curation_history:
+- timestamp: '2026-09-24T11:50:10Z'
+  curator: codex
+  action: CREATE_COMMUNITY
+  changes: Created CommunityMech:000431 for PMID:41859451 / doi:10.3389/fmicb.2026.1755652, a defined set 2 Parmigiano Reggiano
+    natural-whey-starter LAB triculture with exact L. helveticus LBB04, S. thermophilus C001.27, and L. delbrueckii subsp.
+    lactis C5I3 membership, milk cross-feeding design, acidification and lactate interactions, the partially skimmed UHT milk
+    setup, PubMed and DOI resources, and a knowledge gap for molecule-level interaction mechanisms.
+  llm_assisted: true
