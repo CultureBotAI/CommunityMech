@@ -513,9 +513,9 @@ def test_the_status_distribution_is_what_was_measured():
     # Dehalogenimonas genus, the probiotic MV luteolin record adds one
     # L. reuteri strain, #1067 adds two YB2 PET-degradation strains, #1068
     # adds twelve Lupinus SC-7 strains, and #1071 adds thirty-one Barley/Wheat
-    # DT rhizosphere strains, so tolerate the measured 400 without tolerating a
-    # domain-lookup collapse.
-    assert counts["UNRESOLVED"] < 401, (
+    # DT rhizosphere strains, and #1076 adds two Parmigiano NWS LAB strains, so
+    # tolerate the measured 402 without tolerating a domain-lookup collapse.
+    assert counts["UNRESOLVED"] < 403, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
