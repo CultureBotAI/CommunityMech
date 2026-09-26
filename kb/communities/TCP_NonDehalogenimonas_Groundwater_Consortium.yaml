@@ -1,0 +1,321 @@
+id: CommunityMech:000437
+name: TCP Non-Dehalogenimonas Groundwater Consortium
+description: A long-term domesticated non-Dehalogenimonas synergistic consortium optimized for bioremediation of 1,2,3-trichloropropane
+  (TCP) in groundwater. The PubMed abstract reports complete TCP removal within 3.5 days after co-metabolic substrate stimulation,
+  links the transformation to a Fusibacter, Desulfovibrio, Nitratidesulfovibrio, and Parabacteroides alliance, and describes
+  a coupled metabolic module involving hydrogen production, cofactor synthesis, and reductive dechlorination.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Enhance TCP degradation in groundwater bioremediation with broad-spectrum co-metabolic substrates rather than
+    relying on Dehalogenimonas strains.
+  assembly_strategy: Optimize a non-Dehalogenimonas synergistic consortium through long-term directed domestication and then
+    test co-metabolic substrate amendments.
+  measurement_endpoints:
+  - 1,2,3-trichloropropane degradation rate
+  - time to complete TCP removal
+  - microbial community composition
+  - metagenomic metabolic module reconstruction
+  notes: The accessible PubMed abstract names the four genus-level members but does not expose species, strain accessions,
+    the source inoculum, quantitative member abundances, exact co-metabolic-substrate dosing, or the long-term domestication
+    transfer schedule.
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: exploring broad-spectrum co-metabolic substrates to enhance the degradation efficiency of a non-Dehalogenimonas
+      synergistic consortium optimized through long-term directed domestication
+    explanation: Supports the domesticated consortium design and co-metabolic-substrate screen.
+environment_term:
+  preferred_term: laboratory TCP groundwater bioremediation enrichment
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The study used laboratory-directed domestication and co-metabolic substrate tests to model TCP bioremediation in
+    contaminated groundwater.
+modeled_environment:
+- preferred_term: groundwater
+  term:
+    id: ENVO:01001004
+    label: groundwater
+  notes: TCP is framed as a persistent groundwater contaminant, and the consortium was evaluated for groundwater bioremediation.
+taxonomy:
+- taxon_term:
+    preferred_term: Fusibacter
+    term:
+      id: NCBITaxon:76008
+      label: Fusibacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: The accessible PubMed abstract resolves this member only to genus rank. The local NCBI2GTDB.tsv.gz crosswalk was
+      unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe checkout
+      with that mapping.
+  abundance_value: Member of the domesticated non-Dehalogenimonas TCP-degrading groundwater-bioremediation consortium.
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: transformation process was driven by a synergistic alliance comprising Fusibacter, Desulfovibrio, Nitratidesulfovibrio,
+      and Parabacteroides
+    explanation: Identifies Fusibacter as one of the four genera comprising the synergistic TCP-transforming consortium.
+- taxon_term:
+    preferred_term: Desulfovibrio
+    term:
+      id: NCBITaxon:872
+      label: Desulfovibrio
+    gtdb_grounding_status: UNRESOLVED
+    notes: The accessible PubMed abstract resolves this member only to genus rank. The local NCBI2GTDB.tsv.gz crosswalk was
+      unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe checkout
+      with that mapping.
+  abundance_value: Member of the domesticated non-Dehalogenimonas TCP-degrading groundwater-bioremediation consortium.
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: transformation process was driven by a synergistic alliance comprising Fusibacter, Desulfovibrio, Nitratidesulfovibrio,
+      and Parabacteroides
+    explanation: Identifies Desulfovibrio as one of the four genera comprising the synergistic TCP-transforming consortium.
+- taxon_term:
+    preferred_term: Nitratidesulfovibrio
+    term:
+      id: NCBITaxon:2802295
+      label: Nitratidesulfovibrio
+    gtdb_grounding_status: UNRESOLVED
+    notes: The accessible PubMed abstract resolves this member only to genus rank. The local NCBI2GTDB.tsv.gz crosswalk was
+      unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe checkout
+      with that mapping.
+  abundance_value: Member of the domesticated non-Dehalogenimonas TCP-degrading groundwater-bioremediation consortium.
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: transformation process was driven by a synergistic alliance comprising Fusibacter, Desulfovibrio, Nitratidesulfovibrio,
+      and Parabacteroides
+    explanation: Identifies Nitratidesulfovibrio as one of the four genera comprising the synergistic TCP-transforming consortium.
+- taxon_term:
+    preferred_term: Parabacteroides
+    term:
+      id: NCBITaxon:375288
+      label: Parabacteroides
+    gtdb_grounding_status: UNRESOLVED
+    notes: The accessible PubMed abstract resolves this member only to genus rank. The local NCBI2GTDB.tsv.gz crosswalk was
+      unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe checkout
+      with that mapping.
+  abundance_value: Member of the domesticated non-Dehalogenimonas TCP-degrading groundwater-bioremediation consortium.
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: transformation process was driven by a synergistic alliance comprising Fusibacter, Desulfovibrio, Nitratidesulfovibrio,
+      and Parabacteroides
+    explanation: Identifies Parabacteroides as one of the four genera comprising the synergistic TCP-transforming consortium.
+ecological_interactions:
+- name: Hydrogen Cofactor Reductive-Dechlorination Module
+  description: Metagenomic analysis connected the four-genus synergistic alliance to a coupled metabolic module containing
+    hydrogen production, cofactor synthesis, and reductive dechlorination functions during TCP transformation.
+  scope: COMMUNITY_LEVEL
+  participating_taxa: &id001
+  - preferred_term: Fusibacter
+    term:
+      id: NCBITaxon:76008
+      label: Fusibacter
+  - preferred_term: Desulfovibrio
+    term:
+      id: NCBITaxon:872
+      label: Desulfovibrio
+  - preferred_term: Nitratidesulfovibrio
+    term:
+      id: NCBITaxon:2802295
+      label: Nitratidesulfovibrio
+  - preferred_term: Parabacteroides
+    term:
+      id: NCBITaxon:375288
+      label: Parabacteroides
+  metabolites:
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - &id002
+    preferred_term: 1,2,3-trichloropropane
+    term: &id005
+      id: CHEBI:34036
+      label: 1,2,3-Trichloropropane
+  biological_processes:
+  - preferred_term: halogenated hydrocarbon metabolic process
+    term:
+      id: GO:0042197
+      label: halogenated hydrocarbon metabolic process
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: realized through a coupled metabolic module of "hydrogen production, cofactor synthesis, and reductive dechlorination"
+    explanation: Supports a consortium-level module that combines hydrogen production, cofactor synthesis, and TCP reductive
+      dechlorination.
+- name: Co-Metabolic Substrate Enhanced TCP Removal
+  description: Sodium acetate and lactate stimulation increased the consortium's TCP degradation efficiency and supported
+    complete removal in the domesticated culture.
+  scope: COMMUNITY_LEVEL
+  participating_taxa: *id001
+  metabolites:
+  - *id002
+  - &id003
+    preferred_term: sodium acetate
+    term: &id006
+      id: CHEBI:32954
+      label: sodium acetate
+  - &id004
+    preferred_term: lactate
+    term: &id007
+      id: CHEBI:24996
+      label: lactate
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sodium acetate and lactate significantly enhanced the degradation efficiency
+    explanation: Identifies sodium acetate and lactate as co-metabolic substrates that improved degradation efficiency.
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: average degradation rate of the domesticated consortium increased to 19.06
+    explanation: Supports enhanced TCP degradation by the domesticated consortium.
+environmental_factors:
+- name: 1,2,3-trichloropropane target contaminant
+  value: 1,2,3-trichloropropane
+  description: TCP was the persistent groundwater contaminant targeted for bioremediation by the non-Dehalogenimonas consortium.
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 1,2,3-Trichloropropane (TCP), a highly mobile chemical byproduct, has severely exacerbated groundwater environment
+      deterioration
+    explanation: Identifies TCP as the contaminant targeted in the groundwater study.
+- name: Co-metabolic substrate stimulation
+  value: sodium acetate and lactate
+  description: Sodium acetate and lactate significantly enhanced TCP degradation efficiency in the domesticated consortium.
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sodium acetate and lactate significantly enhanced the degradation efficiency
+    explanation: Documents the two co-metabolic substrates highlighted as beneficial.
+- name: TCP degradation rate after domestication
+  value: '19.06'
+  unit: umol L-1 d-1
+  description: The abstract reports that the domesticated consortium reached an average TCP degradation rate of 19.06 umol
+    L-1 d-1.
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: average degradation rate of the domesticated consortium increased to 19.06
+    explanation: Reports the TCP degradation rate after domestication and amendment.
+- name: Complete TCP removal time
+  value: '3.5'
+  unit: days
+  description: The domesticated co-metabolic-substrate-stimulated consortium achieved complete TCP removal within 3.5 days.
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: achieving complete removal within 3.5 days
+    explanation: Reports the complete TCP removal endpoint.
+growth_media:
+- name: co-metabolic TCP groundwater enrichment
+  preparation_notes: Long-term directed domestication of a non-Dehalogenimonas consortium with broad-spectrum co-metabolic
+    substrate testing; sodium acetate and lactate were the highlighted beneficial substrates, while the accessible abstract
+    does not expose the full mineral medium or dosing.
+  composition:
+  - name: sodium acetate
+    chebi_term: *id003
+    from_source: community_curated
+  - name: lactate
+    chebi_term: *id004
+    from_source: community_curated
+  - name: 1,2,3-trichloropropane
+    chebi_term: *id002
+    from_source: community_curated
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: broad-spectrum adaptability to various co-metabolic substrates, where sodium acetate and lactate significantly
+      enhanced the degradation efficiency
+    explanation: Supports a TCP-degrading enrichment amended with co-metabolic substrates including sodium acetate and lactate.
+external_resources:
+- name: DOI for the TCP non-Dehalogenimonas groundwater consortium article
+  repository: OTHER
+  resource_id: doi:10.1002/wer.70318
+  url: https://doi.org/10.1002/wer.70318
+  description: Version-of-record DOI for the Water Environment Research article on co-metabolic-substrate enhancement of TCP
+    bioremediation by a non-Dehalogenimonas consortium.
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.1002/wer.70318'
+    explanation: Links the PubMed abstract metadata to the article DOI.
+related_ingredients:
+- preferred_term: 1,2,3-trichloropropane
+  chebi_term: *id005
+  relevance: Persistent groundwater contaminant degraded by the domesticated non-Dehalogenimonas consortium.
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 1,2,3-Trichloropropane (TCP), a highly mobile chemical byproduct, has severely exacerbated groundwater environment
+      deterioration
+    explanation: Anchors TCP as the target groundwater contaminant.
+- preferred_term: sodium acetate
+  chebi_term: *id006
+  relevance: Co-metabolic substrate that significantly enhanced TCP degradation efficiency.
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sodium acetate and lactate significantly enhanced the degradation efficiency
+    explanation: Supports sodium acetate as a beneficial co-metabolic substrate.
+- preferred_term: lactate
+  chebi_term: *id007
+  relevance: Co-metabolic substrate that significantly enhanced TCP degradation efficiency.
+  evidence:
+  - reference: PMID:41736479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sodium acetate and lactate significantly enhanced the degradation efficiency
+    explanation: Supports lactate as a beneficial co-metabolic substrate.
+associated_datasets: []
+discussions:
+- discussion_id: tcp_nondehalogenimonas_species_roles_and_dosing
+  prompt: Resolve species or strain IDs, initial inoculum source, the directed domestication passaging regimen, quantitative
+    member abundances, co-metabolic substrate concentrations, and genus-specific assignment of hydrogen-production, cofactor-synthesis,
+    and reductive-dechlorination roles.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  - engineering_design
+  - growth_media
+  - ecological_interactions#Hydrogen Cofactor Reductive-Dechlorination Module
+  rationale: The accessible PubMed abstract names the four-genera consortium and overall hydrogen/cofactor/reductive-dechlorination
+    module, but it does not expose species or strain IDs, original inoculum details, full medium composition, substrate concentrations,
+    transfer cadence, or the role of each named genus within the module.
+  posed_by: codex
+  posed_date: '2026-09-26'
+curation_history:
+- timestamp: '2026-09-26T13:58:15Z'
+  curator: codex
+  action: ADD_COMMUNITY_RECORD
+  changes: Created CommunityMech:000437 from PMID:41736479 and DOI 10.1002/wer.70318 for the long-term domesticated TCP-degrading
+    non-Dehalogenimonas groundwater-bioremediation consortium containing Fusibacter, Desulfovibrio, Nitratidesulfovibrio,
+    and Parabacteroides genus-level members.
+  llm_assisted: true
+- timestamp: '2026-09-26T14:03:55Z'
+  curator: codex
+  action: FIX_ADVERSARIAL_REVIEW_FINDINGS
+  changes: Addressed adversarial-review issues 1108 and 1109 by removing over-specific syntrophy role and type assertions
+    from the abstract-backed four-genus module and by dropping two dangling downstream edges that pointed at a non-existent
+    TCP Bioremediation Performance interaction.
+  llm_assisted: true
