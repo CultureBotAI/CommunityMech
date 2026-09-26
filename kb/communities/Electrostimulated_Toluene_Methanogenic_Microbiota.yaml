@@ -1,0 +1,405 @@
+id: CommunityMech:000440
+name: Electrostimulated Toluene Methanogenic Microbiota
+description: An anaerobic methanogenic toluene-degrading microbiota whose syntrophic hydrocarbon conversion was stimulated
+  at 800 mV. Wu et al. (2024) compared electro-stimulated and non-electro-stimulated methanogenic microbiota with bamA amplification
+  and metagenomic sequencing, and inferred a shift from a Syntrophobacteraceae MAG116-centered, acetoclastic methanogen-associated
+  network toward anode-recruited Desulfoprunum MAG10, hydrogen-producing Aminidesulfovibrio MAG60, and cathode-recruited hydrogenotrophic
+  Methanobacterium MAG74 interactions that boosted methane production from toluene.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Enhance anaerobic conversion of toluene to methane by electro-stimulating a methanogenic microbiota.
+  assembly_strategy: Laboratory electro-stimulation at 800 mV compared with a non-electro-stimulated methanogenic toluene-degrading
+    microbiota.
+  measurement_endpoints:
+  - Toluene degradation efficiency
+  - Methane production efficiency
+  - bamA amplification
+  - Genome-resolved metagenomic sequencing
+  - Anode and cathode recruitment of electroactive MAGs
+  evidence:
+  - reference: PMID:38865893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: electro-stimulation at 800 mV promoted toluene degradation and methane production efficiencies
+    explanation: Supports the applied electro-stimulation treatment and the enhanced toluene-to-methane phenotype.
+  - reference: PMID:38865893
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Hydrocarbon-degrading gene bamA amplification and metagenomic sequencing analyses
+    explanation: Supports the gene-targeted and metagenomic readouts used to resolve candidate toluene degraders and syntrophs.
+environment_term:
+  preferred_term: electro-stimulated methanogenic toluene-degrading microbiota
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled methanogenic cultures treated with an 800 mV electro-stimulation; the accessible abstract does not report
+    inoculum source, vessel design, medium formulation, or reference-electrode details.
+taxonomy:
+- taxon_term:
+    preferred_term: Syntrophobacteraceae MAG116
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:d__Bacteria
+      gtdb_taxon: Bacteria
+      gtdb_lineage: d__Bacteria
+      ncbi_source_id: NCBITaxon:2
+      majority_fraction: 1.0
+      support_genomes: 1603049
+      total_genomes: 1603049
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+    notes: The PubMed abstract identifies this population only as f_Syntrophobacteraceae MAG116, so it is grounded at the
+      bacterial-domain rank while preserving the paper's MAG label.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  - ELECTRON_DONOR
+  evidence:
+  - reference: PMID:38865893
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: f_Syntrophobacteraceae MAG116 may act as a toluene degrader
+    explanation: Supports MAG116 as an inferred toluene degrader, while the abstract frames this as a metagenome-derived hypothesis.
+- taxon_term:
+    preferred_term: Methanosarcina spp.
+    term:
+      id: NCBITaxon:2207
+      label: Methanosarcina
+    gtdb_grounding_status: UNRESOLVED
+    notes: The non-electro-stimulated microbiota contained acetoclastic Methanosarcina spp.; the abstract does not resolve
+      named species or MAG identifiers.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - ELECTRON_ACCEPTOR
+  evidence:
+  - reference: PMID:38865893
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Methanosarcina spp. (or Methanothrix sp.)
+    explanation: Supports Methanosarcina spp. as one proposed acetoclastic methanogen partner for MAG116 in the non-electro-stimulated
+      microbiota.
+- taxon_term:
+    preferred_term: Methanothrix sp.
+    term:
+      id: NCBITaxon:2222
+      label: Methanothrix
+    gtdb_grounding_status: UNRESOLVED
+    notes: The non-electro-stimulated microbiota also proposed a Methanothrix sp. acetoclastic methanogen; the abstract does
+      not resolve a named species or MAG identifier.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - ELECTRON_ACCEPTOR
+  evidence:
+  - reference: PMID:38865893
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Methanosarcina spp. (or Methanothrix sp.)
+    explanation: Supports Methanothrix sp. as an alternate proposed acetoclastic methanogen partner for MAG116.
+- taxon_term:
+    preferred_term: Desulfoprunum sp. MAG10
+    term:
+      id: NCBITaxon:2629275
+      label: unclassified Desulfoprunum
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source names Desulfoprunum sp. MAG10 as affiliated with f_Desulfurivibrionaceae and recruited to the anode;
+      GTDB grounding remains unresolved pending full-text MAG taxonomy.
+  abundance_value: Recruited to the anode in electro-stimulated microbiota.
+  functional_role:
+  - ELECTROGEN
+  - ELECTRON_DONOR
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:38865893
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Desulfoprunum sp. (affiliated f_Desulfurivibrionaceae MAG10)
+    explanation: Identifies Desulfoprunum sp. MAG10 and its family affiliation in the electro-stimulated microbiota.
+  - reference: PMID:38865893
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 37.22 ± 4.33 % of Desulfoprunum sp. (affiliated f_Desulfurivibrionaceae MAG10) and 58.82 ± 3.74 % of the hydrogenotrophic
+      methanogen Methanobacterium sp. MAG74 were specifically recruited to the anode and cathode
+    explanation: Supports the specific recruitment of Desulfoprunum MAG10 to the anode in the electro-stimulated microbiota.
+  - reference: PMID:38865893
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: engaged in interspecies electron transfer with both syntroph f_Syntrophobacteraceae MAG116 and the anode
+    explanation: Supports the inferred electrogenic syntrophic role proposed for f_Desulfurivibrionaceae MAG10.
+- taxon_term:
+    preferred_term: Methanobacterium sp. MAG74
+    term:
+      id: NCBITaxon:2160
+      label: Methanobacterium
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Methanobacterium
+      gtdb_taxon: Methanobacterium
+      gtdb_lineage: d__Archaea;p__Methanobacteriota;c__Methanobacteria;o__Methanobacteriales;f__Methanobacteriaceae;g__Methanobacterium
+      ncbi_source_id: NCBITaxon:2160
+      majority_fraction: 0.688
+      support_genomes: 64
+      total_genomes: 93
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 6 GTDB taxa
+        under the NCBI taxon]
+    notes: Hydrogenotrophic cathode-recruited Methanobacterium MAG74; the abstract does not report a species assignment.
+  abundance_value: Recruited to the cathode in electro-stimulated microbiota.
+  functional_role:
+  - ELECTROTROPH
+  - ELECTRON_ACCEPTOR
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:38865893
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: hydrogenotrophic methanogen Methanobacterium sp. MAG74
+    explanation: Identifies Methanobacterium MAG74 as the hydrogenotrophic cathode-recruited methanogen.
+- taxon_term:
+    preferred_term: Aminidesulfovibrio sp. MAG60
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:d__Bacteria
+      gtdb_taxon: Bacteria
+      gtdb_lineage: d__Bacteria
+      ncbi_source_id: NCBITaxon:2
+      majority_fraction: 1.0
+      support_genomes: 1603049
+      total_genomes: 1603049
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+    notes: The accessible abstract names Aminidesulfovibrio sp. MAG60 as a hydrogen-producing electrotroph but does not provide
+      an NCBI-resolvable species, family, or higher lineage.
+  functional_role:
+  - ELECTROTROPH
+  - ELECTRON_DONOR
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:38865893
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: hydrogen-producing electrotroph Aminidesulfovibrio sp. MAG60
+    explanation: Supports MAG60 as an inferred electrotroph and hydrogen producer.
+ecological_interactions:
+- name: Non-electrostimulated toluene degrader to acetoclastic methanogens
+  description: In non-electro-stimulated microbiota, Syntrophobacteraceae MAG116 was inferred as a toluene degrader proposed
+    to establish electron syntrophy with acetoclastic Methanosarcina spp. or Methanothrix sp. through e-pili or shared acetate.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Syntrophobacteraceae MAG116
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  - preferred_term: Methanosarcina spp.
+    term:
+      id: NCBITaxon:2207
+      label: Methanosarcina
+  - preferred_term: Methanothrix sp.
+    term:
+      id: NCBITaxon:2222
+      label: Methanothrix
+  metabolites:
+  - preferred_term: toluene
+    term:
+      id: CHEBI:17578
+      label: toluene
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:38865893
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: proposed to establish electron syntrophy with the acetoclastic methanogen Methanosarcina spp. (or Methanothrix
+      sp.) through e-pili or shared acetate
+    explanation: Supports the candidate non-electrostimulated electron-syntrophy route, while preserving the abstract's proposed
+      status and alternate methanogen assignment.
+- name: Anode-linked Desulfoprunum and Syntrophobacteraceae electron transfer
+  description: In electro-stimulated microbiota, anode-recruited Desulfoprunum MAG10 was inferred to participate in interspecies
+    electron transfer with Syntrophobacteraceae MAG116 and the anode, potentially mediated by c-type cytochromes.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Desulfoprunum sp. MAG10
+    term:
+      id: NCBITaxon:2629275
+      label: unclassified Desulfoprunum
+  - preferred_term: Syntrophobacteraceae MAG116
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  evidence:
+  - reference: PMID:38865893
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: facilitated by c-type cytochromes
+    explanation: Supports an inferred anode-linked electron-transfer mechanism for MAG10 rather than a directly tested pairwise
+      edge.
+- name: Aminidesulfovibrio electron and hydrogen sharing with Methanobacterium
+  description: Electrotrophic Aminidesulfovibrio MAG60 was inferred to capture electrons from the external circuit and share
+    electrons and hydrogen with the hydrogenotrophic methanogen Methanobacterium MAG74.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Aminidesulfovibrio sp. MAG60
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: Methanobacterium sp. MAG74
+    term:
+      id: NCBITaxon:2160
+      label: Methanobacterium
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:38865893
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: could share electrons and hydrogen with the methanogen Methanobacterium sp. MAG74
+    explanation: Supports the inferred electron- and hydrogen-sharing syntrophy between MAG60 and MAG74.
+environmental_factors:
+- name: 800 mV electro-stimulation
+  value: 800 mV
+  description: Electro-stimulation at 800 mV enhanced toluene degradation and methane production relative to the non-electro-stimulated
+    control microbiota.
+  evidence:
+  - reference: PMID:38865893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: compared to the non-electro-stimulated methanogenic toluene-degrading microbiota, electro-stimulation at 800
+      mV promoted
+    explanation: Supports 800 mV as the electro-stimulation condition compared with a non-electro-stimulated control.
+- name: Electrode recruitment of MAG10 and MAG74
+  value: Desulfoprunum MAG10 at the anode; Methanobacterium MAG74 at the cathode
+  description: The electro-stimulated microbiota specifically recruited Desulfoprunum MAG10 to the anode and Methanobacterium
+    MAG74 to the cathode.
+  evidence:
+  - reference: PMID:38865893
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: were specifically recruited to the anode and cathode
+    explanation: Supports electrode-associated recruitment of Desulfoprunum MAG10 and Methanobacterium MAG74.
+growth_media:
+- name: toluene-fed methanogenic enrichment medium
+  preparation_notes: The accessible abstract reports methanogenic toluene-degrading microbiota but not basal medium chemistry,
+    inoculum source, gas phase, toluene loading, or transfer schedule.
+  evidence:
+  - reference: PMID:38865893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methanogenic toluene-degrading microbiota
+    explanation: Supports the toluene-fed methanogenic cultivation context at abstract level.
+cultivation_setup:
+- system_type: BIOELECTROCHEMICAL_SYSTEM
+  applied_potential: 800.0
+  applied_potential_unit: mV
+  notes: Electrode-coupled methanogenic toluene-degrading cultures operated at 800 mV; the accessible abstract does not report
+    the reference electrode, chamber geometry, electrode material, or whether the vessels were run in batch or continuous
+    mode.
+  evidence:
+  - reference: PMID:38865893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: electro-stimulation at 800 mV
+    explanation: Supports the applied potential used to stimulate the methanogenic toluene-degrading microbiota.
+external_resources:
+- name: Primary publication - electro-stimulated methanogenic toluene-degrading microbiota
+  repository: OTHER
+  resource_id: PMID:38865893
+  url: https://pubmed.ncbi.nlm.nih.gov/38865893/
+  description: PubMed record for the Water Research study resolving electro-stimulated syntrophic interactions in methanogenic
+    toluene-degrading microbiota.
+  evidence:
+  - reference: PMID:38865893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Electro-stimulation modulates syntrophic interactions
+    explanation: Links the PubMed-indexed article to the curated electro-stimulated methanogenic toluene microbiota.
+- name: Publication DOI - electro-stimulated methanogenic toluene-degrading microbiota
+  repository: OTHER
+  resource_id: 10.1016/j.watres.2024.121898
+  url: https://doi.org/10.1016/j.watres.2024.121898
+  description: DOI for the Water Research study of electro-stimulated methanogenic toluene-degrading microbiota.
+  evidence:
+  - reference: PMID:38865893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 10.1016/j.watres.2024.121898
+    explanation: Supports the DOI assigned to the primary consortium publication.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth element processing role is reported for the methanogenic toluene-degrading microbiota.
+discussions:
+- discussion_id: full_text_bioelectrochemical_toluene_mag_details
+  prompt: Curate the full text before adding medium composition, inoculum source, electrode material, reference electrode,
+    MAG bin-quality metrics, exact MAG relative abundances, and public metagenome accessions.
+  kind: CURATION_TODO
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  - growth_media
+  - cultivation_setup
+  - ecological_interactions
+  rationale: The PubMed abstract supports 800 mV electro-stimulation, named MAG or genus labels, and the proposed electron-transfer
+    model, but it omits the reactor geometry, reference electrode, culture medium, source inoculum, and full MAG taxonomy
+    needed to refine this abstract-level record.
+  evidence:
+  - reference: PMID:38865893
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: metagenomic sequencing analyses revealed
+    explanation: Shows that the cached abstract summarizes genome-resolved analyses without exposing the underlying MAG table.
+  posed_by: codex
+  posed_date: '2026-09-26'
+curation_history:
+- timestamp: '2026-09-26T18:38:36Z'
+  curator: codex
+  action: CREATE_ELECTROSTIMULATED_TOLUENE_METHANOGENIC_MICROBIOTA
+  changes: Created CommunityMech:000440 from PMID:38865893 with electro-stimulated methanogenic toluene microbiota membership,
+    proposed MAG-resolved syntrophic electron-transfer interactions, 800 mV bioelectrochemical context, PubMed/DOI resources,
+    and an abstract-level full-text curation todo.
+  llm_assisted: true
+- timestamp: '2026-09-26T18:47:57Z'
+  curator: codex
+  action: FIX_ELECTROSTIMULATED_TOLUENE_REVIEW_ISSUES
+  changes: 'Addressed adversarial review issues #1120 and #1121 by adding explicit Desulfoprunum MAG10 anode-recruitment evidence
+    and by broadening the MAG116 acetoclastic-methanogen syntrophy snippet to include the Methanothrix alternate.'
+  llm_assisted: true
+- timestamp: '2026-09-26T18:59:02Z'
+  curator: codex
+  action: FIX_DESULFOPRUNUM_CANONICAL_LABEL
+  changes: Updated NCBITaxon:2629275 labels from Desulfoprunum to unclassified Desulfoprunum to match the canonical
+    NCBI Taxonomy label required by the ID-label correspondence gate.
+  llm_assisted: true

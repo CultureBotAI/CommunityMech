@@ -518,9 +518,10 @@ def test_the_status_distribution_is_what_was_measured():
     # nitrifying wastewater genera, #1085 adds two high-rank acidic
     # nitrification taxa, #1102 adds one Mulberry/DG L. brevis member,
     # #1107 adds seven shrimp SynCom genus-level members, and #1110 adds
-    # four TCP groundwater genera, so tolerate the measured 424 without
-    # tolerating a domain-lookup collapse.
-    assert counts["UNRESOLVED"] < 425, (
+    # four TCP groundwater genera. The electrostimulated toluene microbiota
+    # adds three proposed MAG/genus members, so tolerate the measured 427
+    # without tolerating a domain-lookup collapse.
+    assert counts["UNRESOLVED"] < 428, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
