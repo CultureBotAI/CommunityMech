@@ -516,10 +516,11 @@ def test_the_status_distribution_is_what_was_measured():
     # DT rhizosphere strains, #1076 adds two Parmigiano NWS LAB strains, the
     # four-species lung model adds four species members, #1084 adds three
     # nitrifying wastewater genera, #1085 adds two high-rank acidic
-    # nitrification taxa, #1102 adds one Mulberry/DG L. brevis member, and
-    # #1107 adds seven shrimp SynCom genus-level members, so tolerate the
-    # measured 420 without tolerating a domain-lookup collapse.
-    assert counts["UNRESOLVED"] < 421, (
+    # nitrification taxa, #1102 adds one Mulberry/DG L. brevis member,
+    # #1107 adds seven shrimp SynCom genus-level members, and #1110 adds
+    # four TCP groundwater genera, so tolerate the measured 424 without
+    # tolerating a domain-lookup collapse.
+    assert counts["UNRESOLVED"] < 425, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
