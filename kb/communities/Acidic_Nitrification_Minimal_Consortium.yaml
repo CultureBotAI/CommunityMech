@@ -129,24 +129,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:1763
       label: Mycobacterium
-  metabolites:
-  - preferred_term: ammonia
-    term:
-      id: CHEBI:16134
-      label: ammonia
-  - preferred_term: nitrite
-    term:
-      id: CHEBI:16301
-      label: nitrite
-  - preferred_term: nitric oxide
-    term:
-      id: CHEBI:16480
-      label: nitric oxide
-  biological_processes:
-  - preferred_term: ammonia oxidation
-    term:
-      id: GO:0019329
-      label: ammonia oxidation
   evidence:
   - &putative_linkages
     reference: PMID:42762737
@@ -169,12 +151,13 @@ environmental_factors:
   - *acidic_bioreactors
   - *nitrosoglobus_pH5
   - *pH2_pair
-- name: reactive nitrogen stress response
-  value: high expression of denitrification genes in aerobic bioreactors
+- name: reactive nitrogen species from incomplete nitrification
+  value: nitrite and nitric oxide
   description: >
-    Consortium members expressed denitrification genes at high levels in
-    aerobic bioreactors, consistent with a response to reactive nitrogen species
-    such as nitrite and nitric oxide.
+    Nitrite and nitric oxide were named as reactive nitrogen species produced
+    during incomplete nitrification; consortium members also expressed
+    denitrification genes at high levels in the aerobic bioreactors, likely to
+    eliminate those species.
   evidence:
   - &denitrification_response
     reference: PMID:42762737
@@ -189,7 +172,6 @@ environmental_factors:
       response inferred for the aerobic acidic bioreactor members.
 cultivation_setup:
 - system_type: BIOREACTOR_UNSPECIFIED
-  ph_controlled: true
   controls_notes: >
     The abstract reports three acidic nitrification bioreactors operated between
     pH 2.0 and 5.0, but does not identify the exact reactor format or feed
@@ -281,4 +263,13 @@ curation_history:
     Created CommunityMech:000434 from PMID:42762737 and DOI
     10.1016/j.watres.2026.126966 for the acidic nitrification minimal
     consortium centered on "Ca. Nitrosoglobus kelleri" and Mycobacterium.
+  llm_assisted: true
+- timestamp: '2026-09-26T09:15:45Z'
+  curator: codex
+  action: ADDRESS_REVIEW_FINDINGS
+  changes: >
+    Addressed adversarial review issues 1086, 1087, and 1088 by removing an
+    unsupported pH-control flag, dropping exact metabolite and process terms
+    from the putative carbon/nitrogen linkage, and rephrasing the reactive
+    nitrogen environmental factor around nitrite and nitric oxide.
   llm_assisted: true
