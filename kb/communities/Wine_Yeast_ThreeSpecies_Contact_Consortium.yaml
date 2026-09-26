@@ -1,0 +1,337 @@
+id: CommunityMech:000438
+name: Wine Yeast Three-Species Contact Consortium
+description: A defined three-member wine yeast consortium built from fluorescently labeled Saccharomyces cerevisiae VIN13,
+  Lachancea thermotolerans IWBT Y1240, and Torulaspora delbrueckii LO544 to compare direct cell-cell contact against
+  metabolic-only contact in a multi-membrane bioreactor. Asmus et al. 2026 cultured the yeasts in yeast nitrogen base
+  with glucose and ammonium sulfate, either together in the same 700 mL vessel or separated by 0.1 um membranes with
+  continuous medium exchange, and measured 12 h growth, extracellular glucose, ammonia and amino acids, and
+  S. cerevisiae RNA-seq at 5 and 9 h.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Compare how direct physical contact versus metabolic contact changes growth, extracellular nutrients, and
+    S. cerevisiae transcription in a three-species wine yeast consortium.
+  assembly_strategy: Assemble mCherry-labeled S. cerevisiae VIN13, mTagBFP2-labeled L. thermotolerans IWBT Y1240, and
+    eGFP-labeled T. delbrueckii LO544 in a membrane bioreactor adapted to hold three wine yeast species.
+  perturbation_design: Compare direct-contact cultures, in which all three yeasts occupy the same YNB vessel, with
+    indirect-contact cultures, in which each yeast is retained in a separate vessel while filtered medium circulates among
+    compartments.
+  measurement_endpoints:
+  - viable yeast growth over 12 h by fluorescent flow cytometry
+  - extracellular glucose and ammonia at 5 and 9 h
+  - extracellular amino acids at 5 and 9 h
+  - S. cerevisiae transcriptomes in direct and indirect contact fermentations
+  notes: The publication measures contact-dependent growth and S. cerevisiae expression across a complete three-member
+    community, but it leaves the source of extra amino acids unresolved and treats T. delbrueckii suppression of
+    L. thermotolerans in the indirect-contact setup as a likely medium-mediated mechanism.
+  evidence:
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Therefore, we evaluated the impact of direct cell-cell contact on the physiology and gene expression of Saccharomyces
+      cerevisiae within a yeast consortium including Lachancea thermotolerans and Torulaspora delbrueckii.
+    explanation: Supports the three-species contact-comparison objective.
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A membrane bioreactor allowed continuous media exchange between separate fermentation vessels.
+    explanation: Supports the indirect-contact membrane-bioreactor comparison.
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Yeast growth, extracellular metabolites, and S. cerevisiae transcriptional profiles were monitored at two timepoints.
+    explanation: Supports the growth, extracellular-metabolite, and transcriptomic measurement endpoints.
+environment_term:
+  preferred_term: laboratory wine-yeast membrane bioreactor
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+  notes: Laboratory YNB fermentations compared a direct mixed culture and physically separated three-vessel membrane
+    bioreactor; the source frames the setup as a wine-fermentation model ecosystem.
+taxonomy:
+- taxon_term:
+    preferred_term: Saccharomyces cerevisiae VIN13
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic yeast; GTDB classifies Bacteria and Archaea, not fungi. The study used an mCherry-labeled derivative
+      of wine strain VIN13.
+  strain_designation:
+    strain_name: VIN13
+    genetic_modification: mCherry fluorescent label
+    isolation_source: commercial wine strain from Anchor Yeast, Cape Town, South Africa
+  functional_role:
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: including an mCherry fluorescently labeled S. cerevisiae VIN13
+    explanation: Identifies the S. cerevisiae VIN13 member and its fluorescent marker.
+- taxon_term:
+    preferred_term: Lachancea thermotolerans IWBT Y1240
+    term:
+      id: NCBITaxon:381046
+      label: Lachancea thermotolerans
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic yeast; GTDB classifies Bacteria and Archaea, not fungi. The study used an mTagBFP2-labeled derivative
+      of wine strain IWBT Y1240.
+  strain_designation:
+    strain_name: IWBT Y1240
+    culture_collections:
+    - collection: CBS
+      accession: '16374'
+      notes: The article renders the accession as CBS 16,374.
+    genetic_modification: mTagBFP2 fluorescent label
+  functional_role:
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'L. thermotolerans IWBT Y1240 (CBS: 16,374) tagged with mTagBFP2'
+    explanation: Identifies the L. thermotolerans IWBT Y1240 member, its CBS accession, and its fluorescent marker.
+- taxon_term:
+    preferred_term: Torulaspora delbrueckii LO544
+    term:
+      id: NCBITaxon:4950
+      label: Torulaspora delbrueckii
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic yeast; GTDB classifies Bacteria and Archaea, not fungi. The study used an eGFP-labeled derivative
+      of wine strain LO544.
+  strain_designation:
+    strain_name: LO544
+    culture_collections:
+    - collection: OTHER
+      accession: CRBO LO544
+    genetic_modification: enhanced green fluorescent protein expression
+  functional_role:
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'T. delbrueckii LO544 (CRBO: LO544) expressing an enhanced green fluorescent protein (eGFP)'
+    explanation: Identifies the T. delbrueckii LO544 member, its CRBO accession, and its fluorescent marker.
+ecological_interactions:
+- name: Direct-contact S. cerevisiae growth advantage
+  description: When all three yeasts shared the same YNB vessel, direct contact favored S. cerevisiae growth and S. cerevisiae
+    established numerical dominance by the end of the 12 h observation period.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Direct cell contact favored S. cerevisiae growth
+    explanation: Supports the direct-contact growth advantage assigned to S. cerevisiae in the three-yeast consortium.
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In direct contact, S. cerevisiae established rapid dominance
+    explanation: Explicitly reports S. cerevisiae dominance in the direct-contact condition.
+- name: Indirect-contact Torulaspora growth shift
+  description: When the three yeasts were physically separated but shared filtered medium, T. delbrueckii dominated early
+    biomass growth while L. thermotolerans growth was lower than in the direct-contact mixed culture.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: indirect (metabolic) contact favored T. delbrueckii growth at the expense of L. theromotolerans
+    explanation: Supports the indirect-contact growth shift toward T. delbrueckii.
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: T. delbrueckii likely suppresses growth of L. thermotolerans through a medium-mediated mechanism.
+    explanation: Captures the authors' mechanistic interpretation for the no-contact L. thermotolerans decline.
+- name: Contact-dependent amino acid profile shift
+  description: Extracellular amino acid concentrations differed between direct and indirect contact fermentations after 5 h;
+    the measured serine, glycine, valine, aspartic acid, and arginine concentrations were higher in the indirect-contact
+    condition, with no significant difference after 9 h.
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Direct cell contact favored S. cerevisiae growth and resulted in significantly different amino acid profiles
+    explanation: Supports direct contact changing the amino-acid profile.
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: serine, glycine, valine, aspartic acid, and arginine
+    explanation: Names the amino acids that differed significantly between contact treatments at the 5 h time point.
+growth_media:
+- name: YNB with amino acids, ammonium sulfate, and glucose
+  composition:
+  - name: ammonium sulfate
+    concentration: '5'
+    unit: g/L
+    chebi_term:
+      preferred_term: ammonium sulfate
+      term:
+        id: CHEBI:62946
+        label: ammonium sulfate
+    from_source: community_curated
+  - name: glucose
+    concentration: '20'
+    unit: g/L
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+    from_source: community_curated
+  temperature_range: 22-25
+  temperature_unit: C
+  inoculum_size: ca. 5 x 10^6
+  inoculum_unit: cells/mL per species
+  incubation_time: '12'
+  incubation_time_unit: h
+  vessel_type: three 700 mL vessels in a multi-membrane bioreactor
+  preparation_notes: Yeasts were pregrown to mid-logarithmic phase, washed in PBS, resuspended in YNB with amino acids plus
+    5 g/L ammonium sulfate and 20 g/L glucose, and inoculated at ca. 5 x 10^6 cells/mL per species into either a shared
+    vessel for direct contact or separate vessels for indirect contact.
+  evidence:
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: yeast nitrogen base (YNB) with amino acids
+    explanation: Names the base medium used for the membrane-bioreactor fermentations.
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ammonium sulfate (5 g/L) and glucose (20 g/L)
+    explanation: Supports the ammonium sulfate and glucose supplements in YNB.
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Fermentations were performed in quadruplicate for a period of 12 h at room temperature
+    explanation: Supports the 12 h room-temperature fermentation design.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: MEMBRANE_BIOREACTOR
+  instrument_detail: Three fermentation vessels were connected through 0.1 um membranes in stainless-steel manifolds so
+    each separated yeast culture recirculated to its vessel of origin while filtered medium from all vessels was pooled and
+    redistributed.
+  working_volume: 700
+  working_volume_unit: mL
+  feed_or_dilution_rate: 240
+  feed_or_dilution_rate_unit: mL/min
+  notes: The same pumping and membrane setup was retained in the direct-contact treatment, but all three yeasts were
+    inoculated into each vessel.
+  evidence:
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The design made use of membranes with 0.1 μm pore-sizes
+    explanation: Supports the membrane-bioreactor pore size.
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Media containing yeast cells (700 mL per vessel) is circulated separately for each vessel by peristaltic pumps
+    explanation: Supports the three-vessel recirculating setup and working volume.
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A flow rate of 4 mL/s ensures rapid replacement of media in each reactor
+    explanation: Supports the medium-exchange flow rate; 4 mL/s equals 240 mL/min.
+associated_datasets:
+- accession: PRJNA1380975
+  title: S. cerevisiae direct and indirect contact RNA-seq BioProject
+  description: NCBI BioProject containing SRA transcriptome reads from 16 S. cerevisiae libraries sampled from direct-
+    and indirect-contact three-species wine yeast fermentations.
+  organism: Saccharomyces cerevisiae
+  dataset_type: TRANSCRIPTOMICS
+  repository: NCBI_BIOPROJECT
+  sample_types:
+  - RNA-seq
+  sample_count: 16
+  conditions:
+  - direct cell contact
+  - indirect cell contact
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1380975
+  publication: PMID:42176030
+  findings: Raw S. cerevisiae reads supported treatment-specific transcriptomic comparisons at 5 and 9 h.
+  evidence:
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The raw reads data of the 16 transcriptome libraries
+    explanation: Supports the 16-library RNA-seq dataset.
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'The Bioproject number was: PRJNA1380975'
+    explanation: Links the deposited RNA-seq reads to NCBI BioProject PRJNA1380975.
+external_resources:
+- name: PubMed - wine yeast three-species contact consortium
+  repository: OTHER
+  resource_id: PMID:42176030
+  url: https://pubmed.ncbi.nlm.nih.gov/42176030/
+  description: PubMed record for the Applied Microbiology and Biotechnology article describing direct and indirect contact
+    effects in a three-species wine yeast consortium.
+  evidence:
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Impact of direct cell-cell contact in a three-species wine yeast consortium.
+    explanation: Identifies the primary publication title.
+- name: DOI - wine yeast three-species contact consortium
+  repository: OTHER
+  resource_id: doi:10.1007/s00253-026-13856-4
+  url: https://doi.org/10.1007/s00253-026-13856-4
+  description: DOI landing page for the Applied Microbiology and Biotechnology article on direct cell-contact responses in
+    a three-species wine yeast consortium.
+  evidence:
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1007/s00253-026-13856-4'
+    explanation: Lists the DOI for the wine yeast membrane-bioreactor publication.
+discussions:
+- discussion_id: wine_yeast_indirect_contact_amino_acid_source
+  prompt: Which yeasts, export processes, or lysis processes produced the non-supplemented amino acids and the higher 5 h
+    extracellular amino-acid concentrations in the indirect-contact three-species wine yeast membrane-bioreactor setup?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Contact-dependent amino acid profile shift
+  - growth_media#YNB with amino acids, ammonium sulfate, and glucose
+  rationale: YNB with amino acids supplied histidine, methionine, and tryptophan, but other amino acids appeared in
+    fermentation supernatants and several were significantly higher in the indirect-contact treatment after 5 h. The article
+    lists active secretion, species-specific cell death, and partial cell lysis as possible sources and states that further
+    experiments are required to explain the concentration differences.
+  posed_by: codex
+  posed_date: '2026-09-26'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: PMID:42176030 describes wine yeast interactions in a synthetic membrane-bioreactor fermentation, not metal
+  stress, metal transformation, biomining, or rare-earth-element cycling.
+curation_history:
+- timestamp: '2026-09-26T15:23:43Z'
+  curator: codex
+  action: CREATE_COMMUNITY
+  changes: Created CommunityMech:000438 for PMID:42176030 / doi:10.1007/s00253-026-13856-4, a defined three-species wine
+    yeast consortium with strain-level membership, direct-versus-indirect cell-contact growth effects, YNB membrane-bioreactor
+    cultivation details, an S. cerevisiae RNA-seq BioProject, and an open amino-acid-source discussion.
+  llm_assisted: true
+- timestamp: '2026-09-26T15:30:38Z'
+  curator: codex
+  action: UPDATE_COMMUNITY
+  changes: Addressed adversarial review issues 1111, 1112, and 1113 by narrowing the amino-acid-source knowledge gap,
+    dropping an unsupported aerobic atmosphere assignment, and replacing weak direct-contact dominance evidence with an
+    explicit source quote.
+  llm_assisted: true
