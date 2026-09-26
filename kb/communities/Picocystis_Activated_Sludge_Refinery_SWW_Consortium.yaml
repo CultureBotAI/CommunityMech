@@ -41,6 +41,16 @@ modeled_environment:
     id: ENVO:00002001
     label: wastewater
   notes: SWW from a petroleum refinery was diluted to 10% and 25% and used as the process water targeted for remediation.
+- preferred_term: activated sludge
+  term:
+    id: ENVO:00002046
+    label: activated sludge
+  notes: The aerobic bacterial consortium paired with Picocystis was sourced from activated sludge.
+- preferred_term: municipal wastewater treatment plant
+  term:
+    id: ENVO:00002043
+    label: wastewater treatment plant
+  notes: The activated-sludge bacterial consortium was sourced from a municipal wastewater treatment plant.
 taxonomy:
 - taxon_term:
     preferred_term: Picocystis sp.
@@ -123,7 +133,8 @@ environmental_factors:
     explanation: Supports the lipid-accumulation endpoint used to evaluate biomass valorization.
 - name: Post-treatment phytotoxicity
   value: Lepidium sativum germination and root elongation
-  description: Phytotoxicity testing of treated 25% SWW indicated detoxification after the Pico and Pico-Bac treatments.
+  description: Phytotoxicity testing indicated detoxification of treated 25% SWW, without assigning that readout to a specific
+    Pico or Pico-Bac condition in the accessible abstract.
   evidence:
   - reference: PMID:42397522
     supports: SUPPORT
@@ -193,4 +204,11 @@ curation_history:
   changes: Created CommunityMech:000439 from PMID:42397522 with Picocystis plus an activated-sludge bacterial consortium,
     refinery stripped wastewater photobioreactor conditions, pollutant-removal endpoints, and primary PubMed/DOI external
     resources.
+  llm_assisted: true
+- timestamp: '2026-09-26T17:03:56Z'
+  curator: codex
+  action: FIX_PICOCYSTIS_REVIEW_ISSUES
+  changes: 'Addressed adversarial review issues #1116 and #1117 by adding activated-sludge and municipal-WWTP modeled environments,
+    and by narrowing the phytotoxicity wording so treated 25% SWW detoxification is not assigned to a Pico or Pico-Bac treatment
+    absent from the accessible abstract.'
   llm_assisted: true
