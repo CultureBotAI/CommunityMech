@@ -1,0 +1,397 @@
+id: CommunityMech:000442
+name: Mangrove Benzene MFC Bioanode Consortium
+description: >
+  An engineered electrogenic bioanode enrichment derived from mangrove sediment
+  collected in Vitoria, Espirito Santo, Brazil and acclimated in dual-chamber
+  microbial fuel cells first on 1000.0 mg L-1 sodium acetate and then on
+  increasing benzene concentrations up to 330.0 mg L-1. In the benzene-fed
+  biofilm, Bacillus and Arcobacter became the two dominant 16S rRNA genus-level
+  assignments, while Pelobacter and Pseudomonas remained lower-abundance
+  detected genera. The acclimated MFC removed 98.7 +/- 2.4% benzene over 96 h
+  while generating voltage on the bioanode.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: >
+    Enrich a mangrove-sediment bioanode community that combines benzene
+    biodegradation with current generation in a dual-chamber microbial fuel
+    cell.
+  assembly_strategy: >
+    Seed the anode chamber with a 20% mangrove sediment suspension in Lovley and
+    Phillips medium, form a stable biofilm through two 1000.0 mg L-1
+    sodium-acetate feeding cycles, and then acclimate the biofilm through
+    stepwise replacement of sodium acetate with benzene.
+  perturbation_design: >
+    Compare sediment-inoculated biotic MFCs with an abiotic MFC containing only
+    the culture medium and carbon source, and shift the biotic MFC feed through
+    30.0, 80.0, 170.0, 250.0, and 330.0 mg L-1 benzene.
+  measurement_endpoints:
+  - MFC output voltage during sodium-acetate and benzene feed cycles
+  - cyclic voltammetry, linear sweep voltammetry, and electrochemical impedance spectroscopy
+  - genus-level 16S rRNA bioanode community composition
+  - GC-FID benzene removal over the MFC operation
+  - HPLC-RID and GC-TCD detection of benzene biodegradation products
+  - Daphnia magna ecotoxicity of diluted benzene-spiked medium after degradation
+  notes: >
+    The paper resolves the inoculum and bioanode communities at 16S rRNA
+    genus-level abundance. The taxonomy block records the final benzene-fed
+    biofilm genera with unambiguous NCBI Taxonomy genus IDs; the lower-abundance
+    genus written as Desulfurumonas in the source is left to the discussion
+    until its orthography can be resolved against a stable taxonomy ID.
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sourced from mangrove sediments, capable of improving microbial fuel cell (MFC) performance in both energy generation and aromatic compound's biodegradation
+    explanation: Supports the mangrove-derived MFC bioremediation objective.
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SA was gradually replaced by benzene at concentrations representing 10.0%, 25.0%, 50.0%, 75.0%, and 100.0% of the total carbon content
+    explanation: Supports the stepwise benzene-acclimation strategy.
+environment_term:
+  preferred_term: benzene-fed laboratory microbial fuel cell bioanode
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    Controlled laboratory dual-chamber microbial fuel cells inoculated with
+    mangrove sediment and acclimated from sodium acetate to benzene.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      The final benzene-fed biofilm was resolved only to Bacillus genus level by
+      16S rRNA analysis.
+  abundance_level: DOMINANT
+  relative_abundance: 32.93
+  relative_abundance_unit: percent
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacillus (32.93%) and Arcobacter (30.28%) predominated, comprising 63.21% of the microbial community
+    explanation: Supports Bacillus as the most abundant genus in the benzene-fed MFC biofilm.
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The most expressive enrichment is observed in the genus Bacillus which relative abundance increases from 0.88 to 3.0% and then to 32.93% in the inoculum, SA-fed MFC biofilm, and benzene-fed MFC biofilm, respectively
+    explanation: Supports enrichment of Bacillus across the sodium-acetate to benzene transition.
+- taxon_term:
+    preferred_term: Arcobacter
+    term:
+      id: NCBITaxon:28196
+      label: Arcobacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      The final benzene-fed biofilm was resolved only to Arcobacter genus level
+      by 16S rRNA analysis.
+  abundance_level: DOMINANT
+  relative_abundance: 30.28
+  relative_abundance_unit: percent
+  functional_role:
+  - ELECTROGEN
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacillus (32.93%) and Arcobacter (30.28%) predominated, comprising 63.21% of the microbial community
+    explanation: Supports Arcobacter as the second most abundant genus in the benzene-fed MFC biofilm.
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the electrogenic Arcobacter abundance increased from 20.23% to 30.28%
+    explanation: Supports the electrogenic role assigned to Arcobacter during benzene acclimation.
+- taxon_term:
+    preferred_term: Pelobacter
+    term:
+      id: NCBITaxon:18
+      label: Pelobacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      Pelobacter was a lower-abundance genus in the benzene-fed 16S profile; no
+      species-level identity or functional role was resolved.
+  relative_abundance: 2.22
+  relative_abundance_unit: percent
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pelobacter, Desulfurumonas, and Pseudomonas were also identified at 2.22, 1.64, and 0.87%
+    explanation: Supports Pelobacter as a minor detected genus in the benzene-fed MFC biofilm.
+- taxon_term:
+    preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      Pseudomonas was a lower-abundance genus in the benzene-fed 16S profile; no
+      species-level identity or functional role was resolved.
+  relative_abundance: 0.87
+  relative_abundance_unit: percent
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pelobacter, Desulfurumonas, and Pseudomonas were also identified at 2.22, 1.64, and 0.87%
+    explanation: Supports Pseudomonas as a minor detected genus in the benzene-fed MFC biofilm.
+ecological_interactions:
+- name: Benzene-fed bioanode niche shift
+  description: >
+    The shift from sodium acetate to benzene depleted the sodium-acetate-linked
+    Comamonas signal and selected a benzene-fed bioanode in which Bacillus and
+    Arcobacter together comprised 63.21% of genus-level 16S assignments.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+  - preferred_term: Arcobacter
+    term:
+      id: NCBITaxon:28196
+      label: Arcobacter
+  metabolites:
+  - &benzene
+    preferred_term: benzene
+    term: &benzene_term
+      id: CHEBI:16716
+      label: benzene
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: Benzene removal with voltage generation
+    description: >
+      The benzene-selected bioanode removed benzene while producing a higher
+      maximum voltage and power density than the acetate-fed bioanode.
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clearly, benzene addition has shifted the microbial community composition by diminishing Commamonas and enriching the Arcobacter and Bacillus populations
+    explanation: Supports the substrate-driven shift from the sodium-acetate biofilm toward a Bacillus/Arcobacter-rich benzene bioanode.
+- name: Benzene removal with voltage generation
+  description: >
+    The benzene-acclimated MFC bioanode removed 98.7 +/- 2.4% of the supplied
+    benzene within 96 h and generated up to 902.3 +/- 20.6 mV during the
+    high-benzene feed cycle.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+  - preferred_term: Arcobacter
+    term:
+      id: NCBITaxon:28196
+      label: Arcobacter
+  metabolites:
+  - *benzene
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The percentage of benzene in the MFC decreased over time to 98.7 ± 2.4% after 96 h
+    explanation: Supports the measured benzene-removal endpoint.
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Maximum voltages observed in Cycles III, IV, V, VI, and VII were 678.5 ± 98.2, 542.4 ± 50.7, 768.6 ± 10.8, 902.3 ± 20.6, and 899.9 ± 15.2 mV
+    explanation: Supports voltage generation during the benzene feed cycles.
+environmental_factors:
+- name: Mangrove sediment inoculum
+  value: Vitoria, Espirito Santo State, Brazil
+  description: The laboratory MFCs were inoculated with mangrove sediment from Vitoria in southeastern Brazil.
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A mangrove sediment originating from Vitória, Espírito Santo State, Brazil
+    explanation: Supports the source location for the MFC inoculum.
+- name: Final benzene feed
+  value: '330.0'
+  unit: mg L-1
+  description: The last acclimation feed cycle supplied benzene as 100% of total carbon at 330.0 mg L-1.
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: benzene concentrations of 30.0, 80.0, 170.0, 250.0, and 330.0 mg L-1
+    explanation: Supports the final benzene concentration in the stepwise acclimation series.
+- name: Benzene removal after 96 h
+  value: '98.7'
+  unit: percent
+  description: The benzene-acclimated MFC removed 98.7 +/- 2.4% of benzene after 96 h.
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The percentage of benzene in the MFC decreased over time to 98.7 ± 2.4% after 96 h
+    explanation: Supports the measured 96 h benzene removal.
+- name: Benzene-fed maximum power density
+  value: '390.1'
+  unit: mW m-2
+  description: The benzene-fed MFC reached a maximum power density of 390.1 +/- 26 mW m-2.
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The maximum power density, Coulombic efficiency, and MFC cumulative energy efficiency were 390.1 ± 26 mW m-2, 14.4%, and 17.8%, respectively
+    explanation: Reports the maximum power density for the benzene-fed MFC.
+growth_media:
+- name: Lovley and Phillips medium with acetate-to-benzene acclimation
+  temperature: '25'
+  temperature_unit: °C
+  incubation_time: multiple 3- to 5-day feed cycles, followed by 96 h benzene-removal monitoring
+  vessel_type: dual-chamber microbial fuel cell
+  preparation_notes: >
+    Anode compartments were inoculated with 50 mL of a 20% mangrove sediment
+    suspension in Lovley and Phillips medium, fed twice with 1000.0 mg L-1
+    sodium acetate, then shifted through increasing benzene concentrations.
+  composition:
+  - name: sodium acetate
+    concentration: '1000.0'
+    unit: mg L-1
+    chebi_term: &sodium_acetate
+      preferred_term: sodium acetate
+      term: &sodium_acetate_term
+        id: CHEBI:32954
+        label: sodium acetate
+    from_source: community_curated
+  - name: benzene
+    concentration: '330.0'
+    unit: mg L-1
+    chebi_term: *benzene
+    from_source: community_curated
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a 20.0% (m/v) suspension composed of mangrove sediment and Lovley and Phillips medium was transferred to the anodic compartment
+    explanation: Supports the sediment inoculum and basal MFC medium.
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a concentration of 1000.0 mg L-1 of sodium acetate (SA) was used to feed the microorganisms
+    explanation: Supports the initial sodium-acetate feed concentration.
+cultivation_setup:
+- cultivation_mode: OTHER
+  system_type: MICROBIAL_FUEL_CELL
+  operating_temperature: 25.0
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  instrument_detail: >
+    Two-compartment microbial fuel cells with mangrove sediment added to the
+    anode chamber and sequential sodium-acetate and benzene feed cycles.
+  notes: The MFCs were kept at controlled room temperature, reported as 25 +/- 2 °C.
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: six two-compartment MFCs (8.6 cm × 6.5 cm × 6.5 cm) were assembled in acrylic compartments
+    explanation: Supports the dual-chamber microbial-fuel-cell cultivation system.
+associated_datasets: []
+external_resources:
+- name: DOI for the mangrove benzene MFC bioanode article
+  repository: OTHER
+  resource_id: doi:10.1021/acsomega.5c05703
+  url: https://doi.org/10.1021/acsomega.5c05703
+  description: Version-of-record DOI for the ACS Omega open-access article.
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 10.1021/acsomega.5c05703
+    explanation: Links the PubMed metadata to the article DOI.
+- name: PubMed record for the mangrove benzene MFC bioanode article
+  repository: OTHER
+  resource_id: PMID:41210787
+  url: https://pubmed.ncbi.nlm.nih.gov/41210787/
+  description: PubMed metadata record for the ACS Omega article.
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: High-Performance Microbial Fuel Cell for Aromatic Hydrocarbon Bioremediation
+    explanation: Links the PubMed record to the exact article title.
+related_ingredients:
+- preferred_term: benzene
+  chebi_term: *benzene_term
+  relevance: Model aromatic contaminant used to select and assay the electrogenic MFC bioanode.
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the biodegradation of benzene, employed as a model aromatic compound
+    explanation: Supports benzene as the target aromatic biodegradation substrate.
+- preferred_term: sodium acetate
+  chebi_term: *sodium_acetate_term
+  relevance: Initial biofilm-growth carbon source that was progressively replaced by benzene.
+  evidence:
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 1000.0 mg L-1 of sodium acetate (SA) was used to feed the microorganisms
+    explanation: Supports sodium acetate as the initial MFC feedstock.
+discussions:
+- discussion_id: benzene_mfc_bioanode_species_resolution
+  prompt: Resolve the species or MAG identities, full final-biofilm composition, genus-specific benzene-degradation genes, and
+    stable raw 16S read accessions for the benzene-fed mangrove MFC bioanode.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  - ecological_interactions#Benzene-fed bioanode niche shift
+  rationale: >
+    The ACS Omega full text reports genus-level 16S abundances in the final
+    benzene-fed MFC but does not expose species-level identities, raw sequence
+    accessions, or a direct metagenomic assignment of benzene-degradation and
+    electron-transfer genes to each genus. The source also reports a genus
+    spelled Desulfurumonas at 1.64% abundance; that member was not curated here
+    until the label can be resolved against NCBI or GTDB.
+  posed_by: codex
+  posed_date: '2026-09-26'
+curation_history:
+- timestamp: '2026-09-26T21:48:42Z'
+  curator: codex
+  action: ADD_COMMUNITY_RECORD
+  changes: >
+    Created CommunityMech:000442 from PMID:41210787 and DOI
+    10.1021/acsomega.5c05703 for the mangrove-derived benzene-fed MFC bioanode
+    enrichment, including genus-level Bacillus, Arcobacter, Pelobacter, and
+    Pseudomonas 16S assignments; sodium-acetate-to-benzene acclimation in Lovley
+    and Phillips medium; 96 h benzene removal and voltage-generation endpoints;
+    and an explicit open question for species-level resolution and the unresolved
+    Desulfurumonas label.
+  llm_assisted: true
+- timestamp: '2026-09-26T21:57:29Z'
+  curator: codex
+  action: FIX_ADVERSARIAL_REVIEW_FINDINGS
+  changes: >
+    Addressed adversarial review issue #1124 by removing the Bacillus
+    PRIMARY_DEGRADER functional role, which over-typed a benzene-associated
+    16S enrichment signal as a complex-substrate degradation role, while
+    retaining Bacillus as the dominant benzene-fed genus and citing its
+    sodium-acetate-to-benzene enrichment.
+  llm_assisted: true
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for this benzene-fed MFC bioanode.
