@@ -225,6 +225,7 @@ USERS = {
     "Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml",
     "Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml",
     "EcoFAB_Ring_Trial_SynCom17.yaml",
+    "Electrostimulated_Toluene_Methanogenic_Microbiota.yaml",
     "Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.yaml",
     "Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml",
     "Ensifer_YF2_Sphingobacterium_Y2_Polyethylene_Degrading_Consortium.yaml",
