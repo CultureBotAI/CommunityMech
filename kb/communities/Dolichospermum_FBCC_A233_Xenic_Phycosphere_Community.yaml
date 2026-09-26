@@ -1,0 +1,303 @@
+id: CommunityMech:000441
+name: Dolichospermum FBCC-A233 Xenic Phycosphere Community
+description: A unialgal xenic freshwater cyanobacterial culture centered on Dolichospermum flosaquae
+  FBCC-A233 and two co-maintained alphaproteobacterial associates assigned to Sphingorhabdus sp.
+  and Brevundimonas sp. Kim et al. reconstructed complete circular genomes from the FBCC-A233
+  culture, resolved the associated bacterial genomes at genus level, and predicted an asymmetric
+  cofactor economy in which D. flosaquae FBCC-A233 encoded BioU-mediated de novo biotin and
+  extensive anaerobic corrinoid biosynthesis potential while the associated bacteria lacked complete
+  de novo biotin and cobamide biosynthetic pathways.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: PHYTOPLANKTON
+environment_term:
+  preferred_term: freshwater cyanobacterial laboratory culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The curated community is a culture-collection-maintained unialgal xenic culture originally
+    established by single-filament isolation from Inpyeong Reservoir, Republic of Korea.
+taxonomy:
+- taxon_term:
+    preferred_term: Dolichospermum flosaquae FBCC-A233
+    term:
+      id: NCBITaxon:1166
+      label: Dolichospermum flos-aquae
+    gtdb_grounding_status: UNRESOLVED
+    notes: The GTDB-Tk analysis placed the recovered cyanobacterial genome in the Dolichospermum
+      flosaquae species cluster; the paper names the maintained culture as FBCC-A233.
+  strain_designation:
+    strain_name: FBCC-A233
+    culture_collections:
+    - collection: OTHER
+      accession: FBCC-A233
+      notes: Freshwater Bioresources Culture Collection strain provided by NNIBR.
+    isolation_source: Single-filament isolate from Inpyeong Reservoir, Taean-gun, Republic of Korea.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:42535840
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: reconstructed three complete circular genomes from a unialgal xenic culture, including Dolichospermum
+      flosaquae FBCC-A233
+    explanation: Supports D. flosaquae FBCC-A233 as the cyanobacterial genome recovered from the
+      xenic culture.
+  - reference: PMID:42535840
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: FBCC-A233 strain was established by single-filament isolation
+    explanation: Supports the culture-collection isolate context for the cyanobacterial member.
+- taxon_term:
+    preferred_term: Sphingorhabdus sp. FBCC-A233 associate
+    term:
+      id: NCBITaxon:1434046
+      label: Sphingorhabdus
+    gtdb_grounding_status: UNRESOLVED
+    notes: Associated alphaproteobacterial genome recovered from the xenic FBCC-A233 culture and
+      resolved by the source article only to Sphingorhabdus sp.
+  abundance_level: RARE
+  evidence:
+  - reference: PMID:42535840
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: two associated alphaproteobacterial genomes assigned to Sphingorhabdus sp. and Brevundimonas
+      sp.
+    explanation: Identifies Sphingorhabdus sp. as one of the two associated bacterial genomes
+      reconstructed from the culture.
+  - reference: PMID:42535840
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Sphingorhabdus sp. encoded both metH and metE
+    explanation: Supports the Sphingorhabdus genome as a predicted cobamide-flexible member rather
+      than directly demonstrating cobamide exchange.
+- taxon_term:
+    preferred_term: Brevundimonas sp. FBCC-A233 associate
+    term:
+      id: NCBITaxon:41275
+      label: Brevundimonas
+    gtdb_grounding_status: UNRESOLVED
+    notes: Putative undescribed Brevundimonas species-level lineage recovered from the xenic
+      FBCC-A233 culture and reported only at genus level in the source article.
+  abundance_level: RARE
+  evidence:
+  - reference: PMID:42535840
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: associated bacterial genomes represented Sphingorhabdus sp. and a putative undescribed
+      Brevundimonas species-level lineage
+    explanation: Identifies Brevundimonas sp. as a recovered associated bacterial genome and preserves
+      the unresolved species-level assignment.
+  - reference: PMID:42535840
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Brevundimonas sp. encoded only metH
+    explanation: Supports the predicted cobamide-dependent methionine-synthase profile that motivated
+      the candidate cofactor-dependence hypothesis.
+ecological_interactions:
+- name: Genome-inferred biotin asymmetry
+  description: D. flosaquae FBCC-A233 was the only recovered genome with a complete BioU-mediated
+    de novo biotin-biosynthesis route, whereas Sphingorhabdus sp. and Brevundimonas sp. lacked
+    complete de novo pathways while retaining biotin-dependent carboxylase genes.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Dolichospermum flosaquae FBCC-A233
+    term:
+      id: NCBITaxon:1166
+      label: Dolichospermum flos-aquae
+  - preferred_term: Sphingorhabdus sp. FBCC-A233 associate
+    term:
+      id: NCBITaxon:1434046
+      label: Sphingorhabdus
+  - preferred_term: Brevundimonas sp. FBCC-A233 associate
+    term:
+      id: NCBITaxon:41275
+      label: Brevundimonas
+  metabolites:
+  - preferred_term: biotin
+    term:
+      id: CHEBI:15956
+      label: biotin
+  biological_processes:
+  - preferred_term: vitamin biosynthetic process
+    term:
+      id: GO:0009110
+      label: vitamin biosynthetic process
+  evidence:
+  - reference: PMID:42535840
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: D. flosaquae FBCC-A233 was the only genome encoding the BioU-mediated de novo biotin
+      biosynthesis route
+    explanation: Supports a genome-inferred biotin asymmetry, not direct biotin exchange.
+  - reference: PMID:42535840
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: associated bacterial genomes lacked complete de novo biosynthetic pathways
+    explanation: Supports the absence of complete de novo biotin biosynthesis in the recovered
+      Sphingorhabdus and Brevundimonas genomes.
+- name: Genome-inferred corrinoid utilization asymmetry
+  description: D. flosaquae FBCC-A233 encoded most anaerobic corrinoid-ring biosynthesis genes, while
+    Sphingorhabdus sp. and Brevundimonas sp. lacked complete de novo cobamide biosynthesis and
+    retained different methionine-synthase repertoires.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Dolichospermum flosaquae FBCC-A233
+    term:
+      id: NCBITaxon:1166
+      label: Dolichospermum flos-aquae
+  - preferred_term: Sphingorhabdus sp. FBCC-A233 associate
+    term:
+      id: NCBITaxon:1434046
+      label: Sphingorhabdus
+  - preferred_term: Brevundimonas sp. FBCC-A233 associate
+    term:
+      id: NCBITaxon:41275
+      label: Brevundimonas
+  metabolites:
+  - preferred_term: vitamin B12
+    term:
+      id: CHEBI:176843
+      label: vitamin B12
+  biological_processes:
+  - preferred_term: cobalamin biosynthetic process
+    term:
+      id: GO:0009236
+      label: cobalamin biosynthetic process
+  evidence:
+  - reference: PMID:42535840
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: D. flosaquae FBCC-A233 encoded most genes required for anaerobic corrinoid-ring biosynthesis
+    explanation: Supports D. flosaquae as a candidate corrinoid producer, while retaining the paper's
+      caveat that cobamide identity and exchange were unresolved.
+  - reference: PMID:42535840
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: The associated bacterial genomes lacked complete de novo cobamide biosynthesis but retained cobamide-related
+      utilization genes
+    explanation: Supports a candidate cobamide-utilization asymmetry in the two bacterial associates.
+environmental_factors:
+- name: Original freshwater reservoir source
+  value: Inpyeong Reservoir, Taean-gun, Republic of Korea
+  description: The FBCC-A233 cyanobacterial culture was established from a freshwater reservoir sample
+    collected in April 2019.
+  evidence:
+  - reference: PMID:42535840
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: original field sample was collected from Inpyeong Reservoir
+    explanation: Supports the original freshwater collection site for the culture.
+- name: Serial single-filament maintenance
+  value: approximately 10-day intervals
+  description: The FBCC-A233 culture has been maintained by serial subculture with single-filament
+    isolation, a regime that may favor tightly co-maintained bacterial associates.
+  evidence:
+  - reference: PMID:42535840
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: preserved by serial subculture at approximately 10-day intervals, with single-filament isolation
+      performed during subculture
+    explanation: Supports the repeated isolation regime used to maintain the xenic culture.
+growth_media:
+- name: Blue-Green Medium BG11
+  temperature: 20
+  temperature_unit: C
+  light_regime: '16:8'
+  light_intensity: 3000
+  light_intensity_unit: lux
+  preparation_notes: The maintained FBCC-A233 culture was kept in BG11 under a 16:8 h light:dark cycle
+    with approximately 3000 lux illumination.
+  evidence:
+  - reference: PMID:42535840
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: maintained in Blue-Green Medium (BG11)
+    explanation: Supports BG11 as the maintenance medium for the culture.
+  - reference: PMID:42535840
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 16:8 h light:dark cycle with a light intensity of approximately 3,000 lux
+    explanation: Supports the photoperiod and approximate illumination used for culture maintenance.
+cultivation_setup:
+- system_type: OTHER
+  cultivation_mode: SEMI_CONTINUOUS
+  operating_temperature: 20
+  operating_temperature_unit: °C
+  notes: Culture-collection serial subculture; vessel geometry and working volume were not reported.
+  evidence:
+  - reference: PMID:42535840
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: maintained in Blue-Green Medium (BG11) at 20
+    explanation: Supports the 20 C maintenance temperature.
+external_resources:
+- name: Primary publication - Dolichospermum FBCC-A233 xenic culture
+  repository: OTHER
+  resource_id: PMID:42535840
+  url: https://pubmed.ncbi.nlm.nih.gov/42535840/
+  description: PubMed record for the Microbiology Spectrum genome-resolved study of D. flosaquae
+    FBCC-A233 and its two associated alphaproteobacterial genomes.
+  evidence:
+  - reference: PMID:42535840
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Complete genomes from a xenic Dolichospermum flosaquae FBCC-A233 culture
+    explanation: Links the PubMed-indexed primary publication to this curated community.
+- name: Publication DOI - Dolichospermum FBCC-A233 xenic culture
+  repository: OTHER
+  resource_id: 10.1128/spectrum.01014-26
+  url: https://doi.org/10.1128/spectrum.01014-26
+  description: DOI for the Microbiology Spectrum study of the genome-resolved FBCC-A233 xenic culture.
+  evidence:
+  - reference: PMID:42535840
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 10.1128/spectrum.01014-26
+    explanation: Supports the DOI assigned to the primary consortium publication.
+- name: BioProject PRJNA1404972
+  repository: OTHER
+  resource_id: PRJNA1404972
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1404972
+  description: NCBI BioProject carrying the raw sequencing reads and genome assemblies for the recovered
+    D. flosaquae FBCC-A233, Sphingorhabdus sp., and Brevundimonas sp. genomes.
+  evidence:
+  - reference: PMID:42535840
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: deposited under NCBI BioProject PRJNA1404972
+    explanation: Supports the public NCBI BioProject accession for the sequence data behind the record.
+metal_relevance: NOT_APPLICABLE
+metal_notes: The FBCC-A233 culture was used for genome-resolved inference of cyanobacterial
+  phycosphere cofactor asymmetry, not metal or rare-earth-element transformation.
+discussions:
+- discussion_id: direct_cofactor_exchange_unresolved
+  prompt: Test whether D. flosaquae FBCC-A233 releases biotin or cobamides that are used by the
+    Sphingorhabdus and Brevundimonas associates.
+  kind: CURATION_TODO
+  status: OPEN
+  attaches_to:
+  - ecological_interactions
+  rationale: The publication infers cofactor asymmetry from complete genomes but explicitly reports
+    that biotin and cobamide uptake, export, identity, and growth-dependence mechanisms remain unresolved.
+  evidence:
+  - reference: PMID:42535840
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: These profiles do not demonstrate cobamide cross-feeding
+    explanation: The authors explicitly warn that the genome profiles nominate candidate interactions
+      rather than directly demonstrating metabolite exchange.
+  posed_by: codex
+  posed_date: '2026-09-26'
+curation_history:
+- timestamp: '2026-09-26T20:31:53Z'
+  curator: codex
+  action: CREATE_DOLICHOSPERMUM_FBCC_A233_XENIC_PHYCOSPHERE
+  changes: Added CommunityMech:000441 from PMID:42535840 with the Dolichospermum flosaquae FBCC-A233
+    cyanobacterial culture, two complete-genome alphaproteobacterial associates, BG11/light/temperature
+    culture conditions, genome-inferred biotin and corrinoid asymmetries, DOI/PubMed/BioProject
+    resources, and an open discussion for unmeasured direct cofactor exchange.
+  llm_assisted: true
