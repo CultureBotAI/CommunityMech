@@ -188,6 +188,7 @@ _BLIND_BY_REASON: dict[str, tuple[str, ...]] = {
         "Glutamicibacter_S11_Aquaculture_Nitrogen_Removal_SynCom.yaml",
         "Industrial_Bioreactor_Consortium.yaml",
         "Mediterranean_AM_Fungal_SixSpecies_SynCom.yaml",
+        "Picocystis_Activated_Sludge_Refinery_SWW_Consortium.yaml",
         "Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.yaml",
         "Rammelsberg_Cobalt_Nickel_Tailings.yaml",
         "Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml",
