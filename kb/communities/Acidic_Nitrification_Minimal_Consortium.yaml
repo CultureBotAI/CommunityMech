@@ -170,14 +170,6 @@ environmental_factors:
     explanation: >
       Supports the denitrification and reactive-nitrogen detoxification
       response inferred for the aerobic acidic bioreactor members.
-cultivation_setup:
-- system_type: BIOREACTOR_UNSPECIFIED
-  controls_notes: >
-    The abstract reports three acidic nitrification bioreactors operated between
-    pH 2.0 and 5.0, but does not identify the exact reactor format or feed
-    medium.
-  evidence:
-  - *acidic_bioreactors
 related_ingredients:
 - preferred_term: ammonia
   chebi_term:
@@ -243,7 +235,6 @@ discussions:
   status: OPEN
   attaches_to:
   - growth_media
-  - cultivation_setup
   - taxonomy
   - ecological_interactions
   rationale: >
@@ -272,4 +263,13 @@ curation_history:
     unsupported pH-control flag, dropping exact metabolite and process terms
     from the putative carbon/nitrogen linkage, and rephrasing the reactive
     nitrogen environmental factor around nitrite and nitric oxide.
+  llm_assisted: true
+- timestamp: '2026-09-26T09:48:15Z'
+  curator: codex
+  action: ADDRESS_CI_FINDINGS
+  changes: >
+    Removed the underspecified cultivation setup block after validate-strict
+    noted the cached abstract is insufficient to score that slot. Kept the
+    bioreactor setting in environment metadata and the open methods-details
+    discussion.
   llm_assisted: true

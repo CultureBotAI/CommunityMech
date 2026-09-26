@@ -514,10 +514,11 @@ def test_the_status_distribution_is_what_was_measured():
     # L. reuteri strain, #1067 adds two YB2 PET-degradation strains, #1068
     # adds twelve Lupinus SC-7 strains, #1071 adds thirty-one Barley/Wheat
     # DT rhizosphere strains, #1076 adds two Parmigiano NWS LAB strains, the
-    # four-species lung model adds four species members, and #1084 adds three
-    # nitrifying wastewater genera, so tolerate the measured 409 without
-    # tolerating a domain-lookup collapse.
-    assert counts["UNRESOLVED"] < 410, (
+    # four-species lung model adds four species members, #1084 adds three
+    # nitrifying wastewater genera, and #1085 adds two high-rank acidic
+    # nitrification taxa, so tolerate the measured 411 without tolerating a
+    # domain-lookup collapse.
+    assert counts["UNRESOLVED"] < 412, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
