@@ -223,6 +223,7 @@ USERS = {
     "DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml",
     "DVM_Triculture.yaml",
     "Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml",
+    "Dolichospermum_FBCC_A233_Xenic_Phycosphere_Community.yaml",
     "Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml",
     "EcoFAB_Ring_Trial_SynCom17.yaml",
     "Electrostimulated_Toluene_Methanogenic_Microbiota.yaml",
