@@ -1,0 +1,293 @@
+id: CommunityMech:000435
+name: Mulberry-Distillers Grains Feed Solid-State Fermentation Consortium
+description: >
+  A designed four-species solid-state fermentation consortium assembled from
+  Bacillus subtilis, Saccharomyces cerevisiae, Levilactobacillus brevis, and
+  Lactiplantibacillus plantarum to convert mulberry leaves and distillers'
+  grains into higher-nutrient animal feed. Zhang et al. compared three
+  Bacillus/yeast/lactic-acid-bacterium inoculation recipes across mulberry
+  leaves, distillers' grains, and mixed ML&DG substrates, including a 1:1:1:1
+  four-species recipe, under 10% inoculation and five days of anaerobic
+  solid-state fermentation.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: >
+    Use a designed Bacillus-yeast-LAB consortium to ferment mulberry leaves and
+    distillers' grains into higher-nutrient feed, degrade antinutritional
+    tannin and phytic acid, acidify the substrate, and retain protein and
+    antioxidant activity.
+  assembly_strategy: >
+    Compare recipe A, Bacillus subtilis / Saccharomyces cerevisiae /
+    Levilactobacillus brevis at 1:1:1; recipe B, B. subtilis / S. cerevisiae /
+    Lactiplantibacillus plantarum at 1:1:1; and recipe C, B. subtilis /
+    S. cerevisiae / L. brevis / L. plantarum at 1:1:1:1.
+  perturbation_design: >
+    Apply the designed inoculants at a 10% inoculation rate to mulberry leaves,
+    distillers' grains, and mixed ML&DG substrates during short-term anaerobic
+    solid-state fermentation.
+  measurement_endpoints:
+  - tannin degradation
+  - phytic acid degradation
+  - pH
+  - lactic acid concentration
+  - true protein retention
+  - antioxidant activity
+  - microbial community structure
+  notes: >
+    The PubMed abstract names the four species, the A/B/C inoculation ratios,
+    the 10% inoculation rate, the ML/DG/ML&DG substrate panel, and five-day
+    anaerobic fermentation. It does not expose strain accessions, the exact
+    vessel or moisture setup, or a table linking every measured endpoint to
+    each A/B/C inoculant and substrate arm.
+  evidence:
+  - &abc_recipes
+    reference: PMID:42566139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      four strains including Bacillus subtilis, Saccharomyces cerevisiae,
+      Levilactobacillus brevis and Lactiplantibacillus plantarum were mixed at
+      three ratios
+    explanation: >
+      Identifies the four species and establishes that the study mixed them in
+      three designed inoculation recipes.
+  - &anaerobic_panel
+    reference: PMID:42566139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      10% inoculation rate was adopted for short-term anaerobic fermentation
+      lasting 5 days using ML, DG and their mixed substrates (ML&DG)
+    explanation: >
+      Supports the inoculation rate, five-day anaerobic cultivation window, and
+      mulberry-leaf, distillers-grain, and mixed-substrate arms.
+  - &waste_to_feed
+    reference: PMID:42566139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      This waste-to-feed strategy establishes a sustainable model for circular
+      agriculture by transforming low-value residues into functional feed
+      resources.
+    explanation: >
+      Supports the waste-to-feed objective of the designed consortium.
+environment_term:
+  preferred_term: solid-state waste-to-feed fermentation starter
+  term:
+    id: ENVO:03600040
+    label: fermentation starter
+  notes: >
+    The designed consortium is represented as a starter for anaerobic
+    solid-state fermentation of mulberry leaves and distillers' grains.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Bacillus_subtilis
+    - GTDB:s__Bacillus_inaquosorum
+    - GTDB:s__Bacillus_atrophaeus
+    notes: >
+      The source names B. subtilis only at species level. GTDB splits this
+      NCBI species with no single majority holder; likely Bacillus subtilis
+      group candidates are recorded for later strain-aware grounding.
+  abundance_value: >
+    Present in the 1:1:1 recipe A, the 1:1:1 recipe B, and the 1:1:1:1 recipe
+    C.
+  evidence:
+  - *abc_recipes
+- taxon_term:
+    preferred_term: Saccharomyces cerevisiae
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: >
+      Eukaryotic yeast member; GTDB classifies Bacteria and Archaea, not fungi.
+  abundance_value: >
+    Present in the 1:1:1 recipe A, the 1:1:1 recipe B, and the 1:1:1:1 recipe
+    C.
+  evidence:
+  - *abc_recipes
+- taxon_term:
+    preferred_term: Levilactobacillus brevis
+    term:
+      id: NCBITaxon:1580
+      label: Levilactobacillus brevis
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      The source names L. brevis only at species level; a future pass should
+      ground the exact inoculated strain once its accession is available.
+  abundance_value: >
+    Present in the 1:1:1 recipe A and the 1:1:1:1 recipe C.
+  evidence:
+  - *abc_recipes
+- taxon_term:
+    preferred_term: Lactiplantibacillus plantarum
+    term:
+      id: NCBITaxon:1590
+      label: Lactiplantibacillus plantarum
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Lactiplantibacillus_plantarum
+    - GTDB:s__Lactiplantibacillus_plantarum_A
+    - GTDB:s__Lactiplantibacillus_paraplantarum
+    notes: >
+      The source names L. plantarum only at species level. GTDB splits this
+      NCBI species with no single majority holder, so the likely candidates are
+      retained rather than forcing one exact GTDB species.
+  abundance_value: >
+    Present in the 1:1:1 recipe B and the 1:1:1:1 recipe C.
+  evidence:
+  - *abc_recipes
+ecological_interactions:
+- name: Anaerobic acidifying solid-state feed fermentation
+  description: >
+    The designed Bacillus-yeast-LAB inoculants fermented mulberry leaves,
+    distillers' grains, and mixed ML&DG substrates anaerobically for five days,
+    lowering the pH below 4.77, accumulating lactic acid, and degrading tannin
+    and phytic acid. The abstract reports the response at the designed
+    inoculant level and does not distinguish whether recipe A, B, or C produced
+    every maximum endpoint.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lactic acid
+    term:
+      id: CHEBI:28358
+      label: rac-lactic acid
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - *anaerobic_panel
+  - &acidification_degradation
+    reference: PMID:42566139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      exogenous microbial inoculation effectively degraded tannin (50.81%) and
+      phytic acid (52.66%), lowered the pH value below 4.77, and increased
+      lactic acid content to 83.43 mg/g
+    explanation: >
+      Supports acidification, lactic acid accumulation, and tannin and phytic
+      acid degradation by the exogenous consortium inoculants.
+- name: Lactobacillus-associated quality enhancement
+  description: >
+    Microbial community analysis associated Lactobacillus dominance with the
+    improved solid-state fermentation quality. Because the abstract reports the
+    genus name Lactobacillus rather than variant-level readouts for the two
+    renamed inoculated LAB species, this interaction is retained at
+    community-level rather than attributed to L. brevis or L. plantarum alone.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:42566139
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: >
+      Microbial analysis confirmed Lactobacillus as the dominant genus
+      correlating with quality enhancement.
+    explanation: >
+      Supports a Lactobacillus-associated community shift, but not an exact
+      one-to-one mapping to either inoculated LAB species under current
+      Lactobacillaceae taxonomy.
+environmental_factors:
+- name: short anaerobic solid-state fermentation
+  value: 10% inoculation, 5 days
+  description: >
+    The consortium variants were applied as 10% inocula to ML, DG, and ML&DG
+    substrates under anaerobic solid-state fermentation for five days.
+  evidence:
+  - *anaerobic_panel
+- name: acidification
+  value: pH below 4.77
+  description: >
+    Exogenous microbial inoculation acidified the solid-state feed fermentation
+    below pH 4.77 while accumulating lactic acid.
+  evidence:
+  - *acidification_degradation
+growth_media:
+- name: mulberry leaf and distillers' grain solid-state feed substrate
+  preparation_notes: >
+    The study fermented mulberry leaves, distillers' grains, and ML&DG mixed
+    substrates as solid feed matrices.
+  evidence:
+  - *anaerobic_panel
+related_ingredients:
+- preferred_term: lactic acid
+  chebi_term:
+    id: CHEBI:28358
+    label: rac-lactic acid
+  relevance: >
+    Lactic acid accumulated during the acidifying solid-state fermentation.
+  evidence:
+  - *acidification_degradation
+external_resources:
+- name: PubMed record
+  repository: OTHER
+  resource_id: PMID:42566139
+  url: https://pubmed.ncbi.nlm.nih.gov/42566139/
+  description: >
+    PubMed record for the World Journal of Microbiology and Biotechnology
+    article on mixed solid-state fermentation of mulberry leaves and
+    distillers' grains.
+  evidence:
+  - reference: PMID:42566139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "PMID- 42566139"
+    explanation: Supports the PubMed identifier for the source article.
+- name: Article DOI
+  repository: OTHER
+  resource_id: doi:10.1007/s11274-026-05183-7
+  url: https://doi.org/10.1007/s11274-026-05183-7
+  description: >
+    DOI for the World Journal of Microbiology and Biotechnology article
+    reporting the mulberry-leaf and distillers-grain solid-state fermentation
+    consortium.
+  evidence:
+  - reference: PMID:42566139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "AID - 10.1007/s11274-026-05183-7 [doi]"
+    explanation: Supports the DOI assigned to the source article.
+discussions:
+- discussion_id: mulberry_dg_methods_and_variant_outcomes
+  prompt: >
+    Resolve the exact strain accessions, solid-state vessel setup, moisture,
+    temperature, and per-A/B/C variant endpoint table for the mulberry
+    leaf/distillers' grain feed fermentation consortium.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  - growth_media
+  - ecological_interactions
+  rationale: >
+    The cached PubMed abstract names the four species, the A/B/C inoculation
+    ratios, and the 10% five-day anaerobic ML/DG/ML&DG fermentation panel, but
+    it does not report strain accessions, exact solid-state culture parameters,
+    or which variant and substrate arm produced each maximum quality endpoint.
+  posed_by: codex
+  posed_date: '2026-09-26'
+curation_history:
+- timestamp: '2026-09-26T10:45:55Z'
+  curator: codex
+  action: ADD_COMMUNITY_RECORD
+  changes: >
+    Created CommunityMech:000435 from PMID:42566139 and DOI
+    10.1007/s11274-026-05183-7 for the designed Bacillus subtilis,
+    Saccharomyces cerevisiae, Levilactobacillus brevis, and
+    Lactiplantibacillus plantarum solid-state feed fermentation consortium.
+  llm_assisted: true
