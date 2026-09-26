@@ -1,0 +1,196 @@
+id: CommunityMech:000439
+name: Picocystis Activated-Sludge Refinery SWW Consortium
+description: A laboratory algae-bacteria consortium combining Picocystis sp. with an aerobic activated-sludge bacterial consortium
+  to treat petroleum refinery stripped wastewater (SWW). The study compared Picocystis monoculture and Picocystis plus bacteria
+  in 2 L photobioreactors containing 10% or 25% SWW. The Pico-Bac consortium reached 72% COD reduction and 96.4% polyphenol
+  reduction in 10% SWW, while hydrocarbon removal was highest at 80.4% in 25% SWW.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Compare Picocystis sp. alone with a Picocystis-activated sludge bacterial consortium for refinery stripped wastewater
+    remediation and biodiesel-feedstock biomass production.
+  assembly_strategy: Pair Picocystis sp. with an aerobic bacterial consortium sourced from activated sludge from a municipal
+    wastewater treatment plant.
+  perturbation_design: Culture Picocystis-only and Pico-Bac reactors in 10% and 25% petroleum refinery stripped wastewater.
+  measurement_endpoints:
+  - Algal growth and chlorophyll a
+  - Picocystis lipid accumulation
+  - COD, polyphenol, hydrocarbon, and oil-and-grease removal
+  - Lepidium sativum seed phytotoxicity
+  evidence:
+  - reference: PMID:42397522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Picocystis sp. (Pico) alone and in consortium with aerobic bacteria (Pico-Bac)
+    explanation: Identifies the algal monoculture and the algae-bacteria consortium treatment.
+  - reference: PMID:42397522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: assessed in 2-L photobioreactors
+    explanation: Supports the photobioreactor cultivation context.
+environment_term:
+  preferred_term: laboratory refinery stripped wastewater photobioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled 2 L photobioreactors containing diluted petroleum refinery stripped wastewater.
+modeled_environment:
+- preferred_term: petroleum refinery stripped wastewater
+  term:
+    id: ENVO:00002001
+    label: wastewater
+  notes: SWW from a petroleum refinery was diluted to 10% and 25% and used as the process water targeted for remediation.
+taxonomy:
+- taxon_term:
+    preferred_term: Picocystis sp.
+    term:
+      id: NCBITaxon:88270
+      label: Picocystis
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Genus-level green microalgal member of the Pico-Bac consortium; GTDB does not classify eukaryotes.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:42397522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Picocystis sp. and an activated sludge bacterial consortium
+    explanation: Identifies Picocystis sp. as the algal member paired with activated-sludge bacteria.
+- taxon_term:
+    preferred_term: Activated-sludge aerobic bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    gtdb_grounding_status: GROUNDED
+    notes: The accessible abstract identifies the partner only as an aerobic bacterial consortium from activated sludge from
+      a municipal wastewater treatment plant, so this member is grounded only at the bacterial-domain rank.
+    gtdb_classification:
+      gtdb_id: GTDB:d__Bacteria
+      gtdb_taxon: Bacteria
+      gtdb_lineage: d__Bacteria
+      ncbi_source_id: NCBITaxon:2
+      majority_fraction: 1.0
+      support_genomes: 1603049
+      total_genomes: 1603049
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+  abundance_value: Aerobic activated-sludge bacterial consortium paired with Picocystis sp. in the Pico-Bac treatment.
+  evidence:
+  - reference: PMID:42397522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: activated sludge bacterial consortium sourced from a municipal wastewater treatment plant
+    explanation: Identifies the bacterial partner as an activated-sludge-derived consortium.
+ecological_interactions: []
+environmental_factors:
+- name: Stripped wastewater dilution
+  value: 10% and 25% SWW
+  description: The Picocystis monoculture and Pico-Bac consortium were evaluated at two refinery-wastewater dilutions.
+  evidence:
+  - reference: PMID:42397522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: growth in 10% and 25% SWW
+    explanation: Supports the two SWW concentrations tested in the photobioreactors.
+- name: COD and polyphenol removal
+  value: 72% COD reduction; 96.4% polyphenol reduction
+  description: Pico-Bac had the strongest COD and polyphenol removal in 10% SWW.
+  evidence:
+  - reference: PMID:42397522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pico-Bac achieved maximum COD and polyphenol reductions of 72% and 96.4%
+    explanation: Quantifies the maximum COD and polyphenol removal attributed to the Pico-Bac consortium.
+- name: Hydrocarbon removal
+  value: 80.4% hydrocarbon removal
+  description: Hydrocarbon removal was strongest in Pico-Bac at 25% SWW.
+  evidence:
+  - reference: PMID:42397522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrocarbon removal was highest (80.4%) at 25% SWW
+    explanation: Quantifies the maximum hydrocarbon removal measured for the consortium.
+- name: Picocystis lipid accumulation
+  value: 55 mg/g dry weight after six days in 25% SWW
+  description: Picocystis biomass accumulated lipids in the stronger refinery-wastewater condition.
+  evidence:
+  - reference: PMID:42397522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: reached 55 mg/g dry weight after six days in 25% SWW
+    explanation: Supports the lipid-accumulation endpoint used to evaluate biomass valorization.
+- name: Post-treatment phytotoxicity
+  value: Lepidium sativum germination and root elongation
+  description: Phytotoxicity testing of treated 25% SWW indicated detoxification after the Pico and Pico-Bac treatments.
+  evidence:
+  - reference: PMID:42397522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: treated 25% SWW not only supported germination but also stimulated root elongation
+    explanation: Supports the phytotoxicity readout after refinery-wastewater treatment.
+growth_media:
+- name: 10% and 25% petroleum refinery stripped wastewater
+  inoculum_source: Picocystis sp.; aerobic bacteria from activated sludge
+  vessel_type: 2 L photobioreactor
+  preparation_notes: Petroleum refinery stripped wastewater was diluted to 10% or 25% for laboratory photobioreactor tests
+    comparing Picocystis-only and Pico-Bac treatments; the accessible abstract does not report basal medium composition, pH,
+    temperature, illumination, working volume, or inoculation ratio.
+  evidence:
+  - reference: PMID:42397522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Petroleum refinery stripped wastewater (SWW)
+    explanation: Identifies the wastewater matrix targeted by the photobioreactor cultures.
+  - reference: PMID:42397522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 10% and 25% SWW
+    explanation: Supports the two SWW dilutions used as growth media.
+cultivation_setup:
+- system_type: PHOTOBIOREACTOR
+  instrument_detail: 2 L photobioreactors run with Picocystis-only and Pico-Bac cultures.
+  notes: The accessible abstract does not identify whether the 2 L photobioreactors were run in batch, fed-batch, or continuous
+    mode.
+  evidence:
+  - reference: PMID:42397522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: assessed in 2-L photobioreactors
+    explanation: Supports the cultivation vessel type and scale.
+external_resources:
+- name: Primary publication - Picocystis activated-sludge refinery SWW consortium
+  repository: OTHER
+  resource_id: PMID:42397522
+  url: https://pubmed.ncbi.nlm.nih.gov/42397522/
+  description: Primary publication reporting Picocystis and Pico-Bac 2 L photobioreactor treatment of petroleum refinery stripped
+    wastewater.
+  evidence:
+  - reference: PMID:42397522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: From Alga to Consortium
+    explanation: Links the PubMed-indexed article to the curated Picocystis consortium.
+- name: Publication DOI - Picocystis activated-sludge refinery SWW consortium
+  repository: OTHER
+  resource_id: 10.1007/s12010-026-05746-2
+  url: https://doi.org/10.1007/s12010-026-05746-2
+  description: DOI for the Applied Biochemistry and Biotechnology study of the Picocystis and Pico-Bac refinery-wastewater
+    photobioreactor treatments.
+  evidence:
+  - reference: PMID:42397522
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 10.1007/s12010-026-05746-2
+    explanation: Supports the DOI assigned to the primary consortium publication.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for this refinery stripped wastewater consortium.
+curation_history:
+- timestamp: '2026-09-26T16:57:25Z'
+  curator: codex
+  action: CREATE_PICOCYSTIS_REFINERY_SWW_CONSORTIUM
+  changes: Created CommunityMech:000439 from PMID:42397522 with Picocystis plus an activated-sludge bacterial consortium,
+    refinery stripped wastewater photobioreactor conditions, pollutant-removal endpoints, and primary PubMed/DOI external
+    resources.
+  llm_assisted: true
