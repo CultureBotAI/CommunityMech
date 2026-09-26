@@ -254,6 +254,7 @@ USERS = {
     "Mixed_Gallium_LED_Recovery_Consortium.yaml",
     "Mushroom_Spring_Hot_Spring_Phototrophic_Mat_Community.yaml",
     "Naica_Deep_Subsurface_Thermophilic.yaml",
+    "Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml",
     "ORNL_PMI_Populus_PD10_SynCom.yaml",
     "Ostreococcus_Dinoroseobacter_BVitamin_Mutualism.yaml",
     "PET_Artificial_FourSpecies_Degradation_Consortium.yaml",
