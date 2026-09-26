@@ -1,0 +1,262 @@
+id: CommunityMech:000436
+name: Shrimp Vibrio-Resistance Gut-Enrichment SynCom Panel
+description: A four-SynCom panel constructed from shrimp gut bacterial enrichment cultures screened for resistance to Vibrio
+  parahaemolyticus infection. Shen et al. enriched gut consortia in R2A plus kanamycin, R2A, and Gauze's Synthetic Medium
+  No.1, isolated eight corresponding key bacterial strains from enriched genera, and assembled SynComAll, SynCom R2A+Kan,
+  SynCom R2A, and SynCom GM1; addition of these SynComs improved shrimp fitness and conferred protection against V. parahaemolyticus
+  infection.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Construct indigenous shrimp-gut SynComs that improve shrimp fitness and resistance to V. parahaemolyticus infection.
+  assembly_strategy: Screen gut bacterial consortia enriched in R2A plus kanamycin, R2A, and Gauze's Synthetic Medium No.1
+    for V. parahaemolyticus resistance, resolve high-resistance consortium composition by bacterial community sequencing,
+    isolate eight corresponding strains from the key enriched genera, and combine them as SynComAll plus three source-medium
+    sub-SynComs.
+  measurement_endpoints:
+  - shrimp fitness
+  - shrimp survival after Vibrio infection
+  - gut bacterial community composition
+  - Vibrio parahaemolyticus FX1 resistance
+  notes: The accessible Europe PMC abstract identifies the three enrichment media, eight genus-level source taxa, and four
+    SynCom variants, but it does not expose the exact isolate names, species, strain accessions, kanamycin concentration,
+    mixing ratios, or shrimp challenge protocol.
+  evidence:
+  - reference: doi:10.1016/j.aquaculture.2025.743350
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: multiple gut bacterial consortia enriched in different media were obtained to screen the bacterial consortia
+      with high resistance against Vibrio parahaemolyticus infection
+    explanation: Establishes that the source screened gut-derived enrichment cultures for resistance to V. parahaemolyticus
+      infection.
+  - reference: doi:10.1016/j.aquaculture.2025.743350
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Eight corresponding bacterial strains were isolated from these gut bacterial consortia, and were used to construct
+      four SynComs
+    explanation: Supports construction of a four-SynCom panel from the eight isolated gut-enrichment strains.
+environment_term:
+  preferred_term: shrimp gut SynCom challenge
+  term:
+    id: ENVO:01001033
+    label: digestive tract environment
+  notes: The SynCom strains were constructed from shrimp gut enrichment cultures and tested for protection during V. parahaemolyticus
+    infection.
+taxonomy:
+- taxon_term:
+    preferred_term: Ruegeria
+    term:
+      id: NCBITaxon:97050
+      label: Ruegeria
+    gtdb_grounding_status: UNRESOLVED
+    notes: The accessible abstract resolves this member only to genus rank in source enrichment panels. The local NCBI2GTDB.tsv.gz
+      crosswalk was unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe
+      checkout with that mapping.
+  abundance_value: Member of SynComAll, SynCom R2A+Kan, and SynCom GM1.
+  evidence:
+  - &id001
+    reference: doi:10.1016/j.aquaculture.2025.743350
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: six key taxa belonging to Ruegeria, Microbacterium, Tenacibaculum, Demequina, Exiguobacterium, and Bacillus,
+      were simultaneously enriched in the gut bacterial consortia of R2A + Kan
+    explanation: Names the six key genera simultaneously enriched in the R2A plus kanamycin gut consortium.
+  - &id002
+    reference: doi:10.1016/j.aquaculture.2025.743350
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the key taxa of Ruegeria, Microbacterium, Exiguobacterium, and Bacillus were simultaneously enriched in the gut
+      bacterial consortia of GM1
+    explanation: Names the four key genera simultaneously enriched in the Gauze's Synthetic Medium No.1 gut consortium.
+- taxon_term:
+    preferred_term: Microbacterium
+    term:
+      id: NCBITaxon:33882
+      label: Microbacterium
+    gtdb_grounding_status: UNRESOLVED
+    notes: The accessible abstract resolves this member only to genus rank in source enrichment panels. The local NCBI2GTDB.tsv.gz
+      crosswalk was unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe
+      checkout with that mapping.
+  abundance_value: Member of SynComAll, SynCom R2A+Kan, SynCom R2A, and SynCom GM1.
+  evidence:
+  - *id001
+  - &id003
+    reference: doi:10.1016/j.aquaculture.2025.743350
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: four key taxa assigned to Paracoccus, Microbacterium, Tenacibaculum, and Tritonibacter were simultaneously enriched
+      in the gut bacterial consortia of R2A
+    explanation: Names the four key genera simultaneously enriched in the R2A gut consortium.
+  - *id002
+- taxon_term:
+    preferred_term: Tenacibaculum
+    term:
+      id: NCBITaxon:104267
+      label: Tenacibaculum
+    gtdb_grounding_status: UNRESOLVED
+    notes: The accessible abstract resolves this member only to genus rank in source enrichment panels. The local NCBI2GTDB.tsv.gz
+      crosswalk was unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe
+      checkout with that mapping.
+  abundance_value: Member of SynComAll, SynCom R2A+Kan, and SynCom R2A.
+  evidence:
+  - *id001
+  - *id003
+- taxon_term:
+    preferred_term: Demequina
+    term:
+      id: NCBITaxon:577469
+      label: Demequina
+    gtdb_grounding_status: UNRESOLVED
+    notes: The accessible abstract resolves this member only to genus rank in source enrichment panels. The local NCBI2GTDB.tsv.gz
+      crosswalk was unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe
+      checkout with that mapping.
+  abundance_value: Member of SynComAll and SynCom R2A+Kan.
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Exiguobacterium
+    term:
+      id: NCBITaxon:33986
+      label: Exiguobacterium
+    gtdb_grounding_status: UNRESOLVED
+    notes: The accessible abstract resolves this member only to genus rank in source enrichment panels. The local NCBI2GTDB.tsv.gz
+      crosswalk was unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe
+      checkout with that mapping.
+  abundance_value: Member of SynComAll, SynCom R2A+Kan, and SynCom GM1.
+  evidence:
+  - *id001
+  - *id002
+- taxon_term:
+    preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+    gtdb_grounding_status: UNRESOLVED
+    notes: The accessible abstract resolves this member only to genus rank in source enrichment panels. The local NCBI2GTDB.tsv.gz
+      crosswalk was unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe
+      checkout with that mapping.
+  abundance_value: Member of SynComAll, SynCom R2A+Kan, and SynCom GM1.
+  evidence:
+  - *id001
+  - *id002
+- taxon_term:
+    preferred_term: Paracoccus
+    term:
+      id: NCBITaxon:265
+      label: Paracoccus <a-proteobacteria>
+    gtdb_grounding_status: UNRESOLVED
+    notes: The accessible abstract resolves this member only to genus rank in source enrichment panels. The local NCBI2GTDB.tsv.gz
+      crosswalk was unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe
+      checkout with that mapping.
+  abundance_value: Member of SynComAll and SynCom R2A.
+  evidence:
+  - *id003
+- taxon_term:
+    preferred_term: Tritonibacter
+    term:
+      id: NCBITaxon:2083206
+      label: Tritonibacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: The accessible abstract resolves this member only to genus rank in source enrichment panels. The local NCBI2GTDB.tsv.gz
+      crosswalk was unavailable during curation; rerun scripts/gtdb_ground.py --apply once KG_MICROBE_DIR points to the kg-microbe
+      checkout with that mapping.
+  abundance_value: Member of SynComAll and SynCom R2A.
+  evidence:
+  - *id003
+ecological_interactions:
+- name: Shrimp protection against Vibrio parahaemolyticus infection
+  description: The SynCom panel improved shrimp fitness and conferred protection against V. parahaemolyticus infection. Because
+    the accessible abstract reports the response at whole-SynCom level, this is represented as a community-level host-protection
+    phenotype rather than a genus-to-pathogen antagonism edge.
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: doi:10.1016/j.aquaculture.2025.743350
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Addition of these SynComs not only improved shrimp fitness but also conferred protection against V. parahaemolyticus
+      infection.
+    explanation: Supports the community-level shrimp fitness and V. parahaemolyticus infection-protection phenotype.
+environmental_factors:
+- name: Vibrio parahaemolyticus FX1 infection challenge
+  value: V. parahaemolyticus FX1 resistance assay
+  description: The key taxa were selected from shrimp gut consortia with high resistance against V. parahaemolyticus FX1 infection,
+    and the assembled SynComs were evaluated for V. parahaemolyticus protection.
+  evidence:
+  - reference: doi:10.1016/j.aquaculture.2025.743350
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Based on the bacterial community composition of gut bacterial consortia with high-resistance against V. parahaemolyticus
+      FX1 infection, eight key taxa with relative abundances >0.01 % were identified as potential V. parahaemolyticus FX1-resistant
+      candidates.
+    explanation: Supports the V. parahaemolyticus FX1 challenge context used to choose the eight key taxa.
+growth_media:
+- name: R2A plus kanamycin shrimp-gut enrichment medium
+  preparation_notes: R2A including kanamycin was one of the shrimp gut enrichment media that yielded key taxa for the four-SynCom
+    panel; the abstract abbreviates it as R2A + Kan.
+  evidence:
+  - &id004
+    reference: doi:10.1016/j.aquaculture.2025.743350
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the gut bacterial consortia enriched in the media of R2A including kanamycin (R2A + Kan), R2A, and Gauze's Synthetic
+      Medium No.1 (GM1) significantly improved the shrimp fitness
+    explanation: Identifies the three source enrichment media whose consortia improved shrimp fitness.
+  - *id001
+- name: R2A shrimp-gut enrichment medium
+  preparation_notes: R2A was one of the shrimp gut enrichment media that yielded key taxa for SynComAll and the R2A sub-SynCom.
+  evidence:
+  - *id004
+  - *id003
+- name: Gauze's Synthetic Medium No.1 shrimp-gut enrichment medium
+  preparation_notes: Gauze's Synthetic Medium No.1 was one of the shrimp gut enrichment media that yielded key taxa for SynComAll
+    and the GM1 sub-SynCom.
+  evidence:
+  - *id004
+  - *id002
+external_resources:
+- name: DOI for the shrimp Vibrio-resistance SynCom article
+  repository: OTHER
+  resource_id: doi:10.1016/j.aquaculture.2025.743350
+  url: https://doi.org/10.1016/j.aquaculture.2025.743350
+  description: Version-of-record DOI for the Aquaculture article on shrimp gut-enrichment SynComs.
+  evidence:
+  - reference: doi:10.1016/j.aquaculture.2025.743350
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: This study provided a rapid and effective strategy for directly constructing SynComs that could improve shrimp
+      resistance against pathogenic microbes through the combination of enrichment culture and bacterial community sequencing.
+    explanation: Identifies the DOI source article as the report of the shrimp gut-enrichment SynCom construction strategy.
+discussions:
+- discussion_id: shrimp_vibrio_syncom_strains_and_challenge_protocol
+  prompt: Resolve the exact isolate names, species identities, strain accessions, SynCom mixing ratios, kanamycin concentration,
+    and shrimp challenge protocol for the four SynCom variants.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  - engineering_design
+  - growth_media
+  - ecological_interactions#Shrimp protection against Vibrio parahaemolyticus infection
+  rationale: The accessible abstract names the eight genera, three enrichment media, four SynCom variants, and Vibrio-protection
+    endpoint, but it does not provide species or strain identifiers, medium recipes, member ratios, or shrimp infection timing.
+    Those details need the version of record before they can be curated without false precision.
+  posed_by: codex
+  posed_date: '2026-09-26'
+curation_history:
+- timestamp: '2026-09-26T12:25:31Z'
+  curator: codex
+  action: ADD_COMMUNITY_RECORD
+  changes: Created CommunityMech:000436 from DOI 10.1016/j.aquaculture.2025.743350 for the shrimp gut-enrichment SynCom panel
+    containing Ruegeria, Microbacterium, Tenacibaculum, Demequina, Exiguobacterium, Bacillus, Paracoccus, and Tritonibacter
+    genus-level members.
+  llm_assisted: true
+- timestamp: '2026-09-26T12:29:37Z'
+  curator: codex
+  action: FIX_ADVERSARIAL_REVIEW_FINDINGS
+  changes: 'Addressed adversarial-review issues #1105 and #1106 by naming the missing NCBI2GTDB.tsv.gz crosswalk as the exact
+    blocker for genus-level GTDB grounding and by removing unsupported treatment timing from the V. parahaemolyticus FX1 environmental
+    factor.
+
+    '
+  llm_assisted: true
