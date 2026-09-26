@@ -1,0 +1,267 @@
+id: CommunityMech:000433
+name: Nitrifying Wastewater Ammonia-Oxidizing Consortium
+description: >
+  A top-down, model aerobic ammonia-oxidizing consortium for wastewater
+  treatment risk and performance assessment. Long-read metagenomics recovered
+  64 high-quality bacterial MAGs from the starting material, which was dominated
+  by an unclassified Nitrosospira MAG carrying expected ammonia-oxidation
+  capabilities and also contained a lower-abundance Nitrobacter MAG and
+  Legionella MAGs monitored during virulence-gene risk assessment. The
+  consortium was grown in synthetic pond water under an aerobic/anoxic redox
+  gradient to test nitrogen cycling, community composition, and activity by
+  metagenomics, metatranscriptomics, and nitrogen chemistry.
+ecological_state: ENGINEERED
+community_origin: NATURAL
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: >
+    Evaluate a top-down cultivated nitrifying consortium for ammonia removal in
+    wastewater-treatment settings and use multi-omics to assess functional
+    performance and biosafety risks across wastewater-like redox conditions.
+  assembly_strategy: >
+    Use a freshly received batch of a model nitrifying consortium in development
+    for wastewater treatment as 10% inoculum into synthetic pond water serum
+    bottle cultures.
+  perturbation_design: >
+    Grow parallel aerobic and anoxic treatments, with anoxic nitrate-reduction,
+    iron-reduction, and sulfate-reduction variants, to expose the consortium to
+    a redox gradient representative of wastewater treatment plants.
+  measurement_endpoints:
+  - ammonia, nitrite, and nitrate chemistry over the incubation
+  - PacBio long-read metagenome-assembled genomes from the starting material
+  - short-read metagenomics of enrichment cultures
+  - metatranscriptomics of nitrogen cycling pathways
+  - virulence factor and antibiotic resistance gene screens
+  evidence:
+  - &model_consortium
+    reference: PMID:41457319
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: model aerobic ammonia-oxidizing consortium under conditions representative of wastewater
+    explanation: >
+      Establishes that the source studied an aerobic ammonia-oxidizing
+      consortium in a wastewater-treatment context.
+  - &redox_gradient
+    reference: PMID:41457319
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: consortium was grown along a redox gradient typical of wastewater
+    explanation: >
+      Supports the aerobic/anoxic redox-gradient design used to evaluate
+      consortium activity and off-target nitrogen reactions.
+environment_term:
+  preferred_term: synthetic pond water serum-bottle nitrifying consortium
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    A model nitrifying consortium cultivated in 150 mL serum bottles containing
+    synthetic pond water under aerobic and anoxic redox conditions.
+modeled_environment:
+- preferred_term: wastewater treatment bioreactor
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+taxonomy:
+- taxon_term:
+    preferred_term: Nitrosospira MAG
+    term:
+      id: NCBITaxon:35798
+      label: Nitrosospira
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      MAG MBSoxNitrifying4mlFreshRep3_metaMDBG_complete.48 was classified to
+      the genus Nitrosospira; the source did not assign a species-level name.
+  abundance_value: >
+    Dominant starting-material MAG at 45.96% read abundance.
+  evidence:
+  - reference: PMID:41457319
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      MAG MBSoxNitrifying4mlFreshRep3_metaMDBG_complete.48 classified to the
+      genus Nitrosospira (herein referred to as the dominant Nitrosospira
+      population) maintained a high sequence abundance of 45.96%
+    explanation: >
+      Supports the dominant Nitrosospira MAG and its expected
+      ammonia-oxidizing function.
+- taxon_term:
+    preferred_term: Nitrobacter MAG
+    term:
+      id: NCBITaxon:911
+      label: Nitrobacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      MAG MBSoxNitrifying4mLFreshRep3_complete.11 was classified to the genus
+      Nitrobacter; the source reported it as an unidentified species.
+  abundance_value: 9.73% sequence abundance in the starting material.
+  evidence:
+  - reference: PMID:41457319
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: classified to the Nitrobacter genus had an abundance of 9.73%
+    explanation: >
+      Supports Nitrobacter as a lower-abundance nitrite-oxidizing MAG in the
+      consortium starting material.
+- taxon_term:
+    preferred_term: Legionella MAGs
+    term:
+      id: NCBITaxon:445
+      label: Legionella
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      The study detected Legionella-affiliated MAGs and used them in a
+      virulence-gene risk assessment; the source did not assert pathogenicity
+      for a cultured Legionella isolate.
+  abundance_value: >
+    Lower-abundance Legionella-affiliated MAGs detected during metagenomic
+    risk assessment.
+  evidence:
+  - reference: PMID:41457319
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: detection of waterborne pathogens from the Legionella genus
+    explanation: >
+      Supports Legionella-affiliated lower-abundance bins as monitored
+      biosafety-relevant members of the consortium.
+ecological_interactions:
+- name: Nitrifier Guild Metabolic Handoff
+  description: >
+    The consortium contains ammonia-oxidizing and nitrite-oxidizing guilds
+    whose sequential nitrogen transformations were monitored under aerobic and
+    anoxic redox conditions; Nitrosospira represented the dominant AOB MAG and
+    Nitrobacter represented an NOB MAG in the starting material.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Nitrosospira MAG
+    term:
+      id: NCBITaxon:35798
+      label: Nitrosospira
+  - preferred_term: Nitrobacter MAG
+    term:
+      id: NCBITaxon:911
+      label: Nitrobacter
+  metabolites:
+  - preferred_term: ammonia
+    term:
+      id: CHEBI:16134
+      label: ammonia
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  evidence:
+  - reference: PMID:41457319
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      ammonia-oxidizing bacteria (AOB) and nitrite-oxidizing bacteria (NOB)
+      that rely on metabolic handoffs to carry out nitrification
+    explanation: >
+      Supports the curated community-level nitrifier guild interaction in the
+      wastewater consortium.
+growth_media:
+- name: synthetic pond water aerobic nitrifying culture
+  atmosphere: AEROBIC
+  preparation_notes: >
+    Aerobic cultures were prepared in 150 mL serum bottles containing 90 mL of
+    synthetic pond water medium plus 10% live consortium inoculum and were
+    purged daily with sterile atmospheric air on working days.
+  evidence:
+  - &synthetic_pond_water
+    reference: PMID:41457319
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Biotic samples were inoculated at 10% (vol/vol) using biomass from a freshly received batch of the consortium
+    explanation: >
+      Supports the inoculation of synthetic pond water cultures from a fresh
+      consortium batch.
+  - reference: PMID:41457319
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Aerobic cultures were filled with basal medium stored on the bench and purged daily
+    explanation: >
+      Supports aerobic cultivation using the basal synthetic pond water medium.
+- name: synthetic pond water anoxic redox-gradient cultures
+  atmosphere: ANAEROBIC
+  preparation_notes: >
+    Anoxic cultures used N2-bubbled synthetic pond water and were dispensed in
+    a 97% N2/3% H2 glovebox; nitrate-reduction bottles used the nitrate already
+    in the medium, while iron- and sulfate-reduction bottles were amended to
+    1 mM Fe3+ or SO42-, respectively.
+  evidence:
+  - *synthetic_pond_water
+  - reference: PMID:41457319
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The medium used for anaerobic treatments was bubbled under a sterile flow
+      of N2 for 30 min
+    explanation: >
+      Supports N2-prepared synthetic pond water cultivation for the anoxic
+      redox-gradient arms.
+associated_datasets:
+- title: Nitrifying consortium sequencing reads
+  dataset_type: MULTI_OMICS
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA1165788
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1165788
+  description: >
+    BioProject holding the sequencing reads generated for metagenomic and
+    metatranscriptomic profiling of the nitrifying wastewater consortium.
+  evidence:
+  - reference: PMID:41457319
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Sequencing reads are deposited under BioProject PRJNA1165788
+    explanation: >
+      Links the source paper to the BioProject holding its sequencing reads.
+- title: Nitrifying consortium MAG annotations and analysis outputs
+  dataset_type: METAGENOMICS
+  repository: ZENODO
+  accession: doi:10.5281/zenodo.14861210
+  url: https://doi.org/10.5281/zenodo.14861210
+  description: >
+    Zenodo archive containing metagenome assemblies, MAG annotations, analysis
+    outputs, supplementary data files, and analysis code for the wastewater
+    nitrifying consortium paper.
+  evidence:
+  - reference: PMID:41457319
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Metagenomic assemblies, annotations, and analysis outputs are available at https://doi.org/10.5281/zenodo.14861210
+    explanation: >
+      Links the metagenome assemblies and annotations used for MAG-level
+      community interpretation to their stable Zenodo DOI.
+external_resources:
+- name: PubMed record
+  repository: OTHER
+  resource_id: PMID:41457319
+  url: https://pubmed.ncbi.nlm.nih.gov/41457319/
+  description: >
+    PubMed record for the open-access Applied and Environmental Microbiology
+    paper on the model nitrifying wastewater consortium.
+  evidence:
+  - reference: PMID:41457319
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: "PMID: 41457319"
+    explanation: Supports the PubMed identifier for the source article.
+- name: Article DOI
+  repository: OTHER
+  resource_id: doi:10.1128/aem.01984-25
+  url: https://doi.org/10.1128/aem.01984-25
+  description: >
+    DOI for the Applied and Environmental Microbiology article reporting the
+    wastewater nitrifying consortium multi-omics study.
+  evidence:
+  - reference: PMID:41457319
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: "DOI: 10.1128/aem.01984-25"
+    explanation: Supports the DOI assigned to the source article.
