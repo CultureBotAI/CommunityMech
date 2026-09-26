@@ -10,7 +10,8 @@ from pathlib import Path
 import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-from communitymech.paths import DOCS
+from communitymech.paths import DOCS, REPO_ROOT
+from communitymech.text_map_site import prepare_text_map
 
 
 def _strip_trailing_whitespace(html: str) -> str:
@@ -73,7 +74,33 @@ class CommunityRenderer:
 
         return html
 
+    def render_isolates(self, isolates_dir: Path, output_dir: Path) -> list[str]:
+        """Render isolate detail pages without changing the community browser population."""
+        if not isolates_dir.is_dir():
+            raise ValueError(f"missing isolate corpus: {isolates_dir}")
+        failed = []
+        for yaml_path in sorted(isolates_dir.glob("*.yaml")):
+            try:
+                self.render_community(yaml_path, output_dir / f"{yaml_path.stem}.html")
+            except Exception as error:
+                print(f"  ✗ {yaml_path.name}: {error}")
+                failed.append(yaml_path.name)
+        return failed
+
     def render_all(
+        self,
+        communities_dir: Path = Path("kb/communities"),
+        output_dir: Path | None = None,
+    ) -> list[str]:
+        """Preflight and stage the common map before any generated page changes."""
+        output_dir = output_dir if output_dir is not None else DOCS / "communities"
+        with prepare_text_map(REPO_ROOT) as text_map:
+            if text_map is not None:
+                text_map.stage(output_dir.parent)
+            self.env.globals["text_map_enabled"] = text_map is not None
+            return self._render_all(communities_dir, output_dir)
+
+    def _render_all(
         self,
         communities_dir: Path = Path("kb/communities"),
         output_dir: Path | None = None,
@@ -192,6 +219,11 @@ def main():
         help="Directory containing community YAML files",
     )
     parser.add_argument(
+        "--isolates-dir",
+        default="data/isolates",
+        help="Isolate detail records, published separately from the community browser",
+    )
+    parser.add_argument(
         "--output-dir",
         default=str(DOCS / "communities"),
         help="Output directory for HTML files",
@@ -216,6 +248,11 @@ def main():
         failed = renderer.render_all(
             communities_dir=Path(args.communities_dir),
             output_dir=Path(args.output_dir),
+        )
+        failed.extend(
+            renderer.render_isolates(
+                Path(args.isolates_dir), Path(args.output_dir).parent / "isolates"
+            )
         )
         if failed:
             raise SystemExit(1)
