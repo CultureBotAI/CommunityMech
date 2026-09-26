@@ -162,6 +162,7 @@ USERS = {
     "Aalborg_East_Full_Scale_EBPR_Community.yaml",
     "Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.yaml",
     "Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment.yaml",
+    "Acidic_Nitrification_Minimal_Consortium.yaml",
     "Aerobic_Denitrification_Disturbance_SynCom.yaml",
     "Aerobic_Denitrification_QQ_SynCom.yaml",
     "Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml",
