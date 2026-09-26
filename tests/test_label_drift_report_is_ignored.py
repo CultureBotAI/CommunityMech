@@ -6,10 +6,10 @@ committed, so .gitignore names it. Unignored, one local run leaves an untracked
 file, and claw's fleet pull skips any checkout whose `git status --porcelain` is
 not empty (`skipped_dirty`), which is how the gap was found.
 
-The rule is deliberately narrow. Five reports/*.tsv files are tracked on purpose
-(#391/#406), so the second test pins that no tracked report is ignored: widening
-the rule to reports/*.tsv goes red instead of silently hiding the next TSV
-deliverable.
+The rule is deliberately narrow. Five reports/*.tsv files are tracked (#391
+weighed ignoring instance_validation_failures.tsv; #406 kept it tracked), so the
+second test pins that no tracked report is ignored: widening the rule to
+reports/*.tsv goes red instead of silently hiding the next TSV deliverable.
 
 Both tests read what decides the answer -- the recipe's own --report argument
 and git's index -- rather than restating the .gitignore line, and neither can
@@ -25,16 +25,24 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 
-# Only the repository's ignore rules count: a contributor's global excludes file
-# must not decide whether this passes.
+# Only committed ignore rules count. This switches off a contributor's global
+# excludes file; .git/info/exclude cannot be switched off, so the first test also
+# checks which file the matching rule came from.
 _GIT = ["git", "-c", f"core.excludesFile={os.devnull}"]
+
+# Tracked files that a .gitignore rule matches (info/exclude is not read).
+_TRACKED_BUT_IGNORED = ("--cached", "--ignored", "--exclude-per-directory=.gitignore")
 
 
 def _drift_report_path() -> str:
     """The --report argument of `just report-label-drift`, as just would run it."""
+    # A contributor's JUST_* settings must not reach the echo: JUST_COLOR=always
+    # appends an ANSI reset to the path and JUST_QUIET=true rejects --dry-run.
+    env = {key: value for key, value in os.environ.items() if not key.startswith("JUST_")}
     result = subprocess.run(
-        ["just", "--dry-run", "report-label-drift"],
+        ["just", "--color", "never", "--dry-run", "report-label-drift"],
         cwd=REPO,
+        env=env,
         check=True,
         capture_output=True,
         text=True,
@@ -51,17 +59,27 @@ def _drift_report_path() -> str:
 def test_the_drift_report_the_recipe_writes_is_ignored():
     path = _drift_report_path()
     assert path.startswith("reports/"), path
-    result = subprocess.run([*_GIT, "check-ignore", "-q", "--no-index", path], cwd=REPO)
-    assert result.returncode == 0, (
-        f"`just report-label-drift` writes {path}, which .gitignore does not ignore: "
-        "a local run leaves an untracked file and claw's fleet pull skips the checkout"
+    # -z needs --stdin. With -v, git also reports a matching negated ("!") rule,
+    # so both the rule's file and its pattern are checked.
+    result = subprocess.run(
+        [*_GIT, "check-ignore", "-v", "-z", "--stdin", "--no-index"],
+        cwd=REPO,
+        input=f"{path}\0",
+        capture_output=True,
+        text=True,
+    )
+    source, _line, pattern, _path = (result.stdout.split("\0") + ["", "", "", ""])[:4]
+    assert Path(source).name == ".gitignore" and not pattern.startswith("!"), (
+        f"`just report-label-drift` writes {path}, which no committed .gitignore rule "
+        f"ignores (matched: {source or 'nothing'} {pattern!r}): a local run leaves an "
+        "untracked file and claw's fleet pull skips the checkout"
     )
 
 
-def _git_paths(*args: str) -> list[str]:
+def _git_paths(*args: str, cwd: Path = REPO) -> list[str]:
     result = subprocess.run(
         [*_GIT, "ls-files", "-z", *args, "--", "reports/"],
-        cwd=REPO,
+        cwd=cwd,
         check=True,
         capture_output=True,
         text=True,
@@ -69,11 +87,21 @@ def _git_paths(*args: str) -> list[str]:
     return [path for path in result.stdout.split("\0") if path]
 
 
+def test_the_tracked_but_ignored_query_can_find_one(tmp_path: Path):
+    """Positive control: an empty answer below must mean 'none', not 'unreadable'."""
+    subprocess.run(["git", "init", "-q", str(tmp_path)], check=True)
+    (tmp_path / ".gitignore").write_text("reports/*.tsv\n")
+    (tmp_path / "reports").mkdir()
+    (tmp_path / "reports" / "planted.tsv").write_text("x\n")
+    subprocess.run(["git", "add", "-f", "reports/planted.tsv"], cwd=tmp_path, check=True)
+    assert _git_paths(*_TRACKED_BUT_IGNORED, cwd=tmp_path) == ["reports/planted.tsv"]
+
+
 def test_no_tracked_report_is_ignored():
     assert _git_paths(), "git lists no tracked file under reports/; nothing was checked"
-    ignored = _git_paths("--cached", "--ignored", "--exclude-per-directory=.gitignore")
+    ignored = _git_paths(*_TRACKED_BUT_IGNORED)
     assert ignored == [], (
-        "tracked reports match an ignore rule, so a regenerated sibling would be "
+        "tracked reports match an ignore rule, so a new sibling matching it would be "
         "silently left out of a commit; keep report ignore rules per file:\n"
         + "\n".join(f"  {path}" for path in ignored)
     )
