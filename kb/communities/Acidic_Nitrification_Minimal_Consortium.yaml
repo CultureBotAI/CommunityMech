@@ -1,0 +1,284 @@
+id: CommunityMech:000434
+name: Acidic Nitrification Minimal Consortium
+description: >
+  A minimal aerobic ammonia-oxidizing consortium from three acidic nitrification
+  bioreactors operated between pH 2.0 and 5.0. Genome-resolved meta-omics and
+  chemical measurements linked the pH 5.0 cultures to a novel
+  Nitrosococcaceae ammonia-oxidizing bacterium, "Candidatus Nitrosoglobus
+  kelleri", that reached up to 56% relative abundance and linked the strongly
+  simplified pH 2.0 community to "Ca. Nitrosoglobus kelleri" together with
+  Mycobacterium species.
+ecological_state: ENGINEERED
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: >
+    Infer the composition, metabolic exchange, and acidic/nitrosative stress
+    adaptations of aerobic acidic nitrification bioreactor consortia to inform
+    acidic nitrification processes for wastewater treatment.
+  measurement_endpoints:
+  - genome-resolved meta-omic community composition
+  - transcriptional evidence for carbon and nitrogen cycling linkages
+  - chemical measurements from acidic nitrification bioreactors
+  - relative abundance of the novel Nitrosococcaceae ammonia oxidizer
+  - stress-response and denitrification gene expression
+  evidence:
+  - &acidic_bioreactors
+    reference: PMID:42762737
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      genome-resolved meta-omic analyses with chemical measurements to infer
+      the composition, metabolic exchange, and stress adaptations of microbial
+      consortia in three acidic nitrification bioreactors operated between pH
+      2.0 and 5.0
+    explanation: >
+      Supports the use of genome-resolved meta-omics and chemistry to
+      characterize consortia in acidic nitrification bioreactors.
+  - &wastewater_relevance
+    reference: PMID:42762737
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      potential implications for improving wastewater treatment technologies
+      through acidic nitrification processes
+    explanation: >
+      Supports the wastewater-treatment motivation for curating the acidic
+      nitrification bioreactors as a biotechnology community.
+environment_term:
+  preferred_term: acidic nitrification bioreactor
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+  notes: >
+    Three aerobic acidic nitrification bioreactors operated between pH 2.0 and
+    pH 5.0.
+taxonomy:
+- taxon_term:
+    preferred_term: '"Candidatus Nitrosoglobus kelleri"'
+    term:
+      id: NCBITaxon:3120726
+      label: Nitrosococcaceae
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      NCBI Taxonomy does not yet have an entry for the exact candidatus species;
+      the PubMed abstract places it as a novel species in Nitrosococcaceae.
+  abundance_value: >
+    Dominant ammonia-oxidizing bacterium across the pH 5.0 acidic nitrification
+    bioreactor conditions, reaching up to 56% relative abundance; also one of
+    the dominant partners in the strongly simplified pH 2.0 consortium.
+  evidence:
+  - &nitrosoglobus_pH5
+    reference: PMID:42762737
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      At pH 5.0, the dominant ammonia-oxidising bacterium (AOB) across all
+      conditions was a novel Nitrosococcaceae species, designated "Candidatus
+      Nitrosoglobus kelleri."
+    explanation: >
+      Supports the family-level NCBI grounding and dominant pH 5.0 AOB role for
+      the novel Nitrosococcaceae member.
+  - &aob_abundance
+    reference: PMID:42762737
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      It reached a relative abundance of up to 56% and possessed genes for
+      ammonia oxidation, aerobic respiration, and carbon fixation.
+    explanation: >
+      Supports the reported maximum relative abundance and the inferred
+      ammonia-oxidizing, aerobic, autotrophic functional potential.
+  - &pH2_pair
+    reference: PMID:42762737
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      At pH 2.0, the community was strongly simplified and dominated by "Ca.
+      Nitrosoglobus kelleri" together with Mycobacterium species
+    explanation: >
+      Supports the membership of "Ca. Nitrosoglobus kelleri" in the simplified
+      pH 2.0 consortium.
+- taxon_term:
+    preferred_term: Mycobacterium species
+    term:
+      id: NCBITaxon:1763
+      label: Mycobacterium
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      The abstract reports Mycobacterium species at genus level without
+      assigning an exact species.
+  abundance_value: >
+    Dominant pH 2.0 consortium partner with "Ca. Nitrosoglobus kelleri".
+  evidence:
+  - *pH2_pair
+ecological_interactions:
+- name: Putative acidic carbon and nitrogen cycling linkage
+  description: >
+    Genome-resolved and transcriptional evidence suggested potential metabolic
+    linkages between "Ca. Nitrosoglobus kelleri" and Mycobacterium species in
+    the simplified pH 2.0 bioreactor community, with the abstract bounding those
+    linkages to carbon and nitrogen compound cycling rather than resolving exact
+    transferred compounds.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: '"Candidatus Nitrosoglobus kelleri"'
+    term:
+      id: NCBITaxon:3120726
+      label: Nitrosococcaceae
+  - preferred_term: Mycobacterium species
+    term:
+      id: NCBITaxon:1763
+      label: Mycobacterium
+  metabolites:
+  - preferred_term: ammonia
+    term:
+      id: CHEBI:16134
+      label: ammonia
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  - preferred_term: nitric oxide
+    term:
+      id: CHEBI:16480
+      label: nitric oxide
+  biological_processes:
+  - preferred_term: ammonia oxidation
+    term:
+      id: GO:0019329
+      label: ammonia oxidation
+  evidence:
+  - &putative_linkages
+    reference: PMID:42762737
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      genome-resolved and transcriptional evidence suggested potential metabolic
+      linkages related to carbon and nitrogen compound cycling
+    explanation: >
+      Supports a putative, abstract-bounded carbon and nitrogen cycling linkage
+      among dominant pH 2.0 consortium members.
+environmental_factors:
+- name: extremely acidic nitrification
+  value: pH 2.0-5.0
+  description: >
+    The study profiled acidic nitrification bioreactors operated across a pH
+    2.0 to 5.0 range, with the strongest simplification reported at pH 2.0 and
+    the novel Nitrosococcaceae AOB dominating at pH 5.0.
+  evidence:
+  - *acidic_bioreactors
+  - *nitrosoglobus_pH5
+  - *pH2_pair
+- name: reactive nitrogen stress response
+  value: high expression of denitrification genes in aerobic bioreactors
+  description: >
+    Consortium members expressed denitrification genes at high levels in
+    aerobic bioreactors, consistent with a response to reactive nitrogen species
+    such as nitrite and nitric oxide.
+  evidence:
+  - &denitrification_response
+    reference: PMID:42762737
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      consortia members also expressed denitrification genes at high levels,
+      likely to eliminate reactive nitrogen species such as nitrite and nitric
+      oxide produced during incomplete nitrification
+    explanation: >
+      Supports the denitrification and reactive-nitrogen detoxification
+      response inferred for the aerobic acidic bioreactor members.
+cultivation_setup:
+- system_type: BIOREACTOR_UNSPECIFIED
+  ph_controlled: true
+  controls_notes: >
+    The abstract reports three acidic nitrification bioreactors operated between
+    pH 2.0 and 5.0, but does not identify the exact reactor format or feed
+    medium.
+  evidence:
+  - *acidic_bioreactors
+related_ingredients:
+- preferred_term: ammonia
+  chebi_term:
+    id: CHEBI:16134
+    label: ammonia
+  relevance: >
+    Ammonia was the substrate oxidized by "Ca. Nitrosoglobus kelleri" in the
+    aerobic acidic nitrification consortia.
+  evidence:
+  - *aob_abundance
+- preferred_term: nitrite
+  chebi_term:
+    id: CHEBI:16301
+    label: nitrite
+  relevance: >
+    Nitrite was named as a reactive nitrogen species likely eliminated by
+    highly expressed denitrification genes in the aerobic bioreactor consortia.
+  evidence:
+  - *denitrification_response
+- preferred_term: nitric oxide
+  chebi_term:
+    id: CHEBI:16480
+    label: nitric oxide
+  relevance: >
+    Nitric oxide was named as a reactive nitrogen species likely eliminated by
+    highly expressed denitrification genes in the aerobic bioreactor consortia.
+  evidence:
+  - *denitrification_response
+external_resources:
+- name: PubMed record
+  repository: OTHER
+  resource_id: PMID:42762737
+  url: https://pubmed.ncbi.nlm.nih.gov/42762737/
+  description: >
+    PubMed record for the Water Research article on extremely acidic ammonia
+    oxidation by a minimal bacterial consortium.
+  evidence:
+  - reference: PMID:42762737
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: "PMID: 42762737"
+    explanation: Supports the PubMed identifier for the source article.
+- name: Article DOI
+  repository: OTHER
+  resource_id: doi:10.1016/j.watres.2026.126966
+  url: https://doi.org/10.1016/j.watres.2026.126966
+  description: >
+    DOI for the Water Research article reporting the acidic nitrification
+    bioreactor consortia.
+  evidence:
+  - reference: PMID:42762737
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: "DOI: 10.1016/j.watres.2026.126966"
+    explanation: Supports the DOI assigned to the source article.
+discussions:
+- discussion_id: acidic_nitrification_methods_details
+  prompt: >
+    Resolve the exact bioreactor feed medium, reactor dimensions, operating
+    schedule, inoculum source, MAG identifiers, and pH-specific abundance table
+    for the acidic nitrification minimal consortium.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - growth_media
+  - cultivation_setup
+  - taxonomy
+  - ecological_interactions
+  rationale: >
+    The cached PubMed abstract identifies the three pH 2.0-5.0 acidic
+    nitrification bioreactors, the dominant novel Nitrosococcaceae AOB,
+    Mycobacterium as a dominant pH 2.0 partner, and putative carbon/nitrogen
+    cycling linkages, but it does not report the exact medium, inoculum,
+    individual MAG accessions, reactor hardware, or the pH-specific abundance
+    matrix needed for a more exact curation.
+  posed_by: codex
+  posed_date: '2026-09-26'
+curation_history:
+- timestamp: '2026-09-26T09:10:09Z'
+  curator: codex
+  action: ADD_COMMUNITY_RECORD
+  changes: >
+    Created CommunityMech:000434 from PMID:42762737 and DOI
+    10.1016/j.watres.2026.126966 for the acidic nitrification minimal
+    consortium centered on "Ca. Nitrosoglobus kelleri" and Mycobacterium.
+  llm_assisted: true
