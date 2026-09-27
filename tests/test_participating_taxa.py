@@ -276,6 +276,7 @@ USERS = {
     "Rifle_Aquifer_Bioanode_EET_Community.yaml",
     "SF356_Cellulose_Degrader.yaml",
     "SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
+    "Saccharomyces_Met14_Trp4_FLO1_Resveratrol_Coculture.yaml",
     "Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml",
     "Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml",
     "Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml",
