@@ -523,9 +523,9 @@ def test_the_status_distribution_is_what_was_measured():
     # xenic phycosphere adds three genus/species members, the mangrove benzene
     # MFC bioanode adds four genus members, MWF001 adds four species members,
     # and the Phaeodactylum-Aliivibrio diel co-culture adds one A. fischeri
-    # species member, so tolerate the measured 439 without tolerating a
-    # domain-lookup collapse.
-    assert counts["UNRESOLVED"] < 440, (
+    # species member. The low-nitrogen anammox biofilter adds two genera, so
+    # tolerate the measured 441 without tolerating a domain-lookup collapse.
+    assert counts["UNRESOLVED"] < 442, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
