@@ -519,11 +519,12 @@ def test_the_status_distribution_is_what_was_measured():
     # nitrification taxa, #1102 adds one Mulberry/DG L. brevis member,
     # #1107 adds seven shrimp SynCom genus-level members, and #1110 adds
     # four TCP groundwater genera. The electrostimulated toluene microbiota
-    # adds three proposed MAG/genus members, and the Dolichospermum FBCC-A233
-    # xenic phycosphere adds three genus/species members, and the mangrove
-    # benzene MFC bioanode adds four genus members, so tolerate the measured
-    # 434 without tolerating a domain-lookup collapse.
-    assert counts["UNRESOLVED"] < 435, (
+    # adds three proposed MAG/genus members, the Dolichospermum FBCC-A233
+    # xenic phycosphere adds three genus/species members, the mangrove benzene
+    # MFC bioanode adds four genus members, and MWF001 adds four species
+    # members, so tolerate the measured 438 without tolerating a domain-lookup
+    # collapse.
+    assert counts["UNRESOLVED"] < 439, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
