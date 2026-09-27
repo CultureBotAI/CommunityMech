@@ -1,0 +1,208 @@
+id: CommunityMech:000451
+name: Auxenochlorella-Pseudomonas Florfenicol Phycosphere Coculture
+description: A defined freshwater green-alga and bacterium co-culture pairing axenic Auxenochlorella pyrenoidosa with Pseudomonas_sp1,
+  a phycospheric isolate recovered after high-florfenicol and polylactic acid microplastic stress. Liu et al. isolated Pseudomonas_sp1
+  from the stressed phycosphere and used the isolate in short co-culture validation experiments showing promoted A. pyrenoidosa
+  growth and Pseudomonas-associated pyridoxal production under florfenicol stress.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: PHYTOPLANKTON
+engineering_design:
+  objective: Test whether a stress-enriched Pseudomonas isolate from the A. pyrenoidosa phycosphere can improve algal fitness
+    under florfenicol and polylactic acid microplastic stress.
+  assembly_strategy: Recover phycospheric bacteria from the PFH high-florfenicol plus PLA microplastic treatment, identify
+    Pseudomonas_sp1 by whole-genome sequencing, and co-cultivate it with axenic A. pyrenoidosa.
+  perturbation_design: Compare axenic A. pyrenoidosa controls with Pseudomonas_sp1 co-cultures under florfenicol-only and
+    combined florfenicol plus polylactic acid microplastic treatments.
+  measurement_endpoints:
+  - A. pyrenoidosa cell density
+  - chlorophyll content
+  - extracellular polymeric substance production
+  - superoxide dismutase activity
+  - malondialdehyde content
+  - florfenicol concentration
+  - pyridoxal concentration
+  evidence:
+  - reference: PMID:41724996
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Phycospheric bacteria were isolated from the PFH group after co-cultivation
+    explanation: Supports the high-florfenicol plus PLA microplastic enrichment context for the Pseudomonas_sp1 isolate.
+  - reference: PMID:41724996
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas_sp1 was selected for co-cultivation with axenic A. pyrenoidosa
+    explanation: Supports the defined isolate-pair validation design used for this record.
+environment_term:
+  preferred_term: freshwater algal-bacterial stress coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Defined laboratory validation co-culture pairing axenic A. pyrenoidosa with a phycospheric Pseudomonas isolate under
+    florfenicol and polylactic acid microplastic stress.
+modeled_environment:
+- preferred_term: freshwater environment
+  term:
+    id: ENVO:01000306
+    label: freshwater environment
+  notes: The bacterial inoculum for the precursor 60-day phycosphere enrichment came from South Lake in Wuhan, China.
+taxonomy:
+- taxon_term:
+    preferred_term: Auxenochlorella pyrenoidosa
+    term:
+      id: NCBITaxon:3078
+      label: Auxenochlorella pyrenoidosa
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Freshwater green-algal partner maintained axenically before inoculation with phycospheric Pseudomonas_sp1; GTDB
+      does not classify eukaryotic algae.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:41724996
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas_sp1 was selected for co-cultivation with axenic A. pyrenoidosa
+    explanation: Identifies axenic A. pyrenoidosa as the algal member in the defined isolate co-culture.
+- taxon_term:
+    preferred_term: Pseudomonas sp. Pseudomonas_sp1
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source identified this phycospheric isolate locally as Pseudomonas_sp1 and deposited its sequencing reads under
+      BioProject PRJNA1171391.
+  strain_designation:
+    strain_name: Pseudomonas_sp1
+    isolation_source: Phycosphere of A. pyrenoidosa after combined high-florfenicol and polylactic acid microplastic treatment.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41724996
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A total of three potential ARG hosts were screened and identified as Pseudomonas_sp1, Allorhizobium_sp1, and
+      Methylobacterium_sp1
+    explanation: Identifies Pseudomonas_sp1 as one phycospheric isolate from the stress enrichment.
+  - reference: PMID:41724996
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: PRJNA1171391 (Pseudomonas_sp1)
+    explanation: Links Pseudomonas_sp1 to the isolate whole-genome sequencing BioProject.
+ecological_interactions:
+- name: Pseudomonas Pyridoxal Support Under Florfenicol Stress
+  description: Pseudomonas_sp1 supported A. pyrenoidosa growth under florfenicol stress and produced pyridoxal, a vitamin
+    B6 form that the authors linked to increased algal growth and stress adaptation.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Pseudomonas sp. Pseudomonas_sp1
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+  target_taxon:
+    preferred_term: Auxenochlorella pyrenoidosa
+    term:
+      id: NCBITaxon:3078
+      label: Auxenochlorella pyrenoidosa
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:41724996
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-cultures with Pseudomonas_sp1 promoted microalgal growth within 13
+    explanation: Supports the positive effect of Pseudomonas_sp1 on A. pyrenoidosa growth in the defined co-culture assay.
+  - reference: PMID:41724996
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: pyridoxal was detected only in the presence of Pseudomonas_sp1
+    explanation: Supports Pseudomonas_sp1-associated pyridoxal production in the co-culture.
+  - reference: PMID:41724996
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: exogenous vitamin B6 alone is sufficient to promote axenic algal growth
+    explanation: Supports pyridoxal/vitamin B6 as a growth-supporting metabolite for A. pyrenoidosa.
+environmental_factors:
+- name: Florfenicol and PLA microplastic challenge
+  value: single florfenicol or florfenicol plus PLA MPs
+  description: The isolate-pair validation compared A. pyrenoidosa controls and Pseudomonas_sp1 co-cultures across florfenicol
+    and combined florfenicol plus polylactic acid microplastic stress treatments.
+  evidence:
+  - reference: PMID:41724996
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Different FF and PLA MPs treatments were set up in the co-culture system
+    explanation: Supports the stress-treatment design for the defined Pseudomonas_sp1 co-culture.
+- name: Pseudomonas-associated pyridoxal production
+  description: Pyridoxal accumulated only in Pseudomonas_sp1-containing cultures and increased over time, with florfenicol
+    further stimulating production.
+  evidence:
+  - reference: PMID:41724996
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas_sp1 was capable of producing pyridoxal
+    explanation: Supports measured pyridoxal production by Pseudomonas_sp1.
+associated_datasets:
+- accession: PRJNA1171391
+  title: Pseudomonas_sp1 isolate genome BioProject
+  description: Whole-genome sequencing reads for the phycospheric Pseudomonas_sp1 isolate used in the A. pyrenoidosa co-culture
+    validation.
+  organism: Pseudomonas_sp1
+  dataset_type: GENOMICS
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1171391
+  publication: PMID:41724996
+  findings: Genome analysis identified vitamin B6 biosynthetic potential and secondary-metabolite biosynthetic gene clusters
+    in Pseudomonas_sp1.
+  evidence:
+  - reference: PMID:41724996
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: PRJNA1171391 (Pseudomonas_sp1)
+    explanation: Links the Pseudomonas_sp1 genome reads to BioProject PRJNA1171391.
+external_resources:
+- name: Primary article - Auxenochlorella-Pseudomonas florfenicol phycosphere coculture
+  repository: OTHER
+  resource_id: doi:10.1186/s40168-026-02335-7
+  url: https://doi.org/10.1186/s40168-026-02335-7
+  description: Microbiome article reporting Pseudomonas_sp1 isolation from the florfenicol- and PLA-stressed A. pyrenoidosa
+    phycosphere and validating its growth-promoting effect in co-culture.
+  evidence:
+  - reference: PMID:41724996
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Stress-induced enrichment of Pseudomonas sp. stimulates the adaptive response of Auxenochlorella pyrenoidosa
+    explanation: Identifies the primary article for this A. pyrenoidosa and Pseudomonas_sp1 phycosphere co-culture.
+discussions:
+- discussion_id: exact-pair-growth-medium
+  prompt: The article body states that Text S12 contains details of the Pseudomonas_sp1 and A. pyrenoidosa co-culture experiment;
+    those supplementary details should be inspected to recover the exact medium, inoculum, volume, and exposure groups for
+    the pairwise assay.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - growth_media#Pseudomonas_sp1-Auxenochlorella
+  rationale: The main article cleanly establishes Pseudomonas_sp1 as the selected partner and reports the 13-day response,
+    but it points cultivation details for that follow-up pairwise assay to Text S12.
+  evidence:
+  - reference: PMID:41724996
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: Text S12. The co-culture experiment of phycospheric isolates and A. pyrenoidosa
+    explanation: Shows that exact follow-up co-culture details were placed in the supplement rather than the article body.
+  posed_by: claude
+  posed_date: '2026-09-27'
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth element processing role is reported for the A. pyrenoidosa/Pseudomonas_sp1 florfenicol
+  phycosphere co-culture.
+curation_history:
+- timestamp: '2026-09-27T15:01:10Z'
+  curator: claude
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000451 for the Auxenochlorella pyrenoidosa and Pseudomonas_sp1 florfenicol phycosphere co-culture
+    from PMID:41724996 and DOI 10.1186/s40168-026-02335-7.
+  llm_assisted: true
