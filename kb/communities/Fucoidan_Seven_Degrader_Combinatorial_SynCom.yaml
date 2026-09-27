@@ -1,0 +1,579 @@
+id: CommunityMech:000449
+name: Fucoidan Seven-Degrader Combinatorial SynCom
+description: A defined seven-member marine bacterial SynCom assembled from the fucoidan degraders F12, F40, F56, F94,
+  V25, V69, and V4 to quantify complementary fucose- and rare-sugar-monomer degradation of Fucus vesiculosus fucoidan.
+  Sichert et al. constructed all 127 possible non-empty combinations of these degraders at equal OD600 in MBL medium
+  with 0.2% fucoidan, measured total and monomer-specific degradation by liquid chromatography mass spectrometry, and
+  resolved a functionally synergistic community landscape in which specialized degrader combinations reached up to 97.1%
+  total degradation.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Reconstruct fucoidan degradation with a defined marine degrader SynCom and test whether complementary
+    fucose and rare-sugar specialists can drive synergistic breakdown of a structurally complex brown-algal polysaccharide.
+  assembly_strategy: Enrich a coastal-seawater bacterial community on Fucus vesiculosus fucoidan, isolate fucoidan
+    degraders spanning Verrucomicrobiota and Flavobacteriia, then assemble every non-empty combination of seven consistent
+    degraders while excluding the context-dependent Pseudocolwellia degrader G88.
+  inoculation_strategy: Mix each member at equal optical density, OD600 0.01 per strain, and inoculate the assembled
+    community into 1.8 mL MBL medium containing 0.2% (w/v) F. vesiculosus fucoidan as the sole carbon source.
+  perturbation_design: Measure all 127 possible one- to seven-member combinations of F12, F40, F56, F94, V25, V69,
+    and V4 plus a no-cell negative control to map the fucoidan-degradation landscape.
+  measurement_endpoints:
+  - total fucoidan degradation
+  - fucoidan-bound fucose depletion
+  - rare-sugar monomer depletion
+  - growth on fucoidan
+  - synergism scores against a resource-partitioning null model
+  - trait-based predictions from fucose and rare-sugar degradation capacities
+  notes: The record curates the seven-degrader full-combinatorial SynCom. G88/Pseudocolwellia sp. AS88 was one of the
+    isolated degraders but was excluded from the 127-community experiment and is therefore not a member of this record.
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To systematically evaluate synergistic interactions in fucoidan degradation, we constructed all 127 possible combinations
+      of the seven degraders F12, F40, F56, F94, V25, V69 and V4, along with a no-cell negative control.
+    explanation: Names the seven strains and the complete non-empty combinatorial panel.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each community was assembled by mixing strains at equal optical density (OD600) at 0.01 each and inoculating into
+      1.8 ml of MBL medium supplemented with 0.2% (w/v) fucoidan from F. vesiculosus as the sole carbon source.
+    explanation: Supports the equal-OD inoculation strategy and the MBL plus F. vesiculosus fucoidan medium.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Total degradation increased with community richness, ranging from 4% to a maximum of 97.1% in the 5-member community
+      F40, F56, V69, F94 and V4
+    explanation: Supports the measured upper end of the community-function landscape.
+  counter_selection:
+  - criterion: G88/Pseudocolwellia sp. AS88 showed context-dependent pairwise behavior and was omitted from the
+      seven-degrader full-combinatorial panel.
+    excluded_taxon:
+      preferred_term: Pseudocolwellia sp. AS88
+      term:
+        id: NCBITaxon:3063958
+        label: Pseudocolwellia sp. AS88
+      notes: Supplementary Table 2 identifies this genome as isolate_88, Gamma88/G88, and GTDB Pseudocolwellia sp. AS88;
+        assembly accession GCA_038900155.1.
+    evidence:
+    - reference: PMID:42649294
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The only exception was G88, which increased degradation when paired with V69, but acted as an exploiter when paired
+        with V4 and V25.
+      explanation: Supports G88 as a context-dependent degrader that was not carried into the seven-degrader full-combinatorial
+        design.
+    - reference: PMID:42649294
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: To systematically evaluate synergistic interactions in fucoidan degradation, we constructed all 127 possible combinations
+        of the seven degraders F12, F40, F56, F94, V25, V69 and V4
+      explanation: Names the exact full-combinatorial panel, excluding G88 from the seven strains retained for the 127-community
+        experiment.
+environment_term:
+  preferred_term: laboratory MBL fucoidan degradation SynCom
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The curated entity is a defined laboratory SynCom grown on purified brown-algal fucoidan in MBL medium.
+modeled_environment:
+- preferred_term: marine environment
+  term:
+    id: ENVO:01000320
+    label: marine environment
+  notes: The source strains model complementary fucoidan degradation among macroalgae-associated marine bacteria.
+taxonomy:
+- taxon_term:
+    preferred_term: Algibacter sp. AS12
+    term:
+      id: NCBITaxon:3135773
+      label: Algibacter sp. AS12
+    notes: Supplementary Table 2 identifies this genome as isolate_12, Flavo12/F12, and GTDB Algibacter_B amylolyticus
+      AS12.
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: AS12
+    genome_accession: GCA_046736315.1
+  abundance_value: Equal-OD seven-degrader SynCom member F12; rare-sugar specialist.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We isolated 5 exploiters, 16 scavengers and 7 degraders, namely V25 (Luteolibacter), V69 (Roseibacillus), G88
+      (Pseudocolwellia) and four members of the Flavobacteriia (F12, F40, F56 and F94).
+    explanation: Supports F12 as one of the Flavobacteriia fucoidan degraders.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: isolate_12 | 99.34 | 0.38 | high-quality draft | GCA_046736315.1
+    explanation: Supports the assembly accession for isolate_12.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Algibacter_B amylolyticus AS12 | Flavo12 | F12 | degrader
+    explanation: Maps isolate_12 to the F12 strain code and degrader role.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: F12, F40 and F94 are rare-sugar specialists.
+    explanation: Supports the rare-sugar specialist role of F12, F40, and F94.
+- taxon_term:
+    preferred_term: Algibacter lectus AS40
+    term:
+      id: NCBITaxon:221126
+      label: Algibacter lectus
+    notes: Supplementary Table 2 identifies this genome as isolate_40, Flavo40/F40, and GTDB Algibacter lectus AS40.
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: AS40
+    genome_accession: GCA_046736305.1
+  abundance_value: Equal-OD seven-degrader SynCom member F40; rare-sugar specialist and member of the highest-degradation
+    five-strain community.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We isolated 5 exploiters, 16 scavengers and 7 degraders, namely V25 (Luteolibacter), V69 (Roseibacillus), G88
+      (Pseudocolwellia) and four members of the Flavobacteriia (F12, F40, F56 and F94).
+    explanation: Supports F40 as one of the Flavobacteriia fucoidan degraders.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: isolate_40 | 99.67 | 0.71 | high-quality draft | GCA_046736305.1
+    explanation: Supports the assembly accession for isolate_40.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Algibacter lectus AS40 | Flavo40 | F40 | degrader
+    explanation: Maps isolate_40 to the F40 strain code and degrader role.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: F12, F40 and F94 are rare-sugar specialists.
+    explanation: Supports the rare-sugar specialist role of F12, F40, and F94.
+- taxon_term:
+    preferred_term: Mariniflexile sp. AS56
+    term:
+      id: NCBITaxon:3063957
+      label: Mariniflexile sp. AS56
+    notes: Supplementary Table 2 identifies this genome as isolate_56, Flavo56/F56, and GTDB Mariniflexile sp. AS56.
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: AS56
+    genome_accession: GCA_046736295.1
+  abundance_value: Equal-OD seven-degrader SynCom member F56; generalist and member of the highest-degradation five-strain
+    community.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We isolated 5 exploiters, 16 scavengers and 7 degraders, namely V25 (Luteolibacter), V69 (Roseibacillus), G88
+      (Pseudocolwellia) and four members of the Flavobacteriia (F12, F40, F56 and F94).
+    explanation: Supports F56 as one of the Flavobacteriia fucoidan degraders.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: isolate_56 | 99.67 | 1.96 | high-quality draft | GCA_046736295.1
+    explanation: Supports the assembly accession for isolate_56.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Mariniflexile sp. AS56 | Flavo56 | F56 | degrader
+    explanation: Maps isolate_56 to the F56 strain code and degrader role.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: V69 and F56 function as generalists
+    explanation: Supports the generalist role of F56 and V69.
+- taxon_term:
+    preferred_term: Zobellia laminariae AS94
+    term:
+      id: NCBITaxon:248906
+      label: Zobellia laminariae
+    notes: Supplementary Table 2 identifies this genome as isolate_94, Flavo94/F94, and GTDB Zobellia laminariae AS94.
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: AS94
+    genome_accession: GCA_030553095.1
+  abundance_value: Equal-OD seven-degrader SynCom member F94; rare-sugar specialist and member of the highest-degradation
+    five-strain community.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We isolated 5 exploiters, 16 scavengers and 7 degraders, namely V25 (Luteolibacter), V69 (Roseibacillus), G88
+      (Pseudocolwellia) and four members of the Flavobacteriia (F12, F40, F56 and F94).
+    explanation: Supports F94 as one of the Flavobacteriia fucoidan degraders.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: isolate_94 | 94.9 | 1.2 | high-quality draft | GCA_030553095.1
+    explanation: Supports the assembly accession for isolate_94.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Zobellia laminariae AS94 | Flavo94 | F94 | degrader
+    explanation: Maps isolate_94 to the F94 strain code and degrader role.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: F12, F40 and F94 are rare-sugar specialists.
+    explanation: Supports the rare-sugar specialist role of F12, F40, and F94.
+- taxon_term:
+    preferred_term: Luteolibacter sp. AS25
+    term:
+      id: NCBITaxon:3135776
+      label: Luteolibacter sp. AS25
+    notes: Supplementary Table 2 identifies this genome as isolate_25, Verruco25/V25, and GTDB Luteolibacter UBA1315
+      sp. AS25.
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: AS25
+    genome_accession: GCA_046736275.1
+  abundance_value: Equal-OD seven-degrader SynCom member V25; fucose specialist.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We isolated 5 exploiters, 16 scavengers and 7 degraders, namely V25 (Luteolibacter), V69 (Roseibacillus), G88
+      (Pseudocolwellia) and four members of the Flavobacteriia (F12, F40, F56 and F94).
+    explanation: Supports V25 as the Luteolibacter fucoidan degrader.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: isolate_25 | 99.86 | 1.7 | high-quality draft | GCA_046736275.1
+    explanation: Supports the assembly accession for isolate_25.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Luteolibacter UBA1315 sp. AS25 | Verruco25 | V25 | degrader
+    explanation: Maps isolate_25 to the V25 strain code and degrader role.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: V4, V25 and G88 are fucose-specialists
+    explanation: Supports the fucose-specialist role of V4 and V25.
+- taxon_term:
+    preferred_term: Roseibacillus persicicus AS69
+    term:
+      id: NCBITaxon:454148
+      label: Roseibacillus persicicus
+    notes: Supplementary Table 2 identifies this genome as isolate_69, Verruco69/V69, and GTDB Roseibacillus_A persicicus
+      AS69.
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: AS69
+    genome_accession: GCA_046736285.1
+  abundance_value: Equal-OD seven-degrader SynCom member V69; generalist and member of the highest-degradation five-strain
+    community.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We isolated 5 exploiters, 16 scavengers and 7 degraders, namely V25 (Luteolibacter), V69 (Roseibacillus), G88
+      (Pseudocolwellia) and four members of the Flavobacteriia (F12, F40, F56 and F94).
+    explanation: Supports V69 as the Roseibacillus fucoidan degrader.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: isolate_69 | 100 | 0.57 | high-quality draft | GCA_046736285.1
+    explanation: Supports the assembly accession for isolate_69.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Roseibacillus_A persicicus AS69 | Verruco69 | V69 | degrader
+    explanation: Maps isolate_69 to the V69 strain code and degrader role.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: V69 and F56 function as generalists
+    explanation: Supports the generalist role of F56 and V69.
+- taxon_term:
+    preferred_term: Lentimonas sp. CC4
+    term:
+      id: NCBITaxon:2676099
+      label: Lentimonas sp. CC4
+    notes: Supplementary Table 2 identifies this genome as LCC_4, Verruco4/V4, and Lentimonas sp. CC4.
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: CC4
+    genome_accession: GCA_902728235.1
+  abundance_value: Equal-OD seven-degrader SynCom member V4; fucose specialist and member of the highest-degradation
+    five-strain community.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To systematically evaluate synergistic interactions in fucoidan degradation, we constructed all 127 possible combinations
+      of the seven degraders F12, F40, F56, F94, V25, V69 and V4
+    explanation: Supports V4 as one of the seven full-combinatorial degrader members.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: LCC_4 | 99.32 | 2.03 | high-quality draft | GCA_902728235.1
+    explanation: Supports the assembly accession for LCC_4.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lentimonas sp. CC4 | Verruco4 | V4 | degrader
+    explanation: Maps LCC_4 to the V4 strain code and degrader role.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: V4, V25 and G88 are fucose-specialists
+    explanation: Supports the fucose-specialist role of V4 and V25.
+ecological_interactions:
+- name: Complementary fucoidan monomer degradation
+  description: The SynCom's community-level degradation emerges from combining fucose specialists, rare-sugar specialists,
+    and generalists whose enzyme repertoires unlock distinct fractions of the sulfated F. vesiculosus fucoidan substrate.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: carbohydrate catabolic process
+    term:
+      id: GO:0016052
+      label: carbohydrate catabolic process
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: V69 and F56 function as generalists, whereas V4, V25 and G88 are fucose-specialists and F12, F40 and F94 are
+      rare-sugar specialists.
+    explanation: Supports division of the isolated degraders into fucose specialists, rare-sugar specialists, and generalists.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: access to complementary substrate fractions--rather than enzyme count--limits fucoidan degradation, such that complete
+      breakdown emerges from interactions among metabolically complementary degraders.
+    explanation: Supports the source article's mechanism for community-level fucoidan breakdown.
+- name: Seven-degrader synergistic function landscape
+  description: The complete non-empty panel of seven fucoidan degraders produced a smooth community-function landscape in
+    which synergism remained common even among combinations approaching nearly complete degradation.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: carbohydrate catabolic process
+    term:
+      id: GO:0016052
+      label: carbohydrate catabolic process
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Total degradation increased with community richness, ranging from 4% to a maximum of 97.1% in the 5-member community
+      F40, F56, V69, F94 and V4
+    explanation: Supports the observed degradation range across the seven-member composition landscape.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: even when approaching near-complete degradation, 80% of interactions were still synergistic beyond what would be expected
+      from simple resource partitioning
+    explanation: Supports persistence of synergism across high-degradation communities.
+growth_media:
+- name: MBL medium with 0.2% Fucus vesiculosus fucoidan
+  incubation_time: '5'
+  incubation_time_unit: d
+  inoculum_size: '0.01'
+  inoculum_unit: OD600 per strain
+  vessel_type: 1.8 mL batch culture
+  preparation_notes: Seven-degrader combinations were inoculated at equal OD600 into MBL medium with 0.2% w/v Fucus
+    vesiculosus fucoidan as the sole carbon source before five-day endpoint degradation analysis.
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each community was assembled by mixing strains at equal optical density (OD600) at 0.01 each and inoculating into
+      1.8 ml of MBL medium supplemented with 0.2% (w/v) fucoidan from F. vesiculosus as the sole carbon source.
+    explanation: Supports medium identity, fucoidan concentration, inoculation OD, and working volume.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cultures were incubated for 5 days (n = 3 biological replicates), after which supernatants were collected for
+      degradation analysis.
+    explanation: Supports the five-day triplicate endpoint for the combinatorial panel.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  working_volume: 1.8
+  working_volume_unit: mL
+  notes: Full-combinatorial degradation communities were grown as replicated endpoint batch cultures in MBL medium; vessel
+    material and temperature were not asserted from the accessible article text.
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each community was assembled by mixing strains at equal optical density (OD600) at 0.01 each and inoculating into
+      1.8 ml of MBL medium
+    explanation: Supports batch assembly into 1.8 mL culture volumes.
+associated_datasets:
+- title: Fucoidan degrader genome BioProject
+  accession: PRJNA996876
+  dataset_type: GENOMICS
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA996876
+  publication: PMID:42649294
+  description: NCBI BioProject carrying genome assemblies and sequencing data for the fucoidan-degrader study.
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Genome assemblies and associated sequencing data have been deposited in the NCBI Sequence Read Archive under accession
+      number PRJNA996876.
+    explanation: Links the isolate genome assemblies to BioProject PRJNA996876.
+- title: Panorama Public LC-MS dataset
+  accession: doi:10.6069/r2z3-7b10
+  dataset_type: METABOLOMICS
+  repository: OTHER
+  url: https://doi.org/10.6069/r2z3-7b10
+  publication: PMID:42649294
+  description: Panorama Public raw LC-MS dataset used to quantify fucoidan-bound monomer depletion.
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Raw LC-MS data are available via Panorama Public at https://doi.org/10.6069/r2z3-7b10.
+    explanation: Links the raw LC-MS deposition used for fucoidan degradation measurements.
+- title: Global fucoidan-degrader analysis Zenodo dataset
+  accession: zenodo.19591477
+  dataset_type: METAGENOMICS
+  repository: ZENODO
+  url: https://zenodo.org/records/19591477
+  publication: PMID:42649294
+  description: Zenodo dataset for global ocean metagenome analysis and fucoidan-degrader annotations.
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: including fucoidan degrader annotations, PUL sequences, genome summaries and community profiles, are publicly available
+      on Zenodo (https://zenodo.org/records/19591477
+    explanation: Links the Zenodo dataset for fucoidan-degrader annotations and community profiles.
+external_resources:
+- name: Nature article DOI
+  repository: OTHER
+  resource_id: doi:10.1038/s41586-026-10980-z
+  url: https://doi.org/10.1038/s41586-026-10980-z
+  description: DOI for the Nature article describing synergistic fucoidan degradation by marine bacterial SynComs.
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: https://doi.org/10.1038/s41586-026-10980-z'
+    explanation: Supports the primary article DOI.
+- name: Sichert2025_Fucoidan GitHub workflow
+  repository: GITHUB
+  resource_id: EnvSysMicroLAB/Sichert2025_Fucoidan
+  url: https://github.com/EnvSysMicroLAB/Sichert2025_Fucoidan
+  description: GitHub repository with the reproducible LC-MS degradation and model-fitting workflow.
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'A reproducible workflow for calculating degradation from LC-MS data, along with code for model implementation and validation,
+      is available at: https://github.com/EnvSysMicroLAB/Sichert2025_Fucoidan.'
+    explanation: Links the model-construction and degradation-calculation workflow.
+- name: Global ocean fucoidan-degrader GitHub analysis
+  repository: GITHUB
+  resource_id: tpriest0/Global_ocean_microbial_fucoidan_degrader_analysis
+  url: https://github.com/tpriest0/Global_ocean_microbial_fucoidan_degrader_analysis
+  description: GitHub repository with global ocean fucoidan-degrader distribution analysis code.
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'Code for the analysis isolate distribution and metagenome analysis is available at: https://github.com/tpriest0/Global_ocean_microbial_fucoidan_degrader_analysis.'
+    explanation: Links the code for isolate-distribution and metagenomic analyses.
+discussions:
+- discussion_id: g88_excluded_from_full_combinatorial_panel
+  prompt: Should the context-dependent Pseudocolwellia degrader G88/AS88 be represented in a companion pairwise-coculture record?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - engineering_design
+  - ecological_interactions#Seven-degrader synergistic function landscape
+  rationale: G88 was an experimentally validated fucoidan degrader from the same strain collection, but the full 127-community
+    landscape explicitly excluded G88 and used the seven degraders F12, F40, F56, F94, V25, V69, and V4.
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The only exception was G88, which increased degradation when paired with V69, but acted as an exploiter when paired
+      with V4 and V25.
+    explanation: Supports treating G88 as pairwise context-dependent instead of silently adding it to the seven-degrader panel.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: seven degraders F12, F40, F56, F94, V25, V69 and V4
+    explanation: Names the exact full-combinatorial panel that excluded G88.
+  posed_by: codex
+  posed_date: '2026-09-27'
+- discussion_id: v4_lentimonas_alias
+  prompt: Does the article's prose label for Lentimonas sp. CC4 resolve to V4 or V43?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy#Lentimonas sp. CC4
+  rationale: Supplementary Table 2 maps LCC_4 to Lentimonas sp. CC4, Verruco4, and V4, and the full-combinatorial Methods
+    use V4. One article paragraph refers to the previously characterized CC4 degrader as strain V43, so this record follows
+    the spreadsheet and Methods convention for the member code.
+  evidence:
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lentimonas sp. CC4 | Verruco4 | V4 | degrader
+    explanation: Supports the Supplementary Table 2 mapping from LCC_4 to V4.
+  - reference: PMID:42649294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: seven degraders F12, F40, F56, F94, V25, V69 and V4
+    explanation: Supports the V4 code in the full-combinatorial Methods section.
+  posed_by: codex
+  posed_date: '2026-09-27'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: PMID:42649294 studies enzymatic degradation of brown-algal fucoidan by marine bacteria, not biomining, metal
+  transformation, or rare-earth-element cycling.
+curation_history:
+- timestamp: '2026-09-27T10:50:32Z'
+  curator: codex
+  action: CREATE_COMMUNITY_RECORD
+  changes: Created PMID:42649294-backed seven-degrader fucoidan SynCom record with all 127 non-empty combinations, isolate
+    accessions from Supplementary Table 2, complementary fucose and rare-sugar degradation, MBL plus fucoidan growth medium,
+    external data/code resources, and explicit discussions for G88 exclusion and the V4/Lentimonas alias.
+  llm_assisted: true
+- timestamp: '2026-09-27T11:05:47Z'
+  curator: codex
+  action: ADD_GTDB_STATUS_PLACEHOLDERS
+  changes: >-
+    Added explicit NOT_ATTEMPTED GTDB grounding statuses to all seven bacterial taxon descriptors for issue #1144; the
+    local NCBI2GTDB crosswalk was unavailable, so no gtdb_classification blocks were asserted.
+  llm_assisted: true
+- timestamp: '2026-09-27T11:08:23Z'
+  curator: codex
+  action: ADDRESS_ADVERSARIAL_REVIEW_FINDINGS
+  changes: >-
+    Added a structured counter-selection for excluded G88/Pseudocolwellia sp. AS88 for issue #1146 and moved PRJNA996876,
+    the Panorama Public LC-MS DOI, and the Zenodo record into associated_datasets for issue #1145.
+  llm_assisted: true
+- timestamp: '2026-09-27T11:14:50Z'
+  curator: codex
+  action: TRIAGE_GTDB_STATUS_PLACEHOLDERS
+  changes: >-
+    Replaced the seven issue #1144 NOT_ATTEMPTED placeholders with UNRESOLVED after adversarial review found that
+    NOT_ATTEMPTED is reserved for the otherwise-empty outstanding-work bucket. The local NCBI2GTDB crosswalk remained
+    unavailable, so no gtdb_classification blocks were asserted.
+  llm_assisted: true
