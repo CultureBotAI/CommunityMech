@@ -231,6 +231,7 @@ USERS = {
     "Electrostimulated_Toluene_Methanogenic_Microbiota.yaml",
     "Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.yaml",
     "Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml",
+    "Ecoli_K12_MG1655_Arg_Met_CrossFeeding_Coculture.yaml",
     "Ensifer_YF2_Sphingobacterium_Y2_Polyethylene_Degrading_Consortium.yaml",
     "Episymbiotic_CPR_DPANN_Groundwater_Community.yaml",
     "Euglena_Chlorella_Microalgal_Biorefinery_Coculture.yaml",
