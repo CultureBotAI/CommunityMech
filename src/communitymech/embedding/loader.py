@@ -1,25 +1,22 @@
-"""Efficient loading of KG-Microbe embeddings with caching."""
+"""Streaming source-bound loading of selected KG-Microbe vectors."""
 
-import gzip
-import hashlib
-import pickle
 from pathlib import Path
 
 import numpy as np
-from tqdm import tqdm
 
+from communitymech.graph_embedding_receipts import GraphSource
 from communitymech.paths import REPO_ROOT
 
 
 class EmbeddingLoader:
-    """Load and cache node embeddings from KG-Microbe TSV.gz file."""
+    """Read node embeddings directly from the selected KG-Microbe source."""
 
     def __init__(self, embeddings_path: str, cache_dir: str | Path = REPO_ROOT / ".umap_cache"):
         """Initialize loader.
 
         Args:
             embeddings_path: Path to embeddings TSV.gz file
-            cache_dir: Directory for pickle cache
+            cache_dir: Compatibility directory; legacy pickle caches are ignored
         """
         self.embeddings_path = Path(embeddings_path)
         self.cache_dir = Path(cache_dir)
@@ -29,86 +26,25 @@ class EmbeddingLoader:
         self,
         prefixes: list[str] | None = None,
         force_reload: bool = False,
+        node_ids=None,
     ) -> dict[str, np.ndarray]:
         """Load embeddings filtered by node ID prefixes.
 
         Args:
             prefixes: List of CURIE prefixes to filter (e.g., ["NCBITaxon"])
-                     If None, loads all embeddings (not recommended for 3.2GB file)
-            force_reload: If True, ignore cache and reload from TSV.gz
+                     If None, selects NCBITaxon nodes
+            force_reload: Compatibility option; the source is always read
 
         Returns:
-            Dictionary mapping node_id → 512-dim numpy array
+            Dictionary mapping node_id to a source-dimensional numpy array
         """
         if prefixes is None:
             prefixes = ["NCBITaxon"]  # Default to taxonomy only
 
-        # Generate cache filename keyed on (embeddings-file identity, prefixes)
-        # so swapping the embeddings file (e.g. v2 → v3) automatically
-        # invalidates the cache instead of silently reusing stale vectors.
-        prefix_tag = "_".join(sorted(prefixes))
-        try:
-            st = self.embeddings_path.stat()
-            fp = f"{st.st_size}-{int(st.st_mtime)}"
-        except OSError:
-            fp = "nostat"
-        # Non-cryptographic cache key (content fingerprint), not a security digest.
-        digest = hashlib.sha1(
-            f"{self.embeddings_path.name}|{fp}|{prefix_tag}".encode(),
-            usedforsecurity=False,
-        ).hexdigest()[:12]
-        cache_name = f"{prefix_tag}_embeddings__{digest}.pkl"
-        cache_path = self.cache_dir / cache_name
-
-        # Try loading from cache
-        if not force_reload and cache_path.exists():
-            print(f"📦 Loading embeddings from cache: {cache_path}")
-            # S301: cache file is written by this same module to a path
-            # under self.cache_dir (a developer-controlled location); never
-            # loaded from an untrusted source.
-            with open(cache_path, "rb") as f:
-                embeddings = pickle.load(f)  # noqa: S301
-            print(f"✅ Loaded {len(embeddings):,} embeddings from cache")
-            return embeddings
-
-        # Load from TSV.gz
-        print(f"📂 Loading embeddings from {self.embeddings_path.name}")
-        print(f"   Filtering to prefixes: {', '.join(prefixes)}")
-
-        embeddings = {}
-
-        # First pass: count total lines for progress bar
-        print("   Counting lines...")
-        with gzip.open(self.embeddings_path, "rt") as f:
-            total_lines = sum(1 for _ in f)
-
-        # Second pass: parse and filter
-        with gzip.open(self.embeddings_path, "rt") as f:
-            for line in tqdm(f, total=total_lines, desc="   Parsing", unit=" nodes"):
-                parts = line.strip().split("\t")
-                if len(parts) < 2:
-                    continue
-
-                node_id = parts[0]
-
-                # Check if node_id matches any prefix
-                if not any(node_id.startswith(f"{prefix}:") for prefix in prefixes):
-                    continue
-
-                # Parse embedding vector
-                try:
-                    vector = np.array([float(x) for x in parts[1:]], dtype=np.float32)
-                    embeddings[node_id] = vector
-                except (ValueError, IndexError):
-                    continue
-
-        print(f"✅ Loaded {len(embeddings):,} embeddings")
-
-        # Save to cache
-        print(f"💾 Caching to {cache_path}")
-        with open(cache_path, "wb") as f:
-            pickle.dump(embeddings, f, protocol=pickle.HIGHEST_PROTOCOL)
-
+        # #905: legacy caches are not a source receipt. Read actual bytes.
+        source = GraphSource(self.embeddings_path, prefixes, node_ids=node_ids)
+        embeddings = {node: np.asarray(vector, dtype=np.float32) for node, vector in source}
+        self.source_receipt = source.receipt
         return embeddings
 
     def get_embedding_dim(self, embeddings: dict[str, np.ndarray]) -> int:
