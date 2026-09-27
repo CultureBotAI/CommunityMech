@@ -1,0 +1,383 @@
+id: CommunityMech:000445
+name: Saccharomyces Met-Trp4 FLO1 Resveratrol Coculture
+description: >-
+  A defined two-member synthetic Saccharomyces cerevisiae coculture that
+  combines Met-Trp4 coauxotrophic cross-feeding, FLO1-mediated cell adhesion,
+  and division of labor across the de novo resveratrol pathway. In the
+  Met-Trp4 A-B:FLO1 configuration, a met14 knockout derivative of the
+  nonflocculating 007 deletion background carries the FjTAL upstream module
+  that converts L-tyrosine to p-coumaric acid, while a trp4 knockout partner
+  carries the At4CL and VvVST1 downstream module that converts p-coumaric acid
+  to resveratrol. After 48 h in SM medium, the FLO1 adhesion variant produced
+  more resveratrol than the no-FLO1 Met-Trp4 A-B coculture, noncross-feeding
+  controls, and a monoculture carrying the full pathway.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: >-
+    Combine cross-feeding, FLO1-mediated cell adhesion, and resveratrol-pathway
+    division of labor in a synthetic yeast coculture.
+  assembly_strategy: >-
+    Pair a 007-derived met14 knockout Saccharomyces cerevisiae cell-1 lineage
+    carrying module A with a 007-derived trp4 knockout cell-2 lineage carrying
+    module B, then use the FLO1 adhesion version of the Met-Trp4 A-B coculture
+    for the strongest resveratrol proof of concept.
+  perturbation_design: >-
+    Compare Met-Trp4 A-B:FLO1 against the corresponding no-FLO1 Met-Trp4 A-B
+    coculture, no-cross-feeding module A/module B controls, and a monoculture
+    control expressing the complete resveratrol pathway.
+  measurement_endpoints:
+  - OD600 after 48 h
+  - p-coumaric acid concentration
+  - Resveratrol concentration
+  - Resveratrol production normalized by OD600
+  evidence:
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      we used three coculture pairs (Lys–Ade, Trp2–Trp4 and Met–Trp4), each
+      with or without the incorporating of FLO1co adhesion pairs
+    explanation: >-
+      Supports the use of Met-Trp4 FLO1 yeast pairs as one tested cross-feeding
+      and adhesion design.
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      In each coculture, one strain was engineered with module A (FjTAL) and the
+      other with module B (At4CL and VvVST1)
+    explanation: >-
+      Supports the division of labor between the FjTAL and At4CL/VvVST1
+      resveratrol modules.
+environment_term:
+  preferred_term: engineered yeast resveratrol coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >-
+    Synthetic S. cerevisiae coculture grown in SM medium for laboratory
+    resveratrol bioproduction assays.
+taxonomy:
+- taxon_term:
+    preferred_term: Saccharomyces cerevisiae 007 met14 module A FLO1 cell 1
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: >-
+      Engineered 007-background S. cerevisiae Met auxotroph used as cell 1 in
+      the Met-Trp4 A-B:FLO1 coculture and assigned to module A of the
+      resveratrol pathway.
+  strain_designation:
+    strain_name: 007 met14 module A FLO1
+    genetic_modification: >-
+      Derived from BY4741 with native FLO1, FLO5, FLO10, FLO11, AGA1, AGA2, and
+      SAG1 deleted; additionally met14-deficient for Met-Trp4 cross-feeding,
+      engineered with the FjTAL module A, and run in the FLO1 adhesion variant.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Cell 1: lys2Δ (trp2Δ or met14Δ) sfGFP; Cell 2: ade8Δ (or trp4Δ) mRuby2
+    explanation: >-
+      Supports the met14-deficient lineage as cell 1 in Met-Trp4 yeast
+      cocultures.
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The superscript ‘A–B’ denotes module A in cell 1 and module B in cell 2
+    explanation: >-
+      Supports assigning module A, the FjTAL upstream resveratrol module, to the
+      met14 cell-1 member in the Met-Trp4 A-B configuration.
+- taxon_term:
+    preferred_term: Saccharomyces cerevisiae 007 trp4 module B FLO1 cell 2
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: >-
+      Engineered 007-background S. cerevisiae Trp auxotroph used as cell 2 in
+      the Met-Trp4 A-B:FLO1 coculture and assigned to module B of the
+      resveratrol pathway.
+  strain_designation:
+    strain_name: 007 trp4 module B FLO1
+    genetic_modification: >-
+      Derived from BY4741 with native FLO1, FLO5, FLO10, FLO11, AGA1, AGA2, and
+      SAG1 deleted; additionally trp4-deficient for Met-Trp4 cross-feeding,
+      engineered with the At4CL/VvVST1 module B, and run in the FLO1 adhesion
+      variant.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Cell 1: lys2Δ (trp2Δ or met14Δ) sfGFP; Cell 2: ade8Δ (or trp4Δ) mRuby2
+    explanation: >-
+      Supports the trp4-deficient lineage as cell 2 in Met-Trp4 yeast
+      cocultures.
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The superscript ‘A–B’ denotes module A in cell 1 and module B in cell 2
+    explanation: >-
+      Supports assigning module B, the At4CL/VvVST1 downstream resveratrol
+      module, to the trp4 cell-2 member in the Met-Trp4 A-B configuration.
+related_ingredients:
+- preferred_term: L-tyrosine
+  relevance: >-
+    L-tyrosine is the aromatic amino acid substrate converted to p-coumaric
+    acid by the FjTAL-containing module A strain.
+  evidence:
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Module A contained FjTAL, catalyzing L-tyrosine to p-coumaric acid
+    explanation: >-
+      Identifies L-tyrosine as the upstream substrate in the divided resveratrol
+      pathway.
+- preferred_term: p-coumaric acid
+  chebi_term:
+    id: CHEBI:32374
+    label: trans-4-coumaric acid
+  relevance: >-
+    p-Coumaric acid is the intermediate produced by module A and consumed by the
+    At4CL/VvVST1 module B partner.
+  evidence:
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      module B contained At4CL and VvVST1, converting p-coumaric acid to
+      resveratrol
+    explanation: >-
+      Identifies p-coumaric acid as the module B substrate in the divided
+      resveratrol pathway.
+- preferred_term: resveratrol
+  relevance: >-
+    Resveratrol was the target high-value aromatic product measured after 48 h
+    of Met-Trp4 A-B:FLO1 coculture growth.
+  evidence:
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Met–Trp4A–B:FLO1 produced 0.67 μM of resveratrol
+    explanation: Supports resveratrol as the target product of the FLO1 coculture.
+ecological_interactions:
+- name: Met-Trp4 Coauxotrophic Cross-Feeding
+  description: >-
+    The two engineered S. cerevisiae auxotrophs require one another for growth
+    in SM medium; the Met-Trp4 pair couples a met14-deficient cell-1 lineage
+    with a trp4-deficient cell-2 lineage in a defined cross-feeding coculture.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Saccharomyces cerevisiae 007 met14 module A FLO1 cell 1
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  - preferred_term: Saccharomyces cerevisiae 007 trp4 module B FLO1 cell 2
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  downstream:
+  - target: FLO1 Adhesion-Enhanced Resveratrol Production
+    description: >-
+      The Met-Trp4 cross-feeding pair was one of the auxotrophic backgrounds
+      used to test whether FLO1 adhesion improved divided resveratrol
+      production.
+  evidence:
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      two auxotrophic cells, cell 1 and cell 2, must be present simultaneously
+      to form cross-feeding for growth
+    explanation: >-
+      Supports the mutual dependence of the engineered two-member auxotrophic
+      yeast cocultures.
+- name: Resveratrol Pathway Division of Labor
+  description: >-
+    The met14 cell-1 partner runs module A to convert L-tyrosine into the
+    p-coumaric acid intermediate, which is then routed to the trp4 cell-2
+    partner carrying module B for conversion into resveratrol.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Saccharomyces cerevisiae 007 met14 module A FLO1 cell 1
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  target_taxon:
+    preferred_term: Saccharomyces cerevisiae 007 trp4 module B FLO1 cell 2
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  metabolites:
+  - preferred_term: p-coumaric acid
+    term:
+      id: CHEBI:32374
+      label: trans-4-coumaric acid
+  downstream:
+  - target: Resveratrol Production
+    description: >-
+      The divided module A/module B pathway produces resveratrol through the
+      p-coumaric acid intermediate.
+  evidence:
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Module A contained FjTAL, catalyzing L-tyrosine to p-coumaric acid, while
+      module B contained At4CL and VvVST1, converting p-coumaric acid to
+      resveratrol
+    explanation: >-
+      Supports the module A to module B p-coumaric-acid handoff in the divided
+      resveratrol pathway.
+- name: FLO1 Adhesion-Enhanced Resveratrol Production
+  description: >-
+    Adding the FLO1 adhesion system to the Met-Trp4 A-B division-of-labor
+    coculture increased resveratrol production compared with the no-FLO1
+    Met-Trp4 A-B coculture, the corresponding FLO1 noncross-feeding control,
+    and the full-pathway monoculture control.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Saccharomyces cerevisiae 007 met14 module A FLO1 cell 1
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  - preferred_term: Saccharomyces cerevisiae 007 trp4 module B FLO1 cell 2
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  downstream:
+  - target: Resveratrol Production
+    description: >-
+      Met-Trp4 A-B:FLO1 produced 0.67 μM resveratrol and outperformed the
+      monoculture and no-FLO1 Met-Trp4 A-B controls.
+  evidence:
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Notably, the pair Met-Trp4, in the presence of FLO1, always increased
+      production
+    explanation: >-
+      Supports FLO1 adhesion as beneficial for resveratrol production in the
+      Met-Trp4 background.
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Met–Trp4A–B:FLO1 produced 0.67 μM of resveratrol, a 2.47-fold increase
+      compared to Mctrl
+    explanation: >-
+      Quantifies the Met-Trp4 A-B:FLO1 endpoint against the full-pathway
+      monoculture control.
+growth_media:
+- name: SM medium
+  temperature: '30'
+  temperature_unit: °C
+  shaking_speed: '250'
+  shaking_speed_unit: rpm
+  vessel_type: 96-well deep plate
+  composition:
+  - name: yeast nitrogen base without amino acids
+    concentration: '6.7'
+    unit: g/L
+    from_source: community_curated
+  - name: glucose
+    concentration: '20'
+    unit: g/L
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+  preparation_notes: >-
+    SM medium was prepared with yeast nitrogen base without amino acids, 20 g/L
+    glucose, and amino acids from the Mülleder et al. recipe; resveratrol
+    production assays inoculated two washed strains into 480 μl of SM at a
+    combined starting OD600 of 0.8 and incubated 500 μl cultures for 48 h.
+  evidence:
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      SM medium was prepared by combining 6.7 g l−1 yeast nitrogen base without
+      amino acids, 20 g l−1 glucose and amino acids
+    explanation: Supports the two explicitly reported SM medium components.
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      All cultures were incubated at 30 °C and 250 rpm for 48 h in InforsHT
+      Multitron incubators
+    explanation: >-
+      Supports the 30 °C, 250 rpm, 48 h incubation for the resveratrol
+      bioproduction assay.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  working_volume: 500.0
+  working_volume_unit: uL
+  operating_temperature: 30.0
+  operating_temperature_unit: °C
+  notes: >-
+    Resveratrol bioproduction assays used 500 μl batch cocultures in 96-well
+    deep plates, seeded at combined OD600 0.8 from a 1:1 mixture for Met-Trp4.
+  evidence:
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Cocultures were set with a combined OD600nm of 0.8 (0.4 per strain) by
+      inoculating 20 μl of mixed washed seed cultures (OD600nm = 20) into 480 μl
+      of SM medium
+    explanation: >-
+      Supports the initial density, 1:1 strain contribution, and SM medium
+      volume for the batch cocultures.
+external_resources:
+- name: Primary article - programmable yeast adhesion resveratrol coculture
+  repository: OTHER
+  resource_id: doi:10.1038/s41589-025-02081-1
+  url: https://doi.org/10.1038/s41589-025-02081-1
+  description: >-
+    Nature Chemical Biology article reporting the engineered FLO1 Met-Trp4
+    S. cerevisiae resveratrol coculture.
+  evidence:
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Programmable cell-cell adhesion in synthetic yeast communities for
+      improved bioproduction
+    explanation: Identifies the primary publication for this community.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >-
+  No metal or rare-earth processing role is reported for the engineered
+  S. cerevisiae resveratrol coculture.
+curation_history:
+- timestamp: '2026-09-27T03:08:31Z'
+  curator: codex
+  action: CREATE_YEAST_ADHESION_RESVERATROL_COCULTURE
+  changes: >-
+    Created CommunityMech:000445 from PMID:41491832 and DOI
+    10.1038/s41589-025-02081-1 with evidence-backed Met-Trp4 FLO1 S.
+    cerevisiae membership, FjTAL/At4CL/VvVST1 resveratrol pathway division of
+    labor, coauxotrophic cross-feeding, FLO1 adhesion enhancement, SM medium,
+    and microplate bioproduction conditions.
+  llm_assisted: true
