@@ -112,10 +112,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:460523
       label: Ogataea polymorpha
-  downstream:
-  - target: Growth restoration in Delft minimal medium
-    description: met10Δ-str3Δ restored robust community growth in minimal glucose medium relative to the blocked single-auxotroph
-      controls.
   evidence:
   - reference: PMID:42318495
     supports: SUPPORT
@@ -142,10 +138,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:460523
       label: Ogataea polymorpha
-  downstream:
-  - target: asymmetric met10Δ enrichment
-    description: The broader sulfur-intermediate rescue profile of met10Δ helped explain the bias toward met10Δ during population
-      tracking.
   evidence:
   - reference: PMID:42318495
     supports: SUPPORT
@@ -350,4 +342,10 @@ curation_history:
   action: ADD_OD600_GROWTH_MEDIA_EVIDENCE
   changes: 'Added exact Methods evidence snippets for glucose screening, FY31/FY34 population tracking, and methanol initial
     OD600 values after adversarial review issue #1149.'
+  llm_assisted: true
+- timestamp: '2026-09-27T13:21:06Z'
+  curator: codex
+  action: REMOVE_DANGLING_DOWNSTREAM_TARGETS
+  changes: 'Removed two Ogataea downstream outcome labels that the network audit correctly treated as dangling interaction-edge
+    targets for issue #1150.'
   llm_assisted: true
