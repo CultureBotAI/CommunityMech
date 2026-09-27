@@ -526,10 +526,11 @@ def test_the_status_distribution_is_what_was_measured():
     # species member. The low-nitrogen anammox biofilter adds two genera, the
     # Fucoidan seven-degrader SynCom adds seven strain-level bacteria, the
     # Auxenochlorella-Pseudomonas phycosphere record adds one genus-level
-    # isolate, and the Leptolyngbya-Pseudomonas mangrove co-culture adds one
-    # L. lignicola species member, so tolerate the measured 450 without
-    # tolerating a domain-lookup collapse.
-    assert counts["UNRESOLVED"] < 451, (
+    # isolate, the Leptolyngbya-Pseudomonas mangrove co-culture adds one
+    # L. lignicola species member, and the Thermoleptolyngbya-Chelatococcus
+    # arsenic coculture adds two strain members, so tolerate the measured 452
+    # without tolerating a domain-lookup collapse.
+    assert counts["UNRESOLVED"] < 453, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
