@@ -212,6 +212,18 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: Initial ratios of met10Δ to str3Δ were set at 1:10, 1:5, 1:1, 5:1, and 10:1.
     explanation: Supports the glucose population-tracking ratio series.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For screening under glucose conditions, co-cultures were initiated in Delft medium containing 20 g/L glucose
+      at an initial total OD600 of 0.2 with a 1:1 strain ratio.
+    explanation: Supports the glucose screening inoculation density and 1:1 starting ratio.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: FY31 (str3Δ-EGFP) and FY34 (met10Δ-mCherry) were co-cultured in Delft medium containing 20 g/L glucose at an
+      initial total OD600 of 0.4.
+    explanation: Supports the FY31/FY34 fluorescence-tracking inoculation density.
 - name: Delft minimal methanol medium
   temperature: '37'
   temperature_unit: °C
@@ -240,6 +252,12 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: met10Δ-str3Δ consistently performed well under both methanol concentrations and was selected for further characterization.
     explanation: Supports met10Δ-str3Δ complementation on both methanol concentrations.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For methanol experiments, Delft medium containing 10 or 20 g/L methanol was used as the sole carbon source. The
+      initial total OD600 was set to 0.6.
+    explanation: Supports the methanol-only medium and the 0.6 initial total OD600.
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: FLASK
@@ -326,4 +344,10 @@ curation_history:
   changes: Created CommunityMech:000450 from PMID:42318495 and DOI 10.1016/j.synbio.2026.05.008 with evidence-backed O. polymorpha
     FY34 met10Δ-mCherry and FY31 str3Δ-EGFP membership, auxotrophy-based sulfur cross-feeding, asymmetric homocysteine dependency,
     inoculation-ratio tracking, and Delft glucose/methanol batch cultivation conditions.
+  llm_assisted: true
+- timestamp: '2026-09-27T13:16:09Z'
+  curator: codex
+  action: ADD_OD600_GROWTH_MEDIA_EVIDENCE
+  changes: 'Added exact Methods evidence snippets for glucose screening, FY31/FY34 population tracking, and methanol initial
+    OD600 values after adversarial review issue #1149.'
   llm_assisted: true
