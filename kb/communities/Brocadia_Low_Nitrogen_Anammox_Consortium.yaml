@@ -1,0 +1,203 @@
+id: CommunityMech:000447
+name: Brocadia Low-Nitrogen Anammox Consortium
+description: A laboratory anammox biofilter community operated under sustained low-substrate nitrogen stress, where metagenomics,
+  metatranscriptomics, co-occurrence networks, and SMETANA supported functional succession from Ca. Kuenenia toward a multispecies,
+  transcriptionally active Ca. Brocadia assemblage with lower modeled resource overlap and complementary auxotrophies.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Identify ecological mechanisms that can stabilize mainstream anammox performance in low-strength wastewater.
+  assembly_strategy: Operate an anammox biofilter under sustained low-substrate nitrogen stress and follow the transition
+    from early Ca. Kuenenia activity to a long-term Ca. Brocadia assemblage.
+  measurement_endpoints:
+  - metagenomics
+  - metatranscriptomics
+  - co-occurrence networks
+  - SMETANA metabolic interaction predictions
+  evidence:
+  - reference: PMID:42323145
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: combined metagenomics, metatranscriptomics, co-occurrence networks, and SMETANA
+    explanation: Names the multi-omics, network, and genome-scale modeling readouts used to analyze the low-nitrogen anammox
+      biofilter.
+environment_term:
+  preferred_term: laboratory low-nitrogen anammox biofilter
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The abstract identifies an operated anammox biofilter subjected to low-nitrogen stress; the accessible abstract does
+    not expose the reactor geometry or feed recipe.
+modeled_environment:
+- preferred_term: low-strength wastewater anammox bioreactor
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+  notes: Mainstream anammox treatment for low-strength wastewater is the applied process represented by the laboratory biofilter.
+taxonomy:
+- taxon_term:
+    preferred_term: Ca. Brocadia low-nitrogen assemblage
+    term:
+      id: NCBITaxon:380240
+      label: Candidatus Brocadia
+    gtdb_grounding_status: UNRESOLVED
+    notes: The PubMed abstract reports a multispecies Ca. Brocadia assemblage but does not identify the Brocadia species or
+      MAG identifiers.
+  abundance_level: DOMINANT
+  relative_abundance: 44.7
+  relative_abundance_unit: percent
+  abundance_value: Increased from 1.0% to 44.7% relative abundance and contributed 71.5% of total transcriptional activity
+    after long-term low-nitrogen operation
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42323145
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Ca. Brocadia replaced Ca. Kuenenia as the dominant functional lineage
+    explanation: Supports the dominant late-operation role of Ca. Brocadia in the low-nitrogen anammox biofilter.
+  - reference: PMID:42323145
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: increasing from 1.0% to 44.7% in relative abundance and contributing 71.5% of total transcriptional activity
+    explanation: Supports the reported Ca. Brocadia abundance increase and transcriptional contribution.
+- taxon_term:
+    preferred_term: Ca. Kuenenia early-acclimation lineage
+    term:
+      id: NCBITaxon:380738
+      label: Candidatus Kuenenia
+    gtdb_grounding_status: UNRESOLVED
+    notes: Ca. Kuenenia was resolved at genus level as an early-acclimation anammox lineage that was ultimately replaced by
+      Ca. Brocadia.
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:42323145
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: During early acclimation, Ca. Kuenenia reduced the expression of costly biosynthetic pathways
+    explanation: Supports Ca. Kuenenia as the early-acclimation lineage tracked in the biofilter succession study.
+ecological_interactions:
+- name: Brocadia complementary low-nitrogen auxotrophy
+  description: SMETANA modeling inferred complementary auxotrophies among the long-term Ca. Brocadia assemblage, consistent
+    with potential cooperation rather than dominance by one superior anammox competitor.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Ca. Brocadia low-nitrogen assemblage
+    term:
+      id: NCBITaxon:380240
+      label: Candidatus Brocadia
+  evidence:
+  - reference: PMID:42323145
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: characterized by complementary model-inferred auxotrophies
+    explanation: Supports the computationally inferred auxiliary metabolite complementarity within the multispecies Ca. Brocadia
+      assemblage.
+    computational_provenance:
+      prediction_type: METABOLIC_INTERACTION_SIMULATION
+      tools:
+      - tool_name: SMETANA
+        role: infer species metabolic coupling and resource overlap in the Ca. Brocadia assemblage
+      model_source: genome-scale models derived from the anammox biofilter metagenomic analysis
+environmental_factors:
+- name: Sustained low-substrate nitrogen stress
+  description: The operated anammox biofilter was held under low-substrate nitrogen stress, the selective regime that accompanied
+    functional succession from Ca. Kuenenia toward Ca. Brocadia.
+  evidence:
+  - reference: PMID:42323145
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: unstable performance under low nitrogen
+    explanation: Supports low-nitrogen operation as the relevant stress in mainstream anammox treatment.
+  - reference: PMID:42323145
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: operated an anammox biofilter under sustained low‑nitrogen stress
+    explanation: Supports an operated anammox biofilter as the physical system used for the low-nitrogen experiment.
+- name: Ca. Brocadia transcriptional activation
+  value: about 18-fold anammox-gene upregulation
+  description: Ca. Brocadia showed broad transcriptional activation under low-nitrogen operation, including a large increase
+    in anammox-gene expression.
+  evidence:
+  - reference: PMID:42323145
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Ca. Brocadia showed broad transcriptional activation
+    explanation: Supports transcriptional activation of Ca. Brocadia during low-nitrogen operation.
+  - reference: PMID:42323145
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: anammox genes upregulated by
+    explanation: Supports upregulation of Ca. Brocadia anammox genes during low-nitrogen operation.
+- name: Lower modeled metabolic resource overlap
+  value: 0.66 versus 0.77 in the high-nitrogen system
+  description: The long-term Ca. Brocadia assemblage had lower predicted metabolic resource overlap than the high-nitrogen
+    comparison community.
+  evidence:
+  - reference: PMID:42323145
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: lower predicted metabolic resource overlap than that observed in the high-nitrogen system
+    explanation: Supports lower modeled resource overlap as a distinguishing property of the low-nitrogen Brocadia assemblage.
+    computational_provenance:
+      prediction_type: METABOLIC_INTERACTION_SIMULATION
+      tools:
+      - tool_name: SMETANA
+        role: predict metabolic resource overlap
+external_resources:
+- name: PubMed record
+  repository: OTHER
+  resource_id: PMID:42323145
+  url: https://pubmed.ncbi.nlm.nih.gov/42323145/
+  description: PubMed record for the Bioresource Technology primary article on low-nitrogen anammox succession toward Ca.
+    Brocadia.
+  evidence:
+  - reference: PMID:42323145
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'PMID: 42323145'
+    explanation: Supports the PubMed identifier for the source article.
+- name: Article DOI
+  repository: OTHER
+  resource_id: doi:10.1016/j.biortech.2026.135206
+  url: https://doi.org/10.1016/j.biortech.2026.135206
+  description: DOI for the Bioresource Technology primary article reporting low-substrate nitrogen acclimation in an anammox
+    biofilter.
+  evidence:
+  - reference: PMID:42323145
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1016/j.biortech.2026.135206'
+    explanation: Supports the DOI assigned to the source article.
+discussions:
+- discussion_id: brocadia_low_nitrogen_species_resolution
+  prompt: Which exact Ca. Brocadia species or MAGs composed the multispecies low-nitrogen assemblage, and what reactor geometry,
+    influent nitrogen concentrations, and loading rates produced the succession?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy#Ca. Brocadia low-nitrogen assemblage
+  - environmental_factors#Sustained low-substrate nitrogen stress
+  rationale: The PubMed abstract establishes genus-level succession and model-inferred Brocadia cooperation, but the article
+    was not open-access through Europe PMC and the abstract does not expose species-level MAG identities or reproducible biofilter
+    operating parameters.
+  posed_by: codex
+  posed_date: '2026-09-27'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: The PubMed abstract describes mainstream anammox nitrogen removal under low-nitrogen stress, not biomining, metal
+  transformation, or rare-earth-element cycling.
+curation_history:
+- timestamp: '2026-09-27T07:15:29Z'
+  curator: codex
+  action: CREATE_COMMUNITY_RECORD
+  changes: Curated CommunityMech:000447 from PMID:42323145 / doi:10.1016/j.biortech.2026.135206 at genus level, with Brocadia/Kuenenia
+    membership, SMETANA-supported Brocadia complementarity, low-nitrogen anammox biofilter context, DOI/PubMed resources,
+    and an open discussion for species, MAG, and reactor details absent from the accessible abstract.
+  llm_assisted: true
