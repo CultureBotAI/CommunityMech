@@ -1,0 +1,359 @@
+id: CommunityMech:000461
+name: Pseudomonas-Acidovorax Aniline-Degradation SynCom
+description: >-
+  A two-member Pseudomonas sp./Acidovorax sp. synthetic microbial consortium,
+  RF-PH, assembled from the aniline-degrading strains RF and PH isolated from
+  heavily aniline-contaminated soil in a Dalian chemical industrial park. Pan et
+  al. 2026 identified Pseudomonas and Acidovorax isolates by 16S rRNA sequencing,
+  optimized their inoculation ratio in mineral-salts medium containing aniline,
+  and designated a 3:1 RF:PH mixture as RF-PH after the consortium outperformed
+  either monoculture in aniline shake-flask assays.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: >-
+    Assemble a two-strain synthetic bacterial consortium for rapid aniline
+    degradation using isolates recovered from aniline-contaminated industrial
+    soil.
+  assembly_strategy: >-
+    Screen heavily contaminated soil on R2A medium supplemented with aniline,
+    identify the two aniline-degrading isolates as Pseudomonas sp. RF and
+    Acidovorax sp. PH by 16S rRNA sequencing, and optimize their mixture in
+    mineral-salts medium containing 500 mg/L aniline.
+  inoculation_strategy: >-
+    Resuspend late-log LB cultures of both isolates in sterile water at OD600
+    2.0 and combine them in mineral-salts medium at the RF:PH biomass ratio
+    selected by an orthogonal design.
+  perturbation_design: >-
+    Compare multiple RF:PH inoculation ratios in shake flasks and benchmark the
+    optimized 3:1 RF-PH consortium against the two monocultures at 300, 500, and
+    1000 mg/L aniline.
+  measurement_endpoints:
+  - aniline degradation rate
+  - Pseudomonas sp. RF monoculture degradation
+  - Acidovorax sp. PH monoculture degradation
+  - consortium-to-monoculture degradation improvement
+  notes: >-
+    The study proposed cooperative and complementary behavior between RF and PH,
+    but did not identify a specific exchanged metabolite or assign a directional
+    pairwise cross-feeding step.
+  evidence:
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      This study aimed to construct a highly efficient aniline-degrading
+      synthetic microbial consortium guided by ecological niche information from
+      contaminated soil.
+    explanation: >-
+      Supports the overall engineered bioremediation objective of the RF-PH
+      SynCom.
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Through orthogonal experiments to optimize the inoculation ratio, a
+      synthetic consortium, RF-PH, composed of the two strains at a 3:1 ratio,
+      was constructed.
+    explanation: >-
+      Supports construction of the two-strain RF-PH consortium and the final
+      RF:PH ratio.
+environment_term:
+  preferred_term: aniline-fed laboratory shake-flask coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >-
+    RF-PH was a defined laboratory coculture assayed in mineral-salts shake
+    flasks containing aniline.
+modeled_environment:
+- preferred_term: aniline-contaminated industrial soil
+  term:
+    id: ENVO:00002116
+    label: contaminated soil
+  notes: >-
+    The RF and PH isolates were recovered from heavily polluted soil sampled at
+    a chemical industrial park in Dalian City, Liaoning Province, China.
+taxonomy:
+- taxon_term:
+    preferred_term: Pseudomonas sp. RF
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+    notes: >-
+      16S rRNA sequencing placed strain RF in the genus Pseudomonas; no
+      species-level assignment was reported.
+  strain_designation:
+    strain_name: RF
+    isolation_source: heavily aniline-contaminated Dalian industrial-park soil
+    notes: 16S rRNA GenBank accession PX736766.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Identification via 16S rRNA gene sequencing and BLAST analysis confirmed
+      the strains belonged to the genera Pseudomonas and Acidovorax,
+      respectively.
+    explanation: >-
+      Supports genus-level curation of RF as Pseudomonas and PH as Acidovorax.
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Pseudomonas sp. RF completely degraded 500 mg·L−1 aniline within 18 h and
+      achieved complete degradation of 1000 mg·L−1 aniline within 24 h
+    explanation: Supports the primary aniline-degrader role for RF.
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >-
+      The 16S rRNA gene sequences of strains PH and RF have been deposited in
+      GenBank under accession numbers PX736765 and PX736766
+    explanation: >-
+      Supports PX736766 as the GenBank accession for the RF 16S rRNA sequence.
+- taxon_term:
+    preferred_term: Acidovorax sp. PH
+    term:
+      id: NCBITaxon:12916
+      label: Acidovorax
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Acidovorax
+      gtdb_taxon: Acidovorax
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Acidovorax
+      ncbi_source_id: NCBITaxon:12916
+      majority_fraction: 0.997
+      support_genomes: 323
+      total_genomes: 324
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
+    notes: >-
+      16S rRNA sequencing placed strain PH in the genus Acidovorax; no
+      species-level assignment was reported.
+  strain_designation:
+    strain_name: PH
+    isolation_source: heavily aniline-contaminated Dalian industrial-park soil
+    notes: 16S rRNA GenBank accession PX736765.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Identification via 16S rRNA gene sequencing and BLAST analysis confirmed
+      the strains belonged to the genera Pseudomonas and Acidovorax,
+      respectively.
+    explanation: >-
+      Supports genus-level curation of RF as Pseudomonas and PH as Acidovorax.
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Acidovorax sp. PH achieved 100% and 97.31% degradation rates for 500
+      mg·L−1 and 1000 mg·L−1 aniline, respectively, within 24 h
+    explanation: Supports the primary aniline-degrader role for PH.
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >-
+      The 16S rRNA gene sequences of strains PH and RF have been deposited in
+      GenBank under accession numbers PX736765 and PX736766
+    explanation: >-
+      Supports PX736765 as the GenBank accession for the PH 16S rRNA sequence.
+ecological_interactions:
+- name: RF-PH enhanced aniline degradation
+  description: >-
+    The optimized 3:1 RF-PH consortium degraded 500 mg/L aniline more rapidly
+    within 12 h than either single-strain culture, and also improved 12 h
+    removal at 1000 mg/L aniline.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas sp. RF
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Acidovorax sp. PH
+    term:
+      id: NCBITaxon:12916
+      label: Acidovorax
+  evidence:
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      For 500 mg·L−1 aniline, the degradation rate reached 91.28% within 12 h,
+      representing an increase of 11.33% and 17.02% compared to the degradation
+      rates achieved by strain RF or strain PH alone, respectively.
+    explanation: >-
+      Supports the community-level enhancement of aniline degradation by RF-PH
+      relative to either monoculture.
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      For 1000 mg·L−1 aniline, the degradation rate reached 73.06% within 12 h,
+      representing an increase of 18.25% and 28.04% compared to the degradation
+      by strain RF or strain PH alone, respectively.
+    explanation: >-
+      Supports the RF-PH consortium's enhanced 1000 mg/L aniline degradation
+      relative to either monoculture.
+environmental_factors:
+- name: RF-PH inoculation ratio
+  value: RF:PH = 3:1
+  unit: biomass ratio
+  description: >-
+    Orthogonal ratio screening selected a 3:1 Pseudomonas sp. RF to Acidovorax
+    sp. PH biomass ratio as the final RF-PH consortium.
+  evidence:
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The maximum aniline degradation rate obtained in the experiments was
+      93.28%, from Experiment No. 2, where the inoculation ratio of strains RF
+      to PH was 3:1.
+    explanation: Supports the selected 3:1 RF:PH ratio.
+- name: aniline assay substrate
+  value: aniline
+  unit: 500 mg/L
+  description: >-
+    The RF-PH consortium construction assay used mineral salt medium with 500
+    mg/L aniline as the pollutant substrate.
+  evidence:
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      In 100 mL of mineral salt medium containing 500 mg·L−1 aniline, bacterial
+      resuspensions were added according to the ratios outlined, followed by
+      shake-flask cultivation at 150 r·min−1 for 3 days.
+    explanation: Supports the aniline concentration and shake-flask setup.
+growth_media:
+- name: RF-PH mineral-salts aniline shake-flask medium
+  composition:
+  - name: aniline
+    concentration: "500"
+    unit: mg/L
+  - name: MgSO4.7H2O
+    concentration: "0.2"
+    unit: g/L
+  - name: CaCl2
+    concentration: "0.01"
+    unit: g/L
+  - name: FeSO4.7H2O
+    concentration: "0.001"
+    unit: g/L
+  - name: KH2PO4
+    concentration: "1.5"
+    unit: g/L
+  - name: Na2HPO4
+    concentration: "1.00"
+    unit: g/L
+  - name: MnSO4
+    concentration: "0.02"
+    unit: g/L
+  - name: NH4Cl
+    concentration: "1"
+    unit: g/L
+  ph: 7.0
+  inoculum_size: "OD600 2.0 cell suspensions"
+  inoculum_unit: RF:PH = 3:1 biomass ratio
+  incubation_time: 3
+  incubation_time_unit: days
+  shaking_speed: 150
+  shaking_speed_unit: rpm
+  vessel_type: 100 mL shake-flask culture
+  preparation_notes: >-
+    RF and PH were grown in LB to late logarithmic phase, washed, resuspended in
+    sterile water, adjusted to OD600 2.0, and added to 100 mL mineral salt
+    medium containing aniline.
+  evidence:
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      In 100 mL of mineral salt medium containing 500 mg·L−1 aniline, bacterial
+      resuspensions were added according to the ratios outlined, followed by
+      shake-flask cultivation at 150 r·min−1 for 3 days.
+    explanation: Supports the RF-PH consortium construction culture.
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      MgSO4·7H2O (0.2 g·L−1), CaCl2 (0.01 g·L−1), FeSO4·7H2O (0.001 g·L−1),
+      KH2PO4 (1.5 g·L−1), Na2HPO4 (1.00 g·L−1), MnSO4 (0.02 g·L−1), and NH4Cl
+      (1 g·L−1)
+    explanation: Supports the mineral-salts medium composition.
+external_resources:
+- name: Primary publication - RF-PH aniline-degradation SynCom
+  repository: OTHER
+  resource_id: PMID:41900437
+  url: https://pubmed.ncbi.nlm.nih.gov/41900437/
+  description: >-
+    Microorganisms 2026 open-access primary article,
+    doi:10.3390/microorganisms14030678, describing the two-member RF-PH
+    Pseudomonas/Acidovorax aniline-degradation SynCom.
+  evidence:
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Construction of a Synthetic Aniline-Degrading Consortium Consisting of
+      Pseudomonas sp. RF and Acidovorax sp. PH Guided by Soil Niche Information
+      from Contaminated Sites
+    explanation: Identifies the exact primary publication for RF-PH.
+discussions:
+- discussion_id: rf_ph_aniline_pairwise_mechanism
+  prompt: >-
+    Which molecular mechanisms, if any, connect Pseudomonas sp. RF and
+    Acidovorax sp. PH to enhanced RF-PH aniline degradation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#RF-PH enhanced aniline degradation
+  rationale: >-
+    Pan et al. 2026 reported that RF-PH outperformed either monoculture and
+    proposed cooperative and complementary characteristics of the two strains,
+    but did not experimentally identify a transferred intermediate or other
+    directional pairwise mechanism.
+  posed_by: codex
+  posed_date: '2026-09-28'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >-
+  The cited article reports aniline biodegradation in a Pseudomonas/Acidovorax
+  SynCom, not metal or rare-earth transformation.
+curation_history:
+- timestamp: '2026-09-28T08:14:01Z'
+  curator: codex
+  action: ADD_COMMUNITY_RECORD
+  changes: >-
+    Added a two-member Pseudomonas sp. RF and Acidovorax sp. PH RF-PH
+    aniline-degradation SynCom from PMID:41900437.
+  llm_assisted: true
+- timestamp: '2026-09-28T08:21:04Z'
+  curator: codex
+  action: FIX_ADVERSARIAL_REVIEW_FINDINGS
+  changes: >-
+    Removed unsupported RF-PH temperature and aerobic-atmosphere fields, added
+    exact support for the 1000 mg/L enhancement and RF/PH GenBank accession
+    claims, and reworded the open pairwise-mechanism discussion flagged in
+    GitHub issues #1189, #1190, #1191, and #1192.
+  llm_assisted: true
