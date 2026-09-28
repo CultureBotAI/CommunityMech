@@ -42,17 +42,55 @@ The fungal strain F. betulina CIRM-BRFM 860 was purchased from the Bioresource C
 
 A fungal plug (5 x 5 mm) was harvested from a fungal subculture and inoculated on the left side of Petri dishes with Malt Extract Agar (MEA) medium.
 
+The cultures were incubated for 4 days at 25 C, until the mycelium reached the middle of the plates.
+
 Then, 50 uL of a normalized bacteria inoculum (OD600 = 0.1, corresponding to 10^6 UFC.mL-1) was spread on the surface of the right side of the plates.
+
+The plates were incubated at 25 C for 12 h.
+
+Plates inoculated with the fungus alone or bacteria alone were used as controls.
+
+The pH on the surface of the agar medium was measured using an InLab Pro Surface probe.
+
+The supernatants were then transferred into 20 mL vials, dried and recovered in 1 mL MeOH before UHPLC-HRMS analysis.
+
+Mass spectrometry metabolomic analysis was performed on an Ultra High-Performance Liquid Chromatography coupled to a High-Resolution mass spectrometer.
 
 Three fungal plug (5 x 5 mm) were harvested from a fungal subculture on MEA and used to inoculate 100 mL of MEB.
 
 The fungus was first cultured in MEB at 30 C, 120 rpm alone. After 3 days, we added 1 mL of a standardized inoculum of bacteria (OD600 = 0.1) precultured on MHII broth.
+
+The cocultures were further incubated at 30 C, 120 rpm.
+
+Pure cultures of the fungus and pure cultures of bacteria in the same conditions were used as controls.
+
+After 3 days, the mycelium was recovered on a sterile pad, rinsed with 25 mL NaCl 0.09%.
+
+The mycelium was dried at 110 C to quantify the fungal biomass, freeze-dried until extraction of total RNAs or transferred on fresh MEA plates to test fungal survival.
+
+To recover the bacteria, the spent culture medium was centrifuged at 7,000 rpm for 5 min.
+
+The bacteria were resuspended in 5 mL NaCl 0.09% and spread on fresh MHII agar to perform the survival test.
+
+The glucose concentration and pH were monitored during the co-culture experiment.
 
 We first confirmed that the strain F. betulina CIRM-BRFM 860 had antibacterial activity using cocultures of the fungus and E. coli ATCC 25922 on agar plates.
 
 We observed a clear inhibition of the bacterial growth at distance from the mycelium.
 
 The features detected in the inhibition zone were putatively identified as a Sumiki's acid derivative, calcium diformate, and sulfuric acid.
+
+F. betulina CIRM-BRFM 860 did not produced piptamine in our experimental conditions, neither in pure culture nor after coculture.
+
+These acids are likely responsible for the pH gradient measured in Petri dishes.
+
+We observed that the pH was more acidic in the bacterial growth inhibition zone compared to the same area in the absence of bacteria.
+
+We tested whether the fungus and the bacteria would compete for the carbon source during the coculture in liquid medium.
+
+We first cultured the fungus in malt extract broth for 3 days, after which we added 1 mL of a standardized inoculum of bacteria.
+
+The cocultures were further incubated for 3 days before analysis.
 
 After the bacteria were added to the culture (day 3), the glucose concentration was reduced to zero within 1 day.
 
@@ -62,4 +100,10 @@ The bacterial count on agar medium at the end of the experiment did not reveal a
 
 Carbon depletion during the coculture induced a metabolic stress in F. betulina.
 
+We analyzed gene regulation in F. betulina after 3 days of coculture using RNA sequencing.
+
 Among differentially expressed genes in F. betulina after coculture, the authors identified 88 up-regulated and 332 down-regulated genes.
+
+The fungal response involved the induction of genes associated with carbon acquisition, nutrient transport, redox homeostasis, broad-spectrum defense mechanisms, and specialized metabolism.
+
+The induction of genes belonging to multiple biosynthetic gene clusters, including terpene, polyketide, and fungal RiPP pathways, further supports the potential of co-culture approaches for exploring fungal biosynthetic pathways.
