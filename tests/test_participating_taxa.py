@@ -261,6 +261,7 @@ USERS = {
     "Microhabitat_Mineral_Fungal_Bacterial_SOM_SynCom.yaml",
     "Mixed_Gallium_LED_Recovery_Consortium.yaml",
     "Mushroom_Spring_Hot_Spring_Phototrophic_Mat_Community.yaml",
+    "NDC6_Psychrotolerant_Nitrogen_Removal_SynCom.yaml",
     "Naica_Deep_Subsurface_Thermophilic.yaml",
     "Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml",
     "ORNL_PMI_Populus_PD10_SynCom.yaml",
