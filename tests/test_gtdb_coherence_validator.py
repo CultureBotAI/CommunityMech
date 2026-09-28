@@ -528,10 +528,10 @@ def test_the_status_distribution_is_what_was_measured():
     # Auxenochlorella-Pseudomonas phycosphere record adds one genus-level
     # isolate, the Leptolyngbya-Pseudomonas mangrove co-culture adds one
     # L. lignicola species member, the Thermoleptolyngbya-Chelatococcus
-    # arsenic coculture adds two strain members, and #1165 adds five Caragana
-    # genus-level isolates, so tolerate the measured 457 without tolerating a
-    # domain-lookup collapse.
-    assert counts["UNRESOLVED"] < 458, (
+    # arsenic coculture adds two strain members, #1165 adds five Caragana
+    # genus-level isolates, and #1174 adds five alfalfa SynCom strain members,
+    # so tolerate the measured 462 without tolerating a domain-lookup collapse.
+    assert counts["UNRESOLVED"] < 463, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
