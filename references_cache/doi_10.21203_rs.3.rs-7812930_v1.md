@@ -12,7 +12,7 @@ authors:
 - Rhea Amor Lumactud
 year: '2025'
 doi: 10.21203/rs.3.rs-7812930/v1
-content_type: full_text
+content_type: selected_full_text
 ---
 
 # Stress-adapted bacterial synthetic community enhances drought resilience and recovery in alfalfa
@@ -31,6 +31,8 @@ Five plant root-associated bacteria (PAB) strains used included Bacillus sp. G3 
 The isolates were retrieved from -80 degrees C glycerol stocks and streaked onto Luria-Bertani agar (LBA) plates, which were incubated at 28 degrees C for 72 hrs. Resulting colonies were inoculated into 10 mL Luria-Bertani broth (LBB) and cultured with orbital shaking at 125 rpm for 48 hrs.
 
 Drought stress was imposed by maintaining soil moisture at three levels of field capacity: severe drought (SD) at 30%, moderate drought (MD) at 50%, and well-watered (WW) control at 80%.
+
+SynCom was treated as a binary factor (positive or negative), resulting in six treatment combinations per phase. Each treatment had four biological replicates, and because the experiment involved destructive harvests at two phases, a total of 48 pots were used for the entire experiment (24 pots per phase).
 
 The soil was then mixed with sand in an approximately 2:1 field soil-sand ratio and transferred to an LDPE-lined, 6x5 in pots.
 
