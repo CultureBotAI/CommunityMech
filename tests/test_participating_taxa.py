@@ -236,6 +236,7 @@ USERS = {
     "Episymbiotic_CPR_DPANN_Groundwater_Community.yaml",
     "Euglena_Chlorella_Microalgal_Biorefinery_Coculture.yaml",
     "Ewaste_Bioleaching_Consortium.yaml",
+    "FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.yaml",
     "Ferroplasma_Leptospirillum_Syntrophy.yaml",
     "Geobacter_Methanosarcina_DIET.yaml",
     "Ginseng_CL95_Rusty_Root_Rot_Biocontrol_SynCom.yaml",

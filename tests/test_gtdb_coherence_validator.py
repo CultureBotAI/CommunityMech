@@ -533,10 +533,11 @@ def test_the_status_distribution_is_what_was_measured():
     # and the Quinoa SCDY1 salt-stress SynCom adds five species-level isolate
     # representatives. The Panax Bacillus-Serratia root-rot SynCom adds one
     # S. marcescens strain, the Microbacterium-Terrabacter sulfadiazine
-    # coculture adds two sp.-level strains, and the NDC-6 psychrotolerant
-    # SynCom adds six strain-level members, so tolerate the measured 476
-    # without tolerating a domain-lookup collapse.
-    assert counts["UNRESOLVED"] < 477, (
+    # coculture adds two sp.-level strains, the NDC-6 psychrotolerant SynCom
+    # adds six strain-level members, and the FOS gut-liver SynCom adds three
+    # strain/species members, so tolerate the measured 479 without tolerating
+    # a domain-lookup collapse.
+    assert counts["UNRESOLVED"] < 480, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
