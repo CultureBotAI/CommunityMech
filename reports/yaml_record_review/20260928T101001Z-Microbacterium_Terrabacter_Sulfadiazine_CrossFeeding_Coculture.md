@@ -70,7 +70,7 @@ The article identifies the Terrabacter stock as DSMZ 28514. The NCBITaxon ground
 
 ## Completeness
 
-The record intentionally leaves detailed MVP salts, trace elements, vitamins, and buffer composition unresolved. The article body reports sulfadiazine concentration and points the remaining materials-and-methods details to supporting information, so the record captures sulfadiazine as the curated medium component and carries `exact-mvp-medium-composition` as an open knowledge gap.
+The record intentionally leaves detailed Brunner MSM salts, vitamins, and supplement concentrations unresolved. The article body reports sulfadiazine concentration and points the remaining materials-and-methods details to supporting information, so the record captures sulfadiazine as the curated medium component and carries `exact-brunner-msm-vitamin-composition` as an open knowledge gap.
 
 iModulonDB cross-checks were not applicable: the record names no genes, locus tags, regulators, transcriptomics datasets, or iModulon-covered strains.
 
@@ -83,6 +83,8 @@ None open.
 ### Resolved During Review
 
 - major: `Terrabacter sp. 2APm3` was initially tagged with `PRIMARY_DEGRADER`, which overstated its role because the source reports that the Terrabacter axenic culture did not degrade sulfadiazine. Fixed in `kb/communities/Microbacterium_Terrabacter_Sulfadiazine_CrossFeeding_Coculture.yaml` by leaving Terrabacter as `CROSS_FEEDER` only, then rerunning schema, strict, term, reference, GTDB, lineage, scalar, docs, and focused pytest checks.
+- minor: The medium-composition knowledge gap initially named unsupported MVP medium instead of the source-supported MSM Brunner plus vitamins culture medium. Fixed in `kb/communities/Microbacterium_Terrabacter_Sulfadiazine_CrossFeeding_Coculture.yaml`, `history/records/Microbacterium_Terrabacter_Sulfadiazine_CrossFeeding_Coculture/2026-09-28T100001Z-codex-425982.yaml`, and this report.
+- minor: The sulfadiazine isotope-tracing substrate evidence initially quoted a 13C-only axenic-control sentence rather than the 13C/15N coculture setup. Fixed in `kb/communities/Microbacterium_Terrabacter_Sulfadiazine_CrossFeeding_Coculture.yaml` with an exact dual-label methods snippet.
 
 ## Recommended Edits
 
@@ -91,7 +93,7 @@ None.
 ## Follow-up Checks
 
 - Re-run `just validate`, `just validate-history`, and `just check-docs-current` once the local `uv` environment can build or avoid `llvmlite==0.46.0`; direct equivalent LinkML, history, render, and docs-orphan checks pass now.
-- Cache the ACS supporting information for PMID:42598292 if future curation needs the exact MVP salts, trace elements, vitamins, or buffer composition.
+- Cache the ACS supporting information for PMID:42598292 if future curation needs the exact Brunner MSM salts, vitamins, or supplement concentrations.
 
 ## Additional Notes
 
