@@ -1,0 +1,244 @@
+id: CommunityMech:000464
+name: Bacteroides-Desulfovibrio Carrageenan H2S Coculture
+description: A defined in vitro two-species human-gut bacterial coculture in which Bacteroides thetaiotaomicron degrades
+  carrageenan, releases inorganic sulfate, and fuels dissimilatory sulfate reduction and hydrogen sulfide production by
+  Desulfovibrio desulfuricans.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: DIET
+engineering_design:
+  objective: Test a carrageenan-mediated gut-bacterial cross-feeding pathway in which carrageenan desulfation by Bacteroides
+    thetaiotaomicron supplies sulfate to Desulfovibrio desulfuricans.
+  assembly_strategy: Pair Bacteroides thetaiotaomicron with Desulfovibrio desulfuricans in in vitro co-culture assays that
+    evaluate carrageenan-driven sulfate release and hydrogen sulfide production.
+  measurement_endpoints:
+  - hydrogen sulfide production
+  - transcriptomic response of carrageenan desulfation and depolymerization genes
+  - metabolomic accumulation of dissimilatory sulfate-reduction intermediates
+  - glycerophospholipid metabolism
+  - bacterial cysteine synthesis
+  evidence:
+  - &id001
+    reference: PMID:42565261
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study elucidated a syntrophic pathway wherein Bacteroides thetaiotaomicron (B. theta) degrades CGN via specific
+      sulfatases and glycoside hydrolases, releasing inorganic sulfate.
+    explanation: Names Bacteroides thetaiotaomicron as the carrageenan-degrading partner and identifies inorganic sulfate
+      release as its supported contribution.
+  - &id002
+    reference: PMID:42565261
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This sulfate fuels the growth and metabolic activity of the sulfate-reducing bacterium Desulfovibrio desulfuricans
+      (D. desulfuricans).
+    explanation: Names Desulfovibrio desulfuricans as the sulfate-reducing partner supported by Bacteroides-released sulfate.
+  - &id003
+    reference: PMID:42565261
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In vitro co-culture experiments demonstrated that this cross-feeding interaction significantly enhanced hydrogen sulfide
+      (H2S) production.
+    explanation: Supports the defined in vitro co-culture design and the hydrogen sulfide endpoint.
+  - &id004
+    reference: PMID:42565261
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Transcriptomic and metabolomic analyses revealed that CGN, particularly κ-type, upregulated B. theta genes encoding
+      key desulfation and depolymerization enzymes.
+    explanation: Supports carrageenan-responsive B. thetaiotaomicron desulfation and depolymerization gene expression as
+      a measured endpoint.
+  - &id005
+    reference: PMID:42565261
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: D. desulfuricans showed increased expression of genes in the dissimilatory sulfate reduction pathway (sat, aprAB, dsr),
+      accompanied by marked accumulation of pathway intermediates and H2S.
+    explanation: Supports Desulfovibrio sulfate-reduction gene expression and sulfate-reduction metabolomic readouts.
+environment_term:
+  preferred_term: in vitro carrageenan gut-bacterium coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Bacteroides thetaiotaomicron and Desulfovibrio desulfuricans were studied as an in vitro co-culture that mechanistically
+    models carrageenan metabolism by human gut bacteria.
+modeled_environment:
+- preferred_term: human gut environment
+  term:
+    id: ENVO:2100002
+    label: intestine environment
+  notes: The defined co-culture models a carrageenan-mediated syntrophic pathway between human gut bacteria.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacteroides thetaiotaomicron
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacteroides_thetaiotaomicron
+      gtdb_taxon: Bacteroides thetaiotaomicron
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__Bacteroides
+        thetaiotaomicron
+      ncbi_source_id: NCBITaxon:818
+      majority_fraction: 0.99
+      total_genomes: 1011
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Gut Bacteroides species assayed as the carrageenan-desulfating partner in the in vitro co-culture.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+  - *id004
+- taxon_term:
+    preferred_term: Desulfovibrio desulfuricans
+    term:
+      id: NCBITaxon:876
+      label: Desulfovibrio desulfuricans
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Desulfovibrio_desulfuricans
+    - GTDB:s__Desulfovibrio_sp900243745
+    notes: Sulfate-reducing gut bacterium supported by inorganic sulfate released during B. thetaiotaomicron carrageenan
+      degradation; GTDB splits this NCBI taxon with no single safe majority assignment.
+  functional_role:
+  - CROSS_FEEDER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - *id002
+  - *id005
+ecological_interactions:
+- name: Carrageenan sulfate cross-feeding
+  description: Bacteroides thetaiotaomicron desulfates and depolymerizes carrageenan, releasing inorganic sulfate that fuels
+    Desulfovibrio desulfuricans sulfate-reduction metabolism and increases hydrogen sulfide output in vitro.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bacteroides thetaiotaomicron
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+  target_taxon:
+    preferred_term: Desulfovibrio desulfuricans
+    term:
+      id: NCBITaxon:876
+      label: Desulfovibrio desulfuricans
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  - preferred_term: hydrogen sulfide
+    term:
+      id: CHEBI:16136
+      label: hydrogen sulfide
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  - preferred_term: dissimilatory sulfate reduction
+    term:
+      id: GO:0019420
+      label: dissimilatory sulfate reduction
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - *id001
+  - *id002
+  - *id003
+  - *id005
+- name: Co-culture metabolic remodeling
+  description: The carrageenan-mediated two-species co-culture altered glycerophospholipid metabolism and inhibited bacterial
+    cysteine synthesis, indicating a community-level metabolic response beyond sulfur flux.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:42565261
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Furthermore, co-culture altered microbial glycerophospholipid metabolism and inhibited bacterial cysteine synthesis.
+    explanation: Supports the community-level metabolic remodeling observed in the carrageenan co-culture.
+environmental_factors:
+- name: carrageenan-driven sulfate release
+  value: CGN, particularly kappa-type carrageenan
+  description: Carrageenan served as the dietary polysaccharide whose desulfation by B. thetaiotaomicron released inorganic
+    sulfate for Desulfovibrio desulfuricans.
+  evidence:
+  - *id001
+  - *id004
+related_ingredients:
+- preferred_term: carrageenan
+  relevance: Dietary carrageenan was the sulfated polysaccharide degraded by B. thetaiotaomicron to release sulfate.
+  evidence:
+  - *id001
+- preferred_term: sulfate
+  chebi_term:
+    id: CHEBI:16189
+    label: sulfate
+  relevance: Inorganic sulfate released from carrageenan fueled D. desulfuricans sulfate-reduction metabolism.
+  evidence:
+  - *id001
+  - *id002
+- preferred_term: hydrogen sulfide
+  chebi_term:
+    id: CHEBI:16136
+    label: hydrogen sulfide
+  relevance: Hydrogen sulfide was the enhanced sulfur-metabolism product in the in vitro co-culture.
+  evidence:
+  - *id003
+  - *id005
+external_resources:
+- name: PubMed entry for the Bacteroides-Desulfovibrio carrageenan coculture
+  repository: OTHER
+  resource_id: PMID:42565261
+  url: https://pubmed.ncbi.nlm.nih.gov/42565261/
+  description: PubMed record for Nian et al. 2026.
+  evidence:
+  - reference: PMID:42565261
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Desulfation of carrageenan by Bacteroides thetaiotaomicron fuels hydrogen sulfide production by Desulfovibrio desulfuricans.
+    explanation: Identifies the PubMed-indexed article describing the carrageenan co-culture.
+- name: DOI for the Bacteroides-Desulfovibrio carrageenan coculture article
+  repository: OTHER
+  resource_id: doi:10.1039/d6fo01013j
+  url: https://doi.org/10.1039/d6fo01013j
+  description: Version-of-record DOI for Nian et al. 2026.
+  evidence:
+  - reference: PMID:42565261
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1039/d6fo01013j'
+    explanation: The PubMed metadata names the version-of-record DOI for Nian et al. 2026.
+discussions:
+- discussion_id: bacteroides_desulfovibrio_full_coculture_methods
+  prompt: Resolve the Bacteroides thetaiotaomicron and Desulfovibrio desulfuricans strain accessions, anaerobic medium
+    formulation, carrageenan concentration and type series, incubation time, vessel geometry, and transcriptomic or metabolomic
+    dataset accessions from the version of record.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  - environmental_factors
+  - cultivation_setup
+  rationale: The PubMed-indexed abstract names both species, carrageenan-mediated sulfate release, Desulfovibrio dissimilatory
+    sulfate reduction, transcriptomic/metabolomic analysis, and enhanced in vitro H2S production. It does not identify the
+    strain accessions, growth medium, CGN dose, incubation time, or omics data accessions.
+  posed_by: codex
+  posed_date: '2026-09-28'
+curation_history:
+- timestamp: '2026-09-28T14:16:40Z'
+  curator: codex
+  action: CREATE_COMMUNITY_RECORD
+  changes: Created CommunityMech:000464 for the Bacteroides-Desulfovibrio carrageenan H2S coculture from PMID:42565261 and
+    DOI 10.1039/d6fo01013j.
+  llm_assisted: true
