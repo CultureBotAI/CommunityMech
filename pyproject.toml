@@ -110,7 +110,7 @@ target-version = ["py310", "py311", "py312"]
 # directory form is excluded, the explicit form was not (#412 review).
 force-exclude = '''
 /tests/test_id_label_(empty_adapter|unknown_prefix|plausibility)\.py$
-|/scripts/(check_vendored_sync|validate_id_label_correspondence|chem_formula)\.py$
+|/scripts/(check_vendored_sync|validate_id_label_correspondence|chem_formula|auto_merge_ready_prs|verify_merge_integrity)\.py$
 '''
 
 [tool.ruff]
@@ -134,6 +134,8 @@ extend-exclude = [
     "tests/test_id_label_plausibility.py",
     "scripts/validate_id_label_correspondence.py",
     "scripts/chem_formula.py",
+    "scripts/auto_merge_ready_prs.py",
+    "scripts/verify_merge_integrity.py",
 ]
 
 [tool.ruff.lint]
