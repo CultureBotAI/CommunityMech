@@ -91,6 +91,17 @@ def test_a_governed_file_is_skipped_and_the_same_text_ungoverned_is_not(tmp_path
     assert len(find_truncated_scalars(plain)) == 1
 
 
+@pytest.mark.parametrize("name", ["merge-queue-admission.yaml", "verify-merge-integrity.yaml"])
+def test_bannerless_governed_workflow_exemption_is_repository_path_scoped(tmp_path, name):
+    """An unrelated file with the same basename still reports truncation."""
+    governed = REPO / ".github" / "workflows" / name
+    text = governed.read_text()
+    assert " # v" in text
+    assert find_truncated_scalars(governed) == []
+    copied = _write(tmp_path, text, name)
+    assert find_truncated_scalars(copied)
+
+
 @pytest.mark.parametrize(
     ("name", "text"),
     [

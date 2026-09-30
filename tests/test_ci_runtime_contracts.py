@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import sys
 from pathlib import Path
 
 import yaml
@@ -21,6 +22,8 @@ UV_VERSION = "0.12.5"
 # contract cannot bind it -- it can only report a drift nobody here may fix
 # (culturebotai-claw#391; same shape as CultureMech#437).
 GOVERNED_BANNER = "# Governed by culturebotai-claw"
+# These root workflow paths are also governed but do not carry the banner.
+GOVERNED_WORKFLOW_NAMES = frozenset({"merge-queue-admission.yaml", "verify-merge-integrity.yaml"})
 
 
 def _workflow_documents() -> list[tuple[Path, dict]]:
@@ -28,10 +31,19 @@ def _workflow_documents() -> list[tuple[Path, dict]]:
     documents = []
     for path in paths:
         text = path.read_text(encoding="utf-8")
-        if text.startswith(GOVERNED_BANNER):
+        if path.name in GOVERNED_WORKFLOW_NAMES or text.startswith(GOVERNED_BANNER):
             continue
         documents.append((path, yaml.safe_load(text)))
     return documents
+
+
+def test_bannerless_governed_workflows_leave_local_workflows_checked(tmp_path, monkeypatch):
+    """Only the two canonical paths escape the consumer's pin contract."""
+    monkeypatch.setattr(sys.modules[__name__], "WORKFLOWS", tmp_path)
+    body = "jobs:\n  test:\n    steps:\n      - uses: astral-sh/setup-uv@other-pin\n"
+    for name in ("merge-queue-admission.yaml", "verify-merge-integrity.yaml", "local.yaml"):
+        (tmp_path / name).write_text(body)
+    assert [path.name for path, _ in _workflow_documents()] == ["local.yaml"]
 
 
 def _steps(document: dict):
