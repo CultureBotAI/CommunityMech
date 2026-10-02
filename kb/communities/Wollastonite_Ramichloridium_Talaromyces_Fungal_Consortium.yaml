@@ -150,11 +150,6 @@ ecological_interactions:
     term:
       id: CHEBI:33709
       label: amino acid
-  biological_processes:
-  - preferred_term: organic acid biosynthetic process
-    term:
-      id: GO:0016053
-      label: obsolete organic acid biosynthetic process
   downstream:
   - target: Optimized Wollastonite Calcium and Silicon Leaching
     description: Increased acids and amino acids lowered pH and intensified the chemical dissolution of wollastonite by the
@@ -333,3 +328,11 @@ curation_history:
   action: FIX_REFERENCE_SNIPPETS
   changes: Collapsed doubled hzt-3′ prime marks in the mixed-strain ratio evidence snippet.
   llm_assisted: true
+- timestamp: '2026-10-02T04:52:59Z'
+  curator: codex
+  action: REPAIR_OBSOLETE_GO_PROCESS
+  llm_assisted: true
+  changes: Removed the optional obsolete GO:0016053 descriptor. Its only explicit GO replacement is GO:0008152
+    (metabolic process), which the existing no-vacuous-annotations policy rejects. Retained the specific
+    biological meaning in the unchanged interaction prose, metabolites, downstream links, and evidence
+    without inventing a narrower ontology mapping.

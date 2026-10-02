@@ -321,11 +321,6 @@ ecological_interactions:
     term:
       id: CHEBI:16947
       label: citrate(3-)
-  biological_processes:
-  - preferred_term: organic acid biosynthetic process
-    term:
-      id: GO:0016053
-      label: obsolete organic acid biosynthetic process
   downstream:
   - target: Phosphorus-enabled promotion of Nicotiana benthamiana growth
     description: Organic-acid phosphate solubilization raises the available
@@ -520,3 +515,12 @@ metal_notes: >
   community. The relevant transformation is dissolution of insoluble inorganic
   phosphate minerals to release available phosphate; no metal or rare-earth-element
   recovery role is curated.
+curation_history:
+- timestamp: '2026-10-02T04:52:59Z'
+  curator: codex
+  action: REPAIR_OBSOLETE_GO_PROCESS
+  llm_assisted: true
+  changes: Removed the optional obsolete GO:0016053 descriptor. Its only explicit GO replacement is GO:0008152
+    (metabolic process), which the existing no-vacuous-annotations policy rejects. Retained the specific
+    biological meaning in the unchanged interaction prose, metabolites, downstream links, and evidence
+    without inventing a narrower ontology mapping.

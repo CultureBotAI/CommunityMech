@@ -1,0 +1,29 @@
+history_version: 1
+target:
+  kind: record
+  path: data/isolates/Methylobacterium_REE_Ewaste_Platform.yaml
+  slug: Methylobacterium_REE_Ewaste_Platform
+session:
+  id: 2026-10-02T045300Z-codex-68c801
+  timestamp: '2026-10-02T04:53:00Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-6
+    agent_tool: codex
+links:
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/1212
+  urls:
+  - https://github.com/geneontology/go-ontology/blob/c7bb1156613c22cc8ca7b33fdfb313c289f94e33/src/ontology/go-edit.obo
+  - https://semanticsql.berkeleybop.io/go.db.gz
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - ecological_interactions
+  - curation_history
+  summary: Repair obsolete GO biological-process annotations
+  details: |-
+    Removed the optional obsolete GO:0006082 descriptor. Its only explicit GO replacement is GO:0008152 (metabolic process), which the existing no-vacuous-annotations policy rejects. Retained the specific biological meaning in the unchanged interaction prose, metabolites, downstream links, and evidence without inventing a narrower ontology mapping.
+    Verified against the SemanticSQL GO snapshot downloaded on 2026-10-02 (owl:versionInfo 2026-07-26; CDN Last-Modified 2026-09-26) and the pinned GO ontology source. No schema, validator, exception list, evidence snippet, taxon, or non-GO scientific assertion changed. Closed-schema LinkML validation passed before writing this record.

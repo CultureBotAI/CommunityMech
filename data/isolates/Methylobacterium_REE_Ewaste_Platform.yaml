@@ -130,11 +130,6 @@ ecological_interactions:
       id: CHEBI:229785
       label: neodymium(3+)
     concentration: Up to 58.7 ppm leached from magnet swarf
-  biological_processes:
-  - preferred_term: organic acid metabolic process
-    term:
-      id: GO:0006082
-      label: obsolete organic acid metabolic process
   downstream:
   - target: Lanthanophore-Mediated REE Bioaccumulation
     description: Leached REE become bioavailable for cellular uptake
@@ -466,3 +461,12 @@ environmental_factors:
       assessed for REE bioaccumulation, showing a ∼5.5-fold increase in Nd
       levels reaching 202 mg Nd/g DW
     explanation: Describes the engineered ppx deletion used to increase Nd bioaccumulation.
+curation_history:
+- timestamp: '2026-10-02T04:52:59Z'
+  curator: codex
+  action: REPAIR_OBSOLETE_GO_PROCESS
+  llm_assisted: true
+  changes: Removed the optional obsolete GO:0006082 descriptor. Its only explicit GO replacement is GO:0008152
+    (metabolic process), which the existing no-vacuous-annotations policy rejects. Retained the specific
+    biological meaning in the unchanged interaction prose, metabolites, downstream links, and evidence
+    without inventing a narrower ontology mapping.

@@ -245,10 +245,6 @@ ecological_interactions:
       label: pyruvic acid
     notes: Organic acid produced by Streptomyces
   biological_processes:
-  - preferred_term: organic acid metabolic process
-    term:
-      id: GO:0006082
-      label: obsolete organic acid metabolic process
   - preferred_term: carboxylic acid biosynthetic process
     term:
       id: GO:0046394
@@ -534,3 +530,12 @@ rare_earth_elements_present:
 metal_relevance: PRIMARY
 metal_notes: Metal/REE detected via CHEBI terms in metabolites; Metal/REE detected via environmental factor
   measurements; Metal/REE detected via keyword matching in description (context-validated)
+curation_history:
+- timestamp: '2026-10-02T04:52:59Z'
+  curator: codex
+  action: REPAIR_OBSOLETE_GO_PROCESS
+  llm_assisted: true
+  changes: Removed the optional obsolete GO:0006082 descriptor. Its only explicit GO replacement is GO:0008152
+    (metabolic process), which the existing no-vacuous-annotations policy rejects. Retained the specific
+    biological meaning in the unchanged interaction prose, metabolites, downstream links, and evidence
+    without inventing a narrower ontology mapping.
