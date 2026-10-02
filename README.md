@@ -270,4 +270,10 @@ Keep changes focused and preserve unrelated work in dirty checkouts. Do not
 hand-edit generated models or generated community pages. Pull requests should
 include the relevant validation results and any required regenerated artifacts.
 
-CommunityMech is licensed under the [BSD 3-Clause License](LICENSE).
+## License
+
+Project-authored data and narrative documentation are licensed under
+[CC BY 4.0](LICENSE-DATA). Project-authored code, including scripts, tests,
+schemas and website templates, is licensed under [BSD-3-Clause](LICENSE-CODE).
+Third-party material retains its own licenses and attribution requirements.
+See [LICENSE](LICENSE) for scope and attribution.

@@ -80,11 +80,6 @@ ecological_interactions:
     term:
       id: CHEBI:16828
       label: L-tryptophan
-  biological_processes:
-  - preferred_term: L-tryptophan metabolic process
-    term:
-      id: GO:0006568
-      label: obsolete L-tryptophan metabolic process
   downstream:
   - target: Tryptophan and Secondary Bile Acid Restoration
     description: Fusobacterium nucleatum decolonization is accompanied by recovery of tryptophan metabolism
@@ -111,11 +106,6 @@ ecological_interactions:
     term:
       id: CHEBI:3098
       label: bile acid
-  biological_processes:
-  - preferred_term: L-tryptophan metabolic process
-    term:
-      id: GO:0006568
-      label: obsolete L-tryptophan metabolic process
   downstream:
   - target: Reduced Inflammation and Tumor Burden
     description: Restored tryptophan and bile-acid metabolism contributes to lower inflammation and
@@ -185,3 +175,12 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: growth curves of SynCom in GAM medium
     explanation: Names GAM as the growth medium used to culture the SynCom.
+curation_history:
+- timestamp: '2026-10-02T04:52:59Z'
+  curator: codex
+  action: REPAIR_OBSOLETE_GO_PROCESS
+  llm_assisted: true
+  changes: Removed two optional obsolete GO:0006568 links. GO supplies only consider alternatives GO:0000162
+    (L-tryptophan biosynthetic process) and GO:0006569 (L-tryptophan catabolic process); the cited record
+    evidence does not distinguish these directions. Retained all interaction prose, metabolites, downstream
+    links, and evidence without choosing a replacement.

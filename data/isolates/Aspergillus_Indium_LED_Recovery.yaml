@@ -95,10 +95,6 @@ ecological_interactions:
       label: hydron
     notes: Dissociative H+ concentration increased after fermentation optimization
   biological_processes:
-  - preferred_term: organic acid biosynthetic process
-    term:
-      id: GO:0016053
-      label: obsolete organic acid biosynthetic process
   - preferred_term: carboxylic acid metabolic process
     term:
       id: GO:0019752
@@ -344,3 +340,12 @@ related_ingredients:
 metals_present:
 - INDIUM
 metal_relevance: PRIMARY
+curation_history:
+- timestamp: '2026-10-02T04:52:59Z'
+  curator: codex
+  action: REPAIR_OBSOLETE_GO_PROCESS
+  llm_assisted: true
+  changes: Removed the optional obsolete GO:0016053 descriptor. Its only explicit GO replacement is GO:0008152
+    (metabolic process), which the existing no-vacuous-annotations policy rejects. Retained the specific
+    biological meaning in the unchanged interaction prose, metabolites, downstream links, and evidence
+    without inventing a narrower ontology mapping.
