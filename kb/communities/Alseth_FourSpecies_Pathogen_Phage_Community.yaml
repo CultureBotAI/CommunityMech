@@ -1,0 +1,541 @@
+id: CommunityMech:000467
+name: Four-Species Pathogen Community Under DMS3vir Phage Predation
+description: >
+  An artificial four-species bacterial community — Pseudomonas aeruginosa PA14,
+  Acinetobacter baumannii, Staphylococcus aureus, and Burkholderia cenocepacia —
+  propagated for 10 days in lysogeny broth with and without the lytic phage
+  DMS3vir, which infects P. aeruginosa through its Type IV pilus. Without phage,
+  P. aeruginosa outcompetes the other three species. Adding DMS3vir drives
+  P. aeruginosa nearly extinct and releases A. baumannii into dominance, while
+  maintaining community diversity. The experiment is fully factorial over all
+  1-, 2-, 3-, and 4-species combinations and over two P. aeruginosa clones (wild
+  type and an isogenic CRISPR-KO), which lets the record separate the community
+  consequences of phage predation from the consequences of which resistance
+  mechanism evolves: the two resistance routes gave largely indistinguishable
+  community dynamics, and Type IV pilus mutation became dominant even where
+  CRISPR-Cas was functional.
+
+  This is a one-phage-on-many-bacteria (1-N) system in the sense of
+  doi:10.1146/annurev-virology-100424-123645 — a single phage population against
+  a bacterial community — and the record exists to carry the community-level
+  consequences of phage predation rather than the phage-host pair itself. Its
+  modelling result is curated as a negative one: generalised Lotka-Volterra
+  coefficients fitted to pairwise cocultures failed to predict the 3- and
+  4-species dynamics, so the assembled community is not reconstructible from its
+  pairwise parts.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: PHAGE_PREDATION
+environment_term:
+  preferred_term: laboratory batch culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >-
+    Glass microcosms containing 6 ml lysogeny broth, serially transferred 1:100
+    every 24 h for 10 days at 37 degrees C with shaking.
+
+    `modeled_environment` is deliberately empty. Three of the four strains are
+    clinical isolates and the four species co-occur in human infection, but the
+    paper presents the assembly as an artificial community for studying phage
+    effects, not as a model of a named habitat, so asserting one would be the
+    curator's inference rather than the source's claim.
+taxonomy:
+- taxon_term:
+    preferred_term: Pseudomonas aeruginosa PA14
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      The phage-susceptible target. Both the streptomycin-marked UCBPP-PA14 wild type and the
+      isogenic csy3::LacZ CRISPR-KO derivative were used.
+
+      GTDB grounding was left unresolved because scripts/gtdb_ground.py could not locate
+      NCBI2GTDB.tsv.gz under any default kg-microbe checkout path during curation; the sibling
+      checkout is absent in this environment. Not a claim that GTDB lacks this taxon.
+  strain_designation:
+    strain_name: UCBPP-PA14
+    genetic_modification: >-
+      Streptomycin-resistance-marked wild type, and an isogenic csy3::LacZ
+      mutant lacking a functional CRISPR-Cas system.
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The bacteria P. aeruginosa UCBPP-PA14 strain marked with streptomycin
+      resistance, the PA14 csy3::LacZ strain (CRISPR-KO), and phages DMS3vir and
+      DMS3vir+acrF1 were used throughout this study
+    explanation: Supports the two P. aeruginosa clones and their genetic status.
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. aeruginosa outcompetes the other species in the absence of phage
+    explanation: Supports DOMINANT as the no-phage baseline rank. The rank is the
+      phage-free state; under phage this member is driven nearly extinct, which
+      is curated as the competitive-release interaction rather than as a second
+      abundance value.
+- taxon_term:
+    preferred_term: Acinetobacter baumannii FZ21
+    term:
+      id: NCBITaxon:470
+      label: Acinetobacter baumannii
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      The member competitively released by phage predation on P. aeruginosa, and the competitor
+      whose presence raises the fitness cost of surface-based phage resistance in P. aeruginosa.
+
+      GTDB grounding was left unresolved because scripts/gtdb_ground.py could not locate
+      NCBI2GTDB.tsv.gz under any default kg-microbe checkout path during curation; the sibling
+      checkout is absent in this environment. Not a claim that GTDB lacks this taxon.
+  strain_designation:
+    strain_name: FZ21
+    isolation_source: >-
+      Clinical isolate obtained at Queen Astrid Military Hospital, Brussels,
+      Belgium.
+  abundance_level: RARE
+  evidence:
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The microbial community consisted of S. aureus strain 13 S44 S9 and
+      A. baumannii clinical isolate FZ21 which were isolated at Queen Astrid
+      Military Hospital, Brussels, Belgium
+    explanation: Supports membership, strain designation, and clinical origin.
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: with A. baumannii reaching particularly high abundance
+    explanation: Records that the RARE rank is the phage-free baseline only; under
+      phage this member becomes the dominant species.
+- taxon_term:
+    preferred_term: Staphylococcus aureus 13 S44 S9
+    term:
+      id: NCBITaxon:1280
+      label: Staphylococcus aureus
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      The one member whose density differed detectably between the wild-type and CRISPR-KO P.
+      aeruginosa treatments, and then only in 2 of the communities.
+
+      GTDB grounding was left unresolved because scripts/gtdb_ground.py could not locate
+      NCBI2GTDB.tsv.gz under any default kg-microbe checkout path during curation; the sibling
+      checkout is absent in this environment. Not a claim that GTDB lacks this taxon.
+  strain_designation:
+    strain_name: 13 S44 S9
+    isolation_source: >-
+      Clinical isolate obtained at Queen Astrid Military Hospital, Brussels,
+      Belgium.
+  abundance_level: RARE
+  evidence:
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The microbial community consisted of S. aureus strain 13 S44 S9 and
+      A. baumannii clinical isolate FZ21 which were isolated at Queen Astrid
+      Military Hospital, Brussels, Belgium
+    explanation: Supports membership and strain designation.
+- taxon_term:
+    preferred_term: Burkholderia cenocepacia J2315
+    term:
+      id: NCBITaxon:95486
+      label: Burkholderia cenocepacia
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      Persists at low density throughout rather than going extinct; falls below 0.1 relative
+      abundance in the compositional plots while remaining culturable at around 1e4 cfu/ml.
+
+      GTDB grounding was left unresolved because scripts/gtdb_ground.py could not locate
+      NCBI2GTDB.tsv.gz under any default kg-microbe checkout path during curation; the sibling
+      checkout is absent in this environment. Not a claim that GTDB lacks this taxon.
+  strain_designation:
+    strain_name: J2315
+    isolation_source: >-
+      Originally isolated from a person with cystic fibrosis in the UK in 1989.
+  abundance_level: RARE
+  evidence:
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. cenocepacia J2315 was originally isolated from a person with cystic
+      fibrosis in the UK in 1989
+    explanation: Supports membership, strain designation, and isolation source.
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we consistently observed persistence of B. cenocepacia at an average of
+      approximately 104 cfu/ml across all treatments
+    explanation: Supports low-level persistence rather than extinction. The cached
+      text renders the exponent inline, so "104 cfu/ml" is 1e4 cfu/ml in the
+      published figure.
+- taxon_term:
+    preferred_term: Pseudomonas phage DMS3vir
+    term:
+      id: NCBITaxon:389469
+      label: Casadabanvirus DMS3
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: >-
+      DMS3vir is the obligately lytic derivative of the temperate Pseudomonas
+      phage DMS3; NCBITaxon carries the parent phage species, so the member is
+      grounded there and the lytic derivative is named in preferred_term. GTDB
+      covers Bacteria and Archaea only and will never classify a phage.
+  strain_designation:
+    strain_name: DMS3vir
+    genetic_modification: >-
+      Lytic (virulent) derivative of phage DMS3. The companion phage
+      DMS3vir+acrF1, carrying an anti-CRISPR gene, was used to assay which
+      resistance mechanism had evolved rather than as a community member.
+  abundance_level: RARE
+  functional_role:
+  - LYTIC_PHAGE
+  evidence:
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. aureus, A. baumannii, B. cenocepacia, and P. aeruginosa PA14 in the
+      presence or absence of lytic phage DMS3vir
+    explanation: Supports DMS3vir as the lytic phage added to this four-species
+      community.
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Phage DMS3vir was added at 106 pfu. prior to inoculation
+    explanation: Supports the phage as an inoculated member. The cached text renders
+      the exponent inline, so "106 pfu" is 1e6 pfu.
+ecological_interactions:
+- name: DMS3vir Lytic Infection of Pseudomonas aeruginosa via the Type IV Pilus
+  description: >-
+    Phage DMS3vir infects P. aeruginosa PA14 by adsorbing to the Type IV pilus,
+    replicating to high titre on sensitive hosts before host resistance evolves
+    and phage densities collapse. The paper treats DMS3vir as a P. aeruginosa-
+    targeting phage throughout and reports no infection of the other three
+    species; it does not report host-range assays against them, so the absence of
+    other hosts is the study's framing rather than a tested result.
+  interaction_type: LYTIC_INFECTION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Pseudomonas phage DMS3vir
+    term:
+      id: NCBITaxon:389469
+      label: Casadabanvirus DMS3
+  target_taxon:
+    preferred_term: Pseudomonas aeruginosa PA14
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  biological_processes:
+  - preferred_term: viral process
+    term:
+      id: GO:0016032
+      label: viral process
+  downstream:
+  - target: Competitive Release of Acinetobacter baumannii
+    description: >-
+      Lysis of the otherwise dominant competitor is what frees the niche that
+      A. baumannii expands into.
+  - target: Type IV Pilus Mutation Dominates Realised Resistance
+    description: >-
+      Targeting the pilus is what makes receptor loss an available resistance
+      route, and what gives that route its fitness cost.
+  evidence:
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Phage DMS3vir targets P. aeruginosa’s Type IV pilus (T4P)
+    explanation: Supports the receptor and the host specificity of the infection.
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: phage DMS3vir initially reached high titres due to replication on
+      sensitive P. aeruginosa hosts, followed by a rapid decline in phage densities
+      due to the evolution of phage resistance
+    explanation: Supports productive lytic replication on the host and its collapse
+      once resistance evolves.
+- name: Competitive Release of Acinetobacter baumannii
+  description: >-
+    Phage predation removes P. aeruginosa, the strongest competitor, and
+    A. baumannii expands into the vacated niche to become the dominant species.
+    The release occurred in every treatment and did not depend on whether the
+    P. aeruginosa clone had a functional CRISPR-Cas system. Without phage the
+    hierarchy is the reverse, with P. aeruginosa outcompeting all three others.
+  interaction_type: COMPETITIVE_RELEASE
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Acinetobacter baumannii FZ21
+    term:
+      id: NCBITaxon:470
+      label: Acinetobacter baumannii
+  - preferred_term: Pseudomonas aeruginosa PA14
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  downstream:
+  - target: Phage-Associated Maintenance of Community Diversity
+    description: >-
+      Releasing a subordinate competitor into dominance, rather than letting one
+      species exclude the rest, is the mechanism by which phage keeps the
+      assembly diverse.
+  evidence:
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the presence of phage caused microbial communities to no longer be
+      dominated by P. aeruginosa
+    explanation: Supports the loss of P. aeruginosa dominance under phage.
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the competitive release of A. baumannii occurred in all treatments and
+      was virtually independent of whether P. aeruginosa had a functional CRISPR-Cas
+      immune system or not
+    explanation: Supports both the release of A. baumannii and its independence from
+      the resistance mechanism.
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. aeruginosa outcompetes the other species in the absence of phage
+    explanation: Supports the phage-free competitive hierarchy that the release
+      inverts.
+- name: Type IV Pilus Mutation Dominates Realised Resistance
+  description: >-
+    P. aeruginosa can resist DMS3vir either by CRISPR-Cas immunity or by losing
+    or modifying the Type IV pilus receptor. Pilus mutation became the dominant
+    realised mechanism even in clones with a functional CRISPR system, and the
+    associated fitness cost is the proposed reason P. aeruginosa does not recover
+    after the phage is driven extinct. The wild type did reach higher relative
+    abundance than the CRISPR-KO when A. baumannii was present, early on while
+    phage persisted.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas aeruginosa PA14
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  - preferred_term: Acinetobacter baumannii FZ21
+    term:
+      id: NCBITaxon:470
+      label: Acinetobacter baumannii
+  evidence:
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mutation of the Type IV pilus became the dominant resistance mechanism
+      even if P. aeruginosa has a functional CRISPR system
+    explanation: Supports pilus mutation as the realised resistance route despite an
+      available CRISPR route.
+  - reference: PMID:38648198
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: which might in part be why P. aeruginosa did not recover in the
+      microbial community post phage exposure due to the associated fitness costs
+    explanation: The authors offer the resistance-cost explanation for non-recovery
+      as a proposal ("might in part be why"), so this is curated as PARTIAL rather
+      than as a demonstrated causal link.
+- name: Phage-Associated Maintenance of Community Diversity
+  description: >-
+    Adding phage prevented the extinctions seen in the phage-free treatments:
+    very few or none of the replicates lost a species, and the authors report a
+    diversity-maintaining effect of phage on Shannon diversity over time.
+
+    Typed LYTIC_INFECTION at community scope rather than KILL_THE_WINNER on
+    purpose. The outcome has the kill-the-winner shape — predation on the
+    standing dominant sustains diversity — but that value requires evidence of
+    repeated or alternating dominance, and this 10-day experiment shows a single
+    release followed by phage extinction, not turnover. See the
+    `alseth_kill_the_winner_not_asserted` discussion; CommunityMech:000468 is the
+    record that does carry the stronger value.
+  interaction_type: LYTIC_INFECTION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: very few to none of the experimental repeats had 1 or more bacterial
+      species go extinct
+    explanation: Supports the loss of extinctions under phage relative to the
+      phage-free treatments.
+  - reference: PMID:38648198
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: phage targeting a dominant species allows for the competitive release of
+      the strongest competitor while also contributing to community diversity
+      maintenance
+    explanation: Supports diversity maintenance by predation on a dominant species.
+      PARTIAL because the snippet is the authors' summary of the general principle,
+      while what this experiment shows is a single release over 10 days rather than
+      the repeated turnover the principle describes — the reason this edge is typed
+      LYTIC_INFECTION and not KILL_THE_WINNER.
+- name: Pairwise Interaction Coefficients Fail to Predict the Assembled Community
+  description: >-
+    Generalised Lotka-Volterra competition models were parameterised bottom-up —
+    monoculture growth rates fixed from single-species time series, then pairwise
+    interaction coefficients fitted from all two-species cocultures — and used to
+    predict three- and four-species dynamics. The predictions failed, with and
+    without phage, which the authors read as evidence of higher-order
+    interactions: the effect of one species on another depends on which third
+    species is present. Fitting coefficients on three-species data improved the
+    four-species predictions.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: fitting gLV models with pairwise only datasets led to predictive failures
+      when applied to 3- or 4-species datasets
+    explanation: Supports the failure of the pairwise-parameterised model on the
+      assembled community.
+    computational_provenance:
+      prediction_type: POPULATION_DYNAMIC_MODEL
+      model_name: generalised Lotka-Volterra competition model
+      model_source: GITHUB:GaTechBrownLab/phage-community-dynamics
+      tools:
+      - tool_name: MATLAB
+        tool_version: '2021b'
+        role: Model parameterisation by least-squares regression and simulation.
+      parameters: >-
+        dNi/dt = ri*Ni - sum_j(beta_ij*Ni*Nj). Single-species maximal growth
+        rates ri fixed from monoculture time series; interaction coefficients
+        beta_ij fitted from all two-species cocultures, and separately from
+        three-species data with all interaction parameters open. Phage effects
+        enter implicitly, as differences in the fitted interaction coefficients
+        between the with- and without-phage models, rather than as an explicit
+        predation term.
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: pairwise data alone is insufficient when modelling our microbial
+      community
+    explanation: Supports the curated negative result as the authors state it.
+environmental_factors:
+- name: Temperature
+  value: '37'
+  unit: degree Celsius
+  description: All cultures grown at 37 degrees C with shaking at 180 r.p.m.
+  evidence:
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the bacterial mixtures were grown at 37°C and shaking at 180 r.p.m.
+    explanation: Supports incubation temperature and agitation.
+- name: Serial transfer regime
+  value: 1:100 every 24 h for 10 days
+  description: >-
+    Daily 1:100 serial transfer into fresh lysogeny broth over a 10-day
+    evolution experiment, which sets the dilution rate against which both
+    bacterial recovery and phage persistence are measured.
+  evidence:
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: with transfers of 1:100 into fresh LB medium being done every 24 h
+    explanation: Supports the transfer ratio and interval.
+growth_media:
+- name: Lysogeny broth (LB)
+  temperature: 37.0
+  temperature_unit: CELSIUS
+  shaking_speed: 180.0
+  shaking_speed_unit: rpm
+  vessel_type: Glass microcosm, 6 ml working volume
+  inoculum_source: 24 h overnight cultures
+  preparation_notes: >-
+    6 ml lysogeny broth in glass microcosms, inoculated with 60 ul of overnight
+    culture (ca. 1e6 cfu) and transferred 1:100 into fresh LB every 24 h for 10
+    days. In polycultures P. aeruginosa made up approximately 25 percent of the
+    inoculation volume.
+  evidence:
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All experiments were conducted in lysogeny broth (LB) at 37°C
+    explanation: Supports the medium and its temperature.
+external_resources:
+- name: Primary publication for the four-species phage predation community
+  repository: OTHER
+  resource_id: PMID:38648198
+  url: https://pubmed.ncbi.nlm.nih.gov/38648198/
+  description: >-
+    PubMed record for Alseth et al. 2024, PLoS Biology, "The impact of phage and
+    phage resistance on microbial community dynamics".
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1371/journal.pbio.3002346
+  url: https://doi.org/10.1371/journal.pbio.3002346
+  description: DOI link to the PLoS Biology paper.
+- name: Generalised Lotka-Volterra modelling code
+  repository: GITHUB
+  resource_id: GaTechBrownLab/phage-community-dynamics
+  url: https://github.com/GaTechBrownLab/phage-community-dynamics.git
+  description: >-
+    Matlab code for the gLV parameterisation and the analysis of phage-dependent
+    competitive release.
+  evidence:
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: All modelling and analysis was done using Matlab 2021b and the code is
+      publicly available at
+    explanation: Supports the modelling code as a resource of this study.
+associated_datasets: []
+discussions:
+- discussion_id: alseth_no_time_axis_for_abundance
+  prompt: Should CommunityMech represent time-resolved composition, or keep trajectories
+    in linked datasets and carry only the qualitative dynamic claim as an interaction?
+  kind: CURATION_TODO
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  rationale: >-
+    The curated finding here is a trajectory — P. aeruginosa falls and
+    A. baumannii rises over 10 days — but TaxonomicComposition carries a single
+    abundance per member with no time axis, so `abundance_level` had to be set to
+    the phage-free baseline and the trajectory written into interaction
+    descriptions instead. A consumer reading abundances alone sees
+    P. aeruginosa DOMINANT and A. baumannii MINOR, which is the pre-phage state
+    and the opposite of this record's point.
+
+    What would resolve it is a decision about whether CommunityMech represents
+    time-series composition at all, or deliberately keeps trajectories in linked
+    datasets and carries only the qualitative dynamic claim in
+    `ecological_interactions`. This record is a good test case either way: the
+    underlying per-timepoint densities are published.
+- discussion_id: alseth_kill_the_winner_not_asserted
+  prompt: Would a longer run of this community show rotating dominance, which would
+    justify KILL_THE_WINNER here rather than the weaker LYTIC_INFECTION typing?
+  kind: OPEN_QUESTION
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Phage-Associated Maintenance of Community Diversity
+  rationale: >-
+    The diversity-maintenance result reads like kill-the-winner — predation on
+    the standing dominant stops any one species excluding the rest — but the
+    experiment runs 10 days and phage is driven extinct partway through, so what
+    is observed is one competitive release, not turnover. The stronger value
+    requires repeated or alternating dominance, so it is deliberately not used.
+    A. baumannii is not itself knocked back after rising, and whether it would be
+    under a longer run with persisting phage is the question that would settle
+    this.
+- discussion_id: alseth_resistance_mechanism_has_no_slot
+  prompt: Where should a phage-resistance mechanism (receptor mutation versus defence
+    system) and its fitness cost be recorded, now that prose in an interaction description
+    is the only option?
+  kind: CURATION_TODO
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Type IV Pilus Mutation Dominates Realised Resistance
+  rationale: >-
+    Two curated claims here are about phage resistance — that Type IV pilus
+    mutation outbeat CRISPR-Cas as the realised route, and that its fitness cost
+    is the proposed reason P. aeruginosa never recovers. Both had to be written
+    as COMPETITION interactions with the content in prose, because the schema has
+    no resistance-mechanism or fitness-cost slot. If more phage records are
+    curated this becomes a recurring loss, since receptor identity versus
+    defence-system identity is the distinction that governs whether a phage
+    cocktail works.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is reported for this
+  community.

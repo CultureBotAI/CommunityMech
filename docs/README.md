@@ -15,6 +15,7 @@ This directory contains user-facing documentation and guides for the CommunityMe
 - **UMAP_COLOR_GUIDE.md** - Color scheme guide for UMAP plots
 
 ### Curation & Quality
+- **PHAGE_BACTERIA_GUIDE.md** - Curating phage members, phage-driven interaction types, and where community dynamics live
 - **NETWORK_QUALITY_GUIDE.md** - Network quality assurance guide
 - **NETWORK_REPAIR_USER_GUIDE.md** - User guide for network repair tools
 - **CURATION_PROGRESS_REPORT.md** - Community curation progress

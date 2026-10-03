@@ -156,6 +156,7 @@ def test_a_curie_is_ambiguous_where_members_share_an_id(example):
 # `tests/test_community_level_connectivity_credit.py` must be re-checked when
 # this set changes.
 USERS = {
+    "Alseth_FourSpecies_Pathogen_Phage_Community.yaml",
     "AMD_Acidophile_Heterotroph_Network.yaml",
     "AMD_Nitrososphaerota_Archaeal.yaml",
     "ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml",

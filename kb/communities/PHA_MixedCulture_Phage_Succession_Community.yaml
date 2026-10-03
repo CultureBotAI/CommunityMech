@@ -1,0 +1,508 @@
+id: CommunityMech:000468
+name: Polyhydroxyalkanoate-Producing Mixed Microbial Culture Under Phage Predation
+description: >
+  Five parallel 2 L sequencing batch reactors enriched from municipal activated
+  sludge under an aerobic dynamic feeding regime, each on a single volatile fatty
+  acid or lactate as sole carbon source, and followed for 145 days by paired
+  metagenomics and metatranscriptomics. The enriched polyhydroxyalkanoate-
+  producing mixed microbial cultures (PHA-MMCs) are dominated by Azoarcus,
+  Paracoccus, Azomonas, Thauera, and Brevundimonas, with 963 metagenome-assembled
+  genomes and 4,294 phage operational taxonomic units recovered.
+
+  The curated subject is what the resident phage community does to that bacterial
+  community. Bacterial and phage community turnover track each other closely
+  across time, and structural equation modelling resolves the direction: phage
+  abundance correlates negatively with bacterial alpha diversity and activity,
+  consistent with virulent phages lysing whichever species is currently dominant
+  and vacating the niche for a successor. Dominance therefore alternates rather
+  than settling, even under constant selection — a kill-the-winner regime in an
+  engineered system where the enrichment strategy alone would predict a stable
+  dominant.
+
+  This is a many-phages-on-many-bacteria (N-N) system in the sense of
+  doi:10.1146/annurev-virology-100424-123645, and the companion record to
+  CommunityMech:000467, which carries the 1-N case under experimental control.
+  Phage-encoded auxiliary metabolic genes for the PHA pathway, including phaC,
+  are transcribed here, so the phages are curated as participants in the
+  community's defining metabolic function and not only as predators on it.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: PHAGE_PREDATION
+environment_term:
+  preferred_term: sequencing batch reactor enrichment
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+  notes: >-
+    Five 2 L sequencing batch reactors on a 12 h aerobic-dynamic-feeding cycle at
+    26 degrees C, each fed a different single carbon source, run for 145 days.
+modeled_environment:
+- preferred_term: activated sludge
+  term:
+    id: ENVO:00002046
+    label: activated sludge
+  notes: >-
+    The inoculum was activated sludge from the aerobic stage of an
+    anaerobic-anoxic-oxic municipal wastewater treatment process in Chengdu,
+    China, and the enrichment is a selected derivative of that community.
+taxonomy:
+- taxon_term:
+    preferred_term: Azoarcus
+    term:
+      id: NCBITaxon:12960
+      label: Azoarcus
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      A dominant PHA-producing genus, dominant in Reactors A and B but not C and D; named in the
+      paper's summary as a dominant producer depleted by phages.
+
+      GTDB grounding was left unresolved because scripts/gtdb_ground.py could not locate
+      NCBI2GTDB.tsv.gz under any default kg-microbe checkout path during curation; the sibling
+      checkout is absent in this environment. Not a claim that GTDB lacks this taxon.
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Azoarcus, Paracoccus, Azomonas, Thauera, and Brevundimonas were the dominant
+      genera
+    explanation: Supports membership and dominant rank.
+- taxon_term:
+    preferred_term: Paracoccus
+    term:
+      id: NCBITaxon:265
+      label: Paracoccus <a-proteobacteria>
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      A dominant PHA-producing genus. NCBITaxon carries a metazoan homonym (NCBITaxon:249411);
+      this record uses the bacterial genus. Its phage linkages were among the most variable across
+      time points, appearing and disappearing between samplings in Reactors C, D, and E.
+
+      GTDB grounding was left unresolved because scripts/gtdb_ground.py could not locate
+      NCBI2GTDB.tsv.gz under any default kg-microbe checkout path during curation; the sibling
+      checkout is absent in this environment. Not a claim that GTDB lacks this taxon.
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Azoarcus, Paracoccus, Azomonas, Thauera, and Brevundimonas were the dominant
+      genera
+    explanation: Supports membership and dominant rank.
+- taxon_term:
+    preferred_term: Azomonas
+    term:
+      id: NCBITaxon:69961
+      label: Azomonas
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      A dominant PHA-producing genus whose phage linkages were among the most stable across time,
+      in Reactors B, C, and E.
+
+      GTDB grounding was left unresolved because scripts/gtdb_ground.py could not locate
+      NCBI2GTDB.tsv.gz under any default kg-microbe checkout path during curation; the sibling
+      checkout is absent in this environment. Not a claim that GTDB lacks this taxon.
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Azoarcus, Paracoccus, Azomonas, Thauera, and Brevundimonas were the dominant
+      genera
+    explanation: Supports membership and dominant rank.
+- taxon_term:
+    preferred_term: Thauera
+    term:
+      id: NCBITaxon:33057
+      label: Thauera
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      A dominant PHA-producing genus, dominant in Reactor E; its phage linkages in Reactor A
+      varied between time points.
+
+      GTDB grounding was left unresolved because scripts/gtdb_ground.py could not locate
+      NCBI2GTDB.tsv.gz under any default kg-microbe checkout path during curation; the sibling
+      checkout is absent in this environment. Not a claim that GTDB lacks this taxon.
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Azoarcus, Paracoccus, Azomonas, Thauera, and Brevundimonas were the dominant
+      genera
+    explanation: Supports membership and dominant rank.
+- taxon_term:
+    preferred_term: Brevundimonas
+    term:
+      id: NCBITaxon:41275
+      label: Brevundimonas
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      A dominant genus holding a persistent linkage to phage 1010E_19 in Reactor A across all
+      sampled time points.
+
+      GTDB grounding was left unresolved because scripts/gtdb_ground.py could not locate
+      NCBI2GTDB.tsv.gz under any default kg-microbe checkout path during curation; the sibling
+      checkout is absent in this environment. Not a claim that GTDB lacks this taxon.
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Azoarcus, Paracoccus, Azomonas, Thauera, and Brevundimonas were the dominant
+      genera
+    explanation: Supports membership and dominant rank.
+- taxon_term:
+    preferred_term: PHA-MMC phage community (4,294 pOTUs)
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: >-
+      Assembled phage contigs clustered at 95 percent identity and 80 percent
+      coverage into 4,294 phage operational taxonomic units. Grounded at the
+      Viruses root because the members are uncultivated pOTUs without species
+      assignments; the paper names Casadabanvirus and unclassified Hendrixvirinae
+      among the identified groups. Most pOTUs share very low nucleotide
+      similarity with one another, so a single host is typically infected by
+      several unrelated phages. GTDB covers Bacteria and Archaea only.
+  abundance_level: ABUNDANT
+  functional_role:
+  - LYTIC_PHAGE
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 4,294 phage operational taxonomic units (pOTUs)
+    explanation: Supports the size of the curated phage population.
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the bacterial members of PHA-MMCs could be infected by diverse phages
+    explanation: Supports the phage population infecting community members, which is
+      what makes it a member rather than a bystander.
+ecological_interactions:
+- name: Kill-the-Winner Succession of Dominant PHA Producers
+  description: >-
+    Virulent phages infect and lyse whichever bacterial species is currently
+    dominant, vacating its ecological niche for a successor, so dominance
+    alternates across the maintenance phase instead of settling on one producer.
+    This occurs despite a constant deterministic selection pressure — alternating
+    satiation and starvation — under which the enrichment strategy alone would
+    predict a stable dominant, and sample composition in each reactor did not
+    reconverge at the late time points.
+  interaction_type: KILL_THE_WINNER
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: viral process
+    term:
+      id: GO:0016032
+      label: viral process
+  downstream:
+  - target: Phage Suppression of Bacterial Alpha Diversity and Activity
+    description: >-
+      Repeated lysis of the standing dominant is the proposed mechanism behind
+      the measured negative association between phage abundance and both
+      bacterial richness and bacterial community activity.
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: phages could infect and lyse dominant species to vacate ecological niches
+      for other species, resulting in a community succession state in which dominant
+      species alternated
+    explanation: Supports both the lysis of the standing dominant and the resulting
+      alternation of dominance, which is what distinguishes this from a one-off
+      competitive release.
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sample points in each reactor did not cluster together during the late
+      stages of maintenance (days 65, 68, and 145), suggesting that the bacterial
+      community structure reached alternative states during maintenance, even when
+      deterministic selection pressure was applied
+    explanation: Supports non-convergence under constant selection, the observation
+      the phage explanation is offered for.
+- name: Coupled Turnover of Phage and Bacterial Community Structure
+  description: >-
+    Temporally adjacent samples were compared by Bray-Curtis dissimilarity for
+    both the bacterial and the phage community, and the two turnover series track
+    each other closely in all five reactors (Spearman rho 0.95, 0.77, 0.87, 0.99,
+    and 0.80). Structural equation modelling returns a positive association
+    between phage and bacterial community composition.
+  interaction_type: LYTIC_INFECTION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: There was a significant positive relationship between the bacterial and
+      phage communities shifts
+    explanation: Supports the coupling of bacterial and phage community turnover.
+  - reference: PMID:40152616
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: the dynamics of bacterial community structure could be mirrored in phage
+      communities
+    explanation: PARTIAL because correlated turnover is consistent with predation but
+      does not on its own establish it; the authors say so explicitly and turn to
+      structural equation modelling for direction, which is curated separately.
+- name: Phage Suppression of Bacterial Alpha Diversity and Activity
+  description: >-
+    Structural equation modelling resolves the direction of the phage-bacteria
+    coupling: phage abundance is negatively associated with bacterial alpha
+    diversity (Chao1, r = -0.43, P <= 0.05) and with bacterial community activity
+    (r = -0.36). The authors read this as virulent phages hijacking and killing
+    hosts during proliferation, and as evidence against the alternative that
+    temperate phages are simply tracking host growth, since temperate phages
+    benefit from a high host growth rate while limiting lytic activity.
+  interaction_type: LYTIC_INFECTION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'significant negative correlation (r: −0.43, P ≤ 0.05) between phage abundance
+      and the alpha diversity (Chao1) index of the bacterial community'
+    explanation: Supports the negative phage-diversity association and its effect size.
+  - reference: PMID:40152616
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: the SEM was used to discern the causality and quantify the effects of the
+      drivers
+    explanation: The direction of this edge rests on a structural equation model over
+      observational time-series data, not on a manipulation, so the causal reading is
+      the authors' inference from a fitted correlational structure. PARTIAL records
+      that the association is measured while the direction is modelled.
+    computational_provenance:
+      prediction_type: STATISTICAL_INFERENCE
+      model_name: structural equation model of phage and bacterial community drivers
+      parameters: >-
+        Fitted over 30 time-sequenced samples from five reactors, relating phage
+        community composition and phage abundance to bacterial community
+        composition, bacterial alpha diversity (Chao1), and bacterial community
+        activity.
+- name: Phage-Encoded Auxiliary Metabolic Genes for PHA Synthesis Are Transcribed
+  description: >-
+    Seven auxiliary metabolic genes potentially contributing to PHA synthesis —
+    phaC, fadJ, acs, ackA, phbB, acdAB, and fadD — were identified in phage
+    sequences, and metatranscriptomics shows them in an actively expressed state.
+    This makes the phage population a participant in the community's defining
+    biosynthetic function rather than only a source of mortality.
+  interaction_type: LYTIC_INFECTION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: polyhydroxyalkanoate
+    term:
+      id: CHEBI:78037
+      label: polyhydroxyalkanoate
+  biological_processes:
+  - preferred_term: viral process
+    term:
+      id: GO:0016032
+      label: viral process
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Seven key auxiliary metabolic genes (AMGs), phaC, fadJ, acs, ackA, phbB,
+      acdAB, and fadD, potentially contributing to PHA synthesis were identified from
+      phage sequences
+    explanation: Supports the identity of the phage-encoded AMGs.
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: these AMGs were transcribed, indicating that they were in an active expression
+      state
+    explanation: Supports active transcription rather than mere genomic presence. Note
+      the authors' own wording is "potentially contributing" to PHA synthesis, so a
+      contribution to yield is not asserted here.
+- name: Host Antiviral Defence Repertoire
+  description: >-
+    Community members carry diverse antiviral defence systems, with restriction-
+    modification and CRISPR-Cas predominant across 10 of the 12 bacterial phyla
+    present, Wadjet predominant in Actinobacteriota and SoFIC in Planctomycetota,
+    and abortive-infection systems including AbiE and Thoeris also represented.
+  interaction_type: LYTIC_INFECTION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The RM and CRISPR-Cas systems were the predominant antiviral systems in
+      10 of the 12 bacterial phyla
+    explanation: Supports the predominant defence systems and their breadth across the
+      community.
+environmental_factors:
+- name: Temperature
+  value: '26'
+  unit: degree Celsius
+  description: All five reactors operated at 26 degrees C.
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All reactors were operated at 26°C
+    explanation: Supports the operating temperature.
+- name: Carbon source
+  value: acetate, propionate, butyrate, valerate, or lactate (one per reactor)
+  description: >-
+    Each of the five reactors received a different single carbon source, which is
+    the variable distinguishing them and the reason the dominant genus differs
+    between reactors.
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Reactors A, B, C, D, and E were fed with synthetic wastewater containing
+      acetate, propionate, butyrate, valerate, and lactate as the sole carbon source,
+      respectively
+    explanation: Supports the per-reactor carbon sources.
+- name: Aerobic dynamic feeding cycle
+  value: 12 h cycle; feed 10 min, aeration 650 min, settle 50 min, discharge 10 min
+  description: >-
+    The aerobic dynamic feeding (ADF) selection strategy imposes alternating
+    satiation and starvation, which is the deterministic pressure that selects for
+    PHA accumulation and against which the observed non-convergence is read.
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: with a cycle length of 12 h, consisting of feeding (10 min), aeration (650
+      min), settling (50 min), and discharge (10 min)
+    explanation: Supports the cycle structure and its phase durations.
+- name: Operating duration
+  value: 145 days
+  description: >-
+    An initial enrichment phase of about 17 days in which PHA-synthesising
+    capacity rose, followed by a maintenance phase to day 145 over which the
+    curated succession dynamics were observed.
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: continuously cultured for a period of 145 days
+    explanation: Supports the total operating duration.
+growth_media:
+- name: Synthetic wastewater with a single volatile fatty acid or lactate
+  temperature: 26.0
+  temperature_unit: CELSIUS
+  atmosphere: AEROBIC
+  vessel_type: Sequencing batch reactor, 2 L working volume
+  inoculum_source: >-
+    Activated sludge from the aerobic stage of an anaerobic-anoxic-oxic municipal
+    wastewater treatment process, Chengdu, China, screened at 0.25 mm.
+  preparation_notes: >-
+    Synthetic wastewater with acetate, propionate, butyrate, valerate, or lactate
+    as the sole carbon source in Reactors A to E respectively, plus inorganic
+    components and trace elements. Operated on a 12 h aerobic dynamic feeding
+    cycle; dissolved oxygen held above 4 mg/L during PHA accumulation assays.
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Five sequencing batch reactors (SBR), each with a working volume of 2 L,
+      were used for the cultivation of PHA-MMCs
+    explanation: Supports the reactor format and working volume.
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Activated sludge from a municipal wastewater treatment plant (Chengdu,
+      China) was used as the inoculum source
+    explanation: Supports the inoculum source.
+cultivation_setup:
+- cultivation_mode: SEQUENCING_BATCH
+  system_type: BIOREACTOR_UNSPECIFIED
+  working_volume: 2.0
+  working_volume_unit: L
+  operating_temperature: 26.0
+  operating_temperature_unit: "°C"
+  do_controlled: true
+  controls_notes: >-
+    Dissolved oxygen held above 4 mg/L by aeration during the fed-batch PHA
+    accumulation assays, measured with a WTW DO meter.
+  notes: >-
+    Five independent 2 L sequencing batch reactors run in parallel for 145 days
+    under an aerobic dynamic feeding regime, differing only in carbon source,
+    each sampled across time for paired metagenomics and metatranscriptomics.
+    The paper describes them as sequencing batch reactors without naming a
+    vessel geometry, so the system type is left unspecified.
+  evidence:
+  - reference: PMID:40152616
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Five sequencing batch reactors (SBR), each with a working volume of 2 L,
+      were used for the cultivation of PHA-MMCs
+    explanation: Supports the number, format, and volume of the reactors.
+external_resources:
+- name: Primary publication for the PHA-MMC phage succession community
+  repository: OTHER
+  resource_id: PMID:40152616
+  url: https://pubmed.ncbi.nlm.nih.gov/40152616/
+  description: >-
+    PubMed record for Yao et al. 2025, mSystems, "Phages-bacteria interactions
+    underlying the dynamics of polyhydroxyalkanoate-producing mixed microbial
+    cultures via meta-omics study".
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1128/msystems.00200-25
+  url: https://doi.org/10.1128/msystems.00200-25
+  description: DOI link to the mSystems paper.
+associated_datasets: []
+discussions:
+- discussion_id: pha_mmc_phage_host_links_not_curated
+  prompt: Should the per-reactor, per-timepoint phage-host linkages (for example Brevundimonas
+    with phage 1010E_19 in Reactor A, or the intermittent Paracoccus linkages in Reactor
+    D) be curated as individual LYTIC_INFECTION edges, given that the pOTUs have no
+    stable public identifiers?
+  kind: CURATION_TODO
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Coupled Turnover of Phage and Bacterial Community Structure
+  rationale: >-
+    The paper reports named phage-host linkages per reactor and per time point in
+    supplementary network figures, and they are the most mechanistically specific
+    content it carries. They are not curated here for two reasons: the phage
+    identifiers (0111B24, 1010E_19) are study-local contig labels with no
+    NCBITaxon or other resolvable grounding, and each linkage holds at some time
+    points and not others, which the schema has no way to qualify. Curating them
+    as unqualified pairwise edges would assert a stability the source explicitly
+    denies.
+- discussion_id: pha_mmc_no_storage_polymer_functional_role
+  prompt: Is a FunctionalRoleEnum value needed for storage-polymer accumulation, which
+    is the defining function of this community and of PHA-MMCs generally?
+  kind: CURATION_TODO
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  rationale: >-
+    Every member here is carried with no `functional_role`. The defining function
+    of these genera is accumulating polyhydroxyalkanoate under alternating feast
+    and famine, and no existing value says that. PRIMARY_DEGRADER was considered
+    and rejected: it means degrading complex substrates, while these organisms
+    grow on single short-chain fatty acids and lactate, so using it would assert
+    a metabolism the source does not report — the same failure the
+    PATHOGEN_ANTAGONIST description records for #298/#301. Leaving the slot empty
+    is correct until a value exists, but it does mean the community's central
+    function is readable only from prose and interactions.
+- discussion_id: pha_mmc_five_reactors_one_record
+  prompt: Should five reactors differing in carbon source and in dominant genus be one
+    record or five?
+  kind: OPEN_QUESTION
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  rationale: >-
+    The five reactors share an inoculum, a selection strategy, and an operating
+    regime, and the paper analyses them as one system, so they are curated as one
+    community. But the dominant genus differs between them — Azoarcus in A and B,
+    Thauera in E — so the DOMINANT rank carried by all five genera here means
+    "dominant in at least one reactor", not "dominant in the community". A reader
+    taking the five dominants as co-dominant in a single vessel would be misled.
+    Splitting per reactor would fix that and lose the cross-reactor comparison
+    that is the paper's design.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is reported for this
+  community.
