@@ -1,0 +1,40 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml
+  slug: Alseth_FourSpecies_Pathogen_Phage_Community
+session:
+  id: 2026-10-03T194711Z-claude-code-febc49
+  timestamp: '2026-10-03T19:47:11Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+events:
+- type: CREATE
+  outcome: changed
+  sections:
+  - taxonomy
+  - interactions
+  - environment
+  - cultivation
+  - evidence
+  - discussions
+  summary: Created four-species pathogen community under DMS3vir phage predation
+  details: 'Created CommunityMech:000467 from PMID:38648198 / doi:10.1371/journal.pbio.3002346 (Alseth
+    et al. 2024, PLoS Biology), the 1-N phage-bacteria case. Cached the PubMed abstract and appended Europe
+    PMC open-access full text (PMC11034675) so Methods and Results snippets validate, and checked every
+    snippet as an exact substring of that cache before writing it. Verified all five NCBITaxon ids and
+    canonical labels against NCBI Taxonomy: P. aeruginosa 287, A. baumannii 470, S. aureus 1280, B. cenocepacia
+    95486, and Casadabanvirus DMS3 389469 for the lytic derivative DMS3vir, which is curated as a community
+    member carrying the new LYTIC_PHAGE role. Curated the DMS3vir-to-PA14 lytic infection via the Type
+    IV pilus, the competitive release of A. baumannii, the dominance of pilus mutation over CRISPR-Cas
+    as the realised resistance route, and the diversity-maintenance effect. Recorded the generalised Lotka-Volterra
+    result as a negative finding under the new POPULATION_DYNAMIC_MODEL prediction type: pairwise-fitted
+    coefficients failed to predict 3- and 4-species dynamics. Marked two claims PARTIAL where the source
+    hedges (non-recovery attributed to resistance cost; kill-the-winner evidenced for a single cycle over
+    10 days). Left modeled_environment empty because the paper presents the assembly as artificial rather
+    than as a model of a named habitat. Corrected ENVO:01001059 to ENVO:01001405 after the term gate reported
+    a label mismatch. Validated with just validate, validate-strict, validate-terms, and validate-references-explained,
+    all green.'

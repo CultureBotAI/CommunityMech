@@ -1,0 +1,39 @@
+history_version: 1
+target:
+  kind: schema
+  path: src/communitymech/schema/communitymech.yaml
+  slug: communitymech
+session:
+  id: 2026-10-03T194736Z-claude-code-cd20f0
+  timestamp: '2026-10-03T19:47:36Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - schema
+  summary: Add phage-bacteria interaction types, a lytic phage role, a phage predation category, and a
+    population-dynamic prediction type
+  details: 'Adds seven enum values so phage-bacteria communities can be curated without overloading existing
+    ones, six of the seven used by a record landed in the same change. InteractionTypeEnum gains LYTIC_INFECTION
+    and LYSOGENIC_INFECTION, because PREDATION conflated viral lysis with grazing: a lytic phage converts
+    host biomass into more phage, so its population tracks host density in a way a grazer''s does not,
+    and the lytic/lysogenic split is the distinction that governs whether the host survives. It also gains
+    COMPETITIVE_RELEASE and KILL_THE_WINNER, which are qualitative dynamic regimes rather than new pair
+    relations; they are the schema''s current answer to representing dynamics, since TaxonomicComposition
+    carries one abundance per member with no time axis and a trajectory can only be stated as a claim.
+    Their descriptions separate them deliberately: competitive release needs the released population to
+    be observed going up, kill-the-winner additionally needs turnover over time, so one depletion and
+    one expansion does not earn the stronger value. FunctionalRoleEnum gains LYTIC_PHAGE, which names
+    the phage and not its host, following the note on PATHOGEN_ANTAGONIST. CommunityCategoryEnum gains
+    PHAGE_PREDATION for records whose curated subject is the predation rather than the habitat. ComputationalPredictionTypeEnum
+    gains POPULATION_DYNAMIC_MODEL for gLV/ODE/agent-based models, distinguished from STATISTICAL_INFERENCE,
+    which fits a correlational structure instead of integrating a dynamical law; a structural equation
+    model stays STATISTICAL_INFERENCE. LYSOGENIC_INFECTION is the one value with no current corpus use:
+    it is included because the lytic/lysogenic contrast is the semantic content of adding LYTIC_INFECTION
+    at all, and a curator meeting a prophage would otherwise have nowhere to put it. Regenerated the datamodel
+    with just gen-python. Used by CommunityMech:000467 and CommunityMech:000468.'

@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-09-09T20:30:33
+# Generation date: 2026-10-03T19:36:07
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -32,8 +32,8 @@ version = None
 CHEBI = CurieNamespace("CHEBI", "http://purl.obolibrary.org/obo/CHEBI_")
 CL = CurieNamespace("CL", "http://purl.obolibrary.org/obo/CL_")
 ENVO = CurieNamespace("ENVO", "http://purl.obolibrary.org/obo/ENVO_")
-GO = CurieNamespace("GO", "http://purl.obolibrary.org/obo/GO_")
 GITHUB = CurieNamespace("GITHUB", "https://github.com/")
+GO = CurieNamespace("GO", "http://purl.obolibrary.org/obo/GO_")
 NCBITAXON = CurieNamespace("NCBITaxon", "http://purl.obolibrary.org/obo/NCBITaxon_")
 OBI = CurieNamespace("OBI", "http://purl.obolibrary.org/obo/OBI_")
 PMID = CurieNamespace("PMID", "http://www.ncbi.nlm.nih.gov/pubmed/")
@@ -2440,6 +2440,11 @@ class CommunityCategoryEnum(EnumDefinitionImpl):
     BIOTECHNOLOGY = PermissibleValue(
         text="BIOTECHNOLOGY", description="Industrial biotechnology applications"
     )
+    PHAGE_PREDATION = PermissibleValue(
+        text="PHAGE_PREDATION",
+        description="""Communities whose curated subject is phage-bacteria dynamics — the phages are members or named participants, and the record's claims are about what viral predation does to composition, succession, or resistance evolution.
+Categorises the study system, not the habitat. A phage-manipulated bioreactor is this rather than BIOTECHNOLOGY when the curated content is the predation; use the habitat category where the phages are incidental to what the record asserts.""",
+    )
     OTHER = PermissibleValue(text="OTHER", description="Other or uncategorized communities")
 
     _defn = EnumDefinition(
@@ -2508,6 +2513,28 @@ class InteractionTypeEnum(EnumDefinitionImpl):
     )
     COMPETITION = PermissibleValue(text="COMPETITION", description="Both negatively affected (-/-)")
     PREDATION = PermissibleValue(text="PREDATION", description="One benefits, other harmed (+/-)")
+    LYTIC_INFECTION = PermissibleValue(
+        text="LYTIC_INFECTION",
+        description="""A virus infects a cellular host, replicates, and lyses it. The viral special case of PREDATION, separated because the two are not interchangeable: a grazing protist removes biomass, while a lytic phage converts it into more phage and releases the cell's contents, so the predator's own population is a function of host density in a way a grazer's is not.
+Use it for the edge `phage -> host`, with the phage as `source_taxon`. The host need not be a community member: a phage applied against a target outside `taxonomy` is the same relation.
+Says nothing about whether the phage is obligately lytic. A temperate phage replicating lytically is a LYTIC_INFECTION on that occasion; what is asserted is the infection, not the genome's lifestyle. State an established lifestyle in `description` with its evidence.""",
+    )
+    LYSOGENIC_INFECTION = PermissibleValue(
+        text="LYSOGENIC_INFECTION",
+        description="""A temperate virus integrates into (or is maintained within) its host rather than lysing it, so the host persists carrying the viral genome. Distinct from LYTIC_INFECTION in outcome and in sign: the host is not killed, and lysogeny commonly confers superinfection immunity against related phages.
+Asserting this needs evidence of the lysogenic state itself — integration, prophage carriage, or induction — not merely that the phage is classified as temperate.""",
+    )
+    COMPETITIVE_RELEASE = PermissibleValue(
+        text="COMPETITIVE_RELEASE",
+        description="""Suppression of one taxon relieves the competitive pressure it exerted, letting a competitor expand into the freed niche. The expansion is the asserted effect, and the suppressed taxon is the one acted on.
+Normally COMMUNITY_LEVEL: the release is a property of the competitive hierarchy among several members, not of either taxon alone, and naming one source and one target misrepresents it. Use `participating_taxa` to name the released and suppressed members.
+Requires that the competitor's expansion was actually observed. Predation on a dominant member is not by itself competitive release — the released population has to go up.""",
+    )
+    KILL_THE_WINNER = PermissibleValue(
+        text="KILL_THE_WINNER",
+        description="""Density-dependent predation that falls hardest on whichever taxon is currently most abundant, so dominance rotates instead of settling. The predator here is typically a host-specific phage, whose encounter rate rises with its host's abundance.
+Narrower than COMPETITIVE_RELEASE, and not a synonym for it: this value asserts the *recurring* negative feedback on dominance, so it needs evidence of turnover over time — repeated or alternating dominance — not one depletion and one expansion.""",
+    )
     SYNTROPHY = PermissibleValue(
         text="SYNTROPHY",
         description="""Metabolic cooperation in which one partner's product is another's substrate, and removing that product is what makes the first partner's metabolism favourable.
@@ -2634,6 +2661,12 @@ class FunctionalRoleEnum(EnumDefinitionImpl):
         text="PATHOGEN_ANTAGONIST",
         description="""Suppresses a pathogen in the community — biocontrol. The defining function of the plant-associated SynComs, and the role that was missing when #298 reached for PRIMARY_DEGRADER instead: a biocontrol strain is not thereby shown to degrade complex substrates, so that value asserted a metabolism the source did not report (#301).
 Names the antagonist, not its target. A suppressed pathogen is usually not a community member at all — see #319 on interaction participants that are deliberately outside `taxonomy`.""",
+    )
+    LYTIC_PHAGE = PermissibleValue(
+        text="LYTIC_PHAGE",
+        description="""A virus whose role in this community is to infect and lyse bacterial members — the predator in a phage-bacteria system, whether it arrived as a deliberate addition or as a resident of the sampled community.
+Names the phage, not what it infects, for the same reason PATHOGEN_ANTAGONIST names the antagonist: a host is not given a role by being preyed on. Record which taxa it infects as LYTIC_INFECTION edges in `ecological_interactions`.
+Carrying this role means the taxon belongs in `taxonomy`, so use it only where the phage is genuinely part of the curated community. A phage applied against a target the record does not contain is an interaction participant rather than a member.""",
     )
     NITROGEN_FIXING_SYMBIONT = PermissibleValue(
         text="NITROGEN_FIXING_SYMBIONT",
@@ -3030,6 +3063,12 @@ class ComputationalPredictionTypeEnum(EnumDefinitionImpl):
     )
     THERMODYNAMIC = PermissibleValue(
         text="THERMODYNAMIC", description="Prediction from thermodynamic feasibility analysis."
+    )
+    POPULATION_DYNAMIC_MODEL = PermissibleValue(
+        text="POPULATION_DYNAMIC_MODEL",
+        description="""Prediction from a model of how population densities change over time — generalised Lotka-Volterra and other ODE/chemostat formulations, predator-prey and phage-host models, and individual/agent-based simulations.
+Distinct from the metabolic values above, which predict what an organism *can* do from its network, and from STATISTICAL_INFERENCE, which fits a correlational structure rather than integrating a dynamical law. A structural equation model is STATISTICAL_INFERENCE; a fitted gLV system is this.
+A fitted dynamic model is evidence about the model, and the fit can fail informatively: CommunityMech:000467 records a gLV parameterisation whose curated result is that pairwise coefficients do **not** predict the assembled community. Record what the fit established, not what the framework assumes.""",
     )
     OTHER = PermissibleValue(
         text="OTHER",
