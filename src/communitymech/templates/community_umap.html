@@ -328,8 +328,11 @@
             outline-offset: 2px;
         }
 
-        .facet-header h2 {
+        .facet-heading { margin: 0; }
+
+        .facet-title {
             font-size: 1rem;
+            font-weight: 700;
             margin: 0;
             color: var(--text);
         }
@@ -595,10 +598,10 @@
 
                 <!-- Category facet -->
                 <div class="facet-section">
-                    <button class="facet-header" onclick="toggleFacet('category-facet')" aria-expanded="true" aria-controls="category-facet">
-                        <h2>Category</h2>
+                    <h2 class="facet-heading"><button class="facet-header" onclick="toggleFacet('category-facet')" aria-expanded="true" aria-controls="category-facet">
+                        <span class="facet-title">Category</span>
                         <span class="facet-toggle" aria-hidden="true">−</span>
-                    </button>
+                    </button></h2>
                     <div id="category-facet" class="facet-body">
                         <div class="facet-actions">
                             <button class="select-all" data-facet="category">All</button>
@@ -610,10 +613,10 @@
 
                 <!-- Ecological state facet -->
                 <div class="facet-section">
-                    <button class="facet-header" onclick="toggleFacet('state-facet')" aria-expanded="true" aria-controls="state-facet">
-                        <h2>Ecological State</h2>
+                    <h2 class="facet-heading"><button class="facet-header" onclick="toggleFacet('state-facet')" aria-expanded="true" aria-controls="state-facet">
+                        <span class="facet-title">Ecological State</span>
                         <span class="facet-toggle" aria-hidden="true">−</span>
-                    </button>
+                    </button></h2>
                     <div id="state-facet" class="facet-body">
                         <div id="state-checkboxes" class="facet-checkboxes"></div>
                     </div>
@@ -621,10 +624,10 @@
 
                 <!-- Origin facet -->
                 <div class="facet-section">
-                    <button class="facet-header" onclick="toggleFacet('origin-facet')" aria-expanded="true" aria-controls="origin-facet">
-                        <h2>Origin</h2>
+                    <h2 class="facet-heading"><button class="facet-header" onclick="toggleFacet('origin-facet')" aria-expanded="true" aria-controls="origin-facet">
+                        <span class="facet-title">Origin</span>
                         <span class="facet-toggle" aria-hidden="true">−</span>
-                    </button>
+                    </button></h2>
                     <div id="origin-facet" class="facet-body">
                         <div id="origin-checkboxes" class="facet-checkboxes"></div>
                     </div>
@@ -1294,7 +1297,7 @@
         // Toggle facet collapse/expand
         function toggleFacet(facetId) {
             const facetBody = d3.select(`#${facetId}`);
-            const button = facetBody.node().previousElementSibling;
+            const button = facetBody.node().previousElementSibling.querySelector('button');
             const toggle = button.querySelector('.facet-toggle');
 
             if (facetBody.classed('collapsed')) {

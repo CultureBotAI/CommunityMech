@@ -14,10 +14,18 @@ class HeadingParser(HTMLParser):
     def __init__(self):
         super().__init__()
         self.levels = []
+        self.button_depth = 0
 
     def handle_starttag(self, tag, attrs):
+        if tag == "button":
+            self.button_depth += 1
         if len(tag) == 2 and tag[0] == "h" and tag[1] in "123456":
+            assert self.button_depth == 0, "Headings must wrap buttons, not sit inside them"
             self.levels.append(int(tag[1]))
+
+    def handle_endtag(self, tag):
+        if tag == "button":
+            self.button_depth -= 1
 
 
 def assert_heading_order(html):
