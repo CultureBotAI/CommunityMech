@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -440,6 +454,7 @@
         {% if community.taxonomy %}
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -500,6 +515,7 @@
                     {% endfor %}
                 </tbody>
             </table>
+            </div>
         </section>
         {% endif %}
 
@@ -691,6 +707,7 @@
         {% if community.associated_datasets %}
         <section>
             <h2>Associated Datasets</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Associated Datasets">
             <table>
                 <thead>
                     <tr>
@@ -722,6 +739,7 @@
                     {% endfor %}
                 </tbody>
             </table>
+            </div>
         </section>
         {% endif %}
         {%- if community.discussions %}
@@ -781,6 +799,7 @@
         {% if community.external_resources %}
         <section>
             <h2>External Resources</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="External Resources">
             <table>
                 <thead>
                     <tr>
@@ -835,12 +854,14 @@
                     {% endfor %}
                 </tbody>
             </table>
+            </div>
         </section>
         {% endif %}
 
         {% if community.environmental_factors %}
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -884,6 +905,7 @@
                     {% endfor %}
                 </tbody>
             </table>
+            </div>
         </section>
         {% endif %}
 
@@ -935,6 +957,7 @@
 
                 {% if medium.composition %}
                 <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <div class="table-scroll" role="region" tabindex="0" aria-label="{{ medium.name }} composition">
                 <table>
                     <thead>
                         <tr>
@@ -964,6 +987,7 @@
                         {% endfor %}
                     </tbody>
                 </table>
+                </div>
                 {% endif %}
 
                 {% if medium.preparation_notes %}
