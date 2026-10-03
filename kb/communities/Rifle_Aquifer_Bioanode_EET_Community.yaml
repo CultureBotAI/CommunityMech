@@ -296,10 +296,6 @@ ecological_interactions:
     description: >
       Geobacter genomes had the greatest number and diversity of candidate
       porin-cytochrome complex porin types.
-  - target: e-Pili and OmcS Conductive Filament Potential
-    description: >
-      Five of six Geobacter genomes encoded putative e-pili, and nearly all
-      OmcS homologs detected in the dataset were assigned to Geobacter genomes.
   evidence:
   - reference: PMID:32849356
     supports: SUPPORT
@@ -353,10 +349,6 @@ ecological_interactions:
     description: >
       Acidobacteria, Betaproteobacteria, and Ignavibacteria were among the
       high-MHC genomes encoding candidate porin-cytochrome complexes.
-  - target: e-Pili and OmcS Conductive Filament Potential
-    description: >
-      Some Acidobacteria, Ignavibacteria, and Beta- and Gammaproteobacteria
-      genomes met strict e-pilus criteria.
   evidence:
   - reference: PMID:32849356
     supports: SUPPORT
@@ -380,12 +372,6 @@ ecological_interactions:
     term:
       id: GO:0022900
       label: electron transport chain
-  downstream:
-  - target: Rifle Mineral Redox Candidate Set
-    description: >
-      Candidate porin-cytochrome complexes were one line of genomic evidence
-      used to identify Rifle organisms likely to mediate extracellular mineral
-      redox transformations.
   evidence:
   - reference: PMID:32849356
     supports: SUPPORT
@@ -416,12 +402,6 @@ ecological_interactions:
     term:
       id: GO:0022900
       label: electron transport chain
-  downstream:
-  - target: Rifle Mineral Redox Candidate Set
-    description: >
-      Conductive e-pilus and OmcS homolog predictions supplied a second
-      extracellular-electron-transfer route in candidate Rifle aquifer
-      organisms.
   evidence:
   - reference: PMID:32849356
     supports: SUPPORT
@@ -572,3 +552,12 @@ rare_earth_elements_present: []
 metal_relevance: SIGNIFICANT
 metal_notes: Anode potentials mimic iron-oxide mineral redox; the EET-capable
   organisms may mediate mineral redox transformations in the Rifle aquifer.
+curation_history:
+- timestamp: '2026-10-02T06:15:13Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Removed four downstream edges that connected Geobacter or non-Geobacter
+    abundance and genomic evidence classes to e-pilus, OmcS, porin-cytochrome,
+    and mineral-redox candidate summaries as analysis evidence rather than
+    extracellular-electron-transfer causality.
+  llm_assisted: true

@@ -108,10 +108,6 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
-  downstream:
-  - target: Reproducible Natural-Rind Succession
-    description: Moisture and rind-style manipulations impose the abiotic context in which
-      reconstructed rind communities diverge into reproducible bacterial-fungal successions.
 - name: Fungal Deacidification Facilitates Bacterial Growth
   description: Yeasts and filamentous fungi increased cheese-curd-medium pH, and the study linked this
     deacidification to positive growth responses of multiple bacterial genera in fungal coculture.
@@ -122,10 +118,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Reproducible Natural-Rind Succession
-    description: Fungal deacidification raises cheese-curd pH and facilitates bacterial
-      growth during the reconstructed natural-rind succession.
 - name: Reproducible Natural-Rind Succession
   description: A six-genus natural-rind subset recapitulated key features of in situ succession on cheese
     curd agar, with early Staphylococcus and Candida followed by later Brevibacterium, Brachybacterium,
@@ -238,4 +230,10 @@ curation_history:
   changes: "Reapplied PR #766's 21 unsupported evidence removals onto current main, preserving its newer
     interaction curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in
     #765."
+  llm_assisted: true
+- timestamp: '2026-10-01T05:00:58Z'
+  curator: codex
+  action: PRUNE_UNEVIDENCED_CAUSAL_EDGES
+  changes: Removed two downstream causal edges from the moisture-structured assembly and fungal-deacidification nodes because
+    their exact causal links still lack retained snippet support after publication-body evidence removal.
   llm_assisted: true

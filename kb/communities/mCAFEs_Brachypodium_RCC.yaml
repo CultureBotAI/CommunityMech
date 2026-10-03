@@ -374,16 +374,6 @@ ecological_interactions:
     term:
       id: GO:0040007
       label: growth
-  downstream:
-  - target: Growth-Rate Hub Network Divergence
-    description: >
-      The diverse 1/10 R2A enrichments supplied the ASV abundance matrices used
-      to compare 3-day and 7-day NetCoMi hub networks.
-  - target: Generational Keystone Persistence
-    description: >
-      Carbon sources that maintained tractable but diverse consortia provided
-      the stable serial-transfer communities in which recurrent hub taxa were
-      compared across generations.
   evidence:
   - reference: PMID:38846575
     supports: SUPPORT
@@ -435,11 +425,6 @@ ecological_interactions:
     term:
       id: GO:0040007
       label: growth
-  downstream:
-  - target: Growth-Rate Hub Network Divergence
-    description: >
-      The fast- and slow-growing 1/10 R2A ASV sets were compared as separate
-      association networks to reveal interval-specific hubs.
   evidence:
   - reference: PMID:38846575
     supports: SUPPORT
@@ -493,12 +478,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Generational Keystone Persistence
-    description: >
-      Hub calling based on eigenvector centrality provided the same network
-      framework used to test whether hubs persisted across adjacent
-      generations.
   evidence:
   - reference: PMID:38846575
     supports: SUPPORT
@@ -546,12 +525,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: 1/10 R2A Glycerol Stock Revival
-    description: >
-      The persistent low-abundance hubs motivated the revival test with 1/10
-      R2A glycerol stocks selected for less abundant but important and
-      difficult-to-culture taxa.
   evidence:
   - reference: PMID:38846575
     supports: SUPPORT
@@ -671,3 +644,12 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: Each well had 1.8 mL volume in total with 10% inoculum (180 μL)
     explanation: Supports the 96-well plate working volume and 10% v/v inoculum size.
+curation_history:
+- timestamp: '2026-10-02T06:04:09Z'
+  curator: codex
+  action: REPAIR_CAUSAL_GRAPH
+  changes: Removed five mCAFEs network-analysis or revival workflow edges from
+    carbon-source, transfer-interval, hub-network, and generational-keystone
+    nodes, while retaining enrichment edges where carbon source and transfer
+    interval were the selection pressures.
+  llm_assisted: true

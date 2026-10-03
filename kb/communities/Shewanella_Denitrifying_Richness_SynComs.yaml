@@ -68,11 +68,6 @@ ecological_interactions:
     term:
       id: GO:0019333
       label: denitrification pathway
-  downstream:
-  - target: 180-Day Serial Transfer Evolution
-    description: >
-      The richness-gradient Shewanella SDCs were propagated through a defined
-      60-transfer evolution experiment.
   evidence:
   - *id001
 - name: 180-Day Serial Transfer Evolution
@@ -92,10 +87,6 @@ ecological_interactions:
       id: GO:0019333
       label: denitrification pathway
   downstream:
-  - target: Early Richness-Function Correlation
-    description: >
-      Repeated function measurements showed that richer SDCs had higher
-      productivity and nitrate reduction early in the transfer series.
   - target: Lower-Richness Functional Catch-Up
     description: >
       Long-term propagation revealed stronger functional increases in the
@@ -125,11 +116,6 @@ ecological_interactions:
     term:
       id: GO:0019333
       label: denitrification pathway
-  downstream:
-  - target: Complementarity-Dominated BEF Partitioning
-    description: >
-      The initial richness-function trend motivated partitioning of the
-      observed productivity gains into complementarity and selection effects.
   evidence:
   - reference: PMID:37154752
     supports: SUPPORT
@@ -157,11 +143,6 @@ ecological_interactions:
     term:
       id: GO:0019333
       label: denitrification pathway
-  downstream:
-  - target: Complementarity-Dominated BEF Partitioning
-    description: >
-      The larger low-richness functional gains were associated with an
-      asymmetric increase in complementarity and net biodiversity effects.
   evidence:
   - reference: PMID:37154752
     supports: SUPPORT
@@ -189,12 +170,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Relative-Yield Interaction Inference
-    description: >
-      The same mixture-versus-monoculture yields used for biodiversity-effect
-      partitioning were used to infer how species interactions contributed to
-      BEF dynamics.
   evidence:
   - reference: PMID:37154752
     supports: SUPPORT
@@ -282,3 +257,11 @@ growth_media:
       after 72 h when all Shewanella bacteria reached their saturation stages,
       and each transfer was 3 days.
     explanation: Documents 72 h batch cycles and 3% serial-transfer propagation of the SDCs.
+curation_history:
+- timestamp: '2026-10-02T06:04:09Z'
+  curator: codex
+  action: REPAIR_CAUSAL_GRAPH
+  changes: Removed four Shewanella richness-panel workflow or analysis edges
+    linking SDC construction and richness-function observations to serial
+    transfer setup, BEF partitioning, and relative-yield inference.
+  llm_assisted: true

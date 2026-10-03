@@ -74,11 +74,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: SNM3 Nasal Medium Exchange Constraints
-    description: >
-      The two curated strain GEMs were constrained against SNM3 exchange bounds to
-      emulate the nutrient space of the human nasal habitat.
   evidence:
   - reference: doi:10.3389/fcimb.2022.925215
     supports: SUPPORT
@@ -100,11 +95,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: COMPM and COOPM Nutrient Perturbations
-    description: >
-      The SNM3-constrained model was then evaluated on rich and poor nasal-nutrient
-      subsets to test how nutrient availability changes two-species growth.
   evidence:
   - reference: doi:10.3389/fcimb.2022.925215
     supports: SUPPORT
@@ -125,11 +115,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: D. pigrum-S. aureus Exchange-Factor Prediction
-    description: >
-      Changing the shared medium supplied the FBA and FVA contexts used to infer
-      candidate metabolic exchange factors between D. pigrum and S. aureus.
   evidence:
   - reference: doi:10.3389/fcimb.2022.925215
     supports: SUPPORT
@@ -286,3 +271,11 @@ external_resources:
     snippet: The resulting community model combines the latest available curated GEMs of D. pigrum and
       S. aureus.
     explanation: Supports this two-member community GEM construction and scope.
+curation_history:
+- timestamp: '2026-10-02T05:21:08Z'
+  curator: codex
+  action: PRUNE_NONCAUSAL_WORKFLOW_EDGES
+  changes: Removed three downstream edges that linked GEM assembly, SNM3 exchange constraints,
+    and rich/poor-medium perturbation setup rather than source-backed ecological causal
+    interactions in the D. pigrum-S. aureus BioModels record.
+  llm_assisted: true

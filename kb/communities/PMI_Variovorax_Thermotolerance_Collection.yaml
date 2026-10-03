@@ -211,11 +211,6 @@ ecological_interactions:
     term:
       id: GO:0009408
       label: response to heat
-  downstream:
-  - target: Fourteen-Minute Heat-Shock Calibration
-    description: >
-      The reproducible hydroponic chlorophyll assay provided the platform for
-      tuning acute heat-shock exposure before bacterial screening.
   evidence:
   - reference: PMID:37386471
     supports: SUPPORT
@@ -247,11 +242,6 @@ ecological_interactions:
     term:
       id: GO:0009408
       label: response to heat
-  downstream:
-  - target: Individual Variovorax Strain Thermotolerance Screen
-    description: >
-      The calibrated 14-minute 45C heat shock defined the stress regime for
-      testing each Variovorax strain.
   evidence:
   - reference: PMID:37386471
     supports: SUPPORT
@@ -279,11 +269,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Six-Strain Variovorax Thermotolerance Hit Set
-    description: >
-      Individual screening identified the subset of Variovorax strains with
-      significant plant thermotolerance phenotypes.
   evidence:
   - reference: PMID:37386471
     supports: SUPPORT
@@ -314,10 +299,6 @@ ecological_interactions:
     term:
       id: GO:0009408
       label: response to heat
-  downstream:
-  - target: CF313 Follow-Up Thermotolerance Confirmation
-    description: >
-      The six-strain hit set motivated a focused CF313 confirmation experiment.
   evidence:
   - reference: PMID:37386471
     supports: SUPPORT
@@ -450,3 +431,11 @@ growth_media:
       R2A broth and cultured at 28 °C with shaking at 250 rpm overnight
     explanation: States bacterial culture medium (R2A broth), temperature (28 °C) and
       shaking (250 rpm).
+curation_history:
+- timestamp: '2026-10-02T06:00:47Z'
+  curator: codex
+  action: REPAIR_CAUSAL_GRAPH
+  changes: Removed four assay workflow edges that linked hydroponic assay
+    establishment, heat-shock calibration, strain screening, hit selection, and
+    CF313 follow-up as experimental steps rather than causal biological effects.
+  llm_assisted: true

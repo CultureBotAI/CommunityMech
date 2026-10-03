@@ -236,11 +236,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: D-mannitol Enrichment of Pseudomonas in the Chlorella Phytomicrobiome
-    description: >
-      Among the applied Chlorella-related substances, 2% D-mannitol yielded a
-      prominent Pseudomonas response by 36 h.
   evidence:
   - reference: PMID:41937467
     supports: SUPPORT
@@ -332,11 +327,6 @@ ecological_interactions:
     term:
       id: GO:0009399
       label: nitrogen fixation
-  downstream:
-  - target: Keystone-Taxa SynCom Suppression of Fusarium oxysporum
-    description: >
-      The functionally distinct keystone isolates were then tested as single,
-      partial-SynCom, and full-SynCom disease-suppression treatments.
   evidence:
   - reference: PMID:41937467
     supports: SUPPORT
@@ -471,11 +461,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Keystone Plant-Growth-Promoting Trait Pool
-    description: >
-      D-mannitol-enriched Pseudomonas was one component of the keystone set
-      that was functionally screened before SynCom plant inoculation.
   evidence:
   - reference: PMID:41937467
     supports: PARTIAL
@@ -544,3 +529,15 @@ environmental_factors:
     snippet: By applying various substances, including Chlorella, Chlorella methanol extract
       (methanol extract), and D-mannitol
     explanation: Lists the applied substances that define the tested conditions.
+curation_history:
+- timestamp: '2026-10-02T05:42:48Z'
+  curator: codex
+  action: PRUNE_NONCAUSAL_WORKFLOW_EDGES
+  changes: >
+    Removed three downstream edges that linked Chlorella-associated substance
+    perturbation, D-mannitol enrichment of Pseudomonas, keystone member PGP
+    trait screening, and SynCom Fusarium challenge as a design and assay
+    sequence rather than source-backed ecological causal transitions. Retained
+    the SynCom-to-disease-index edges for the strawberry and tomato Fusarium
+    outcomes.
+  llm_assisted: true

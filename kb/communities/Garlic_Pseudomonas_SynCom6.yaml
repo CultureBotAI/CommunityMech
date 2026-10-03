@@ -50,11 +50,6 @@ ecological_interactions:
     term:
       id: GO:0044403
       label: biological process involved in symbiotic interaction
-  downstream:
-  - target: Six-Strain Pseudomonas SynCom Assembly
-    description: >
-      The field rhizosphere screen and co-occurrence network analysis selected Pseudomonas as the
-      genus to isolate and carry into a six-strain synthetic community.
   evidence:
   - reference: PMID:32762153
     supports: SUPPORT
@@ -82,11 +77,6 @@ ecological_interactions:
     term:
       id: GO:0044403
       label: biological process involved in symbiotic interaction
-  downstream:
-  - target: Pseudomonas-Mediated Growth Promotion
-    description: >
-      The equal-proportion six-strain M group was the inoculum whose seedling growth-promotion
-      effect was assayed against sterile-water and B8-7 controls.
   evidence:
   - reference: PMID:32762153
     supports: SUPPORT
@@ -136,3 +126,13 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: Bacterial strains were cultured (28°C for six Pseudomonas strains, 37°C for B8‐7, 18 mm × 180 mm glass tubes, shaking at 200 r.p.m.) in 10 ml LB for 2 days.
     explanation: Source states the LB medium, 28 °C temperature, glass-tube vessel, 200 r.p.m. shaking and 2-day incubation of the Pseudomonas SynCom strains.
+curation_history:
+- timestamp: '2026-10-02T05:55:33Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: >
+    Removed two downstream edges that linked field top-down Pseudomonas
+    selection to six-strain SynCom assembly and linked assembly to the radish
+    growth-promotion assay as curation workflow rather than ecological causal
+    transitions.
+  llm_assisted: true

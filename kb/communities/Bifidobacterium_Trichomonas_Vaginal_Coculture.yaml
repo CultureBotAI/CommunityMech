@@ -175,11 +175,6 @@ ecological_interactions:
     term:
       id: GO:0008283
       label: cell population proliferation
-  downstream:
-  - target: Adhesin-Linked HeLa Nonprotection
-    description: >
-      The B. breve-exposed parasite population was carried forward into host
-      epithelial assays that showed no protective B. breve effect.
   evidence:
   - reference: PMID:41688526
     supports: SUPPORT
@@ -250,10 +245,6 @@ ecological_interactions:
       id: GO:0006631
       label: fatty acid metabolic process
   downstream:
-  - target: Long-Chain Fatty-Acid Pool Decrease
-    description: >
-      The pathway signal was followed by LC-MS profiling of the long-chain
-      fatty-acid pool in co-cultured parasites.
   - target: T. vaginalis Growth with B. breve Attrition
     description: >
       Transcriptomic and functional analyses connected B. breve-enhanced
@@ -415,3 +406,11 @@ environmental_factors:
     snippet: modulates parasite gene expression and lipid metabolism transiently
     explanation: Records that the observed modulation does not persist, which bounds how the
       interaction should be read.
+curation_history:
+- timestamp: '2026-10-02T05:19:54Z'
+  curator: codex
+  action: PRUNE_NONCAUSAL_WORKFLOW_EDGES
+  changes: Removed two downstream edges that linked B. breve-exposed parasite growth and
+    fatty-acid-pathway transcriptomics to follow-on host-cell and LC-MS assays rather than
+    source-backed ecological causal interactions in the Bifidobacterium-Trichomonas co-culture record.
+  llm_assisted: true

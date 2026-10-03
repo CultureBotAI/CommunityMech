@@ -104,11 +104,6 @@ ecological_interactions:
     term:
       id: GO:0030245
       label: cellulose catabolic process
-  downstream:
-  - target: PMA-Correlated Coculture Validation
-    description: >
-      The PMA/PGSI screen nominated compatible communities that were then grown
-      experimentally and compared by enzymatic synergism.
   evidence:
   - reference: PMID:42343824
     supports: SUPPORT
@@ -143,11 +138,6 @@ ecological_interactions:
     term:
       id: GO:0030245
       label: cellulose catabolic process
-  downstream:
-  - target: Enzymatic synergism in the B. fibrisolvens + S. ruminantium coculture
-    description: >
-      The validated compatible pairs included the B. fibrisolvens and
-      S. ruminantium coculture that gave the strongest endoglucanase synergy.
   evidence:
   - reference: PMID:42343824
     supports: SUPPORT
@@ -182,11 +172,6 @@ ecological_interactions:
     term:
       id: GO:0030245
       label: cellulose catabolic process
-  downstream:
-  - target: Three-membered lignocellulolytic synergy
-    description: >
-      This strongest pairwise coculture was retained in the synergistic
-      three-membered consortium with R. albus.
   evidence:
   - reference: PMID:42343824
     supports: SUPPORT
@@ -233,3 +218,16 @@ ecological_interactions:
     explanation: Community-level synergy of the three-membered consortium across all lignocellulosic
       substrates.
     confidence_score: 0.85
+curation_history:
+- timestamp: '2026-10-02T05:33:48Z'
+  curator: codex
+  action: PRUNE_NONCAUSAL_WORKFLOW_EDGES
+  changes: >
+    Removed three downstream edges that connected the PMA/PGSI in silico
+    compatible-pair screen, pairwise coculture validation, the strongest
+    B. fibrisolvens/S. ruminantium coculture, and three-membered consortium
+    construction as assay workflow steps rather than source-backed ecological
+    causal transitions. Restored three NCBITaxon:971 labels to
+    Pseudoselenomonas ruminantium while retaining Selenomonas ruminantium as
+    the source synonym.
+  llm_assisted: true

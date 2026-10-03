@@ -98,11 +98,6 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
-  downstream:
-  - target: SLAM023B-SLAM005Y Coculture Genome Sequencing
-    description: >
-      The dominant bacterial and yeast genera guided isolation and sequencing
-      of L. kefiri SLAM023B and K. marxianus SLAM005Y from milk kefir.
   evidence:
   - reference: PMID:42217781
     supports: SUPPORT
@@ -125,11 +120,6 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
-  downstream:
-  - target: KEGG Flavor Pathway Reconstruction
-    description: >
-      The hybrid genome sequences supplied the isolate genomes used for KEGG
-      flavor-pathway functional annotation.
   evidence:
   - reference: PMID:42217781
     supports: SUPPORT
@@ -156,12 +146,6 @@ ecological_interactions:
     term:
       id: GO:0006520
       label: amino acid metabolic process
-  downstream:
-  - target: Strain-Resolved Flavor Precursor Partitioning
-    description: >
-      The pathway reconstruction provided the basis for assigning fruity fusel
-      alcohol production to K. marxianus and fatty-acid-derived precursor
-      production to L. kefiri.
   evidence:
   - reference: PMID:42217781
     supports: SUPPORT
@@ -191,17 +175,6 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
-  downstream:
-  - target: Coculture Acetate-Ester Enhancement
-    description: >
-      The complementary alcohol and fatty-acid precursor roles were observed in
-      the same defined pair whose coculture significantly enhanced acetate ester
-      synthesis.
-  - target: Correlation-Supported Potential Cross-Feeding
-    description: >
-      The strain-resolved roles and coculture metabolite profiles were analyzed
-      for correlation support of potential cross-feeding between the bacterial
-      and yeast isolates.
   evidence:
   - reference: PMID:42217781
     supports: SUPPORT
@@ -233,12 +206,6 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
-  downstream:
-  - target: Correlation-Supported Potential Cross-Feeding
-    description: >
-      The enhanced and shifted coculture flavor-metabolite profile was included
-      in the correlation analysis that supported complementary roles and
-      potential cross-feeding.
   evidence:
   - reference: PMID:42217781
     supports: SUPPORT
@@ -321,3 +288,11 @@ external_resources:
     explanation: Establishes that this separate publication uses the same exact species and strain composition.
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare-earth processing role is reported for this kefir-derived coculture.
+curation_history:
+- timestamp: '2026-10-02T06:10:22Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Removed five downstream edges that encoded Kefir strain-prioritization,
+    genome-sequencing, KEGG annotation, and correlation-analysis workflow order
+    rather than source-backed ecological causality.
+  llm_assisted: true

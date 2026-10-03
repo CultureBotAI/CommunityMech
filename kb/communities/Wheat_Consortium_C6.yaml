@@ -168,15 +168,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: C6 Dual-Culture AG8 Radial Inhibition
-    description: >
-      The assembled four-member C6 inoculum was tested directly against
-      Rhizoctonia solani AG8 mycelial growth.
-  - target: C6 Auxin Production
-    description: >
-      The assembled four-member C6 inoculum was tested for aggregate
-      indole-3-acetic acid production in culture supernatant.
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
@@ -222,15 +213,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: C6-Member Cell-Free AG8 Antagonism
-    description: >
-      Cell-free supernatants from all four C6 members were then assayed as
-      possible secreted contributors to antifungal activity.
-  - target: C6-Member Volatile AG8 Antagonism
-    description: >
-      Volatile emissions from the C6 members were also assayed as possible
-      non-contact contributors to antifungal activity.
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
@@ -256,11 +238,6 @@ ecological_interactions:
     term:
       id: GO:0040007
       label: growth
-  downstream:
-  - target: SynCom Arabidopsis Root-Length Response
-    description: >
-      The SynCom auxin measurements were compared with Arabidopsis root-length
-      outcomes to evaluate bacterial effects on plant root development.
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
@@ -451,3 +428,11 @@ growth_media:
       BD, Franklin Lakes, NJ) at 25°C
     explanation: Confirms the TSA/TSB medium and 25°C maintenance temperature for
       the strains.
+curation_history:
+- timestamp: '2026-10-02T06:04:09Z'
+  curator: codex
+  action: REPAIR_CAUSAL_GRAPH
+  changes: Removed five Wheat C6 assay workflow edges linking consortium
+    assembly and aggregate auxin or AG8 antagonism phenotypes to later
+    dual-culture, cell-free, volatile, and Arabidopsis root-length assays.
+  llm_assisted: true

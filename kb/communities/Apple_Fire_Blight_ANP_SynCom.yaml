@@ -341,10 +341,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: A+N+P nutrient competition with Erwinia amylovora
-    description: The follow-up apple-flower-exudate assay directly tested whether the same A/N/P SynCom design reduces Erwinia
-      amylovora density under limited flower nutrients.
   evidence:
   - reference: PMID:40223277
     supports: SUPPORT
@@ -583,4 +579,10 @@ curation_history:
   changes: 'Addressed adversarial-review issues #896 and #897 on PR #895 by adding exact evidence for apple-flower-exudate
     filtration, 1/5 TSA rifampicin enumeration, fruit/flower/plant challenge inoculation details, and exudate-assay SynCom
     OD600 normalization and equal group mixing.'
+  llm_assisted: true
+- timestamp: '2026-10-02T05:55:33Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: Removed the downstream edge from Rosaceae fire-blight suppression to the apple-flower-exudate nutrient-competition
+    assay because it described a follow-up mechanistic test rather than a causal transition.
   llm_assisted: true

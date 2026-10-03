@@ -205,7 +205,6 @@ ecological_interactions:
     term:
       id: CHEBI:72813
       label: exopolysaccharide
-  downstream: []
   evidence:
   - reference: PMID:42372608
     supports: SUPPORT
@@ -323,4 +322,10 @@ curation_history:
     Addressed adversarial review issues #1014 and #1015 by scoping the
     top-level EPS maximum to the tested microbial combinations and removing
     exopolysaccharide from the nitrogen-source metabolite list.
+  llm_assisted: true
+- timestamp: '2026-10-01T04:54:40Z'
+  curator: codex
+  action: REMOVE_EMPTY_DOWNSTREAM
+  changes: Removed the empty downstream list from the terminal Three-species Viili EPS maximum interaction after a corpus
+    causal-graph audit found it was a non-informative stub.
   llm_assisted: true

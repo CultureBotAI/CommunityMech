@@ -195,16 +195,6 @@ ecological_interactions:
     term:
       id: GO:0006032
       label: chitin catabolic process
-  downstream:
-  - target: NAG Positive Co-Cultures
-    description: >
-      MSC-1 stabilization by chitin enrichment motivated pairwise tests of
-      isolates growing on soluble N-acetylglucosamine, the chitin monomer.
-  - target: Soil Co-Abundance Central Hubs
-    description: >
-      The chitin-selected MSC-1 consortium was transferred to sterile soil
-      perturbation experiments whose abundance trajectories resolved central
-      co-abundance hubs.
   evidence:
   - reference: PMID:32983014
     supports: SUPPORT
@@ -403,3 +393,13 @@ growth_media:
     snippet: The soil samples were incubated for 7 months at 20°C in the dark, with
       respiration used to monitor bioactivity once a week
     explanation: Gives the 20°C, dark enrichment incubation conditions.
+curation_history:
+- timestamp: '2026-10-02T05:57:41Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: >
+    Removed two downstream edges from chitin-selected MSC-1 stabilization to
+    N-acetylglucosamine pairwise coculture tests and soil co-abundance network
+    analysis because they described follow-up assays rather than causal
+    transitions.
+  llm_assisted: true

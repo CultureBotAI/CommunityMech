@@ -78,10 +78,6 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between
         organisms
-  downstream:
-  - target: Repeated Candida-Enterococcus Co-Detection
-    description: The recovered infant-06 members anchor the broader observation
-      that E. faecalis accompanied every Candida-containing infant sample set.
   evidence:
   - reference: PMID:34154658
     supports: SUPPORT
@@ -102,11 +98,6 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between
         organisms
-  downstream:
-  - target: Enterococcus Replacement of Early Candida Dominance
-    description: Repeated co-detection led into the infant-06 time course in
-      which E. faecalis later outnumbered the initially abundant Candida
-      population.
   evidence:
   - reference: PMID:34154658
     supports: SUPPORT
@@ -128,11 +119,6 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between
         organisms
-  downstream:
-  - target: Candida-Positive Enterococcus Mannitol-PTS Response
-    description: The abundance shift motivated Candida-positive versus
-      Candida-negative transcriptome comparisons that identified
-      E. faecalis transport and growth-response features.
   evidence:
   - reference: PMID:34154658
     supports: SUPPORT
@@ -174,11 +160,6 @@ ecological_interactions:
     term:
       id: GO:0008643
       label: carbohydrate transport
-  downstream:
-  - target: In Situ Candida Biofilm Downshift and Aerobic Enrichment
-    description: Candida-associated bacterial transcript changes coincided with
-      a distinct in situ Candida expression profile enriched in aerobic
-      respiration and depleted in biofilm-matrix functions.
   evidence:
   - reference: PMID:34154658
     supports: SUPPORT
@@ -276,3 +257,16 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   hospitalized-infant Candida community.
+curation_history:
+- timestamp: '2026-10-02T05:38:34Z'
+  curator: codex
+  action: PRUNE_NONCAUSAL_WORKFLOW_EDGES
+  changes: >
+    Removed four downstream edges that connected infant-06 genome recovery,
+    repeated Candida-Enterococcus co-detection, time-course replacement by
+    Enterococcus, Candida-positive Enterococcus transcript features, and the
+    in situ Candida expression profile as cohort-comparison and multi-omics
+    analysis steps rather than source-backed causal ecological transitions.
+    Normalized three stale NCBITaxon:5480 labels from Lodderomyces parapsilosis
+    to Candida parapsilosis.
+  llm_assisted: true

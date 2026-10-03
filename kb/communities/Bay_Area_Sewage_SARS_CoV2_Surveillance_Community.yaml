@@ -46,15 +46,6 @@ ecological_interactions:
     term:
       id: GO:0016032
       label: viral process
-  downstream:
-  - target: Complete Wastewater SARS-CoV-2 Genome Recovery
-    description: >
-      Wastewater RNA sequencing recovered enough viral coverage for complete and
-      nearly complete SARS-CoV-2 consensus genomes.
-  - target: Wastewater Minor SARS-CoV-2 Allele Profiling
-    description: >
-      Wastewater reads also supported metagenomic single-nucleotide variant calling
-      across the sampled SARS-CoV-2 population.
   evidence:
   - reference: PMID:33468686
     supports: SUPPORT
@@ -75,11 +66,6 @@ ecological_interactions:
     term:
       id: GO:0016032
       label: viral process
-  downstream:
-  - target: Regional Clinical Genotype Concordance
-    description: >
-      Wastewater consensus genomes could be compared with patient-derived genomes to
-      verify that the major sewage genotypes matched regional clinical genotypes.
   evidence:
   - reference: PMID:33468686
     supports: SUPPORT
@@ -99,11 +85,6 @@ ecological_interactions:
     term:
       id: GO:0016032
       label: viral process
-  downstream:
-  - target: Preclinical Local Lineage-Introduction Signal
-    description: >
-      Recurrent wastewater variants could indicate SARS-CoV-2 lineage introductions
-      before those variants appeared in local patient-based sequencing.
   evidence:
   - reference: PMID:33468686
     supports: SUPPORT
@@ -190,3 +171,10 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   wastewater SARS-CoV-2 surveillance community.
+curation_history:
+- timestamp: '2026-10-02T05:05:43Z'
+  curator: codex
+  action: PRUNE_NONCAUSAL_WORKFLOW_EDGES
+  changes: Removed four downstream edges that linked wastewater sequencing and analysis steps rather
+    than source-backed ecological interactions in the municipal sewage SARS-CoV-2 surveillance record.
+  llm_assisted: true

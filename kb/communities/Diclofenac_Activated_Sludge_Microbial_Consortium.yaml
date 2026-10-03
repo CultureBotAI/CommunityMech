@@ -272,10 +272,6 @@ ecological_interactions:
     term:
       id: GO:0006006
       label: glucose metabolic process
-  downstream:
-  - target: DCF-Selected Community Shift
-    description: The glucose-amended DCF exposure was the selective assay whose start and 28-day MC pellets were profiled
-      by 16S and ITS metabarcoding.
   evidence:
   - reference: PMID:41718267
     supports: SUPPORT
@@ -585,4 +581,11 @@ curation_history:
   action: ADDRESS_DICLOFENAC_SLUDGE_CONSORTIUM_NUMERIC_ABUNDANCE
   changes: 'Removed numeric relative_abundance values from the diclofenac MC taxonomy entries so the record keeps article
     percentages in notes and evidence snippets without expanding measured-abundance slot use while issue #908 is addressed.'
+  llm_assisted: true
+- timestamp: '2026-10-02T05:45:52Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: Removed the downstream edge from glucose-amended diclofenac dissipation to the DCF-selected community shift because
+    the edge described which biodegradation-assay pellets were metabarcoded rather than a source-backed ecological causal
+    transition; normalized the Aspergillus genus label to the NCBITaxon current label.
   llm_assisted: true

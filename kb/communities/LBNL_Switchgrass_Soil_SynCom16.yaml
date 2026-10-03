@@ -62,11 +62,6 @@ ecological_interactions:
     term:
       id: GO:0040007
       label: growth
-  downstream:
-  - target: Low-Nutrient Alpha-Diversity Enrichment
-    description: >
-      Machine assembly produced the replicated communities used to test whether diluted R2A medium
-      retained more members during in vitro community growth.
   evidence:
   - reference: PMID:36472419
     supports: SUPPORT
@@ -86,11 +81,6 @@ ecological_interactions:
     term:
       id: GO:0040007
       label: growth
-  downstream:
-  - target: Starting-Ratio Diversity Maximization
-    description: >
-      The low-nutrient screen motivated start-ratio designs that counterweighted fast and slow
-      growers to improve the final community alpha diversity beyond equal mixing.
   evidence:
   - reference: PMID:36472419
     supports: SUPPORT
@@ -110,15 +100,6 @@ ecological_interactions:
     term:
       id: GO:0040007
       label: growth
-  downstream:
-  - target: Glycerol-Preserved SynCom Regrowth
-    description: >
-      The tuned SynCom was preserved, thawed, and regrown to test whether a stock-based workflow
-      could recover the viable community without rebuilding it from separate isolates.
-  - target: EcoFAB Brachypodium Rhizosphere Colonization
-    description: >
-      The soil-isolate SynCom design was moved from plate culture into EcoFABs to test whether
-      Brachypodium roots could be colonized by the assembled community.
   evidence:
   - reference: PMID:36472419
     supports: SUPPORT
@@ -205,3 +186,13 @@ growth_media:
       at 30°C without shaking.
     explanation: Gives the Teknova 1× R2A medium and aerobic 30°C conditions for the
       member isolates.
+curation_history:
+- timestamp: '2026-10-02T05:57:41Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: >
+    Removed four downstream edges that linked automated assembly to nutrient
+    screening, nutrient screening to starting-ratio design, and starting-ratio
+    tuning to glycerol-preservation and EcoFAB colonization tests as workflow
+    transitions rather than ecological causal mechanisms.
+  llm_assisted: true

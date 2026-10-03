@@ -163,11 +163,6 @@ ecological_interactions:
     term:
       id: GO:0045493
       label: xylan catabolic process
-  downstream:
-  - target: Functional-Group Reductive MAMC Screening
-    description: >
-      The 18 sugarcane-enriched, metabolically classified strains seeded the 65 five-member
-      synthetic communities used to screen functional diversity against lignocellulose degradation.
   evidence:
   - reference: PMID:29392382
     supports: SUPPORT
@@ -200,12 +195,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: MAMC-M48 Lignocellulose Degradation
-    description: >
-      Screening five-member, functionally varied MAMCs identified a subset of effective
-      communities, including the Stenotrophomonas-Paenibacillus-Microbacterium-Chryseobacterium-
-      Brevundimonas consortium curated here.
   evidence:
   - reference: PMID:29392382
     supports: SUPPORT
@@ -494,3 +483,13 @@ cultivation_setup:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: we inoculated approximately 3 × 104 cells/mL of each strain
+curation_history:
+- timestamp: '2026-10-02T05:57:41Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: >
+    Removed two downstream edges that linked sugarcane-degrader enrichment to
+    reductive five-member MAMC screening and linked that screen to the curated
+    MAMC-M48 degradation phenotype as study workflow rather than community
+    causal structure.
+  llm_assisted: true

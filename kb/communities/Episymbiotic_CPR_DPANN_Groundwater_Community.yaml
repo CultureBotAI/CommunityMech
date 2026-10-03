@@ -96,15 +96,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Site-Specific CPR/DPANN Differentiation
-    description: >
-      The CPR/DPANN genomes recovered from the eight aquifers enabled
-      cross-site comparisons of species-level overlap.
-  - target: Size-Fraction CPR/DPANN Host-Attachment Signal
-    description: >
-      The recovered CPR/DPANN lineages could also be compared across serial
-      groundwater-cell size fractions to infer host-attached populations.
   evidence:
   - reference: PMID:33495623
     supports: SUPPORT
@@ -156,11 +147,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: CPR/DPANN Episymbiotic Attachment to Hosts
-    description: >
-      Size-fraction evidence for attached ultrasmall cells motivated direct
-      near-native imaging of CPR/DPANN episymbionts on host surfaces.
   evidence:
   - reference: PMID:33495623
     supports: SUPPORT
@@ -189,8 +175,10 @@ ecological_interactions:
   downstream:
   - target: Host-Attached CPR Replication Stimulation
     description: >
-      Direct observation of attached ultrasmall cells led to replication-rate
-      comparisons between attached and unattached CPR populations.
+      Host-cell surface attachment is inferred to stimulate CPR bacterial
+      replication because attached CPR cells in larger size fractions showed
+      higher instantaneous replication rates than unattached CPR cells from the
+      same groundwater community.
   evidence:
   - reference: PMID:33495623
     supports: SUPPORT
@@ -314,3 +302,14 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   CPR/DPANN groundwater community.
+curation_history:
+- timestamp: '2026-10-02T05:45:52Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: >
+    Removed three downstream edges that connected CPR/DPANN genome recovery to
+    cross-site and size-fraction comparisons, and size-fraction host-attachment
+    signals to direct imaging, as analysis steps rather than groundwater
+    mechanisms. Kept the host-attachment to CPR replication edge and rewrote its
+    description to state the inferred host-surface stimulation mechanism.
+  llm_assisted: true

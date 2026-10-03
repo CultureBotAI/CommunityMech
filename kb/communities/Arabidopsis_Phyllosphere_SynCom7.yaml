@@ -65,11 +65,6 @@ ecological_interactions:
     term:
       id: GO:0044403
       label: biological process involved in symbiotic interaction
-  downstream:
-  - target: Candidate-Gene Mutant Phyllosphere Inoculation
-    description: >
-      The reduced-complexity, colonization-competent isolate set enabled controlled
-      spray inoculation of Arabidopsis mutants in a gnotobiotic phyllosphere system.
   evidence:
   - reference: PMID:24743269
     supports: SUPPORT
@@ -89,15 +84,6 @@ ecological_interactions:
     term:
       id: GO:0044403
       label: biological process involved in symbiotic interaction
-  downstream:
-  - target: Cuticle-Mutant SynCom Abundance Increase
-    description: >
-      Screening the host mutant panel identified lacs2 and pec1 as the alleles with
-      the strongest SynCom perturbation relative to the wild type.
-  - target: EIN2 Ethylene-Signaling Composition Shift
-    description: >
-      The same gnotobiotic host-mutant screen also identified the ethylene-signaling
-      factor EIN2 as a plant genetic axis that shifted SynCom composition.
   evidence:
   - reference: PMID:24743269
     supports: SUPPORT
@@ -235,3 +221,13 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: This solution was then diluted to an OD600 of 0.02.
     explanation: Gives the OD600 0.02 inoculum density used for spray inoculation.
+curation_history:
+- timestamp: '2026-10-02T05:55:33Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: >
+    Removed three downstream edges that linked seven-strain phyllosphere SynCom
+    construction to the candidate-gene mutant screen and linked that screen to
+    the lacs2/pec1 cuticle and EIN2 ethylene-signaling phenotypes as assay
+    sequencing rather than ecological causal transitions.
+  llm_assisted: true

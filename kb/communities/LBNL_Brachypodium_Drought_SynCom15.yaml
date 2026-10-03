@@ -63,11 +63,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Five-Phylum Rhizobiome SynCom Assembly
-    description: >
-      Network-guided cultivation yielded a defined community spanning five
-      bacterial phyla from the B. distachyon rhizobiome.
   evidence:
   - *id001
 - name: Five-Phylum Rhizobiome SynCom Assembly
@@ -81,15 +76,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Genomic Osmoprotectant and Ion-Transport Prediction
-    description: >
-      The defined isolate set was genome analyzed for encoded
-      plant-growth-promoting traits that could support stress resilience.
-  - target: In Vitro and In Planta SynCom Stability
-    description: >
-      The 15-member assembly was tracked as a community under in vitro and plant
-      colonization conditions.
   evidence:
   - reference: PMID:40862137
     supports: SUPPORT
@@ -119,11 +105,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Laboratory PGP Trait Validation
-    description: >
-      Some of the genome-predicted plant-growth-promoting traits were then
-      tested by laboratory phenotypic assays.
   evidence:
   - reference: PMID:40862137
     supports: SUPPORT
@@ -151,12 +132,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Brachypodium Drought Recovery Promotion
-    description: >
-      The validated trait pool supplied plausible member functions for the
-      subsequent observation that SynCom-amended Brachypodium recovered better
-      after drought.
   evidence:
   - reference: PMID:40862137
     supports: SUPPORT
@@ -176,16 +151,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Brachypodium Drought Recovery Promotion
-    description: >
-      A stable consortium in planta could remain present during stress and
-      rewatering, enabling the improved plant recovery reported for
-      SynCom-amended plants.
-  - target: Stress Root-Tip Preferential Colonization
-    description: >
-      In planta persistence enabled strain-resolved observation of root-zone
-      spatial enrichment under stress.
   evidence:
   - reference: PMID:40862137
     supports: SUPPORT
@@ -328,3 +293,14 @@ cultivation_setup:
     evidence_source: IN_VITRO
     snippet: The mixture was incubated in a plant growth chamber with conditions set
       at 16-h light, 24°C temperature, and 50% humidity
+curation_history:
+- timestamp: '2026-10-02T05:57:41Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: >
+    Removed seven downstream edges that followed the Brachypodium SynCom
+    workflow from network-guided design to assembly, genome prediction,
+    laboratory trait validation, stability tests, and in planta stress
+    observations rather than source-backed causal transitions between
+    interaction phenotypes.
+  llm_assisted: true

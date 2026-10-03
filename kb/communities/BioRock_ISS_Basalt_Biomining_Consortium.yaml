@@ -297,16 +297,6 @@ ecological_interactions:
     term:
       id: GO:0010038
       label: response to metal ion
-  downstream:
-  - target: Sphingomonas desiccabilis rare-earth-element bioleaching from basalt
-    description: >
-      Species-specific BioRock panel behavior identified S. desiccabilis as the
-      member that reproducibly enhanced REE bioleaching from basalt.
-  - target: Vanadium bioleaching by Sphingomonas desiccabilis and Bacillus subtilis
-    description: >
-      The vanadium follow-up showed that S. desiccabilis and B. subtilis,
-      but not C. metallidurans, enhanced V leaching relative to sterile
-      controls.
   evidence:
   - reference: PMID:33173035
     supports: SUPPORT
@@ -539,3 +529,13 @@ metal_notes: >
   table). Vanadium was actively leached by S. desiccabilis and B. subtilis (enhanced
   184.92-283.22% over sterile controls). Iron is a major constituent of the olivine
   basalt substrate rather than a specific mining target.
+curation_history:
+- timestamp: '2026-10-02T05:32:26Z'
+  curator: codex
+  action: PRUNE_UNEVIDENCED_CAUSAL_EDGES
+  changes: >
+    Removed two downstream edges from the BioRock panel-specificity summary node
+    to the REE and vanadium bioleaching nodes because microbial specificity
+    summarizes the compared strain outcomes rather than causing the individual
+    basalt-bioleaching phenotypes.
+  llm_assisted: true
