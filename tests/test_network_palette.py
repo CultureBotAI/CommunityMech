@@ -62,7 +62,17 @@ INTERACTION_ENUM = "InteractionTypeEnum"
 # wrong as the KB grows.
 FOLDED = {
     "STRAIN_COMPETITION": "1 occurrence in the KB",
-    "PREDATION": "11 occurrences; the next-rarest coloured type has 67",
+    "PREDATION": "17 occurrences; the next-rarest coloured type has 61",
+    # The phage-bacteria values. They fold for the same reason PREDATION does,
+    # and they also belong to its visual class: all four are predation-shaped,
+    # so sharing the grey "Other" swatch groups them rather than losing them.
+    # Giving any of them a hue would mean separating nine or more colours under
+    # protan and deutan, which is the exact problem #532 folded PREDATION to
+    # solve.
+    "LYTIC_INFECTION": "6 occurrences across the two phage records",
+    "LYSOGENIC_INFECTION": "0 occurrences; the value exists for the lytic/lysogenic contrast",
+    "COMPETITIVE_RELEASE": "1 occurrence",
+    "KILL_THE_WINNER": "1 occurrence",
 }
 
 # No coloured type may be rarer than a folded one by more than this factor —
