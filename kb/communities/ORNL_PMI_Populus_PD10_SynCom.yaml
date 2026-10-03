@@ -419,10 +419,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:165695
       label: Sphingobium
-  downstream:
-  - target: Pantoea-Centered R2A Metabolite Export
-    description: The MOPS and R2A survivor sets were both analyzed by community FBA to estimate
-      potential metabolic exchange in the stable community context.
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
@@ -458,13 +454,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:1386
       label: Bacillus <firmicutes>
-  downstream:
-  - target: Pantoea-Centered R2A Metabolite Export
-    description: The R2A FBA model predicted Pantoea-centered metabolite export in the Pantoea-dominated
-      stable community.
-  - target: Selective Antagonism During Assembly
-    description: Pairwise interaction screening found Pseudomonas antagonism and Pantoea positive
-      effects that can contribute to R2A community selection.
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
@@ -608,3 +597,11 @@ growth_media:
       cultivated in a shaking incubator at 30 °C and 200 rpm for 48 h
     explanation: States medium (R2A/MOPS), vessel, temperature (30 °C), shaking (200 rpm)
       and incubation time (48 h).
+curation_history:
+- timestamp: '2026-10-02T06:10:22Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Removed three downstream edges that treated community FBA and pairwise
+    interaction screening as downstream consequences of the MOPS and R2A survivor
+    states.
+  llm_assisted: true

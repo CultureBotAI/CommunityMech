@@ -197,11 +197,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Acetoclastic methanogenesis as dominant methane route
-    description: The higher-cooperation multi-species cultures were evaluated by
-      stoichiometric flux modeling, which identified acetoclastic methanogenesis
-      as the dominant methane-producing route.
   evidence:
   - *design_evidence
   - reference: PMID:40937471
@@ -237,11 +232,6 @@ ecological_interactions:
     term:
       id: GO:0019385
       label: methanogenesis, from acetate
-  downstream:
-  - target: Combinatorial cellulose-fed interaction rewiring
-    description: Acetoclastic methane production was the central carbon-flow
-      route through which species composition produced non-additive tri- and
-      quad-culture behavior.
   evidence:
   - reference: PMID:40937471
     supports: SUPPORT
@@ -459,4 +449,14 @@ curation_history:
     replacing the methane ingredient's generic carbon-flow snippet with direct
     gas-chromatography support, and adding direct D. vulgaris lactate-to-H2
     evidence to the hydrogen-turnover edge.
+  llm_assisted: true
+- timestamp: '2026-10-02T05:41:05Z'
+  curator: codex
+  action: PRUNE_UNEVIDENCED_CAUSAL_EDGES
+  changes: >
+    Removed the reciprocal downstream edges between the combinatorial
+    interaction-rewiring summary node and the modeled acetoclastic-methanogenesis
+    route. Those nodes summarize complementary computational interpretations of
+    the same cellulose-fed panel, and the stoichiometric-modeling source did not
+    demonstrate a direct two-way ecological transition between them.
   llm_assisted: true

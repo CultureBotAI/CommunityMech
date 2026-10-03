@@ -214,10 +214,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: ASF356/ASF492 Short-Chain Fatty Acid Fermentation
-    description: Lower-gut dominance by obligate anaerobic members, including ASF356 and ASF492, positions
-      fermentative Firmicutes to contribute short-chain fatty acids in the cecal and colonic community.
   evidence:
   - reference: PMID:15128534
     supports: SUPPORT
@@ -243,10 +239,6 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
-  downstream:
-  - target: SCFA-Linked Colonic Treg Homeostasis
-    description: SCFAs produced by gut bacteria provide a mechanistic metabolite axis for regulatory
-      T-cell pool size and function in the colon.
 - name: SCFA-Linked Colonic Treg Homeostasis
   description: Gut microbiota-derived short-chain fatty acids regulate the size and function of the colonic
     Foxp3-positive regulatory T-cell pool and connect ASF fermentation potential to host mucosal
@@ -329,4 +321,10 @@ curation_history:
     policy caught newer main caches. Preserved all scientific claims, taxonomy and interaction topology;
     these claims require re-evidencing where support was removed. See the linked publication-text-removal
     history for license/version uncertainty."
+  llm_assisted: true
+- timestamp: '2026-10-01T05:00:58Z'
+  curator: codex
+  action: PRUNE_UNEVIDENCED_CAUSAL_EDGES
+  changes: Removed two downstream causal edges through the ASF356/ASF492 short-chain-fatty-acid fermentation node because the
+    exact ASF356/ASF492 SCFA-production claim still lacks retained snippet support after publication-body evidence removal.
   llm_assisted: true

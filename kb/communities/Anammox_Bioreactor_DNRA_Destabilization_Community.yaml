@@ -145,16 +145,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Brocadia Ammonium-Nitrite Anammox
-    description: >
-      Defining the mature anammox-associated core established Brocadia as the
-      dominant autotrophic nitrogen-removal population in the stable reactor.
-  - target: Core DNRA Nitrite Reduction Capacity
-    description: >
-      The same genome set was interrogated for nitrogen-metabolism KOs,
-      resolving DNRA encoded by bacteria retained in the anammox-associated
-      core.
   evidence:
   - reference: PMID:31980038
     supports: SUPPORT
@@ -233,11 +223,6 @@ ecological_interactions:
       id: GO:0071941
       label: nitrogen cycle metabolic process
   downstream:
-  - target: Pre-Crash DNRA Bacterial Replication
-    description: >
-      DNRA annotation of the core bacterial genomes let the replication and
-      abundance analysis test whether DNRA-capable organisms expanded before
-      the biological destabilization event.
   - target: DNRA Outcompetition of Anammox
     description: >
       Nitrite-to-ammonium DNRA provided the nitrogen-removal pathway that
@@ -510,3 +495,11 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   anammox/DNRA community.
+curation_history:
+- timestamp: '2026-10-02T05:18:03Z'
+  curator: codex
+  action: PRUNE_NONCAUSAL_WORKFLOW_EDGES
+  changes: Removed three downstream edges that linked core-community definition, nitrogen-metabolism
+    annotation, and replication analysis steps rather than source-backed ecological causal interactions
+    in the anammox bioreactor DNRA record.
+  llm_assisted: true

@@ -568,6 +568,11 @@ ecological_interactions:
     description: >
       SynCom17 was one of the ring-trial treatments that drove reproducible,
       treatment-dependent changes in the spent EcoFAB medium metabolome.
+  - target: SynCom17 Plant Biomass and Root Development Decrease
+    description: >
+      The standardized SynCom17 treatment caused reproducible B. distachyon
+      root-development decreases across laboratories and reduced shoot biomass
+      relative to axenic plants.
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
@@ -649,12 +654,9 @@ ecological_interactions:
   downstream:
   - target: Treatment-Structured Rhizosphere Exometabolites
     description: >
-      The Paraburkholderia-dominated SynCom17 root community coincided with a
-      rhizosphere exometabolite profile distinct from axenic and SynCom16 treatments.
-  - target: SynCom17 Plant Biomass and Root Development Decrease
-    description: >
-      The same SynCom17 treatment that selected Paraburkholderia-dominated roots
-      produced the strongest B. distachyon biomass and root-development decreases.
+      The Paraburkholderia-dominated SynCom17 root community modulated the
+      rhizosphere exometabolite profile relative to axenic and SynCom16
+      treatments, including decreased amino-acid relative concentrations.
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
@@ -850,3 +852,14 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: The plates were then moved to the growth chamber with a 14 h photoperiod (16 h for lab C) at 26 °C and 10 h dark at 20 °C with photosynthetic photon flux density (PPFD) at 110–140 µmol/m2/s and 70% humidity if tunable.
     explanation: Names the plant growth-chamber photoperiod, light/dark temperatures, light intensity, and humidity.
+curation_history:
+- timestamp: '2026-10-02T05:49:32Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: >
+    Retargeted the SynCom17 plant-biomass and root-development edge onto the
+    SynCom17 treatment perturbation instead of the co-occurring
+    Paraburkholderia-dominated root profile, and rewrote the
+    Paraburkholderia-to-exometabolite edge to state the source-supported
+    metabolome modulation directly.
+  llm_assisted: true

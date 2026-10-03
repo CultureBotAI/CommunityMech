@@ -227,15 +227,6 @@ ecological_interactions:
     term:
       id: GO:0009399
       label: nitrogen fixation
-  downstream:
-  - target: Root Endophytic Community Restructuring
-    description: >
-      The trait-selected consortium was applied to Eucalyptus seedlings before their root endophytic
-      communities were profiled after 13 weeks.
-  - target: Genotype-Dependent Improvement of Seedling Quality and Survival
-    description: >
-      The same five-strain inoculant was followed through the nursery assay to quantify seedling
-      quality classes and mortality across three host genotypes.
   evidence:
   - reference: PMID:42050290
     supports: SUPPORT
@@ -348,3 +339,14 @@ environmental_factors:
     snippet: After 13 weeks, we assessed microbial diversity, morphological seedling traits, and
       survival rates
     explanation: Records the trial duration and the endpoints measured in the nursery setting.
+curation_history:
+- timestamp: '2026-10-02T05:49:32Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: >
+    Removed two downstream edges from the complementary
+    nitrogen-phosphate-trait pool to the root-endophytic community and
+    genotype-dependent seedling response nodes because the edge descriptions
+    linked the selected inoculant to later nursery measurements rather than to a
+    resolved ecological mechanism.
+  llm_assisted: true

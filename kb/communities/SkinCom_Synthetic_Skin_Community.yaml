@@ -59,11 +59,6 @@ ecological_interactions:
     term:
       id: GO:0040007
       label: growth
-  downstream:
-  - target: Defined-Cell SkinCom Assembly
-    description: >
-      Member growth curves informed the automated, cell-counted construction of balanced SkinCom
-      formulations.
   evidence:
   - reference: PMID:39111313
     supports: SUPPORT
@@ -82,11 +77,6 @@ ecological_interactions:
     term:
       id: GO:0040007
       label: growth
-  downstream:
-  - target: 1x BHI SkinCom Diversity Selection
-    description: >
-      Defined-cell assembly enabled direct comparison of SkinCom starting ratios and BHI
-      concentrations for reproducible diverse growth.
   evidence:
   - reference: PMID:39111313
     supports: SUPPORT
@@ -110,10 +100,6 @@ ecological_interactions:
     description: >
       The 1x BHI aerobic SkinCom condition retained all intended isolates and exposed the
       community-dependent growth of C. acnes in an oxic setting.
-  - target: Cosmetic Chemical Response Concordance
-    description: >
-      The reproducible aerobic SkinCom was used to compare in-vitro cosmetic-chemical responses
-      with those observed in a human trial.
   evidence:
   - reference: PMID:39111313
     supports: SUPPORT
@@ -233,3 +219,12 @@ cultivation_setup:
     evidence_source: IN_VITRO
     snippet: Plates were incubated at 37°C in the presence of oxygen (oxic) or in the
       anaerobic chamber (anoxic)
+curation_history:
+- timestamp: '2026-10-02T06:04:09Z'
+  curator: codex
+  action: REPAIR_CAUSAL_GRAPH
+  changes: Removed three SkinCom workflow edges from growth profiling or
+    defined-cell assembly to later medium selection and cosmetic-response
+    comparison while retaining the aerobic SkinCom edge to C. acnes oxic
+    proliferation.
+  llm_assisted: true

@@ -175,9 +175,6 @@ ecological_interactions:
     term:
       id: GO:0005975
       label: carbohydrate metabolic process
-  downstream:
-  - target: In situ cattle rumen fermentation shift
-    description: The Group 41 strain ratio was carried into the fistulated-cattle dosing assay.
   evidence:
   - reference: doi:10.1186/s40168-025-02331-3
     supports: SUPPORT
@@ -378,4 +375,11 @@ curation_history:
   action: ADDRESS_ADVERSARIAL_REVIEW
   changes: Added more local evidence for CAZy and KEGG genome annotations and for mixed SynCom inoculation into the in vitro
     bottle fermentation setup.
+  llm_assisted: true
+- timestamp: '2026-10-02T06:00:47Z'
+  curator: codex
+  action: REPAIR_CAUSAL_GRAPH
+  changes: Removed the workflow edge that carried the Box-Behnken in vitro Group
+    41 formulation into the later fistulated-cattle dosing assay instead of
+    linking two source-backed biological states.
   llm_assisted: true

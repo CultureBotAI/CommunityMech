@@ -130,11 +130,6 @@ ecological_interactions:
     term:
       id: GO:0009399
       label: nitrogen fixation
-  downstream:
-  - target: Equal-Volume Field Inoculum
-    description: >
-      The seven functionally screened strains were grown separately and then
-      mixed in equal volumes for field application.
   evidence:
   - *id001
   - reference: PMID:40270813
@@ -157,11 +152,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Four-Stage Maize Biofertilization
-    description: >
-      The viable mixed bacterial suspension was the biofertilizer used in
-      backpack and drone delivery treatments.
   evidence:
   - reference: PMID:40270813
     supports: SUPPORT
@@ -195,13 +185,12 @@ ecological_interactions:
   downstream:
   - target: Biofertilizer-Linked Soil and Yield Response
     description: >
-      Repeated SynCom application was compared against no-application and
-      chemical-fertilization controls for soil properties, maize physiology,
-      yield, and disease.
+      Repeated teosinte SynCom delivery drove the measured soil, maize
+      physiology, yield, and disease-protection responses.
   - target: Beneficial-Taxon Soil Microbiome Shift
     description: >
-      The same repeated treatments were sampled through the season to measure
-      bacterial and fungal community restructuring.
+      Repeated teosinte SynCom delivery restructured bacterial and fungal
+      communities over the field season.
   evidence:
   - reference: PMID:40270813
     supports: SUPPORT
@@ -274,11 +263,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Bacillus-Centered Nutrient-Cycling Network
-    description: >
-      The taxonomic shifts were analyzed as co-occurrence networks to identify
-      correlated plant-growth-promoting, nitrogen-fixing, and biocontrol guilds.
   evidence:
   - reference: PMID:40270813
     supports: SUPPORT
@@ -373,3 +357,11 @@ growth_media:
       orbital shaking at 150 rpm until reaching an optical density (OD600) of 1.0'
     explanation: Reports R2A broth medium, 28°C, and 150 rpm orbital shaking used to grow the
       teosinte-derived SynCom strains.
+curation_history:
+- timestamp: '2026-10-02T06:04:09Z'
+  curator: codex
+  action: REPAIR_CAUSAL_GRAPH
+  changes: Removed three Teosinte SynCom formulation and network-analysis edges,
+    and rewrote the retained four-stage biofertilization edges to state
+    measured soil, yield, and microbiome responses directly.
+  llm_assisted: true

@@ -85,11 +85,6 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
-  downstream:
-  - target: Growth-Balanced Phototroph Grouping
-    description: >
-      The EPS-conditioned substrate was the attachment context for the selected
-      phototrophs that were sorted into staged inoculation groups.
   evidence:
   - reference: PMID:35869094
     supports: SUPPORT
@@ -121,11 +116,6 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
-  downstream:
-  - target: Four-Day Pioneer-Diatom Colonization
-    description: >
-      The group design produced an initial low-profile diatom inoculum that was
-      given an empirically chosen four-day surface-colonization window.
   evidence:
   - *id001
   - reference: PMID:35869094
@@ -157,11 +147,6 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
-  downstream:
-  - target: Fourteen-Day High-Profile Diatom Colonization
-    description: >
-      The four-day group A foundation enabled the next diatom group to be added
-      onto an attached pioneer biofilm.
   evidence:
   - reference: PMID:35869094
     supports: SUPPORT
@@ -183,11 +168,6 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
-  downstream:
-  - target: Thirty-Day ABC Periphyton Maturity
-    description: >
-      Fourteen days of group B development set the eighteen-day handoff point
-      for adding group C and completing the mature ABC periphyton.
   evidence:
   - reference: PMID:35869094
     supports: SUPPORT
@@ -213,12 +193,6 @@ ecological_interactions:
     term:
       id: GO:0019684
       label: photosynthesis, light reaction
-  downstream:
-  - target: Reproducible 3D Biofilm Stressor Response
-    description: >
-      The assembled ABC biofilm was reproducible enough for single-species and
-      whole-community responses to be measured under herbicide and warming
-      stressors.
   evidence:
   - reference: PMID:35869094
     supports: SUPPORT
@@ -350,3 +324,11 @@ cultivation_setup:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: under two temperatures (17 °C and 20 °C)
+curation_history:
+- timestamp: '2026-10-02T06:10:22Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Removed five downstream edges that represented the staged periphyton
+    construction workflow from EPS coating through stressor testing rather than
+    evidence-backed causal edges among phototrophic interactions.
+  llm_assisted: true

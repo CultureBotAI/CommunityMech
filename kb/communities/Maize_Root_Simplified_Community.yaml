@@ -268,15 +268,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: E. cloacae Keystone Control of C. pusillum Takeover
-    description: The defined seven-strain assembly enabled leave-one-out root
-      perturbations that identified E. cloacae as the member preventing collapse
-      of the assembled bacterial community.
-  - target: Seven-Strain Suppression of Fusarium
-    description: The assembled root SynCom provides the bacterial consortium
-      whose in planta and in vitro assays established F. verticillioides
-      suppression.
   evidence:
   - reference: PMID:28275097
     supports: SUPPORT
@@ -448,3 +439,13 @@ growth_media:
       humidity of 54%.'
     explanation: Plant (Zea mays) growth chamber photoperiod, temperature, and humidity for
       axenic host seedlings.
+curation_history:
+- timestamp: '2026-10-02T05:57:41Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: >
+    Removed two downstream edges from host-mediated seven-strain root assembly
+    to the E. cloacae leave-one-out keystone result and the Fusarium suppression
+    phenotype because they described which assays used the assembled SynCom
+    rather than causal transitions from assembly itself.
+  llm_assisted: true

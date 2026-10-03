@@ -113,12 +113,6 @@ ecological_interactions:
     term:
       id: GO:0009628
       label: response to abiotic stimulus
-  downstream:
-  - target: Sulfate and Methanogenesis Competition
-    description: >
-      Restoration-state filtering separated unrestored hypersaline ponds from
-      restored/reference sediments and fed into the salinity and sulfate
-      gradient associated with methane flux.
   evidence:
   - reference: doi:10.1038/s41396-021-01067-w
     supports: SUPPORT
@@ -209,16 +203,6 @@ ecological_interactions:
     term:
       id: GO:0015948
       label: methanogenesis
-  downstream:
-  - target: Archaeal Methanogenesis Coupled to Methane Flux
-    description: >
-      The same sulfate and salinity gradient correlated with methane flux whose
-      functional signal included archaeal methanogenesis genes.
-  - target: Bacterial Methylphosphonate Methane Pathway
-    description: >
-      The field methane-flux gradient also correlated with bacterial
-      methylphosphonate-degradation genes, linking the geochemical gradient to
-      this bacterial methane pathway.
   evidence:
   - reference: doi:10.1038/s41396-021-01067-w
     supports: SUPPORT
@@ -551,3 +535,11 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: Metals and trace elements were measured or discussed in the source
   geochemical context, but metal or rare earth element processing is not curated
   as a primary function of this methane-restoration community.
+curation_history:
+- timestamp: '2026-10-02T06:15:13Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Removed three downstream edges that connected restoration-state,
+    sulfate-salinity, archaeal methanogenesis, and methylphosphonate findings by
+    field correlation rather than tested methane-production causality.
+  llm_assisted: true

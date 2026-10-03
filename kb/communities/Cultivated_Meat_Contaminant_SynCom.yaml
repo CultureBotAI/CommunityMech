@@ -83,9 +83,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: 1018-k6 SynCom Antimicrobial Suppression
-    description: The multi-contaminant SynCom was then used to test antimicrobial peptide and protein interventions.
   evidence:
   - reference: PMID:42425643
     supports: SUPPORT
@@ -217,4 +214,10 @@ curation_history:
   changes: Addressed adversarial review issues 858, 859, and 860 by adding a broad bacterial aggregate taxonomy entry for the
     six unresolved contaminants, keeping 1018-k6 modeled as an antimicrobial intervention rather than a generic
     related-ingredient/metabolite, and repairing the PubMed cache rendering of 10^6 CFU/mL.
+  llm_assisted: true
+- timestamp: '2026-10-02T05:45:52Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: Removed the downstream edge from WGS-predicted six-contaminant metabolic complementarity to 1018-k6 SynCom
+    antimicrobial suppression because it represented the assay sequence rather than a source-backed causal effect.
   llm_assisted: true

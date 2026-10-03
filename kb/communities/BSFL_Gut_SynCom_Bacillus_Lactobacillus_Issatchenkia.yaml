@@ -109,16 +109,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Bacillus Direct Proteolysis
-    description: >
-      The selected Bacillus member was assayed as the direct proteolytic member
-      of the protein-conversion consortium.
-  - target: Lactobacillus-Issatchenkia Protein-Conversion Association
-    description: >
-      The selected Lactobacillus and Issatchenkia members were retained as the
-      non-proteolytic partners associated with stronger protein conversion and
-      host amino-acid metabolic responses.
   evidence:
   - reference: PMID:42167379
     supports: SUPPORT
@@ -147,12 +137,6 @@ ecological_interactions:
     term:
       id: GO:0030163
       label: protein catabolic process
-  downstream:
-  - target: Tripartite Gut-pH Niche Partitioning
-    description: >
-      Bacillus proteolysis was combined with Lactobacillus and Issatchenkia in
-      the three-member SynCom that had the best host protein-conversion
-      performance.
   evidence:
   - reference: PMID:42167379
     supports: SUPPORT
@@ -181,11 +165,6 @@ ecological_interactions:
     term:
       id: GO:0006520
       label: amino acid metabolic process
-  downstream:
-  - target: Tripartite Gut-pH Niche Partitioning
-    description: >
-      Lactobacillus and Issatchenkia joined Bacillus in the tripartite SynCom
-      that produced the strongest protein-conversion performance.
   evidence:
   - reference: PMID:42167379
     supports: SUPPORT
@@ -216,10 +195,6 @@ ecological_interactions:
       The highest-performing tripartite SynCom was associated with host ALDH as
       a candidate protein-conversion node linked to amino-acid metabolism and
       TOR-related signaling.
-  - target: Organic-Waste SynCom-BSFL Proof of Concept
-    description: >
-      The three-member SynCom was transferred from germ-free host testing to
-      proof-of-concept BSFL conversion of chicken manure and kitchen waste.
   evidence:
   - reference: PMID:42167379
     supports: SUPPORT
@@ -242,11 +217,6 @@ ecological_interactions:
     term:
       id: GO:0006520
       label: amino acid metabolic process
-  downstream:
-  - target: Organic-Waste SynCom-BSFL Proof of Concept
-    description: >
-      The candidate host amino-acid/TOR response was the mechanistic context
-      for carrying the function-guided SynCom into waste-feedstock trials.
   evidence:
   - reference: PMID:42167379
     supports: SUPPORT
@@ -315,3 +285,11 @@ growth_media:
     snippet: distinct spatiotemporal distribution patterns along the gut pH gradient
     explanation: The cultivation environment is the larval gut, which presents a spatial pH gradient
       shaping member distribution.
+curation_history:
+- timestamp: '2026-10-02T05:12:51Z'
+  curator: codex
+  action: PRUNE_NONCAUSAL_WORKFLOW_EDGES
+  changes: Removed six downstream edges that linked SynCom member selection, taxon combination,
+    and proof-of-concept waste-feedstock assay steps rather than source-backed ecological causal
+    interactions in the BSFL gnotobiotic SynCom record.
+  llm_assisted: true

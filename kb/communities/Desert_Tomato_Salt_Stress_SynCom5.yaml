@@ -253,11 +253,6 @@ ecological_interactions:
     term:
       id: GO:0009651
       label: response to salt stress
-  downstream:
-  - target: SynCom C activation of root SOS marker expression
-    description: The reduced five-strain SynCom C was carried forward into the
-      validation assay that showed community-specific induction of root SOS1,
-      SOS2, and WRKY8 salt-stress marker expression.
   evidence:
   - reference: PMID:35444261
     supports: SUPPORT
@@ -300,3 +295,13 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: Bacterial strains were cultured in tryptic soy broth medium (TSB) at 28 °C. Fast growing strains were cultivated in 1/10th TSB for 1 day and slow growing strains were cultivated in ½ strength TSB for 5 days.
     explanation: Names the TSB medium and 28 °C cultivation temperature used for the SynCom strains.
+curation_history:
+- timestamp: '2026-10-02T05:55:33Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: >
+    Removed the downstream edge from the five-strain SynCom C screen result to
+    SOS-marker activation because it represented the choice to carry SynCom C
+    into a validation assay rather than a causal transition between measured
+    salt-protection mechanisms.
+  llm_assisted: true

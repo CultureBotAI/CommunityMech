@@ -201,12 +201,6 @@ ecological_interactions:
     term:
       id: GO:0006805
       label: xenobiotic metabolic process
-  downstream:
-  - target: HPLC-confirmed cyantraniliprole removal
-    description: >
-      The predicted enzyme suite was interpreted after HPLC water-microcosm
-      assays in which T4 had the highest cyantraniliprole removal among the four
-      tested consortia.
   evidence:
   - reference: PMID:42354927
     supports: SUPPORT
@@ -543,4 +537,13 @@ curation_history:
     snippet that flattened 10^7 CFU/mL to 107 CFU/mL in rendered evidence and by
     clarifying that the 98.27% T4 removal value is calculated from the 57.79
     mg/L zero-day residue in the nominal 60 mg/L microcosm.
+  llm_assisted: true
+- timestamp: '2026-10-02T05:45:52Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: >
+    Removed the downstream edge from T4 predicted cyantraniliprole enzyme
+    potential to HPLC-confirmed cyantraniliprole removal because the edge
+    described post-assay bioinformatic interpretation rather than a demonstrated
+    causal transition from predicted enzyme annotations to pesticide removal.
   llm_assisted: true

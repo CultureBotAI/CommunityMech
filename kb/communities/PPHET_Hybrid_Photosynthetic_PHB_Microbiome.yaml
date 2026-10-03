@@ -209,12 +209,6 @@ ecological_interactions:
     term:
       id: CHEBI:53389
       label: poly(3-hydroxybutyrate)
-  downstream:
-  - target: Non-Sterile Scaled Reactor Production
-    description: 'Acetate-supported heterotrophic PHB accumulation motivated the dark scaled-production mode tested in foil-wrapped
-      glass vessels.
-
-      '
   evidence:
   - reference: PMID:41559821
     supports: SUPPORT
@@ -235,12 +229,6 @@ ecological_interactions:
     '
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
-  downstream:
-  - target: Dark Acetate PHB Accumulation
-    description: 'The scaled dark reactor used acetate supplementation to test PHB accumulation by heterotrophic community
-      members.
-
-      '
   evidence:
   - reference: PMID:41559821
     supports: SUPPORT
@@ -458,4 +446,12 @@ curation_history:
     PPT1 membership, WCRM-derived heterotrophs, 16S-derived broad composition, photoautotrophic and dark acetate-fed PHB modes,
     scaled non-sterile reactor cultivation, ENA PRJEB98235, DOI metadata, and evidence snippets from the cached open-access
     full text.
+  llm_assisted: true
+- timestamp: '2026-10-02T06:00:47Z'
+  curator: codex
+  action: REPAIR_CAUSAL_GRAPH
+  changes: Removed the reciprocal workflow edges between acetate-fed dark PHB
+    accumulation and non-sterile scaled reactor production because they
+    described later scale-up choices rather than a causal transition between PHB
+    phenotypes.
   llm_assisted: true

@@ -169,13 +169,8 @@ ecological_interactions:
   downstream:
   - target: Pleuromutilin-Stress Core Specialization
     description: >
-      Gradient enrichment and domestication imposed pleuromutilin stress on
-      En4, enabling community analysis of stress-associated diversity loss and
-      core-taxon specialization.
-  - target: Fourteen-Degrader Bacterial Isolation
-    description: >
-      The domesticated natural En4 consortium was the source community for
-      isolating pleuromutilin-degrading bacteria.
+      Pleuromutilin gradient enrichment selected a domesticated En4 community
+      with stress-associated diversity loss and a specialized core-taxon set.
   evidence:
   - reference: PMID:42133144
     supports: SUPPORT
@@ -199,12 +194,6 @@ ecological_interactions:
     term:
       id: CHEBI:8269
       label: Pleuromutilin
-  downstream:
-  - target: Five-Strain Artificial Consortium Construction
-    description: >
-      Functional specialization in the pleuromutilin-selected parent
-      consortium established the source pool that was reduced to the
-      five-strain artificial degradation consortium.
   evidence:
   - reference: PMID:42133144
     supports: SUPPORT
@@ -238,11 +227,6 @@ ecological_interactions:
     term:
       id: CHEBI:8269
       label: Pleuromutilin
-  downstream:
-  - target: Five-Strain Artificial Consortium Construction
-    description: >
-      Isolates from the natural consortium were assembled into a defined
-      artificial consortium containing five named strains.
   evidence:
   - reference: PMID:42133144
     supports: SUPPORT
@@ -290,11 +274,6 @@ ecological_interactions:
     term:
       id: CHEBI:8269
       label: Pleuromutilin
-  downstream:
-  - target: Artificial-Consortium Metabolic Profiling
-    description: >
-      The high-degradation artificial consortium was profiled to propose
-      pleuromutilin degradation products and metabolic pathways.
   evidence:
   - reference: PMID:42133144
     supports: SUPPORT
@@ -326,3 +305,12 @@ ecological_interactions:
     explanation: >
       Supports downstream metabolic profiling of pleuromutilin degradation by
       the artificial consortium.
+curation_history:
+- timestamp: '2026-10-02T06:00:47Z'
+  curator: codex
+  action: REPAIR_CAUSAL_GRAPH
+  changes: Removed four pleuromutilin workflow edges from enrichment or
+    isolate-selection steps to later isolation, artificial-consortium assembly,
+    and metabolic profiling, and rewrote the retained enrichment-to-core edge as
+    direct stress selection.
+  llm_assisted: true

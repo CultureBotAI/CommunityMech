@@ -136,10 +136,6 @@ ecological_interactions:
     term:
       id: CHEBI:16482
       label: naphthalene
-  downstream:
-  - target: Consortium 3 soil naphthalene removal
-    description: The A1/A3 Consortium 3 biofilm was selected for a follow-up naphthalene-removal assay in artificially contaminated
-      soil.
   evidence:
   - reference: PMID:42587276
     supports: SUPPORT
@@ -440,4 +436,10 @@ curation_history:
   action: REMOVE_OBSOLETE_GO_TERMS
   changes: 'Resolved #833 by removing obsolete GO:0018931 and GO:0018932 biological_processes links. PAH specificity remains
     captured by the naphthalene and phenanthrene CHEBI metabolite terms.'
+  llm_assisted: true
+- timestamp: '2026-10-02T05:55:33Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: Removed the downstream edge from Consortium 3 liquid naphthalene synergy to artificial-soil naphthalene removal
+    because it described selection for a follow-up soil assay rather than a causal interaction.
   llm_assisted: true

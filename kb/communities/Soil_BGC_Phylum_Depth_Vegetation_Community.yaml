@@ -129,11 +129,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Dereplicated-MAG BGC Discovery
-    description: >
-      The metagenomes were filtered and dereplicated into MAGs that could be
-      screened for biosynthetic gene clusters.
   evidence:
   - reference: PMID:32546614
     supports: SUPPORT
@@ -156,19 +151,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Phylum-Scale Biosynthetic-Potential Heterogeneity
-    description: >
-      Mapping BGC calls to genome phylogeny revealed uneven
-      secondary-metabolite potential across bacterial phyla.
-  - target: CPR Linaridin BGC Detection
-    description: >
-      The genome-resolved BGC screen recovered a RiPP-class peptide cluster in
-      a Candidate Phyla Radiation bacterium.
-  - target: Depth and Vegetation Enrichment of BGC-Rich Genomes
-    description: >
-      The BGC calls were combined with depth- and vegetation-based differential
-      abundance tests to identify where high-potential genomes were enriched.
   evidence:
   - reference: PMID:32546614
     supports: SUPPORT
@@ -190,11 +172,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Depth and Vegetation Enrichment of BGC-Rich Genomes
-    description: >
-      Phylum-resolved BGC assignments let the study compare BGC-rich bacterial
-      abundance by soil depth and vegetation.
   evidence:
   - reference: PMID:32546614
     supports: SUPPORT
@@ -292,3 +269,11 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   soil-BGC community.
+curation_history:
+- timestamp: '2026-10-02T06:04:09Z'
+  curator: codex
+  action: REPAIR_CAUSAL_GRAPH
+  changes: Removed five soil BGC workflow edges that connected three-site
+    sampling, MAG dereplication, BGC calls, phylum mapping, CPR RiPP detection,
+    and depth or vegetation enrichment as analysis steps.
+  llm_assisted: true

@@ -71,15 +71,6 @@ ecological_interactions:
     term:
       id: GO:0009372
       label: quorum sensing
-  downstream:
-  - target: AHL Diffusion and Violacein Induction
-    description: >
-      Cv017-produced acyl-homoserine lactones cross the filter-plate reservoir and activate the
-      Cv026 quorum-sensing reporter without direct cell contact.
-  - target: Three-Member Exometabolite Time Series
-    description: >
-      A physically separated three-member community accumulates and depletes detectable nonpolar
-      exometabolite features over a 15- to 35-hour stationary-phase time course.
   evidence:
   - *id001
 - name: AHL Diffusion and Violacein Induction
@@ -185,3 +176,13 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: each well has a 0.22-μm-pore filter bottom and the plate fits into a shared medium reservoir
     explanation: Source describes the Transwell filter-plate cultivation vessel with a shared medium reservoir.
+curation_history:
+- timestamp: '2026-10-02T05:52:18Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: >
+    Removed two downstream edges from the umbrella exometabolite-mediated
+    interaction node to the AHL reporter and three-member exometabolite
+    time-series demonstrations because they represented assay examples rather
+    than causal transitions between ecological interactions.
+  llm_assisted: true
