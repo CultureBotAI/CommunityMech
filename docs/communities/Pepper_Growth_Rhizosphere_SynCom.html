@@ -543,6 +543,42 @@
                     </tr>
 
 
+                    <tr>
+                        <td>
+                            <strong>Aspergillus sp. GDMCC 65054</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=5052"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:5052
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/39858916/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39858916</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"The SynCom consist of Bacillus subtilis, Trichoderma harzianum, Trichoderma asperellum and Aspergillus spp."</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
                 </tbody>
             </table>
         </section>
@@ -984,6 +1020,13 @@
             roles: []
         };
 
+        taxonData["Aspergillus sp. GDMCC 65054"] = {
+            id: "NCBITaxon:5052",
+            label: "Aspergillus sp. GDMCC 65054",
+            abundance: "UNKNOWN",
+            roles: []
+        };
+
 
         // Build nodes and links
         var nodes = [];
@@ -1135,7 +1178,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 7;
+        var nodeCount = 8;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 
