@@ -133,7 +133,15 @@
             border-bottom: none;
         }
 
+        .facet-heading { margin: 0; }
+
         .facet-header {
+            width: 100%;
+            border: 0;
+            background: transparent;
+            color: inherit;
+            font: inherit;
+            text-align: left;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -254,6 +262,10 @@
         }
 
         .filter-tag-remove {
+            background: transparent;
+            border: 0;
+            color: inherit;
+            font: inherit;
             cursor: pointer;
             color: #64748b;
             font-weight: bold;
@@ -304,11 +316,13 @@
 
         .community-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr));
             gap: 1.5rem;
         }
 
         .community-card {
+            min-width: 0;
+            overflow-wrap: anywhere;
             background: white;
             border: 1px solid #e2e8f0;
             border-radius: 8px;
@@ -489,29 +503,35 @@
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
 }
+.skip-link { position: absolute; left: -10000px; }
+.skip-link:focus { left: 1rem; top: 1rem; z-index: 3000; background: var(--card, white); padding: .75rem; }
+button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid var(--accent, #2563eb); outline-offset: 3px; }
 </style>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to communities</a>
     <header>
         <div class="container">
             <a href="index.html" class="home-link">← Home</a>
+            <a href="https://culturebotai.github.io/mechs/" class="home-link">All Mech projects</a>
             <h1>CommunityMech</h1>
             <p class="subtitle">Microbial Community Knowledge Base</p>
         </div>
     </header>
 
-    <main class="container">
+    <main class="container" id="main-content">
         <div class="main-container">
             <!-- Left sidebar: Filter panel -->
             <div class="filter-panel">
                 <!-- Enhanced search -->
+                <label for="search">Search communities</label>
                 <div class="search-container">
                     <input type="search" id="search"
                         placeholder="Search by name or description..."
                         autocomplete="off">
                     <button id="search-clear" class="clear-btn" title="Clear search">✕</button>
                 </div>
-                <div class="search-results-count">
+                <div class="search-results-count" role="status" aria-live="polite" aria-atomic="true">
                     Showing <span id="results-count">{{ communities|length }}</span> of {{ communities|length }} communities
                 </div>
 
@@ -526,10 +546,10 @@
 
                 <!-- Category facet -->
                 <div class="facet-section">
-                    <div class="facet-header" onclick="toggleFacet('category-facet')">
-                        <h3>Category</h3>
-                        <span class="facet-toggle">−</span>
-                    </div>
+                    <h3 class="facet-heading"><button type="button" class="facet-header" onclick="toggleFacet('category-facet')" aria-controls="category-facet" aria-expanded="true">
+                        <span>Category</span>
+                        <span class="facet-toggle" aria-hidden="true">−</span>
+                    </button></h3>
                     <div id="category-facet" class="facet-body">
                         <div class="facet-actions">
                             <button class="select-all" data-facet="category">All</button>
@@ -541,10 +561,10 @@
 
                 <!-- Ecological state facet -->
                 <div class="facet-section">
-                    <div class="facet-header" onclick="toggleFacet('state-facet')">
-                        <h3>Ecological State</h3>
-                        <span class="facet-toggle">−</span>
-                    </div>
+                    <h3 class="facet-heading"><button type="button" class="facet-header" onclick="toggleFacet('state-facet')" aria-controls="state-facet" aria-expanded="true">
+                        <span>Ecological State</span>
+                        <span class="facet-toggle" aria-hidden="true">−</span>
+                    </button></h3>
                     <div id="state-facet" class="facet-body">
                         <div id="state-checkboxes" class="facet-checkboxes"></div>
                     </div>
@@ -552,10 +572,10 @@
 
                 <!-- Metals facet -->
                 <div class="facet-section">
-                    <div class="facet-header" onclick="toggleFacet('metals-facet')">
-                        <h3>Metals</h3>
-                        <span class="facet-toggle">+</span>
-                    </div>
+                    <h3 class="facet-heading"><button type="button" class="facet-header" onclick="toggleFacet('metals-facet')" aria-controls="metals-facet" aria-expanded="false">
+                        <span>Metals</span>
+                        <span class="facet-toggle" aria-hidden="true">+</span>
+                    </button></h3>
                     <div id="metals-facet" class="facet-body collapsed">
                         <div class="facet-actions">
                             <button class="select-all" data-facet="metals">All</button>
@@ -567,10 +587,10 @@
 
                 <!-- Rare Earth Elements facet -->
                 <div class="facet-section">
-                    <div class="facet-header" onclick="toggleFacet('ree-facet')">
-                        <h3>Rare Earth Elements</h3>
-                        <span class="facet-toggle">+</span>
-                    </div>
+                    <h3 class="facet-heading"><button type="button" class="facet-header" onclick="toggleFacet('ree-facet')" aria-controls="ree-facet" aria-expanded="false">
+                        <span>Rare Earth Elements</span>
+                        <span class="facet-toggle" aria-hidden="true">+</span>
+                    </button></h3>
                     <div id="ree-facet" class="facet-body collapsed">
                         <div class="facet-actions">
                             <button class="select-all" data-facet="ree">All</button>
@@ -582,10 +602,10 @@
 
                 <!-- Metal Relevance facet -->
                 <div class="facet-section">
-                    <div class="facet-header" onclick="toggleFacet('relevance-facet')">
-                        <h3>Metal Relevance</h3>
-                        <span class="facet-toggle">+</span>
-                    </div>
+                    <h3 class="facet-heading"><button type="button" class="facet-header" onclick="toggleFacet('relevance-facet')" aria-controls="relevance-facet" aria-expanded="false">
+                        <span>Metal Relevance</span>
+                        <span class="facet-toggle" aria-hidden="true">+</span>
+                    </button></h3>
                     <div id="relevance-facet" class="facet-body collapsed">
                         <div id="relevance-checkboxes" class="facet-checkboxes"></div>
                     </div>
@@ -1005,15 +1025,20 @@
             if (filterState.searchTerm) {
                 const tag = document.createElement('div');
                 tag.className = 'filter-tag';
-                tag.innerHTML = `<span>Search: "${filterState.searchTerm}"</span>`;
+                const label = document.createElement('span');
+                label.textContent = `Search: "${filterState.searchTerm}"`;
+                tag.appendChild(label);
 
-                const remove = document.createElement('span');
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.setAttribute('aria-label', `Remove ${label.textContent}`);
                 remove.className = 'filter-tag-remove';
                 remove.textContent = '✕';
                 remove.onclick = () => {
                     document.getElementById('search').value = '';
                     filterState.searchTerm = '';
                     updateFiltering();
+                    document.getElementById('search').focus();
                 };
 
                 tag.appendChild(remove);
@@ -1024,15 +1049,20 @@
             filterState.categories.forEach(cat => {
                 const tag = document.createElement('div');
                 tag.className = 'filter-tag';
-                tag.innerHTML = `<span>${cat.replace(/_/g, ' ')}</span>`;
+                const label = document.createElement('span');
+                label.textContent = `${cat.replace(/_/g, ' ')}`;
+                tag.appendChild(label);
 
-                const remove = document.createElement('span');
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.setAttribute('aria-label', `Remove ${label.textContent}`);
                 remove.className = 'filter-tag-remove';
                 remove.textContent = '✕';
                 remove.onclick = () => {
                     filterState.categories.delete(cat);
                     document.querySelector(`input[value="${cat}"][data-facet="category"]`).checked = false;
                     updateFiltering();
+                    document.getElementById('search').focus();
                 };
 
                 tag.appendChild(remove);
@@ -1043,15 +1073,20 @@
             filterState.ecologicalStates.forEach(state => {
                 const tag = document.createElement('div');
                 tag.className = 'filter-tag';
-                tag.innerHTML = `<span>${state.replace(/_/g, ' ')}</span>`;
+                const label = document.createElement('span');
+                label.textContent = `${state.replace(/_/g, ' ')}`;
+                tag.appendChild(label);
 
-                const remove = document.createElement('span');
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.setAttribute('aria-label', `Remove ${label.textContent}`);
                 remove.className = 'filter-tag-remove';
                 remove.textContent = '✕';
                 remove.onclick = () => {
                     filterState.ecologicalStates.delete(state);
                     document.querySelector(`input[value="${state}"][data-facet="ecologicalState"]`).checked = false;
                     updateFiltering();
+                    document.getElementById('search').focus();
                 };
 
                 tag.appendChild(remove);
@@ -1062,15 +1097,20 @@
             filterState.metals.forEach(metal => {
                 const tag = document.createElement('div');
                 tag.className = 'filter-tag';
-                tag.innerHTML = `<span>Metal: ${metal.replace(/_/g, ' ')}</span>`;
+                const label = document.createElement('span');
+                label.textContent = `Metal: ${metal.replace(/_/g, ' ')}`;
+                tag.appendChild(label);
 
-                const remove = document.createElement('span');
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.setAttribute('aria-label', `Remove ${label.textContent}`);
                 remove.className = 'filter-tag-remove';
                 remove.textContent = '✕';
                 remove.onclick = () => {
                     filterState.metals.delete(metal);
                     document.querySelector(`input[value="${metal}"][data-facet="metals"]`).checked = false;
                     updateFiltering();
+                    document.getElementById('search').focus();
                 };
 
                 tag.appendChild(remove);
@@ -1081,15 +1121,20 @@
             filterState.rareEarthElements.forEach(element => {
                 const tag = document.createElement('div');
                 tag.className = 'filter-tag';
-                tag.innerHTML = `<span>REE: ${element.replace(/_/g, ' ')}</span>`;
+                const label = document.createElement('span');
+                label.textContent = `REE: ${element.replace(/_/g, ' ')}`;
+                tag.appendChild(label);
 
-                const remove = document.createElement('span');
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.setAttribute('aria-label', `Remove ${label.textContent}`);
                 remove.className = 'filter-tag-remove';
                 remove.textContent = '✕';
                 remove.onclick = () => {
                     filterState.rareEarthElements.delete(element);
                     document.querySelector(`input[value="${element}"][data-facet="ree"]`).checked = false;
                     updateFiltering();
+                    document.getElementById('search').focus();
                 };
 
                 tag.appendChild(remove);
@@ -1100,15 +1145,20 @@
             filterState.metalRelevance.forEach(relevance => {
                 const tag = document.createElement('div');
                 tag.className = 'filter-tag';
-                tag.innerHTML = `<span>Relevance: ${relevance.replace(/_/g, ' ')}</span>`;
+                const label = document.createElement('span');
+                label.textContent = `Relevance: ${relevance.replace(/_/g, ' ')}`;
+                tag.appendChild(label);
 
-                const remove = document.createElement('span');
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.setAttribute('aria-label', `Remove ${label.textContent}`);
                 remove.className = 'filter-tag-remove';
                 remove.textContent = '✕';
                 remove.onclick = () => {
                     filterState.metalRelevance.delete(relevance);
                     document.querySelector(`input[value="${relevance}"][data-facet="relevance"]`).checked = false;
                     updateFiltering();
+                    document.getElementById('search').focus();
                 };
 
                 tag.appendChild(remove);
@@ -1191,14 +1241,17 @@
         // Toggle facet collapse/expand
         function toggleFacet(facetId) {
             const facetBody = document.getElementById(facetId);
-            const toggle = facetBody.previousElementSibling.querySelector('.facet-toggle');
+            const control = document.querySelector(`[aria-controls="${facetId}"]`);
+            const toggle = control.querySelector('.facet-toggle');
 
             if (facetBody.classList.contains('collapsed')) {
                 facetBody.classList.remove('collapsed');
                 toggle.textContent = '−';
+                control.setAttribute('aria-expanded', 'true');
             } else {
                 facetBody.classList.add('collapsed');
                 toggle.textContent = '+';
+                control.setAttribute('aria-expanded', 'false');
             }
         }
 

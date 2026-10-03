@@ -167,7 +167,12 @@ class CommunityRenderer:
 
         # Render the landing page (templates/landing.html) to docs/index.html
         landing_template = self.env.get_template("landing.html")
-        landing_html = landing_template.render(num_communities=len(communities))
+        landing_html = landing_template.render(
+            num_communities=len(communities),
+            num_categories=len(
+                {c["community_category"] for c in communities if c["community_category"]}
+            ),
+        )
 
         index_path = output_dir.parent / "index.html"  # docs/index.html
         with open(index_path, "w") as f:
