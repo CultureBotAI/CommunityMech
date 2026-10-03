@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-09-09T20:30:33
+# Generation date: 2026-09-17T00:36:44
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -32,8 +32,8 @@ version = None
 CHEBI = CurieNamespace("CHEBI", "http://purl.obolibrary.org/obo/CHEBI_")
 CL = CurieNamespace("CL", "http://purl.obolibrary.org/obo/CL_")
 ENVO = CurieNamespace("ENVO", "http://purl.obolibrary.org/obo/ENVO_")
-GO = CurieNamespace("GO", "http://purl.obolibrary.org/obo/GO_")
 GITHUB = CurieNamespace("GITHUB", "https://github.com/")
+GO = CurieNamespace("GO", "http://purl.obolibrary.org/obo/GO_")
 NCBITAXON = CurieNamespace("NCBITaxon", "http://purl.obolibrary.org/obo/NCBITaxon_")
 OBI = CurieNamespace("OBI", "http://purl.obolibrary.org/obo/OBI_")
 PMID = CurieNamespace("PMID", "http://www.ncbi.nlm.nih.gov/pubmed/")
@@ -2307,6 +2307,37 @@ class EvidenceSourceEnum(EnumDefinitionImpl):
     The provenance/source of the evidence
     """
 
+    FIELD_STUDY = PermissibleValue(
+        text="FIELD_STUDY", description="Observation or measurement made in a natural system."
+    )
+    MESOCOSM = PermissibleValue(
+        text="MESOCOSM",
+        description="Experiment in a controlled enclosure representing a natural system.",
+    )
+    LABORATORY = PermissibleValue(
+        text="LABORATORY",
+        description="Controlled laboratory study; use IN_VITRO or IN_VIVO when that distinction is known.",
+    )
+    META_ANALYSIS = PermissibleValue(
+        text="META_ANALYSIS",
+        description="Systematic synthesis or quantitative analysis of results across studies.",
+    )
+    REMOTE_SENSING = PermissibleValue(
+        text="REMOTE_SENSING",
+        description="Satellite, aerial, or other remotely sensed observations.",
+    )
+    LONG_TERM_MONITORING = PermissibleValue(
+        text="LONG_TERM_MONITORING",
+        description="Repeated observations from a long-term monitoring programme.",
+    )
+    EXPERT_OPINION = PermissibleValue(
+        text="EXPERT_OPINION",
+        description="Expert judgement or consensus rather than a primary experimental result.",
+    )
+    DATABASE = PermissibleValue(
+        text="DATABASE",
+        description="Assertion or observation obtained from a database or curated data resource.",
+    )
     IN_VITRO = PermissibleValue(
         text="IN_VITRO", description="In vitro experiments (batch culture, bioreactor, etc.)"
     )
