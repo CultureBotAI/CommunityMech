@@ -5,12 +5,41 @@ Generates individual HTML pages for each community with full metadata,
 taxonomy, ecological interactions, and evidence.
 """
 
+import re
 from pathlib import Path
+from urllib.parse import quote
 
 import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from markupsafe import Markup
 
 from communitymech.paths import DOCS
+
+
+def reference_url(reference: str | None) -> str:
+    value = str(reference or "")
+    if value.startswith(("https://", "http://")):
+        return value
+    if re.fullmatch(r"CultureMech:\d{6}", value):
+        return (
+            "https://culturebotai.github.io/CultureMech/pages/normalized/"
+            + value.split(":")[1]
+            + ".html"
+        )
+    if value.startswith("PMID:") and value[5:].isdigit():
+        return "https://pubmed.ncbi.nlm.nih.gov/" + value[5:] + "/"
+    if re.match(r"(?i)^doi:10\.\d{4,9}/", value):
+        return "https://doi.org/" + quote(value.split(":", 1)[1], safe="/():;._-")
+    if re.match(r"^GITHUB:[A-Za-z0-9][A-Za-z0-9_.-]*/[A-Za-z0-9][A-Za-z0-9_.-]*(?:/|$)", value):
+        return "https://github.com/" + quote(value[7:], safe="/")
+    return ""
+
+
+def reference_link(reference: str | None) -> Markup:
+    url = reference_url(reference)
+    if url:
+        return Markup('<a href="{}" rel="noreferrer">{}</a>').format(url, reference or "")
+    return Markup("{}").format(reference or "")
 
 
 def _strip_trailing_whitespace(html: str) -> str:
@@ -35,6 +64,8 @@ class CommunityRenderer:
             loader=FileSystemLoader(str(template_dir)),
             autoescape=select_autoescape(["html", "xml"]),
         )
+        self.env.filters["reference_link"] = reference_link
+        self.env.globals["reference_url"] = reference_url
 
     def render_community(
         self,
@@ -153,6 +184,8 @@ class CommunityRenderer:
                         "metal_relevance": metal_relevance,
                     }
                 )
+
+        communities.sort(key=lambda row: (row["name"].casefold(), row["id"]))
 
         # Render the faceted browser (templates/index.html) to docs/browser.html
         browser_template = self.env.get_template("index.html")

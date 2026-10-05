@@ -532,9 +532,7 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid 
                         autocomplete="off">
                     <button id="search-clear" class="clear-btn" title="Clear search">✕</button>
                 </div>
-                <div class="search-results-count" role="status" aria-live="polite" aria-atomic="true">
-                    Showing <span id="results-count">{{ communities|length }}</span> of {{ communities|length }} communities
-                </div>
+
 
                 <!-- Active filters summary -->
                 <div id="active-filters" class="active-filters" style="display: none;">
@@ -615,6 +613,9 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid 
 
             <!-- Right side: Community grid -->
             <div class="content-area">
+                <div class="search-results-count" role="status" aria-live="polite" aria-atomic="true">
+                    Showing <span id="results-count">{{ communities|length }}</span> of {{ communities|length }} communities
+                </div>
                 <div class="umap-link">
                     <h2>Explore Community Relationships</h2>
                     <p>View the PaCMAP projection of all communities based on their taxonomic composition embeddings from KG-Microbe.</p>
@@ -776,7 +777,7 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid 
 
                     const labelSpan = document.createElement('span');
                     labelSpan.className = 'facet-label';
-                    labelSpan.textContent = state.replace(/_/g, ' ');
+                    labelSpan.textContent = (state || 'Not specified').replace(/_/g, ' ');
 
                     const countSpan = document.createElement('span');
                     countSpan.className = 'facet-count';
@@ -1075,7 +1076,7 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid 
                 const tag = document.createElement('div');
                 tag.className = 'filter-tag';
                 const label = document.createElement('span');
-                label.textContent = `${state.replace(/_/g, ' ')}`;
+                label.textContent = `${(state || 'Not specified').replace(/_/g, ' ')}`;
                 tag.appendChild(label);
 
                 const remove = document.createElement('button');
