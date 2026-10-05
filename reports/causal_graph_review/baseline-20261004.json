@@ -1,0 +1,465 @@
+{
+  "scope": "Every YAML under kb/communities and data/isolates; filesystem discovery includes hidden/ignored files.",
+  "semantic_review_rule": "Structural checks and readiness scores do not establish causal support. Completed reviews must match the current record SHA-256.",
+  "records": 460,
+  "nodes": 1495,
+  "edges": 778,
+  "records_without_nodes": 8,
+  "records_without_edges": 123,
+  "review_status_counts": {
+    "pending": 460
+  },
+  "structural_defects": [
+    {
+      "path": "kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml",
+      "type": "DUPLICATE_EDGE",
+      "node": "Direct Interspecies Electron Transfer",
+      "target": "Sulfate-Coupled Anaerobic Methane Oxidation"
+    },
+    {
+      "path": "kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml",
+      "type": "DUPLICATE_EDGE",
+      "node": "Formate and Electron Bifurcation Strategy",
+      "target": "Propionate Oxidation Coupled to Methanogenesis"
+    }
+  ],
+  "network_audit": [
+    {
+      "record": "Algal_Methanotroph_Biogas_Valorization_Coculture",
+      "type": "DISCONNECTED",
+      "taxon": "Leptolyngbya",
+      "taxon_id": "NCBITaxon:47251",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Leptolyngbya",
+          "term": {
+            "id": "NCBITaxon:47251",
+            "label": "Leptolyngbya"
+          },
+          "gtdb_grounding_status": "UNRESOLVED"
+        },
+        "abundance_level": "RARE",
+        "functional_role": [
+          "PRIMARY_PRODUCER"
+        ],
+        "evidence": [
+          {
+            "reference": "PMID:41745484",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VITRO",
+            "snippet": "Cyanobacteria belonging to the genus Leptolyngbya were detected",
+            "explanation": "Supports Leptolyngbya as a detected oxygenic member of the co-culture."
+          },
+          {
+            "reference": "PMID:41745484",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VITRO",
+            "snippet": "2.5 \u00b1 0.8 and 0.3 \u00b1 0.05% of the total bacterial community",
+            "explanation": "Reports the low Leptolyngbya abundance in the co-culture relative to the algal assay."
+          }
+        ]
+      },
+      "message": "Taxon 'Leptolyngbya' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom",
+      "type": "UNKNOWN_TARGET",
+      "interaction": "Tobacco Root Activity Improvement",
+      "interaction_index": 3,
+      "taxon": "tobacco",
+      "severity": "warning",
+      "message": "Target taxon 'tobacco' not found in taxonomy section (community-level scope)"
+    },
+    {
+      "record": "Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom",
+      "type": "UNKNOWN_TARGET",
+      "interaction": "Two-Site Field Disease Suppression and Yield Increase",
+      "interaction_index": 4,
+      "taxon": "tobacco",
+      "severity": "warning",
+      "message": "Target taxon 'tobacco' not found in taxonomy section (community-level scope)"
+    },
+    {
+      "record": "Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom",
+      "type": "UNKNOWN_TARGET",
+      "interaction": "HT SynCom Suppression of Fusarium oxysporum",
+      "interaction_index": 0,
+      "taxon": "Fusarium oxysporum",
+      "severity": "warning",
+      "message": "Target taxon 'Fusarium oxysporum' not found in taxonomy section (community-level scope)"
+    },
+    {
+      "record": "Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom",
+      "type": "UNKNOWN_TARGET",
+      "interaction": "HT SynCom Masson Pine Damping-Off Protection",
+      "interaction_index": 1,
+      "taxon": "Pinus massoniana",
+      "severity": "warning",
+      "message": "Target taxon 'Pinus massoniana' not found in taxonomy section (community-level scope)"
+    },
+    {
+      "record": "Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom",
+      "type": "UNKNOWN_TARGET",
+      "interaction": "Protective Enzyme and Resistance-Gene Activation",
+      "interaction_index": 2,
+      "taxon": "Pinus massoniana",
+      "severity": "warning",
+      "message": "Target taxon 'Pinus massoniana' not found in taxonomy section (community-level scope)"
+    },
+    {
+      "record": "Brocadia_Low_Nitrogen_Anammox_Consortium",
+      "type": "DISCONNECTED",
+      "taxon": "Ca. Kuenenia early-acclimation lineage",
+      "taxon_id": "NCBITaxon:380738",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Ca. Kuenenia early-acclimation lineage",
+          "term": {
+            "id": "NCBITaxon:380738",
+            "label": "Candidatus Kuenenia"
+          },
+          "gtdb_grounding_status": "UNRESOLVED",
+          "notes": "Ca. Kuenenia was resolved at genus level as an early-acclimation anammox lineage that was ultimately replaced by Ca. Brocadia."
+        },
+        "functional_role": [
+          "PRIMARY_PRODUCER"
+        ],
+        "evidence": [
+          {
+            "reference": "PMID:42323145",
+            "supports": "SUPPORT",
+            "evidence_source": "COMPUTATIONAL",
+            "snippet": "During early acclimation, Ca. Kuenenia reduced the expression of costly biosynthetic pathways",
+            "explanation": "Supports Ca. Kuenenia as the early-acclimation lineage tracked in the biofilter succession study."
+          }
+        ]
+      },
+      "message": "Taxon 'Ca. Kuenenia early-acclimation lineage' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Mangrove_Benzene_MFC_Bioanode_Consortium",
+      "type": "DISCONNECTED",
+      "taxon": "Pelobacter",
+      "taxon_id": "NCBITaxon:18",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Pelobacter",
+          "term": {
+            "id": "NCBITaxon:18",
+            "label": "Pelobacter"
+          },
+          "gtdb_grounding_status": "UNRESOLVED",
+          "notes": "Pelobacter was a lower-abundance genus in the benzene-fed 16S profile; no species-level identity or functional role was resolved.\n"
+        },
+        "relative_abundance": 2.22,
+        "relative_abundance_unit": "percent",
+        "evidence": [
+          {
+            "reference": "PMID:41210787",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VITRO",
+            "snippet": "Pelobacter, Desulfurumonas, and Pseudomonas were also identified at 2.22, 1.64, and 0.87%",
+            "explanation": "Supports Pelobacter as a minor detected genus in the benzene-fed MFC biofilm."
+          }
+        ]
+      },
+      "message": "Taxon 'Pelobacter' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Mangrove_Benzene_MFC_Bioanode_Consortium",
+      "type": "DISCONNECTED",
+      "taxon": "Pseudomonas",
+      "taxon_id": "NCBITaxon:286",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Pseudomonas",
+          "term": {
+            "id": "NCBITaxon:286",
+            "label": "Pseudomonas"
+          },
+          "gtdb_grounding_status": "UNRESOLVED",
+          "notes": "Pseudomonas was a lower-abundance genus in the benzene-fed 16S profile; no species-level identity or functional role was resolved.\n"
+        },
+        "relative_abundance": 0.87,
+        "relative_abundance_unit": "percent",
+        "evidence": [
+          {
+            "reference": "PMID:41210787",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VITRO",
+            "snippet": "Pelobacter, Desulfurumonas, and Pseudomonas were also identified at 2.22, 1.64, and 0.87%",
+            "explanation": "Supports Pseudomonas as a minor detected genus in the benzene-fed MFC biofilm."
+          }
+        ]
+      },
+      "message": "Taxon 'Pseudomonas' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium",
+      "type": "DISCONNECTED",
+      "taxon": "Legionella MAGs",
+      "taxon_id": "NCBITaxon:445",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Legionella MAGs",
+          "term": {
+            "id": "NCBITaxon:445",
+            "label": "Legionella"
+          },
+          "gtdb_grounding_status": "UNRESOLVED",
+          "notes": "The study detected Legionella-affiliated MAGs and used them in a virulence-gene risk assessment; the source did not assert pathogenicity for a cultured Legionella isolate.\n"
+        },
+        "abundance_value": "Lower-abundance Legionella-affiliated MAGs detected during metagenomic risk assessment.\n",
+        "evidence": [
+          {
+            "reference": "PMID:41457319",
+            "supports": "SUPPORT",
+            "evidence_source": "COMPUTATIONAL",
+            "snippet": "detection of waterborne pathogens from the Legionella genus",
+            "explanation": "Supports Legionella-affiliated lower-abundance bins as monitored biosafety-relevant members of the consortium.\n"
+          }
+        ]
+      },
+      "message": "Taxon 'Legionella MAGs' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom",
+      "type": "UNKNOWN_TARGET",
+      "interaction": "Twelve-Strain SynCom Suppression of Sclerotinia Sclerotia",
+      "interaction_index": 0,
+      "taxon": "Sclerotinia sclerotiorum",
+      "severity": "warning",
+      "message": "Target taxon 'Sclerotinia sclerotiorum' not found in taxonomy section (community-level scope)"
+    },
+    {
+      "record": "Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom",
+      "type": "UNKNOWN_TARGET",
+      "interaction": "Trinickia MC Key Contribution to Sclerotia Mortality",
+      "interaction_index": 1,
+      "taxon": "Sclerotinia sclerotiorum",
+      "severity": "warning",
+      "message": "Target taxon 'Sclerotinia sclerotiorum' not found in taxonomy section (community-level scope)"
+    },
+    {
+      "record": "Space_Habitat_SevenMember_Stress_Tolerance_SynCom",
+      "type": "DISCONNECTED",
+      "taxon": "Acinetobacter radioresistens 50V1",
+      "taxon_id": "NCBITaxon:40216",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Acinetobacter radioresistens 50V1",
+          "term": {
+            "id": "NCBITaxon:40216",
+            "label": "Acinetobacter radioresistens"
+          },
+          "gtdb_grounding_status": "UNRESOLVED",
+          "notes": "The isolate came from the preflight Mars Odyssey Orbiter; ontology grounding is at species level."
+        },
+        "strain_designation": {
+          "strain_name": "50V1",
+          "genome_accession": "GCA_002834555.1"
+        },
+        "evidence": [
+          {
+            "reference": "PMID:42577390",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VITRO",
+            "snippet": "Acinetobacter radioresistens | 50V1 | Preflight Mars Odyssey Orbiter | \u2013 | Mccoy et al., 2012 | GCA_002834555.1 | TSYB/TSYA | 37 \u00b0C | 16\u201318 h",
+            "explanation": "Identifies A. radioresistens 50V1 as a consortium member and gives its spacecraft-associated source, genome accession and cultivation conditions."
+          }
+        ]
+      },
+      "message": "Taxon 'Acinetobacter radioresistens 50V1' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Space_Habitat_SevenMember_Stress_Tolerance_SynCom",
+      "type": "DISCONNECTED",
+      "taxon": "Micrococcus luteus W4-Al-K1",
+      "taxon_id": "NCBITaxon:1270",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Micrococcus luteus W4-Al-K1",
+          "term": {
+            "id": "NCBITaxon:1270",
+            "label": "Micrococcus luteus"
+          },
+          "gtdb_grounding_status": "UNRESOLVED",
+          "notes": "The isolate was recovered from an ISS aluminum-case touch array; ontology grounding is at species level."
+        },
+        "strain_designation": {
+          "strain_name": "W4-Al-K1",
+          "genome_accession": "GCA_057816565.1"
+        },
+        "evidence": [
+          {
+            "reference": "PMID:42577390",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VITRO",
+            "snippet": "Micrococcus luteus | W4-Al-K1 | ISS, Touch Array Aluminum Case | - | Kr\u00e4mer et al., 2025 | GCA_057816565.1 | NB, TSYB/TSYA | 37 \u00b0C | 24 h",
+            "explanation": "Identifies M. luteus W4-Al-K1 as a consortium member and gives its ISS source, genome accession and cultivation conditions."
+          }
+        ]
+      },
+      "message": "Taxon 'Micrococcus luteus W4-Al-K1' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Space_Habitat_SevenMember_Stress_Tolerance_SynCom",
+      "type": "DISCONNECTED",
+      "taxon": "Propionibacterium cyclohexanicum TA-12T",
+      "taxon_id": "NCBITaxon:64702",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Propionibacterium cyclohexanicum TA-12T",
+          "term": {
+            "id": "NCBITaxon:64702",
+            "label": "Propionibacterium cyclohexanicum"
+          },
+          "gtdb_grounding_status": "UNRESOLVED",
+          "notes": "The source used the P. cyclohexanicum type strain as a biosafety-level-1 representative."
+        },
+        "strain_designation": {
+          "strain_name": "TA-12T",
+          "genome_accession": "GCA_900111365",
+          "culture_collections": [
+            {
+              "collection": "DSM",
+              "accession": "16859"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "reference": "PMID:42577390",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VITRO",
+            "snippet": "Propionibacterium cyclohexanicum | TA-12 T | Spoilt Orange Juice | DSM 16859 T | Kusano et al., 1997 | GCA_900111365 | BHI, TSYB/TSYA | 37 \u00b0C | 24 h",
+            "explanation": "Identifies P. cyclohexanicum TA-12T as a consortium member and gives its source, DSM number, genome accession and cultivation conditions."
+          }
+        ]
+      },
+      "message": "Taxon 'Propionibacterium cyclohexanicum TA-12T' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Space_Habitat_SevenMember_Stress_Tolerance_SynCom",
+      "type": "DISCONNECTED",
+      "taxon": "Pseudomonas antarctica CMS 35T",
+      "taxon_id": "NCBITaxon:219572",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Pseudomonas antarctica CMS 35T",
+          "term": {
+            "id": "NCBITaxon:219572",
+            "label": "Pseudomonas antarctica"
+          },
+          "gtdb_grounding_status": "UNRESOLVED",
+          "notes": "The source used the P. antarctica type strain as a biosafety-level-1 Pseudomonas surrogate."
+        },
+        "strain_designation": {
+          "strain_name": "CMS 35T",
+          "genome_accession": "GCA_010634845",
+          "culture_collections": [
+            {
+              "collection": "DSM",
+              "accession": "15318"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "reference": "PMID:42577390",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VITRO",
+            "snippet": "Pseudomonas antarctica | CMS 35 T | Antarctica | DSM 15318 T | Reddy et al., 2004 | GCA_010634845 | TSYB/TSYA | Ambient | 12\u201316 h",
+            "explanation": "Identifies P. antarctica CMS 35T as a consortium member and gives its source, DSM number, genome accession and cultivation conditions."
+          }
+        ]
+      },
+      "message": "Taxon 'Pseudomonas antarctica CMS 35T' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Space_Habitat_SevenMember_Stress_Tolerance_SynCom",
+      "type": "DISCONNECTED",
+      "taxon": "Staphylococcus capitis K1-2-2-23",
+      "taxon_id": "NCBITaxon:29388",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Staphylococcus capitis K1-2-2-23",
+          "term": {
+            "id": "NCBITaxon:29388",
+            "label": "Staphylococcus capitis"
+          },
+          "gtdb_grounding_status": "UNRESOLVED",
+          "notes": "The isolate was recovered from ISS V2A steel; ontology grounding is at species level."
+        },
+        "strain_designation": {
+          "strain_name": "K1-2-2-23",
+          "genome_accession": "GCA_025272695",
+          "culture_collections": [
+            {
+              "collection": "DSM",
+              "accession": "111179"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "reference": "PMID:42577390",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VITRO",
+            "snippet": "Staphylococcus capitis | K1-2-2-23 | ISS, V2A Steel | DSM 111179 | Sobisch et al., 2019 | GCA_025272695 | TSYB/TSYA | 37 \u00b0C | 16\u201324 h",
+            "explanation": "Identifies S. capitis K1-2-2-23 as a consortium member and gives its source, DSM number, genome accession and cultivation conditions."
+          }
+        ]
+      },
+      "message": "Taxon 'Staphylococcus capitis K1-2-2-23' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Space_Habitat_SevenMember_Stress_Tolerance_SynCom",
+      "type": "DISCONNECTED",
+      "taxon": "Streptococcus halotolerans HTS9T",
+      "taxon_id": "NCBITaxon:1814128",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Streptococcus halotolerans HTS9T",
+          "term": {
+            "id": "NCBITaxon:1814128",
+            "label": "Streptococcus halotolerans"
+          },
+          "gtdb_grounding_status": "UNRESOLVED",
+          "notes": "The source used the S. halotolerans type strain as a biosafety-level-1 representative."
+        },
+        "strain_designation": {
+          "strain_name": "HTS9T",
+          "genome_accession": "GCA_001598035",
+          "culture_collections": [
+            {
+              "collection": "DSM",
+              "accession": "101996"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "reference": "PMID:42577390",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VITRO",
+            "snippet": "Streptococcus halotolerans | HTS9 T | Respiratory Tract of Marmota himalayana | DSM 101996 T | Niu et al., 2016 | GCA_001598035 | 2xLB, TSYB/TSYA | 37 \u00b0C | 24 h",
+            "explanation": "Identifies S. halotolerans HTS9T as a consortium member and gives its source, DSM number, genome accession and cultivation conditions."
+          }
+        ]
+      },
+      "message": "Taxon 'Streptococcus halotolerans HTS9T' has no interactions",
+      "severity": "warning"
+    }
+  ]
+}

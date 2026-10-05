@@ -1,0 +1,220 @@
+issue: https://github.com/CultureBotAI/CommunityMech/issues/1232
+reviewer: codex
+model: gpt-6
+records:
+- path: kb/communities/AMD_Acidophile_Heterotroph_Network.yaml
+  id: CommunityMech:000001
+  record_sha256: fd34668375c6f64102cebe62c130bf6efcecb845540959e1bf5d83c90b3cb194
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261004-four-records.yaml
+  scope: Whole record read; all causal nodes and existing downstream claims reviewed against the cited source passages.
+  summary: Remove cross-study and part-of AMD edges; scope nodes to review and isolate evidence
+  node_decisions:
+  - node: Organic Carbon Scavenging and Remineralization
+    rationale: Retain as a PARTIAL guild synthesis supported by the AMD review; remove unsubstantiated nitrogen/phosphate
+      mediators.
+  - node: Ferric Iron Reduction and Ferrous Iron Regeneration
+    rationale: Retain Fe(III)-enabled carbon oxidation with partial support for the broader target; restrict physiology
+      to the JF-5-related taxon.
+  - node: Heterotrophic Iron Oxidation by Ferrimicrobium
+    rationale: Retain isolate physiology; remove inferred interspecies iron handoff and unsupported pathway annotations.
+  - node: Photoheterotrophic Carbon Cycling
+    rationale: Retain light-stimulated aerobic isolate growth; explicitly qualify extrapolation to a biofilm carbon
+      flux.
+  - node: Acidobacterium Carbohydrate Utilization
+    rationale: Retain partial lineage-level carbon-use evidence; remove the part-of edge to the generic carbon sink.
+  edges_before:
+  - source: Ferric Iron Reduction and Ferrous Iron Regeneration
+    target: Organic Carbon Scavenging and Remineralization
+    description: Organic carbon is oxidized during Fe(III) reduction
+  - source: Heterotrophic Iron Oxidation by Ferrimicrobium
+    target: Ferric Iron Reduction and Ferrous Iron Regeneration
+    description: Heterotrophic Fe(II) oxidation regenerates the ferric iron pool that Acidiphilium can use as an
+      anaerobic electron acceptor.
+  - source: Acidobacterium Carbohydrate Utilization
+    target: Organic Carbon Scavenging and Remineralization
+    description: Acidobacterial carbohydrate use is part of the heterotrophic organic-carbon sink in AMD.
+  edges_after:
+  - source: Ferric Iron Reduction and Ferrous Iron Regeneration
+    target: Organic Carbon Scavenging and Remineralization
+    description: PARTIAL - Fe(III) serves as the respiratory electron acceptor enabling complete organic-substrate
+      oxidation by isolate JF-5 (PMID:10427060), supporting the anaerobic carbon-oxidation component of the broader
+      guild node. Community-wide detoxification was not measured in that isolate assay.
+  history_file: history/records/AMD_Acidophile_Heterotroph_Network/2026-10-05T035545Z-claude-code-e82d71.yaml
+  references:
+  - PMID:10427060
+  - PMID:10939661
+  - doi:10.1099/ijs.0.65409-0
+  - doi:10.3389/fmicb.2015.00475
+  - doi:10.3389/fmicb.2016.00744
+  history_correction_file: history/records/AMD_Acidophile_Heterotroph_Network/2026-10-05T035646Z-codex-cba52e.yaml
+- path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  id: CommunityMech:000134
+  record_sha256: 45dd6c7f42e725c1e51ec80e03b32e78235377a99d9dc56bafae6acccdeb7bb7
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261004-four-records.yaml
+  scope: Whole record read; all causal nodes and existing downstream claims reviewed against the cited source passages.
+  summary: Consolidate ANME DIET edge and distinguish chemical inhibition from competition
+  node_decisions:
+  - node: Sulfate-Coupled Anaerobic Methane Oxidation
+    rationale: Retain sulfate-coupled syntrophy, supported by comparative-genomics source context.
+  - node: Direct Interspecies Electron Transfer
+    rationale: Consolidate the duplicate pair into one explicitly hypothesized conduit edge; preserve genomic/model
+      support limits.
+  - node: Sulfite Inhibition of ANME Methane Oxidation
+    rationale: 'Retain negative edge: full text reports immediate AOM suppression by 1 mM sulfite; chemical inhibition
+      is not organismal competition.'
+  - node: Zero-Valent Sulfur Inhibition of ANME Methane Oxidation
+    rationale: Retain negative edge supported by polythionate/polysulfide amendment experiments; remove sulfur-atom
+      grounding as a surrogate for those compounds.
+  edges_before:
+  - source: Direct Interspecies Electron Transfer
+    target: Sulfate-Coupled Anaerobic Methane Oxidation
+    description: Electrons derived from methane oxidation are transferred to the sulfate-reducing partner.
+  - source: Direct Interspecies Electron Transfer
+    target: Sulfate-Coupled Anaerobic Methane Oxidation
+    description: "HYPOTHESIZED \u2014 the conductive-pili / multiheme-cytochrome DIET conduit is proposed as the\
+      \ principal mechanism enabling sulfate-dependent AOM syntrophy."
+  - source: Sulfite Inhibition of ANME Methane Oxidation
+    target: Sulfate-Coupled Anaerobic Methane Oxidation
+    description: 'Sulfite addition suppressed the ANME-driven methane oxidation that normally feeds sulfate-reducing
+      bacterial partners.
+
+      '
+  - source: Zero-Valent Sulfur Inhibition of ANME Methane Oxidation
+    target: Sulfate-Coupled Anaerobic Methane Oxidation
+    description: 'Zero-valent sulfur compounds suppressed ANME-2a/2c methane oxidation in tests of the ANME/SRB
+      syntrophy mechanism.
+
+      '
+  edges_after:
+  - source: Direct Interspecies Electron Transfer
+    target: Sulfate-Coupled Anaerobic Methane Oxidation
+    description: HYPOTHESIZED - transfer of methane-derived electrons from ANME to the SRB partner enables sulfate-coupled
+      AOM. Comparative genomics and modeling support DIET, but the specific conductive-pili/multiheme-cytochrome
+      conduit remains a proposed mechanism in these sources.
+  - source: Sulfite Inhibition of ANME Methane Oxidation
+    target: Sulfate-Coupled Anaerobic Methane Oxidation
+    description: 'Sulfite addition suppressed the ANME-driven methane oxidation that normally feeds sulfate-reducing
+      bacterial partners.
+
+      '
+  - source: Zero-Valent Sulfur Inhibition of ANME Methane Oxidation
+    target: Sulfate-Coupled Anaerobic Methane Oxidation
+    description: 'Zero-valent sulfur compounds suppressed ANME-2a/2c methane oxidation in tests of the ANME/SRB
+      syntrophy mechanism.
+
+      '
+  history_file: history/records/ANME_SRB_Marine_Methane_Seep_Consortium/2026-10-05T035546Z-claude-code-4e4f45.yaml
+  references:
+  - PMID:30559729
+  - PMID:33975943
+  - PMID:34986141
+  - PMID:37747940
+  history_correction_file: history/records/ANME_SRB_Marine_Methane_Seep_Consortium/2026-10-05T035647Z-codex-c58798.yaml
+- path: kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml
+  id: CommunityMech:000116
+  record_sha256: 0abf2496446e381306e9a85af008713ed132a818615180bb171dbd8d742c8fe0
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261004-four-records.yaml
+  scope: Whole record read; all causal nodes and existing downstream claims reviewed against the cited source passages.
+  summary: Qualify mediator-to-stability edges in disturbance-stable denitrification
+  node_decisions:
+  - node: AHL-mediated interspecific communication under disturbance
+    rationale: Retain the observed communication node; qualify its causal contribution to the endpoint as PARTIAL
+      at abstract scope.
+  - node: DBP-stimulated phenazine electron transfer
+    rationale: Retain explicit DBP-to-phenazine-to-electron-transfer claim; omit cross-feeding classification because
+      a donor/recipient metabolite transfer is not established.
+  - node: Disturbance-stable aerobic denitrification
+    rationale: Retain the measured approximately 93% denitrification endpoint under DBP or LOFX; do not generalize
+      the DBP mediator to LOFX.
+  edges_before:
+  - source: AHL-mediated interspecific communication under disturbance
+    target: Disturbance-stable aerobic denitrification
+    description: AHL-mediated communication is part of the disturbed SMC state that maintains high aerobic denitrification
+      efficiency.
+  - source: DBP-stimulated phenazine electron transfer
+    target: Disturbance-stable aerobic denitrification
+    description: Phenazine-stimulated electron transfer is a redox route into the maintained denitrification phenotype.
+  edges_after:
+  - source: AHL-mediated interspecific communication under disturbance
+    target: Disturbance-stable aerobic denitrification
+    description: PARTIAL - the authors attribute disturbance stability in part to interspecific communication and
+      identify C4-HSL/3OC12-HSL in the corresponding treatments. The accessible abstract does not report signal-blocking
+      or rescue experiments that isolate an AHL effect on denitrification.
+  - source: DBP-stimulated phenazine electron transfer
+    target: Disturbance-stable aerobic denitrification
+    description: PARTIAL - DBP-induced phenazine-1-carboxylic acid accelerates electron transfer, a route the authors
+      associate with maintained SMC function under DBP. The abstract does not quantify its independent contribution
+      to the approximately 93% denitrification endpoint or extend this phenazine mechanism to LOFX.
+  history_file: history/records/Aerobic_Denitrification_Disturbance_SynCom/2026-10-05T035546Z-claude-code-5feed8.yaml
+  references:
+  - PMID:40020349
+  history_correction_file: history/records/Aerobic_Denitrification_Disturbance_SynCom/2026-10-05T035647Z-codex-1b36e6.yaml
+- path: kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml
+  id: CommunityMech:000190
+  record_sha256: bb9483d04163c1df53929e60873f075a00e66d1364f8cf5779248da608b1054c
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261004-four-records.yaml
+  scope: Whole record read; all causal nodes and existing downstream claims reviewed against the cited source passages.
+  summary: Separate transcript associations from causal and conditional formate effects
+  node_decisions:
+  - node: Propionate Oxidation Coupled to Methanogenesis
+    rationale: Retain exact-system syntrophy, but qualify the transcript comparison for substrate and growth-rate
+      confounding.
+  - node: Catabolism and Methanogenesis Upregulation in Coculture
+    rationale: Retain measured expression differences; remove two part-of/parallel-response arcs to formate and
+      signaling.
+  - node: Formate and Electron Bifurcation Strategy
+    rationale: Combine duplicate pair as a conditional link preserving formate-transfer inference, 20 mM formate
+      inhibition, 5 mM BES inhibition and H2 contrast.
+  - node: Signal Transduction and Amino Acid Exchange
+    rationale: Mark exchange/signaling mechanisms hypothesized; remove the unsupported single bacteria-to-archaea
+      direction using community scope and both participants.
+  edges_before:
+  - source: Propionate Oxidation Coupled to Methanogenesis
+    target: Catabolism and Methanogenesis Upregulation in Coculture
+    description: "Establishing the syntrophic coculture (versus monoculture) drives the concerted transcriptional\
+      \ upregulation of catabolic genes \u2014 the methylmalonyl-CoA pathway in P. thermopropionicum and methanogenesis\
+      \ genes in M. conradii.\n"
+  - source: Catabolism and Methanogenesis Upregulation in Coculture
+    target: Formate and Electron Bifurcation Strategy
+    description: 'The catabolic upregulation includes formate dehydrogenase and flavin-based electron bifurcation/confurcation
+      genes in both partners, activating formate as an alternate interspecies electron carrier alongside H2.
+
+      '
+  - source: Catabolism and Methanogenesis Upregulation in Coculture
+    target: Signal Transduction and Amino Acid Exchange
+    description: 'The same coculture transcriptional shift upregulates flagellum-induced signal transduction and
+      amino-acid exchange that accompany syntrophic growth.
+
+      '
+  - source: Formate and Electron Bifurcation Strategy
+    target: Propionate Oxidation Coupled to Methanogenesis
+    description: 'Interspecies formate and H2 transfer to M. conradii sustains hydrogenotrophic methanogenesis,
+      keeping the shared electron-carrier partial pressure low and thermodynamically pulling P. thermopropionicum
+      propionate oxidation; inhibiting methanogenesis with 2-BES abolished both methane production and propionate
+      oxidation.
+
+      '
+  - source: Formate and Electron Bifurcation Strategy
+    target: Propionate Oxidation Coupled to Methanogenesis
+    description: "NEGATIVE (product inhibition) \u2014 accumulation of excess formate inhibits syntrophic activity\
+      \ and halts propionate oxidation, so formate transfer must stay balanced by continuous methanogenic consumption.\n"
+  edges_after:
+  - source: Propionate Oxidation Coupled to Methanogenesis
+    target: Catabolism and Methanogenesis Upregulation in Coculture
+    description: PARTIAL - the propionate-fed coculture showed increased catabolic and methanogenesis transcripts
+      relative to the monocultures. The source warns that substrate, hydrogen availability and growth rate differ,
+      so this comparison does not isolate the effect of the partner interaction alone.
+  - source: Formate and Electron Bifurcation Strategy
+    target: Propionate Oxidation Coupled to Methanogenesis
+    description: 'PARTIAL - formate turnover is inferred to support syntrophic electron transfer. Its effect depends
+      on conditions: adding 20 mM formate immediately halted propionate oxidation, which resumed after formate consumption;
+      adding 5 mM 2-BES abolished propionate oxidation and methane production. The source did not find comparable
+      inhibition after H2/CO2 addition, so this edge does not assert a measured low-H2 requirement in that experiment.'
+  history_file: history/records/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture/2026-10-05T035546Z-claude-code-add3b2.yaml
+  references:
+  - PMID:30038609
+  history_correction_file: history/records/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture/2026-10-05T035649Z-codex-d3b4f1.yaml

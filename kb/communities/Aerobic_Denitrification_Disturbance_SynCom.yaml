@@ -91,8 +91,8 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: AHL-mediated interspecific communication under disturbance
-  description: The disturbed aerobic-denitrification SMC primarily uses C4-HSL
-    and 3OC12-HSL acyl-homoserine-lactones for interspecific communication.
+  description: The disturbed aerobic-denitrification SMC primarily uses C4-HSL and 3OC12-HSL acyl-homoserine-lactones for
+    interspecific communication.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -124,21 +124,19 @@ ecological_interactions:
       label: quorum sensing
   downstream:
   - target: Disturbance-stable aerobic denitrification
-    description: AHL-mediated communication is part of the disturbed SMC state
-      that maintains high aerobic denitrification efficiency.
+    description: PARTIAL - the authors attribute disturbance stability in part to interspecific communication and identify
+      C4-HSL/3OC12-HSL in the corresponding treatments. The accessible abstract does not report signal-blocking or rescue
+      experiments that isolate an AHL effect on denitrification.
   evidence:
   - reference: PMID:40020349
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: interspecific communication was mainly carried out through N-butyryl-L-homoserine
-      lactone (C4-HSL) and N-(3-oxododecanoyl)-L-homoserine lactone (3OC12-HSL)
-    explanation: Supports the two AHL signals that mediate interspecific communication
-      in the disturbed SMC.
+    snippet: interspecific communication was mainly carried out through N-butyryl-L-homoserine lactone (C4-HSL) and N-(3-oxododecanoyl)-L-homoserine
+      lactone (3OC12-HSL)
+    explanation: Supports the two AHL signals that mediate interspecific communication in the disturbed SMC.
 - name: DBP-stimulated phenazine electron transfer
-  description: Under dibutyl phthalate disturbance, phenazine-1-carboxylic acid
-    production accelerates electron transfer from the quinone pool to complex III
-    in the aerobic-denitrification SMC.
-  interaction_type: CROSS_FEEDING
+  description: Under dibutyl phthalate disturbance, phenazine-1-carboxylic acid production accelerates electron transfer from
+    the quinone pool to complex III in the aerobic-denitrification SMC.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pseudomonas aeruginosa
@@ -165,20 +163,19 @@ ecological_interactions:
       label: denitrification pathway
   downstream:
   - target: Disturbance-stable aerobic denitrification
-    description: Phenazine-stimulated electron transfer is a redox route into
-      the maintained denitrification phenotype.
+    description: PARTIAL - DBP-induced phenazine-1-carboxylic acid accelerates electron transfer, a route the authors associate
+      with maintained SMC function under DBP. The abstract does not quantify its independent contribution to the approximately
+      93% denitrification endpoint or extend this phenazine mechanism to LOFX.
   evidence:
   - reference: PMID:40020349
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: DBP stimulated phenazine-1-carboxylic acid production to accelerate electron transfer
-      from the quinone pool to complex III
-    explanation: Supports phenazine-1-carboxylic acid as a DBP-induced redox metabolite
-      in the disturbance response.
+    snippet: DBP stimulated phenazine-1-carboxylic acid production to accelerate electron transfer from the quinone pool to
+      complex III
+    explanation: Supports phenazine-1-carboxylic acid as a DBP-induced redox metabolite in the disturbance response.
 - name: Disturbance-stable aerobic denitrification
-  description: Division of labor and redistributed metabolic activity allow the
-    three-member SMC to maintain approximately 93% aerobic denitrification efficiency
-    under dibutyl phthalate and levofloxacin disturbances.
+  description: Division of labor and redistributed metabolic activity allow the three-member SMC to maintain approximately
+    93% aerobic denitrification efficiency under dibutyl phthalate and levofloxacin disturbances.
   interaction_type: SYNTROPHY
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -204,8 +201,7 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: aerobic denitrification efficiency could be maintained at about 93 %
-    explanation: Supports the maintained denitrification endpoint under DBP and
-      LOFX disturbances.
+    explanation: Supports the maintained denitrification endpoint under DBP and LOFX disturbances.
 environmental_factors:
 - name: defined synthetic community design
   value: Pseudomonas aeruginosa N2, Acinetobacter baumannii N1, and Aeromonas hydrophila were assembled
@@ -272,3 +268,22 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: dibutyl phthalate (DBP) and levofloxacin (LOFX) were used as environmental disturbances
     explanation: Names the two disturbance treatments applied during cultivation.
+discussions:
+- discussion_id: denitrification_mediator_perturbations
+  prompt: Do AHL or phenazine perturbations independently change denitrification stability under DBP and LOFX?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#AHL-mediated interspecific communication under disturbance
+  - ecological_interactions#DBP-stimulated phenazine electron transfer
+  - ecological_interactions#Disturbance-stable aerobic denitrification
+  rationale: PMID:40020349 reports AHL communication, DBP-stimulated phenazine electron transfer and an approximately 93%
+    denitrification endpoint. Only the abstract is cached; intervention and rescue details needed to isolate mediator-specific
+    effects are unavailable. The two retained edges are marked PARTIAL, and the phenazine claim is restricted to DBP.
+curation_history:
+- timestamp: '2026-10-05T03:55:46Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Qualify mediator-to-stability edges in disturbance-stable denitrification; source and per-node decisions recorded
+    under reports/causal_graph_review. Issue #1232.'
+  llm_assisted: true

@@ -1,0 +1,435 @@
+{
+  "scope": [
+    "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml",
+    "kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml",
+    "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml",
+    "kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml"
+  ],
+  "reference_validator_version": "0.1.7",
+  "initial_reference_check": {
+    "outcome": "superseded",
+    "reason": "An unpinned validator refreshed existing caches and replaced usable abstracts with unavailable entries. Only its generated cache changes were restored; reference and snippet checks were rerun with the repository-pinned validator.",
+    "failed_record": "AMD_Acidophile_Heterotroph_Network",
+    "unavailable_snippets": 9
+  },
+  "reference_output_note": "In version 0.1.7, Total checks counts issues rather than executed checks. See justfile and tests/test_reference_validator_actually_validates.py. Snippet totals are reported separately.",
+  "environment_note": "The project uv environment cannot build llvmlite with the installed Python; the repository commands were run through a minimal isolated environment. No lockfile was changed.",
+  "results": [
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-schema",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-strict",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/AMD_Acidophile_Heterotroph_Network-strict.tsv",
+        "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml"
+      ],
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/AMD_Acidophile_Heterotroph_Network-strict.tsv\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-terms",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ],
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-history_file",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/AMD_Acidophile_Heterotroph_Network/2026-10-05T035545Z-claude-code-e82d71.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-history_correction_file",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/AMD_Acidophile_Heterotroph_Network/2026-10-05T035646Z-codex-cba52e.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "ANME_SRB_Marine_Methane_Seep_Consortium-schema",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "ANME_SRB_Marine_Methane_Seep_Consortium-strict",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/ANME_SRB_Marine_Methane_Seep_Consortium-strict.tsv",
+        "kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml"
+      ],
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/ANME_SRB_Marine_Methane_Seep_Consortium-strict.tsv\n"
+    },
+    {
+      "check": "ANME_SRB_Marine_Methane_Seep_Consortium-terms",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ],
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n"
+    },
+    {
+      "check": "ANME_SRB_Marine_Methane_Seep_Consortium-history_file",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/ANME_SRB_Marine_Methane_Seep_Consortium/2026-10-05T035546Z-claude-code-4e4f45.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "ANME_SRB_Marine_Methane_Seep_Consortium-history_correction_file",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/ANME_SRB_Marine_Methane_Seep_Consortium/2026-10-05T035647Z-codex-c58798.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-schema",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-strict",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Aerobic_Denitrification_Disturbance_SynCom-strict.tsv",
+        "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml"
+      ],
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Aerobic_Denitrification_Disturbance_SynCom-strict.tsv\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-terms",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ],
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-history_file",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Aerobic_Denitrification_Disturbance_SynCom/2026-10-05T035546Z-claude-code-5feed8.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-history_correction_file",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Aerobic_Denitrification_Disturbance_SynCom/2026-10-05T035647Z-codex-1b36e6.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture-schema",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture-strict",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture-strict.tsv",
+        "kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml"
+      ],
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture-strict.tsv\n"
+    },
+    {
+      "check": "Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture-terms",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ],
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n"
+    },
+    {
+      "check": "Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture-history_file",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture/2026-10-05T035546Z-claude-code-add3b2.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture-history_correction_file",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture/2026-10-05T035649Z-codex-d3b4f1.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-references-pinned",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ],
+      "exit_code": 0,
+      "output": "Validating kb/communities/AMD_Acidophile_Heterotroph_Network.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-snippets-restored-cache",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering"
+      ],
+      "exit_code": 0,
+      "output": "# 30 evidence snippets scanned across 1 files\n  MATCH      30\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-rank",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000001\",\n    \"name\": \"AMD Acidophile Heterotroph Network\",\n    \"score\": 82.0,\n    \"taxonomy\": 6,\n    \"connected_taxa\": 6,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 5,\n    \"downstream_edges\": 1,\n    \"interaction_evidence\": 7,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"additional_downstream\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/AMD_Acidophile_Heterotroph_Network.yaml\"\n  }\n]\n"
+    },
+    {
+      "check": "ANME_SRB_Marine_Methane_Seep_Consortium-references-pinned",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ],
+      "exit_code": 0,
+      "output": "Validating kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "check": "ANME_SRB_Marine_Methane_Seep_Consortium-snippets-restored-cache",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering"
+      ],
+      "exit_code": 0,
+      "output": "# 21 evidence snippets scanned across 1 files\n  MATCH      21\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n"
+    },
+    {
+      "check": "ANME_SRB_Marine_Methane_Seep_Consortium-rank",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000134\",\n    \"name\": \"ANME-SRB Marine Methane Seep Consortium\",\n    \"score\": 95.0,\n    \"taxonomy\": 2,\n    \"connected_taxa\": 2,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 4,\n    \"downstream_edges\": 3,\n    \"interaction_evidence\": 6,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml\"\n  }\n]\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-references-pinned",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ],
+      "exit_code": 0,
+      "output": "Validating kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-snippets-restored-cache",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering"
+      ],
+      "exit_code": 0,
+      "output": "# 13 evidence snippets scanned across 1 files\n  MATCH      13\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-rank",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000116\",\n    \"name\": \"Aerobic Denitrification Disturbance-Stable SynCom\",\n    \"score\": 96.7,\n    \"taxonomy\": 3,\n    \"connected_taxa\": 3,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 3,\n    \"downstream_edges\": 2,\n    \"interaction_evidence\": 3,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml\"\n  }\n]\n"
+    },
+    {
+      "check": "Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture-references-pinned",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ],
+      "exit_code": 0,
+      "output": "Validating kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "check": "Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture-snippets-restored-cache",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering"
+      ],
+      "exit_code": 0,
+      "output": "# 25 evidence snippets scanned across 1 files\n  MATCH      25\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n"
+    },
+    {
+      "check": "Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture-rank",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000190\",\n    \"name\": \"Pelotomaculum-Methanocella Propionate RNA-Seq Coculture\",\n    \"score\": 100.0,\n    \"taxonomy\": 2,\n    \"connected_taxa\": 2,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 4,\n    \"downstream_edges\": 2,\n    \"interaction_evidence\": 9,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [],\n    \"path\": \"kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml\"\n  }\n]\n"
+    }
+  ]
+}
