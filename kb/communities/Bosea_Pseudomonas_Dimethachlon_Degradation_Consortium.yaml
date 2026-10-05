@@ -86,9 +86,9 @@ taxonomy:
     explanation: Identifies KH-1 and supports its intermediate-degradation role.
 ecological_interactions:
 - name: Sequential dimethachlon-metabolite handoff
-  description: >
-    S6 produces 3,5-dichloroaniline from dimethachlon and KH-1 consumes that
-    toxic intermediate, coupling the two strain-specific degradation steps.
+  description: The source reports that S6 transforms dimethachlon to 3,5-dichloroaniline and KH-1 degrades that
+    intermediate. This sequential substrate handoff supports cross-feeding, not necessarily mineralization, reciprocal
+    fitness benefit or proven necessity of particular enzymes.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -108,19 +108,20 @@ ecological_interactions:
       label: 3,5-dichloroaniline
   downstream:
   - target: Complete soil removal of dimethachlon and 3,5-dichloroaniline
-    description: The S6-to-KH-1 intermediate handoff supports complete removal
-      of both the parent fungicide and its toxic 3,5-dichloroaniline intermediate
-      in contaminated soil.
+    description: PARTIAL - S6 production and KH-1 consumption of 3,5-dichloroaniline provide a proposed route enabling
+      paired parent/intermediate removal in soil. The abstract reports both strain functions and bioaugmentation
+      outcome, but does not resolve in-soil flux or strain/mediator necessity.
   evidence:
   - reference: PMID:41326129
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Bosea sp. S6, which transforms dimethachlon to 3,5-dichloroaniline, and Pseudomonas sp. KH-1, which degrades 3,5-dichloroaniline
+    snippet: Bosea sp. S6, which transforms dimethachlon to 3,5-dichloroaniline, and Pseudomonas sp. KH-1, which
+      degrades 3,5-dichloroaniline
     explanation: Directly supports production and consumption of the shared intermediate by the two strains.
 - name: Complete soil removal of dimethachlon and 3,5-dichloroaniline
-  description: The reconstructed Bosea-Pseudomonas consortium removed both dimethachlon
-    and 3,5-dichloroaniline during contaminated-soil bioaugmentation.
-  interaction_type: CROSS_FEEDING
+  description: Bioaugmentation with the two-strain consortium was reported to completely remove dimethachlon and
+    3,5-dichloroaniline from contaminated soil under the tested conditions. Removal does not establish mineralization
+    or toxicity of the resulting soil samples, and enrichment-culture JHJ-2 kinetics are not assigned to this pair.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bosea sp. S6
@@ -136,23 +137,19 @@ ecological_interactions:
     term:
       id: CHEBI:19904
       label: 3,5-dichloroaniline
-  downstream:
-  - target: Detoxified dimethachlon transformation products
-    description: Complete paired transformation of the fungicide and toxic aniline
-      intermediate yields products that lacked detectable zebrafish toxicity in
-      the consortium assay.
   evidence:
   - reference: PMID:41326129
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Bioaugmentation with the synthetic consortium led to the complete removal of dimethachlon
-      and its highly toxic metabolite 3,5-dichloroaniline from contaminated soil.
-    explanation: Supports the community-level soil-remediation endpoint after the
-      sequential two-strain degradation handoff.
+    snippet: Bioaugmentation with the synthetic consortium led to the complete removal of dimethachlon and its highly
+      toxic metabolite 3,5-dichloroaniline from contaminated soil.
+    explanation: Supports the community-level soil-remediation endpoint after the sequential two-strain degradation
+      handoff.
 - name: Detoxified dimethachlon transformation products
-  description: Sequential transformation by S6 and KH-1 converted dimethachlon into
-    products reported as non-toxic in the zebrafish assay.
-  interaction_type: CROSS_FEEDING
+  description: Products of the two-strain dimethachlon treatment were reported as non-toxic in a zebrafish assay.
+    The available abstract/preview does not resolve exposure stage, dose, endpoint or linkage to the soil-remediation
+    samples. This is an assay-bounded outcome, not universal safety or an independently demonstrated cross-feeding
+    event.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bosea sp. S6
@@ -171,11 +168,11 @@ ecological_interactions:
   evidence:
   - reference: PMID:41326129
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Toxicity assays using the zebrafish showed that dimethachlon is converted into
-      non-toxic products by the synthetic consortium (strains S6 and KH-1).
-    explanation: Supports detoxification downstream of the complete S6/KH-1
-      dimethachlon-degradation pathway.
+    evidence_source: OTHER
+    snippet: Toxicity assays using the zebrafish showed that dimethachlon is converted into non-toxic products by
+      the synthetic consortium (strains S6 and KH-1).
+    explanation: Supports the reported zebrafish result. OTHER records an experimental context unresolved in the
+      accessed abstract/preview; full methods are needed rather than retaining an unsupported IN_VITRO classification.
 environmental_factors:
 - name: Complete contaminant and metabolite removal in soil
   value: complete removal
@@ -209,3 +206,25 @@ external_resources:
     explanation: Links the primary publication to the defined consortium and its enrichment origin.
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare-earth transformation role was reported for this pesticide-degradation consortium.
+discussions:
+- discussion_id: bosea_assay_linkage_and_mineralization
+  prompt: Do full methods connect the degradation, soil-removal and zebrafish endpoints?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Sequential dimethachlon-metabolite handoff
+  - ecological_interactions#Complete soil removal of dimethachlon and 3,5-dichloroaniline
+  - ecological_interactions#Detoxified dimethachlon transformation products
+  rationale: 'Complete abstract and selected publisher preview were read, not full methods, images or supplements.
+    The soil-to-toxicity arrow lacked verified sample linkage and was removed. Strain-specific handoff is retained
+    with bounded soil mediation. Recover organism stage, exposure and endpoint details before assigning toxicity
+    context; follow-up #1268. Preserve Allobosea canonical grounding and GTDB Bosea mapping.'
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T14:25:58Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound Bosea soil and toxicity endpoints without cross-assay causal inference; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1266'
+  llm_assisted: true

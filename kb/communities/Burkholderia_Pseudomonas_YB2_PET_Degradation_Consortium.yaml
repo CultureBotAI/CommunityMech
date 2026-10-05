@@ -122,12 +122,10 @@ taxonomy:
       assigned to G1B.
 ecological_interactions:
 - name: YB2 PET hydrolysis-product complementarity
-  description: >
-    B. cepacia ZY1 and P. harudinis G1B have overlapping PET-related functions
-    with relative differences: ZY1 shows stronger PET depolymerization-related
-    activity, while G1B grows better in BHET- and MHET-containing media and
-    tends toward faster BHET conversion.
-  interaction_type: NICHE_PARTITIONING
+  description: 'B. cepacia ZY1 and P. harudinis G1B showed overlapping PET-related functions with relative differences:
+    stronger ZY1 depolymerization-related activity and better G1B growth in BHET/MHET media. PARTIAL - the authors
+    propose potential complementarity, not demonstrated resource partitioning, reciprocal benefit or donor-resolved
+    cross-feeding.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Burkholderia cepacia ZY1
@@ -158,24 +156,24 @@ ecological_interactions:
       label: xenobiotic metabolic process
   downstream:
   - target: YB2 enhanced PET-film degradation
-    description: >
-      The complementary PET-depolymerization and downstream-conversion
-      phenotypes of the two strains support YB2's enhanced PET film mass loss.
+    description: PARTIAL - relative depolymerization and downstream-conversion capacities provide a proposed explanation
+      for greater YB2 PET-film mass loss. The abstract does not isolate functional necessity or trace interstrain
+      transfer, so this remains a source-supported mechanism hypothesis.
   evidence:
   - reference: PMID:42664909
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: >
-      Overall, ZY1 and G1B exhibited overlapping functions with relative
-      functional differences and potential complementarity
-    explanation: Supports non-directional complementarity between the two YB2 members.
+    snippet: 'Overall, ZY1 and G1B exhibited overlapping functions with relative functional differences and potential
+      complementarity
+
+      '
+    explanation: The abstract explicitly reports overlapping functions and potential complementarity, not established
+      niche partitioning or necessary mediation.
 - name: YB2 enhanced PET-film degradation
-  description: >
-    At pH 7.0 and 30 °C, the YB2 consortium reached 4.30% +/- 0.11% PET film
-    mass loss after 3 days, exceeding either individual strain and causing PET
-    surface erosion, ester-related structural changes, and increased residual
-    PET crystallinity.
-  interaction_type: NICHE_PARTITIONING
+  description: At pH 7.0 and 30 C, YB2 achieved 4.30% +/- 0.11% PET-film mass loss after three days, exceeding the
+    individual strains, with surface erosion, ester-related changes and increased residual crystallinity. These
+    endpoints are not mineralization or proof of niche partitioning. BHET/MHET measurements at two days and TPA
+    measurements at five days are separate time points, not the three-day mass-loss assay.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Burkholderia cepacia ZY1
@@ -200,16 +198,18 @@ ecological_interactions:
   - reference: PMID:42664909
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      At pH 7.0 and 30 °C, YB2 achieved 4.30% ± 0.11% PET film mass loss after
-      3 d, significantly exceeding the individual strains.
+    snippet: 'At pH 7.0 and 30 °C, YB2 achieved 4.30% ± 0.11% PET film mass loss after 3 d, significantly exceeding
+      the individual strains.
+
+      '
     explanation: Supports the pH 7.0, 30 C PET film mass-loss phenotype of YB2.
   - reference: PMID:42664909
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      YB2 treatment caused surface erosion, ester-related structural changes,
-      and increased residual PET crystallinity.
+    snippet: 'YB2 treatment caused surface erosion, ester-related structural changes, and increased residual PET
+      crystallinity.
+
+      '
     explanation: Supports physical and chemical evidence of YB2 action on PET film.
 environmental_factors:
 - name: Optimized ZY1 to G1B inoculation ratio
@@ -334,7 +334,28 @@ curation_history:
 - timestamp: '2026-09-22T21:32:02Z'
   curator: codex
   action: ADD_COMMUNITY_RECORD
-  changes: >
-    Added CommunityMech:000426 for the Burkholderia cepacia ZY1 and Pseudomonas
-    harudinis G1B YB2 PET-degrading consortium from PMID:42664909.
+  changes: 'Added CommunityMech:000426 for the Burkholderia cepacia ZY1 and Pseudomonas harudinis G1B YB2 PET-degrading
+    consortium from PMID:42664909.
+
+    '
   llm_assisted: true
+- timestamp: '2026-10-05T14:25:59Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate YB2 measured PET mass loss from proposed functional complementarity; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1265'
+  llm_assisted: true
+discussions:
+- discussion_id: yb2_transfer_and_mass_loss_mediation
+  prompt: Does selective loss of a partner function or traced exchange explain enhanced PET-film mass loss?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#YB2 PET hydrolysis-product complementarity
+  - ecological_interactions#YB2 enhanced PET-film degradation
+  rationale: 'Complete abstract only, not full methods or supplements. Hydrolysis was predominantly cell-associated;
+    both strains remained culturable over 0-7 days, which does not establish mutualism or obligation. Ethylene-glycol
+    decline suggests possible use, not tested assimilation. Preserve current taxon/chemical groundings; non-graph
+    G1B cross-feeder role remains #1268.'
+  posed_by: codex
+  posed_date: '2026-10-05'

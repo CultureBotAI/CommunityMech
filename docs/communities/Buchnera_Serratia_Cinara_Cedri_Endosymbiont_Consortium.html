@@ -558,7 +558,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Buchnera-Serratia Cinara cedri Endosymbiont Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -571,8 +571,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -581,9 +581,9 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Shared Tryptophan Biosynthesis</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Tryptophan biosynthesis is partitioned across Buchnera aphidicola BCc and Serratia symbiotica SCc, creating a metabolic dependency between the two endosymbionts.</p>
+                <p class="prewrap interaction-description">COMPUTATIONAL - genome reconstruction partitions tryptophan biosynthesis between Buchnera BCc trpEG, predicted to supply anthranilate, and Serratia SCc trpABCD, predicted to complete tryptophan synthesis. PARTIAL - inferred intermediate exchange is cross-feeding, not thermodynamic syntrophy or experimentally traced transport across the distinct bacteriocytes.</p>
 
 
                 <p><strong>Source Taxon:</strong> Buchnera aphidicola BCc</p>
@@ -621,8 +621,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Stable Co-obligate Metabolic Complementation
-                        <p class="prewrap causal-description">Tryptophan-pathway partitioning is one of the shared biosynthetic dependencies that stabilizes the Buchnera-Serratia nutritional consortium in the aphid host.</p>
+                        <span class="flow-arrow">→</span> Inferred Co-obligate Metabolic Complementation
+                        <p class="prewrap causal-description">HYPOTHESIZED - partitioned tryptophan capacity could favor preservation of both partners by making complete nutrition depend on their complementary reactions. This is a source-proposed evolutionary mechanism, not a measured perturbation of consortium stability.</p>
                     </div>
 
                 </div>
@@ -638,7 +638,7 @@
                             <a href="https://doi.org/10.1371/journal.pgen.1002357"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1371/journal.pgen.1002357</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"the biosynthesis of tryptophan is shared with the endosymbiont Serratia symbiotica SCc"</div>
@@ -654,7 +654,7 @@
                     <h3>Serratia Takeover of Lost Buchnera Functions</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Genome-based metabolic inference indicates that functions carried out by Buchnera in other aphids are either retained in Buchnera BCc or taken over by Serratia SCc in Cinara cedri.</p>
+                <p class="prewrap interaction-description">COMPUTATIONAL - genome comparison indicates that Serratia SCc retains biosynthetic capacity absent from Buchnera BCc, including riboflavin provision in the inferred consortium. PARTIAL - nutritional complementation is proposed from gene content; synthesis capacity does not establish export of every product, transport route or reciprocal fitness magnitude.</p>
 
 
 
@@ -685,8 +685,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Stable Co-obligate Metabolic Complementation
-                        <p class="prewrap causal-description">Serratia takeover of biosynthetic functions lost by Buchnera is another inferred complementing dependency that contributes to stable co-obligate symbiosis.</p>
+                        <span class="flow-arrow">→</span> Inferred Co-obligate Metabolic Complementation
+                        <p class="prewrap causal-description">HYPOTHESIZED - Serratia capacity complementing Buchnera losses could favor co-preservation of the two endosymbionts. Genomic reconstruction supports this interpretation without proving transport, partner necessity or a stability effect experimentally.</p>
                     </div>
 
                 </div>
@@ -702,7 +702,7 @@
                             <a href="https://doi.org/10.1371/journal.pgen.1002357"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1371/journal.pgen.1002357</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"taken over by S. symbiotica"</div>
@@ -715,7 +715,7 @@
                             <a href="https://doi.org/10.1371/journal.pgen.1002357"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1371/journal.pgen.1002357</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"not able to synthesize tryptophan and riboflavin"</div>
@@ -728,10 +728,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Stable Co-obligate Metabolic Complementation</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Inferred Co-obligate Metabolic Complementation</h3>
                 </div>
-                <p class="prewrap interaction-description">The paired endosymbionts form a stable consortium through multiple cases of metabolic complementation, preserving both bacterial partners in the aphid host context.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - complementary metabolic losses and retained functions could favor co-preservation of Buchnera BCc and Serratia SCc in Cinara cedri. The source proposes a co-obligate evolutionary consortium; this is not an experimental persistence intervention, measured stability time course or thermodynamic syntrophy.</p>
 
 
 
@@ -773,7 +772,7 @@
                             <a href="https://doi.org/10.1371/journal.pgen.1002357"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1371/journal.pgen.1002357</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"metabolic complementation giving functional stability to the whole consortium"</div>
@@ -786,7 +785,7 @@
                             <a href="https://doi.org/10.1371/journal.pgen.1002357"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1371/journal.pgen.1002357</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"both bacteria are evolving together towards the establishment of a powerful consortium"</div>
@@ -853,6 +852,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Do resolved metabolite transport and partner perturbations validate nutritional co-dependence?
+                </h3>
+                <p class="prewrap">Retain the two explicit source-proposed co-preservation hypotheses rather than treating all component arrows as invalid. Host reactions were partly inferred from Acyrthosiphon pisum, not measured in Cinara cedri. Separate bacteriocytes require unresolved transport. Primary main text/tables/captions read, not images, supplements or reconstructed genomes. Cache-header PMCID mismatch and non-graph syntrophy/role wording remain #1268; the matching primary body was used, not an editorial cache summary.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Shared Tryptophan Biosynthesis</code>, <code>ecological_interactions#Serratia Takeover of Lost Buchnera Functions</code>, <code>ecological_interactions#Inferred Co-obligate Metabolic Complementation</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -989,7 +1007,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "CROSS_FEEDING";
             var metabolites = [];
 
 
@@ -1072,7 +1090,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1087,7 +1105,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Stable Co-obligate Metabolic Complementation",
+                label: "Inferred Co-obligate Metabolic Complementation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

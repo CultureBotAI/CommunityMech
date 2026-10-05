@@ -202,7 +202,6 @@ USERS = {
     "Buchnera_Serratia_Cinara_Cedri_Endosymbiont_Consortium.yaml",
     "Burkholderia_Pseudomonas_YB2_PET_Degradation_Consortium.yaml",
     "Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml",
-    "Cable_Bacteria_Photosynthetic_Biofilm_Sediment.yaml",
     "Caldicellulosiruptor_TwoSpecies_Hydrogen_Coculture.yaml",
     "Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml",
     "Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml",
