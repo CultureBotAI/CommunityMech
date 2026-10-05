@@ -1,0 +1,108 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 8eb118a173d7a2224d521986b5d3f5212b5f1f8b
+decision_ledger: reports/causal_graph_review/decisions/20261005-two-records-batch14.yaml
+validation_report: reports/causal_graph_review/validation-20261005-batch14.json
+scope:
+  records_assessed: 2
+  records_changed: 1
+  records_unchanged: 1
+  nodes_before: 7
+  nodes_after: 7
+  arrows_before: 2
+  arrows_after: 0
+  new_nodes: 0
+  new_arrows: 0
+findings:
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1305
+  severity: P1
+  disposition: addressed_and_locally_verified
+  finding: Three-member wording and Duganella grounding misidentify the actual four-isolate SynCom.
+  resolution: Correct FT92W to NCBITaxon:2666085 in taxonomy and every graph participant; explicitly aggregate the
+    two Pseudomonas isolates, identify REN4, distinguish algal-containing arms and repair the directly related assay
+    context. Preserve network-label provenance without claiming that FT92W was isolated from strawberry. Remove
+    the inapplicable Duganella GTDB block; the attempted local mapping remains unresolved.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1306
+  severity: P2
+  disposition: addressed_and_locally_verified
+  finding: Proxy screens, relative-abundance responses and symptom-based disease indices were typed as mechanisms;
+    two arrows restated disease outcomes without a distinct demonstrated upstream cause.
+  resolution: Retain all six measured-observation nodes with source limits; remove unsupported interaction/process
+    typing and the duplicate arrows. Distinguish in-vitro fractions from plant challenge, qualify IAA/nitrogen screens,
+    bound treatment comparisons, and add a focused mediation/source-consistency gap.
+adversarial_checks:
+- challenge: Do three bacterial taxonomy entries still conceal a missing fourth isolate?
+  resolution: No. The Pseudomonas entry explicitly aggregates 8C3D12 and 6C7F4 with separate Table 1 evidence; FT92W
+    and REN4 each have strain designations. Species CURIEs are not invented for unidentified Pseudomonas or for
+    the conservatively genus-grounded REN4.
+- challenge: Was Duganella blindly renamed in the historical network evidence?
+  resolution: No. Duganella remains as the ASV/network label and in the unchanged precursor snippet. Only the actual
+    inoculated FT92W canonical identity and graph bindings change. NCBI/local ontology labels agree.
+- challenge: Does unavailable GTDB data justify borrowing the previous genus classification?
+  resolution: No. The original classification belongs to Duganella and is removed. UNRESOLVED records the failed
+    local mapping attempt. The ignored-inclusive repository search had permission errors, so global absence is not
+    asserted; checked candidate paths and the bounded temporary-directory search are documented.
+- challenge: Does the alga occur in all bacterial treatment arms?
+  resolution: No. Treat8 contains four bacteria and pathogen; Treat9 adds CHK0059. Treat7 adds it to the two-bacterium
+    mixture. Relevant endpoint participants now include the alga, while the isolate screening node does not.
+- challenge: Are microbiome-fraction results in vivo, absolute abundance, or exact inoculated-strain recruitment?
+  resolution: No. Methods and Figure S4 establish in-vitro relative-abundance responses at 12/36 hours. Live/killed
+    Chlorella and 2% mannitol responses differ. Secretion and strain-specific recruitment remain unproven.
+- challenge: Is every Table S2 phenotype accounted for, and do assay names prove direct molecular function?
+  resolution: Table S2 also reports a positive FT92W IAA screen, not enumerated in the main results paragraph. Actual
+    Figure S7 shows the assays. Nfb and Salkowski responses are retained as proxies, without GO nitrogen fixation,
+    chemically identified IAA, community complementarity or colonization facilitation assertions.
+- challenge: Does the full mixture outperform every single isolate or establish direct antifungal action?
+  resolution: No. Figures 4/5 and Table S3 support treatment-specific host outcomes; the record retains the single-isolate
+    comparisons that defeat universal superiority. Disease indices are not fungal-load or mechanism-isolating measurements,
+    and no formal synergy model is verified.
+- challenge: Are week-5, terminal-week, aggregate and statistical summaries interchangeable?
+  resolution: No. Figure 4 corroborates an approximate week-5 contrast. Source week-7 wording conflicts with the
+    plot, and Methods versus Tables S3/S4 disagree on growth-phenotype sample counts. These discrepancies are explicitly
+    recorded; no precision or terminal value is reconstructed.
+- challenge: Were useful causal mechanisms discarded merely because they were uncertain?
+  resolution: The two removed arrows only restate host outcomes already summarized in their source node. Candidate
+    carbon use remains explicitly hypothesized, and the gap preserves unresolved mediation. No biological impossibility
+    is inferred from absence of direct evidence.
+- challenge: Did the whey record need another mutation or new arrows simply because its graph is sparse?
+  resolution: No. Its one untyped growth observation matches the primary abstract after earlier issues 1055-1057
+    were fixed. Source terminology about synergy is not certified as a formal additivity test. The YAML, aliases,
+    existing knowledge gap and caches remain byte-identical; full text and figure previews remain unreviewed.
+- challenge: Do structural success, cache matching, or this review count as independent scientific approval?
+  resolution: No. Source inspection determines the semantic boundaries. This is self-adversarial review; no independent
+    approval, raw-data reanalysis, complete figure review, or corpus completion is claimed.
+verification:
+  status: local_validation_complete
+  checks: 23
+  records: 460
+  nodes: 1475
+  edges: 718
+  review_status_counts:
+    needs_research: 3
+    pending: 363
+    reviewed: 94
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  unchanged_raw_blocks: 22
+  snippet_counts:
+    MATCH: 30
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1461
+    edge_descriptions: 710
+  render_determinism: passed
+  regressions: 225 passed in 202.81s (0:03:22)
+  rights: 3 passed in 2.54s
+  rights_import_root_verified: true
+  caches_unchanged: true
+  whey_record_byte_unchanged: true
+  primary_artifact_hashes_rechecked: true
+  participant_registry_and_connectivity_test_bytes_unchanged: true
