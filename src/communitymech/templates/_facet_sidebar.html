@@ -1,0 +1,214 @@
+<!-- Shared facet sidebar: browser and both published community maps. -->
+<style>
+    .main-container {
+        display: grid;
+        grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+    }
+
+    .main-container > .filter-panel {
+        display: block;
+        min-width: 0;
+        position: sticky;
+        top: 1rem;
+        max-height: calc(100vh - 2rem);
+        max-height: calc(100dvh - 2rem);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        padding: 1rem;
+    }
+
+    .filter-panel .facet-section {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .filter-panel .facet-label {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .filter-panel input[type="checkbox"] {
+        flex-shrink: 0;
+    }
+
+    .filter-panel .facet-count {
+        flex-shrink: 0;
+    }
+
+    .filter-sidebar-toggle {
+        display: none;
+    }
+
+    .plot-container #umap-plot svg {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .filter-sidebar-toggle,
+    .filter-sidebar-close {
+        border: 1px solid var(--border, #cbd5e1);
+        border-radius: 6px;
+        padding: 0.65rem 1rem;
+        background: var(--surface, #fff);
+        color: var(--text, #1e293b);
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .filter-sidebar-toggle:focus-visible,
+    .filter-sidebar-close:focus-visible,
+    .filter-panel :focus-visible {
+        outline: 3px solid #3D7DD6;
+        outline-offset: 2px;
+    }
+
+    .filter-sidebar-dialog {
+        position: fixed;
+        inset: 0 auto 0 0;
+        margin: 0;
+        width: min(320px, calc(100vw - 2rem));
+        max-width: none;
+        height: 100%;
+        height: 100dvh;
+        max-height: none;
+        padding: 1rem;
+        border: 0;
+        border-right: 1px solid var(--border, #cbd5e1);
+        background: var(--surface, #fff);
+        color: var(--text, #1e293b);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+
+    .filter-sidebar-dialog::backdrop {
+        background: rgb(15 23 42 / 45%);
+    }
+
+    .filter-sidebar-dialog > .filter-panel {
+        display: block;
+        position: static;
+        max-height: none;
+        border: 0;
+        padding: 1rem 0 0;
+        overflow: visible;
+    }
+
+    body.filter-sidebar-open {
+        overflow: hidden;
+    }
+
+    :root[data-theme="dark"] .filter-sidebar-dialog,
+    :root[data-theme="dark"] .filter-sidebar-toggle,
+    :root[data-theme="dark"] .filter-sidebar-close {
+        background: #101420;
+        border-color: #2a3142;
+        color: #e8ecf4;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) .filter-sidebar-dialog,
+        :root:not([data-theme="light"]) .filter-sidebar-toggle,
+        :root:not([data-theme="light"]) .filter-sidebar-close {
+            background: #101420;
+            border-color: #2a3142;
+            color: #e8ecf4;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .main-container {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .main-container > .filter-panel {
+            position: static;
+            max-height: 50vh;
+        }
+
+        .filter-sidebar-ready .main-container > .filter-panel {
+            display: none;
+        }
+
+        .filter-sidebar-ready .filter-sidebar-toggle {
+            display: block;
+            justify-self: start;
+        }
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Fit the existing map coordinate space into the results column.
+        // Preserve the data, positions and D3 interactions inside the SVG.
+        document.querySelectorAll('.plot-container #umap-plot svg').forEach(svg => {
+            const width = Number(svg.getAttribute('width'));
+            const height = Number(svg.getAttribute('height'));
+            if (!svg.hasAttribute('viewBox') && width > 0 && height > 0) {
+                svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+            }
+        });
+        if (typeof HTMLDialogElement === 'undefined' ||
+            typeof HTMLDialogElement.prototype.showModal !== 'function') return;
+        const panel = document.querySelector('.main-container > .filter-panel');
+        if (!panel) return;
+        const anchor = document.createComment('Facet sidebar position');
+        panel.before(anchor);
+
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'filter-sidebar-toggle';
+        toggle.textContent = 'Filters';
+        toggle.setAttribute('aria-haspopup', 'dialog');
+        toggle.setAttribute('aria-controls', 'community-filters');
+        toggle.setAttribute('aria-expanded', 'false');
+        anchor.before(toggle);
+
+        const dialog = document.createElement('dialog');
+        dialog.id = 'community-filters';
+        dialog.className = 'filter-sidebar-dialog';
+        dialog.setAttribute('aria-label', 'Filter communities');
+        const close = document.createElement('button');
+        close.type = 'button';
+        close.className = 'filter-sidebar-close';
+        close.textContent = 'Close filters';
+        close.autofocus = true;
+        dialog.append(close);
+        document.body.append(dialog);
+
+        const mobile = window.matchMedia('(max-width: 700px)');
+        let panelHadFocus = false;
+        panel.addEventListener('focusin', () => { panelHadFocus = true; });
+        panel.addEventListener('focusout', event => {
+            // Hiding the desktop panel can clear activeElement before the
+            // media-query event. Remember only that breakpoint-driven blur.
+            if (!mobile.matches || dialog.open || event.relatedTarget) panelHadFocus = false;
+        });
+        toggle.addEventListener('click', () => {
+            if (!mobile.matches) return;
+            dialog.append(panel);
+            dialog.showModal();
+            toggle.setAttribute('aria-expanded', 'true');
+            document.body.classList.add('filter-sidebar-open');
+        });
+        close.addEventListener('click', () => dialog.close());
+        dialog.addEventListener('close', () => {
+            anchor.after(panel);
+            toggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('filter-sidebar-open');
+            if (mobile.matches) toggle.focus();
+            else panel.querySelector('input, button')?.focus();
+        });
+        mobile.addEventListener('change', () => {
+            if (!mobile.matches && dialog.open) dialog.close();
+            if (mobile.matches && !dialog.open &&
+                (panelHadFocus || panel.contains(document.activeElement))) {
+                toggle.focus();
+                panelHadFocus = false;
+            }
+        });
+        document.documentElement.classList.add('filter-sidebar-ready');
+    });
+</script>
