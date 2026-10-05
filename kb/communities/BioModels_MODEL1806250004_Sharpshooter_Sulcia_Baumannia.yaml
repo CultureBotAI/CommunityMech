@@ -64,12 +64,11 @@ associated_datasets:
   description: Study on the cost of metabolic interactions in insect-bacterial symbioses.
 ecological_interactions:
 - name: Sulcia Essential Amino Acid Provisioning
-  description: Sulcia provides essential amino acids to the sharpshooter host, which are lacking in the
-    nutrient-poor xylem sap diet. Through metabolic modeling, Sulcia with its highly reduced genome (≤0.3
-    Mb) is calculated to recycle 30-80% of host-derived nitrogen to essential amino acids that are returned
-    to the host. This mutualistic relationship represents extensive bidirectional metabolite flux between
-    Sulcia and the host, with the host providing carbon/energy substrates and Sulcia synthesizing amino
-    acids the host cannot produce.
+  description: COMPUTATIONAL - the sharpshooter model predicts Sulcia export of 8 essential amino acids and reciprocal
+    host nutrient supply. Across the three modeled insects, Sulcia EAA output accounts for 66-80% of host-derived
+    nitrogen input. This is nitrogen-weighted transport-flux accounting, not an elemental-nitrogen concentration
+    or a host-specific measured percentage. MUTUALISM denotes modeled reciprocal nutrition, not experimentally traced
+    transfer.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -87,44 +86,36 @@ ecological_interactions:
     term:
       id: CHEBI:15603
       label: L-leucine
-    concentration: Essential amino acid produced by Sulcia
+    notes: Essential amino acid produced by Sulcia
   - preferred_term: L-isoleucine
     term:
       id: CHEBI:17191
       label: L-isoleucine
-    concentration: Essential amino acid produced by Sulcia
-  - preferred_term: nitrogen
-    term:
-      id: CHEBI:25555
-      label: nitrogen atom
-    concentration: 30-80% recycled from host to essential amino acids
-  downstream:
-  - target: Host-Mediated Complementary Endosymbiont Metabolism
-    description: >
-      Sulcia recycles most host-derived nitrogen to essential amino acids, one
-      half of the complementary endosymbiont metabolism coordinated through the
-      sharpshooter host.
+    notes: Essential amino acid produced by Sulcia
   evidence:
   - reference: PMID:30254121
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Sulcia and Hodgkinia with genomes of ≤0.3 Mb are calculated to recycle ∼30 to 80% of host-derived
-      nitrogen to essential amino acids returned to the host
-    explanation: Demonstrates Sulcia's role in nitrogen recycling and essential amino acid provisioning
-      to the host through metabolic modeling.
+    snippet: Sulcia and Hodgkinia with genomes of ≤0.3 Mb are calculated to recycle ∼30 to 80% of host-derived nitrogen
+      to essential amino acids returned to the host
+    explanation: The abstract pools Sulcia and Hodgkinia; the main results distinguish their nitrogen efficiencies.
   - reference: PMID:30254121
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Our simulations reveal extensive bidirectional flux of multiple metabolites between each
-      symbiont and the host
+    snippet: Our simulations reveal extensive bidirectional flux of multiple metabolites between each symbiont and
+      the host
     explanation: Supports the extensive metabolic exchange between Sulcia and the sharpshooter host.
+  - reference: PMID:30254121
+    snippet: For Sulcia, EAA output was equivalent to 66 to 80% of host-derived N
+    explanation: The main result supplies the Sulcia-specific range across systems, unlike the pooled abstract range.
+    evidence_source: COMPUTATIONAL
+    supports: SUPPORT
 - name: Baumannia Metabolic Complementarity
-  description: Baumannia cicadellinicola, the coprimary symbiont with a larger genome (≥0.6 Mb), provides
-    metabolic functions that complement both the host and Sulcia. Baumannia recycles approximately 10-15%
-    of host nitrogen and synthesizes metabolites not produced by Sulcia, including vitamins and cofactors.
-    The metabolic modeling reveals near-complete metabolic segregation between Baumannia and Sulcia, with
-    metabolite exchange occurring primarily through host-mediated pathways rather than direct cross-feeding
-    between symbionts.
+  description: COMPUTATIONAL - Baumannia exports histidine and methionine, complementing the eight Sulcia-derived
+    essential amino acids. Its predicted EAA return corresponds to 10% of host-derived nitrogen input, not the entire
+    pooled abstract range. The model predicts reciprocal host support and three exclusively exchanged symbiont intermediates.
+    Near metabolic segregation is not a universal absence of exchange; direct host regulatory control remains a
+    PARTIAL interpretation.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -137,46 +128,33 @@ ecological_interactions:
     term:
       id: NCBITaxon:236401
       label: Graphocephala coccinea
-  metabolites:
-  - preferred_term: nitrogen
-    term:
-      id: CHEBI:25555
-      label: nitrogen atom
-    concentration: 10-15% recycled from host
-  downstream:
-  - target: Host-Mediated Complementary Endosymbiont Metabolism
-    description: >
-      Baumannia supplies larger-genome coprimary symbiont functions that
-      complement Sulcia through host-mediated, rather than symbiont-to-symbiont,
-      exchange.
   evidence:
   - reference: PMID:30254121
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: Baumannia and Sodalis with genomes of ≥0.6 Mb recycle 10 to 15% of host nitrogen
-    explanation: Quantifies Baumannia's contribution to nitrogen recycling and metabolite provisioning
-      to the host.
+    explanation: The abstract gives a pooled range; main results assign 10% to Baumannia. These are model flux fractions,
+      not measured concentrations.
   - reference: PMID:30254121
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: near-complete metabolic segregation (i.e., near absence of metabolic cross-feeding) between
-      the two symbionts, a likely mode of host control over symbiont metabolism
-    explanation: Demonstrates that Baumannia and Sulcia exchange metabolites primarily with the host rather
-      than directly with each other.
+    snippet: near-complete metabolic segregation (i.e., near absence of metabolic cross-feeding) between the two
+      symbionts, a likely mode of host control over symbiont metabolism
+    explanation: Near segregation is a model result; its interpretation as active host control is a hypothesis,
+      not experimentally demonstrated regulation.
+  - reference: PMID:30254121
+    snippet: 10% for Baumannia
+    explanation: Main results assign 10% nitrogen recycling to Baumannia, rather than the pooled abstract range.
+    evidence_source: COMPUTATIONAL
+    supports: SUPPORT
 - name: Host-Mediated Complementary Endosymbiont Metabolism
-  description: >
-    Sulcia and Baumannia provide complementary metabolic functions to the
-    sharpshooter host while remaining nearly metabolically segregated from each
-    other, yielding a host-controlled nutritional symbiosis rather than direct
-    cross-feeding between the bacterial symbionts.
+  description: COMPUTATIONAL - Sulcia and Baumannia provide complementary nutrition to the sharpshooter host while
+    receiving host metabolites. The model contains three exclusively exchanged symbiont intermediates. PARTIAL -
+    this organization motivates host-control hypotheses but does not demonstrate regulatory mediation or complete
+    exclusion of bacterial cross-feeding. The partner nodes are components of this summary, not independently demonstrated
+    upstream causal events.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: nitrogen
-    term:
-      id: CHEBI:25555
-      label: nitrogen atom
-    notes: Host-derived nitrogen is recycled by the two modeled bacterial endosymbionts.
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
@@ -186,18 +164,18 @@ ecological_interactions:
   - reference: PMID:30254121
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Our simulations reveal extensive bidirectional flux of multiple metabolites between each
-      symbiont and the host
-    explanation: >
-      Supports the host-symbiont exchange through which the two bacterial
-      partners provision the sharpshooter.
+    snippet: Our simulations reveal extensive bidirectional flux of multiple metabolites between each symbiont and
+      the host
+    explanation: 'Supports the host-symbiont exchange through which the two bacterial partners provision the sharpshooter.
+
+      '
   - reference: PMID:30254121
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: near-complete metabolic segregation (i.e., near absence of metabolic cross-feeding) between
-      the two symbionts, a likely mode of host control over symbiont metabolism
-    explanation: >
-      Supports the host-mediated organization of the Sulcia-Baumannia partnership.
+    snippet: near-complete metabolic segregation (i.e., near absence of metabolic cross-feeding) between the two
+      symbionts, a likely mode of host control over symbiont metabolism
+    explanation: Supports the source's likely host-control interpretation; direct regulation is not established
+      by predicted segregation.
 external_resources:
 - name: BioModels entry
   repository: BIOMODELS
@@ -211,3 +189,25 @@ external_resources:
     snippet: The Cost of Metabolic Interactions in Symbioses between Insects and Bacteria with Reduced
       Genomes.
     explanation: Supports that this model is one of the insect-bacterial symbiosis metabolic reconstructions.
+discussions:
+- discussion_id: insect_model_nitrogen_and_host_control
+  prompt: Do measured partner fluxes and host regulatory perturbations confirm the modeled nutritional organization?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Sulcia Essential Amino Acid Provisioning
+  - ecological_interactions#Baumannia Metabolic Complementarity
+  - ecological_interactions#Host-Mediated Complementary Endosymbiont Metabolism
+  rationale: Models assume equal symbiont biomass, amino-acid-free external medium and no energetic transport costs.
+    The maintenance-cost analysis disables bacterial biomass production while retaining nutrient reactions; it is
+    not in-vivo symbiont removal. Full main text/Table 1/captions read, but figure images, supplemental tables and
+    model files were not inspected or rerun. No new metabolite-specific nodes or arrows are added.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T12:49:56Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound sharpshooter nutritional complementarity to model-specific fluxes and assumptions; decisions:
+    reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml; https://github.com/CultureBotAI/CommunityMech/issues/1258'
+  llm_assisted: true
