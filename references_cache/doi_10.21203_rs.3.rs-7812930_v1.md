@@ -12,7 +12,14 @@ authors:
 - Rhea Amor Lumactud
 year: '2025'
 doi: 10.21203/rs.3.rs-7812930/v1
-content_type: selected_full_text
+content_type: selected_excerpts
+source_review_url: https://www.researchgate.net/publication/396992881_Stress-adapted_bacterial_synthetic_community_enhances_drought_resilience_and_recovery_in_alfalfa
+source_review_note: >-
+  Selected passages only, not an independently retrieved complete source.
+  The recovery root-biomass result was checked against the public primary
+  preprint text (page 9) on 2026-10-05. Whitespace and the extracted fi
+  ligature in significant are normalized. Do not certify full-text snippet
+  coverage from these excerpts (#1241).
 ---
 
 # Stress-adapted bacterial synthetic community enhances drought resilience and recovery in alfalfa
@@ -43,6 +50,8 @@ Equal volumes of the five standardized suspensions were then combined to prepare
 Fifty ml of bacterial suspension was then inoculated into the soil pre-transplantation and drenched into the base of the seedling one week post-transplantation.
 
 ## Results
+
+During recovery, no significant (p > 0.05) effects of drought, SynCom, or their interaction were detected for root biomass
 
 All strains exhibited significantly elevated IAA production compared to the control. Among the five strains tested, only Acinetobacter sp. G13 produced a clear halo around the colony.
 
