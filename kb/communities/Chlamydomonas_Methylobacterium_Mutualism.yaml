@@ -69,14 +69,11 @@ taxonomy:
       and Methylobacterium spp
     explanation: Establishes M. aquaticum as the bacterial partner mediating IAA-based interactions
 ecological_interactions:
-- name: Photosynthetic Carbon Fixation and Oxygen Production
-  description: 'Chlamydomonas reinhardtii fixes atmospheric CO2 through oxygenic photosynthesis, producing
-    organic carbon compounds and releasing oxygen. Under nitrogen stress conditions, the alga continues
-    to photosynthesize but may alter its metabolite profile and excrete organic compounds that can be
-    utilized by associated bacteria. The oxygen produced creates an aerobic microenvironment beneficial
-    for the facultatively aerobic Methylobacterium.
-
-    '
+- name: Algal Glycerol Provision in Proline-Dependent Mutualism
+  description: In the 2018 CYB/proline experiment, C. reinhardtii CC-1690 and M. aquaticum GR16T grew together when
+    neither monoculture grew. Algal glycerol provision and bacterial ammonium production support reciprocal carbon/nitrogen
+    exchange. This is not evidence of an oxygen-mediated benefit or of glycerol-dependent IAA turnover in the distinct
+    2024 assay.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -90,16 +87,10 @@ ecological_interactions:
       id: NCBITaxon:270351
       label: Methylobacterium aquaticum
   metabolites:
-  - preferred_term: oxygen
+  - preferred_term: glycerol
     term:
-      id: CHEBI:15379
-      label: dioxygen
-    concentration: Photosynthetic oxygen production supports aerobic metabolism
-  - preferred_term: organic carbon compounds
-    term:
-      id: CHEBI:50860
-      label: organic molecular entity
-    concentration: Algal photosynthate and exudates
+      id: CHEBI:17754
+      label: glycerol
   biological_processes:
   - preferred_term: photosynthesis
     term:
@@ -110,25 +101,35 @@ ecological_interactions:
       id: GO:0006995
       label: cellular response to nitrogen starvation
   downstream:
-  - target: IAA Production and Degradation
-    description: Algal photosynthate supports bacterial growth and IAA metabolism
+  - target: Cooperative IAA Degradation
+    description: HYPOTHESIZED - algal photosynthates could support the bacterial carbon/nitrogen balance needed
+      for cooperative IAA removal, as proposed in the 2024 study. Its mediator is unresolved; the 2018 glycerol
+      result in CYB/proline does not prove this connection in acetate-containing T-N medium.
   evidence:
   - reference: PMID:29385570
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: However, we discovered that algal growth on these substrates is supported in association
-      with Methylobacterium spp., and that a mutualistic carbon-nitrogen metabolic exchange between Chlamydomonas
-      and Methylobacterium spp
+    snippet: However, we discovered that algal growth on these substrates is supported in association with Methylobacterium
+      spp., and that a mutualistic carbon-nitrogen metabolic exchange between Chlamydomonas and Methylobacterium
+      spp
     explanation: Establishes the photosynthetic basis for the mutualistic interaction
-- name: IAA Production and Degradation
-  description: 'Methylobacterium aquaticum both produces and degrades indole-3-acetic acid (IAA), a critical
-    phytohormone that influences algal physiology, growth, and stress responses. IAA production by bacteria
-    can stimulate algal growth at low concentrations but may also modulate stress signaling pathways.
-    The balance between IAA biosynthesis and degradation by Methylobacterium creates a dynamic signaling
-    environment that affects the algal partner, particularly under nitrogen stress conditions. This bidirectional
-    IAA metabolism represents a key mechanism of bacteria-algae communication.
-
-    '
+  - reference: PMID:29385570
+    snippet: CO2 photosynthetically fixed by Chlamydomonas yields glycerol
+    explanation: Supports the carbon provision in the proline-dependent mutualism, not an oxygen benefit.
+    evidence_source: IN_VITRO
+    supports: SUPPORT
+  - reference: PMID:38269098
+    snippet: algal-derived photosynthates may restore carbon/nitrogen balance and enhance bacterial growth
+    explanation: The later study proposes photosynthate support for IAA turnover; it does not identify glycerol
+      as the mediator.
+    evidence_source: IN_VITRO
+    supports: PARTIAL
+- name: Cooperative IAA Degradation
+  description: 'The 2024 study reports cooperative IAA removal by C. reinhardtii CC-5325 and M. aquaticum: neither
+    monoculture depleted auxin, and both populations attained higher densities together on supplied IAA. Algal LAO1-dependent
+    L-tryptophan conversion produces IAA; bacterial IAA production is not established here. The degradation pathway
+    and algal contribution remain unresolved, and its Salkowski assay measures indoles rather than uniquely identifying
+    IAA.'
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -146,37 +147,33 @@ ecological_interactions:
     term:
       id: CHEBI:16411
       label: indole-3-acetic acid
-    concentration: Dynamically regulated by production and degradation
   biological_processes:
-  - preferred_term: indole-3-acetic acid biosynthetic process
-    term:
-      id: GO:0009684
-      label: indoleacetic acid biosynthetic process
   - preferred_term: indole-3-acetic acid catabolic process
     term:
       id: GO:0042436
       label: indole-containing compound catabolic process
   downstream:
-  - target: Nitrogen Stress Response Modulation
-    description: IAA signaling influences algal stress physiology
+  - target: IAA-Associated Algal Cell Division and Chlorophyll Responses
+    description: PARTIAL - cooperative IAA removal can relieve the inhibition of algal cell multiplication and chlorophyll
+      degradation. IAA addition and coculture comparisons support this connection, while the exact catabolic pathway,
+      necessity of particular metabolites and assay specificity remain unresolved.
   evidence:
-  - reference: PMID:29385570
-    supports: SUPPORT
+  - reference: PMID:38269098
+    snippet: both microbes are necessary for auxin to be eliminated from the media in a cooperative fashion
+    explanation: Supports the coculture-specific depletion, with the indole-assay specificity limit retained.
     evidence_source: IN_VITRO
-    snippet: The model alga Chlamydomonas reinhardtii can grow efficiently on several inorganic nitrogen
-      sources (e.g
-    explanation: Demonstrates IAA as the key metabolic signal mediating the interaction
-- name: Nitrogen Stress Response Modulation
-  description: 'The mutualistic interaction between C. reinhardtii and M. aquaticum is particularly relevant
-    under nitrogen stress conditions. IAA signaling from Methylobacterium influences how the alga responds
-    to nitrogen limitation, potentially affecting stress tolerance, metabolic adjustments, and survival.
-    The bacterial partner may also benefit from nitrogen-containing compounds released by the stressed
-    alga, or may help alleviate stress through growth promotion or metabolic support. This interaction
-    demonstrates how bacteria can modulate eukaryotic microalgal stress physiology through small molecule
-    signaling.
-
-  '
-  interaction_type: MUTUALISM
+    supports: SUPPORT
+  - reference: PMID:38269098
+    snippet: coculturing with exogenously added IAA resulted in higher cell density for both microbes compared with
+      the respective monocultures
+    explanation: Supports reciprocal growth benefit in the supplied-IAA assay, not bacterial IAA biosynthesis.
+    evidence_source: IN_VITRO
+    supports: SUPPORT
+- name: IAA-Associated Algal Cell Division and Chlorophyll Responses
+  description: In the 2024 nitrogen-limited experiments, high IAA inhibited algal cell multiplication and chlorophyll
+    degradation. In coculture with M. aquaticum, the tested IAA-associated growth and chlorophyll effects were absent.
+    These measured responses do not establish a broad stress-tolerance or survival mechanism, nor do they imply
+    bacterial IAA production.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Chlamydomonas reinhardtii
@@ -206,13 +203,11 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
   evidence:
-  - reference: PMID:29385570
-    supports: SUPPORT
+  - reference: PMID:38269098
+    snippet: there was no inhibition of growth by IAA and no effect on chlorophyll content
+    explanation: Supports relief of the measured IAA-associated responses in coculture, not a general survival claim.
     evidence_source: IN_VITRO
-    snippet: However, we discovered that algal growth on these substrates is supported in association
-      with Methylobacterium spp., and that a mutualistic carbon-nitrogen metabolic exchange between Chlamydomonas
-      and Methylobacterium spp
-    explanation: Establishes nitrogen stress as the key environmental context for the mutualistic interaction
+    supports: SUPPORT
 related_ingredients:
 - preferred_term: carbon dioxide
   chebi_term:
@@ -440,3 +435,26 @@ metals_present:
 - IRON
 metal_relevance: SIGNIFICANT
 metal_notes: Metal/REE detected via environmental factor measurements
+discussions:
+- discussion_id: chlamydomonas_iaa_cooperation_pathway_and_assay_scope
+  prompt: Which algal factor enables IAA removal, and how much of the growth benefit requires that removal?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Algal Glycerol Provision in Proline-Dependent Mutualism
+  - ecological_interactions#Cooperative IAA Degradation
+  - ecological_interactions#IAA-Associated Algal Cell Division and Chlorophyll Responses
+  rationale: PMID:38269098 proposes photosynthate support but leaves the degradation pathway and alternative algal
+    metabolites/proteins unresolved. Production HPLC/MS assays differ from Salkowski degradation assays. No detected
+    ammonium in bacterial monoculture does not exclude coculture mineralization. Do not combine acetate-containing
+    T-N/CC-5325 IAA tests with the 2018 CYB/proline/CC-1690 exchange assay. Non-graph origin, medium, hydroxyproline
+    and taxonomy-role claims require separate correction.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T18:46:24Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Re-evidence Chlamydomonas-Methylobacterium IAA cooperation without conflating the proline assay; reports/causal_graph_review/decisions/20261005-four-records-batch11.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1290
+  llm_assisted: true

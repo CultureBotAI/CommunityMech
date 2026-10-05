@@ -638,7 +638,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Chlamydomonas-Bacterial Hydrogen Production Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -651,8 +651,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -661,9 +661,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Photosynthetic Hydrogen Production</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Chlamydomonas reinhardtii is the photobiological H2-producing partner whose hydrogen output is sustained by the associated Bacillus-Microbacterium-Stenotrophomonas bacterial community.</p>
+                <p class="prewrap interaction-description">Chlamydomonas produced hydrogen in the mannitol/yeast-extract bacterial coculture. The reported output depends on initial algal density and incubation duration; photohydrogen output does not establish commensalism or bacterial oxygen removal as its mechanism.</p>
 
 
                 <p><strong>Source Taxon:</strong> Chlamydomonas reinhardtii</p>
@@ -676,11 +675,7 @@
 
                     hydrogen
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18276"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>),
-
-                    oxygen
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15379"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:15379</a>)
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>)
 
                 </p>
 
@@ -732,7 +727,7 @@
                     <h3>Bacterial Enhancement of Algal H2 Production</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Microbacterium forte directly improves Chlamydomonas hydrogen output and releases ammonium and acetic acid for the alga during their mutualistic association.</p>
+                <p class="prewrap interaction-description">The Chlamydomonas-M. forte pair shows reciprocal nutrient complementation: the alga supports bacterial nutrient deficiencies, while M. forte releases ammonium and acetic acid. M. forte improved hydrogen output, but the pair did not support algal growth under hydrogen-producing hypoxia. Algal growth and prolonged viability in the pair occurred under non-H2-producing aerobiosis; these are distinct conditions.</p>
 
 
                 <p><strong>Source Taxon:</strong> Microbacterium forte</p>
@@ -775,7 +770,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Photosynthetic Hydrogen Production
-                        <p class="prewrap causal-description">Microbacterium-driven ammonium and acetic-acid release improves and helps sustain algal hydrogen production.</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED - ammonium and acetic-acid provision could support the M. forte-dependent hydrogen improvement. The abstract reports release and output, but does not establish either metabolite as a necessary mediator.</p>
                     </div>
 
                 </div>
@@ -811,6 +806,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/38159768/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38159768</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"the alga complemented the nutrient deficiencies of the bacterium"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -818,9 +826,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Multispecies Bacterial Consortium Supporting H2 Production</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Bacillus cereus, Stenotrophomonas goyi, and Microbacterium forte form the naturally occurring bacterial community that promotes sustained H2 production in Chlamydomonas cultures; Microbacterium forte is responsible for improving hydrogen production, while Bacillus cereus and Stenotrophomonas goyi are inferred to support algal growth under hypoxia.</p>
+                <p class="prewrap interaction-description">The three-bacterium community sustained algal hydrogen production in mannitol/yeast-extract medium. Low-density cultures also accumulated algal biomass under hypoxia. B. cereus/S. goyi growth support is a source-proposed explanation for the difference from the M. forte pair, not a demonstration that each member is necessary or that all members benefit reciprocally.</p>
 
 
 
@@ -867,7 +874,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Photosynthetic Hydrogen Production
-                        <p class="prewrap causal-description">The full Bacillus-Microbacterium-Stenotrophomonas community sustains Chlamydomonas H2 production in mannitol- and yeast-extract-containing medium.</p>
+                        <p class="prewrap causal-description">The full bacterial inoculum enables sustained algal hydrogen production in the tested mannitol/yeast-extract cultures; this whole-inoculum comparison does not establish the necessity of every member.</p>
                     </div>
 
                 </div>
@@ -912,6 +919,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which metabolite exchanges and bacterial members are necessary for hydrogen enhancement and hypoxic algal growth?
+                </h3>
+                <p class="prewrap">PMID:38159768 separates pairwise hypoxic hydrogen enhancement, pairwise aerobic algal growth and whole-community hypoxic growth. Full methods, results, images and supplements remain unread. Do not import generic sulfur deprivation or oxygen-removal mechanisms. The reported reciprocal nutrient benefit is preserved without assuming its mediation of every endpoint.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Photosynthetic Hydrogen Production</code>, <code>ecological_interactions#Bacterial Enhancement of Algal H2 Production</code>, <code>ecological_interactions#Multispecies Bacterial Consortium Supporting H2 Production</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1280,13 +1306,11 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
             metabolites.push("hydrogen");
-
-            metabolites.push("oxygen");
 
 
             var processes = [];
@@ -1336,7 +1360,7 @@
             processes.push("interspecies interaction");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1365,7 +1389,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
