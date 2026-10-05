@@ -1,0 +1,102 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 42261c6808d6bffba59380b922156fc5c3805871
+decision_ledger: reports/causal_graph_review/decisions/20261005-four-records-batch11.yaml
+validation_report: reports/causal_graph_review/validation-20261005-batch11.json
+scope:
+  records_assessed: 4
+  records_changed: 4
+  nodes_before: 9
+  nodes_after: 9
+  arrows_before: 4
+  arrows_after: 4
+  new_nodes: 0
+  new_arrows: 0
+findings:
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1290
+  severity: P2
+  disposition: addressed_and_locally_verified
+  finding: Outcome summaries exceed assay scope, and the IAA mechanism cites an unrelated earlier experiment.
+  resolution: Preserve supported nutrient mutualisms and source-proposed mechanisms while correcting IAA attribution,
+    producer/degrader roles, assay separation, ecological types and measurement limits.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1291
+  disposition: separate_non_graph_followup
+  finding: Hydrogen-consortium generic medium, protocol and design claims need exact-method support.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1292
+  disposition: separate_non_graph_followup
+  finding: Methylobacterium origin, IAA-role prose, hydroxyproline, medium and metal claims conflate distinct experiments
+    or lack support.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1293
+  disposition: separate_non_graph_followup
+  finding: BL6 strain dominance and host summaries, and CDG population-dominance wording, exceed the readouts verified
+    here.
+adversarial_checks:
+- challenge: Does the review erase genuine mutualism because its mechanism is incompletely resolved?
+  resolution: No. M. forte nutrient complementation, the 2018 proline-dependent glycerol/ammonium exchange, and
+    the 2024 reciprocal growth benefit on IAA remain MUTUALISM. Unresolved nutrient mediation of H2 and photosynthate
+    support of IAA turnover stay explicit hypotheses.
+- challenge: Are the 2018 and 2024 Chlamydomonas experiments silently collapsed?
+  resolution: No. The graph distinguishes CYB/proline with CC-1690 from acetate-containing T-N with CC-5325; the
+    earlier glycerol experiment does not prove the later IAA mediator. The two existing arrows remain bounded rather
+    than being replaced with new mechanisms.
+- challenge: Is the IAA producer direction and analytical specificity correct?
+  resolution: Algal LAO1-dependent production replaces unsupported bacterial production. Cooperative depletion requires
+    both organisms; its Salkowski indole readout is distinct from the production HPLC/MS assays. The catabolic pathway
+    remains unresolved.
+- challenge: Does high IAA reduce chlorophyll, or inhibit its degradation?
+  resolution: The source reports inhibition of chlorophyll degradation and cell multiplication. The corrected endpoint
+    preserves that direction and avoids a generic survival claim.
+- challenge: Do hypoxic H2 enhancement and aerobic algal growth demonstrate one identical outcome?
+  resolution: No. The M. forte pair did not support algal growth under H2-producing hypoxia; aerobic pair growth
+    and full-community hypoxic growth are separate assays. Whole-inoculum support does not prove necessity of each
+    bacterium.
+- challenge: Does temporal omics staging establish abundance succession or traced cross-feeding?
+  resolution: No. CDG niche partitioning remains a partial functional interpretation; the bulk degradation node
+    is untyped. Canonical fungi, prior outcomes/design-intent corrections and the strains/conditions gap remain
+    unchanged.
+- challenge: Does BL6 protection establish reciprocal competition, pathogen eradication or direct permeability rescue?
+  resolution: No. Host histology, transient barrier transcripts, serum markers and relative genus enrichment remain
+    within their readout scope. Supplements and images were not inspected, and absence of a direct pathogen-load
+    assay is limited to the read main text.
+- challenge: Was accessible text treated as automatically redistributable?
+  resolution: No. The 2024 XML contains an explicit CC BY 4.0 license; the new cache records attribution, source
+    hash, license and selected-excerpt scope. The rights-restricted 2018 body/PDF stays outside the repository.
+- challenge: Can green graph checks certify unchanged metadata or unread evidence?
+  resolution: No. Three explicit follow-up issues retain non-graph debt; every source-reading limit is recorded.
+    No new graph structure or Edison run is claimed.
+verification:
+  status: local_validation_complete_with_documented_workspace_rights_limit
+  records: 460
+  review_status_counts:
+    needs_research: 3
+    pending: 369
+    reviewed: 88
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  unchanged_raw_blocks: 59
+  snippet_counts:
+    MATCH: 73
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1462
+    edge_descriptions: 715
+  render_determinism: passed
+  regressions: 153 passed in 130.95s (0:02:10)
+  workspace_rights: Pre-existing ignored/untracked publication PDFs remain outside this patch.
+  publishable_snapshot_rights: Three unchanged rights tests passed with snapshot import root verified; includes
+    the licensed new cache.
+  source_cache_verification:
+    previous_source_hashes: unchanged
+    new_cache: references_cache/PMID_38269098.md
+    source_xml_sha256: 4fc9862bf561f624bc10f62481e89349c81eda5a0983e6e44cf443ed2afec46b
+    license_checked_in_primary_xml: CC BY 4.0
+    selected_excerpt_scope: true
+    cache_sha256: 8a522515a221026cb066cb78f1e364cdd7be51047f9f063d3750b06defd8da65

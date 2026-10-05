@@ -249,11 +249,9 @@ related_ingredients:
     explanation: Names methionine as a required reduced-sulfur form.
 ecological_interactions:
 - name: Photosynthetic Hydrogen Production
-  description: >-
-    Chlamydomonas reinhardtii is the photobiological H2-producing partner whose
-    hydrogen output is sustained by the associated Bacillus-Microbacterium-Stenotrophomonas
-    bacterial community.
-  interaction_type: COMMENSALISM
+  description: Chlamydomonas produced hydrogen in the mannitol/yeast-extract bacterial coculture. The reported output
+    depends on initial algal density and incubation duration; photohydrogen output does not establish commensalism
+    or bacterial oxygen removal as its mechanism.
   scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Chlamydomonas reinhardtii
@@ -265,10 +263,6 @@ ecological_interactions:
     term:
       id: CHEBI:18276
       label: dihydrogen
-  - preferred_term: oxygen
-    term:
-      id: CHEBI:15379
-      label: dioxygen
   biological_processes:
   - preferred_term: photosynthesis
     term:
@@ -284,10 +278,10 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: this bacterial community can promote and sustain algal hydrogen production
 - name: Bacterial Enhancement of Algal H2 Production
-  description: >-
-    Microbacterium forte directly improves Chlamydomonas hydrogen output and
-    releases ammonium and acetic acid for the alga during their mutualistic
-    association.
+  description: 'The Chlamydomonas-M. forte pair shows reciprocal nutrient complementation: the alga supports bacterial
+    nutrient deficiencies, while M. forte releases ammonium and acetic acid. M. forte improved hydrogen output,
+    but the pair did not support algal growth under hydrogen-producing hypoxia. Algal growth and prolonged viability
+    in the pair occurred under non-H2-producing aerobiosis; these are distinct conditions.'
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -316,8 +310,9 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Photosynthetic Hydrogen Production
-    description: Microbacterium-driven ammonium and acetic-acid release improves
-      and helps sustain algal hydrogen production.
+    description: HYPOTHESIZED - ammonium and acetic-acid provision could support the M. forte-dependent hydrogen
+      improvement. The abstract reports release and output, but does not establish either metabolite as a necessary
+      mediator.
   evidence:
   - reference: PMID:38159768
     supports: SUPPORT
@@ -327,14 +322,16 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: the bacterium released ammonium (0.19 mM·day-1) and acetic acid (0.15 mM·day-1) for the alga
+  - reference: PMID:38159768
+    snippet: the alga complemented the nutrient deficiencies of the bacterium
+    explanation: Supports the reciprocal nutrient benefit, not just the algal hydrogen endpoint.
+    evidence_source: IN_VITRO
+    supports: SUPPORT
 - name: Multispecies Bacterial Consortium Supporting H2 Production
-  description: >-
-    Bacillus cereus, Stenotrophomonas goyi, and Microbacterium forte form the
-    naturally occurring bacterial community that promotes sustained H2 production
-    in Chlamydomonas cultures; Microbacterium forte is responsible for improving
-    hydrogen production, while Bacillus cereus and Stenotrophomonas goyi are
-    inferred to support algal growth under hypoxia.
-  interaction_type: MUTUALISM
+  description: The three-bacterium community sustained algal hydrogen production in mannitol/yeast-extract medium.
+    Low-density cultures also accumulated algal biomass under hypoxia. B. cereus/S. goyi growth support is a source-proposed
+    explanation for the difference from the M. forte pair, not a demonstration that each member is necessary or
+    that all members benefit reciprocally.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacillus cereus
@@ -358,7 +355,8 @@ ecological_interactions:
     term:
       id: CHEBI:18276
       label: dihydrogen
-    concentration: Enhanced production up to 313 mL/L over 17 days
+    concentration: 313 mL H2/L over 17 days at 76.7 micrograms/mL initial chlorophyll; 163.5 mL H2/L over 25 days
+      at 10 micrograms/mL initial chlorophyll
   biological_processes:
   - preferred_term: interspecies interaction
     term:
@@ -366,22 +364,22 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Photosynthetic Hydrogen Production
-    description: The full Bacillus-Microbacterium-Stenotrophomonas community sustains
-      Chlamydomonas H2 production in mannitol- and yeast-extract-containing medium.
+    description: The full bacterial inoculum enables sustained algal hydrogen production in the tested mannitol/yeast-extract
+      cultures; this whole-inoculum comparison does not establish the necessity of every member.
   evidence:
   - reference: PMID:38159768
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: A naturally occurring multispecies bacterial community composed of Bacillus cereus and two
-      novel bacteria (Microbacterium forte sp. nov. and Stenotrophomonas
+    snippet: A naturally occurring multispecies bacterial community composed of Bacillus cereus and two novel bacteria
+      (Microbacterium forte sp. nov. and Stenotrophomonas
     explanation: Documents tripartite bacterial consortium
   - reference: PMID:38159768
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: When incubated in mannitol- and yeast extract-containing medium, this bacterial community
-      can promote and sustain algal hydrogen production up to 313 mL H2·L-1 for 17 days and 163.5 mL H2·L-1
-      for 25 days in high-cell (76.7 μg·mL-1 of initial chlorophyll) and low-cell density (10 μg·mL-1
-      of initial chlorophyll) algal cultures, respectively
+    snippet: When incubated in mannitol- and yeast extract-containing medium, this bacterial community can promote
+      and sustain algal hydrogen production up to 313 mL H2·L-1 for 17 days and 163.5 mL H2·L-1 for 25 days in high-cell
+      (76.7 μg·mL-1 of initial chlorophyll) and low-cell density (10 μg·mL-1 of initial chlorophyll) algal cultures,
+      respectively
     explanation: Quantifies consortium enhancement of H2 production
 environmental_factors:
 - name: Light
@@ -524,3 +522,26 @@ growth_media:
 metals_present: []
 metal_relevance: SIGNIFICANT
 metal_notes: Metal/REE detected via environmental factor measurements
+discussions:
+- discussion_id: chlamydomonas_hydrogen_condition_specific_mediation
+  prompt: Which metabolite exchanges and bacterial members are necessary for hydrogen enhancement and hypoxic algal
+    growth?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Photosynthetic Hydrogen Production
+  - ecological_interactions#Bacterial Enhancement of Algal H2 Production
+  - ecological_interactions#Multispecies Bacterial Consortium Supporting H2 Production
+  rationale: PMID:38159768 separates pairwise hypoxic hydrogen enhancement, pairwise aerobic algal growth and whole-community
+    hypoxic growth. Full methods, results, images and supplements remain unread. Do not import generic sulfur deprivation
+    or oxygen-removal mechanisms. The reported reciprocal nutrient benefit is preserved without assuming its mediation
+    of every endpoint.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T18:46:24Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Separate Chlamydomonas hydrogen output from condition-specific nutrient mutualism; reports/causal_graph_review/decisions/20261005-four-records-batch11.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1290
+  llm_assisted: true

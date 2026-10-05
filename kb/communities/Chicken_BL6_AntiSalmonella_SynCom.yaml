@@ -244,12 +244,11 @@ taxonomy:
     explanation: Identifies Lactobacillus gallinarum CMLH110 as a BL6 member.
 ecological_interactions:
 - name: BL6 Anti-Salmonella Protection
-  description: >-
-    Early oral BL6 intervention protects newly hatched chicks from Salmonella
-    Typhimurium challenge by mitigating intestinal damage, maintaining liver
-    and gut-barrier physiology, and modulating the ileal microbiota toward
-    sustained Lactobacillus enrichment.
-  interaction_type: COMPETITION
+  description: Early BL6 gavage was associated with improved ileal histology and altered serum markers after Salmonella
+    Typhimurium challenge. Barrier-associated MUC2/ZO-1 transcripts increased at day 7, not day 14; these are not
+    direct permeability measurements. Relative Lactobacillus enrichment does not establish persistence of the inoculated
+    strains or mediation of protection. The measured host outcomes are not proof of pathogen eradication or reciprocal-negative
+    competition.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: defense response to bacterium
@@ -260,20 +259,16 @@ ecological_interactions:
   - reference: PMID:42351244
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      BL6 confers multifaceted protection against Salmonella infection in chicks
-    explanation: >-
-      Supports the community-level anti-Salmonella protective phenotype in the
-      chick challenge model.
+    snippet: BL6 confers multifaceted protection against Salmonella infection in chicks
+    explanation: Supports the host challenge phenotype, bounded to histology, transcripts and serum markers rather
+      than demonstrated hepatic invasion or eradication.
   - reference: PMID:42351244
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      BL6 can modulate the gut microbiota dysbiosis in chicks caused by
-      Salmonella infection, particularly through enriching Lactobacillus.
-    explanation: >-
-      Supports Lactobacillus enrichment as a downstream microbiota shift after
-      BL6 treatment.
+    snippet: BL6 can modulate the gut microbiota dysbiosis in chicks caused by Salmonella infection, particularly
+      through enriching Lactobacillus.
+    explanation: Supports relative genus enrichment at the sampled times; it does not resolve inoculated strains
+      or establish enrichment as the protective mediator.
 environmental_factors:
 - name: early-life BL6 gavage and Salmonella Typhimurium challenge
   value: >-
@@ -352,3 +347,23 @@ metal_notes: >-
   The source studies an anti-Salmonella chicken-gut consortium and does not
   report metal stress, metal transformation, rare-earth element cycling, or
   biomining.
+discussions:
+- discussion_id: bl6_protection_mediators_and_strain_persistence
+  prompt: Which BL6 members and effectors mediate protection, and do they reduce pathogen load?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#BL6 Anti-Salmonella Protection
+  rationale: PMID:42351244 reports cell-free-supernatant inhibition, host outcomes and relative microbiota composition.
+    The read main-text methods and results did not identify direct pathogen-load quantification; supplements and
+    figure images remain unread. Predicted antimicrobial/siderophore genes are not demonstrated active effectors.
+    Strain-resolved persistence, direct permeability and reciprocal fitness remain unresolved.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T18:46:23Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Bound BL6 protection to measured host outcomes and relative microbiota changes; reports/causal_graph_review/decisions/20261005-four-records-batch11.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1290
+  llm_assisted: true
