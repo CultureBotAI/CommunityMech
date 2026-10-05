@@ -561,16 +561,11 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for CeMbio Caenorhabditis elegans Microbiome</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, niche partitioning, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -579,8 +574,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -589,9 +584,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Multi-Strain C. elegans Gut Colonization</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">All CeMbio strains establish as members of the worm gut community, with strain-, time-, and culture-medium-dependent colonization dynamics and a gut community distinct from the bacterial lawn.</p>
+                <p class="prewrap interaction-description">CeMbio members colonized C. elegans individually and in mixtures, with medium-, time- and strain-dependent abundance. This establishes gut association, not member-to-member colonization facilitation or mediation of host development.</p>
 
 
                 <p><strong>Source Taxon:</strong> CeMbio v1.0 bacterial strain consortium</p>
@@ -617,17 +611,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Community Effects on Nematode Development
-                        <p class="prewrap causal-description">Defined gut colonization establishes the host-microbiome condition under which the CeMbio community measurably changes C. elegans developmental timing relative to E. coli OP50 food.
-</p>
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -639,7 +622,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/32669368/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32669368</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
                         <div class="snippet">"all CeMbio strains can establish themselves in the worm gut as community members"</div>
@@ -653,9 +636,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Community Effects on Nematode Development</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">CeMbio and individual members alter C. elegans developmental timing relative to standard E. coli OP50 food, indicating that the defined microbiome has measurable life-history effects.</p>
+                <p class="prewrap interaction-description">The complete CeMbio mixture accelerated developmental timing relative to OP50 food in N2 and CB4856 worms. Individual members had heterogeneous effects. Adult-fraction timing is not direct biomass growth or evidence that both host and bacteria benefit.</p>
 
 
                 <p><strong>Source Taxon:</strong> CeMbio v1.0 bacterial strain consortium</p>
@@ -670,12 +652,6 @@
 
                 <p><strong>Biological Processes:</strong></p>
                 <ul>
-
-                    <li>
-                        growth
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0040007"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0040007</a>)
-                    </li>
 
                     <li>
                         biological process involved in interspecies interaction between organisms
@@ -698,7 +674,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/32669368/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32669368</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
                         <div class="snippet">"the CeMbio community as a whole significantly enhanced growth rates for both host strains compared to growth on E. coli OP50"</div>
@@ -714,7 +690,7 @@
                     <h3>Strain-Resolved Metabolic Diversity</h3>
                     <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Genome-scale models and Biolog phenotyping showed diverse metabolic capabilities among the twelve members, including variable predicted carbon-source utilization that can shape community assembly and competition in the worm gut.</p>
+                <p class="prewrap interaction-description">COMPUTATIONAL - gapseq/FBA models and substrate phenotyping distinguish member metabolic capacities. PARTIAL - the authors propose niche differentiation as a contributor to assembly; pathway counts did not explain individual colonization or community competitive fitness. Model agreement after training is not independent validation or measured gut flux.</p>
 
 
                 <p><strong>Source Taxon:</strong> CeMbio v1.0 bacterial strain consortium</p>
@@ -749,8 +725,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Multi-Strain C. elegans Gut Colonization
-                        <p class="prewrap causal-description">Diverse strain-level biosynthetic, degradative, and carbon-use capacities provide the metabolic basis for community assembly and competition in the worm gut.
-</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED - differentiated nutrient-use capacities could favor community assembly. The source proposes this explanation but does not demonstrate that these capacities cause gut colonization patterns.</p>
                     </div>
 
                 </div>
@@ -766,7 +741,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/32669368/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32669368</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"The greatest differences in the predicted metabolic capabilities among the strains is observed in both biosynthesis and degradation of amino acids, carbohydrates, cofactors and vitamins"</div>
@@ -779,7 +754,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/32669368/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32669368</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"The carbon source utilization by the whole CeMbio community is highlighted in yellow."</div>
@@ -793,9 +768,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>CeMbio Odor Preference and Food-Seeking</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">A follow-up study of the same twelve CeMbio reference strains showed that C. elegans prefers volatile cues from three Enterobacteriaceae members, linking community member identity to host behavioral preference.</p>
+                <p class="prewrap interaction-description">Individual-member odor assays favored JUb66, CEent1 and BIGb0393 relative to OP50. Inaccessible bacteria on the lid supplied volatile cues; these were not mixed-community, feeding or colonization assays. The preferred members are not all Enterobacteriaceae.</p>
 
 
                 <p><strong>Source Taxon:</strong> CeMbio v1.0 bacterial strain consortium</p>
@@ -838,7 +812,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/38228683/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38228683</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
                         <div class="snippet">"We set out to measure the preference of C. elegans for the odors of the twelve bacterial species that comprise CeMbio."</div>
@@ -937,6 +911,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which metabolic functions mediate gut assembly, and how do diet quality and volatile responses relate to development?
+                </h3>
+                <p class="prewrap">PMID:32669368 proposes metabolic differentiation; PMID:38228683 assays inaccessible individual-member odors. Neither isolates gut colonization as the mediator of developmental timing. Preserve the broad Bacteria grounding pending separate roster curation and #615 host-system modeling.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Multi-Strain C. elegans Gut Colonization</code>, <code>ecological_interactions#Community Effects on Nematode Development</code>, <code>ecological_interactions#Strain-Resolved Metabolic Diversity</code>, <code>ecological_interactions#CeMbio Odor Preference and Food-Seeking</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1267,7 +1260,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1305,13 +1298,11 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
-
-            processes.push("growth");
 
             processes.push("biological process involved in interspecies interaction between organisms");
 
@@ -1380,7 +1371,7 @@
 
         (function() {
             var intId = "interaction:3";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];

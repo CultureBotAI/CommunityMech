@@ -111,8 +111,9 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Cellulose Cross-Feeding to Methane
-  description: Cellulose fermentation products are exchanged with methanogens and sulfate reducers, producing
-    methane and modulating competition.
+  description: The four-member culture converts cellulose to methane through cross-feeding. Methane output and cellulose
+    degradation showed different higher-order responses. Organism-resolved exchange routes require the assay and
+    modeling qualifications below; higher total output does not establish reciprocal fitness.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   metabolites:
@@ -130,11 +131,16 @@ ecological_interactions:
       id: GO:0015948
       label: methanogenesis
   evidence:
-  - *id001
+  - reference: PMID:36847519
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cooperated via cross-feeding to produce methane using cellulose
+    explanation: Supports community-level substrate conversion, unlike a membership-only snippet; it does not resolve
+      every individual transfer.
 - name: R. cellulolyticum acetate cross-feeding to M. concilii
-  description: Acetate produced by cellulose fermentation in R. cellulolyticum is handed off to the
-    acetoclastic methanogen M. concilii, fuelling acetoclastic methanogenesis (a primary carbon route
-    to methane). Sulfate addition strengthens this hand-off.
+  description: R. cellulolyticum-derived acetate supports the acetoclastic M. concilii route. Culture outcomes support
+    this direction, while the sulfate-associated increase in handoff is inferred from fitted stoichiometric fluxes,
+    not directly traced carbon transfer.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -159,25 +165,25 @@ ecological_interactions:
       label: methanogenesis, from acetate
   downstream:
   - target: Cellulose Cross-Feeding to Methane
-    description: Acetate cross-fed to M. concilii drives acetoclastic methanogenesis, one of the two
-      routes to community methane output.
+    description: Acetate cross-fed to M. concilii drives acetoclastic methanogenesis, one of the two routes to community
+      methane output.
   evidence:
   - reference: PMID:36847519
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: cross-feeding of acetate from a cellulolytic bacterium to an acetoclastic methanogen
-    explanation: Names the directed acetate hand-off from the cellulolytic bacterium (R. cellulolyticum)
-      to the acetoclastic methanogen (M. concilii).
+    explanation: Names the directed acetate hand-off from the cellulolytic bacterium (R. cellulolyticum) to the
+      acetoclastic methanogen (M. concilii).
   - reference: PMID:36847519
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: sulfate addition increased both the production of acetate and lactate by R. cellulolyticum
-      and their consumption by M. concilii and D. vulgaris
-    explanation: Sulfate addition intensifies the carbon hand-off from R. cellulolyticum to M. concilii
-      (and D. vulgaris).
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: sulfate addition increased both the production of acetate and lactate by R. cellulolyticum and their
+      consumption by M. concilii and D. vulgaris
+    explanation: Supports the fitted sulfate-associated increase, not a directly traced transfer measurement.
 - name: R. cellulolyticum lactate cross-feeding to D. vulgaris
-  description: Lactate produced by R. cellulolyticum is fermented by D. vulgaris, which oxidises it to
-    H2 — feeding the downstream hydrogenotrophic route.
+  description: PARTIAL - the source proposes lactate transfer from R. cellulolyticum to D. vulgaris, but could not
+    resolve lactate versus alternative intermediates. Lactate oxidation to H2 was unfavorable at the studied H2
+    pressures; pyruvate or alanine remain possible donors.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -196,20 +202,20 @@ ecological_interactions:
       id: CHEBI:24996
       label: lactate
   downstream:
-  - target: D. vulgaris H2 syntrophy to M. hungatei
-    description: Lactate cross-fed to D. vulgaris is fermented to H2, which is transferred to the
-      hydrogenotrophic methanogen M. hungatei.
+  - target: Proposed D. vulgaris H2 syntrophy to M. hungatei
+    description: HYPOTHESIZED - transferred lactate or another oxidizable intermediate could support D. vulgaris
+      H2 provision. The specific lactate-to-H2 handoff is not identified uniquely by the data.
   evidence:
   - reference: PMID:36847519
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: These results suggest that D. vulgaris fermented lactate produced by R. cellulolyticum to
-      H2
-    explanation: Names the directed lactate hand-off from R. cellulolyticum to D. vulgaris and its
-      fermentation to H2.
-- name: D. vulgaris H2 syntrophy to M. hungatei
-  description: H2 produced by D. vulgaris lactate fermentation is transferred to the hydrogenotrophic
-    methanogen M. hungatei, enhancing hydrogenotrophic methanogenesis.
+    snippet: These results suggest that D. vulgaris fermented lactate produced by R. cellulolyticum to H2
+    explanation: Supports the proposed lactate route; the discussion explicitly limits its thermodynamic and flux
+      identifiability.
+- name: Proposed D. vulgaris H2 syntrophy to M. hungatei
+  description: PARTIAL - D. vulgaris is proposed to supply hydrogen to M. hungatei under limited sulfate. The donor
+    substrate and flux are poorly constrained; the type records proposed syntrophy, not demonstrated obligate dependence.
+    With sulfate addition, D. vulgaris can instead compete for hydrogen.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -234,20 +240,20 @@ ecological_interactions:
       label: methanogenesis, from carbon dioxide
   downstream:
   - target: Cellulose Cross-Feeding to Methane
-    description: H2 transferred to M. hungatei drives hydrogenotrophic methanogenesis, the second route
-      to community methane output.
+    description: HYPOTHESIZED - D. vulgaris-derived H2 could contribute to the hydrogenotrophic part of methane
+      output. The D. vulgaris-specific contribution remains unresolved among alternative fitted routes.
   evidence:
   - reference: PMID:36847519
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: D. vulgaris enhanced hydrogenotrophic methanogenesis, likely by producing additional
-      hydrogen from lactate fermentation
-    explanation: Names the directed H2 syntrophy from D. vulgaris to the hydrogenotrophic methanogen
-      M. hungatei.
+    snippet: D. vulgaris enhanced hydrogenotrophic methanogenesis, likely by producing additional hydrogen from
+      lactate fermentation
+    explanation: Supports a source-proposed H2-supply mechanism, not uniquely identified lactate flux or demonstrated
+      thermodynamic coupling.
 - name: M. hungatei H2 removal relieves R. cellulolyticum product inhibition
-  description: By consuming H2, the hydrogenotrophic methanogen M. hungatei lowers the H2 partial
-    pressure, relieving product inhibition and sustaining H2 (and thus fermentation-product) output by
-    R. cellulolyticum — an interspecies H2-transfer facilitation feeding back to the upstream fermenter.
+  description: PARTIAL - H2 production inferred from the Rc/Mh biculture stoichiometry exceeded the Rc monoculture
+    value, supporting the proposed relief of product inhibition by H2 consumption. This is not a direct pressure
+    intervention or evidence of acetate-specific mediation.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -265,22 +271,18 @@ ecological_interactions:
     term:
       id: CHEBI:18276
       label: dihydrogen
-  downstream:
-  - target: R. cellulolyticum acetate cross-feeding to M. concilii
-    description: Relieving H2 product inhibition sustains R. cellulolyticum fermentation, maintaining
-      the acetate and lactate hand-offs to the downstream community.
   evidence:
   - reference: PMID:36847519
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: This indicates that M. hungatei promoted H2 production by R. cellulolyticum through the
-      alleviation of product inhibition
-    explanation: Names the feedback facilitation — M. hungatei H2 removal promotes H2 production by
-      R. cellulolyticum via product-inhibition relief.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: This indicates that M. hungatei promoted H2 production by R. cellulolyticum through the alleviation
+      of product inhibition
+    explanation: Supports a stoichiometric inference from coculture outputs, not a directly isolated pressure-feedback
+      mechanism.
 - name: D. vulgaris–M. hungatei competition for H2
-  description: The sulfate-reducing D. vulgaris and the hydrogenotrophic methanogen M. hungatei compete
-    for the shared H2 pool. Sulfate addition tips the competition toward sulfate reduction, halting
-    hydrogenotrophic methanogenesis and lowering community methane output.
+  description: 'PARTIAL - sulfate-associated H2 competition is inferred to redirect reducing equivalents toward
+    D. vulgaris. Zero hydrogenotrophic flux is a fitted model result, not measured complete cessation: the M. hungatei
+    proteome fraction remained 3%, and other electron donors or transfer routes were discussed.'
   interaction_type: COMPETITION
   scope: PAIRWISE
   source_taxon:
@@ -312,32 +314,31 @@ ecological_interactions:
       id: GO:0019386
       label: methanogenesis, from carbon dioxide
   downstream:
-  - target: D. vulgaris H2 syntrophy to M. hungatei
-    description: With sulfate present, D. vulgaris out-competes M. hungatei for H2, halting
-      hydrogenotrophic methanogenesis.
+  - target: Proposed D. vulgaris H2 syntrophy to M. hungatei
+    description: HYPOTHESIZED - sulfate-supported D. vulgaris H2 consumption could limit the proposed transfer to
+      M. hungatei. Zero hydrogenotrophic flux is model-inferred, not proven cessation of methanogen activity.
   - target: Cellulose Cross-Feeding to Methane
-    description: Loss of the hydrogenotrophic route is the main cause of the lower community methane
-      yield in the sulfate-amended quad-culture.
+    description: PARTIAL - the model attributes lower methane output to reduced H2 availability for hydrogenotrophic
+      methanogenesis; the attribution is not an independently isolated mediator.
   evidence:
   - reference: PMID:36847519
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: competition of H2 between a sulfate reducing bacterium and a hydrogenotrophic methanogen
-    explanation: Names the H2 competition between the sulfate reducer (D. vulgaris) and the
-      hydrogenotrophic methanogen (M. hungatei).
+    explanation: Supports the source competition interpretation; it is not a direct reciprocal-fitness measurement.
   - reference: PMID:36847519
-    supports: SUPPORT
-    evidence_source: IN_VITRO
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
     snippet: the addition of sulfate halted hydrogenotrophic methanogenesis in M. hungatei
-    explanation: Sulfate addition redirects H2 to sulfate reduction, halting M. hungatei hydrogenotrophic
-      methanogenesis (the first downstream effect).
+    explanation: Supports the fitted flux explanation of the sulfate response, not direct observation of complete
+      pathway shutdown.
   - reference: PMID:36847519
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The main reason for decreased CH4 production was the sharp decrease in H2 available for the
-      hydrogenotrophic methanogen
-    explanation: The suppressed hydrogenotrophic route is the main cause of reduced community methane
-      under sulfate (the second downstream effect).
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: The main reason for decreased CH4 production was the sharp decrease in H2 available for the hydrogenotrophic
+      methanogen
+    explanation: Supports the fitted flux explanation of the sulfate response, not direct observation of complete
+      pathway shutdown.
 environmental_factors:
 - name: defined synthetic community design
   value: Rational functional-guild assembly of cellulolytic, sulfate-reducing, hydrogenotrophic methanogenic,
@@ -469,23 +470,47 @@ cultivation_setup:
     explanation: Defines the serum-bottle batch cultivation vessel and 20 mL working volume.
 discussions:
 - discussion_id: kg-dv-acetate-co2-to-mc-methanogenesis
-  prompt: Does D. vulgaris fermentation of lactate to acetate and CO2 causally enhance acetoclastic
-    methanogenesis by M. concilii, i.e. is there a second (D. vulgaris-derived) carbon route to methane
-    beyond the direct R. cellulolyticum → M. concilii hand-off?
+  prompt: Does D. vulgaris fermentation of lactate to acetate and CO2 causally enhance acetoclastic methanogenesis
+    by M. concilii, i.e. is there a second (D. vulgaris-derived) carbon route to methane beyond the direct R. cellulolyticum
+    → M. concilii hand-off?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#R. cellulolyticum acetate cross-feeding to M. concilii
-  rationale: If confirmed, D. vulgaris would be a secondary acetate/CO2 supplier to the acetoclastic
-    methanogen, adding a parallel carbon route to methane and changing how the causal graph attributes
-    methane output between the two carbon sources. The source paper proposes it mechanistically ("it may
-    be") but does not demonstrate the D. vulgaris → M. concilii carbon edge directly, so it is recorded
-    here as a knowledge gap rather than asserted as an ecological interaction.
+  rationale: If confirmed, D. vulgaris would be a secondary acetate/CO2 supplier to the acetoclastic methanogen,
+    adding a parallel carbon route to methane and changing how the causal graph attributes methane output between
+    the two carbon sources. The source paper proposes it mechanistically ("it may be") but does not demonstrate
+    the D. vulgaris → M. concilii carbon edge directly, so it is recorded here as a knowledge gap rather than asserted
+    as an ecological interaction.
   evidence:
   - reference: PMID:36847519
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Mechanistically, it may be that D. vulgaris enhances methanogenesis by producing the
-      substrates CO2, acetate, and H2 and removing lactate
-    explanation: The authors state the D. vulgaris → methanogen carbon contribution as a hypothesis
-      ("it may be"), not a demonstrated causal edge — the basis for filing it as a knowledge gap.
+    snippet: Mechanistically, it may be that D. vulgaris enhances methanogenesis by producing the substrates CO2,
+      acetate, and H2 and removing lactate
+    explanation: The authors state the D. vulgaris → methanogen carbon contribution as a hypothesis ("it may be"),
+      not a demonstrated causal edge — the basis for filing it as a knowledge gap.
+- discussion_id: cellulose_quad_transfer_identifiability
+  prompt: Which donor substrates and pressure-dependent exchanges uniquely explain the sulfate response?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Cellulose Cross-Feeding to Methane
+  - ecological_interactions#R. cellulolyticum acetate cross-feeding to M. concilii
+  - ecological_interactions#R. cellulolyticum lactate cross-feeding to D. vulgaris
+  - ecological_interactions#Proposed D. vulgaris H2 syntrophy to M. hungatei
+  - ecological_interactions#M. hungatei H2 removal relieves R. cellulolyticum product inhibition
+  - ecological_interactions#D. vulgaris–M. hungatei competition for H2
+  rationale: PMID:36847519 admits alternative optimal flux solutions and poorly constrained Dv exchanges. Protein
+    abundance does not validate every flux direction, and persistent Mh protein prevents equating fitted zero flux
+    with eradication. Preserve the existing open Dv-to-Mc hypothesis; no route from the separate 2025 panel is imported.
+    Control means no added sulfate, not chemically sulfate-free.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T17:31:06Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Separate cellulose-quad culture outcomes from nonunique modeled transfers and feedback; reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1272
+  llm_assisted: true

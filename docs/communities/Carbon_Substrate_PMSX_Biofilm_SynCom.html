@@ -659,7 +659,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for PMSX Carbon-Substrate Biofilm SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -672,8 +672,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -682,9 +682,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Polymeric carbon-driven spatial self-organization</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Carbon substrate type altered the PMSX biofilm architecture: cellobiose left the four members relatively intermixed, whereas CMC and xylan produced non-degrader clusters with P. amylolyticus enriched at their periphery.</p>
+                <p class="prewrap interaction-description">Cellobiose-grown communities were relatively intermixed; CMC/xylan conditions produced non-degrader clusters with putative primary degrader P. amylolyticus at their periphery. This single-time-point architecture is not demonstrated competition reduction, a time-resolved assembly mechanism or proof of crystalline-cellulose degradation.</p>
 
 
                 <p><strong>Source Taxon:</strong> Paenibacillus amylolyticus</p>
@@ -699,9 +698,9 @@
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17057"
                         class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17057</a>),
 
-                    cellulose
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18246"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18246</a>),
+                    carboxymethylcellulose
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=85146"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:85146</a>),
 
                     xylan
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=37166"
@@ -761,10 +760,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Bidirectional conditioned-supernatant support</h3>
+                    <h3>Predicted Exchange and Conditioned-Supernatant Biofilm Support</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Genome-scale SMETANA predictions and conditioned-supernatant biofilm assays support bidirectional soluble metabolite exchange among the four PMSX members under cellobiose, cellobiose-xylan, and cellobiose-CMC regimes.</p>
+                <p class="prewrap interaction-description">PARTIAL - CAZyme/genome-scale predictions suggest exchange, and community-conditioned supernatants generally support more crystal-violet biomass than P-only supernatants. These results do not identify each transferred nutrient, isolate nutrient transfer from other soluble effects, or establish reciprocal fitness. Spatial mediation remains unproven.</p>
 
 
 
@@ -798,7 +797,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42658845/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42658845</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"Bioinformatic analyses of carbohydrate-active enzyme (CAZyme) repertoires and genome-scale metabolic modeling suggested bidirectional metabolite exchange among the SynCom members"</div>
@@ -811,7 +810,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42658845/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42658845</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"For each SynCom member, biofilm formation in PMSX-conditioned supernatants exceeded that in P-conditioned supernatants in the majority of conditions."</div>
@@ -827,6 +826,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which measured nutrient transfers and time-resolved perturbations connect polymer use to spatial organization?
+                </h3>
+                <p class="prewrap">PMID:42658845 abstract, cached supplement excerpts and selected primary indexed passages support bounded spatial and supernatant observations, not exchange-to-pattern causality. Complete main methods and images remain unread. Preserve zero arrows, putative degrader attribution, removed mutualism and separate hydrogel/M9 contexts; CMC is chemically distinct from its cellulose parent.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Polymeric carbon-driven spatial self-organization</code>, <code>ecological_interactions#Predicted Exchange and Conditioned-Supernatant Biofilm Support</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1261,13 +1279,13 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
             metabolites.push("cellobiose");
 
-            metabolites.push("cellulose");
+            metabolites.push("carboxymethylcellulose");
 
             metabolites.push("xylan");
 
@@ -1317,7 +1335,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Bidirectional conditioned-supernatant support",
+                label: "Predicted Exchange and Conditioned-Supernatant Biofilm Support",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

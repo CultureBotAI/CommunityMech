@@ -131,18 +131,9 @@ taxonomy:
     explanation: Sources this member and its declared delignification role.
 ecological_interactions:
 - name: Complementary lignocellulose attack by the two degraders
-  description: >-
-    B. subtilis contributes secreted fibrolytic enzymes and A. niger contributes
-    what the source calls oxidative delignification potential, so the two attack
-    different parts of the same recalcitrant substrate. Community-level because
-    the source describes complementary contributions to one process rather than an
-    effect of one organism on the other.
-
-    The word "potential" is the authors' own and this record does not upgrade it.
-    A. niger is a well-characterised cellulase and hemicellulase producer rather
-    than a ligninolytic white-rot fungus, and no lignin measurement is available,
-    so no lignin catabolism process term is asserted against it.
-  interaction_type: NICHE_PARTITIONING
+  description: PARTIAL - the authors propose complementary Bacillus fibrolytic and Aspergillus degradation functions
+    in the forage inoculum. Exact fungal delignification and division of labor are not resolved by the bacterial
+    profiling; this is not established niche partitioning.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacillus subtilis
@@ -160,39 +151,24 @@ ecological_interactions:
       label: lignocellulose
   downstream:
   - target: Acidification-driven preservation
-    description: >
-      The Bacillus and Aspergillus degraders attack the recalcitrant forage
-      substrate that the consortium then redirects toward acidifying
-      preservation chemistry.
+    description: HYPOTHESIZED - substrate release by the degraders could support acidifying fermentation. The source
+      proposes this connection without isolating the necessary enzymes or organism-resolved carbon transfer.
   evidence:
   - reference: PMID:42432469
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: enzyme secretion of Bacillus subtilis and the oxidative delignification
-    explanation: Sources the fibrolytic half of the division of labour.
+    explanation: Supports the proposed functional rationale or substrate context, not resolved complementary flux.
   - reference: PMID:42432469
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: yet its utilization is severely impeded by the recalcitrant
-    explanation: Sources lignocellulose recalcitrance as the barrier the pair is assembled against.
-- name: Competitive exclusion of spoilage genera
-  description: >-
-    The SynCom drove the silage microbiome toward Lactobacillus, which exceeded
-    95% of it, and the source attributes the suppression of the spoilage genera
-    Staphylococcus and Weissella to competitive exclusion.
-
-    Staphylococcus and Weissella are outcomes of the treatment, not members of the
-    community, so they appear here as interaction participants without appearing in
-    taxonomy (#319). The interaction is scoped COMMUNITY_LEVEL rather than pairwise
-    for the same reason: the source attributes the suppression to the assembled
-    consortium, not to one member acting on the pathogen.
-
-    One caution the abstract cannot settle: the >95% figure is an amplicon genus
-    bin reading "Lactobacillus", and under current taxonomy the inoculated organism
-    is Lactiplantibacillus. Whether that population is the inoculum or a resident
-    Lactobacillus-group taxon is not determinable from the accessible text, so this
-    record does not attribute the surge to the inoculated strain.
-  interaction_type: COMPETITION
+    explanation: Supports the proposed functional rationale or substrate context, not resolved complementary flux.
+- name: Silage Community Shift and Spoilage-Genus Suppression
+  description: Relative bacterial profiles shifted in treated silage, but every treatment including the control
+    exceeded 95% Lactobacillus. Reported spoilage-genus suppression does not establish reciprocal-negative competition
+    or eradication. Listed participants are the three inoculants, not excluded genera; the genus bin does not resolve
+    inoculated strain abundance.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Lactobacillus plantarum
@@ -214,37 +190,22 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:42432469
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: effectively suppressing spoilage genera like Staphylococcus and Weissella via
-    explanation: Sources the suppressed genera and names competitive exclusion as the mechanism.
+    explanation: Reports the authors' exclusion interpretation; abundance patterns alone do not demonstrate a reciprocal
+      competitive mechanism.
   - reference: PMID:42432469
     supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: shift in the microbiome, where Lactobacillus abundance surged to
-    explanation: >-
-      Sources the community shift toward Lactobacillus. PARTIAL because the genus
-      bin cannot be equated with the inoculated Lactiplantibacillus plantarum, and
-      because the snippet stops before the percentage: the cached text renders it
-      with a thin space after the greater-than sign, which no faithful quote can
-      reproduce.
+    explanation: 'Sources the community shift toward Lactobacillus. PARTIAL because the genus bin cannot be equated
+      with the inoculated Lactiplantibacillus plantarum, and because the snippet stops before the percentage: the
+      cached text renders it with a thin space after the greater-than sign, which no faithful quote can reproduce.'
 - name: Acidification-driven preservation
-  description: >-
-    Functional prediction attributes upregulated pyruvate metabolism and
-    amino-acid biosynthesis to the SynCom, which the source links to rapid
-    acidification and protein preservation across the consortium. Community-level:
-    the prediction is over the whole treated microbiome, not one member.
-
-    Only pyruvate is annotated as a metabolite. The abstract says "rapid
-    acidification" without naming an acid, and a lactic acid bacterium's product
-    is an inference rather than a source-backed claim, so lactate is not asserted
-    anywhere in this record.
-
-    interaction_type is deliberately unset. The source describes a coordinated
-    degradation-fermentation-preservation process driven by the consortium, which
-    is a statement about the silage rather than about any member benefiting from
-    another. MUTUALISM would assert a member-to-member benefit the abstract does
-    not make. Tracked as issue 749.
+  description: The study reports acidification and preservation outcomes and proposes metabolic contributions. Tax4Fun-based
+    bacterial pathway predictions are not expression or measured pyruvate flux. Shotgun-method wording conflicts
+    with the discussion; do not treat this as direct whole-community functional measurement or mutualism.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Lactobacillus plantarum
@@ -264,6 +225,7 @@ ecological_interactions:
     term:
       id: CHEBI:15361
       label: pyruvate
+    notes: Pathway-associated metabolite, not a measured pyruvate concentration or transferred substrate.
   biological_processes:
   - preferred_term: pyruvate metabolic process
     term:
@@ -274,23 +236,21 @@ ecological_interactions:
       id: GO:0008652
       label: amino acid biosynthetic process
   downstream:
-  - target: Competitive exclusion of spoilage genera
-    description: >
-      The SynCom-driven acidifying state coincides with the microbiome shift
-      that suppresses spoilage genera in the treated Caragana silage.
+  - target: Silage Community Shift and Spoilage-Genus Suppression
+    description: HYPOTHESIZED - acidification could constrain spoilage-associated growth and contribute to the relative
+      community shift. The study does not isolate acidity as the necessary mediator or prove eradication.
   evidence:
   - reference: PMID:42432469
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: upregulated key metabolic modules, specifically pyruvate metabolism and amino
-    explanation: >-
-      Sources the two upregulated modules. PARTIAL because this is metagenomic
-      prediction rather than measured flux or expression.
+    explanation: Supports predicted bacterial functional modules, not measured flux or expression; the main-text
+      method descriptions are inconsistent.
   - reference: PMID:42432469
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: acid biosynthesis pathways, facilitating rapid acidification and protein
-    explanation: Sources acidification and protein preservation as the outcome the modules are read as driving.
+    explanation: Supports the source-proposed connection to preservation, not isolated pathway mediation.
 environmental_factors:
 - name: Substrate
   value: Caragana korshinskii forage
@@ -323,3 +283,24 @@ metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this forage SynCom.
+discussions:
+- discussion_id: caragana_forage_functional_and_source_discrepancies
+  prompt: Which measured degradation functions and acids mediate the preservation phenotype?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Complementary lignocellulose attack by the two degraders
+  - ecological_interactions#Silage Community Shift and Spoilage-Genus Suppression
+  - ecological_interactions#Acidification-driven preservation
+  rationale: PMID:42432469 full accepted manuscript leaves fungal function unresolved and contains method/value
+    inconsistencies. Table 2 contradicts the abstract IVNDFD attribution, and significance letters limit pairwise
+    claims. These discrepancies and unchanged non-graph values require follow-up; the two graph arrows remain hypothetical.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T17:31:06Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Bound Caragana forage functional predictions and suppression mechanisms; reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1272
+  llm_assisted: true
