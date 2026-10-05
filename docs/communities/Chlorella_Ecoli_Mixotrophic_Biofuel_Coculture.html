@@ -576,16 +576,11 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Chlorella-Ecoli Mixotrophic Biofuel Precursor Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -594,8 +589,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -604,10 +599,9 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Bacterial Enhancement of Algal Biomass</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
+                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">E. coli presence was associated with faster C. minutissima growth and higher algal biomass density than axenic algal cultures under mixotrophic substrate conditions.
-</p>
+                <p class="prewrap interaction-description">PARTIAL - in five-day separate-substrate assays, the alga reported as C. minutissima UTEX 2341 had 200-587% greater qPCR-partitioned biomass productivity at 10 g/L substrate with E. coli ATCC 25922. Higher bacterial viable CFU at 96 hours supports a mutualism interpretation, not bacterial neutrality; bacterial total dry biomass was not uniformly enhanced. Benefits were concentration-dependent, and exact mediators were not isolated.</p>
 
 
                 <p><strong>Source Taxon:</strong> Escherichia coli</p>
@@ -636,17 +630,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        photosynthesis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015979"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015979</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
@@ -654,7 +637,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Increased Biofuel-Precursor Productivity
-                        <p class="prewrap causal-description">Faster algal growth and higher Chlorella biomass provide the cell material that underlies higher lipid and starch productivity in coculture.</p>
+                        <p class="prewrap causal-description">PARTIAL - greater algal biomass can increase volumetric lipid and starch yield. The bulk product assays include both partners, and kanamycin suppressed starch in axenic glucose controls; biomass enhancement does not establish that every product-content difference is bacteria-mediated.</p>
                     </div>
 
                 </div>
@@ -670,7 +653,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"grew more rapidly and to higher densities in the presence of E. coli"</div>
@@ -690,6 +673,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"viable cell counts at 96 hours at 10 g/L substrate were 51, 1600, and 6400 times higher in co-cultures"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -697,17 +693,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Enhanced Mixotrophic Carbon Substrate Consumption</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Cocultures consumed more of the available mixotrophic carbon substrate than the combined substrate consumption of the two members grown separately.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Chlorella minutissima</p>
+                <p class="prewrap interaction-description">At 10 g/L initial glucose, glycerol or acetate, five-day cocultures consumed 23-737% more bulk substrate than the summed monocultures. Lower-dose depletion limits that comparison. This is community-level substrate disappearance, not measured algal-to-bacterial carbon transfer.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Escherichia coli</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Chlorella minutissima,
+
+                    Escherichia coli
+
+                </p>
 
 
 
@@ -747,7 +745,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Increased Biofuel-Precursor Productivity
-                        <p class="prewrap causal-description">Enhanced mixotrophic carbon use increases carbon flow through the coculture and feeds the lipid and starch productivity endpoint.</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED - additional consumed substrate could supply carbon for increased lipid and starch production. Bulk uptake and product measurements do not trace carbon into either partner or separate this contribution from altered biomass and antibiotic-sensitive starch accumulation.</p>
                     </div>
 
                 </div>
@@ -790,10 +788,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Increased Biofuel-Precursor Productivity</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Cocultivation increased total lipid and starch productivity, indicating improved biofuel-precursor production under the tested mixotrophic conditions.
-</p>
+                <p class="prewrap interaction-description">At 10 g/L substrate, bulk coculture lipid and starch productivities exceeded axenic algal controls. These are combined-biomass endpoints, not reciprocal fitness measurements. In separate glucose controls, kanamycin suppressed starch at 10 g/L; untreated axenic algae had starch content comparable to cocultures. The product-content difference is therefore not wholly attributable to E. coli, although biomass and lipid benefits remain supported.</p>
 
 
 
@@ -864,6 +860,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"kanamycin appeared to significantly suppress starch levels"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -909,6 +918,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which partner-resolved transfers mediate growth, and how much product change persists with matched controls?
+                </h3>
+                <p class="prewrap">Gas, vitamin/hormone and organic-carbon exchange remain candidate mechanisms, not measured fluxes. Viable CFU and total bacterial biomass differ. Carbon tracing and matched antibiotic controls across substrates are needed to partition product effects. UTEX 2341 legacy identity is a separate grounding followup (#1300); the existing canonical taxon is not reverified here.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Bacterial Enhancement of Algal Biomass</code>, <code>ecological_interactions#Enhanced Mixotrophic Carbon Substrate Consumption</code>, <code>ecological_interactions#Increased Biofuel-Precursor Productivity</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1225,7 +1253,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMMENSALISM";
+            var intType = "MUTUALISM";
             var metabolites = [];
 
 
@@ -1238,11 +1266,7 @@
 
             var processes = [];
 
-
-            processes.push("photosynthesis");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1271,7 +1295,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1301,23 +1325,26 @@
             });
 
 
-            var srcKey = "Chlorella minutissima";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Escherichia coli";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Chlorella minutissima",
+
+                "Escherichia coli"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1334,7 +1361,7 @@
             processes.push("starch metabolic process");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,

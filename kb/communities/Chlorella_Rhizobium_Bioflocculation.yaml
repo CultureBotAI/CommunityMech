@@ -87,51 +87,10 @@ taxonomy:
       (F2, Rhizobium radiobacter) in synthetic wastewater
     explanation: R. radiobacter F2 provides bioflocculation function for algal harvesting
 ecological_interactions:
-- name: Photosynthetic Carbon Fixation
-  description: 'Chlorella vulgaris performs oxygenic photosynthesis to fix CO2 and produce biomass in
-    the wastewater medium. The algae accumulate lipids suitable for biofuel production while also taking
-    up nutrients from the wastewater for bioremediation.
-
-    '
-  interaction_type: COMMENSALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Chlorella vulgaris
-    term:
-      id: NCBITaxon:3077
-      label: Chlorella vulgaris
-  target_taxon:
-    preferred_term: Rhizobium radiobacter F2
-    term:
-      id: NCBITaxon:358
-      label: Agrobacterium tumefaciens
-  biological_processes:
-  - preferred_term: photosynthesis
-    term:
-      id: GO:0015979
-      label: photosynthesis
-  - preferred_term: lipid biosynthetic process
-    term:
-      id: GO:0008610
-      label: lipid biosynthetic process
-  downstream:
-  - target: Bioflocculant Production and Cell Aggregation
-    description: Algal biomass provides substrate for bacterial growth and bioflocculant production
-  evidence:
-  - reference: doi:10.1111/lam.12403
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: enhance C. vulgaris harvesting and lipid content
-    explanation: Demonstrates photosynthetic biomass and lipid production by C. vulgaris
 - name: Bioflocculant Production and Cell Aggregation
-  description: 'Rhizobium radiobacter F2 produces extracellular polysaccharide bioflocculants that induce
-    aggregation and flocculation of Chlorella cells. The bacteria utilize glucose and potentially algal
-    exudates as carbon sources to synthesize the bioflocculant polymers. These polymers bind to algal
-    cell surfaces, neutralize surface charges, and bridge cells together to form dense flocs that settle
-    rapidly, enabling efficient harvesting.
-
-    '
-  interaction_type: MUTUALISM
+  description: PARTIAL - F2 is identified as a bioflocculant-producing partner of C. vulgaris in synthetic wastewater.
+    Accessible abstract/Significance evidence supports this association, not the polymer identity, charge-neutralization
+    or bridging mechanism, algal-exudate transfer, biofilm formation or reciprocal fitness benefits.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Rhizobium radiobacter F2
@@ -143,44 +102,27 @@ ecological_interactions:
     term:
       id: NCBITaxon:3077
       label: Chlorella vulgaris
-  metabolites:
-  - preferred_term: polysaccharide
-    term:
-      id: CHEBI:18154
-      label: polysaccharide
-    concentration: Sufficient to induce >90% flocculation efficiency
   biological_processes:
-  - preferred_term: extracellular polysaccharide biosynthetic process
-    term:
-      id: GO:0000271
-      label: polysaccharide biosynthetic process
   - preferred_term: cell aggregation
     term:
       id: GO:0098743
       label: cell aggregation
-  - preferred_term: single-species biofilm formation
-    term:
-      id: GO:0044010
-      label: single-species biofilm formation
-    notes: Related to floc formation and cellular aggregation processes
   downstream:
   - target: Algal Biomass Harvesting
-    description: Bioflocculation enables efficient separation and recovery of algal biomass
+    description: PARTIAL - F2-associated bioflocculation supports algal biomass recovery in the optimized coculture.
+      Accessible evidence does not isolate a specific polymer or establish comparative energy savings or bacterial
+      fitness benefit.
   evidence:
   - reference: doi:10.1111/lam.12403
-    supports: SUPPORT
+    snippet: bioflocculant-producing bacteria (F2, Rhizobium radiobacter)
+    explanation: Publisher Significance identifies F2 and the coculture; no accessible chemical or mediation assay
+      establishes the specific flocculant mechanism.
     evidence_source: IN_VITRO
-    snippet: Bioflocculant-producing microbes are environmentally friendly functional materials. They avoid
-      the negative effects of traditional chemical flocculants
-    explanation: Describes the bacterial bioflocculation mechanism and environmental benefits
+    supports: PARTIAL
 - name: Algal Biomass Harvesting
-  description: 'The bioflocculation process dramatically improves harvesting efficiency of Chlorella biomass
-    from <1% (axenic) to >90% (co-culture), enabling cost-effective recovery for biofuel feedstock production.
-    The aggregated algal-bacterial flocs settle rapidly, reducing energy requirements for biomass concentration
-    compared to centrifugation or chemical flocculation.
-
-    '
-  interaction_type: MUTUALISM
+  description: The abstract reports 45-50% optimized harvesting efficiency versus 0.2% axenic flocculation, not
+    over 90%. This is a recovery endpoint, not mutualism or a measured cost/energy comparison. Full-text assay details
+    remain unavailable.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Chlorella vulgaris
@@ -198,11 +140,16 @@ ecological_interactions:
       label: cell aggregation
   evidence:
   - reference: doi:10.1111/lam.12403
-    supports: SUPPORT
+    snippet: harvesting efficiency reached 45·0–50·0%
+    explanation: The primary abstract supplies the quantitative harvesting range, replacing unsupported over-90-percent
+      claims.
     evidence_source: IN_VITRO
-    snippet: provided new insights into microalgae harvesting and cost-effective production of microalgal
-      bioproducts
-    explanation: Demonstrates improved harvesting efficiency through bioflocculation
+    supports: SUPPORT
+  - reference: doi:10.1111/lam.12403
+    snippet: a flocculation efficiency of 0·2%
+    explanation: The abstract supplies the axenic baseline; no direct energy comparison is asserted.
+    evidence_source: IN_VITRO
+    supports: SUPPORT
 environmental_factors:
 - name: Light
   value: Required for photosynthesis
@@ -285,3 +232,23 @@ growth_media:
       of <1·5 kg m^{−3} and co-culture time of 9–14 days
     explanation: Gives the optimized inoculation ratio, glucose concentration, and 9-14 day co-culture
       time.
+discussions:
+- discussion_id: rhizobium_f2_flocculant_identity_and_causal_mediation
+  prompt: Which F2 product mediates harvesting, and is algal carbon or partner fitness involved?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Bioflocculant Production and Cell Aggregation
+  - ecological_interactions#Algal Biomass Harvesting
+  rationale: Abstract/Significance access cannot establish chemical identity, transfer or mediation. Full methods
+    and selective product perturbations are needed. Unsupported carbon-fixation and transfer claims were removed,
+    not disproved.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T20:47:05Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Correct F2 harvesting and remove unsupported carbon-transfer and mutualism claims; reports/causal_graph_review/decisions/20261005-two-records-batch13.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1299
+  llm_assisted: true
