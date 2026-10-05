@@ -1,0 +1,145 @@
+reviewer: codex
+review_mode: self_adversarial
+independent_reviewer: false
+base_commit: 6bf636bf3a1dcefd6ca10c78b17d297bd6e14ccc
+scope:
+- Eleven whole-record reviews and graph-only repairs; one additional provisional record deferred without edits.
+- Every current and removed node, before/after arrows, exact renamed targets and discussion anchors.
+- Evidence modality, assay context, community versus member fitness, measured endpoints versus inferred mechanisms,
+  and source access.
+- Guarded writes with whole-batch schema and YAML reassembly preflight; hash-bound ledger, appended history, unchanged
+  non-graph fields and generated pages.
+findings:
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1248
+  severity: high
+  finding: Plant graphs overstate reciprocal interaction types, confuse assay contexts and retain experimental-workflow
+    nodes.
+  resolution: Preserve measured plant and inhibition outcomes; remove two phyllosphere workflow nodes, narrow participants
+    and process groundings, distinguish root/in-vitro/computational evidence, and qualify mediation.
+  status: addressed
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1249
+  severity: high
+  finding: Environmental graphs promote genomic predictions, cross-site observations and isotope incorporation to
+    resolved flux or host infection.
+  resolution: Preserve phage isotope incorporation and source-proposed arrows with explicit uncertainty; correct
+    predicted-host provenance, reversible Asgard metabolism and composite tailings scope.
+  status: addressed
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1250
+  severity: high
+  finding: Consortium output assays are represented as reciprocal fitness, direct structural lignin breakdown or
+    resolved field mediation.
+  resolution: Remove the BSFL selection node and associative ALDH arrow; qualify lignin proxies, HPLC removal, enzyme
+    activity and field interpretation while preserving directly reported outcomes and explicit straw cross-feeding.
+  status: addressed
+existing_findings:
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/880
+  finding: Tobacco IAA node previously used broad growth annotation.
+  verification: Base and final records both use GO:0009684. This is verification of an existing repair, not a new
+    fix; a regression assertion now protects it.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/622
+  finding: Reference validator strips bracketed chemical notation from a correct source quote.
+  verification: Asgard related_ingredients[2] remains unchanged; reference check fails on stripped [NiFe], while
+    the independent snippet audit matches all eleven record snippets. The upstream issue is not repaired by this
+    graph batch.
+additional_checks:
+- All 605 open/closed issue bodies were searched using record stems, canonical IDs and cited identifiers before
+  filing; related bodies were read. No comprehensive synonym search is claimed.
+- Closed LDSynCom issues 929 and 932 remain resolved; neither mutualism nor the dangling assay-readout arrow is
+  restored.
+- Competition is not limited to resource depletion. Reciprocal tobacco plate inhibition remains classified as COMPETITION,
+  while aggregate host outcomes do not.
+- Syntrophy requires coupling through partner product removal, not merely obligatory association. Tailings observations
+  do not establish that mechanism.
+- Straw cross-feeding is explicitly reported by the source and is preserved despite main-text access limits; missing
+  access is not evidence that an experiment was absent.
+- Three workflow nodes and one associative arrow are removed; no new nodes or arrows are added. Removed-node rationales
+  are retained in the ledger.
+- Source and inference are separated without treating curated excerpts, stale cache completeness labels or generated
+  pages as independent evidence.
+verification:
+  status: local_checks_complete_with_documented_tool_source_and_workspace_limits
+  source_report: reports/causal_graph_review/validation-20261005-batch5.json
+  coverage_report: reports/causal_graph_review/summary.json
+  decision_report: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  corpus_records: 460
+  reviewed_records_in_ledger: 40
+  pending_records_in_ledger: 420
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  network_warning_change: 7
+  new_warning_followup: https://github.com/CultureBotAI/CommunityMech/issues/1251
+  focused_regressions_output: '........................................................................ [ 57%]
+
+    ......................................................                   [100%]
+
+    126 passed in 54.59s
+
+    '
+  cache_and_snippet_suite_passed: 50
+  cache_and_snippet_suite_workspace_pdf_failures: 1
+  publishable_snapshot_rights_tests_passed: 3
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1475
+    edge_descriptions: 749
+  render_determinism: passed
+  snippet_counts:
+    MATCH: 204
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  batch_graph_counts:
+    nodes_before: 43
+    nodes_after: 40
+    edges_before: 14
+    edges_after: 13
+    unchanged_raw_blocks: 157
+  new_network_warnings:
+  - record: At_RSPHERE_SynCom
+    type: DISCONNECTED
+    taxon: Flavobacterium sp.
+    severity: warning
+  - record: At_RSPHERE_SynCom
+    type: DISCONNECTED
+    taxon: Pseudomonas sp.
+    severity: warning
+  - record: At_RSPHERE_SynCom
+    type: DISCONNECTED
+    taxon: Rhodococcus sp.
+    severity: warning
+  - record: At_RSPHERE_SynCom
+    type: DISCONNECTED
+    taxon: Streptomyces sp.
+    severity: warning
+  - record: At_RSPHERE_SynCom
+    type: DISCONNECTED
+    taxon: Variovorax sp.
+    severity: warning
+  - record: Australian_Lead_Zinc_Polymetallic
+    type: DISCONNECTED
+    taxon: Acidithiobacillus ferrooxidans
+    severity: warning
+  - record: Australian_Lead_Zinc_Polymetallic
+    type: DISCONNECTED
+    taxon: Leptospirillum ferriphilum
+    severity: warning
+limitations:
+- This is self-adversarial review, not independent approval; whole-corpus semantic review remains incomplete.
+- Avena_Rhizosphere_Detritusphere_Niche_Succession remains pending and byte-identical because its published results/discussion
+  review is incomplete.
+- BSFL is abstract-bounded; tobacco is selected-excerpt-bounded; Australian results/discussion and straw main text
+  remain incompletely accessed. Figure and supplement limits are recorded per source.
+- The LDSynCom source is a preprint. Its main text and captions were read; figure images, Table 1 and supplements
+  were not reviewed.
+- Non-graph membership, taxonomy, media and record-identity claims remain outside certification. Narrower graph
+  participant lists must not be expanded just to suppress disconnected-taxon warnings.
+- Edison spending is authorized, but no configured key or paid job is present. No extension structure is added or
+  certified.
+- No article body or PDF is added. Existing unrelated untracked and ignored files are preserved.
+- Publication text coverage and deterministic rendering are checked; no desktop/mobile screenshot QA is claimed
+  for this data-only batch.
+- The local PDF gate fails on unrelated workspace files; the publishable snapshot passes all three rights tests.
+  The unchanged Asgard reference-tool failure remains explicitly reported.

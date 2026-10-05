@@ -590,7 +590,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Bacillus A1-A3 Naphthalene Biofilm Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -598,13 +598,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -613,9 +608,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Consortium 3 naphthalene synergy</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">The A1/A3 Consortium 3 improved naphthalene degradation relative to the A1 and A3 monocultures in both planktonic and biofilm growth modes, including 92.43% planktonic and 94.69% biofilm naphthalene biodegradation in the seven-day HPLC assay.</p>
+                <p class="prewrap interaction-description">The A1/A3 Consortium 3 improved naphthalene degradation relative to the A1 and A3 monocultures in both planktonic and biofilm growth modes, including 92.43% planktonic and 94.69% biofilm naphthalene biodegradation in the seven-day HPLC assay. These are HPLC parent-substrate-disappearance endpoints, not complete mineralization or reciprocal member fitness; comparisons here concern A1/A3, not every isolate in the study.</p>
 
 
 
@@ -679,7 +673,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42587276/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42587276</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"This finding demonstrated the synergistic interaction between the consortia`s members, with the highest synergistic interaction between the planktonic isolates (A1 and A3) in the consortium 3"</div>
@@ -692,10 +686,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Consortium phenanthrene antagonism</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>Lower Consortium Phenanthrene Removal</h3>
                 </div>
-                <p class="prewrap interaction-description">The same isolate combinations were less effective on phenanthrene: individual isolates degraded more phenanthrene than the developed consortia in the planktonic and biofilm assays, and the authors interpreted the lower consortium performance as antagonism caused by nutrient stress and competition.</p>
+                <p class="prewrap interaction-description">Individual isolates removed more phenanthrene than the tested consortia in planktonic and biofilm assays. PARTIAL - the authors propose antagonism and nutrient competition as explanations; aggregate HPLC removal does not measure harm to both consortium members.</p>
 
 
 
@@ -746,7 +739,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42587276/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42587276</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"In the case of phenanthrene, a complex substrate, it promotes antagonistic interactions and negative growth"</div>
@@ -760,9 +753,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Consortium 3 soil naphthalene removal</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">A preformed Consortium 3 biofilm degraded 81.47% of naphthalene from artificially contaminated soil after seven days in sealed flasks.</p>
+                <p class="prewrap interaction-description">A preformed Consortium 3 biofilm degraded 81.47% of naphthalene from artificially contaminated soil after seven days in sealed flasks. This controlled microcosm HPLC result measures parent-compound disappearance, not field efficacy, complete mineralization or mutualism.</p>
 
 
 
@@ -817,7 +809,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(3)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -885,6 +877,21 @@
                     </div>
 
                 </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    What member-specific fitness and carbon balance explain the substrate-dependent consortium outcomes?
+                </h3>
+                <p class="prewrap">PMID:42587276 supports enhanced naphthalene removal and lower consortium phenanthrene removal. These performance endpoints do not establish reciprocal benefit/harm or a complete carbon balance. Preserve the existing exchange and accession gaps; no workflow arrow is restored.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Consortium 3 naphthalene synergy</code>, <code>ecological_interactions#Lower Consortium Phenanthrene Removal</code>, <code>ecological_interactions#Consortium 3 soil naphthalene removal</code></p>
+
+
 
 
             </div>
@@ -1374,7 +1381,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1415,7 +1422,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1428,7 +1435,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Consortium phenanthrene antagonism",
+                label: "Lower Consortium Phenanthrene Removal",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1456,7 +1463,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

@@ -871,9 +871,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>LDSynCom lignin phenolic release</h3>
+                    <h3>LDSynCom lignin-associated phenolic signal</h3>
                 </div>
-                <p class="prewrap interaction-description">The complete 11-member Bacillales LDSynCom released a higher Folin-Ciocalteu total-phenolic signal from lignin than the uninoculated, Paenibacillus sp. 11B-only, and 11B-dropout controls.</p>
+                <p class="prewrap interaction-description">The complete LDSynCom produced a higher Folin-Ciocalteu phenolic signal than uninoculated, 11B-only and 11B-dropout controls in lignin-containing medium. The authors explicitly treat this as an indirect lignin-associated signal, not direct structural depolymerization or a carbon mineralization measurement.</p>
 
 
 
@@ -889,17 +889,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        lignin catabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0046274"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0046274</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -929,7 +918,7 @@
                 <div class="interaction-header">
                     <h3>Paenibacillus 11B contribution to LDSynCom phenolic accumulation</h3>
                 </div>
-                <p class="prewrap interaction-description">Paenibacillus sp. 11B contributed to, but did not alone explain, the community phenotype: removing 11B decreased overall growth and phenolic accumulation relative to full LDSynCom, while 11B alone accumulated less biomass than the complete consortium.</p>
+                <p class="prewrap interaction-description">Removing Paenibacillus 11B reduced community growth and phenolic accumulation relative to the full consortium; 11B alone produced less biomass than the consortium. This supports a contribution to the measured phenotype, not an exclusive depolymerization function or reciprocal benefits to every strain.</p>
 
 
 
@@ -951,17 +940,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        lignin catabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0046274"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0046274</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -1100,7 +1078,7 @@
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(3)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -1110,7 +1088,7 @@
                 </h3>
                 <p class="prewrap">The source reports a targeted 11B dropout and community-level proteomic profiling, but explicitly cautions that roles in the consortium are not strictly partitioned.</p>
 
-                <p class="muted small">Attaches to: <code>ecological_interactions#LDSynCom lignin phenolic release</code>, <code>ecological_interactions#Paenibacillus 11B contribution to LDSynCom phenolic accumulation</code></p>
+                <p class="muted small">Attaches to: <code>ecological_interactions#LDSynCom lignin-associated phenolic signal</code>, <code>ecological_interactions#Paenibacillus 11B contribution to LDSynCom phenolic accumulation</code></p>
 
 
 
@@ -1142,6 +1120,21 @@
                     Can the BioRxiv Table 1 and supplementary endpoints be cached directly once the article server allows follow-up requests?
                 </h3>
                 <p class="prewrap">During curation, BioRxiv Highwire Table 1 and supplementary material endpoints returned HTTP 429 rate-limit responses. The final composition was reconstructed from paper-linked GitHub source spreadsheets, analysis code, and NCBI BioSample records.</p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Do structural chemical assays confirm lignin depolymerization, and does biofilm formation cause that activity?
+                </h3>
+                <p class="prewrap">The preprint explicitly describes A280 and Folin-Ciocalteu assays as indirect. Structural/specific product analyses would distinguish depolymerization from other lignin-associated changes. SEM establishes attached biofilm, not its causal contribution. The targeted 11B dropout does not resolve all strain functions; prior mutualism and dangling-readout removals remain intact.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#LDSynCom lignin-associated phenolic signal</code>, <code>ecological_interactions#Paenibacillus 11B contribution to LDSynCom phenolic accumulation</code>, <code>ecological_interactions#LDSynCom lignin-particle biofilm formation</code></p>
 
 
 
@@ -1596,15 +1589,11 @@
 
             var processes = [];
 
-
-            processes.push("lignin catabolic process");
-
-
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "LDSynCom lignin phenolic release",
+                label: "LDSynCom lignin-associated phenolic signal",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1627,10 +1616,6 @@
 
 
             var processes = [];
-
-
-            processes.push("lignin catabolic process");
-
 
             var evidenceCount = 1;
 

@@ -117,10 +117,10 @@ taxonomy:
     explanation: Identifies isolate A3 as a member of Consortium 3.
 ecological_interactions:
 - name: Consortium 3 naphthalene synergy
-  description: The A1/A3 Consortium 3 improved naphthalene degradation relative to the A1 and A3 monocultures in both planktonic
-    and biofilm growth modes, including 92.43% planktonic and 94.69% biofilm naphthalene biodegradation in the seven-day HPLC
-    assay.
-  interaction_type: MUTUALISM
+  description: The A1/A3 Consortium 3 improved naphthalene degradation relative to the A1 and A3 monocultures in
+    both planktonic and biofilm growth modes, including 92.43% planktonic and 94.69% biofilm naphthalene biodegradation
+    in the seven-day HPLC assay. These are HPLC parent-substrate-disappearance endpoints, not complete mineralization
+    or reciprocal member fitness; comparisons here concern A1/A3, not every isolate in the study.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacillus paranthracis A1
@@ -140,27 +140,27 @@ ecological_interactions:
   - reference: PMID:42587276
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The result demonstrated that the naphthalene biodegradation rates of 41.01, 38.92, 75.54, 44.71, 92.43, and 64.47%
-      for the planktonic cultures
-    explanation: Supports the 92.43% planktonic naphthalene degradation reported for Consortium 3 and the lower A1 and A3
-      monoculture values.
+    snippet: The result demonstrated that the naphthalene biodegradation rates of 41.01, 38.92, 75.54, 44.71, 92.43,
+      and 64.47% for the planktonic cultures
+    explanation: Supports the 92.43% planktonic naphthalene degradation reported for Consortium 3 and the lower
+      A1 and A3 monoculture values.
   - reference: PMID:42587276
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: whereas were 87.72, 64.57, 77.45, 86.88, 94.69, and 79.74% for the biofilm cultures of isolates A1, A3, consortium
-      1, consortium 2, consortium 3, and consortium 4, respectively.
+    snippet: whereas were 87.72, 64.57, 77.45, 86.88, 94.69, and 79.74% for the biofilm cultures of isolates A1,
+      A3, consortium 1, consortium 2, consortium 3, and consortium 4, respectively.
     explanation: Supports the 94.69% biofilm naphthalene degradation reported for Consortium 3.
   - reference: PMID:42587276
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: This finding demonstrated the synergistic interaction between the consortia`s members, with the highest synergistic
-      interaction between the planktonic isolates (A1 and A3) in the consortium 3
-    explanation: Supports the authors' interpretation that A1 and A3 interacted synergistically during naphthalene degradation.
-- name: Consortium phenanthrene antagonism
-  description: 'The same isolate combinations were less effective on phenanthrene: individual isolates degraded more phenanthrene
-    than the developed consortia in the planktonic and biofilm assays, and the authors interpreted the lower consortium performance
-    as antagonism caused by nutrient stress and competition.'
-  interaction_type: COMPETITION
+    snippet: This finding demonstrated the synergistic interaction between the consortia`s members, with the highest
+      synergistic interaction between the planktonic isolates (A1 and A3) in the consortium 3
+    explanation: Records the authors' synergy interpretation from consortium performance, not measured benefits
+      to both strains.
+- name: Lower Consortium Phenanthrene Removal
+  description: Individual isolates removed more phenanthrene than the tested consortia in planktonic and biofilm
+    assays. PARTIAL - the authors propose antagonism and nutrient competition as explanations; aggregate HPLC removal
+    does not measure harm to both consortium members.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacillus paranthracis A1
@@ -180,18 +180,21 @@ ecological_interactions:
   - reference: PMID:42587276
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Surprisingly, the biodegradation rates by the individual isolates were higher than those of the consortium. This
-      observation may relate to an antagonistic effect of the consortium isolates
-    explanation: Supports phenanthrene antagonism among the developed consortia rather than a positive phenanthrene interaction.
+    snippet: Surprisingly, the biodegradation rates by the individual isolates were higher than those of the consortium.
+      This observation may relate to an antagonistic effect of the consortium isolates
+    explanation: Supports lower consortium substrate removal and the authors' tentative explanation, not demonstrated
+      reciprocal strain harm.
   - reference: PMID:42587276
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: In the case of phenanthrene, a complex substrate, it promotes antagonistic interactions and negative growth
-    explanation: Supports the substrate-dependent interpretation that phenanthrene promoted a negative consortium interaction.
+    snippet: In the case of phenanthrene, a complex substrate, it promotes antagonistic interactions and negative
+      growth
+    explanation: This is the authors' substrate-dependent mechanistic interpretation, not a member-resolved fitness
+      result.
 - name: Consortium 3 soil naphthalene removal
-  description: A preformed Consortium 3 biofilm degraded 81.47% of naphthalene from artificially contaminated soil after seven
-    days in sealed flasks.
-  interaction_type: MUTUALISM
+  description: A preformed Consortium 3 biofilm degraded 81.47% of naphthalene from artificially contaminated soil
+    after seven days in sealed flasks. This controlled microcosm HPLC result measures parent-compound disappearance,
+    not field efficacy, complete mineralization or mutualism.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacillus paranthracis A1
@@ -211,8 +214,8 @@ ecological_interactions:
   - reference: PMID:42587276
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The HPLC results exhibited that the biofilm of isolate A1 degraded 60.98% of phenanthrene, and the biofilm of
-      the consortium 3 degraded 81.47% of naphthalene in soil samples
+    snippet: The HPLC results exhibited that the biofilm of isolate A1 degraded 60.98% of phenanthrene, and the
+      biofilm of the consortium 3 degraded 81.47% of naphthalene in soil samples
     explanation: Supports 81.47% naphthalene degradation by Consortium 3 biofilms in artificially contaminated soil.
 environmental_factors:
 - name: Neutral MSM enrichment pH
@@ -368,23 +371,24 @@ external_resources:
     explanation: Identifies the primary publication for the Bacillus A1/A3 PAH-degrading biofilm consortium.
 discussions:
 - discussion_id: consortium_3_genbank_accession_mapping
-  prompt: Which GenBank 16S rRNA accession corresponds to Bacillus paranthracis A1 and which corresponds to Bacillus licheniformis
-    A3?
+  prompt: Which GenBank 16S rRNA accession corresponds to Bacillus paranthracis A1 and which corresponds to Bacillus
+    licheniformis A3?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - taxonomy#Bacillus paranthracis A1
   - taxonomy#Bacillus licheniformis A3
-  rationale: The article reports the three accessions PV848451, PV848453, and PV848454 for the selected isolates, but the
-    flattened OA text does not map those accessions to the A1 and A3 isolate records without relying on figure interpretation.
+  rationale: The article reports the three accessions PV848451, PV848453, and PV848454 for the selected isolates,
+    but the flattened OA text does not map those accessions to the A1 and A3 isolate records without relying on
+    figure interpretation.
   evidence:
   - reference: PMID:42587276
     supports: SUPPORT
     evidence_source: full_text
-    snippet: The 16SrRNA gene sequences of the three most efficient isolates have been submitted to NCBI GenBank under the
-      accession numbers PV848451 , PV848453 , and PV848454 , respectively.
-    explanation: Shows that three accessions exist but does not map each accession onto Consortium 3's A1 and A3 isolates
-      in the flattened OA text.
+    snippet: The 16SrRNA gene sequences of the three most efficient isolates have been submitted to NCBI GenBank
+      under the accession numbers PV848451 , PV848453 , and PV848454 , respectively.
+    explanation: Shows that three accessions exist but does not map each accession onto Consortium 3's A1 and A3
+      isolates in the flattened OA text.
   posed_by: codex
   posed_date: '2026-09-13'
 - discussion_id: consortium_3_naphthalene_exchange_mechanism
@@ -393,20 +397,33 @@ discussions:
   status: OPEN
   attaches_to:
   - ecological_interactions#Consortium 3 naphthalene synergy
-  rationale: The study measured enhanced naphthalene disappearance by the A1/A3 consortium, but it did not sequence the isolates'
-    naphthalene pathways or experimentally identify a transferred intermediate. The current record therefore treats synergy
-    as a community-level observation and does not assert a directional cross-feeding edge.
+  rationale: The study measured enhanced naphthalene disappearance by the A1/A3 consortium, but it did not sequence
+    the isolates' naphthalene pathways or experimentally identify a transferred intermediate. The current record
+    therefore treats synergy as a community-level observation and does not assert a directional cross-feeding edge.
   evidence:
   - reference: PMID:42587276
     supports: SUPPORT
     evidence_source: full_text
     snippet: One possible reason that makes the bacterial consortia have a superior naphthalene biodegradation efficiency
-      is that, during the process of biotransformation, the product of one bacterium can be employed as the foundation for
-      the catabolism and growth of another.
+      is that, during the process of biotransformation, the product of one bacterium can be employed as the foundation
+      for the catabolism and growth of another.
     explanation: Records the paper's proposed but untested metabolite exchange explanation for Consortium 3's naphthalene
       synergy.
   posed_by: codex
   posed_date: '2026-09-13'
+- discussion_id: a1a3_member_fitness_and_carbon_balance
+  prompt: What member-specific fitness and carbon balance explain the substrate-dependent consortium outcomes?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Consortium 3 naphthalene synergy
+  - ecological_interactions#Lower Consortium Phenanthrene Removal
+  - ecological_interactions#Consortium 3 soil naphthalene removal
+  rationale: PMID:42587276 supports enhanced naphthalene removal and lower consortium phenanthrene removal. These
+    performance endpoints do not establish reciprocal benefit/harm or a complete carbon balance. Preserve the existing
+    exchange and accession gaps; no workflow arrow is restored.
+  posed_by: codex
+  posed_date: '2026-10-05'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -414,32 +431,38 @@ curation_history:
 - timestamp: '2026-09-13T07:39:28Z'
   curator: codex
   action: CURATE_NEW_COMMUNITY
-  changes: Curated CommunityMech:000358 from PMID:42587276 / doi:10.1186/s12866-026-05144-y, including the A1/A3 Consortium
-    3 membership, planktonic and biofilm naphthalene synergy, phenanthrene antagonism, artificial-soil naphthalene degradation,
-    cultivation conditions, and unresolved GenBank accession mapping.
+  changes: Curated CommunityMech:000358 from PMID:42587276 / doi:10.1186/s12866-026-05144-y, including the A1/A3
+    Consortium 3 membership, planktonic and biofilm naphthalene synergy, phenanthrene antagonism, artificial-soil
+    naphthalene degradation, cultivation conditions, and unresolved GenBank accession mapping.
   llm_assisted: true
 - timestamp: '2026-09-13T07:42:16Z'
   curator: codex
   action: FIX_NETWORK_INTEGRITY
-  changes: Pointed the Consortium 3 naphthalene synergy downstream edge at the named soil-removal interaction and removed
-    the terminal dangling downstream target from the soil-removal node.
+  changes: Pointed the Consortium 3 naphthalene synergy downstream edge at the named soil-removal interaction and
+    removed the terminal dangling downstream target from the soil-removal node.
   llm_assisted: true
 - timestamp: '2026-09-13T07:50:21Z'
   curator: codex
   action: CLARIFY_CULTIVATION_SETUP
-  changes: 'Resolved #832 by removing the 50 mL TSB pre-biofilm volume from cultivation_setup. The artificial-soil flask assay
-    removed the planktonic liquid culture before adding soil, so the 50 mL volume is recorded only in the growth-media preparation
-    notes.'
+  changes: 'Resolved #832 by removing the 50 mL TSB pre-biofilm volume from cultivation_setup. The artificial-soil
+    flask assay removed the planktonic liquid culture before adding soil, so the 50 mL volume is recorded only in
+    the growth-media preparation notes.'
   llm_assisted: true
 - timestamp: '2026-09-13T07:57:27Z'
   curator: codex
   action: REMOVE_OBSOLETE_GO_TERMS
-  changes: 'Resolved #833 by removing obsolete GO:0018931 and GO:0018932 biological_processes links. PAH specificity remains
-    captured by the naphthalene and phenanthrene CHEBI metabolite terms.'
+  changes: 'Resolved #833 by removing obsolete GO:0018931 and GO:0018932 biological_processes links. PAH specificity
+    remains captured by the naphthalene and phenanthrene CHEBI metabolite terms.'
   llm_assisted: true
 - timestamp: '2026-10-02T05:55:33Z'
   curator: codex
   action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
-  changes: Removed the downstream edge from Consortium 3 liquid naphthalene synergy to artificial-soil naphthalene removal
-    because it described selection for a follow-up soil assay rather than a causal interaction.
+  changes: Removed the downstream edge from Consortium 3 liquid naphthalene synergy to artificial-soil naphthalene
+    removal because it described selection for a follow-up soil assay rather than a causal interaction.
+  llm_assisted: true
+- timestamp: '2026-10-05T10:11:48Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound A1/A3 synergy and antagonism to substrate-removal measurements; complete decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1250'
   llm_assisted: true
