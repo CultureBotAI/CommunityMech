@@ -664,7 +664,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Alfalfa Stress-Adapted Bacterial SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -672,8 +672,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -682,9 +682,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Stress-adapted SynCom promotion of alfalfa root architecture</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Across the drought and rewatering phases, the five-strain SynCom increased alfalfa root dry biomass, root volume, root surface area, and root diameter in non-sterilized soil, a community-level plant growth-promoting phenotype under the growth-chamber assay conditions.</p>
+                <p class="prewrap interaction-description">PARTIAL - the results report a SynCom main effect on root biomass during drought stress, but not recovery. Root volume and surface-area effects were not significant; diameter effects were marginal. The broader discussion statement does not establish uniform architectural improvement across phases or reciprocal microbial benefit.</p>
 
 
 
@@ -717,10 +716,23 @@
                             <a href="https://doi.org/10.21203/rs.3.rs-7812930/v1"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.21203/rs.3.rs-7812930/v1</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
                         <div class="snippet">"SynCom inoculation significantly increased root dry biomass, root volume, root surface area, and root diameter during both stress and recovery phases"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.21203/rs.3.rs-7812930/v1"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.21203/rs.3.rs-7812930/v1</a>
+
+                            - SUPPORT (IN_VIVO)
+                        </div>
+
+                        <div class="snippet">"During recovery, no significant (p &gt; 0.05) effects of drought, SynCom, or their interaction were detected for root biomass"</div>
 
                     </li>
 
@@ -731,7 +743,6 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Stress-adapted SynCom promotion of recovery root nodulation</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
                 <p class="prewrap interaction-description">The five-strain SynCom increased alfalfa root nodule formation after rewatering, when nodulation was quantified across severe-drought, moderate-drought, and well-watered treatments.</p>
 
@@ -748,19 +759,6 @@
 
                 <h4>Evidence</h4>
                 <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.21203/rs.3.rs-7812930/v1"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.21203/rs.3.rs-7812930/v1</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"Root nodulation occurred only during the recovery phase, where both drought and SynCom had significant effects."</div>
-
-                    </li>
 
                     <li class="evidence-item">
                         <div>
@@ -820,7 +818,7 @@
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -851,6 +849,21 @@
                     </div>
 
                 </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">CONTROVERSY</span>
+                    <span class="role-badge">OPEN</span>
+                    Which phase-specific root effects remain supported after reconciling results and discussion?
+                </h3>
+                <p class="prewrap">The preprint&#39;s discussion describes broad significant improvement, but its results distinguish stress-phase root biomass from nonsignificant recovery and architectural responses. Recovery nodulation is supported; initial-phase nodules were not quantified. Strain dynamics and reciprocal microbial benefits were not measured, and no mediation from architecture to nodulation was isolated.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Stress-adapted SynCom promotion of alfalfa root architecture</code>, <code>ecological_interactions#Stress-adapted SynCom promotion of recovery root nodulation</code></p>
+
+
 
 
             </div>
@@ -1231,7 +1244,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1240,7 +1253,7 @@
             processes.push("response to water deprivation");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1259,12 +1272,12 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
