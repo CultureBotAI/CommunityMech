@@ -1,0 +1,94 @@
+reviewer: codex
+review_mode: self_adversarial
+independent_reviewer: false
+base_commit: 271ef151a0c0bab6710162e78c0da6c0f59d70df
+scope:
+- Twelve whole-record source reviews, including eleven graph edits and one byte-identical no-change decision.
+- Every current node, all before/after arrows, renamed targets and discussion anchors.
+- Evidence modality, same-system scope, ecological classification, inferred versus measured mechanisms, and source-cache
+  provenance.
+- Guarded writes, append-only curation events and history artifacts, exact record hashes, unrelated YAML blocks,
+  and generated publication.
+findings:
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1244
+  severity: high
+  finding: Culture and plant graphs overstate reciprocal benefit, competition, or vitamin mediation; SynCom150 has
+    two experimental-workflow arrows.
+  resolution: Preserve direct outcomes, qualify unresolved mechanisms, remove unsupported optional types and follow-up-experiment
+    arrows, and bound immune rescue to the tested bbc1 defect.
+  status: addressed
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1245
+  severity: high
+  finding: Five environmental graphs promote genomic and taxonomic inference into resolved flux or causation and
+    include unsupported process annotations and aggregation arrows.
+  resolution: Qualify retained source-proposed directions, correct computational evidence and nitrogen-retention
+    semantics, remove iron-transport and full-denitrification overannotations, and remove seven unsupported Anabaena/Angelarchaeales
+    arrows.
+  status: addressed
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1246
+  severity: high
+  finding: ASF has an unevidenced fermentation node, a measurement-workflow arrow, and overbroad oxygen and host-mediation
+    claims.
+  resolution: Restore a short primary isolate-culture excerpt to the existing node, remove the workflow arrow and
+    unsupported types, retain measured spatial and general host effects, and qualify ASF-member attribution.
+  status: addressed
+additional_checks:
+- All open issue bodies were searched for the affected record names and identifiers; related issues 596 and 765
+  remain broader source-coverage work.
+- The earlier SynCom150 issue 867 rejected colonization facilitation but did not establish reciprocal fitness or
+  require mutualism.
+- Official GO definitions distinguish iron ion transport from iron redox and complete denitrification from a nitrate-to-nitrite
+  step.
+- The indole record already uses candidate and inferred language with PARTIAL computational evidence and a full-text
+  curation gap; no cosmetic edit or new structure was needed.
+- Ten arrows were removed, none added, and all node counts were retained. Exact renamed targets and anchors were
+  checked.
+- The initial mutator pass stopped on a cross-block YAML-anchor assertion after a valid guarded write. Resume verified
+  exact expected data, preserved prior events, reused ten history artifacts and created the one missing artifact.
+  No duplicate event was appended.
+verification:
+  status: local_checks_complete_with_documented_source_and_workspace_limits
+  source_report: reports/causal_graph_review/validation-20261005-batch4.json
+  coverage_report: reports/causal_graph_review/summary.json
+  decision_report: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  corpus_records: 460
+  reviewed_records_in_ledger: 29
+  pending_records_in_ledger: 431
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 18
+  network_warning_change: 0
+  focused_regressions_passed: 120
+  cache_and_snippet_suite_passed: 50
+  cache_and_snippet_suite_workspace_pdf_failures: 1
+  publishable_snapshot_rights_tests_passed: 3
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1478
+    edge_descriptions: 750
+  render_determinism: passed
+  snippet_counts:
+    MATCH: 235
+    RENDERING: 1
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 1
+    NOCONTENT: 0
+  unchanged_records_remain_byte_identical:
+  - CommunityMech:000386
+  unrelated_raw_yaml_blocks_preserved: 189
+limitations:
+- This is self-adversarial review, not independent reviewer approval; the whole-corpus semantic review remains incomplete.
+- The short ASF fermentation quotation was checked against the primary article. The independent local cache retains
+  only the abstract; selected_excerpts must not be promoted to independent full-text verification.
+- The indole decision is abstract-bounded. Unread supplements, figure-layout limits and source-access notes are
+  documented per record. Missing access does not establish that an unreviewed experiment was absent.
+- Non-graph metadata is outside certification, including representative species groundings, the Angelarchaeales
+  PRIMARY_PRODUCER role, and stale Anabaena source-access notes. No broader evidence-backlog issue is closed by
+  this batch.
+- No new graph nodes or arrows were added. Edison spending is authorized, but no paid job was submitted.
+- Pre-existing untracked and ignored PDFs are preserved. The publication-file gate is additionally checked in a
+  tracked-plus-batch-new-file snapshot, without weakening the test or claiming the entire personal working directory
+  passes it.
+- Publication text coverage and render determinism are checked automatically; no desktop/mobile screenshot QA was
+  performed in this data-only batch.

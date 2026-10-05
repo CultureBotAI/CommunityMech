@@ -1,0 +1,647 @@
+reviewer: codex
+review_mode: source_based
+issues:
+- 1244
+- 1245
+- 1246
+records:
+- path: kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml
+  id: CommunityMech:000415
+  original_sha256: 11b3871958b670d725840cfc87dc451ce7c9e1900ea0fb7d9ec37b0f81ddb306
+  record_sha256: 3e009885b98b2aa6b6763fb5386ab60f764367d5436db204e0aede39dc6e3331
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  outcome: changed
+  scope: Whole record read; every current node and arrow checked against primary-source passages. Non-graph metadata
+    is outside certification.
+  summary: Separate algal-methanotroph gas measurements from inferred partner exchange
+  node_decisions:
+  - node: Photosynthetic O2 Support for Methane Oxidation
+    rationale: Retain gas dynamics and qualified photosynthetic support; remove unmeasured reciprocal mutualism.
+  - node: Methane-Linked Methylotroph Cross-Feeding
+    rationale: Retain the source-proposed cross-feeding hypothesis with partial evidence, not resolved transfer.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:41745484
+  source_review:
+  - reference: PMID:41745484
+    local_source: references_cache/PMID_41745484.txt
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12941554/
+    doi: 10.3390/md24020081
+    passages_read: Complete abstract; full-text gas dynamics section 2.1; metabolic network section 2.3 and all
+      subsections; methods 3.1-3.4; conclusion. Giant cache line was folded to avoid output truncation for relevant
+      sections.
+    access_note: MDPI URL returned 429. PMC primary article is accessible; local Europe PMC full text supplied the
+      detailed passages.
+  limitations: []
+  history_file: history/records/Algal_Methanotroph_Biogas_Valorization_Coculture/2026-10-05T084241Z-codex-0a0de5.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1244
+- path: kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml
+  id: CommunityMech:000382
+  original_sha256: 3825cc0f41a9580c0ce43fd89d726c38ffa7ffed3abdb8439730c6089149e684
+  record_sha256: 01d41a601dba3f750e87784a28d97ef169dbd17de44d4fbe64f37f3d19d5cf3a
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  outcome: changed
+  scope: Whole record read; every current node and arrow checked against primary-source passages. Non-graph metadata
+    is outside certification.
+  summary: Retain conditioned-medium inhibition without assigning unresolved competition
+  node_decisions:
+  - node: Negative Conditioned-Medium Interactions
+    rationale: The measured final-density response is supported; it does not establish reciprocal harm or a unique
+      resource-competition mechanism.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:41960919
+  source_review:
+  - reference: PMID:41960919
+    local_source: references_cache/PMID_41960919.txt
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13185569/
+    doi: 10.1128/msystems.00113-26
+    passages_read: Complete abstract, negative-interaction and Roseburia results, gLV validation context, relevant
+      discussion and culture/conditioned-medium/invasion methods. Folded relevant text after an initial long-line
+      read was truncated.
+  limitations:
+  - Do not reintroduce removed gLV model/provenance nodes or promote invasion predictions into new ecological edges.
+  - Methods and main results say 60 percent fresh plus 40 percent spent; Figure 1D caption reverses the ratio. Existing
+    record follows methods. Non-graph metadata is not certified.
+  - Full-text source reports up to six stable species in results and up to five in discussion; no new stable-size
+    claim is needed for the existing graph.
+  history_file: history/records/Amsterdam_10Species_Gut_Invasion_SynCom/2026-10-05T084241Z-codex-3ce1e3.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1244
+- path: kb/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml
+  id: CommunityMech:000262
+  original_sha256: b2580d701e55f024bbd88e5ea29e34e11af15ff0099f25f0df5226be3305ba36
+  record_sha256: f6995f5d0e91799be24fe9cda290def69b08cb30c1c5f939b4f58d7e7888dfee
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  outcome: changed
+  scope: Whole record read; every current node and arrow checked against primary-source passages. Non-graph metadata
+    is outside certification.
+  summary: Qualify thaw-associated iron cycling and methane suppression as genomic hypotheses
+  node_decisions:
+  - node: Fe(III) Reduction Coupled to Organic Acid Oxidation
+    rationale: Retain source-proposed organic-acid/iron reduction with partial computational support, not syntrophy
+      or transport.
+  - node: Candidate Iron-Reduction Suppression of Acetoclastic Methanogenesis
+    rationale: Rename the suppression claim to expose uncertainty; genomic change is not measured methane inhibition.
+  - node: Fe(II) Oxidation by Chemoautotrophic Gallionella
+    rationale: Retain proposed iron regeneration and qualified feedback, not demonstrated reciprocal syntrophy.
+  edges_before:
+  - source: Fe(III) Reduction Coupled to Organic Acid Oxidation
+    target: Fe(II) Oxidation by Chemoautotrophic Gallionella
+    description: Fe(III) reduction generates Fe(II), the substrate that Gallionella-linked chemoautotrophy oxidizes
+      back toward Fe(III) in the inferred thaw-associated iron cycle.
+  - source: Fe(III) Reduction Coupled to Organic Acid Oxidation
+    target: Fe(III) Reduction Suppresses Acetoclastic Methanogenesis
+    description: Rhodoferax-associated Fe(III) reduction oxidizes acetate and therefore competes for the same acetate
+      pool needed by acetoclastic methanogens under reducing thaw conditions.
+  - source: Fe(II) Oxidation by Chemoautotrophic Gallionella
+    target: Fe(III) Reduction Coupled to Organic Acid Oxidation
+    description: Gallionella-linked Fe(II) oxidation can regenerate the Fe(III) pool used by Rhodoferax-associated
+      organic acid oxidation in the inferred thaw-associated iron cycle.
+  edges_after:
+  - source: Fe(III) Reduction Coupled to Organic Acid Oxidation
+    target: Fe(II) Oxidation by Chemoautotrophic Gallionella
+    description: HYPOTHESIZED - Fe(III) reduction could supply Fe(II) to Gallionella-associated oxidation; the proposed
+      substrate connection was inferred from genomic patterns, not traced between partners.
+  - source: Fe(III) Reduction Coupled to Organic Acid Oxidation
+    target: Candidate Iron-Reduction Suppression of Acetoclastic Methanogenesis
+    description: HYPOTHESIZED - acetate use by iron reducers could limit substrate for acetoclastic methanogenesis;
+      the study did not isolate acetate competition or measure its effect on methane flux.
+  - source: Fe(II) Oxidation by Chemoautotrophic Gallionella
+    target: Fe(III) Reduction Coupled to Organic Acid Oxidation
+    description: HYPOTHESIZED - Gallionella-associated Fe(II) oxidation could regenerate the Fe(III) acceptor for
+      organic-acid oxidation; this proposed feedback lacks direct flux or partner-removal validation.
+  references:
+  - PMID:37996661
+  source_review:
+  - reference: PMID:37996661
+    local_source: references_cache/PMID_37996661.md
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10667234/
+    doi: 10.1038/s43705-023-00326-5
+    passages_read: Complete abstract; introduction; all methods, results, discussion and conclusion in the appended
+      Europe PMC full text. Relevant giant line read through fold -s -w 160, output lines 125-405 after the initial
+      view was truncated.
+    access_note: PMC web returned a CAPTCHA; no bypass. Existing legitimate full-text cache supplied the detailed
+      passages despite stale abstract_only frontmatter.
+  limitations:
+  - Source-derived proposed suboxic growth must not become a measured oxygen concentration; the jars were N2-purged.
+  - One collected soil core supplied homogenized triplicates. No site-wide universality or independent spatial replication
+    should be asserted.
+  - Non-graph metadata remains outside this graph certification, including absolute anaerobic claims.
+  renamed_nodes:
+    Fe(III) Reduction Suppresses Acetoclastic Methanogenesis: Candidate Iron-Reduction Suppression of Acetoclastic
+      Methanogenesis
+  grounding_sources:
+  - https://www.ebi.ac.uk/QuickGO/term/GO:0006826
+  history_file: history/records/Alaska_Tundra_Permafrost_Iron_Redox_Community/2026-10-05T084241Z-codex-be37dd.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1245
+- path: kb/communities/Anaerobic_Indole_Degrading_Sludge_Consortium.yaml
+  id: CommunityMech:000386
+  original_sha256: 9e6d7a0e292ea070a329c8fe3e064b5420631091482e6367297703e79f68df79
+  record_sha256: 9e6d7a0e292ea070a329c8fe3e064b5420631091482e6367297703e79f68df79
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  outcome: no_change
+  scope: Whole record read; every current node and arrow checked against primary-source passages. Non-graph metadata
+    is outside certification.
+  summary: Retain already-qualified candidate indole division of labor without new structure
+  node_decisions:
+  - node: Candidate anaerobic indole-to-methanogenesis division of labor
+    rationale: Candidate and inferred wording, PARTIAL computational evidence and an explicit full-text gap already
+      prevent promotion to demonstrated partner exchange.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42735627
+  source_review:
+  - reference: PMID:42735627
+    local_source: references_cache/PMID_42735627.txt
+    doi: 10.1016/j.jhazmat.2026.143606
+    passages_read: Complete locally cached primary abstract. Full text was not retrieved; PubMed and DOI browser
+      access failed.
+  limitations:
+  - Existing full_text_methods_and_mag_tables discussion remains unresolved.
+  - Missing full text is not evidence that the study lacked a particular experiment.
+  no_new_structure_rationale: The abstract proposes a testable framework. Exact partner flux and MAG detail need
+    full-text review and the graph-extension gate.
+  existing_gap: full_text_methods_and_mag_tables
+- path: kb/communities/Apple_Fire_Blight_ANP_SynCom.yaml
+  id: CommunityMech:000377
+  original_sha256: ffdc8e341e1dc2b1bf3de0e2503ed7aa309408996266fdfb4fcf83e8c1397fe2
+  record_sha256: 1f2e836d0bcd5ff68622188aa5eff6d82b0d7c30d9c1a0b6191ea52f0a8e0a94
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  outcome: changed
+  scope: Whole record read; every current node and arrow checked against primary-source passages. Non-graph metadata
+    is outside certification.
+  summary: Distinguish apple tissue disease scores from exudate inhibition and inferred competition
+  node_decisions:
+  - node: A+N+P Fire-Blight Severity Reduction in Rosaceae Tissue
+    rationale: Retain measured severity endpoints without relabeling them pathogen density.
+  - node: A+N+P Erwinia Density Suppression in Flower Exudate
+    rationale: Retain density suppression and explicitly partial competition rationale without an unsupported categorical
+      type.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:40223277
+  - PMID:40468884
+  source_review:
+  - reference: PMID:40223277
+    local_source: references_cache/PMID_40223277.txt
+    doi: 10.4014/jmb.2501.01047
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12010091/
+    passages_read: Complete abstract, antibacterial and fruit/rose/plant assay methods and results, relevant introduction
+      and discussion in cached Europe PMC full text. Missing giant-line passages reread through folded output lines
+      125-247.
+  - reference: PMID:40468884
+    local_source: references_cache/PMID_40468884.txt
+    doi: 10.5423/PPJ.OA.03.2025.0040
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12146627/
+    passages_read: Complete abstract and all methods, results, and discussion in cached Europe PMC full text, folded
+      output lines 96-295.
+  limitations:
+  - Do not restore the workflow edge removed on 2026-10-02 between tissue suppression and follow-up assays.
+  - Retain unresolved Terriglobus 03SUJ4 versus TAH1 alias and predicted secondary-metabolite gaps.
+  - The ANP whole-plant endpoint is 33.4 percent; the abstract's 5.4 percent belongs to P alone. Existing record
+    already distinguishes them.
+  renamed_nodes:
+    A+N+P Erwinia amylovora suppression in Rosaceae tissue: A+N+P Fire-Blight Severity Reduction in Rosaceae Tissue
+    A+N+P nutrient competition with Erwinia amylovora: A+N+P Erwinia Density Suppression in Flower Exudate
+  history_file: history/records/Apple_Fire_Blight_ANP_SynCom/2026-10-05T084242Z-codex-4f54a1.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1244
+- path: kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  id: CommunityMech:000451
+  original_sha256: c14193ce06bb1f56004b6bb6b550c48a4eebc472c351fdb89c71e78f42a19046
+  record_sha256: eba49bde93c713de3dfa096126b3067db05aedae5399c9003a0b2843c58eaeae
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  outcome: changed
+  scope: Whole record read; every current node and arrow checked against primary-source passages. Non-graph metadata
+    is outside certification.
+  summary: Qualify pyridoxal cross-feeding without erasing the metabolite-supplementation result
+  node_decisions:
+  - node: Pseudomonas Pyridoxal Support Under Florfenicol Stress
+    rationale: Retain qualified cross-feeding as a source-proposed mechanism with experimentally supported growth
+      and supplementation, but unresolved necessity and transfer.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:41724996
+  source_review:
+  - reference: PMID:41724996
+    local_source: references_cache/PMID_41724996.txt
+    doi: 10.1186/s40168-026-02335-7
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13037320/
+    passages_read: Complete abstract, isolate and co-culture methods, genomic and defined-pair results, mechanism
+      discussion, conclusion, and supplement inventory. After initial truncation, relevant text reread through folded
+      output lines 120-158, 246-287, and 345-399.
+    access_note: PMC browser access returned CAPTCHA; no bypass. Existing legitimate full-text cache supplied the
+      detailed passages. Supplement Text S12-S14 not retrieved or read.
+  limitations:
+  - Preserve distinction between the precursor 60-day mixed phycosphere experiment and the 13-day defined-pair assay.
+  - Existing exact-pair-growth-medium gap remains; main-text BG-11 conditions belong to the precursor assay, not
+    necessarily the pair.
+  - Source results report reduced SOD activity with reduced oxidative stress, while broad discussion says increased
+    antioxidant activity; avoid adding unqualified physiological claims.
+  - No significant FF concentration change was observed over 13 days; do not infer antibiotic degradation.
+  history_file: history/records/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture/2026-10-05T084242Z-codex-f95a73.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1244
+- path: kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml
+  id: CommunityMech:000144
+  original_sha256: e223e2d4763ce5b16560e1af29a61142eb07d207ea962be1df328614a43b8ea2
+  record_sha256: be4b61b43e7901960e96c485a8c234f87375fd9c16cc07c08a969ca75bc21aa9
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  outcome: changed
+  scope: Whole record read; every current node and arrow checked against primary-source passages. Non-graph metadata
+    is outside certification.
+  summary: Re-evidence ASF isolate fermentation and separate spatial and host inferences
+  node_decisions:
+  - node: Stable Defined Murine Gut Colonization
+    rationale: Retain persistence with review provenance; remove the measurement-workflow arrow and facilitation
+      type.
+  - node: ASF Gastrointestinal Spatial Partitioning
+    rationale: Retain regional partitioning but qualify oxygen causality.
+  - node: ASF356/ASF492 Short-Chain Fatty Acid Fermentation
+    rationale: Restore primary isolate-culture evidence to the existing node; do not imply whole-community dominance
+      or recipient exchange.
+  - node: SCFA-Linked Colonic Treg Homeostasis
+    rationale: Retain strong general SCFA host evidence with partial ASF-member attribution, without mutualism.
+  edges_before:
+  - source: Stable Defined Murine Gut Colonization
+    target: Oxygen-Sensitive ASF GI Niche Partitioning
+    description: Long-term maintenance of the eight-member defined flora allows strain-resolved abundance measurements
+      that reveal oxygen-linked dominance patterns along the upper and lower gut.
+  edges_after: []
+  references:
+  - PMID:15128534
+  - PMID:23828891
+  - PMID:26323627
+  source_review:
+  - reference: PMID:26323627
+    local_source: references_cache/PMID_26323627.txt
+    doi: 10.1093/ilar/ilv012
+    passages_read: Complete retained review abstract. PMC4554250 browser access returned CAPTCHA; no bypass.
+  - reference: PMID:15128534
+    local_source: references_cache/PMID_15128534.txt
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC404395/
+    passages_read: Complete abstract, introduction, culture/mouse/sampling/PCR methods, spatial and persistence
+      results, and complete discussion in primary web article.
+  - reference: PMID:23828891
+    local_source: references_cache/PMID_23828891.txt
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3807819/
+    passages_read: Complete abstract and entire main-text results including ASF isolate fermentation, SCFA supplementation,
+      Ffar2 perturbations, and colitis experiments. Supplement not yet read.
+  - reference: PMID:24723722
+    local_source: references_cache/PMID_24723722.txt
+    passages_read: Complete genome-announcement abstract; no new taxonomic or accession curation proposed.
+  limitations:
+  - Existing cache policy removed non-open-access full bodies. Any short source quotation must remain a labeled
+    excerpt, not a claimed independently cached full text.
+  - Existing non-graph environment notes and grouped taxonomy are outside this review scope.
+  renamed_nodes:
+    Oxygen-Sensitive ASF GI Niche Partitioning: ASF Gastrointestinal Spatial Partitioning
+  related_issue: https://github.com/CultureBotAI/CommunityMech/issues/765
+  history_file: history/records/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community/2026-10-05T084243Z-codex-b9f4e2.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1246
+- path: kb/communities/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.yaml
+  id: CommunityMech:000307
+  original_sha256: f2f876354e4df4bf32902d7263712bca391f2da789caa14752f788b3e8c02eba
+  record_sha256: 5cac7e708fb21e2541790ae2b3fd3c33479f9e693537c99d4e8a7dbd49ee6eee
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  outcome: changed
+  scope: Whole record read; every current node and arrow checked against primary-source passages. Non-graph metadata
+    is outside certification.
+  summary: Separate Anabaena digestion outputs from inferred guilds and regolith mechanisms
+  node_decisions:
+  - node: Anabaena Biomass Anaerobic Digestion
+    rationale: Retain biomass-to-output causation and qualified fermentative supply; remove the matrix-comparison
+      arrow to competition.
+  - node: Fermenter-to-methanogen syntrophy (interspecies H2/CO2 transfer)
+    rationale: Retain candidate hydrogen/carbon-dioxide syntrophy without acetate consumption or an unisolated recovery
+      arrow.
+  - node: Candidate Sulfate-Reducer Competition in MGS-1 Regolith
+    rationale: Qualify competition and remove the co-occurrence arrow to nutrient loss.
+  - node: Ammonium Production and Organic Carbon Removal
+    rationale: Retain measured outputs while distinguishing soluble from unmeasured total COD in regolith.
+  - node: MGS-1 Nutrient Recovery Penalty
+    rationale: Retain the matrix penalty with partial adsorption/precipitation interpretation.
+  edges_before:
+  - source: Anabaena Biomass Anaerobic Digestion
+    target: Fermenter-to-methanogen syntrophy (interspecies H2/CO2 transfer)
+    description: 'In the minimal-medium branch, biomass digestion supported a syntrophic fermentative community
+      with hydrogenotrophic methanogens.
+
+      '
+  - source: Anabaena Biomass Anaerobic Digestion
+    target: Sulfate-reducer outcompetition of methanogens in MGS-1 regolith
+    description: 'In the MGS-1 branch, sulfate-reducing bacteria outcompeted the methanogens seen in minimal medium.
+
+      '
+  - source: Anabaena Biomass Anaerobic Digestion
+    target: Ammonium Production and Organic Carbon Removal
+    description: 'All three tested communities produced ammonium and removed organic carbon from the cyanobacterial
+      biomass.
+
+      '
+  - source: Fermenter-to-methanogen syntrophy (interspecies H2/CO2 transfer)
+    target: Ammonium Production and Organic Carbon Removal
+    description: 'The syntrophic fermenter-to-hydrogenotrophic-methanogen community is the minimal-medium route
+      coupled to ammonium production and organic carbon removal.
+
+      '
+  - source: Sulfate-reducer outcompetition of methanogens in MGS-1 regolith
+    target: MGS-1 Nutrient Recovery Penalty
+    description: 'Sulfate-reducer outcompetition occurred in the MGS-1 matrix that also adsorbed organics and lowered
+      phosphate and ammonium recovery efficiency.
+
+      '
+  edges_after:
+  - source: Anabaena Biomass Anaerobic Digestion
+    target: Fermenter-to-methanogen syntrophy (interspecies H2/CO2 transfer)
+    description: HYPOTHESIZED - fermentation of the supplied biomass could provide hydrogen and carbon dioxide to
+      the methanogens detected in minimal medium; partner-specific transfer was inferred from taxonomy.
+  - source: Anabaena Biomass Anaerobic Digestion
+    target: Ammonium Production and Organic Carbon Removal
+    description: Biomass digestion released ammonium and reduced organic-carbon measures in the tested matrices;
+      total COD could not be evaluated in the regolith suspension.
+  references:
+  - PMID:40089033
+  source_review:
+  - reference: PMID:40089033
+    local_source: references_cache/PMID_40089033.md
+    doi: 10.1016/j.biortech.2025.132383
+    url: https://www.researchgate.net/publication/389834004_Anaerobic_digestion_of_cyanobacterial_biomass_for_plant_fertilizer_production_on_mars
+    passages_read: Complete cached abstract; author-uploaded primary article introduction, digestion methods 2.3,
+      analytics 2.4, results 3.2.1-3.2.4, and relevant Outlook. Supplement and PDF layout not inspected.
+    access_note: Publisher browser fetch returned 403. Public author-uploaded text was accessible and identifies
+      CC BY 4.0. Existing record claims full text is paywalled; that statement is now stale.
+  limitations: []
+  renamed_nodes:
+    Sulfate-reducer outcompetition of methanogens in MGS-1 regolith: Candidate Sulfate-Reducer Competition in MGS-1
+      Regolith
+  history_file: history/records/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium/2026-10-05T084243Z-codex-b65b2f.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1245
+- path: kb/communities/Anammox_Bioreactor_DNRA_Destabilization_Community.yaml
+  id: CommunityMech:000244
+  original_sha256: e3b180cde6c6d21e11b492dd09f726a8d337ecd186836b3cb73086834e99330e
+  record_sha256: 7fbf28a70189f8d6c53903fc8b618889fd2c31cfa8e5f79246a9fc22e108978b
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  outcome: changed
+  scope: Whole record read; every current node and arrow checked against primary-source passages. Non-graph metadata
+    is outside certification.
+  summary: Bound DNRA destabilization claims to conditional pathway and replication inference
+  node_decisions:
+  - node: Nutrient-Acquisition Core Selection
+    rationale: Retain transporter enrichment with computational provenance, not niche partitioning.
+  - node: Brocadia Ammonium-Nitrite Anammox
+    rationale: Retain reactor anammox and a qualified substrate-vulnerability arrow.
+  - node: Core DNRA Nitrite Reduction Capacity
+    rationale: Retain nrfAH potential and a hypothetical diversion arrow; correct nitrogen retention versus removal.
+  - node: Pre-Crash DNRA Bacterial Replication
+    rationale: Describe iRep and compositional evidence as inferred replication with partial causal support.
+  - node: Candidate DNRA Competition During Anammox Destabilization
+    rationale: Rename to candidate community-level competition and expose the pathway assumption and alternative.
+  edges_before:
+  - source: Brocadia Ammonium-Nitrite Anammox
+    target: DNRA Outcompetition of Anammox
+    description: 'The anammox pathway depends on nitrite availability, making the Brocadia population vulnerable
+      to a DNRA guild that also consumes nitrite but reduces it back to ammonium.
+
+      '
+  - source: Core DNRA Nitrite Reduction Capacity
+    target: DNRA Outcompetition of Anammox
+    description: 'Nitrite-to-ammonium DNRA provided the nitrogen-removal pathway that competed directly with Brocadia-catalyzed
+      anammox.
+
+      '
+  - source: Pre-Crash DNRA Bacterial Replication
+    target: DNRA Outcompetition of Anammox
+    description: 'The actively replicating destabilizers were DNRA bacteria, placing their pre-crash growth upstream
+      of the loss of anammox nitrogen-removal performance.
+
+      '
+  edges_after:
+  - source: Brocadia Ammonium-Nitrite Anammox
+    target: Candidate DNRA Competition During Anammox Destabilization
+    description: HYPOTHESIZED - anammox depends on nitrite, so a guild diverting nitrite could limit its substrate
+      supply; this vulnerability does not by itself establish the cause of the observed crash.
+  - source: Core DNRA Nitrite Reduction Capacity
+    target: Candidate DNRA Competition During Anammox Destabilization
+    description: HYPOTHESIZED - if nrfAH-bearing bacteria use the DNRA route, their nitrite consumption could divert
+      substrate from anammox while retaining fixed nitrogen as ammonium. Alternative partial-denitrification routes
+      remain possible.
+  - source: Pre-Crash DNRA Bacterial Replication
+    target: Candidate DNRA Competition During Anammox Destabilization
+    description: PARTIAL - inferred replication and abundance changes preceding collapse support candidate competitors,
+      but do not demonstrate that their growth caused the loss of anammox performance.
+  references:
+  - PMID:31980038
+  source_review:
+  - reference: PMID:31980038
+    local_source: references_cache/PMID_31980038.md
+    doi: 10.1186/s40168-020-0786-3
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6982389/
+    passages_read: Complete abstract; reactor performance, metabolic profiles, pre-crash analysis and Table 2 text,
+      full discussion/conclusion, iRep and metabolic-annotation methods. Relevant giant-line passages read through
+      folded output 105-129, 177-227, 269-317, 335-400, 440-451, and 487-501.
+    access_note: DOI browser access failed and PMC returned CAPTCHA; no bypass. Existing legitimate Europe PMC full-text
+      cache supplied the detailed passages.
+  limitations:
+  - Do not restore workflow arrows pruned on 2026-10-02.
+  - Source results and methods differ on HRT-change and inoculation dates; no non-graph operating-history certification.
+  renamed_nodes:
+    DNRA Outcompetition of Anammox: Candidate DNRA Competition During Anammox Destabilization
+  history_file: history/records/Anammox_Bioreactor_DNRA_Destabilization_Community/2026-10-05T084244Z-codex-9efb26.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1245
+- path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  id: CommunityMech:000146
+  original_sha256: 09f2ec7b49716faa9edebacf254e0b704b2bd55c36b5efa0801291e9a071588d
+  record_sha256: cfe33d321709ed3f502b1e4740464b352dbfe08fa226fe2b4c6a79f9c78d9f8a
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  outcome: changed
+  scope: Whole record read; every current node and arrow checked against primary-source passages. Non-graph metadata
+    is outside certification.
+  summary: Separate anammox granule expression evidence from proposed metabolite exchanges
+  node_decisions:
+  - node: Anammox Ammonium-Nitrite Conversion
+    rationale: Retain anammox function and qualify all three outgoing exchange arrows.
+  - node: Heterotrophic Nitrite Loop
+    rationale: Use same-study nitrate-reductase expression and remove a full-denitrification annotation from a partial
+      reduction node.
+  - node: EPS Peptide Scavenging by Chlorobi
+    rationale: Retain inferred peptide scavenging, not directly established EPS transfer.
+  - node: Detritus and Small-Donor Scavenging
+    rationale: Preserve candidate donor use with unresolved acetate direction and carbon provenance.
+  edges_before:
+  - source: Anammox Ammonium-Nitrite Conversion
+    target: Heterotrophic Nitrite Loop
+    description: Nitrate-linked products of Brocadia anammox metabolism provide the oxidized nitrogen pool that
+      heterotrophic flanking bacteria can reduce back to nitrite.
+  - source: Anammox Ammonium-Nitrite Conversion
+    target: EPS Peptide Scavenging by Chlorobi
+    description: Dominant anammox growth supplies the EPS matrix whose proteinaceous material is scavenged by Chlorobi-affiliated
+      heterotrophs.
+  - source: Anammox Ammonium-Nitrite Conversion
+    target: Detritus and Small-Donor Scavenging
+    description: Biomass turnover from the dominant anammox population supplies detrital organic matter and small
+      donors for heterotrophic scavengers in the granule.
+  edges_after:
+  - source: Anammox Ammonium-Nitrite Conversion
+    target: Heterotrophic Nitrite Loop
+    description: HYPOTHESIZED - anammox-derived nitrate could supply heterotrophic nitrate reduction and a nitrite-return
+      loop; expression supports potential but not the exchanged flux.
+  - source: Anammox Ammonium-Nitrite Conversion
+    target: EPS Peptide Scavenging by Chlorobi
+    description: HYPOTHESIZED - anammox-associated extracellular material could feed heterotrophic proteolysis;
+      the source of consumed protein and the transfer were not traced in this study.
+  - source: Anammox Ammonium-Nitrite Conversion
+    target: Detritus and Small-Donor Scavenging
+    description: HYPOTHESIZED - biomass turnover or released small substrates could feed heterotrophs; wastewater-derived
+      organic carbon and unresolved pathway directions prevent exclusive attribution to AMX1.
+  references:
+  - doi:10.1038/ncomms15416
+  source_review:
+  - reference: doi:10.1038/ncomms15416
+    pmid: PMID:28561030
+    local_source: references_cache/doi_10.1038_ncomms15416.txt
+    url: https://www.nature.com/articles/ncomms15416
+    passages_read: Complete abstract; gene-expression results for nitrogen, carbon, peptides and vitamins; full
+      discussion/conclusion; reactor methods and Table 2 text; reconstruction/transcript mapping/protease prediction
+      methods. Relevant giant-line passages read through folded lines 100-298 and 321-349 after initial truncation.
+    access_note: Nature browser redirect failed. Existing legitimate Europe PMC PMC5460018 full-text cache supplied
+      the detailed passages; the separately named europepmc cache is abstract only.
+  limitations:
+  - Source's isotope-tracing support comes from another cited study, not this experiment. Do not claim same-system
+    tracer confirmation.
+  - AMX1 was related to both named Brocadia species, not identified as sinica. Existing representative taxon grounding
+    is not species confirmation; broader taxonomy review is separate.
+  - Reactor received wastewater filtrate with residual COD. Do not assert all heterotrophic carbon originated from
+    anammox.
+  - No supplement retrieval or visual table/figure QA performed.
+  grounding_sources:
+  - https://www.ebi.ac.uk/QuickGO/term/GO:0019333
+  history_file: history/records/Anammox_Granule_Metabolic_Interaction_Community/2026-10-05T084244Z-codex-0dd10f.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1245
+- path: kb/communities/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.yaml
+  id: CommunityMech:000234
+  original_sha256: 1fbfacae9edb47de99f1ce971e471771a09806ef4e7c4b0e2d2a1853771240e6
+  record_sha256: 2db6b0937bb7b4158fe6dec8e82d98a5ad9359ede221315a22cd8cf110739b3c
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  outcome: changed
+  scope: Whole record read; every current node and arrow checked against primary-source passages. Non-graph metadata
+    is outside certification.
+  summary: Correct Angelarchaeales computational provenance and remove inventory-aggregation arrows
+  node_decisions:
+  - node: Archaeal CuMMO-Driven Aerobic Oxidation
+    rationale: Retain candidate CuMMO activity without a categorical nitrogen-cycle substrate.
+  - node: Blue Copper Protein Electron Transport Repertoire
+    rationale: Retain encoded blue-copper/electron-transport potential with computational provenance.
+  - node: Peptide and Amino Acid Heterotrophy
+    rationale: Retain encoded heterotrophic potential, not measured uptake.
+  - node: CuMMO-Heterotrophic Metabolic Context
+    rationale: Retain qualified genomic context without causal aggregation arrows.
+  - node: Angelarchaeales Biogeochemical Cycling Potential
+    rationale: Retain candidate biogeochemical relevance, not established ecosystem flux.
+  edges_before:
+  - source: Archaeal CuMMO-Driven Aerobic Oxidation
+    target: CuMMO-Heterotrophic Metabolic Context
+    description: Conserved CuMMO catalytic residues provide the monooxygenase component of the broader Angelarchaeales
+      metabolic context.
+  - source: Blue Copper Protein Electron Transport Repertoire
+    target: CuMMO-Heterotrophic Metabolic Context
+    description: Blue copper proteins and related carriers place Angelarchaeales CuMMOs in an electron-transport
+      genomic context.
+  - source: Peptide and Amino Acid Heterotrophy
+    target: CuMMO-Heterotrophic Metabolic Context
+    description: Peptide and amino-acid uptake/degradation capacity provides the heterotrophic side of the same
+      Angelarchaeales genomic context.
+  - source: CuMMO-Heterotrophic Metabolic Context
+    target: Angelarchaeales Biogeochemical Cycling Potential
+    description: The combined CuMMO and surrounding metabolic repertoire positions Ca. Angelarchaeales as candidate
+      contributors to nitrogen and/or carbon cycling in the source soil and aquifer-sediment ecosystems.
+  edges_after: []
+  references:
+  - PMID:34987183
+  source_review:
+  - reference: PMID:34987183
+    doi: 10.1038/s41396-021-01177-5
+    local_source: references_cache/PMID_34987183.md
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9038741/
+    passages_read: Complete abstract; relevant genome identification, catalytic residues and AlphaFold, metabolism
+      and BCP repertoire, full discussion, genome selection, functional annotation and reconstruction methods. Full-text
+      giant line read through folded lines 130-175, 220-425, and 512-532.
+    access_note: DOI redirected to inaccessible publisher page; no bypass. Existing legitimate Europe PMC full-text
+      cache supplied detailed passages. Supplement and visual figures were not inspected.
+  limitations:
+  - Study spans multiple sites and species, not a demonstrated partner-resolved community interaction.
+  - Existing PRIMARY_PRODUCER taxonomy role conflicts with absent carbon-fixation pathways; outside graph-only certification
+    and should be separately flagged.
+  - Aerobic metabolism is inferred; discussion also allows anaerobic amino-acid fermentation. Do not strengthen
+    to obligate aerobiosis.
+  history_file: history/records/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community/2026-10-05T084244Z-codex-ef2810.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1245
+- path: kb/communities/Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml
+  id: CommunityMech:000368
+  original_sha256: 8fd3973f963a9e057a4ccd6721bc6408804d251c3d54bcdffd46d6fdca9ad64d
+  record_sha256: c487e5ae123f7515fa5060e82625f5c89dd336284107fc94755552b620cabb98
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  outcome: changed
+  scope: Whole record read; every current node and arrow checked against primary-source passages. Non-graph metadata
+    is outside certification.
+  summary: Retain SynCom150 protection while removing workflow arrows and unsupported interaction labels
+  node_decisions:
+  - node: SynCom Colonization and Partial Growth Rescue in Irradiated Coir
+    rationale: Retain aggregate colonization and growth rescue, not a demonstrated facilitation mechanism.
+  - node: Bacillus-Dependent Pto Leaf-Pathogen Suppression
+    rationale: Retain causal inoculum protection; remove two arrows to experimental follow-ups.
+  - node: Diverse Bacillus In Vitro Pto Antagonism
+    rationale: Retain directly measured agar antagonism and computational BGC context without inferring reciprocal
+      competition.
+  - node: Pseudomonadota Multi-Class Pto Protection
+    rationale: Retain multi-class protection with unresolved mechanism.
+  - node: Bacillus Protection in bbc1 Immune-Impaired Arabidopsis
+    rationale: Bound protection to the tested immune defect and remove unmeasured mutualism.
+  edges_before:
+  - source: Bacillus-Dependent Pto Leaf-Pathogen Suppression
+    target: Diverse Bacillus In Vitro Pto Antagonism
+    description: Individual Bacillus isolates inhibited luminescent Pto lawns, supporting direct antagonism as a
+      candidate mechanism for the plant-protection phenotype.
+  - source: Bacillus-Dependent Pto Leaf-Pathogen Suppression
+    target: Immune-Independent Bacillus Protection
+    description: Bacillus protected Arabidopsis even when the bbc1 receptor mutant reduced bacterial pattern-triggered
+      immune recognition.
+  edges_after: []
+  references:
+  - PMID:40590505
+  source_review:
+  - reference: PMID:40590505
+    doi: 10.1093/ismejo/wraf134
+    local_source: references_cache/PMID_40590505.txt
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13235741/
+    passages_read: Complete abstract, introduction, methods, results and discussion through folded full-text lines
+      1-405. Figure captions read as text; no supplement or visual figure inspection.
+    access_note: DOI browser fetch failed. Existing legitimate PMC full-text cache supplied the primary article.
+  limitations:
+  - Authors state individual strains were not tracked by the amplicon assay; aggregate reads from inoculum do not
+    prove every member colonized every compartment.
+  - bbc1 lacks three major co-receptors, not the entire immune system. Do not promote its rescue into proof of no
+    immune contribution under all conditions.
+  - Non-graph metadata and the apparent B. subtilis/B. cereus mismatch in a source paragraph are outside this certification.
+  renamed_nodes:
+    Closed Coir Arabidopsis Microbiota Reconstruction: SynCom Colonization and Partial Growth Rescue in Irradiated
+      Coir
+    Immune-Independent Bacillus Protection: Bacillus Protection in bbc1 Immune-Impaired Arabidopsis
+  related_issue: https://github.com/CultureBotAI/CommunityMech/issues/867
+  history_file: history/records/Arabidopsis_Bacillus_Biocontrol_SynCom150/2026-10-05T084410Z-codex-ba9883.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1244

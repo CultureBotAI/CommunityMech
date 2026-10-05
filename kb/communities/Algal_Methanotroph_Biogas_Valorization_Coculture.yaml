@@ -176,10 +176,10 @@ taxonomy:
     explanation: Supports a methane-linked methylotroph guild in the co-culture.
 ecological_interactions:
 - name: Photosynthetic O2 Support for Methane Oxidation
-  description: Oxygenic green algae accumulate O2 under illumination and support aerobic methane oxidation by the methanotrophic
-    fraction; after two external oxygen pulses, algal O2 production supported methanotrophic growth without further oxygen
-    addition.
-  interaction_type: MUTUALISM
+  description: PARTIAL - the illuminated, non-axenic algal-methanotroph culture removed methane and carbon dioxide.
+    Methane oxidation began after external oxygen pulses on days 13 and 15 and continued without further oxygen
+    addition, consistent with photosynthetic oxygen support. These community-level gas dynamics do not isolate taxon-specific
+    oxygen transfer or reciprocal fitness benefits between named partners.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Chlorella vulgaris
@@ -226,18 +226,20 @@ ecological_interactions:
     snippet: methanotrophs were inoculated when O2 concentrations reached
     explanation: Supports oxygen build-up by the algal culture before methanotroph addition.
   - reference: PMID:41745484
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: functionally self-sustaining state
-    explanation: Supports photosynthetic oxygen production sustaining methane oxidation after start-up.
+    explanation: Supports continued community function after startup oxygen pulses; photosynthetic support is inferred,
+      not a partner-resolved reciprocal-fitness experiment.
   - reference: PMID:41745484
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: removal efficiencies of 92 and 89%, respectively
     explanation: Reports final CH4 and CO2 removal efficiencies by the co-culture.
 - name: Methane-Linked Methylotroph Cross-Feeding
-  description: Methanotrophs oxidize CH4 to intermediates including methanol and formaldehyde, which can be assimilated by
-    methylotrophs; Methylophaga and Methylonatrum were dominant methylotrophic genera in the CH4-fed co-culture.
+  description: HYPOTHESIZED - methanotroph-derived methanol or other one-carbon intermediates could support Methylophaga
+    and Methylonatrum in the methane-fed culture. Their observed abundance and known metabolism support a candidate
+    exchange, not measured donor-to-recipient flux or detoxification.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -272,15 +274,16 @@ ecological_interactions:
       label: methane metabolic process
   evidence:
   - reference: PMID:41745484
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: methanotrophs oxidize CH4 to intermediates such as methanol and formaldehyde
-    explanation: Supports methanotroph-to-methylotroph metabolite cross-feeding.
+    explanation: The source proposes this metabolic link from known physiology and community composition; it does
+      not trace transfer in this culture.
   - reference: PMID:41745484
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Methylophaga and Methylonatrum (50:40%)
-    explanation: Identifies the co-dominant methylotrophs linked to methane-containing assays.
+    explanation: Identifies observed methylotrophic genera; relative abundance alone does not establish cross-feeding.
 environmental_factors:
 - name: Biogas headspace
   value: 70% CH4:30% CO2
@@ -462,17 +465,37 @@ curation_history:
 - timestamp: '2026-09-22T02:16:29Z'
   curator: codex
   action: CREATE_COMMUNITY_RECORD
-  changes: Created CommunityMech:000415 for the saline algal-methanotrophic biogas valorization co-culture from PMID:41745484.
+  changes: Created CommunityMech:000415 for the saline algal-methanotrophic biogas valorization co-culture from
+    PMID:41745484.
   llm_assisted: true
 - timestamp: '2026-09-22T02:23:25Z'
   curator: codex
   action: FIX_GROWTH_MEDIA_SCOPE
-  changes: Removed dioxygen from the CH4/CO2 growth-feed composition and corrected the illuminated co-culture light intensity
-    to the source-reported 700 umol m-2 s-1.
+  changes: Removed dioxygen from the CH4/CO2 growth-feed composition and corrected the illuminated co-culture light
+    intensity to the source-reported 700 umol m-2 s-1.
   llm_assisted: true
 - timestamp: '2026-09-22T02:30:02Z'
   curator: codex
   action: FIX_NETWORK_INTEGRITY
-  changes: 'Removed a dangling downstream pointer whose phenotype label did not name another ecological interaction in this
-    record; fixes #1039.'
+  changes: 'Removed a dangling downstream pointer whose phenotype label did not name another ecological interaction
+    in this record; fixes #1039.'
   llm_assisted: true
+- timestamp: '2026-10-05T08:42:40Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate algal-methanotroph gas measurements from inferred partner exchange; complete decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1244'
+  llm_assisted: true
+discussions:
+- discussion_id: algal_methanotroph_resolved_exchange
+  prompt: Which organisms supply and receive the oxygen and one-carbon metabolites in this culture?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Photosynthetic O2 Support for Methane Oxidation
+  - ecological_interactions#Methane-Linked Methylotroph Cross-Feeding
+  rationale: PMID:41745484 measures gas removal and community composition. Startup required oxygen supplementation,
+    and the cultures were not axenic. Partner-resolved transfer, reciprocal fitness and the methylotroph detoxification
+    contribution remain unresolved.
+  posed_by: codex
+  posed_date: '2026-10-05'

@@ -91,8 +91,10 @@ taxonomy:
     explanation: Links Pseudomonas_sp1 to the isolate whole-genome sequencing BioProject.
 ecological_interactions:
 - name: Pseudomonas Pyridoxal Support Under Florfenicol Stress
-  description: Pseudomonas_sp1 supported A. pyrenoidosa growth under florfenicol stress and produced pyridoxal, a vitamin
-    B6 form that the authors linked to increased algal growth and stress adaptation.
+  description: PARTIAL - Pseudomonas_sp1 promoted A. pyrenoidosa growth during the 13-day florfenicol-stress co-culture,
+    and pyridoxal was detected with the bacterium. Exogenous vitamin B6 also promoted axenic algal growth, supporting
+    pyridoxal as a candidate mediator. These experiments establish association and supplementation sufficiency,
+    not necessity of bacterial pyridoxal or traced transfer.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -115,17 +117,19 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: co-cultures with Pseudomonas_sp1 promoted microalgal growth within 13
-    explanation: Supports the positive effect of Pseudomonas_sp1 on A. pyrenoidosa growth in the defined co-culture assay.
+    explanation: Supports the positive effect of Pseudomonas_sp1 on A. pyrenoidosa growth in the defined co-culture
+      assay.
   - reference: PMID:41724996
     supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: pyridoxal was detected only in the presence of Pseudomonas_sp1
-    explanation: Supports Pseudomonas_sp1-associated pyridoxal production in the co-culture.
+    explanation: Supports bacterium-associated pyridoxal detection; its biosynthetic origin and transfer were not
+      directly traced.
   - reference: PMID:41724996
     supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: exogenous vitamin B6 alone is sufficient to promote axenic algal growth
-    explanation: Supports pyridoxal/vitamin B6 as a growth-supporting metabolite for A. pyrenoidosa.
+    explanation: Supports supplementation sufficiency, not necessity for the endogenous bacterial benefit.
 environmental_factors:
 - name: Florfenicol and PLA microplastic challenge
   value: single florfenicol or florfenicol plus PLA MPs
@@ -179,23 +183,36 @@ external_resources:
     explanation: Identifies the primary article for this A. pyrenoidosa and Pseudomonas_sp1 phycosphere co-culture.
 discussions:
 - discussion_id: exact-pair-growth-medium
-  prompt: The article body states that Text S12 contains details of the Pseudomonas_sp1 and A. pyrenoidosa co-culture experiment;
-    those supplementary details should be inspected to recover the exact medium, inoculum, volume, and exposure groups for
-    the pairwise assay.
+  prompt: The article body states that Text S12 contains details of the Pseudomonas_sp1 and A. pyrenoidosa co-culture
+    experiment; those supplementary details should be inspected to recover the exact medium, inoculum, volume, and
+    exposure groups for the pairwise assay.
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - growth_media#Pseudomonas_sp1-Auxenochlorella
-  rationale: The main article cleanly establishes Pseudomonas_sp1 as the selected partner and reports the 13-day response,
-    but it points cultivation details for that follow-up pairwise assay to Text S12.
+  rationale: The main article cleanly establishes Pseudomonas_sp1 as the selected partner and reports the 13-day
+    response, but it points cultivation details for that follow-up pairwise assay to Text S12.
   evidence:
   - reference: PMID:41724996
     supports: SUPPORT
     evidence_source: full_text
     snippet: Text S12. The co-culture experiment of phycospheric isolates and A. pyrenoidosa
-    explanation: Shows that exact follow-up co-culture details were placed in the supplement rather than the article body.
+    explanation: Shows that exact follow-up co-culture details were placed in the supplement rather than the article
+      body.
   posed_by: claude
   posed_date: '2026-09-27'
+- discussion_id: auxeno_pyridoxal_mediation
+  prompt: Is bacterial pyridoxal necessary for the algal benefit, and is its transfer directly measurable?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Pseudomonas Pyridoxal Support Under Florfenicol Stress
+  rationale: PMID:41724996 supports the defined-pair growth response and vitamin supplementation. Removing pyridoxal
+    production or blocking algal uptake would distinguish mediation from correlated metabolite accumulation. The
+    existing Text S12 medium gap remains; Text S12-S14 were not reviewed. No antibiotic-degradation or reciprocal-fitness
+    claim is added.
+  posed_by: codex
+  posed_date: '2026-10-05'
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare-earth element processing role is reported for the A. pyrenoidosa/Pseudomonas_sp1 florfenicol
   phycosphere co-culture.
@@ -203,6 +220,12 @@ curation_history:
 - timestamp: '2026-09-27T15:01:10Z'
   curator: claude
   action: CREATE_RECORD
-  changes: Created CommunityMech:000451 for the Auxenochlorella pyrenoidosa and Pseudomonas_sp1 florfenicol phycosphere co-culture
-    from PMID:41724996 and DOI 10.1186/s40168-026-02335-7.
+  changes: Created CommunityMech:000451 for the Auxenochlorella pyrenoidosa and Pseudomonas_sp1 florfenicol phycosphere
+    co-culture from PMID:41724996 and DOI 10.1186/s40168-026-02335-7.
+  llm_assisted: true
+- timestamp: '2026-10-05T08:42:42Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Qualify pyridoxal cross-feeding without erasing the metabolite-supplementation result; complete decisions:
+    reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml; https://github.com/CultureBotAI/CommunityMech/issues/1244'
   llm_assisted: true

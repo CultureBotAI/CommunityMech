@@ -149,11 +149,9 @@ taxonomy:
     explanation: Supports ASF519 as the Parabacteroides member.
 ecological_interactions:
 - name: Stable Defined Murine Gut Colonization
-  description: The ASF members are mouse-derived, culturable bacteria that can be stably maintained across
-    generations in gnotobiotic mice, establishing a reduced-consortium context in which each member's
-    abundance and GI-region distribution can be tracked by strain-specific PCR.
+  description: The defined mouse-derived ASF bacteria can persist across generations in gnotobiotic mice. This establishes
+    a stable colonization phenotype, not a demonstrated member-to-member colonization-facilitation mechanism.
   scope: COMMUNITY_LEVEL
-  interaction_type: COLONIZATION_FACILITATION
   participating_taxa:
   - preferred_term: ASF Firmicutes members
     term:
@@ -176,20 +174,16 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Oxygen-Sensitive ASF GI Niche Partitioning
-    description: Long-term maintenance of the eight-member defined flora allows strain-resolved abundance
-      measurements that reveal oxygen-linked dominance patterns along the upper and lower gut.
   evidence:
   - reference: PMID:26323627
     supports: SUPPORT
-    evidence_source: IN_VIVO
+    evidence_source: REVIEW
     snippet: stably passed through multiple generations
     explanation: Supports stable colonization and transmission in gnotobiotic mouse facilities.
-- name: Oxygen-Sensitive ASF GI Niche Partitioning
-  description: ASF strain abundance in gnotobiotic mice is structured by gut oxygen availability, with
-    microaerotolerant Lactobacillus murinus ASF361 occupying the upper GI tract and obligate anaerobic
-    ASF members predominating in the cecal and colonic flora.
+- name: ASF Gastrointestinal Spatial Partitioning
+  description: PARTIAL - strain-specific PCR measured regional ASF abundances, with microaerotolerant ASF361 prominent
+    in the upper gut and obligate anaerobes predominant in the cecum and colon. Oxygen sensitivity is a proposed
+    explanation for this spatial pattern, not an isolated oxygen-manipulation result.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -218,17 +212,16 @@ ecological_interactions:
   - reference: PMID:15128534
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Individual strain abundance was dependent on oxygen sensitivity, with microaerotolerant
-      Lactobacillus murinus ASF361 present at 10(5) to 10(7) cells/g of tissue in the upper
-      GI tract and obligate anaerobic ASF strains being predominant in the cecal and colonic flora
-    explanation: Quantifies oxygen-linked partitioning of ASF Lactobacillus and obligate-anaerobe
-      members across mouse GI compartments.
+    snippet: Individual strain abundance was dependent on oxygen sensitivity, with microaerotolerant Lactobacillus
+      murinus ASF361 present at 10(5) to 10(7) cells/g of tissue in the upper GI tract and obligate anaerobic ASF
+      strains being predominant in the cecal and colonic flora
+    explanation: Supports spatial abundance differences; the oxygen explanation is interpretive and the paper discusses
+      other possible determinants.
 - name: ASF356/ASF492 Short-Chain Fatty Acid Fermentation
-  description: The clostridial ASF356 and eubacterial ASF492 members are major short-chain-fatty-acid
-    producers in the ASF, linking stable lower-gut colonization by anaerobic Firmicutes to fermentative
-    metabolite output.
+  description: ASF356 and ASF492 cultures produced acetate and propionate in the primary SCFA study. Their production
+    exceeded some other tested isolates, but this does not quantify their relative contribution within the intact
+    ASF community or demonstrate transfer to a microbial recipient.
   scope: COMMUNITY_LEVEL
-  interaction_type: CROSS_FEEDING
   participating_taxa:
   - preferred_term: ASF Firmicutes members
     term:
@@ -239,12 +232,18 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  evidence:
+  - reference: PMID:23828891
+    snippet: ASF 356 and 492 and C. ramosum generated more propionate
+    explanation: The primary results compare isolate-culture propionate and acetate production. This short excerpt
+      was checked against the primary article; the independent local cache retains only its abstract.
+    evidence_source: IN_VITRO
+    supports: SUPPORT
 - name: SCFA-Linked Colonic Treg Homeostasis
-  description: Gut microbiota-derived short-chain fatty acids regulate the size and function of the colonic
-    Foxp3-positive regulatory T-cell pool and connect ASF fermentation potential to host mucosal
-    homeostasis.
+  description: PARTIAL - SCFA supplementation and Ffar2 experiments support regulation of colonic Treg abundance
+    and function. ASF-colonized mice had luminal SCFAs, but necessary mediation by ASF356/ASF492 within the intact
+    community was not isolated by the reviewed experiments. Reciprocal bacterial benefit is not established.
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   participating_taxa:
   - preferred_term: ASF Firmicutes members
     term:
@@ -259,10 +258,9 @@ ecological_interactions:
   - reference: PMID:23828891
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: short-chain fatty acids, gut microbiota-derived bacterial fermentation products,
-      regulate the size and function of the colonic Treg pool and protect against colitis
-    explanation: Establishes the microbial fermentation product-to-colonic Treg mechanism linked
-      downstream of ASF SCFA production.
+    snippet: short-chain fatty acids, gut microbiota-derived bacterial fermentation products, regulate the size
+      and function of the colonic Treg pool and protect against colitis
+    explanation: Supports the general metabolite-to-host mechanism, not necessary mediation by particular ASF members.
 environmental_factors:
 - name: gnotobiotic mouse gastrointestinal tract
   value: Defined flora maintained in gnotobiotic mice
@@ -317,14 +315,37 @@ curation_history:
 - timestamp: '2026-09-13T01:01:47Z'
   curator: codex
   action: REMOVE_UNVERIFIABLE_PUBLICATION_EVIDENCE
-  changes: "Removed 5 evidence items that no longer match the retained abstracts after PR #766's publication-body
-    policy caught newer main caches. Preserved all scientific claims, taxonomy and interaction topology;
-    these claims require re-evidencing where support was removed. See the linked publication-text-removal
-    history for license/version uncertainty."
+  changes: 'Removed 5 evidence items that no longer match the retained abstracts after PR #766''s publication-body
+    policy caught newer main caches. Preserved all scientific claims, taxonomy and interaction topology; these claims
+    require re-evidencing where support was removed. See the linked publication-text-removal history for license/version
+    uncertainty.'
   llm_assisted: true
 - timestamp: '2026-10-01T05:00:58Z'
   curator: codex
   action: PRUNE_UNEVIDENCED_CAUSAL_EDGES
-  changes: Removed two downstream causal edges through the ASF356/ASF492 short-chain-fatty-acid fermentation node because the
-    exact ASF356/ASF492 SCFA-production claim still lacks retained snippet support after publication-body evidence removal.
+  changes: Removed two downstream causal edges through the ASF356/ASF492 short-chain-fatty-acid fermentation node
+    because the exact ASF356/ASF492 SCFA-production claim still lacks retained snippet support after publication-body
+    evidence removal.
   llm_assisted: true
+- timestamp: '2026-10-05T08:42:42Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Re-evidence ASF isolate fermentation and separate spatial and host inferences; complete decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1246'
+  llm_assisted: true
+discussions:
+- discussion_id: asf_member_resolved_mechanisms
+  prompt: Which ASF members and metabolites causally control regional colonization and Treg responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Stable Defined Murine Gut Colonization
+  - ecological_interactions#ASF Gastrointestinal Spatial Partitioning
+  - ecological_interactions#ASF356/ASF492 Short-Chain Fatty Acid Fermentation
+  - ecological_interactions#SCFA-Linked Colonic Treg Homeostasis
+  rationale: 'Spatial abundance, isolate fermentation and general SCFA host perturbations support distinct observations.
+    Oxygen effects and the contributions of individual ASF members to host responses require direct discrimination.
+    The new short primary-source excerpt repairs the existing fermentation node only; broader missing-evidence issue
+    #765 remains open.'
+  posed_by: codex
+  posed_date: '2026-10-05'
