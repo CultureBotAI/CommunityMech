@@ -4,15 +4,15 @@ model: gpt-6
 records:
 - path: kb/communities/AMD_Acidophile_Heterotroph_Network.yaml
   id: CommunityMech:000001
-  record_sha256: fd34668375c6f64102cebe62c130bf6efcecb845540959e1bf5d83c90b3cb194
+  record_sha256: 81fe29292038349e959041675b876ef4e351cdfb6884796989540185c6797834
   status: reviewed
   review_file: reports/causal_graph_review/decisions/20261004-four-records.yaml
   scope: Whole record read; all causal nodes and existing downstream claims reviewed against the cited source passages.
   summary: Remove cross-study and part-of AMD edges; scope nodes to review and isolate evidence
   node_decisions:
   - node: Organic Carbon Scavenging and Remineralization
-    rationale: Retain as a PARTIAL guild synthesis supported by the AMD review; remove unsubstantiated nitrogen/phosphate
-      mediators.
+    rationale: 'Retain as a PARTIAL guild synthesis supported by the AMD review; remove unsubstantiated nitrogen/phosphate
+      mediators. Remove the +/0 classification: the guild review does not establish an unaffected named partner.'
   - node: Ferric Iron Reduction and Ferrous Iron Regeneration
     rationale: Retain Fe(III)-enabled carbon oxidation with partial support for the broader target; restrict physiology
       to the JF-5-related taxon.
@@ -48,6 +48,8 @@ records:
   - doi:10.3389/fmicb.2015.00475
   - doi:10.3389/fmicb.2016.00744
   history_correction_file: history/records/AMD_Acidophile_Heterotroph_Network/2026-10-05T035646Z-codex-cba52e.yaml
+  followup_history_file: history/records/AMD_Acidophile_Heterotroph_Network/2026-10-05T040912Z-codex-adfcf5.yaml
+  adversarial_issue: https://github.com/CultureBotAI/CommunityMech/issues/1235
 - path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
   id: CommunityMech:000134
   record_sha256: 45dd6c7f42e725c1e51ec80e03b32e78235377a99d9dc56bafae6acccdeb7bb7
@@ -114,21 +116,22 @@ records:
   history_correction_file: history/records/ANME_SRB_Marine_Methane_Seep_Consortium/2026-10-05T035647Z-codex-c58798.yaml
 - path: kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml
   id: CommunityMech:000116
-  record_sha256: 0abf2496446e381306e9a85af008713ed132a818615180bb171dbd8d742c8fe0
+  record_sha256: c9cefea6036c2e4564079cfa0950e49c2282eff63dfe120835adb0c92fbbdbb0
   status: reviewed
   review_file: reports/causal_graph_review/decisions/20261004-four-records.yaml
   scope: Whole record read; all causal nodes and existing downstream claims reviewed against the cited source passages.
   summary: Qualify mediator-to-stability edges in disturbance-stable denitrification
   node_decisions:
   - node: AHL-mediated interspecific communication under disturbance
-    rationale: Retain the observed communication node; qualify its causal contribution to the endpoint as PARTIAL
-      at abstract scope.
+    rationale: 'Retain the observed communication node; qualify its causal contribution to the endpoint as PARTIAL
+      at abstract scope. Remove the +/+ classification: communication alone does not establish both partners benefit.'
   - node: DBP-stimulated phenazine electron transfer
     rationale: Retain explicit DBP-to-phenazine-to-electron-transfer claim; omit cross-feeding classification because
       a donor/recipient metabolite transfer is not established.
   - node: Disturbance-stable aerobic denitrification
-    rationale: Retain the measured approximately 93% denitrification endpoint under DBP or LOFX; do not generalize
-      the DBP mediator to LOFX.
+    rationale: 'Retain the measured approximately 93% denitrification endpoint under DBP or LOFX; do not generalize
+      the DBP mediator to LOFX. Remove the syntrophy classification: the abstract does not establish product removal
+      making partner metabolism favorable.'
   edges_before:
   - source: AHL-mediated interspecific communication under disturbance
     target: Disturbance-stable aerobic denitrification
@@ -152,6 +155,8 @@ records:
   references:
   - PMID:40020349
   history_correction_file: history/records/Aerobic_Denitrification_Disturbance_SynCom/2026-10-05T035647Z-codex-1b36e6.yaml
+  followup_history_file: history/records/Aerobic_Denitrification_Disturbance_SynCom/2026-10-05T040913Z-codex-f8fc9e.yaml
+  adversarial_issue: https://github.com/CultureBotAI/CommunityMech/issues/1235
 - path: kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml
   id: CommunityMech:000190
   record_sha256: bb9483d04163c1df53929e60873f075a00e66d1364f8cf5779248da608b1054c

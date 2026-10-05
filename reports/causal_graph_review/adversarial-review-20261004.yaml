@@ -1,0 +1,52 @@
+pull_request: https://github.com/CultureBotAI/CommunityMech/pull/1233
+initial_commit: 5b5ac46539b9ac8fae4c68602ea90f3791726b52
+reviewer: codex
+review_mode: self_adversarial
+independent_reviewer: false
+scope:
+  - Four edited community records and their cited causal-node source passages.
+  - Complete before/after edge lists and per-node decisions.
+  - Corpus discovery, review-status accounting, and generated review artifacts.
+  - Append-only histories and generated community pages.
+findings:
+  - issue: https://github.com/CultureBotAI/CommunityMech/issues/1234
+    severity: medium
+    finding: A matching record hash could count an incomplete decision artifact as a completed review.
+    resolution: Require matching IDs, known statuses, complete nonblank node rationales, an exact current edge snapshot, source references, and the actual decision-file pointer. Added positive and negative tests. Regenerated the TSV after the completed writer run to eliminate empty trailing fields.
+    status: addressed
+  - issue: https://github.com/CultureBotAI/CommunityMech/issues/1235
+    severity: medium
+    finding: Three optional ecological classifications remained stronger than their cited evidence.
+    resolution: Removed COMMENSALISM from the AMD carbon-removal node and MUTUALISM/SYNTROPHY from the denitrification communication/endpoint nodes. Preserved measured processes, qualified edges, and knowledge gaps. Added guarded curation events and append-only follow-up histories.
+    status: addressed
+source_checks:
+  - record: CommunityMech:000001
+    result: Guild-level reviews and separate isolate physiology do not establish a measured six-member iron/carbon exchange network or a +/0 outcome. Retained only a qualified electron-acceptor-enabled carbon-oxidation edge.
+  - record: CommunityMech:000134
+    result: Comparative genomics and modeling motivate the DIET conduit; sulfur amendments directly support inhibitory edges. Consolidated the repeated DIET pair without treating proposed conduit details as measured.
+  - record: CommunityMech:000116
+    result: PMID:40020349 supports communication, DBP-induced phenazine electron transfer, and a stable denitrification endpoint. The accessible abstract does not isolate mediator contributions, paired fitness effects, or syntrophic product removal.
+  - record: CommunityMech:000190
+    result: Transcript comparisons are confounded by substrate and growth conditions. Preserved conditional formate/BES inhibition evidence while removing parallel-response arcs and the unsupported amino-acid transfer direction.
+verification:
+  source_report: reports/causal_graph_review/validation-20261004.json
+  coverage_report: reports/causal_graph_review/summary.json
+  decision_report: reports/causal_graph_review/decisions/20261004-four-records.yaml
+  corpus_records: 460
+  reviewed_records_in_ledger: 4
+  pending_records_in_ledger: 456
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 18
+  network_warning_change: 0
+  evidence_snippets_matched: 89
+  evidence_snippets_unmatched_or_missing: 0
+  regression_tests_passed: 100
+  regression_command: python -m pytest tests/test_causal_review_inventory.py tests/test_reference_validator_actually_validates.py tests/test_rank_causal_graph_readiness.py tests/test_network_auditor.py tests/test_published_pages_name_real_records.py -q
+limitations:
+  - This is a self-review, not an independent second-agent review.
+  - Four completed ledger rows do not establish completion of the whole-corpus semantic review. Earlier PR 1214 is not automatically promoted to that status.
+  - Eight corpus records have no interaction nodes. New causal structure still requires source-backed research.
+  - Edison authorization is recorded, but no key is configured. A single-community dry run succeeded; no paid job was submitted.
+  - The regular uv environment cannot build llvmlite locally. Repository validation commands ran in minimal isolated environments; the lockfile is unchanged.
+  - The initial unpinned reference checker overwrote some useful caches. Only its generated cache changes were restored, and all final reference checks used pinned version 0.1.7. No reference-cache changes are part of this PR.

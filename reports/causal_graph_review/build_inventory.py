@@ -25,15 +25,50 @@ def load_module(name, path):
     return module
 
 
+def review_status(doc, digest, review):
+    if review is None:
+        return "pending"
+    status = review["status"]
+    if status not in {"reviewed", "needs_research", "pending"}:
+        raise ValueError(f"Unknown review status: {status}")
+    if review["id"] != doc["id"]:
+        raise ValueError(f"Review ID does not match {doc['id']}")
+    if review["record_sha256"] != digest:
+        return "stale"
+    if status != "reviewed":
+        return status
+
+    nodes = doc.get("ecological_interactions") or []
+    decisions = review.get("node_decisions") or []
+    if Counter(item["node"] for item in decisions) != Counter(node["name"] for node in nodes):
+        raise ValueError(f"Node decisions do not cover {doc['id']} exactly once")
+    if any(not item.get("rationale", "").strip() for item in decisions):
+        raise ValueError(f"Blank node rationale in {doc['id']}")
+    edges = [
+        {"source": node["name"], **edge} for node in nodes for edge in node.get("downstream") or []
+    ]
+    if review.get("edges_after") != edges:
+        raise ValueError(f"After-edge snapshot does not match {doc['id']}")
+    if not review.get("scope", "").strip() or not review.get("references"):
+        raise ValueError(f"Missing review scope or source references for {doc['id']}")
+    return status
+
+
 def main():
     paths = sorted(record_files())
     discovered = sorted(p for root in default_record_roots() for p in root.rglob("*.yaml"))
     assert paths == discovered, "Record discovery omits YAML files (including ignored files)"
-    ranker = load_module("rank_causal_graph_readiness", ROOT / "scripts/rank_causal_graph_readiness.py")
+    ranker = load_module(
+        "rank_causal_graph_readiness", ROOT / "scripts/rank_causal_graph_readiness.py"
+    )
     auditor_module = load_module("network_auditor", ROOT / "src/communitymech/network/auditor.py")
     decisions = []
     for path in sorted((OUT / "decisions").glob("*.yaml")):
-        decisions.extend(yaml.safe_load(path.read_text())["records"])
+        records = yaml.safe_load(path.read_text())["records"]
+        for row in records:
+            if row.get("review_file") != str(path.relative_to(ROOT)):
+                raise ValueError(f"Incorrect review-file pointer in {path}")
+        decisions.extend(records)
     by_path = {row["path"]: row for row in decisions}
     assert len(by_path) == len(decisions), "Duplicate record reviews"
     assert set(by_path) <= {str(p.relative_to(ROOT)) for p in paths}, "Review target is missing"
@@ -43,9 +78,7 @@ def main():
         rel = str(path.relative_to(ROOT))
         digest = hashlib.sha256(path.read_bytes()).hexdigest()
         review = by_path.get(rel)
-        status = "pending"
-        if review:
-            status = review["status"] if review["record_sha256"] == digest else "stale"
+        status = review_status(doc, digest, review)
         score = ranker.score_document(doc)
         nodes = doc.get("ecological_interactions") or []
         names = [node["name"] for node in nodes]
@@ -64,23 +97,39 @@ def main():
                     "DUPLICATE_EDGE": target in seen,
                     "BLANK_EDGE_DESCRIPTION": not (edge.get("description") or "").strip(),
                     "SOURCE_WITHOUT_EVIDENCE": not node.get("evidence"),
-                    "TARGET_WITHOUT_EVIDENCE": not any(n["name"] == target and n.get("evidence") for n in nodes),
+                    "TARGET_WITHOUT_EVIDENCE": not any(
+                        n["name"] == target and n.get("evidence") for n in nodes
+                    ),
                 }
-                defects.extend({"path": rel, "type": key, "node": node["name"], "target": target}
-                               for key, failed in checks.items() if failed)
+                defects.extend(
+                    {"path": rel, "type": key, "node": node["name"], "target": target}
+                    for key, failed in checks.items()
+                    if failed
+                )
                 seen.add(target)
-        rows.append({"path": rel, "id": doc["id"], "record_sha256": digest,
-                     "nodes": score["ecological_interactions"], "edges": score["downstream_edges"],
-                     "readiness_score": score["score"],
-                     "review_file": review.get("review_file", "") if review else "",
-                     "review_status": status})
+        rows.append(
+            {
+                "path": rel,
+                "id": doc["id"],
+                "record_sha256": digest,
+                "nodes": score["ecological_interactions"],
+                "edges": score["downstream_edges"],
+                "readiness_score": score["score"],
+                "review_file": review.get("review_file", "") if review else "",
+                "review_status": status,
+            }
+        )
     findings = auditor_module.NetworkIntegrityAuditor().audit_all(quiet=True)
-    network = [{"record": record, **issue, "severity": auditor_module.issue_severity(issue)}
-               for record, issues in findings.items() for issue in issues]
+    network = [
+        {"record": record, **issue, "severity": auditor_module.issue_severity(issue)}
+        for record, issues in findings.items()
+        for issue in issues
+    ]
     summary = {
         "scope": "Every YAML under kb/communities and data/isolates; filesystem discovery includes hidden/ignored files.",
-        "semantic_review_rule": "Structural checks and readiness scores do not establish causal support. Completed reviews must match the current record SHA-256.",
-        "records": len(rows), "nodes": sum(row["nodes"] for row in rows),
+        "semantic_review_rule": "Structural checks and readiness scores do not establish causal support. Completed reviews must match the current record SHA-256, cover every node once with a rationale, and reproduce the current edge list.",
+        "records": len(rows),
+        "nodes": sum(row["nodes"] for row in rows),
         "edges": sum(row["edges"] for row in rows),
         "records_without_nodes": sum(row["nodes"] == 0 for row in rows),
         "records_without_edges": sum(row["edges"] == 0 for row in rows),
@@ -89,11 +138,17 @@ def main():
         "network_audit": network,
     }
     with (OUT / "inventory.tsv").open("w") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(rows[0]), delimiter="\t", lineterminator="\n")
+        writer = csv.DictWriter(
+            stream, fieldnames=list(rows[0]), delimiter="\t", lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(rows)
     (OUT / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
-    print(json.dumps({key: value for key, value in summary.items() if key != "network_audit"}, indent=2))
+    print(
+        json.dumps(
+            {key: value for key, value in summary.items() if key != "network_audit"}, indent=2
+        )
+    )
     return 1 if defects or any(issue["severity"] == "error" for issue in network) else 0
 
 

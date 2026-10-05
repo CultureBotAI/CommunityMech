@@ -430,6 +430,214 @@
       ],
       "exit_code": 0,
       "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000190\",\n    \"name\": \"Pelotomaculum-Methanocella Propionate RNA-Seq Coculture\",\n    \"score\": 100.0,\n    \"taxonomy\": 2,\n    \"connected_taxa\": 2,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 4,\n    \"downstream_edges\": 2,\n    \"interaction_evidence\": 9,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [],\n    \"path\": \"kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml\"\n  }\n]\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-post-adversarial-schema",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-post-adversarial-strict",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/AMD_Acidophile_Heterotroph_Network-followup.tsv",
+        "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml"
+      ],
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n[taxon-ids] NCBITaxon is unavailable, so the shared-id check (#292) was skipped, not passed.\n[gtdb-domain] NCBITaxon is unavailable, so the prokaryote-only check (#365) was skipped, not passed.\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/AMD_Acidophile_Heterotroph_Network-followup.tsv\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-post-adversarial-terms",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ],
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-post-adversarial-references",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ],
+      "exit_code": 0,
+      "output": "Validating kb/communities/AMD_Acidophile_Heterotroph_Network.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-post-adversarial-snippets",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml",
+        "--list-mismatch",
+        "--list-nocontent"
+      ],
+      "exit_code": 0,
+      "output": "# 30 evidence snippets scanned across 1 files\n  MATCH      30\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-post-adversarial-history",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/AMD_Acidophile_Heterotroph_Network/2026-10-05T040912Z-codex-adfcf5.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-post-adversarial-rank",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000001\",\n    \"name\": \"AMD Acidophile Heterotroph Network\",\n    \"score\": 80.0,\n    \"taxonomy\": 6,\n    \"connected_taxa\": 6,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 5,\n    \"downstream_edges\": 1,\n    \"interaction_evidence\": 7,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"additional_downstream\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/AMD_Acidophile_Heterotroph_Network.yaml\"\n  }\n]\n"
+    },
+    {
+      "check": "AMD_Acidophile_Heterotroph_Network-post-adversarial-render",
+      "command": [
+        "python3",
+        "-m",
+        "communitymech.render",
+        "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml"
+      ],
+      "exit_code": 0,
+      "output": "  \u2713 AMD_Acidophile_Heterotroph_Network.yaml \u2192 docs/communities/AMD_Acidophile_Heterotroph_Network.html\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-post-adversarial-schema",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-post-adversarial-strict",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Aerobic_Denitrification_Disturbance_SynCom-followup.tsv",
+        "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml"
+      ],
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n[taxon-ids] NCBITaxon is unavailable, so the shared-id check (#292) was skipped, not passed.\n[gtdb-domain] NCBITaxon is unavailable, so the prokaryote-only check (#365) was skipped, not passed.\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Aerobic_Denitrification_Disturbance_SynCom-followup.tsv\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-post-adversarial-terms",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ],
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-post-adversarial-references",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ],
+      "exit_code": 0,
+      "output": "Validating kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-post-adversarial-snippets",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml",
+        "--list-mismatch",
+        "--list-nocontent"
+      ],
+      "exit_code": 0,
+      "output": "# 13 evidence snippets scanned across 1 files\n  MATCH      13\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-post-adversarial-history",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Aerobic_Denitrification_Disturbance_SynCom/2026-10-05T040913Z-codex-f8fc9e.yaml"
+      ],
+      "exit_code": 0,
+      "output": "No issues found\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-post-adversarial-rank",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000116\",\n    \"name\": \"Aerobic Denitrification Disturbance-Stable SynCom\",\n    \"score\": 90.0,\n    \"taxonomy\": 3,\n    \"connected_taxa\": 3,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 3,\n    \"downstream_edges\": 2,\n    \"interaction_evidence\": 3,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml\"\n  }\n]\n"
+    },
+    {
+      "check": "Aerobic_Denitrification_Disturbance_SynCom-post-adversarial-render",
+      "command": [
+        "python3",
+        "-m",
+        "communitymech.render",
+        "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml"
+      ],
+      "exit_code": 0,
+      "output": "  \u2713 Aerobic_Denitrification_Disturbance_SynCom.yaml \u2192 docs/communities/Aerobic_Denitrification_Disturbance_SynCom.html\n"
     }
-  ]
+  ],
+  "final_record_sha256": {
+    "kb/communities/AMD_Acidophile_Heterotroph_Network.yaml": "81fe29292038349e959041675b876ef4e351cdfb6884796989540185c6797834",
+    "kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml": "45dd6c7f42e725c1e51ec80e03b32e78235377a99d9dc56bafae6acccdeb7bb7",
+    "kb/communities/Aerobic_Denitrification_Disturbance_SynCom.yaml": "c9cefea6036c2e4564079cfa0950e49c2282eff63dfe120835adb0c92fbbdbb0",
+    "kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml": "bb9483d04163c1df53929e60873f075a00e66d1364f8cf5779248da608b1054c"
+  }
 }
