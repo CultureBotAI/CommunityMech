@@ -553,7 +553,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Cheese Rind In Situ-In Vitro Model Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -561,13 +561,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -576,9 +571,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Moisture-Structured Rind Community Assembly</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Moisture and rind-style manipulations selected different bacterial and fungal assemblages, with drier natural-rind conditions enriching Debaryomyces, Staphylococcus, and Penicillium.</p>
+                <p class="prewrap interaction-description">Rind-style treatments changed reconstructed composition; drying also concentrates salt, so moisture was not an isolated niche mechanism. The environmental reconstruction, pairwise assays and succession subset have different memberships. The four genera in this record are not a complete defined assay roster.</p>
 
 
 
@@ -606,10 +600,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Fungal Deacidification Facilitates Bacterial Growth</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Proposed Fungal Deacidification and Bacterial Growth Responses</h3>
                 </div>
-                <p class="prewrap interaction-description">Yeasts and filamentous fungi increased cheese-curd-medium pH, and the study linked this deacidification to positive growth responses of multiple bacterial genera in fungal coculture.</p>
+                <p class="prewrap interaction-description">PARTIAL - fungal pH changes and pH-dependent bacterial growth suggest deacidification contributes to some responses. The current roster omits several responsive genera and includes bacteria with inhibitory responses; facilitation cannot be assigned across its four members. Exact-system evidence and assay scope remain unresolved in issue 765.</p>
 
 
 
@@ -638,9 +631,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Reproducible Natural-Rind Succession</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">A six-genus natural-rind subset recapitulated key features of in situ succession on cheese curd agar, with early Staphylococcus and Candida followed by later Brevibacterium, Brachybacterium, Penicillium, and Scopulariopsis.</p>
+                <p class="prewrap interaction-description">A simplified reconstruction reproduced broad in situ succession patterns, but was faster and quantitatively different. This observation does not demonstrate that earlier members facilitated later colonization. The succession subset must not be conflated with the environmental reconstruction or the incomplete four-genus roster.</p>
 
 
 
@@ -663,6 +655,24 @@
 
 
 
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/25036636/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:25036636</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Patterns of community composition and succession observed in situ can be recapitulated in a simple in vitro system."</div>
+
+                    </li>
+
+                </ul>
 
             </div>
 
@@ -706,6 +716,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which assay-specific members and permitted exact-system evidence support the three retained graph summaries?
+                </h3>
+                <p class="prewrap">Issue 765 remains open. Abstracts and selected primary Results/Discussion were read; complete methods and images were not accessible. No deleted publication-body text is restored. Environmental reconstruction, pairwise growth and succession use different member sets; media/cultivation attribution and aroma-potential claims need separate review. Keep zero arrows and needs_research until evidence and roster scope are reconciled.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Moisture-Structured Rind Community Assembly</code>, <code>ecological_interactions#Proposed Fungal Deacidification and Bacterial Growth Responses</code>, <code>ecological_interactions#Reproducible Natural-Rind Succession</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -881,7 +910,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -909,7 +938,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -922,7 +951,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Fungal Deacidification Facilitates Bacterial Growth",
+                label: "Proposed Fungal Deacidification and Bacterial Growth Responses",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -937,7 +966,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -946,7 +975,7 @@
             processes.push("biofilm formation");
 
 
-            var evidenceCount = 0;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,

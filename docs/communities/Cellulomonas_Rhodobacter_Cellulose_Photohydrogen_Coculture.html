@@ -580,7 +580,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Cellulomonas-Rhodobacter Cellulose Photohydrogen Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -593,13 +593,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -610,8 +605,7 @@
                     <h3>Cellulose Fermentation to Organic Acid Cross-Feeding</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Cellulomonas sp. ATCC 21399 ferments cellulose to organic acids that can support anaerobic photoheterotrophic growth by R. capsulata.
-</p>
+                <p class="prewrap interaction-description">Cellulomonas ATCC 21399 ferments cellulose to organic acids that support anaerobic photoheterotrophic R. capsulata. The abstract does not identify an acid species or demonstrate interpartner sugar transfer.</p>
 
 
                 <p><strong>Source Taxon:</strong> Cellulomonas sp. strain ATCC 21399</p>
@@ -628,9 +622,9 @@
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18246"
                         class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18246</a>),
 
-                    acetate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30089</a>)
+                    organic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=64709"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:64709</a>)
 
                 </p>
 
@@ -659,9 +653,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Nitrogenase-Driven Photohydrogen Evolution
-                        <p class="prewrap causal-description">Cellulomonas fermentation of cellulose supplies organic acids or sugars that R. capsulata can consume photoheterotrophically for nitrogenase-driven hydrogen evolution.
-</p>
+                        <span class="flow-arrow">→</span> Nitrogenase-Dependent Net Photohydrogen Yield
+                        <p class="prewrap causal-description">Organic-acid provision supplies the phototrophic partner with substrates for nitrogenase-dependent hydrogen production. This substrate connection does not establish reciprocal product-removal dependence.</p>
                     </div>
 
                 </div>
@@ -703,11 +696,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Nitrogenase-Driven Photohydrogen Evolution</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Nitrogenase-Dependent Net Photohydrogen Yield</h3>
                 </div>
-                <p class="prewrap interaction-description">R. capsulata converts Cellulomonas-derived fermentation products into molecular hydrogen under anaerobic illuminated conditions through its nitrogenase system.
-</p>
+                <p class="prewrap interaction-description">Illuminated anaerobic cocultures yield hydrogen through the R. capsulata nitrogenase system using cellulose-derived fermentation products. Net hydrogen output does not establish nitrogen fixation, carbon fixation or thermodynamic syntrophy.</p>
 
 
 
@@ -727,23 +718,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        photosynthesis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015979"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015979</a>)
-                    </li>
-
-                    <li>
-                        nitrogen fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009399"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009399</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -785,10 +759,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Uptake Hydrogenase Loss Increases Hydrogen Yield</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">The R. capsulata mutant lacking uptake hydrogenase produced more hydrogen per glucose equivalent than the wild-type phototrophic partner in coculture.
-</p>
+                <p class="prewrap interaction-description">Cocultures with an uptake-hydrogenase-negative R. capsulata mutant yielded 4.6-6.2 mol H2 per glucose equivalent versus 1.2-4.3 with the wild type. This genotype-dependent net yield is not niche partitioning or a measurement of gross nitrogenase flux.</p>
 
 
 
@@ -811,9 +783,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Nitrogenase-Driven Photohydrogen Evolution
-                        <p class="prewrap causal-description">Loss of R. capsulata uptake hydrogenase increases net hydrogen accumulation from cellulose-derived glucose equivalents compared with the wild-type phototrophic partner.
-</p>
+                        <span class="flow-arrow">→</span> Nitrogenase-Dependent Net Photohydrogen Yield
+                        <p class="prewrap causal-description">Loss of hydrogen uptake reduces a consumption route and increases net hydrogen yield; the mutant comparison does not show that gross nitrogenase production increased.</p>
                     </div>
 
                 </div>
@@ -894,6 +865,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which transferred acids and production-versus-consumption fluxes account for the net hydrogen difference?
+                </h3>
+                <p class="prewrap">PMID:16346269 abstract supports the organic-acid handoff and genotype comparison. Full methods remain unread. Hydrogen evolution does not by itself establish nitrogen fixation or photosynthetic CO2 assimilation; organism capabilities are not transfer measurements.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Cellulose Fermentation to Organic Acid Cross-Feeding</code>, <code>ecological_interactions#Nitrogenase-Dependent Net Photohydrogen Yield</code>, <code>ecological_interactions#Uptake Hydrogenase Loss Increases Hydrogen Yield</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1188,7 +1178,7 @@
 
             metabolites.push("cellulose");
 
-            metabolites.push("acetate");
+            metabolites.push("organic acid");
 
 
             var processes = [];
@@ -1228,7 +1218,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1239,17 +1229,11 @@
 
             var processes = [];
 
-
-            processes.push("photosynthesis");
-
-            processes.push("nitrogen fixation");
-
-
             var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Nitrogenase-Driven Photohydrogen Evolution",
+                label: "Nitrogenase-Dependent Net Photohydrogen Yield",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1264,7 +1248,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

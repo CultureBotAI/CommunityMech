@@ -119,9 +119,8 @@ taxonomy:
     explanation: Supports the phototrophic cross-feeder role of R. capsulata.
 ecological_interactions:
 - name: Cellulose Fermentation to Organic Acid Cross-Feeding
-  description: >
-    Cellulomonas sp. ATCC 21399 ferments cellulose to organic acids that can
-    support anaerobic photoheterotrophic growth by R. capsulata.
+  description: Cellulomonas ATCC 21399 ferments cellulose to organic acids that support anaerobic photoheterotrophic
+    R. capsulata. The abstract does not identify an acid species or demonstrate interpartner sugar transfer.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -139,11 +138,11 @@ ecological_interactions:
     term:
       id: CHEBI:18246
       label: (1->4)-beta-D-glucan
-  - preferred_term: acetate
+  - preferred_term: organic acid
     term:
-      id: CHEBI:30089
-      label: acetate
-    notes: Representative organic acid fermentation product; the abstract reports organic acids collectively.
+      id: CHEBI:64709
+      label: organic acid
+    notes: Class-level substrate only; the abstract does not resolve individual acids.
   biological_processes:
   - preferred_term: cellulose catabolic process
     term:
@@ -154,11 +153,9 @@ ecological_interactions:
       id: GO:0006113
       label: fermentation
   downstream:
-  - target: Nitrogenase-Driven Photohydrogen Evolution
-    description: >
-      Cellulomonas fermentation of cellulose supplies organic acids or sugars
-      that R. capsulata can consume photoheterotrophically for
-      nitrogenase-driven hydrogen evolution.
+  - target: Nitrogenase-Dependent Net Photohydrogen Yield
+    description: Organic-acid provision supplies the phototrophic partner with substrates for nitrogenase-dependent
+      hydrogen production. This substrate connection does not establish reciprocal product-removal dependence.
   evidence:
   - reference: PMID:16346269
     supports: SUPPORT
@@ -169,13 +166,12 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: grows photoheterotrophically under anaerobic conditions on organic acids or sugars
-    explanation: Supports R. capsulata utilization of organic acids or sugars released by the cellulolytic partner.
-- name: Nitrogenase-Driven Photohydrogen Evolution
-  description: >
-    R. capsulata converts Cellulomonas-derived fermentation products into
-    molecular hydrogen under anaerobic illuminated conditions through its
-    nitrogenase system.
-  interaction_type: SYNTROPHY
+    explanation: Supports recipient substrate capability; it does not establish that sugars were transferred in
+      this coculture.
+- name: Nitrogenase-Dependent Net Photohydrogen Yield
+  description: Illuminated anaerobic cocultures yield hydrogen through the R. capsulata nitrogenase system using
+    cellulose-derived fermentation products. Net hydrogen output does not establish nitrogen fixation, carbon fixation
+    or thermodynamic syntrophy.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: dihydrogen
@@ -186,15 +182,6 @@ ecological_interactions:
     term:
       id: CHEBI:18246
       label: (1->4)-beta-D-glucan
-  biological_processes:
-  - preferred_term: photosynthesis
-    term:
-      id: GO:0015979
-      label: photosynthesis
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
   evidence:
   - reference: PMID:16346269
     supports: SUPPORT
@@ -207,10 +194,9 @@ ecological_interactions:
     snippet: cellulose as the sole carbon source
     explanation: Supports cellulose-dependent community-level hydrogen production.
 - name: Uptake Hydrogenase Loss Increases Hydrogen Yield
-  description: >
-    The R. capsulata mutant lacking uptake hydrogenase produced more hydrogen
-    per glucose equivalent than the wild-type phototrophic partner in coculture.
-  interaction_type: NICHE_PARTITIONING
+  description: Cocultures with an uptake-hydrogenase-negative R. capsulata mutant yielded 4.6-6.2 mol H2 per glucose
+    equivalent versus 1.2-4.3 with the wild type. This genotype-dependent net yield is not niche partitioning or
+    a measurement of gross nitrogenase flux.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: dihydrogen
@@ -218,11 +204,9 @@ ecological_interactions:
       id: CHEBI:18276
       label: dihydrogen
   downstream:
-  - target: Nitrogenase-Driven Photohydrogen Evolution
-    description: >
-      Loss of R. capsulata uptake hydrogenase increases net hydrogen
-      accumulation from cellulose-derived glucose equivalents compared with
-      the wild-type phototrophic partner.
+  - target: Nitrogenase-Dependent Net Photohydrogen Yield
+    description: Loss of hydrogen uptake reduces a consumption route and increases net hydrogen yield; the mutant
+      comparison does not show that gross nitrogenase production increased.
   evidence:
   - reference: PMID:16346269
     supports: SUPPORT
@@ -354,3 +338,24 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element processing role is curated for this
   cellulose-fed photohydrogen coculture.
+discussions:
+- discussion_id: cellulomonas_transfer_and_net_hydrogen
+  prompt: Which transferred acids and production-versus-consumption fluxes account for the net hydrogen difference?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Cellulose Fermentation to Organic Acid Cross-Feeding
+  - ecological_interactions#Nitrogenase-Dependent Net Photohydrogen Yield
+  - ecological_interactions#Uptake Hydrogenase Loss Increases Hydrogen Yield
+  rationale: PMID:16346269 abstract supports the organic-acid handoff and genotype comparison. Full methods remain
+    unread. Hydrogen evolution does not by itself establish nitrogen fixation or photosynthetic CO2 assimilation;
+    organism capabilities are not transfer measurements.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T17:31:06Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Bound Cellulomonas organic-acid transfer and net photohydrogen yield; reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1272
+  llm_assisted: true
