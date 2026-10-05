@@ -122,10 +122,10 @@ taxonomy:
     explanation: Supports the strain and culture collection designation for the bacterial member.
 ecological_interactions:
 - name: Nutrient-Modulated Synthetic Mutualism
-  description: >
-    C. sorokiniana UTEX 2714 and A. brasilense Cd form a synthetic mutualism
-    whose population and physiological outcomes depend on the initial nutrient
-    condition, especially nitrogen and carbon availability.
+  description: 'C. sorokiniana UTEX 2714 and A. brasilense Cd show nutrient- and time-dependent population benefits
+    in illuminated bead cultures. The initial 12-hour nutrient-rich, N-free or C-free treatment was followed by
+    transfer to SGM. Mutualism is not uniform across comparisons: after the nutrient-rich start, later bacterial
+    counts did not differ significantly from individually immobilized controls.'
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -152,17 +152,20 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: synthetic mutualism between C. sorokiniana and A. brasilense can be modulated
-    explanation: Supports a nutrient-modulated synthetic mutualism between the two members.
+    explanation: Supports condition-dependent mutualism in the illuminated nutrient-shift experiment, not every
+      physiological endpoint in all three publications.
   - reference: doi:10.1007/s00248-018-1282-1
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: Overall, populations of bacteria and microalgae were larger when co-immobilized.
-    explanation: Supports mutualistic population enhancement in the co-immobilized system.
+    explanation: The abstract gives the overall population trend; Results show time/medium-specific exceptions,
+      including the nutrient-rich-start bacterial comparison.
 - name: Tryptophan, Thiamine, and IAA Exchange
-  description: >
-    The algal-bacterial pair exchanges resources involved in indole-3-acetic
-    acid production: the microalga releases tryptophan and thiamine, and the
-    bacterium uses those resources to produce the phytohormone IAA.
+  description: PARTIAL - algal exudates supported bacterial IAA production; supplementation required tryptophan
+    plus thiamine diphosphate rather than tryptophan alone. This supports algal-resource use by Cd. Within co-immobilized
+    cultures, bulk-medium tryptophan and IAA were undetected; enzyme and ipdC expression measurements support proposed
+    local exchange but do not directly quantify its flux. IPDC activity alone is neither uniquely bacterial nor
+    specific to IAA production.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -203,26 +206,29 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: IAA-Linked Starch Accumulation Response
-    description: >
-      Microalgal tryptophan and thiamine release supports bacterial IAA
-      production, which the follow-up exact-pair experiments linked to
-      C. sorokiniana starch metabolism.
+    description: PARTIAL - bacterial IAA can promote algal starch/AGPase responses in the separate dark, glucose-fed
+      assay. Synthetic IAA and wild-type versus IAA-attenuated strain comparisons support mediation, but SpM7918
+      is an Sp6-derived comparator, not a Cd mutant; exact-strain IAA necessity and the contribution of local resource
+      transfer remain unresolved.
   evidence:
   - reference: doi:10.1093/femsec/fiw077
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: using tryptophan and thiamine released by the microalga
-    explanation: Supports algal release of tryptophan and thiamine used by A. brasilense for IAA production.
+    explanation: The primary text supports exudate-dependent bacterial IAA synthesis and cofactor supplementation.
+      Local bead-scale transfer is inferred; the tested cofactor supplement was thiamine diphosphate, not a direct
+      identification of the extracellular thiamine species.
   - reference: doi:10.1007/s00248-018-1282-1
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: production of signal molecules tryptophan and indole-3-acetic acid
-    explanation: Supports tryptophan and IAA as measured signal molecules in the exact species pair.
+    explanation: The nutritional study measures signal molecules but finds no bulk IAA in N-free/C-free-start treatments.
+      Its proposed short-distance transfer is not direct flux measurement.
 - name: Co-Immobilization and Cell Aggregation
-  description: >
-    Co-immobilization in alginate beads and aggregation of algal and bacterial
-    cells provide spatial organization for the interaction.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Co-immobilization experimentally places both members in alginate beads; mixed aggregates were observed
+    with condition- and time-dependent patterns. N-free-start attachment weakened later, whereas large C-free-start
+    clusters developed late. This is engineered proximity and observed organization, not demonstrated partner-mediated
+    colonization facilitation.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Azospirillum brasilense Cd
@@ -245,26 +251,27 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Nutrient-Modulated Synthetic Mutualism
-    description: >
-      Co-immobilized alginate beads and algal-bacterial aggregation spatially organize the two partners,
-      supporting the population increases observed during nutrient-modulated synthetic mutualism.
+    description: HYPOTHESIZED - close proximity could facilitate exchange of growth-supporting resources. The studies
+      propose this link, but aggregation was not selectively disrupted to demonstrate that it causes the nutrient-dependent
+      population benefits.
   evidence:
   - reference: doi:10.1007/s00248-018-1282-1
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Formation of aggregates made of microalgae and bacteria occurred
-    explanation: Supports algal-bacterial aggregation as an observed spatial feature.
+    explanation: Supports observed mixed aggregation, not its necessity for mutualism or a colonization-facilitation
+      type.
   - reference: doi:10.1093/femsec/fiw077
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Microorganisms were immobilized individually and co-immobilized in alginate beads
-    explanation: Supports alginate bead co-immobilization as the experimental spatial format.
+    explanation: Supports the investigator-imposed bead format, not a partner-caused colonization mechanism.
 - name: IAA-Linked Starch Accumulation Response
-  description: >
-    Follow-up experiments linked tryptophan and bacterial indole-3-acetic acid
-    production to starch accumulation and metabolism in the synthetic
-    C. sorokiniana-A. brasilense system.
-  interaction_type: MUTUALISM
+  description: In dark, aerobic, glucose-fed assays with or without ammonium, Cd and Sp6 cocultures increased algal
+    starch and AGPase activity. Synthetic IAA gave a transient response, and the Sp6-derived IAA-attenuated SpM7918
+    retained smaller starch effects. Most cocultures reduced algal population growth; starch is a physiological
+    endpoint, not reciprocal fitness. The Cd tryptophan/IAA correlation under N starvation was nonsignificant, and
+    the intracellular regulatory step remains unresolved.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Azospirillum brasilense Cd
@@ -296,15 +303,18 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: doi:10.1016/j.resmic.2016.02.005
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: measured the relations between tryptophan production, the phytohormone indole-3-acetic acid
-    explanation: Supports tryptophan and IAA as mechanistic variables in a follow-up exact-composition study.
+    explanation: This abstract excerpt identifies measured variables, not the complete causal result. Primary Results,
+      Table 1 and Figures 3-5 support starch/AGPase effects and comparator/synthetic-IAA evidence; they do not prove
+      Cd-specific genetic necessity.
   - reference: doi:10.1016/j.resmic.2016.02.005
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: created by co-immobilization in alginate beads
-    explanation: Supports the alginate bead synthetic mutualism context for the follow-up starch study.
+    explanation: Supports the bead assay format only. The paper's mutualism framing does not turn a starch endpoint,
+      often accompanied by reduced algal counts, into reciprocal fitness.
 environmental_factors:
 - name: Initial nitrogen and carbon availability
   value: nutrient-rich, nitrogen-free, and carbon-free initial conditions
@@ -526,3 +536,26 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element transformation role is curated for this
   algal-bacterial synthetic mutualism.
+discussions:
+- discussion_id: chlorella_cd_local_transfer_and_starch_mediation
+  prompt: How much bead-local metabolite transfer occurs, and is Cd-derived IAA necessary for the starch response?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Nutrient-Modulated Synthetic Mutualism
+  - ecological_interactions#Tryptophan, Thiamine, and IAA Exchange
+  - ecological_interactions#Co-Immobilization and Cell Aggregation
+  - ecological_interactions#IAA-Linked Starch Accumulation Response
+  rationale: Bulk non-detection does not exclude short-distance transfer, but enzyme activity does not quantify
+    partner-resolved flux. The IAA-attenuated comparator is derived from Sp6 rather than Cd. Exact-Cd loss/rescue,
+    transfer measurements and a selective proximity perturbation would distinguish IAA mediation and aggregation
+    dependence without conflating illuminated growth with dark glucose-fed starch assays.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T20:12:40Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Separate Chlorella nutrient mutualism, inferred transfer, proximity and IAA-linked starch assays; reports/causal_graph_review/decisions/20261005-two-records-batch12.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1295
+  llm_assisted: true
