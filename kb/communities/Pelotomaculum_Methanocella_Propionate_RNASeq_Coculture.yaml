@@ -112,10 +112,10 @@ taxonomy:
     explanation: Supports the methanogenic role assigned to M. conradii.
 ecological_interactions:
 - name: Propionate Oxidation Coupled to Methanogenesis
-  description: >
-    P. thermopropionicum and M. conradii form a thermodynamically constrained
-    syntrophic pair in which propionate oxidation is coordinated with
-    hydrogenotrophic methanogenesis.
+  description: 'P. thermopropionicum and M. conradii form a thermodynamically constrained syntrophic pair in which propionate
+    oxidation is coordinated with hydrogenotrophic methanogenesis.
+
+    '
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -156,11 +156,9 @@ ecological_interactions:
       label: methanogenesis
   downstream:
   - target: Catabolism and Methanogenesis Upregulation in Coculture
-    description: >
-      Establishing the syntrophic coculture (versus monoculture) drives the
-      concerted transcriptional upregulation of catabolic genes — the
-      methylmalonyl-CoA pathway in P. thermopropionicum and methanogenesis
-      genes in M. conradii.
+    description: PARTIAL - the propionate-fed coculture showed increased catabolic and methanogenesis transcripts relative
+      to the monocultures. The source warns that substrate, hydrogen availability and growth rate differ, so this comparison
+      does not isolate the effect of the partner interaction alone.
   evidence:
   - reference: PMID:30038609
     supports: SUPPORT
@@ -170,13 +168,14 @@ ecological_interactions:
   - reference: PMID:30038609
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: constructed cocultures of propionate-oxidizing Pelotomaculum thermopropionicum and hydrogenotrophic Methanocella conradii
+    snippet: constructed cocultures of propionate-oxidizing Pelotomaculum thermopropionicum and hydrogenotrophic Methanocella
+      conradii
     explanation: Supports propionate oxidation coupled to hydrogenotrophic methanogenesis in the exact coculture.
 - name: Catabolism and Methanogenesis Upregulation in Coculture
-  description: >
-    Coculture growth upregulated catabolic genes in both organisms, including
-    methylmalonyl-CoA pathway genes in P. thermopropionicum and methanogenesis
-    genes in M. conradii.
+  description: 'Coculture growth upregulated catabolic genes in both organisms, including methylmalonyl-CoA pathway genes
+    in P. thermopropionicum and methanogenesis genes in M. conradii.
+
+    '
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -198,17 +197,6 @@ ecological_interactions:
     term:
       id: GO:0015948
       label: methanogenesis
-  downstream:
-  - target: Formate and Electron Bifurcation Strategy
-    description: >
-      The catabolic upregulation includes formate dehydrogenase and flavin-based
-      electron bifurcation/confurcation genes in both partners, activating
-      formate as an alternate interspecies electron carrier alongside H2.
-  - target: Signal Transduction and Amino Acid Exchange
-    description: >
-      The same coculture transcriptional shift upregulates flagellum-induced
-      signal transduction and amino-acid exchange that accompany syntrophic
-      growth.
   evidence:
   - reference: PMID:30038609
     supports: SUPPORT
@@ -221,10 +209,9 @@ ecological_interactions:
     snippet: methylmalonyl-CoA pathway in P. thermopropionicum and key genes for methanogenesis in M. conradii
     explanation: Supports the paired propionate and methanogenesis transcriptional response.
 - name: Formate and Electron Bifurcation Strategy
-  description: >
-    Transcript and inhibition evidence indicates that formate and
-    flavin-based electron bifurcation/confurcation contribute to electron
-    transfer and redox balancing during syntrophic growth.
+  description: PARTIAL - increased formate-dehydrogenase and putative electron-bifurcation/confurcation transcripts, together
+    with formate and 2-BES perturbations, support the authors' inference that formate contributes to electron transfer and
+    redox balance during syntrophy. These observations do not directly quantify interspecies formate flux or enzyme activity.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -249,17 +236,10 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Propionate Oxidation Coupled to Methanogenesis
-    description: >
-      Interspecies formate and H2 transfer to M. conradii sustains
-      hydrogenotrophic methanogenesis, keeping the shared electron-carrier
-      partial pressure low and thermodynamically pulling P. thermopropionicum
-      propionate oxidation; inhibiting methanogenesis with 2-BES abolished both
-      methane production and propionate oxidation.
-  - target: Propionate Oxidation Coupled to Methanogenesis
-    description: >
-      NEGATIVE (product inhibition) — accumulation of excess formate inhibits
-      syntrophic activity and halts propionate oxidation, so formate transfer
-      must stay balanced by continuous methanogenic consumption.
+    description: 'PARTIAL - formate turnover is inferred to support syntrophic electron transfer. Its effect depends on conditions:
+      adding 20 mM formate immediately halted propionate oxidation, which resumed after formate consumption; adding 5 mM 2-BES
+      abolished propionate oxidation and methane production. The source did not find comparable inhibition after H2/CO2 addition,
+      so this edge does not assert a measured low-H2 requirement in that experiment.'
   evidence:
   - reference: PMID:30038609
     supports: SUPPORT
@@ -267,27 +247,26 @@ ecological_interactions:
     snippet: flavin-based electron bifurcation/confurcation systems in both organisms were also upregulated
     explanation: Supports electron bifurcation/confurcation as a coculture response.
   - reference: PMID:30038609
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: formate was produced and utilized by P. thermopropionicum and M. conradii, respectively
     explanation: Supports formate transfer from the syntroph to the methanogen.
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The addition of formate halted propionate oxidation and CH4 production immediately
+    explanation: Supports the inhibition condition; the methods specify a 20 mM formate addition.
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methane production and propionate oxidation were completely inhibited after the addition of 2-BES
+    explanation: Supports the methanogenesis-inhibition perturbation; the methods specify 5 mM 2-BES.
 - name: Signal Transduction and Amino Acid Exchange
-  description: >
-    Coculture RNA-seq indicated upregulation of flagellum-induced signal
-    transduction and amino acid exchange, suggesting non-catabolic interaction
-    mechanisms that accompany syntrophic growth.
+  description: HYPOTHESIZED - RNA-seq changes suggest flagellum-related signaling and amino-acid exchange during syntrophy.
+    The source specifically hypothesizes amino-acid transfer from M. conradii to P. thermopropionicum; transcript changes
+    do not directly demonstrate transfer or a single direction for both signaling and nutrient exchange.
   interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Pelotomaculum thermopropionicum
-    term:
-      id: NCBITaxon:110500
-      label: Pelotomaculum thermopropionicum
-  target_taxon:
-    preferred_term: Methanocella conradii
-    term:
-      id: NCBITaxon:1175444
-      label: Methanocella conradii
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -295,10 +274,19 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:30038609
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: flagellum-induced signal transduction and amino acids exchange was upregulated
     explanation: Supports signal transduction and amino acid exchange as interaction-linked responses.
+  participating_taxa:
+  - preferred_term: Pelotomaculum thermopropionicum
+    term:
+      id: NCBITaxon:110500
+      label: Pelotomaculum thermopropionicum
+  - preferred_term: Methanocella conradii
+    term:
+      id: NCBITaxon:1175444
+      label: Methanocella conradii
 environmental_factors:
 - name: Anaerobic syntrophic energy limitation
   value: small free-energy sharing
@@ -457,3 +445,24 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element transformation role is curated for this
   methanogenic propionate-oxidizing RNA-seq coculture.
+discussions:
+- discussion_id: peloto_expression_and_transfer_causality
+  prompt: Which transcript changes and exchange routes are causal drivers of the syntrophic phenotype?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Propionate Oxidation Coupled to Methanogenesis
+  - ecological_interactions#Catabolism and Methanogenesis Upregulation in Coculture
+  - ecological_interactions#Formate and Electron Bifurcation Strategy
+  - ecological_interactions#Signal Transduction and Amino Acid Exchange
+  rationale: PMID:30038609 compares pyruvate-grown bacterial and H2/CO2-grown archaeal monocultures with a propionate-fed
+    coculture at a different growth rate. The authors caution that these differences affect transcription. Parallel catabolic,
+    formate-handling and signaling responses do not establish an ordered causal chain. Amino-acid transfer from M. conradii
+    to P. thermopropionicum is explicitly hypothesized and requires direct transfer or perturbation evidence.
+curation_history:
+- timestamp: '2026-10-05T03:55:46Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate transcript associations from causal and conditional formate effects; source and per-node decisions recorded
+    under reports/causal_graph_review. Issue #1232.'
+  llm_assisted: true

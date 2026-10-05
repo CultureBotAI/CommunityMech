@@ -289,16 +289,9 @@ taxonomy:
     explanation: Documents broad substrate utilization capability
 ecological_interactions:
 - name: Organic Carbon Scavenging and Remineralization
-  description: 'Heterotrophic acidophiles scavenge and metabolize organic carbon compounds that accumulate
-    in AMD systems from autotrophic cell lysis, exudates, and fermentation products. Acidiphilium species,
-    Ferrimicrobium acidiphilum, and Acidocella facilis consume dissolved organic carbon (DOC) that would
-    otherwise inhibit autotrophic iron oxidizers like Leptospirillum and Acidithiobacillus. By removing
-    inhibitory organic compounds, heterotrophs help create conditions that are compatible with autotrophic
-    iron oxidation. Organic-substrate oxidation by these heterotrophs converts dissolved carbon into CO2
-    and keeps the heterotroph guild linked to iron-oxidizing primary producers at the AMD-community level.
-
-    '
-  interaction_type: COMMENSALISM
+  description: PARTIAL - AMD heterotrophs remove organic lysates and exudates that can inhibit iron-oxidizing primary producers,
+    as summarized in the cited review. This node represents a guild-level carbon-removal function, not a measured interaction
+    among all six taxa listed in this record.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Acidiphilium multivorum
@@ -323,58 +316,21 @@ ecological_interactions:
       id: CHEBI:50860
       label: organic molecular entity
     notes: Dissolved organic carbon from lysed cells and autotroph exudates
-  - preferred_term: carbon dioxide
-    term:
-      id: CHEBI:16526
-      label: carbon dioxide
-    notes: Product of organic carbon mineralization
-  - preferred_term: ammonium
-    term:
-      id: CHEBI:28938
-      label: ammonium
-    notes: Released from amino acid degradation
-  - preferred_term: phosphate
-    term:
-      id: CHEBI:18367
-      label: phosphate(3-)
-    notes: Released from nucleic acid and phospholipid degradation
-  biological_processes:
-  - preferred_term: aerobic respiration
-    term:
-      id: GO:0009060
-      label: aerobic respiration
-  - preferred_term: nitrogen compound metabolic process
-    term:
-      id: GO:0071941
-      label: nitrogen cycle metabolic process
   evidence:
   - reference: doi:10.3389/fmicb.2015.00475
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Heterotrophs in AMD systems create suitable environments for the growth of iron-oxidizers
-      by removing organic components (lysates, exudates) that can be toxic to the primary producers
-    explanation: Supports heterotroph-level removal of organic carbon that would otherwise
-      inhibit AMD iron-oxidizing primary producers.
+    supports: PARTIAL
+    evidence_source: REVIEW
+    snippet: Heterotrophs in AMD systems create suitable environments for the growth of iron-oxidizers by removing organic
+      components (lysates, exudates) that can be toxic to the primary producers
+    explanation: Supports the AMD heterotroph guild function; does not establish the contribution of each named species in
+      one consortium.
 - name: Ferric Iron Reduction and Ferrous Iron Regeneration
-  description: 'Acidiphilium multivorum and A. cryptum couple organic carbon oxidation to ferric iron
-    [Fe(III)] reduction under anaerobic or microaerobic conditions. This process generates ferrous iron
-    [Fe(II)] that serves as the energy source for autotrophic iron oxidizers (Leptospirillum, Ferroplasma,
-    Acidithiobacillus). The heterotroph- mediated Fe(III) reduction creates a closed iron redox cycle:
-    autotrophs oxidize Fe(II) to Fe(III) using oxygen as electron acceptor and fix CO2, while heterotrophs
-    reduce Fe(III) to Fe(II) using organic carbon as electron donor. This coupling maintains iron cycling
-    in zones with variable oxygen availability. In anaerobic biofilm depths or sediments, heterotrophs
-    generate Fe(II) that diffuses to aerobic surfaces where autotrophs re-oxidize it. The process also
-    facilitates solubilization of iron from mineral surfaces, as reduced Fe(II) is more soluble than Fe(III)
-    at low pH. This iron-carbon coupling is fundamental to AMD biogeochemistry.
-
-    '
-  interaction_type: CROSS_FEEDING
+  description: Acidiphilium cryptum-related isolate JF-5 coupled dissimilatory Fe(III) reduction to complete oxidation of
+    glucose and other substrates. Glucose and cellobiose stimulated Fe(II) formation in acidic-sediment microcosms. This supports
+    iron-coupled carbon oxidation, but does not demonstrate Fe(II) cross-feeding to an autotroph or a Ferrimicrobium partner
+    in this assemblage.
   scope: COMMUNITY_LEVEL
   participating_taxa:
-  - preferred_term: Acidiphilium multivorum
-    term:
-      id: NCBITaxon:62140
-      label: Acidiphilium multivorum
   - preferred_term: Acidiphilium cryptum
     term:
       id: NCBITaxon:524
@@ -401,39 +357,27 @@ ecological_interactions:
       label: organic acid
     notes: Organic acids (malate, citrate, succinate) as electron donors
   biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
   - preferred_term: anaerobic respiration
     term:
       id: GO:0009061
       label: anaerobic respiration
   downstream:
   - target: Organic Carbon Scavenging and Remineralization
-    description: Organic carbon is oxidized during Fe(III) reduction
+    description: PARTIAL - Fe(III) serves as the respiratory electron acceptor enabling complete organic-substrate oxidation
+      by isolate JF-5 (PMID:10427060), supporting the anaerobic carbon-oxidation component of the broader guild node. Community-wide
+      detoxification was not measured in that isolate assay.
   evidence:
   - reference: PMID:10427060
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: These collective results indicate that the in situ reduction of Fe(III) in acidic sediments
-      can be mediated by heterotrophic Acidiphilium species that are capable of coupling the reduction
-      of Fe(III) to the complete oxidation of a large variety of substrates including glucose and H(2).
+    snippet: These collective results indicate that the in situ reduction of Fe(III) in acidic sediments can be mediated by
+      heterotrophic Acidiphilium species that are capable of coupling the reduction of Fe(III) to the complete oxidation of
+      a large variety of substrates including glucose and H(2).
     explanation: Demonstrates Fe(III) reduction coupled to diverse organic substrates
 - name: Heterotrophic Iron Oxidation by Ferrimicrobium
-  description: 'Ferrimicrobium acidiphilum uniquely combines heterotrophic metabolism with iron oxidation
-    capability, bridging the functional divide between heterotrophs and lithoautotrophs. This obligate
-    heterotroph oxidizes ferrous iron [Fe(II)] to ferric iron [Fe(III)] while simultaneously requiring
-    organic carbon for growth. The iron oxidation activity supplements energy from organic carbon metabolism.
-    F. acidiphilum also catalyzes iron reduction, enabling reversible iron cycling depending on redox
-    conditions. The cytochrome 605 oxidation step is rate-limiting during aerobic iron respiration. This
-    dual metabolism allows F. acidiphilum to occupy a unique niche where both organic carbon and ferrous
-    iron are available. It contributes to iron oxidation in zones where organic matter is present, supporting
-    the broader community iron cycle while removing inhibitory dissolved organic carbon. This represents
-    a convergent evolution of heterotrophy and lithotrophy in AMD environments.
-
-    '
-  interaction_type: NICHE_PARTITIONING
+  description: Ferrimicrobium acidiphilum T23(T) is an obligate heterotroph whose growth yield increased during ferrous-iron
+    oxidation. The isolate also reduced ferric iron with glycerol in oxygen-free medium. These are isolate physiological capabilities;
+    transfer of its iron products to Acidiphilium was not tested in the cited characterization.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Ferrimicrobium acidiphilum
@@ -456,45 +400,23 @@ ecological_interactions:
       id: CHEBI:50860
       label: organic molecular entity
     notes: Organic carbon required for heterotrophic growth
-  biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
-  - preferred_term: heterotrophy
-    term:
-      id: GO:0019752
-      label: carboxylic acid metabolic process
-  downstream:
-  - target: Ferric Iron Reduction and Ferrous Iron Regeneration
-    description: Heterotrophic Fe(II) oxidation regenerates the ferric iron pool
-      that Acidiphilium can use as an anaerobic electron acceptor.
   evidence:
   - reference: doi:10.1099/ijs.0.65409-0
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Two novel extremely acidophilic, iron-oxidizing actinobacteria were isolated, one from a
-      mine site in North Wales, UK (isolate T23(T)), and the other from a geothermal site in Yellowstone
-      National Park, Wyoming, USA (Y005(T))
-    explanation: Establishes unique heterotrophic iron oxidation metabolism
-  - reference: doi:10.1128/aem.01906-20
+    snippet: Ferrous iron oxidation enhanced growth yields of the novel mesophilic actinobacterium T23(T)
+    explanation: Directly supports growth enhancement by iron oxidation in the Ferrimicrobium isolate.
+  - reference: doi:10.1099/ijs.0.65409-0
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: acidiphilum as it respired on extracellular iron using an integrating cavity absorption meter
-      that permitted accurate optical measurements in turbid suspensions of the intact bacterium under
-      physiological conditions
-    explanation: Identifies rate-limiting step in iron respiration pathway
+    snippet: Both isolates catalysed the dissimilatory reduction of ferric iron, using glycerol as electron donor, in oxygen-free
+      medium.
+    explanation: Supports the iron-reducing capacity of the characterized isolates, not exchange between species.
 - name: Photoheterotrophic Carbon Cycling
-  description: 'Acidisphaera rubrifaciens performs photoheterotrophy in surface AMD biofilms, combining
-    light-harvesting with organic carbon metabolism. This bacterium produces bacteriochlorophyll a and
-    carotenoids, allowing it to capture light energy while degrading organic compounds. In surface biofilms
-    exposed to sunlight, A. rubrifaciens supplements heterotrophic metabolism with photosynthetic energy
-    capture, providing a metabolic bridge between purely chemoheterotrophic organisms and phototrophic
-    energy acquisition. This contributes to overall organic carbon turnover in AMD systems and provides
-    an additional energy input pathway that complements the chemotrophic metabolism of other heterotrophs.
-
-    '
-  interaction_type: NICHE_PARTITIONING
+  description: Acidisphaera rubrifaciens isolates from acidic hot springs and mine drainage were strictly aerobic chemo-organotrophs
+    producing bacteriochlorophyll a. Continuous illumination stimulated aerobic growth, whereas anaerobic growth in the light
+    was not observed. PARTIAL - a contribution to community carbon turnover is plausible from this physiology, but was not
+    measured in AMD biofilms.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Acidisphaera rubrifaciens
@@ -516,19 +438,19 @@ ecological_interactions:
   - reference: PMID:10939661
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Four strains of aerobic, mesophilic, acidophilic bacteria that produced
-      bacteriochlorophyll (BChl) a were isolated from acidic hot springs and mine drainage
-    explanation: Establishes aerobic bacteriochlorophyll production by acidophilic
-      Acidisphaera-lineage isolates from acidic environments.
+    snippet: Four strains of aerobic, mesophilic, acidophilic bacteria that produced bacteriochlorophyll (BChl) a were isolated
+      from acidic hot springs and mine drainage
+    explanation: Establishes aerobic bacteriochlorophyll production by acidophilic Acidisphaera-lineage isolates from acidic
+      environments.
+  - reference: PMID:10939661
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Anaerobic growth in the light was not found, but aerobic growth was stimulated by continuous incandescent illumination.
+    explanation: Supports light-enhanced aerobic growth of the isolates, rather than an in situ community flux.
 - name: Acidobacterium Carbohydrate Utilization
-  description: 'Acidobacterium capsulatum anchors the acidobacterial chemoorganotrophs found in AMD.
-    Its recovery from acid mine drainage, together with cultured subdivision 1 acidobacteria that can
-    use glucose, xylose, lactose, and multiple oligosaccharides, supports an acidobacterial carbon-use
-    function in the AMD heterotroph guild. This process feeds simple sugars and oligosaccharides into
-    broader community-level organic-carbon turnover.
-
-    '
-  interaction_type: NICHE_PARTITIONING
+  description: PARTIAL - the cited Acidobacteria review reports AMD isolation of Acidobacterium capsulatum and carbohydrate
+    use among cultured subdivision 1 genera. These observations motivate a carbon-use role for the lineage, but do not measure
+    its effect on the other AMD heterotrophs or on community organic-carbon removal.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Acidobacterium capsulatum
@@ -553,18 +475,13 @@ ecological_interactions:
     term:
       id: GO:0005975
       label: carbohydrate metabolic process
-  downstream:
-  - target: Organic Carbon Scavenging and Remineralization
-    description: Acidobacterial carbohydrate use is part of the heterotrophic
-      organic-carbon sink in AMD.
   evidence:
   - reference: doi:10.3389/fmicb.2016.00744
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: REVIEW
-    snippet: At least one species of each of the eight recognized genera of subdivision 1 is able to use
-      D-glucose, D-xylose, and lactose as carbon sources
-    explanation: Supports carbohydrate use in cultured Acidobacteria subdivision 1 genera,
-      including the Acidobacterium lineage.
+    snippet: At least one species of each of the eight recognized genera of subdivision 1 is able to use D-glucose, D-xylose,
+      and lactose as carbon sources
+    explanation: Supports carbohydrate use in cultured Acidobacteria subdivision 1 genera, including the Acidobacterium lineage.
 environmental_factors:
 - name: pH Range
   value: 2.0-4.0
@@ -749,3 +666,31 @@ metals_present:
 metal_relevance: PRIMARY
 metal_notes: Metal/REE detected via CHEBI terms in metabolites; Metal/REE detected via environmental factor
   measurements; Metal/REE detected via keyword matching in description (context-validated)
+discussions:
+- discussion_id: amd_guild_causal_transfer
+  prompt: Which iron and carbon transfers occur among these taxa in the same AMD community?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Organic Carbon Scavenging and Remineralization
+  - ecological_interactions#Ferric Iron Reduction and Ferrous Iron Regeneration
+  - ecological_interactions#Heterotrophic Iron Oxidation by Ferrimicrobium
+  - ecological_interactions#Photoheterotrophic Carbon Cycling
+  - ecological_interactions#Acidobacterium Carbohydrate Utilization
+  rationale: The record combines an AMD review with isolate physiology. PMID:10427060 establishes Fe(III)-coupled substrate
+    oxidation by JF-5; doi:10.1099/ijs.0.65409-0 establishes Ferrimicrobium iron metabolism. Neither establishes a Ferrimicrobium-to-Acidiphilium
+    handoff. Acidobacterial carbohydrate use is also not evidence of a directed effect on the other guild members. Same-system
+    cocultures or labeled-substrate/iron-transfer measurements would be needed to establish those edges.
+curation_history:
+- timestamp: '2026-10-05T03:55:44Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Remove cross-study and part-of AMD edges; scope nodes to review and isolate evidence; source and per-node decisions
+    recorded under reports/causal_graph_review. Issue #1232.'
+  llm_assisted: true
+- timestamp: '2026-10-05T04:09:09Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Adversarial review #1235: Remove the +/0 classification: the guild review does not establish an unaffected named
+    partner.'
+  llm_assisted: true
