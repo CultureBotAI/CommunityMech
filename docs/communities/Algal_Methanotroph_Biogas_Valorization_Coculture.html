@@ -787,7 +787,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Algal-Methanotroph Biogas Valorization Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -800,8 +800,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -810,9 +810,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Photosynthetic O2 Support for Methane Oxidation</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Oxygenic green algae accumulate O2 under illumination and support aerobic methane oxidation by the methanotrophic fraction; after two external oxygen pulses, algal O2 production supported methanotrophic growth without further oxygen addition.</p>
+                <p class="prewrap interaction-description">PARTIAL - the illuminated, non-axenic algal-methanotroph culture removed methane and carbon dioxide. Methane oxidation began after external oxygen pulses on days 13 and 15 and continued without further oxygen addition, consistent with photosynthetic oxygen support. These community-level gas dynamics do not isolate taxon-specific oxygen transfer or reciprocal fitness benefits between named partners.</p>
 
 
 
@@ -890,7 +889,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41745484/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41745484</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"functionally self-sustaining state"</div>
@@ -919,7 +918,7 @@
                     <h3>Methane-Linked Methylotroph Cross-Feeding</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Methanotrophs oxidize CH4 to intermediates including methanol and formaldehyde, which can be assimilated by methylotrophs; Methylophaga and Methylonatrum were dominant methylotrophic genera in the CH4-fed co-culture.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - methanotroph-derived methanol or other one-carbon intermediates could support Methylophaga and Methylonatrum in the methane-fed culture. Their observed abundance and known metabolism support a candidate exchange, not measured donor-to-recipient flux or detoxification.</p>
 
 
 
@@ -974,7 +973,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41745484/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41745484</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"methanotrophs oxidize CH4 to intermediates such as methanol and formaldehyde"</div>
@@ -1038,6 +1037,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which organisms supply and receive the oxygen and one-carbon metabolites in this culture?
+                </h3>
+                <p class="prewrap">PMID:41745484 measures gas removal and community composition. Startup required oxygen supplementation, and the cultures were not axenic. Partner-resolved transfer, reciprocal fitness and the methylotroph detoxification contribution remain unresolved.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Photosynthetic O2 Support for Methane Oxidation</code>, <code>ecological_interactions#Methane-Linked Methylotroph Cross-Feeding</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1476,7 +1494,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

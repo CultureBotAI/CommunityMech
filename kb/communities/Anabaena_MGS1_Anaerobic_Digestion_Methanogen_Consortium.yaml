@@ -93,11 +93,9 @@ taxonomy:
     explanation: Names Anabaena sp. biomass as the feedstock digested by the communities.
 ecological_interactions:
 - name: Anabaena Biomass Anaerobic Digestion
-  description: >
-    Three anaerobic-digestion communities were supplied with Anabaena sp.
-    cyanobacterial biomass in minimal medium, 200 g/L MGS-1 Mars regolith
-    simulant, or water to test whether the feedstock could be converted into
-    fertilizer-relevant ammonium and removed organic carbon.
+  description: Anaerobic communities digested supplied Anabaena biomass in minimal medium, MGS-1 regolith suspension
+    or water. Ammonium and organic-carbon endpoints were measured separately from taxonomic interpretations of the
+    active guilds.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: ammonium
@@ -111,34 +109,26 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Fermenter-to-methanogen syntrophy (interspecies H2/CO2 transfer)
-    description: >
-      In the minimal-medium branch, biomass digestion supported a syntrophic
-      fermentative community with hydrogenotrophic methanogens.
-  - target: Sulfate-reducer outcompetition of methanogens in MGS-1 regolith
-    description: >
-      In the MGS-1 branch, sulfate-reducing bacteria outcompeted the
-      methanogens seen in minimal medium.
+    description: HYPOTHESIZED - fermentation of the supplied biomass could provide hydrogen and carbon dioxide to
+      the methanogens detected in minimal medium; partner-specific transfer was inferred from taxonomy.
   - target: Ammonium Production and Organic Carbon Removal
-    description: >
-      All three tested communities produced ammonium and removed organic
-      carbon from the cyanobacterial biomass.
+    description: Biomass digestion released ammonium and reduced organic-carbon measures in the tested matrices;
+      total COD could not be evaluated in the regolith suspension.
   evidence:
   - reference: PMID:40089033
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      tested the abilities of three microbial communities to digest the biomass
-      of Anabaena sp. in minimal medium
-    explanation: >
-      Supports the community-level anaerobic digestion of Anabaena biomass.
+    snippet: 'tested the abilities of three microbial communities to digest the biomass of Anabaena sp. in minimal
+      medium
+
+      '
+    explanation: 'Supports the community-level anaerobic digestion of Anabaena biomass.
+
+      '
 - name: Fermenter-to-methanogen syntrophy (interspecies H2/CO2 transfer)
-  description: >
-    In minimal medium, fermentative bacteria degrade the Anabaena biomass and their
-    fermentation products (notably H2 and CO2, and acetate) are consumed by
-    hydrogenotrophic methanogenic archaea, forming a syntrophic cross-feeding loop that
-    drives methanogenesis. Both partners are named only as functional guilds in the
-    openly available abstract, so this is captured as a community-level interaction
-    without NCBITaxon-grounded source/target taxa.
+  description: HYPOTHESIZED - fermentative bacteria and hydrogenotrophic methanogens detected in minimal medium
+    could cooperate through hydrogen/carbon-dioxide transfer. Taxonomic composition supports this proposed syntrophy,
+    not measured partner-resolved flux. Acetate consumption is not assigned to the hydrogenotrophic methanogens.
   interaction_type: SYNTROPHY
   scope: COMMUNITY_LEVEL
   metabolites:
@@ -150,10 +140,6 @@ ecological_interactions:
     term:
       id: CHEBI:16526
       label: carbon dioxide
-  - preferred_term: acetate
-    term:
-      id: CHEBI:30089
-      label: acetate
   - preferred_term: methane
     term:
       id: CHEBI:16183
@@ -167,31 +153,23 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Ammonium Production and Organic Carbon Removal
-    description: >
-      The syntrophic fermenter-to-hydrogenotrophic-methanogen community is the
-      minimal-medium route coupled to ammonium production and organic carbon
-      removal.
   evidence:
   - reference: PMID:40089033
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: taxonomic analysis revealed a syntrophic fermentative community and
-    explanation: Identifies a syntrophic fermentative community in the minimal-medium digestion.
+    explanation: Supports the taxonomically inferred guild relationship, not direct interspecies flux or guild-specific
+      control of ammonium recovery.
   - reference: PMID:40089033
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: hydrogenotrophic methanogens in minimal medium, but methanogens were outcompeted
-    explanation: Identifies hydrogenotrophic methanogens as the syntrophic partners, consistent with interspecies H2 transfer and methanogenesis.
-- name: Sulfate-reducer outcompetition of methanogens in MGS-1 regolith
-  description: >
-    In the 200 g/L MGS-1 Mars regolith-simulant matrix, sulfate-reducing bacteria
-    outcompeted the hydrogenotrophic methanogens — a competition for shared electron
-    donors (H2/acetate) in which dissimilatory sulfate reduction displaces
-    methanogenesis. Represented as a community-level interaction because the competing
-    guilds are not resolved to NCBITaxon-grounded taxa in the available abstract.
-  interaction_type: COMPETITION
+    explanation: Supports the taxonomically inferred guild relationship, not direct interspecies flux or guild-specific
+      control of ammonium recovery.
+- name: Candidate Sulfate-Reducer Competition in MGS-1 Regolith
+  description: HYPOTHESIZED - sulfate-reducer enrichment and failure to amplify archaeal markers in the MGS-1 condition
+    were interpreted as consistent with competition against methanogens. Matrix inhibition is also possible; amplification
+    failure is not a direct measurement of zero methane production.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: dihydrogen
@@ -207,28 +185,23 @@ ecological_interactions:
     term:
       id: GO:0019420
       label: dissimilatory sulfate reduction
-  downstream:
-  - target: MGS-1 Nutrient Recovery Penalty
-    description: >
-      Sulfate-reducer outcompetition occurred in the MGS-1 matrix that also
-      adsorbed organics and lowered phosphate and ammonium recovery efficiency.
   evidence:
   - reference: PMID:40089033
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: in MGS-1 by sulfate-reducing bacteria.
-    explanation: States that sulfate-reducing bacteria outcompeted the methanogens in the MGS-1 regolith matrix.
+    explanation: Reports the authors' competition interpretation; the measured taxonomic patterns do not isolate
+      competition from other matrix effects.
   - reference: PMID:40089033
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: hydrogenotrophic methanogens in minimal medium, but methanogens were outcompeted
-    explanation: States that methanogens were outcompeted in MGS-1, the basis for the competition interaction.
+    explanation: Reports the authors' competition interpretation; the measured taxonomic patterns do not isolate
+      competition from other matrix effects.
 - name: Ammonium Production and Organic Carbon Removal
-  description: >
-    Across all tested matrices, the digesting communities produced ammonium and
-    removed organic carbon, establishing that Anabaena biomass could be
-    mobilized by anaerobic digestion even outside the best-performing minimal
-    medium.
+  description: Ammonium was produced and organic-carbon measures declined across the tested digestion matrices.
+    Regolith interfered with total-COD determination, so soluble-COD results in that condition must not be presented
+    as measured total-carbon removal.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: ammonium
@@ -245,15 +218,14 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: All communities produced ammonium and removed organic carbon in all
-    explanation: >
-      Supports ammonium production and organic-carbon removal as outputs of all
-      three anaerobic digestion communities.
+    explanation: 'Supports ammonium production and organic-carbon removal as outputs of all three anaerobic digestion
+      communities.
+
+      '
 - name: MGS-1 Nutrient Recovery Penalty
-  description: >
-    The 200 g/L MGS-1 Mars regolith-simulant matrix adsorbed organics and
-    lowered both phosphate and ammonium recovery efficiency, constraining the
-    useful fertilizer output despite continued ammonium production and organic
-    carbon removal.
+  description: PARTIAL - the MGS-1 matrix reduced recovered phosphate and ammonium relative to the other conditions.
+    Adsorption and precipitation were proposed explanations; sulfate-reducer competition was not demonstrated to
+    cause the nutrient-recovery penalty.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: ammonium
@@ -270,9 +242,8 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: adsorbed organics and reduced the phosphate and ammonium recovery efficiency
-    explanation: >
-      Supports MGS-1 as the matrix that reduced nutrient recovery from the
-      digestion process.
+    explanation: Supports the observed matrix-associated recovery reduction; its mechanistic attribution is not
+      an isolated sulfate-reducer effect.
 environmental_factors:
 - name: MGS-1 Mars regolith simulant matrix
   value: 200 g/L MGS-1 Mars global simulant
@@ -377,3 +348,27 @@ metal_notes: >
   Not a metals community. MGS-1 Mars regolith simulant is used here as a physical
   digestion matrix, not for metal extraction or bioleaching; no metal or rare-earth
   transformation role is curated.
+discussions:
+- discussion_id: anabaena_matrix_flux_discrimination
+  prompt: Which guild fluxes and mineral processes explain digestion and nutrient recovery in each matrix?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Anabaena Biomass Anaerobic Digestion
+  - ecological_interactions#Fermenter-to-methanogen syntrophy (interspecies H2/CO2 transfer)
+  - ecological_interactions#Candidate Sulfate-Reducer Competition in MGS-1 Regolith
+  - ecological_interactions#Ammonium Production and Organic Carbon Removal
+  - ecological_interactions#MGS-1 Nutrient Recovery Penalty
+  rationale: PMID:40089033 distinguishes measured nutrient/COD endpoints from taxonomic guild inferences. No archaeal
+    amplification in MGS-1 does not quantify methane flux. The regolith treatment changes multiple variables; adsorption/precipitation
+    and microbial competition cannot be collapsed into one causal chain. Primary full-text passages were read through
+    the public author copy, but supplements were not reviewed.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T08:42:43Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate Anabaena digestion outputs from inferred guilds and regolith mechanisms; complete decisions:
+    reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml; https://github.com/CultureBotAI/CommunityMech/issues/1245'
+  llm_assisted: true

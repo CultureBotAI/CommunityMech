@@ -557,7 +557,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Anammox Bioreactor DNRA Destabilization Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -565,13 +565,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -580,10 +575,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Nutrient-Acquisition Core Selection</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Genome-centric metagenomics separated the mature anammox-associated core from source-associated bacteria and showed that bacteria retained in the anammox community were selected for transporter-rich nutrient acquisition from the reactor environment.
-</p>
+                <p class="prewrap interaction-description">Genome comparisons showed enrichment of nutrient-acquisition transporters in the mature anammox-associated core relative to source-associated genomes. This supports inferred selection for acquisition potential, not a demonstrated complementary niche-partitioning mechanism.</p>
 
 
 
@@ -616,7 +609,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/31980038/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31980038</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"nutrient acquisition from the environment is selected for in the anammox community
@@ -631,10 +624,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Brocadia Ammonium-Nitrite Anammox</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Brocadia was the only anammox genome in the reactor, coupling ammonium and nitrite under anaerobic conditions to produce molecular nitrogen and drive the high nitrogen-removal rate during robust bioreactor performance.
-</p>
+                <p class="prewrap interaction-description">The reactor removed nitrogen through anammox, and the recovered Brocadia genome encoded the ammonium/nitrite conversion pathway. This links a recovered genome to reactor function without establishing that genome recovery exhaustively identifies every organism contributing to the measured flux.</p>
 
 
 
@@ -678,9 +669,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> DNRA Outcompetition of Anammox
-                        <p class="prewrap causal-description">The anammox pathway depends on nitrite availability, making the Brocadia population vulnerable to a DNRA guild that also consumes nitrite but reduces it back to ammonium.
-</p>
+                        <span class="flow-arrow">→</span> Candidate DNRA Competition During Anammox Destabilization
+                        <p class="prewrap causal-description">HYPOTHESIZED - anammox depends on nitrite, so a guild diverting nitrite could limit its substrate supply; this vulnerability does not by itself establish the cause of the observed crash.</p>
                     </div>
 
                 </div>
@@ -711,10 +701,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Core DNRA Nitrite Reduction Capacity</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">KEGG/HMM inspection called DNRA genomes by their capacity to reduce nitrite to ammonium with nrfAH, resolving the potential for an anammox-associated bacterial guild to divert oxidized nitrogen away from the anammox route.
-</p>
+                <p class="prewrap interaction-description">COMPUTATIONAL POTENTIAL - nrfAH annotations identify genomes capable of reducing nitrite to ammonium. DNRA retains fixed nitrogen and could compete with anammox for nitrite; gene capacity does not establish its realized flux or pathway preference.</p>
 
 
 
@@ -758,9 +746,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> DNRA Outcompetition of Anammox
-                        <p class="prewrap causal-description">Nitrite-to-ammonium DNRA provided the nitrogen-removal pathway that competed directly with Brocadia-catalyzed anammox.
-</p>
+                        <span class="flow-arrow">→</span> Candidate DNRA Competition During Anammox Destabilization
+                        <p class="prewrap causal-description">HYPOTHESIZED - if nrfAH-bearing bacteria use the DNRA route, their nitrite consumption could divert substrate from anammox while retaining fixed nitrogen as ammonium. Alternative partial-denitrification routes remain possible.</p>
                     </div>
 
                 </div>
@@ -776,7 +763,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/31980038/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31980038</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"DNRA bacteria were considered to be bacteria capable of conversion of nitrite to ammonium using the nrfAH enzymes
@@ -791,10 +778,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Pre-Crash DNRA Bacterial Replication</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">iRep replication-rate shifts from Day 166 to Day 284, coupled with significant Day 284 to Day 328 log-ratio increases, identified DNRA-capable bacterial genomes that were actively replicating before the biological performance collapse while Brocadia replication fell.
-</p>
+                <p class="prewrap interaction-description">PARTIAL - metagenomic coverage-based iRep estimates and compositional log-ratio changes identified DNRA-capable genomes associated with destabilization. Two genomes increased consistently across reference frames and three others only under some comparisons; these estimates are not direct perturbation measurements of competitive growth.</p>
 
 
                 <p><strong>Source Taxon:</strong> dissimilatory nitrate reducing (DNRA) bacteria</p>
@@ -824,9 +809,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> DNRA Outcompetition of Anammox
-                        <p class="prewrap causal-description">The actively replicating destabilizers were DNRA bacteria, placing their pre-crash growth upstream of the loss of anammox nitrogen-removal performance.
-</p>
+                        <span class="flow-arrow">→</span> Candidate DNRA Competition During Anammox Destabilization
+                        <p class="prewrap causal-description">PARTIAL - inferred replication and abundance changes preceding collapse support candidate competitors, but do not demonstrate that their growth caused the loss of anammox performance.</p>
                     </div>
 
                 </div>
@@ -842,7 +826,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/31980038/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31980038</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"A bacterium was considered to influence the destabilization if it both increased in replication prior to the event and had a positive and significantly high LR
@@ -856,7 +840,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/31980038/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31980038</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"All bacteria that were shown to affect the destabilization event were DNRA bacteria
@@ -870,11 +854,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>DNRA Outcompetition of Anammox</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>Candidate DNRA Competition During Anammox Destabilization</h3>
                 </div>
-                <p class="prewrap interaction-description">DNRA was the dominant competing nitrogen route during the biological destabilization: DNRA-capable bacterial replication increased before the Day 300 crash, Brocadia replication decreased, and anammox nitrogen-removal capacity was lost until the reactor recovered later in the time series.
-</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - the authors infer DNRA competition during destabilization by assuming that organisms encoding alternative routes prefer the higher-energy pathway. Partial denitrification with nitric-oxide leakage is an alternative explanation. The nitrogen-removal crash was measured, but realized pathway dominance and competition were not directly isolated.</p>
 
 
                 <p><strong>Source Taxon:</strong> dissimilatory nitrate reducing (DNRA) bacteria</p>
@@ -927,7 +909,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/31980038/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31980038</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"Under this assumption, DNRA was clearly revealed as the dominant process occurring in the bioreactor during the anammox performance destabilization event
@@ -941,7 +923,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/31980038/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31980038</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"Increased replication of bacteria capable of DNRA led to the out-competition of anammox bacteria
@@ -958,6 +940,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Did DNRA competition or an alternative nitrite-reduction mechanism cause anammox destabilization?
+                </h3>
+                <p class="prewrap">PMID:31980038 explicitly conditions DNRA dominance on pathway choice and discusses partial denitrification. iRep and compositional changes identify candidates rather than establish causality. Recovery followed increased trace metals, not selective removal of the DNRA guild; direct pathway flux and perturbations remain needed.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Nutrient-Acquisition Core Selection</code>, <code>ecological_interactions#Brocadia Ammonium-Nitrite Anammox</code>, <code>ecological_interactions#Core DNRA Nitrite Reduction Capacity</code>, <code>ecological_interactions#Pre-Crash DNRA Bacterial Replication</code>, <code>ecological_interactions#Candidate DNRA Competition During Anammox Destabilization</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1321,7 +1322,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1349,7 +1350,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1394,7 +1395,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1439,7 +1440,7 @@
 
         (function() {
             var intId = "interaction:3";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1477,7 +1478,7 @@
 
         (function() {
             var intId = "interaction:4";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1498,7 +1499,7 @@
 
             nodes.push({
                 id: intId,
-                label: "DNRA Outcompetition of Anammox",
+                label: "Candidate DNRA Competition During Anammox Destabilization",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

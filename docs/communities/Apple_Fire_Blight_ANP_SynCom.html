@@ -871,7 +871,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Apple Fire Blight A+N+P SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -879,8 +879,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -888,10 +888,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>A+N+P Erwinia amylovora suppression in Rosaceae tissue</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>A+N+P Fire-Blight Severity Reduction in Rosaceae Tissue</h3>
                 </div>
-                <p class="prewrap interaction-description">The full A+N+P nine-member SynCom suppressed Erwinia amylovora in Fuji apple fruit wounds and rose flower ovaries, achieving 0% apple-fruit severity and 1.67% rose-flower severity.</p>
+                <p class="prewrap interaction-description">The nine-member A+N+P treatment reduced measured fire-blight severity to 0% in Fuji apple-fruit wounds and 1.67% in rose-flower ovaries. These are tissue-disease endpoints, not measurements of pathogen density or proof of a particular antagonistic mechanism.</p>
 
 
 
@@ -974,10 +973,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>A+N+P nutrient competition with Erwinia amylovora</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>A+N+P Erwinia Density Suppression in Flower Exudate</h3>
                 </div>
-                <p class="prewrap interaction-description">In apple flower exudate, the A+N+P community was mixed with rifampicin-resistant E. amylovora TS3128 and reduced the pathogen density over 72 h, supporting nutrient competition in the flower-exudate niche.</p>
+                <p class="prewrap interaction-description">PARTIAL - the A+N+P treatment reduced E. amylovora TS3128 density over 72 hours in apple-flower exudate. Substrate-use overlap supports nutrient competition as a candidate explanation, but does not distinguish it from antibiosis or establish reciprocal harm to the SynCom.</p>
 
 
 
@@ -1099,7 +1097,7 @@
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(3)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -1124,7 +1122,22 @@
                 </h3>
                 <p class="prewrap">The follow-up paper predicted secondary-metabolite clusters from the network and pathway strain genomes, but Supplementary Table 1 was available only as a PDF/image supplement during curation and the publication does not chemically validate member-level effectors for the full A+N+P community.</p>
 
-                <p class="muted small">Attaches to: <code>ecological_interactions#A+N+P Erwinia amylovora suppression in Rosaceae tissue</code>, <code>ecological_interactions#A+N+P nutrient competition with Erwinia amylovora</code></p>
+                <p class="muted small">Attaches to: <code>ecological_interactions#A+N+P Fire-Blight Severity Reduction in Rosaceae Tissue</code>, <code>ecological_interactions#A+N+P Erwinia Density Suppression in Flower Exudate</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How much of exudate pathogen suppression is caused by resource competition rather than antibiosis?
+                </h3>
+                <p class="prewrap">PMIDs:40223277 and 40468884 distinguish tissue disease scores from exudate pathogen counts. Biolog overlap and co-culture responses do not identify the active mechanism; predicted biosynthetic clusters are not chemically validated effectors. Preserve the separate strain-alias and effector gaps.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#A+N+P Fire-Blight Severity Reduction in Rosaceae Tissue</code>, <code>ecological_interactions#A+N+P Erwinia Density Suppression in Flower Exudate</code></p>
 
 
 
@@ -1571,7 +1584,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1584,7 +1597,7 @@
 
             nodes.push({
                 id: intId,
-                label: "A+N+P Erwinia amylovora suppression in Rosaceae tissue",
+                label: "A+N+P Fire-Blight Severity Reduction in Rosaceae Tissue",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1628,7 +1641,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1641,7 +1654,7 @@
 
             nodes.push({
                 id: intId,
-                label: "A+N+P nutrient competition with Erwinia amylovora",
+                label: "A+N+P Erwinia Density Suppression in Flower Exudate",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
