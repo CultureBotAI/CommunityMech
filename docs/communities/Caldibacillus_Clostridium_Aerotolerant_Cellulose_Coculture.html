@@ -558,7 +558,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Caldibacillus-Clostridium Aerotolerant Cellulose Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -571,8 +571,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -581,9 +581,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Respiratory Protection of C. thermocellum</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
                 </div>
-                <p class="prewrap interaction-description">C. debilis GB1 provides respiratory protection for C. thermocellum under oxidative conditions, enabling cellulose utilization by the designed coculture.</p>
+                <p class="prewrap interaction-description">C. debilis GB1 supports aerobic cellulose utilization by C. thermocellum. Local oxygen depletion is HYPOTHESIZED; bulk oxygen persisted. An unaffected GB1 partner is not established.</p>
 
 
                 <p><strong>Source Taxon:</strong> Caldibacillus debilis GB1</p>
@@ -632,8 +631,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Aerotolerant Ethanogenic Cellulose Conversion
-                        <p class="prewrap causal-description">C. debilis respiratory protection lets oxygen-sensitive C. thermocellum continue cellulose utilization under aerobic atmosphere, supporting the designed coculture&#39;s aerotolerant ethanol production.
-</p>
+                        <p class="prewrap causal-description">PARTIAL - respiratory protection permits cellulose fermentation under air; the local oxygen-scavenging mechanism remains inferred, not measured bulk deoxygenation.</p>
                     </div>
 
                 </div>
@@ -678,7 +676,7 @@
                     <h3>Aerotolerant Ethanogenic Cellulose Conversion</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The designed coculture supports ethanogenic biofuel production from cellulose while tolerating oxidative conditions that are normally restrictive for strictly anaerobic cellulolytic biofuel producers.</p>
+                <p class="prewrap interaction-description">The defined pair converted cellulose with transient aerobic ethanol accumulation: 5.5 mM at 72 h, below detection at 168 h. PARTIAL - GB1 use of released cellobiose and fermentation products is a cross-feeding hypothesis, supported by substrate-use assays but not resolved coculture flux. B4-1 enrichment results are distinct.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium thermocellum</p>
@@ -746,7 +744,7 @@
                             <a href="https://doi.org/10.1128/AEM.00735-15"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1128/AEM.00735-15</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"synergistic utilization of cellulose even under an aerobic atmosphere"</div>
@@ -760,9 +758,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Oxidative Shift Toward Lactate Production</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Oxidative conditions changed the fermentation-product profile of the designed coculture, including increased lactate production.</p>
+                <p class="prewrap interaction-description">The defined coculture accumulated more lactate under oxidative conditions at 72 h, then less at 168 h. Stress-related production and partner attribution remain proposed; this endpoint is not commensalism.</p>
 
 
 
@@ -819,6 +816,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which local oxygen gradients and partner-resolved transfers explain aerotolerant conversion?
+                </h3>
+                <p class="prewrap">doi:10.1128/AEM.00735-15 supports protection but leaves microenvironment, exchange flux and stress attribution unresolved. Preserve the earlier protection-to-lactate arrow removal. No new mechanism or molecular effector is asserted.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Respiratory Protection of C. thermocellum</code>, <code>ecological_interactions#Aerotolerant Ethanogenic Cellulose Conversion</code>, <code>ecological_interactions#Oxidative Shift Toward Lactate Production</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1120,7 +1136,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1212,7 +1228,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

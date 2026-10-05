@@ -1,0 +1,77 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: c4dccccccab9da1fe0b2210b2e8bd4ff2f8166b2
+decision_ledger: reports/causal_graph_review/decisions/20261005-thermophile-pair-batch9.yaml
+validation_report: reports/causal_graph_review/validation-20261005-batch9.json
+scope:
+  records_assessed: 2
+  records_changed: 2
+  nodes_before: 6
+  nodes_after: 6
+  arrows_before: 3
+  arrows_after: 2
+  new_nodes: 0
+  new_arrows: 0
+findings:
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1270
+  severity: P2
+  disposition: addressed_and_locally_verified
+  finding: Thermophile graphs overstate ecological types and confuse measured outcomes with proposed mechanisms.
+  resolution: Remove unsupported fitness, niche and colonization types; retain qualified protection and growth-mediated
+    coexistence. Remove the unsupported yield-mediation arrow and rename its endpoint for the measured quantity.
+adversarial_checks:
+- challenge: Did conservative pruning erase a source-proposed mechanism?
+  resolution: No. Both surviving arrows and the existing cross-feeding interpretation remain explicitly qualified.
+    A hypothesis is not deleted solely because no intervention established necessity.
+- challenge: Does absence of a named exchange make cross-feeding impossible?
+  resolution: No. The retained partial interpretation has substrate-use support; it does not assert resolved donor-recipient
+    flux. No new chemical identity or graph structure was added.
+- challenge: Does increased product output establish reciprocal fitness?
+  resolution: No. Endpoint evidence is retained separately from interaction-type assignment. Removing unsupported
+    categorical types is not evidence that the partners cannot benefit.
+- challenge: Are single assays and modeled assumptions distinguished?
+  resolution: The node and arrow wording separate experimental outcomes from extrapolation. The source scopes specify
+    what was read rather than treating snippet matches as mechanistic proof.
+- challenge: Are prior repairs and canonical groundings preserved?
+  resolution: The earlier lactate arrow remains absent; canonical Acetivibrio and Caldicellulosiruptor acetigenus
+    terms and the species attribution corrected in issue 516 are preserved.
+- challenge: Is removing the yield arrow merely a rejection of all enabling context?
+  resolution: No. The retained protection arrow specifies a supported enabling mechanism. The removed arrow conflated
+    experimental conditions and did not identify a distinct stability-to-yield mechanism.
+- challenge: Is the full corpus now reviewed?
+  resolution: No. Only these two hash-bound reviews are added; the other ten provisional source reviews remain pending.
+limits:
+- This is the editing agent's self-adversarial review, not independent approval.
+- Source scopes exclude unread figure images, supplements, earlier publications and model reruns; non-graph metadata
+  is not certified.
+- No source-cache text or PDFs are added. Unrelated ignored and untracked files are preserved.
+- No new nodes/arrows or paid Edison job; spending authorization does not by itself provide usable credentials.
+- Existing isolated runtimes execute the repository gates; required PR and merge-queue CI remain mandatory.
+verification:
+  status: local_checks_complete_with_explicit_workspace_rights_limit
+  records: 460
+  review_status_counts:
+    needs_research: 2
+    pending: 383
+    reviewed: 75
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  unchanged_raw_blocks: 37
+  snippet_counts:
+    MATCH: 39
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1463
+    edge_descriptions: 717
+  render_determinism: passed
+  regressions: 150 passed in 129.48s (0:02:09)
+  workspace_rights: Pre-existing untracked/ignored PDFs fail workspace inventory; not part of patch.
+  publishable_snapshot_rights: 3 tests passed

@@ -1,0 +1,129 @@
+reviewer: codex
+review_mode: source_based_self_review
+base_commit: c4dccccccab9da1fe0b2210b2e8bd4ff2f8166b2
+issues:
+- 1270
+issue_deduplication:
+  count: 623
+  scope: 'All paginated open/closed titles and bodies; comments not exhaustive. Ignored-inclusive local history/reports/tests
+    searched; prior #516 attribution preserved.'
+limitations:
+- No new nodes or arrows; no paid Edison run.
+- Other ten provisionally read records remain pending and are not part of this review.
+records:
+- path: kb/communities/Caldibacillus_Clostridium_Aerotolerant_Cellulose_Coculture.yaml
+  id: CommunityMech:000179
+  original_sha256: abfb3fffe98d78739968775e554c6bf3f55657943c239433b06f384640a983fd
+  record_sha256: 0d0ed40c05ec1cf70a99a4f012b65726cbdffa775db503b905e6cbf932ea6b24
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-thermophile-pair-batch9.yaml
+  scope: Whole record and all graph nodes/arrows read; semantic graph assessment bounded to the source scopes below.
+    Non-graph metadata is preserved, not certified.
+  summary: Bound Caldibacillus protection and transient products; retain partial cross-feeding
+  node_decisions:
+  - node: Respiratory Protection of C. thermocellum
+    rationale: Retain protection and its qualified enabling arrow, without unsupported +/0 typing.
+  - node: Aerotolerant Ethanogenic Cellulose Conversion
+    rationale: Retain endpoint and explicitly partial exchange interpretation; distinguish accumulation from production
+      capacity.
+  - node: Oxidative Shift Toward Lactate Production
+    rationale: Retain the time-bounded endpoint without an ecological fitness type.
+  edges_before:
+  - source: Respiratory Protection of C. thermocellum
+    target: Aerotolerant Ethanogenic Cellulose Conversion
+    description: 'C. debilis respiratory protection lets oxygen-sensitive C. thermocellum continue cellulose utilization
+      under aerobic atmosphere, supporting the designed coculture''s aerotolerant ethanol production.
+
+      '
+  edges_after:
+  - source: Respiratory Protection of C. thermocellum
+    target: Aerotolerant Ethanogenic Cellulose Conversion
+    description: PARTIAL - respiratory protection permits cellulose fermentation under air; the local oxygen-scavenging
+      mechanism remains inferred, not measured bulk deoxygenation.
+  references:
+  - doi:10.1128/AEM.00735-15
+  source_review:
+    url: https://journals.asm.org/doi/10.1128/aem.00735-15
+    scope: Publisher HTML abstract through conclusion, including Tables 1-4 and Figure 1 caption; no image inspection
+      or secondary-source certification.
+    caches:
+    - path: references_cache/PMID_26048931.txt
+      sha256: f799ae2a2486f86e8e102aaf132a339a4e9491101a952efa2d65a41d8dc770ac
+      read: complete abstract
+    - path: references_cache/doi_10.1128_AEM.00735-15.md
+      sha256: 117ac360c70d6219537953d9f059267269cbb81f6539f1e312db2c478cec325d
+      read: complete abstract
+    limitations: No unread images, supplements, earlier paper, secondary sources or model reruns certified. Caches
+      retain abstracts only; full main text was read on the publisher site without copying it into the repository.
+  history_file: history/records/Caldibacillus_Clostridium_Aerotolerant_Cellulose_Coculture/2026-10-05T155420Z-codex-85e288.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1270
+  removed_edge_decisions: []
+  retained_edge_decisions:
+  - source: Respiratory Protection of C. thermocellum
+    target: Aerotolerant Ethanogenic Cellulose Conversion
+    rationale: PARTIAL - respiratory protection permits cellulose fermentation under air; the local oxygen-scavenging
+      mechanism remains inferred, not measured bulk deoxygenation.
+- path: kb/communities/Caldicellulosiruptor_TwoSpecies_Hydrogen_Coculture.yaml
+  id: CommunityMech:000185
+  original_sha256: 2a3ef23598c1b566adf3ce65d9deeb9e681cbd8877e965363b820d1c2c2ff03c
+  record_sha256: 8151dfbdf8e248288fbc2f31cc2a53bd770fb5bf34d1239538a2cb3e1b7ba990
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-thermophile-pair-batch9.yaml
+  scope: Whole record and all graph nodes/arrows read; semantic graph assessment bounded to the source scopes below.
+    Non-graph metadata is preserved, not certified.
+  summary: Separate Caldicellulosiruptor outcomes from hypothesized growth-mediated coexistence
+  node_decisions:
+  - node: Stable Chemostat Coexistence
+    rationale: Retain persistence untyped; remove the unsupported yield-mediation arrow.
+  - node: C. saccharolyticus Growth-Supernatant Enhancement
+    rationale: Retain measured growth response and the explicitly hypothetical coexistence explanation.
+  - node: Enhanced Glucose-Limited Hydrogen Yield
+    rationale: Rename the endpoint for its measured quantity and condition; remove reciprocal-benefit typing.
+  edges_before:
+  - source: Stable Chemostat Coexistence
+    target: Synergistic Biohydrogen Production
+    description: 'Stable coexistence of the two sugar-fermenting Caldicellulosiruptor strains maintains the continuous
+      mixed-sugar conversion regime that yielded more hydrogen than either monoculture under glucose limitation.
+
+      '
+  - source: C. saccharolyticus Growth-Supernatant Enhancement
+    target: Stable Chemostat Coexistence
+    description: 'Growth enhancement of C. kristjanssonii by C. saccharolyticus conditioned supernatant provides
+      a facilitative interaction that helps explain stable coexistence instead of simple shared-sugar competition.
+
+      '
+  edges_after:
+  - source: C. saccharolyticus Growth-Supernatant Enhancement
+    target: Stable Chemostat Coexistence
+    description: HYPOTHESIZED - growth stimulation could help maintain coexistence. The model assumes rate and biomass-yield
+      enhancement; the batch assay supports only part of that mechanism, not its necessity in the chemostat.
+  references:
+  - PMID:21192828
+  source_review:
+    url: https://link.springer.com/article/10.1186/1475-2859-9-102
+    scope: Publisher HTML abstract through conclusions, methods, model equations, results and figure/table captions;
+      table bodies, figure images, supplements and earlier paper not inspected.
+    caches:
+    - path: references_cache/PMID_21192828.md
+      sha256: 6748b12408ca35c54d2962f2ec5bbe357b9cf5bdbc0ff8104a2ab56461fe2e9a
+      read: complete abstract
+    limitations: No unread images, supplements, earlier paper, secondary sources or model reruns certified. Caches
+      retain abstracts only; full main text was read on the publisher site without copying it into the repository.
+  history_file: history/records/Caldicellulosiruptor_TwoSpecies_Hydrogen_Coculture/2026-10-05T155420Z-codex-7daebc.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1270
+  renamed_nodes:
+    Synergistic Biohydrogen Production: Enhanced Glucose-Limited Hydrogen Yield
+  related_issues:
+  - 516
+  removed_edge_decisions:
+  - source: Stable Chemostat Coexistence
+    target: Synergistic Biohydrogen Production
+    rationale: The former arrow conflated mixed-sugar and glucose-limited assays and promoted shared experimental
+      context to established yield mediation.
+  retained_edge_decisions:
+  - source: C. saccharolyticus Growth-Supernatant Enhancement
+    target: Stable Chemostat Coexistence
+    rationale: HYPOTHESIZED - growth stimulation could help maintain coexistence. The model assumes rate and biomass-yield
+      enhancement; the batch assay supports only part of that mechanism, not its necessity in the chemostat.
