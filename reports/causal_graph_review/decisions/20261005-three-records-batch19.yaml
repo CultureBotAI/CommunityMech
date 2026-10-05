@@ -1,0 +1,289 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: db05129c5f8a9fb47b6ed716405dce1be845a207
+issues:
+- 1324
+- 1325
+- 1326
+open_nongraph_followups:
+- 1327
+issue_deduplication:
+  all_state_issue_titles_bodies: 665
+  ignored_hidden_local_files_included: true
+  comments_exhaustive: false
+  relevant_issues_read:
+  - 1093
+  - 965
+  - 353
+  - 258
+  finding: 'No duplicate exact-record graph issue in searched scope; #965 concerns a different methane panel.'
+reference_cache_original_hashes:
+  references_cache/PMID_17695929.md: 0a6d3e9ad135d3fe881f76e15e22b3e279efa320996df6bb82d2b598a2f07c87
+  references_cache/PMID_18725730.md: 474fa53897b2d368427ee153d7dca517de6deb0a4282fda7c8c68d52e4b7b5d3
+  references_cache/PMID_25023325.md: f7a1480962fad030f4ad09055620073fdd4dfd22adcef1d4afe357d43386cf18
+  references_cache/PMID_28191038.md: fb32f16dc75d0e39eee473d5d206a61e8a3e704b92311d465041f84559684043
+  references_cache/PMID_28191038.txt: 49ca6d1ea53da6637ee0f6d52d7b4f6489dbef5e67007f12a1759b8ad4fd4b5e
+limitations:
+- No new nodes/arrows and no Edison spend. Four exact node renames; three arrows removed.
+- MFC sources abstract-bounded; AECC ABE and cellulose-methane main bodies read. Images/supplements not visually
+  inspected.
+- Primary XML remains outside git; all five reference caches unchanged. ABE primary-body detail documented in explanations
+  and this ledger; quoted snippets remain the cached abstract.
+- 'Separate non-graph followup #1327 remains open; unrelated top-level raw YAML blocks preserved.'
+- Self-adversarial review is not independent approval or corpus completion. Protected checks and queue remain required.
+records:
+- path: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+  id: CommunityMech:000175
+  original_sha256: f26ac9c808de9e10d5a521ae725163bda200335d9cd63120f267b4a54566b26a
+  record_sha256: bafb8c0e58150b2e586e92c84725b0e3ad88001a64c2d1acb1d2889ede2810b3
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch19.yaml
+  scope: Whole record and all three original nodes plus both original arrows; source scope bounded below.
+  summary: Retain the supported fermentation-to-current link with residual-pool and non-obligate-syntrophy limits.;
+    Preserve binary current and improved CMC degradation without categorical reciprocal mutualism.; Preserve both
+    substrate-dependent localization patterns; remove its unsupported causal arrow and niche typing.
+  renamed_nodes:
+    Substrate-Dependent Spatial Partitioning: Observed Substrate-Dependent Spatial Distribution
+  node_decisions:
+  - node: Cellulose Fermentation Feeding Electrode Respiration
+    rationale: Retain fermentation-to-current supply as CROSS_FEEDING; the repository SYNTROPHY product-removal
+      mechanism is not isolated by the accessible abstract.
+  - node: Defined Binary Electricity Production
+    rationale: Preserve binary current and improved CMC degradation without categorical reciprocal mutualism.
+  - node: Observed Substrate-Dependent Spatial Distribution
+    rationale: Preserve both substrate-dependent localization patterns; remove its unsupported causal arrow and
+      niche typing.
+  edges_before:
+  - source: Cellulose Fermentation Feeding Electrode Respiration
+    target: Defined Binary Electricity Production
+    description: 'Fermentation products from C. cellulolyticum provide the carbon and electron flow that allows
+      the binary coculture to respire on the anode and produce current from cellulose.
+
+      '
+  - source: Substrate-Dependent Spatial Partitioning
+    target: Defined Binary Electricity Production
+    description: 'Particulate cellulose separates cellulolytic activity on suspended particles from Geobacter-rich
+      anode respiration, preserving the cellulose-to-electricity division of labor.
+
+      '
+  edges_after:
+  - source: Cellulose Fermentation Feeding Electrode Respiration
+    target: Defined Binary Electricity Production
+    description: Fermentative conversion of cellulose supplies electron-donor products for G. sulfurreducens anode
+      respiration, enabling current from substrates on which neither pure culture produced electricity. The conversion
+      is supported by the binary-versus-pure-culture comparison; the accessible abstract does not resolve each metabolite
+      contribution or transfer rate.
+  retained_edge_decisions:
+  - source: Cellulose Fermentation Feeding Electrode Respiration
+    target: Defined Binary Electricity Production
+    rationale: Fermentative conversion of cellulose supplies electron-donor products for G. sulfurreducens anode
+      respiration, enabling current from substrates on which neither pure culture produced electricity. The conversion
+      is supported by the binary-versus-pure-culture comparison; the accessible abstract does not resolve each metabolite
+      contribution or transfer rate.
+  removed_edge_decisions:
+  - source: Substrate-Dependent Spatial Partitioning
+    target: Defined Binary Electricity Production
+    description: 'Particulate cellulose separates cellulolytic activity on suspended particles from Geobacter-rich
+      anode respiration, preserving the cellulose-to-electricity division of labor.
+
+      '
+    rationale: Substrate-dependent localization is not an experimentally established cause of electricity generation.
+  references:
+  - PMID:17695929
+  - PMID:18725730
+  issues:
+  - 1324
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    PMID:17695929:
+      url: https://pubmed.ncbi.nlm.nih.gov/17695929/
+      reviewed_scope: Fresh primary abstract, cached abstract and author-institution bibliographic record; no full
+        body obtained through attempted public DOI/search routes. Access-attempt limit, not a global absence claim.
+    PMID:18725730:
+      url: https://pubmed.ncbi.nlm.nih.gov/18725730/
+      reviewed_scope: Fresh primary abstract, cached abstract and author-institution bibliographic record; no full
+        body obtained through attempted public DOI/search routes. Access-attempt limit, not a global absence claim.
+  history_files:
+  - history/records/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture/2026-10-05T234230Z-codex-ce1a08.yaml
+- path: kb/communities/Clostridium_Cellulovorans_Beijerinckii_AECC_ABE_Coculture.yaml
+  id: CommunityMech:000323
+  original_sha256: 5cdc48563e8dd1d7329d626dfc3dda7a1c2d50baae327e241753603f6da4ed16
+  record_sha256: caf85d65ddbfd4b6c591335118414b5a2ceda81b17fbd201a4b1c8fb8641ce2c
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch19.yaml
+  scope: Whole record and all three original nodes plus both original arrows; source scope bounded below.
+  summary: Retain substrate provision and measured output; remove the unsupported arrow asserting that provision
+    determines competition dynamics.; Retain qualified in-situ acid support; remove the cosubstrate-to-upstream-saccharification
+    arrow and avoid traced-flux or necessity claims.; Preserve experimental abundance dynamics and operating-condition
+    comparisons without categorical competition or direct-cell-count claims.
+  renamed_nodes:
+    Cooperation and Competition During Coculture Dynamics: Population Dynamics and Proposed Competition
+  node_decisions:
+  - node: Lignocellulose Saccharification Feeding Solventogenesis
+    rationale: Retain substrate provision and measured output; remove the unsupported arrow asserting that provision
+      determines competition dynamics.
+  - node: Butyric Acid Support of Butanol Production
+    rationale: Retain qualified in-situ acid support; remove the cosubstrate-to-upstream-saccharification arrow
+      and avoid traced-flux or necessity claims.
+  - node: Population Dynamics and Proposed Competition
+    rationale: Preserve experimental abundance dynamics and operating-condition comparisons without categorical
+      competition or direct-cell-count claims.
+  edges_before:
+  - source: Lignocellulose Saccharification Feeding Solventogenesis
+    target: Cooperation and Competition During Coculture Dynamics
+    description: 'C. cellulovorans product release couples AECC saccharification to C. beijerinckii solventogenesis,
+      creating the two-strain abundance dynamics tracked as cooperation and competition during coculture.
+
+      '
+  - source: Butyric Acid Support of Butanol Production
+    target: Lignocellulose Saccharification Feeding Solventogenesis
+    description: 'C. cellulovorans butyric-acid production is part of the in situ substrate supply that lets C.
+      beijerinckii convert AECC-derived intermediates to ABE solvents without external cellulase or butyric-acid
+      addition.
+
+      '
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions:
+  - source: Lignocellulose Saccharification Feeding Solventogenesis
+    target: Cooperation and Competition During Coculture Dynamics
+    description: 'C. cellulovorans product release couples AECC saccharification to C. beijerinckii solventogenesis,
+      creating the two-strain abundance dynamics tracked as cooperation and competition during coculture.
+
+      '
+    rationale: The source supports cosubstrate provision and condition-dependent dynamics, not this directed mediator-to-outcome
+      relation.
+  - source: Butyric Acid Support of Butanol Production
+    target: Lignocellulose Saccharification Feeding Solventogenesis
+    description: 'C. cellulovorans butyric-acid production is part of the in situ substrate supply that lets C.
+      beijerinckii convert AECC-derived intermediates to ABE solvents without external cellulase or butyric-acid
+      addition.
+
+      '
+    rationale: The source supports cosubstrate provision and condition-dependent dynamics, not this directed mediator-to-outcome
+      relation.
+  references:
+  - PMID:25023325
+  issues:
+  - 1325
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    PMID:25023325:
+      pmcid: PMC4223388
+      url: https://europepmc.org/articles/PMC4223388
+      path: /private/tmp/communitymech-batch19/PMC4223388.xml
+      sha256: 6a213942846cec1ba99d6fe3df0d65f9add34568a818adfb69fce41cac2c8968
+      reviewed_scope: Full primary Background, Results/Discussion, Conclusions, Methods, four main figure captions
+        and Table 1 read; images not visually inspected. Europe PMC marks the article open access; XML copyright
+        notice alone does not state a license, so no full text is added to the repository.
+      stored_in_repository: false
+  history_files:
+  - history/records/Clostridium_Cellulovorans_Beijerinckii_AECC_ABE_Coculture/2026-10-05T234230Z-codex-a71416.yaml
+- path: kb/communities/Clostridium_Cellulovorans_Methanosarcina_Cellulose_Methane_Coculture.yaml
+  id: CommunityMech:000174
+  original_sha256: 34f7bb765800398a1514972aa5de38e1b03804e0bbcd714e0a33c65b557aece4
+  record_sha256: c6b526dc6a76ffb307bdd56cc43df3b3365fc2def4fe027d53924869f5746d78
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch19.yaml
+  scope: Whole record and all three original nodes plus both original arrows; source scope bounded below.
+  summary: Retain cellulose-derived precursor supply and methane link; distinguish measured pools from resolved
+    flux and exclude other VFAs from blanket uptake.; Preserve coculture-specific multisubstrate findings and negative
+    controls; qualify pathway/feedback inference without inventing reverse donation.; Preserve improved cellulose
+    degradation and pH, while qualifying mediation and retaining unchanged fermenter growth rather than categorical
+    mutualism.
+  renamed_nodes:
+    Multi-Substrate Methanogenesis by M. barkeri: Coculture-Associated Multi-Substrate Methanogenesis by M. barkeri
+    Methanogen-Enabled Cellulose Degradation and pH Stabilization: Coculture-Associated Cellulose Degradation and
+      pH Stabilization
+  node_decisions:
+  - node: Cellulose Fermentation to Methanogenesis Precursors
+    rationale: Retain cellulose-derived precursor supply and methane link; distinguish measured pools from resolved
+      flux and exclude other VFAs from blanket uptake.
+  - node: Coculture-Associated Multi-Substrate Methanogenesis by M. barkeri
+    rationale: Preserve coculture-specific multisubstrate findings and negative controls; qualify pathway/feedback
+      inference without inventing reverse donation.
+  - node: Coculture-Associated Cellulose Degradation and pH Stabilization
+    rationale: Preserve improved cellulose degradation and pH, while qualifying mediation and retaining unchanged
+      fermenter growth rather than categorical mutualism.
+  edges_before:
+  - source: Cellulose Fermentation to Methanogenesis Precursors
+    target: Multi-Substrate Methanogenesis by M. barkeri
+    description: 'Hydrogen, formate, and acetate released during C. cellulovorans cellulose fermentation supply
+      the substrates consumed by M. barkeri for multi-substrate methanogenesis.
+
+      '
+  - source: Multi-Substrate Methanogenesis by M. barkeri
+    target: Methanogen-Enabled Cellulose Degradation and pH Stabilization
+    description: 'M. barkeri consumption of cellulose-fermentation products lowers hydrogen and volatile fatty acid
+      accumulation, stabilizing pH and improving cellulose degradation by C. cellulovorans.
+
+      '
+  edges_after:
+  - source: Cellulose Fermentation to Methanogenesis Precursors
+    target: Coculture-Associated Multi-Substrate Methanogenesis by M. barkeri
+    description: Cellulose fermentation supplies hydrogen, formate and acetate for coculture-associated methanogenesis
+      by M. barkeri. Exact-pair gas/product profiles and controls support this relationship, but do not resolve
+      each precursor contribution; formate use is condition-dependent rather than evidence that formate alone supports
+      the methanogen.
+  - source: Coculture-Associated Multi-Substrate Methanogenesis by M. barkeri
+    target: Coculture-Associated Cellulose Degradation and pH Stabilization
+    description: HYPOTHESIZED - M. barkeri consumption of formate and acetate, together with hydrogen removal and
+      a changed C. cellulovorans fermentation pattern, reduces accumulated acid products and could help stabilize
+      pH and sustain cellulose degradation. The measured coculture outcomes support this model, but do not isolate
+      product removal or pH as the unique mediator. Lower butyrate/lactate pools are not evidence that the methanogen
+      consumed those acids.
+  retained_edge_decisions:
+  - source: Cellulose Fermentation to Methanogenesis Precursors
+    target: Coculture-Associated Multi-Substrate Methanogenesis by M. barkeri
+    rationale: Cellulose fermentation supplies hydrogen, formate and acetate for coculture-associated methanogenesis
+      by M. barkeri. Exact-pair gas/product profiles and controls support this relationship, but do not resolve
+      each precursor contribution; formate use is condition-dependent rather than evidence that formate alone supports
+      the methanogen.
+  - source: Coculture-Associated Multi-Substrate Methanogenesis by M. barkeri
+    target: Coculture-Associated Cellulose Degradation and pH Stabilization
+    rationale: HYPOTHESIZED - M. barkeri consumption of formate and acetate, together with hydrogen removal and
+      a changed C. cellulovorans fermentation pattern, reduces accumulated acid products and could help stabilize
+      pH and sustain cellulose degradation. The measured coculture outcomes support this model, but do not isolate
+      product removal or pH as the unique mediator. Lower butyrate/lactate pools are not evidence that the methanogen
+      consumed those acids.
+  removed_edge_decisions: []
+  references:
+  - PMID:28191038
+  issues:
+  - 1326
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    PMID:28191038:
+      pmcid: PMC5297212
+      url: https://europepmc.org/articles/PMC5297212
+      path: /private/tmp/communitymech-batch19/PMC5297212.xml
+      sha256: 341b838b72428a0cbc581db1acb8df23054e24ec8eddfdd8ca653d353f77bc16
+      reviewed_scope: Full primary Background, Methods, Results, Discussion, Conclusions, main table and six figure
+        captions read. CC BY 4.0. Supplements and images not inspected; descriptions of supplement results were
+        read in the main body.
+      stored_in_repository: false
+  history_files:
+  - history/records/Clostridium_Cellulovorans_Methanosarcina_Cellulose_Methane_Coculture/2026-10-05T234231Z-codex-aa4e0f.yaml
+post_edit_adversarial_corrections:
+- issue: 1324
+  correction: Use CROSS_FEEDING for MFC supply after checking the exact repository SYNTROPHY definition; retain
+    the authors' terminology in prose with limits.
+- issue: 1326
+  correction: Separate the stated nonsignificant cell-growth comparison from numerically similar growth yields;
+    do not invent a significance test for yield.
