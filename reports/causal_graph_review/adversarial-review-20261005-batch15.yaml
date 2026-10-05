@@ -1,0 +1,76 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: b036e766f9fb3b085b8111e4d34e6587ae242bb0
+scope:
+- kb/communities/Chlorochromatium_Aggregatum_Phototrophic_Consortium.yaml
+- kb/communities/Choysum_SynLAV_DEHP_Rhizobacterial_SynCom.yaml
+- kb/communities/Chromium_Sulfur_Reduction_Enrichment.yaml
+findings:
+- issue: 1308
+  severity: P2
+  finding: Observed consortium taxis and recombinant photosensor activity do not certify metabolite flux or quinone
+    shuttling; navigation is not colonization facilitation.
+  disposition: addressed_and_locally_verified
+- issue: 1309
+  severity: P2
+  finding: Soil residues and plant concentrations are distinct endpoints; their co-occurrence does not demonstrate
+    mediation, mineralization or all-member persistence.
+  disposition: addressed_and_locally_verified
+- issue: 1310
+  severity: P2
+  finding: Class-level VFA model does not identify acetate, separate reactors do not establish one exact consortium,
+    and deposited Cr(III) is not cross-feeding or free-cation speciation.
+  disposition: addressed_and_locally_verified
+open_nongraph_followups:
+- issue: 1311
+  disposition: intentionally_not_closed_by_graph_only_patch
+  scope: Environmental sensory assertion, SynLAV dominance, chromium description/taxon roles/acetate ingredient.
+adversarial_checks:
+- Preserve experimental recombinant photosensor and HPLC evidence instead of labeling the entire Chlorochromatium
+  paper computational.
+- Do not infer central-cell quinone transfer from enriched rather than purified fractions.
+- Retain both source-based Chlorochromatium arrows only as hypotheses, with focused mechanism gaps.
+- Distinguish SynLAV individual-isolate assays, pot soil residues and plant concentration; no unsupported complete
+  mineralization or total plant burden.
+- Preserve the source timing discrepancy and short-amplicon limitations; do not re-add the participant list removed
+  in PR1003.
+- Preserve faithful source phylum quotations without using them as ontology groundings.
+- Do not import acetate from chromium SI's unrelated literature-comparison rows.
+- Retain the supported Cr(VI)-reduction-to-deposited-product arrow without claiming unique VFA mediation or absent
+  abiotic removal.
+- No new nodes/arrows, no Edison spend, no changes to participant/connectivity registries.
+- Primary artifacts stay outside the repository; existing caches unchanged.
+verification:
+  status: local_validation_complete
+  checks: 30
+  records: 460
+  nodes: 1475
+  edges: 718
+  review_status_counts:
+    needs_research: 3
+    pending: 360
+    reviewed: 97
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  unchanged_raw_blocks: 44
+  snippet_counts:
+    MATCH: 60
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1461
+    edge_descriptions: 710
+  render_determinism: passed
+  regressions: 229 passed in 156.25s (0:02:36)
+  rights: 3 passed in 1.40s
+  rights_import_root_verified: true
+  caches_unchanged: true
+  primary_artifact_hashes_rechecked: true
+  participant_registry_and_connectivity_test_bytes_unchanged: true

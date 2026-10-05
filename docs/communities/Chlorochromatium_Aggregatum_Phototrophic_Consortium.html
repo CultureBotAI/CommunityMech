@@ -584,7 +584,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Chlorochromatium aggregatum Phototrophic Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -597,8 +597,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -609,7 +609,7 @@
                     <h3>Phototroph To Central Bacterium Metabolite Exchange</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Chlorobium chlorochromatii epibionts are inferred to supply carbon, nitrogen, sulfur sources, and vitamins to the metabolically reduced central bacterium.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - genome reconstruction and prior physiology suggest transfer of fixed-carbon/nitrogen compounds and cofactors from Chlorobium chlorochromatii to the central bacterium. The epibiont can grow axenically, whereas independent central-bacterium growth has not been obtained. Exact donor-to-recipient fluxes are unresolved, and the intact-consortium physiology assay required external 2-oxoglutarate. Photosynthetic CO2 and sulfide inputs are not identified exchanged products.</p>
 
 
                 <p><strong>Source Taxon:</strong> Chlorobium chlorochromatii CaD3 epibiont</p>
@@ -619,18 +619,6 @@
                 <p><strong>Target Taxon:</strong> Candidatus Symbiobacter mobilis central bacterium</p>
 
 
-
-                <p><strong>Metabolites:</strong>
-
-                    carbon dioxide
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16526"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16526</a>),
-
-                    hydrogen sulfide
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16136"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16136</a>)
-
-                </p>
 
 
 
@@ -652,8 +640,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Possible Quinone-Mediated Electron Exchange
-                        <p class="prewrap causal-description">Epibiont-to-central-bacterium transfer of menaquinone-7 or a soluble quinone intermediate would supply the quinone pool needed for the proposed bidirectional electron shuttle and shared proton-motive force.
-</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED - provision of epibiont-derived menaquinone-7 or a soluble intermediate could supply the quinone pool required by the proposed bidirectional electron shuttle. Neither quinone transfer nor shared protonmotive force was demonstrated; bulk/fraction quinone detection is not flux evidence.</p>
                     </div>
 
                 </div>
@@ -669,7 +656,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/24267588/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24267588</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"extensive metabolic exchange, involving carbon, nitrogen, and sulfur sources as well as vitamins"</div>
@@ -683,9 +670,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Central Bacterium Navigation For Epibiont Resources</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">The central bacterium contributes motility and sensing, including movement toward light and sulfide that directly benefit the attached phototrophic epibionts.</p>
+                <p class="prewrap interaction-description">PARTIAL - the central bacterium supplies the consortium flagellum, and intact consortia exhibit chemotaxis to sulfide and a scotophobic response. The 2013 study demonstrated recombinant central-bacterium photosensor activity in E. coli, supporting a direct-sensing model, but did not establish its necessity in intact consortia. Sulfide sensors remain unidentified and indirect epibiont signaling is not excluded. Navigation can position attached phototrophs at resources; colonization facilitation and its effect on metabolite transfer were not measured.</p>
 
 
                 <p><strong>Source Taxon:</strong> Candidatus Symbiobacter mobilis central bacterium</p>
@@ -713,7 +699,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Phototroph To Central Bacterium Metabolite Exchange
-                        <p class="prewrap causal-description">Motility toward sulfide and light positions the attached epibionts at resources for anoxygenic photosynthesis, sustaining the carbon-, nitrogen-, sulfur-, and vitamin-exchange economy of the consortium.</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED - navigation toward light and sulfide could improve resource access for the attached phototroph and thereby support production of metabolites available to the central bacterium. Taxis is observed, but its causal effect on partner-resolved metabolite flux was not isolated.</p>
                     </div>
 
                 </div>
@@ -729,10 +715,36 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/24267588/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24267588</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"can sense and move towards light and sulfide"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/24267588/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24267588</a>
+
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Recombinant bacteriophytochromes produced in these three strains were purified and characterized by absorbance spectroscopy."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/9446684/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:9446684</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"sulfide, thiosulfate, 2-oxoglutarate, and citrate served as a chemoattractant"</div>
 
                     </li>
 
@@ -745,7 +757,7 @@
                     <h3>Possible Quinone-Mediated Electron Exchange</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Genome-based models propose that quinones and quinols could shuttle electrons between the central bacterium and epibiont, potentially coupling central-bacterium ATP synthesis to phototrophic energy conversion.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - quinone or intermediate transfer and bidirectional quinone/quinol cycling could couple central-bacterium energy conservation to epibiont photosynthesis, potentially sharing protonmotive force through cell contacts. HPLC detected menaquinone-7 in intact consortia and central-bacterium-enriched fractions, not purified central cells or traced interspecies transfer. The authors explicitly require experimental tests of this electron-shuttling model.</p>
 
 
                 <p><strong>Source Taxon:</strong> Chlorobium chlorochromatii CaD3 epibiont</p>
@@ -757,17 +769,6 @@
 
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        cellular respiration
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0045333"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0045333</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -782,7 +783,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/24267588/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24267588</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"electron cycling mechanisms, particularly those mediated by quinones"</div>
@@ -795,10 +796,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/24267588/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24267588</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"we hypothesize that menaquinone-7, or a soluble quinone intermediate synthesized by Chl. chlorochromatii"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/24267588/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24267588</a>
+
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Only menaquinone-7 was detected in extracts prepared from intact consortia and fractions enriched in the central bacterium."</div>
 
                     </li>
 
@@ -862,6 +876,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which metabolite and electron fluxes, and which sensory proteins, are necessary in the intact consortium?
+                </h3>
+                <p class="prewrap">The genomic model, recombinant photosensor assays and fraction HPLC do not resolve partner-specific exchange, electron flow or shared protonmotive force. Sulfide sensing and indirect signaling remain unresolved. The 1998 growth assay required external 2-oxoglutarate; epibiont axenic growth excludes mutual obligate growth. Direct transfer, mediator perturbation/rescue and intact-consortium sensory tests are needed. Main-text quinone figure numbering differs from the supplement list; no unseen supplemental panel is certified.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Phototroph To Central Bacterium Metabolite Exchange</code>, <code>ecological_interactions#Central Bacterium Navigation For Epibiont Resources</code>, <code>ecological_interactions#Possible Quinone-Mediated Electron Exchange</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1086,12 +1119,6 @@
             var intType = "SYNTROPHY";
             var metabolites = [];
 
-
-            metabolites.push("carbon dioxide");
-
-            metabolites.push("hydrogen sulfide");
-
-
             var processes = [];
 
 
@@ -1127,7 +1154,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1136,7 +1163,7 @@
 
             var processes = [];
 
-            var evidenceCount = 1;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1170,11 +1197,7 @@
 
             var processes = [];
 
-
-            processes.push("cellular respiration");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,

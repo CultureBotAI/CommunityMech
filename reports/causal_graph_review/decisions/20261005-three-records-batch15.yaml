@@ -1,0 +1,337 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: b036e766f9fb3b085b8111e4d34e6587ae242bb0
+issues:
+- 1308
+- 1309
+- 1310
+open_nongraph_followups:
+- 1311
+issue_deduplication:
+  count: 653
+  scope: All-state issue titles and bodies; not exhaustive comments.
+  relevant_closed:
+  - 1000
+  - 1001
+  - 1002
+  - 757
+  - 751
+  - 398
+  - 376
+  - 369
+  prior_pr_read: 1003
+  prior_pr_caution: Do not restore redundant participating_taxa removed after strict validation.
+reference_cache_original_hashes:
+  references_cache/PMID_24267588.txt: 0b5e47fe0921ead0f46516888805b8a67c17c251d8e78eb21c2c8f483886cf3f
+  references_cache/PMID_9446684.md: d412a775b873f1d2e8e98ef405f2e6c98323483937ecc97b3b3622ee5cabd34d
+  references_cache/PMID_42482240.txt: c911bd4adb229d1912726c8b7cc847ea2a57a9399eb4d0a56e912fd4f88ab335
+  references_cache/PMID_42482240.supplement.md: 45614f71bd112451ce0a5bb4b11f201c4e80278cb56c2cc591d5fc9bd0fcc726
+  references_cache/doi_10.1021_acs.est.8b05053.md: 816398c4545f7a5f10d500954b8f1df26e16ebc13f54ba6db1c41c2a012234c0
+limitations:
+- No new nodes/arrows; no Edison run required.
+- Primary artifacts remain outside the repository; caches unchanged.
+- Chromium primary body unavailable; claims bounded to abstract and inspected supplement.
+- 'Non-graph metadata followups are not fixed by this graph-only review; issue #1311 remains open.'
+- Protected merge gated on GitHub required checks.
+records:
+- path: kb/communities/Chlorochromatium_Aggregatum_Phototrophic_Consortium.yaml
+  id: CommunityMech:000141
+  original_sha256: 915d1dd4ab607961f90e007587b6249d84532c4259260d4a8fbf597778ac81f0
+  record_sha256: 9869c805629d42d823727e6e21363628909725dadd532b3759d2238a7f5ef48d
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch15.yaml
+  scope: Whole record and every original graph node/edge reviewed; graph/discussion/history-only edits. Non-graph
+    followups explicitly retained.
+  summary: Qualify genome-based nutrition model; remove photosynthetic inputs misrepresented as exchanged metabolites.;
+    Retain consortium taxis and recombinant photosensor evidence without assigning colonization facilitation or
+    sensory necessity.; Retain proposed quinone model, distinguish HPLC presence from transfer and remove asserted
+    cellular respiration.
+  node_decisions:
+  - node: Phototroph To Central Bacterium Metabolite Exchange
+    rationale: Qualify genome-based nutrition model; remove photosynthetic inputs misrepresented as exchanged metabolites.
+  - node: Central Bacterium Navigation For Epibiont Resources
+    rationale: Retain consortium taxis and recombinant photosensor evidence without assigning colonization facilitation
+      or sensory necessity.
+  - node: Possible Quinone-Mediated Electron Exchange
+    rationale: Retain proposed quinone model, distinguish HPLC presence from transfer and remove asserted cellular
+      respiration.
+  edges_before:
+  - source: Phototroph To Central Bacterium Metabolite Exchange
+    target: Possible Quinone-Mediated Electron Exchange
+    description: 'Epibiont-to-central-bacterium transfer of menaquinone-7 or a soluble quinone intermediate would
+      supply the quinone pool needed for the proposed bidirectional electron shuttle and shared proton-motive force.
+
+      '
+  - source: Central Bacterium Navigation For Epibiont Resources
+    target: Phototroph To Central Bacterium Metabolite Exchange
+    description: Motility toward sulfide and light positions the attached epibionts at resources for anoxygenic
+      photosynthesis, sustaining the carbon-, nitrogen-, sulfur-, and vitamin-exchange economy of the consortium.
+  edges_after:
+  - source: Phototroph To Central Bacterium Metabolite Exchange
+    target: Possible Quinone-Mediated Electron Exchange
+    description: HYPOTHESIZED - provision of epibiont-derived menaquinone-7 or a soluble intermediate could supply
+      the quinone pool required by the proposed bidirectional electron shuttle. Neither quinone transfer nor shared
+      protonmotive force was demonstrated; bulk/fraction quinone detection is not flux evidence.
+  - source: Central Bacterium Navigation For Epibiont Resources
+    target: Phototroph To Central Bacterium Metabolite Exchange
+    description: HYPOTHESIZED - navigation toward light and sulfide could improve resource access for the attached
+      phototroph and thereby support production of metabolites available to the central bacterium. Taxis is observed,
+      but its causal effect on partner-resolved metabolite flux was not isolated.
+  retained_edge_decisions:
+  - source: Phototroph To Central Bacterium Metabolite Exchange
+    target: Possible Quinone-Mediated Electron Exchange
+    rationale: HYPOTHESIZED - provision of epibiont-derived menaquinone-7 or a soluble intermediate could supply
+      the quinone pool required by the proposed bidirectional electron shuttle. Neither quinone transfer nor shared
+      protonmotive force was demonstrated; bulk/fraction quinone detection is not flux evidence.
+  - source: Central Bacterium Navigation For Epibiont Resources
+    target: Phototroph To Central Bacterium Metabolite Exchange
+    rationale: HYPOTHESIZED - navigation toward light and sulfide could improve resource access for the attached
+      phototroph and thereby support production of metabolites available to the central bacterium. Taxis is observed,
+      but its causal effect on partner-resolved metabolite flux was not isolated.
+  removed_edge_decisions: []
+  references:
+  - PMID:24267588
+  - PMID:9446684
+  history_files:
+  - history/records/Chlorochromatium_Aggregatum_Phototrophic_Consortium/2026-10-05T215546Z-codex-2d267a.yaml
+  issues:
+  - 1308
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    reading:
+      record: Whole record read.
+      primary: Full XML body and all main captions read; Table 1 also read by structured rows and cells, no numerical
+        curation planned.
+      unavailable_or_unread: Main figures and supplementary figures/tables not visually inspected. 1998 physiology
+        abstract only; subscription body not read.
+    primary_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4053972/fullTextXML
+    primary_file: /private/tmp/communitymech-batch15/chlorochromatium-primary.xml
+    primary_sha256: 7e2b832c29f67f0c5c66d5732b18e11d2de20c4dd62c8b792769fda4852596e2
+    primary_license: CC BY 2.0, verified in XML.
+    physiology_url: https://link.springer.com/article/10.1007/s002030050552
+    findings:
+    - Three existing nodes and two edges; no new structure proposed.
+    - Genome reconstruction supports metabolic dependency but does not directly trace carbon/nitrogen/sulfur/vitamin
+      transfer.
+    - Photosynthetic CO2 and sulfide inputs are not established transferred metabolites.
+    - Epibiont can grow axenically; central bacterium has not been grown independently. Do not imply mutual obligate
+      growth.
+    - External 2-oxoglutarate was required in the 1998 intact-consortium growth assay; no self-sufficient carbon
+      economy demonstrated.
+    - The central bacterium supplies the polar flagellum; consortium taxis is physiological evidence, not colonization
+      facilitation.
+    - 1998 abstract infers epibiont photosensing and rapid signaling. 2013 work proposes central sensory proteins
+      and does not entirely exclude epibiont signaling.
+    - Recombinant central-bacterium Cenrod_2641 photoswitching was measured in E. coli; Cenrod_2642 heme oxygenase
+      function was tested under oxic versus anoxic conditions. This is stronger than computational prediction but
+      not an in-consortium sensory knockout.
+    - Sulfide sensory proteins were not identified; indirect sensing through epibiont excretion remains possible.
+    - HPLC detected MK-7 and no ubiquinone in intact consortia and central-bacterium-enriched fractions, not purified
+      central cells. Source Methods report fraction contamination assessment.
+    - Quinone/intermediate transfer, bidirectional electron shuttling and shared protonmotive force are explicitly
+      hypotheses requiring experimental testing; HPLC presence is not a transfer/flux assay.
+    - Main text cites Figure S3 for quinones, but supplement list identifies quinone analysis as S4; do not silently
+      certify figure numbering.
+    possible_nongraph_followup: Environmental factor assigns light/sulfide sensing directly to the central bacterium
+      without the source's mechanistic qualification.
+- path: kb/communities/Choysum_SynLAV_DEHP_Rhizobacterial_SynCom.yaml
+  id: CommunityMech:000403
+  original_sha256: 3b3e14074f62c486a340804771cf3c60515f3756f2e56322db8dd759f44a0bb9
+  record_sha256: 23c898adcb069d4f4f36cc49783674e02fa33a814b11cdc8a3a7ed7f84f74239
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch15.yaml
+  scope: Whole record and every original graph node/edge reviewed; graph/discussion/history-only edits. Non-graph
+    followups explicitly retained.
+  summary: Separate soil-residue endpoint from isolate screens and mechanism; remove an unqualified xenobiotic-process
+    assertion.; Retain measured plant concentration, not total burden or a repeated soil outcome.
+  node_decisions:
+  - node: SynLAV DEHP degradation in choysum pots
+    rationale: Separate soil-residue endpoint from isolate screens and mechanism; remove an unqualified xenobiotic-process
+      assertion.
+  - node: Choysum DEHP accumulation reduction
+    rationale: Retain measured plant concentration, not total burden or a repeated soil outcome.
+  edges_before:
+  - source: SynLAV DEHP degradation in choysum pots
+    target: Choysum DEHP accumulation reduction
+    description: SynLAV inoculation reduced DEHP residues in rhizosphere soil and DEHP accumulation in choysum plants,
+      especially in the low-accumulation variety.
+  edges_after:
+  - source: SynLAV DEHP degradation in choysum pots
+    target: Choysum DEHP accumulation reduction
+    description: HYPOTHESIZED - lower rhizosphere-soil DEHP availability could reduce the external supply available
+      for plant uptake, contributing to the lower plant concentration. Co-occurring soil/plant concentration changes
+      and abundance regressions do not isolate this mediation from plant uptake, internal metabolism or other dissipation
+      processes.
+  retained_edge_decisions:
+  - source: SynLAV DEHP degradation in choysum pots
+    target: Choysum DEHP accumulation reduction
+    rationale: HYPOTHESIZED - lower rhizosphere-soil DEHP availability could reduce the external supply available
+      for plant uptake, contributing to the lower plant concentration. Co-occurring soil/plant concentration changes
+      and abundance regressions do not isolate this mediation from plant uptake, internal metabolism or other dissipation
+      processes.
+  removed_edge_decisions: []
+  references:
+  - PMID:42482240
+  history_files:
+  - history/records/Choysum_SynLAV_DEHP_Rhizobacterial_SynCom/2026-10-05T215546Z-codex-e8e755.yaml
+  issues:
+  - 1309
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    primary_url: https://link.springer.com/content/pdf/10.1186/s40168-026-02470-1_reference.pdf
+    primary_file: /private/tmp/communitymech-batch15/synlav-primary.pdf
+    primary_sha256: be76c47721e845e2269d6e49415c1388aa5549d637cdb5f2b8d5ae35fb778cb4
+    primary_license: CC BY-NC-ND 4.0, verified on publisher page; accepted unedited manuscript, not final Version
+      of Record.
+    supplement_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1186%2Fs40168-026-02470-1/MediaObjects/40168_2026_2470_MOESM1_ESM.docx
+    supplement_file: /private/tmp/communitymech-batch15/synlav-supplement.docx
+    supplement_sha256: b2bb1b0ef8add159b8e4d542e419cdd6c8442edd37633ecb6661fae9091ae937
+    reading:
+      record: Whole record and selected-excerpt reference caches read.
+      primary: Main text pages 1-21 read across web and local extraction; Figures 4/5 visually inspected. Figures
+        3-6 captions read; bibliography not exhaustively read.
+      supplement: ZIP CRC passed; Text S1-S3 and captions read, complete Table S2 read structurally. Other tables
+        were partially displayed in a truncated read and are not certified; supplemental images not yet inspected.
+    findings:
+    - Two existing nodes and one duplicate-outcome arrow; no new structure proposed.
+    - Table S2 confirms L11/L29/L75/L44/L115 and isolate-level 72-hour residual-DEHP disappearance of 22/46/37/54/42
+      percent, respectively.
+    - Original Table S2 itself assigns incorrect phyla to Flavobacterium and Sphingomonas. Existing cache faithfully
+      quotes it; do not introduce incorrect phylum groundings or silently alter quotations.
+    - Triplicate isolate assays use 100 mg/L DEHP in MSM, 28 C, 180 rpm, 72 hours, measured by residual GC-MS; not
+      a mineralization assay or proof of community complementarity.
+    - Non-antagonism is pairwise LB agar screening, not positive mutualism or synergy.
+    - Mixture strains normalized to OD600 0.5 and equally combined; inoculum diluted to OD600 0.2, approximately
+      10^5 CFU/mL, 5 mL per seedling in 100 mg/kg soil; triplicate PBS controls.
+    - Cross-inoculation Methods specify sampling after 10 days; Results say colonization measured after two weeks.
+      Preserve discrepancy rather than silently resolving it.
+    - V3-V4 ASV matching above 99 percent identity is an indicator, not unique viable strain detection. Only three
+      SynLAV targeted ASVs reported in LAV, none in HAV; all five inoculum members are not proven to persist.
+    - Figure 4 visually corroborates reduced soil residue and plant DEHP concentration under SynLAV in both varieties.
+      Plant ordinate is mg/kg, not total accumulated mass.
+    - Figure 4 volcano plots show differential community taxa, not direct proof of five-isolate colonization.
+    - Figure 5 OLS associations are not mediation or causation; lower soil exposure as cause of lower plant concentration
+      remains inferential, alongside host uptake/detoxification processes.
+    - Root-exudate chemotaxis is measured, but no root-exudate metabolomics identifies mediators; source acknowledges
+      this limitation.
+    possible_nongraph_followup: All five taxonomy entries say DOMINANT despite lack of endpoint persistence/dominance
+      evidence.
+- path: kb/communities/Chromium_Sulfur_Reduction_Enrichment.yaml
+  id: CommunityMech:000017
+  original_sha256: 6e8d60cc8f2dc647017465bd72dd02eae8207612c8a13667d4efb597c6d9ce26
+  record_sha256: 5be48eb0c799123a45f64ec1a3dc2e07d3fcd614110fa95c383edbdcd4ed4a87
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch15.yaml
+  scope: Whole record and every original graph node/edge reviewed; graph/discussion/history-only edits. Non-graph
+    followups explicitly retained.
+  summary: Retain a bounded donor-to-VFA hypothesis; correct elemental sulfur and remove unmeasured acetate.; Distinguish
+    observed reduction from proposed VFA/taxon mediation and abiotic-control limitations.; Retain the deposited-product
+    endpoint without cross-feeding, cellular detoxification or free-cation assertions.
+  node_decisions:
+  - node: Inorganic-Donor Oxidation to Volatile Fatty Acids
+    rationale: Retain a bounded donor-to-VFA hypothesis; correct elemental sulfur and remove unmeasured acetate.
+  - node: VFA-Fed Chromate Reduction
+    rationale: Distinguish observed reduction from proposed VFA/taxon mediation and abiotic-control limitations.
+  - node: Cr(III) Deposition and Immobilization
+    rationale: Retain the deposited-product endpoint without cross-feeding, cellular detoxification or free-cation
+      assertions.
+  edges_before:
+  - source: Inorganic-Donor Oxidation to Volatile Fatty Acids
+    target: VFA-Fed Chromate Reduction
+    description: 'Volatile fatty acids generated by inorganic-donor oxidizers can feed chromate reducers such as
+      Geobacter and Desulfovibrio.
+
+      '
+  - source: VFA-Fed Chromate Reduction
+    target: Cr(III) Deposition and Immobilization
+    description: 'Biological chromate reduction generates deposited Cr(III) as the main reduction product.
+
+      '
+  edges_after:
+  - source: Inorganic-Donor Oxidation to Volatile Fatty Acids
+    target: VFA-Fed Chromate Reduction
+    description: HYPOTHESIZED - VFA production by donor-oxidizing members could provide organic electron donors
+      to chromate reducers. This author-proposed substrate link is not direct tracing between the named genera,
+      and exact molecules and system-specific producers/consumers remain unresolved in the accessible evidence.
+  - source: VFA-Fed Chromate Reduction
+    target: Cr(III) Deposition and Immobilization
+    description: Reduction of Cr(VI) yields Cr(III), reported by XPS as the main deposited product in these enrichments.
+      This supported transformation/product relationship does not establish that the upstream VFA mechanism uniquely
+      caused deposition or that all removal is biological under every operating condition.
+  retained_edge_decisions:
+  - source: Inorganic-Donor Oxidation to Volatile Fatty Acids
+    target: VFA-Fed Chromate Reduction
+    rationale: HYPOTHESIZED - VFA production by donor-oxidizing members could provide organic electron donors to
+      chromate reducers. This author-proposed substrate link is not direct tracing between the named genera, and
+      exact molecules and system-specific producers/consumers remain unresolved in the accessible evidence.
+  - source: VFA-Fed Chromate Reduction
+    target: Cr(III) Deposition and Immobilization
+    rationale: Reduction of Cr(VI) yields Cr(III), reported by XPS as the main deposited product in these enrichments.
+      This supported transformation/product relationship does not establish that the upstream VFA mechanism uniquely
+      caused deposition or that all removal is biological under every operating condition.
+  removed_edge_decisions: []
+  references:
+  - doi:10.1021/acs.est.8b05053
+  history_files:
+  - history/records/Chromium_Sulfur_Reduction_Enrichment/2026-10-05T215546Z-codex-c8bec4.yaml
+  issues:
+  - 1310
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    primary_url: https://pubs.acs.org/doi/10.1021/acs.est.8b05053
+    primary_abstract_url: https://pubmed.ncbi.nlm.nih.gov/30776217/
+    supplement_metadata_url: https://api.figshare.com/v2/articles/7772975
+    supplement_url: https://ndownloader.figshare.com/files/14470946
+    supplement_expected_bytes: 6309634
+    supplement_expected_md5: a9189a5e718b6dbcbaeb3614f3cdb94b
+    supplement_sha256: bf0193cb49e0be62269fe34441e6accf45419cee49a1b584c66cf30f40284156
+    supplement_file: /private/tmp/communitymech-batch15/chromium-support.pdf
+    supplement_license: CC BY-NC 4.0 per primary Figshare metadata.
+    reading:
+      record: Whole record and abstract cache read.
+      primary: Complete PubMed/publisher abstract read; subscription main text unavailable. Do not claim full-text
+        review.
+      supplement: Resumed after a partial-download timeout; final byte count and MD5 match publisher metadata. All
+        11 pages text-read; Table S2 and Figures S1/S2/S5 visually inspected. Remaining images not inspected.
+    findings:
+    - Three existing nodes and two edges; no new structure proposed.
+    - Separate S(0) and Fe(0) sludge systems; not a demonstrated three-member defined consortium shared by both
+      reactors.
+    - Abstract reports 60-day removal 92.9 plus/minus 1.1 and 98.1 plus/minus 1.2 percent, respectively; XPS identifies
+      deposited Cr(III).
+    - Abstract's taxon-to-VFA-to-reducer model is inferred from 16S composition and author interpretation, not taxon-resolved
+      flux evidence in the accessible text.
+    - Abstract only specifies VFAs as a class; acetate identity is not established by that evidence.
+    - Elemental sulfur node incorrectly uses sulfur atom CHEBI:26833; existing related ingredient uses CHEBI:33403.
+      Verify canonical term before changing.
+    - Cr(III) deposition is an outcome, not cross-feeding; free chromium(3+) is not demonstrated deposited chemical
+      speciation.
+    - Removal of environmental chromate does not establish cellular detoxification GO function.
+    - Ferrovibrio is mentioned by the source but absent from curated taxonomy; avoid inventing participant mappings.
+    - Supplement Table S2 separates this study's S(0)/Fe(0) systems from acetate-fed literature comparators. Those
+      comparator rows do not establish acetate in this system.
+    - Figure S1 shows early C-Fe Cr(VI) loss diminishing across cycles; the source has abiotic/biotic comparisons,
+      not evidence that abiotic Fe removal never occurs.
+    - Figure S2 EDS distinguishes abiotic/biotic solids; it does not alone assign chromium oxidation state. XPS
+      identification remains from the primary abstract.
+    - Figure S5 shows bulk bicarbonate and pH dynamics; no taxon-to-taxon carbon tracing is provided in these supplemental
+      panels.
+    - Official ChEBI page independently verifies elemental sulfur CHEBI:33403.
+    possible_nongraph_followup: Description asserts VFA generation, taxonomy roles overstate exact membership, and
+      related ingredient names acetate without exact molecular evidence.

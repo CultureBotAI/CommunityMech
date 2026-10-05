@@ -84,8 +84,11 @@ taxonomy:
     explanation: Supports obligate dependence of the central bacterium on the consortium.
 ecological_interactions:
 - name: Phototroph To Central Bacterium Metabolite Exchange
-  description: Chlorobium chlorochromatii epibionts are inferred to supply carbon, nitrogen, sulfur sources,
-    and vitamins to the metabolically reduced central bacterium.
+  description: HYPOTHESIZED - genome reconstruction and prior physiology suggest transfer of fixed-carbon/nitrogen
+    compounds and cofactors from Chlorobium chlorochromatii to the central bacterium. The epibiont can grow axenically,
+    whereas independent central-bacterium growth has not been obtained. Exact donor-to-recipient fluxes are unresolved,
+    and the intact-consortium physiology assay required external 2-oxoglutarate. Photosynthetic CO2 and sulfide
+    inputs are not identified exchanged products.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -98,17 +101,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:1436290
       label: Candidatus Symbiobacter mobilis
-  metabolites:
-  - preferred_term: carbon dioxide
-    term:
-      id: CHEBI:16526
-      label: carbon dioxide
-    concentration: Fixed by the green sulfur bacterial epibiont
-  - preferred_term: hydrogen sulfide
-    term:
-      id: CHEBI:16136
-      label: hydrogen sulfide
-    concentration: Electron donor for anoxygenic photosynthesis
   biological_processes:
   - preferred_term: photosynthesis
     term:
@@ -116,20 +108,23 @@ ecological_interactions:
       label: photosynthesis
   downstream:
   - target: Possible Quinone-Mediated Electron Exchange
-    description: >
-      Epibiont-to-central-bacterium transfer of menaquinone-7 or a soluble
-      quinone intermediate would supply the quinone pool needed for the
-      proposed bidirectional electron shuttle and shared proton-motive force.
+    description: HYPOTHESIZED - provision of epibiont-derived menaquinone-7 or a soluble intermediate could supply
+      the quinone pool required by the proposed bidirectional electron shuttle. Neither quinone transfer nor shared
+      protonmotive force was demonstrated; bulk/fraction quinone detection is not flux evidence.
   evidence:
   - reference: PMID:24267588
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: extensive metabolic exchange, involving carbon, nitrogen, and sulfur sources as well as vitamins
-    explanation: Supports broad metabolite exchange from the epibiont to the central bacterium.
+    explanation: The genome-based model proposes broad exchange. Full Results discuss candidate sugars, amino acids
+      and vitamins; no direct transfer assay establishes all these fluxes or a self-sufficient carbon economy.
 - name: Central Bacterium Navigation For Epibiont Resources
-  description: The central bacterium contributes motility and sensing, including movement toward light
-    and sulfide that directly benefit the attached phototrophic epibionts.
-  interaction_type: COLONIZATION_FACILITATION
+  description: PARTIAL - the central bacterium supplies the consortium flagellum, and intact consortia exhibit chemotaxis
+    to sulfide and a scotophobic response. The 2013 study demonstrated recombinant central-bacterium photosensor
+    activity in E. coli, supporting a direct-sensing model, but did not establish its necessity in intact consortia.
+    Sulfide sensors remain unidentified and indirect epibiont signaling is not excluded. Navigation can position
+    attached phototrophs at resources; colonization facilitation and its effect on metabolite transfer were not
+    measured.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Candidatus Symbiobacter mobilis central bacterium
@@ -149,20 +144,35 @@ ecological_interactions:
     concentration: Attractant/resource for the consortium
   downstream:
   - target: Phototroph To Central Bacterium Metabolite Exchange
-    description: Motility toward sulfide and light positions the attached
-      epibionts at resources for anoxygenic photosynthesis, sustaining the
-      carbon-, nitrogen-, sulfur-, and vitamin-exchange economy of the
-      consortium.
+    description: HYPOTHESIZED - navigation toward light and sulfide could improve resource access for the attached
+      phototroph and thereby support production of metabolites available to the central bacterium. Taxis is observed,
+      but its causal effect on partner-resolved metabolite flux was not isolated.
   evidence:
   - reference: PMID:24267588
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: can sense and move towards light and sulfide
-    explanation: Supports central-bacterium sensing and motility toward resources used by the epibiont.
+    explanation: The genomic interpretation supports central sensory capacity. The full source distinguishes recombinant
+      photosensor characterization from unresolved in-consortium causality and unidentified sulfide sensors.
+  - reference: PMID:24267588
+    snippet: Recombinant bacteriophytochromes produced in these three strains were purified and characterized by
+      absorbance spectroscopy.
+    explanation: The Results describe E. coli expression and spectroscopy of central-bacterium Cenrod_2641, not
+      a sensory knockout or necessity test in the intact consortium.
+    evidence_source: IN_VITRO
+    supports: PARTIAL
+  - reference: PMID:9446684
+    snippet: sulfide, thiosulfate, 2-oxoglutarate, and citrate served as a chemoattractant
+    explanation: Supports measured consortium chemotaxis. The abstract infers epibiont signaling rather than isolating
+      the sensory protein or its effect on partner exchange.
+    evidence_source: IN_VITRO
+    supports: SUPPORT
 - name: Possible Quinone-Mediated Electron Exchange
-  description: Genome-based models propose that quinones and quinols could shuttle electrons between the
-    central bacterium and epibiont, potentially coupling central-bacterium ATP synthesis to phototrophic
-    energy conversion.
+  description: HYPOTHESIZED - quinone or intermediate transfer and bidirectional quinone/quinol cycling could couple
+    central-bacterium energy conservation to epibiont photosynthesis, potentially sharing protonmotive force through
+    cell contacts. HPLC detected menaquinone-7 in intact consortia and central-bacterium-enriched fractions, not
+    purified central cells or traced interspecies transfer. The authors explicitly require experimental tests of
+    this electron-shuttling model.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -175,23 +185,26 @@ ecological_interactions:
     term:
       id: NCBITaxon:1436290
       label: Candidatus Symbiobacter mobilis
-  biological_processes:
-  - preferred_term: cellular respiration
-    term:
-      id: GO:0045333
-      label: cellular respiration
   evidence:
   - reference: PMID:24267588
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: electron cycling mechanisms, particularly those mediated by quinones
-    explanation: Supports the proposed electron-transfer mechanism.
+    explanation: Supports an explicitly proposed quinone-transfer/electron-cycling model, not measured interspecies
+      electron flux, shared protonmotive force or obligatory respiratory coupling.
   - reference: PMID:24267588
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: we hypothesize that menaquinone-7, or a soluble quinone intermediate synthesized
-      by Chl. chlorochromatii
-    explanation: Supports epibiont-derived quinones as candidate shuttles between the two partners.
+    snippet: we hypothesize that menaquinone-7, or a soluble quinone intermediate synthesized by Chl. chlorochromatii
+    explanation: Supports an explicitly proposed quinone-transfer/electron-cycling model, not measured interspecies
+      electron flux, shared protonmotive force or obligatory respiratory coupling.
+  - reference: PMID:24267588
+    snippet: Only menaquinone-7 was detected in extracts prepared from intact consortia and fractions enriched in
+      the central bacterium.
+    explanation: HPLC provides chemical-presence evidence in intact/enriched material; enrichment is not purification,
+      and detection does not demonstrate transfer direction or shuttling.
+    evidence_source: IN_VITRO
+    supports: PARTIAL
 environmental_factors:
 - name: anoxic sulfide-reduced medium
   value: Anaerobic sulfide-containing culture conditions
@@ -326,3 +339,28 @@ related_ingredients:
     evidence_source: COMPUTATIONAL
     snippet: uses sulfide as the electron donor for photosynthetic CO2 and N2 fixation
     explanation: Anchors N2 fixation as a nitrogen source for the consortium.
+discussions:
+- discussion_id: chlorochromatium_exchange_and_sensory_causality
+  prompt: Which metabolite and electron fluxes, and which sensory proteins, are necessary in the intact consortium?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Phototroph To Central Bacterium Metabolite Exchange
+  - ecological_interactions#Central Bacterium Navigation For Epibiont Resources
+  - ecological_interactions#Possible Quinone-Mediated Electron Exchange
+  rationale: The genomic model, recombinant photosensor assays and fraction HPLC do not resolve partner-specific
+    exchange, electron flow or shared protonmotive force. Sulfide sensing and indirect signaling remain unresolved.
+    The 1998 growth assay required external 2-oxoglutarate; epibiont axenic growth excludes mutual obligate growth.
+    Direct transfer, mediator perturbation/rescue and intact-consortium sensory tests are needed. Main-text quinone
+    figure numbering differs from the supplement list; no unseen supplemental panel is certified.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T21:55:45Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Qualify genome-based nutrition model; remove photosynthetic inputs misrepresented as exchanged metabolites.;
+    Retain consortium taxis and recombinant photosensor evidence without assigning colonization facilitation or
+    sensory necessity.; Retain proposed quinone model, distinguish HPLC presence from transfer and remove asserted
+    cellular respiration.; issue #1308; reports/causal_graph_review/decisions/20261005-three-records-batch15.yaml'
+  llm_assisted: true
