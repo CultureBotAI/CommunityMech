@@ -961,7 +961,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Baia de Todos os Santos Mangrove Alkane-Degrading Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -969,13 +969,13 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolSquare2"
+                             data-color="#1212ed"></svg> Niche partitioning
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -984,9 +984,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Complete-consortium intermediate alkane synergy</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">The complete consortium, unlike single isolates, generated statistically significant degradation of the intermediate C15-C28 n-alkane fraction, consistent with multi-member cascading of alkane-derived byproducts and reduced toxic-intermediate accumulation.</p>
+                <p class="prewrap interaction-description">The source reports greater intermediate C15-C28 alkane removal by the complete consortium than selected isolates, using a consortium baseline from previous standardized experiments. Each treatment used one batch reactor; alkane chains used as statistical replicates are not independent biological replicates. PARTIAL - byproduct cascades and avoidance of toxic intermediates are proposed explanations, not measured transfer or reciprocal member fitness. GC-FID disappearance does not establish complete mineralization, and late heavy-fraction OH4 removal could exceed the consortium.</p>
 
 
 
@@ -1040,7 +1039,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41893893/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41893893</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"cooperative action allows for the cascading utilization of byproducts"</div>
@@ -1056,7 +1055,7 @@
                     <h3>Rapid and delayed alkane-degradation partitioning</h3>
                     <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Representative Pseudomonas and Stenotrophomonas members carried alkB and acted as rapid degraders, whereas Bacillus sp. OH4 showed delayed late-phase degradation of longer and intermediate alkane fractions, consistent with temporal niche partitioning inside the consortium.</p>
+                <p class="prewrap interaction-description">PARTIAL - isolate time profiles and alkB annotation suggest rapid Pseudomonas/Stenotrophomonas and delayed OH4 roles. NICHE_PARTITIONING denotes the authors&#39; proposed temporal specialization, not measured succession or reduced competition inside the consortium. The nine selected isolates are representatives of a 36-organism parent; gene presence is capacity, not expression or proven pathway flux.</p>
 
 
 
@@ -1135,7 +1134,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41893893/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41893893</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"driven by rapid degraders such as Pseudomonas and Stenotrophomonas, followed by a late-stage degradation phase sustained by genera like Bacillus"</div>
@@ -1152,7 +1151,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -1163,6 +1162,21 @@
                 <p class="prewrap">The article states that its nine selected strains came from a 36-organism consortium, but Table 1 identifies only the nine isolates chosen for genomic analysis; the remaining consortium members were not resolved in the article text, PMC XML, Springer HTML, or full-size Table 1 page inspected here.</p>
 
                 <p class="muted small">Attaches to: <code>taxonomy</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Do replicated defined-consortium experiments establish the proposed temporal roles and byproduct cascades?
+                </h3>
+                <p class="prewrap">Independent reactor replication, contemporaneous complete membership, mass-balance/recovery controls and partner-resolved flux or fitness are needed to distinguish mechanisms. Negative apparent degradation was clipped to zero; sampling heterogeneity and biofilm sequestration are proposed explanations. Earlier baseline study, source figure/table images and supplements were not reviewed. Preserve the bounded unresolved-members discussion and RA2 grounding note.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Complete-consortium intermediate alkane synergy</code>, <code>ecological_interactions#Rapid and delayed alkane-degradation partitioning</code></p>
 
 
 
@@ -1567,7 +1581,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

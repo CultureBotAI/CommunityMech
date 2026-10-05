@@ -126,11 +126,11 @@ taxonomy:
     explanation: Supports F. prausnitzii as dependent on FOS-containing substrate mixtures rather than direct 2′-FL use.
 ecological_interactions:
 - name: 2′-FL/FOS ratio-dependent butyrate peak
-  description: 'Mixed 2′-FL/FOS substrates uncoupled total co-culture growth from butyrate production: OD600 and lactate/acetate
-    were highest under 2′-FL-rich conditions, whereas butyrate was maximal at 10% 2′-FL plus 90% FOS. The authors interpreted
-    that nonlinear optimum as a balance between FOS-supported F. prausnitzii abundance and metabolites supplied by active
-    B. bifidum.'
-  interaction_type: CROSS_FEEDING
+  description: 'Mixed 2′-FL/FOS substrates uncoupled total co-culture growth from butyrate production: OD600 and
+    lactate/acetate were highest under 2′-FL-rich conditions, whereas butyrate was maximal at 10% 2′-FL plus 90%
+    FOS. The authors interpreted that nonlinear optimum as a balance between FOS-supported F. prausnitzii abundance
+    and metabolites supplied by active B. bifidum. This was a 24-hour endpoint at fixed 0.5% carbohydrate, not a
+    general in-vivo optimum or donor-resolved transfer measurement.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bifidobacterium bifidum JCM1254
@@ -171,17 +171,17 @@ ecological_interactions:
     snippet: conditions that maximized total co-culture growth did not necessarily maximize butyrate production
     explanation: Supports the non-growth-proportional butyrate response in the co-culture.
   - reference: PMID:42655156
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: this study showed that the mixing ratio of 2′-FL and FOS could nonlinearly regulate butyrate production through
-      substrate complementarity and metabolite-mediated interactions between B. bifidum and F. prausnitzii
-    explanation: Supports the source interpretation that the co-culture butyrate peak reflects substrate complementarity and
-      metabolite-mediated interaction.
+    snippet: this study showed that the mixing ratio of 2′-FL and FOS could nonlinearly regulate butyrate production
+      through substrate complementarity and metabolite-mediated interactions between B. bifidum and F. prausnitzii
+    explanation: Supports the authors' substrate-complementarity interpretation, not directly measured acetate transfer.
 - name: Putative B. bifidum metabolite support of F. prausnitzii butyrate output
-  description: B. bifidum alone grew best and accumulated lactate and acetate as 2′-FL increased, but did not produce detectable
-    butyrate. In co-culture, F. prausnitzii persisted best in FOS-containing conditions and butyrate peaked at the 10:90 2′-FL/FOS
-    ratio, consistent with B. bifidum-derived acetate or other fermentation products contributing to butyrate formation when
-    enough F. prausnitzii biomass was maintained. Stable-isotope flux was not measured.
+  description: PARTIAL - B. bifidum monocultures accumulated acetate/lactate but no detectable butyrate; the mixed
+    culture showed the 10:90 substrate-ratio butyrate peak. The authors infer that B. bifidum-derived acetate or
+    other products contribute to F. prausnitzii butyrate formation. Relative qPCR and estimated genome-copy changes
+    are distinct from viable-cell counts; neither establishes donor-resolved flux. The pairwise metabolite annotation
+    remains acetate only.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -216,12 +216,12 @@ ecological_interactions:
     snippet: butyrate production was highest at 10% 2′-FL and 90% FOS
     explanation: Supports the nonmonotonic butyrate maximum in the mixed-substrate co-culture.
   - reference: PMID:42655156
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: acetate and possibly other fermentation products derived from B. bifidum may have contributed to butyrate formation
-      by F. prausnitzii
-    explanation: Supports the authors’ inferred B. bifidum-to-F. prausnitzii metabolite contribution while leaving direct
-      flux unresolved.
+    snippet: acetate and possibly other fermentation products derived from B. bifidum may have contributed to butyrate
+      formation by F. prausnitzii
+    explanation: Explicitly inferred acetate contribution; the study did not directly measure flux, pH or residual
+      substrate. Directly measured endpoints remain SUPPORT.
 environmental_factors:
 - name: 2′-FL/FOS substrate ratio
   value: 0:100 to 100:0
@@ -423,16 +423,22 @@ curation_history:
 - timestamp: '2026-09-21T02:35:24Z'
   curator: claude
   action: CREATE_RECORD
-  changes: Created CommunityMech:000401 for the defined Bifidobacterium bifidum JCM1254 / Faecalibacterium prausnitzii A2-165
-    2′-FL/FOS butyrate coculture from PMID:42655156, including exact JCM strain membership, YCFA− 48-well anaerobic batch
-    cultivation, ratio-dependent butyrate output, measured qPCR and organic-acid endpoints, and unresolved pH/substrate/flux
-    limitations.
+  changes: Created CommunityMech:000401 for the defined Bifidobacterium bifidum JCM1254 / Faecalibacterium prausnitzii
+    A2-165 2′-FL/FOS butyrate coculture from PMID:42655156, including exact JCM strain membership, YCFA− 48-well
+    anaerobic batch cultivation, ratio-dependent butyrate output, measured qPCR and organic-acid endpoints, and
+    unresolved pH/substrate/flux limitations.
   llm_assisted: true
 - timestamp: '2026-09-21T02:40:29Z'
   curator: claude
   action: FIX_ADVERSARIAL_REVIEW_FINDINGS
-  changes: 'Addressed adversarial review issues #991-#994 by adding explicit Discussion/Conclusions support for the 2′-FL/FOS
-    butyrate interaction, narrowing the putative B. bifidum-to-F. prausnitzii metabolite list to acetate, adding FOS-containing
-    F. prausnitzii growth evidence to the fructooligosaccharides ingredient, and correcting the 48-well final co-culture volume
-    to 816 μL.'
+  changes: 'Addressed adversarial review issues #991-#994 by adding explicit Discussion/Conclusions support for
+    the 2′-FL/FOS butyrate interaction, narrowing the putative B. bifidum-to-F. prausnitzii metabolite list to acetate,
+    adding FOS-containing F. prausnitzii growth evidence to the fructooligosaccharides ingredient, and correcting
+    the 48-well final co-culture volume to 816 μL.'
+  llm_assisted: true
+- timestamp: '2026-10-05T11:29:49Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate the 2FL/FOS butyrate peak from inferred acetate transfer; decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1254'
   llm_assisted: true

@@ -575,7 +575,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Bacillus-Saccharomyces Daqu Spatial-Cooperation SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -583,8 +583,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -593,7 +593,6 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Bacillus-dominated starch hydrolysis</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
                 <p class="prewrap interaction-description">Bacillus-dominated starch hydrolysis characterized the liquefaction stage of the Daqu fermentation succession.</p>
 
@@ -631,16 +630,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Saccharomyces-driven ethanol production
-                        <p class="prewrap causal-description">Starch hydrolysis occurred during the Bacillus-dominated liquefaction stage before the subsequent Saccharomyces-driven ethanol-production stage.</p>
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -666,7 +655,6 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Saccharomyces-driven ethanol production</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
                 <p class="prewrap interaction-description">Saccharomyces drove ethanol production during the fermentation stage following Bacillus-dominated starch hydrolysis.</p>
 
@@ -729,9 +717,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Starch-mediated Bacillus-Saccharomyces spatial cooperation</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Starch availability governed colony expansion and spatial cooperation in fluorescently labeled Bacillus-Saccharomyces synthetic consortia.</p>
+                <p class="prewrap interaction-description">The abstract reports that starch availability governs colony expansion and spatial cooperation in fluorescently labeled Bacillus-Saccharomyces consortia. An IPTG-inducible alpha-amylase system supports experimental control of starch availability. These are experimentally supported cooperation results, not a demonstrated competition-reducing partition or a specified transferred metabolite.</p>
 
 
 
@@ -799,7 +786,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42679964/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42679964</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"spatial cooperation between Bacillus and Saccharomyces on starch substrates is a key mechanism linking efficient starch utilization to enhanced flavor production"</div>
@@ -816,7 +803,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -827,6 +814,21 @@
                 <p class="prewrap">The PubMed abstract identifies a Bacillus-Saccharomyces synthetic consortium, fluorescent labeling, Daqu fermentation, starch-availability control, and an IPTG-inducible alpha-amylase expression system, but it does not expose the exact species or strains, construct host, or reproducible solid-state cultivation recipe.</p>
 
                 <p class="muted small">Attaches to: <code>growth_media#Daqu starch solid-state fermentation</code>, <code>engineering_design#assembly_strategy</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which transferred substrates and spatial mechanisms mediate the observed cooperation?
+                </h3>
+                <p class="prewrap">The complete abstract supports temporal transcriptomic stages, starch perturbation and inducible alpha-amylase control. Temporal order alone does not establish hydrolysis-to-ethanol mediation. Full methods, strain/construct identities, figures and supplements remain unread; no claim is made that additional experiments are absent. Prior dangling flavor targets remain removed.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Bacillus-dominated starch hydrolysis</code>, <code>ecological_interactions#Saccharomyces-driven ethanol production</code>, <code>ecological_interactions#Starch-mediated Bacillus-Saccharomyces spatial cooperation</code></p>
 
 
 
@@ -1108,7 +1110,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1151,7 +1153,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1194,7 +1196,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
