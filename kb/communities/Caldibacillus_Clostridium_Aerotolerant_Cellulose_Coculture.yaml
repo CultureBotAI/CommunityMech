@@ -100,9 +100,8 @@ taxonomy:
     explanation: Supports C. debilis GB1 as a member of the designed coculture.
 ecological_interactions:
 - name: Respiratory Protection of C. thermocellum
-  description: C. debilis GB1 provides respiratory protection for C. thermocellum under oxidative
-    conditions, enabling cellulose utilization by the designed coculture.
-  interaction_type: COMMENSALISM
+  description: C. debilis GB1 supports aerobic cellulose utilization by C. thermocellum. Local oxygen depletion
+    is HYPOTHESIZED; bulk oxygen persisted. An unaffected GB1 partner is not established.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Caldibacillus debilis GB1
@@ -134,10 +133,8 @@ ecological_interactions:
       label: cellulose catabolic process
   downstream:
   - target: Aerotolerant Ethanogenic Cellulose Conversion
-    description: >
-      C. debilis respiratory protection lets oxygen-sensitive C. thermocellum
-      continue cellulose utilization under aerobic atmosphere, supporting the
-      designed coculture's aerotolerant ethanol production.
+    description: PARTIAL - respiratory protection permits cellulose fermentation under air; the local oxygen-scavenging
+      mechanism remains inferred, not measured bulk deoxygenation.
   evidence:
   - reference: doi:10.1128/AEM.00735-15
     supports: SUPPORT
@@ -150,9 +147,9 @@ ecological_interactions:
     snippet: synergistic utilization of cellulose even under an aerobic atmosphere
     explanation: Supports the interaction outcome under aerobic conditions.
 - name: Aerotolerant Ethanogenic Cellulose Conversion
-  description: The designed coculture supports ethanogenic biofuel production from cellulose while
-    tolerating oxidative conditions that are normally restrictive for strictly anaerobic cellulolytic
-    biofuel producers.
+  description: 'The defined pair converted cellulose with transient aerobic ethanol accumulation: 5.5 mM at 72 h,
+    below detection at 168 h. PARTIAL - GB1 use of released cellobiose and fermentation products is a cross-feeding
+    hypothesis, supported by substrate-use assays but not resolved coculture flux. B4-1 enrichment results are distinct.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -188,16 +185,15 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: aerotolerant ethanogenic biofuel production from cellulose
-    explanation: Supports the combined cellulose-to-ethanol biofuel function of the coculture.
+    explanation: Supports the conversion endpoint, not sustained ethanol accumulation.
   - reference: doi:10.1128/AEM.00735-15
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: synergistic utilization of cellulose even under an aerobic atmosphere
-    explanation: Supports synergistic cellulose use under aerobic conditions.
+    explanation: Supports the combined phenotype; the primary Discussion proposes exchange, not donor-resolved transfer.
 - name: Oxidative Shift Toward Lactate Production
-  description: Oxidative conditions changed the fermentation-product profile of the designed coculture,
-    including increased lactate production.
-  interaction_type: COMMENSALISM
+  description: The defined coculture accumulated more lactate under oxidative conditions at 72 h, then less at 168
+    h. Stress-related production and partner attribution remain proposed; this endpoint is not commensalism.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lactate
@@ -309,10 +305,30 @@ curation_history:
 - timestamp: '2026-10-02T05:37:12Z'
   curator: codex
   action: PRUNE_UNEVIDENCED_CAUSAL_EDGES
-  changes: >
-    Removed one downstream edge from respiratory protection of C. thermocellum
-    to the oxidative lactate-production shift. The source directly supports
-    C. debilis respiratory protection enabling aerobic cellulose utilization,
-    while lactate production is a separate oxidative-condition response rather
-    than a demonstrated consequence of respiratory protection.
+  changes: 'Removed one downstream edge from respiratory protection of C. thermocellum to the oxidative lactate-production
+    shift. The source directly supports C. debilis respiratory protection enabling aerobic cellulose utilization,
+    while lactate production is a separate oxidative-condition response rather than a demonstrated consequence of
+    respiratory protection.
+
+    '
   llm_assisted: true
+- timestamp: '2026-10-05T15:54:19Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Bound Caldibacillus protection and transient products; retain partial cross-feeding; reports/causal_graph_review/decisions/20261005-thermophile-pair-batch9.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1270
+  llm_assisted: true
+discussions:
+- discussion_id: caldibacillus_local_oxygen_and_exchange
+  prompt: Which local oxygen gradients and partner-resolved transfers explain aerotolerant conversion?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Respiratory Protection of C. thermocellum
+  - ecological_interactions#Aerotolerant Ethanogenic Cellulose Conversion
+  - ecological_interactions#Oxidative Shift Toward Lactate Production
+  rationale: doi:10.1128/AEM.00735-15 supports protection but leaves microenvironment, exchange flux and stress
+    attribution unresolved. Preserve the earlier protection-to-lactate arrow removal. No new mechanism or molecular
+    effector is asserted.
+  posed_by: codex
+  posed_date: '2026-10-05'
