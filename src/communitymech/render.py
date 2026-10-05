@@ -5,7 +5,9 @@ Generates individual HTML pages for each community with full metadata,
 taxonomy, ecological interactions, and evidence.
 """
 
+import json
 import re
+from functools import lru_cache
 from pathlib import Path
 from urllib.parse import quote
 
@@ -16,16 +18,19 @@ from markupsafe import Markup
 from communitymech.paths import DOCS
 
 
+@lru_cache(maxsize=1)
+def culturemech_links() -> dict[str, str]:
+    return json.loads(Path(__file__).with_name("culturemech-record-links.json").read_text())[
+        "links"
+    ]
+
+
 def reference_url(reference: str | None) -> str:
     value = str(reference or "")
     if value.startswith(("https://", "http://")):
         return value
     if re.fullmatch(r"CultureMech:\d{6}", value):
-        return (
-            "https://culturebotai.github.io/CultureMech/pages/normalized/"
-            + value.split(":")[1]
-            + ".html"
-        )
+        return culturemech_links().get(value, "")
     if value.startswith("PMID:") and value[5:].isdigit():
         return "https://pubmed.ncbi.nlm.nih.gov/" + value[5:] + "/"
     if re.match(r"(?i)^doi:10\.\d{4,9}/", value):
@@ -39,6 +44,8 @@ def reference_link(reference: str | None) -> Markup:
     url = reference_url(reference)
     if url:
         return Markup('<a href="{}" rel="noreferrer">{}</a>').format(url, reference or "")
+    if str(reference or "").startswith("CultureMech:"):
+        return Markup('{} <span class="muted">(record link unresolved)</span>').format(reference)
     return Markup("{}").format(reference or "")
 
 

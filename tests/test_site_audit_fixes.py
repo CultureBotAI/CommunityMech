@@ -22,6 +22,8 @@ def test_reference_resolvers_preserve_pinned_github_paths_and_identifiers():
     assert reference_url("PMID:38515239") == "https://pubmed.ncbi.nlm.nih.gov/38515239/"
     assert reference_url("CultureMech:003277").endswith("/pages/normalized/003277.html")
     assert reference_url("CultureMech:uncertain") == ""
+    assert reference_url("CultureMech:999999") == ""
+    assert "unresolved" in reference_link("CultureMech:999999")
     assert "href=" not in reference_link("javascript:alert(1)")
     assert "<script>" not in reference_link("<script>")
 
@@ -87,3 +89,17 @@ def test_retained_map_fallback_is_initialized_before_plot_dependency():
     assert '<label for="search">Search communities</label>' in html
     assert 'href="https://culturebotai.github.io/mechs/"' in html
     assert "complete plotted dataset in the table" in html
+
+
+def test_missing_canonical_label_and_unknown_recipe_have_explicit_states(tmp_path):
+    source = yaml.safe_load(
+        (ROOT / "kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml").read_text()
+    )
+    source["environment_term"]["term"].pop("label", None)
+    source["growth_media"] = [{"name": "Unresolved test", "culturemech_id": "CultureMech:999999"}]
+    path = tmp_path / "unknown.yaml"
+    path.write_text(yaml.safe_dump(source))
+    html = CommunityRenderer().render_community(path)
+    assert "ontology label unavailable" in html
+    assert "CultureMech record link unresolved" in html
+    assert "/999999.html" not in html

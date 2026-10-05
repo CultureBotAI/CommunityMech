@@ -423,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        {{ community.environment_term.preferred_term or community.environment_term.term.label }}{% if community.environment_term.term.label and community.environment_term.preferred_term and community.environment_term.term.label != community.environment_term.preferred_term %}<span class="ontology-label"> — ontology label: {{ community.environment_term.term.label }}</span>{% endif %}
+                        {{ community.environment_term.preferred_term or community.environment_term.term.label }}{% if community.environment_term.term.label and community.environment_term.preferred_term and community.environment_term.term.label != community.environment_term.preferred_term %}<span class="ontology-label"> — ontology label: {{ community.environment_term.term.label }}</span>{% elif not community.environment_term.term.label %}<span class="ontology-label"> — ontology label unavailable</span>{% endif %}
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/{{ community.environment_term.term.id.replace(':', '_') }}"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -437,7 +437,7 @@
                     <span class="metadata-label">Modeled Environment</span>
                     <span class="metadata-value">
                         {% for me in community.modeled_environment %}
-                        {{ me.preferred_term or me.term.label }}{% if me.term.label and me.preferred_term and me.term.label != me.preferred_term %}<span class="ontology-label"> — ontology label: {{ me.term.label }}</span>{% endif %}
+                        {{ me.preferred_term or me.term.label }}{% if me.term.label and me.preferred_term and me.term.label != me.preferred_term %}<span class="ontology-label"> — ontology label: {{ me.term.label }}</span>{% elif not me.term.label %}<span class="ontology-label"> — ontology label unavailable</span>{% endif %}
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/{{ me.term.id.replace(':', '_') }}"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -476,7 +476,7 @@
                     {% for taxon in community.taxonomy %}
                     <tr>
                         <td>
-                            <strong>{{ taxon.taxon_term.preferred_term or taxon.taxon_term.term.label }}{% if taxon.taxon_term.term.label and taxon.taxon_term.preferred_term and taxon.taxon_term.term.label != taxon.taxon_term.preferred_term %}<span class="ontology-label"> — ontology label: {{ taxon.taxon_term.term.label }}</span>{% endif %}</strong>
+                            <strong>{{ taxon.taxon_term.preferred_term or taxon.taxon_term.term.label }}{% if taxon.taxon_term.term.label and taxon.taxon_term.preferred_term and taxon.taxon_term.term.label != taxon.taxon_term.preferred_term %}<span class="ontology-label"> — ontology label: {{ taxon.taxon_term.term.label }}</span>{% elif not taxon.taxon_term.term.label %}<span class="ontology-label"> — ontology label unavailable</span>{% endif %}</strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id={{ taxon.taxon_term.term.id.split(':')[1] }}"
@@ -945,7 +945,7 @@
                         View in CultureMech →
                     </a>
                 </p>
-                {% endif %}
+                {% elif medium.culturemech_id %}<p class="muted">CultureMech record link unresolved.</p>{% endif %}
 
                 <div class="metadata-grid" style="margin-top: 1rem;">
                     {% if medium.ph %}
