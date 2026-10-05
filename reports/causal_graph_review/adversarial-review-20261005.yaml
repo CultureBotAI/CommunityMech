@@ -1,0 +1,64 @@
+reviewer: codex
+review_mode: self_adversarial
+independent_reviewer: false
+base_commit: 22aefeecccb0728e0fe43439283f0c95f52b1f3f
+scope:
+  - Five edited community graphs and two explicit no-change decisions.
+  - Complete current node decisions, removed-node rationale, renames, and before/after edges.
+  - Source scope, ecological classifications, cache provenance, and snippet-validation limits.
+  - Append-only histories, exact record hashes, corpus discovery, and generated publication.
+findings:
+  - issue: https://github.com/CultureBotAI/CommunityMech/issues/1236
+    severity: high
+    finding: Some causal claims and ecological classifications exceeded the cited same-system evidence.
+    resolution: Remove the unsupported AMD urea node and two arrows; qualify retained mechanisms and remove unsupported classifications across five records. Preserve measured endpoints and add anchored knowledge gaps. Record two justified no-change decisions.
+    status: addressed
+  - issue: https://github.com/CultureBotAI/CommunityMech/issues/1237
+    severity: medium
+    finding: A selected-excerpts cache could be promoted to independent source text solely by a Content or Abstract heading.
+    resolution: Explicitly exclude selected-excerpts Markdown caches, including quoted and case-varied metadata. Preserve independently retrieved sibling text.
+    mutation_test: Before the fix, three of four initial cases failed. After the fix and quoted/case-varied expansion, all ten cases passed.
+    status: addressed
+  - issue: https://github.com/CultureBotAI/CommunityMech/issues/1238
+    severity: high
+    finding: The active community template omitted causal node and edge descriptions, hiding uncertainty qualifiers in published pages.
+    resolution: Render escaped optional descriptions in their corresponding node and downstream blocks. Allow long text to wrap. Regenerate community pages and compare their parsed descriptions with YAML.
+    mutation_test: Before the fix, four of five focused publication tests failed. All five passed after the fix.
+    status: addressed
+verification:
+  source_report: reports/causal_graph_review/validation-20261005.json
+  coverage_report: reports/causal_graph_review/summary.json
+  decision_report: reports/causal_graph_review/decisions/20261005-seven-records.yaml
+  corpus_records: 460
+  reviewed_records_in_ledger: 11
+  pending_records_in_ledger: 449
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 18
+  network_warning_change: 0
+  focused_regression_tests_passed: 115
+  cache_and_snippet_regression_tests_passed: 48
+  publication_regression_tests_passed: 941
+  published_community_pages: 456
+  published_node_descriptions: 1478
+  published_edge_descriptions: 760
+  render_determinism: passed
+  snippet_counts:
+    MATCH: 123
+    RENDERING: 1
+    NOCONTENT: 22
+    MISMATCH: 0
+    WEAK: 0
+    ASSEMBLED: 0
+  unchanged_records_remain_byte_identical:
+    - CommunityMech:000276
+    - CommunityMech:000434
+limitations:
+  - This is a self-review, not independent reviewer approval.
+  - Eleven ledger rows do not complete the full-corpus semantic review; every other record remains pending.
+  - Non-graph descriptions, taxon notes, abundance values, and environmental numbers are outside this review's certification scope. AMD metadata still needs a separate evidence audit.
+  - Aalborg has 22 snippets without independently retrieved local source coverage after correcting its cache provenance. The primary PMC article was read separately; selected-excerpt matching is not full-text validation.
+  - One unchanged ANME snippet differs in plus/minus typography. Its entire normalized string matches; no wording was changed merely to copy an extraction artifact.
+  - The quorum-quenching and acidic-nitrification reviews are abstract-bounded. No unread full-text control is asserted absent.
+  - No browser was available for desktop/mobile screenshot QA. Publication text coverage, escaping, optional-field behavior, and deterministic generation are checked automatically.
+  - Edison spend was authorized, but no API key is configured. No paid job has been submitted; these repairs introduce no new nodes or edges.

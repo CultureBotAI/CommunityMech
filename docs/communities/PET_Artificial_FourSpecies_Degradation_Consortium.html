@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -712,6 +716,7 @@
                     <h3>PETase-MHETase Depolymerization Module</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">The two engineered B. subtilis strains divide PET hydrolysis into PETase-mediated PET to MHET conversion and MHETase-mediated MHET conversion to terephthalic acid and ethylene glycol.</p>
 
 
                 <p><strong>Source Taxon:</strong> Bacillus subtilis 168 Bs_PETase</p>
@@ -739,10 +744,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Rhodococcus TPA Detoxification Module
+                        <p class="prewrap causal-description">MHETase releases terephthalic acid from MHET, creating the inhibitory PET hydrolysis product consumed by Rhodococcus jostii RHA1.</p>
                     </div>
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Pseudomonas EG Detoxification Module
+                        <p class="prewrap causal-description">MHETase also releases ethylene glycol from MHET, creating the inhibitory PET hydrolysis product consumed by Pseudomonas putida KT2440.</p>
                     </div>
 
                 </div>
@@ -787,6 +794,7 @@
                     <h3>Rhodococcus TPA Detoxification Module</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">R. jostii RHA1 uses terephthalic acid, reducing TPA inhibition of PETase activity and improving PET degradation by the three- and four-member consortia.</p>
 
 
                 <p><strong>Source Taxon:</strong> Bacillus subtilis 168 Bs_MHETase</p>
@@ -825,6 +833,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Four-Species PET Film Degradation
+                        <p class="prewrap causal-description">R. jostii consumes TPA to relieve product inhibition during PET hydrolysis by the engineered Bacillus modules.</p>
                     </div>
 
                 </div>
@@ -869,6 +878,7 @@
                     <h3>Pseudomonas EG Detoxification Module</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">P. putida KT2440 is added to consume ethylene glycol, another PET hydrolysis product, making the four-member consortium more complete in product utilization.</p>
 
 
                 <p><strong>Source Taxon:</strong> Bacillus subtilis 168 Bs_MHETase</p>
@@ -907,6 +917,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Four-Species PET Film Degradation
+                        <p class="prewrap causal-description">P. putida consumes EG so the four-member consortium avoids accumulating both inhibitory PET hydrolysis products.</p>
                     </div>
 
                 </div>
@@ -951,6 +962,7 @@
                     <h3>Nutrient-Mediated Competition Control</h3>
                     <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">Because P. putida overgrew the other members in rich media, the four-member consortium was shifted to Wn medium to constrain P. putida growth and maintain the engineered division of labor.</p>
 
 
 
@@ -977,6 +989,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Four-Species PET Film Degradation
+                        <p class="prewrap causal-description">Wn medium and the optimized inoculation ratio constrain P. putida overgrowth and maintain the engineered four-member PET-degradation division of labor.</p>
                     </div>
 
                 </div>
@@ -1021,6 +1034,7 @@
                     <h3>Four-Species PET Film Degradation</h3>
                     <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
+                <p class="prewrap interaction-description">The complete Bs_PETase, Bs_MHETase, Rhodococcus jostii, and Pseudomonas putida consortium hydrolyzes PET and then consumes the TPA and EG hydrolysis products, reaching 23.2% PET film weight loss under the optimized Wn-medium condition.</p>
 
 
 

@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -620,6 +624,9 @@
                     <h3>{{ interaction.name }}</h3>{% if interaction.interaction_type %}
                     <span class="interaction-type">{{ interaction.interaction_type }}</span>{% endif %}
                 </div>{% set participating_taxa = interaction.participating_taxa | default([], true) %}
+                {%- if interaction.description %}
+                <p class="prewrap interaction-description">{{ interaction.description }}</p>
+                {%- endif %}
 
                 {% if interaction.source_taxon %}
                 <p><strong>Source Taxon:</strong> {{ interaction.source_taxon.preferred_term or interaction.source_taxon.term.label }}</p>
@@ -664,6 +671,9 @@
                     {% for down in interaction.downstream %}
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> {{ down.target }}
+                        {%- if down.description %}
+                        <p class="prewrap causal-description">{{ down.description }}</p>
+                        {%- endif %}
                     </div>
                     {% endfor %}
                 </div>

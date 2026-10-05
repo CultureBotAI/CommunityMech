@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -567,7 +571,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Acetylene-Fueled Trichloroethene Dechlorination Groundwater Enrichment</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -575,13 +579,13 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolDiamond"
+                             data-color="#57c7ab"></svg> Cross-feeding
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -590,8 +594,9 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Acetylenotrophy Provides Reductant for Dechlorination</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">PARTIAL - acetylene fermentation supplied hydrogen supporting community dechlorination. Hydrogen measurements and mass balances support interspecies transfer at enrichment level; attribution of acetylene metabolism to the Actinobacteria/Coriobacteriales population is metagenomic, not confirmed by isolate biochemistry.</p>
 
 
                 <p><strong>Source Taxon:</strong> novel anaerobic acetylenotroph (Actinobacteria)</p>
@@ -638,6 +643,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Reductive Dechlorination of TCE and PCE
+                        <p class="prewrap causal-description">Acetylene fermentation supplies hydrogen that supports TCE/PCE reduction in the enrichment. The community-level hydrogen balance supports this link without proving an exact isolated donor-recipient pair.</p>
                     </div>
 
                 </div>
@@ -653,10 +659,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/33531396/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33531396</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"the coupling of acetylenotrophy and reductive dechlorination can occur in the environment with native bacteria"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/33531396/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33531396</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"interspecies hydrogen transfer occurred in the enrichment"</div>
 
                     </li>
 
@@ -667,8 +686,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Reductive Dechlorination of TCE and PCE</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">The groundwater enrichment reductively dechlorinated TCE and PCE primarily to vinyl chloride using acetylene-derived reductant. This is not a claim of complete conversion to ethene, nor of product-removal-enabled thermodynamic cooperation.</p>
 
 
 
@@ -720,6 +739,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/33531396/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33531396</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"dechlorinate PCE and TCE to VC using acetylene"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -727,8 +759,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Acetylene as Sole Electron Donor and Carbon Source</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
+                <p class="prewrap interaction-description">C2H2 alone supports the stable enrichment as the sole electron donor and organic carbon source.</p>
 
 
 
@@ -758,6 +790,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Acetylenotrophy Provides Reductant for Dechlorination
+                        <p class="prewrap causal-description">Acetylene-fed growth of the stable enrichment supplies the acetylenotrophic metabolism that couples to TCE and PCE reductive dechlorination in the groundwater-derived community.</p>
                     </div>
 
                 </div>
@@ -789,6 +822,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which organism and enzyme supply hydrogen from acetylene in this enrichment?
+                </h3>
+                <p class="prewrap">PMID:33531396 supports community hydrogen transfer and dechlorination. The putative Coriobacteriales acetylene hydratases were assigned from metagenomic homology; the authors call for organism isolation and biochemical validation. Neither the sole-donor amendment nor low hydrogen concentrations establish niche partitioning or product-removal thermodynamics.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Acetylenotrophy Provides Reductant for Dechlorination</code>, <code>ecological_interactions#Acetylene as Sole Electron Donor and Carbon Source</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1020,7 +1072,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "CROSS_FEEDING";
             var metabolites = [];
 
 
@@ -1037,7 +1089,7 @@
             processes.push("anaerobic respiration");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1066,7 +1118,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1081,7 +1133,7 @@
             processes.push("anaerobic respiration");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1100,7 +1152,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

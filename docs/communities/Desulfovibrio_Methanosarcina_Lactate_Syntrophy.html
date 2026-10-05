@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -584,6 +588,7 @@
                     <h3>Lactate Degradation to Acetate and Methane</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">In sulfate-free coculture, D. desulfuricans catabolizes lactate and M. barkeri performs methanogenesis, yielding acetate and methane during early incubation.</p>
 
 
                 <p><strong>Source Taxon:</strong> Desulfovibrio desulfuricans</p>
@@ -636,10 +641,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Acetate Conversion by Methanosarcina
+                        <p class="prewrap causal-description">Acetate produced during lactate degradation becomes the substrate for the later Methanosarcina acetate-to-methane conversion phase.</p>
                     </div>
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Hydrogen Inhibition of Acetate Degradation
+                        <p class="prewrap causal-description">Hydrogen produced during Desulfovibrio growth on lactate creates the inhibitory condition that delays M. barkeri acetate degradation.</p>
                     </div>
 
                 </div>
@@ -671,6 +678,7 @@
                     <h3>Acetate Conversion by Methanosarcina</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">After lactate depletion, acetate produced during early lactate degradation is converted by M. barkeri to methane and presumably carbon dioxide.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methanosarcina barkeri</p>
@@ -737,6 +745,7 @@
                     <h3>Hydrogen Inhibition of Acetate Degradation</h3>
                     <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">Hydrogen produced during Desulfovibrio growth can inhibit acetate degradation by M. barkeri, making hydrogen dynamics an important regulator of syntrophic carbon flow.</p>
 
 
                 <p><strong>Source Taxon:</strong> Desulfovibrio desulfuricans</p>

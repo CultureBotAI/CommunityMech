@@ -203,10 +203,8 @@ related_ingredients:
     explanation: Identifies the PAOs that accumulate polyphosphate as central to the EBPR community.
 ecological_interactions:
 - name: PAO Phosphate Storage Under EBPR Selection
-  description: EBPR process cycling selects for bacteria that accumulate and use intracellular polyphosphate,
-    enabling phosphorus removal from wastewater.
+  description: PARTIAL - phosphate-metabolism enrichment supports PAO storage potential, not measured niche partitioning.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   participating_taxa:
   - preferred_term: Candidatus Accumulibacter phosphatis and related PAOs
     term:
@@ -228,20 +226,17 @@ ecological_interactions:
       label: phosphate-containing compound metabolic process
   downstream:
   - target: Stable Full-Scale EBPR Phosphorus Removal
-    description: >
-      Polyphosphate-accumulating organisms provide the phosphate-storage
-      metabolism that removes phosphorus from wastewater in the stable
-      full-scale EBPR process.
+    description: PARTIAL - PAO storage plausibly supports removal; its quantitative contribution was not isolated.
   evidence:
   - reference: PMID:22170425
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: The genetic potential for community function showed enrichment of genes involved in phosphate
-      metabolism and biofilm formation, reflecting the selective pressure of the EBPR process.
+    snippet: The genetic potential for community function showed enrichment of genes involved in phosphate metabolism and
+      biofilm formation, reflecting the selective pressure of the EBPR process.
     explanation: Supports phosphate metabolism as a selected community function in full-scale EBPR sludge.
 - name: Flanking-Community Substrate Provision To PAOs
-  description: Fermenters and macromolecule-hydrolyzing bacteria provide substrates to polyphosphate-accumulating
-    organisms, linking community trophic structure to phosphorus removal.
+  description: HYPOTHESIZED - flanking fermenters and hydrolyzers could supply PAOs; specific transferred substrates were
+    not measured.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -254,29 +249,19 @@ ecological_interactions:
     term:
       id: NCBITaxon:327159
       label: Candidatus Accumulibacter
-  metabolites:
-  - preferred_term: acetate
-    term:
-      id: CHEBI:30089
-      label: acetate
   downstream:
   - target: PAO Phosphate Storage Under EBPR Selection
-    description: >
-      Substrate release by fermenting and hydrolytic flanking bacteria
-      supplies PAOs, linking community trophic support to the
-      phosphorus-storage process selected in the full-scale EBPR plant.
+    description: HYPOTHESIZED - flanking bacteria supply PAO substrates; this study does not measure that transfer.
   evidence:
   - reference: PMID:22170425
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: bacteria providing substrate to the PAOs, such as fermenters, and bacteria involved in hydrolysis
-      of macromolecules
-    explanation: Supports cross-feeding from flanking heterotrophs to PAOs.
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: bacteria providing substrate to the PAOs, such as fermenters, and bacteria involved in hydrolysis of macromolecules
+    explanation: Background hypothesis, not measured transfer.
 - name: Sludge Floc and Biofilm Formation
-  description: Activated sludge biomass retention depends on floc and biofilm formation, and the EBPR
-    metagenome was enriched for genes linked to cell wall, capsule, and extracellular macromolecule functions.
+  description: PARTIAL - functional genes suggest floc-associated potential; partner-specific colonization effects were not
+    measured.
   scope: COMMUNITY_LEVEL
-  interaction_type: COLONIZATION_FACILITATION
   participating_taxa:
   - preferred_term: Bacteroidetes flanking community members
     term:
@@ -293,28 +278,22 @@ ecological_interactions:
       label: biofilm formation
   downstream:
   - target: Stable Full-Scale EBPR Phosphorus Removal
-    description: >
-      Activated-sludge floc and biofilm formation retain biomass in the plant,
-      sustaining the phosphorus-removing community selected by EBPR operation.
+    description: PARTIAL - biomass retention may sustain removal; gene enrichment does not isolate that effect.
   evidence:
   - reference: PMID:22170425
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: A relatively high number of proteins was assigned to cell wall and capsule formation.
     explanation: Supports biofilm/floc-associated functional potential in the EBPR metagenome.
   - reference: PMID:22170425
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: strong selective pressure on activated sludge bacteria for effective floc/biofilm formation
-      that leads to the good settling properties that are required to retain the biomass in the plant.
-    explanation: Supports sludge floc and biofilm formation as a retention mechanism in the engineered
-      community.
+    snippet: strong selective pressure on activated sludge bacteria for effective floc/biofilm formation that leads to the
+      good settling properties that are required to retain the biomass in the plant.
+    explanation: Author interpretation of retention, not a perturbation.
 - name: Stable Full-Scale EBPR Phosphorus Removal
-  description: The Aalborg East activated-sludge community maintained stable enhanced biological
-    phosphorus removal for several years, removing more than 95% of incoming phosphorus through PAO
-    phosphate storage and biomass retention in settling flocs.
+  description: Aalborg East maintained greater than 95% phosphorus removal for several years before sampling.
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   participating_taxa:
   - preferred_term: Candidatus Accumulibacter phosphatis and related PAOs
     term:
@@ -346,22 +325,12 @@ ecological_interactions:
     term:
       id: GO:0006796
       label: phosphate-containing compound metabolic process
-  - preferred_term: biofilm formation
-    term:
-      id: GO:0042710
-      label: biofilm formation
   evidence:
   - reference: PMID:22170425
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: stable EBPR performance for several years prior to the time of sampling removing >95% of the incoming P
     explanation: Supports stable high-efficiency phosphorus removal by the full-scale community.
-  - reference: PMID:22170425
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: phosphate metabolism and biofilm formation
-    explanation: Supports coupling of phosphate metabolism and biomass-retaining biofilm formation in the
-      EBPR metagenome.
 environmental_factors:
 - name: Full-scale Aalborg East WWTP operating context
   value: domestic wastewater; stable EBPR; greater than 95% incoming phosphorus removed
@@ -441,3 +410,21 @@ cultivation_setup:
     snippet: The plant treats mainly domestic wastewater and serves 100 000 person equivalents
       with an average load of 45 000 person equivalents.
     explanation: Establishes the full-scale continuous municipal wastewater treatment operation.
+discussions:
+- discussion_id: ebpr_transfer_validation
+  prompt: Which inferred transfers drive EBPR?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#PAO Phosphate Storage Under EBPR Selection
+  - ecological_interactions#Flanking-Community Substrate Provision To PAOs
+  - ecological_interactions#Sludge Floc and Biofilm Formation
+  - ecological_interactions#Stable Full-Scale EBPR Phosphorus Removal
+  rationale: Metagenomic potential and plant performance do not isolate substrate-transfer or biomass-retention effects. Test
+    these mechanisms directly.
+curation_history:
+- timestamp: '2026-10-05T05:51:59Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Qualify EBPR causal interpretations; complete node/edge decisions under reports/causal_graph_review; issue #1236.'
+  llm_assisted: true
