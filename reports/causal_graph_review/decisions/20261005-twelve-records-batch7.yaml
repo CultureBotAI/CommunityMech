@@ -1,0 +1,737 @@
+reviewer: codex
+review_mode: source_based_self_review
+base_commit: 23128415e9dd17fa6a99c86f5dff6b0ffdd824af
+issues:
+- 1258
+- 1259
+- 1260
+deferred_issues:
+- 1261
+- 1262
+issue_deduplication:
+  count: 613
+  scope: 'All paginated open/closed titles and bodies matched by exact stems/IDs/PMIDs/DOIs; matching bodies plus
+    #543 comments read. Comments not exhaustively searched.'
+records:
+- path: kb/communities/BioAsteroid_ISS_Chondrite_Biomining_Consortium.yaml
+  id: CommunityMech:000305
+  original_sha256: 500c8e1af4f0583e6f54e40095402f3d58114f1d1485f130b51e324b4b29ead5
+  record_sha256: deca4ca6c9b101ed4fdd56d063fba994e7b88fbabe06a8e5c8a7f19b3165ef5b
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; Bayan Obo remains needs_research.
+  summary: Bound BioAsteroid leaching to measured element patterns and untested mechanisms
+  node_decisions:
+  - node: Fungal bioleaching of platinum-group and critical elements from L-chondrite
+    rationale: Retain elemental results with statistical/speciation limits; remove unsupported niche partitioning.
+  - node: Bacterial and fungal biofilm colonization of the meteorite surface
+    rationale: Retain co-colonization without facilitation or biofilm-to-leaching causality.
+  - node: Candidate Bacterial Antagonism of Fungal Palladium Leaching
+    rationale: Retain explicitly partial antagonism interpretation without competition or a self-restating endpoint
+      arrow.
+  edges_before:
+  - source: Bacterial and fungal biofilm colonization of the meteorite surface
+    target: Fungal bioleaching of platinum-group and critical elements from L-chondrite
+    description: 'Fungal growth as mycelia on the meteorite surface provides the microbe-mineral contact through
+      which P. simplicissimum releases carboxylic acids and other complexing metabolites that enhance elemental
+      dissolution from the L-chondrite under microgravity.
+
+      '
+  - source: Bacterial antagonism of fungal palladium leaching in the consortium
+    target: Fungal bioleaching of platinum-group and critical elements from L-chondrite
+    description: 'Sphingomonas antagonism in the two-member consortium specifically reduced the palladium-leaching
+      output relative to the Penicillium-alone treatment.
+
+      '
+  edges_after: []
+  references:
+  - PMID:41617698
+  source_review:
+  - reference: PMID:41617698
+    doi: 10.1038/s41526-026-00567-3
+    cache: references_cache/PMID_41617698.md
+    cache_sha256: 019a43dfbb99934f1a5c72e50df30b7d0bafc026c04d999e12c7751a7ae2b437
+    scope: Complete cached abstract, introduction, main results/discussion/methods, Tables 1-2 text, figures 1-6
+      captions and data-availability read in folded lines 1-540. Header says abstract_only despite appended full
+      text.
+    unread: Figure images, supplementary note/tables/figures/data, raw metabolomics and preprint. Main text flags
+      potential contamination but its detailed supplementary assessment remains unread.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains under #1261.'
+  history_file: history/records/BioAsteroid_ISS_Chondrite_Biomining_Consortium/2026-10-05T124957Z-codex-30174b.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1259
+  renamed_nodes:
+    Bacterial antagonism of fungal palladium leaching in the consortium: Candidate Bacterial Antagonism of Fungal
+      Palladium Leaching
+  related_issues:
+  - 1217
+  - 596
+  removed_node_decisions: []
+  removed_edge_decisions:
+  - source: Bacterial and fungal biofilm colonization of the meteorite surface
+    target: Fungal bioleaching of platinum-group and critical elements from L-chondrite
+    rationale: Biofilm images establish co-colonization, not necessity of surface contact or mediation of measured
+      leaching; canonical candidate organic acids were not detected.
+  - source: Bacterial antagonism of fungal palladium leaching in the consortium
+    target: Fungal bioleaching of platinum-group and critical elements from L-chondrite
+    rationale: The source outcome is the same leaching contrast summarized in the target, not an upstream interaction;
+      the consortium-versus-fungus palladium difference was nonsignificant.
+- path: kb/communities/Bay_Area_Sewage_SARS_CoV2_Surveillance_Community.yaml
+  id: CommunityMech:000249
+  original_sha256: 32d5cdaa90de1b4d2c7f6b8c3f06f1f0886a70ac78ee2419dc2f780723a956a6
+  record_sha256: dd723b34a92aff159763e8ccfe3955ba829551f50127dc24130fc9e346c69c17
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; Bayan Obo remains needs_research.
+  summary: Separate wastewater sequence observations from workflow and viral activity
+  node_decisions:
+  - node: Wastewater Minor SARS-CoV-2 Allele Profiling
+    rationale: Retain minor-allele observation without universal haplotype or infectivity claims.
+  - node: Regional Clinical Genotype Concordance
+    rationale: Retain bounded regional sequence concordance, not transmission causality.
+  - node: Preclinical Local Lineage-Introduction Signal
+    rationale: Retain possible introduction as a PARTIAL, sampling-sensitive inference.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:33468686
+  source_review:
+  - reference: PMID:33468686
+    doi: 10.1128/mBio.02703-20
+    cache: references_cache/PMID_33468686.md
+    cache_sha256: 19369b4f9c4f4cf062b68d928f8fa556b162696aa13cbd0d68d952f464aea69d
+    abstract_cache: references_cache/PMID_33468686.txt
+    abstract_cache_sha256: eba75dd3b4f49429cb90667706c6f234bc274194457dfc3a89fe97092d6a27e6
+    scope: Complete cached abstract, introduction, main results/discussion and methods/data-availability plus figure
+      1-3 captions read. Oversized-line truncation repaired using folded lines 165-305. Cache header incorrectly
+      still says abstract_only despite appended full text.
+    unread: Figure images, supplementary spreadsheets, raw sequence data, cited protocols and analysis repository.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains under #1261.'
+  history_file: history/records/Bay_Area_Sewage_SARS_CoV2_Surveillance_Community/2026-10-05T124957Z-codex-fb11a1.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1260
+  removed_node_decisions:
+  - node: Direct Sewage RNA Metatranscriptomics
+    rationale: RNA sequencing is an analytical workflow, not an ecological mechanism.
+  - node: Complete Wastewater SARS-CoV-2 Genome Recovery
+    rationale: Consensus assembly is an analytical workflow, not a biological causal event.
+  removed_edge_decisions: []
+- path: kb/communities/Bayan_Obo_REE_Tailings_Consortium.yaml
+  id: CommunityMech:000005
+  original_sha256: d43ec709470bc61f2d645d0c639b2b3a963c8528bdf9d5c632e345e12c7fd2d9
+  record_sha256: 655ff223cc2775123bf63fe23caa3445c1775988dd1d292a7a9edf79c4959a3f
+  status: needs_research
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; Bayan Obo remains needs_research.
+  summary: Remove unsupported Bayan Obo mechanisms and retain a bounded primary leaching outcome
+  node_decisions:
+  - node: Bayan Obo Consortium REE Leaching
+    rationale: Retain the public-primary-source leaching comparison without unsupported taxa, chemical speciation,
+      mutualism or causal arrows; certification remains incomplete.
+  edges_before:
+  - source: Sulfuric Acid Generation and pH Reduction
+    target: REE Dissolution from Bastnaesite and Monazite
+    description: Low pH facilitates acid attack on REE carbonate-fluoride minerals
+  - source: Organic Acid Production and REE Complexation
+    target: REE Dissolution from Bastnaesite and Monazite
+    description: Organic acids chelate and solubilize REE ions from minerals
+  - source: REE Dissolution from Bastnaesite and Monazite
+    target: Sulfuric Acid Generation and pH Reduction
+    description: Continued pH control maintains REE solubility
+  - source: REE Dissolution from Bastnaesite and Monazite
+    target: Organic Acid Production and REE Complexation
+    description: Organic acids prevent REE re-precipitation
+  edges_after: []
+  references:
+  - PMID:38310848
+  - PMID:38702568
+  - doi:10.1016/j.cej.2024.153492
+  source_review:
+  - reference: PMID:38310848
+    doi: 10.1016/j.jhazmat.2024.133504
+    cache: references_cache/PMID_38310848.txt
+    cache_sha256: c92a912feaecc4b40ce1efe8569d18dc9bdfc8e97cfa2e9d971c8aad33810e14
+    scope: Entire cached abstract and metadata read. Alkaline PMC tailings community, different site/taxa/conditions
+      from this record.
+    unread: Primary full text, figures, tables and supplements.
+  - reference: PMID:38702568
+    doi: 10.1007/s11274-024-03974-4
+    cache: references_cache/PMID_38702568.txt
+    cache_sha256: b7d51b8de0ab35a4a28d4ecffc0e17bbc894c0c601c1fc824ef8430b1a0dd296
+    scope: Cached abstract, complete main review body through conclusion, flattened Tables 1-2, figure captions,
+      declarations and part of bibliography read in folded lines 1-350. Generic recovery mechanisms are not exact-community
+      evidence.
+    unread: Figure images, remainder of bibliography and underlying cited primary studies.
+  - reference: DOI:10.1016/j.cej.2024.153492
+    doi: 10.1016/j.cej.2024.153492
+    cache: references_cache/doi_10.1016_j.cej.2024.153492.md
+    cache_sha256: 7a9cbc31e15a21e73c64d1aceb8d60e635ce10a9ac724f31c47d2599d2817cf4
+    scope: Existing local cache is metadata-only. Read primary-publisher indexed abstract, introduction and selected
+      section previews via web search; direct page opens returned HTTP 403. DOI/title/authors independently verified
+      on corresponding author's university page. No full-text claim.
+    url: https://www.sciencedirect.com/science/article/pii/S1385894724049817
+    metadata_url: https://faculty.neu.edu.cn/zhaoxin424/en/lwcg/138131/content/27243.htm
+    discovery: Exact recovery-number search found original source; ignored/hidden-inclusive repository search then
+      found metadata caches and an existing unsent author-request draft. This source is absent from current record
+      references.
+    unread: Full methods/results, figures, supplements, community sequencing details and strain roles.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains under #1261.'
+  history_file: history/records/Bayan_Obo_REE_Tailings_Consortium/2026-10-05T124957Z-codex-209619.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1261
+  renamed_nodes:
+    REE Dissolution from Bastnaesite and Monazite: Bayan Obo Consortium REE Leaching
+  related_issues:
+  - 653
+  removed_node_decisions:
+  - node: Sulfuric Acid Generation and pH Reduction
+    rationale: Exact sulfuric-acid role, conditions and reaction claims lack matching community evidence.
+  - node: Organic Acid Production and REE Complexation
+    rationale: Specific partner acids, concentration and complexation claims are not established by the cited different-system
+      source.
+  - node: Synergistic Two-Step Process Enhancement
+    rationale: The matching primary source describes similar efficiencies, not demonstrated synergistic superiority.
+  removed_edge_decisions:
+  - source: Sulfuric Acid Generation and pH Reduction
+    target: REE Dissolution from Bastnaesite and Monazite
+    rationale: The cited South African alkaline-tailings community does not establish sulfuric-acid production by
+      the asserted Bayan Obo member or its causal contribution to leaching.
+  - source: Organic Acid Production and REE Complexation
+    target: REE Dissolution from Bastnaesite and Monazite
+    rationale: Neither the different-system primary citation nor generic review resolves the asserted Bayan Obo
+      partners, organic acids or their causal contribution.
+  - source: REE Dissolution from Bastnaesite and Monazite
+    target: Sulfuric Acid Generation and pH Reduction
+    rationale: Leaching is a proposed downstream outcome, not evidence that dissolution causes sulfuric-acid production;
+      no source-supported feedback was found in the accessed preview.
+  - source: REE Dissolution from Bastnaesite and Monazite
+    target: Organic Acid Production and REE Complexation
+    rationale: The arrow reverses the proposed acid-to-leaching direction; precipitation prevention does not establish
+      dissolution-to-organic-acid production feedback.
+- path: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  id: CommunityMech:000012
+  original_sha256: 95bb8c8844497b500ad785771fd008e75c99e144b3b5ee03615d93b901c0694c
+  record_sha256: 365fbc2f8f5c39c550f6a8542f6bbdafffea1ac2634611db31fd637d1e2ece59
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; Bayan Obo remains needs_research.
+  summary: Distinguish infant HMO community measurements from reconstructed carbon and gas exchange
+  node_decisions:
+  - node: Bifidobacterium HMO Degradation and Cross-Feeding
+    rationale: Retain qualified bifidobacterial cross-feeding and donor arrow with strain/condition-specific limits.
+  - node: Cross-Feeder Utilization of HMO Degradation Products
+    rationale: Retain the reconstructed recipient network without implying direct gas flux or wrong thermophilus
+      identity.
+  - node: Non-Bifidobacterial HMO Degradation
+    rationale: Retain non-bifidobacterial capacity and the partial substrate-supply arrow, with external-literature
+      dependence explicit.
+  edges_before:
+  - source: Bifidobacterium HMO Degradation and Cross-Feeding
+    target: Cross-Feeder Utilization of HMO Degradation Products
+    description: Bifidobacterial HMO degradation releases simpler carbohydrates, organic acids, and gases that cross-feeding
+      BIG-Syc members can consume.
+  - source: Non-Bifidobacterial HMO Degradation
+    target: Cross-Feeder Utilization of HMO Degradation Products
+    description: B. fragilis and R. gnavus HMO degradation releases HMO-derived simple substrates for BIG-Syc cross-feeders.
+  edges_after:
+  - source: Bifidobacterium HMO Degradation and Cross-Feeding
+    target: Cross-Feeder Utilization of HMO Degradation Products
+    description: PARTIAL - bifidobacterial HMO processing can supply simpler substrates and fermentation products
+      for the source-proposed recipient routes. Community depletion and proteomics support resource sharing but
+      do not trace each donor-to-recipient flux or demonstrate identical release by all three bifidobacteria.
+  - source: Non-Bifidobacterial HMO Degradation
+    target: Cross-Feeder Utilization of HMO Degradation Products
+    description: PARTIAL - the authors propose that extracellular HMO processing by B. fragilis and R. gnavus supplies
+      simpler substrates to recipients. The main study supports a resource-sharing model rather than donor-resolved
+      tracer transfer or necessity of every participating strain.
+  references:
+  - doi:10.1093/ismejo/wrae209
+  source_review:
+  - reference: doi:10.1093/ismejo/wrae209
+    pmid: '39423288'
+    cache: references_cache/doi_10.1093_ismejo_wrae209.md
+    cache_sha256: db537d6d64b887be43708f4b4a87ff18171ae7aab2211e99f8c4686658b74f04
+    scope: Whole cached abstract and appended Europe PMC main introduction/methods/results/discussion, Table 1 and
+      Figures 1-7 captions read in folded lines 1-420; bibliography partially viewed beyond main text.
+    unread: Figure images, supplementary methods, tables and images, model files and underlying strain-mechanism
+      papers. Models not rerun.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains under #1261.'
+  history_file: history/records/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom/2026-10-05T124957Z-codex-572dab.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1259
+  related_issues:
+  - 292
+  - 293
+  removed_node_decisions: []
+  removed_edge_decisions: []
+- path: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  id: CommunityMech:000006
+  original_sha256: 5274f7adf0dd6dea3fe63b177739304bb3212d12f095d5f1f65f31fc0cebb809
+  record_sha256: f29ece197fbf2088caa649cbf78c0c2d0054d1434369353b29e7f6efdd05a848
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; Bayan Obo remains needs_research.
+  summary: Bound spittlebug nutritional complementarity to model-specific fluxes and assumptions
+  node_decisions:
+  - node: Sulcia Essential Amino Acid Provisioning
+    rationale: Retain computational mutualism, correct Sulcia nitrogen range and remove nitrogen-atom concentration
+      plus part-whole arrow.
+  - node: Sodalis Metabolic Complementarity
+    rationale: Retain computational Sodalis complementarity, correct partner-specific outputs and remove the part-whole
+      arrow.
+  - node: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Retain modeled reciprocal nutrition while marking host regulatory interpretation partial.
+  edges_before:
+  - source: Sulcia Essential Amino Acid Provisioning
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    description: 'Sulcia recycles most host-derived nitrogen to essential amino acids, one half of the complementary
+      endosymbiont metabolism coordinated through the spittlebug host.
+
+      '
+  - source: Sodalis Metabolic Complementarity
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    description: 'Sodalis supplies larger-genome coprimary symbiont functions that complement Sulcia through host-mediated,
+      rather than symbiont-to-symbiont, exchange.
+
+      '
+  edges_after: []
+  references:
+  - PMID:30254121
+  source_review:
+  - reference: PMID:30254121
+    doi: 10.1128/mBio.01433-18
+    cache: references_cache/PMID_30254121.md
+    cache_sha256: a63558f5a1ea983a198551fa17e038566f4b07480182dce49161d50dbd8a9341
+    abstract_cache: references_cache/PMID_30254121.txt
+    abstract_cache_sha256: bc2fabd308e36c1cfc6b596a80f0de06a9f320e15437e21cf66de7631aa7f6e1
+    scope: Entire cached abstract plus full main introduction/results/discussion/methods and data availability,
+      Table 1 text, figure 1-7 captions, supplemental inventory/captions read in folded lines 1-500. Models and
+      IDs confirmed in paper data-availability section. Incorrect abstract_only cache header does not describe appended
+      main text.
+    unread: Figure images, supplementary spreadsheets/docx and model SBML/MATLAB files. No simulations rerun.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains under #1261.'
+  history_file: history/records/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis/2026-10-05T124958Z-codex-427477.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1258
+  removed_node_decisions: []
+  removed_edge_decisions:
+  - source: Sulcia Essential Amino Acid Provisioning
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Sulcia provisioning is one component of the target's same modeled reciprocal nutrition, not a distinct
+      upstream cause of experimentally established host control.
+  - source: Sodalis Metabolic Complementarity
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Partner complementarity is another component of the target's same modeled nutrition; the source does
+      not establish complementarity causing host regulatory control.
+- path: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  id: CommunityMech:000007
+  original_sha256: 51e1ce3ee67b0511d979bdb77ff5cb8b5a6c84733176f92dbb11744d57df99a1
+  record_sha256: 3c0c3ec94b77750f8583de5ef0d9a8380bf28bd62a1857cdb28c95cc9ff4601b
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; Bayan Obo remains needs_research.
+  summary: Bound sharpshooter nutritional complementarity to model-specific fluxes and assumptions
+  node_decisions:
+  - node: Sulcia Essential Amino Acid Provisioning
+    rationale: Retain computational mutualism, correct Sulcia nitrogen range and remove nitrogen-atom concentration
+      plus part-whole arrow.
+  - node: Baumannia Metabolic Complementarity
+    rationale: Retain computational Baumannia complementarity, correct partner-specific outputs and remove the part-whole
+      arrow.
+  - node: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Retain modeled reciprocal nutrition while marking host regulatory interpretation partial.
+  edges_before:
+  - source: Sulcia Essential Amino Acid Provisioning
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    description: 'Sulcia recycles most host-derived nitrogen to essential amino acids, one half of the complementary
+      endosymbiont metabolism coordinated through the sharpshooter host.
+
+      '
+  - source: Baumannia Metabolic Complementarity
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    description: 'Baumannia supplies larger-genome coprimary symbiont functions that complement Sulcia through host-mediated,
+      rather than symbiont-to-symbiont, exchange.
+
+      '
+  edges_after: []
+  references:
+  - PMID:30254121
+  source_review:
+  - reference: PMID:30254121
+    doi: 10.1128/mBio.01433-18
+    cache: references_cache/PMID_30254121.md
+    cache_sha256: a63558f5a1ea983a198551fa17e038566f4b07480182dce49161d50dbd8a9341
+    abstract_cache: references_cache/PMID_30254121.txt
+    abstract_cache_sha256: bc2fabd308e36c1cfc6b596a80f0de06a9f320e15437e21cf66de7631aa7f6e1
+    scope: Entire cached abstract plus full main introduction/results/discussion/methods and data availability,
+      Table 1 text, figure 1-7 captions, supplemental inventory/captions read in folded lines 1-500. Models and
+      IDs confirmed in paper data-availability section. Incorrect abstract_only cache header does not describe appended
+      main text.
+    unread: Figure images, supplementary spreadsheets/docx and model SBML/MATLAB files. No simulations rerun.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains under #1261.'
+  history_file: history/records/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia/2026-10-05T124958Z-codex-06c5c7.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1258
+  removed_node_decisions: []
+  removed_edge_decisions:
+  - source: Sulcia Essential Amino Acid Provisioning
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Sulcia provisioning is one component of the target's same modeled reciprocal nutrition, not a distinct
+      upstream cause of experimentally established host control.
+  - source: Baumannia Metabolic Complementarity
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Partner complementarity is another component of the target's same modeled nutrition; the source does
+      not establish complementarity causing host regulatory control.
+- path: kb/communities/BioModels_MODEL1806250005_Cicada_Sulcia_Hodgkinia.yaml
+  id: CommunityMech:000008
+  original_sha256: 8d24157fc49239a42e1029a593b3b6294649e355c963dc86c68a719816b3f192
+  record_sha256: 599ef8dd4776e7b3b8fabbd06bdab35c7018b3794b8f7c225795820e33f5195d
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; Bayan Obo remains needs_research.
+  summary: Bound cicada nutritional complementarity to model-specific fluxes and assumptions
+  node_decisions:
+  - node: Sulcia Essential Amino Acid Provisioning
+    rationale: Retain computational mutualism, correct Sulcia nitrogen range and remove nitrogen-atom concentration
+      plus part-whole arrow.
+  - node: Hodgkinia Metabolic Complementarity
+    rationale: Retain computational Hodgkinia complementarity, correct partner-specific outputs and remove the part-whole
+      arrow.
+  - node: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Retain modeled reciprocal nutrition while marking host regulatory interpretation partial.
+  edges_before:
+  - source: Sulcia Essential Amino Acid Provisioning
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    description: 'Sulcia recycles host-derived nitrogen to essential amino acids, one half of the complementary
+      endosymbiont metabolism coordinated through the cicada host.
+
+      '
+  - source: Hodgkinia Metabolic Complementarity
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    description: 'Hodgkinia contributes nitrogen recycling plus essential amino-acid and vitamin synthesis while
+      remaining host-mediated rather than directly cross-fed by Sulcia.
+
+      '
+  edges_after: []
+  references:
+  - PMID:30254121
+  source_review:
+  - reference: PMID:30254121
+    doi: 10.1128/mBio.01433-18
+    cache: references_cache/PMID_30254121.md
+    cache_sha256: a63558f5a1ea983a198551fa17e038566f4b07480182dce49161d50dbd8a9341
+    abstract_cache: references_cache/PMID_30254121.txt
+    abstract_cache_sha256: bc2fabd308e36c1cfc6b596a80f0de06a9f320e15437e21cf66de7631aa7f6e1
+    scope: Entire cached abstract plus full main introduction/results/discussion/methods and data availability,
+      Table 1 text, figure 1-7 captions, supplemental inventory/captions read in folded lines 1-500. Models and
+      IDs confirmed in paper data-availability section. Incorrect abstract_only cache header does not describe appended
+      main text.
+    unread: Figure images, supplementary spreadsheets/docx and model SBML/MATLAB files. No simulations rerun.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains under #1261.'
+  history_file: history/records/BioModels_MODEL1806250005_Cicada_Sulcia_Hodgkinia/2026-10-05T124958Z-codex-8517c4.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1258
+  removed_node_decisions: []
+  removed_edge_decisions:
+  - source: Sulcia Essential Amino Acid Provisioning
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Sulcia provisioning is one component of the target's same modeled reciprocal nutrition, not a distinct
+      upstream cause of experimentally established host control.
+  - source: Hodgkinia Metabolic Complementarity
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Partner complementarity is another component of the target's same modeled nutrition; the source does
+      not establish complementarity causing host regulatory control.
+- path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  id: CommunityMech:000009
+  original_sha256: ca1073bb5afa35451d98e5aa4e89bc72fa381d4017fa9892c617842dca18c06e
+  record_sha256: b2e55eea689446b15484d0b01ce6f0da687b66ddd2b5b6507e1677216b2619ea
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; Bayan Obo remains needs_research.
+  summary: Preserve experimental kefir mutualism while bounding inferred transfer and inhibition
+  node_decisions:
+  - node: L. kefiranofaciens Proteolytic Support for L. mesenteroides
+    rationale: Retain experimental mutualism and qualified reciprocal-support arrow.
+  - node: L. kefiranofaciens Suppression of L. kefiri
+    rationale: Retain measured milk inhibition without unverified reciprocal-negative classification.
+  - node: L. mesenteroides Lactate Provisioning to L. kefiranofaciens
+    rationale: Retain supplementation and inferred return metabolite; remove wrong recipient concentration and two
+      donor-pool arrows.
+  - node: Acetobacter Lactate Cross-Feeding
+    rationale: Retain partial cross-feeding model with explicit supplementation and no-appreciable-depletion distinction.
+  - node: Kazachstania Lactate-Promoted Growth
+    rationale: Retain measured yeast promotion and partial transfer interpretation; remove unsupported poor-whey-growth
+      claim.
+  edges_before:
+  - source: L. kefiranofaciens Proteolytic Support for L. mesenteroides
+    target: L. mesenteroides Lactate Provisioning to L. kefiranofaciens
+    description: Proteolytic growth support lets L. mesenteroides produce the lactate that feeds back to L. kefiranofaciens
+      in the reciprocal pairwise mutualism.
+  - source: L. mesenteroides Lactate Provisioning to L. kefiranofaciens
+    target: Acetobacter Lactate Cross-Feeding
+    description: Lactate-producing early bacteria accumulate the lactate pool that later supports Acetobacter growth.
+  - source: L. mesenteroides Lactate Provisioning to L. kefiranofaciens
+    target: Kazachstania Lactate-Promoted Growth
+    description: The same lactate buildup creates the concentration window that promotes Kazachstania exigua growth
+      during kefir succession.
+  edges_after:
+  - source: L. kefiranofaciens Proteolytic Support for L. mesenteroides
+    target: L. mesenteroides Lactate Provisioning to L. kefiranofaciens
+    description: PARTIAL - proteolytic support of L. mesenteroides growth can enable lactate production that benefits
+      L. kefiranofaciens in the proposed reciprocal mechanism. Growth and supplementation support this model, but
+      donor-resolved transfer and selective molecular necessity were not established at this review scope.
+  references:
+  - PMID:33398099
+  source_review:
+  - reference: PMID:33398099
+    doi: 10.1038/s41564-020-00816-5
+    cache: references_cache/PMID_33398099.md
+    cache_sha256: 354e026bfc49347f90ada79c14aa18776d7a0b9e2525868f0006ab50d4c8f4d2
+    scope: Full cached abstract/introduction/main results/discussion/methods and all included figure/extended-data
+      captions read. Initial middle truncation repaired in folded lines 155-270; remainder and methods read at folded
+      lines 335-680. Cache has no underlying supplementary tables or raw data.
+    unread: Figure images, supplementary data/tables, raw sequencing and model files. PMID41343683 is non-graph
+      model-verification context and its body is not yet reviewed.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains under #1261.'
+  history_file: history/records/BioModels_MODEL2204300001_Kefir_Community_Model/2026-10-05T124958Z-codex-e8c379.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1259
+  related_issues:
+  - 543
+  - 1240
+  removed_node_decisions: []
+  removed_edge_decisions:
+  - source: L. mesenteroides Lactate Provisioning to L. kefiranofaciens
+    target: Acetobacter Lactate Cross-Feeding
+    rationale: Delivery to L. kefiranofaciens is not production of a shared lactate pool and does not cause the
+      separate Acetobacter recipient route.
+  - source: L. mesenteroides Lactate Provisioning to L. kefiranofaciens
+    target: Kazachstania Lactate-Promoted Growth
+    rationale: Delivery to L. kefiranofaciens is not production of a shared lactate pool and does not cause the
+      separate yeast recipient route.
+- path: kb/communities/BioModels_MODEL2310020001_Mouse_Metaorganism_Model.yaml
+  id: CommunityMech:000011
+  original_sha256: ded1d48c199a4685e3855b5dd1a66b25731354ff195cf9909272edc7ad5b4ab2
+  record_sha256: a1cef55da6c4c9d5fd0ed26cc9d862595854b6525d47a2c6939fee84cb7bf841
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; Bayan Obo remains needs_research.
+  summary: Separate aging-associated model classifications from host nucleotide mediation
+  node_decisions:
+  - node: Model-Predicted Beneficial Gut Interactions
+    rationale: Retain inferred beneficial interactions without blanket commensalism or association-as-causation
+      arrow.
+  - node: Aging Shift Toward Competitive Gut Interactions
+    rationale: Retain computational competition classification without unrelated metabolite annotations or a host-mediation
+      arrow.
+  - node: Microbiota-Dependent Host Nucleotide Support
+    rationale: Retain predicted reciprocal nucleotide metabolism and partial host interpretation, not commensalism.
+  edges_before:
+  - source: Model-Predicted Beneficial Gut Interactions
+    target: Aging Shift Toward Competitive Gut Interactions
+    description: Loss of beneficial growth interactions accompanied an aging-associated increase in competitive
+      pairwise interaction frequencies.
+  - source: Aging Shift Toward Competitive Gut Interactions
+    target: Microbiota-Dependent Host Nucleotide Support
+    description: Reduced beneficial bacterial interactions and microbiome metabolic output are upstream of model-predicted
+      declines in host pathways that depend on microbiome-derived metabolism.
+  edges_after: []
+  references:
+  - PMID:40140706
+  source_review:
+  - reference: PMID:40140706
+    doi: 10.1038/s41564-025-01959-z
+    cache: references_cache/PMID_40140706.txt
+    cache_sha256: b84507e91c4d37a6578cf649436a37f90063d747a974f521b13fccd446565ad5
+    scope: Complete cached abstract and main introduction/results/discussion/methods/data availability, including
+      Figures 1-6 and Extended Data Figures 1-7 captions, read in folded lines 1-715.
+    unread: Figure images, supplementary methods/tables, raw data, model files and code. Models not rerun.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains under #1261.'
+  history_file: history/records/BioModels_MODEL2310020001_Mouse_Metaorganism_Model/2026-10-05T124958Z-codex-9d96eb.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1258
+  removed_node_decisions: []
+  removed_edge_decisions:
+  - source: Model-Predicted Beneficial Gut Interactions
+    target: Aging Shift Toward Competitive Gut Interactions
+    rationale: Cross-sectional age-associated frequencies do not show that beneficial interactions cause competitive
+      interactions; both arise from the age-conditioned model comparisons.
+  - source: Aging Shift Toward Competitive Gut Interactions
+    target: Microbiota-Dependent Host Nucleotide Support
+    rationale: Community pairwise competition and pooled host-nucleotide predictions are separate model analyses;
+      competition-to-host nucleotide mediation was not tested.
+- path: kb/communities/BioModels_MODEL2209060002_DPigrum_SAureus_Community.yaml
+  id: CommunityMech:000010
+  original_sha256: 329909af815b3fbcd28910f7a1357afb8816a1bd8bd76df7ef1c063f2edf14e7
+  record_sha256: 45ea96efd71094d61fc28d38e2ce107358b785f173e2982e48c87edf69ca73d6
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; Bayan Obo remains needs_research.
+  summary: Remove nasal modeling workflow and unverified exchange-to-inhibition mediation
+  node_decisions:
+  - node: D. pigrum-S. aureus Exchange-Factor Prediction
+    rationale: Retain conditional exchange predictions untyped; remove contradicted mediation arrow.
+  - node: In Silico S. aureus Growth-Inhibition Hypothesis
+    rationale: Retain weight/formulation-specific growth outcome without assuming local reciprocal competition or
+      clinical efficacy.
+  edges_before:
+  - source: D. pigrum-S. aureus Exchange-Factor Prediction
+    target: In Silico S. aureus Growth-Inhibition Hypothesis
+    description: 'The exchange-factor candidates gave a model-based explanation for negative D. pigrum interactions
+      with S. aureus.
+
+      '
+  edges_after: []
+  references:
+  - doi:10.3389/fcimb.2022.925215
+  source_review:
+  - reference: doi:10.3389/fcimb.2022.925215
+    doi: 10.3389/fcimb.2022.925215
+    pmid: '36605126'
+    cache: references_cache/doi_10.3389_fcimb.2022.925215.md
+    cache_sha256: 8c5708554946ab3296e92aab20711d17e43b7f882ba5eb2f966049726c1f35b4
+    scope: Cached abstract and complete appended Europe PMC main introduction/methods/results/discussion/data availability
+      read in folded lines 1-920, including flattened Tables 1-6 and figure 1-12 captions. Subsequent cached PDF
+      rendering not read.
+    unread: Figure images, supplementary spreadsheets/code/CSV, model files and underlying wet-lab papers. Model
+      not rerun.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains under #1261.'
+  history_file: history/records/BioModels_MODEL2209060002_DPigrum_SAureus_Community/2026-10-05T124959Z-codex-d0275f.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1258
+  removed_node_decisions:
+  - node: Curated Two-Species Nasal GEM Assembly
+    rationale: Model assembly or environmental constraint construction is a workflow, not an ecological interaction.
+  - node: SNM3 Nasal Medium Exchange Constraints
+    rationale: Model assembly or environmental constraint construction is a workflow, not an ecological interaction.
+  - node: COMPM and COOPM Nutrient Perturbations
+    rationale: Model assembly or environmental constraint construction is a workflow, not an ecological interaction.
+  removed_edge_decisions:
+  - source: D. pigrum-S. aureus Exchange-Factor Prediction
+    target: In Silico S. aureus Growth-Inhibition Hypothesis
+    rationale: The source explicitly reports that the predicted growth effects do not depend on the highlighted
+      cysteine/D-serine exchanges; objective-weight outcomes do not demonstrate metabolite-mediated inhibition.
+- path: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+  id: CommunityMech:000097
+  original_sha256: 1ed1d86d2b923ed34435fe7642639b6ccbdf048d14d8e4c1c46e6229f868980f
+  record_sha256: d05cdfe724f5fb51cfa545fcbf0c7e829877dc59c4cb81121b339eeb7fd111d7
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; Bayan Obo remains needs_research.
+  summary: Separate banana biocontrol outcomes from design workflow and candidate mediation
+  node_decisions:
+  - node: SynCom1.0 and SynCom1.1 Pot Biocontrol
+    rationale: Retain distinct 44-/seven-member host endpoints without competition or symbiosis annotation.
+  - node: SynCom1.1 Cross-Inhibition Mapping
+    rationale: Retain measured reciprocal in-vitro inhibition and PARTIAL fusaric-acid mediation.
+  - node: Staggered SynCom1.2 Soil Biocontrol
+    rationale: Retain trial-specific staggered protection without claiming measured reduction of soil cross-inhibition.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:35992653
+  source_review:
+  - reference: PMID:35992653
+    doi: 10.3389/fmicb.2022.967885
+    cache: references_cache/PMID_35992653.txt
+    cache_sha256: 2573e0b8fb8c57d1fdf1282c0c2b0c2674206cf1eacdf4c7061b5ddca3674fdc
+    url: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2022.967885/full
+    scope: Complete cached abstract, introduction, main methods/results/discussion/conclusion, figure 1-8 captions
+      and flattened Table 1 read. Initial oversized-line truncation repaired with folded source lines 80-565. Publisher
+      title/abstract independently accessed.
+    unread: Figure images, supplementary figures/tables, underlying datasets and genomes.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains under #1261.'
+  history_file: history/records/Banana_Fusarium_Biocontrol_SynCom12/2026-10-05T124959Z-codex-537568.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1259
+  removed_node_decisions:
+  - node: Banana-Rhizosphere Antagonist Screening
+    rationale: Isolate screening is a selection workflow, not a biological interaction of the canonical consortium.
+  - node: Three-Isolate SynCom1.2 Redesign
+    rationale: Selecting three isolates is a design step, not demonstrated colonization facilitation.
+  removed_edge_decisions: []
+- path: kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+  id: CommunityMech:000428
+  original_sha256: b4cbe1a4ec5082d224bad75aeefecc74c6cce5bf6f3b3f6a77d41959f8b93e89
+  record_sha256: b4cbe1a4ec5082d224bad75aeefecc74c6cce5bf6f3b3f6a77d41959f8b93e89
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+  outcome: unchanged
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; Bayan Obo remains needs_research.
+  summary: Retain bounded barley disease proxy and rhizosphere persistence without causal arrows
+  node_decisions:
+  - node: Barley DT-SynCom powdery mildew resistance
+    rationale: Retain untyped fungal fluorescence endpoint and partial ISR interpretation; no measured superiority
+      or hormone mediation is invented.
+  - node: Barley DT-SynCom rhizosphere persistence
+    rationale: Retain bounded 16S persistence evidence, not strain-resolved confirmation or a persistence-to-protection
+      arrow.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42453107
+  source_review:
+  - reference: PMID:42453107
+    doi: 10.3389/fmicb.2026.1818676
+    cache: references_cache/PMID_42453107.txt
+    cache_sha256: 5682e995818c11a0c5f44063731dd42ac3734c6d28f30354c818592133674417
+    url: https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2026.1818676/full
+    scope: Complete cached abstract, introduction, all main methods/results/discussion/conclusion, Table 1 text,
+      figure 1-6 captions and supplement inventory read in folded lines 1-435. Publisher page independently accessible;
+      not its complete body read.
+    unread: Figure images, supplementary spreadsheets/docx, raw datasets and previous strain-selection paper.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains under #1261.'
+  history_file: null
+  issue: null
+  related_issues:
+  - 1069
+  removed_node_decisions: []
+  removed_edge_decisions: []

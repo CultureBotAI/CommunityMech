@@ -1,0 +1,197 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 23128415e9dd17fa6a99c86f5dff6b0ffdd824af
+decision_ledger: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+validation_report: reports/causal_graph_review/validation-20261005-batch7.json
+scope:
+  records_assessed: 12
+  records_reviewed: 11
+  records_needing_research: 1
+  records_changed: 11
+  records_unchanged: 1
+  nodes_before: 44
+  nodes_after: 34
+  arrows_before: 20
+  arrows_after: 3
+  new_nodes: 0
+  new_arrows: 0
+findings:
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1258
+  severity: P2
+  disposition: addressed_in_patch
+  finding: Computational insect, nasal and mouse graphs turn component summaries, model construction, weighted objectives
+    and age associations into causal chains.
+  resolution: Removed nine arrows and three nasal workflow nodes; retained condition-specific modeled outcomes.
+    Corrected insect partner nitrogen fractions and amino-acid scope, removed nitrogen-atom pseudo-concentrations,
+    and separated mouse community and host models.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1259
+  severity: P2
+  disposition: addressed_in_patch
+  finding: Experimental graphs conflate screening with ecology, paired benefit with proven molecular necessity,
+    recipient delivery with a common pool, and elemental yields with speciation or mediation.
+  resolution: Removed two banana workflow nodes and four BioAsteroid/kefir arrows. Retained three qualified source-proposed
+    arrows, experimental kefir mutualism and banana reciprocal inhibition. Corrected generic lactate, recipient-specific
+    concentration and HMO strain/condition limits.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1260
+  severity: P2
+  disposition: addressed_in_patch
+  finding: Wastewater sequencing and assembly are represented as biological interactions; minor alleles, regional
+    agreement and possible introductions overstate haplotype resolution or transmission.
+  resolution: Removed two workflow nodes and viral-process annotations; bounded the three sequence observations
+    and marked the introduction inference PARTIAL. Prior workflow arrows remain absent.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1261
+  severity: P2
+  disposition: partially_addressed_keep_open
+  finding: Bayan Obo's named roster and detailed mechanisms rely on a different-system primary paper and a generic
+    review; the matching primary source is not available locally beyond metadata.
+  resolution: Removed three unsupported nodes and four arrows. Retained one untyped primary-preview outcome with
+    no explicit participants or chemical assignments. The record stays needs_research; one reference NOCONTENT failure
+    remains visible. Full methods, membership and non-graph identity still require recovery and verification.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1262
+  severity: P3
+  disposition: deferred_outside_graph_scope
+  finding: Non-graph medium, timing, model-environment and role annotations require separate whole-record curation.
+  resolution: Preserved non-graph raw blocks and recorded the follow-up; this issue must remain open.
+adversarial_checks:
+- challenge: Is every original node and arrow accounted for, including removed workflows?
+  resolution: The decision ledger covers 34 retained nodes, 10 removed nodes, 17 removed arrows and all three retained
+    arrows. Renames map back to baseline identities; no new graph structure was introduced.
+- challenge: Does conservative pruning discard source-supported mutualism or modeled competition?
+  resolution: Retained experimental kefir reciprocal growth, computational insect nutrient mutualism and mouse paired-growth
+    competition. Kept the two infant-HMO donor arrows and kefir reciprocal-support arrow explicitly PARTIAL; lack
+    of tracer experiments does not erase bounded source interpretations.
+- challenge: Does unilateral inhibition satisfy the local COMPETITION definition?
+  resolution: The local type requires paired negative effects. Kefir L. kefiri inhibition, conditional nasal growth
+    inhibition and nonsignificant BioAsteroid leaching differences remain untyped; banana reciprocal plate inhibition
+    retains COMPETITION without asserting every pair responds identically.
+- challenge: Are source measurements, model predictions and mechanisms kept distinct?
+  resolution: Nasal objective weights are not inoculation kinetics, insect nitrogen allocations are not nitrogen-atom
+    concentrations, mouse age cohorts are not interventions, and infant gas routes are inferred with supplied headspace
+    CO2. FBA/FVA and model reconstruction are not measured donor flux.
+- challenge: Does a BioModels record name justify classifying all evidence as computational?
+  resolution: No. Kefir's cited paper contains experiments and retains IN_VITRO evidence. Infant HMO measurements
+    remain experimental while reconstructed routes are qualified. Prior issue 543 was checked.
+- challenge: Could image captions or supplementation establish obligatory transfer?
+  resolution: BioAsteroid co-colonization does not demonstrate contact-mediated leaching. Kefir lactate supplementation
+    and growth timing do not establish every donor route; no appreciable lactate depletion was detected in the tested
+    conditioned medium. Unread images and supplements are not certified.
+- challenge: Does COMMUNITY_LEVEL scope verify the current Bayan Obo roster?
+  resolution: No. Explicit participants and mechanisms were removed, and the prose disclaims the unverified roster
+    elsewhere in the record. Coarse network connectivity is not membership evidence; needs_research and issue 1261
+    remain open.
+- challenge: Should a stale local label cache undo the earlier palladium correction?
+  resolution: No. The current ChEBI entry is palladium atom. The default cached-label failure is retained alongside
+    a no-cache check, with unchanged baseline groundings compared; issue 1217 is not reverted.
+- challenge: Were unchanged records or source coverage overstated?
+  resolution: Barley remains byte-identical with no curation event. All records carry exact source scopes and unread-material
+    limits. Bayan's public preview is not described as full-text review, and no excerpt cache is manufactured to
+    satisfy validation.
+- challenge: Could YAML aliases or curation rewriting alter unrelated metadata?
+  resolution: Final parsed records and raw top-level blocks are compared with the base commit. Only graph/discussion
+    content and one appended curation event per changed record differ; the sole test inventory adjustment removes
+    Bayan's unsupported explicit participant usage.
+prior_fixes_preserved:
+- issue: 1217
+  description: Preserve palladium atom and the existing BioAsteroid grounding corrections.
+- issue: 543
+  description: Preserve experimental provenance despite the kefir BioModels record name.
+- issue: 1069
+  description: Preserve Barley wording and unchanged graph bounds.
+- description: Preserve infant B. ovatus NCBITaxon:28116 and earlier removed surveillance workflow arrows.
+issue_deduplication:
+  issues_scanned: 613
+  scope: All paginated open and closed issue titles and bodies, excluding PRs, matched against stems, IDs, PMIDs
+    and DOIs; matching bodies and issue 543 comments read. Not an exhaustive comment search.
+limits:
+- This is a critical second pass by the editing agent, not independent approval.
+- Corpus-wide semantic review remains incomplete; this batch does not certify all 460 records.
+- No new nodes or arrows and no paid Edison job. Spending authorization is recorded, but no configured credential
+  was available in the checked project/ambient configuration.
+- Source and unread-material scopes are recorded per record. Cache matching alone does not validate causation; no
+  model reruns or figure/supplement certification are claimed.
+- No PDF, source body or unrelated untracked research file is part of this patch.
+- Deterministic HTML and exact description coverage are checked; no screenshot QA for this data-only batch.
+- Local workspace PDF gate fails on unrelated ignored/untracked files; the publishable snapshot passes all three
+  rights tests. No PDF/article body is part of this patch.
+- Additional regression subprocesses encounter the pre-existing local llvmlite build failure. Original failure counts
+  and an isolated-environment rerun are reported separately; only CI can certify the normal project environment.
+verification:
+  status: local_checks_complete_with_explicit_source_cache_and_workspace_limits
+  corpus_records: 460
+  review_status_counts:
+    needs_research: 1
+    pending: 397
+    reviewed: 62
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  focused_regressions_output: '........................................................................ [ 54%]
+
+    ...........................................................              [100%]
+
+    131 passed in 56.13s
+
+    '
+  cache_and_snippet_suite_passed: 50
+  cache_and_snippet_suite_workspace_pdf_failures: 1
+  publishable_snapshot_rights_tests_passed: 3
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1465
+    edge_descriptions: 724
+  render_determinism: passed
+  snippet_counts:
+    MATCH: 180
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 1
+  batch_graph_counts:
+    changed_records: 11
+    nodes_before: 44
+    nodes_after: 34
+    edges_before: 20
+    edges_after: 3
+    unchanged_raw_blocks: 165
+    unchanged_records: 1
+  reference_default_passed: 11
+  reference_default_nocontent_failure: 1
+  bayan_review_completed: false
+  default_term_passed: 11
+  default_term_stale_cache_failure: 1
+  bioasteroid_no_cache_terms_passed: true
+  additional_isolated_regressions_output: '.....................s..........................................s.......
+    [  7%]
+
+    ........................................................................ [ 14%]
+
+    ........................................................................ [ 21%]
+
+    ........................................................................ [ 28%]
+
+    ........................................................................ [ 35%]
+
+    ........................................................................ [ 42%]
+
+    ........................................................................ [ 50%]
+
+    ........................................................................ [ 57%]
+
+    ........................................................................ [ 64%]
+
+    ........................................................................ [ 71%]
+
+    ........................................................................ [ 78%]
+
+    ........................................................................ [ 85%]
+
+    ........................................................................ [ 93%]
+
+    .....................................................................    [100%]
+
+    1003 passed, 2 skipped in 135.87s (0:02:15)
+
+    '
