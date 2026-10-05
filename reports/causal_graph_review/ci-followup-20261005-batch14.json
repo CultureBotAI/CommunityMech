@@ -1,0 +1,74 @@
+{
+  "issue": 1305,
+  "review_mode": "source_based_self_adversarial_review",
+  "independent_approval": false,
+  "original_head": "b1e28b41f2e30ca6426f91682225539f5d531b94",
+  "parent_head": "f363b1e3bca6dd16dcff268172ac19389d82478c",
+  "failing_ci_runs": [
+    37380572427,
+    37381002098,
+    37383387716
+  ],
+  "local_red_reproduction": "Original census test failed with assert 480 < 480; 1 failed in 13.24s.",
+  "before_counts": {
+    "GROUNDED": 912,
+    "UNRESOLVED": 479,
+    "WITHHELD": 6,
+    "NO_GTDB_EQUIVALENT": 170,
+    "AMBIGUOUS": 121
+  },
+  "after_counts": {
+    "GROUNDED": 911,
+    "UNRESOLVED": 480,
+    "WITHHELD": 6,
+    "NO_GTDB_EQUIVALENT": 170,
+    "AMBIGUOUS": 121
+  },
+  "taxonomy_identity_and_grounding_deltas": [
+    {
+      "path": "kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml",
+      "taxonomy_index": 2,
+      "before": {
+        "term": {
+          "id": "NCBITaxon:75654",
+          "label": "Duganella"
+        },
+        "gtdb_grounding_status": "GROUNDED",
+        "gtdb_classification": {
+          "gtdb_id": "GTDB:g__Duganella",
+          "gtdb_taxon": "Duganella",
+          "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Duganella",
+          "ncbi_source_id": "NCBITaxon:75654",
+          "majority_fraction": 1.0,
+          "support_genomes": 45,
+          "total_genomes": 45,
+          "is_reclassified": false,
+          "mapping_source": "kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]"
+        }
+      },
+      "after": {
+        "term": {
+          "id": "NCBITaxon:2666085",
+          "label": "Pseudoduganella rivuli"
+        },
+        "gtdb_grounding_status": "UNRESOLVED",
+        "gtdb_classification": null
+      }
+    }
+  ],
+  "resolution": "Update the measured UNRESOLVED ceiling by exactly one, with FT92W provenance. No production validator, ontology outage gate, taxonomy data, or skip behavior changed.",
+  "test_command": [
+    "python3",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_gtdb_coherence_validator.py::test_the_status_distribution_is_what_was_measured",
+    "tests/test_ncbitaxon_adapter_is_shared.py",
+    "tests/test_causal_review_batch14.py"
+  ],
+  "test_output": "..............                                                           [100%]\n=============================== warnings summary ===============================\ntests/test_ncbitaxon_adapter_is_shared.py::test_an_already_downloaded_build_is_used_instead_of_re_downloading\n  <home>/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/lib/python3.13/site-packages/sssom_schema/datamodel/sssom_schema.py:20: DeprecationWarning: The LinkML dataclass extension patch is deprecated and will be removed in a future release.\n  If you're currently using Python < 3.13, where this patch still applies, you should:\n    \u2022 Upgrade your LinkML tooling to version >= 1.9.0 (which no longer needs this patch), OR\n    \u2022 Migrate to Pydantic models if you're using LinkML's generated classes at runtime.\n  \n    from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs\n\ntests/test_ncbitaxon_adapter_is_shared.py::test_an_already_downloaded_build_is_used_instead_of_re_downloading\n  <home>/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/lib/python3.13/site-packages/sssom/util.py:109: Pandas4Warning: The 'mode.copy_on_write' option is deprecated. Copy-on-Write can no longer be disabled (it is always enabled with pandas >= 3.0), and setting the option has no impact. This option will be removed in pandas 4.0.\n    pd.options.mode.copy_on_write = True\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n14 passed, 2 warnings in 166.41s (0:02:46)",
+  "mutation_control": "passed: one additional UNRESOLVED entry (481) still fails the ceiling",
+  "clean_controls_before_and_after": "passed",
+  "status": "passed",
+  "local_runtime_note": "First outage-suite attempt failed because nested uv commands used a sandbox-restricted default cache. Re-run uses the existing installed environment with UV_NO_SYNC=1 and a writable temporary uv cache; no test skip or dependency change."
+}

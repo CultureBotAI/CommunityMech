@@ -106,3 +106,19 @@ verification:
   whey_record_byte_unchanged: true
   primary_artifact_hashes_rechecked: true
   participant_registry_and_connectivity_test_bytes_unchanged: true
+ci_followup:
+  issue: 1305
+  report: reports/causal_graph_review/ci-followup-20261005-batch14.json
+  finding: The FT92W identity correction legitimately moved one row from GROUNDED to UNRESOLVED, but the corpus
+    census retained its old ceiling. This caused the direct census and simulated-ontology-outage CI tests to fail.
+  disposition: addressed_and_locally_verified
+  status_delta: GROUNDED 912 -> 911; UNRESOLVED 479 -> 480; all other status counts unchanged.
+  resolution: Adjust the measured ceiling by exactly one with explicit FT92W provenance. Production validators,
+    taxonomy data and outage gating remain unchanged.
+  tests: 14 passed, 2 warnings in 166.41s (0:02:46)
+  mutation_control: 'passed: one additional UNRESOLVED entry (481) still fails the ceiling'
+  controls: Unmodified census passes before and after the extra-UNRESOLVED negative control.
+  black: passed
+  ruff: passed
+  diff_check: passed
+  full_ci: New exact-head protected checks still required; earlier failures are not reported as passes.
