@@ -43,6 +43,22 @@ verification:
   evidence_snippets_unmatched_or_missing: 0
   regression_tests_passed: 100
   regression_command: python -m pytest tests/test_causal_review_inventory.py tests/test_reference_validator_actually_validates.py tests/test_rank_causal_graph_readiness.py tests/test_network_auditor.py tests/test_published_pages_name_real_records.py -q
+ci_followup:
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1232
+  failed_run: https://github.com/CultureBotAI/CommunityMech/actions/runs/37262579717
+  failed_head: 83c98403bc0b7bb380fdb24c4b1daf6dc6f6e308
+  result_before_fix: One failure, 3607 passed, 86 skipped, 8 deselected.
+  finding: The exact participating_taxa record set still expected 161 records after this review deliberately added explicit participants to ANME marine methane seep and Pelotomaculum/Methanocella.
+  resolution: Add only those two records to USERS, preserving the exact-set assertion and all connectivity bounds.
+  verification_command: python -m pytest tests/test_participating_taxa.py tests/test_community_level_connectivity_credit.py tests/test_causal_review_inventory.py -q
+  verification_result: 31 passed in 36.54 seconds.
+  connectivity_survey:
+    records: 460
+    with_community_level: 384
+    mixed: 120
+    community_level_only: 264
+    taxa: 1490
+    credited_solely_by_the_rule: 1213
 limitations:
   - This is a self-review, not an independent second-agent review.
   - Four completed ledger rows do not establish completion of the whole-corpus semantic review. Earlier PR 1214 is not automatically promoted to that status.
