@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -702,6 +706,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
                     <h3>Host hydrogen transfer to the magnetotactic sulfate reducer</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">H2 produced by the host&#39;s hydrogenosomal Fe-hydrogenase is proposed to serve as the electron donor for the intracellular sulfate-reducing partner. The source words this as a possibility rather than a demonstration, and no hydrogen measurement was made.</p>
 
 
                 <p><strong>Source Taxon:</strong> Tropidoatractus magnetotacticus</p>
@@ -740,6 +745,8 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Tripartite electron sink improving host energetics
+                        <p class="prewrap causal-description">Hydrogen transfer from the host to the sulfate reducer is one of the two partner sinks that can improve host fermentation energetics.
+</p>
                     </div>
 
                 </div>
@@ -784,6 +791,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
                     <h3>Host hydrogen transfer to the endosymbiotic methanogen</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">The Methanoregula endosymbiont consumes host-produced H2 through hydrogenotrophic methanogenesis. This is the best supported of the metabolic edges, resting on an expressed complete methanogenesis pathway.</p>
 
 
                 <p><strong>Source Taxon:</strong> Tropidoatractus magnetotacticus</p>
@@ -826,6 +834,8 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Tripartite electron sink improving host energetics
+                        <p class="prewrap causal-description">Hydrogen transfer from the host to the methanogen is one of the two partner sinks that can improve host fermentation energetics.
+</p>
                     </div>
 
                 </div>
@@ -870,6 +880,9 @@ The whole syntrophic network is built from gene presence and transcript expressi
                     <h3>Symbiont-conferred magnetotaxis</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">The magnetosome gene cluster is encoded and expressed by the bacterial partner, not by the ciliate, and the magnetite chains it builds give the host cell a magnetic moment. The host&#39;s magnetotaxis is therefore a trait supplied by a symbiont.
+Two limits belong with this claim. The physical identity of the rod-shaped bacteria seen by electron microscopy with the genome carrying the magnetosome gene cluster is inferred from metagenomics, because every FISH attempt failed on low cell numbers. And what the magnetotaxis is for in the field is hypothesis: the source suggests it might guide the anaerobic host down into anoxic sediment, and says outright that whether the observed south-seeking orientation reflects native behaviour is unclear.
+interaction_type is MUTUALISM because the source frames the whole association as reciprocal, but note that InteractionTypeEnum has no value for a symbiont supplying a behavioural capability rather than a metabolite. See issue 749.</p>
 
 
                 <p><strong>Source Taxon:</strong> magnetotactic sulfate-reducing bacterial endosymbiont</p>
@@ -956,6 +969,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
                     <h3>Tripartite electron sink improving host energetics</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">Taken together the two internal partners act as sinks for H2 and other fermentation products, which the source reads as improving the efficiency of the host&#39;s own energy metabolism. This is the return leg that makes the association syntrophy rather than one-way consumption, and it has no single source or target because both partners contribute.</p>
 
 
 

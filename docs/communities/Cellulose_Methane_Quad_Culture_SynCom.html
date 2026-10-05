@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -663,6 +667,7 @@
                     <h3>Cellulose Cross-Feeding to Methane</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">Cellulose fermentation products are exchanged with methanogens and sulfate reducers, producing methane and modulating competition.</p>
 
 
 
@@ -723,6 +728,7 @@
                     <h3>R. cellulolyticum acetate cross-feeding to M. concilii</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">Acetate produced by cellulose fermentation in R. cellulolyticum is handed off to the acetoclastic methanogen M. concilii, fuelling acetoclastic methanogenesis (a primary carbon route to methane). Sulfate addition strengthens this hand-off.</p>
 
 
                 <p><strong>Source Taxon:</strong> Ruminiclostridium cellulolyticum</p>
@@ -761,6 +767,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Cellulose Cross-Feeding to Methane
+                        <p class="prewrap causal-description">Acetate cross-fed to M. concilii drives acetoclastic methanogenesis, one of the two routes to community methane output.</p>
                     </div>
 
                 </div>
@@ -805,6 +812,7 @@
                     <h3>R. cellulolyticum lactate cross-feeding to D. vulgaris</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">Lactate produced by R. cellulolyticum is fermented by D. vulgaris, which oxidises it to H2 — feeding the downstream hydrogenotrophic route.</p>
 
 
                 <p><strong>Source Taxon:</strong> Ruminiclostridium cellulolyticum</p>
@@ -832,6 +840,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> D. vulgaris H2 syntrophy to M. hungatei
+                        <p class="prewrap causal-description">Lactate cross-fed to D. vulgaris is fermented to H2, which is transferred to the hydrogenotrophic methanogen M. hungatei.</p>
                     </div>
 
                 </div>
@@ -863,6 +872,7 @@
                     <h3>D. vulgaris H2 syntrophy to M. hungatei</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">H2 produced by D. vulgaris lactate fermentation is transferred to the hydrogenotrophic methanogen M. hungatei, enhancing hydrogenotrophic methanogenesis.</p>
 
 
                 <p><strong>Source Taxon:</strong> Desulfovibrio vulgaris</p>
@@ -901,6 +911,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Cellulose Cross-Feeding to Methane
+                        <p class="prewrap causal-description">H2 transferred to M. hungatei drives hydrogenotrophic methanogenesis, the second route to community methane output.</p>
                     </div>
 
                 </div>
@@ -932,6 +943,7 @@
                     <h3>M. hungatei H2 removal relieves R. cellulolyticum product inhibition</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">By consuming H2, the hydrogenotrophic methanogen M. hungatei lowers the H2 partial pressure, relieving product inhibition and sustaining H2 (and thus fermentation-product) output by R. cellulolyticum — an interspecies H2-transfer facilitation feeding back to the upstream fermenter.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methanospirillum hungatei</p>
@@ -959,6 +971,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> R. cellulolyticum acetate cross-feeding to M. concilii
+                        <p class="prewrap causal-description">Relieving H2 product inhibition sustains R. cellulolyticum fermentation, maintaining the acetate and lactate hand-offs to the downstream community.</p>
                     </div>
 
                 </div>
@@ -990,6 +1003,7 @@
                     <h3>D. vulgaris–M. hungatei competition for H2</h3>
                     <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">The sulfate-reducing D. vulgaris and the hydrogenotrophic methanogen M. hungatei compete for the shared H2 pool. Sulfate addition tips the competition toward sulfate reduction, halting hydrogenotrophic methanogenesis and lowering community methane output.</p>
 
 
                 <p><strong>Source Taxon:</strong> Desulfovibrio vulgaris</p>
@@ -1038,10 +1052,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> D. vulgaris H2 syntrophy to M. hungatei
+                        <p class="prewrap causal-description">With sulfate present, D. vulgaris out-competes M. hungatei for H2, halting hydrogenotrophic methanogenesis.</p>
                     </div>
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Cellulose Cross-Feeding to Methane
+                        <p class="prewrap causal-description">Loss of the hydrogenotrophic route is the main cause of the lower community methane yield in the sulfate-amended quad-culture.</p>
                     </div>
 
                 </div>

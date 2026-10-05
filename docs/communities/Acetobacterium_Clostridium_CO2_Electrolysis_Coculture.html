@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -576,7 +580,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Acetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -589,8 +593,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -601,6 +605,7 @@
                     <h3>Acetogenic Lactate Production from CO2 and H2</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">Recombinant A. woodii fixes CO2 with H2 and is engineered to route carbon toward lactate, creating the intermediate consumed by C. drakei.</p>
 
 
                 <p><strong>Source Taxon:</strong> Acetobacterium woodii</p>
@@ -653,6 +658,8 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Lactate-Mediated Chain Elongation to Caproic Acid
+                        <p class="prewrap causal-description">A. woodii converts CO2 and H2 into lactate, the intermediate that C. drakei consumes for chain elongation to caproic acid in the coculture.
+</p>
                     </div>
 
                 </div>
@@ -697,6 +704,7 @@
                     <h3>Lactate-Mediated Chain Elongation to Caproic Acid</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">C. drakei consumes lactate-derived carbon in the coculture and carries out chain elongation to caproic acid.</p>
 
 
 
@@ -776,8 +784,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Electrolysis-Generated Hydrogen Supply</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
+                <p class="prewrap interaction-description">In situ water electrolysis supplies H2 to support autotrophic coculture operation, with hydrogen limitation identified as a process constraint.</p>
 
 
 
@@ -807,6 +815,8 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Acetogenic Lactate Production from CO2 and H2
+                        <p class="prewrap causal-description">In situ electrolysis supplies the H2 electron donor used with CO2 by the recombinant A. woodii strain to form lactate for the chain-elongating partner.
+</p>
                     </div>
 
                 </div>
@@ -1381,7 +1391,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

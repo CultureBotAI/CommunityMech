@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -591,7 +595,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Aerobic Denitrification Quorum-Quenching SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -599,18 +603,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -619,8 +613,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Aeromonas quorum quenching of 3OC12-HSL</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">PARTIAL - the authors attribute reduced 3OC12-HSL and increased pyocyanin excretion to Aeromonas quorum quenching. The accessible abstract does not describe the perturbation or add-back controls isolating this mediator sequence, or establish mutual fitness benefits.</p>
 
 
 
@@ -663,6 +657,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Pyocyanine-stimulated electron transfer
+                        <p class="prewrap causal-description">PARTIAL - the abstract reports that Aeromonas-associated 3OC12-HSL decline stimulates pyocyanin excretion, but does not describe mediator-specific disruption or rescue controls.</p>
                     </div>
 
                 </div>
@@ -678,7 +673,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/38277828/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38277828</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"quorum quenching (QQ) by AH, stimulated the excretion of pyocyanin, which could improve the electron transfer from complex III to downstream denitrifying enzymes"</div>
@@ -692,8 +687,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Pyocyanine-stimulated electron transfer</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">PARTIAL - excreted pyocyanin is proposed to improve electron transfer from complex III to nitrite-reducing enzymes. The abstract does not isolate this contribution from other AHL and energy-metabolism routes, or establish nutritional cross-feeding of pyocyanin.</p>
 
 
 
@@ -736,6 +731,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Efficient nitrate reduction by the three-member SMC
+                        <p class="prewrap causal-description">PARTIAL - pyocyanin-associated electron transfer could support the nitrite-reduction component of the community endpoint. The abstract also describes nitrate-reduction and energy-metabolism routes, so this is not a sole explanation of nitrate removal.</p>
                     </div>
 
                 </div>
@@ -751,7 +747,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/38277828/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38277828</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"stimulated the excretion of pyocyanin, which could improve the electron transfer from complex III to downstream denitrifying enzymes for NO2--N reduction"</div>
@@ -765,8 +761,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Efficient nitrate reduction by the three-member SMC</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">The Acinetobacter-Pseudomonas-Aeromonas SMC reached high nitrate reduction efficiency with little nitrite accumulation during aerobic denitrification.</p>
 
 
 
@@ -837,6 +833,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which perturbations isolate quorum quenching and pyocyanin contributions to denitrification?
+                </h3>
+                <p class="prewrap">PMID:38277828 reports community performance and a proposed signal/redox sequence, but the accessible abstract does not report mediator-specific disruption, add-back, or flux controls. It does not establish reciprocal fitness effects, pyocyanin nutritional uptake, or product-removal thermodynamics. Full methods are needed before strengthening either retained edge.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Aeromonas quorum quenching of 3OC12-HSL</code>, <code>ecological_interactions#Pyocyanine-stimulated electron transfer</code>, <code>ecological_interactions#Efficient nitrate reduction by the three-member SMC</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1035,7 +1050,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1080,7 +1095,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1125,7 +1140,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

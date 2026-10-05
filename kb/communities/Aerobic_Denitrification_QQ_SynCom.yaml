@@ -90,9 +90,9 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Aeromonas quorum quenching of 3OC12-HSL
-  description: Quorum quenching by Aeromonas hydrophila lowers the Pseudomonas-associated
-    3OC12-HSL pool in the three-member aerobic-denitrification SMC.
-  interaction_type: MUTUALISM
+  description: PARTIAL - the authors attribute reduced 3OC12-HSL and increased pyocyanin excretion to Aeromonas quorum quenching.
+    The accessible abstract does not describe the perturbation or add-back controls isolating this mediator sequence, or establish
+    mutual fitness benefits.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pseudomonas aeruginosa
@@ -115,21 +115,19 @@ ecological_interactions:
       label: quorum sensing
   downstream:
   - target: Pyocyanine-stimulated electron transfer
-    description: The 3OC12-HSL decline caused by quorum quenching stimulates
-      pyocyanine excretion and downstream electron transfer.
+    description: PARTIAL - the abstract reports that Aeromonas-associated 3OC12-HSL decline stimulates pyocyanin excretion,
+      but does not describe mediator-specific disruption or rescue controls.
   evidence:
   - reference: PMID:38277828
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: quorum quenching (QQ) by AH, stimulated the excretion of pyocyanin, which could
-      improve the electron transfer from complex III to downstream denitrifying enzymes
-    explanation: Links Aeromonas-driven quorum quenching to the redox response of
-      the denitrifying SMC.
+    snippet: quorum quenching (QQ) by AH, stimulated the excretion of pyocyanin, which could improve the electron transfer
+      from complex III to downstream denitrifying enzymes
+    explanation: Links Aeromonas-driven quorum quenching to the redox response of the denitrifying SMC.
 - name: Pyocyanine-stimulated electron transfer
-  description: The quorum-quenching response stimulates Pseudomonas pyocyanine
-    excretion, improving electron transfer from complex III to downstream denitrifying
-    enzymes for nitrite reduction.
-  interaction_type: CROSS_FEEDING
+  description: PARTIAL - excreted pyocyanin is proposed to improve electron transfer from complex III to nitrite-reducing
+    enzymes. The abstract does not isolate this contribution from other AHL and energy-metabolism routes, or establish nutritional
+    cross-feeding of pyocyanin.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pseudomonas aeruginosa
@@ -152,20 +150,19 @@ ecological_interactions:
       label: denitrification pathway
   downstream:
   - target: Efficient nitrate reduction by the three-member SMC
-    description: Pyocyanine-enhanced electron transfer supports efficient nitrate
-      and nitrite reduction by the full synthetic community.
+    description: PARTIAL - pyocyanin-associated electron transfer could support the nitrite-reduction component of the community
+      endpoint. The abstract also describes nitrate-reduction and energy-metabolism routes, so this is not a sole explanation
+      of nitrate removal.
   evidence:
   - reference: PMID:38277828
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: stimulated the excretion of pyocyanin, which could improve the electron transfer
-      from complex III to downstream denitrifying enzymes for NO2--N reduction
-    explanation: Names the redox mediator and connects it to denitrifying electron
-      transfer.
+    snippet: stimulated the excretion of pyocyanin, which could improve the electron transfer from complex III to downstream
+      denitrifying enzymes for NO2--N reduction
+    explanation: Names the redox mediator and connects it to denitrifying electron transfer.
 - name: Efficient nitrate reduction by the three-member SMC
-  description: The Acinetobacter-Pseudomonas-Aeromonas SMC reached high nitrate
-    reduction efficiency with little nitrite accumulation during aerobic denitrification.
-  interaction_type: SYNTROPHY
+  description: The Acinetobacter-Pseudomonas-Aeromonas SMC reached high nitrate reduction efficiency with little nitrite accumulation
+    during aerobic denitrification.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Acinetobacter baumannii
@@ -198,10 +195,8 @@ ecological_interactions:
   - reference: PMID:38277828
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The nitrate (NO3--N) reduction efficiency of the SMC reached 97 % with little
-      nitrite (NO2--N) accumulation
-    explanation: Supports efficient nitrate reduction as the whole-SMC denitrification
-      phenotype.
+    snippet: The nitrate (NO3--N) reduction efficiency of the SMC reached 97 % with little nitrite (NO2--N) accumulation
+    explanation: Supports efficient nitrate reduction as the whole-SMC denitrification phenotype.
 related_ingredients:
 - preferred_term: nitrate
   chebi_term:
@@ -274,3 +269,23 @@ growth_media:
     snippet: the application of aerobic denitrification technology in wastewater treatment
     explanation: Establishes aerobic (AEROBIC) cultivation of the SMC for denitrification of nitrate
       wastewater.
+discussions:
+- discussion_id: qq_mediator_causal_controls
+  prompt: Which perturbations isolate quorum quenching and pyocyanin contributions to denitrification?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Aeromonas quorum quenching of 3OC12-HSL
+  - ecological_interactions#Pyocyanine-stimulated electron transfer
+  - ecological_interactions#Efficient nitrate reduction by the three-member SMC
+  rationale: PMID:38277828 reports community performance and a proposed signal/redox sequence, but the accessible abstract
+    does not report mediator-specific disruption, add-back, or flux controls. It does not establish reciprocal fitness effects,
+    pyocyanin nutritional uptake, or product-removal thermodynamics. Full methods are needed before strengthening either retained
+    edge.
+curation_history:
+- timestamp: '2026-10-05T05:51:58Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Qualify quorum-quenching mediator edges and remove unsupported ecological classifications; complete node/edge
+    decisions under reports/causal_graph_review; issue #1236.'
+  llm_assisted: true

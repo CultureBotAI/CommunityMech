@@ -116,6 +116,45 @@ def test_main_accepts_explicit_record_paths(audit, tmp_path, monkeypatch):
     assert str(first) not in out.getvalue()
 
 
+@pytest.mark.parametrize("heading", ["## Cached Evidence Snippets", "## Content", "## Abstract"])
+@pytest.mark.parametrize(
+    "content_type", ["selected_excerpts", '"selected_excerpts"', "'SELECTED_EXCERPTS'"]
+)
+def test_selected_excerpts_are_not_independent_source_text(
+    audit, tmp_path, monkeypatch, heading, content_type
+):
+    cache = tmp_path / "references_cache"
+    cache.mkdir()
+    (cache / "PMID_1.md").write_text(
+        f"---\ncontent_type: {content_type}\n---\n"
+        + heading
+        + "\n"
+        + "A selected phrase without independent retrieved context. " * 12,
+        encoding="utf-8",
+    )
+    record = tmp_path / "record.yaml"
+    _write_record(record, "A selected phrase without independent retrieved context.")
+    monkeypatch.setattr(audit, "CACHE", cache)
+
+    assert audit.cache_text("PMID:1") == ("", False)
+    report = audit.audit_records([record])
+    assert report.stats["NOCONTENT"] == 1
+    assert report.stats["MATCH"] == 0
+
+
+def test_selected_excerpts_do_not_hide_independently_retrieved_text(audit, tmp_path, monkeypatch):
+    cache = tmp_path / "references_cache"
+    cache.mkdir()
+    (cache / "PMID_1.md").write_text(
+        "---\ncontent_type: selected_excerpts\n---\n## Content\n" + "Excerpt-only phrase. " * 20,
+        encoding="utf-8",
+    )
+    (cache / "PMID_1.txt").write_text("Independent retrieved abstract.", encoding="utf-8")
+    monkeypatch.setattr(audit, "CACHE", cache)
+
+    assert audit.cache_text("PMID:1") == ("Independent retrieved abstract.", True)
+
+
 def test_write_report_honors_injected_output_for_assembled(audit, capsys):
     report = audit.AuditReport(
         record_count=1,

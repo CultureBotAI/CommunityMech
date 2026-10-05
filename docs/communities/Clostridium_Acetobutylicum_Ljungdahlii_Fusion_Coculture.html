@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -638,6 +642,8 @@ This record is scoped to the WILD-TYPE pairing. The same laboratory has since re
                     <h3>Gas syntrophy - CO2 and H2 transfer to the acetogen</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">C. acetobutylicum releases CO2 and H2 during glucose catabolism and C. ljungdahlii consumes them through the Wood-Ljungdahl pathway. This is the founding interaction of the pairing and the one the coculture was built on.
+Typed CROSS_FEEDING rather than SYNTROPHY despite the sources calling the pairing a syntrophy. InteractionTypeEnum defines SYNTROPHY as obligate metabolic cooperation, and the seed paper grows both species as monocultures in the same experiment, so the cooperation is demonstrably facultative here.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium acetobutylicum</p>
@@ -680,6 +686,8 @@ This record is scoped to the WILD-TYPE pairing. The same laboratory has since re
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Hydrogen removal relieving hydrogenase feedback inhibition
+                        <p class="prewrap causal-description">Acetogenic consumption of C. acetobutylicum-derived H2 is the reciprocal sink hypothesized to relieve hydrogenase feedback in the solventogen.
+</p>
                     </div>
 
                 </div>
@@ -724,6 +732,7 @@ This record is scoped to the WILD-TYPE pairing. The same laboratory has since re
                     <h3>Arginine cross-feeding to the acetogen</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">C. ljungdahlii strongly upregulates its arginine deiminase genes in coculture, a pathway C. acetobutylicum lacks, while C. acetobutylicum upregulates arginine biosynthesis. The authors read this as arginine made by the solventogen being catabolized by the acetogen for extra ATP. The paper words the conclusion as a possibility, and no growth measurement on arginine was reported for this coculture.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium acetobutylicum</p>
@@ -803,6 +812,7 @@ This record is scoped to the WILD-TYPE pairing. The same laboratory has since re
                     <h3>Histidine degradation feeding the acetogen</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">Four C. ljungdahlii genes for histidine degradation to glutamate are strongly upregulated early in coculture. The net reaction releases ammonia, glutamate, and a tetrahydrofolate intermediate of the Wood-Ljungdahl pathway&#39;s eastern branch, so histidine feeds carbon into the pathway the acetogen runs.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium acetobutylicum</p>
@@ -880,6 +890,7 @@ This record is scoped to the WILD-TYPE pairing. The same laboratory has since re
                     <h3>Hydrogen removal relieving hydrogenase feedback inhibition</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">Local consumption of H2 by C. ljungdahlii is hypothesized to relieve feedback inhibition of the C. acetobutylicum hydrogenase, which is the return benefit that makes the pairing mutualistic rather than commensal. The measured effect was small, though reproducible across the three biological replicates.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium ljungdahlii</p>
@@ -955,6 +966,7 @@ This record is scoped to the WILD-TYPE pairing. The same laboratory has since re
                     <h3>Contact-dependent growth stimulation of both partners</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">In the transwell arm, removing the membrane enriches ribosomal-protein genes in C. acetobutylicum and pyrimidine biosynthesis genes in C. ljungdahlii among the most upregulated genes, which the authors read as direct cell-to-cell contact stimulating growth in both organisms. Community-level because the effect is reciprocal and has no single source.</p>
 
 
 
@@ -1030,6 +1042,7 @@ This record is scoped to the WILD-TYPE pairing. The same laboratory has since re
                     <h3>Competition for yeast-extract amino acids and product inhibition</h3>
                     <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">Alongside the cross-feeding, the majority C. acetobutylicum depletes the shared free amino acids of the yeast extract and accumulates butyrate and butanol, which together push C. ljungdahlii into a survival response. The same amino-acid pool is therefore both cross-fed and competed for, at different phases of the culture.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium acetobutylicum</p>
@@ -1082,6 +1095,8 @@ This record is scoped to the WILD-TYPE pairing. The same laboratory has since re
                 <div class="interaction-header">
                     <h3>Interspecies cell fusion and cytoplasmic material exchange</h3>
                 </div>
+                <p class="prewrap interaction-description">The two species fuse their cell walls and membranes and exchange protein, RNA, and DNA in bulk. The structural demonstration is in the 2020 mBio paper, not in the transcriptomic seed paper, which states that it could not identify the genes driving fusion.
+interaction_type is deliberately unset. InteractionTypeEnum classifies by sign, and no cited source establishes that the fusion itself benefits either partner - the demonstrated benefits belong to the syntrophy and the amino-acid exchange, which have their own entries. Tracked as issue 749.</p>
 
 
 
@@ -1116,10 +1131,14 @@ This record is scoped to the WILD-TYPE pairing. The same laboratory has since re
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Interspecies DNA transfer and genomic integration
+                        <p class="prewrap causal-description">Cell fusion provides a physical route for C. ljungdahlii plasmid DNA to cross into C. acetobutylicum and integrate into its genome.
+</p>
                     </div>
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Emergent non-native metabolites
+                        <p class="prewrap causal-description">Fusion-mediated material exchange is the direct-contact mechanism associated with wild-type production of metabolites neither monoculture produces.
+</p>
                     </div>
 
                 </div>
@@ -1163,6 +1182,8 @@ This record is scoped to the WILD-TYPE pairing. The same laboratory has since re
                 <div class="interaction-header">
                     <h3>Interspecies DNA transfer and genomic integration</h3>
                 </div>
+                <p class="prewrap interaction-description">Plasmid DNA from C. ljungdahlii is acquired by C. acetobutylicum and integrated into its genome, a horizontal transfer route mediated by the cell fusion rather than by conjugation, transduction, or transformation.
+interaction_type is deliberately unset for the same reason as the fusion entry: COMMENSALISM would assert that the recipient benefits, and the cited work shows acquisition and integration, not benefit. Tracked as issue 749.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium ljungdahlii</p>
@@ -1211,6 +1232,8 @@ This record is scoped to the WILD-TYPE pairing. The same laboratory has since re
                 <div class="interaction-header">
                     <h3>Emergent non-native metabolites</h3>
                 </div>
+                <p class="prewrap interaction-description">The wild-type pairing makes isopropanol and 2,3-butanediol, which neither species makes alone. This is the defining emergent phenotype of the coculture and it comes from the 2019 founding paper, not from the transcriptomic study.
+interaction_type is deliberately unset. InteractionTypeEnum classifies by sign, and emergence is not a sign: the source reports that the pairing makes products neither member makes alone, not that either member benefits from making them. The benefits this pairing does have are recorded on the interactions that demonstrate them. Tracked as issue 749.</p>
 
 
 

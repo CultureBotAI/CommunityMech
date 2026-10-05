@@ -64,6 +64,7 @@ SNIPPET_SECTION = re.compile(
 FRONTMATTER = re.compile(r"\A---\n.*?\n---\n", re.DOTALL)
 HEADER_LINES = re.compile(r"^(#+\s|Title:|Source:|URL:|DOI:|\*\*|reference_id:).*$", re.MULTILINE)
 UNAVAILABLE = re.compile(r"content_type:\s*unavailable", re.IGNORECASE)
+SELECTED_EXCERPTS = re.compile(r"content_type:\s*[\"']?selected_excerpts\b", re.IGNORECASE)
 # A .md cache is treated as a REAL abstract only with an explicit signal:
 REAL_CT = re.compile(r"content_type:\s*(abstract_only|abstract|full|fulltext)", re.IGNORECASE)
 CONTENT_HEADING = re.compile(r"^##\s+(Content|Abstract)\b", re.MULTILINE | re.IGNORECASE)
@@ -209,6 +210,8 @@ def cache_text(reference: str) -> tuple[str, bool]:
             continue
         if UNAVAILABLE.search(t):
             continue  # explicitly no abstract body
+        if SELECTED_EXCERPTS.search(t):
+            continue  # headings cannot promote curated excerpts to source text (#1237)
         # Only trust a .md as a real abstract with an explicit signal. A cached
         # full text counts: several were fetched without YAML frontmatter or a
         # `## Content` heading and were being discarded as stubs.
