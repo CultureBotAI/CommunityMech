@@ -1,0 +1,87 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: f76f44c1d6747017fd2e2d459aa021e9cf5787ec
+scope:
+- kb/communities/Clostridium_Autoethanogenum_Kluyveri_Syngas_Coculture.yaml
+- kb/communities/Clostridium_Caldicellulosiruptor_Minimal_Medium_Coculture.yaml
+- kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+findings:
+- issue: 1319
+  severity: P2
+  finding: Feedback certainty and chain-elongation producer/recipient attribution.
+  disposition: addressed_and_locally_verified
+- issue: 1320
+  severity: P2
+  finding: Context-only medium arrow, unsupported ecological types and computational-only characterization of measured
+    member responses.
+  disposition: addressed_and_locally_verified
+- issue: 1321
+  severity: P2
+  finding: Reactor-stage covariates, condition-specific monoculture comparison and acid/anion grounding mismatch.
+  disposition: addressed_and_locally_verified
+open_nongraph_followups:
+- issue: 1322
+  disposition: intentionally_not_closed_by_graph_only_patch
+  scope: Top-level product attribution, abundance, growth media, member roles and non-graph evidence provenance.
+adversarial_checks:
+- Read each whole record and all original graph claims before edits; every retained node and original arrow is accounted
+  for in the ledger.
+- Do not convert stoichiometrically reverse-calculated ethanol flux into directly measured partner flux.
+- Preserve supported acid-forming and alcohol-reducing partner assignments from pure-culture comparisons; resolve
+  the existing recipient without adding graph structure.
+- Retain thermodynamic feedback as a supported hypothesis with protein abundance/post-translational alternatives,
+  not reverse ethanol donation.
+- Remove only the medium context arrow; preserve all three thermophile observations and the earlier removal of capacity-to-maintenance.
+- Treat the exact-system medium paper as abstract-bounded and record the differing ORNL abstract wording; do not
+  invent duration or population trajectories.
+- Preserve empirical C. bescii transcript/protein responses, while distinguishing inferred protein function from
+  measured expression and from coculture causality.
+- Retain both supported carboxidivorans product-conversion arrows without treating reactor staging as ecological
+  niche partitioning.
+- Name pH, CO and covarying flow/residence conditions; distinguish incoming-acid reduction from de novo alcohol
+  synthesis.
+- Bound batch hexanol emergence to the matched control and retain documented monoculture alcohol capacity.
+- Record the 100-versus-800-mbar discrepancy between cascade abstract and Results, and distinguish growth inhibition
+  from continued chain elongation.
+- Verify hexanoate CHEBI:17120 using official ChEBI; do not equate it with protonated hexanoic acid CHEBI:30776
+  or assert measured speciation.
+- Preserve unrelated raw top-level YAML blocks, all seven reference caches, existing histories and registry/census
+  tests.
+- Four primary main bodies read; C. bescii Results selectively read, model abstract/Introduction only. No visual
+  image or supplement inspection claimed.
+- No new nodes/arrows, Edison run or spend; source-based self-adversarial review is not independent approval or
+  corpus completion.
+verification:
+  status: local_validation_complete
+  checks: 30
+  records: 460
+  nodes: 1474
+  edges: 716
+  review_status_counts:
+    needs_research: 3
+    pending: 354
+    reviewed: 103
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  unchanged_raw_blocks: 50
+  snippet_counts:
+    MATCH: 91
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1460
+    edge_descriptions: 708
+  render_determinism: passed
+  regressions: 243 passed in 170.92s (0:02:50)
+  rights: 3 passed in 1.56s
+  rights_import_root_verified: true
+  caches_unchanged: true
+  primary_artifact_hashes_rechecked: true
+  participant_connectivity_and_gtdb_census_tests_unchanged: true
