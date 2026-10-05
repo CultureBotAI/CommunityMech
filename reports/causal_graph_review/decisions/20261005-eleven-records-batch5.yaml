@@ -1,0 +1,673 @@
+reviewer: codex
+review_mode: source_based_self_review
+base_commit: 6bf636bf3a1dcefd6ca10c78b17d297bd6e14ccc
+issues:
+- 1248
+- 1249
+- 1250
+deferred_records:
+- path: kb/communities/Avena_Rhizosphere_Detritusphere_Niche_Succession.yaml
+  reason: Published results/discussion source review incomplete; no decision or edit in this batch.
+records:
+- path: kb/communities/At_RSPHERE_SynCom.yaml
+  id: CommunityMech:000003
+  original_sha256: 61ae3df591e7a0ddefc573a65dc14124d0663d8723d3f8abb7c4bafe34719365
+  record_sha256: b615c84fa2415eecbf9eb3964ee830fdb3bc573508fbc42ce601fb340f3500c0
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  outcome: changed
+  scope: Whole record read; all current and removed graph nodes and arrows reviewed against the precisely scoped
+    sources below. Non-graph metadata is outside certification.
+  summary: Separate At-RSPHERE assay systems and bound exometabolite mediation
+  node_decisions:
+  - node: At-RSPHERE Root SynCom Recolonization
+    rationale: Retain measured recolonization without facilitation or root-development claims; distinguish the original
+      large mixture.
+  - node: R401 Exometabolite Antagonism of At-SynCom Members
+    rationale: Retain mutant-supported inhibition with this study's own evidence, not a background percentage or
+      reciprocal-harm classification.
+  - node: DAPG/Pyoverdine-Dependent AtSC6 Remodeling
+    rationale: Retain root remodeling; qualify the mediation arrow and correct in-vivo provenance.
+  - node: R401 Root Invasion of AtSC6-Precolonized Arabidopsis
+    rationale: Retain root invasion/protection and competitive-exclusion observations with relative-abundance and
+      system limits; optional competition type would overgeneralize participant fitness.
+  edges_before:
+  - source: R401 Exometabolite Antagonism of At-SynCom Members
+    target: DAPG/Pyoverdine-Dependent AtSC6 Remodeling
+    description: DAPG and pyoverdine production by R401 weakens At-derived SynCom commensals and drives the downstream
+      composition shift of AtSC6 on Col-0 roots.
+  - source: DAPG/Pyoverdine-Dependent AtSC6 Remodeling
+    target: R401 Root Invasion of AtSC6-Precolonized Arabidopsis
+    description: R401-induced AtSC6 remodeling is the community shift required for R401 to invade and dominate Arabidopsis
+      roots.
+  edges_after:
+  - source: R401 Exometabolite Antagonism of At-SynCom Members
+    target: DAPG/Pyoverdine-Dependent AtSC6 Remodeling
+    description: PARTIAL - Root401 exometabolites support commensal inhibition and are required for the characteristic
+      AtSC6 root-composition shift. The in-vitro inhibition magnitude did not predict individual in-planta abundance
+      changes, so this arrow links experimentally supported processes without claiming quantitative mediation across
+      assays.
+  - source: DAPG/Pyoverdine-Dependent AtSC6 Remodeling
+    target: R401 Root Invasion of AtSC6-Precolonized Arabidopsis
+    description: PARTIAL - the authors infer that exometabolite-dependent AtSC6 remodeling permits Root401 invasion.
+      Mutation changes inhibition, remodeling and invasion together; it does not independently establish that the
+      composition shift is the necessary mediator.
+  references:
+  - PMID:40663585
+  - doi:10.1038/nature16192
+  source_review:
+  - reference: doi:10.1038/nature16192
+    local: references_cache/doi_10.1038_nature16192.md
+    passages_read: Complete cached abstract, then public university-hosted paper pages 1-8 including introduction,
+      results, discussion, conclusions and methods. Figures 4-5 and recolonization methods visually verified on
+      pages 5 and 8. Extended-data pages 10-19 and separate supplementary datasets not reviewed.
+    url: https://rootbiome.tamu.edu/wp-content/uploads/sites/38/2018/03/2018-Bai-et-al-Functional-overlap-of-Arabidopsis-leaf-and-root-microbiota-nature16192.pdf
+    read_only_pdf: /private/tmp/communitymech-bai2015-nature16192.pdf
+    sha256: e920cee5f86b4ec6b94988100495b2c580bbbb55ab5673062b3dba6104df8d5e
+    access_note: Publisher landing page is subscription-preview only. Public university PDF was read without bypassing
+      authentication. All-rights-reserved publisher notice; no redistribution license verified, so no body text
+      or PDF is added to the repository and abstract-only cache remains unchanged.
+    finding: Defined assemblies recolonize living plants in calcined clay and resemble natural communities at coarse
+      taxonomic levels. Main root/soil SynCom comprises 188 isolates, unlike the record's generic 5-20-member description.
+      Inoculation-route and root/leaf community comparisons test assembly and niche specialization, not pairwise
+      colonization facilitation or improved root development.
+  - reference: PMID:40663585
+    local: references_cache/PMID_40663585.txt
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12262851/
+    doi: 10.1371/journal.pbio.3002882
+    passages_read: Complete abstract, introduction, all results/discussion and all main-text methods, folded lines
+      125-455. Supplement captions were read but not underlying figures/tables.
+  - reference: doi:10.1371/journal.pbio.3002882.s016
+    url: https://journals.plos.org/plosbiology/article/file?id=10.1371%2Fjournal.pbio.3002882.s016&type=supplementary
+    local: /private/tmp/communitymech-amrhein2025-s1table.pdf
+    sha256: 5ad2b7351d509000c772ab6725f489511497deac9f690698f242e5a9bbe6bf0c
+    passages_read: Complete one-page S1 Table, extracted using pypdf and visually verified from a 2x PyMuPDF render;
+      no PDF or extracted full text added to the repository.
+    finding: Four SynComs each contain 17 strains from 17 listed families. The table gives strain IDs and family-level
+      assignments, not genus identities for every member. Pseudomonadaceae entries are AtRoot569, LjRoot154, AtRoot68
+      and LjRoot59 for AtSC5, LjSC5, AtSC6 and LjSC6 respectively. The inherited representative six-taxon list is
+      not a verified assay membership list.
+  limitations:
+  - No new nodes or arrows. No paid Edison job submitted; graph-extension credential remains unconfigured.
+  - Source coverage is limited to the passages explicitly recorded, not unreviewed figures, supplements or full
+    methods. Non-graph fields remain unchanged.
+  - 'Narrower source-established graph participants expose DISCONNECTED warnings for unverified representative taxa;
+    non-graph source/identity work remains open in #1251.'
+  history_file: history/records/At_RSPHERE_SynCom/2026-10-05T101148Z-codex-c9a21f.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1248
+  membership_followup: https://github.com/CultureBotAI/CommunityMech/issues/1251
+- path: kb/communities/Arabidopsis_Coumarin_Root_SynCom.yaml
+  id: CommunityMech:000094
+  original_sha256: 070e63775f158f82bf967f6ecddc848c28193123d034669f75da0f77f7c8673c
+  record_sha256: 5886a0fe0ac3d47e69b0e2f0c0875e551446aa459b079dd8270d1ebcb6188f13
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  outcome: changed
+  scope: Whole record read; all current and removed graph nodes and arrows reviewed against the precisely scoped
+    sources below. Non-graph metadata is outside certification.
+  summary: Separate coumarin chemistry, inhibition and root-composition evidence
+  node_decisions:
+  - node: Iron-Limited Catecholic Coumarin Exudation
+    rationale: Retain plant exudation with class-level chemical grounding, not competition.
+  - node: Catecholic Coumarin Peroxide Generation
+    rationale: Retain measured cell-free peroxide without a cellular oxidative-response GO annotation.
+  - node: Pseudomonas Root329 Coumarin Sensitivity
+    rationale: Retain inhibitor/catalase evidence with assay and strain limits and a partial root-mediation arrow.
+  - node: Pseudomonas-Weighted Coumarin Community Shift
+    rationale: Retain relative-abundance complementation while distinguishing computational rescaling from physical
+      dropout.
+  edges_before:
+  - source: Iron-Limited Catecholic Coumarin Exudation
+    target: Catecholic Coumarin Peroxide Generation
+    description: Exuded catecholic coumarins provide the redox-active compounds that generate hydrogen peroxide
+      in iron-deficient medium.
+  - source: Catecholic Coumarin Peroxide Generation
+    target: Pseudomonas Root329 Coumarin Sensitivity
+    description: Hydrogen peroxide generation by catecholic coumarins explains the sideretin inhibition phenotype
+      of the sensitive Pseudomonas isolate.
+  - source: Pseudomonas Root329 Coumarin Sensitivity
+    target: Pseudomonas-Weighted Coumarin Community Shift
+    description: Selective inhibition of Pseudomonas sp. Root329 is the strain-level effect that explains much of
+      the f6'h1 versus wild-type community-profile difference.
+  edges_after:
+  - source: Iron-Limited Catecholic Coumarin Exudation
+    target: Catecholic Coumarin Peroxide Generation
+    description: The exuded catecholic compounds supply the chemical species shown separately to generate peroxide
+      in iron-deficient MS medium; this connection does not measure peroxide concentration at the colonized root.
+  - source: Catecholic Coumarin Peroxide Generation
+    target: Pseudomonas Root329 Coumarin Sensitivity
+    description: PARTIAL - peroxide generation and abolition of sideretin inhibition by catalase support peroxide
+      involvement in Root329 sensitivity. Chemistry in iron-deficient MS and inhibition on nutrient agar are separate
+      assays, not a direct root-community peroxide measurement.
+  - source: Pseudomonas Root329 Coumarin Sensitivity
+    target: Pseudomonas-Weighted Coumarin Community Shift
+    description: PARTIAL - Root329's compound sensitivity is a candidate explanation for its root relative-abundance
+      response to coumarin biosynthesis and supplementation. The experiments do not isolate peroxide as the mediator
+      within the intact root community or establish absolute depletion.
+  references:
+  - PMID:31152139
+  source_review:
+  - reference: PMID:31152139
+    local: references_cache/PMID_31152139.txt
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6589675/
+    doi: 10.1073/pnas.1820691116
+    passages_read: Abstract, introduction, hydroponic platform results, iron-deficiency mutants, coumarin biosynthesis/release
+      comparisons, rescaling and reduced-community experiments, chemical complementation, purified-compound inhibition/catalase/iron
+      rescue, discussion and short main-text methods. Folded relevant cache lines 299-515 were re-read after the
+      initial full output truncated.
+  limitations:
+  - No new nodes or arrows. No paid Edison job submitted; graph-extension credential remains unconfigured.
+  - Source coverage is limited to the passages explicitly recorded, not unreviewed figures, supplements or full
+    methods. Non-graph fields remain unchanged.
+  history_file: history/records/Arabidopsis_Coumarin_Root_SynCom/2026-10-05T101148Z-codex-29d547.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1248
+  grounding_sources:
+  - https://www.ebi.ac.uk/chebi/CHEBI:23403
+  - https://www.ebi.ac.uk/QuickGO/term/GO:0006979
+- path: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+  id: CommunityMech:000219
+  original_sha256: e1b2f056737dbe078631865d6321304b43f485b13f002e17621a084b7716fe8c
+  record_sha256: 90510230f2053bb53ef0f2020d0bf60b557586fa250312df1c6bdb56ade99a23
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  outcome: changed
+  scope: Whole record read; all current and removed graph nodes and arrows reviewed against the precisely scoped
+    sources below. Non-graph metadata is outside certification.
+  summary: Bound Asgard substrate links to reversible genomic and transcript potential
+  node_decisions:
+  - node: Asgard Acetogenesis Modulates Methanogenic Substrates
+    rationale: Retain candidate substrate-pool modulation without assigning methane production or net positive cross-feeding.
+  - node: Wood-Ljungdahl Carbon Fixation and Hydrogen Cycling
+    rationale: Retain expressed capacity and hypothetical substrate link; expose unresolved pathway direction.
+  - node: Carbohydrate Breakdown to Acetate and Formate
+    rationale: Retain lineage-specific metabolic predictions and a qualified pool arrow, not measured release.
+  edges_before:
+  - source: Wood-Ljungdahl Carbon Fixation and Hydrogen Cycling
+    target: Asgard Acetogenesis Modulates Methanogenic Substrates
+    description: Wood-Ljungdahl carbon fixation and H2 cycling are expressed components of the non-methanogenic
+      acetogenic metabolism that can alter substrate pools relevant to co-resident methanogens.
+  - source: Carbohydrate Breakdown to Acetate and Formate
+    target: Asgard Acetogenesis Modulates Methanogenic Substrates
+    description: Carbohydrate breakdown produces acetate and formate, two of the substrate pools through which Asgard
+      archaea can modulate potential methanogenesis in wetland soil.
+  edges_after:
+  - source: Wood-Ljungdahl Carbon Fixation and Hydrogen Cycling
+    target: Asgard Acetogenesis Modulates Methanogenic Substrates
+    description: HYPOTHESIZED - expressed Wood-Ljungdahl/hydrogenase capacity could alter methanogenic substrate
+      pools through production or consumption. Direction, exchanged flux and net methanogen response remain unresolved.
+  - source: Carbohydrate Breakdown to Acetate and Formate
+    target: Asgard Acetogenesis Modulates Methanogenic Substrates
+    description: HYPOTHESIZED - realized carbohydrate metabolism could supply acetate/formate to shared pools, but
+      these compounds can also be consumed and no partner-resolved transfer or methane response was measured.
+  references:
+  - PMID:39085194
+  source_review:
+  - reference: PMID:39085194
+    local: references_cache/PMID_39085194.md
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11291895/
+    doi: 10.1038/s41467-024-49872-z
+    passages_read: Complete abstract, introduction, all results and discussion, sample acquisition/preparation,
+      metabolic annotation, hydrogenase modeling, transcript mapping and normalization methods. Folded cache lines
+      115-535 after checking the abstract and provenance.
+    access_note: DOI web open failed. Existing cached Europe PMC full text is substantive despite stale abstract_only
+      frontmatter; no cache alteration made.
+  limitations:
+  - No new nodes or arrows. No paid Edison job submitted; graph-extension credential remains unconfigured.
+  - Source coverage is limited to the passages explicitly recorded, not unreviewed figures, supplements or full
+    methods. Non-graph fields remain unchanged.
+  - 'Unchanged related_ingredients[2] reference check hits bracket-stripping bug #622; the separate snippet audit
+    matches all eleven source snippets.'
+  history_file: history/records/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community/2026-10-05T101149Z-codex-7906da.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1249
+- path: kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+  id: CommunityMech:000093
+  original_sha256: 53b95e103264b0fc959c6666cf41af094c3a236ea523cd213ad5dea37239a53f
+  record_sha256: 3b8120c483b0c63da529d158921fc67d788e53b2c1c5a505ab089e6b65d763aa
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  outcome: changed
+  scope: Whole record read; all current and removed graph nodes and arrows reviewed against the precisely scoped
+    sources below. Non-graph metadata is outside certification.
+  summary: Remove phyllosphere workflow nodes and preserve distinct host-genotype outcomes
+  node_decisions:
+  - node: Cuticle-Mutant Phyllosphere Abundance and Composition Changes
+    rationale: Retain mutant outcomes with lacs2/pec1 and relative/absolute distinctions.
+  - node: EIN2 Ethylene-Signaling Composition Shift
+    rationale: Retain EIN2 composition and strain-count effects without universal growth or measured ethylene claims.
+  - node: Natural-Accession Phyllosphere Community Shift
+    rationale: Retain controlled accession effects without inventing an arrow or identified host gene.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:24743269
+  source_review:
+  - reference: PMID:24743269
+    local: references_cache/PMID_24743269.txt
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3990490/
+    doi: 10.1371/journal.pgen.1004283
+    passages_read: Complete abstract; all results from community selection through host screening, cuticle, EIN2
+      and natural-accession validation; discussion; main-text methods and statistical methods. Giant source line
+      was folded, with lines 270-310 re-read after combined tool output truncated part of the discussion.
+  limitations:
+  - No new nodes or arrows. No paid Edison job submitted; graph-extension credential remains unconfigured.
+  - Source coverage is limited to the passages explicitly recorded, not unreviewed figures, supplements or full
+    methods. Non-graph fields remain unchanged.
+  history_file: history/records/Arabidopsis_Phyllosphere_SynCom7/2026-10-05T101149Z-codex-0565e6.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1248
+  renamed_nodes:
+    Cuticle-Mutant SynCom Abundance Increase: Cuticle-Mutant Phyllosphere Abundance and Composition Changes
+  removed_nodes:
+  - node: Seven-Strain Phyllosphere SynCom Construction
+    rationale: Experimental selection/inoculation workflow, not an ecological effect; engineering metadata is preserved.
+  - node: Candidate-Gene Mutant Phyllosphere Inoculation
+    rationale: Experimental selection/inoculation workflow, not an ecological effect; engineering metadata is preserved.
+- path: kb/communities/Avena_Rhizosphere_CrossKingdom_SIP_Community.yaml
+  id: CommunityMech:000236
+  original_sha256: 44fcdc11a90bce65c6d4a48f88248be3db32b62d3091060d9652fd8c5c9be33c
+  record_sha256: 80f704ab28ca001665f3978357394d856e75221f2e58f9f9ab34eabd2b761ea9
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  outcome: changed
+  scope: Whole record read; all current and removed graph nodes and arrows reviewed against the precisely scoped
+    sources below. Non-graph metadata is outside certification.
+  summary: Preserve phage isotope incorporation while qualifying host and lysis inference
+  node_decisions:
+  - node: Plant-Derived Carbon Incorporation into Phage DNA
+    rationale: Rename to the measured DNA-incorporation outcome; remove unmeasured lysis/predation and a misleading
+      CO2-product implication.
+  - node: Candidate Burkholderiales Phage-Host Link
+    rationale: Retain candidate CRISPR-supported host link and a hypothetical carbon-transfer arrow.
+  - node: Candidate Catenulispora Phage-Host Link
+    rationale: Retain candidate GH25/phylogeny-supported host link without asserting validated PGPR infection.
+  - node: 13C-Labeled Plant-Signaling and Defense Functions
+    rationale: Retain genomic functional potential with computational/partial support, not competition.
+  edges_before:
+  - source: Phage Targets Burkholderiales Plant Pathogen
+    target: Phage Lysis Turns Over Plant-Derived Carbon
+    description: CRISPR spacer targeting links this highly labeled phage to a Burkholderiales host predicted to
+      consume plant-derived carbon directly, so infection of that host contributes to phage-mediated rhizosphere
+      carbon turnover.
+  - source: Phage Replicates in Catenulispora PGPR
+    target: Phage Lysis Turns Over Plant-Derived Carbon
+    description: Replication in a 13C-labeled Catenulispora host ties this phage-host interaction to recycling of
+      plant-derived carbon through active rhizosphere bacterial populations.
+  edges_after:
+  - source: Candidate Burkholderiales Phage-Host Link
+    target: Plant-Derived Carbon Incorporation into Phage DNA
+    description: HYPOTHESIZED - replication in this candidate plant-carbon-assimilating host could transfer labeled
+      nucleotide carbon into the observed phage DNA. Host identity and infection dynamics remain inferred, and this
+      arrow does not measure lysis-mediated nutrient release.
+  - source: Candidate Catenulispora Phage-Host Link
+    target: Plant-Derived Carbon Incorporation into Phage DNA
+    description: HYPOTHESIZED - replication in this candidate plant-carbon-assimilating host could transfer labeled
+      nucleotide carbon into the observed phage DNA. Host identity and infection dynamics remain inferred, and this
+      arrow does not measure lysis-mediated nutrient release.
+  references:
+  - PMID:34468166
+  source_review:
+  - reference: PMID:34468166
+    doi: 10.1128/mSphere.00085-21
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8550312/
+    local: references_cache/PMID_34468166.md
+    passages_read: Complete cached abstract, introduction, all results, discussion, conclusions and main-text methods.
+      Initial giant line truncated; folded lines 110-490 were then read in separate chunks. Figure captions read,
+      not figure images or separate supplemental datasets.
+    access_note: Existing Europe PMC body is substantive despite stale abstract_only metadata. Publisher web opening
+      failed; no cache alteration.
+  limitations:
+  - No new nodes or arrows. No paid Edison job submitted; graph-extension credential remains unconfigured.
+  - Source coverage is limited to the passages explicitly recorded, not unreviewed figures, supplements or full
+    methods. Non-graph fields remain unchanged.
+  history_file: history/records/Avena_Rhizosphere_CrossKingdom_SIP_Community/2026-10-05T101149Z-codex-564280.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1249
+  renamed_nodes:
+    Phage Lysis Turns Over Plant-Derived Carbon: Plant-Derived Carbon Incorporation into Phage DNA
+    Phage Targets Burkholderiales Plant Pathogen: Candidate Burkholderiales Phage-Host Link
+    Phage Replicates in Catenulispora PGPR: Candidate Catenulispora Phage-Host Link
+- path: kb/communities/BSFL_Gut_SynCom_Bacillus_Lactobacillus_Issatchenkia.yaml
+  id: CommunityMech:000284
+  original_sha256: a2fab7f98571ef0bba5fc59445d4491d82381df6af4e15d1e22f013dc0da4ada
+  record_sha256: b531d14963595ee4927d169e209b574bd3c4a57ba8eb8891f0e6668a558297d7
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  outcome: changed
+  scope: Whole record read; all current and removed graph nodes and arrows reviewed against the precisely scoped
+    sources below. Non-graph metadata is outside certification.
+  summary: Separate BSFL performance from unverified exchange and host mediation
+  node_decisions:
+  - node: Bacillus Direct Proteolysis
+    rationale: Retain abstract-reported proteolysis with unspecified assay modality, not cross-feeding.
+  - node: Lactobacillus-Issatchenkia Protein-Conversion Association
+    rationale: Retain member-performance association without claiming metabolite transfer.
+  - node: Tripartite Gut-pH Niche Partitioning
+    rationale: Retain distribution and protein endpoints; remove the associative ALDH arrow and categorical niche-partitioning
+      label.
+  - node: ALDH-TOR Amino-Acid Host Response
+    rationale: Retain a partial candidate host mechanism without reciprocal mutualism.
+  - node: Organic-Waste SynCom-BSFL Proof of Concept
+    rationale: Retain selected waste-treatment improvements without reciprocal mutualism.
+  edges_before:
+  - source: Tripartite Gut-pH Niche Partitioning
+    target: ALDH-TOR Amino-Acid Host Response
+    description: 'The highest-performing tripartite SynCom was associated with host ALDH as a candidate protein-conversion
+      node linked to amino-acid metabolism and TOR-related signaling.
+
+      '
+  edges_after: []
+  references:
+  - PMID:42167379
+  source_review:
+  - reference: PMID:42167379
+    doi: 10.1016/j.biortech.2026.134927
+    local: references_cache/PMID_42167379.md
+    url: https://www.sciencedirect.com/science/article/pii/S0960852426010096
+    passages_read: Complete cached abstract and primary publisher indexed abstract/highlights. Full methods/results
+      not accessed.
+    access_note: Publisher preview requires subscription and direct web opening returned 403; no bypass attempted.
+      No body or cache changes.
+  limitations:
+  - No new nodes or arrows. No paid Edison job submitted; graph-extension credential remains unconfigured.
+  - Source coverage is limited to the passages explicitly recorded, not unreviewed figures, supplements or full
+    methods. Non-graph fields remain unchanged.
+  history_file: history/records/BSFL_Gut_SynCom_Bacillus_Lactobacillus_Issatchenkia/2026-10-05T101149Z-codex-3d53f1.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1250
+  removed_nodes:
+  - node: Function-Guided BSFL SynCom Selection
+    rationale: Function-guided member selection is an experimental workflow, not an ecological facilitation event.
+- path: kb/communities/Bacillales_Lignin_Degrading_LDSynCom.yaml
+  id: CommunityMech:000383
+  original_sha256: 07fe2f20987a2f202bdf6daa6ffa55e2a0a5c3fec8073aefb90d75882978c563
+  record_sha256: 882c357a014a5814d0b7c792c6f299944e22a8a35f453a1d53ebdf20065d749e
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  outcome: changed
+  scope: Whole record read; all current and removed graph nodes and arrows reviewed against the precisely scoped
+    sources below. Non-graph metadata is outside certification.
+  summary: Distinguish LDSynCom phenolic proxies from structural lignin depolymerization
+  node_decisions:
+  - node: LDSynCom lignin-associated phenolic signal
+    rationale: Rename to the measured phenolic signal and remove a catabolic annotation stronger than the assay.
+  - node: Paenibacillus 11B contribution to LDSynCom phenolic accumulation
+    rationale: Retain measured 11B-dropout contribution without assigning exclusive depolymerization or reciprocal
+      fitness.
+  - node: LDSynCom lignin-particle biofilm formation
+    rationale: Retain directly observed particle biofilm unchanged; add no causal biofilm arrow.
+  edges_before: []
+  edges_after: []
+  references:
+  - doi:10.64898/2026.08.24.746789
+  source_review:
+  - reference: doi:10.64898/2026.08.24.746789
+    local: references_cache/doi_10.64898_2026.08.24.746789.md
+    url: https://www.biorxiv.org/content/10.64898/2026.08.24.746789v1.full.txt
+    passages_read: Entire primary abstract, introduction, all methods, results, discussion and concluding remarks;
+      figure captions 2-6 read. Figure images, Table 1 and supplements not reviewed.
+    access_note: Ordinary public endpoint returned complete HTML; parsed and read with BeautifulSoup. Preprint,
+      not peer-reviewed. No article body added to repository.
+    primary_download_sha256: 33827e48f79372552ec6c2fda83726c076947c2be5ba3b9ada0fe552eca06ac0
+  limitations:
+  - No new nodes or arrows. No paid Edison job submitted; graph-extension credential remains unconfigured.
+  - Source coverage is limited to the passages explicitly recorded, not unreviewed figures, supplements or full
+    methods. Non-graph fields remain unchanged.
+  history_file: history/records/Bacillales_Lignin_Degrading_LDSynCom/2026-10-05T101149Z-codex-93bfc2.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1250
+  renamed_nodes:
+    LDSynCom lignin phenolic release: LDSynCom lignin-associated phenolic signal
+  related_issues:
+  - 929
+  - 932
+- path: kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  id: CommunityMech:000358
+  original_sha256: f77fc3af5a7a06a7db3c5443b70339abdb24304296f191031acf4baf6cb334e7
+  record_sha256: 9cf8152f3fd9b327db9471bcd6319706b40f2a65d4c92c162e8f79366a4db8d0
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  outcome: changed
+  scope: Whole record read; all current and removed graph nodes and arrows reviewed against the precisely scoped
+    sources below. Non-graph metadata is outside certification.
+  summary: Bound A1/A3 synergy and antagonism to substrate-removal measurements
+  node_decisions:
+  - node: Consortium 3 naphthalene synergy
+    rationale: Retain quantitative A1/A3 enhancement without mutualism or mineralization.
+  - node: Lower Consortium Phenanthrene Removal
+    rationale: Rename to measured lower removal and distinguish the authors' partial competition interpretation.
+  - node: Consortium 3 soil naphthalene removal
+    rationale: Retain soil-microcosm removal without field or reciprocal-fitness claims.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42587276
+  source_review:
+  - reference: PMID:42587276
+    doi: 10.1186/s12866-026-05144-y
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13471667/
+    local: references_cache/PMID_42587276.txt
+    passages_read: Complete abstract, introduction, all methods, combined results/discussion, conclusions and data
+      availability, folded lines 1-330. Main figure captions and flattened tables read; figures and any separate
+      supplementary files not inspected.
+  limitations:
+  - No new nodes or arrows. No paid Edison job submitted; graph-extension credential remains unconfigured.
+  - Source coverage is limited to the passages explicitly recorded, not unreviewed figures, supplements or full
+    methods. Non-graph fields remain unchanged.
+  history_file: history/records/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium/2026-10-05T101150Z-codex-63df6d.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1250
+  renamed_nodes:
+    Consortium phenanthrene antagonism: Lower Consortium Phenanthrene Removal
+- path: kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+  id: CommunityMech:000120
+  original_sha256: 9ce7dae332b0b5d874af7ee59e1abe80046c3a90dfab444d254f33fe5f78e125
+  record_sha256: 87666ae88a9867fa73ec5a951ca48330ddbc8844cfd433e384ee3a506397a41d
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  outcome: changed
+  scope: Whole record read; all current and removed graph nodes and arrows reviewed against the precisely scoped
+    sources below. Non-graph metadata is outside certification.
+  summary: Keep reported straw cross-feeding while bounding enzyme and field mediation
+  node_decisions:
+  - node: Straw Humification Cross-Feeding
+    rationale: Preserve the source's explicit cross-feeding claim with access limits, not an invented exchanged
+      metabolite.
+  - node: Straw-Degrading Enzyme Stimulation
+    rationale: Retain measured activities rather than enzyme necessity or a cross-feeding event.
+  - node: Maize Straw Humification and Soil Organic Carbon Improvement
+    rationale: Retain field outcomes with a partial pathway interpretation, not an exchange node.
+  edges_before:
+  - source: Straw Humification Cross-Feeding
+    target: Straw-Degrading Enzyme Stimulation
+    description: 'Cross-feeding by the two SynCom members increases cellulase, xylanase, lignin-peroxidase, and
+      nitrogenase activities.
+
+      '
+  - source: Straw-Degrading Enzyme Stimulation
+    target: Maize Straw Humification and Soil Organic Carbon Improvement
+    description: 'Higher straw-degrading enzyme and nitrogenase activities promote maize straw humification, and
+      the field inoculation improves soil organic carbon through enhanced microbial-carbon-pump turnover.
+
+      '
+  edges_after:
+  - source: Straw Humification Cross-Feeding
+    target: Straw-Degrading Enzyme Stimulation
+    description: PARTIAL - the source attributes higher measured enzyme activities to cross-feeding-supported growth.
+      The supplement confirms activity endpoints, but the unread main methods limit verification of selective exchange
+      mediation.
+  - source: Straw-Degrading Enzyme Stimulation
+    target: Maize Straw Humification and Soil Organic Carbon Improvement
+    description: PARTIAL - the source proposes that enhanced activities promote straw humification and downstream
+      soil-carbon accumulation. Broth enzyme assays and field SOC/necromass outcomes are distinct measurements;
+      selective enzyme mediation of the field effect was not verified from the accessible material.
+  references:
+  - PMID:41264879
+  source_review:
+  - reference: PMID:41264879
+    doi: 10.1021/acs.est.5c07865
+    local: references_cache/PMID_41264879.txt
+    url: https://pubs.acs.org/doi/10.1021/acs.est.5c07865
+    passages_read: Complete cached abstract and indexed primary abstract; main full text unavailable.
+    access_note: Main publisher article requires purchase and direct opening returned 403. No bypass attempted.
+      The separately public supplementary file was retrieved through its authorized ACS Figshare download link.
+  - doi: 10.1021/acs.est.5c07865.s001
+    url: https://acs.figshare.com/articles/journal_contribution/Synthetic_Microbial_Community_Promotes_Straw_Humification_and_Improves_Soil_Organic_Carbon_in_Cropland/30670681
+    metadata_api: https://api.figshare.com/v2/articles/30670681
+    download_url: https://ndownloader.figshare.com/files/59737729
+    local: /private/tmp/communitymech-straw-41264879-supplement.pdf
+    sha256: 64e3616788485f7e40d2e6f83fbbcb355eb96b49e3ddd7080bff863a0fd573dc
+    rights: Public CC BY-NC 4.0 supplement; no PDF or full text added to the repository.
+    passages_read: All supplementary methods S2-S4; Tables S1-S6 extracted; all figure captions S1-S19 read. Table
+      S5 and Figures S6, S8, S10 and S11 visually verified on PDF pages 9, 16, 18, 20 and 21. Remaining figures
+      and reference pages S30-S31 not reviewed.
+    findings:
+    - Figure S6 supports higher measured enzyme activities after 30 days, including an acetylene-reduction nitrogenase
+      assay, with three replicates. These are activity endpoints, not a member-resolved nitrogen-transfer flux.
+    - Figure S8 shows ammonium accumulation; Figures S10-S11 identify candidate utilized metabolites by random-forest
+      importance, not direct tracing of each exchanged metabolite.
+    - Table S5 supports increased field SOC and bacterial necromass, but not universal increases across carbon fractions,
+      nutrient pools or enzymes. Field soil measurements and laboratory broth activities must remain distinct.
+  limitations:
+  - No new nodes or arrows. No paid Edison job submitted; graph-extension credential remains unconfigured.
+  - Source coverage is limited to the passages explicitly recorded, not unreviewed figures, supplements or full
+    methods. Non-graph fields remain unchanged.
+  history_file: history/records/Bacillus_Bradyrhizobium_Straw_Humification_SynCom/2026-10-05T101150Z-codex-6dacd6.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1250
+- path: kb/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml
+  id: CommunityMech:000373
+  original_sha256: 0db62ce6c15dfcea8056b2f56d40092612697caf06943441a627853b500eff2e
+  record_sha256: e0126b602878c9abada427f906334f6a059784e07b29c33b709c9a9549f0689f
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  outcome: changed
+  scope: Whole record read; all current and removed graph nodes and arrows reviewed against the precisely scoped
+    sources below. Non-graph metadata is outside certification.
+  summary: Retain tobacco efficacy while separating assay outcomes from reciprocal fitness
+  node_decisions:
+  - node: Mild-Inhibition Three-Strain SynCom Compatibility
+    rationale: 'Retain COMPETITION: reciprocal directional plate inhibition supports negative effects on both partners
+      under that assay; competition is not restricted to resource depletion.'
+  - node: SynCom Indole-3-Acetic Acid Enhancement
+    rationale: Retain measured Salkowski IAA and its already-narrowed process annotation without mutualism or hormonal
+      mediation.
+  - node: Tobacco FO/PN Glasshouse Disease Suppression
+    rationale: Retain glasshouse disease-index reduction without reciprocal competition.
+  - node: Tobacco Root Activity Improvement
+    rationale: Retain TTC activity without direct-growth annotation or mutualism.
+  - node: Two-Site Field Disease Suppression and Yield Increase
+    rationale: Retain two-site disease and estimated middle-leaf yield outcomes without reciprocal benefit or persistence
+      claims.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42388034
+  source_review:
+  - reference: PMID:42388034
+    doi: 10.1002/ps.71069
+    local: references_cache/PMID_42388034.txt
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13569317/
+    passages_read: Complete local cache, including abstract and selected methods/results/discussion passages, folded
+      lines 1-165.
+    access_note: The cache's full-text separator overstates completeness; the body is selected passages, not the
+      entire article. PMC returned a CAPTCHA and Wiley opening failed; no bypass or cache edit.
+  limitations:
+  - No new nodes or arrows. No paid Edison job submitted; graph-extension credential remains unconfigured.
+  - Source coverage is limited to the passages explicitly recorded, not unreviewed figures, supplements or full
+    methods. Non-graph fields remain unchanged.
+  history_file: history/records/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom/2026-10-05T101150Z-codex-7933b3.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1248
+  related_issue: https://github.com/CultureBotAI/CommunityMech/issues/880
+  existing_resolution: 'GO:0009684 was already present before this batch; no new repair of #880 is claimed.'
+- path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+  id: CommunityMech:000004
+  original_sha256: f3390a9f8d6e02e0f805b9bbe4cc6c294b72a20d08a634a1037288872d945775
+  record_sha256: 6caa95c7d95905e4ae235578c54a75a73908c698bbf8f5d0ad6b3339595caf63
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  outcome: changed
+  scope: Whole record read; all current and removed graph nodes and arrows reviewed against the precisely scoped
+    sources below. Non-graph metadata is outside certification.
+  summary: Qualify cross-site tailings mechanisms and remove unsupported syntrophy
+  node_decisions:
+  - node: Surface Iron and Sulfur Oxidation Potential
+    rationale: Retain metabolic potential with computational provenance, narrower participant scope and a hypothetical
+      weathering arrow; transport is not redox.
+  - node: Pb-Zn Tailings Acidification and Metal Mobilization
+    rationale: Retain observed weathering with site limits and without unsupported mobile lead or syntrophic coupling.
+  - node: pH-Structured Acidophile Succession
+    rationale: Retain pH-associated composition and proposed feedback while preserving seasonal sampling and distinguishing
+      space-for-time inference.
+  edges_before:
+  - source: Surface Iron and Sulfur Oxidation Potential
+    target: Pb-Zn Tailings Acidification and Metal Mobilization
+    description: Fe/S oxidation acidifies sulfidic tailings and maintains ferric iron that can oxidize sulfide minerals.
+  - source: pH-Structured Acidophile Succession
+    target: Surface Iron and Sulfur Oxidation Potential
+    description: pH-driven filtering changes which acidophiles carry the Fe/S oxidation module at a given tailings
+      acidification stage.
+  edges_after:
+  - source: Surface Iron and Sulfur Oxidation Potential
+    target: Pb-Zn Tailings Acidification and Metal Mobilization
+    description: HYPOTHESIZED - realized microbial Fe/S oxidation could regenerate ferric iron and acidity that
+      promote sulfide weathering. The linked studies propose this biogeochemical mechanism but do not resolve its
+      flux across the composite Australian and Chinese systems.
+  - source: pH-Structured Acidophile Succession
+    target: Surface Iron and Sulfur Oxidation Potential
+    description: HYPOTHESIZED - pH-associated selection could change the abundance of organisms encoding Fe/S metabolism.
+      Spatial and statistical associations do not independently establish pH causality or realized metabolic flux.
+  references:
+  - PMID:22092956
+  - PMID:23574280
+  - doi:10.1128/aem.00294-14
+  - doi:10.1128/aem.02458-10
+  source_review:
+  - reference: PMID:22092956
+    local: references_cache/PMID_22092956.md
+    url: https://academic.oup.com/femsec/article/79/2/298/468428
+    passages_read: Complete abstract, introduction and methods through BioLog analysis, publisher web lines 169-279.
+      Results/discussion beyond the first paragraph remain unread; subsequent web fetch failed and direct curl returned
+      403, so access was not retried.
+    finding: Teutonic Bore, Western Australia; 28 spatial samples in February 2007 and six locations re-sampled
+      in March 2008. PhyloChip samples underwent seven days of laboratory rewetting because dry-soil DNA yields
+      were too low. This is not an untouched in-situ expression/flux measurement. Soil water-extract ions and bulk-element
+      digests are distinct measurements.
+  - reference: PMID:23574280
+    local: references_cache/PMID_23574280.md
+    primary_pdf: /private/tmp/communitymech-chen2013-23574280.pdf
+    url: https://course.sysu.edu.cn/sk1t2y/docs/20180426172646785922.pdf
+    passages_read: Entire main text pages 1-11 including results, discussion and methods; rendered pages 3 and 6
+      visually checked for site/table interpretation. References and separate supplements not reviewed.
+    access_note: Web PDF open failed; ordinary curl from authors' university succeeded. Poppler unavailable; isolated
+      pymupdf rendered pages and pypdf extracted text. Initial extraction had font warnings; no garbled table snippets
+      should be introduced. No PDF or full article body added to repository.
+  - reference: doi:10.1128/aem.02458-10
+    local: references_cache/doi_10.1128_aem.02458-10.md
+    url: https://journals.asm.org/doi/10.1128/AEM.02458-10
+    passages_read: Complete publisher main text, all methods, results, tables and discussion, lines 83-186. Figure
+      captions read but separate figures and supplement not visually reviewed. Prior PMC CAPTCHA was not bypassed;
+      publisher page was independently accessible.
+    finding: Fankou, China, with a Lianping comparator. Vertical/horizontal oxidation gradients plus summer, winter
+      and spring oxidized-zone sampling; seasonal community shifts were not significant. Source proposes pioneer-driven
+      geochemical changes, explicitly asking for finer stages and functional investigation. Do not state that no
+      temporal sampling exists; it does not track a fixed community through an experimental acidification sequence.
+  - reference: doi:10.1128/aem.00294-14
+    local: references_cache/doi_10.1128_aem.00294-14.md
+    url: https://journals.asm.org/doi/10.1128/AEM.00294-14
+    passages_read: Complete abstract, introduction, methods, results, tables and discussion/conclusions, lines 83-254.
+      Separate figure layouts and supplement not reviewed. Publisher text was independently accessible; prior PMC
+      CAPTCHA not bypassed.
+    finding: Ninety spatial samples from Shuimuchong copper tailings, Anhui, China, September 2011. Statistical
+      and Bayesian prediction infer pH-related composition, not intervention-resolved causation. Authors explicitly
+      call their approach space-for-time substitution and request laboratory tracking of the same community through
+      acidification. Cross-feeding and pH-homeostasis mechanisms are discussed from prior literature, not directly
+      measured here. Total lead is measured, but that is not evidence of lead mobilization flux.
+  - reference: doi:10.1128/aem.02883-07
+    local: references_cache/doi_10.1128_aem.02883-07.md
+    passages_read: Complete abstract (non-graph context).
+  - reference: doi:10.1016/j.jhazmat.2023.130774
+    local: references_cache/doi_10.1016_j.jhazmat.2023.130774.md
+    passages_read: Complete abstract (non-graph context).
+  limitations:
+  - No new nodes or arrows. No paid Edison job submitted; graph-extension credential remains unconfigured.
+  - Source coverage is limited to the passages explicitly recorded, not unreviewed figures, supplements or full
+    methods. Non-graph fields remain unchanged.
+  - 'Narrower source-established graph participants expose DISCONNECTED warnings for unverified representative taxa;
+    non-graph source/identity work remains open in #1251.'
+  history_file: history/records/Australian_Lead_Zinc_Polymetallic/2026-10-05T101150Z-codex-b69920.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1249
+  membership_followup: https://github.com/CultureBotAI/CommunityMech/issues/1251
