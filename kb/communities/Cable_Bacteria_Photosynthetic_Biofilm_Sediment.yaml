@@ -60,21 +60,13 @@ taxonomy:
     explanation: Supports inclusion of the phototrophic surface biofilm member.
 ecological_interactions:
 - name: Photosynthesis Stimulates Cable-Bacteria Electron Harvesting
-  description: Oxygenic photosynthesis by the surface biofilm increases oxygen availability near the
-    sediment-water interface, enabling cable bacteria to couple deeper sulfide oxidation to surface oxygen
-    reduction.
+  description: 'Photosynthetic oxygen supply from a diatom-dominated surface biofilm supports cable-bacteria sulfide
+    oxidation. The light perturbation supports oxygen cross-feeding, but reciprocal benefit to the phototrophs is
+    not established. The record''s Chlorophyta roster conflicts with the primary source; explicit graph assignments
+    are withheld pending #1267. Community-level connectivity still inherits that unresolved roster, so this graph
+    is not fully certified.'
   interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: oxygenic algal biofilm
-    term:
-      id: NCBITaxon:3041
-      label: Chlorophyta
-  target_taxon:
-    preferred_term: Desulfobulbaceae cable bacteria
-    term:
-      id: NCBITaxon:213121
-      label: Desulfobulbaceae
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: dioxygen
     term:
@@ -87,9 +79,9 @@ ecological_interactions:
       label: photosynthesis
   downstream:
   - target: Electrogenic Sulfide Oxidation across Sediment Redox Zones
-    description: Photosynthetic oxygen supplied at the sediment-water interface
-      is the oxidant that lets cable bacteria couple deep sulfide oxidation to
-      surface oxygen reduction.
+    description: Greater photosynthetic oxygen supply can provide the surface electron acceptor for cable-bacteria
+      sulfide oxidation at depth. Light manipulation and microsensor responses support this coupling; the precise
+      spatial redox-site model remains an interpretation.
   evidence:
   - reference: PMID:25416774
     supports: SUPPORT
@@ -97,10 +89,11 @@ ecological_interactions:
     snippet: a greater oxygen supply can enable cable bacteria
     explanation: Supports the link between photosynthetic oxygen supply and enhanced cable-bacteria activity.
 - name: Electrogenic Sulfide Oxidation across Sediment Redox Zones
-  description: Cable bacteria harvest electrons from free sulfide in deeper sediment and conduct those
-    electrons along filaments to oxygen near the sediment-water interface.
+  description: The source interprets microsensor and filament observations as cable-bacteria electron conduction
+    coupling deep sulfide oxidation with oxygen reduction near the surface. Conduction along a filament is not separately
+    classified as interorganism cross-feeding. Exact redox-site allocation, regulation and filament motility remain
+    proposed mechanisms.
   scope: COMMUNITY_LEVEL
-  interaction_type: CROSS_FEEDING
   metabolites:
   - preferred_term: hydrogen sulfide
     term:
@@ -123,26 +116,15 @@ ecological_interactions:
     explanation: Supports long-distance electron transfer along cable-bacteria filaments.
   downstream:
   - target: Rapid Redox Signal Transmission under Diel Illumination
-    description: Cable-bacteria electron transfer rapidly transmits surface
-      photosynthesis changes to sulfide concentrations centimeters below the
-      sediment surface.
+    description: Cable-bacteria electron conduction provides a mechanism for rapid coupling of altered surface oxygen
+      availability to deep sulfide responses during light/dark perturbations. The observed rapid response supports
+      coupling without uniquely resolving motility or biochemical regulation.
 - name: Rapid Redox Signal Transmission under Diel Illumination
-  description: >
-    Changes in photosynthesis at the sediment surface immediately and
-    repeatably changed sulfide concentrations at depth, showing that cable
-    bacteria transmit the light-driven surface redox perturbation into deeper
-    sediment.
+  description: Surface light/dark perturbations caused rapid, repeatable changes in sulfide at depth. Repeated cycles
+    are not independent sediment-core replicates. The response supports electrical coupling, not a separate cross-feeding
+    interaction; nonsignificant current-density contrasts and an inconsistent reported sulfide-depth significance
+    claim are not treated as confirmed increases.
   scope: COMMUNITY_LEVEL
-  interaction_type: CROSS_FEEDING
-  participating_taxa:
-  - preferred_term: Desulfobulbaceae cable bacteria
-    term:
-      id: NCBITaxon:213121
-      label: Desulfobulbaceae
-  - preferred_term: oxygenic algal biofilm
-    term:
-      id: NCBITaxon:3041
-      label: Chlorophyta
   metabolites:
   - preferred_term: hydrogen sulfide
     term:
@@ -156,10 +138,9 @@ ecological_interactions:
   - reference: PMID:25416774
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Changes in photosynthesis at the sediment surface had an immediate
-      and repeatable effect on sulfide concentrations at depth
-    explanation: Supports rapid transmission of a surface photosynthesis
-      perturbation to deeper sulfide chemistry.
+    snippet: Changes in photosynthesis at the sediment surface had an immediate and repeatable effect on sulfide
+      concentrations at depth
+    explanation: Supports rapid transmission of a surface photosynthesis perturbation to deeper sulfide chemistry.
 environmental_factors:
 - name: diel light-dark cycle
   value: Alternating light and dark periods
@@ -222,3 +203,26 @@ associated_datasets:
     evidence_source: IN_VITRO
     snippet: Rapid redox signal transmission by "Cable Bacteria"
     explanation: Links this record to the primary cable-bacteria biofilm source.
+discussions:
+- discussion_id: cable_biofilm_taxonomy_and_redox_sites
+  prompt: Can the biofilm roster and redox-site mechanism be reconciled with the diatom-based primary experiment?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Photosynthesis Stimulates Cable-Bacteria Electron Harvesting
+  - ecological_interactions#Electrogenic Sulfide Oxidation across Sediment Redox Zones
+  - ecological_interactions#Rapid Redox Signal Transmission under Diel Illumination
+  rationale: 'The primary paper describes diatoms, not the assigned Chlorophyta. Explicit unsupported graph participants
+    were removed, but non-graph taxonomy and resulting community-level expansion remain unresolved: #1267 stays
+    open and review status is needs_research. Publisher main text through conclusions and cached abstract read,
+    not images/supplements. Hydrogen-sulfide versus calculated total-sulfide measurements do not establish related_ingredients
+    sulfide(2-) speciation. Exact regulation and motility need testing.'
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T14:25:58Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound cable-bacteria oxygen coupling and expose unresolved biofilm taxonomy; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1267'
+  llm_assisted: true

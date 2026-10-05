@@ -64,9 +64,11 @@ taxonomy:
     explanation: Supports Serratia symbiotica SCc as a coexisting endosymbiont in the consortium.
 ecological_interactions:
 - name: Shared Tryptophan Biosynthesis
-  description: Tryptophan biosynthesis is partitioned across Buchnera aphidicola BCc and Serratia symbiotica
-    SCc, creating a metabolic dependency between the two endosymbionts.
-  interaction_type: SYNTROPHY
+  description: COMPUTATIONAL - genome reconstruction partitions tryptophan biosynthesis between Buchnera BCc trpEG,
+    predicted to supply anthranilate, and Serratia SCc trpABCD, predicted to complete tryptophan synthesis. PARTIAL
+    - inferred intermediate exchange is cross-feeding, not thermodynamic syntrophy or experimentally traced transport
+    across the distinct bacteriocytes.
+  interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
     preferred_term: Buchnera aphidicola BCc
@@ -83,7 +85,7 @@ ecological_interactions:
     term:
       id: CHEBI:16828
       label: L-tryptophan
-    notes: Essential amino acid with pathway partitioning across the two symbionts.
+    notes: Predicted final pathway product; anthranilate, not tryptophan, is the proposed Buchnera-to-Serratia intermediate.
   biological_processes:
   - preferred_term: tryptophan biosynthetic process
     term:
@@ -92,17 +94,21 @@ ecological_interactions:
     notes: Biosynthetic pathway shared by the two endosymbionts.
   evidence:
   - reference: doi:10.1371/journal.pgen.1002357
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: the biosynthesis of tryptophan is shared with the endosymbiont Serratia symbiotica SCc
-    explanation: Supports partitioning of tryptophan biosynthesis between Buchnera and Serratia.
+    explanation: Genome content supports pathway partitioning and proposed exchange, not measured donor-resolved
+      metabolite flux.
   downstream:
-  - target: Stable Co-obligate Metabolic Complementation
-    description: Tryptophan-pathway partitioning is one of the shared biosynthetic dependencies
-      that stabilizes the Buchnera-Serratia nutritional consortium in the aphid host.
+  - target: Inferred Co-obligate Metabolic Complementation
+    description: HYPOTHESIZED - partitioned tryptophan capacity could favor preservation of both partners by making
+      complete nutrition depend on their complementary reactions. This is a source-proposed evolutionary mechanism,
+      not a measured perturbation of consortium stability.
 - name: Serratia Takeover of Lost Buchnera Functions
-  description: Genome-based metabolic inference indicates that functions carried out by Buchnera in other
-    aphids are either retained in Buchnera BCc or taken over by Serratia SCc in Cinara cedri.
+  description: COMPUTATIONAL - genome comparison indicates that Serratia SCc retains biosynthetic capacity absent
+    from Buchnera BCc, including riboflavin provision in the inferred consortium. PARTIAL - nutritional complementation
+    is proposed from gene content; synthesis capacity does not establish export of every product, transport route
+    or reciprocal fitness magnitude.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -122,23 +128,24 @@ ecological_interactions:
     notes: Buchnera BCc was reported as unable to synthesize riboflavin.
   evidence:
   - reference: doi:10.1371/journal.pgen.1002357
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: taken over by S. symbiotica
-    explanation: Supports Serratia complementation of functions missing from Buchnera BCc.
+    explanation: Supports genome-based loss/complementation inference, not direct measurement of metabolite delivery.
   - reference: doi:10.1371/journal.pgen.1002357
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: not able to synthesize tryptophan and riboflavin
-    explanation: Supports loss of Buchnera nutritional functions that require consortium complementation.
+    explanation: Supports genome-based loss/complementation inference, not direct measurement of metabolite delivery.
   downstream:
-  - target: Stable Co-obligate Metabolic Complementation
-    description: Serratia takeover of biosynthetic functions lost by Buchnera is another inferred
-      complementing dependency that contributes to stable co-obligate symbiosis.
-- name: Stable Co-obligate Metabolic Complementation
-  description: The paired endosymbionts form a stable consortium through multiple cases of metabolic
-    complementation, preserving both bacterial partners in the aphid host context.
-  interaction_type: SYNTROPHY
+  - target: Inferred Co-obligate Metabolic Complementation
+    description: HYPOTHESIZED - Serratia capacity complementing Buchnera losses could favor co-preservation of the
+      two endosymbionts. Genomic reconstruction supports this interpretation without proving transport, partner
+      necessity or a stability effect experimentally.
+- name: Inferred Co-obligate Metabolic Complementation
+  description: HYPOTHESIZED - complementary metabolic losses and retained functions could favor co-preservation
+    of Buchnera BCc and Serratia SCc in Cinara cedri. The source proposes a co-obligate evolutionary consortium;
+    this is not an experimental persistence intervention, measured stability time course or thermodynamic syntrophy.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Buchnera aphidicola BCc
@@ -162,15 +169,15 @@ ecological_interactions:
     notes: Vitamin whose inferred synthesis requires Serratia complementation of Buchnera BCc.
   evidence:
   - reference: doi:10.1371/journal.pgen.1002357
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: metabolic complementation giving functional stability to the whole consortium
-    explanation: Supports stable consortium-level complementation.
+    explanation: Supports the authors' evolutionary complementation hypothesis, not a measured stability mechanism.
   - reference: doi:10.1371/journal.pgen.1002357
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: both bacteria are evolving together towards the establishment of a powerful consortium
-    explanation: Supports preservation of both symbionts as a coevolving consortium.
+    explanation: Supports the authors' evolutionary complementation hypothesis, not a measured stability mechanism.
 environmental_factors:
 - name: aphid phloem-sap nutritional constraint
   value: nutrient-deficient phloem diet
@@ -196,3 +203,26 @@ associated_datasets:
   url: https://www.ncbi.nlm.nih.gov/bioproject/32211
   description: NCBI BioProject for Serratia symbiotica from Cinara cedri.
 metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: buchnera_intermediate_transport_and_persistence
+  prompt: Do resolved metabolite transport and partner perturbations validate nutritional co-dependence?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Shared Tryptophan Biosynthesis
+  - ecological_interactions#Serratia Takeover of Lost Buchnera Functions
+  - ecological_interactions#Inferred Co-obligate Metabolic Complementation
+  rationale: 'Retain the two explicit source-proposed co-preservation hypotheses rather than treating all component
+    arrows as invalid. Host reactions were partly inferred from Acyrthosiphon pisum, not measured in Cinara cedri.
+    Separate bacteriocytes require unresolved transport. Primary main text/tables/captions read, not images, supplements
+    or reconstructed genomes. Cache-header PMCID mismatch and non-graph syntrophy/role wording remain #1268; the
+    matching primary body was used, not an editorial cache summary.'
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T14:25:58Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound aphid endosymbiont complementation and persistence to genomic hypotheses; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1264'
+  llm_assisted: true

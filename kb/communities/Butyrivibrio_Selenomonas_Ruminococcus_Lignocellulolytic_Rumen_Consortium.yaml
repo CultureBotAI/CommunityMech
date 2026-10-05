@@ -91,71 +91,10 @@ taxonomy:
       synergistic activity across all lignocellulosic substrates
     explanation: Identifies R. albus as the third member of the synergistic three-membered consortium.
 ecological_interactions:
-- name: PMA-PGSI Compatible-Pair Screen
-  description: >
-    Genome-scale community models used pairwise metabolic assistance and
-    growth-support-index flux metrics across six bovine rumen strains to score
-    coculture growth compatibility and metabolic synergy and to prioritize
-    compatible communities for experimental growth.
-  scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
-  biological_processes:
-  - preferred_term: cellulose catabolic process
-    term:
-      id: GO:0030245
-      label: cellulose catabolic process
-  evidence:
-  - reference: PMID:42343824
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: >
-      Flux-based parameters, such as pairwise metabolic assistance (PMA) and
-      growth support index (PGSI), were employed to investigate the
-      coculture-based growth and metabolic synergies.
-    explanation: >
-      Identifies the flux-based metrics used to screen pairwise rumen-strain
-      compatibility.
-    confidence_score: 0.85
-  - reference: PMID:42343824
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: >
-      The pairwise in silico assessments helped to predict 11 compatible
-      microbial communities, which were subsequently validated by experimentally
-      grown coculture systems.
-    explanation: >
-      Supports the computational-to-experimental screening workflow.
-    confidence_score: 0.9
-- name: PMA-Correlated Coculture Validation
-  description: >
-    Experimentally grown compatible pairs were compared against the model
-    predictions using their degree of enzymatic synergism, and those measured
-    DES values correlated with model-derived PMA.
-  scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
-  biological_processes:
-  - preferred_term: cellulose catabolic process
-    term:
-      id: GO:0030245
-      label: cellulose catabolic process
-  evidence:
-  - reference: PMID:42343824
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      The enzymatic synergism (DES) of some experimentally grown pairs showed a
-      higher correlation with the model-derived PMA, demonstrating the
-      consistency of the overall prediction.
-    explanation: >
-      Supports experimental validation of the in silico PMA predictions.
-    confidence_score: 0.9
 - name: Enzymatic synergism in the B. fibrisolvens + S. ruminantium coculture
-  description: >
-    Pairwise coculture of Butyrivibrio fibrisolvens and Selenomonas
-    ruminantium gave the strongest experimentally detected enzymatic synergism,
-    yielding a 41% increase in endoglucanase activity relative to monoculture
-    expectations.
-  interaction_type: MUTUALISM
+  description: The tested B. fibrisolvens and S. ruminantium pair showed the strongest reported enzymatic synergism
+    and a 41% increase in endoglucanase activity. The accessed abstract does not define the percentage denominator.
+    Enzyme activity does not demonstrate positive fitness effects for both partners, so MUTUALISM is not assigned.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Butyrivibrio fibrisolvens
@@ -176,19 +115,15 @@ ecological_interactions:
   - reference: PMID:42343824
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The highest degree of enzymatic synergism has been achieved through the pairwise coculture
-      of Butyrivibrio fibrisolvens and Selenomonas ruminantium, resulting in a 41% increase in the
-      endoglucanase activity.
-    explanation: Measured pairwise enzymatic synergy (41% endoglucanase increase) between the two
-      strains.
+    snippet: The highest degree of enzymatic synergism has been achieved through the pairwise coculture of Butyrivibrio
+      fibrisolvens and Selenomonas ruminantium, resulting in a 41% increase in the endoglucanase activity.
+    explanation: Measured pairwise enzymatic synergy (41% endoglucanase increase) between the two strains.
     confidence_score: 0.9
 - name: Three-membered lignocellulolytic synergy
-  description: >
-    A three-membered community of B. fibrisolvens, S. ruminantium, and
-    Ruminococcus albus exhibited synergistic lignocellulolytic activity across
-    all tested lignocellulosic substrates, indicating emergent metabolic
-    interplay among compatible species.
-  interaction_type: MUTUALISM
+  description: The three-member B. fibrisolvens, S. ruminantium and R. albus community exhibited synergistic lignocellulolytic
+    activity across all tested substrates. PARTIAL - metabolic interplay is the authors' interpretation, not resolved
+    exchange or reciprocal partner fitness. This endpoint is distinct from the model-screening and prediction-validation
+    workflow.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Butyrivibrio fibrisolvens
@@ -212,22 +147,40 @@ ecological_interactions:
   - reference: PMID:42343824
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: a combination of B. fibrisolvens, S. ruminantium, and Ruminococcus albus exhibited
-      synergistic activity across all lignocellulosic substrates, suggesting the strong metabolic
-      interplay between compatible species
-    explanation: Community-level synergy of the three-membered consortium across all lignocellulosic
-      substrates.
+    snippet: a combination of B. fibrisolvens, S. ruminantium, and Ruminococcus albus exhibited synergistic activity
+      across all lignocellulosic substrates, suggesting the strong metabolic interplay between compatible species
+    explanation: Supports activity across the tested substrates; mechanistic interplay is suggested rather than
+      directly measured, and reciprocal fitness is not established.
     confidence_score: 0.85
 curation_history:
 - timestamp: '2026-10-02T05:33:48Z'
   curator: codex
   action: PRUNE_NONCAUSAL_WORKFLOW_EDGES
-  changes: >
-    Removed three downstream edges that connected the PMA/PGSI in silico
-    compatible-pair screen, pairwise coculture validation, the strongest
-    B. fibrisolvens/S. ruminantium coculture, and three-membered consortium
-    construction as assay workflow steps rather than source-backed ecological
-    causal transitions. Restored three NCBITaxon:971 labels to
-    Pseudoselenomonas ruminantium while retaining Selenomonas ruminantium as
-    the source synonym.
+  changes: 'Removed three downstream edges that connected the PMA/PGSI in silico compatible-pair screen, pairwise
+    coculture validation, the strongest B. fibrisolvens/S. ruminantium coculture, and three-membered consortium
+    construction as assay workflow steps rather than source-backed ecological causal transitions. Restored three
+    NCBITaxon:971 labels to Pseudoselenomonas ruminantium while retaining Selenomonas ruminantium as the source
+    synonym.
+
+    '
   llm_assisted: true
+- timestamp: '2026-10-05T14:25:59Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Remove rumen screening workflow and distinguish enzyme synergy from mutualism; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1265'
+  llm_assisted: true
+discussions:
+- discussion_id: rumen_enzyme_synergy_and_partner_fitness
+  prompt: Which exchanges and partner responses explain the reported enzymatic synergism?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Enzymatic synergism in the B. fibrisolvens + S. ruminantium coculture
+  - ecological_interactions#Three-membered lignocellulolytic synergy
+  rationale: 'Complete abstract read, not full methods, images or supplements. PMA-PGSI screening and correlating
+    predictions with experiments are analytical workflows, so two nodes were removed; earlier workflow arrows stay
+    absent. The 41% denominator and exact experimental controls require full methods. Preserve #1217 Pseudoselenomonas
+    ruminantium and Hominimerdicola alba groundings. Non-graph partner roles remain #1268.'
+  posed_by: codex
+  posed_date: '2026-10-05'

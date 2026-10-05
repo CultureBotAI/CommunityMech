@@ -216,11 +216,10 @@ taxonomy:
     explanation: Identifies Pseudomonas aeruginosa as one of the four SynCom members.
 ecological_interactions:
 - name: Calcium and root-metabolite selective promotion
-  description: >-
-    Calcium chloride, salicylic acid, sucrose, and trehalose favored the four
-    SynCom members relative to Ralstonia solanacearum P380 by inhibiting the
-    pathogen while promoting beneficial isolates to varying extents.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Separate growth assays found that calcium chloride and tested salicylic-acid, sucrose or trehalose
+    concentrations differentially affected R. solanacearum and beneficial isolates. These are abiotic/compound responses,
+    not measured interorganism colonization facilitation. Calcium-treated root-tissue metabolomics does not establish
+    the same concentrations or mediators in whole exudates or low-dose pots.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: salicylic acid
@@ -237,82 +236,57 @@ ecological_interactions:
       label: trehalose
   downstream:
   - target: Calcium-conditioned root-exudate pathogen suppression
-    description: >-
-      Calcium-induced root exudates carried the same selective pressure into a
-      Ralstonia/SynCom co-culture, where they reduced pathogen density.
+    description: HYPOTHESIZED - calcium-associated metabolites could contribute to selective effects of whole root
+      exudates. Purified-compound assays and tissue metabolomics motivate this mechanism, but no selective depletion/add-back
+      test establishes the compounds as necessary exudate mediators.
   evidence:
   - reference: PMID:41387930
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Ca supplementation significantly (one-way ANOVA: p < 0.05) inhibited the
-      growth of R. solanacearum while enhancing the growth of the four
-      beneficial strains
-    explanation: Supports calcium as directly favoring the SynCom members over
-      R. solanacearum in vitro.
+    snippet: 'Ca supplementation significantly (one-way ANOVA: p < 0.05) inhibited the growth of R. solanacearum
+      while enhancing the growth of the four beneficial strains'
+    explanation: Supports calcium as directly favoring the SynCom members over R. solanacearum in vitro.
   - reference: PMID:41387930
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      higher concentrations of key metabolites (SA, sucrose, and trehalose)
-      inhibited the growth of R. solanacearum and simultaneously promoted the
-      proliferation of beneficial microbes
-    explanation: >-
-      Supports calcium-induced root metabolites as additional selective
-      promoters of beneficial SynCom members over the pathogen.
+    snippet: higher concentrations of key metabolites (SA, sucrose, and trehalose) inhibited the growth of R. solanacearum
+      and simultaneously promoted the proliferation of beneficial microbes
+    explanation: Supports isolated-compound growth responses, not necessity of these compounds in whole exudates
+      or the pot treatment.
 - name: Calcium-conditioned root-exudate pathogen suppression
-  description: >-
-    Whole root exudates collected from 20 mM calcium-treated tomato seedlings
-    worked with the equal-volume SynCom to reduce Ralstonia solanacearum P380
-    density in 1/2 NB co-culture.
-  interaction_type: COMPETITION
+  description: Whole root exudates from seedlings treated with 20 mM calcium, combined with SynCom in 1/2 NB, reduced
+    the reported Ralstonia qPCR abundance. Gene copies are not viable-cell counts. The outcome does not establish
+    reciprocal-negative competition, a unique compound mediator or the cause of disease protection in a separate
+    low-dose pot assay.
   scope: COMMUNITY_LEVEL
-  downstream:
-  - target: Calcium-SynCom bacterial wilt control
-    description: >-
-      The low-dose calcium plus SynCom pot treatment translated the exudate
-      co-culture antagonism into tomato bacterial-wilt suppression.
   evidence:
   - reference: PMID:41387930
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      whole root exudates from Ca-treated plants (20 mM) significantly
-      inhibited R. solanacearum growth while promoting the growth of beneficial
-      microbes such as Paenibacillus polymyxa
-    explanation: >-
-      Supports 20 mM calcium-conditioned tomato root exudates as inhibiting the
-      pathogen while promoting at least one SynCom member.
+    snippet: whole root exudates from Ca-treated plants (20 mM) significantly inhibited R. solanacearum growth while
+      promoting the growth of beneficial microbes such as Paenibacillus polymyxa
+    explanation: Supports 20 mM calcium-conditioned tomato root exudates as inhibiting the pathogen while promoting
+      at least one SynCom member.
   - reference: PMID:41387930
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      the addition of whole root exudates from 20 mM Ca-treated plants led to a
-      significant reduction in R. solanacearum density
-    explanation: >-
-      Supports reduced Ralstonia density when the SynCom and
-      calcium-conditioned root exudates were combined.
+    snippet: the addition of whole root exudates from 20 mM Ca-treated plants led to a significant reduction in
+      R. solanacearum density
+    explanation: Supports reduced qPCR-based pathogen abundance under the exudate/SynCom condition, not directly
+      measured viable-cell depletion or pot mediation.
 - name: Calcium-SynCom bacterial wilt control
-  description: >-
-    Adding the four-member SynCom one week after Ralstonia solanacearum
-    challenge synergized with 100 mg Ca kg-1 soil, a reduced calcium chloride
-    amendment, to eliminate tomato bacterial wilt incidence in the controlled
-    pot assay.
-  interaction_type: MUTUALISM
+  description: Adding SynCom one week after pathogen challenge together with 100 mg Ca kg-1 soil reduced observed
+    tomato wilt incidence from 74.07% to 0% in the controlled pot experiment. This is disease-incidence protection,
+    not demonstrated pathogen eradication or reciprocal mutualism. One-way treatment comparisons do not alone establish
+    formal factorial synergy, and high-dose root-defense assays are not isolated mediators of this low-dose result.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: defense response to bacterium
-    term:
-      id: GO:0042742
-      label: defense response to bacterium
   evidence:
   - reference: PMID:41387930
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: with wilt incidence dropping from 74.07 to 0%
-    explanation: >-
-      Supports complete bacterial-wilt incidence control in the low-dose
-      calcium plus SynCom pot treatment.
+    explanation: Supports observed zero wilt incidence under the tested combined treatment, not universal elimination,
+      eradication or a formal interaction-term test.
 environmental_factors:
 - name: defined 1:1:1:1 bacterial SynCom inoculum
   value: Dyella japonica, Rhodanobacter glycinis, Paenibacillus polymyxa, and Pseudomonas aeruginosa
@@ -512,45 +486,55 @@ associated_datasets:
     explanation: Supports public raw genome-read accessions for the four SynCom isolates.
 discussions:
 - discussion_id: calcium_tomato_syncom_interstrain_mechanism
-  prompt: >-
-    Which SynCom members directly drive the Ralstonia solanacearum density drop
-    in calcium-conditioned tomato root exudate, and is suppression mediated by
-    antibiotic antagonism, calcium/root-metabolite competition, or both?
+  prompt: Which SynCom members directly drive the Ralstonia solanacearum density drop in calcium-conditioned tomato
+    root exudate, and is suppression mediated by antibiotic antagonism, calcium/root-metabolite competition, or
+    both?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions
-  rationale: >-
-    Bi et al. showed that all four isolates antagonized Ralstonia solanacearum
-    and that the SynCom plus calcium-conditioned tomato root exudates reduced
-    Ralstonia density. The paper also reports pairwise plate assays and
-    predicted plant-growth-promoting genes, but it did not resolve
-    member-to-member metabolic exchange or show which SynCom strain directly
-    caused the Ralstonia drop in root-exudate co-culture. Barcode-tracked
-    single, triple-dropout, and full four-member SynComs in the 20 mM
-    calcium-conditioned root-exudate assay would resolve the member-level
+  rationale: Bi et al. showed that all four isolates antagonized Ralstonia solanacearum and that the SynCom plus
+    calcium-conditioned tomato root exudates reduced Ralstonia density. The paper also reports pairwise plate assays
+    and predicted plant-growth-promoting genes, but it did not resolve member-to-member metabolic exchange or show
+    which SynCom strain directly caused the Ralstonia drop in root-exudate co-culture. Barcode-tracked single, triple-dropout,
+    and full four-member SynComs in the 20 mM calcium-conditioned root-exudate assay would resolve the member-level
     contributions.
   posed_by: codex
   posed_date: '2026-09-20'
+- discussion_id: calcium_compound_exudate_and_pot_mediation
+  prompt: Which calcium, exudate and host pathways are necessary for the low-dose SynCom pot benefit?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Calcium and root-metabolite selective promotion
+  - ecological_interactions#Calcium-conditioned root-exudate pathogen suppression
+  - ecological_interactions#Calcium-SynCom bacterial wilt control
+  rationale: 'Retain the compound-to-exudate interpretation only as HYPOTHESIZED; remove the cross-assay exudate-to-pot
+    arrow. Direct calcium effects, host defense and microbial selection remain concurrent alternatives. Root-tissue
+    metabolites, whole-exudate growth and pot disease are distinct assays; relative ASVs do not prove exact-strain
+    colonization. Full main text/captions read, not images or supplements. Preserve #961-963 and existing gaps;
+    non-graph synergy/dominance/environment wording remains #1268.'
+  posed_by: codex
+  posed_date: '2026-10-05'
 curation_history:
 - timestamp: '2026-09-20T12:09:26Z'
   curator: codex
   action: CREATE_RECORD
-  changes: >-
-    Created CommunityMech:000393 for the four-member calcium-stimulated tomato
-    root SynCom from PMID:41387930, including exact bacterial membership,
-    calcium and root-metabolite selection evidence, root-exudate co-culture
-    suppression of Ralstonia solanacearum, the low-dose calcium pot assay, and
-    public BioProject/SRA accessions.
+  changes: Created CommunityMech:000393 for the four-member calcium-stimulated tomato root SynCom from PMID:41387930,
+    including exact bacterial membership, calcium and root-metabolite selection evidence, root-exudate co-culture
+    suppression of Ralstonia solanacearum, the low-dose calcium pot assay, and public BioProject/SRA accessions.
   llm_assisted: true
 - timestamp: '2026-09-20T12:22:42Z'
   curator: codex
   action: FIX_REVIEW_FINDINGS
-  changes: >-
-    Addressed PR #960 adversarial review issues #961, #962, and #963 by
-    removing unsupported incubation setpoints from the final SynCom and
-    Ralstonia/SynCom/root-exudate cultivation entries, removing inorganic CaCl2
-    from the root-metabolite list while keeping it as a related ingredient, and
-    narrowing the manual Rhodanobacter glycinis GTDB pin so a direct GTDB
-    species-name lookup no longer implies NCBI2GTDB majority support.
+  changes: 'Addressed PR #960 adversarial review issues #961, #962, and #963 by removing unsupported incubation
+    setpoints from the final SynCom and Ralstonia/SynCom/root-exudate cultivation entries, removing inorganic CaCl2
+    from the root-metabolite list while keeping it as a related ingredient, and narrowing the manual Rhodanobacter
+    glycinis GTDB pin so a direct GTDB species-name lookup no longer implies NCBI2GTDB majority support.'
+  llm_assisted: true
+- timestamp: '2026-10-05T14:25:58Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate calcium compound assays, exudate responses and pot disease protection; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1266'
   llm_assisted: true

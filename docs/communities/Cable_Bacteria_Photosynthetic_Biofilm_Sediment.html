@@ -567,6 +567,11 @@
                              aria-hidden="true" data-symbol="symbolDiamond"
                              data-color="#57c7ab"></svg> Cross-feeding
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
@@ -576,14 +581,10 @@
                     <h3>Photosynthesis Stimulates Cable-Bacteria Electron Harvesting</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Oxygenic photosynthesis by the surface biofilm increases oxygen availability near the sediment-water interface, enabling cable bacteria to couple deeper sulfide oxidation to surface oxygen reduction.</p>
-
-
-                <p><strong>Source Taxon:</strong> oxygenic algal biofilm</p>
+                <p class="prewrap interaction-description">Photosynthetic oxygen supply from a diatom-dominated surface biofilm supports cable-bacteria sulfide oxidation. The light perturbation supports oxygen cross-feeding, but reciprocal benefit to the phototrophs is not established. The record&#39;s Chlorophyta roster conflicts with the primary source; explicit graph assignments are withheld pending #1267. Community-level connectivity still inherits that unresolved roster, so this graph is not fully certified.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Desulfobulbaceae cable bacteria</p>
 
 
 
@@ -615,7 +616,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Electrogenic Sulfide Oxidation across Sediment Redox Zones
-                        <p class="prewrap causal-description">Photosynthetic oxygen supplied at the sediment-water interface is the oxidant that lets cable bacteria couple deep sulfide oxidation to surface oxygen reduction.</p>
+                        <p class="prewrap causal-description">Greater photosynthetic oxygen supply can provide the surface electron acceptor for cable-bacteria sulfide oxidation at depth. Light manipulation and microsensor responses support this coupling; the precise spatial redox-site model remains an interpretation.</p>
                     </div>
 
                 </div>
@@ -645,9 +646,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Electrogenic Sulfide Oxidation across Sediment Redox Zones</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Cable bacteria harvest electrons from free sulfide in deeper sediment and conduct those electrons along filaments to oxygen near the sediment-water interface.</p>
+                <p class="prewrap interaction-description">The source interprets microsensor and filament observations as cable-bacteria electron conduction coupling deep sulfide oxidation with oxygen reduction near the surface. Conduction along a filament is not separately classified as interorganism cross-feeding. Exact redox-site allocation, regulation and filament motility remain proposed mechanisms.</p>
 
 
 
@@ -675,7 +675,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Rapid Redox Signal Transmission under Diel Illumination
-                        <p class="prewrap causal-description">Cable-bacteria electron transfer rapidly transmits surface photosynthesis changes to sulfide concentrations centimeters below the sediment surface.</p>
+                        <p class="prewrap causal-description">Cable-bacteria electron conduction provides a mechanism for rapid coupling of altered surface oxygen availability to deep sulfide responses during light/dark perturbations. The observed rapid response supports coupling without uniquely resolving motility or biochemical regulation.</p>
                     </div>
 
                 </div>
@@ -718,21 +718,11 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Rapid Redox Signal Transmission under Diel Illumination</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Changes in photosynthesis at the sediment surface immediately and repeatably changed sulfide concentrations at depth, showing that cable bacteria transmit the light-driven surface redox perturbation into deeper sediment.
-</p>
+                <p class="prewrap interaction-description">Surface light/dark perturbations caused rapid, repeatable changes in sulfide at depth. Repeated cycles are not independent sediment-core replicates. The response supports electrical coupling, not a separate cross-feeding interaction; nonsignificant current-density contrasts and an inconsistent reported sulfide-depth significance claim are not treated as confirmed increases.</p>
 
 
 
-
-                <p><strong>Participating Taxa:</strong>
-
-                    Desulfobulbaceae cable bacteria,
-
-                    oxygenic algal biofilm
-
-                </p>
 
 
 
@@ -814,6 +804,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Can the biofilm roster and redox-site mechanism be reconciled with the diatom-based primary experiment?
+                </h3>
+                <p class="prewrap">The primary paper describes diatoms, not the assigned Chlorophyta. Explicit unsupported graph participants were removed, but non-graph taxonomy and resulting community-level expansion remain unresolved: #1267 stays open and review status is needs_research. Publisher main text through conclusions and cached abstract read, not images/supplements. Hydrogen-sulfide versus calculated total-sulfide measurements do not establish related_ingredients sulfide(2-) speciation. Exact regulation and motility need testing.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Photosynthesis Stimulates Cable-Bacteria Electron Harvesting</code>, <code>ecological_interactions#Electrogenic Sulfide Oxidation across Sediment Redox Zones</code>, <code>ecological_interactions#Rapid Redox Signal Transmission under Diel Illumination</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1002,23 +1011,13 @@
             });
 
 
-            var srcKey = "oxygenic algal biofilm";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
-
-
-            var tgtKey = "Desulfobulbaceae cable bacteria";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1048,7 +1047,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1073,19 +1072,6 @@
 
 
 
-
-            var participantKeys = [
-
-                "Desulfobulbaceae cable bacteria",
-
-                "oxygenic algal biofilm"
-
-            ];
-            participantKeys.forEach(function(key) {
-                if (taxonNodeIds[key]) {
-                    links.push({ source: taxonNodeIds[key], target: intId });
-                }
-            });
 
         })();
 

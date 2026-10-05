@@ -1,0 +1,703 @@
+reviewer: codex
+review_mode: source_based_self_review
+base_commit: 05ad7290763bfa44f26706bc0d5edb2a17118219
+issues:
+- 1264
+- 1265
+- 1266
+deferred_issues:
+- 1267
+- 1268
+issue_deduplication:
+  count: 618
+  scope: 'All paginated open/closed titles and bodies in prepared snapshot matched by stems/IDs/PMIDs/DOIs; current
+    recent issue list and matching prior bodies checked; #1139/#961 comments checked. Comments not exhaustively
+    searched. Local ignored-inclusive search included reports, tests, kb and history.'
+records:
+- path: kb/communities/BioRock_ISS_Basalt_Biomining_Consortium.yaml
+  id: CommunityMech:000303
+  original_sha256: 86228b9c81d8664ae118e179a3ef2057d50b9bfbcc31666c0f80818051726b6e
+  record_sha256: 80d7933662ad289472db9b4b21ceb2319fbc945801e5cddadef82c808065c9c3
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; cable bacteria remains needs_research.
+  summary: Correct BioRock percent-of-control results and bound single-strain leaching endpoints
+  node_decisions:
+  - node: Sphingomonas desiccabilis rare-earth-element bioleaching from basalt
+    rationale: Retain fourteen-lanthanide outcome with statistical limits; remove unmeasured ion speciation, metal-response
+      GO and niche partitioning.
+  - node: Vanadium bioleaching by Sphingomonas desiccabilis and Bacillus subtilis
+    rationale: Retain single-strain vanadium results; correct percent-of-control denominator and remove unsupported
+      type/GO.
+  - node: Microbial specificity of basalt bioleaching among panel members
+    rationale: Retain comparative panel outcome without coculture ecology or blanket significance.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:33173035
+  - PMID:33868198
+  source_review:
+  - reference: PMID:33173035
+    doi: 10.1038/s41467-020-19276-w
+    cache: references_cache/PMID_33173035.md
+    cache_sha256: 73e90e9812938e0dc946b4cb4e37773abe7d3bea94bb9be026cb9635db7e99a8
+    scope: Complete cached abstract, introduction, results, discussion, methods and captions read using folded lines
+      1-620. Table 1 inline text read; collapsed numerical formatting was not independently reconstructed.
+    unread: Figure images, supplementary figures/tables, peer-review file, raw data, cited primary works and rendered
+      mathematical content.
+  - reference: PMID:33868198
+    doi: 10.3389/fmicb.2021.641387
+    cache: references_cache/PMID_33868198.md
+    cache_sha256: d360f3f9231f52acf929bd4b30799366d6ae16069cd6cc203dc298796137c091
+    scope: Complete cached abstract, introduction, methods, results, discussion, captions and data-availability/contribution
+      text read using folded lines 1-680. Numerical tables are referenced but their cells are not fully represented
+      in the cache.
+    unread: Figure images, original table layouts, supplementary data, raw data and cited primary works.
+  - reference: PMID:33154740
+    doi: 10.3389/fmicb.2020.579156
+    cache: references_cache/PMID_33154740.md
+    cache_sha256: 67e0857d45de9b81cb4a49201172788aa8f51a74bd2057ba2898224103126f50
+    scope: Complete cached abstract, introduction, methods, results, discussion, captions and data-availability/contribution
+      text read using folded lines 1-680. Extracted mathematical equations are missing; no equation reconstruction
+      claimed.
+    unread: Figure images, supplementary material, full table cells, equation images and raw data.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated source scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata remains under #1268; cable biofilm taxonomy and inherited connectivity remain #1267.'
+  history_file: history/records/BioRock_ISS_Basalt_Biomining_Consortium/2026-10-05T142559Z-codex-66fc84.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1265
+  removed_node_decisions: []
+  removed_edge_decisions: []
+- path: kb/communities/Bosea_Pseudomonas_Dimethachlon_Degradation_Consortium.yaml
+  id: CommunityMech:000334
+  original_sha256: 5f717ddb3e137d804448f12676185cd431400c4172dcd34e729efc3be15b84e8
+  record_sha256: 8c5570c61580e4a5c7232402076c0e47bc73c8b5aabe6a8fb1394b625eeee074
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; cable bacteria remains needs_research.
+  summary: Bound Bosea soil and toxicity endpoints without cross-assay causal inference
+  node_decisions:
+  - node: Sequential dimethachlon-metabolite handoff
+    rationale: Retain reported intermediate cross-feeding and a PARTIAL contribution to soil removal.
+  - node: Complete soil removal of dimethachlon and 3,5-dichloroaniline
+    rationale: Retain reported removal endpoint untyped; do not infer mineralization or soil-sample toxicity.
+  - node: Detoxified dimethachlon transformation products
+    rationale: Retain assay-bounded zebrafish result untyped with unresolved context classification explicit.
+  edges_before:
+  - source: Sequential dimethachlon-metabolite handoff
+    target: Complete soil removal of dimethachlon and 3,5-dichloroaniline
+    description: The S6-to-KH-1 intermediate handoff supports complete removal of both the parent fungicide and
+      its toxic 3,5-dichloroaniline intermediate in contaminated soil.
+  - source: Complete soil removal of dimethachlon and 3,5-dichloroaniline
+    target: Detoxified dimethachlon transformation products
+    description: Complete paired transformation of the fungicide and toxic aniline intermediate yields products
+      that lacked detectable zebrafish toxicity in the consortium assay.
+  edges_after:
+  - source: Sequential dimethachlon-metabolite handoff
+    target: Complete soil removal of dimethachlon and 3,5-dichloroaniline
+    description: PARTIAL - S6 production and KH-1 consumption of 3,5-dichloroaniline provide a proposed route enabling
+      paired parent/intermediate removal in soil. The abstract reports both strain functions and bioaugmentation
+      outcome, but does not resolve in-soil flux or strain/mediator necessity.
+  references:
+  - PMID:41326129
+  source_review:
+  - reference: PMID:41326129
+    doi: 10.1016/j.pestbp.2025.106807
+    cache: references_cache/PMID_41326129.md
+    cache_sha256: 8791b0c27f83a1cb926b0f40cf1cd8c4ea012c6aad6c1695c2cb2ff692d6672b
+    scope: Complete cached abstract and metadata read; PubMed abstract cross-checked online. Publisher indexed preview
+      supplies highlights, introduction and selected methods/results/conclusion fragments, not full methods.
+    urls:
+    - https://pubmed.ncbi.nlm.nih.gov/41326129/
+    - https://www.sciencedirect.com/science/article/abs/pii/S0048357525005206
+    unread: Full methods/results, figures, supplements, assay sample linkage, dose/time/endpoints and strain-perturbation
+      details. Exact zebrafish-method search returned unrelated papers, which were not used.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated source scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata remains under #1268; cable biofilm taxonomy and inherited connectivity remain #1267.'
+  history_file: history/records/Bosea_Pseudomonas_Dimethachlon_Degradation_Consortium/2026-10-05T142559Z-codex-058c2b.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1266
+  related_issues:
+  - 480
+  - 442
+  - 441
+  - 440
+  - 365
+  removed_node_decisions: []
+  removed_edge_decisions:
+  - source: Complete soil removal of dimethachlon and 3,5-dichloroaniline
+    target: Detoxified dimethachlon transformation products
+    rationale: The accessed abstract reports separate soil and zebrafish outcomes without establishing common samples
+      or soil-removal-to-toxicity mediation.
+- path: kb/communities/Bothnian_Bay_GAC_Dependent_CIET_SAO_Consortium.yaml
+  id: CommunityMech:000349
+  original_sha256: 20854cf1bcd89f9f3282083870ab2304c72fae7289f2b713dd6d6710a2d0eadd
+  record_sha256: 1f5a47edf08cf2ef71d33f42caaa341929e6900422787e13dea0c61c1f0b1453
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; cable bacteria remains needs_research.
+  summary: Preserve experimental Bothnian syntrophy while bounding population and molecular claims
+  node_decisions:
+  - node: GAC-mediated syntrophic acetate oxidation to methane
+    rationale: Retain GAC-dependent syntrophy; distinguish poor detection from absence and inferred molecular routes
+      from enrichment evidence.
+  - node: Lentimicrobium alternative EET-linked acetate oxidation
+    rationale: Retain already qualified alternative Lentimicrobium syntrophy/recycling interpretation unchanged.
+  - node: Auxiliary biomass turnover in the GAC enrichment
+    rationale: Retain already partial auxiliary biomass-turnover cross-feeding unchanged.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:41876513
+  source_review:
+  - reference: PMID:41876513
+    doi: 10.1038/s41467-026-70468-2
+    cache: references_cache/PMID_41876513.txt
+    cache_sha256: a505eb5947488ad1903638447461880f6397685e6517ee1c741267f555892e81
+    scope: Complete cached abstract, introduction, results/discussion, implications, methods, captions and data/material
+      availability read in folded lines 1-460.
+    unread: Figure images, supplements, source tables/raw data, peer review, scripts and cited physiological precursor
+      papers. Prior isotope/inhibitor results were read only as summarized in this paper.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated source scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata remains under #1268; cable biofilm taxonomy and inherited connectivity remain #1267.'
+  history_file: history/records/Bothnian_Bay_GAC_Dependent_CIET_SAO_Consortium/2026-10-05T142559Z-codex-bb27ab.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1264
+  related_issues:
+  - 792
+  - 793
+  - 794
+  - 795
+  - 796
+  removed_node_decisions: []
+  removed_edge_decisions: []
+- path: kb/communities/Brachypodium_Young_Root_Rhizosphere_EcoFAB_Community.yaml
+  id: CommunityMech:000225
+  original_sha256: 03d5545c677c956fe34e63ce6753bd6651cfe5728462330858a5276bd963bdfd
+  record_sha256: 674632b452d9a13cb3c42dddd5432e24ecb395b066c03c3e396fe91f89744b04
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; cable bacteria remains needs_research.
+  summary: Retain Brachypodium selection as a hypothesis and distinguish relative composition from function
+  node_decisions:
+  - node: Hypothesized Root-Exudate Rhizosphere Selection
+    rationale: Retain and rename the source-proposed selection mechanism with PARTIAL Discussion evidence and two
+      HYPOTHESIZED arrows.
+  - node: Root-Driven Rhizosphere Effect
+    rationale: Retain relative OTU enrichment without whole-phylum generalization, absolute growth or facilitation
+      type.
+  - node: Tip-Versus-Bulk Functional Gradient
+    rationale: Retain KO representation differences, not expression, proven partitioning or tip/base chemistry.
+  edges_before:
+  - source: Root-Exudate Rhizosphere Niche Formation
+    target: Root-Driven Rhizosphere Effect
+    description: 'Carbon-rich root deposits create the rhizosphere niche that recruits and selects bacterial OTUs
+      from the surrounding bulk soil.
+
+      '
+  - source: Root-Exudate Rhizosphere Niche Formation
+    target: Tip-Versus-Bulk Functional Gradient
+    description: 'Root-derived labile nutrients create the contrast between root-tip metabolic and colonization
+      genes and bulk-soil nutrient-limitation and stress genes.
+
+      '
+  edges_after:
+  - source: Hypothesized Root-Exudate Rhizosphere Selection
+    target: Root-Driven Rhizosphere Effect
+    description: HYPOTHESIZED - root-derived resources together with edaphic conditions could select the observed
+      rhizosphere OTUs. This is the authors' interpretation of relative abundance patterns, not an isolated exudate
+      perturbation or measured colonization-facilitation mechanism.
+  - source: Hypothesized Root-Exudate Rhizosphere Selection
+    target: Tip-Versus-Bulk Functional Gradient
+    description: HYPOTHESIZED - differential resource availability could select organisms carrying the root-tip
+      versus bulk-soil KO repertoire. This source interpretation does not show gene expression, substrate turnover
+      or a measured tip-versus-base exudate gradient.
+  references:
+  - PMID:37280433
+  source_review:
+  - reference: PMID:37280433
+    doi: 10.1038/s43705-023-00265-1
+    cache: references_cache/PMID_37280433.md
+    abstract_cache: references_cache/PMID_37280433.txt
+    abstract_sha256: 7c6e645a324bd1d64eaaf18b66945ff1c2e5b9a95267ba79c7ca6859c4786093
+    cache_sha256: d8146cb62d08544791d04d3394d387434fc56f4fc0489f54d74adec81d188136
+    scope: Whole 427-line YAML read. Markdown cache has misleading abstract_only header but appended full primary
+      paper; folded lines 1-370 read through abstract, introduction, methods, results, discussion, captions, data
+      availability, and start of references. Figure images, supplements, raw data, and cited prior studies were
+      not independently inspected.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated source scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata remains under #1268; cable biofilm taxonomy and inherited connectivity remain #1267.'
+  history_file: history/records/Brachypodium_Young_Root_Rhizosphere_EcoFAB_Community/2026-10-05T142600Z-codex-05415e.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1264
+  renamed_nodes:
+    Root-Exudate Rhizosphere Niche Formation: Hypothesized Root-Exudate Rhizosphere Selection
+  related_issues:
+  - 637
+  - 396
+  removed_node_decisions: []
+  removed_edge_decisions: []
+- path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  id: CommunityMech:000447
+  original_sha256: 227362963f3008129281c29d08829d1bf49aa57230b126cc7986e592c6cd9a96
+  record_sha256: 227362963f3008129281c29d08829d1bf49aa57230b126cc7986e592c6cd9a96
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+  outcome: unchanged
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; cable bacteria remains needs_research.
+  summary: Retain bounded Brocadia model-inferred complementarity with existing source gaps
+  node_decisions:
+  - node: Brocadia complementary low-nitrogen auxotrophy
+    rationale: Retain potential SMETANA cross-feeding and explicit computational provenance; no exchange-specific
+      causal arrows, species claims or unsupported model source are added.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42323145
+  source_review:
+  - reference: PMID:42323145
+    doi: 10.1016/j.biortech.2026.135206
+    cache: references_cache/PMID_42323145.txt
+    cache_sha256: dae56a2cb0f7223e87c5c6069c6437f02cfb7a7dc09c09135c30273626dfb018
+    scope: Complete cached primary abstract and publication metadata read. November 2026 issue date is preceded
+      by June 20 online publication.
+    unread: Full text, methods, species/MAG identities, exact model construction, growth conditions, figures, supplements
+      and raw data; no new online full-text retrieval attempted in this preparation.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated source scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata remains under #1268; cable biofilm taxonomy and inherited connectivity remain #1267.'
+  history_file: null
+  issue: null
+  related_issues:
+  - 1139
+  - 1140
+  - 1141
+  removed_node_decisions: []
+  removed_edge_decisions: []
+- path: kb/communities/Buchnera_Serratia_Cinara_Cedri_Endosymbiont_Consortium.yaml
+  id: CommunityMech:000148
+  original_sha256: 99321ba750a316779fcb95e2dfb5828d6d748ed7598e73c254761c3ee9625d15
+  record_sha256: 5a47f483406c1d5cc040a713c08304ac178492cd5c3ea20a815d6251024c95f1
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; cable bacteria remains needs_research.
+  summary: Bound aphid endosymbiont complementation and persistence to genomic hypotheses
+  node_decisions:
+  - node: Shared Tryptophan Biosynthesis
+    rationale: Retain partial intermediate cross-feeding, correct final-product versus exchanged-intermediate distinction.
+  - node: Serratia Takeover of Lost Buchnera Functions
+    rationale: Retain partial inferred nutritional provision without treating gene capacity as measured export.
+  - node: Inferred Co-obligate Metabolic Complementation
+    rationale: Rename persistence as inference and retain both source-proposed evolutionary mechanisms, not measured
+      stability.
+  edges_before:
+  - source: Shared Tryptophan Biosynthesis
+    target: Stable Co-obligate Metabolic Complementation
+    description: Tryptophan-pathway partitioning is one of the shared biosynthetic dependencies that stabilizes
+      the Buchnera-Serratia nutritional consortium in the aphid host.
+  - source: Serratia Takeover of Lost Buchnera Functions
+    target: Stable Co-obligate Metabolic Complementation
+    description: Serratia takeover of biosynthetic functions lost by Buchnera is another inferred complementing
+      dependency that contributes to stable co-obligate symbiosis.
+  edges_after:
+  - source: Shared Tryptophan Biosynthesis
+    target: Inferred Co-obligate Metabolic Complementation
+    description: HYPOTHESIZED - partitioned tryptophan capacity could favor preservation of both partners by making
+      complete nutrition depend on their complementary reactions. This is a source-proposed evolutionary mechanism,
+      not a measured perturbation of consortium stability.
+  - source: Serratia Takeover of Lost Buchnera Functions
+    target: Inferred Co-obligate Metabolic Complementation
+    description: HYPOTHESIZED - Serratia capacity complementing Buchnera losses could favor co-preservation of the
+      two endosymbionts. Genomic reconstruction supports this interpretation without proving transport, partner
+      necessity or a stability effect experimentally.
+  references:
+  - doi:10.1371/journal.pgen.1002357
+  source_review:
+  - reference: doi:10.1371/journal.pgen.1002357
+    pmid: '22102823'
+    cache: references_cache/doi_10.1371_journal.pgen.1002357.md
+    cache_sha256: e70e97e3beb0fabdc708b258ca430f3c80dc64df4a1e8896052258a4e18fd154
+    scope: Whole YAML read. Appended primary full-text body read folded lines 1-390, covering introduction, results,
+      discussion, methods, main tables as extracted, main and supplementary captions, and beginning of references.
+      Did not inspect figure images, supplementary files, genomes, or rerun reconstruction. Cache editorial summary
+      is not evidence. Header says PMC3219605 but appended body identifies PMC3213167 and matching PMID/DOI/title;
+      metadata discrepancy needs separate verification, not silent source-cache replacement.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated source scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata remains under #1268; cable biofilm taxonomy and inherited connectivity remain #1267.'
+  history_file: history/records/Buchnera_Serratia_Cinara_Cedri_Endosymbiont_Consortium/2026-10-05T142600Z-codex-0218e1.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1264
+  renamed_nodes:
+    Stable Co-obligate Metabolic Complementation: Inferred Co-obligate Metabolic Complementation
+  removed_node_decisions: []
+  removed_edge_decisions: []
+- path: kb/communities/Cable_Bacteria_Photosynthetic_Biofilm_Sediment.yaml
+  id: CommunityMech:000145
+  original_sha256: 11b4af070219f94eb88a12c322e069dc78c3f0dd7e07535b8a07e6086291986b
+  record_sha256: 6c7154dd0b4f3a7f06031550e153ef51ca1e16a7839d4c2bbb6b8982982ebd86
+  status: needs_research
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; cable bacteria remains needs_research.
+  summary: Bound cable-bacteria oxygen coupling and expose unresolved biofilm taxonomy
+  node_decisions:
+  - node: Photosynthesis Stimulates Cable-Bacteria Electron Harvesting
+    rationale: Retain oxygen cross-feeding and supported direction without explicit wrong phototroph assignments;
+      inherited roster remains unresolved.
+  - node: Electrogenic Sulfide Oxidation across Sediment Redox Zones
+    rationale: Retain conduction mechanism and qualified response arrow, not an additional cross-feeding event.
+  - node: Rapid Redox Signal Transmission under Diel Illumination
+    rationale: Retain rapid geochemical response with replication/statistical limits, not cross-feeding.
+  edges_before:
+  - source: Photosynthesis Stimulates Cable-Bacteria Electron Harvesting
+    target: Electrogenic Sulfide Oxidation across Sediment Redox Zones
+    description: Photosynthetic oxygen supplied at the sediment-water interface is the oxidant that lets cable bacteria
+      couple deep sulfide oxidation to surface oxygen reduction.
+  - source: Electrogenic Sulfide Oxidation across Sediment Redox Zones
+    target: Rapid Redox Signal Transmission under Diel Illumination
+    description: Cable-bacteria electron transfer rapidly transmits surface photosynthesis changes to sulfide concentrations
+      centimeters below the sediment surface.
+  edges_after:
+  - source: Photosynthesis Stimulates Cable-Bacteria Electron Harvesting
+    target: Electrogenic Sulfide Oxidation across Sediment Redox Zones
+    description: Greater photosynthetic oxygen supply can provide the surface electron acceptor for cable-bacteria
+      sulfide oxidation at depth. Light manipulation and microsensor responses support this coupling; the precise
+      spatial redox-site model remains an interpretation.
+  - source: Electrogenic Sulfide Oxidation across Sediment Redox Zones
+    target: Rapid Redox Signal Transmission under Diel Illumination
+    description: Cable-bacteria electron conduction provides a mechanism for rapid coupling of altered surface oxygen
+      availability to deep sulfide responses during light/dark perturbations. The observed rapid response supports
+      coupling without uniquely resolving motility or biochemical regulation.
+  references:
+  - PMID:25416774
+  source_review:
+  - reference: PMID:25416774
+    cache: references_cache/PMID_25416774.txt
+    cache_sha256: 024e6d8868069d8cee8cc222391860530a93e8688dbb69e9e10a54b67f498d43
+    scope: Whole YAML, cached abstract, publisher main text through conclusions; images and supplement not inspected.
+    url: https://journals.asm.org/doi/10.1128/aem.02682-14
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated source scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata remains under #1268; cable biofilm taxonomy and inherited connectivity remain #1267.'
+  history_file: history/records/Cable_Bacteria_Photosynthetic_Biofilm_Sediment/2026-10-05T142600Z-codex-6e7ba0.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1267
+  removed_node_decisions: []
+  removed_edge_decisions: []
+- path: kb/communities/Calcium_Tomato_Bacterial_Wilt_SynCom.yaml
+  id: CommunityMech:000393
+  original_sha256: 29b9789bceb51552c425fd3b3f95f0dfd4f5ed0f4a33814e1b8e2b49b8b52cad
+  record_sha256: 2003158329c3f2113f6239f65b1e6a1b85bd3c19204f7aaf9d90be7f1f5c68f0
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; cable bacteria remains needs_research.
+  summary: Separate calcium compound assays, exudate responses and pot disease protection
+  node_decisions:
+  - node: Calcium and root-metabolite selective promotion
+    rationale: Retain compound responses without facilitation type and qualify proposed exudate mediation.
+  - node: Calcium-conditioned root-exudate pathogen suppression
+    rationale: Retain qPCR abundance endpoint without viable-count, reciprocal-competition or pot-causation claims.
+  - node: Calcium-SynCom bacterial wilt control
+    rationale: Retain measured pot disease protection, not mutualism, eradication or transferred defense mechanism.
+  edges_before:
+  - source: Calcium and root-metabolite selective promotion
+    target: Calcium-conditioned root-exudate pathogen suppression
+    description: Calcium-induced root exudates carried the same selective pressure into a Ralstonia/SynCom co-culture,
+      where they reduced pathogen density.
+  - source: Calcium-conditioned root-exudate pathogen suppression
+    target: Calcium-SynCom bacterial wilt control
+    description: The low-dose calcium plus SynCom pot treatment translated the exudate co-culture antagonism into
+      tomato bacterial-wilt suppression.
+  edges_after:
+  - source: Calcium and root-metabolite selective promotion
+    target: Calcium-conditioned root-exudate pathogen suppression
+    description: HYPOTHESIZED - calcium-associated metabolites could contribute to selective effects of whole root
+      exudates. Purified-compound assays and tissue metabolomics motivate this mechanism, but no selective depletion/add-back
+      test establishes the compounds as necessary exudate mediators.
+  references:
+  - PMID:41387930
+  source_review:
+  - reference: PMID:41387930
+    doi: 10.1186/s40168-025-02228-1
+    cache: references_cache/PMID_41387930.txt
+    cache_sha256: 28088317360ce0a54f4245a898a662748ffce070f080cf47f96994f5eaa5588f
+    scope: 'Whole YAML through curation history and appended BioC primary body through data availability and start
+      of references read (folded lines 1-530). Main captions read; images, supplements, raw data and genomics not
+      independently inspected. Preserve existing mechanism knowledge gap and prior #961-963 fixes.'
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated source scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata remains under #1268; cable biofilm taxonomy and inherited connectivity remain #1267.'
+  history_file: history/records/Calcium_Tomato_Bacterial_Wilt_SynCom/2026-10-05T142600Z-codex-b12f8f.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1266
+  related_issues:
+  - 961
+  - 962
+  - 963
+  removed_node_decisions: []
+  removed_edge_decisions:
+  - source: Calcium-conditioned root-exudate pathogen suppression
+    target: Calcium-SynCom bacterial wilt control
+    rationale: Whole-exudate co-culture and reduced-dose pot disease assays differ in treatments and endpoints;
+      the source does not isolate exudate antagonism as the mediator of pot protection.
+- path: kb/communities/CRC_Fusobacterium_Control_SynCom.yaml
+  id: CommunityMech:000128
+  original_sha256: 0c618ca15432beaed6fe9b32b67b41ed2cb27cca5dec4fc805080fd8d97cdf61
+  record_sha256: ce036791082c01e1713952a2e090090a3cebce535c994e2b63885bfa5554d8cb
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; cable bacteria remains needs_research.
+  summary: Separate CRC intervention outcomes from colonization and metabolic mediation
+  node_decisions:
+  - node: Low-Competition Commensal SynCom Colonization
+    rationale: Retain designed-community colonization with co-gavage context, not niche partitioning or proven inhibition
+      mediation.
+  - node: Fusobacterium nucleatum Ecological Suppression
+    rationale: Retain inhibition and lower abundance without reciprocal-negative competition or metabolic-restoration
+      arrow.
+  - node: Tryptophan and Secondary Bile Acid Restoration
+    rationale: Retain metabolic observations and PARTIAL disease mechanism, exposing conversion-ratio ambiguity.
+  - node: Reduced Inflammation and Tumor Burden
+    rationale: Retain mouse disease/tissue endpoints without nonsignificant blood-lipid or human-efficacy claims.
+  edges_before:
+  - source: Low-Competition Commensal SynCom Colonization
+    target: Fusobacterium nucleatum Ecological Suppression
+    description: Low-competition commensal colonization lets the designed SynCom occupy the gut model while suppressing
+      Fusobacterium nucleatum growth.
+  - source: Fusobacterium nucleatum Ecological Suppression
+    target: Tryptophan and Secondary Bile Acid Restoration
+    description: Fusobacterium nucleatum decolonization is accompanied by recovery of tryptophan metabolism and
+      secondary bile acid conversion in SynCom-treated mice.
+  - source: Tryptophan and Secondary Bile Acid Restoration
+    target: Reduced Inflammation and Tumor Burden
+    description: Restored tryptophan and bile-acid metabolism contributes to lower inflammation and enhanced tumor
+      inhibition in the F. nucleatum-positive colorectal cancer model.
+  edges_after:
+  - source: Tryptophan and Secondary Bile Acid Restoration
+    target: Reduced Inflammation and Tumor Burden
+    description: PARTIAL - altered tryptophan and bile-acid metabolism could contribute to reduced tissue lipid
+      accumulation, inflammation and tumor burden, as proposed by the source. The experiments do not isolate these
+      metabolites as necessary mediators of SynCom benefit or establish clinical efficacy.
+  references:
+  - PMID:40433987
+  source_review:
+  - reference: PMID:40433987
+    doi: 10.1002/advs.202414232
+    cache: references_cache/PMID_40433987.txt
+    cache_sha256: 07e484de7eeff619787c0c8bbb04a61723efe076f69fd932e13169bd5ec1eacb
+    scope: Whole YAML and appended full primary body read through methods, statistics, data availability and start
+      of references (folded lines 1-860). Figure captions read but images, supplements, primary raw datasets and
+      cited prior studies not independently inspected. Abstract alone obscures several important limitations.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated source scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata remains under #1268; cable biofilm taxonomy and inherited connectivity remain #1267.'
+  history_file: history/records/CRC_Fusobacterium_Control_SynCom/2026-10-05T142601Z-codex-96e3db.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1266
+  related_issues:
+  - 1213
+  removed_node_decisions: []
+  removed_edge_decisions:
+  - source: Low-Competition Commensal SynCom Colonization
+    target: Fusobacterium nucleatum Ecological Suppression
+    rationale: Low competition was a design criterion; colonization was not selectively perturbed to establish it
+      as the cause of pathogen suppression.
+  - source: Fusobacterium nucleatum Ecological Suppression
+    target: Tryptophan and Secondary Bile Acid Restoration
+    rationale: Suppression and metabolic changes occur under the same treatment; their concurrence does not establish
+      a suppression-to-metabolism causal direction.
+- path: kb/communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml
+  id: CommunityMech:000275
+  original_sha256: c0be73483c92695e9267427e10fc4412aa4556c8c56efc82a194c6bf4ea2e012
+  record_sha256: f9ad860387600c64fa0ba428afdfd9fa4cc0e960097b445b5253eb953ed1336e
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; cable bacteria remains needs_research.
+  summary: Remove rumen screening workflow and distinguish enzyme synergy from mutualism
+  node_decisions:
+  - node: Enzymatic synergism in the B. fibrisolvens + S. ruminantium coculture
+    rationale: Retain the reported pairwise enzyme endpoint without an invented denominator or reciprocal-fitness
+      type.
+  - node: Three-membered lignocellulolytic synergy
+    rationale: Retain tested community enzyme synergy and partial metabolic interpretation.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42343824
+  source_review:
+  - reference: PMID:42343824
+    doi: 10.1021/acssynbio.6c00072
+    cache: references_cache/PMID_42343824.md
+    cache_sha256: 25fba74703f690463be6b91ebe6ef2e712b29709eebf141dcea19e94eb64ce41
+    scope: Whole YAML and complete cached abstract/metadata; not full methods, figures or supplements.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated source scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata remains under #1268; cable biofilm taxonomy and inherited connectivity remain #1267.'
+  history_file: history/records/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium/2026-10-05T142601Z-codex-560f30.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1265
+  related_issues:
+  - 1217
+  removed_node_decisions:
+  - node: PMA-PGSI Compatible-Pair Screen
+    rationale: PMA/PGSI compatibility screening is a model-analysis workflow, not an ecological interaction.
+  - node: PMA-Correlated Coculture Validation
+    rationale: Correlation of model scores with measured enzyme synergy is validation workflow, not mutualism.
+  removed_edge_decisions: []
+- path: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  id: CommunityMech:000013
+  original_sha256: 718bb3950522b6d470cbe7c55347f428cc8112f47eca8ea84294626e57bfbc08
+  record_sha256: 2f4e9de54727970a957771c70add6bd6a8fc5a6d38c4cdda2316cc50ab509e7a
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; cable bacteria remains needs_research.
+  summary: Separate conditional sponge model mechanisms from host mutualism and summary arrows
+  node_decisions:
+  - node: Coupled Nitrification in Stylissa Holobiont
+    rationale: Retain modeled nitrite cross-feeding and conditional growth-support arrow, not thermodynamic syntrophy.
+  - node: Nutrient-Responsive Cross-Feeding Network
+    rationale: Retain input-dependent modeled exchange; remove component and common-input summary arrows.
+  - node: Sponge-Derived Nutrient Provisioning to Microbiome
+    rationale: Retain candidate-input mechanism without measured secretion or reciprocal host fitness.
+  - node: Stable Ammonia-Supported Nitrifying Consortium
+    rationale: 'Retain operational simulated composition endpoint: the normalized final/initial AOA:NOB population
+      ratio is bounded, not absolute population size. No syntrophy or universal threshold claim.'
+  - node: Deltaporibacter Nitrogen-Linked Cross-Feeding
+    rationale: Retain conditional Deltaporibacter cross-feeding without active coordinator language.
+  - node: Nutrient-Dependent Symbiont Trophic Balance
+    rationale: Retain microbial net carbon endpoint, not whole-host balance or a separate exchange.
+  edges_before:
+  - source: Coupled Nitrification in Stylissa Holobiont
+    target: Stable Ammonia-Supported Nitrifying Consortium
+    description: Model simulations used AOA nitrite production to test how ammonia flux can maintain an actively
+      growing AOA-NOB community.
+  - source: Nutrient-Responsive Cross-Feeding Network
+    target: Deltaporibacter Nitrogen-Linked Cross-Feeding
+    description: Nutrient-responsive cross-feeding is centered on the newly described Deltaporibacter symbiont.
+  - source: Nutrient-Responsive Cross-Feeding Network
+    target: Nutrient-Dependent Symbiont Trophic Balance
+    description: Organic-input-dependent exchange changes whether the modeled symbiont community is net heterotrophic
+      or net autotrophic.
+  - source: Sponge-Derived Nutrient Provisioning to Microbiome
+    target: Nutrient-Responsive Cross-Feeding Network
+    description: Sponge-derived nutrients define the model boundary conditions that drive symbiont cross-feeding
+      and community stability.
+  edges_after:
+  - source: Coupled Nitrification in Stylissa Holobiont
+    target: Stable Ammonia-Supported Nitrifying Consortium
+    description: COMPUTATIONAL - nitrite generated by archaeal ammonia oxidation supplies the modeled nitrite oxidizer
+      and can enable joint growth, conditional on imposed ammonia supply and cell removal. This substrate-support
+      mechanism does not establish in-vivo stability or thermodynamic syntrophy.
+  - source: Sponge-Derived Nutrient Provisioning to Microbiome
+    target: Nutrient-Responsive Cross-Feeding Network
+    description: COMPUTATIONAL - supplying candidate host-derived organic substrates changes the resources available
+      for modeled microbial exchange. This conditional input-to-exchange mechanism does not prove host secretion,
+      reciprocal fitness or the same fluxes in vivo.
+  references:
+  - PMID:39738126
+  source_review:
+  - reference: PMID:39738126
+    doi: 10.1038/s41467-024-55222-w
+    cache: references_cache/doi_10.1038_s41467-024-55222-w.md
+    cache_sha256: 824118196672b53f3c367488b5ccf1e5a57f1ddeca0c3d671915b89a8490f436
+    canonical_cache: references_cache/PMID_39738126.txt
+    canonical_cache_sha256: 9197188a018fe80ca6d1f44bc3ab9e102c254c2ce6fd131d82be516f45087d53
+    full_text_bodies_equal: true
+    full_text_body_sha256: c91dc7cbf28e8d3357c6c11816977f369ab4da7bc0f5216e6afcbcc56898e666
+    scope: Complete abstract, introduction, results/discussion, methods, figure captions and data/code availability
+      read in DOI-cache folded lines 1-480. Corresponding full-text body in canonical PMID cache is byte-identical.
+      Header still incorrectly says abstract_only.
+    unread: Figure images, Supplementary Notes/Methods/Figures/Data, source data tables, code/model assets, BioModels
+      files and other cited papers; no simulation reruns. Bibliography after first nine citations not inspected.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated source scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata remains under #1268; cable biofilm taxonomy and inherited connectivity remain #1267.'
+  history_file: history/records/BioModels_MODEL2407300002_Sponge_Holobiont_Network/2026-10-05T142601Z-codex-76c203.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1264
+  removed_node_decisions: []
+  removed_edge_decisions:
+  - source: Nutrient-Responsive Cross-Feeding Network
+    target: Deltaporibacter Nitrogen-Linked Cross-Feeding
+    rationale: Deltaporibacter is a component of the same modeled network, not an independently established downstream
+      effect of its summary.
+  - source: Nutrient-Responsive Cross-Feeding Network
+    target: Nutrient-Dependent Symbiont Trophic Balance
+    rationale: Net carbon balance and exchange patterns respond to imposed inputs; their summary association does
+      not isolate exchange-to-balance mediation.
+  adversarial_correction:
+    issue: 1264
+    finding: Initial draft confused a population-ratio stability criterion with population-size bounds.
+    resolution: Corrected the ratio-of-ratios definition and explanation before commit; no new node/edge or additional
+      curation event.
+- path: kb/communities/Burkholderia_Pseudomonas_YB2_PET_Degradation_Consortium.yaml
+  id: CommunityMech:000426
+  original_sha256: 4a3963635a2e3ab0aba7473fa9d455e421af28c522d08ce175738b16a6208046
+  record_sha256: 8bfeed82fde64564ea0aeb64f142de29e051a643aafe17dcda5e1e45ea948e0b
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the precise source scopes below. Non-graph
+    metadata is not certified; cable bacteria remains needs_research.
+  summary: Separate YB2 measured PET mass loss from proposed functional complementarity
+  node_decisions:
+  - node: YB2 PET hydrolysis-product complementarity
+    rationale: Retain overlapping phenotypes with PARTIAL complementary mechanism and arrow, not niche partitioning.
+  - node: YB2 enhanced PET-film degradation
+    rationale: Retain measured three-day mass loss without mineralization, merged assay times or ecological-type
+      inference.
+  edges_before:
+  - source: YB2 PET hydrolysis-product complementarity
+    target: YB2 enhanced PET-film degradation
+    description: 'The complementary PET-depolymerization and downstream-conversion phenotypes of the two strains
+      support YB2''s enhanced PET film mass loss.
+
+      '
+  edges_after:
+  - source: YB2 PET hydrolysis-product complementarity
+    target: YB2 enhanced PET-film degradation
+    description: PARTIAL - relative depolymerization and downstream-conversion capacities provide a proposed explanation
+      for greater YB2 PET-film mass loss. The abstract does not isolate functional necessity or trace interstrain
+      transfer, so this remains a source-supported mechanism hypothesis.
+  references:
+  - PMID:42664909
+  source_review:
+  - reference: PMID:42664909
+    doi: 10.1016/j.jenvman.2026.130823
+    cache: references_cache/PMID_42664909.txt
+    cache_sha256: 233f89810b1a1082f34803f7707bfe8cc42988b68b3b737329a89b13c2b8bb9b
+    scope: Whole YAML and complete cached abstract and metadata read; full methods unavailable in cache.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated source scopes are certified, not unread images, supplements or rerun models.
+  - 'Non-graph metadata remains under #1268; cable biofilm taxonomy and inherited connectivity remain #1267.'
+  history_file: history/records/Burkholderia_Pseudomonas_YB2_PET_Degradation_Consortium/2026-10-05T142601Z-codex-47e191.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1265
+  removed_node_decisions: []
+  removed_edge_decisions: []
