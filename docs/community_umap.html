@@ -720,6 +720,13 @@
         document.body.append(dialog);
 
         const mobile = window.matchMedia('(max-width: 700px)');
+        let panelHadFocus = false;
+        panel.addEventListener('focusin', () => { panelHadFocus = true; });
+        panel.addEventListener('focusout', event => {
+            // Hiding the desktop panel can clear activeElement before the
+            // media-query event. Remember only that breakpoint-driven blur.
+            if (!mobile.matches || dialog.open || event.relatedTarget) panelHadFocus = false;
+        });
         toggle.addEventListener('click', () => {
             if (!mobile.matches) return;
             dialog.append(panel);
@@ -737,8 +744,10 @@
         });
         mobile.addEventListener('change', () => {
             if (!mobile.matches && dialog.open) dialog.close();
-            if (mobile.matches && !dialog.open && panel.contains(document.activeElement)) {
+            if (mobile.matches && !dialog.open &&
+                (panelHadFocus || panel.contains(document.activeElement))) {
                 toggle.focus();
+                panelHadFocus = false;
             }
         });
         document.documentElement.classList.add('filter-sidebar-ready');
