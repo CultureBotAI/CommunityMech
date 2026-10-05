@@ -344,10 +344,12 @@ taxonomy:
     explanation: Supports the individual light-alkane degradation activity shared by the studied isolates.
 ecological_interactions:
 - name: Complete-consortium intermediate alkane synergy
-  description: The complete consortium, unlike single isolates, generated statistically significant degradation of the intermediate
-    C15-C28 n-alkane fraction, consistent with multi-member cascading of alkane-derived byproducts and reduced toxic-intermediate
-    accumulation.
-  interaction_type: MUTUALISM
+  description: The source reports greater intermediate C15-C28 alkane removal by the complete consortium than selected
+    isolates, using a consortium baseline from previous standardized experiments. Each treatment used one batch
+    reactor; alkane chains used as statistical replicates are not independent biological replicates. PARTIAL - byproduct
+    cascades and avoidance of toxic intermediates are proposed explanations, not measured transfer or reciprocal
+    member fitness. GC-FID disappearance does not establish complete mineralization, and late heavy-fraction OH4
+    removal could exceed the consortium.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: alkane
@@ -363,17 +365,20 @@ ecological_interactions:
   - reference: PMID:41893893
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The microbial consortium proved to be the only treatment capable of promoting statistically significant degradation
-    explanation: Supports the whole-consortium degradation advantage for intermediate n-alkanes.
+    snippet: The microbial consortium proved to be the only treatment capable of promoting statistically significant
+      degradation
+    explanation: Supports the reported intermediate-fraction removal comparison under single-reactor and prior-baseline
+      limitations, not biological replication or reciprocal benefit.
   - reference: PMID:41893893
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: cooperative action allows for the cascading utilization of byproducts
-    explanation: Supports the authors' proposed byproduct-cascade interpretation for the intermediate-fraction synergy.
+    explanation: Supports the authors' byproduct-cascade hypothesis, not directly measured exchange or necessity.
 - name: Rapid and delayed alkane-degradation partitioning
-  description: Representative Pseudomonas and Stenotrophomonas members carried alkB and acted as rapid degraders, whereas
-    Bacillus sp. OH4 showed delayed late-phase degradation of longer and intermediate alkane fractions, consistent with temporal
-    niche partitioning inside the consortium.
+  description: PARTIAL - isolate time profiles and alkB annotation suggest rapid Pseudomonas/Stenotrophomonas and
+    delayed OH4 roles. NICHE_PARTITIONING denotes the authors' proposed temporal specialization, not measured succession
+    or reduced competition inside the consortium. The nine selected isolates are representatives of a 36-organism
+    parent; gene presence is capacity, not expression or proven pathway flux.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -391,8 +396,8 @@ ecological_interactions:
       support_genomes: 17956
       total_genomes: 25706
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa
-        under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank;
+        11 GTDB taxa under the NCBI taxon]
   - preferred_term: Stenotrophomonas sp. RC6
     term:
       id: NCBITaxon:40323
@@ -407,8 +412,8 @@ ecological_interactions:
       support_genomes: 398
       total_genomes: 404
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
-        under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank;
+        2 GTDB taxa under the NCBI taxon]
   - preferred_term: Stenotrophomonas sp. PD5
     term:
       id: NCBITaxon:40323
@@ -423,8 +428,8 @@ ecological_interactions:
       support_genomes: 398
       total_genomes: 404
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
-        under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank;
+        2 GTDB taxa under the NCBI taxon]
   - preferred_term: Bacillus sp. OH4
     term:
       id: NCBITaxon:427562
@@ -445,21 +450,23 @@ ecological_interactions:
   - reference: PMID:41893893
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: The lineages of the Pseudomonas and Stenotrophomonas genera (PD5, PD6, RC6) were highlighted, due to the presence
-      of alkB
-    explanation: Supports alkB-linked rapid-degrader representatives among the selected isolates.
+    snippet: The lineages of the Pseudomonas and Stenotrophomonas genera (PD5, PD6, RC6) were highlighted, due to
+      the presence of alkB
+    explanation: Supports alkB genomic capacity in the selected isolates, not measured protein expression or within-consortium
+      roles.
   - reference: PMID:41893893
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: strain OH4 (Bacillus sp.) served as the primary representative of a distinct metabolic group characterized by
-      a delayed degradation profile
-    explanation: Supports delayed-degrader behavior for OH4.
+    snippet: strain OH4 (Bacillus sp.) served as the primary representative of a distinct metabolic group characterized
+      by a delayed degradation profile
+    explanation: Supports the reported delayed isolate profile, not temporal abundance succession within the consortium.
   - reference: PMID:41893893
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: driven by rapid degraders such as Pseudomonas and Stenotrophomonas, followed by a late-stage degradation phase
-      sustained by genera like Bacillus
-    explanation: Supports temporal partitioning between rapid and delayed degrader groups.
+    snippet: driven by rapid degraders such as Pseudomonas and Stenotrophomonas, followed by a late-stage degradation
+      phase sustained by genera like Bacillus
+    explanation: Supports the authors' temporal-specialization model from isolate data, not measured competition
+      reduction or community succession.
 environmental_factors:
 - name: Paraffinic crude-oil source
   value: '3'
@@ -568,10 +575,24 @@ discussions:
   attaches_to:
   - taxonomy
   rationale: The article states that its nine selected strains came from a 36-organism consortium, but Table 1 identifies
-    only the nine isolates chosen for genomic analysis; the remaining consortium members were not resolved in the article
-    text, PMC XML, Springer HTML, or full-size Table 1 page inspected here.
+    only the nine isolates chosen for genomic analysis; the remaining consortium members were not resolved in the
+    article text, PMC XML, Springer HTML, or full-size Table 1 page inspected here.
   posed_by: codex
   posed_date: '2026-09-21'
+- discussion_id: baia_replication_recovery_and_partner_flux
+  prompt: Do replicated defined-consortium experiments establish the proposed temporal roles and byproduct cascades?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Complete-consortium intermediate alkane synergy
+  - ecological_interactions#Rapid and delayed alkane-degradation partitioning
+  rationale: Independent reactor replication, contemporaneous complete membership, mass-balance/recovery controls
+    and partner-resolved flux or fitness are needed to distinguish mechanisms. Negative apparent degradation was
+    clipped to zero; sampling heterogeneity and biofilm sequestration are proposed explanations. Earlier baseline
+    study, source figure/table images and supplements were not reviewed. Preserve the bounded unresolved-members
+    discussion and RA2 grounding note.
+  posed_by: codex
+  posed_date: '2026-10-05'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -580,17 +601,24 @@ curation_history:
 - timestamp: '2026-09-21T22:48:12Z'
   curator: claude
   action: CREATE_COMMUNITY
-  changes: Created an evidence-backed alkane-degrading mangrove consortium record for PMID 41893893 with nine Table 1 representative
-    strains.
+  changes: Created an evidence-backed alkane-degrading mangrove consortium record for PMID 41893893 with nine Table
+    1 representative strains.
   llm_assisted: true
 - timestamp: '2026-09-21T22:51:42Z'
   curator: claude
   action: ADDRESS_ADVERSARIAL_REVIEW
-  changes: 'Clarified RA2 genus grounding for #1032 and tightened the unresolved-member bounded-search rationale for #1033.'
+  changes: 'Clarified RA2 genus grounding for #1032 and tightened the unresolved-member bounded-search rationale
+    for #1033.'
   llm_assisted: true
 - timestamp: '2026-09-21T22:57:08Z'
   curator: claude
   action: FIX_REVIEW_FINDINGS
-  changes: Removed two dangling downstream edges whose targets were phenotypic endpoints rather than ecological interaction
-    names.
+  changes: Removed two dangling downstream edges whose targets were phenotypic endpoints rather than ecological
+    interaction names.
+  llm_assisted: true
+- timestamp: '2026-10-05T11:29:48Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound Baia alkane performance and temporal roles to assay and replication limits; decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1255'
   llm_assisted: true

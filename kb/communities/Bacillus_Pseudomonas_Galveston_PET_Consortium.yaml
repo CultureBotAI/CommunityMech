@@ -194,9 +194,13 @@ taxonomy:
     explanation: Links Pseudomonas sp. 13.2 to its NCBI BioSample accession.
 ecological_interactions:
 - name: Bacillus-Pseudomonas PET division of labor
-  description: 'Bacillus and Pseudomonas members have overlapping but unevenly distributed capacities: Bacillus strains are
-    associated more strongly with PET surface colonization and extracellular hydrolysis, while Pseudomonas strains are associated
-    more strongly with aromatic-intermediate transport, redox balancing, and downstream assimilation.'
+  description: PARTIAL - the source proposes overlapping functional division between Bacillus-associated surface
+    association/hydrolysis and Pseudomonas-associated aromatic handling from comparative genomics, consortium proteomics
+    and isolate assays. NICHE_PARTITIONING denotes this proposed specialization, not measured competition reduction.
+    The consortium showed the most complete PET-associated transformation, but MHET loss was indistinguishable from
+    Pseudomonas alone. Proteomic detection is not induction relative to matched PET monocultures; MMHET identity
+    is tentative and its detoxification role untested. Product transformation does not establish complete mineralization
+    or member-resolved transfer.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   metabolites:
@@ -215,17 +219,19 @@ ecological_interactions:
       label: xenobiotic metabolic process
   evidence:
   - reference: PMID:42627158
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: PET depolymerization, oligomer transformation, intermediate detoxification, and downstream aromatic metabolism
-      are distributed across the community
-    explanation: Supports a community-level division of PET-degradation functions.
+    snippet: PET depolymerization, oligomer transformation, intermediate detoxification, and downstream aromatic
+      metabolism are distributed across the community
+    explanation: Supports the source-proposed distribution of functions, not direct member-resolved flux, measured
+      competition reduction, or demonstrated detoxification.
   - reference: PMID:42627158
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Bacillus contributing more strongly to extracellular hydrolysis, surface association, and persistence, while
-      Pseudomonas are more strongly associated with aromatic transport, redox balancing, and downstream assimilation
-    explanation: Supports the reported Bacillus/Pseudomonas functional partitioning.
+    snippet: Bacillus contributing more strongly to extracellular hydrolysis, surface association, and persistence,
+      while Pseudomonas are more strongly associated with aromatic transport, redox balancing, and downstream assimilation
+    explanation: Supports the source-proposed distribution of functions, not direct member-resolved flux, measured
+      competition reduction, or demonstrated detoxification.
   - reference: PMID:42627158
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -372,20 +378,21 @@ external_resources:
     explanation: Links the cached primary publication to the Galveston PET consortium record.
 discussions:
 - discussion_id: pet_hgt_directionality
-  prompt: Which predicted horizontal-gene-transfer candidates are directional, recent PET-relevant transfers rather than older
-    shared hydrocarbon-soil adaptation?
+  prompt: Which predicted horizontal-gene-transfer candidates are directional, recent PET-relevant transfers rather
+    than older shared hydrocarbon-soil adaptation?
   kind: INTERPRETATION
   status: OPEN
   attaches_to:
   - ecological_interactions#Bacillus-Pseudomonas PET division of labor
-  rationale: The study reports enriched accessory-genome HGT signatures but explicitly interprets most of them as survival,
-    biofilm, stress, regulatory, and core metabolic flexibility rather than direct PET-degradation functions.
+  rationale: The study reports enriched accessory-genome HGT signatures but explicitly interprets most of them as
+    survival, biofilm, stress, regulatory, and core metabolic flexibility rather than direct PET-degradation functions.
   evidence:
   - reference: PMID:42627158
     supports: SUPPORT
     evidence_source: full_text
     snippet: no specific transferred gene set was sufficient to explain PET degradation as a recently acquired pathway
-    explanation: Supports leaving HGT direction and PET-specificity as interpretive rather than asserted causal edges.
+    explanation: Supports leaving HGT direction and PET-specificity as interpretive rather than asserted causal
+      edges.
   posed_by: codex
   posed_date: '2026-09-14'
 - discussion_id: pseudomonas_10_13_2_resolution
@@ -395,8 +402,9 @@ discussions:
   attaches_to:
   - taxonomy#Pseudomonas sp. 10
   - taxonomy#Pseudomonas sp. 13.2
-  rationale: The two strains remain distinct BioSamples and community members, but the 2026 comparative analysis collapsed
-    them into one 10/13.2 unit because of near-complete genomic identity and unresolved contributions under consortium conditions.
+  rationale: The two strains remain distinct BioSamples and community members, but the 2026 comparative analysis
+    collapsed them into one 10/13.2 unit because of near-complete genomic identity and unresolved contributions
+    under consortium conditions.
   evidence:
   - reference: PMID:42627158
     supports: SUPPORT
@@ -405,6 +413,18 @@ discussions:
     explanation: Supports not assigning different 2026 comparative functions to Pseudomonas strains 10 and 13.2.
   posed_by: codex
   posed_date: '2026-09-14'
+- discussion_id: galveston_pet_member_flux
+  prompt: Which strain-resolved fluxes and fitness effects explain the proposed PET functional division?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Bacillus-Pseudomonas PET division of labor
+  rationale: The reviewed main paper lacks matched PET monoculture proteomes for an induction comparison. Consortium
+    MHET loss did not exceed Pseudomonas alone; proposed MMHET identity and detoxification need separate tests.
+    Existing HGT-direction and 10/13.2-resolution gaps remain. Supplementary files and figure images were not reviewed;
+    non-graph sole-carbon wording needs separate review.
+  posed_by: codex
+  posed_date: '2026-10-05'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -413,17 +433,24 @@ curation_history:
 - timestamp: '2026-09-14T00:19:33Z'
   curator: codex
   action: CREATE_COMMUNITY
-  changes: Created CommunityMech:000370 for the five-member Galveston Bacillus-Pseudomonas PET-degrading consortium from PMID:42627158,
-    including exact BioSample-backed strain membership, PET and MHET LCFBM cultivation assays, a community-level Bacillus/Pseudomonas
-    division of labor model, the PRJNA517285 genome dataset, and explicit HGT and Pseudomonas 10/13.2 interpretation gaps.
+  changes: Created CommunityMech:000370 for the five-member Galveston Bacillus-Pseudomonas PET-degrading consortium
+    from PMID:42627158, including exact BioSample-backed strain membership, PET and MHET LCFBM cultivation assays,
+    a community-level Bacillus/Pseudomonas division of labor model, the PRJNA517285 genome dataset, and explicit
+    HGT and Pseudomonas 10/13.2 interpretation gaps.
   llm_assisted: true
 - timestamp: '2026-09-14T00:26:56Z'
   curator: codex
   action: UPDATE_COMMUNITY
-  changes: >
-    Addressed adversarial-review issues #872 and #873 on PR #871 by removing
-    unsupported MUTUALISM and CROSS_FEEDING interaction_type assertions from the
-    full-consortium PET and MHET chemical-transformation summaries, preserving
-    the article-supported Bacillus/Pseudomonas division-of-labor edge and
-    keeping MHET as assay context rather than an organism-exchange claim.
+  changes: 'Addressed adversarial-review issues #872 and #873 on PR #871 by removing unsupported MUTUALISM and CROSS_FEEDING
+    interaction_type assertions from the full-consortium PET and MHET chemical-transformation summaries, preserving
+    the article-supported Bacillus/Pseudomonas division-of-labor edge and keeping MHET as assay context rather than
+    an organism-exchange claim.
+
+    '
+  llm_assisted: true
+- timestamp: '2026-10-05T11:29:49Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound Galveston PET functional division to measured chemistry and inferred roles; decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1255'
   llm_assisted: true
