@@ -1,0 +1,302 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: a4ca06d433a89666e12c662b24e7fa488c200355
+issues:
+- 1382
+- 1383
+- 1384
+open_nongraph_followups:
+- 1385
+- 1386
+issue_deduplication:
+  all_state_issue_titles_bodies: 712
+  ignored_hidden_local_files_included: true
+  comments_exhaustive: false
+  relevant_broader_issues_read:
+  - 765
+  - 650
+  - 543
+  - 529
+  - 384
+  - 383
+  finding: No duplicate exact graph defect in searched titles/bodies or scoped local review records; local hits
+    were whole-corpus rendering/validation inventories.
+reference_cache_original_hashes:
+  references_cache/PMID_12840758.md: 5c4788473d6b8c184ef6ae98f9a46e49182a8a733e2e1465b148cc328399f01c
+  references_cache/PMID_21881617.md: 249f0e7a6b71343881d648f2f539d8f9096fa2dab0e4f2692e370b47ff3fbae7
+  references_cache/PMID_23479750.md: dbae8f2e9156373b1b4a6043c9ecead8a0a4e2368fc55d36fe7c7408fc4e65b7
+  references_cache/PMID_28159790.md: 8a89860f58e10545a3986b093decf43cadec8ac10d8c994b815d497d356e819b
+  references_cache/PMID_24015929.md: 5a8edfdf6d765c4eb0e041310e03ca88fb53a96c64f2d36383ed22f773f4ff49
+  references_cache/PMID_24463969.md: 630100bad057e96e0bca2800ca31a2f1eae6ab54bccfb38c03375a70cc116de1
+limitations:
+- Three graph reviews; all ten nodes and seven arrows retained. No new graph structure or Edison job/spend.
+- Primary-source access differs by study and is recorded per reference. Textual snippet matching is not a scientific
+  endorsement. No figure images or supplements were inspected in this batch.
+- No new article body/PDF is committed. All reference caches and non-graph raw record blocks are preserved. Two
+  separately scoped metadata follow-ups remain open.
+- Source-only PAIRWISE entries represent intrinsic recipient capabilities under the established schema convention,
+  not self-edges or reverse nutrient exchange. This self-review is not independent approval, protected CI success
+  or full-corpus completion.
+records:
+- path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+  id: CommunityMech:000199
+  original_sha256: e177715e13530b307c714b59268dc295e35935d12b5d73a0ee7137ba68a927d0
+  record_sha256: bc9eebbdf57b937cc87c72ee439f404bb7ab51b99b2f06e2f11fd240a454c629
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch30.yaml
+  scope: Whole record and all original nodes/arrows reviewed at the documented primary-source access scope. Non-graph
+    fields preserved, not certified.
+  summary: Retain positive fermentation support with cofactor and ancillary-mechanism limits.; Represent measured
+    recipient activity without a duplicate transfer claim.; Retain the conditional negative arrow while separating
+    sulfide toxicity from hydrogen competition.
+  renamed_nodes:
+    Sulfate-Reduction Perturbation Of Dechlorination: Sulfide-Associated Inhibition Of Dechlorination
+  node_decisions:
+  - node: Lactate Fermentation Supports Dehalococcoides Growth
+    rationale: Retain positive fermentation support with cofactor and ancillary-mechanism limits.
+  - node: Enhanced TCE Dechlorination By Syntrophic Support
+    rationale: Represent measured recipient activity without a duplicate transfer claim.
+  - node: Sulfide-Associated Inhibition Of Dechlorination
+    rationale: Retain the conditional negative arrow while separating sulfide toxicity from hydrogen competition.
+  removed_node_decisions: []
+  edges_before:
+  - source: Lactate Fermentation Supports Dehalococcoides Growth
+    target: Enhanced TCE Dechlorination By Syntrophic Support
+    description: H2 and acetate from DvH lactate fermentation feed the obligately H2-consuming D. mccartyi strain
+      195, enabling and accelerating reductive TCE dechlorination (the community's bioremediation function).
+  - source: Sulfate-Reduction Perturbation Of Dechlorination
+    target: Enhanced TCE Dechlorination By Syntrophic Support
+    description: Under high sulfate, DvH sulfate reduction diverts reducing equivalents and generates sulfide, whose
+      toxicity suppresses reductive TCE dechlorination — opposing the syntrophic support edge.
+  edges_after:
+  - source: Lactate Fermentation Supports Dehalococcoides Growth
+    target: Enhanced TCE Dechlorination By Syntrophic Support
+    description: DvH-derived hydrogen and acetate support strain-195 growth and reductive dechlorination in the
+      tested coculture. The faster dechlorination comparison does not isolate every proposed ancillary benefit;
+      proton translocation, amino-acid supply and corrinoid-related effects are not separately demonstrated by this
+      arrow.
+  - source: Sulfide-Associated Inhibition Of Dechlorination
+    target: Enhanced TCE Dechlorination By Syntrophic Support
+    description: Under the tested high-sulfate, electron-donor-excess conditions, accumulated sulfide suppresses
+      strain-195 dechlorination despite available hydrogen. Electron allocation to sulfate reduction is not sufficient
+      evidence that hydrogen competition caused this inhibition. The arrow qualifies the recipient phenotype under
+      this perturbation, not its unperturbed coculture rate.
+  retained_edge_decisions:
+  - source: Lactate Fermentation Supports Dehalococcoides Growth
+    target: Enhanced TCE Dechlorination By Syntrophic Support
+    rationale: DvH-derived hydrogen and acetate support strain-195 growth and reductive dechlorination in the tested
+      coculture. The faster dechlorination comparison does not isolate every proposed ancillary benefit; proton
+      translocation, amino-acid supply and corrinoid-related effects are not separately demonstrated by this arrow.
+  - source: Sulfide-Associated Inhibition Of Dechlorination
+    target: Enhanced TCE Dechlorination By Syntrophic Support
+    rationale: Under the tested high-sulfate, electron-donor-excess conditions, accumulated sulfide suppresses strain-195
+      dechlorination despite available hydrogen. Electron allocation to sulfate reduction is not sufficient evidence
+      that hydrogen competition caused this inhibition. The arrow qualifies the recipient phenotype under this perturbation,
+      not its unperturbed coculture rate.
+  removed_edge_decisions: []
+  references:
+  - PMID:21881617
+  - PMID:28159790
+  - PMID:24463969
+  - PMID:24015929
+  issues:
+  - 1382
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy/2026-10-06T054824Z-codex-33c8ca.yaml
+  source_review:
+    PMID:21881617:
+      url: https://pubmed.ncbi.nlm.nih.gov/21881617/
+      scope: 'Complete cached primary abstract and publisher search abstract. Full body not retrieved: PMC challenge,
+        Nature authorization redirect, Oxford CDN failure, CiteSeer 403 and UC repository challenge. No figures
+        or supplements inspected.'
+    PMID:28159790:
+      url: https://journals.asm.org/doi/full/10.1128/aem.03384-16
+      alternate_url: https://escholarship.org/content/qt7b1977v2/qt7b1977v2.pdf
+      scope: Complete primary main body and Methods across publisher and UC Berkeley PDF text; Table 1 text and
+        four main figure captions. No visual figure/table inspection or supplements. Abstract/Results DvH sulfide-threshold
+        discrepancy retained rather than resolved.
+    PMID:24463969: &id001
+      url: https://journals.asm.org/doi/full/10.1128/aem.03477-13
+      alternate_url: https://escholarship.org/content/qt5jp4d275/qt5jp4d275_noSplash_9795bc8ac2dde64b0d71b78169a5c7bd.pdf
+      scope: Complete primary main body, Methods, Tables 1-2 text and six figure captions across publisher and UC
+        PDF. No visual figure/table inspection or supplements. Companion is an editorial-interest notice, not a
+        correction. Local PDF retrieval returned an empty file and was not used. No full text added to git.
+    PMID:24015929:
+      url: https://pubmed.ncbi.nlm.nih.gov/24015929/
+      scope: Complete cached primary abstract only; isotope-fractionation context, not a new causal edge. No fresh
+        full body, figures or supplements.
+- path: kb/communities/Dehalococcoides_Desulfovibrio_Pelosinus_Corrinoid_Triculture.yaml
+  id: CommunityMech:000200
+  original_sha256: 9e9caf7e8dfeeca85868d3bc7509eacd27686582f0090bfbd88af2675248d8bf
+  record_sha256: 2d771dc7df594f59d55d100bdf4e7ed6bbc571dfea0a4e37a774583e831910dc
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch30.yaml
+  scope: Whole record and all original nodes/arrows reviewed at the documented primary-source access scope. Non-graph
+    fields preserved, not certified.
+  summary: Retain syntrophic hydrogen support with the required cofactor context.; Retain corrinoid cross-feeding
+    without assigning DMB production or an exclusive cofactor route.; Assign salvaging/remodeling to Dhc195 and
+    classify measured transcript evidence correctly.; Make the complete canonical triculture and DMB-dependent outcome
+    explicit.
+  renamed_nodes: {}
+  node_decisions:
+  - node: Hydrogen Provision By Desulfovibrio
+    rationale: Retain syntrophic hydrogen support with the required cofactor context.
+  - node: Corrinoid Provision By Pelosinus
+    rationale: Retain corrinoid cross-feeding without assigning DMB production or an exclusive cofactor route.
+  - node: Dhc195 Corrinoid Salvaging And Remodeling
+    rationale: Assign salvaging/remodeling to Dhc195 and classify measured transcript evidence correctly.
+  - node: Hydrogen- and Corrinoid-Supported TCE Dechlorination
+    rationale: Make the complete canonical triculture and DMB-dependent outcome explicit.
+  removed_node_decisions: []
+  edges_before:
+  - source: Hydrogen Provision By Desulfovibrio
+    target: Hydrogen- and Corrinoid-Supported TCE Dechlorination
+    description: 'DvH-supplied hydrogen provides the electron donor input that Dhc195 needs, together with PfR7-derived
+      corrinoids, for sustainable reductive dechlorination in the defined triculture.
+
+      '
+  - source: Corrinoid Provision By Pelosinus
+    target: Dhc195 Corrinoid Salvaging And Remodeling
+    description: 'PfR7 corrinoid production supplies the phenolic corrinoids that Dhc195 imports and remodels into
+      cobalamin when DMB is present.
+
+      '
+  - source: Dhc195 Corrinoid Salvaging And Remodeling
+    target: Hydrogen- and Corrinoid-Supported TCE Dechlorination
+    description: 'Dhc195 corrinoid salvaging and remodeling turns PfR7-produced corrinoids into cobalamin cofactors
+      that support sustainable TCE dechlorination when DvH also supplies hydrogen.
+
+      '
+  edges_after:
+  - source: Hydrogen Provision By Desulfovibrio
+    target: Hydrogen- and Corrinoid-Supported TCE Dechlorination
+    description: DvH-supplied hydrogen supports the electron-donor requirement of Dhc195 in the lactate-fed triculture,
+      together with partner corrinoids and externally supplied DMB. Hydrogen provision alone does not make the cobalamin-free
+      two-member coculture sustainable.
+  - source: Corrinoid Provision By Pelosinus
+    target: Dhc195 Corrinoid Salvaging And Remodeling
+    description: PfR7 supplies corrinoid substrates that Dhc195 can salvage and remodel in the presence of externally
+      supplied DMB. This does not exclude donor guided cobalamin biosynthesis or establish that all functional cofactor
+      passes through recipient remodeling.
+  - source: Dhc195 Corrinoid Salvaging And Remodeling
+    target: Hydrogen- and Corrinoid-Supported TCE Dechlorination
+    description: Recipient salvaging and remodeling contributes compatible cofactor for sustainable TCE dechlorination
+      in the DMB-amended triculture when DvH supplies hydrogen. The source supports this route but does not selectively
+      separate its contribution from cobalamin formed by the donor in the presence of DMB.
+  retained_edge_decisions:
+  - source: Hydrogen Provision By Desulfovibrio
+    target: Hydrogen- and Corrinoid-Supported TCE Dechlorination
+    rationale: DvH-supplied hydrogen supports the electron-donor requirement of Dhc195 in the lactate-fed triculture,
+      together with partner corrinoids and externally supplied DMB. Hydrogen provision alone does not make the cobalamin-free
+      two-member coculture sustainable.
+  - source: Corrinoid Provision By Pelosinus
+    target: Dhc195 Corrinoid Salvaging And Remodeling
+    rationale: PfR7 supplies corrinoid substrates that Dhc195 can salvage and remodel in the presence of externally
+      supplied DMB. This does not exclude donor guided cobalamin biosynthesis or establish that all functional cofactor
+      passes through recipient remodeling.
+  - source: Dhc195 Corrinoid Salvaging And Remodeling
+    target: Hydrogen- and Corrinoid-Supported TCE Dechlorination
+    rationale: Recipient salvaging and remodeling contributes compatible cofactor for sustainable TCE dechlorination
+      in the DMB-amended triculture when DvH supplies hydrogen. The source supports this route but does not selectively
+      separate its contribution from cobalamin formed by the donor in the presence of DMB.
+  removed_edge_decisions: []
+  references:
+  - PMID:24463969
+  issues:
+  - 1383
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Dehalococcoides_Desulfovibrio_Pelosinus_Corrinoid_Triculture/2026-10-06T054824Z-codex-290d65.yaml
+  source_review:
+    PMID:24463969: *id001
+- path: kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+  id: CommunityMech:000209
+  original_sha256: 07af295ed9a7d53238b5bbcd466fa2d9478b4bb7f896958ea4f1a65d101c4b46
+  record_sha256: fbf9a3612c04d172cd46cc210b069e03e627b5dcec722682651abfe6e0e6afb7
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch30.yaml
+  scope: Whole record and all original nodes/arrows reviewed at the documented primary-source access scope. Non-graph
+    fields preserved, not certified.
+  summary: Retain conditional DMB-associated cofactor support without assigning an exclusive route.; Retain the
+    negative compatibility result without commensalism or toxicity.; Represent BAV1 dechlorination as a recipient
+    phenotype without reverse cross-feeding.
+  renamed_nodes: {}
+  node_decisions:
+  - node: DMB-Guided Cobalamin Support
+    rationale: Retain conditional DMB-associated cofactor support without assigning an exclusive route.
+  - node: Factor III Is Insufficient Without DMB
+    rationale: Retain the negative compatibility result without commensalism or toxicity.
+  - node: Cobalamin-Dependent Reductive Dechlorination
+    rationale: Represent BAV1 dechlorination as a recipient phenotype without reverse cross-feeding.
+  removed_node_decisions: []
+  edges_before:
+  - source: DMB-Guided Cobalamin Support
+    target: Cobalamin-Dependent Reductive Dechlorination
+    description: 'DMB-guided biosynthesis converts the Methanosarcina cobamide supply into a cobalamin compatible
+      with the Dehalococcoides reductive dechlorination machinery.
+
+      '
+  - source: Factor III Is Insufficient Without DMB
+    target: Cobalamin-Dependent Reductive Dechlorination
+    description: 'Unguided factor III production leaves the Dehalococcoides corrinoid requirement unsatisfied, so
+      organohalide respiration remains constrained unless DMB enables compatible cobalamin production.
+
+      '
+  edges_after:
+  - source: DMB-Guided Cobalamin Support
+    target: Cobalamin-Dependent Reductive Dechlorination
+    description: With externally supplied DMB, the partner-associated corrinoid system supplies compatible cofactor
+      and enables BAV1 dechlorination and growth. This does not assign an exclusive donor-versus-recipient remodeling
+      route or imply that DMB is required when compatible cobalamin is supplied directly.
+  - source: Factor III Is Insufficient Without DMB
+    target: Cobalamin-Dependent Reductive Dechlorination
+    description: Failure to supply an adequate compatible cofactor leaves BAV1 dechlorination constrained in the
+      unamended coculture. This denotes a missing nutritional input, not active inhibition by factor III. DMB-associated
+      cofactor production or direct compatible-cobalamin supplementation can overcome that limitation.
+  retained_edge_decisions:
+  - source: DMB-Guided Cobalamin Support
+    target: Cobalamin-Dependent Reductive Dechlorination
+    rationale: With externally supplied DMB, the partner-associated corrinoid system supplies compatible cofactor
+      and enables BAV1 dechlorination and growth. This does not assign an exclusive donor-versus-recipient remodeling
+      route or imply that DMB is required when compatible cobalamin is supplied directly.
+  - source: Factor III Is Insufficient Without DMB
+    target: Cobalamin-Dependent Reductive Dechlorination
+    rationale: Failure to supply an adequate compatible cofactor leaves BAV1 dechlorination constrained in the unamended
+      coculture. This denotes a missing nutritional input, not active inhibition by factor III. DMB-associated cofactor
+      production or direct compatible-cobalamin supplementation can overcome that limitation.
+  removed_edge_decisions: []
+  references:
+  - PMID:23479750
+  - PMID:12840758
+  issues:
+  - 1384
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture/2026-10-06T054824Z-codex-bed9ca.yaml
+  source_review:
+    PMID:23479750:
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3638461/
+      scope: Complete cached abstract and substantial indexed primary Methods, Results, Discussion, Table 1 and
+        figure-caption excerpts. Not complete full text. PMC challenge and publisher 403; no visual figures or supplements.
+        Graph repairs remain abstract-supported; cell-resolved route partition is not claimed.
+    PMID:12840758:
+      url: https://pubmed.ncbi.nlm.nih.gov/12840758/
+      scope: Complete cached primary abstract only, supporting dechlorinator phenotype rather than exact-pair cofactor
+        transfer. No fresh full body, figures or supplements.
