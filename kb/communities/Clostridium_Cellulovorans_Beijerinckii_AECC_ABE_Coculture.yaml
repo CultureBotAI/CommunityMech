@@ -121,10 +121,11 @@ taxonomy:
     explanation: Supports the solventogenic, non-cellulolytic role.
 ecological_interactions:
 - name: Lignocellulose Saccharification Feeding Solventogenesis
-  description: >
-    C. cellulovorans 743B saccharifies AECC lignocellulose and releases soluble
-    sugars that are subsequently utilized by C. beijerinckii NCIMB 8052 for ABE
-    solvent production.
+  description: C. cellulovorans 743B saccharifies AECC and supplies soluble sugars for C. beijerinckii NCIMB 8052
+    solventogenesis. The primary study compares monocultures and coculture, measures sugar accumulation and depletion,
+    and reports ABE output. Cellulose is the polymer substrate and ABE compounds are products, not molecules all
+    transferred between partners. Inoculation timing, ratio and pH-control duration also affect performance; product
+    supply alone does not establish the cause of the population dynamics.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -163,28 +164,27 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
-  downstream:
-  - target: Cooperation and Competition During Coculture Dynamics
-    description: >
-      C. cellulovorans product release couples AECC saccharification to
-      C. beijerinckii solventogenesis, creating the two-strain abundance
-      dynamics tracked as cooperation and competition during coculture.
   evidence:
   - reference: PMID:25023325
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: soluble sugars and butyric acid generated can be subsequently utilized by Clostridium beijerinckii NCIMB 8052
-    explanation: Supports cross-feeding of C. cellulovorans products to C. beijerinckii.
+    snippet: soluble sugars and butyric acid generated can be subsequently utilized by Clostridium beijerinckii
+      NCIMB 8052
+    explanation: The abstract states the proposed supply relationship; primary Results additionally compare sugar
+      profiles, AECC degradation and solvent outputs across monocultures and coculture. It is not a traced partner-specific
+      flux measurement.
   - reference: PMID:25023325
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: produce solvents by consolidated bioprocessing (CBP) with alkali extracted deshelled corn cobs (AECC)
-    explanation: Supports AECC lignocellulose conversion to ABE solvents by the coculture.
+    explanation: Supports the overall coculture output, not an arrow from substrate provision to a uniquely identified
+      competition mechanism.
 - name: Butyric Acid Support of Butanol Production
-  description: >
-    C. cellulovorans replaces external butyric-acid addition by producing
-    butyric acid in situ, which supports solventogenesis and butanol production
-    by C. beijerinckii.
+  description: PARTIAL - C. cellulovorans produces butyric acid in monoculture, and the coculture produces butanol
+    without external butyric-acid addition. Acid accumulation followed by reassimilation during solventogenesis
+    supports an in-situ cosubstrate contribution to C. beijerinckii. The primary study also changes pH control and
+    inoculation conditions. It does not trace the partner origin of every acid molecule or isolate butyrate necessity
+    from these covariates, and does not establish that butyrate causes upstream AECC saccharification.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -211,29 +211,26 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
-  downstream:
-  - target: Lignocellulose Saccharification Feeding Solventogenesis
-    description: >
-      C. cellulovorans butyric-acid production is part of the in situ substrate
-      supply that lets C. beijerinckii convert AECC-derived intermediates to
-      ABE solvents without external cellulase or butyric-acid addition.
   evidence:
   - reference: PMID:25023325
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: produce butyric acid, instead of adding cellulase and butyric acid to the medium
-    explanation: Supports in situ butyric acid production by C. cellulovorans as part of the design.
+    explanation: The abstract states the design objective. Primary Results support acid formation and butanol production
+      without added butyrate, but do not isolate an essential butyrate-only mediator.
   - reference: PMID:25023325
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: soluble sugars and butyric acid generated can be subsequently utilized
-    explanation: Supports use of generated butyric acid by the solventogenic partner.
-- name: Cooperation and Competition During Coculture Dynamics
-  description: >
-    The two strains cooperate through division of labor but also show changing
-    abundance dynamics consistent with cooperation and competition during the
-    co-culture process.
-  interaction_type: COMPETITION
+    explanation: Supports the cosubstrate interpretation, not quantitative donor-resolved acid flux. Primary Results
+      discuss acid reassimilation together with pH and sugar availability.
+- name: Population Dynamics and Proposed Competition
+  description: PARTIAL - the reported 16S-based abundance assay showed changing partner proportions during coculture,
+    with early C. cellulovorans dominance and later C. beijerinckii dominance. The authors interpret stage-dependent
+    cooperation and competition in relation to pH and nutrient availability, but explicitly leave the molecular
+    mechanism unresolved. Methods describe RNA extraction and cDNA for this assay, so the reported proportions are
+    not direct cell counts. The experiments vary inoculation and pH conditions; abundance changes alone do not isolate
+    reciprocal resource competition or its molecular mediator.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
@@ -242,15 +239,18 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:25023325
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: mechanisms of cooperation and competition between the two strains during the co-culture process
-    explanation: Supports the coexistence of cooperative and competitive dynamics.
+    explanation: The abstract summarizes the authors' interpretation; the primary Results/Discussion explicitly
+      state that the molecular mechanism remains unclear. Do not promote the summary wording to an isolated competition
+      experiment.
   - reference: PMID:25023325
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: real-time PCR assay based on the 16S rRNA gene sequence was performed
-    explanation: Supports strain-abundance tracking as evidence for community dynamics.
+    explanation: Supports the reported abundance assay. Primary Methods use RNA/cDNA, not direct cell counting;
+      this is an experimental population proxy, not computational-only evidence.
 environmental_factors:
 - name: Alkali extracted deshelled corn cobs
   value: sole carbon source
@@ -385,3 +385,28 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element processing role is curated for this AECC
   acetone-butanol-ethanol coculture.
+discussions:
+- discussion_id: aecc_abe_flux_and_competition_mediation
+  prompt: How much of solventogenesis and partner dynamics is mediated by acid transfer, pH and resource competition?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Lignocellulose Saccharification Feeding Solventogenesis
+  - ecological_interactions#Butyric Acid Support of Butanol Production
+  - ecological_interactions#Population Dynamics and Proposed Competition
+  rationale: PMID:25023325 supports sugar supply, in-situ acid formation and measured solvent production, and experimentally
+    compares inoculation timing, ratio and pH-control duration. The full primary Results/Discussion leave molecular
+    competition/cooperation unresolved. RNA/cDNA-based 16S proportions are not direct cell counts. Partner-resolved
+    flux, selective acid perturbations with matched pH, and independent population quantification would distinguish
+    these contributions. Butyrate provision does not itself establish a causal arrow to upstream saccharification.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T23:42:30Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain substrate provision and measured output; remove the unsupported arrow asserting that provision
+    determines competition dynamics.; Retain qualified in-situ acid support; remove the cosubstrate-to-upstream-saccharification
+    arrow and avoid traced-flux or necessity claims.; Preserve experimental abundance dynamics and operating-condition
+    comparisons without categorical competition or direct-cell-count claims. Issue #1325; reports/causal_graph_review/decisions/20261005-three-records-batch19.yaml'
+  llm_assisted: true

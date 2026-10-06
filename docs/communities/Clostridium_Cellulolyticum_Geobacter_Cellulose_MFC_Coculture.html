@@ -585,7 +585,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Clostridium cellulolyticum-Geobacter sulfurreducens Cellulose MFC Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, syntrophy, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -593,18 +593,13 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolDiamond"
+                             data-color="#57c7ab"></svg> Cross-feeding
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -613,9 +608,9 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Cellulose Fermentation Feeding Electrode Respiration</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">C. cellulolyticum metabolizes cellulose and produces fermentation products that enable G. sulfurreducens to respire on the anode, linking insoluble cellulosic biomass to electricity generation.</p>
+                <p class="prewrap interaction-description">C. cellulolyticum fermentation supplies products that support G. sulfurreducens anode respiration in the defined cellulose-fed MFC. Binary current production and the negative pure-culture controls support functional complementarity. The primary abstract calls this syntrophy, but does not demonstrate obligate growth dependence or isolate product removal as the mechanism favoring the fermenter. Hydrogen, acetate and ethanol were reported as residual metabolites; that list does not establish uptake of every compound, especially ethanol, by Geobacter or quantify partner-specific transfer.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium cellulolyticum</p>
@@ -672,8 +667,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Defined Binary Electricity Production
-                        <p class="prewrap causal-description">Fermentation products from C. cellulolyticum provide the carbon and electron flow that allows the binary coculture to respire on the anode and produce current from cellulose.
-</p>
+                        <p class="prewrap causal-description">Fermentative conversion of cellulose supplies electron-donor products for G. sulfurreducens anode respiration, enabling current from substrates on which neither pure culture produced electricity. The conversion is supported by the binary-versus-pure-culture comparison; the accessible abstract does not resolve each metabolite contribution or transfer rate.</p>
                     </div>
 
                 </div>
@@ -702,7 +696,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/17695929/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:17695929</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Hydrogen, acetate, and ethanol were the main residual metabolites"</div>
@@ -716,9 +710,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Defined Binary Electricity Production</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Neither pure culture alone produced electricity from the cellulose substrates, while the binary coculture generated current and improved CMC degradation, demonstrating division of labor between cellulose hydrolysis and extracellular electron transfer.</p>
+                <p class="prewrap interaction-description">The binary coculture produced current from CMC and MN301 cellulose, whereas neither pure culture did so. CMC degradation increased from 42% in C. cellulolyticum monoculture to 64% in coculture. These measured conversion and substrate-degradation outcomes support division of labor, but do not by themselves establish reciprocal fitness benefits or a unique metabolite-removal mechanism.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium cellulolyticum</p>
@@ -793,10 +786,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Substrate-Dependent Spatial Partitioning</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Observed Substrate-Dependent Spatial Distribution</h3>
                 </div>
-                <p class="prewrap interaction-description">During growth on particulate MN301 cellulose, C. cellulolyticum is enriched on suspended cellulose particles while G. sulfurreducens is enriched on the electrode biofilm, partitioning the cellulose-hydrolysis and anode-respiration niches within the reactor.</p>
+                <p class="prewrap interaction-description">FISH and qPCR showed that most C. cellulolyticum cells were associated with suspended MN301 cellulose particles and most G. sulfurreducens cells with the electrode. With soluble CMC, both organisms occurred in suspension and biofilm samples. This is substrate-dependent spatial distribution, not a demonstrated requirement that physical separation causes or improves electricity generation, nor an isolated resource-partitioning mechanism.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium cellulolyticum</p>
@@ -818,17 +810,6 @@
 
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Defined Binary Electricity Production
-                        <p class="prewrap causal-description">Particulate cellulose separates cellulolytic activity on suspended particles from Geobacter-rich anode respiration, preserving the cellulose-to-electricity division of labor.
-</p>
-                    </div>
-
-                </div>
 
 
 
@@ -874,6 +855,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/18725730/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:18725730</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"both bacteria resided in suspension and biofilm samples"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -883,6 +877,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which exchanged products and spatial arrangements causally control current and partner fitness?
+                </h3>
+                <p class="prewrap">PMIDs:17695929 and 18725730 were reviewed through fresh primary abstracts and cached snippets; full bodies were not obtained through the attempted public DOI/search routes. Residual metabolites do not measure individual uptake, and FISH/qPCR localization does not establish its causal benefit. Partner-resolved metabolite flux, spatial perturbations and growth measurements are needed to separate these mechanisms. Preserve binary current and increased CMC degradation as measured endpoints.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Cellulose Fermentation Feeding Electrode Respiration</code>, <code>ecological_interactions#Defined Binary Electricity Production</code>, <code>ecological_interactions#Observed Substrate-Dependent Spatial Distribution</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1272,7 +1285,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "CROSS_FEEDING";
             var metabolites = [];
 
 
@@ -1322,7 +1335,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1366,7 +1379,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1375,11 +1388,11 @@
 
             var processes = [];
 
-            var evidenceCount = 3;
+            var evidenceCount = 4;
 
             nodes.push({
                 id: intId,
-                label: "Substrate-Dependent Spatial Partitioning",
+                label: "Observed Substrate-Dependent Spatial Distribution",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
