@@ -139,13 +139,11 @@ taxonomy:
     explanation: Names the fourth member and its principal fermentation product.
 ecological_interactions:
 - name: Partner-Specific Proteome Remodelling
-  description: >
-    Members modulate protein abundance in response to which specific partners
-    are present, producing reproducible partner-specific expression shifts. Because
-    the response depends on partner identity rather than on the carbon source, the
-    division of labour is regulatory: the members reshape their realised niche by
-    what they express.
-  interaction_type: NICHE_PARTITIONING
+  description: Co-cultured gut strains showed partner-associated protein-expression changes. Abundance-matched mixed-isolate
+    protein controls help separate expression changes from composition and detection effects. Both community context
+    and carbon source affected proteomes; partner effects were not absence of carbon effects. The four canonical
+    participants define the human consortium, not a claim that every strain met protein-detection thresholds in
+    every condition. Pooled human/rumen analyses must not be assigned wholesale to the human four-member condition.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: regulation of gene expression
@@ -153,85 +151,138 @@ ecological_interactions:
       id: GO:0010468
       label: regulation of gene expression
   downstream:
-  - target: Reduced Functional Overlap and Metabolic Complementarity
-    description: Partner-specific protein-abundance shifts reduce functional overlap
-      and promote metabolic complementarity between the co-cultured gut anaerobes.
+  - target: Reduced Annotated Proteomic Functional Overlap
+    description: PARTIAL - partner-dependent expression changes can change which annotated functions overlap among
+      detected community members. Co-culture and matched mixed-isolate comparisons support a proteomic response,
+      but do not selectively identify the regulatory pathway or establish competitive niche partitioning and metabolite
+      flux.
   evidence:
   - reference: PMID:42032280
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: These interactions led to reproducible, partner-specific expression shifts that
-      significantly reduced functional overlap and were frequently associated with increased
-      community productivity
-    explanation: States that biotic interactions cause reproducible, partner-specific
-      protein-abundance shifts.
+    snippet: These interactions led to reproducible, partner-specific expression shifts that significantly reduced
+      functional overlap and were frequently associated with increased community productivity
+    explanation: Supports positive partner-associated proteomic responses, not a selectively identified regulatory
+      mechanism or measured substrate exchange.
   - reference: PMID:42032280
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We found that biotic interactions, rather than abiotic conditions, were the dominant
-      drivers of proteomic variation
-    explanation: Recorded on this interaction rather than as a separate edge, because "partner
-      identity outweighed carbon source" is a property of the same partner-specific remodelling
-      rather than a second interaction between taxa. The design varied carbon source independently,
-      which is what gives the comparison force.
-- name: Reduced Functional Overlap and Metabolic Complementarity
-  description: >
-    Partner-specific protein shifts significantly reduce overlap in the functions
-    expressed by the four gut anaerobes, promoting butyrate-, formate-, and
-    acetate-centered metabolic complementarity across the community.
-  interaction_type: NICHE_PARTITIONING
+    snippet: We found that biotic interactions, rather than abiotic conditions, were the dominant drivers of proteomic
+      variation
+    explanation: Supports the study-level predominance of biotic effects, not absence of abiotic effects or identical
+      responses in every human community.
+  participating_taxa:
+  - preferred_term: Eubacterium hallii
+    term:
+      id: NCBITaxon:39488
+      label: Anaerobutyricum hallii
+  - preferred_term: Roseburia intestinalis
+    term:
+      id: NCBITaxon:166486
+      label: Roseburia intestinalis
+  - preferred_term: Marvinbryantia formatexigens
+    term:
+      id: NCBITaxon:168384
+      label: Marvinbryantia formatexigens
+  - preferred_term: Faecalibacterium prausnitzii
+    term:
+      id: NCBITaxon:853
+      label: Faecalibacterium prausnitzii
+- name: Reduced Annotated Proteomic Functional Overlap
+  description: Protein-to-KEGG annotation and presence/absence comparisons showed reduced expressed functional overlap
+    in many tested communities relative to corresponding monoculture expectations. This positive proteomic metric
+    does not directly measure competition, coexistence, substrate partitioning or metabolite transfer. Butyrate,
+    formate and acetate are contextual member capabilities, not quantified exchanged products in this analysis.
+    Study-wide frequencies pooled human and rumen communities and do not establish the same result for every human
+    strain combination or carbon condition.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: butyrate
     term:
       id: CHEBI:17968
       label: butyrate
-    notes: Terminal product of three of the four members, and part of the functional redundancy that
-      partner-specific expression reduces.
+    notes: Contextual member metabolic capability, not a measured interspecies exchange or flux in this proteomic
+      analysis.
   - preferred_term: formate
     term:
       id: CHEBI:15740
       label: formate
-    notes: Fermentation end product of Marvinbryantia formatexigens.
+    notes: Contextual member metabolic capability, not a measured interspecies exchange or flux in this proteomic
+      analysis.
   - preferred_term: acetate
     term:
       id: CHEBI:30089
       label: acetate
-    notes: Fermentation end product of Marvinbryantia formatexigens.
+    notes: Contextual member metabolic capability, not a measured interspecies exchange or flux in this proteomic
+      analysis.
   downstream:
-  - target: Increased Community Productivity
-    description: The reduction in functional redundancy was frequently associated
-      with increased productivity of the assembled gut-derived communities.
+  - target: Community qPCR Productivity Association
+    description: PARTIAL - reduced redundant expression could spare resources and contribute to greater community
+      productivity. The observed association supports this proposed explanation, but regulatory or energetic-cost
+      perturbations did not selectively establish that reduced annotated overlap mediates the qPCR yield difference.
   evidence:
   - reference: PMID:42032280
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: These interactions led to reproducible, partner-specific expression shifts that
-      significantly reduced functional overlap and were frequently associated with increased
-      community productivity
-    explanation: States the central result — partner-specific, reproducible shifts that reduce
-      functional overlap — which is what makes this niche partitioning rather than a generic
-      co-culture effect.
-- name: Increased Community Productivity
-  description: The partner-specific proteomic shifts and reduced functional overlap
-    were frequently associated with increased productivity across the gut-derived
-    isolate, pairwise, and four-member community experiments.
-  interaction_type: MUTUALISM
+    snippet: These interactions led to reproducible, partner-specific expression shifts that significantly reduced
+      functional overlap and were frequently associated with increased community productivity
+    explanation: Supports the observed annotated-proteome overlap result and associated productivity, not demonstrated
+      competitive niche partitioning.
+  participating_taxa:
+  - preferred_term: Eubacterium hallii
+    term:
+      id: NCBITaxon:39488
+      label: Anaerobutyricum hallii
+  - preferred_term: Roseburia intestinalis
+    term:
+      id: NCBITaxon:166486
+      label: Roseburia intestinalis
+  - preferred_term: Marvinbryantia formatexigens
+    term:
+      id: NCBITaxon:168384
+      label: Marvinbryantia formatexigens
+  - preferred_term: Faecalibacterium prausnitzii
+    term:
+      id: NCBITaxon:853
+      label: Faecalibacterium prausnitzii
+- name: Community qPCR Productivity Association
+  description: Lower annotated functional overlap was associated with higher community productivity across the analyzed
+    communities. Methods define productivity using total consortium qPCR abundance divided by mean monoculture abundance,
+    not the sum or best monoculture. qPCR gene-copy abundance is not direct viable-cell biomass, and greater community
+    yield does not demonstrate reciprocal benefit to every member. The pooled association was not a simple linear
+    dose-response and does not establish that reduced overlap caused productivity.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: butyrate
     term:
       id: CHEBI:17968
       label: butyrate
+    notes: Contextual metabolic product, not the measured productivity endpoint.
   evidence:
   - reference: PMID:42032280
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: These interactions led to reproducible, partner-specific expression shifts that
-      significantly reduced functional overlap and were frequently associated with increased
-      community productivity
-    explanation: Links partner-specific proteome remodeling to the downstream
-      community-productivity phenotype.
+    snippet: These interactions led to reproducible, partner-specific expression shifts that significantly reduced
+      functional overlap and were frequently associated with increased community productivity
+    explanation: Supports a study-level overlap/productivity association, not selective mediation, every-condition
+      enhancement or mutual benefit.
+  participating_taxa:
+  - preferred_term: Eubacterium hallii
+    term:
+      id: NCBITaxon:39488
+      label: Anaerobutyricum hallii
+  - preferred_term: Roseburia intestinalis
+    term:
+      id: NCBITaxon:166486
+      label: Roseburia intestinalis
+  - preferred_term: Marvinbryantia formatexigens
+    term:
+      id: NCBITaxon:168384
+      label: Marvinbryantia formatexigens
+  - preferred_term: Faecalibacterium prausnitzii
+    term:
+      id: NCBITaxon:853
+      label: Faecalibacterium prausnitzii
 growth_media:
 - name: YCFA with wheat straw fibre, anaerobic Hungate tubes
   composition:
@@ -351,3 +402,27 @@ environmental_factors:
     evidence_source: IN_VITRO
     snippet: Using synthetic gut-derived consortia exposed to distinct carbon sources
     explanation: Records carbon source as the varied abiotic condition in the design.
+discussions:
+- discussion_id: gut_proteome_overlap_mediation
+  prompt: Does altered proteome overlap cause higher community productivity?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Partner-Specific Proteome Remodelling
+  - ecological_interactions#Reduced Annotated Proteomic Functional Overlap
+  - ecological_interactions#Community qPCR Productivity Association
+  rationale: The positive controlled proteomic responses and overlap metric are distinct from proposed niche partitioning
+    and resource savings. Competition and coexistence were not directly measured. Protein coverage thresholds and
+    abundance-matched mixed-isolate controls matter; all four canonical human taxa are not guaranteed detectable
+    in every comparison. Preserve carbon effects, separate pooled human/rumen statistics from exact human conditions,
+    and use the Methods mean-monoculture denominator. Pathway or regulatory perturbations, resource budgets and
+    flux measurements would test the two retained PARTIAL arrows; no organism-level mutualism or specific butyrate/formate/acetate
+    exchange is demonstrated. Non-graph strain, medium and capability metadata is preserved, not recertified.
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T15:38:24Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate measured proteomic overlap and qPCR yield from proposed mediation. Issue #1503; reports/causal_graph_review/decisions/20261006-urls-amd-proteome-batch52.yaml'
+  llm_assisted: true

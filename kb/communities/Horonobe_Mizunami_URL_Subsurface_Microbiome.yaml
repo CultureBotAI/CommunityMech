@@ -65,11 +65,12 @@ taxonomy:
     explanation: Supports the Mizunami granitic URL community and CPR selection
       at high-flow zones.
 ecological_interactions:
-- name: Lithology-Driven Community Divergence
-  description: Sedimentary versus granitic host rock yields dissimilar URL
-    microbiomes despite shared deep-subsurface chemistry, indicating lithology
-    as a primary structuring factor.
-  interaction_type: NICHE_PARTITIONING
+- name: Site-Associated URL Community Divergence
+  description: Groundwater metagenomes distinguish the sedimentary Horonobe and granitic Mizunami microbiomes. Host
+    rock, location, groundwater chemistry and tunnel/flow context covary, so the comparison supports a site-associated
+    pattern and a proposed lithological explanation, not an isolated lithology effect or demonstrated competitive
+    niche partitioning. The two canonical habitat-level participants share a broad cellular-organisms CURIE but
+    denote different sampled communities.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methane
@@ -80,24 +81,28 @@ ecological_interactions:
     term:
       id: CHEBI:16526
       label: carbon dioxide
-  downstream:
-  - target: Horonobe Sulfate-Reducer Hydrogen Support of Methanogenesis
-    description: The sedimentary Horonobe URL is organic- and CO2-rich and
-      methane-biased, providing the geochemical context for sulfate reducers
-      predicted to produce H2 that supports methanogenesis.
   evidence:
   - reference: PMID:39696556
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: The Horonobe and Mizunami microbiomes are dissimilar, likely because
-      the Mizunami URL is hosted in granitic rock and the Horonobe URL in
-      sedimentary rock
-    explanation: Supports lithology as the divergence driver.
-- name: Shared Deep-Subsurface Functional Core
-  description: Despite community-level dissimilarity, both URLs share well-
-    represented hydrogen metabolism, rubisco-based CO2 fixation, nitrogen
-    reduction, and sulfate reduction functions.
-  interaction_type: CROSS_FEEDING
+    evidence_source: COMPUTATIONAL
+    snippet: The Horonobe and Mizunami microbiomes are dissimilar, likely because the Mizunami URL is hosted in
+      granitic rock and the Horonobe URL in sedimentary rock
+    explanation: Supports distinct microbiomes and the authors' likely lithological explanation, not a selectively
+      established driver.
+  participating_taxa:
+  - preferred_term: Horonobe sedimentary URL groundwater microbiome
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  - preferred_term: Mizunami granitic URL groundwater microbiome
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+- name: Shared Deep-Subsurface Genomic Functional Potential
+  description: Genome marker annotations in both URLs support widespread coding potential for hydrogen metabolism,
+    Rubisco-based carbon fixation, nitrogen reduction and sulfate reduction. The positive genomic result is not
+    measurement of pathway expression, biogeochemical flux, or exchange between every organism carrying those genes.
+    A functional repertoire is not itself cross-feeding.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: dihydrogen
@@ -121,25 +126,28 @@ ecological_interactions:
     term:
       id: GO:0019420
       label: dissimilatory sulfate reduction
-  downstream:
-  - target: Horonobe Sulfate-Reducer Hydrogen Support of Methanogenesis
-    description: Hydrogen metabolism and sulfate reduction are represented in
-      both URLs and include Horonobe Syntrophobacterales predicted to produce
-      H2 while reducing sulfate, feeding abundant Methanospirillum.
   evidence:
   - reference: PMID:39696556
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: hydrogen metabolism, rubisco-based CO2 fixation, reduction of
-      nitrogen compounds and sulfate reduction are well represented functions
-      in microbiomes from both URLs
-    explanation: Supports the shared deep-subsurface functional repertoire.
+    evidence_source: COMPUTATIONAL
+    snippet: hydrogen metabolism, rubisco-based CO2 fixation, reduction of nitrogen compounds and sulfate reduction
+      are well represented functions in microbiomes from both URLs
+    explanation: Supports the genomic functional repertoire, not direct activity or interspecies transfer.
+  participating_taxa:
+  - preferred_term: Horonobe sedimentary URL groundwater microbiome
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  - preferred_term: Mizunami granitic URL groundwater microbiome
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
 - name: Horonobe Sulfate-Reducer Hydrogen Support of Methanogenesis
-  description: In Horonobe communities farther from the tunnels, abundant
-    Syntrophobacterales are predicted to be autotrophic sulfate reducers that
-    may produce H2 supporting methanogenesis by abundant Methanospirillum,
-    linking the shared hydrogen and sulfate functional core to Horonobe-biased
-    methane metabolism.
+  description: PARTIAL - in Horonobe samples farther from tunnels, the authors propose that putative autotrophic
+    sulfate-reducing Syntrophobacterales may produce hydrogen supporting Methanospirillum methanogenesis. Genomic
+    capacities and community profiles motivate this model, without directly measuring partner-resolved hydrogen
+    transfer, necessity or simultaneous sulfate reduction and hydrogen export. The canonical Horonobe community
+    placeholder does not resolve those partners as individual grounded taxa.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   metabolites:
@@ -166,24 +174,29 @@ ecological_interactions:
       label: methanogenesis
   evidence:
   - reference: PMID:39696556
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: predicted to be autotrophic sulfate-reducers that may also produce H2,
-      supporting methanogenesis by abundant Methanospirillum
-    explanation: Supports predicted hydrogen transfer from Horonobe sulfate
-      reducers to methanogens.
+    snippet: predicted to be autotrophic sulfate-reducers that may also produce H2, supporting methanogenesis by
+      abundant Methanospirillum
+    explanation: Supports the proposed Horonobe hydrogen-transfer model or its genomic context, not measured partner-resolved
+      exchange.
   - reference: PMID:39696556
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: methane metabolism is more prevalent at the organic- and CO2-rich Horonobe URL
-    explanation: Supports the Horonobe-specific methane-metabolism context for
-      the predicted sulfate-reducer to methanogen coupling.
+    explanation: Supports the proposed Horonobe hydrogen-transfer model or its genomic context, not measured partner-resolved
+      exchange.
+  participating_taxa:
+  - preferred_term: Horonobe sedimentary URL groundwater microbiome
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
 - name: Genotypic Homogeneity Across Depths in Horonobe
-  description: Near-identical genotypes for approximately one third of detected
-    organisms recur at multiple Horonobe depths with detectable but slow in
-    situ growth, suggesting historical dispersal under different hydrological
-    regimes.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Near-identical genotypes recur across Horonobe depths for approximately one third of genomically
+    defined organisms. Coverage-qualified iRep estimates for a subset support replication, not direct absolute growth
+    rates for all taxa. Historical groundwater mobility is a proposed explanation for present genotype similarity;
+    the data do not directly establish migration, colonization facilitation or mutation rates, and current low conductivity
+    and heterogeneous chemistry argue against assuming ongoing intersite dispersal.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: growth
@@ -193,22 +206,27 @@ ecological_interactions:
   evidence:
   - reference: PMID:39696556
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: near-identical genotypes for approximately one third of all
-      genomically defined organisms at multiple depths within the Horonobe URL
-    explanation: Supports cross-depth genotypic homogeneity.
+    evidence_source: COMPUTATIONAL
+    snippet: near-identical genotypes for approximately one third of all genomically defined organisms at multiple
+      depths within the Horonobe URL
+    explanation: Supports the sequence-based cross-depth similarity observation.
+  - reference: PMID:39696556
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: the Horonobe URL microbiome homogeneity may be explained by higher groundwater mobility during the
+      last glacial period
+    explanation: Supports a proposed prior hydrological explanation, not observed historical transport.
   - reference: PMID:39696556
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: the Horonobe URL microbiome homogeneity may be explained by higher
-      groundwater mobility during the last glacial period
-    explanation: Supports paleo-hydrological dispersal as the proposed mechanism.
-  - reference: PMID:39696556
-    supports: SUPPORT
-    evidence_source: IN_VIVO
+    evidence_source: COMPUTATIONAL
     snippet: in situ growth was detected for some bacteria, albeit at slow rates
-    explanation: Supports slow ongoing growth by Horonobe genotypes despite
-      their cross-depth genomic similarity.
+    explanation: Supports the authors' replication inference from a coverage-qualified iRep subset, not direct absolute
+      growth-rate measurements.
+  participating_taxa:
+  - preferred_term: Horonobe sedimentary URL groundwater microbiome
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
 environmental_factors:
 - name: Depth interval
   value: 140 to 400 m below surface
@@ -273,3 +291,28 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   deep-subsurface groundwater microbiome.
+discussions:
+- discussion_id: url_function_and_dispersal_limits
+  prompt: Which processes connect URL genomic potential to activity and dispersal?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Site-Associated URL Community Divergence
+  - ecological_interactions#Shared Deep-Subsurface Genomic Functional Potential
+  - ecological_interactions#Horonobe Sulfate-Reducer Hydrogen Support of Methanogenesis
+  - ecological_interactions#Genotypic Homogeneity Across Depths in Horonobe
+  rationale: 'Remove both overview-to-hydrogen arrows: contrasting sites provides context, and membership of a shared
+    functional repertoire provides inclusion, neither an experimentally resolved upstream cause of the proposed
+    transfer. Expression, isotope/flux measurements and partner perturbations would test the retained hydrogen hypothesis.
+    Distinct rpS3 and genome-ANI species definitions yield different overlap counts and must not be conflated. Broad
+    habitat placeholders are not organism-resolved donor/recipient groundings. Methanoperedens iron-coupling, tunnel-associated
+    mobilization and historical dispersal are additional proposals, not newly demonstrated branches or an exhaustive
+    mechanism expansion. Non-graph metadata is preserved, not recertified.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T15:38:23Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound URL genomic functions and remove two contextual arrows. Issue #1501; reports/causal_graph_review/decisions/20261006-urls-amd-proteome-batch52.yaml'
+  llm_assisted: true
