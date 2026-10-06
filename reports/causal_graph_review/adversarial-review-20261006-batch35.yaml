@@ -1,0 +1,158 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: fcc5445fc825caaef69b838de8fddec4254fc3b1
+scope:
+- kb/communities/Early_Dental_Biofilm_FiveSpecies.yaml
+- kb/communities/East_River_Floodplain_Core_Microbiome.yaml
+- kb/communities/East_River_Hillslope_Riparian_Transect_Community.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch35.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch35.json
+findings:
+- issue: 1417
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Early dental graph: separate measured coaggregation from acidification mediation'
+  disposition: Graph corrected; close only after protected main merge.
+- issue: 1418
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'East River core graph: separate core gene capacity from one-floodplain transcription'
+  disposition: Graph corrected; close only after protected main merge.
+- issue: 1419
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'East River hillslope graph: qualify environmental mechanisms and selenate reduction potential'
+  disposition: Graph corrected; close only after protected main merge.
+- issue: 1420
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'Early dental cultivation: restore reported flow rate and distinguish growth feed from saliva
+    challenge'
+  disposition: Non-graph fields preserved and not certified. Remains open.
+- issue: 1421
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'East River core metadata: resolve taxon rank and core-membership overclaims'
+  disposition: Non-graph fields preserved and not certified. Remains open.
+- issue: 1422
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'East River hillslope metadata: distinguish genomic potential from active metabolism and CPR
+    syntrophy'
+  disposition: Non-graph fields preserved and not certified. Remains open.
+adversarial_checks:
+- Actual complete graph diffs compared with cached primary main bodies at the recorded access scope. Ten
+  nodes retained, four arrows removed and three qualified; no new nodes or arrows. Every original arrow
+  has a disposition and all renamed targets/anchors resolve.
+- Dental coaggregation is measured physical association in separate planktonic assays, not directional
+  colonization benefit or demonstrated pH mediation. Five-member glucose response is collective extracellular
+  acidification, not niche partitioning, species-specific flux or enamel damage. Growth feed and challenge
+  are distinct.
+- Floodplain core is operationally 42 genomes detected in at least 89/94 samples, not every abundant lineage.
+  Capacity enrichment is a part/whole description and does not predict one-time transcription. Both original
+  arrows removed.
+- Primary Methods restrict 2016 RNA to floodplain L despite broader abstract wording; retained abstract
+  evidence is PARTIAL with the conflict explained. Transcript counts are not carbon perturbation or flux.
+  Betaproteobacteria participant is only a higher-level CBB grouping and does not imply that every low-carbon
+  function or whole-group expression is enriched.
+- 'Core participants exclude non-core Acidobacteriota and do not propagate the Nitrospirae-to-Nitrospira
+  rank mismatch. Two newly exposed DISCONNECTED warnings are explicit debt under #1418/#1421, not hidden
+  or patched with invented interactions. Canonical taxonomy and GTDB withholding unchanged.'
+- Hillslope functional data are DNA-based potential, not RNA activity or measured cycling. Three environmental-driver
+  arrows remain HYPOTHESIZED with plausible source-proposed mechanisms, not categorical niche partitioning.
+  Shared-ID compartments retain exact preferred terms.
+- Non-CPR candidate-phylum depth enrichment is separated from CPR distributions, including near-water-table
+  and two deep hillslope exceptions. Host dependency remains a literature-based hypothesis; unsupported
+  interspecies-process annotation removed. No measured cross-feeding or syntrophy claimed.
+- SrdA enrichment concerns selenate-reduction potential; missing selenium chemistry at deep high-srdA
+  sites limits inference. No selenium-removal rate, selenite-reducing organism, growth benefit or water-quality
+  improvement claimed.
+- Three guarded writes, append-only histories and llm-assisted events; non-graph raw blocks, 457 other
+  records and all 920 caches byte-identical. Eight new regressions cover scientific limits, participant
+  identity, exact anchors, hashes and full arrow accounting.
+- All 31 prior network warnings preserved exactly; two source-scope warnings added, zero structural errors.
+  Participant registry adds only these three records, 180 to 183; broad census, taxonomy, algorithms and
+  numeric bounds unchanged.
+- Repeated renders deterministic and exact descriptions verified across 456 pages. Reference-validator
+  0.1.7 returned zero checks despite exit 0; no-op and textual snippet MATCH are not scientific validation.
+  No visual figures, raw data, browser screenshots or external supplement review claimed.
+- 'Deduplication included 742 all-state titles/bodies and ignored/hidden-inclusive local files, not every
+  issue comment. #1420-1422 remain open. Existing #401 GTDB policy was distinguished from source-rank
+  mismatch. No provider job or charge.'
+verification:
+  combined_regressions: 384 passed in 164.84s (0:02:44)
+  new_regression_tests: 8
+  schema_strict_terms_history: passed; actual output tails and log digests retained
+  snippet_counts_by_record:
+    kb/communities/Early_Dental_Biofilm_FiveSpecies.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/East_River_Floodplain_Core_Microbiome.yaml:
+      MATCH: 16
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/East_River_Hillslope_Riparian_Transect_Community.yaml:
+      MATCH: 35
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero errors; 31 prior warnings exactly preserved and two exposed DISCONNECTED warnings disclosed.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch35.yaml: efba701bb04cf8492e807965e000cefb04855d64aadd2bf2d8d41eab6c48cd91
+    tests/test_causal_review_batch35.py: 36277cc680b9171ab9e584508288116c2d22d0405af3aa266bb1ac3c2f14efcd
+    tests/test_participating_taxa.py: 4b3fba5fa841dbdcc1258b7d9e2e9e5f70049e25c564f5d3f150cf65d4cb26b5
+    kb/communities/Early_Dental_Biofilm_FiveSpecies.yaml: 5f765b58c46852bbb55161479525a0b8f6bcc3249c385ca296978ef580a62c75
+    kb/communities/East_River_Floodplain_Core_Microbiome.yaml: 152ced119bc2c3699bd6d14465561ce7fa7e5010c0defbeb40f027303b9b83e7
+    kb/communities/East_River_Hillslope_Riparian_Transect_Community.yaml: fbc3e3dba6d44ba88f701bfb38ef387898aa1000579763e1ab676817c6abf0ce
+  post_commit_docs_current: Separate publication gate; not asserted in pre-commit record.
+  protected_ci_and_merge: Exact-head protected main checks and queue still required.
+participant_census:
+  connectivity_before:
+    community_level_only: 265
+    credited_solely_by_the_rule: 1222
+    mixed: 122
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  connectivity_after:
+    community_level_only: 265
+    credited_solely_by_the_rule: 1222
+    mixed: 122
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  exact_change: 180 -> 183 users; only the three reviewed records added. Scope and broad census unchanged;
+    two newly exposed DISCONNECTED warnings are separately reported. No taxon or numeric-bound changes.
+  numeric_bounds_changed: false
+corpus:
+  records: 460
+  nodes: 1470
+  edges: 697
+  review_status_counts:
+    needs_research: 7
+    pending: 306
+    reviewed: 147
+limitations:
+- Ten existing nodes retained; four arrows removed and three qualified. No new connectivity or provider
+  request.
+- Cached primary main-body text and stated captions reviewed, not visual figures, raw data or separate
+  supplements. Source caches unchanged.
+- 'Canonical taxonomy and non-graph raw blocks preserved, not certified. Partial participant lists deliberately
+  expose unsupported connectivity; #1420-1422 remain open.'
+- Floodplain L RNA snapshot is not all-three-site flux. Higher-level participant groups are not all-member
+  pathway assignments; Nitrospira rank mismatch is not propagated.
+- Hillslope compartment preferred terms remain distinct despite a shared broad ID; causal drivers and
+  CPR dependency are untested hypotheses.
+- Self-adversarial review is not independent approval, protected main merge or full-corpus completion;
+  textual snippet matching is not scientific validation.

@@ -3,13 +3,13 @@
   "semantic_review_rule": "Structural checks and readiness scores do not establish causal support. Completed reviews must match the current record SHA-256, cover every node once with a rationale, and reproduce the current edge list.",
   "records": 460,
   "nodes": 1470,
-  "edges": 701,
+  "edges": 697,
   "records_without_nodes": 8,
-  "records_without_edges": 144,
+  "records_without_edges": 146,
   "review_status_counts": {
     "needs_research": 7,
-    "pending": 309,
-    "reviewed": 144
+    "pending": 306,
+    "reviewed": 147
   },
   "structural_defects": [],
   "network_audit": [
@@ -601,6 +601,79 @@
         ]
       },
       "message": "Taxon 'Methylophaga' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "East_River_Floodplain_Core_Microbiome",
+      "type": "DISCONNECTED",
+      "taxon": "Acidobacteriota floodplain representatives",
+      "taxon_id": "NCBITaxon:57723",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Acidobacteriota floodplain representatives",
+          "term": {
+            "id": "NCBITaxon:57723",
+            "label": "Acidobacteriota"
+          },
+          "gtdb_grounding_status": "GROUNDED",
+          "gtdb_classification": {
+            "gtdb_id": "GTDB:p__Acidobacteriota",
+            "gtdb_taxon": "Acidobacteriota",
+            "gtdb_lineage": "d__Bacteria;p__Acidobacteriota",
+            "ncbi_source_id": "NCBITaxon:57723",
+            "majority_fraction": 1.0,
+            "support_genomes": 203,
+            "total_genomes": 203,
+            "is_reclassified": false,
+            "mapping_source": "kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 1 GTDB taxa under the NCBI taxon]"
+          },
+          "notes": "Acidobacteriota were among the abundant representative genomes reconstructed across the three meander-bound floodplains."
+        },
+        "functional_role": [
+          "PRIMARY_DEGRADER"
+        ],
+        "evidence": [
+          {
+            "reference": "PMID:34022966",
+            "supports": "SUPPORT",
+            "evidence_source": "COMPUTATIONAL",
+            "snippet": "Other abundant taxa across floodplains included Deltaproteobacteria (27 representatives), Acidobacteria (21 representatives), Nitrospirae and Planctomycetes (both with 13 representatives)",
+            "explanation": "Supports Acidobacteriota as one of the abundant reconstructed floodplain soil lineages."
+          }
+        ]
+      },
+      "message": "Taxon 'Acidobacteriota floodplain representatives' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "East_River_Floodplain_Core_Microbiome",
+      "type": "DISCONNECTED",
+      "taxon": "Nitrospirae core floodplain members",
+      "taxon_id": "NCBITaxon:1234",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Nitrospirae core floodplain members",
+          "term": {
+            "id": "NCBITaxon:1234",
+            "label": "Nitrospira"
+          },
+          "gtdb_grounding_status": "WITHHELD",
+          "notes": "Nitrospirae were among abundant reconstructed lineages and are consistent with the highly transcribed nitrification genes reported for the floodplain soils."
+        },
+        "functional_role": [
+          "PRIMARY_PRODUCER"
+        ],
+        "evidence": [
+          {
+            "reference": "PMID:34022966",
+            "supports": "SUPPORT",
+            "evidence_source": "COMPUTATIONAL",
+            "snippet": "the most highly transcribed genes were relatively rare amoCAB and nxrAB (for nitrification) genes",
+            "explanation": "Supports active nitrification capacity in the floodplain soil community."
+          }
+        ]
+      },
+      "message": "Taxon 'Nitrospirae core floodplain members' has no interactions",
       "severity": "warning"
     },
     {
