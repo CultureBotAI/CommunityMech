@@ -281,6 +281,8 @@ USERS = {
     "Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.yaml",
     "Ginseng_CL95_Rusty_Root_Rot_Biocontrol_SynCom.yaml",
     "Glutamicibacter_S11_Aquaculture_Nitrogen_Removal_SynCom.yaml",
+    "Grassland_Soil_WetUp_Virus_Host_Community.yaml",
+    "Groundwater_Elusimicrobia_Diverse_Metabolisms.yaml",
     "Honeybee_Core20_Defined_Microbiota.yaml",
     "Hualgayoc_Acidic_Sulfate_Reducing_AMD_Consortium.yaml",
     "Iberian_Pit_Lake_Stratified_Community.yaml",

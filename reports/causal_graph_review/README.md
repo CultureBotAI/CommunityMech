@@ -5,6 +5,21 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch49: Wet-Up Viruses And Groundwater Elusimicrobia
+
+[Decisions](decisions/20261006-wetup-elusimicrobia-batch49.yaml),
+[validation](validation-20261006-batch49.json) and
+[self-adversarial review](adversarial-review-20261006-batch49.yaml) distinguish
+wet-up viral observations from model-dependent mortality and proposed carbon
+mediation. Both viral arrows remain explicitly qualified. All four groundwater
+findings remain as genomic observations or predictions; three overview inclusion
+arrows and unsupported ecological labels are removed. Both habitat labels sharing
+one taxon ID remain distinct. The measured connectivity census change is recorded.
+The review corrects an overstatement about different richness time-window summaries;
+earlier check receipts are retained, with final-text verification recorded separately.
+Main texts and embedded captions were inspected, not figure images or supplements.
+Non-graph metadata remains outside this repair and is not recertified.
+
 ## Batch48: Ginseng CL95 And Glutamicibacter S11
 
 [Decisions](decisions/20261006-ginseng-s11-batch48.yaml),
