@@ -138,11 +138,11 @@ taxonomy:
     explanation: Supports Gemmatimonadota-related members in the East River core floodplain microbiome.
 ecological_interactions:
 - name: Core Floodplain Biogeochemical Potential Reservoir
-  description: High-prevalence floodplain genomes form a shared reservoir of
-    one-carbon, sulfur, nitrogen, hydrogen, and aerobic respiratory capacity
-    that becomes active as environmental conditions change across East River
-    floodplain soils.
-  interaction_type: NICHE_PARTITIONING
+  description: The 2015 operational core comprises 42 representative genomes detected in at least 89 of 94 samples
+    without a significant association to any one floodplain. Their gene inventories define biogeochemical potential,
+    not measured activation or flux. Listed Betaproteobacteria and Gemmatimonadota participants are partial higher-level
+    core groupings, not a complete roster or an assertion that every genome encodes every pathway. Widely represented
+    capacities did not predict the later transcription snapshot.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: thiosulfate
@@ -162,28 +162,36 @@ ecological_interactions:
     term:
       id: GO:0015977
       label: carbon fixation
-  downstream:
-  - target: Core Floodplain Aerobic and Sulfur Oxidation Capacity
-    description: Shared core genomes encode aerobic respiration, aerobic carbon
-      monoxide oxidation, and thiosulfate oxidation capacity across meanders.
-  - target: Low-Organic-Carbon Chemolithotrophic Activity
-    description: The core capacity reservoir is expressed unevenly; under lower
-      soil organic carbon, chemolithotrophic one-carbon, sulfur, hydrogen, and
-      nitrogen redox genes become highly active.
   evidence:
   - reference: PMID:34022966
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Widely represented genetic capacities did not predict in situ activity at one time
-      point, but rather they define a reservoir of biogeochemical potential available
-      as conditions change.
-    explanation: Supports representing the conserved floodplain genomes as a
-      conditional reservoir of redox and carbon-fixation capacity.
+    snippet: Widely represented genetic capacities did not predict in situ activity at one time point, but rather
+      they define a reservoir of biogeochemical potential available as conditions change.
+    explanation: Supports representing the conserved floodplain genomes as a conditional reservoir of redox and
+      carbon-fixation capacity.
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Genomes affiliated with Acidobacteria, Bacteroidetes, and Chloroflexi were not part of the core floodplain
+      microbiome
+    explanation: Explicitly excludes Acidobacteria from the operational core; abundance in the broader dataset is
+      not core membership.
+  participating_taxa:
+  - preferred_term: Betaproteobacteria-dominated core floodplain microbiome
+    term:
+      id: NCBITaxon:28216
+      label: Betaproteobacteria
+  - preferred_term: Gemmatimonadota floodplain representatives
+    term:
+      id: NCBITaxon:142182
+      label: Gemmatimonadota
 - name: Core Floodplain Aerobic and Sulfur Oxidation Capacity
-  description: The cross-site core floodplain microbiome is enriched in aerobic respiration, carbon monoxide
-    oxidation, and thiosulfate oxidation, indicating shared redox capacity across meander-bound floodplain
-    soils.
-  interaction_type: NICHE_PARTITIONING
+  description: The operational core genome set is enriched in capacities for aerobic respiration, aerobic CO or
+    other small-molecule oxidation, and thiosulfate oxidation. This is comparative gene-content enrichment, not
+    measured reaction rates, cooperation or niche partitioning. The two canonical participant groups are a partial
+    core roster; no universal per-taxon pathway assignment or substrate specificity for every CODH-like homolog
+    is implied.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: thiosulfate
@@ -203,14 +211,25 @@ ecological_interactions:
   - reference: PMID:34022966
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: we identified a core floodplain microbiome that is enriched in capacities for aerobic
-      respiration, aerobic CO oxidation, and thiosulfate oxidation with the formation of elemental sulfur.
+    snippet: we identified a core floodplain microbiome that is enriched in capacities for aerobic respiration,
+      aerobic CO oxidation, and thiosulfate oxidation with the formation of elemental sulfur.
     explanation: Supports shared aerobic and sulfur oxidation capacity in the core community.
-- name: Low-Organic-Carbon Chemolithotrophic Activity
-  description: Floodplain soils with lower organic carbon show increased activity of genes for methanol,
-    formate, sulfide, hydrogen, and ammonia oxidation, nitrite oxidoreduction, nitrate and nitrite reduction,
-    and carbon fixation, suggesting functional niche shifts along carbon gradients.
-  interaction_type: NICHE_PARTITIONING
+  participating_taxa:
+  - preferred_term: Betaproteobacteria-dominated core floodplain microbiome
+    term:
+      id: NCBITaxon:28216
+      label: Betaproteobacteria
+  - preferred_term: Gemmatimonadota floodplain representatives
+    term:
+      id: NCBITaxon:142182
+      label: Gemmatimonadota
+- name: Low-Organic-Carbon-Associated Gene Transcription in Floodplain L
+  description: In the September 2016 floodplain L RNA snapshot, lower organic carbon correlated with increased transcription
+    of selected C1, sulfur, hydrogen and nitrogen redox genes and carbon-fixation genes. This is not a carbon manipulation,
+    measured flux, a result independently sampled in all three floodplains or activation of the entire 2015 core.
+    Betaproteobacteria are included only as a broad grouping linked to CBB carbon-fixation capacity/activity; their
+    overall transcription favored higher organic carbon. Other low-carbon-active groups are not reliably represented
+    by the canonical taxonomy, so this is explicitly a partial participant list.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: formate
@@ -232,19 +251,38 @@ ecological_interactions:
       label: carbon fixation
   evidence:
   - reference: PMID:34022966
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: Within all three meanders, low soil organic carbon correlated with high activity of genes
-      involved in methanol, formate, sulfide, hydrogen, and ammonia oxidation, nitrite oxidoreduction,
-      and nitrate and nitrite reduction.
-    explanation: Supports organic-carbon-linked functional shifts in the floodplain soil community.
+    snippet: Within all three meanders, low soil organic carbon correlated with high activity of genes involved
+      in methanol, formate, sulfide, hydrogen, and ammonia oxidation, nitrite oxidoreduction, and nitrate and nitrite
+      reduction.
+    explanation: The abstract uses all-three-meander wording, but primary Methods and Results restrict the 2016
+      RNA sampling to floodplain L. Retained as a source statement with this explicit limitation, not evidence of
+      three independent transcript surveys.
   - reference: PMID:34022966
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: the most highly transcribed genes were relatively rare amoCAB and nxrAB (for nitrification)
-      genes, followed by genes involved in methanol and formate oxidation, and nitrogen and CO2 fixation.
-    explanation: Supports active nitrification, one-carbon oxidation, nitrogen fixation, and carbon fixation
-      gene expression in the community.
+    snippet: the most highly transcribed genes were relatively rare amoCAB and nxrAB (for nitrification) genes,
+      followed by genes involved in methanol and formate oxidation, and nitrogen and CO2 fixation.
+    explanation: Supports relative gene transcription in the RNA snapshot, not measured nitrification or carbon
+      flux and not a per-taxon assignment of every gene.
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: we resampled floodplain L for metatranscriptomics and metagenomics
+    explanation: Locates the RNA study in the middle floodplain rather than all three sites.
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Activity of the Calvin Benson Bassham (CBB) pathway for CO2 fixation is linked to Betaproteobacteria,
+      Deltaproteobacteria, Gammaproteobacteria, and NC10
+    explanation: Supports the limited higher-level Betaproteobacteria participant for carbon fixation, not every
+      low-carbon-associated function or every core genome.
+  participating_taxa:
+  - preferred_term: Betaproteobacteria-dominated core floodplain microbiome
+    term:
+      id: NCBITaxon:28216
+      label: Betaproteobacteria
 environmental_factors:
 - name: East River meander-bound floodplain position
   value: upper, middle, and lower East River floodplain soils
@@ -299,3 +337,28 @@ associated_datasets:
       ANI set), in addition to the environmental data (metadata) that support the findings of this study
       are available in ESS-DIVE with the identifier DOI: 10.15485/1631979
     explanation: Links the record to the ESS-DIVE genome and metadata resource.
+discussions:
+- discussion_id: east_river_core_capacity_transcription_scope
+  prompt: Which genomes and environmental mechanisms link conserved capacity to measured flux?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Core Floodplain Biogeochemical Potential Reservoir
+  - ecological_interactions#Core Floodplain Aerobic and Sulfur Oxidation Capacity
+  - ecological_interactions#Low-Organic-Carbon-Associated Gene Transcription in Floodplain L
+  rationale: 'Core capacity enrichment is a part/whole description, not a causal consequence requiring an arrow.
+    Gene inventories did not predict one-time expression, and the 2016 RNA study sampled only L. Direct flux and
+    selective environmental perturbations are missing. The canonical Nitrospira genus ID cannot stand in for the
+    paper''s Nitrospirae phylum; Acidobacteriota are non-core and overall more transcriptionally active at higher
+    organic carbon. Neither is assigned an unsupported graph link just to suppress disconnected warnings. Taxonomy
+    and non-graph scope remain under #1421; no GTDB withholding policy is changed.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T08:01:03Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain operational core genomic potential with a partial source-supported participant roster.; Retain
+    core gene-content enrichment without part-whole causality or realized flux.; Retain low-carbon-associated transcription
+    at floodplain L with explicit taxonomic and temporal limits. Issue #1418; reports/causal_graph_review/decisions/20261006-three-records-batch35.yaml'
+  llm_assisted: true
