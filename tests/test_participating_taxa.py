@@ -320,6 +320,7 @@ USERS = {
     "MAMC_M48_Lignocellulose.yaml",
     "MSC1_Dominant_Core.yaml",
     "MSC2_Model_Soil_Consortium.yaml",
+    "MUC2_Human_Gut_Commensal_Defined_Consortium.yaml",
     "Magnetite_Sulfate_Stress_Anaerobic_Microbiome.yaml",
     "Maize_Root_Simplified_Community.yaml",
     "Maize_SC2_RootRot_Biocontrol_SynCom.yaml",
