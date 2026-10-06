@@ -112,11 +112,12 @@ def test_most_records_carry_a_community_level_interaction(survey):
 def test_the_mixed_records_are_where_the_coarseness_bites(survey):
     """A record with both kinds is where an unrelated edge credits a lone taxon.
 
-    #312 measured 46; ongoing curation has moved this near 90. In the
+    #1344 adds two source-backed mixed-scope records (120 -> 122).
+    #312 measured 46. In the
     community-level-only records the credit is not
     coarse — there is no pairwise edge it could be masking.
     """
-    assert 35 <= survey["mixed"] <= 120, survey
+    assert 35 <= survey["mixed"] <= 122, survey
     assert survey["mixed"] + survey["community_level_only"] == survey["with_community_level"]
 
 
