@@ -321,6 +321,8 @@ USERS = {
     "MSC1_Dominant_Core.yaml",
     "MSC2_Model_Soil_Consortium.yaml",
     "MUC2_Human_Gut_Commensal_Defined_Consortium.yaml",
+    "MUCC_Freshwater_Wetland_Methane_Network_Community.yaml",
+    "MWF001_FourSpecies_CrossFeeding_Consortium.yaml",
     "Magnetite_Sulfate_Stress_Anaerobic_Microbiome.yaml",
     "Maize_Root_Simplified_Community.yaml",
     "Maize_SC2_RootRot_Biocontrol_SynCom.yaml",
