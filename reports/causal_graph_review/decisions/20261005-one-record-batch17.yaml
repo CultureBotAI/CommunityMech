@@ -1,0 +1,251 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 0910d162535f98abba87fadb931b1261ce7aa775
+issues:
+- 1316
+open_nongraph_followups:
+- 1317
+existing_model_followups:
+- 749
+- 752
+issue_deduplication:
+  issue_count: 659
+  scope: All-state issue titles and bodies; comments not exhaustive. Ignored-inclusive local reports/history/research/tests
+    search plus KB and isolate search for p100ptaHalo, ptaHalo, PMID 38214507 and DOI 03133-23.
+  findings: Only the existing wild-type record matched the engineered DNA paper identifiers in the KB search. Existing
+    issues 749 and 752 are broader enum-model followups, not duplicates of exact-system graph fixes. Closed issue
+    748 concerns abundance enum semantics, not new evidence provenance.
+reference_cache_original_hashes:
+  references_cache/PMID_40298437.md: 96f235b46b00eceee141aef2615e2838aaecd09d1a26fad68bacf095da3a4882
+  references_cache/PMID_32873766.md: 5230e98ef56284528e6348ab21fb0220b99815d73a0474c9eff7a174df9dfddf
+  references_cache/PMID_38214507.md: 00501fb2595c3df92d30b72982311d43e6ddacad5fab1fa1ae12b116fb81a0c3
+  references_cache/PMID_30391511.md: 9bba0282942015d00969122ee448139191b8c66eff65ea0adf8f23296d76313b
+limitations:
+- No new nodes/arrows; four exact renames and one node/arrow removal. No Edison run or spend.
+- Three primary main bodies and captions read; images and supplements not visually inspected. Founding paper abstract
+  only.
+- 'Issue #1317 tracks separate non-graph metadata; unrelated YAML blocks preserved.'
+- Self-adversarial review is not independent approval or corpus completion. Protected checks and queue still required.
+records:
+- path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture.yaml
+  id: CommunityMech:000336
+  original_sha256: db4ee8d4be5d8027c88a35ea503475b9552d25a4dc991319142be92e31be5891
+  record_sha256: 27e4e0784e4d50f0b619fb8754e1f6f3417d351e12344be9f5c8df293035b61c
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-one-record-batch17.yaml
+  scope: Whole record and all nine original nodes/three arrows reviewed against primary main text; images and supplements
+    not visually inspected.
+  summary: Separate wild-type fusion from engineered DNA integration; preserve measured gas, amino-acid and product
+    results while qualifying causal mechanisms and contact-associated growth.
+  renamed_nodes:
+    Hydrogen removal relieving hydrogenase feedback inhibition: Proposed hydrogenase feedback relief through hydrogen
+      removal
+    Contact-dependent growth stimulation of both partners: Contact-associated transcriptional response and proposed
+      growth stimulation
+    Competition for yeast-extract amino acids and product inhibition: Proposed amino-acid competition and product
+      inhibition
+    Emergent non-native metabolites: Coculture isopropanol and 2,3-butanediol production
+  node_decisions:
+  - node: Gas syntrophy - CO2 and H2 transfer to the acetogen
+    rationale: Preserve supported gas cross-feeding; different monoculture conditions do not resolve same-condition
+      obligacy.
+  - node: Arginine cross-feeding to the acetogen
+    rationale: Preserve supernatant and supplementation evidence while qualifying partner flux and ATP mediation.
+  - node: Histidine degradation feeding the acetogen
+    rationale: Preserve histidine supplementation results; qualify transfer and proposed Wood-Ljungdahl coupling.
+  - node: Proposed hydrogenase feedback relief through hydrogen removal
+    rationale: Name the glucose-consumption assay and distinguish it from direct hydrogenase measurement or reciprocal
+      fitness.
+  - node: Contact-associated transcriptional response and proposed growth stimulation
+    rationale: Retain contact-associated transcripts without presenting them as measured species-specific growth
+      rates.
+  - node: Proposed amino-acid competition and product inhibition
+    rationale: Retain the proposed inhibition model without categorical reciprocal competition.
+  - node: Interspecies cell fusion and cytoplasmic material exchange
+    rationale: Preserve wild-type structural fusion and protein exchange; distinguish reporter RNA and engineered
+      DNA assays.
+  - node: Coculture isopropanol and 2,3-butanediol production
+    rationale: Retain measured products but bound emergence to study controls and qualify fusion-specific causality.
+  removed_node_decisions:
+  - node: Interspecies DNA transfer and genomic integration
+    original_node:
+      name: Interspecies DNA transfer and genomic integration
+      description: 'Plasmid DNA from C. ljungdahlii is acquired by C. acetobutylicum and integrated into its genome,
+        a horizontal transfer route mediated by the cell fusion rather than by conjugation, transduction, or transformation.
+
+        interaction_type is deliberately unset for the same reason as the fusion entry: COMMENSALISM would assert
+        that the recipient benefits, and the cited work shows acquisition and integration, not benefit. Tracked
+        as issue 749.'
+      scope: PAIRWISE
+      source_taxon:
+        preferred_term: Clostridium ljungdahlii
+        term:
+          id: NCBITaxon:1538
+          label: Clostridium ljungdahlii
+      target_taxon:
+        preferred_term: Clostridium acetobutylicum
+        term:
+          id: NCBITaxon:1488
+          label: Clostridium acetobutylicum
+      metabolites:
+      - preferred_term: DNA
+        term:
+          id: CHEBI:16991
+          label: deoxyribonucleic acid
+      evidence:
+      - reference: PMID:38214507
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: we isolated C. acetobutylicum cells which acquired and integrated into their genome portions of
+          plasmid DNA from a plasmid-carrying C. ljungdahlii strain
+        explanation: Sources the direction of transfer and the genomic integration.
+    rationale: Supported DNA integration belongs to a plasmid-donor/selected-recipient experiment, not the explicitly
+      wild-type graph. Preserve evidence for a separately scoped record; do not deny the experimental finding.
+  edges_before:
+  - source: Gas syntrophy - CO2 and H2 transfer to the acetogen
+    target: Hydrogen removal relieving hydrogenase feedback inhibition
+    description: 'Acetogenic consumption of C. acetobutylicum-derived H2 is the reciprocal sink hypothesized to
+      relieve hydrogenase feedback in the solventogen.
+
+      '
+  - source: Interspecies cell fusion and cytoplasmic material exchange
+    target: Interspecies DNA transfer and genomic integration
+    description: 'Cell fusion provides a physical route for C. ljungdahlii plasmid DNA to cross into C. acetobutylicum
+      and integrate into its genome.
+
+      '
+  - source: Interspecies cell fusion and cytoplasmic material exchange
+    target: Emergent non-native metabolites
+    description: 'Fusion-mediated material exchange is the direct-contact mechanism associated with wild-type production
+      of metabolites neither monoculture produces.
+
+      '
+  edges_after:
+  - source: Gas syntrophy - CO2 and H2 transfer to the acetogen
+    target: Proposed hydrogenase feedback relief through hydrogen removal
+    description: HYPOTHESIZED - acetogenic consumption of partner-derived H2 could relieve local hydrogenase feedback
+      in C. acetobutylicum. Early glucose-consumption comparisons are consistent with this reciprocal effect, but
+      do not directly measure hydrogenase activity or isolate local H2 removal.
+  - source: Interspecies cell fusion and cytoplasmic material exchange
+    target: Coculture isopropanol and 2,3-butanediol production
+    description: HYPOTHESIZED - fusion-associated cytoplasmic exchange could enable the altered metabolite production
+      observed in mixed coculture. Membrane-separation results support contact dependence, but do not selectively
+      perturb fusion or demonstrate that fusion alone causes the product phenotype.
+  retained_edge_decisions:
+  - source: Gas syntrophy - CO2 and H2 transfer to the acetogen
+    target: Proposed hydrogenase feedback relief through hydrogen removal
+    rationale: HYPOTHESIZED - acetogenic consumption of partner-derived H2 could relieve local hydrogenase feedback
+      in C. acetobutylicum. Early glucose-consumption comparisons are consistent with this reciprocal effect, but
+      do not directly measure hydrogenase activity or isolate local H2 removal.
+  - source: Interspecies cell fusion and cytoplasmic material exchange
+    target: Coculture isopropanol and 2,3-butanediol production
+    rationale: HYPOTHESIZED - fusion-associated cytoplasmic exchange could enable the altered metabolite production
+      observed in mixed coculture. Membrane-separation results support contact dependence, but do not selectively
+      perturb fusion or demonstrate that fusion alone causes the product phenotype.
+  removed_edge_decisions:
+  - source: Interspecies cell fusion and cytoplasmic material exchange
+    target: Interspecies DNA transfer and genomic integration
+    description: 'Cell fusion provides a physical route for C. ljungdahlii plasmid DNA to cross into C. acetobutylicum
+      and integrate into its genome.
+
+      '
+    rationale: Engineered DNA endpoint removed from wild-type scope; fusion-specific transport route is proposed,
+      not selectively demonstrated.
+  references:
+  - PMID:30391511
+  - PMID:32873766
+  - PMID:38214507
+  - PMID:40298437
+  history_files:
+  - history/records/Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture/2026-10-05T224753Z-codex-668b1f.yaml
+  issues:
+  - 1316
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    primary_transcriptome:
+      url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12090709/fullTextXML
+      path: /private/tmp/communitymech-batch17/fusion-transcriptome.xml
+      sha256: 673cfd527ec15c8194097ba339486d53396a8116b6b6ed87cc0f6c91b7d1ca01
+      license: CC BY 4.0 verified in primary XML.
+      sections_read:
+      - Overview of genes strongly upregulated by direct interspecies contact
+      - Arginine, histidine, and tryptophan biosynthesis genes and metabolism
+      - Does the differential expression of ribosomal proteins support the notion that the coculture benefits C.
+        acetobutylicum growth?
+      - Introduction
+      - Experimental design and global gene-expression summary
+      - Cell motility genes
+      - Wood-Ljungdahl and autotrophic energy metabolism
+      - Conclusions
+      - All Materials and Methods subsections
+      - All seven main figure captions
+      findings:
+      - Do not label this as transcript-only evidence. Primary work measures supernatant amino acids, glutamate
+        profiles, and C. ljungdahlii autotrophic growth with amino-acid supplementation.
+      - Supplementation is C. ljungdahlii monoculture, not direct donor-to-recipient tracing; histidine-WLP pathway
+        and cross-feeding remain proposed.
+      - Measured early glucose-consumption rates compare coculture against C. acetobutylicum monoculture under N2
+        or 80 percent H2 / 20 percent CO2. Small consistent differences support the H2-feedback hypothesis, not
+        direct hydrogenase activity measurement.
+      - Contact-associated ribosomal/pyrimidine expression is interpreted as growth stimulation; avoid substituting
+        transcript abundance for directly measured species-specific growth.
+      - Type I C. ljungdahlii monocultures differed in pressure, agitation and absence of glucose; do not call them
+        identical conditions to the coculture.
+      - Type I pH WAS manually adjusted at 11 hours; current record says pH uncontrolled based on absent apparatus.
+        This is a separate non-graph metadata defect requiring an issue.
+      - Population ratios were estimated from aligned mRNA reads, not direct cell counts.
+      - No detectable isopropanol at the Type II 11-hour endpoint is phase-specific and does not refute later wild-type
+        production.
+      - Entire primary body and seven main figure captions read by structured XML. References and supplements not
+        exhaustively read; no primary figure visually inspected yet.
+      - Heat shock is specifically in the C. acetobutylicum preculture protocol, not both organisms; current shared
+        growth_media preparation note needs non-graph clarification.
+      - Approximately 25 percent C. ljungdahlii in the library-depth rationale cites prior work, whereas Figure
+        1 population profiles use mRNA reads; distinguish both evidence origins when reviewing abundance metadata.
+      - Amino-acid supplementation Figure 6 uses two biological replicates, unlike the three-replicate Type I/II
+        transcriptome experiments.
+    primary_structure:
+      url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7468208/fullTextXML
+      path: /private/tmp/communitymech-batch17/fusion-structure.xml
+      sha256: d7a2480f551f28dd40e766be8a53f3315def3c82da087d0a08bd74b4824caa6a
+      license: CC BY 4.0 verified in primary XML.
+      reading: Whole main body, Methods and eight main figure captions read. Main images, supplements and bibliography
+        not exhaustively inspected. Public image download returned 403; no image inspection claimed.
+      findings:
+      - Wild-type electron microscopy and tomography demonstrate cell-wall and membrane fusion. Chemical protein
+        dyes also support wild-type protein exchange.
+      - Many protein images use reporters; the RNA experiment pairs WT C. ljungdahlii with C. acetobutylicum-Halo.
+        Do not describe every assay as an unmodified pair.
+      - RNASelect is not mRNA-specific; the stable signal is interpreted largely as rRNA/tRNA.
+      - The structural study uses 100 nm protein-exchange transwells, distinct from the 2025 0.4 micrometer transcriptome
+        transwells.
+      - C. ljungdahlii can in principle produce 2,3-butanediol alone, but did not in the reported monoculture controls.
+        Bound emergence to those conditions.
+      - Membrane separation supports contact dependence, not a selective perturbation establishing that fusion itself
+        is necessary for metabolite production.
+    primary_dna:
+      url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10865971/fullTextXML
+      path: /private/tmp/communitymech-batch17/fusion-dna.xml
+      sha256: 68696172fa04c38aed633529884a2fad1c56822122912185774bf171e5b8b22b
+      license: CC BY 4.0 verified in primary XML.
+      reading: Whole main body, Methods and five main figure captions read. Table 1 not separately inspected; images
+        and supplements not visually inspected.
+      findings:
+      - WT recipient C. acetobutylicum was paired with plasmid-bearing C. ljungdahlii-ptaHalo, followed by selective
+        passages; not the wild-type pairing curated here.
+      - Selected P4.5 cells have integrated plasmid DNA supported by PCR and long reads; this real result must not
+        be relabeled as unsupported biology.
+      - Fusion is the authors' most-likely route, not directly established by DNA imaging or fusion-specific perturbation.
+        Other route exclusions are mechanistic arguments.
+      - Mixed or hybrid populations and methylation evidence do not establish universal stable clonal hybrids. No
+        such claim will be added.
+    primary_founding:
+      url: https://pubmed.ncbi.nlm.nih.gov/30391511/
+      reading: Fresh primary abstract and complete selected-snippet cache read; full body not obtained. No new numerical
+        claim curated from inaccessible body.
