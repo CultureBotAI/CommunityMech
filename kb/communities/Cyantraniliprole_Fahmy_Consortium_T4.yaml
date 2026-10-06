@@ -183,13 +183,11 @@ taxonomy:
       consortium and reports its sequence accession.
 ecological_interactions:
 - name: T4 distributed cyantraniliprole enzyme potential
-  description: >
-    Bioinformatic prediction assigned T4 a distributed enzyme set covering the
-    five enzyme classes the authors considered necessary for the cyantraniliprole
-    degradation pathway. Individual predicted enzyme activities differed among
-    strains, so the record captures this as community-level functional
-    complementarity and not as a resolved pairwise metabolite exchange.
-  interaction_type: MUTUALISM
+  description: Post-assay bioinformatic analysis assigns the T4 strains a combined repertoire spanning five enzyme
+    classes proposed for cyantraniliprole transformation. These are predicted functions and pathway coverage, not
+    measured enzyme expression, catalytic activity or necessary member-specific flux. The six-strain aggregate can
+    have complementary potential without demonstrated reciprocal fitness benefits or resolved metabolite exchange;
+    the simpler four-strain design suggested by the authors was not experimentally validated.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cyantraniliprole
@@ -205,31 +203,55 @@ ecological_interactions:
   - reference: PMID:42354927
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: >
-      While T3 had 24 enzymes and T4 had 22, the critical factor was that both
-      contained all five key enzymes necessary for the complete degradation
-      pathway, most notably including the enzyme catechol O-methyltransferase
+    snippet: 'While T3 had 24 enzymes and T4 had 22, the critical factor was that both contained all five key enzymes
+      necessary for the complete degradation pathway, most notably including the enzyme catechol O-methyltransferase
       (COMT).
-    explanation: >
-      Supports predicted coverage of all five cyantraniliprole-degradation
-      enzyme classes by the T4 consortium without proving pairwise metabolite
-      exchange.
+
+      '
+    explanation: Supports the authors' predicted repertoire coverage, not measured enzyme activity, confirmed pathway
+      intermediates, mutualism or an experimentally established four-strain minimum. Table 8 is explicitly bioinformatic
+      despite its gene-activation wording.
     computational_provenance:
       prediction_type: OTHER
       tools:
       - tool_name: EAWAG-BBD pathway prediction system
         role: predicted cyantraniliprole transformation pathway and associated enzyme coverage
-      parameters: >
-        Pathway and enzyme-activity prediction used to compare candidate enzyme
-        coverage across Consortia No. 1-4; tool version and sequence-search
-        thresholds were not reported in the source paper.
+      parameters: 'Pathway and enzyme-activity prediction used to compare candidate enzyme coverage across Consortia
+        No. 1-4; tool version and sequence-search thresholds were not reported in the source paper.
+
+        '
+  participating_taxa:
+  - preferred_term: Bacillus subtilis subsp. subtilis AZFS3
+    term:
+      id: NCBITaxon:135461
+      label: Bacillus subtilis subsp. subtilis
+  - preferred_term: Bacillus pumilus AZFS5
+    term:
+      id: NCBITaxon:1408
+      label: Bacillus pumilus
+  - preferred_term: Bacillus mojavensis AZFS15
+    term:
+      id: NCBITaxon:72360
+      label: Bacillus mojavensis
+  - preferred_term: Bacillus paramycoides AZFS18
+    term:
+      id: NCBITaxon:2026194
+      label: Bacillus paramycoides
+  - preferred_term: Pseudomonas aeruginosa KZFS4
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  - preferred_term: Alcaligenes aquatilis KZFS11
+    term:
+      id: NCBITaxon:323284
+      label: Alcaligenes aquatilis
 - name: HPLC-confirmed cyantraniliprole removal
-  description: >
-    In simulated contaminated water amended with NPK and incubated at 30 C, T4
-    removed 98.27% of the 57.79 mg/L zero-day cyantraniliprole residue from the
-    nominal 60 mg/L dose and left the lowest 20-day residual concentration among
-    the tested consortia.
-  interaction_type: MUTUALISM
+  description: In NPK-amended freshwater microcosms incubated at 30 C for 20 days, T4 augmentation was associated
+    with HPLC-measured cyantraniliprole decline from a 57.79 mg/L zero-day residue to 1.00 mg/L, corresponding to
+    98.27% removal from the recovered starting residue after a nominal 60 mg/L spike. This positive treatment-level
+    outcome occurred alongside a native water microbiota and exceeded uninoculated controls. Parent-compound loss
+    does not establish complete mineralization, detoxification, member-specific contribution, reciprocal benefit
+    or enzyme mediation.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cyantraniliprole
@@ -245,16 +267,40 @@ ecological_interactions:
   - reference: PMID:42354927
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      after 20 days of incubation at 30 °C, as confirmed by HPLC analysis, with
-      the six-strain consortium (T4), comprising Bacillus subtilis subsp.
-      subtilis AZFS3, Bacillus pumilus AZFS5, Bacillus mojavensis AZFS15,
-      Bacillus paramycoides AZFS18, Pseudomonas aeruginosa KZFS4, and
-      Alcaligenes aquatilis KZFS11, demonstrating the highest removal efficiency
-      (98.27%) and reducing the pesticide concentration to 1.00 mg/L
-    explanation: >
-      Supports the exact T4 composition, the 20-day HPLC assay, and the
-      98.27%/1.00 mg/L HPLC endpoint in simulated contaminated water.
+    snippet: 'after 20 days of incubation at 30 °C, as confirmed by HPLC analysis, with the six-strain consortium
+      (T4), comprising Bacillus subtilis subsp. subtilis AZFS3, Bacillus pumilus AZFS5, Bacillus mojavensis AZFS15,
+      Bacillus paramycoides AZFS18, Pseudomonas aeruginosa KZFS4, and Alcaligenes aquatilis KZFS11, demonstrating
+      the highest removal efficiency (98.27%) and reducing the pesticide concentration to 1.00 mg/L
+
+      '
+    explanation: Supports the six-strain treatment and measured HPLC endpoint. The percentage uses Table 7 zero-day
+      recovery, not the nominal dose. Native-water controls and the predictive pathway analysis do not establish
+      member-resolved causal flux or mutualism.
+  participating_taxa:
+  - preferred_term: Bacillus subtilis subsp. subtilis AZFS3
+    term:
+      id: NCBITaxon:135461
+      label: Bacillus subtilis subsp. subtilis
+  - preferred_term: Bacillus pumilus AZFS5
+    term:
+      id: NCBITaxon:1408
+      label: Bacillus pumilus
+  - preferred_term: Bacillus mojavensis AZFS15
+    term:
+      id: NCBITaxon:72360
+      label: Bacillus mojavensis
+  - preferred_term: Bacillus paramycoides AZFS18
+    term:
+      id: NCBITaxon:2026194
+      label: Bacillus paramycoides
+  - preferred_term: Pseudomonas aeruginosa KZFS4
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  - preferred_term: Alcaligenes aquatilis KZFS11
+    term:
+      id: NCBITaxon:323284
+      label: Alcaligenes aquatilis
 environmental_factors:
 - name: Simulated-water cyantraniliprole removal
   value: '98.27'
@@ -488,29 +534,30 @@ external_resources:
     explanation: Links the cached primary publication to the T4 cyantraniliprole record.
 discussions:
 - discussion_id: cyantraniliprole_t4_expressed_enzymes
-  prompt: >
-    Which T4 member enzyme activities are expressed during cyantraniliprole
-    biodegradation, and which predicted transformation products are formed?
+  prompt: Which T4 enzymes and members causally mediate parent-compound removal, and what transformation products
+    and fitness effects result?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#T4 distributed cyantraniliprole enzyme potential
-  rationale: >
-    The 2026 study used bioinformatic prediction to map candidate
-    cyantraniliprole-degradation enzymes and noted simpler transformation
-    products, but it did not experimentally assign expressed enzymes or measured
-    intermediates to specific T4 strains.
+  - ecological_interactions#HPLC-confirmed cyantraniliprole removal
+  rationale: 'The complete primary body supports positive HPLC parent-removal outcomes, growth and redox proxies,
+    and post-assay predicted pathway coverage. It does not experimentally assign the predicted enzyme activities
+    or intermediary flux to T4 strains. Selective member/enzyme perturbations, product identification and mass balance
+    would test mediation and distinguish removal from mineralization or detoxification. Reciprocal fitness benefits
+    and the suggested reduced consortium remain untested. The former prediction-to-removal workflow arrow is not
+    restored. Salinity and temperature inconsistencies in non-graph metadata remain in #1371.'
   evidence:
   - reference: PMID:42354927
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      To facilitate practical bioremediation, subsequent studies should
-      prioritize the characterization of bacterial enzymes that degrade
-      cyantraniliprole.
-    explanation: >
-      Supports leaving strain-specific cyantraniliprole enzyme expression as an
-      open mechanistic gap.
+    snippet: 'To facilitate practical bioremediation, subsequent studies should prioritize the characterization
+      of bacterial enzymes that degrade cyantraniliprole.
+
+      '
+    explanation: 'Supports leaving strain-specific cyantraniliprole enzyme expression as an open mechanistic gap.
+
+      '
   posed_by: codex
   posed_date: '2026-09-13'
 metals_present: []
@@ -521,29 +568,35 @@ curation_history:
 - timestamp: '2026-09-13T23:13:25Z'
   curator: codex
   action: CREATE_COMMUNITY
-  changes: >
-    Created CommunityMech:000369 for the six-member T4 Fahmy cyantraniliprole
-    bioremediation consortium from PMID:42354927, including exact strain
-    membership, HPLC simulated-water cyantraniliprole removal, DCPIP and diamide
-    growth assays, EAWAG-BBD pathway prediction evidence, microcosm culture
-    conditions, and an explicit open question for strain-specific expressed
-    enzymes.
+  changes: 'Created CommunityMech:000369 for the six-member T4 Fahmy cyantraniliprole bioremediation consortium
+    from PMID:42354927, including exact strain membership, HPLC simulated-water cyantraniliprole removal, DCPIP
+    and diamide growth assays, EAWAG-BBD pathway prediction evidence, microcosm culture conditions, and an explicit
+    open question for strain-specific expressed enzymes.
+
+    '
   llm_assisted: true
 - timestamp: '2026-09-13T23:22:59Z'
   curator: codex
   action: UPDATE_COMMUNITY
-  changes: >
-    Resolved adversarial-review issues #869 and #870 by shortening a cached HPLC
-    snippet that flattened 10^7 CFU/mL to 107 CFU/mL in rendered evidence and by
-    clarifying that the 98.27% T4 removal value is calculated from the 57.79
-    mg/L zero-day residue in the nominal 60 mg/L microcosm.
+  changes: 'Resolved adversarial-review issues #869 and #870 by shortening a cached HPLC snippet that flattened
+    10^7 CFU/mL to 107 CFU/mL in rendered evidence and by clarifying that the 98.27% T4 removal value is calculated
+    from the 57.79 mg/L zero-day residue in the nominal 60 mg/L microcosm.
+
+    '
   llm_assisted: true
 - timestamp: '2026-10-02T05:45:52Z'
   curator: codex
   action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
-  changes: >
-    Removed the downstream edge from T4 predicted cyantraniliprole enzyme
-    potential to HPLC-confirmed cyantraniliprole removal because the edge
-    described post-assay bioinformatic interpretation rather than a demonstrated
-    causal transition from predicted enzyme annotations to pesticide removal.
+  changes: 'Removed the downstream edge from T4 predicted cyantraniliprole enzyme potential to HPLC-confirmed cyantraniliprole
+    removal because the edge described post-assay bioinformatic interpretation rather than a demonstrated causal
+    transition from predicted enzyme annotations to pesticide removal.
+
+    '
+  llm_assisted: true
+- timestamp: '2026-10-06T04:52:55Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain predicted community repertoire coverage without assigning mutual fitness, measured enzyme activity
+    or minimum-member necessity.; Retain the positive HPLC parent-removal outcome and recovery-based denominator
+    while distinguishing native-community context, mineralization and causal mediation. Issue #1368; reports/causal_graph_review/decisions/20261006-four-records-batch28.yaml'
   llm_assisted: true
