@@ -1,0 +1,96 @@
+{
+  "issue": "https://github.com/CultureBotAI/CommunityMech/issues/1329",
+  "base_commit": "beb4df52c1077a9493040fceae6f3f65f022161d",
+  "failed_ci_run": 37391484568,
+  "scope": "Immutable event base for the history advisory; biological artifacts unchanged.",
+  "prior_attempts": [
+    {
+      "check": "ruff",
+      "result": "failed",
+      "reason": "Import order; fixed before final verification."
+    },
+    {
+      "check": "pytest --no-cov",
+      "result": "not_run",
+      "reason": "Local runtime lacks pytest-cov; removed the unsupported flag, not any test."
+    },
+    {
+      "check": "initial workflow suite",
+      "result": "59 passed, 9 skipped"
+    },
+    {
+      "check": "expanded suite with original-failure control and batch13 graph tests",
+      "result": "66 passed, 9 skipped in 7.30s"
+    }
+  ],
+  "checks": [
+    {
+      "name": "history-fix-base",
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "output": "beb4df52c1077a9493040fceae6f3f65f022161d\n"
+    },
+    {
+      "name": "history-fix-tests",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "-rs",
+        "tests/test_history_workflow_base.py",
+        "tests/test_merge_queue_workflows.py",
+        "tests/test_ci_triggers_cover_what_the_gates_read.py",
+        "tests/test_justfile_triggers_the_gates_it_defines.py",
+        "tests/test_ci_runtime_contracts.py",
+        "tests/test_vendored_sync_workflow.py",
+        "tests/test_causal_review_batch13.py"
+      ],
+      "exit_code": 0,
+      "output": "............................................sssssss.ss.................. [ 96%]\n...                                                                      [100%]\n=========================== short test summary info ============================\nSKIPPED [1] tests/test_justfile_triggers_the_gates_it_defines.py:118: generate-pages.yaml invokes no just recipe\nSKIPPED [1] tests/test_justfile_triggers_the_gates_it_defines.py:116: kgx-release.yaml has no paths filter, so it always runs\nSKIPPED [1] tests/test_justfile_triggers_the_gates_it_defines.py:118: label-correspondence.yaml invokes no just recipe\nSKIPPED [1] tests/test_justfile_triggers_the_gates_it_defines.py:118: lint.yaml invokes no just recipe\nSKIPPED [1] tests/test_justfile_triggers_the_gates_it_defines.py:116: merge-queue-admission.yaml has no paths filter, so it always runs\nSKIPPED [1] tests/test_justfile_triggers_the_gates_it_defines.py:118: network-quality.yml invokes no just recipe\nSKIPPED [1] tests/test_justfile_triggers_the_gates_it_defines.py:116: pr-shepherd.yml has no paths filter, so it always runs\nSKIPPED [1] tests/test_justfile_triggers_the_gates_it_defines.py:116: vendored-sync.yaml has no paths filter, so it always runs\nSKIPPED [1] tests/test_justfile_triggers_the_gates_it_defines.py:116: verify-merge-integrity.yaml has no paths filter, so it always runs\n66 passed, 9 skipped in 9.45s\n"
+    },
+    {
+      "name": "history-fix-black",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/3Q_kifQtLB624D5bBWGIf/bin/black",
+        "--check",
+        "tests/test_history_workflow_base.py"
+      ],
+      "exit_code": 0,
+      "output": "All done! \u2728 \ud83c\udf70 \u2728\n1 file would be left unchanged.\n"
+    },
+    {
+      "name": "history-fix-ruff",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/wCcxEYRM4HeHgwYPZemHX/bin/ruff",
+        "check",
+        "tests/test_history_workflow_base.py"
+      ],
+      "exit_code": 0,
+      "output": "All checks passed!\n"
+    },
+    {
+      "name": "history-fix-whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "workflow_outside_advisory_step_unchanged": true,
+  "biological_artifacts_and_original_graph_validation_unchanged": true,
+  "file_sha256": {
+    ".github/workflows/curation-history.yaml": "e562ff43dac7d35f935ca706085ca06c69be71eea7341949ed7f1fcac6b6c91d",
+    "tests/test_history_workflow_base.py": "c2a75cb5642dfa762dd97f73e181410bf380159948ddf65c487a55951c24e36b",
+    "reports/causal_graph_review/adversarial-review-20261005-batch13.yaml": "28879cfb7dae65df62eea7f6388ab601627508ca161fdf4b1bfd2fa1148e6d7b"
+  },
+  "skip_scope": "Nine preexisting conditional trigger tests are inapplicable when no just recipe or no path filter exists; none of the six new history-base tests is skipped.",
+  "status": "passed"
+}

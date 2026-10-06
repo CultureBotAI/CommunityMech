@@ -207,6 +207,7 @@ USERS = {
     "Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml",
     "Chlamydomonas_Bacterial_H2_Consortium.yaml",
     "Chlamydomonas_Methylobacterium_Mutualism.yaml",
+    "Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml",
     "Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml",
     "Chlorella_Rhizobium_Bioflocculation.yaml",
     "Chlorella_Vulgaris_Whey_Coculture.yaml",
