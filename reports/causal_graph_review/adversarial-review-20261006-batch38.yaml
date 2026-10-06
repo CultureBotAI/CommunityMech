@@ -1,0 +1,155 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: a22f0f871bdfe84762b2dfcf2e38cb2c2d17949f
+scope:
+- kb/communities/Ensifer_YF2_Sphingobacterium_Y2_Polyethylene_Degrading_Consortium.yaml
+- kb/communities/Episymbiotic_CPR_DPANN_Groundwater_Community.yaml
+- kb/communities/Euglena_Chlorella_Microalgal_Biorefinery_Coculture.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch38.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch38.json
+findings:
+- issue: 1438
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Ensifer YF2 Y2 graph: distinguish genomic cross-feeding model from measured polymer effects'
+  disposition: Existing graph corrected; close only after protected main merge.
+- issue: 1439
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'CPR DPANN graph: qualify size-fraction attachment and CPR-only replication inference'
+  disposition: Existing graph corrected; close only after protected main merge.
+- issue: 1440
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Euglena Chlorella graph: separate intrinsic profiles, proposed complementarity and total production'
+  disposition: Existing graph corrected; close only after protected main merge.
+- issue: 1441
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'Ensifer YF2 Y2 metadata: correct access claim and qualify genome-inferred organism roles'
+  disposition: Non-graph fields preserved, not certified. Remains open.
+- issue: 1442
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'CPR DPANN metadata: separate Northern California hosts from Oak Ridge genomic context'
+  disposition: Non-graph fields preserved, not certified. Remains open.
+- issue: 1443
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'Euglena Chlorella metadata: resolve member-specific omics and supplementation conditions'
+  disposition: Non-graph fields preserved, not certified. Remains open.
+adversarial_checks:
+- Whole records and complete graph diffs checked against primary sources at recorded access scope. Twelve
+  existing nodes retained, three part/whole arrows removed and three remaining arrows qualified as HYPOTHESIZED.
+  Every original node and arrow has a disposition. No added connectivity.
+- Ensifer genomic complementarity is a conceptual donor/recipient model, not measured exchange, enzyme
+  necessity or complete polymer mineralization. Comparative consortium output is not reciprocal fitness
+  or formal additive synergy. Preserve AMBIGUOUS Ensifer grounding and exclude the MF1 comparator from
+  membership.
+- 'Ensifer publisher indexed text labels the paper open access. Retrieval failure does not establish a
+  paywall; non-graph access and inferred role claims remain #1441. No full-body access claimed.'
+- CPR/DPANN is an eight-site framework, not a defined three-member culture. Keep broad canonical categories
+  without assigning all possible partner associations. Remove categorical colonization facilitation, niche
+  partitioning and commensalism.
+- Size fractions are attachment proxies and cell numbers are DNA/genome-size estimates. Cryo-TEM cell
+  identity is inferred; pili-like morphology is not a necessary protein or measured resource flux. Figure
+  captions and text were read, not images.
+- CPR iRep measures average genome-replication state, not a single-cell growth rate. Archaea were excluded.
+  The only attachment-to-replication arrow remains a hypothesis without selective intervention or host-fitness
+  evidence. Earlier workflow-arrow removals remain intact.
+- 'Separate Oak Ridge source is not the California framework. Secondary source read only through early
+  Results for provenance. Non-graph roles/provenance and stale cache metadata remain #1442; no cache modified.'
+- Euglena and Chlorella profiles are intrinsic source-only nodes under the existing PAIRWISE convention,
+  not self-edges. Remove both profile-to-summary arrows and the unsupported Euglena-specific alpha-tocopherol
+  donor assignment. Preserve the publication name plus canonical Auxenochlorella label.
+- 'Multi-omics interpretations do not resolve exact transfer or selective mediation. Aggregate output
+  is not reciprocal fitness; exogenous alpha-lipoic acid is a distinct treatment, not endogenous cross-feeding.
+  Abstract-only protocol and underlying omics-assay gaps remain #1443.'
+- Guarded writes and append-only history with llm-assisted events. Prior history semantically preserved;
+  all non-graph raw blocks, 457 other records and 920 cache files byte-preserved. Eight new tests cover
+  these distinctions, identities, histories, anchors and complete disposition accounting.
+- All three records were already in the 184-user participant registry. Euglena intrinsic profiles change
+  mixed-scope census from 123 to 124 and sole broad credit from 1221 to 1219; no taxonomy or numeric-bound
+  changes. All 33 network warnings exactly preserved with zero errors.
+- Repeated renders deterministic and all published descriptions parser-checked. Reference-validator 0.1.7
+  performs zero checks despite exit 0; no-op disclosed. Textual MATCH is not scientific validation. Actual
+  output tails and digests, including the pre-research baseline, are committed.
+- Deduplication searched 760 all-state issue titles/bodies and ignored/hidden-inclusive local files, not
+  every comment. No independent reviewer, protected merge or full-corpus completion claimed. No Edison
+  job or charge was needed for these existing-structure repairs.
+verification:
+  combined_regressions: 407 passed in 203.34s (0:03:23)
+  new_regression_tests: 8
+  schema_strict_terms_history: passed; actual output tails and digests retained
+  snippet_counts_by_record:
+    kb/communities/Ensifer_YF2_Sphingobacterium_Y2_Polyethylene_Degrading_Consortium.yaml:
+      MATCH: 6
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Episymbiotic_CPR_DPANN_Groundwater_Community.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Euglena_Chlorella_Microalgal_Biorefinery_Coculture.yaml:
+      MATCH: 16
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero errors; 33 baseline warnings exactly preserved, none added.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch38.yaml: 788d30c2bbcf8de2a515f5a32349e09db6f4ac476aab03479e1b8e06674d6d56
+    tests/test_causal_review_batch38.py: 1f8a7711a2a13a56a3a6519cdc11c995e350a7aa88e94246d6178a44b8467429
+    kb/communities/Ensifer_YF2_Sphingobacterium_Y2_Polyethylene_Degrading_Consortium.yaml: 57ac6be6ce479d6e721e7c7a81a54ede921eee8620e3b466d061750d7d24d60c
+    kb/communities/Episymbiotic_CPR_DPANN_Groundwater_Community.yaml: 365db2424aa243d7f2727a5bb344aae80293574cc6a1d2db7e5780ccb475eb09
+    kb/communities/Euglena_Chlorella_Microalgal_Biorefinery_Coculture.yaml: 4d5cdc403a12e77b46efdff937eebb29fd0e3b71418a497ea69287ac0a8d0bfc
+  post_commit_docs_current: Separate publication gate; not asserted in pre-commit record.
+  protected_ci_and_merge: Eligible exact-head protected checks and queue still required.
+participant_census:
+  connectivity_before:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1221
+    mixed: 123
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  connectivity_after:
+    community_level_only: 263
+    credited_solely_by_the_rule: 1219
+    mixed: 124
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  exact_change: All three records already registered; 184-user roster unchanged. Two intrinsic microalgal
+    profiles make Euglena/Chlorella mixed-scope (123 to 124) and lower sole broad credit by two (1221
+    to 1219). No taxonomy or numeric-bound changes.
+  numeric_bounds_changed: false
+corpus:
+  records: 460
+  nodes: 1469
+  edges: 689
+  review_status_counts:
+    needs_research: 8
+    pending: 297
+    reviewed: 155
+limitations:
+- Twelve existing nodes retained; three part/whole arrows removed; one explicitly hypothesized mechanism
+  link retained in each record. No added connectivity.
+- Primary full main body for CPR/DPANN, abstract-only access for Ensifer and Euglena. Separate Oak Ridge
+  source read only through early Results to resolve provenance. No visual figures, separate supplements
+  or raw data reviewed.
+- 'Canonical taxonomy and non-graph raw blocks preserved, not certified; #1441-1443 remain open. Access
+  failure is not proof of a paywall.'
+- Single-organism microalgal profiles become intrinsic source-only PAIRWISE, not self-edges. Higher aggregate
+  output does not establish reciprocal organism fitness.
+- Self-adversarial review is not independent approval, protected main merge or full-corpus completion.
+  Textual snippet matching is not scientific validation.
