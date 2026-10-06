@@ -340,8 +340,13 @@ taxonomy:
     explanation: Supports the fucose-specialist role of V4 and V25.
 ecological_interactions:
 - name: Complementary fucoidan monomer degradation
-  description: The SynCom's community-level degradation emerges from combining fucose specialists, rare-sugar specialists,
-    and generalists whose enzyme repertoires unlock distinct fractions of the sulfated F. vesiculosus fucoidan substrate.
+  description: Across the seven-degrader panel, V4/V25 preferentially degrade fucose, F12/F40/F94 rare sugars, and
+    V69/F56 act as generalists. Genomic predictions were compared with experimental LC-MS monomer depletion. Monomer
+    degradation combines cleavage of fucoidan-bound sugars and uptake, not measured CO2 mineralization. Cell-free
+    residual-fucoidan and purified-enzyme assays support complementary substrate accessibility without requiring
+    contact or small-molecule cross-feeding. Six of nine tested soluble enzymes had detectable activity; this does
+    not establish each enzyme as necessary in every community. Participants identify the panel, not seven obligatory
+    partners in every assay. G88 and the algal substrate producer are not members.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: carbohydrate catabolic process
@@ -351,19 +356,55 @@ ecological_interactions:
   evidence:
   - reference: PMID:42649294
     supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: V69 and F56 function as generalists, whereas V4, V25 and G88 are fucose-specialists and F12, F40 and F94 are
-      rare-sugar specialists.
-    explanation: Supports division of the isolated degraders into fucose specialists, rare-sugar specialists, and generalists.
+    evidence_source: IN_VITRO
+    snippet: V69 and F56 function as generalists, whereas V4, V25 and G88 are fucose-specialists and F12, F40 and
+      F94 are rare-sugar specialists.
+    explanation: The primary Results place this classification after LC-MS validation of genomic predictions. G88
+      appears in the broader isolate experiment, but is explicitly excluded from the canonical seven-degrader panel.
   - reference: PMID:42649294
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: access to complementary substrate fractions--rather than enzyme count--limits fucoidan degradation, such that complete
-      breakdown emerges from interactions among metabolically complementary degraders.
-    explanation: Supports the source article's mechanism for community-level fucoidan breakdown.
+    snippet: access to complementary substrate fractions--rather than enzyme count--limits fucoidan degradation,
+      such that complete breakdown emerges from interactions among metabolically complementary degraders.
+    explanation: Supports the authors' complementary-accessibility interpretation; inspected full-body residual-substrate
+      and enzyme assays add mechanistic support, not obligatory small-molecule exchange or mineralization.
+  participating_taxa:
+  - preferred_term: Algibacter sp. AS12
+    term:
+      id: NCBITaxon:3135773
+      label: Algibacter sp. AS12
+  - preferred_term: Algibacter lectus AS40
+    term:
+      id: NCBITaxon:221126
+      label: Algibacter lectus
+  - preferred_term: Mariniflexile sp. AS56
+    term:
+      id: NCBITaxon:3063957
+      label: Mariniflexile sp. AS56
+  - preferred_term: Zobellia laminariae AS94
+    term:
+      id: NCBITaxon:248906
+      label: Zobellia laminariae
+  - preferred_term: Luteolibacter sp. AS25
+    term:
+      id: NCBITaxon:3135776
+      label: Luteolibacter sp. AS25
+  - preferred_term: Roseibacillus persicicus AS69
+    term:
+      id: NCBITaxon:454148
+      label: Roseibacillus persicicus
+  - preferred_term: Lentimonas sp. CC4
+    term:
+      id: NCBITaxon:2676099
+      label: Lentimonas sp. CC4
 - name: Seven-degrader synergistic function landscape
-  description: The complete non-empty panel of seven fucoidan degraders produced a smooth community-function landscape in
-    which synergism remained common even among combinations approaching nearly complete degradation.
+  description: All 127 nonempty combinations of the seven listed degraders were assayed, not a single invariant
+    seven-member community. The reported maximum 97.1% monomer degradation occurred in the five-member F40/F56/V69/F94/V4
+    subset. Functional synergism, reported for 80% of interactions relative to the resource-partitioning null, is
+    distinct from reciprocal fitness benefit; pairwise outcomes include commensalism, amensalism and competition.
+    The mutualistic V69/G88 pair lies outside this panel. Initial OD600 was 0.01 per strain, so total inoculum varied
+    with richness. These endpoint assays do not isolate a richness-only effect or establish ocean carbon-sequestration
+    rates. The model is fitted prediction, not independent enzyme-necessity evidence.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: carbohydrate catabolic process
@@ -374,15 +415,46 @@ ecological_interactions:
   - reference: PMID:42649294
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Total degradation increased with community richness, ranging from 4% to a maximum of 97.1% in the 5-member community
-      F40, F56, V69, F94 and V4
-    explanation: Supports the observed degradation range across the seven-member composition landscape.
+    snippet: Total degradation increased with community richness, ranging from 4% to a maximum of 97.1% in the 5-member
+      community F40, F56, V69, F94 and V4
+    explanation: Supports the five-member maximum within the complete 127-combination panel; not the performance
+      of every seven-member inoculum.
   - reference: PMID:42649294
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: even when approaching near-complete degradation, 80% of interactions were still synergistic beyond what would be expected
-      from simple resource partitioning
-    explanation: Supports persistence of synergism across high-degradation communities.
+    snippet: even when approaching near-complete degradation, 80% of interactions were still synergistic beyond
+      what would be expected from simple resource partitioning
+    explanation: A model-relative functional comparison derived from experimental endpoints, not proof of mutualistic
+      population effects or complete carbon mineralization.
+  participating_taxa:
+  - preferred_term: Algibacter sp. AS12
+    term:
+      id: NCBITaxon:3135773
+      label: Algibacter sp. AS12
+  - preferred_term: Algibacter lectus AS40
+    term:
+      id: NCBITaxon:221126
+      label: Algibacter lectus
+  - preferred_term: Mariniflexile sp. AS56
+    term:
+      id: NCBITaxon:3063957
+      label: Mariniflexile sp. AS56
+  - preferred_term: Zobellia laminariae AS94
+    term:
+      id: NCBITaxon:248906
+      label: Zobellia laminariae
+  - preferred_term: Luteolibacter sp. AS25
+    term:
+      id: NCBITaxon:3135776
+      label: Luteolibacter sp. AS25
+  - preferred_term: Roseibacillus persicicus AS69
+    term:
+      id: NCBITaxon:454148
+      label: Roseibacillus persicicus
+  - preferred_term: Lentimonas sp. CC4
+    term:
+      id: NCBITaxon:2676099
+      label: Lentimonas sp. CC4
 growth_media:
 - name: MBL medium with 0.2% Fucus vesiculosus fucoidan
   incubation_time: '5'
@@ -498,21 +570,24 @@ external_resources:
     explanation: Links the code for isolate-distribution and metagenomic analyses.
 discussions:
 - discussion_id: g88_excluded_from_full_combinatorial_panel
-  prompt: Should the context-dependent Pseudocolwellia degrader G88/AS88 be represented in a companion pairwise-coculture record?
+  prompt: Should the context-dependent Pseudocolwellia degrader G88/AS88 be represented in a companion pairwise-coculture
+    record?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - engineering_design
   - ecological_interactions#Seven-degrader synergistic function landscape
-  rationale: G88 was an experimentally validated fucoidan degrader from the same strain collection, but the full 127-community
-    landscape explicitly excluded G88 and used the seven degraders F12, F40, F56, F94, V25, V69, and V4.
+  rationale: G88 was an experimentally validated fucoidan degrader from the same strain collection, but the full
+    127-community landscape explicitly excluded G88 and used the seven degraders F12, F40, F56, F94, V25, V69, and
+    V4.
   evidence:
   - reference: PMID:42649294
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The only exception was G88, which increased degradation when paired with V69, but acted as an exploiter when paired
-      with V4 and V25.
-    explanation: Supports treating G88 as pairwise context-dependent instead of silently adding it to the seven-degrader panel.
+    snippet: The only exception was G88, which increased degradation when paired with V69, but acted as an exploiter
+      when paired with V4 and V25.
+    explanation: Supports treating G88 as pairwise context-dependent instead of silently adding it to the seven-degrader
+      panel.
   - reference: PMID:42649294
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -523,12 +598,14 @@ discussions:
 - discussion_id: v4_lentimonas_alias
   prompt: Does the article's prose label for Lentimonas sp. CC4 resolve to V4 or V43?
   kind: KNOWLEDGE_GAP
-  status: OPEN
+  status: RESOLVED
   attaches_to:
   - taxonomy#Lentimonas sp. CC4
-  rationale: Supplementary Table 2 maps LCC_4 to Lentimonas sp. CC4, Verruco4, and V4, and the full-combinatorial Methods
-    use V4. One article paragraph refers to the previously characterized CC4 degrader as strain V43, so this record follows
-    the spreadsheet and Methods convention for the member code.
+  rationale: Publisher HTML inspected on 2026-10-06 shows V4 immediately followed by a superscript link to reference
+    3, not strain V43. The selected-text cache flattened this citation into V43. Table 2 selected rows and combinatorial
+    Methods consistently use V4 for Lentimonas sp. CC4. Preserve the historical question and original cache, but
+    do not treat the rendering artifact as a biological alias. The decision ledger retains the source HTML hash
+    and exact DOM fragment.
   evidence:
   - reference: PMID:42649294
     supports: SUPPORT
@@ -542,6 +619,25 @@ discussions:
     explanation: Supports the V4 code in the full-combinatorial Methods section.
   posed_by: codex
   posed_date: '2026-09-27'
+- discussion_id: fucoidan_causal_expansion_and_measurement_scope
+  prompt: How should complementary substrate accessibility connect to panel-level degradation without overstating
+    partner benefit?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Complementary fucoidan monomer degradation
+  - ecological_interactions#Seven-degrader synergistic function landscape
+  rationale: 'Full public primary main body and Methods read. Cell-free residual substrate and six active purified
+    enzymes support complementary accessibility; no universal contact requirement, small-molecule exchange or reciprocal
+    benefit follows. Depletion combines cleavage and uptake, not CO2 mineralization. Preserve the five-member maximum,
+    G88 exclusion, variable total inoculum and experimental/model distinction. The Results describe fitting one-,
+    two- and three-member communities while Methods more generally reference the 127-community data; code and raw
+    data were not audited, so no independent train/test verification is claimed. New structure is pending #1465
+    after the one-community Edison dry run; specific credit authorization requested, no job or spend. Two corrected
+    existing nodes and zero arrows are not a completed causal expansion. Figure images and original supplements
+    were not inspected.'
+  posed_by: codex
+  posed_date: '2026-10-06'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -551,29 +647,34 @@ curation_history:
 - timestamp: '2026-09-27T10:50:32Z'
   curator: codex
   action: CREATE_COMMUNITY_RECORD
-  changes: Created PMID:42649294-backed seven-degrader fucoidan SynCom record with all 127 non-empty combinations, isolate
-    accessions from Supplementary Table 2, complementary fucose and rare-sugar degradation, MBL plus fucoidan growth medium,
-    external data/code resources, and explicit discussions for G88 exclusion and the V4/Lentimonas alias.
+  changes: Created PMID:42649294-backed seven-degrader fucoidan SynCom record with all 127 non-empty combinations,
+    isolate accessions from Supplementary Table 2, complementary fucose and rare-sugar degradation, MBL plus fucoidan
+    growth medium, external data/code resources, and explicit discussions for G88 exclusion and the V4/Lentimonas
+    alias.
   llm_assisted: true
 - timestamp: '2026-09-27T11:05:47Z'
   curator: codex
   action: ADD_GTDB_STATUS_PLACEHOLDERS
-  changes: >-
-    Added explicit NOT_ATTEMPTED GTDB grounding statuses to all seven bacterial taxon descriptors for issue #1144; the
-    local NCBI2GTDB crosswalk was unavailable, so no gtdb_classification blocks were asserted.
+  changes: 'Added explicit NOT_ATTEMPTED GTDB grounding statuses to all seven bacterial taxon descriptors for issue
+    #1144; the local NCBI2GTDB crosswalk was unavailable, so no gtdb_classification blocks were asserted.'
   llm_assisted: true
 - timestamp: '2026-09-27T11:08:23Z'
   curator: codex
   action: ADDRESS_ADVERSARIAL_REVIEW_FINDINGS
-  changes: >-
-    Added a structured counter-selection for excluded G88/Pseudocolwellia sp. AS88 for issue #1146 and moved PRJNA996876,
-    the Panorama Public LC-MS DOI, and the Zenodo record into associated_datasets for issue #1145.
+  changes: 'Added a structured counter-selection for excluded G88/Pseudocolwellia sp. AS88 for issue #1146 and moved
+    PRJNA996876, the Panorama Public LC-MS DOI, and the Zenodo record into associated_datasets for issue #1145.'
   llm_assisted: true
 - timestamp: '2026-09-27T11:14:50Z'
   curator: codex
   action: TRIAGE_GTDB_STATUS_PLACEHOLDERS
-  changes: >-
-    Replaced the seven issue #1144 NOT_ATTEMPTED placeholders with UNRESOLVED after adversarial review found that
-    NOT_ATTEMPTED is reserved for the otherwise-empty outstanding-work bucket. The local NCBI2GTDB crosswalk remained
-    unavailable, so no gtdb_classification blocks were asserted.
+  changes: 'Replaced the seven issue #1144 NOT_ATTEMPTED placeholders with UNRESOLVED after adversarial review found
+    that NOT_ATTEMPTED is reserved for the otherwise-empty outstanding-work bucket. The local NCBI2GTDB crosswalk
+    remained unavailable, so no gtdb_classification blocks were asserted.'
+  llm_assisted: true
+- timestamp: '2026-10-06T11:03:46Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain experimentally supported monomer specialization with canonical panel participants and accessibility/measurement
+    limits.; Retain the combinatorial functional landscape, five-member maximum and null-model comparison without
+    blanket mutualism. Issue #1465; reports/causal_graph_review/decisions/20261006-three-records-batch42.yaml'
   llm_assisted: true
