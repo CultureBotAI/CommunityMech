@@ -304,6 +304,7 @@ USERS = {
     "KBase_Models_for_Zahmeeth_Original_PLOS.yaml",
     "KBase_ORT_Workflow_Community_Model.yaml",
     "KBase_Synthetic_Bacterial_Community_R2A.yaml",
+    "Kefir_Flavor_Lentilactobacillus_Kluyveromyces_Coculture.yaml",
     "Legume_Rhizobia_Mars_Simulant_Symbiosis.yaml",
     "Lunar_Simulant_Phosphate_Solubilizing_Bacteria_Nicotiana.yaml",
     "MSC1_Dominant_Core.yaml",

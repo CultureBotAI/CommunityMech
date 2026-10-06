@@ -277,5 +277,30 @@ curation_history:
   curator: codex
   action: CREATE_DAIRY_WASTEWATER_ALGAL_CYANOBACTERIAL_PANEL
   changes: Created the Dairy Wastewater Algal-Cyanobacterial Cultivation Panel record from PMID:41561919 with evidence-backed
-    phototroph membership, dairy-wastewater cultivation conditions, fractionated 16S sampling, and PRJNA1265442 dataset metadata.
+    phototroph membership, dairy-wastewater cultivation conditions, fractionated 16S sampling, and PRJNA1265442
+    dataset metadata.
   llm_assisted: true
+- timestamp: '2026-10-06T19:53:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Expose unresolved treatment-specific causal structure in the empty dairy panel. Issue #1537; reports/causal_graph_review/decisions/20261006-kefir-dairy-batch59.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: dairy_panel_treatment_specific_causal_structure
+  prompt: Which treatment-specific microbial interactions mediate dairy-wastewater removal and resource recovery?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions
+  - taxonomy
+  rationale: 'This record describes12 mono-, co- and sequential-culture treatments, not all four phototrophs in
+    one bottle. The data article provides endpoint16S profiles, FAPROTAX-predicted functions and CCA/RDA associations;
+    these do not directly measure gene activity, exchanged flux or selective mediation. Related research PMID40946759
+    reports greater nutrient removal in sequential cultures and greater biomolecules/EPS in co-cultures, but only
+    its abstract/highlights were reviewed. Full research Methods, treatment-specific partners, sequence timing and
+    mediator evidence remain unresolved. Indigenous bacteria are retained without exact canonical identities. #1537
+    tracks new structure, including the required one-community Edison report and primary verification. A10945-character
+    dry run exists; no provider submission or credits spent. Zero nodes/arrows is an unresolved graph gap, not evidence
+    that interactions are absent.'
+  posed_by: codex
+  posed_date: '2026-10-06'
