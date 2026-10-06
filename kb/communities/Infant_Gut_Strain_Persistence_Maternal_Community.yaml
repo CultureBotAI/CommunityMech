@@ -106,66 +106,68 @@ taxonomy:
       the infant gut than other strains
     explanation: Supports maternal-origin strains as a privileged class.
 ecological_interactions:
-- name: Maternal Strain Seeding Drives Persistence
-  description: Maternal gut strains are significantly more likely to persist
-    in the infant gut than other strains, indicating maternal seeding as a
-    driver of long-term colonization.
-  interaction_type: COLONIZATION_FACILITATION
+- name: Maternal Strain Sharing and Persistence Association
+  description: Among 17 mother-infant pairs, maternal strain sharing was associated with subsequent infant persistence.
+    Maternal transmission was particularly enriched among Bacteroides, whereas persistent Bifidobacterium strains
+    often lacked a maternal match. Sharing supports maternal-origin association, not a selectively established dominant
+    driver or repeated reseeding mechanism. The canonical Bacteria entry represents the sampled maternal-origin
+    strain class, not a property of all bacteria.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Bacteroides and Bifidobacterium First-Year Persistence
-    description: Vertically transmitted maternal gut strains were significantly
-      more likely to become infant persisters, and persistent early colonizers
-      were concentrated in Bacteroides and Bifidobacterium.
   evidence:
   - reference: PMID:34622230
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: maternal gut strains are significantly more likely to persist in
-      the infant gut than other strains
-    explanation: Supports maternal seeding as the dominant persistence driver.
-- name: Persistence Traits Encoded in Genomes
-  description: Enrichment in genes for surface adhesion, iron acquisition, and
-    carbohydrate degradation may explain persistence of some strains through
-    the first year.
-  interaction_type: COMMENSALISM
+    snippet: maternal gut strains are significantly more likely to persist in the infant gut than other strains
+    explanation: Supports the positive maternal-sharing association, not a dominant isolated causal driver applying
+      equally to every persister genus.
+  participating_taxa:
+  - preferred_term: maternal-origin gut bacterial strains
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  downstream:
+  - target: Bacteroides and Bifidobacterium First-Year Persistence
+    description: PARTIAL - maternal gut adaptation or repeated introduction could support infant retention of shared
+      strains, particularly the Bacteroides-enriched maternal subset. The observational association does not isolate
+      either mechanism or explain all Bifidobacterium persisters.
+- name: Bifidobacterium Persister Carbohydrate-Gene Enrichment
+  description: 'Within-genus comparison of 12 Bifidobacterium persisters and 18 non-persisters found higher CAZyme
+    diversity and coding density in persister genomes. This is positive genomic association, not measured expression,
+    enzyme activity or demonstrated commensalism. The separate E. coli comparison used three persisters and 25 non-persisters;
+    its iron-acquisition and adhesion findings cannot be assigned to the canonical Bacteroides or Bifidobacterium
+    entries. Exact E. coli representation and broader trait structure remain unresolved under #1515.'
   scope: COMMUNITY_LEVEL
   biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
   - preferred_term: carbohydrate metabolic process
     term:
       id: GO:0005975
       label: carbohydrate metabolic process
-  - preferred_term: cell adhesion
-    term:
-      id: GO:0007155
-      label: cell adhesion
-  downstream:
-  - target: Bacteroides and Bifidobacterium First-Year Persistence
-    description: Genes for surface adhesion, iron acquisition, and carbohydrate
-      degradation were enriched in persistent strains, providing functional
-      traits that may explain their first-year retention.
+    notes: Genomic carbohydrate-associated potential, not measured catalytic activity or expression.
   evidence:
   - reference: PMID:34622230
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Enrichment in genes for surface adhesion, iron acquisition, and
-      carbohydrate degradation may explain persistence
-    explanation: Supports the three genomic trait categories curated as
-      persistence determinants.
+    evidence_source: COMPUTATIONAL
+    snippet: Bifidobacterium persisters dedicated a significantly higher percentage of their genomes to CAZymes
+    explanation: Primary Results support Bifidobacterium CAZyme coding-density association, not transfer of E. coli
+      iron/adhesion annotations or a causal enzyme perturbation.
+  participating_taxa:
+  - preferred_term: persistent infant Bifidobacterium colonizers
+    term:
+      id: NCBITaxon:1678
+      label: Bifidobacterium
+  downstream:
+  - target: Bacteroides and Bifidobacterium First-Year Persistence
+    description: PARTIAL - a broader encoded carbohydrate repertoire could support substrate use and persistence
+      of Bifidobacterium strains within the downstream persister group. Within-genus enrichment supports this hypothesis,
+      not measured enzyme flux or necessity, and does not assign E. coli iron/adhesion traits to Bacteroides or
+      Bifidobacterium.
 - name: Bacteroides and Bifidobacterium First-Year Persistence
-  description: Bacteroides and Bifidobacterium were the main genera among the
-    approximately 11 percent of early colonizer strains that persisted through
-    the first year of life.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Bacteroides and Bifidobacterium were prominent among 59 of 560 early colonizer strains that persisted
+    into late first-year sampling. The approximately 11 percent denominator is all eligible early strains, not each
+    genus separately. Early detection was within the first two months; persistence required detection at month eight
+    or later, accommodating missing or inadequate month-twelve samples. Strain matching used 99.999 percent population
+    ANI over at least half the compared genome. This is observed persistence, not evidence that every member expressed
+    adhesion or iron-acquisition traits.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: persistent infant Bacteroides colonizers
@@ -176,30 +178,21 @@ ecological_interactions:
     term:
       id: NCBITaxon:1678
       label: Bifidobacterium
-  biological_processes:
-  - preferred_term: carbohydrate metabolic process
-    term:
-      id: GO:0005975
-      label: carbohydrate metabolic process
-  - preferred_term: cell adhesion
-    term:
-      id: GO:0007155
-      label: cell adhesion
   evidence:
   - reference: PMID:34622230
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Approximately 11% of early colonizers, primarily Bacteroides and
-      Bifidobacterium, persist during the first year of life
-    explanation: Supports the first-year persister node and the major persistent
-      genera.
+    snippet: Approximately 11% of early colonizers, primarily Bacteroides and Bifidobacterium, persist during the
+      first year of life
+    explanation: Supports the observed persister distribution; the primary Methods bound eligibility and strain
+      identity, not a universal genus-specific trait mechanism.
   - reference: PMID:34622230
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: When considering all infants, Bacteroides and Bifidobacterium strains
-      were more likely to persist than were strains of other bacterial genera
-    explanation: Supports Bacteroides and Bifidobacterium as the genera most
-      associated with first-year persistence.
+    snippet: When considering all infants, Bacteroides and Bifidobacterium strains were more likely to persist than
+      were strains of other bacterial genera
+    explanation: Supports the observed persister distribution; the primary Methods bound eligibility and strain
+      identity, not a universal genus-specific trait mechanism.
 environmental_factors:
 - name: Birth status
   value: full-term (n=13) vs preterm (n=9) infants
@@ -248,3 +241,29 @@ rare_earth_elements_present: []
 metal_relevance: SIGNIFICANT
 metal_notes: Iron acquisition genes are among the three trait categories
   associated with strain persistence in the infant gut.
+discussions:
+- discussion_id: infant_bacterial_taxon_specific_persistence
+  prompt: Which taxon-specific traits causally contribute to strain persistence?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Maternal Strain Sharing and Persistence Association
+  - ecological_interactions#Bifidobacterium Persister Carbohydrate-Gene Enrichment
+  - ecological_interactions#Bacteroides and Bifidobacterium First-Year Persistence
+  rationale: 'The maternal-sharing and Bifidobacterium CAZyme routes remain partial models. E. coli iron-acquisition,
+    adhesion and toxin annotations are positive genetic-potential results from three persisters versus 25 non-persisters,
+    not expression, flux or knockout evidence. All three E. coli persisters came from preterm infants in a disease-enriched
+    sample. #1515 tracks missing exact E. coli representation and valid trait structure; do not transfer those results
+    to other taxa or erase them as negative evidence. Prematurity, early antibiotics, hospitalization and feeding
+    covary, so the birth-status comparison is not an isolated cause. Full cached primary main text, Methods, Table
+    1 and figure captions read, but not external supplementary files, raw data, code or original images. One-community
+    Edison dry run only; no paid report or new graph structure. Canonical taxonomy and non-graph fields are preserved,
+    not recertified.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T17:18:49Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Correct persistence trait ownership and preserve taxon-specific genomic associations. Issue #1513; reports/causal_graph_review/decisions/20261006-infant-gut-batch54.yaml'
+  llm_assisted: true

@@ -5,6 +5,26 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch54: Infant Gut Persistence And Prebiotic Responses
+
+[Decisions](decisions/20261006-infant-gut-batch54.yaml),
+[validation](validation-20261006-batch54.json) and
+[self-adversarial review](adversarial-review-20261006-batch54.yaml) retain all
+ten nodes, remove two unsupported arrows and qualify five proposed mechanisms.
+Maternal sharing, phage recoding and bacterial gene-content associations remain
+distinct from selective causal perturbations. The SynCom omission and acid-challenge
+results remain positive findings, with higher E. coli activity when P. vulgatus is
+present under GOS, not a proved direct metabolite transfer.
+
+Primary main texts, Methods and main captions/tables were read for all three
+studies. External supplements, original images, raw data and code were not audited;
+the prebiotic study is a version-1 preprint. Two short excerpts (16 source words)
+extend one abstract cache with verified XML provenance and an unchanged original
+prefix. Exact SynCom membership/new structure and E. coli-specific persistence
+traits remain unresolved under #1514 and #1515. Two Edison dry runs completed,
+without provider submission or credit spend. Non-graph fields are preserved,
+not recertified; validation links describe separately recorded publication gates.
+
 ## Batch53: Pit Lakes, Bioleaching And Model Biofilm
 
 [Decisions](decisions/20261006-pitlakes-bioleach-biofilm-batch53.yaml),

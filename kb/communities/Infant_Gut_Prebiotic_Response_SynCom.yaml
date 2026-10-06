@@ -131,79 +131,151 @@ taxonomy:
     explanation: Identifies Escherichia coli as a member whose metabolic activity is modulated within
       the SynCom.
 ecological_interactions:
-- name: Substrate-dependent cross-feeding network
-  description: Mechanistic dissection using the defined SynCom revealed extensive cross-feeding networks
-    and substrate-dependent interaction rewiring among community members in response to HMO, GOS, and 2'FL.
-  interaction_type: CROSS_FEEDING
+- name: Substrate-Dependent Infant Community Interaction Responses
+  description: 'The primary preprint compares donor-derived infant fermentations with a separate six-species SynCom
+    containing B. breve, B. infantis, P. vulgatus, E. coli, L. gasseri and R. gnavus. Substrate perturbations and
+    semipermeable binary cultures show growth responses and substrate-dependent interactions, including relief of
+    P. vulgatus inhibition with 2FL. Donor communities instead contain P. dorei and L. rhamnosus in the corresponding
+    comparisons; abundance correlations there are not the same intervention. The four canonical entries are a cross-experiment
+    subset, not a four-member assayed SynCom or a complete roster. Exact strains and missing members remain unresolved
+    under #1514.'
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Phocaeicola vulgatus hub modulates Escherichia coli metabolism
-    description: Substrate-dependent SynCom rewiring identifies P. vulgatus as
-      the hub that reshapes succinate and propionate production and E. coli
-      metabolic activity.
-  - target: Lactate-mediated species-specific inhibition
-    description: Substrate-driven cross-feeding produces fermentation products
-      whose chemical identity, including lactate, determines species-specific
-      competitive inhibition.
   evidence:
   - reference: doi:10.64898/2026.05.29.728681
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Mechanistic dissection using SynCom revealed extensive cross-feeding networks and
-      substrate-dependent interaction rewiring
-    explanation: Community-level cross-feeding network that rewires depending on the prebiotic substrate.
-- name: Phocaeicola vulgatus hub modulates Escherichia coli metabolism
-  description: Phocaeicola vulgatus acts as a context-dependent ecological hub that disproportionately
-    shapes succinate and propionate production and alters Escherichia coli metabolic activity without
-    changing its abundance.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Phocaeicola vulgatus
+    snippet: Mechanistic dissection using SynCom revealed extensive cross-feeding networks and substrate-dependent
+      interaction rewiring
+    explanation: Supports positive substrate-dependent interaction responses; the inspected main text distinguishes
+      defined-culture perturbations from donor-community comparisons.
+  participating_taxa:
+  - preferred_term: Bifidobacterium spp.
+    term:
+      id: NCBITaxon:1678
+      label: Bifidobacterium
+  - preferred_term: Bacteroides/Phocaeicola spp.
+    term:
+      id: NCBITaxon:816
+      label: Bacteroides
+  - preferred_term: Phocaeicola vulgatus
     term:
       id: NCBITaxon:821
       label: Phocaeicola vulgatus
-  target_taxon:
-    preferred_term: Escherichia coli
+  - preferred_term: Escherichia coli
     term:
       id: NCBITaxon:562
       label: Escherichia coli
+  downstream:
+  - target: Species-Specific Lactate and Acetate Inhibition
+    description: PARTIAL - substrate-dependent fermentation can supply lactate whose accumulation may suppress susceptible
+      members. Community metabolite profiles, binary growth responses and separate acid challenges support this
+      route, but selective lactate depletion/rescue was not demonstrated in the inspected complete-community experiments;
+      pH and other products can also contribute.
+- name: Phocaeicola Omission Alters Community Metabolism and Ecoli Activity
+  description: Omitting P. vulgatus from the defined community changes succinate/propionate output and E. coli metabolic
+    activity. Heavy-water Raman-FISH measurements under GOS found higher E. coli activity with P. vulgatus present,
+    without an abundance change in that assay. This is positive community-context intervention evidence, not proof
+    of direct two-member succinate or propionate transfer to E. coli. Growth in P. vulgatus-conditioned supernatants
+    did not differ between GOS and glucose, leaving timing and other partners relevant. The listed taxa identify
+    the omitted member and measured responder, not the whole tested community or universal abundance invariance.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: succinate
     term:
       id: CHEBI:26806
       label: succinate
+    notes: Measured community output associated with P. vulgatus omission; not a demonstrated molecule transferred
+      directly to E. coli.
   - preferred_term: propionate
     term:
       id: CHEBI:17272
       label: propionate
+    notes: Measured community output associated with P. vulgatus omission; not a demonstrated molecule transferred
+      directly to E. coli.
   evidence:
   - reference: doi:10.64898/2026.05.29.728681
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: disproportionately shaped succinate and propionate production and altered  Escherichia coli
-      metabolic activity without affecting its abundance
-    explanation: P. vulgatus hub shapes succinate/propionate and modulates E. coli metabolism.
-- name: Lactate-mediated species-specific inhibition
-  description: Competitive outcomes were determined not only by environmental acidification but by the
-    chemical identity of fermentation products, with lactate exerting species-specific inhibitory effects
-    independent of bulk pH changes.
-  interaction_type: COMPETITION
+    snippet: disproportionately shaped succinate and propionate production and altered  Escherichia coli metabolic
+      activity without affecting its abundance
+    explanation: Supports the positive community-context output/activity effects, not direct pairwise transfer or
+      an unchanged abundance under every condition.
+  - reference: doi:10.64898/2026.05.29.728681
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: significantly higher activity when P. vulgatus was present
+    explanation: 'Primary Results, Figure 3I context: E. coli activity under GOS is higher with the member present,
+      not absent.'
+  participating_taxa:
+  - preferred_term: Phocaeicola vulgatus
+    term:
+      id: NCBITaxon:821
+      label: Phocaeicola vulgatus
+  - preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+- name: Species-Specific Lactate and Acetate Inhibition
+  description: 'The preprint reports stronger inhibition of P. vulgatus and R. gnavus by lactate than acetate at
+    comparable concentrations, with E. coli less affected. P. vulgatus was also inhibited at pH 5, and the authors
+    discuss additive effects of pH and acid identity. Preserve these positive challenge results without claiming
+    a universally pH-independent mechanism or an inspected pH-clamped protocol: the exact acid-challenge protocol
+    is not in the main Methods and the external supplement was not obtained. The canonical P. vulgatus and E. coli
+    entries are the represented comparison subset; R. gnavus remains missing under #1514.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lactate
     term:
       id: CHEBI:24996
       label: lactate
+    notes: Assayed inhibitory fermentation product; selective removal/rescue in the complete community was not established
+      by the inspected main text.
   evidence:
   - reference: doi:10.64898/2026.05.29.728681
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: with lactate exerting species-specific inhibitory effects independent of bulk pH changes
-    explanation: Fermentation-product (lactate) driven, species-specific competitive inhibition beyond pH.
+    snippet: stronger by lactate than acetate at comparable concentrations
+    explanation: Primary Results retain the acid-identity challenge effect and species dependence, not an independently
+      verified pH-clamped mechanism.
+  participating_taxa:
+  - preferred_term: Phocaeicola vulgatus
+    term:
+      id: NCBITaxon:821
+      label: Phocaeicola vulgatus
+  - preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
 growth_media: []
+discussions:
+- discussion_id: infant_syncom_members_and_mediation
+  prompt: Which exact members and metabolites mediate the substrate-dependent responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Substrate-Dependent Infant Community Interaction Responses
+  - ecological_interactions#Phocaeicola Omission Alters Community Metabolism and Ecoli Activity
+  - ecological_interactions#Species-Specific Lactate and Acetate Inhibition
+  rationale: 'Remove the network-overview-to-hub arrow, which describes identification of a component rather than
+    a causal mechanism. Preserve the positive P. vulgatus omission result, with higher E. coli activity when present
+    under GOS, and the separate acid challenge. Retain fermentation-to-inhibition only as PARTIAL. #1514 tracks
+    the exact six-member roster, R. gnavus-dependent 2FL availability and missing ex-vivo mouse-colon outcome representation.
+    Full/P. vulgatus-omitted supernatants both suppress motility; matched SCFAs do not reproduce it and PEA was
+    below detection in SynCom. These do not prove infant in-vivo physiology or endogenous PEA mediation. Full version-1
+    primary main text, Methods and embedded figure captions read; external supplement, exact strain sheet, raw data,
+    code and figure pixels not inspected. One-community Edison dry run only; no paid report or new graph structure.
+    Non-graph pH/roster claims remain outside this repair.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T17:18:48Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve SynCom omission and acid-challenge results without direct-transfer or universal pH claims.
+    Issue #1512; reports/causal_graph_review/decisions/20261006-infant-gut-batch54.yaml'
+  llm_assisted: true
