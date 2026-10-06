@@ -1,0 +1,189 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: e2dacf7f7d0069c9ed46a91a18f91a5743a7fc09
+scope:
+- kb/communities/Ion_Adsorption_REE_Indigenous_Community.yaml
+- kb/communities/Jala_Maize_PGPB_SynCom.yaml
+- kb/communities/Jiangshui_LAB_Directed_Fermentation_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch55.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch55.json
+findings:
+- issue: 1517
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate positive REE laboratory adsorption from proposed weathering and deposit-scale mediation.
+  disposition: Close only after protected main merge.
+- issue: 1518
+  severity: P2
+  status: addressed_in_this_change
+  finding: Retain maize SynCom assay and plant outcomes without workflow causality or proven trait mediation.
+  disposition: Close only after protected main merge.
+- issue: 1519
+  severity: P2
+  status: addressed_in_this_change
+  finding: Retain the Jiangshui formulation effect and remove experimental screening from the biological
+    graph.
+  disposition: Close only after protected main merge.
+- issue: 1520
+  severity: P2
+  status: unresolved_non_graph
+  finding: Non-graph REE profile/function/economic/cultivation claims remain unreviewed.
+  disposition: Keep open after graph repair merges.
+- issue: 1521
+  severity: P2
+  status: unresolved_non_graph
+  finding: Exact six-strain Jala membership and primary Pseudomonas strain inconsistency remain unresolved.
+  disposition: Keep open after graph repair merges.
+adversarial_checks:
+- Whole787-line REE,410-line Jala and271-line Jiangshui records read, all13 nodes/10 arrows. Full cached
+  primary main text and Methods for REE/Jala, Figures1-7/1-6 captions and Jala Tables1-2. Jiangshui abstract/indexed
+  publisher fragments only, direct403; no primary full body. No original images, external supplements,
+  raw data or code audited.
+- REE fresh NCBI XML selected-claim spot-check, not a full second reading. Jala fresh Frontiers formulation/Discussion
+  spot-checks only; duplicate pmc_full cache not independently read. Source scope is not inferred from
+  misleading abstract-only cache headers. All920 caches unchanged;22 already-cached source words independently
+  verified against XML with digest.
+- REE Bacillus/Micrococcus isolate assays are separate cultures, not reciprocal commensalism. Teichoic-acid
+  removal lowers total wall adsorption65.5to17.8percent and removes HREE preference but residual binding
+  remains. Positive intervention preserved as SUPPORT/IN_VITRO, not downgraded merely because deposit
+  mediation is unresolved.
+- Freeze-dried binding is consistent with passive adsorption, not active metal-ion transport. Yb/P colocalization
+  supports surface groups, not uniquely resolved geometry or exclusive ionic-radius cause. Multi-element
+  adsorption and higher-doseYb imaging differ. Graph removes dysprosium atom mislabeled ion and free phosphate
+  as bound wall groups; no guessed replacement CURIE.
+- Field HREE56-184ppm is an elemental sum, not a single Y-ion concentration. TotalREE776ppm near6m and45mA/B/P
+  profile retained. Profile microbial/geochemical correlations and laboratory fractionation support a
+  PARTIAL contribution, not isolated deposit-scale magnitude. Non-graph40m/C-horizon and other inherited
+  claims remain1520, not silently certified.
+- Microbial/fungal weathering routes remain HYPOTHESIZED because the primary discussion uses prior-literature
+  functions and community associations. No measured phylum-level complementarity, orders-of-magnitude
+  acceleration or direct donor-recipient flux. Acidobacteria generally decrease with depth before the45m
+  exception; neither abundance nor oligotrophic interpretation establishes ligand transfer to Proteobacteria.
+- Jala actual SynCom3 has six strains. All four canonical entries are explicit subsets; no four-member
+  experiment invented. Missing Achromobacter/Phytobacter, exact strain identity and E1BL2-versus-E2HL9
+  primary-source inconsistency remain unresolved1521. Canonical IDs/labels unchanged.
+- Positive maize assays remain SUPPORT, with Salkowski indole-reactivity, ACC-growth proxy, acetylene-reduction
+  rather than plantN transfer, and CAS identity limits. These are not selective mediator perturbations.
+  Up-to80percent inhibition is not every fungus; Helminthosporium hardly inhibited by3. PAL triples but
+  fungal-challenge ISR test was not conducted.
+- Conejo gnotobiotic/greenhouse growth and CPL9105W field effects are distinct experiments. Greenhouse
+  shoot/root dry weights2.3/3 differ from root/shoot length ordering3.3/1.4. Field16vs11tons/ha and abstractrust12.5to8percent
+  retained within one-site scope, not12.5percentagepoints or all-SynCom generality.
+- Remove maize compatibility-assembly node and two workflow arrows, and the seedling-to-field selection
+  arrow. Keep four biological nodes/two PARTIAL proposed routes with explicit mediating ideas and missing
+  tests. Field defense arrow is scoped to rust component, not a demonstrated explanation of yield.
+- Jiangshui screening/ratio design node and arrow removed, not the positive fermentation effect. Retain
+  formulation-to-content intervention:2:3:1,phenols+72.20percent,flavonoids+61.13percent versus natural
+  fermentation. Do not assert isolated ratio causation, specific compound flux or de-novo synthesis. Three
+  differently named NCBITaxon2 strains stay distinct; existing taxonomy/protocol discussion and both histories
+  preserved.
+- Full record diffs, eight focused tests, ledger partitions and participant registry inspected. All11
+  remaining nodes have explicit canonical participants. Two nodes/four arrows removed; two HYPOTHESIZED,
+  three PARTIAL and one direct formulation-level arrow retained. Only graph/discussion/curation-history
+  record fields change;457 other records and raw non-graph blocks unchanged.
+- Actual focused schema/strict/term/reference/snippet/history/rank gates passed. All34 baseline network
+  findings unchanged with zero structural errors. Repeat renders deterministic and descriptions parser-checked
+  across456 pages, not browser screenshots. Measured both-root participant census is recorded, no production
+  matching or census-bound change.
+- Dedup searched822 all-state issue titles/bodies and14 ignored/hidden local matches; relevant contexts
+  inspected, not every historical comment/review. Closed824 is prior wording fix.1517-1519 addressed but
+  open until protected-main merge;1520-1521 unresolved. No Edison dry run, paid call or new graph structure.
+  Self-review is not independent approval.
+verification:
+  combined_regressions: 519 passed in 179.14s (0:02:59)
+  new_regression_tests: 8
+  schema_strict_terms_history: Passed with actual output digests
+  references: CLI Total checks counts reported issues, not executed checks. Exit0 means no issues reported,
+    not independent source verification. SupportingReference coverage476, Linux DOI-cache lookup1091 and
+    selected-cache provenance1362 remain limitations.
+  snippet_counts_by_record:
+    kb/communities/Ion_Adsorption_REE_Indigenous_Community.yaml:
+      MATCH: 31
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Jala_Maize_PGPB_SynCom.yaml:
+      MATCH: 23
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Jiangshui_LAB_Directed_Fermentation_SynCom.yaml:
+      MATCH: 14
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network:
+    existing_findings_preserved: 34
+    added_findings: {}
+    removed_findings: {}
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch55.yaml: d248e12db1ffcb8e4f473578cee8c0f047e9820cdd0b4b5a3313beb7d11463a6
+    tests/test_causal_review_batch55.py: e66bf27a6a0e0991b974002fea204517a75fc64638ae3ce3e7c0ec2dc35be952
+    tests/test_participating_taxa.py: 75c95befbd04131db8ce5dd1a400b3f4a77b69cf4ee7506fcf3a510e6e50f1dc
+    kb/communities/Ion_Adsorption_REE_Indigenous_Community.yaml: 09de6c3346c0253626f8175162e663538a44860465124483cf12f75ba655c0bd
+    kb/communities/Jala_Maize_PGPB_SynCom.yaml: f1f84af4838a5c066a06690f4e5ab55130ac29dcd6bf28db302b5ce116627652
+    kb/communities/Jiangshui_LAB_Directed_Fermentation_SynCom.yaml: 2a203d55521c6c2f51365d762a7294e4daa222232e808468239c89b2405d8456
+    reports/causal_graph_review/README.md: 33a18f2e25bb47cce9546e338420c2eaf0fb21c3f99d524d9f4bc0213a194644
+  post_commit_docs_current: Separate publication gate; not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 389
+      mixed: 125
+      community_level_only: 264
+      taxa: 1498
+      credited_solely_by_the_rule: 1226
+    current:
+      records: 460
+      with_community_level: 390
+      mixed: 125
+      community_level_only: 265
+      taxa: 1505
+      credited_solely_by_the_rule: 1233
+  interpretation: 'REE pairwise-benefit assignments become explicitly scoped community/laboratory observations.
+    The survey counts taxa only in records with community-level nodes: its denominator adds the seven
+    existing REE taxa,1498to1505, and solely credited count1226to1233. No taxonomy additions. All11 nodes
+    use canonical participants; three registry entries added. No production matching or census-bound changes.'
+corpus:
+  records: 460
+  nodes: 1463
+  edges: 660
+  review_status_counts:
+    needs_research: 18
+    pending: 255
+    reviewed: 187
+limitations:
+- Whole three records, all13 original nodes and10 arrows reviewed;11 nodes and6 arrows remain. Two procedural
+  nodes and four workflow arrows removed; no new graph structure.
+- Full cached primary main texts/Methods/captions read for REE and Jala, including Jala main tables. Fresh
+  primary spot-checks only. Jiangshui accessible abstract/indexed publisher fragments only; direct publisher403,
+  no full body.
+- No original figure pixels, external supplements, raw data or code audited. Duplicate Jala pmc_full cache
+  not independently read. All920 caches remain byte-identical; source matching is not universal provenance
+  certification.
+- Positive isolate/wall adsorption, field REE observations, maize assay/inoculation effects and Jiangshui
+  formulation endpoints retained. Lab-to-field, trait and defense mediation remain bounded; hypothesized
+  weathering is not exact phylum-level flux.
+- Canonical taxon IDs/labels and raw non-graph blocks preserved, not recertified. REE broader claims remain1520
+  and Jala exact six-strain roster/source inconsistency remains1521. Existing Jiangshui taxonomy/protocol
+  knowledge gap remains open.
+- No Edison dry run, paid provider request/report, credit spend or new graph structure in this batch.
+  Future extensions require the separate one-community research and specific payload/spend authorization
+  workflow.
+- Dedup searched822 all-state issue titles/bodies and14 ignored/hidden local matches. Closed824 was a
+  prior wording repair, not a duplicate of this scientific finding. Relevant contexts read, not every
+  historical comment/review.
+- 1517-1519 stay open until protected-main merge;1520-1521 remain unresolved afterward. Existing graph
+  review is complete within stated scope, not resolution of non-graph followups. Self-adversarial review
+  is not independent approval.
+- SupportingReference coverage476, Linux DOI-cache lookup1091, selected-cache provenance1362 and writer
+  artifact1095 remain limitations. Reference CLI Total checks counts reported issues, not executed checks.
