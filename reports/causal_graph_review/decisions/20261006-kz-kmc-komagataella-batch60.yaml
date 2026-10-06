@@ -1,0 +1,206 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 4aed48731d913b28b88cd42e5bf8e425f4c8c2d9
+baseline_commit: 4aed48731d913b28b88cd42e5bf8e425f4c8c2d9
+base_tree: 06928b0ddcfb76a9d528a964943f9c9e8786cf41
+pre_source_baseline_sha256: ab4d9c40428b46f7bb6cc997595de77fbf97ec46189ca332940edecc90774bbf
+issues:
+- 1539
+- 1540
+unresolved_non_graph_issues:
+- 1543
+unresolved_research_issues:
+- 1541
+- 1542
+issue_deduplication:
+  all_state_issue_titles_and_bodies: 839
+  ignored_hidden_local_search: true
+  matching_local_files: 19
+  matching_issues:
+  - 1091
+  - 595
+  - 594
+reference_cache_original_hashes:
+  references_cache/PMID_41365368.txt: 181b208bcf0f0961381d266a85ae94398ce40dfada4e0885c1a80a3b882ff900
+  references_cache/PMID_42492893.txt: 8e2d768ba6c299346f4e718a57ee8b69fdb9a09769bbb13ba9dd2d034f4cb015
+  references_cache/PMID_26061774.md: 41972c5446b8dabb15959a06bd15acefab8c640c60b9feb415e444d7c6793b4f
+  references_cache/PMID_26061774.txt: 8df7889382fec72eb87e399fd890913cb4f0d330a59fd31a4638def08af61828
+  references_cache/doi_10.1186_s13568-015-0124-5.txt: 24ea6e18e130e868a17112d4503e7d9b7a2337a7bb8501662e21df88a336ec09
+  references_cache/europepmc_10.1186_s13568-015-0124-5.txt: 6e68b9fda9968ec36956406ff5205930f7a3eab47e57e7320d90244debeeae4f
+primary_artifacts:
+  /private/tmp/communitymech-batch60/kombucha-primary.html: d9510aedb4e415469d8568c4474b0f64f8f4dac15c8f58ef41336be82ee3be56
+  /private/tmp/communitymech-batch60/kombucha-primary.txt: 7fd7c46845afdfea0743fd39b6f10ee06f8455153f81f70d361d96d242704315
+  /private/tmp/communitymech-batch60/kz-indexed-primary.txt: ee5dc9e5e44dd3d9f49d340b103f8552f9649d1473832c34791f53409abb3b35
+  /private/tmp/communitymech-batch60/kz-correction-crossref.json: b76e5ed2cca7b4fe4e2b437ef281802c132589686d470f38b9f6ca05696e555b
+  /private/tmp/communitymech-batch60/kz-correction-primary.xml: 96f5611f4df555213ab98248c778172ada028c941e5cdee3b067000cdb4886ec
+  /private/tmp/communitymech-batch60/komagataella-indexed-primary.txt: 76a968c26f974b084b3b61102f6dcda072a308615999e3144d2cc66aad8c517b
+primary_urls:
+- https://link.springer.com/article/10.1186/s13568-015-0124-5
+- https://pubmed.ncbi.nlm.nih.gov/41365368/
+- https://pubmed.ncbi.nlm.nih.gov/41456976/
+- https://www.sciencedirect.com/science/article/pii/S0960852425017493
+- https://www.sciencedirect.com/science/article/pii/S1096717626001023
+primary_matched_fragment: Close biochemical interplay between yeasts and bacteria was facilitated by enclosing the
+  mixed community within cellulose-based pellicles
+edison_dry_run:
+  path: research/communities/Komagataella_Ecoli_Coinducible_Biosynthesis_Coculture-edison-literature-causal-meta.yaml
+  sha256: 753bcec2844b7256e2790a9907e2c2e2d0d18d3a01fe3d39dbd9d79db395b328
+  query_sha256: e429f0f613ac80c47e2e8ddfd83510abb8f87ba13c495f0d19a087207a5c33bb
+  query_chars: 7457
+  job: LITERATURE
+  status: dry-run
+  provider_submissions: 0
+  credits_spent: 0
+  paid_authorization: specific one-job request pending
+limitations:
+- All four original nodes and two arrows assessed; one explicit source model retained as HYPOTHESIZED and one unsupported
+  endpoint removed. No new causal structure.
+- KZ positive performance and assay-inferred roles preserved. Primary full Methods/supplements and correction body
+  unavailable; needs_research under1541. Publisher API metadata contradicts third-party OA labels; no access-control
+  bypass.
+- KMC full primary main text and main/supplement captions read. Numerical Table 1 cells, original figures, supplementary
+  PDF and raw data not inspected. Cooperation is a source model, not demonstrated reciprocal mediation.
+- Komagataella abstract and public publisher Introduction/section previews read, not full Methods/supplements. Empty
+  graph remains needs_research under1542; no new nodes/arrows. One reviewed 7457-character Edison dry run, zero
+  provider submissions or credits.
+- Canonical taxa and raw non-graph blocks preserved, not recertified. KMC metadata1543 and research1541/1542 remain
+  OPEN after graph repair merge.
+- All920 reference caches unchanged. Primary-matched graph fragment does not certify full historical cache provenance
+  or SupportingReference coverage476; Linux DOI lookup1091 and writer artifact1095 remain limitations.
+- Deduplication searched839 all-state issue titles/bodies and19 scoped ignored/hidden local matches; all three matching
+  issue bodies read, not every comment/PR or local match.
+- Self-adversarial review is COMMENT, not independent approval. Repair1539/1540 remain OPEN until protected-main
+  merge.
+records:
+- path: kb/communities/Klebsiella_Arthrobacter_KZ_Phenanthrene_Cadmium_SynCom.yaml
+  id: CommunityMech:000344
+  original_sha256: 1d9b711fa86c876ec1657a114242ebba6cb14cd8be5323a25baeae6511c9b520
+  record_sha256: 65275177a514ceb42276f4f416da7b727e5200b3a8f79fb1510cf6c49bbd083c
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-kz-kmc-komagataella-batch60.yaml
+  scope: Whole record and every original node/arrow, including empty-graph assessment.
+  summary: Bound KZ catabolic roles to the reported assays and flag unresolved corrigendum verification.
+  renamed_nodes:
+    SZ-3 to CW-D3T phenanthrene-mineralization division of labor: Assay-Inferred Phenanthrene Catabolic Division
+      Of Labor
+  node_decisions:
+  - node: Assay-Inferred Phenanthrene Catabolic Division Of Labor
+    rationale: Preserve positive KZ performance and complementary catalytic assays, remove unverified pairwise direction,
+      and keep correction/mechanistic verification pending.
+  removed_node_decisions: []
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:41365368
+  - PMID:41456976
+  issues:
+  - 1540
+  - 1541
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Klebsiella_Arthrobacter_KZ_Phenanthrene_Cadmium_SynCom/2026-10-06T201911Z-codex-4edaec.yaml
+  source_review:
+    scope: Complete abstract and public publisher Introduction/section previews; original full Methods, figures,
+      supplements and correction body unread. Official correction API metadata only.
+    cache_provenance_certified: false
+- path: kb/communities/Kombucha_KMC_IMBG1_Fermentation_Community.yaml
+  id: CommunityMech:000154
+  original_sha256: 774000556eeff1dbbdb5e1890c5de7d6ee0f0f9e56e40973f2e40b5c61d06960
+  record_sha256: 9df19ae1add5269721799ee3a8328edf0531e314c15e3a3abc71a2e4e659fa40
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-kz-kmc-komagataella-batch60.yaml
+  scope: Whole record and every original node/arrow, including empty-graph assessment.
+  summary: Qualify KMC pellicle cooperation and remove the unsupported recruitment-to-mutualism arrow.
+  renamed_nodes:
+    Yeast-Acetobacter Mutualistic Fermentation: Proposed Yeast-Acetobacter Metabolic Cooperation
+    Growth-Condition Dependent Accessory Recruitment: Growth-Condition Dependent Community Composition
+  node_decisions:
+  - node: Proposed Yeast-Acetobacter Metabolic Cooperation
+    rationale: Retain the authors' cooperation model as hypothetical, not measured reciprocal benefit.
+  - node: Cellulose Pellicle Community Structuring
+    rationale: Retain observed pellicle structuring and the explicitly hypothetical spatial-facilitation arrow.
+  - node: Growth-Condition Dependent Community Composition
+    rationale: Retain condition-associated composition and accessory persistence without niche-partitioning or mutualism
+      inference.
+  removed_node_decisions: []
+  edges_before:
+  - source: Cellulose Pellicle Community Structuring
+    target: Yeast-Acetobacter Mutualistic Fermentation
+    description: The cellulose pellicle encloses the mixed yeast-acetobacter culture at the liquid surface, facilitating
+      the close biochemical interplay that maintains kombucha fermentation.
+  - source: Growth-Condition Dependent Accessory Recruitment
+    target: Yeast-Acetobacter Mutualistic Fermentation
+    description: Growth-condition shifts can recruit accessory bacteria such as lactobacilli that may contribute
+      to the broader KMC fermentative capacity.
+  edges_after:
+  - source: Cellulose Pellicle Community Structuring
+    target: Proposed Yeast-Acetobacter Metabolic Cooperation
+    description: HYPOTHESIZED - pellicle enclosure could facilitate bacteria-yeast biochemical cooperation through
+      spatial association, as explicitly proposed in the source Introduction. Microscopy supports association, not
+      a selective test that pellicle formation mediates reciprocal benefit.
+  retained_edge_decisions:
+  - source: Cellulose Pellicle Community Structuring
+    target: Proposed Yeast-Acetobacter Metabolic Cooperation
+    rationale: The source explicitly states spatial facilitation; retain the existing arrow as HYPOTHESIZED, not
+      experimentally isolated mediation.
+  removed_edge_decisions:
+  - source: Growth-Condition Dependent Accessory Recruitment
+    target: Yeast-Acetobacter Mutualistic Fermentation
+    rationale: Possible accessory fermentation capacity does not establish reciprocal benefit among the canonical
+      core genera; preserve the hypothesis in prose, not this causal endpoint.
+  references:
+  - PMID:26061774
+  - doi:10.1186/s13568-015-0124-5
+  issues:
+  - 1539
+  - 1543
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Kombucha_KMC_IMBG1_Fermentation_Community/2026-10-06T201911Z-codex-36fc6c.yaml
+  source_review:
+    scope: Full extracted primary main text, Methods, Results, Discussion, main captions and supplement caption.
+      Table 1 numerical cells, original images, supplementary PDF and raw sequences not inspected.
+    cache_provenance_certified: false
+- path: kb/communities/Komagataella_Ecoli_Coinducible_Biosynthesis_Coculture.yaml
+  id: CommunityMech:000343
+  original_sha256: e07dcd6b1d7bdfeb955aaca0f93df3aadc7f36b4e83f5869974a44e76c6232d2
+  record_sha256: f4024c9731b98eac233911893d44568c3a9097460fb1aa3fb93fced0647cb746
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-kz-kmc-komagataella-batch60.yaml
+  scope: Whole record and every original node/arrow, including empty-graph assessment.
+  summary: Expose the unresolved empty Komagataella-E. coli causal biosynthesis graph.
+  renamed_nodes: {}
+  node_decisions: []
+  removed_node_decisions: []
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42492893
+  issues:
+  - 1542
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  curation_events_added: 1
+  history_files:
+  - history/records/Komagataella_Ecoli_Coinducible_Biosynthesis_Coculture/2026-10-06T201911Z-codex-e2d63d.yaml
+  source_review:
+    scope: Complete abstract and public publisher Introduction/section previews. Full Methods, original figures,
+      supplements and construct assignments not inspected.
+    cache_provenance_certified: false
