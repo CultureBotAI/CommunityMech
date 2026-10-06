@@ -583,7 +583,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Clostridium ljungdahlii-Clostridium kluyveri Syngas Alcohol Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -596,8 +596,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -608,7 +608,7 @@
                     <h3>Syngas Fermentation to Ethanol and Acetate</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">C. ljungdahlii converts syngas into ethanol and acetate, creating reduced and oxidized C2 intermediates that support chain elongation by C. kluyveri.</p>
+                <p class="prewrap interaction-description">C. ljungdahlii converts syngas to ethanol and acetate that support C. kluyveri chain elongation in the tested continuous reactor. The gases are feed substrates and the C2 compounds are the proposed exchanged products. Product balances support this division of labor; the estimate that roughly two-thirds of ethanol production supported chain elongation is calculated from stoichiometry rather than directly traced partner flux.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium ljungdahlii</p>
@@ -696,7 +696,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"ethanol and acetate"</div>
+                        <div class="snippet">"These products were used as substrates by C. kluyveri to chain-elongate them into longer-chain carboxylates."</div>
 
                     </li>
 
@@ -709,7 +709,7 @@
                     <h3>Ethanol-Driven Chain Elongation</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">C. kluyveri uses ethanol from C. ljungdahlii to perform reverse beta-oxidation chain elongation, producing butyrate and caproate.</p>
+                <p class="prewrap interaction-description">C. kluyveri uses ethanol and acetate supplied by C. ljungdahlii to form butyrate and hexanoate by chain elongation. PARTIAL - the C. kluyveri-to-C. ljungdahlii direction denotes proposed carboxylate supply for subsequent reduction, not ethanol transfer in that direction. Bulk products and stoichiometric calculations do not directly resolve all partner fluxes.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium kluyveri</p>
@@ -731,12 +731,12 @@
                         class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30089</a>),
 
                     butyrate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30772"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30772</a>),
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17968"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17968</a>),
 
                     hexanoate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30776"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30776</a>)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17120"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17120</a>)
 
                 </p>
 
@@ -759,9 +759,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Biological Reduction to Longer-Chain Alcohols
-                        <p class="prewrap causal-description">Chain elongation generates butyrate and hexanoate that C. ljungdahlii can reduce to the longer-chain alcohols detected in the syngas coculture.
-</p>
+                        <span class="flow-arrow">→</span> Proposed Carboxylate Reduction and Observed Longer-Chain Alcohols
+                        <p class="prewrap causal-description">PARTIAL - chain elongation supplies the carboxylate precursors for the observed longer-chain alcohols. The primary study proposes that C. ljungdahlii reduces them, but does not selectively establish the reducing organism or quantify donor-resolved precursor flux.</p>
                     </div>
 
                 </div>
@@ -803,29 +802,32 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Biological Reduction to Longer-Chain Alcohols</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Proposed Carboxylate Reduction and Observed Longer-Chain Alcohols</h3>
                 </div>
-                <p class="prewrap interaction-description">C. ljungdahlii likely reduces chain-elongated carboxylates to longer-chain alcohols using reducing power from syngas, yielding butanol, hexanol, and trace octanol.</p>
-
-
-                <p><strong>Source Taxon:</strong> Clostridium ljungdahlii</p>
+                <p class="prewrap interaction-description">PARTIAL - the coculture produced butanol, hexanol and trace octanol. The proposed mechanism is reduction of chain-elongated carboxylates, most likely by C. ljungdahlii using syngas-derived reducing power. The reducing partner was not selectively resolved, and the paper does not exclude a C. kluyveri contribution. These are community products, not demonstrated alcohol donation from C. ljungdahlii to C. kluyveri. Named carboxylate pools coexist with pH-dependent undissociated acids relevant to the proposed reduction.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Clostridium kluyveri</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Clostridium ljungdahlii,
+
+                    Clostridium kluyveri
+
+                </p>
 
 
 
                 <p><strong>Metabolites:</strong>
 
                     butyrate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30772"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30772</a>),
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17968"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17968</a>),
 
                     hexanoate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30776"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30776</a>),
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17120"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17120</a>),
 
                     butanol
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=28885"
@@ -859,7 +861,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/27877166/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:27877166</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"likely reduced the produced carboxylates to their corresponding alcohols"</div>
@@ -885,17 +887,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>pH-Restricted Product Formation</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>pH-Dependent Process Performance</h3>
                 </div>
-                <p class="prewrap interaction-description">Longer-chain alcohol production depended on a narrow pH range because C. ljungdahlii and C. kluyveri have different pH optima, causing a process-level tradeoff between acetogenesis, chain elongation, and biological reduction.</p>
-
-
-                <p><strong>Source Taxon:</strong> Clostridium ljungdahlii</p>
+                <p class="prewrap interaction-description">Longer-chain products were observed across the tested pH range of 5.7-6.4 in phases of one continuously operated reactor. The phase comparisons, altered medium flow and operational disturbances support condition-dependent process tradeoffs, not a universal optimum or independent replicated pH treatments. Competition between chain elongation and reduction for carboxylate intermediates is a process-allocation model, not measured reciprocal ecological harm to both organisms.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Clostridium kluyveri</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Clostridium ljungdahlii,
+
+                    Clostridium kluyveri
+
+                </p>
 
 
 
@@ -950,7 +955,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/27877166/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:27877166</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"two bioprocesses compete for intermediates"</div>
@@ -966,6 +971,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which partner reduces each carboxylate, and how do pH and operating conditions partition flux between elongation and reduction?
+                </h3>
+                <p class="prewrap">PMID:27877166 reports products and condition responses from one reactor. Intermediate production and ethanol utilization are reconstructed from stoichiometry; reducing-organism attribution and several pH mechanisms remain proposed. Partner-selective or isotope-resolved experiments and replicated matched-flow pH comparisons would separate these mechanisms. Do not equate competing process routes with reciprocal organismal fitness harm.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Syngas Fermentation to Ethanol and Acetate</code>, <code>ecological_interactions#Ethanol-Driven Chain Elongation</code>, <code>ecological_interactions#Proposed Carboxylate Reduction and Observed Longer-Chain Alcohols</code>, <code>ecological_interactions#pH-Dependent Process Performance</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1459,7 +1483,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1480,7 +1504,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Biological Reduction to Longer-Chain Alcohols",
+                label: "Proposed Carboxylate Reduction and Observed Longer-Chain Alcohols",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1489,23 +1513,26 @@
             });
 
 
-            var srcKey = "Clostridium ljungdahlii";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Clostridium kluyveri";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Clostridium ljungdahlii",
+
+                "Clostridium kluyveri"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:3";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1524,7 +1551,7 @@
 
             nodes.push({
                 id: intId,
-                label: "pH-Restricted Product Formation",
+                label: "pH-Dependent Process Performance",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1533,17 +1560,20 @@
             });
 
 
-            var srcKey = "Clostridium ljungdahlii";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Clostridium kluyveri";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Clostridium ljungdahlii",
+
+                "Clostridium kluyveri"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
