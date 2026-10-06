@@ -5,6 +5,25 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch50: HAMBI, Hanford And C6
+
+[Decisions](decisions/20261006-hambi-hanford-c6-batch50.yaml),
+[validation](validation-20261006-batch50.json) and
+[self-adversarial review](adversarial-review-20261006-batch50.yaml) preserve
+all six community outcomes while removing two unsupported Hanford arrows.
+HAMBI's controlled carbon response remains distinct from competitive-sorting
+and trait/pH mediation. Hanford guild assignments remain inference, not measured
+flux or niche partitioning. C6 bulk removal and recovery do not establish
+mineralization, statistical equivalence or every-strain survival.
+All canonical input labels remain explicit, including distinct strains sharing
+one taxon ID. Hanford was reviewed at abstract/selected-excerpt scope only;
+HAMBI/C6 main texts and embedded captions were read, not original figure images
+or supplements. The C6 irradiation-feed discrepancy remains an explicit gap.
+Self-review removed an unverified precise spatial attribution from Hanford's
+excerpted guild result. Earlier actual checks are retained as superseded, with
+every verification command rerun against the final wording. Non-graph metadata
+is preserved, not recertified.
+
 ## Batch49: Wet-Up Viruses And Groundwater Elusimicrobia
 
 [Decisions](decisions/20261006-wetup-elusimicrobia-batch49.yaml),

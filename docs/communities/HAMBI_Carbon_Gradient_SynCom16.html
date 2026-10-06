@@ -1050,7 +1050,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for HAMBI Carbon-Gradient 16-species SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -1058,8 +1058,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -1068,12 +1068,47 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Total-carbon-driven community state shifts</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">The full 16-member SynCom reproducibly shifted among states along the total-carbon gradient, with A. caviae dominating low total carbon, P. chlororaphis rising to high abundance with A. caviae at intermediate carbon, and C. koseri dominating high carbon. The source attributed these state transitions principally to total carbon availability, with R2A-derived resource complexity acting as a secondary modulator.</p>
+                <p class="prewrap interaction-description">Controlled glucose/R2A carbon gradients produced repeatable community-composition shifts: A. caviae dominated low carbon, P. chlororaphis co-dominated with A. caviae at intermediate carbon, and C. koseri dominated high carbon. R2A-derived complexity modulated this pattern within the tested media. Relative 16S profiles and the authors&#39; OD-scaled abundance analysis support the result, but are not direct viable-cell counts or proof of extinction. The authors interpret dominance as competitive sorting; ancestral monoculture lag and growth traits predict patterns but do not selectively establish competition, lag time or pH as the mediator. Clusters across different resource conditions do not demonstrate alternative stable states within one condition.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas putida HAMBI 6,
+
+                    Agrobacterium tumefaciens HAMBI 105,
+
+                    Comamonas testosteroni HAMBI 403,
+
+                    Citrobacter koseri HAMBI 1287,
+
+                    Morganella morganii HAMBI 1292,
+
+                    Kluyvera intermedia HAMBI 1299,
+
+                    Sphingobium yanoikuyae HAMBI 1842,
+
+                    Sphingobacterium spiritivorum HAMBI 1896,
+
+                    Aeromonas caviae HAMBI 1972,
+
+                    Pseudomonas chlororaphis HAMBI 1977,
+
+                    Bordetella avium HAMBI 2160,
+
+                    Cupriavidus oxalaticus HAMBI 2164,
+
+                    Paracoccus denitrificans HAMBI 2443,
+
+                    Stenotrophomonas maltophilia HAMBI 2659,
+
+                    Niabella yanshanensis HAMBI 3031,
+
+                    Microvirga lotononidis HAMBI 3237
+
+                </p>
 
 
 
@@ -1132,6 +1167,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which member interactions and traits mediate the carbon-dependent state shifts?
+                </h3>
+                <p class="prewrap">Preserve the positive controlled carbon response and the authors&#39; competitive-sorting interpretation. Monoculture trait prediction, endpoint pH associations and OD-scaled abundance are informative but not selective mediator perturbations or viable-cell enumeration. Partner removal, trait manipulation and pH control would test the proposed mechanisms. R2A is a proxy for resource complexity with uncertain effective availability, not an exhaustive complexity experiment; no within-condition hysteresis or alternative-attractor demonstration is established by clustering. All 16 canonical strains denote the input community, not proven persistence at every endpoint. Non-graph metadata is preserved, not recertified.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Total-carbon-driven community state shifts</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1635,7 +1689,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1658,6 +1712,47 @@
 
 
 
+
+            var participantKeys = [
+
+                "Pseudomonas putida HAMBI 6",
+
+                "Agrobacterium tumefaciens HAMBI 105",
+
+                "Comamonas testosteroni HAMBI 403",
+
+                "Citrobacter koseri HAMBI 1287",
+
+                "Morganella morganii HAMBI 1292",
+
+                "Kluyvera intermedia HAMBI 1299",
+
+                "Sphingobium yanoikuyae HAMBI 1842",
+
+                "Sphingobacterium spiritivorum HAMBI 1896",
+
+                "Aeromonas caviae HAMBI 1972",
+
+                "Pseudomonas chlororaphis HAMBI 1977",
+
+                "Bordetella avium HAMBI 2160",
+
+                "Cupriavidus oxalaticus HAMBI 2164",
+
+                "Paracoccus denitrificans HAMBI 2443",
+
+                "Stenotrophomonas maltophilia HAMBI 2659",
+
+                "Niabella yanshanensis HAMBI 3031",
+
+                "Microvirga lotononidis HAMBI 3237"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

@@ -1,0 +1,195 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 5d6f2a6c1a56eb9a4ab2017af1697ebafdd45667
+baseline_commit: 5d6f2a6c1a56eb9a4ab2017af1697ebafdd45667
+base_tree: 223789a2dbfc92a5f8ffa8a2e73429cd3a8a28c8
+pre_source_baseline_sha256: 742478eaa1f826c47fe57f76d2344df1f388d20a79dcbc9e46114fd1eabab051
+issues:
+- 1493
+- 1494
+- 1495
+issue_deduplication:
+  all_state_issue_titles_and_bodies: 803
+  ignored_hidden_local_search: true
+  matching_issues:
+  - 1095
+  - 1060
+  - 1059
+  - 1007
+  matching_local_files: 19
+  disposition: Three closed non-graph repairs and one unrelated open writer-audit issue; no duplicate of these graph
+    repairs in inspected scope.
+  limitations: Not every issue comment or PR review inspected.
+reference_cache_original_hashes:
+  references_cache/PMID_42367191.txt: b03ed7ff1f5dea55b5f67b10d77cbb59e89f1b51c0d9f49e1ffae7711e038960
+  references_cache/PMID_22456444.md: 49b493932ef97065a1e0a57b07c8add42fdd5990d3016a83d8bdf7d848cd266c
+  references_cache/PMID_41743136.txt: 0d05fcdfea968e58bce4f5690720bad20782d4293956d616cfbcfef5565e2ea6
+limitations:
+- Whole 511-line HAMBI,270-line Hanford and386-line C6 records and every original node/arrow reviewed. HAMBI/C6
+  complete cached main bodies/Methods/embedded captions read; C6 main tables read. Hanford primary abstract and
+  selected excerpts only, not full body. No original figure images, supplements, raw data or code audited.
+- 'Existing-structure repairs only: six nodes retained, two Hanford arrows removed, no new causal nodes/arrows or
+  paid Edison job. Positive findings and author interpretations retained with limits; review does not claim all
+  possible mechanisms represented.'
+- HAMBI competition and trait/pH mediation remain interpretations, with positive controlled carbon responses and
+  OD-scaled abundance retained. Explicit participants are the input roster, not demonstrated endpoint persistence
+  or alternative stable states.
+- Hanford selected-cache provenance/full-body access limits persist. Putative guild profiles are not metabolic flux
+  or demonstrated niche partitioning; four broad taxa are not a complete or guild-resolved roster. Top-down-control
+  proposal is not a new curated predation branch. The extracted guild-enrichment sentence lacks its precise spatial
+  comparator; no contact-specific enrichment is certified.
+- C6 bulk removal is not mineralization, ammonia production is not consortium removal and nonsignificance is not
+  formal equivalence. Community recovery does not prove every-strain survival or EPS/quorum-sensing mechanism. Main-text/figure-caption
+  irradiation-feed discrepancy remains unresolved.
+- All non-graph raw blocks and920 cache files preserved, not certified. SupportingReference coverage (#476), Linux
+  DOI-cache lookup (#1091), selected-cache provenance (#1362) and unrelated writer-audit artifact issue (#1095)
+  remain outside scope. Reference CLI Total checks counts reported issues, not executed checks.
+- Dedup checked803 all-state issue titles/bodies and19 ignored/hidden local files, not all comments or PR reviews.
+  Existing1059/1060/1007 are closed non-graph repairs;1095 is unrelated CI audit output. Self-adversarial review
+  is not independent approval. Protected-main merge and corpus completion remain pending.
+records:
+- path: kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml
+  id: CommunityMech:000423
+  original_sha256: 1d702bfc31295364092b1aa83379e518f643e6b297b0a9d982d51544b937dca4
+  record_sha256: a6de23c0605bdd23154c61dca8a27d161e55f8fdf0e191bc55d38969b693a6f8
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml
+  scope: Whole record and every original node/arrow; bounded existing structure, not all possible mechanisms.
+  summary: Bound controlled carbon-state outcomes and competitive-sorting interpretation.
+  renamed_nodes: {}
+  node_decisions:
+  - node: Total-carbon-driven community state shifts
+    rationale: Retain the controlled carbon-dependent community outcome and authors' competitive-sorting interpretation
+      without an unqualified COMPETITION label or selectively demonstrated trait/pH mediator.
+  removed_node_decisions: []
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42367191
+  issues:
+  - 1493
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/HAMBI_Carbon_Gradient_SynCom16/2026-10-06T143624Z-codex-f3d599.yaml
+  source_review:
+    PMID:42367191:
+      cache: references_cache/PMID_42367191.txt
+      url: https://pubmed.ncbi.nlm.nih.gov/42367191/
+      scope: Complete cached primary main text, Methods and embedded Figures 1-5 captions; primary PubMed abstract
+        corroborated. No original figure images, supplements, raw data or code inspected.
+      sha256: b03ed7ff1f5dea55b5f67b10d77cbb59e89f1b51c0d9f49e1ffae7711e038960
+- path: kb/communities/Hanford_300_Area_Unconfined_Aquifer_Community.yaml
+  id: CommunityMech:000138
+  original_sha256: 9355b5ace5248724637a24a984d88b87d8af124c60c300998c6d9a14bb9c2b30
+  record_sha256: 61ab38249ffc3fd960901f1868e3373e77ea3077bc79880e1e125eef7e8162d2
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml
+  scope: Whole record and every original node/arrow; bounded existing structure, not all possible mechanisms.
+  summary: Separate aquifer guild inference from measured flux and remove two unsupported causal arrows.
+  renamed_nodes:
+    Annual Electron Donor and Acceptor Flux Dynamics: Putative Guild Patterns and Inferred Redox Resource Dynamics
+    Depth-Structured Redox Guilds: Putative Redox Guilds in Depth-Stratified Sampling
+  node_decisions:
+  - node: Columbia River Intrusion Community Turnover
+    rationale: Retain positive field intrusion/composition observations without isolated nitrate mediation or community-caused
+      electron flux.
+  - node: Putative Guild Patterns and Inferred Redox Resource Dynamics
+    rationale: Retain PARTIAL computational guild/resource inference rather than measured annual flux; remove incoming
+      and outgoing causal overstatements.
+  - node: Putative Redox Guilds in Depth-Stratified Sampling
+    rationale: Retain putative-guild proportions and the depth-stratified sampling context without assigning the
+      excerpt to an unverified precise depth comparator or measured metabolic activity.
+  removed_node_decisions: []
+  edges_before:
+  - source: Columbia River Intrusion Community Turnover
+    target: Annual Electron Donor and Acceptor Flux Dynamics
+    description: Nitrate-tracked intrusion and seasonal hydrologic change restructure groundwater clades over the
+      annual cycle, shifting the electron-donor and electron-acceptor regimes available to functional redox guilds.
+  - source: Annual Electron Donor and Acceptor Flux Dynamics
+    target: Depth-Structured Redox Guilds
+    description: Annual donor and acceptor fluxes are reflected in vertical enrichment of putative ammonia oxidizers,
+      methane oxidizers, and metal reducers near the Hanford-Ringold redox transition zone.
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions:
+  - source: Columbia River Intrusion Community Turnover
+    target: Annual Electron Donor and Acceptor Flux Dynamics
+    description: Nitrate-tracked intrusion and seasonal hydrologic change restructure groundwater clades over the
+      annual cycle, shifting the electron-donor and electron-acceptor regimes available to functional redox guilds.
+    rationale: Observed or inferred profile relationships do not establish this causal direction; mixing, depth
+      and geochemical covariation remain unresolved.
+  - source: Annual Electron Donor and Acceptor Flux Dynamics
+    target: Depth-Structured Redox Guilds
+    description: Annual donor and acceptor fluxes are reflected in vertical enrichment of putative ammonia oxidizers,
+      methane oxidizers, and metal reducers near the Hanford-Ringold redox transition zone.
+    rationale: Observed or inferred profile relationships do not establish this causal direction; mixing, depth
+      and geochemical covariation remain unresolved.
+  references:
+  - PMID:22456444
+  issues:
+  - 1494
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Hanford_300_Area_Unconfined_Aquifer_Community/2026-10-06T143624Z-codex-33e393.yaml
+  source_review:
+    PMID:22456444:
+      cache: references_cache/PMID_22456444.md
+      url: https://pubmed.ncbi.nlm.nih.gov/22456444/
+      scope: Complete primary PubMed abstract and complete local selected-snippet cache only. Cache full_text metadata
+        does not mean full-body review. PMC CAPTCHA, publisher redirects/errors and Europe PMC XML HTTP500 prevented
+        full-body access. No original figures, supplements, raw data or code inspected.
+      sha256: 49b493932ef97065a1e0a57b07c8add42fdd5990d3016a83d8bdf7d848cd266c
+- path: kb/communities/Hexamine_Formaldehyde_Consortium_C6.yaml
+  id: CommunityMech:000405
+  original_sha256: 379d0dd82d072b0be02a50febc2ca4202385dc7f0dcf2f2dbb3de49c2b1faaf5
+  record_sha256: 275243762d5d3c3032178fcc68b9005177a5d0f1924ff6ef01e3aeaf114e8d08
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml
+  scope: Whole record and every original node/arrow; bounded existing structure, not all possible mechanisms.
+  summary: Bound bulk chemical removal and post-irradiation community recovery.
+  renamed_nodes: {}
+  node_decisions:
+  - node: C6 hexamine and formaldehyde removal
+    rationale: Retain positive bulk removal while distinguishing ammonia production, mineralization, partner flux
+      and persistence of all six input strains.
+  - node: Immobilized C6 post-irradiation recovery
+    rationale: Retain positive post-irradiation community recovery with assay timing, medium renewal and nonsignificance
+      limits; no equivalence, all-strain survival or selective protective pathway claim.
+  removed_node_decisions: []
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:41743136
+  issues:
+  - 1495
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Hexamine_Formaldehyde_Consortium_C6/2026-10-06T143624Z-codex-a07061.yaml
+  source_review:
+    PMID:41743136:
+      cache: references_cache/PMID_41743136.txt
+      url: https://pubmed.ncbi.nlm.nih.gov/41743136/
+      scope: Complete cached primary main text, Methods, Tables 1-3 and embedded Figures 1-4 captions; primary PubMed
+        abstract corroborated. Graphical-abstract text/AI alt text not used for chemical identity. No original figure
+        images, supplements, raw data or code inspected.
+      sha256: 0d05fcdfea968e58bce4f5690720bad20782d4293956d616cfbcfef5565e2ea6
