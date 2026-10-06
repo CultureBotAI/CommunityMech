@@ -710,7 +710,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for High-Solids Switchgrass Methanogenic Microbiome</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -718,13 +718,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -733,14 +728,25 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>High-Solids Switchgrass Carbohydrate Solubilization</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Bacterial CAZyme-producing lineages collectively maintained carbohydrate solubilization as switchgrass solids loading increased, with Firmicutes dominant and Chloroflexi/Thermotogae showing fraction-specific enzyme contributions.</p>
+                <p class="prewrap interaction-description">The thermophilic HR1 community maintained fractional carbohydrate solubilization as switchgrass loading increased from 30 to 150 g/L in one sequentially operated reactor. This positive bulk-carbohydrate result does not demonstrate complete lignin mineralization or selectively identify the causal enzyme strategy. Vitamins, medium optimization, mixing and adaptation also changed during operation. LC-MS profiles identify expressed protein groups with annotated CAZyme potential, not direct catalytic activities; the five canonical taxa are a curated subset, not every organism responsible for conversion.</p>
 
 
-                <p><strong>Source Taxon:</strong> Clostridia</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Clostridia,
+
+                    Bacilli,
+
+                    Chloroflexota,
+
+                    Thermotogota,
+
+                    Euryarchaeota
+
+                </p>
 
 
 
@@ -781,8 +787,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Hydrogenotrophic Methanogenic Sink
-                        <p class="prewrap causal-description">High-solids carbohydrate solubilization and downstream fermentation provide the reducing equivalents and carbon flow that support methane and carbon dioxide as the main steady-state reactor products.</p>
+                        <span class="flow-arrow">→</span> Methane Production and Inferred Hydrogenotrophic Route
+                        <p class="prewrap causal-description">PARTIAL - carbohydrate solubilization followed by fermentation can supply carbon and reducing equivalents to methanogenesis, connecting the measured reactor outcomes. The broad trophic model is supported by bulk products and protein profiles, but the hydrogenotrophic contribution and exact donor-to-methanogen flux were not selectively quantified.</p>
                     </div>
 
                 </div>
@@ -824,17 +830,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Fraction-Specific CAZyme Functional Niches</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Fraction-Associated CAZyme Protein Profiles</h3>
                 </div>
-                <p class="prewrap interaction-description">Chloroflexi-associated CAZymes were more prevalent in planktonic-cell fractions, whereas Thermotogae-associated enzymes were more represented in supernatant and substrate-bound fractions, indicating spatially partitioned lignocellulose-deconstruction functions.</p>
-
-
-                <p><strong>Source Taxon:</strong> Chloroflexota</p>
+                <p class="prewrap interaction-description">Chloroflexi-assigned CAZyme proteins were more prevalent in the planktonic-cell fraction, whereas Thermotogae-assigned proteins were more represented in supernatant and substrate-bound fractions. These positive metaproteomic profiles motivated the authors&#39; functional-niche interpretation. Centrifugation-enriched fractions and protein adsorption do not directly locate every living organism, establish competitive niche partitioning, or demonstrate a Chloroflexota-to-Thermotogota interaction.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Thermotogota</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Chloroflexota,
+
+                    Thermotogota
+
+                </p>
 
 
 
@@ -870,7 +879,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> High-Solids Switchgrass Carbohydrate Solubilization
-                        <p class="prewrap causal-description">Spatially partitioned Chloroflexi and Thermotogae CAZyme contributions are part of the bacterial enzyme strategy that maintains fractional carbohydrate solubilization as switchgrass solids increase.</p>
+                        <p class="prewrap causal-description">PARTIAL - fraction-associated CAZyme proteins could contribute complementary hydrolysis functions that maintain carbohydrate solubilization. Protein abundance and localization profiles support this interpretation, not selective perturbation establishing that spatial partitioning causes the maintained phenotype.</p>
                     </div>
 
                 </div>
@@ -889,7 +898,7 @@
                             - SUPPORT (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"suggesting the presence of functional niches"</div>
+                        <div class="snippet">"CAZymes from the phylum Chloroflexi were more prevalent in the PC fraction while enzymes from the phylum Thermotogae were more represented in the SNT and SB fractions"</div>
 
                     </li>
 
@@ -902,7 +911,7 @@
                             - SUPPORT (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"substrate bound"</div>
+                        <div class="snippet">"each sample was split into three fractions: supernatant (SNT), planktonic cells (PC), and substrate-bound (SB)"</div>
 
                     </li>
 
@@ -912,15 +921,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Hydrogenotrophic Methanogenic Sink</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Methane Production and Inferred Hydrogenotrophic Route</h3>
                 </div>
-                <p class="prewrap interaction-description">Archaeal methanogenesis functions converted fermentation-derived reducing equivalents and carbon dioxide to methane, consistent with methane and carbon dioxide as the main observed reactor products and hydrogenotrophic methanogenesis proteins increasing at high solids.</p>
+                <p class="prewrap interaction-description">Methane and carbon dioxide were measured reactor products. The higher abundance and diversity of proteins assigned to hydrogenotrophic rather than acetoclastic pathways suggest a major hydrogenotrophic route, but do not quantify its fraction of methane production or exclude other routes. Steady-state hydrogen and volatile fatty acids below detection do not mean absent turnover. The canonical archaeal group represents inferred methanogenic capacity, not the complete community or an experimentally resolved partner pair.</p>
 
 
-                <p><strong>Source Taxon:</strong> Euryarchaeota</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Euryarchaeota
+
+                </p>
 
 
 
@@ -979,10 +991,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/35790765/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:35790765</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"all hydrogenotrophic methanogenesis pathway enzymes"</div>
+                        <div class="snippet">"both the aggregate abundance and diversity (protein count) of those mapping the hydrogenotrophic pathway markedly exceeded that of the acetoclastic pathway"</div>
 
                     </li>
 
@@ -1046,6 +1058,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which enzymes and metabolic routes maintain conversion at high solids?
+                </h3>
+                <p class="prewrap">One sequential HR1 reactor supports positive conversion and gas outcomes but does not isolate solids loading from vitamin, medium, mixing or adaptation changes. Metaproteomic replicates are not independent replicate reactors, and the sequence database was derived from lower-solids metagenomes. Selective enzyme perturbations, catalytic assays and route-resolved flux would test both existing arrows. AA6 enrichment motivated an oxidative/Fenton accessibility hypothesis, but ROS, iron cycling and lignin-depolymerization flux were not directly established in the inspected study; no new oxidative branch is asserted. The authors&#39; proposed syntrophic acetate oxidation likewise remains unresolved. Canonical broad taxa are incomplete and are not a newly grounded strain roster. Cache abstract-only metadata coexists with an appended primary full body, which was read. Non-graph metadata is preserved, not recertified.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#High-Solids Switchgrass Carbohydrate Solubilization</code>, <code>ecological_interactions#Fraction-Associated CAZyme Protein Profiles</code>, <code>ecological_interactions#Methane Production and Inferred Hydrogenotrophic Route</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1502,7 +1533,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1532,18 +1563,32 @@
             });
 
 
-            var srcKey = "Clostridia";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Clostridia",
+
+                "Bacilli",
+
+                "Chloroflexota",
+
+                "Thermotogota",
+
+                "Euryarchaeota"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1562,7 +1607,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Fraction-Specific CAZyme Functional Niches",
+                label: "Fraction-Associated CAZyme Protein Profiles",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1571,23 +1616,26 @@
             });
 
 
-            var srcKey = "Chloroflexota";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Thermotogota";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Chloroflexota",
+
+                "Thermotogota"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1608,7 +1656,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Hydrogenotrophic Methanogenic Sink",
+                label: "Methane Production and Inferred Hydrogenotrophic Route",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1617,12 +1665,18 @@
             });
 
 
-            var srcKey = "Euryarchaeota";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Euryarchaeota"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

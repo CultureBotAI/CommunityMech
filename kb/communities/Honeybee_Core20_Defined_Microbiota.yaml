@@ -52,9 +52,11 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Core-20 Gut Colonization
-  description: The defined Core-20 community colonizes the honeybee gut in vivo; most member strains
-    remained detectable through the serial-passage experiment, with G. sp. W8131 falling below
-    detection or failing to colonize.
+  description: The defined Core-20 inoculum established gut communities in honeybees. During four serial passages,
+    most input strains were detected, while G. sp. W8131 was below detection or failed to colonize. Relative abundance
+    and diversity changed, so this is not unchanged composition or confirmed persistence of every strain. The separate
+    passaging experiment did not establish that every passage preserved immune stimulation or pathogen protection.
+    The canonical Bacteria participant is a broad placeholder, not a resolved 20-strain roster.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: honeybee gut bacterial Core-20 members
@@ -68,20 +70,23 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Core-20 Immune Priming
-    description: In vivo Core-20 gut colonization provides the defined community context that stimulates
-      antimicrobial peptide expression before Hafnia alvei challenge.
+    description: PARTIAL - experimental Core-20 inoculation and establishment provide the microbial exposure that
+      induces host immune-gene expression before challenge. The positive treatment response supports this link,
+      but the separate serial-passage result does not establish persistent colonization as the necessary mediator
+      or protection at every passage.
   evidence:
   - reference: PMID:36532452
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: All strains except G. sp. W8131 were detected individually in bee gut samples
-      among passages
-    explanation: Establishes in vivo persistence for most Core-20 strains during the serial honeybee-gut
-      passaging experiment and prevents the record from implying perfect detection of all 20 members.
+    snippet: All strains except G. sp. W8131 were detected individually in bee gut samples among passages
+    explanation: Establishes in vivo persistence for most Core-20 strains during the serial honeybee-gut passaging
+      experiment and prevents the record from implying perfect detection of all 20 members.
 - name: Core-20 Immune Priming
-  description: The stably established Core-20 community triggers up-regulation of honeybee innate immune
-    genes, including antimicrobial peptide genes, that the authors link to microbiota-mediated pathogen
-    protection.
+  description: 'Core-20 treatment increased host innate immune-gene expression: selected Toll/Imd pathway genes
+    at 24 h and abaecin, apidaecin, hymenoptaecin and defensin-1 transcripts on Day 7 before Hafnia alvei challenge.
+    These are positive qPCR transcriptional responses, not direct AMP protein concentration or antimicrobial activity
+    measurements. The authors propose immune priming as part of protection; selective immune or PTS perturbations
+    were not reported in this study.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: honeybee gut bacterial Core-20 members
@@ -94,20 +99,26 @@ ecological_interactions:
       id: GO:0045088
       label: regulation of innate immune response
   downstream:
-  - target: Immune-Mediated Hafnia alvei Reduction
-    description: Core-20 immune-gene induction coincided with reduced H. alvei loads after oral challenge
-      and was interpreted as part of the protective mechanism.
+  - target: Core-20-Associated Hafnia alvei Load Reduction
+    description: PARTIAL - induced host immune effectors could restrict Hafnia alvei after challenge. Prechallenge
+      immune-gene induction and subsequent reduced pathogen load support the authors' protective mechanism proposal,
+      but no selective immune-pathway perturbation establishes mediation or excludes nutrient competition and other
+      community effects.
   evidence:
   - reference: PMID:36532452
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: bees with the Core-20 showed a significant increase of AMPs abaecin,
-      apidaecin, hymenoptaecin, and defensin-1
-    explanation: Supports the Core-20-induced antimicrobial peptide response measured before H. alvei
-      inoculation.
-- name: Immune-Mediated Hafnia alvei Reduction
-  description: Host immune regulation by the Core-20 gut community reduces Hafnia alvei prevalence in
-    orally challenged honeybees.
+    snippet: bees with the Core-20 showed a significant increase of AMPs abaecin, apidaecin, hymenoptaecin, and
+      defensin-1
+    explanation: Supports prechallenge AMP-gene transcript increases measured by qPCR, not direct peptide abundance
+      or proof of immune-mediated protection.
+- name: Core-20-Associated Hafnia alvei Load Reduction
+  description: Core-20 treatment reduced Hafnia alvei load by the reported 78-fold relative to microbiota-free bees
+    five days after oral challenge; load was measured by qPCR and normalized to host actin. Core-6 did not significantly
+    reduce the load in that comparison. This positive community-treatment outcome is not pathogen eradication, direct
+    viable-cell enumeration or demonstrated immune mediation. The strain-composition comparison does not isolate
+    richness from strain identity, and the broad canonical bacterial participant does not resolve host, pathogen
+    or individual symbiont identities.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: honeybee gut bacterial Core-20 members
@@ -123,11 +134,10 @@ ecological_interactions:
   - reference: PMID:36532452
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: bees treated with the Core-6, including all these strains demonstrating the ability
-      to inhibit pathogens, did not show a significant reduction of H. alvei, while
-      the Core-20 reduced the H. alvei loads by 78 times
-    explanation: 'Supports the endpoint: the high-diversity Core-20 inoculum reduced H. alvei burden
-      in vivo after oral challenge.'
+    snippet: bees treated with the Core-6, including all these strains demonstrating the ability to inhibit pathogens,
+      did not show a significant reduction of H. alvei, while the Core-20 reduced the H. alvei loads by 78 times
+    explanation: Supports the positive oral-challenge load endpoint, not selectively identified immune mediation
+      or a richness-only treatment effect.
 environmental_factors:
 - name: stably transmitted defined microbiota
   value: The Core-20 community was passaged through honeybee guts and evaluated for stable colonization
@@ -190,3 +200,27 @@ growth_media:
       35°C in 5% CO2 for 2–3 days.
     explanation: Names the agar media, 35°C incubation, 5% CO2 atmosphere, and 2–3 day
       duration used to revive the Core-20 strains.
+discussions:
+- discussion_id: core20_protection_mediation
+  prompt: Which Core-20 members and host mechanisms cause the reduced pathogen load?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Core-20 Gut Colonization
+  - ecological_interactions#Core-20 Immune Priming
+  - ecological_interactions#Core-20-Associated Hafnia alvei Load Reduction
+  rationale: Retain the positive immune-gene and load responses while testing immune-pathway necessity, peptide
+    activity and strain-resolved contributions separately. The primary study proposes PTS-linked immune stimulation
+    and nutrient-niche occupation from comparative genomic potential; neither is a newly demonstrated causal branch
+    here. Four-passage detection is a separate endpoint with W8131 uncertainty, changing diversity and no protective
+    challenge demonstrated for each passage. Existing broad Bacteria grounding is preserved rather than expanded
+    to unverified CURIEs. Non-graph evidence classification and metadata are preserved, not recertified.
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T15:06:39Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate positive Core-20 transcripts and pathogen reduction from proposed immune mediation. Issue #1499;
+    reports/causal_graph_review/decisions/20261006-enrichments-core20-batch51.yaml'
+  llm_assisted: true
