@@ -135,95 +135,146 @@ taxonomy:
     explanation: Supports archaeal membership and depth-associated abundance in the groundwater community.
 ecological_interactions:
 - name: Columbia River Intrusion Community Turnover
-  description: Seasonal Columbia River water intrusion changes nitrate and groundwater elevation conditions,
-    causing temporal turnover in aquifer microbial community composition, especially in shallow wells.
-  interaction_type: NICHE_PARTITIONING
+  description: Field 16S profiles showed temporal community turnover associated with seasonal Columbia River intrusion,
+    particularly near the water table. The authors identify intrusion as a structuring influence using hydrology
+    and nitrate-based mixing estimates. These positive field observations do not isolate nitrate from transported
+    cells or other covarying environmental changes, or show that community turnover causes electron-donor/acceptor
+    flux. The four canonical broad taxon groups are a curated subset, not the complete sampled community.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
-  downstream:
-  - target: Annual Electron Donor and Acceptor Flux Dynamics
-    description: Nitrate-tracked intrusion and seasonal hydrologic change
-      restructure groundwater clades over the annual cycle, shifting the
-      electron-donor and electron-acceptor regimes available to functional
-      redox guilds.
+    notes: Environmental context, not a demonstrated partner-to-partner transfer or guild-specific flux.
   evidence:
   - reference: PMID:22456444
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: The shift in community composition associated with the large dynamics in Actinobacteria
-      ACK-M1 and other clades suggested that river water intrusion could have significant impacts on
-      microbial community composition.
-    explanation: Supports river-water intrusion as a driver of temporal community turnover.
+    snippet: The shift in community composition associated with the large dynamics in Actinobacteria ACK-M1 and
+      other clades suggested that river water intrusion could have significant impacts on microbial community composition.
+    explanation: Supports intrusion-associated composition dynamics, not a selectively identified chemical mediator
+      or reverse community-to-flux causal effect.
   - reference: PMID:22456444
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Here, we demonstrate that Columbia River water intrusion affects microbial community composition
-      in the aquifer, 250 m from the shoreline.
-    explanation: Supports hydrologic intrusion as a structuring mechanism for the aquifer community.
-- name: Annual Electron Donor and Acceptor Flux Dynamics
-  description: Spatial and temporal changes in 16S rRNA gene operational
-    taxonomic units assigned to methane-oxidizing and metal-reducing guilds
-    indicate annual shifts in groundwater electron donor and acceptor fluxes.
-  interaction_type: NICHE_PARTITIONING
+    snippet: Here, we demonstrate that Columbia River water intrusion affects microbial community composition in
+      the aquifer, 250 m from the shoreline.
+    explanation: Supports the authors' field-based hydrologic interpretation; it does not resolve a pairwise niche-partitioning
+      mechanism.
+  participating_taxa:
+  - preferred_term: Proteobacteria/Pseudomonadota
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+  - preferred_term: Bacteroidetes aquifer bacteria
+    term:
+      id: NCBITaxon:976
+      label: Bacteroidota
+  - preferred_term: Actinobacteria/Actinomycetota aquifer bacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  - preferred_term: aquifer archaea, including ammonia-oxidizing archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+- name: Putative Guild Patterns and Inferred Redox Resource Dynamics
+  description: PARTIAL - spatial and temporal 16S OTU patterns assigned to putative methane-oxidizing and metal-reducing
+    guilds suggest changing electron-donor and electron-acceptor availability. This is a functional and resource-dynamics
+    inference from community profiles, not direct measurement of annual metabolic flux or demonstrated niche partitioning.
+    The broad canonical taxon subset does not identify every guild member.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
-  downstream:
-  - target: Depth-Structured Redox Guilds
-    description: Annual donor and acceptor fluxes are reflected in vertical
-      enrichment of putative ammonia oxidizers, methane oxidizers, and metal
-      reducers near the Hanford-Ringold redox transition zone.
+    notes: Environmental context, not a demonstrated partner-to-partner transfer or guild-specific flux.
   evidence:
   - reference: PMID:22456444
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Spatial and temporal patterns for several 16S rRNA gene operational taxonomic
-      units associated with particular physiological functions (for example, methane
-      oxidizers and metal reducers) suggests dynamic changes in fluxes of electron
-      donors and acceptors over an annual cycle.
-    explanation: Supports representing the annual redox-guild patterns as
-      changing electron donor and acceptor fluxes.
-- name: Depth-Structured Redox Guilds
-  description: Deeper groundwater near the Hanford-Ringold formation boundary and redox transition zone
-    had higher proportions of putative ammonia oxidizers, methane oxidizers, and metal reducers, indicating
-    spatial niche partitioning by electron-donor and electron-acceptor availability.
-  interaction_type: NICHE_PARTITIONING
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Spatial and temporal patterns for several 16S rRNA gene operational taxonomic units associated with
+      particular physiological functions (for example, methane oxidizers and metal reducers) suggests dynamic changes
+      in fluxes of electron donors and acceptors over an annual cycle.
+    explanation: Supports the authors' inference from physiological assignments of 16S OTUs, not measured annual
+      donor/acceptor flux or a causal link from community turnover.
+  participating_taxa:
+  - preferred_term: Proteobacteria/Pseudomonadota
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+  - preferred_term: Bacteroidetes aquifer bacteria
+    term:
+      id: NCBITaxon:976
+      label: Bacteroidota
+  - preferred_term: Actinobacteria/Actinomycetota aquifer bacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  - preferred_term: aquifer archaea, including ammonia-oxidizing archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+- name: Putative Redox Guilds in Depth-Stratified Sampling
+  description: Selected cached excerpts report higher proportions of putative ammonia-oxidizing archaea, methane
+    oxidizers and metal reducers. Separate Methods excerpts describe sampling across 10-17 m, including near the
+    Hanford-Ringold contact. The extracted guild sentence does not preserve its precise depth comparison, and full-body
+    verification was unavailable. Guild assignments suggest functional potential, not measured ammonia oxidation,
+    methane oxidation or uranium reduction by each canonical group. These excerpts do not establish resource-mediated
+    niche partitioning or a causal sequence from inferred annual flux.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
+    notes: Environmental context, not a demonstrated partner-to-partner transfer or guild-specific flux.
   - preferred_term: uranium(VI)
     term:
       id: CHEBI:32992
       label: uranium(6+)
+    notes: Environmental context, not a demonstrated partner-to-partner transfer or guild-specific flux.
   biological_processes:
   - preferred_term: nitrification
     term:
       id: GO:0019329
       label: ammonia oxidation
+    notes: Putative guild annotation only; ammonia-oxidation activity was not established in the inspected evidence.
   evidence:
   - reference: PMID:22456444
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: we observed a higher proportion of putative ammonia-oxidizing Archaea, methane oxidizers
-      and metal reducers.
-    explanation: Supports depth-associated redox guild enrichment.
+    snippet: we observed a higher proportion of putative ammonia-oxidizing Archaea, methane oxidizers and metal
+      reducers.
+    explanation: Supports the reported putative-guild proportions; the selected excerpt lacks the precise depth
+      comparison and does not measure metabolic activity.
   - reference: PMID:22456444
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Spatial and temporal patterns for several 16S rRNA gene operational taxonomic units associated
-      with particular physiological functions (for example, methane oxidizers and metal reducers) suggests
-      dynamic changes in fluxes of electron donors and acceptors over an annual cycle.
-    explanation: Supports annual redox dynamics affecting functional guilds.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Spatial and temporal patterns for several 16S rRNA gene operational taxonomic units associated with
+      particular physiological functions (for example, methane oxidizers and metal reducers) suggests dynamic changes
+      in fluxes of electron donors and acceptors over an annual cycle.
+    explanation: Supports inferred resource dynamics from OTU patterns, not a demonstrated cause of the depth-associated
+      guild proportions.
+  participating_taxa:
+  - preferred_term: Proteobacteria/Pseudomonadota
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+  - preferred_term: Bacteroidetes aquifer bacteria
+    term:
+      id: NCBITaxon:976
+      label: Bacteroidota
+  - preferred_term: Actinobacteria/Actinomycetota aquifer bacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  - preferred_term: aquifer archaea, including ammonia-oxidizing archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
 environmental_factors:
 - name: Columbia River water intrusion
   value: nitrate mixing signal from 0.4 mg nitrate/L river water and 25 mg nitrate/L groundwater
@@ -268,3 +319,30 @@ metal_relevance: SIGNIFICANT
 metal_notes: Uranium is included because the Hanford 300 Area aquifer is a historically contaminated DOE
   site and the study measured uranium concentrations during groundwater sampling; the record does not
   assert direct uranium reduction without experimental evidence.
+discussions:
+- discussion_id: hanford_guild_flux_and_causal_direction
+  prompt: Which processes connect river intrusion, guild composition and redox activity?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Columbia River Intrusion Community Turnover
+  - ecological_interactions#Putative Guild Patterns and Inferred Redox Resource Dynamics
+  - ecological_interactions#Putative Redox Guilds in Depth-Stratified Sampling
+  rationale: The primary abstract and selected cached snippets support hydrologic composition associations and putative
+    guild patterns. They do not establish community turnover causing electron flux or flux causing depth enrichment;
+    both former arrows are removed. Resolve transported cells, mixing, geochemistry, absolute population dynamics
+    and directly measured metabolic rates before assigning selective mediation or niche partitioning. The local
+    cache is selected snippets despite its full_text label; PMC CAPTCHA and publisher/Europe PMC failures prevented
+    complete Methods/Results verification. The abstract also proposes top-down biological control, but no new predation
+    branch is inferred here. The four canonical taxa are an incomplete broad roster, not guild-resolved partners.
+    Non-graph metadata is preserved, not recertified. The selected guild-enrichment sentence lacks its spatial comparator;
+    do not assign it specifically to the formation contact or a redox transition without primary-body verification.
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T14:36:24Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate aquifer guild inference from measured flux and remove two unsupported causal arrows. Issue
+    #1494; reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml'
+  llm_assisted: true
