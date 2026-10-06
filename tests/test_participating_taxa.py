@@ -310,6 +310,8 @@ USERS = {
     "LBNL_Brachypodium_Drought_SynCom15.yaml",
     "LBNL_Human_Gut_Interaction_SynCom.yaml",
     "LBNL_Switchgrass_Soil_SynCom16.yaml",
+    "Lac_Pavin_Stratified_Lake_Community.yaml",
+    "Lake_Washington_Methane_Oxygen_Methylotroph_Community.yaml",
     "Legume_Rhizobia_Mars_Simulant_Symbiosis.yaml",
     "Lunar_Simulant_Phosphate_Solubilizing_Bacteria_Nicotiana.yaml",
     "MSC1_Dominant_Core.yaml",
