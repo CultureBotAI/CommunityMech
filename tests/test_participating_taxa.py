@@ -216,6 +216,8 @@ USERS = {
     "Clostridium_Caldicellulosiruptor_Minimal_Medium_Coculture.yaml",
     "Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml",
     "Clostridium_Phytofermentans_Ecoli_Cellobiose_Biofilm_Consortium.yaml",
+    "Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml",
+    "Clostridium_Thermoanaerobacter_Cellulosic_Bioethanol_Coculture.yaml",
     "Community_G_GenX_Biodegradation_Consortium.yaml",
     "Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium.yaml",
     "Cordyceps_Malbranchea_Antimicrobial_Coculture.yaml",
