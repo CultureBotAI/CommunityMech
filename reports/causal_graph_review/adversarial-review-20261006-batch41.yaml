@@ -1,0 +1,165 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: a09d6620fdcf4787f50b02f851c0b6e8c712c0f4
+scope:
+- kb/communities/Ferroplasma_Leptospirillum_Syntrophy.yaml
+- kb/communities/Fomitopsis_Ecoli_Nutritional_Stress_Coculture.yaml
+- kb/communities/FourSpecies_Aerobic_Lung_Microbiome_Model.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch41.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch41.json
+findings:
+- issue: 1459
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Ferroplasma graph: distinguish filtered-medium benefit from proposed organic detoxification'
+  disposition: Existing-graph defect corrected; close only after protected main merge.
+- issue: 1460
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Fomitopsis graph: qualify mediator identity and keep agar inhibition separate from liquid
+    stress'
+  disposition: Existing-graph defect corrected; close only after protected main merge.
+- issue: 1461
+  severity: P2
+  status: open_graph_research
+  finding: 'Lung model graph: curate full-text interaction candidates through the one-community research
+    workflow'
+  disposition: Full primary main body now read, but zero-node graph remains needs_research. One-community
+    dry run only, specific authorization requested, no provider spend.
+- issue: 1462
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'Ferroplasma metadata: reconcile unverified physiology, medium and syntrophy claims'
+  disposition: Non-graph fields preserved, not certified; remains open.
+- issue: 1463
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'Lung model metadata: update abstract-era strain and model-limit annotations from full text'
+  disposition: Non-graph fields preserved, not certified; remains open.
+adversarial_checks:
+- Whole records and every existing graph node/arrow reviewed with explicit source-access limits. Six nodes
+  retained, one HYPOTHESIZED arrow retained and one unsupported arrow removed. Five renames, exact targets
+  and discussion anchors checked. No new causal structure.
+- Ferroplasma abstract explicitly says hypothesis. Restore that qualifier in evidence and descriptions.
+  Positive supernatant growth is not identified organic-carbon flux, detoxification thresholds, Calvin-cycle
+  fixation or obligate syntrophy. Keep source-only intrinsic context and remove unsupported process/category
+  annotations.
+- The retained organic-supply-to-consumption arrow is hypothetical substrate availability. Consumption
+  is not established mediation of both reciprocal supernatant assays, so its extension to the response
+  node is removed. Growth rates supplied to FBA are not independent exchange measurements.
+- Ferrer strain Y(T) and Wilson isolated rusticyanins are separate systems from BRL-115 with Leptospirillum.
+  Similar redox potential does not imply similar transfer rates. Do not infer lower-oxygen niches, pair-specific
+  membrane complexes, competition relief or stable coexistence. No retraction claim is made.
+- Fomitopsis liquid glucose depletion, 34 mg fungal biomass and stress-related transcription support a
+  PARTIAL competition interpretation. Inspected selected excerpts do not describe selective rescue, but
+  the full preprint was not accessed in this review, so absence from the entire study is not claimed.
+- Fomitopsis agar features are putative identities and acid mediation is HYPOTHESIZED. Piptamine nondetection
+  is condition-specific, and BGC expression is not active-product identification. Preserve observed distal
+  inhibition without unsupported resource-competition classification. Liquid bacterial endpoint counts
+  were unchanged; do not connect distinct assay regimes or restore historical prose-target arrows.
+- 'Closed Fomitopsis #1169/#1170/#1171 concern previously missing cache support and are not reopened or
+  duplicated. The expanded selected cache now supports the assay facts. Preserve #1173 natural-partner
+  caveat removal and the zero-arrow topology.'
+- 'Lung main body is now openly available and read, including tables/captions and Methods. The zero-node
+  graph is not certified complete: #1461 remains open and needs_research. One-community Edison dry run
+  retained verbatim with query hash; no API submission or credit spend, and no blanket authorization inferred
+  from an earlier unrelated job.'
+- Lung vPCR persistence, total CFU, DNA-qPCR and protein-abundance fractions are distinct evidence. pH
+  recovery is functional, not member-resolved compositional resilience. Siderophore uptake, partner-resolved
+  acid/pyruvate exchange, ammonia mediation and AI-2 coordination remain proposed mechanisms. Agar nondetection
+  is not universal antimicrobial absence. Challenge organisms are not the four canonical members.
+- 'No protocol expansion, taxonomy replacement or full-text cache addition. Canonical taxon IDs/groundings,
+  historical events and all non-graph raw blocks preserved. #1462/#1463 remain open. User workspace files
+  untouched; edits isolated in the batch worktree.'
+- 457 other records and 920 reference-cache files unchanged. Participant registry stays at 187 with unchanged
+  connectivity census/numeric bounds. All 33 baseline warnings exactly preserved and zero structural defects;
+  no links invented to suppress warnings.
+- Repeat rendering deterministic and every published description checked by HTML parser across all 456
+  pages. Eight new tests and the full combined regression suite pass on the recorded tested bytes. No
+  browser screenshot review claimed.
+- Reference validator 0.1.7 exits 0 with zero effective checks; explicitly a no-op. Snippet MATCH is textual,
+  not scientific validation. Actual output tails/digests and pre-paper baseline retained. The ancestry-only
+  restack is documented without falsifying the original baseline commit. Initial dry-run helper failure
+  disclosed.
+- 'Source access differs: Ferroplasma abstracts, Fomitopsis selected preprint excerpts with HTTP 429 on
+  full PDF, lung primary main body. No figure images, equation rendering, separate supplements or raw
+  data reviewed. No rate-control bypass.'
+- Deduplication covered 778 all-state issue titles/bodies and ignored/hidden-inclusive local files; all
+  seven matched bodies read, not every comment or PR review. This is source-based self-adversarial review,
+  not independent approval, protected merge or full-corpus completion.
+verification:
+  combined_regressions: 431 passed in 170.84s (0:02:50)
+  new_regression_tests: 8
+  schema_strict_terms_history: passed; actual outputs and digests retained
+  snippet_counts_by_record:
+    kb/communities/Ferroplasma_Leptospirillum_Syntrophy.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Fomitopsis_Ecoli_Nutritional_Stress_Coculture.yaml:
+      MATCH: 12
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/FourSpecies_Aerobic_Lung_Microbiome_Model.yaml:
+      MATCH: 11
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero errors; 33 baseline warnings exactly preserved, none added.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch41.yaml: 4f0a70fa0459dfeeb6c9871c54f2440b9067a4ee5037d80808c4c4be7a07dda6
+    tests/test_causal_review_batch41.py: a3c82a3f9d08b650d708ddc8217c1a6842e06f61f154b9511a2e0ea02503306f
+    kb/communities/Ferroplasma_Leptospirillum_Syntrophy.yaml: 08e60d74c495dfee5ec77a2a8ed63da4da51b1ebe1adb527350591d0e5b6340b
+    kb/communities/Fomitopsis_Ecoli_Nutritional_Stress_Coculture.yaml: e23f7534b2c596261fdb8f6a69225c64ee0fcc4b10b95eb27bfccc7a48e2b0fe
+    kb/communities/FourSpecies_Aerobic_Lung_Microbiome_Model.yaml: e6123414e5fb18492837dd471cc7a12496821032306fdb6a6fba9b938e7908fb
+  post_commit_docs_current: Separate publication gate; not asserted in pre-commit record.
+  protected_ci_and_merge: Eligible exact-head checks and protected queue still required.
+participant_census:
+  connectivity_before:
+    community_level_only: 263
+    credited_solely_by_the_rule: 1219
+    mixed: 124
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  connectivity_after:
+    community_level_only: 263
+    credited_solely_by_the_rule: 1219
+    mixed: 124
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  exact_change: No registry or numeric-bound changes; 187 registered records. Ferroplasma already registered,
+    Fomitopsis remains pairwise and lung has no graph. Canonical taxonomy preserved.
+  numeric_bounds_changed: false
+corpus:
+  records: 460
+  nodes: 1469
+  edges: 687
+  review_status_counts:
+    needs_research: 10
+    pending: 288
+    reviewed: 162
+limitations:
+- Ferroplasma cited abstracts only; full primary body, figure images and supplements not reviewed.
+- Fomitopsis selected preprint excerpts only. Full PDF returned HTTP 429; no bypass. Missing selective
+  interventions are not claimed absent from the entire paper.
+- Lung public main body, tables and captions read; no figure images, equation rendering, separate supplements
+  or raw data. Its zero-node graph remains needs_research, not complete.
+- All six existing nodes retained, one arrow retained and one removed. No new structure or provider spend.
+  Five node renames and corresponding targets updated.
+- 'Canonical taxonomy, prior history, original source caches and non-graph raw blocks preserved, not certified.
+  Non-graph followups #1462/#1463 remain open.'
+- Self-adversarial review is not independent approval, protected merge or full-corpus completion. Snippet
+  matching is textual, not scientific validation.
+- Reference validator 0.1.7 performs zero checks for this schema; disclose the no-op.
