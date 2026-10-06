@@ -294,6 +294,8 @@ USERS = {
     "Iberian_Pit_Lake_Stratified_Community.yaml",
     "Industrial_Bioreactor_Consortium.yaml",
     "Industrial_Milk_Line_FourSpecies_Model_Biofilm.yaml",
+    "Infant_Gut_DNA_Phage_Succession_Community.yaml",
+    "Infant_Gut_Prebiotic_Response_SynCom.yaml",
     "Infant_Gut_Strain_Persistence_Maternal_Community.yaml",
     "Legume_Rhizobia_Mars_Simulant_Symbiosis.yaml",
     "Lunar_Simulant_Phosphate_Solubilizing_Bacteria_Nicotiana.yaml",
