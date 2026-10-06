@@ -65,93 +65,76 @@ taxonomy:
     explanation: Supports Bacteroides as the persistent host for the early
       phage colonizers.
 ecological_interactions:
-- name: Maternal Phage Seeding and Long-Term Persistence
-  description: Mothers seed infants with DNA phages that preferentially infect
-    Bacteroides, with about 9 percent of these early colonizers persisting for
-    3 years and reaching adult-like phageome complexity.
-  interaction_type: PREDATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: maternally transmitted DNA bacteriophages
+- name: Maternal Phage Sharing and Persistence Association
+  description: Strain-resolved metagenomes associate maternal sharing with infant phage persistence. The 155 of
+    1801 early phages classified as persisters came from the 40 infants with adequate follow-up; the roughly 9 percent
+    is not a persistence rate for every maternally shared phage or Bacteroides host. Maternal classification uses
+    sharing in early mother-infant samples. Predicted hosts and temperate lifestyles do not establish universal
+    lytic predation. The canonical participants represent a maternal/Bacteroides-associated subset of the broader
+    phage cohort, not all measured phages.
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:38096814
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: early phage colonizers, which are mostly maternally transmitted and infect Bacteroides, persist for
+      3 years
+    explanation: Supports the positive maternal-sharing and persistence association, not a controlled seeding perturbation
+      or lytic predation for every phage.
+  participating_taxa:
+  - preferred_term: maternally transmitted DNA bacteriophages
     term:
       id: NCBITaxon:10239
       label: Viruses
-  target_taxon:
-    preferred_term: infant Bacteroides hosts
+  - preferred_term: infant Bacteroides hosts
     term:
       id: NCBITaxon:816
       label: Bacteroides
-  biological_processes:
-  - preferred_term: virus-host interaction
-    term:
-      id: GO:0044003
-      label: symbiont-mediated perturbation of host process
   downstream:
-  - target: Stable Infant Viral Colonization
-    description: Maternal transfer of Bacteroides-infecting early phages is
-      one of the determinants that lets a subset of infant gut phages colonize
-      stably across early life.
-  evidence:
-  - reference: PMID:38096814
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: early phage colonizers, which are mostly maternally transmitted and
-      infect Bacteroides, persist for 3 years
-    explanation: Supports the maternal-seeding and persistence dynamics.
-- name: Stop-Codon Reassignment Promotes Phage Persistence
-  description: Phages with stop-codon reassignment are more likely to persist
-    than non-recoded phages, and in-frame reassigned stop codons increase over
-    3 years.
-  interaction_type: PREDATION
+  - target: Persistent Infant Phage Strains
+    description: PARTIAL - maternally shared phages may be adapted to the gut or repeatedly introduced, supporting
+      subsequent strain persistence. The longitudinal sharing association supports this model but does not isolate
+      maternal transmission, reseeding or infection direction experimentally.
+- name: Stop-Codon Reassignment and Phage Persistence Association
+  description: Phages with predicted stop-codon reassignment were more likely to persist. Of ten early recoded phages,
+    three persisted and were maternally shared; only one of these had an identified Bacteroides vulgatus host. Longitudinal
+    TAG changes differed among the three, including decreases, and do not show a universal increase. Proposed delayed
+    lysis or host adaptation was not selectively tested. The canonical maternal-phage entry denotes the represented
+    persister subset, not all viruses or all recoded phages.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: viral process
     term:
       id: GO:0016032
       label: viral process
-  downstream:
-  - target: Stable Infant Viral Colonization
-    description: Stop-codon reassignment marks phages that persist more often
-      than non-recoded phages across the first 3 years of life.
   evidence:
   - reference: PMID:38096814
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: phages with stop codon reassignment are more likely to persist than
-      non-recoded phages
-    explanation: Supports the link between stop-codon reassignment and persistence.
+    snippet: phages with stop codon reassignment are more likely to persist than non-recoded phages
+    explanation: Supports the observed recoding-persistence association; sequence-based recoding inference does
+      not establish its selective causal effect.
   - reference: PMID:38096814
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: an increase in in-frame reassigned stop codons over 3 years
-    explanation: Supports the longitudinal increase of in-frame reassigned stop
-      codons.
-- name: Increasing Phageome Richness Toward Adulthood
-  description: Phageome richness increases during the first 3 years and reaches
-    adult-like complexity by age 3.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: viral process
+    explanation: The abstract summarizes an increase, but the inspected primary Results describe heterogeneous TAG
+      trajectories among the three persisters, not an increase in every lineage.
+  participating_taxa:
+  - preferred_term: maternally transmitted DNA bacteriophages
     term:
-      id: GO:0016032
-      label: viral process
+      id: NCBITaxon:10239
+      label: Viruses
   downstream:
-  - target: Stable Infant Viral Colonization
-    description: Increasing early-life phageome richness supplies the diverse
-      phage populations associated with stable infant gut viral colonization.
-  evidence:
-  - reference: PMID:38096814
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: early-life phageome richness increases over time and reaches
-      adult-like complexity by age 3
-    explanation: Supports the developmental trajectory of the infant phageome.
-- name: Stable Infant Viral Colonization
-  description: Maternal seeding, stop-codon reassignment, host CRISPR-Cas locus
-    prevalence, and diverse phage populations jointly explain stable viral
-    colonization in the infant gut during the first 3 years of life.
-  interaction_type: COLONIZATION_FACILITATION
+  - target: Persistent Infant Phage Strains
+    description: PARTIAL - stop-codon reassignment could alter phage expression or lysis timing and thereby support
+      persistence. Enrichment among persisters and heterogeneous sequence trajectories support the proposed mechanism,
+      not a recoding perturbation demonstrating its necessity or sufficiency.
+- name: Increasing Phageome Richness Toward Adulthood
+  description: The cohort phageome becomes richer and reaches adult-like community complexity by age three. This
+    positive community-level diversity observation is different from nucleotide diversity within an individual persistent
+    phage population. It does not show that increasing richness causes a particular early phage strain to persist.
+    The canonical maternal-phage entry is a represented subset, not the complete richness-assay roster.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: viral process
@@ -162,11 +145,44 @@ ecological_interactions:
   - reference: PMID:38096814
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: maternal seeding, stop codon reassignment, host CRISPR-Cas locus
-      prevalence, and diverse phage populations contribute to stable viral
-      colonization
-    explanation: Supports stable infant gut viral colonization as the combined
-      downstream outcome.
+    snippet: early-life phageome richness increases over time and reaches adult-like complexity by age 3
+    explanation: Supports the positive community richness trajectory, not a richness-to-strain-persistence mechanism.
+  participating_taxa:
+  - preferred_term: maternally transmitted DNA bacteriophages
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+- name: Persistent Infant Phage Strains
+  description: In the longitudinal cohort, 155 of 1801 early phages met the persistence criterion among 40 infants
+    with adequate follow-up; persistence was more frequent in full-term infants. Strain comparisons used 99 percent
+    population ANI over at least 75 percent of compared genome sequence, distinct from the bacterial study threshold.
+    Maternal sharing, recoding, predicted hosts and host CRISPR-Cas profiles inform proposed persistence mechanisms,
+    not a jointly isolated causal model. The Bacteroides/maternal canonical participants are a supported subset,
+    not all cohort hosts or phages. Co-detection and coverage correlations do not prove continuous infection of
+    one unchanged host lineage.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: viral process
+    term:
+      id: GO:0016032
+      label: viral process
+  evidence:
+  - reference: PMID:38096814
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 9% of early phage colonizers, which are mostly maternally transmitted and infect Bacteroides, persist
+      for 3 years
+    explanation: Supports observed persisters; the primary body supplies the eligible-follow-up denominator and
+      strain definition, not a universal infection mechanism.
+  participating_taxa:
+  - preferred_term: maternally transmitted DNA bacteriophages
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+  - preferred_term: infant Bacteroides hosts
+    term:
+      id: NCBITaxon:816
+      label: Bacteroides
 environmental_factors:
 - name: Birth status
   value: full-term versus preterm infants
@@ -217,3 +233,28 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   infant gut phageome community.
+discussions:
+- discussion_id: infant_phage_persistence_mechanisms
+  prompt: Which proposed mechanisms causally maintain the observed infant phage strains?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Maternal Phage Sharing and Persistence Association
+  - ecological_interactions#Stop-Codon Reassignment and Phage Persistence Association
+  - ecological_interactions#Increasing Phageome Richness Toward Adulthood
+  - ecological_interactions#Persistent Infant Phage Strains
+  rationale: 'Keep the maternal-sharing and recoding routes as partial models, not experimentally isolated determinants.
+    Remove the richness arrow: community alpha diversity is not within-phage nucleotide diversity. Maternal bidirectional
+    reseeding, host assignment, CRISPR-associated strain replacement and predicted temperate/lytic lifestyles remain
+    distinct hypotheses or observations. Recoding trajectories are heterogeneous. Full primary main text, STAR Methods,
+    four figure captions and two main tables read; no figure pixels, external supplements, raw data or code audited.
+    Canonical taxonomy and non-graph fields are preserved, not recertified.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T17:18:48Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound phage persistence to strain-resolved associations and partial maternal/recoding mechanisms. Issue
+    #1511; reports/causal_graph_review/decisions/20261006-infant-gut-batch54.yaml'
+  llm_assisted: true
