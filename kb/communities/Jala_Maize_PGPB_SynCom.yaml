@@ -108,175 +108,190 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Compatibility-Constrained SynCom 3 Assembly
-  description: >
-    Jala maize PGPB isolates were screened for mutual antagonism and then
-    assembled as SynCom 3 by combining compatible strains with complementary
-    nitrogen-fixation, phosphate-solubilization, metallophore, IAA, ACC
-    deaminase, and antifungal traits.
-  scope: COMMUNITY_LEVEL
-  interaction_type: COLONIZATION_FACILITATION
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: SynCom 3 Multi-Trait PGP Activity
-    description: >
-      Compatibility filtering retained a SynCom that could be assayed for
-      complementary nutrient-mobilization and hormone-related plant-growth
-      promoting activities.
-  - target: SynCom 3 Antifungal and PAL Induction
-    description: >
-      The compatible SynCom 3 formulation also carried candidate antifungal and
-      induced systemic resistance traits.
-  evidence:
-  - *id001
-  - reference: PMID:37275168
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The SynCom design included bacterial strains with partially redundant and
-      complementary PGP features, but antagonistic strains were not included
-    explanation: >
-      Supports the compatibility criterion used when the Jala isolates were
-      assembled into SynComs.
-  - reference: PMID:37275168
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: 'SynCom 3: A. xylosoxidans Z2K8, Burkholderia sp. Z1AL11, K. variicola R3J3HD7'
-    explanation: >
-      Anchors SynCom 3 as one of the final compatible formulations.
 - name: SynCom 3 Multi-Trait PGP Activity
-  description: >
-    The SynCom 3 mixed inoculant expressed the plant-growth promoting trait set
-    prioritized by design, including soluble orthophosphate accumulation, IAA
-    production, ACC deaminase activity, metallophore production, and biological
-    nitrogen fixation.
+  description: 'The mixed SynCom 3 inoculant produced positive phosphate-solubilization, indole-reactive colorimetric,
+    ACC-growth, metal-chelation and acetylene-reduction assay results. Salkowski chemistry is not specific identification
+    of IAA; growth with ACC as sole nitrogen source is an indirect deaminase screen. Acetylene reduction is a nitrogenase
+    proxy, not measured nitrogen transfer to maize, and the CAS assay does not identify a particular metallophore.
+    These positive in-vitro traits were not selectively perturbed as mediators of plant growth. The four canonical
+    participants are a subset of the reported six-strain SynCom 3, not a complete four-member inoculant; exact membership
+    and the primary Pseudomonas strain inconsistency remain under #1521.'
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   metabolites:
   - preferred_term: phosphate ion
     term:
       id: CHEBI:35780
       label: phosphate ion
+    notes: Measured soluble phosphate output in the in-vitro assay, not quantified uptake by maize.
   - preferred_term: indole-3-acetic acid
     term:
       id: CHEBI:16411
       label: indole-3-acetic acid
+    notes: IAA-associated colorimetric readout; Salkowski also responds to related indole compounds, so exact molecular
+      identity is not established by this assay.
   - preferred_term: 1-aminocyclopropanecarboxylic acid
     term:
       id: CHEBI:18053
       label: 1-aminocyclopropanecarboxylic acid
+    notes: Assay substrate in the indirect ACC-growth screen, not a measured community product or demonstrated plant
+      ethylene decrease.
   biological_processes:
   - preferred_term: nitrogen fixation
     term:
       id: GO:0009399
       label: nitrogen fixation
-  downstream:
-  - target: Conejo Maize Seedling Growth Promotion
-    description: >
-      SynCom 3's measured nutrient and hormone traits preceded gnotobiotic and
-      greenhouse maize growth-promotion assays.
+    notes: Inferred from acetylene reduction and growth under assay conditions; not direct plant nitrogen incorporation
+      or identified member-level flux.
   evidence:
   - reference: PMID:37275168
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Phosphate solubilization, IAA, BNF, metallophores, biocontrol against Fusarium oxysporum,
-      Pestalotia sp., Curvularia sp.
-    explanation: Names phosphate solubilization, IAA production, and biological
-      nitrogen fixation among the screened plant-growth-promoting traits of the
-      Jala-derived SynCom members.
+    snippet: Phosphate solubilization, IAA, BNF, metallophores, biocontrol against Fusarium oxysporum, Pestalotia
+      sp., Curvularia sp.
+    explanation: Supports the positive screened trait or assay result within the mixed inoculant; the primary Methods
+      bound specificity and do not isolate plant-growth mediation.
   - reference: PMID:37275168
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: SynCom 3 accumulated more soluble orthophosphate
-    explanation: >
-      Supports high soluble-orthophosphate accumulation by the mixed SynCom 3
-      inoculant.
+    explanation: Supports the positive screened trait or assay result within the mixed inoculant; the primary Methods
+      bound specificity and do not isolate plant-growth mediation.
   - reference: PMID:37275168
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Aminocyclopropane-1-carboxylate (ACC) deaminase production
-    explanation: Names ACC deaminase, acting on the ethylene precursor ACC, as a
-      screened plant-growth-promoting trait.
+    explanation: Supports the positive screened trait or assay result within the mixed inoculant; the primary Methods
+      bound specificity and do not isolate plant-growth mediation.
   - reference: PMID:37275168
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: only SynCom 3 exhibited evident growth in the BMGM media and reduced acetylene
-    explanation: >
-      Supports the biological nitrogen fixation phenotype measured in the
-      SynCom-level acetylene reduction assay.
+    explanation: Supports the positive screened trait or assay result within the mixed inoculant; the primary Methods
+      bound specificity and do not isolate plant-growth mediation.
+  participating_taxa:
+  - preferred_term: Pseudomonas protegens
+    term:
+      id: NCBITaxon:380021
+      label: Pseudomonas protegens
+  - preferred_term: Pantoea ananatis
+    term:
+      id: NCBITaxon:553
+      label: Pantoea ananatis
+  - preferred_term: Klebsiella variicola
+    term:
+      id: NCBITaxon:244366
+      label: Klebsiella variicola
+  - preferred_term: Burkholderia sp.
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
+  downstream:
+  - target: Conejo Maize Seedling Growth Promotion
+    description: PARTIAL - nutrient mobilization and hormone-related activities could improve nutrient availability
+      or plant signaling and thereby support Conejo seedling growth. Positive in-vitro assays and inoculation responses
+      support these candidate mechanisms, but no selective trait perturbation establishes mediation or their individual
+      contributions.
 - name: SynCom 3 Antifungal and PAL Induction
-  description: >
-    SynCom 3 inhibited phytopathogenic fungi in vitro and significantly
-    increased maize-root phenylalanine ammonia-lyase activity, connecting
-    antagonistic isolates with induced systemic resistance in the plant host.
+  description: 'SynCom 3 inhibited several tested fungi in vitro, reaching up to 80 percent in the reported comparisons,
+    but Helminthosporium was hardly inhibited by SynCom 3. It also tripled maize-root phenylalanine ammonia-lyase
+    activity. These are positive but distinct assays: the authors did not test induced systemic resistance with
+    a fungal challenge. PAL induction and inhibition of these cultured fungi do not by themselves demonstrate the
+    mechanism of rust reduction in the field. The four canonical participants are a subset of the reported six-strain
+    SynCom 3, not a complete four-member inoculant; exact membership and the primary Pseudomonas strain inconsistency
+    remain under #1521.'
   scope: COMMUNITY_LEVEL
-  interaction_type: COMPETITION
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Field Yield Increase and Rust Reduction
-    description: >
-      In vitro fungal inhibition and the PAL response were candidate mechanisms
-      for reduced fungal rust incidence in the open-field SynCom 3 treatment.
   evidence:
   - reference: PMID:37275168
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: SynCom 3 exhibited the highest inhibition percentages reaching 80% of inhibition
-    explanation: >
-      Supports SynCom 3 as a high-performing inhibitor of fungal
-      phytopathogens.
+    explanation: Supports high inhibition in some tested comparisons, not 80 percent for every fungus or direct
+      suppression of field rust.
   - reference: PMID:37275168
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: only the effect of SynCom 3 was statistically significant as it tripled the
-      activity of the enzyme
-    explanation: >
-      Supports significant induction of maize-root PAL activity by SynCom 3.
+    snippet: only the effect of SynCom 3 was statistically significant as it tripled the activity of the enzyme
+    explanation: Supports positive root PAL induction, not a fungal-challenge demonstration of systemic resistance
+      or selective mediation.
+  participating_taxa:
+  - preferred_term: Pseudomonas protegens
+    term:
+      id: NCBITaxon:380021
+      label: Pseudomonas protegens
+  - preferred_term: Pantoea ananatis
+    term:
+      id: NCBITaxon:553
+      label: Pantoea ananatis
+  - preferred_term: Klebsiella variicola
+    term:
+      id: NCBITaxon:244366
+      label: Klebsiella variicola
+  - preferred_term: Burkholderia sp.
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
+  downstream:
+  - target: Field Yield Increase and Rust Reduction
+    description: PARTIAL - antifungal activity or host defense responses could contribute to the rust-reduction
+      component of the field outcome. Separate inhibition and PAL assays support candidate routes, but no fungal-challenge
+      ISR test or selective PAL/antifungal perturbation establishes this mediation or explains the yield increase.
 - name: Conejo Maize Seedling Growth Promotion
-  description: >
-    SynCom 3 inoculation increased Conejo maize root and shoot growth in
-    gnotobiotic tubes and greenhouse pots after its constituent PGP activities
-    were expressed in vitro.
+  description: 'SynCom 3 inoculation increased Conejo maize growth in gnotobiotic tubes and greenhouse pots. Gnotobiotic
+    root and shoot sizes were 4.2 and 3.0 times the controls. In greenhouse comparisons, root/shoot lengths were
+    3.3/1.4 times controls and shoot/root dry weights were 2.3/3 times controls. These are positive whole-inoculant
+    treatment effects in the Conejo landrace, not proof that its earlier in-vitro trait panel caused them or that
+    those seedlings produced the separate hybrid field harvest. The four canonical participants are a subset of
+    the reported six-strain SynCom 3, not a complete four-member inoculant; exact membership and the primary Pseudomonas
+    strain inconsistency remain under #1521.'
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   biological_processes:
   - preferred_term: growth
     term:
       id: GO:0040007
       label: growth
-  downstream:
-  - target: Field Yield Increase and Rust Reduction
-    description: >
-      Seedling growth promotion in controlled systems supported the choice to
-      test SynCom 3 on hybrid maize in the field.
   evidence:
   - reference: PMID:37275168
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: promoted the growth of the roots and shoots to sizes 4.2 and 3.0 times greater
-    explanation: >
-      Supports SynCom 3-mediated maize root and shoot growth promotion in the
-      gnotobiotic assay.
+    explanation: Supports positive gnotobiotic Conejo growth effects, not selective trait mediation.
   - reference: PMID:37275168
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: increases of 3.3 and 1.4 times the roots and shoot length and 2.3 and 3 times
-      the dry weights
-    explanation: >
-      Supports the SynCom 3 growth phenotype in the greenhouse assay.
+    snippet: increases of 3.3 and 1.4 times the roots and shoot length and 2.3 and 3 times the dry weights
+    explanation: Supports positive greenhouse growth; the primary Results assign dry-weight folds to shoots 2.3
+      and roots 3, distinct from the root/shoot length ordering.
+  participating_taxa:
+  - preferred_term: Pseudomonas protegens
+    term:
+      id: NCBITaxon:380021
+      label: Pseudomonas protegens
+  - preferred_term: Pantoea ananatis
+    term:
+      id: NCBITaxon:553
+      label: Pantoea ananatis
+  - preferred_term: Klebsiella variicola
+    term:
+      id: NCBITaxon:244366
+      label: Klebsiella variicola
+  - preferred_term: Burkholderia sp.
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
 - name: Field Yield Increase and Rust Reduction
-  description: >
-    In open-field hybrid maize tests, SynCom 3 increased grain yield relative
-    to the untreated control and significantly reduced fungal rust incidence.
+  description: 'In the reported one-site field experiment with CPL9105W hybrid maize, SynCom 3 treatment increased
+    grain yield from 11 to 16 tons/ha relative to control. The abstract reports rust incidence falling from 12.5
+    to 8 percent, not a 12.5-percentage-point reduction. The treatment involved seed inoculation and subsequent
+    applications; it is distinct from the Conejo seedling experiments. The whole-inoculant effects do not establish
+    which traits or members mediated them, universal efficacy across sites/seasons, or a benefit for every tested
+    SynCom. The four canonical participants are a subset of the reported six-strain SynCom 3, not a complete four-member
+    inoculant; exact membership and the primary Pseudomonas strain inconsistency remain under #1521.'
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   biological_processes:
   - preferred_term: growth
     term:
@@ -290,19 +305,33 @@ ecological_interactions:
   - reference: PMID:37275168
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: the yield increased from 11 tons/ha for the control to 16 tons/ha inoculated
-      with SynCom 3
-    explanation: >
-      Supports the open-field grain-yield increase observed after SynCom 3
-      inoculation.
+    snippet: the yield increased from 11 tons/ha for the control to 16 tons/ha inoculated with SynCom 3
+    explanation: Supports the positive SynCom 3 field yield effect in this trial; not universal multi-site or all-SynCom
+      performance.
   - reference: PMID:37275168
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: incidence of rust fungal infections decreased significantly from 12.5% in the
-      control to 8% in the treatment with SynCom 3
-    explanation: >
-      Supports the field-level reduction in maize fungal rust incidence after
-      SynCom 3 treatment.
+    snippet: incidence of rust fungal infections decreased significantly from 12.5% in the control to 8% in the
+      treatment with SynCom 3
+    explanation: Supports the explicit abstract rust-incidence comparison; original figure pixels and raw plot data
+      were not inspected.
+  participating_taxa:
+  - preferred_term: Pseudomonas protegens
+    term:
+      id: NCBITaxon:380021
+      label: Pseudomonas protegens
+  - preferred_term: Pantoea ananatis
+    term:
+      id: NCBITaxon:553
+      label: Pantoea ananatis
+  - preferred_term: Klebsiella variicola
+    term:
+      id: NCBITaxon:244366
+      label: Klebsiella variicola
+  - preferred_term: Burkholderia sp.
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
 environmental_factors:
 - name: defined synthetic community design
   value: Multiple SynComs were assembled from PGPB with growth promotion, biocontrol, and induced systemic
@@ -408,3 +437,29 @@ cultivation_setup:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: The bottles were sealed and incubated for 48 h at 28°C
+discussions:
+- discussion_id: jala_trait_and_defense_mediation
+  prompt: Which SynCom 3 members and activities mediate maize growth and field rust reduction?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#SynCom 3 Multi-Trait PGP Activity
+  - ecological_interactions#SynCom 3 Antifungal and PAL Induction
+  - ecological_interactions#Conejo Maize Seedling Growth Promotion
+  - ecological_interactions#Field Yield Increase and Rust Reduction
+  rationale: 'Remove the compatibility-assembly node and its two arrows as experimental workflow; design metadata
+    remains. Remove seedling-to-field selection as workflow, not a causal effect connecting different hosts and
+    experiments. Preserve positive whole-inoculant outcomes and the two proposed trait/defense routes as PARTIAL.
+    The six-strain formulation is not the four canonical taxa; missing members and E1BL2 versus E2HL9 inconsistency
+    remain #1521. Full cached primary main text, Methods, Tables 1-2 and Figures 1-6 captions read; fresh Frontiers
+    formulation/Discussion spot-checks, not a second full reading. No original images, external supplements, raw
+    data or code audited. No new graph structure; all non-graph blocks remain unchanged and are not recertified.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T17:45:53Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain maize SynCom assay and plant outcomes without workflow causality or proven trait mediation. Issue
+    #1518; reports/causal_graph_review/decisions/20261006-three-records-batch55.yaml'
+  llm_assisted: true

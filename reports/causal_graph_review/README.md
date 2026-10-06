@@ -5,6 +5,25 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch55: REE, Maize And Jiangshui
+
+[Decisions](decisions/20261006-three-records-batch55.yaml),
+[validation](validation-20261006-batch55.json) and
+[self-adversarial review](adversarial-review-20261006-batch55.yaml) retain eleven
+biological nodes and six arrows. Two screening/assembly nodes and four workflow
+arrows are removed. Positive cell-wall adsorption, maize inoculation effects and
+fermentation endpoints remain; proposed weathering and trait/defense mediation
+are explicitly qualified.
+
+Complete cached primary main texts and Methods were read for REE and Jala, with
+main captions and Jala tables. Jiangshui review is limited to its abstract and
+indexed publisher fragments; direct full-text access failed. No original figures,
+external supplements, raw data or code were audited. All 920 caches are unchanged.
+Non-graph REE claims (#1520), the exact Jala roster/strain discrepancy (#1521),
+and the existing Jiangshui taxonomy/protocol gap remain unresolved. No new graph
+structure or paid provider call. Linked validation records report actual gates,
+not independent approval or a claim that these follow-ups are resolved.
+
 ## Batch54: Infant Gut Persistence And Prebiotic Responses
 
 [Decisions](decisions/20261006-infant-gut-batch54.yaml),
