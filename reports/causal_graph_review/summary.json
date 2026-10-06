@@ -3,13 +3,13 @@
   "semantic_review_rule": "Structural checks and readiness scores do not establish causal support. Completed reviews must match the current record SHA-256, cover every node once with a rationale, and reproduce the current edge list.",
   "records": 460,
   "nodes": 1454,
-  "edges": 650,
+  "edges": 645,
   "records_without_nodes": 8,
-  "records_without_edges": 156,
+  "records_without_edges": 158,
   "review_status_counts": {
     "needs_research": 21,
-    "pending": 242,
-    "reviewed": 197
+    "pending": 239,
+    "reviewed": 200
   },
   "structural_defects": [],
   "network_audit": [
@@ -818,6 +818,47 @@
         ]
       },
       "message": "Taxon 'Pseudomonas fluorescens' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Lake_Washington_Methane_Oxygen_Methylotroph_Community",
+      "type": "DISCONNECTED",
+      "taxon": "Methylosarcina",
+      "taxon_id": "NCBITaxon:105972",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Methylosarcina",
+          "term": {
+            "id": "NCBITaxon:105972",
+            "label": "Methylosarcina fibrata"
+          },
+          "gtdb_grounding_status": "GROUNDED",
+          "gtdb_classification": {
+            "gtdb_id": "GTDB:s__Methylosarcina_fibrata",
+            "gtdb_taxon": "Methylosarcina fibrata",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Methylococcales;f__Methylomonadaceae;g__Methylosarcina;s__Methylosarcina fibrata",
+            "ncbi_source_id": "NCBITaxon:105972",
+            "majority_fraction": 1.0,
+            "total_genomes": 1,
+            "is_reclassified": false,
+            "mapping_source": "kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)"
+          },
+          "notes": "Higher-oxygen methanotrophic genus in Lake Washington methane-fed microcosms."
+        },
+        "functional_role": [
+          "PRIMARY_DEGRADER"
+        ],
+        "evidence": [
+          {
+            "reference": "PMID:25755930",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VITRO",
+            "snippet": "species of the genera Methylosarcina and Methylophilus",
+            "explanation": "Supports Methylosarcina as a higher-oxygen methanotrophic player."
+          }
+        ]
+      },
+      "message": "Taxon 'Methylosarcina' has no interactions",
       "severity": "warning"
     },
     {

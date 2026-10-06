@@ -5,6 +5,29 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch62: Lake Potential, Modeled Transfer And Host Reporters
+
+[Decisions](decisions/20261006-lakes-mars-batch62.yaml),
+[validation](validation-20261006-batch62.json) and
+[self-adversarial review](adversarial-review-20261006-batch62.yaml) account for
+nine retained nodes and six original arrows. Five common-driver, cross-study or
+anatomical/conclusion arrows are removed; oxygen-regime selection of Lake
+Washington guild composition remains explicitly bounded.
+
+Lac Pavin records genomic potential, not measured flux. Lake Washington's
+conditional model transfer runs from Methylomonas to Methylobacter; the imposed
+ratios are not predictions. Mars-simulant nodulation, S. meliloti-only nifH
+promoter activity and plant phenotypes remain distinct living-host results.
+
+All four fresh primary main bodies and embedded captions/table text were read,
+not original figures, separate supplements, raw data or executable models.
+The public supplemental download failed HTTP500; conflicting model wording stays
+open under #1554. Non-graph taxonomy and metadata #1553 remain unresolved,
+including the explicitly omitted misgrounded Methylosarcina species. All 920
+caches are unchanged and all 16 retained graph excerpts match fresh primary text.
+Repairs #1550-#1552 await protected-main merge. No new graph structure or paid
+Edison run is claimed; this is self-review, not independent approval.
+
 ## Batch61: LBNL Plant, Gut And Soil Models
 
 [Decisions](decisions/20261006-lbnl-batch61.yaml),
