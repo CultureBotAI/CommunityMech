@@ -145,120 +145,114 @@ taxonomy:
       accession: '6013'
       url: https://www.atcc.org/products/6013
 ecological_interactions:
-- name: Acetate Oxidation and Interspecies Electron Transfer
-  description: 'Geobacter sulfurreducens oxidizes acetate and transfers electrons to
-    Clostridium pasteurianum, growing with C. pasteurianum as its sole electron acceptor.
-    The transferred electrons modulate C. pasteurianum''s fermentation metabolism, and the
-    quantity involved is very small - under 0.6% of the electrons C. pasteurianum consumes -
-    with a non-linear relationship between G. sulfurreducens growth and the size of the
-    metabolite shift.
-
-    ROUTE UNRESOLVED. The cited study does not establish how the electrons move. Conductive
-    pili / nanowires appear in that paper only as general background about Geobacter species,
-    and its discussion states that electrical connection was NOT ensured in these cocultures
-    (cells were a mix of nanowire-rich aggregates and nanowire-poor planktonic cells, and
-    growth on conductive material is proposed as a future way to ensure connection). A
-    mechanistic follow-up (PMID:34939136) instead concluded the interaction is mediated by a
-    diffusible molecule, candidate cobamide. Do not curate contact-dependent DIET, interspecies
-    wiring, or cobamide transfer here as demonstrated; see discussion
-    kg-geobacter-clostridium-contact-dependence-contested.
-
-    '
-  interaction_type: SYNTROPHY
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Geobacter sulfurreducens
-    term:
-      id: NCBITaxon:35554
-      label: Geobacter sulfurreducens
+- name: Proposed Acetate Oxidation and Interspecies Electron Transfer
+  description: 'HYPOTHESIZED: Geobacter sulfurreducens growth in responsive cocultures, but not in the corresponding
+    monoculture without a known electron acceptor, supports the authors'' proposed transfer of acetate-derived electrons
+    to Clostridium pasteurianum. qPCR estimates cell growth; it does not directly measure electron uptake or current.
+    The less-than-0.6% electron estimate assumes acetate as the Geobacter donor, 10% electron allocation to biomass
+    and transfer of the remaining 90%; it is an inferred balance, not a measured flux. Significant Geobacter growth
+    occurred in only two of four initial and eight of twelve subsequent cocultures. Contact-dependent transfer was
+    not established. Nanowire-rich versus planktonic inoculum heterogeneity was a proposed explanation of variability,
+    not a measured wiring result. The follow-up abstract calls the original IET interpretation an assumption and
+    proposes a putative cobamide mechanism; neither that mechanism nor a specific electron-entry route is demonstrated
+    here.'
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: acetate
     term:
       id: CHEBI:30089
       label: acetate
-    concentration: Substrate for oxidation by G. sulfurreducens
+    concentration: Assumed Geobacter electron donor in the growth-based balance
+    notes: Acetate consumption attributed to Geobacter was calculated from growth assumptions, not selectively traced.
   biological_processes:
   - preferred_term: acetate catabolic process
     term:
       id: GO:0045733
       label: acetate catabolic process
   downstream:
-  - target: Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift
-    description: Electrons taken up from G. sulfurreducens induce the metabolic shift in
-      C. pasteurianum toward 1,3-propanediol and butyrate. The transfer route is unresolved,
-      so this edge asserts electron uptake causing the shift, not a contact-dependent mechanism.
+  - target: Coculture-Associated Glycerol Fermentation Product Shift
+    description: 'HYPOTHESIZED: Acetate-derived electron transfer could alter Clostridium redox regulation and thereby
+      its glycerol-fermentation product profile. Growth/product associations and an assumed electron balance motivate
+      this direction, but do not selectively establish electron uptake as the mediator. The follow-up proposes cobamides
+      and possible electron entry as alternatives or contributors, not verified replacements.'
   evidence:
-  - reference: PMID:28287150
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: it was shown that Geobacter sulfurreducens was able to grow using Clostridium
-      pasteurianum as sole electron acceptor
-    explanation: The study's actual finding for this coculture - G. sulfurreducens grows on
-      C. pasteurianum as sole electron acceptor, establishing interspecies electron transfer.
-  - reference: PMID:28287150
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: This metabolic shift was clearly induced by a small electron uptake that represented
-      less than 0.6% of the electrons consumed by C. pasteurianum
-    explanation: Quantifies the electron uptake driving the shift, and is the basis for the
-      downstream edge.
   - reference: PMID:28287150
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Direct interspecies electron transfer (DIET) mechanism has been recently
-      characterised with Geobacter species which couple the electron balance with
-      other species through physical contacts
-    explanation: PARTIAL - this is the paper's generic background about Geobacter species in
-      prior literature, NOT a finding about this coculture. It was previously cited here as
-      demonstrating contact-mediated transfer between these two organisms, which it does not.
-- name: Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift
-  description: 'Clostridium pasteurianum ferments glycerol, and upon receiving electrons
-    from G. sulfurreducens, undergoes a dramatic metabolic shift that redirects
-    carbon flux toward increased 1,3-propanediol (PDO) and butyrate production. In
-    pure culture, C. pasteurianum produces primarily butanol (225 mmol/mol glycerol)
-    and ethanol (54 mmol/mol). However, in coculture with G. sulfurreducens, production shifts to
-    favor 1,3-propanediol (241 mmol/mol, +37%) and butyrate (105 mmol/mol, +38%),
-    while butanol and ethanol decrease by 16% and 20% respectively. This metabolic
-    reprogramming is induced by minimal electron uptake (<0.6% of total electrons
-    consumed by C. pasteurianum), demonstrating the regulatory role of electron transfer
-    in controlling fermentation pathways. The shift represents a biotechnologically
-    valuable outcome, as 1,3-propanediol is an industrially important chemical used
-    in polymer production.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Clostridium pasteurianum
+    snippet: it was shown that Geobacter sulfurreducens was able to grow using Clostridium pasteurianum as sole
+      electron acceptor
+    explanation: The authors interpret responsive Geobacter growth as electron-acceptor coupling. Full Results and
+      Discussion support growth-associated IET as a model, not direct transfer measurement or a resolved route.
+  - reference: PMID:28287150
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: This metabolic shift was clearly induced by a small electron uptake that represented less than 0.6%
+      of the electrons consumed by C. pasteurianum
+    explanation: The abstract uses strong causal wording, but the primary Discussion derives this estimate from
+      acetate-only donor, 10% biomass and 90% transfer assumptions. It is not a direct electron-uptake assay or
+      selective demonstration of the mediator.
+  - reference: PMID:34939136
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: It was assumed that this metabolic shift of the fermentative species resulted from an interspecies
+      electron transfer
+    explanation: The follow-up study characterizes the interspecies-electron-transfer reading of the original experiment
+      as an assumption, not a demonstrated mechanism.
+  participating_taxa:
+  - preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+  - preferred_term: Clostridium pasteurianum
     term:
       id: NCBITaxon:1501
       label: Clostridium pasteurianum
+- name: Coculture-Associated Glycerol Fermentation Product Shift
+  description: 'At 72 h, the two responsive cultures among four initial cocultures had higher 1,3-propanediol and
+    butyrate yields than Clostridium pasteurianum monocultures: 241 +/- 8 versus 176 +/- 13 and 105 +/- 6 versus
+    76 +/- 7 mmol/mol glycerol, respectively. Butanol and ethanol yields were lower: 188 +/- 9 versus 225 +/- 5
+    and 43 +/- 4 versus 54 +/- 2 mmol/mol glycerol. These correspond to +37%, +38%, -16% and -20%; they are not
+    averages over all four initial cocultures or universal coculture responses. Significant Geobacter growth occurred
+    in eight of twelve later cultures, and the reported growth/product regressions use those responders. Clostridium
+    growth was reduced, so useful product yields do not establish mutual benefit. The measured conditional product
+    shift is retained independently of its unresolved electron-transfer or cobamide mediator.'
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: glycerol
     term:
       id: CHEBI:17754
       label: glycerol
     concentration: Substrate for fermentation
+    notes: Product comparisons refer to the two responsive initial cocultures at 72 h; glycerol is the supplied
+      fermentation substrate.
   - preferred_term: 1,3-propanediol
     term:
       id: CHEBI:16109
       label: propane-1,3-diol
     concentration: 241 mmol/mol glycerol (+37% increase in coculture)
+    notes: Product comparisons refer to the two responsive initial cocultures at 72 h; glycerol is the supplied
+      fermentation substrate.
   - preferred_term: butyrate
     term:
       id: CHEBI:30772
       label: butyric acid
     concentration: 105 mmol/mol glycerol (+38% increase in coculture)
+    notes: Product comparisons refer to the two responsive initial cocultures at 72 h; glycerol is the supplied
+      fermentation substrate.
   - preferred_term: butanol
     term:
       id: CHEBI:28885
       label: butan-1-ol
     concentration: Decreased by 16% in coculture
+    notes: Product comparisons refer to the two responsive initial cocultures at 72 h; glycerol is the supplied
+      fermentation substrate.
   - preferred_term: ethanol
     term:
       id: CHEBI:16236
       label: ethanol
     concentration: Decreased by 20% in coculture
+    notes: Product comparisons refer to the two responsive initial cocultures at 72 h; glycerol is the supplied
+      fermentation substrate.
   biological_processes:
   - preferred_term: glycerol catabolic process
     term:
@@ -268,86 +262,24 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
-  - preferred_term: electron transport chain
-    term:
-      id: GO:0022900
-      label: electron transport chain
-  downstream:
-  - target: Increased 1,3-Propanediol and Butyrate Production
-    description: The electron-transfer-induced metabolic shift redirects glycerol
-      fermentation products toward higher 1,3-propanediol and butyrate yields.
   evidence:
   - reference: PMID:28287150
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The present study deals with a co-culture of Geobacter sulfurreducens
-      and Clostridium pasteurianum during glycerol fermentation
-    explanation: Quantifies the electron-transfer-induced metabolic shift toward 1,3-propanediol
-      and butyrate
-  - reference: PMID:28287150
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: This metabolic shift was clearly induced by a small electron uptake that
-      represented less than 0.6% of the electrons consumed by C. pasteurianum
-    explanation: Establishes that minimal electron transfer drives the fermentation
-      pathway shift
-  - reference: PMID:28287150
-    supports: PARTIAL
-    evidence_source: IN_VITRO
-    snippet: Direct interspecies electron transfer (DIET) mechanism has been recently
-      characterised with Geobacter species which couple the electron balance with
-      other species through physical contacts
-    explanation: 'PARTIAL - the paper''s generic background about Geobacter species in prior
-      literature, not a finding about this coculture, so it cannot establish a transfer route
-      for these two organisms. The same snippet is cited twice more in this record and PR #262
-      re-scoped both to PARTIAL for this reason; this third occurrence was missed (#295). The
-      interaction is unaffected - the electron-uptake measurement (less than 0.6% of the electrons
-      consumed) is what carries it. Its other sibling is weaker than its own explanation claims:
-      that snippet is the paper''s study-scope sentence and quantifies nothing, despite an
-      explanation saying it quantifies the shift toward 1,3-propanediol - the same defect as this
-      one, left for a separate pass. Snippet also completed here, having been truncated mid-word
-      at "with o".'
-- name: Increased 1,3-Propanediol and Butyrate Production
-  description: 'The metabolic shift in C. pasteurianum changed glycerol-fermentation
-    output toward the more reduced end product 1,3-propanediol and the carboxylate
-    butyrate. In coculture with G. sulfurreducens, 1,3-propanediol production increased
-    by 37% and butyrate production increased by 38%, while butanol and ethanol decreased
-    by 16% and 20%, respectively. This product-yield node records the measured output of
-    the upstream electron-transfer-induced fermentation shift without asserting whether
-    the electrons entered C. pasteurianum by contact-dependent or mediated transfer.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Clostridium pasteurianum
+    snippet: pasteurianum metabolic pattern was significantly altered towards improved 1,3-propanediol and butyrate
+      production (+37% and +38% resp.) at the expense of butanol and ethanol production (-16% and -20% resp.)
+    explanation: Supports the measured product-yield comparison. Primary Results and Table 1 restrict these percentages
+      to two responsive initial cocultures at 72 h versus four Clostridium monocultures; this is not selective proof
+      of the electron-transfer mediator or mutualism.
+  participating_taxa:
+  - preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+  - preferred_term: Clostridium pasteurianum
     term:
       id: NCBITaxon:1501
       label: Clostridium pasteurianum
-  metabolites:
-  - preferred_term: 1,3-propanediol
-    term:
-      id: CHEBI:16109
-      label: propane-1,3-diol
-    concentration: Increased by 37% in coculture
-  - preferred_term: butyrate
-    term:
-      id: CHEBI:30772
-      label: butyric acid
-    concentration: Increased by 38% in coculture
-  biological_processes:
-  - preferred_term: fermentation
-    term:
-      id: GO:0006113
-      label: fermentation
-  evidence:
-  - reference: PMID:28287150
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: pasteurianum metabolic pattern was significantly altered towards improved
-      1,3-propanediol and butyrate production (+37% and +38% resp.) at the expense
-      of butanol and ethanol production (-16% and -20% resp.)
-    explanation: Documents the product-yield shift caused by coculture with G. sulfurreducens.
 environmental_factors:
 - name: Anaerobic Conditions
   value: Strict anaerobic
@@ -590,64 +522,69 @@ metal_relevance: SIGNIFICANT
 metal_notes: Metal/REE detected via environmental factor measurements
 discussions:
 - discussion_id: kg-geobacter-clostridium-contact-dependence-contested
-  prompt: >
-    Is the G. sulfurreducens-induced metabolic shift in C. pasteurianum actually caused by
-    contact-dependent direct interspecies electron transfer along conductive pili, or by a
-    diffusible mediator (candidate: a cobamide) released by G. sulfurreducens?
+  prompt: 'Is the G. sulfurreducens-induced metabolic shift in C. pasteurianum actually caused by contact-dependent
+    direct interspecies electron transfer along conductive pili, or by a diffusible mediator (candidate: a cobamide)
+    released by G. sulfurreducens?
+
+    '
   kind: CONTROVERSY
   status: OPEN
   attaches_to:
-  - ecological_interactions#Acetate Oxidation and Interspecies Electron Transfer
-  - ecological_interactions#Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift
-  rationale: >
-    RE-SCOPED (was: this record asserted contact-dependent DIET as established). Caching the
-    open-access full text of the discovery study (PMID:28287150, PMC5347079) showed the
-    contact/nanowire mechanism was never supported by it. "Pili" and "nanowires" appear there
-    only as general background about Geobacter species, and its own discussion states the
-    opposite of what this record claimed: pre-cultures were "constituted of both nanowire-rich
-    aggregates and nanowire-poor planktonic cells", and growing G. sulfurreducens on conductive
-    material is offered as a future option "to ensure electrical connections" - i.e. electrical
-    connection was NOT established in these experiments. Several evidence items had also cited
-    that generic background sentence, or the unrelated "sole electron acceptor" sentence, as if
-    they demonstrated contact-mediated transfer between these two organisms.
-
-    Accordingly: `community_category` moved DIET -> SYNTROPHY (the schema defines DIET
-    specifically as "Direct interspecies electron transfer", a mechanism claim no source
-    supports here); pili/nanowire assertions were removed from the description, environment
-    notes, taxon notes, and the interaction; the interactions were renamed to mechanism-neutral
-    forms; and the "Cell Contact and Nanowire Formation" environmental factor became
-    "Electrical Connection Between Cells", recording that connection was not established.
-
-    The competing mechanism is NOT asserted in its place. The follow-up (PMID:34939136)
-    concludes the interaction "is mediated" and proposes a diffusible cobamide acting on
-    glycerol dehydratase, with a transmembrane flavin-bound polyferredoxin / cytochrome
-    b5-rubredoxin electron-entry route offered only as putative reinforcement - and that paper
-    calls its own model "putative". It is not open access, so only its abstract is
-    snippet-verifiable here; its reported 0.22-um-filtered cell-free spent-medium result, which
-    would show Geobacter cells are unnecessary for the shift, remains unverified against full
-    text. STILL OPEN: which route actually carries the electrons, and whether the record's
-    `name` and filename (both still say "DIET") should be changed - those affect external
-    references and were left to a curator.
+  - ecological_interactions#Proposed Acetate Oxidation and Interspecies Electron Transfer
+  - ecological_interactions#Coculture-Associated Glycerol Fermentation Product Shift
+  rationale: 'The prior contact-dependent DIET assertion was withdrawn in #256/#262; #295 corrected a remaining
+    generic-background citation. This review also qualifies the broader IET interpretation: qPCR growth and an assumed
+    electron balance do not directly measure uptake or selectively prove its mediation of the product shift. The
+    2017 Discussion proposes, rather than measures, nanowire-rich/planktonic inoculum heterogeneity and suggests
+    conductive biofilms as future work. The record name and filename already use interspecies electron transfer
+    rather than DIET, so the former pending-rename note is obsolete. The 2022 abstract describes mediated interaction
+    and a putative cobamide model, with possible electron entry as reinforcement. Its full body remains inaccessible
+    subscription content; the previously reported 0.22-um-filtered spent-medium result was not verified here and
+    is not evidence for these graph decisions. Neither contact-dependent wiring, cobamide transfer nor a particular
+    entry protein is asserted as established. Non-graph environmental, ingredient and overview text is preserved
+    by this graph-scoped repair and is not scientifically certified by it.'
   evidence:
   - reference: PMID:34939136
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: It was assumed that this metabolic shift of the fermentative species resulted
-      from an interspecies electron transfer
-    explanation: The follow-up study characterizes the interspecies-electron-transfer reading
-      of the original experiment as an assumption, not a demonstrated mechanism.
+    snippet: It was assumed that this metabolic shift of the fermentative species resulted from an interspecies
+      electron transfer
+    explanation: The follow-up study characterizes the interspecies-electron-transfer reading of the original experiment
+      as an assumption, not a demonstrated mechanism.
   - reference: PMID:34939136
-    supports: REFUTE
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: 'C. pasteurianum-G. sulfurreducens interaction inducing a metabolic shift is
-      mediated'
-    explanation: Key-point conclusion that the interaction is mediated (via a diffusible
-      molecule), contradicting the contact-dependent nanowire mechanism asserted by this record.
+    snippet: C. pasteurianum-G. sulfurreducens interaction inducing a metabolic shift is mediated
+    explanation: The abstract calls the interaction mediated, but the full experimental details were unavailable.
+      This does not identify or verify the specific mediator, and is not treated as a selective contact-removal
+      assay.
   - reference: PMID:34939136
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: 'a putative interaction model was proposed: G. sulfurreducens produces cobamide
-      molecules that possibly modify C. pasteurianum metabolic pathway at the key enzyme
-      glycerol dehydratase'
-    explanation: States the competing diffusible-cobamide mechanism, and marks it as putative -
-      so it must not be asserted as an interaction in place of the current one.
+    snippet: 'a putative interaction model was proposed: G. sulfurreducens produces cobamide molecules that possibly
+      modify C. pasteurianum metabolic pathway at the key enzyme glycerol dehydratase'
+    explanation: Supports a putative cobamide model stated in the abstract, not demonstrated cobamide transfer or
+      a new verified interaction.
+- discussion_id: geobacter_clostridium_responder_and_flux_scope
+  prompt: Which mediator causes the conditional glycerol product shift?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Proposed Acetate Oxidation and Interspecies Electron Transfer
+  - ecological_interactions#Coculture-Associated Glycerol Fermentation Product Shift
+  rationale: 'Quantify all cultures rather than only responders, directly trace transferred electrons or metabolites,
+    and selectively perturb the proposed mediator while measuring both organisms'' growth. The measured product
+    shift does not establish mutualism: Clostridium biomass decreased. Merge the duplicate product-output node into
+    the measured fermentation response and remove its restatement arrow; retain only the explicitly HYPOTHESIZED
+    upstream model arrow. The full 2022 study, including its reported cell-free assay, needs primary verification.
+    No new causal node or arrow is added.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T12:31:46Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Qualify growth-inferred electron transfer and its one retained arrow; restrict product yields to responding
+    cultures; remove duplicate outcome and unsupported mutualism; correct controversy and exact anchors. Issue #1478;
+    reports/causal_graph_review/decisions/20261006-clostridium-batch45.yaml'
+  llm_assisted: true
