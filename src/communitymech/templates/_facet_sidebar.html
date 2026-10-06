@@ -210,5 +210,18 @@
             }
         });
         document.documentElement.classList.add('filter-sidebar-ready');
+        function revealFragment() {
+            const id = window.location.hash.slice(1);
+            if (!['category-facet', 'state-facet', 'metals-facet', 'ree-facet', 'relevance-facet'].includes(id)) return;
+            const target = document.getElementById(id);
+            if (!target || !panel.contains(target)) return;
+            if (mobile.matches && !dialog.open) toggle.click();
+            target.classList.remove('collapsed');
+            const control = document.querySelector(`[aria-controls="${id}"]`);
+            if (control) { control.setAttribute('aria-expanded', 'true'); control.focus(); }
+            target.scrollIntoView({block: 'nearest'});
+        }
+        window.addEventListener('hashchange', revealFragment);
+        revealFragment();
     });
 </script>

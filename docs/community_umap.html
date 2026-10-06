@@ -751,6 +751,19 @@
             }
         });
         document.documentElement.classList.add('filter-sidebar-ready');
+        function revealFragment() {
+            const id = window.location.hash.slice(1);
+            if (!['category-facet', 'state-facet', 'metals-facet', 'ree-facet', 'relevance-facet'].includes(id)) return;
+            const target = document.getElementById(id);
+            if (!target || !panel.contains(target)) return;
+            if (mobile.matches && !dialog.open) toggle.click();
+            target.classList.remove('collapsed');
+            const control = document.querySelector(`[aria-controls="${id}"]`);
+            if (control) { control.setAttribute('aria-expanded', 'true'); control.focus(); }
+            target.scrollIntoView({block: 'nearest'});
+        }
+        window.addEventListener('hashchange', revealFragment);
+        revealFragment();
     });
 </script>
 </head>
@@ -760,6 +773,7 @@
             <h1>Community Embedding Space</h1>
             <p class="subtitle">2D projection of 322 microbial communities based on taxonomic composition</p>
             <a href="index.html" class="nav-link">← Back to Community Index</a>
+            <a href="https://culturebotai.github.io/mechs/" class="nav-link">All Mech projects</a>
         </header>
 
         <div class="controls">
@@ -791,6 +805,7 @@
                  order match what is on screen. -->
             <div class="filter-panel">
                 <!-- Enhanced search -->
+                <label for="search">Search communities</label>
                 <div class="search-container">
                     <input type="search" id="search"
                         placeholder="Search by name, category, or environment..."
@@ -5401,6 +5416,38 @@
     "url": "communities/mCAFEs_Brachypodium_RCC.html"
   }
 ];
+        // Populate the accessible data-table fallback (dataviz #10) from the
+        // same data the plot renders.
+        (function buildDataTable() {
+            const tbody = document.getElementById('data-table-body');
+            if (!tbody) return;
+            const esc = s => String(s == null ? '' : s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const rows = communityData.slice().sort((a, b) => a.name.localeCompare(b.name));
+            tbody.innerHTML = rows.map(d =>
+                '<tr>' +
+                '<td><a href="' + esc(d.url) + '">' + esc(d.name) + '</a></td>' +
+                '<td>' + esc(d.id) + '</td>' +
+                '<td>' + esc(d.category) + '</td>' +
+                '<td>' + esc(d.ecological_state) + '</td>' +
+                '<td>' + esc(d.origin) + '</td>' +
+                '<td>' + esc(d.num_taxa) + '</td>' +
+                '<td>' + esc(d.num_interactions) + '</td>' +
+                '<td>' + (typeof d.coverage_pct === 'number'
+                    ? d.coverage_pct.toFixed(1) : esc(d.coverage_pct)) + '</td>' +
+                '</tr>'
+            ).join('');
+        })();
+
+
+        if (typeof d3 === 'undefined') {
+            const message = document.createElement('p');
+            message.setAttribute('role', 'status');
+            message.textContent = 'The plot could not be loaded. View the complete plotted dataset in the table below, or reload this page to retry.';
+            document.getElementById('umap-plot').before(message);
+            document.querySelector('.data-table-details').open = true;
+        } else {
+
 
         // Configuration
         const width = 1200;
@@ -6040,29 +6087,6 @@
         // Initial render
         updateVisualization();
 
-        // Populate the accessible data-table fallback (dataviz #10) from the
-        // same data the plot renders.
-        (function buildDataTable() {
-            const tbody = document.getElementById('data-table-body');
-            if (!tbody) return;
-            const esc = s => String(s == null ? '' : s)
-                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            const rows = communityData.slice().sort((a, b) => a.name.localeCompare(b.name));
-            tbody.innerHTML = rows.map(d =>
-                '<tr>' +
-                '<td><a href="' + esc(d.url) + '">' + esc(d.name) + '</a></td>' +
-                '<td>' + esc(d.id) + '</td>' +
-                '<td>' + esc(d.category) + '</td>' +
-                '<td>' + esc(d.ecological_state) + '</td>' +
-                '<td>' + esc(d.origin) + '</td>' +
-                '<td>' + esc(d.num_taxa) + '</td>' +
-                '<td>' + esc(d.num_interactions) + '</td>' +
-                '<td>' + (typeof d.coverage_pct === 'number'
-                    ? d.coverage_pct.toFixed(1) : esc(d.coverage_pct)) + '</td>' +
-                '</tr>'
-            ).join('');
-        })();
-
         // Add axes
         const xAxis = d3.axisBottom(xScale).ticks(5);
         const yAxis = d3.axisLeft(yScale).ticks(5);
@@ -6087,6 +6111,7 @@
             .attr('fill', 'currentColor')
             .attr('text-anchor', 'middle')
             .text('PaCMAP Dimension 2');
+        }
     </script>
     <script src="theme-toggle.js"></script>
 </body>
