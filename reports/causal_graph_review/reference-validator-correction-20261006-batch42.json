@@ -1,0 +1,657 @@
+{
+  "baseline_head": "12c0771525564259d767ae1a98265d069a45d1e4",
+  "initial_failed_attempt": {
+    "base_commit": "12c0771525564259d767ae1a98265d069a45d1e4",
+    "scope": [
+      "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+      "kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml",
+      "kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml"
+    ],
+    "reference_validator_version": "0.1.7",
+    "results": [
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-schema",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/initial-Fucoidan_Seven_Degrader_Combinatorial_SynCom-schema.log",
+        "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+        "output_tail": "No issues found\n",
+        "original_log_path": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-schema.log"
+      },
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-strict",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+          "scripts/validate_strict.py",
+          "--workers",
+          "1",
+          "--out",
+          "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-strict.tsv",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/initial-Fucoidan_Seven_Degrader_Combinatorial_SynCom-strict.log",
+        "log_sha256": "7acf7af78b98616f10115c9438ee198648374c715394e4f2471c8235c983701f",
+        "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch42/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-strict.tsv\n",
+        "original_log_path": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-strict.log"
+      },
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-terms",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+          "validate-data",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "--labels"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/initial-Fucoidan_Seven_Degrader_Combinatorial_SynCom-terms.log",
+        "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+        "output_tail": "\u2705 Validation passed\n",
+        "original_log_path": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-terms.log"
+      },
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-references",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+          "validate",
+          "data",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "--config",
+          "conf/reference_validator.yaml"
+        ],
+        "exit_code": 1,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/initial-Fucoidan_Seven_Degrader_Combinatorial_SynCom-references.log",
+        "log_sha256": "7f1e7b50052a19851074e45c281a87b665d0c762147811e02ea2e28da5342a24",
+        "output_tail": "Validating kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Issues (14):\n  [ERROR] Text part not found as substring: 'isolate_12 | 99.34 | 0.38 | high-quality draft | GCA_046736315.1'\n    Location: taxonomy[0].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Algibacter_B amylolyticus AS12 | Flavo12 | F12 | degrader'\n    Location: taxonomy[0].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_40 | 99.67 | 0.71 | high-quality draft | GCA_046736305.1'\n    Location: taxonomy[1].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Algibacter lectus AS40 | Flavo40 | F40 | degrader'\n    Location: taxonomy[1].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_56 | 99.67 | 1.96 | high-quality draft | GCA_046736295.1'\n    Location: taxonomy[2].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Mariniflexile sp. AS56 | Flavo56 | F56 | degrader'\n    Location: taxonomy[2].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_94 | 94.9 | 1.2 | high-quality draft | GCA_030553095.1'\n    Location: taxonomy[3].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Zobellia laminariae AS94 | Flavo94 | F94 | degrader'\n    Location: taxonomy[3].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_25 | 99.86 | 1.7 | high-quality draft | GCA_046736275.1'\n    Location: taxonomy[4].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Luteolibacter UBA1315 sp. AS25 | Verruco25 | V25 | degrader'\n    Location: taxonomy[4].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_69 | 100 | 0.57 | high-quality draft | GCA_046736285.1'\n    Location: taxonomy[5].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Roseibacillus_A persicicus AS69 | Verruco69 | V69 | degrader'\n    Location: taxonomy[5].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'LCC_4 | 99.32 | 2.03 | high-quality draft | GCA_902728235.1'\n    Location: taxonomy[6].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Lentimonas sp. CC4 | Verruco4 | V4 | degrader'\n    Location: taxonomy[6].evidence[2].snippet\n    Reference: PMID:42649294\n\nValidation Summary:\n  Total checks: 14\n  Issues found: 14\n",
+        "explained_output_tail": "Validating kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Issues (14):\n  [ERROR] Text part not found as substring: 'isolate_12 | 99.34 | 0.38 | high-quality draft | GCA_046736315.1'\n    Location: taxonomy[0].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Algibacter_B amylolyticus AS12 | Flavo12 | F12 | degrader'\n    Location: taxonomy[0].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_40 | 99.67 | 0.71 | high-quality draft | GCA_046736305.1'\n    Location: taxonomy[1].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Algibacter lectus AS40 | Flavo40 | F40 | degrader'\n    Location: taxonomy[1].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_56 | 99.67 | 1.96 | high-quality draft | GCA_046736295.1'\n    Location: taxonomy[2].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Mariniflexile sp. AS56 | Flavo56 | F56 | degrader'\n    Location: taxonomy[2].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_94 | 94.9 | 1.2 | high-quality draft | GCA_030553095.1'\n    Location: taxonomy[3].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Zobellia laminariae AS94 | Flavo94 | F94 | degrader'\n    Location: taxonomy[3].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_25 | 99.86 | 1.7 | high-quality draft | GCA_046736275.1'\n    Location: taxonomy[4].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Luteolibacter UBA1315 sp. AS25 | Verruco25 | V25 | degrader'\n    Location: taxonomy[4].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_69 | 100 | 0.57 | high-quality draft | GCA_046736285.1'\n    Location: taxonomy[5].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Roseibacillus_A persicicus AS69 | Verruco69 | V69 | degrader'\n    Location: taxonomy[5].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'LCC_4 | 99.32 | 2.03 | high-quality draft | GCA_902728235.1'\n    Location: taxonomy[6].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Lentimonas sp. CC4 | Verruco4 | V4 | degrader'\n    Location: taxonomy[6].evidence[2].snippet\n    Reference: PMID:42649294\n\nValidation Summary:\n  Total checks: 14\n  Issues found: 14\n",
+        "original_log_path": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-references.log"
+      }
+    ],
+    "limitations": [
+      "Three complete primary main bodies and Methods read, including text captions; no figure images, separate supplements or raw analytical data independently inspected. Fucoidan cached Table 2 selected rows are not original-spreadsheet verification.",
+      "Seven existing nodes retained, one generic platform node removed; one PARTIAL management-effect arrow retained and one workflow arrow removed. Three node renames. No new structure or provider spend.",
+      "Fucoidan and Transwell remain needs_research. Corrected existing graphs and gap discussions are not completed expansion; #1465/#1467 remain open.",
+      "Canonical taxonomy, prior history, original source caches and non-graph raw blocks preserved, not certified. GENIA evidence/non-graph follow-up #1468 remains open; Transwell assay/roster follow-up included in #1467.",
+      "V4 discussion resolved from publisher citation DOM; original cache rendering artifact preserved and explicitly disclosed, not recast as a biological alias.",
+      "Source-based self-adversarial review is not independent approval, protected merge or full-corpus completion. Reference-validator 0.1.7 performs zero effective checks for this schema; snippet matching is textual, not scientific validation.",
+      "Edison dry runs emitted a remote cost-map warning and used a local fallback; no API job or price estimate was supplied.",
+      "HTML descriptions checked by exact parser and repeat renders, not browser screenshots. Post-commit docs-current is a separate publication gate."
+    ]
+  },
+  "baseline_reference_command": [
+    "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+    "validate",
+    "data",
+    "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+    "-s",
+    "src/communitymech/schema/communitymech.yaml",
+    "--config",
+    "conf/reference_validator.yaml"
+  ],
+  "baseline_reference_exit": 1,
+  "baseline_reference_output": "Validating kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Issues (14):\n  [ERROR] Text part not found as substring: 'isolate_12 | 99.34 | 0.38 | high-quality draft | GCA_046736315.1'\n    Location: taxonomy[0].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Algibacter_B amylolyticus AS12 | Flavo12 | F12 | degrader'\n    Location: taxonomy[0].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_40 | 99.67 | 0.71 | high-quality draft | GCA_046736305.1'\n    Location: taxonomy[1].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Algibacter lectus AS40 | Flavo40 | F40 | degrader'\n    Location: taxonomy[1].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_56 | 99.67 | 1.96 | high-quality draft | GCA_046736295.1'\n    Location: taxonomy[2].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Mariniflexile sp. AS56 | Flavo56 | F56 | degrader'\n    Location: taxonomy[2].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_94 | 94.9 | 1.2 | high-quality draft | GCA_030553095.1'\n    Location: taxonomy[3].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Zobellia laminariae AS94 | Flavo94 | F94 | degrader'\n    Location: taxonomy[3].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_25 | 99.86 | 1.7 | high-quality draft | GCA_046736275.1'\n    Location: taxonomy[4].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Luteolibacter UBA1315 sp. AS25 | Verruco25 | V25 | degrader'\n    Location: taxonomy[4].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_69 | 100 | 0.57 | high-quality draft | GCA_046736285.1'\n    Location: taxonomy[5].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Roseibacillus_A persicicus AS69 | Verruco69 | V69 | degrader'\n    Location: taxonomy[5].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'LCC_4 | 99.32 | 2.03 | high-quality draft | GCA_902728235.1'\n    Location: taxonomy[6].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Lentimonas sp. CC4 | Verruco4 | V4 | degrader'\n    Location: taxonomy[6].evidence[2].snippet\n    Reference: PMID:42649294\n\nValidation Summary:\n  Total checks: 14\n  Issues found: 14\n",
+  "baseline_reference_log_sha256": "7f1e7b50052a19851074e45c281a87b665d0c762147811e02ea2e28da5342a24",
+  "original_taxonomy_unchanged": true,
+  "all_14_findings_match_supplement_sidecar": true,
+  "missing_snippets": [
+    "isolate_12 | 99.34 | 0.38 | high-quality draft | GCA_046736315.1",
+    "Algibacter_B amylolyticus AS12 | Flavo12 | F12 | degrader",
+    "isolate_40 | 99.67 | 0.71 | high-quality draft | GCA_046736305.1",
+    "Algibacter lectus AS40 | Flavo40 | F40 | degrader",
+    "isolate_56 | 99.67 | 1.96 | high-quality draft | GCA_046736295.1",
+    "Mariniflexile sp. AS56 | Flavo56 | F56 | degrader",
+    "isolate_94 | 94.9 | 1.2 | high-quality draft | GCA_030553095.1",
+    "Zobellia laminariae AS94 | Flavo94 | F94 | degrader",
+    "isolate_25 | 99.86 | 1.7 | high-quality draft | GCA_046736275.1",
+    "Luteolibacter UBA1315 sp. AS25 | Verruco25 | V25 | degrader",
+    "isolate_69 | 100 | 0.57 | high-quality draft | GCA_046736285.1",
+    "Roseibacillus_A persicicus AS69 | Verruco69 | V69 | degrader",
+    "LCC_4 | 99.32 | 2.03 | high-quality draft | GCA_902728235.1",
+    "Lentimonas sp. CC4 | Verruco4 | V4 | degrader"
+  ],
+  "canary_command": [
+    "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_reference_validator_actually_validates.py"
+  ],
+  "canary_output": ".....                                                                    [100%]\n5 passed in 14.74s\n",
+  "canary_exit": 0,
+  "cli": {
+    "path": "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/lib/python3.13/site-packages/linkml_reference_validator/cli/validate.py",
+    "sha256": "8435d1aed40c99e9dee763004776f90ddeee99439a6ec9b2dfc2e666ec783e63",
+    "counter_statement": "Total checks: {len(all_results)}",
+    "interpretation": "Number of validation issues, not number of executed checks."
+  },
+  "fetcher": {
+    "path": "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/lib/python3.13/site-packages/linkml_reference_validator/etl/reference_fetcher.py",
+    "sha256": "4f3d6d590cb38886fb2849e59bfcf8fd019e05d0ef36387634cd8774c24b9728"
+  },
+  "historical_candidate_files": {
+    "reports/causal_graph_review/adversarial-review-20261006-batch35.yaml": "2e8c17652af5c990e8600b5a935001b812414cde2f26fae7629c1e7601de7a49",
+    "reports/causal_graph_review/adversarial-review-20261006-batch32.yaml": "fb31af941ac34e88b7c749a987c6fef46ab8a95dc173b8ccbdd890e23ee1c279",
+    "reports/causal_graph_review/validation-20261006-batch34.json": "fb5c3b62db09d88c13fab9826a2b2de2a1b5115670bc6b73aaea458641e90d2f",
+    "reports/causal_graph_review/adversarial-review-20261006-batch36.yaml": "411a075ced01f0daaf59db828b6bfc2163a00d6d040ecae1328b5aee70b5452e",
+    "reports/causal_graph_review/adversarial-review-20261006-batch33.yaml": "bbc95a9fdbe89641db5ed5315e01160fea0aed3524a6252080b2aa806e81d4ae",
+    "reports/causal_graph_review/validation-20261006-batch32.json": "291e49842642eaf938ff287278ff0a357f89763d37bec60a86f237ffdf921d85",
+    "reports/causal_graph_review/validation-20261006-batch37.json": "1129fa733ce586e6dacbd7649137cd4b8ea9e70c62d8bb375c9a97daf150a307",
+    "reports/causal_graph_review/validation-20261006-batch33.json": "55f4a03646d10c6365106b420cd75a4a251cd132e870131ae22f3373c78cf451",
+    "reports/causal_graph_review/adversarial-review-20261006-batch31.yaml": "2c1e54bb636d8534313e280c6a19fdee4bedaa235c76d0e5ff5a17f71d573541",
+    "reports/causal_graph_review/adversarial-review-20261006-batch41.yaml": "44cef924e165c081ab6e25a0aff69791ff8ad15033822a94892da50942d92a37",
+    "reports/causal_graph_review/adversarial-review-20261006-batch40.yaml": "6753c3c652290b010a45e003d8baa2321127b6e338be8c49958a412b45fa96bf",
+    "reports/causal_graph_review/adversarial-review-20261006-batch37.yaml": "c1674f7ad8d33b6a7d903c022b21f51e026d6e9bd3d0a445d1520494e12c27ac",
+    "reports/causal_graph_review/validation-20261006-batch36.json": "74a51607a5d2de0fa98d7936dadcbee8753c112316fd5f3cf8bf77747f5e89fe",
+    "reports/causal_graph_review/validation-20261006-batch38.json": "5d5c892e1170e1d724f22ec71d239be6b950d88a9ae91a5600cb168f77d7397b",
+    "reports/causal_graph_review/validation-20261006-batch35.json": "dda3f91dfad6a28436e5fa4acd144e34f2e7064ab01c7f0742d2905a7fd58c24",
+    "reports/causal_graph_review/adversarial-review-20261006-batch39.yaml": "2a70cf9c4ecccac2139f0917993ee38f7bc17ee573b8d5314fc23f1559a17a92",
+    "reports/causal_graph_review/validation-20261006-batch39.json": "b0e176e0fff1e270ce36672da2f5f1292a34447d0250380885714516aa71ee2f",
+    "reports/causal_graph_review/validation-20261006-batch31.json": "0bc604d1282f6313908b213e41443a1a33044bfcc214fc67cac087aca74f0654",
+    "reports/causal_graph_review/validation-20261006-batch41.json": "3c1a052d101654b74167b7cd032fc501b8628bd1384fa60966e95e8b20f33cb9",
+    "reports/causal_graph_review/validation-20261006-batch40.json": "6861f3173971067c8a198c744e2ffa3eca5ffb5d78ff64fac8c28713ea293dc9",
+    "reports/causal_graph_review/adversarial-review-20261006-batch34.yaml": "3a44d2f69b8390801b62eb251ddd652ffd2f0804a1c02c193a159bec2b9eff20",
+    "reports/causal_graph_review/adversarial-review-20261006-batch38.yaml": "9b9be5ad62e42821f1503482f9a623174aaf62bc780c9bddb16e4b63dcb20323",
+    "reports/causal_graph_review/decisions/20261006-three-records-batch40.yaml": "80329e3dcae2352d3b6937185835394e337f6405310643363b57b841588a62e0",
+    "reports/causal_graph_review/decisions/20261006-three-records-batch41.yaml": "4f0a70fa0459dfeeb6c9871c54f2440b9067a4ee5037d80808c4c4be7a07dda6"
+  },
+  "scan": "rg --no-ignore --hidden; candidate matches include quoted or correctly negated claims and require interpretation, not blanket error labeling.",
+  "limitations": "14 unchanged taxonomy failures are a real reference-CLI failure, not a pass. Supplement sidecar text matching is not independent inspection of original Table 2. Existing SupportingReference coverage gap #476 and selected-excerpt trust issue #1362 remain open.",
+  "issue": 1469,
+  "correction": "Historical claims that Total checks: 0 establishes zero executed checks or a no-op are withdrawn. The CLI counter counts reported issues. Passing canaries establish real EvidenceItem validation; SupportingReference coverage remains incomplete under #476. Historical raw outputs are preserved, not rerun or rewritten by this correction.",
+  "initial_attempt_json_sha256": "5ce2ef9341cb14872feb106d7e03609118c83ae381986df6067c9cccdee093a2",
+  "baseline_snippet_audit": {
+    "command": [
+      "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+      "scripts/evidence_snippet_audit.py",
+      "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+      "--list-mismatch",
+      "--list-nocontent",
+      "--list-rendering",
+      "--list-assembled"
+    ],
+    "exit_code": 0,
+    "output": "# 50 evidence snippets scanned across 1 files\n  MATCH      35\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   15\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n  15 (15 hard)  kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml\n\n# MISMATCH/WEAK detail\n  [MISMATCH cov=0.04] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_12 | 99.34 | 0.38 | high-quality draft | GCA_046736315.1...\n  [MISMATCH cov=0.07] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Algibacter_B amylolyticus AS12 | Flavo12 | F12 | degrader...\n  [MISMATCH cov=0.07] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_40 | 99.67 | 0.71 | high-quality draft | GCA_046736305.1...\n  [MISMATCH cov=0.03] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Algibacter lectus AS40 | Flavo40 | F40 | degrader...\n  [MISMATCH cov=0.07] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_56 | 99.67 | 1.96 | high-quality draft | GCA_046736295.1...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Mariniflexile sp. AS56 | Flavo56 | F56 | degrader...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_94 | 94.9 | 1.2 | high-quality draft | GCA_030553095.1...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Zobellia laminariae AS94 | Flavo94 | F94 | degrader...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_25 | 99.86 | 1.7 | high-quality draft | GCA_046736275.1...\n  [MISMATCH cov=0.04] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Luteolibacter UBA1315 sp. AS25 | Verruco25 | V25 | degrader...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_69 | 100 | 0.57 | high-quality draft | GCA_046736285.1...\n  [MISMATCH cov=0.04] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Roseibacillus_A persicicus AS69 | Verruco69 | V69 | degrader...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      LCC_4 | 99.32 | 2.03 | high-quality draft | GCA_902728235.1...\n  [MISMATCH cov=0.03] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Lentimonas sp. CC4 | Verruco4 | V4 | degrader...\n  [MISMATCH cov=0.03] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Lentimonas sp. CC4 | Verruco4 | V4 | degrader...\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+    "log_sha256": "153bd814f6e018df35b47ca7ebd961e235049fcc533a79749359635213824c0d",
+    "unchanged_counts": {
+      "MATCH": 35,
+      "MISMATCH": 15,
+      "RENDERING": 0,
+      "ASSEMBLED": 0,
+      "WEAK": 0,
+      "NOCONTENT": 0
+    },
+    "explanation": "The same 14 taxonomy excerpts plus the identical V4 Table 2 discussion excerpt are absent from article-only source coverage. They are present in the separate supplemental cache; the original spreadsheet was not independently inspected. CLI exit 0 is not a zero-mismatch result."
+  },
+  "second_failed_attempt": {
+    "base_commit": "12c0771525564259d767ae1a98265d069a45d1e4",
+    "scope": [
+      "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+      "kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml",
+      "kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml"
+    ],
+    "reference_validator_version": "0.1.7",
+    "results": [
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-schema",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-schema.log",
+        "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+        "output_tail": "No issues found\n"
+      },
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-strict",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+          "scripts/validate_strict.py",
+          "--workers",
+          "1",
+          "--out",
+          "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-strict.tsv",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-strict.log",
+        "log_sha256": "7acf7af78b98616f10115c9438ee198648374c715394e4f2471c8235c983701f",
+        "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch42/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-strict.tsv\n"
+      },
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-terms",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+          "validate-data",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "--labels"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-terms.log",
+        "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+        "output_tail": "\u2705 Validation passed\n"
+      },
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-references",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+          "validate",
+          "data",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "--config",
+          "conf/reference_validator.yaml"
+        ],
+        "exit_code": 1,
+        "expected_exit_codes": [
+          1
+        ],
+        "log": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-references.log",
+        "log_sha256": "7f1e7b50052a19851074e45c281a87b665d0c762147811e02ea2e28da5342a24",
+        "output_tail": "Validating kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Issues (14):\n  [ERROR] Text part not found as substring: 'isolate_12 | 99.34 | 0.38 | high-quality draft | GCA_046736315.1'\n    Location: taxonomy[0].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Algibacter_B amylolyticus AS12 | Flavo12 | F12 | degrader'\n    Location: taxonomy[0].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_40 | 99.67 | 0.71 | high-quality draft | GCA_046736305.1'\n    Location: taxonomy[1].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Algibacter lectus AS40 | Flavo40 | F40 | degrader'\n    Location: taxonomy[1].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_56 | 99.67 | 1.96 | high-quality draft | GCA_046736295.1'\n    Location: taxonomy[2].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Mariniflexile sp. AS56 | Flavo56 | F56 | degrader'\n    Location: taxonomy[2].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_94 | 94.9 | 1.2 | high-quality draft | GCA_030553095.1'\n    Location: taxonomy[3].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Zobellia laminariae AS94 | Flavo94 | F94 | degrader'\n    Location: taxonomy[3].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_25 | 99.86 | 1.7 | high-quality draft | GCA_046736275.1'\n    Location: taxonomy[4].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Luteolibacter UBA1315 sp. AS25 | Verruco25 | V25 | degrader'\n    Location: taxonomy[4].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_69 | 100 | 0.57 | high-quality draft | GCA_046736285.1'\n    Location: taxonomy[5].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Roseibacillus_A persicicus AS69 | Verruco69 | V69 | degrader'\n    Location: taxonomy[5].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'LCC_4 | 99.32 | 2.03 | high-quality draft | GCA_902728235.1'\n    Location: taxonomy[6].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Lentimonas sp. CC4 | Verruco4 | V4 | degrader'\n    Location: taxonomy[6].evidence[2].snippet\n    Reference: PMID:42649294\n\nValidation Summary:\n  Total checks: 14\n  Issues found: 14\n",
+        "explained_output_tail": "Validating kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Issues (14):\n  [ERROR] Text part not found as substring: 'isolate_12 | 99.34 | 0.38 | high-quality draft | GCA_046736315.1'\n    Location: taxonomy[0].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Algibacter_B amylolyticus AS12 | Flavo12 | F12 | degrader'\n    Location: taxonomy[0].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_40 | 99.67 | 0.71 | high-quality draft | GCA_046736305.1'\n    Location: taxonomy[1].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Algibacter lectus AS40 | Flavo40 | F40 | degrader'\n    Location: taxonomy[1].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_56 | 99.67 | 1.96 | high-quality draft | GCA_046736295.1'\n    Location: taxonomy[2].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Mariniflexile sp. AS56 | Flavo56 | F56 | degrader'\n    Location: taxonomy[2].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_94 | 94.9 | 1.2 | high-quality draft | GCA_030553095.1'\n    Location: taxonomy[3].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Zobellia laminariae AS94 | Flavo94 | F94 | degrader'\n    Location: taxonomy[3].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_25 | 99.86 | 1.7 | high-quality draft | GCA_046736275.1'\n    Location: taxonomy[4].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Luteolibacter UBA1315 sp. AS25 | Verruco25 | V25 | degrader'\n    Location: taxonomy[4].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_69 | 100 | 0.57 | high-quality draft | GCA_046736285.1'\n    Location: taxonomy[5].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Roseibacillus_A persicicus AS69 | Verruco69 | V69 | degrader'\n    Location: taxonomy[5].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'LCC_4 | 99.32 | 2.03 | high-quality draft | GCA_902728235.1'\n    Location: taxonomy[6].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Lentimonas sp. CC4 | Verruco4 | V4 | degrader'\n    Location: taxonomy[6].evidence[2].snippet\n    Reference: PMID:42649294\n\nValidation Summary:\n  Total checks: 14\n  Issues found: 14\n"
+      },
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-snippets",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "scripts/evidence_snippet_audit.py",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+          "--list-mismatch",
+          "--list-nocontent",
+          "--list-rendering",
+          "--list-assembled"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-snippets.log",
+        "log_sha256": "153bd814f6e018df35b47ca7ebd961e235049fcc533a79749359635213824c0d",
+        "output_tail": "# 50 evidence snippets scanned across 1 files\n  MATCH      35\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   15\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n  15 (15 hard)  kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml\n\n# MISMATCH/WEAK detail\n  [MISMATCH cov=0.04] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_12 | 99.34 | 0.38 | high-quality draft | GCA_046736315.1...\n  [MISMATCH cov=0.07] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Algibacter_B amylolyticus AS12 | Flavo12 | F12 | degrader...\n  [MISMATCH cov=0.07] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_40 | 99.67 | 0.71 | high-quality draft | GCA_046736305.1...\n  [MISMATCH cov=0.03] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Algibacter lectus AS40 | Flavo40 | F40 | degrader...\n  [MISMATCH cov=0.07] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_56 | 99.67 | 1.96 | high-quality draft | GCA_046736295.1...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Mariniflexile sp. AS56 | Flavo56 | F56 | degrader...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_94 | 94.9 | 1.2 | high-quality draft | GCA_030553095.1...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Zobellia laminariae AS94 | Flavo94 | F94 | degrader...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_25 | 99.86 | 1.7 | high-quality draft | GCA_046736275.1...\n  [MISMATCH cov=0.04] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Luteolibacter UBA1315 sp. AS25 | Verruco25 | V25 | degrader...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_69 | 100 | 0.57 | high-quality draft | GCA_046736285.1...\n  [MISMATCH cov=0.04] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Roseibacillus_A persicicus AS69 | Verruco69 | V69 | degrader...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      LCC_4 | 99.32 | 2.03 | high-quality draft | GCA_902728235.1...\n  [MISMATCH cov=0.03] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Lentimonas sp. CC4 | Verruco4 | V4 | degrader...\n  [MISMATCH cov=0.03] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Lentimonas sp. CC4 | Verruco4 | V4 | degrader...\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n"
+      }
+    ],
+    "limitations": [
+      "Three complete primary main bodies and Methods read, including text captions; no figure images, separate supplements or raw analytical data independently inspected. Fucoidan cached Table 2 selected rows are not original-spreadsheet verification.",
+      "Seven existing nodes retained, one generic platform node removed; one PARTIAL management-effect arrow retained and one workflow arrow removed. Three node renames. No new structure or provider spend.",
+      "Fucoidan and Transwell remain needs_research. Corrected existing graphs and gap discussions are not completed expansion; #1465/#1467 remain open.",
+      "Canonical taxonomy, prior history, original source caches and non-graph raw blocks preserved, not certified. GENIA evidence/non-graph follow-up #1468 remains open; Transwell assay/roster follow-up included in #1467.",
+      "V4 discussion resolved from publisher citation DOM; original cache rendering artifact preserved and explicitly disclosed, not recast as a biological alias.",
+      "Source-based self-adversarial review is not independent approval, protected merge or full-corpus completion. Reference-validator 0.1.7 reports issue counts as Total checks, not executed-check counts. Fucoidan has 14 unchanged supplementary-taxonomy findings; the other records must be evaluated separately. SupportingReference field discovery remains incomplete under issue 476. Snippet matching is textual, not scientific validation. Reporting correction is tracked by issue 1469.",
+      "Edison dry runs emitted a remote cost-map warning and used a local fallback; no API job or price estimate was supplied.",
+      "HTML descriptions checked by exact parser and repeat renders, not browser screenshots. Post-commit docs-current is a separate publication gate."
+    ],
+    "reference_cli_known_failure": "14 unchanged Fucoidan taxonomy snippets are present in the separate supplement sidecar, which the installed reference fetcher does not combine with article text. Baseline output exactly reproduced; this is not a clean pass."
+  },
+  "second_failed_attempt_reason": "An overstrict batch-helper assertion required all snippets to MATCH. The 15 mismatches were then reproduced unchanged at the pre-edit baseline, not fixed by changing sources or weakening the repository auditor.",
+  "baseline_snippet_probe_preflight": "The first scratch probe lacked PYTHONPATH for the source checkout and exited before establishing a baseline. It was corrected to set the checkout src path; only the successful repeated output is used for comparison.",
+  "other_snippet_baselines": [
+    {
+      "stem": "GENIA_NineMember_MultiPollutant_Bioremediation_SynCom",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ],
+      "baseline": {
+        "exit_code": 0,
+        "counts": {
+          "MATCH": 20,
+          "RENDERING": 9,
+          "ASSEMBLED": 0,
+          "WEAK": 0,
+          "MISMATCH": 0,
+          "NOCONTENT": 0
+        },
+        "output": "# 29 evidence snippets scanned across 1 files\n  MATCH      20\n  RENDERING  9\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n   9  kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+        "sha256": "812267826dad217d0d0603e1df7ff68f2079aa494aab10197e892a551e1d33b8"
+      },
+      "current": {
+        "exit_code": 0,
+        "counts": {
+          "MATCH": 22,
+          "RENDERING": 9,
+          "ASSEMBLED": 0,
+          "WEAK": 0,
+          "MISMATCH": 0,
+          "NOCONTENT": 0
+        },
+        "output": "# 31 evidence snippets scanned across 1 files\n  MATCH      22\n  RENDERING  9\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n   9  kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+        "sha256": "e3d952810bc609e323eabfafd5da6310980f3555769db937925f5a8213bf9490"
+      }
+    },
+    {
+      "stem": "GLBRC_Exometabolite_Transwell_SynCom",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ],
+      "baseline": {
+        "exit_code": 0,
+        "counts": {
+          "MATCH": 10,
+          "RENDERING": 0,
+          "ASSEMBLED": 0,
+          "WEAK": 0,
+          "MISMATCH": 0,
+          "NOCONTENT": 0
+        },
+        "output": "# 10 evidence snippets scanned across 1 files\n  MATCH      10\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+        "sha256": "1835af07ebf0373785ca2d25de18c6984a3cbcfdec0d2610f1d8437504408710"
+      },
+      "current": {
+        "exit_code": 0,
+        "counts": {
+          "MATCH": 9,
+          "RENDERING": 0,
+          "ASSEMBLED": 0,
+          "WEAK": 0,
+          "MISMATCH": 0,
+          "NOCONTENT": 0
+        },
+        "output": "# 9 evidence snippets scanned across 1 files\n  MATCH      9\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+        "sha256": "32e79f5bf36e5c97f219c301b9924d6a9da1ff1bf07e2b076f93f0d0ee74a358"
+      }
+    }
+  ],
+  "third_failed_attempt": {
+    "base_commit": "12c0771525564259d767ae1a98265d069a45d1e4",
+    "scope": [
+      "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+      "kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml",
+      "kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml"
+    ],
+    "reference_validator_version": "0.1.7",
+    "results": [
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-schema",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-schema.log",
+        "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+        "output_tail": "No issues found\n"
+      },
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-strict",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+          "scripts/validate_strict.py",
+          "--workers",
+          "1",
+          "--out",
+          "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-strict.tsv",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-strict.log",
+        "log_sha256": "7acf7af78b98616f10115c9438ee198648374c715394e4f2471c8235c983701f",
+        "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch42/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-strict.tsv\n"
+      },
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-terms",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+          "validate-data",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "--labels"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-terms.log",
+        "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+        "output_tail": "\u2705 Validation passed\n"
+      },
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-references",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+          "validate",
+          "data",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "--config",
+          "conf/reference_validator.yaml"
+        ],
+        "exit_code": 1,
+        "expected_exit_codes": [
+          1
+        ],
+        "log": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-references.log",
+        "log_sha256": "7f1e7b50052a19851074e45c281a87b665d0c762147811e02ea2e28da5342a24",
+        "output_tail": "Validating kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Issues (14):\n  [ERROR] Text part not found as substring: 'isolate_12 | 99.34 | 0.38 | high-quality draft | GCA_046736315.1'\n    Location: taxonomy[0].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Algibacter_B amylolyticus AS12 | Flavo12 | F12 | degrader'\n    Location: taxonomy[0].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_40 | 99.67 | 0.71 | high-quality draft | GCA_046736305.1'\n    Location: taxonomy[1].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Algibacter lectus AS40 | Flavo40 | F40 | degrader'\n    Location: taxonomy[1].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_56 | 99.67 | 1.96 | high-quality draft | GCA_046736295.1'\n    Location: taxonomy[2].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Mariniflexile sp. AS56 | Flavo56 | F56 | degrader'\n    Location: taxonomy[2].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_94 | 94.9 | 1.2 | high-quality draft | GCA_030553095.1'\n    Location: taxonomy[3].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Zobellia laminariae AS94 | Flavo94 | F94 | degrader'\n    Location: taxonomy[3].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_25 | 99.86 | 1.7 | high-quality draft | GCA_046736275.1'\n    Location: taxonomy[4].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Luteolibacter UBA1315 sp. AS25 | Verruco25 | V25 | degrader'\n    Location: taxonomy[4].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_69 | 100 | 0.57 | high-quality draft | GCA_046736285.1'\n    Location: taxonomy[5].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Roseibacillus_A persicicus AS69 | Verruco69 | V69 | degrader'\n    Location: taxonomy[5].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'LCC_4 | 99.32 | 2.03 | high-quality draft | GCA_902728235.1'\n    Location: taxonomy[6].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Lentimonas sp. CC4 | Verruco4 | V4 | degrader'\n    Location: taxonomy[6].evidence[2].snippet\n    Reference: PMID:42649294\n\nValidation Summary:\n  Total checks: 14\n  Issues found: 14\n",
+        "explained_output_tail": "Validating kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Issues (14):\n  [ERROR] Text part not found as substring: 'isolate_12 | 99.34 | 0.38 | high-quality draft | GCA_046736315.1'\n    Location: taxonomy[0].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Algibacter_B amylolyticus AS12 | Flavo12 | F12 | degrader'\n    Location: taxonomy[0].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_40 | 99.67 | 0.71 | high-quality draft | GCA_046736305.1'\n    Location: taxonomy[1].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Algibacter lectus AS40 | Flavo40 | F40 | degrader'\n    Location: taxonomy[1].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_56 | 99.67 | 1.96 | high-quality draft | GCA_046736295.1'\n    Location: taxonomy[2].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Mariniflexile sp. AS56 | Flavo56 | F56 | degrader'\n    Location: taxonomy[2].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_94 | 94.9 | 1.2 | high-quality draft | GCA_030553095.1'\n    Location: taxonomy[3].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Zobellia laminariae AS94 | Flavo94 | F94 | degrader'\n    Location: taxonomy[3].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_25 | 99.86 | 1.7 | high-quality draft | GCA_046736275.1'\n    Location: taxonomy[4].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Luteolibacter UBA1315 sp. AS25 | Verruco25 | V25 | degrader'\n    Location: taxonomy[4].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'isolate_69 | 100 | 0.57 | high-quality draft | GCA_046736285.1'\n    Location: taxonomy[5].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Roseibacillus_A persicicus AS69 | Verruco69 | V69 | degrader'\n    Location: taxonomy[5].evidence[2].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'LCC_4 | 99.32 | 2.03 | high-quality draft | GCA_902728235.1'\n    Location: taxonomy[6].evidence[1].snippet\n    Reference: PMID:42649294\n  [ERROR] Text part not found as substring: 'Lentimonas sp. CC4 | Verruco4 | V4 | degrader'\n    Location: taxonomy[6].evidence[2].snippet\n    Reference: PMID:42649294\n\nValidation Summary:\n  Total checks: 14\n  Issues found: 14\n"
+      },
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-snippets",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "scripts/evidence_snippet_audit.py",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+          "--list-mismatch",
+          "--list-nocontent",
+          "--list-rendering",
+          "--list-assembled"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-snippets.log",
+        "log_sha256": "153bd814f6e018df35b47ca7ebd961e235049fcc533a79749359635213824c0d",
+        "output_tail": "# 50 evidence snippets scanned across 1 files\n  MATCH      35\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   15\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n  15 (15 hard)  kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml\n\n# MISMATCH/WEAK detail\n  [MISMATCH cov=0.04] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_12 | 99.34 | 0.38 | high-quality draft | GCA_046736315.1...\n  [MISMATCH cov=0.07] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Algibacter_B amylolyticus AS12 | Flavo12 | F12 | degrader...\n  [MISMATCH cov=0.07] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_40 | 99.67 | 0.71 | high-quality draft | GCA_046736305.1...\n  [MISMATCH cov=0.03] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Algibacter lectus AS40 | Flavo40 | F40 | degrader...\n  [MISMATCH cov=0.07] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_56 | 99.67 | 1.96 | high-quality draft | GCA_046736295.1...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Mariniflexile sp. AS56 | Flavo56 | F56 | degrader...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_94 | 94.9 | 1.2 | high-quality draft | GCA_030553095.1...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Zobellia laminariae AS94 | Flavo94 | F94 | degrader...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_25 | 99.86 | 1.7 | high-quality draft | GCA_046736275.1...\n  [MISMATCH cov=0.04] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Luteolibacter UBA1315 sp. AS25 | Verruco25 | V25 | degrader...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      isolate_69 | 100 | 0.57 | high-quality draft | GCA_046736285.1...\n  [MISMATCH cov=0.04] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Roseibacillus_A persicicus AS69 | Verruco69 | V69 | degrader...\n  [MISMATCH cov=0.05] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      LCC_4 | 99.32 | 2.03 | high-quality draft | GCA_902728235.1...\n  [MISMATCH cov=0.03] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Lentimonas sp. CC4 | Verruco4 | V4 | degrader...\n  [MISMATCH cov=0.03] kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml PMID:42649294\n      Lentimonas sp. CC4 | Verruco4 | V4 | degrader...\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n"
+      },
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-rank",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "scripts/rank_causal_graph_readiness.py",
+          "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+          "--format",
+          "json"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-rank.log",
+        "log_sha256": "2fa482c6cba4626844e5533485d6802c3edd4f0b39aae6334a666858c34b77ee",
+        "output_tail": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000449\",\n    \"name\": \"Fucoidan Seven-Degrader Combinatorial SynCom\",\n    \"score\": 60.0,\n    \"taxonomy\": 7,\n    \"connected_taxa\": 7,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 2,\n    \"downstream_edges\": 0,\n    \"interaction_evidence\": 4,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"additional_interactions\",\n      \"downstream\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml\"\n  }\n]\n"
+      },
+      {
+        "check": "Fucoidan_Seven_Degrader_Combinatorial_SynCom-history-0",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+          "-s",
+          "src/communitymech/schema/history.yaml",
+          "--target-class",
+          "HistoryRecord",
+          "history/records/Fucoidan_Seven_Degrader_Combinatorial_SynCom/2026-10-06T110348Z-codex-5b5854.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/Fucoidan_Seven_Degrader_Combinatorial_SynCom-history-0.log",
+        "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+        "output_tail": "No issues found\n"
+      },
+      {
+        "check": "GENIA_NineMember_MultiPollutant_Bioremediation_SynCom-schema",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom-schema.log",
+        "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+        "output_tail": "No issues found\n"
+      },
+      {
+        "check": "GENIA_NineMember_MultiPollutant_Bioremediation_SynCom-strict",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+          "scripts/validate_strict.py",
+          "--workers",
+          "1",
+          "--out",
+          "/private/tmp/communitymech-batch42/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom-strict.tsv",
+          "kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom-strict.log",
+        "log_sha256": "4c0b0535cc42134b6cc4a9f57b0cde08f392df803109fa79792bd6c87ba7dd9c",
+        "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch42/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch42/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom-strict.tsv\n"
+      },
+      {
+        "check": "GENIA_NineMember_MultiPollutant_Bioremediation_SynCom-terms",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+          "validate-data",
+          "kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "--labels"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom-terms.log",
+        "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+        "output_tail": "\u2705 Validation passed\n"
+      },
+      {
+        "check": "GENIA_NineMember_MultiPollutant_Bioremediation_SynCom-references",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+          "validate",
+          "data",
+          "kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "--config",
+          "conf/reference_validator.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom-references.log",
+        "log_sha256": "32ef19b2de79565be241fdf4c34b80bb1b1d688439d758113d6efdf53ba7fc84",
+        "output_tail": "Validating kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+        "explained_output_tail": "Validating kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+      },
+      {
+        "check": "GENIA_NineMember_MultiPollutant_Bioremediation_SynCom-snippets",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "scripts/evidence_snippet_audit.py",
+          "kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml",
+          "--list-mismatch",
+          "--list-nocontent",
+          "--list-rendering",
+          "--list-assembled"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch42/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom-snippets.log",
+        "log_sha256": "e3d952810bc609e323eabfafd5da6310980f3555769db937925f5a8213bf9490",
+        "output_tail": "# 31 evidence snippets scanned across 1 files\n  MATCH      22\n  RENDERING  9\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n   9  kb/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n"
+      }
+    ],
+    "limitations": [
+      "Three complete primary main bodies and Methods read, including text captions; no figure images, separate supplements or raw analytical data independently inspected. Fucoidan cached Table 2 selected rows are not original-spreadsheet verification.",
+      "Seven existing nodes retained, one generic platform node removed; one PARTIAL management-effect arrow retained and one workflow arrow removed. Three node renames. No new structure or provider spend.",
+      "Fucoidan and Transwell remain needs_research. Corrected existing graphs and gap discussions are not completed expansion; #1465/#1467 remain open.",
+      "Canonical taxonomy, prior history, original source caches and non-graph raw blocks preserved, not certified. GENIA evidence/non-graph follow-up #1468 remains open; Transwell assay/roster follow-up included in #1467.",
+      "V4 discussion resolved from publisher citation DOM; original cache rendering artifact preserved and explicitly disclosed, not recast as a biological alias.",
+      "Source-based self-adversarial review is not independent approval, protected merge or full-corpus completion. Reference-validator 0.1.7 reports issue counts as Total checks, not executed-check counts. Fucoidan has 14 unchanged supplementary-taxonomy findings; the other records must be evaluated separately. SupportingReference field discovery remains incomplete under issue 476. Snippet matching is textual, not scientific validation. Reporting correction is tracked by issue 1469.",
+      "Edison dry runs emitted a remote cost-map warning and used a local fallback; no API job or price estimate was supplied.",
+      "HTML descriptions checked by exact parser and repeat renders, not browser screenshots. Post-commit docs-current is a separate publication gate."
+    ],
+    "resume_note": "Existing command receipts reused only after command identity, exit status, log hash, record hashes and unchanged source-cache checks. Two earlier batch-helper failures are preserved in the correction receipt; baseline mismatches are explicitly retained.",
+    "reference_cli_known_failure": "14 unchanged Fucoidan taxonomy snippets are present in the separate supplement sidecar, which the installed reference fetcher does not combine with article text. Baseline output exactly reproduced; this is not a clean pass.",
+    "snippet_counts_by_record": {
+      "kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml": {
+        "MATCH": 35,
+        "RENDERING": 0,
+        "ASSEMBLED": 0,
+        "WEAK": 0,
+        "MISMATCH": 15,
+        "NOCONTENT": 0
+      }
+    },
+    "snippet_audit_known_findings": "35 Fucoidan MATCH and 15 unchanged supplement-sidecar MISMATCH. Exact baseline output preserved; this is not an all-MATCH result."
+  },
+  "third_failed_attempt_reason": "Batch helper incorrectly demanded all-MATCH for GENIA; baseline retained RENDERING classes are faithful punctuation/spacing variants, not new mismatches. Source quotes and repository auditor unchanged."
+}

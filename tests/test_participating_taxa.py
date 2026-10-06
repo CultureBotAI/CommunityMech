@@ -263,6 +263,8 @@ USERS = {
     "Ewaste_Bioleaching_Consortium.yaml",
     "FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.yaml",
     "Ferroplasma_Leptospirillum_Syntrophy.yaml",
+    "Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
+    "GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml",
     "Geobacter_Methanosarcina_DIET.yaml",
     "Ginseng_CL95_Rusty_Root_Rot_Biocontrol_SynCom.yaml",
     "Glutamicibacter_S11_Aquaculture_Nitrogen_Removal_SynCom.yaml",
