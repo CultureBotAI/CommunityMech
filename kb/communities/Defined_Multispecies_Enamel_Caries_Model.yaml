@@ -218,44 +218,47 @@ environmental_factors:
     explanation: Supports calcium as a controlled environmental factor in the model.
 ecological_interactions:
 - name: Four-Species Enamel Biofilm Formation
-  description: >-
-    Lactobacillus casei, Streptococcus mutans, Streptococcus salivarius, and
-    Streptococcus sanguinis formed a defined biofilm on salivary-pellicle-coated
-    enamel slabs during the four-day in vitro caries assay.
-  interaction_type: COLONIZATION_FACILITATION
+  description: The four canonical taxa were inoculated onto salivary-pellicle-coated enamel for the four-day assay
+    with daily medium changes. This records the defined starting community and biofilm platform, not demonstrated
+    interspecies colonization facilitation or persistence of all four members in every treatment; S. sanguinis was
+    below detection in the calcium arms.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
     term:
       id: GO:0042710
       label: biofilm formation
-  downstream:
-  - target: Sucrose-Responsive Viable Biofilm Shift
-    description: >-
-      The established four-species enamel biofilm provided the viable biomass
-      whose cell counts shifted across the sucrose, fluoride, and calcium arms.
-  - target: Mineral-Dependent Demineralization Restraint
-    description: >-
-      Four days of multispecies biofilm growth on enamel slabs created the
-      demineralization readout modulated by fluoride and calcium.
   evidence:
   - reference: PMID:23446436
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Defined-multispecies biofilms, formed by Lactobacillus casei,
-      Streptococcus mutans, S. salivarius and S. sanguinis, were grown on the
-      surface of salivary-pellicle-coated enamel slabs, with known baseline
-      surface hardness; growth medium was changed daily.
-    explanation: >-
-      Establishes the four-member salivary-pellicle-coated enamel biofilm model
-      and the retained-biofilm daily medium changes.
-- name: Sucrose-Responsive Viable Biofilm Shift
-  description: >-
-    Changing sucrose in the replacement medium was part of a treatment matrix
-    that significantly altered viable-cell counts in the four-species enamel
-    biofilms.
-  interaction_type: CROSS_FEEDING
+    snippet: Defined-multispecies biofilms, formed by Lactobacillus casei, Streptococcus mutans, S. salivarius and
+      S. sanguinis, were grown on the surface of salivary-pellicle-coated enamel slabs, with known baseline surface
+      hardness; growth medium was changed daily.
+    explanation: Supports the inoculated model and biofilm platform. Primary viable-count results limit claims about
+      persistence; the abstract does not establish member-to-member facilitation.
+  participating_taxa:
+  - preferred_term: Lactobacillus casei
+    term:
+      id: NCBITaxon:1582
+      label: Lacticaseibacillus casei
+  - preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  - preferred_term: Streptococcus salivarius
+    term:
+      id: NCBITaxon:1304
+      label: Streptococcus salivarius
+  - preferred_term: Streptococcus sanguinis
+    term:
+      id: NCBITaxon:1305
+      label: Streptococcus sanguinis
+- name: Treatment-Dependent Viable Biofilm Counts
+  description: Sucrose, fluoride and calcium treatments altered selected viable-count outcomes in the inoculated
+    model. Higher sucrose increased total counts and L. casei; calcium did not significantly change total counts
+    or S. mutans. Species-specific responses are not a uniform community increase or demonstrated cross-feeding.
+    Acid selection remains a proposed explanation, not a selectively perturbed mechanism.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: sucrose
@@ -271,18 +274,32 @@ ecological_interactions:
   - reference: PMID:23446436
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Counts of viable cells on biofilms were significantly affected by sucrose,
-      fluoride and calcium concentrations (p < 0.05).
-    explanation: >-
-      Supports a treatment-dependent shift in viable biofilm counts, including
-      the sucrose arm of the assay matrix.
+    snippet: Counts of viable cells on biofilms were significantly affected by sucrose, fluoride and calcium concentrations
+      (p < 0.05).
+    explanation: The abstract summarizes treatment-dependent counts; primary Tables 1 and 2 distinguish total and
+      species-specific outcomes. The broad statement does not mean every count changed with every amendment.
+  participating_taxa:
+  - preferred_term: Lactobacillus casei
+    term:
+      id: NCBITaxon:1582
+      label: Lacticaseibacillus casei
+  - preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  - preferred_term: Streptococcus salivarius
+    term:
+      id: NCBITaxon:1304
+      label: Streptococcus salivarius
+  - preferred_term: Streptococcus sanguinis
+    term:
+      id: NCBITaxon:1305
+      label: Streptococcus sanguinis
 - name: Mineral-Dependent Demineralization Restraint
-  description: >-
-    Higher fluoride and calcium concentrations reduced surface-microhardness
-    change, and 0.8-1.0 ppm fluoride also lowered integrated mineral loss and
-    lesion depth in the enamel slabs.
-  interaction_type: COMPETITION
+  description: Higher-fluoride arms had lower enamel surface-microhardness change, lesion depth and integrated mineral
+    loss. Calcium at 2 mM reduced surface-microhardness change relative to lower calcium arms, not every mineral-loss
+    endpoint. These are treatment-dependent material outcomes, not microbial competition or proof that altered cell
+    counts mediate protection; proposed calcium/EPS mechanisms were not tested.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: fluoride
@@ -293,30 +310,36 @@ ecological_interactions:
     term:
       id: CHEBI:29108
       label: calcium(2+)
-  biological_processes:
-  - preferred_term: biofilm formation
-    term:
-      id: GO:0042710
-      label: biofilm formation
   evidence:
   - reference: PMID:23446436
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      There was a decrease in %SMC in response to increased fluoride and
-      calcium concentrations (p < 0.001).
-    explanation: >-
-      Supports fluoride- and calcium-dependent reduction in enamel
-      surface-microhardness change.
+    snippet: There was a decrease in %SMC in response to increased fluoride and calcium concentrations (p < 0.001).
+    explanation: Supports treatment-dependent surface-microhardness outcomes; it does not establish a monotonic
+      effect for every calcium concentration or all mineral endpoints.
   - reference: PMID:23446436
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Lower IML (p < 0.001) and LD (p < 0.05) were found in the presence of 0.8
-      and 1.0 ppm F.
-    explanation: >-
-      Supports reduced integrated mineral loss and lesion depth in the higher
-      fluoride treatments.
+    snippet: Lower IML (p < 0.001) and LD (p < 0.05) were found in the presence of 0.8 and 1.0 ppm F.
+    explanation: Supports lower lesion depth and integrated mineral loss in the specified higher-fluoride arms,
+      not a resolved interspecies competitive mechanism.
+  participating_taxa:
+  - preferred_term: Lactobacillus casei
+    term:
+      id: NCBITaxon:1582
+      label: Lacticaseibacillus casei
+  - preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  - preferred_term: Streptococcus salivarius
+    term:
+      id: NCBITaxon:1304
+      label: Streptococcus salivarius
+  - preferred_term: Streptococcus sanguinis
+    term:
+      id: NCBITaxon:1305
+      label: Streptococcus sanguinis
 growth_media:
 - name: "defined-multispecies biofilm growth medium (unspecified)"
   incubation_time: '4'
@@ -334,3 +357,28 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: "after 4 days of biofilm formation under the tested conditions"
     explanation: "Documents the 4-day biofilm growth period."
+discussions:
+- discussion_id: enamel_counts_minerals_and_community_mechanisms
+  prompt: Which microbial processes mediate the observed treatment-dependent counts and enamel outcomes?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Four-Species Enamel Biofilm Formation
+  - ecological_interactions#Treatment-Dependent Viable Biofilm Counts
+  - ecological_interactions#Mineral-Dependent Demineralization Restraint
+  rationale: 'The primary paper and Tables 1-2 support positive experimental outcomes but not cross-feeding, reciprocal
+    competition, calcium/EPS mediation or selective pH causality. Distinguish starting roster from recoverable members.
+    The Results prose and Table 2 superscripts differ on one L. casei calcium comparison; no disputed 1-versus-2
+    mM claim is used here. The two removed arrows described assay context, not mechanistic mediation. Non-graph
+    follow-up: #1380.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T05:24:50Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain the inoculated biofilm platform without interspecies facilitation or universal persistence claims.;
+    Retain treatment- and species-specific viable-count outcomes without cross-feeding or a uniform calcium effect.;
+    Retain endpoint-specific enamel mineral outcomes without microbial competition or an untested mediation mechanism.
+    Issue #1377; reports/causal_graph_review/decisions/20261006-three-records-batch29.yaml'
+  llm_assisted: true

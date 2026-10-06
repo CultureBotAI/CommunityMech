@@ -223,24 +223,11 @@ taxonomy:
     snippet: We report that root-associated commensal bacteria actively suppress the
       host immune response in the context of a community
 ecological_interactions:
-- name: MAMP-Triggered Immunity Suppression
-  description: 'Suppression of plant pattern-triggered immunity responses, particularly
-    the flg22-induced transcriptional response. SynComm 35 reduces flg22-responsive
-    genes from 492-523 genes to only 7 genes when the community is present.
-
-    '
-  interaction_type: COMMENSALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Dyella japonica MF79
-    term:
-      id: NCBITaxon:231455
-      label: Dyella japonica
-  target_taxon:
-    preferred_term: Arabidopsis thaliana
-    term:
-      id: NCBITaxon:3702
-      label: Arabidopsis thaliana
+- name: Root flg22 Immune Suppression
+  description: Live SynCom35 suppresses a sector of the Arabidopsis root flg22 response after establishment. Dyella
+    MF79 is one tested suppressor, not the sole cause of whole-community transcriptional changes. Participants name
+    the host and this canonical member, not the complete 35-strain roster.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: pattern recognition receptor signaling pathway
     term:
@@ -255,39 +242,32 @@ ecological_interactions:
       id: GO:0045088
       label: regulation of innate immune response
   downstream:
-  - target: Enhanced Colonization Through Community Cooperation
-    description: Suppression of MAMP-triggered immunity gates microbial access
-      to Arabidopsis roots, allowing robust suppressors to improve the root
-      colonization capacity of otherwise nonsuppressive commensals.
+  - target: Suppression-Associated Root Colonization Facilitation
+    description: Suppression can facilitate nonsuppressor root colonization under the tested conditions. MF79 wild-type
+      retentate, unlike T2SS-mutant material, countered the flg22-associated reduction in Ochrobactrum MF370 colonization.
+      This does not establish universal facilitation by every suppressor or reciprocal benefit.
   evidence:
-  - reference: doi:10.1073/pnas.2100678118
+  - reference: PMID:33879573
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Significance In natural environments, plants establish intimate interactions
-      with a wide diversity of microbes
-    explanation: 'The community specifically suppresses a transcriptional sector of
-      plant immunity, demonstrating that commensal bacteria actively modulate host
-      immune responses
-
-      '
-- name: WRKY Transcription Factor Suppression
-  description: 'Suppression of WRKY transcription factors, which are master regulators
-    of plant immunity, allowing commensals to establish colonization while maintaining
-    plant-microbe homeostasis.
-
-    '
-  interaction_type: COMMENSALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Dyella japonica MF79
-    term:
-      id: NCBITaxon:231455
-      label: Dyella japonica
-  target_taxon:
-    preferred_term: Arabidopsis thaliana
+    snippet: a community of root commensal bacteria modulates a specific and evolutionarily conserved sector of
+      the Arabidopsis immune system
+    explanation: Supports community immune modulation. Primary Results and Figures 1-3 distinguish whole-community,
+      monoassociation and acute reporter assays.
+  participating_taxa:
+  - preferred_term: Arabidopsis thaliana
     term:
       id: NCBITaxon:3702
       label: Arabidopsis thaliana
+  - preferred_term: Dyella japonica MF79
+    term:
+      id: NCBITaxon:231455
+      label: Dyella japonica
+- name: Community-Associated WRKY Transcript Suppression
+  description: SynCom35 suppressed flg22-responsive WRKY transcripts. The host and MF79 participants represent a
+    known subset of the inoculated system, not a demonstrated MF79-specific WRKY mechanism. A regulatory role in
+    colonization homeostasis remains proposed.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: regulation of defense response
     term:
@@ -298,18 +278,27 @@ ecological_interactions:
       id: GO:0006355
       label: regulation of DNA-templated transcription
   evidence:
-  - reference: doi:10.1073/pnas.2100678118
-    supports: SUPPORT
+  - reference: PMID:33879573
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: It is unknown, however, how microbiota composed of commensal bacteria
-      colonize roots in the face of a sophisticated plant immune system that evolved
-      to recognize microbial-associated molecular patterns
-- name: Type II Secretion-Mediated Immune Modulation
-  description: 'Extracellular protein secretion via Type II secretion system that
-    modulates plant immune responses and enhances bacterial colonization capacity.
-
-    '
-  interaction_type: COMMENSALISM
+    snippet: a community of root commensal bacteria modulates a specific and evolutionarily conserved sector of
+      the Arabidopsis immune system
+    explanation: The cached abstract supports broad immune modulation, not the WRKY-specific readout. That readout
+      was checked in primary Results, cluster SC1, and the proposed regulatory role in Discussion at https://pmc.ncbi.nlm.nih.gov/articles/PMC8072228/.
+      No claim that snippet matching validates the WRKY detail.
+  participating_taxa:
+  - preferred_term: Arabidopsis thaliana
+    term:
+      id: NCBITaxon:3702
+      label: Arabidopsis thaliana
+  - preferred_term: Dyella japonica MF79
+    term:
+      id: NCBITaxon:231455
+      label: Dyella japonica
+- name: MF79 Type II Secretion-Dependent Immune Modulation
+  description: MF79 secretion-system mutants and cell-free supernatants support T2SS-dependent suppression of the
+    root flg22 response; T3SS was dispensable. The active secreted molecule remains unresolved. This strain-specific
+    requirement is not assigned to every SynCom35 member.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Dyella japonica MF79
@@ -331,165 +320,50 @@ ecological_interactions:
       id: GO:0052031
       label: symbiont-mediated perturbation of host defense response
   downstream:
-  - target: MAMP-Triggered Immunity Suppression
-    description: Type II secretion provides an extracellular suppressor
-      mechanism that prevents full activation of Arabidopsis MAMP-triggered
-      immunity.
+  - target: Root flg22 Immune Suppression
+    description: MF79 T2SS function enables its extracellular suppressive activity in the root reporter assay. This
+      arrow applies to the MF79 component of the suppression node, not necessity of T2SS for the entire SynCom35
+      phenotype.
   evidence:
   - reference: PMID:33879573
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We highlight the importance of extracellular strategies for MTI suppression by
-      showing that the type 2, not the type 3, secretion system is required for
-      the immunomodulatory activity of one robust MTI suppressor
-- name: Enhanced Colonization Through Community Cooperation
-  description: 'Suppressor strains enhance colonization capacity of non-suppressor
-    bacteria through cooperative immunomodulation, demonstrating community-level benefits.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Dyella japonica MF79
+    snippet: We highlight the importance of extracellular strategies for MTI suppression by showing that the type
+      2, not the type 3, secretion system is required for the immunomodulatory activity of one robust MTI suppressor
+    explanation: Supports the experimentally tested secretion-system requirement in one suppressor, not a resolved
+      effector identity or whole-community T2SS requirement.
+- name: Suppression-Associated Root Colonization Facilitation
+  description: 'Suppressor-community precolonization enhanced subsequent colonization by tested nonsuppressors;
+    MF79 retentate separately supported Ochrobactrum MF370 under flg22 challenge. Canonical participants are only
+    a subset: Pseudomonas denotes the tested P. viridiflava challenge lineage, not a proven MF79/Pseudomonas mutualism.'
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.1073/pnas.2100678118
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Suppressors and nonsuppressors co-occur in the root microbiome and the presence of the former can enhance
+      the colonization ability of the latter
+    explanation: Supports facilitation of tested nonsuppressors. The main body separates the smaller-community precolonization
+      comparison from the MF79 retentate experiment; neither demonstrates reciprocal fitness.
+  participating_taxa:
+  - preferred_term: Arabidopsis thaliana
+    term:
+      id: NCBITaxon:3702
+      label: Arabidopsis thaliana
+  - preferred_term: Dyella japonica MF79
     term:
       id: NCBITaxon:231455
       label: Dyella japonica
-  target_taxon:
-    preferred_term: Pseudomonas species
+  - preferred_term: Pseudomonas species
     term:
       id: NCBITaxon:286
       label: Pseudomonas
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: doi:10.1073/pnas.2100678118
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Suppressors and nonsuppressors co-occur in the root microbiome and the
-      presence of the former can enhance the colonization ability of the latter
-- name: Taxonomic Diversity Enabling Functional Complementarity
-  description: 'The SynComm 35 community comprises taxonomically diverse bacteria
-    spanning multiple phyla and orders (Xanthomonadales, Flavobacteriales, Microbacteriales,
-    Pseudomonadales, Burkholderiales), providing functional redundancy and metabolic
-    complementarity in the rhizosphere. Xanthomonadales members contribute to plant-microbe
-    signaling and nutrient acquisition. Flavobacterium species provide polysaccharide
-    degradation and vitamin production. Microbacterium species contribute to organic
-    matter turnover and stress tolerance. Stenotrophomonas species enhance nutrient
-    mobilization and plant growth promotion. This phylogenetic diversity ensures community
-    resilience against environmental perturbations and enables colonization across
-    heterogeneous root microenvironments. The taxonomic breadth of SynComm 35 reflects
-    natural root microbiome composition where diverse bacteria cooperate to establish
-    stable plant-microbe associations despite host immune surveillance.
-
-    '
-  interaction_type: MUTUALISM
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Xanthomonadales members
-    term:
-      id: NCBITaxon:135614
-      label: Lysobacterales
-  target_taxon:
-    preferred_term: Flavobacterium species
-    term:
-      id: NCBITaxon:237
-      label: Flavobacterium
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: doi:10.1073/pnas.2100678118
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Significance In natural environments, plants establish intimate interactions
-      with a wide diversity of microbes
-    explanation: Documents taxonomic diversity enabling community function
-- name: Community Member Metabolic Cooperation
-  description: 'Microbacterium and Stenotrophomonas species cooperate metabolically
-    within the SynComm 35 community, sharing nutrients and metabolites in the rhizosphere
-    environment. Microbacterium species degrade complex organic polymers and produce
-    amino acids and vitamins that benefit other community members. Stenotrophomonas
-    species mobilize phosphate and produce siderophores for iron acquisition, creating
-    public goods accessible to the community. This cross-feeding network reduces competition
-    for resources and stabilizes community structure during root colonization. The
-    metabolic cooperation complements the immune suppression mediated by Dyella japonica,
-    creating a multi-layered strategy for successful root colonization.
-
-    '
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Microbacterium species
-    term:
-      id: NCBITaxon:33882
-      label: Microbacterium
-  target_taxon:
-    preferred_term: Stenotrophomonas species
-    term:
-      id: NCBITaxon:40323
-      label: Stenotrophomonas
-  metabolites:
-  - preferred_term: amino-acid
-    term:
-      id: CHEBI:33709
-      label: amino acid
-    notes: Produced by Microbacterium for community consumption
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: doi:10.1073/pnas.2100678118
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Suppressors and nonsuppressors co-occur in the root microbiome and the
-      presence of the former can enhance the colonization ability of the latter
-    explanation: Demonstrates cooperative interactions among community members
-- name: Negative Control Strain Baseline Response
-  description: 'Escherichia coli DH5α serves as a negative control strain representing
-    a bacterium that lacks evolved adaptations for plant root colonization and immune
-    suppression. Unlike the SynComm 35 members that suppress MAMP-triggered immunity,
-    E. coli DH5α induces normal plant defense responses and colonizes poorly. The
-    strain provides a baseline for measuring the specific immune-modulating capabilities
-    of adapted root commensals. Comparison between E. coli and SynComm 35 demonstrates
-    that immune suppression is not a general bacterial property but requires specific
-    adaptations (Type II secretion systems, effector proteins, specialized metabolites)
-    that evolved in plant-associated bacteria. This control validates that the observed
-    immune suppression is due to specific bacterial strategies rather than non-specific
-    bacterial presence.
-
-    '
-  interaction_type: COMPETITION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Escherichia coli DH5α
-    term:
-      id: NCBITaxon:668369
-      label: Escherichia coli DH5[alpha]
-  target_taxon:
-    preferred_term: Dyella japonica MF79
-    term:
-      id: NCBITaxon:231455
-      label: Dyella japonica
-  biological_processes:
-  - preferred_term: defense response to bacterium
-    term:
-      id: GO:0042742
-      label: defense response to bacterium
-  evidence:
-  - reference: doi:10.1073/pnas.2100678118
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: It is unknown, however, how microbiota composed of commensal bacteria
-      colonize roots in the face of a sophisticated plant immune system that evolved
-      to recognize microbial-associated molecular patterns
-    explanation: E. coli serves as non-adapted control demonstrating plant immunity
+  interaction_type: COLONIZATION_FACILITATION
 growth_media:
 - name: Tryptic Soy Broth (TSB) for bacterial culture
   ph: '7.3'
@@ -674,3 +548,31 @@ related_ingredients:
 metals_present: []
 metal_relevance: INCIDENTAL
 metal_notes: Metal/REE detected via environmental factor measurements
+discussions:
+- discussion_id: syncom35_effector_and_roster_limits
+  prompt: Which secreted factors and host regulators mediate strain-specific colonization effects?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Root flg22 Immune Suppression
+  - ecological_interactions#Community-Associated WRKY Transcript Suppression
+  - ecological_interactions#MF79 Type II Secretion-Dependent Immune Modulation
+  - ecological_interactions#Suppression-Associated Root Colonization Facilitation
+  rationale: 'Effector identity, causal WRKY mediation and complete canonical strain coverage remain unresolved.
+    The three removed nodes lacked evidence for their asserted relationships; absence of support is not evidence
+    that all such mechanisms are biologically impossible. Supplementary methods/rosters were not retrieved. Neither
+    the removed E. coli control phenotype nor metabolic exchange is certified by this review. Non-graph follow-up:
+    #1378.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T05:24:49Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain positive root immune suppression at community scope; do not assign community readouts exclusively
+    to MF79.; Retain the primary-body WRKY observation without converting proposed regulatory/homeostasis roles
+    into proven causality; abstract snippet support is explicitly partial.; Retain the tested MF79 secretion-system
+    mechanism and existing arrow with strain-specific scope and unresolved effector identity.; Retain experimentally
+    supported colonization facilitation, distinguish assay contexts and incomplete canonical participants, and remove
+    reciprocal-fitness attribution. Issue #1375; reports/causal_graph_review/decisions/20261006-three-records-batch29.yaml'
+  llm_assisted: true
