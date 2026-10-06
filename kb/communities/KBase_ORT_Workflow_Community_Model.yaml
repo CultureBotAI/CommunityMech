@@ -137,83 +137,77 @@ taxonomy:
     snippet: environmental metagenomic data from a river system
     explanation: Establishes the second denitrifier as a member of the nitrogen-cycling community.
 ecological_interactions:
-- name: Coupled Nitrification in Columbia River Sediments
-  description: Ammonia-oxidizing archaea (Nitrososphaeraceae) and nitrite-oxidizing bacteria (Nitrospiraceae)
-    form a coupled nitrification network in Columbia River sediments. The archaeon oxidizes ammonium to
-    nitrite, which is then consumed by Nitrospiraceae to produce nitrate. This syntrophic coupling is
-    fundamental to nitrogen cycling in the sediment microbiome and demonstrates metabolic interdependence
-    between archaeal and bacterial partners. The partnership enables complete nitrification from ammonium
-    to nitrate, feeding nitrate to downstream denitrifiers.
-  interaction_type: SYNTROPHY
+- name: Modeled Coupled Nitrification
+  description: The ORT proof-of-concept uses Nitrososphaeraceae and Nitrospiraceae MAG-derived models for ammonium-to-nitrite
+    and nitrite-to-nitrate transformations. Sequential substrate coupling is represented computationally, not experimentally
+    measured partner transfer, obligatory syntrophy or an assembled two-strain culture.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: ammonium
     term:
       id: CHEBI:28938
       label: ammonium
-    concentration: Oxidized by archaeon
+    notes: Contextual modeled substrate/product, not a measured member-specific concentration or flux; nitrogen
+      production includes an explicitly gapfilled reaction.
   - preferred_term: nitrite
     term:
       id: CHEBI:16301
       label: nitrite
-    concentration: Produced by archaeon, consumed by bacterium
+    notes: Contextual modeled substrate/product, not a measured member-specific concentration or flux; nitrogen
+      production includes an explicitly gapfilled reaction.
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
-    concentration: Produced by bacterium
+    notes: Contextual modeled substrate/product, not a measured member-specific concentration or flux; nitrogen
+      production includes an explicitly gapfilled reaction.
   biological_processes:
-  - preferred_term: nitrification
+  - preferred_term: ammonia oxidation
     term:
       id: GO:0019329
       label: ammonia oxidation
-  downstream:
-  - target: Nitrate-to-Nitrogen Gas Denitrification
-    description: >
-      Coupled archaeal and bacterial nitrification produces nitrate that feeds
-      the downstream Steroidobacteraceae denitrifiers.
+    notes: Applies to the modeled archaeal first step, not the entire two-step nitrification pathway.
   evidence:
   - reference: PMID:34726691
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: predict nitrogen cycling patterns with site-specific insight into the chemical and biological
-      drivers of nitrification and denitrification processes
-    explanation: Demonstrates coupled nitrification as a key process in the Columbia River sediment community.
-- name: Nitrate-to-Nitrogen Gas Denitrification
-  description: Two Steroidobacteraceae denitrifiers consume nitrate produced by nitrifying organisms and
-    reduce it through denitrification to nitrogen gas. This terminal step in the nitrogen cycle completes
-    the transformation of fixed nitrogen back to atmospheric N2. The denitrifiers depend on upstream nitrification
-    to provide nitrate substrate, demonstrating sequential metabolic coupling across the community. Genome-scale
-    models also connected the denitrifier reactions to metabolome-derived carbon sources, enabling precise
-    identification of biogeochemical limiting factors.
-  interaction_type: SYNTROPHY
+    snippet: nitrification and denitrification
+    explanation: This primary-checked process phrase identifies the modeled processes. The inspected Methods specify
+      MAG selection and gapfilling; Results report simulated trajectories, not empirical field flux.
+  participating_taxa:
+  - preferred_term: Nitrososphaeraceae archaeon
+    term:
+      id: NCBITaxon:1033997
+      label: Nitrososphaeraceae
+  - preferred_term: Nitrospiraceae bacterium
+    term:
+      id: NCBITaxon:189779
+      label: Nitrospiraceae
+  downstream:
+  - target: Modeled Nitrate Reduction with Gapfilled Nitrogen Production
+    description: PARTIAL - sequential modeled nitrification supplies nitrate for modeled denitrification. This is
+      a substrate route in the proof-of-concept simulation, not proof of an exclusive environmental nitrate source,
+      obligatory partner dependence or genome-supported completion to nitrogen gas.
+- name: Modeled Nitrate Reduction with Gapfilled Nitrogen Production
+  description: Two Steroidobacteraceae MAG-derived models represent nitrate reduction to dissolved nitrogen. Neither
+    MAG encoded nitrogen-gas production; the N2O-to-N2 reaction was added by gapfilling. The positive simulation
+    output is therefore conditional on model assumptions, not demonstrated complete metabolism of either organism
+    or measured field nitrogen loss. The two canonical denitrifier names remain distinct despite sharing a family
+    identifier.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
-    concentration: Consumed by denitrifiers
+    notes: Contextual modeled substrate/product, not a measured member-specific concentration or flux; nitrogen
+      production includes an explicitly gapfilled reaction.
   - preferred_term: nitrogen
     term:
       id: CHEBI:17997
       label: dinitrogen
-    concentration: Produced as N2 gas
-  - preferred_term: betaine
-    term:
-      id: CHEBI:17750
-      label: glycine betaine
-    concentration: Carbon source for denitrifiers
-  - preferred_term: leucine
-    term:
-      id: CHEBI:15603
-      label: L-leucine
-    concentration: Carbon source for denitrifiers
-  - preferred_term: choline
-    term:
-      id: CHEBI:15354
-      label: choline
-    concentration: Carbon source for denitrifiers
+    notes: Contextual modeled substrate/product, not a measured member-specific concentration or flux; nitrogen
+      production includes an explicitly gapfilled reaction.
   biological_processes:
   - preferred_term: denitrification
     term:
@@ -223,53 +217,75 @@ ecological_interactions:
   - reference: PMID:34726691
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: GSMs identified additional carbon sources utilized, enabling more precise identification
-      of the biogeochemical limiting factors in the system
-    explanation: Demonstrates that denitrifiers utilize diverse carbon sources beyond traditional models.
-  - reference: PMID:34726691
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: predict nitrogen cycling patterns with site-specific insight into the chemical and biological
-      drivers of nitrification and denitrification processes
-    explanation: Establishes denitrification as a key process coupled to nitrification in the community.
-- name: Metabolome-Informed Carbon Source Utilization
-  description: The ORT site model incorporated additional organic carbon compounds
-    detected in the bulk Columbia River sediment metabolome. This allowed
-    Steroidobacteraceae denitrifier models to use 15-23 unique carbon sources,
-    including glycine betaine, leucine, and choline, instead of restricting
-    denitrification to acetate as in the generalized literature-based model.
-  interaction_type: SYNTROPHY
+    snippet: nitrification and denitrification
+    explanation: This primary-checked process phrase identifies the modeled processes. The inspected Methods specify
+      MAG selection and gapfilling; Results report simulated trajectories, not empirical field flux.
+  participating_taxa:
+  - preferred_term: Steroidobacteraceae denitrifier 1
+    term:
+      id: NCBITaxon:2689614
+      label: Steroidobacteraceae
+  - preferred_term: Steroidobacteraceae denitrifier 2
+    term:
+      id: NCBITaxon:2689614
+      label: Steroidobacteraceae
+- name: Modeled Metabolome-Informed Carbon Utilization
+  description: Site models used 15-23 additional carbon substrates, with betaine, leucine and choline among the
+    examples. Bulk metabolomics informed model media, with some unmeasured necessities assumed nonlimiting. These
+    modeled exchanges add chemical detail; they are not traced member flux or experimentally identified field limitations,
+    and the reported substrate count is not assigned to every denitrifier.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: glycine betaine
     term:
       id: CHEBI:17750
       label: glycine betaine
+    notes: Reported model substrate example; not assigned as an observed uptake flux of every canonical participant.
   - preferred_term: leucine
     term:
       id: CHEBI:15603
       label: L-leucine
+    notes: Reported model substrate example; not assigned as an observed uptake flux of every canonical participant.
   - preferred_term: choline
     term:
       id: CHEBI:15354
       label: choline
+    notes: Reported model substrate example; not assigned as an observed uptake flux of every canonical participant.
   biological_processes:
   - preferred_term: organic substance catabolic process
     term:
       id: GO:0009056
       label: catabolic process
-  downstream:
-  - target: Nitrate-to-Nitrogen Gas Denitrification
-    description: Metabolome-derived organic carbon sources constrain the
-      denitrifier reactions that reduce nitrate through the modeled nitrogen cycle.
+    notes: Model catabolic context, not measured carbon turnover by every MAG.
   evidence:
   - reference: PMID:34726691
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: site models used 15–23 unique additional carbon sources, such as betaine,
-      leucine and choline
-    explanation: Supports the metabolome-informed carbon substrates used by the
-      genome-scale models.
+    snippet: site models used 15–23 unique additional carbon sources, such as betaine, leucine and choline
+    explanation: Primary-checked body excerpt supports the reported site-model substrate range; not a measured concentration
+      or the same substrate list in every denitrifier.
+  participating_taxa:
+  - preferred_term: Nitrososphaeraceae archaeon
+    term:
+      id: NCBITaxon:1033997
+      label: Nitrososphaeraceae
+  - preferred_term: Nitrospiraceae bacterium
+    term:
+      id: NCBITaxon:189779
+      label: Nitrospiraceae
+  - preferred_term: Steroidobacteraceae denitrifier 1
+    term:
+      id: NCBITaxon:2689614
+      label: Steroidobacteraceae
+  - preferred_term: Steroidobacteraceae denitrifier 2
+    term:
+      id: NCBITaxon:2689614
+      label: Steroidobacteraceae
+  downstream:
+  - target: Modeled Nitrate Reduction with Gapfilled Nitrogen Production
+    description: PARTIAL - modeled carbon uptake contributes substrate and stoichiometric context to the denitrification
+      representation. The exchange calculations support this model-level coupling, not selective demonstration that
+      these example compounds control field denitrification or are consumed by both denitrifiers.
 external_resources:
 - name: KBase narrative
   repository: KBASE
@@ -288,3 +304,27 @@ external_resources:
     evidence_source: COMPUTATIONAL
     snippet: 'KBase: The United States Department of Energy Systems Biology Knowledgebase.'
     explanation: Supports the KBase platform provenance for this workflow narrative.
+discussions:
+- discussion_id: ort_gapfilling_and_environmental_validation
+  prompt: Which modeled nitrogen and carbon routes are supported by measured organism activity?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Modeled Coupled Nitrification
+  - ecological_interactions#Modeled Nitrate Reduction with Gapfilled Nitrogen Production
+  - ecological_interactions#Modeled Metabolome-Informed Carbon Utilization
+  rationale: 'Retain both existing model-level substrate arrows, explicitly PARTIAL for biological validation. Nitrogen-gas
+    completion is gapfilled, and neither denitrifier MAG encoded it. The single-chemistry-input demonstration compares
+    model stoichiometries using common rate assumptions; no high-resolution empirical time series validates its
+    predicted trajectories. Iterative KBase/PFLOTRAN coupling is a proposed capability, not a demonstrated feedback
+    experiment. Full publisher main text/Methods/Table1/captions read; no figure pixels, supplements, code, raw
+    data or narrative execution inspected. #1527 tracks non-graph metadata and #1528 cache provenance; all canonical
+    IDs/labels remain unchanged. No new graph structure.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T18:27:04Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Expose ORT gapfilled nitrogen completion and bound modeled substrate routes. Issue #1525; reports/causal_graph_review/decisions/20261006-three-records-batch56.yaml'
+  llm_assisted: true
