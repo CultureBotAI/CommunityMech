@@ -164,23 +164,43 @@ external_resources:
       co-inducible biosynthesis coculture.
 discussions:
 - discussion_id: kphaffii_ecoli_relayed_intermediate
-  prompt: >-
-    Which biosynthetic intermediate or intermediates pass between K. phaffii
-    and E. coli during simvastatin and naringenin production?
+  prompt: Which biosynthetic intermediate or intermediates pass between K. phaffii and E. coli during simvastatin
+    and naringenin production?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - engineering_design#assembly_strategy
-  rationale: >-
-    The abstract reports relayed synthesis and single-signal co-induction in
-    coculture, but the accessible cache does not identify the exchanged
-    metabolite or assign each reporter pathway segment to K. phaffii versus
+  rationale: The abstract reports relayed synthesis and single-signal co-induction in coculture, but the accessible
+    cache does not identify the exchanged metabolite or assign each reporter pathway segment to K. phaffii versus
     E. coli.
   posed_by: codex
   posed_date: '2026-09-11'
+- discussion_id: komagataella_ecoli_causal_graph_extension
+  prompt: Which strain-resolved relays and induction responses support a causal biosynthesis graph?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions
+  - engineering_design
+  rationale: 'The abstract and public publisher Introduction/section previews report compatible co-growth, common-signal
+    induction and relayed simvastatin/naringenin production. A design without engineered population-balancing interactions
+    does not prove biological neutralism; sharing an induction signal is not metabolite cross-feeding. Monacolin
+    J acid and an acyl donor are discussed, but exact chassis/construct assignments, transfer controls and full
+    Methods remain unresolved. #1542 tracks the empty graph as needs_research, not absent biology. A reviewed one-community
+    LITERATURE dry run contains 7,457 characters; zero provider submissions or credits. Specifically authorized
+    research and primary verification are needed before adding new nodes/arrows. Preserve the existing intermediate-assignment
+    discussion and canonical species IDs.'
+  posed_by: codex
+  posed_date: '2026-10-06'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: >-
   No metal or rare-earth processing role is reported for the
   K. phaffii-E. coli co-inducible biosynthesis coculture.
+curation_history:
+- timestamp: '2026-10-06T20:19:10Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Expose the unresolved empty Komagataella-E. coli causal biosynthesis graph. Issue #1542; reports/causal_graph_review/decisions/20261006-kz-kmc-komagataella-batch60.yaml'
+  llm_assisted: true

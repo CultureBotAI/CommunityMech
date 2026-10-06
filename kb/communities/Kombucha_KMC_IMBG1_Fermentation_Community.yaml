@@ -104,10 +104,11 @@ taxonomy:
     snippet: Brettanomyces/Dekkera and Pichia (including former Issatchenkia) were dominant
     explanation: Supports Brettanomyces/Dekkera as a dominant yeast lineage in KMC-IMBG1.
 ecological_interactions:
-- name: Yeast-Acetobacter Mutualistic Fermentation
-  description: The kombucha microbial community is described as a bacteria-yeast mutualistic metabolic
-    system, with yeasts and cellulose-forming acetobacteria maintained together in a surface pellicle.
-  interaction_type: MUTUALISM
+- name: Proposed Yeast-Acetobacter Metabolic Cooperation
+  description: HYPOTHESIZED - the source describes bacteria-yeast metabolic cooperation as the general KMC model.
+    KMC-IMBG1 cultures contain acetobacteria and yeasts, but this composition/microscopy study does not selectively
+    demonstrate exchanged metabolites or reciprocal growth benefits. The four named core genera represent a larger,
+    condition-dependent assemblage, not an exhaustive identical membership in every culture.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: fermentation
@@ -120,62 +121,116 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:26061774
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: mutualistic metabolic cooperation of pro- and eukaryotic microorganisms
-    explanation: Supports bacteria-yeast mutualistic metabolic cooperation in KMC.
-- name: Cellulose Pellicle Community Structuring
-  description: Cellulose-producing acetobacteria create a surface pellicle that encloses the mixed yeast
-    and bacterial community, physically structuring biochemical interactions.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Komagataeibacter
+    explanation: Introductory cooperation model, not a partner-removal, rescue or reciprocal-benefit experiment
+      in this study.
+  participating_taxa:
+  - preferred_term: Komagataeibacter
     term:
       id: NCBITaxon:1434011
       label: Komagataeibacter
+  - preferred_term: Gluconobacter
+    term:
+      id: NCBITaxon:441
+      label: Gluconobacter
+  - preferred_term: Pichia
+    term:
+      id: NCBITaxon:4919
+      label: Pichia
+  - preferred_term: Brettanomyces
+    term:
+      id: NCBITaxon:13366
+      label: Brettanomyces
+- name: Cellulose Pellicle Community Structuring
+  description: Cellulose-producing bacteria form the surface pellicle, and microscopy reports mixed bacterial and
+    yeast morphotypes associated with its cellulose web. This preserves physical community structuring. PARTIAL
+    - the proposed facilitation of biochemical cooperation is distinct from observed association and was not selectively
+    tested by disrupting the pellicle.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
     term:
       id: GO:0042710
       label: biofilm formation
   downstream:
-  - target: Yeast-Acetobacter Mutualistic Fermentation
-    description: The cellulose pellicle encloses the mixed yeast-acetobacter
-      culture at the liquid surface, facilitating the close biochemical
-      interplay that maintains kombucha fermentation.
+  - target: Proposed Yeast-Acetobacter Metabolic Cooperation
+    description: HYPOTHESIZED - pellicle enclosure could facilitate bacteria-yeast biochemical cooperation through
+      spatial association, as explicitly proposed in the source Introduction. Microscopy supports association, not
+      a selective test that pellicle formation mediates reciprocal benefit.
   evidence:
   - reference: doi:10.1186/s13568-015-0124-5
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: cellulose-based pellicles created by the cellulose-producing bacteria
-    explanation: Supports acetobacterial cellulose pellicles as a structuring feature of the community.
-- name: Growth-Condition Dependent Accessory Recruitment
-  description: KMC-IMBG1 maintained a stable acetobacterial core but shifted accessory bacteria and yeast
-    composition across sterile sweetened tea, nonsterile sweetened tea, honey-supplemented tea, and
-    cabbage-brine hybrid microenvironments.
-  interaction_type: NICHE_PARTITIONING
+    explanation: Supports cellulose pellicle formation and community structuring, not demonstrated reciprocal growth
+      benefits.
+  - reference: PMID:26061774
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Close biochemical interplay between yeasts and bacteria was facilitated by enclosing the mixed community
+      within cellulose-based pellicles
+    explanation: Source-explicit introductory spatial-facilitation model supporting the retained hypothetical arrow;
+      not a selective mediation experiment.
+  participating_taxa:
+  - preferred_term: Komagataeibacter
+    term:
+      id: NCBITaxon:1434011
+      label: Komagataeibacter
+  - preferred_term: Gluconobacter
+    term:
+      id: NCBITaxon:441
+      label: Gluconobacter
+  - preferred_term: Pichia
+    term:
+      id: NCBITaxon:4919
+      label: Pichia
+  - preferred_term: Brettanomyces
+    term:
+      id: NCBITaxon:13366
+      label: Brettanomyces
+- name: Growth-Condition Dependent Community Composition
+  description: Culture and 16S/ITS profiles change across sterile or nonsterile sweetened tea, honey tea and the
+    cabbage-brine hybrid, with relatively stable acetobacterial membership and more variable yeast composition.
+    Lactobacilli likely introduced with cabbage brine persisted through passages. PARTIAL - active recruitment and
+    added fermentative capacity remain proposed; relative sequence profiles do not establish absolute growth, niche
+    partitioning or reciprocal benefit.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Yeast-Acetobacter Mutualistic Fermentation
-    description: Growth-condition shifts can recruit accessory bacteria such as
-      lactobacilli that may contribute to the broader KMC fermentative capacity.
   evidence:
   - reference: PMID:26061774
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: The community composition was dependent on the growth conditions
-    explanation: Supports growth-condition-dependent shifts in KMC composition.
+    explanation: Supports condition-associated community composition, not demonstrated ecological niche partitioning.
   - reference: PMID:26061774
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: bacterial core component in nsBTS remained the same
-    explanation: Supports a relatively stable bacterial core despite growth-condition changes.
+    explanation: Supports bacterial core continuity in nsBTS, not identical abundance or a fixed complete roster
+      across all conditions.
+  participating_taxa:
+  - preferred_term: Komagataeibacter
+    term:
+      id: NCBITaxon:1434011
+      label: Komagataeibacter
+  - preferred_term: Gluconobacter
+    term:
+      id: NCBITaxon:441
+      label: Gluconobacter
+  - preferred_term: Pichia
+    term:
+      id: NCBITaxon:4919
+      label: Pichia
+  - preferred_term: Brettanomyces
+    term:
+      id: NCBITaxon:13366
+      label: Brettanomyces
 cultivation_setup:
 - cultivation_mode: BATCH
   operating_temperature: 28.0
@@ -356,3 +411,29 @@ related_ingredients:
     snippet: for people with lactose intolerance
     explanation: Names lactose in the context of kombucha as a non-dairy substitute for the intolerant.
 metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: kmc_structure_composition_and_cooperation
+  prompt: Which exchanges and benefits are mediated by the KMC pellicle or accessory members?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Proposed Yeast-Acetobacter Metabolic Cooperation
+  - ecological_interactions#Cellulose Pellicle Community Structuring
+  - ecological_interactions#Growth-Condition Dependent Community Composition
+  rationale: 'Retain the source-explicit pellicle-to-cooperation model as HYPOTHESIZED, with physical association
+    distinct from selective mediation. Remove the accessory-composition-to-mutualism arrow: possible fermentation
+    capacity does not establish reciprocal benefit among the canonical core genera. Positive pellicle formation,
+    composition changes and persistence of probable cabbage-derived lactobacilli remain represented. Read the full
+    primary main text and main/supplement captions, not original figure pixels, Table 1 numerical cells, supplementary
+    PDF or raw sequences. Strain-resolved transfer and selective pellicle/accessory perturbations remain open questions.
+    Canonical membership is preserved as a partial core representation; separate non-graph cultivation/ingredient
+    claims remain unresolved under #1543.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T20:19:10Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Qualify KMC pellicle cooperation and remove the unsupported recruitment-to-mutualism arrow. Issue #1539;
+    reports/causal_graph_review/decisions/20261006-kz-kmc-komagataella-batch60.yaml'
+  llm_assisted: true
