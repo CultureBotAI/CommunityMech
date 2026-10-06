@@ -112,11 +112,12 @@ def test_the_mixed_records_are_where_the_coarseness_bites(survey):
     #1360 adds Copper and Coscinodiscus intrinsic-source corrections (122 -> 124).
     #1471 restricts the existing Variovorax fucose result to CF313 (124 -> 125).
     #1485 separates Geobacter-Pseudomonas community outcomes from transfer (125 -> 126).
+    #1491 separates habitat comparison from intrinsic genomic capacities (126 -> 127).
     #312 measured 46. In the
     community-level-only records the credit is not
     coarse — there is no pairwise edge it could be masking.
     """
-    assert 35 <= survey["mixed"] <= 126, survey
+    assert 35 <= survey["mixed"] <= 127, survey
     assert survey["mixed"] + survey["community_level_only"] == survey["with_community_level"]
 
 
