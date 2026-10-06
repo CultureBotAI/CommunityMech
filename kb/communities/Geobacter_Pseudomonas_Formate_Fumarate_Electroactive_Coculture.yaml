@@ -110,21 +110,13 @@ taxonomy:
     explanation: Supports Pseudomonas aeruginosa as a member of the defined coculture.
 ecological_interactions:
 - name: Restricted-Medium Cooperative Growth
-  description: P. aeruginosa preferentially utilizes formate while G. sulfurreducens
-    preferentially utilizes fumarate, causing restricted-medium growth to depend
-    on coculture metabolism rather than either pure culture alone.
-  interaction_type: SYNTROPHY
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Pseudomonas aeruginosa
-    term:
-      id: NCBITaxon:287
-      label: Pseudomonas aeruginosa
-  target_taxon:
-    preferred_term: Geobacter sulfurreducens
-    term:
-      id: NCBITaxon:35554
-      label: Geobacter sulfurreducens
+  description: Initial Geobacter sulfurreducens and Pseudomonas aeruginosa cocultures grew substantially in restricted
+    formate-fumarate medium, whereas the corresponding pure cultures did not show significant growth. Formate serves
+    as the donor preferentially used by Pseudomonas and fumarate as the acceptor used by Geobacter. This supports
+    early cooperative metabolism under the tested conditions, not universal inability of either species to grow
+    alone or complete partner independence after adaptation. The observation is a community growth outcome, not
+    a Geobacter-to-Pseudomonas electron flux.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: formate
     term:
@@ -139,39 +131,49 @@ ecological_interactions:
     term:
       id: GO:0022900
       label: electron transport chain
-  downstream:
-  - target: Adaptation Toward Geobacter-Dominated Competition
-    description: >
-      The restricted formate-fumarate coculture established Geobacter-Pseudomonas
-      syntrophy as the starting state for serial transfers that later selected
-      Geobacter dominance and a shift toward competition.
   evidence:
   - reference: PMID:28992596
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: preferential utilization of formate and fumarate by P. aeruginosa and G. sulfurreducens respectively
-    explanation: Supports division of substrate use between the two species.
+    explanation: Supports complementary donor/acceptor use in the restricted medium, not carbon cross-feeding or
+      an electron flux in the reverse direction.
   - reference: PMID:28992596
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Pure cultures did not yield significant growth while substantial growth was observed in cocultures
-    explanation: Supports cooperative growth under restricted-medium conditions.
-- name: Direct Interspecies Electron Transfer Establishment
-  description: Initial cocultures show proteomic evidence for DIET-associated
-    cytochromes, indicating that direct interspecies electron transfer helps
-    establish syntrophy between the two electroactive bacteria.
-  interaction_type: SYNTROPHY
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Geobacter sulfurreducens
+    explanation: Supports the initial coculture versus pure-culture growth contrast in this medium, not an all-media
+      or all-adaptation-stage dependence claim.
+  participating_taxa:
+  - preferred_term: Geobacter sulfurreducens
     term:
       id: NCBITaxon:35554
       label: Geobacter sulfurreducens
-  target_taxon:
+  - preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+- name: Cytochrome-Associated Interspecies Electron Transfer
+  description: Initial cocultures showed increased DIET-associated cytochrome abundance, and the primary abstract
+    reports stunted growth in Geobacter omcZ- and omcS-deficient cocultures while phenazine-deficient Pseudomonas
+    cocultures still grew. These observations support cytochrome-associated syntrophy and the authors' DIET interpretation.
+    Pseudomonas is the inferred electron donor and Geobacter the recipient in the formate-donor/fumarate-acceptor
+    system, not the reverse. Protein abundance is not direct electron-flux measurement, and the accessible evidence
+    does not establish an exclusive transfer route or rule out pleiotropic mutant effects. The 2018 full Methods
+    and perturbation controls were unavailable for this review; the 2020 primary Results explicitly describe Geobacter
+    reliance on Pseudomonas electron donation.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
     preferred_term: Pseudomonas aeruginosa
     term:
       id: NCBITaxon:287
       label: Pseudomonas aeruginosa
+  target_taxon:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
   metabolites:
   - preferred_term: formate
     term:
@@ -188,64 +190,92 @@ ecological_interactions:
       label: electron transport chain
   downstream:
   - target: Restricted-Medium Cooperative Growth
-    description: >
-      Upregulation of DIET-associated cytochromes in the initial cocultures
-      helps establish the syntrophic electron transfer needed for growth in
-      restricted formate-fumarate medium.
+    description: 'PARTIAL: Pseudomonas-to-Geobacter electron transfer could couple Pseudomonas formate use to Geobacter
+      fumarate respiration and thereby support initial cooperative growth. Cytochrome-deficient cocultures showed
+      impaired growth and initial cytochrome abundance was elevated, supporting this direction; the accessible evidence
+      does not selectively establish an exclusive DIET route or exclude pleiotropic mutant effects. This is not
+      a causal claim that protein upregulation itself creates electron transfer.'
   evidence:
   - reference: PMID:28992596
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
+    supports: PARTIAL
+    evidence_source: IN_VITRO
     snippet: upregulation in DIET-associated cytochromes
-    explanation: Supports direct interspecies electron transfer-associated proteins in initial cocultures.
+    explanation: SWATH-MS is an experimental protein-abundance measurement. Its mechanistic implication is partial,
+      not a direct flux assay or proof that all growth requires DIET.
+  - reference: PMID:28992596
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: DIET plays a critical role in the establishment of syntrophy
+    explanation: The abstract interprets the combined protein and mutant evidence as DIET involvement. Retain that
+      positive interpretation while distinguishing it from exclusive-route or resolved molecular-mechanism proof.
   - reference: PMID:28992596
     supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: DIET plays a critical role in the establishment of syntrophy
-    explanation: Supports DIET as an early interaction mechanism.
-- name: Adaptation Toward Geobacter-Dominated Competition
-  description: Serial transfer shifted the interaction from syntrophy toward
-    competition, with Geobacter dominance increasing and variants in Geobacter
-    fabI and tetR selected during coculture evolution.
-  interaction_type: COMPETITION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Geobacter sulfurreducens
-    term:
-      id: NCBITaxon:35554
-      label: Geobacter sulfurreducens
-  target_taxon:
-    preferred_term: Pseudomonas aeruginosa
-    term:
-      id: NCBITaxon:287
-      label: Pseudomonas aeruginosa
-  metabolites:
-  - preferred_term: phenazine-1-carboxylic acid
-    term:
-      id: CHEBI:62412
-      label: phenazine-1-carboxylic acid
+    evidence_source: IN_VITRO
+    snippet: syntrophy was not reliant on phenazine
+    explanation: The abstract reports growth of phenazine-deficient Pseudomonas cocultures; phenazine production
+      is not established as necessary for early syntrophy.
+  - reference: PMID:28992596
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: however appeared to rely on cytochromes as evidenced from the stunted growth
+    explanation: The following primary abstract text identifies Geobacter omcZ and omcS mutant cocultures. This
+      is positive growth-perturbation evidence, not solely protein association; full controls were unavailable.
+  - reference: PMID:32265334
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: reliance on Pseudomonas spp. for providing electron donors through DIET
+    explanation: The 2020 Results identify the proposed donor direction as Pseudomonas to Geobacter. This interpretation
+      supports endpoint correction, not a measured numerical flux.
+- name: Geobacter-Dominated Coculture Adaptation
+  description: Across the tested Pseudomonas strains, Geobacter dominance increased between initial cocultures and
+    the thirteenth transfer, as supported by qPCR and FISH. Geobacter fabI and tetR variants increased in frequency,
+    with tetR-associated CyaE and RND-efflux protein changes. These are population and molecular observations, not
+    proof that either variant causes dominance or that Geobacter directly inhibits or preys on Pseudomonas. The
+    authors interpret a shift toward competition, but Geobacter could not be isolated from either early or adapted
+    cocultures under the tested conditions, so complete loss of partner dependence was not established. qPCR can
+    include inactive cells or extracellular DNA; FISH supports the abundance contrast. Adapted HybA and FdnG increases
+    motivate hydrogen-transfer and increased direct formate-use interpretations; protein abundance alone does not
+    quantify their fluxes, distinguish every transfer route or show that either mediates dominance.
+  scope: COMMUNITY_LEVEL
   evidence:
+  - reference: PMID:32265334
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: transition from syntrophy to competition
+    explanation: The primary abstract says the observed dominance suggests competition. This is an interpretation,
+      not a selective inhibition, predation, or causal variant assay.
   - reference: PMID:32265334
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: transition from syntrophy to competition
-    explanation: Supports the adaptive shift from syntrophy to competition.
+    snippet: fabI and tetR genes emerged that were strongly selected for throughout coculture evolution
+    explanation: Whole-genome sequencing supports selection of these variants in the laboratory cocultures. Their
+      temporal association with dominance and protein changes does not assign a causal contribution to either variant;
+      this is experimental sequence evidence, not in-silico prediction.
   - reference: PMID:32265334
     supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: fabI and tetR genes emerged that were strongly selected for throughout coculture evolution
-    explanation: Supports adaptive genomic selection in G. sulfurreducens during coculture evolution.
-- name: Phenazine-Associated Inhibition Pressure
-  description: Pseudomonas-derived phenazine-1-carboxylic acid inhibited Geobacter
-    growth, but did not by itself explain selection of the Geobacter variants.
-  interaction_type: COMPETITION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Pseudomonas aeruginosa
+    evidence_source: IN_VITRO
+    snippet: Geobacter sp. dominance increases with adaptation within the cocultures
+    explanation: Supports measured increasing Geobacter dominance. The primary qPCR/FISH comparisons and isolation
+      attempts bound what this abundance observation says about competition and partner dependence.
+  participating_taxa:
+  - preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+  - preferred_term: Pseudomonas aeruginosa
     term:
       id: NCBITaxon:287
       label: Pseudomonas aeruginosa
-  target_taxon:
+- name: Inhibitory Response to Added Phenazine-1-Carboxylic Acid
+  description: 'Added commercial phenazine-1-carboxylic acid inhibited growth in Geobacter pure-culture and coculture
+    MIC assays conducted in their respective media. This demonstrates inhibitory capacity, not endogenous Pseudomonas-to-Geobacter
+    chemical pressure in the studied cocultures: PHZ-1-CA was below detection in all cocultures. The tested PHZ-1-CA
+    exposure did not select the coculture-associated tetR/fabI variants at the reported frequency threshold, and
+    those variants also arose with phenazine-deficient Pseudomonas. Other antibiotics or non-antibiotic functions
+    remain possible. No selection or dominance arrow is assigned to this measured added-compound response; a negative
+    result for this compound and test does not exclude every phenazine derivative or exposure condition.'
+  scope: PAIRWISE
+  source_taxon:
     preferred_term: Geobacter sulfurreducens
     term:
       id: NCBITaxon:35554
@@ -255,17 +285,21 @@ ecological_interactions:
     term:
       id: CHEBI:62412
       label: phenazine-1-carboxylic acid
+    notes: Commercial compound added in the MIC assay; endogenous PHZ-1-CA remained below detection in the tested
+      cocultures.
   evidence:
   - reference: PMID:32265334
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Pseudomonas-derived phenazine-1-carboxylic acid (PHZ-1-CA) for its potential to inhibit Geobacter growth
-    explanation: Supports PHZ-1-CA as the tested Pseudomonas-derived inhibitory compound.
+    explanation: The abstract identifies the test compound. The primary Methods specify commercial PHZ-1-CA addition,
+      not purification from these cocultures; its measured effect is not evidence of endogenous secretion.
   - reference: PMID:32265334
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Despite its inhibitory properties, PHZ-1-CA did not drive variant selection
-    explanation: Supports phenazine-associated inhibition of Geobacter growth.
+    explanation: Supports inhibitory capacity and the compound-specific negative selection result. It does not prove
+      endogenous antagonism, absence of all phenazine effects, or variant-caused dominance.
 environmental_factors:
 - name: Restricted formate-fumarate medium
   value: formate and fumarate
@@ -372,3 +406,44 @@ metal_notes: >
   The curated coculture was not a metal-reduction assay, but it is relevant to
   metal biogeochemistry because Geobacter extracellular electron transfer is a
   model mechanism for metal and electrode reduction in subsurface environments.
+discussions:
+- discussion_id: geobacter_pseudomonas_transfer_routes
+  prompt: Which electron-transfer routes support early and adapted cocultures?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Restricted-Medium Cooperative Growth
+  - ecological_interactions#Cytochrome-Associated Interspecies Electron Transfer
+  - ecological_interactions#Geobacter-Dominated Coculture Adaptation
+  rationale: Preserve the reported omcZ/omcS growth defect and phz-mutant growth while distinguishing the authors'
+    DIET interpretation from selective route proof. Primary full 2018 perturbation controls, flux measurements,
+    complementation and route-specific tests would resolve cytochrome pleiotropy and the inferred later HybA/FdnG
+    roles. Pseudomonas supplies electrons to Geobacter in the described model. Later hydrogen-transfer and formate-use
+    hypotheses are bounded in the existing adaptation node; no unsupported new transfer arrow or experimentally
+    resolved route switch is added.
+  posed_by: codex
+  posed_date: '2026-10-06'
+- discussion_id: geobacter_pseudomonas_competition_mediators
+  prompt: What causes increased Geobacter dominance during coculture adaptation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Geobacter-Dominated Coculture Adaptation
+  - ecological_interactions#Inhibitory Response to Added Phenazine-1-Carboxylic Acid
+  rationale: 'Abundance, sequence variants and protein changes do not selectively establish competition, killing,
+    or a variant-to-dominance mechanism. PHZ-1-CA inhibition used added commercial material; coculture concentrations
+    were below detection and this exposure did not select the observed variants. Test endogenous concentrations,
+    alternative mediators, matched media and complemented variants while measuring both partners'' viable growth.
+    Do not infer complete Geobacter independence from dominance: isolation attempts failed. Results/Table 2 and
+    main Methods differ on the MIC duration units; no precise duration is asserted here. The initial-growth-to-later-dominance
+    arrow is removed as serial-transfer chronology, not restored as biological causation.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T13:14:49Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Correct Pseudomonas-to-Geobacter electron direction; retain positive mutant/growth evidence; remove
+    the chronology arrow; separate population adaptation and added-PHZ-1-CA response from unproven competition.
+    Issue #1485; reports/causal_graph_review/decisions/20261006-geobacter-pseudomonas-batch47.yaml'
+  llm_assisted: true

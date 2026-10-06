@@ -278,6 +278,7 @@ USERS = {
     "Garlic_Pseudomonas_SynCom6.yaml",
     "Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture.yaml",
     "Geobacter_Methanosarcina_DIET.yaml",
+    "Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.yaml",
     "Ginseng_CL95_Rusty_Root_Rot_Biocontrol_SynCom.yaml",
     "Glutamicibacter_S11_Aquaculture_Nitrogen_Removal_SynCom.yaml",
     "Honeybee_Core20_Defined_Microbiota.yaml",
