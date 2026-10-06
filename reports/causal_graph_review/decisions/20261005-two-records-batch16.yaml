@@ -1,0 +1,150 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: aa617f97b5d0ac79807d659856a8336880747559
+issues:
+- 1313
+open_nongraph_followups:
+- 1314
+issue_deduplication:
+  count: 657
+  scope: All-state issue titles/bodies plus ignored-inclusive local reports/history/research/tests; comments not
+    exhaustive.
+  relevant_closed:
+  - 974
+  - 975
+  prior_pr: 973
+reference_cache_original_hashes:
+  references_cache/PMID_12432464.md: 059b3f75280bdc1fb31af63d6b0996a12caa55b31471b63e07a1892296d1a617
+  references_cache/doi_10.64898_2026.08.11.743107.md: f1965bd991762f8051a1012dee3556636b3fc7cc27fe49136b23499380ff87a8
+limitations:
+- No new nodes/arrows; no Edison run or spend.
+- Cinnamate primary subscription body unavailable; claims bounded to abstract.
+- IsoDCA primary PDF relevant experiments and Figure 1 inspected, not every host result or supplemental figure.
+- 'Issue #1314 is a separate non-graph metadata followup.'
+- Protected merge requires all required checks; review is self-adversarial, not independent approval.
+records:
+- path: kb/communities/Cinnamate_Degradation_Consortium.yaml
+  id: CommunityMech:000018
+  original_sha256: e0c1766f30e1d6225d8dede3b2944ca9193c45610ca6aaa194c07ecacec25edc
+  record_sha256: 6b8b4403e3b23932e5a7f59de1f2580dab061a5327e45f1d62cadd4d32c107d9
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-two-records-batch16.yaml
+  scope: Whole record and every existing graph node/edge reviewed. Cinnamate is bounded to the accessible abstract;
+    isoDCA is an existing-graph no-change review, not exhaustive host-mechanism curation.
+  summary: Retain the supported benzoate substrate link and proposed beta-oxidation without unsupported commensalism
+    or fatty-acid process typing.; Retain measured syntrophic degradation and mixed products; qualify the electron-carrier
+    arrow and remove unqualified hydrogen metabolite assertions.; Retain methane production with partial route evidence;
+    distinguish the reconstituted methanogen from the original isolate and avoid complete-mineralization claims.
+  node_decisions:
+  - node: Cinnamate β-Oxidation to Benzoate
+    rationale: Retain the supported benzoate substrate link and proposed beta-oxidation without unsupported commensalism
+      or fatty-acid process typing.
+  - node: Syntrophic Benzoate Degradation
+    rationale: Retain measured syntrophic degradation and mixed products; qualify the electron-carrier arrow and
+      remove unqualified hydrogen metabolite assertions.
+  - node: Methanogenesis
+    rationale: Retain methane production with partial route evidence; distinguish the reconstituted methanogen from
+      the original isolate and avoid complete-mineralization claims.
+  edges_before:
+  - source: Cinnamate β-Oxidation to Benzoate
+    target: Syntrophic Benzoate Degradation
+    description: Benzoate produced from cinnamate becomes the substrate for downstream Syntrophus-methanogen degradation.
+  - source: Syntrophic Benzoate Degradation
+    target: Methanogenesis
+    description: H2 and CO2 from benzoate degradation feed Methanobacterium methanogenesis.
+  edges_after:
+  - source: Cinnamate β-Oxidation to Benzoate
+    target: Syntrophic Benzoate Degradation
+    description: Benzoate formed by P. cinnamivorans supplies substrate for the Syntrophus-methanogen association.
+      The reported stepwise conversion and BESA-associated arrest at benzoate support this substrate connection
+      without resolving every enzyme step.
+  - source: Syntrophic Benzoate Degradation
+    target: Methanogenesis
+    description: HYPOTHESIZED - benzoate oxidation could supply H2 as reducing equivalents for CO2-reducing methanogenesis.
+      The observed association and methane product support metabolic coupling, but the accessible abstract does
+      not discriminate electron carriers or trace carbon and electron flux between partners.
+  retained_edge_decisions:
+  - source: Cinnamate β-Oxidation to Benzoate
+    target: Syntrophic Benzoate Degradation
+    rationale: Benzoate formed by P. cinnamivorans supplies substrate for the Syntrophus-methanogen association.
+      The reported stepwise conversion and BESA-associated arrest at benzoate support this substrate connection
+      without resolving every enzyme step.
+  - source: Syntrophic Benzoate Degradation
+    target: Methanogenesis
+    rationale: HYPOTHESIZED - benzoate oxidation could supply H2 as reducing equivalents for CO2-reducing methanogenesis.
+      The observed association and methane product support metabolic coupling, but the accessible abstract does
+      not discriminate electron carriers or trace carbon and electron flux between partners.
+  removed_edge_decisions: []
+  references:
+  - PMID:12432464
+  history_files:
+  - history/records/Cinnamate_Degradation_Consortium/2026-10-05T222800Z-codex-cd0f4a.yaml
+  issues:
+  - 1313
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    primary_urls:
+    - https://pubmed.ncbi.nlm.nih.gov/12432464/
+    - https://link.springer.com/article/10.1007/s00284-002-3759-9
+    reading: Whole record, all cached reference text and fresh primary abstract read. Subscription main body unavailable
+      and not certified.
+    findings:
+    - Benzoate is the supported intermediate; BESA-associated arrest does not identify every enzyme or electron
+      carrier.
+    - The product list includes acetate, so complete mineralization is not demonstrated by the abstract.
+    - Three nodes and two existing arrows retained, one with qualified carrier mechanism.
+- path: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+  id: CommunityMech:000396
+  original_sha256: bb785ba51ceecbd2b3eccdee982413f11baf5df7f5f33f180dc9a9a49ef4363d
+  record_sha256: bb785ba51ceecbd2b3eccdee982413f11baf5df7f5f33f180dc9a9a49ef4363d
+  status: reviewed
+  outcome: no_change
+  review_file: reports/causal_graph_review/decisions/20261005-two-records-batch16.yaml
+  scope: Whole record and every existing graph node/edge reviewed. Cinnamate is bounded to the accessible abstract;
+    isoDCA is an existing-graph no-change review, not exhaustive host-mechanism curation.
+  summary: Retain the existing sequential bile-acid conversion interaction. Primary Figure 1 and the sterile spent-medium
+    Methods support P. hiranonis to R. gnavus WT conversion; no new host-response nodes or arrows are required to
+    repair this valid graph.
+  node_decisions:
+  - node: P. hiranonis and R. gnavus WT isoDCA production
+    rationale: Retain the existing sequential bile-acid conversion interaction. Primary Figure 1 and the sterile
+      spent-medium Methods support P. hiranonis to R. gnavus WT conversion; no new host-response nodes or arrows
+      are required to repair this valid graph.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - doi:10.64898/2026.08.11.743107
+  history_files: []
+  issues: []
+  allowed_changed_fields: []
+  curation_events_added: 0
+  source_review:
+    primary_urls:
+    - https://www.biorxiv.org/content/10.64898/2026.08.11.743107v1.full.pdf
+    - https://api.biorxiv.org/details/biorxiv/10.64898/2026.08.11.743107
+    primary_file: /private/tmp/communitymech-batch16/isodca-primary.pdf
+    primary_sha256: 76e3b559b7711c63aef0ea1948384b6b2c4e5d27666f17b515652aa77cbdc97e
+    primary_pages: 39
+    primary_license: All rights reserved; preprint not peer reviewed. PDF and extracted text stay outside the repository.
+    reading: Whole record and complete selected-snippet cache read. Primary PDF pages 1-8 and Methods pages 15-21
+      read; Figure 1 caption on page 28 read and Figure 1 on page 36 visually inspected.
+    unavailable_or_unread: Remaining body, references and figures not exhaustively read; supplement not inspected.
+      No host-mechanism expansion or supplementary-image claim.
+    access_notes: Regular HTML/TXT failed (403/429); API-advertised JATS link returned 404. Public PDF succeeded.
+      PDF says August 15, metadata date August 18; both are version 1.
+    findings:
+    - Figure 1F and Methods use sequential P. hiranonis culture followed by R. gnavus in sterile filtered spent
+      medium, not direct-contact demonstration.
+    - WT produces isoDCA whereas rumgna_00694-disrupted KO does not; Results report complementation, but supplement
+      image was not inspected.
+    - Existing single pairwise conversion node is supported; keep its one-node/zero-arrow graph byte unchanged.
+    - Do not convert in-vivo receptor or colitis observations into new graph structure merely to increase edge count.
+    - Existing P. hiranonis strain-identity discussion remains open.

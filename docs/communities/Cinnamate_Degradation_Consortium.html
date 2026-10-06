@@ -601,7 +601,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Cinnamate β-Oxidation Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -614,8 +614,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -624,9 +624,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Cinnamate β-Oxidation to Benzoate</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Papillibacter cinnamivorans initiates anaerobic cinnamate degradation by producing benzoate through beta-oxidation.</p>
+                <p class="prewrap interaction-description">Papillibacter cinnamivorans converts cinnamate to benzoate, providing the intermediate for subsequent syntrophic degradation. Conversion still occurred with the methanogenesis inhibitor BESA. The authors propose beta-oxidation; the accessible abstract does not resolve its enzyme steps or establish a commensal fitness relationship.</p>
 
 
                 <p><strong>Source Taxon:</strong> Papillibacter cinnamivorans</p>
@@ -649,17 +648,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        fatty acid beta-oxidation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006635"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006635</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
@@ -667,7 +655,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Syntrophic Benzoate Degradation
-                        <p class="prewrap causal-description">Benzoate produced from cinnamate becomes the substrate for downstream Syntrophus-methanogen degradation.</p>
+                        <p class="prewrap causal-description">Benzoate formed by P. cinnamivorans supplies substrate for the Syntrophus-methanogen association. The reported stepwise conversion and BESA-associated arrest at benzoate support this substrate connection without resolving every enzyme step.</p>
                     </div>
 
                 </div>
@@ -699,7 +687,7 @@
                     <h3>Syntrophic Benzoate Degradation</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Syntrophus sp. syntrophically degrades the benzoate intermediate to acetate, H2, and CO2 with the hydrogen-scavenging methanogen.</p>
+                <p class="prewrap interaction-description">Syntrophus sp. and the methanogen form the association reported to degrade benzoate to acetate, methane and carbon dioxide. Syntrophic interdependence is reported during growth on cinnamate. HYPOTHESIZED - H2 transfer is a candidate coupling mechanism, not an experimentally identified electron carrier in the accessible abstract.</p>
 
 
                 <p><strong>Source Taxon:</strong> Syntrophus sp.</p>
@@ -719,10 +707,6 @@
                     acetate
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
                         class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30089</a>),
-
-                    hydrogen
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18276"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>),
 
                     carbon dioxide
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16526"
@@ -750,7 +734,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Methanogenesis
-                        <p class="prewrap causal-description">H2 and CO2 from benzoate degradation feed Methanobacterium methanogenesis.</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED - benzoate oxidation could supply H2 as reducing equivalents for CO2-reducing methanogenesis. The observed association and methane product support metabolic coupling, but the accessible abstract does not discriminate electron carriers or trace carbon and electron flux between partners.</p>
                     </div>
 
                 </div>
@@ -782,7 +766,7 @@
                     <h3>Methanogenesis</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Methanobacterium formicicum consumes syntrophy-derived H2 and CO2 to produce methane during complete cinnamate mineralization.</p>
+                <p class="prewrap interaction-description">PARTIAL - Methanobacterium formicicum replaced the original Methanobacterium isolate in the reconstituted consortium, and methane was reported among its degradation products. HYPOTHESIZED - consumption of partner-derived H2 with CO2 reduction explains a possible methanogenic route, but the accessible abstract does not resolve that transfer. Acetate remains among the reported products; complete mineralization of all cinnamate carbon is not established.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methanobacterium formicicum</p>
@@ -792,10 +776,6 @@
 
 
                 <p><strong>Metabolites:</strong>
-
-                    hydrogen
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18276"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>),
 
                     carbon dioxide
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16526"
@@ -833,7 +813,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/12432464/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:12432464</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"In the presence of bromoethanesulfonic acid (BESA), cinnamate was transformed to benzoate, whereas under methanogenic conditions without BESA, cinnamate was first transformed to benzoate via beta-oxidation and subsequently completely degraded into acetate, CH(4), and CO(2)"</div>
@@ -849,6 +829,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which interspecies electron carrier and carbon balance support methanogenesis during cinnamate degradation?
+                </h3>
+                <p class="prewrap">The primary abstract establishes benzoate formation, syntrophic benzoate degradation and acetate/methane/CO2 products, but not an experimentally resolved H2-versus-alternative carrier or full carbon mineralization. The subscription body was unavailable; exact-system gas/carrier measurements, partner perturbations and carbon balance are needed before promoting the proposed H2 route to demonstrated transfer. The supported benzoate substrate link remains intact.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Cinnamate β-Oxidation to Benzoate</code>, <code>ecological_interactions#Syntrophic Benzoate Degradation</code>, <code>ecological_interactions#Methanogenesis</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1059,7 +1058,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1069,10 +1068,6 @@
 
 
             var processes = [];
-
-
-            processes.push("fatty acid beta-oxidation");
-
 
             var evidenceCount = 1;
 
@@ -1105,8 +1100,6 @@
             metabolites.push("benzoate");
 
             metabolites.push("acetate");
-
-            metabolites.push("hydrogen");
 
             metabolites.push("carbon dioxide");
 
@@ -1149,8 +1142,6 @@
             var intType = "SYNTROPHY";
             var metabolites = [];
 
-
-            metabolites.push("hydrogen");
 
             metabolites.push("carbon dioxide");
 
