@@ -479,138 +479,178 @@ taxonomy:
       '
     explanation: Acidaminococcus sp. ACID1 may perform ethanol-based chain elongation
 ecological_interactions:
-- name: Lactose Degradation to Organic Acids
-  description: 'Actinobacteriota members (Olsenella, Bifidobacterium, Pauljensenia) degrade lactose via
-    the Leloir pathway and the bifid shunt, producing acetic, lactic, and succinic acids as primary fermentation
-    products. These short-chain acids serve as substrates for downstream chain elongation by Firmicutes.
-
-    '
-  interaction_type: CROSS_FEEDING
+- name: Proposed Actinobacteriota Lactose Fermentation Roles
+  description: 'HYPOTHESIZED: Genomic pathways and reactor abundance/product associations suggest heterogeneous
+    lactose-fermenting roles among the six abundant Actinobacteriota MAGs. ACT2 is proposed to contribute succinic
+    acid, while bifid-shunt potential supports lactic/acetic acid production in ATO3 and Bifidobacterium MAGs. Lactose
+    permease plus beta-galactosidase were identified in ACT2, BIF2 and BIF11; ATO3 lactose use remains inferred
+    despite no identified LacS homologue. The listed MAGs are the analyzed Actinobacteriota subset, not six experimentally
+    verified producers of every product. Reactor sugar depletion and organic-acid accumulation were measured, but
+    their allocation to these members is computational and correlative. LCO1 also has inferred direct lactose utilization,
+    so this is not an exclusive Actinobacteriota function.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lactose
     term:
       id: CHEBI:17716
       label: lactose
-    notes: Primary substrate from ultra-filtered milk permeate
+    notes: Detected reactor substrate/product; member-specific production or consumption is inferred, not measured
+      flux.
   - preferred_term: acetic acid
     term:
       id: CHEBI:15366
       label: acetic acid
-    notes: Product of Leloir pathway and bifid shunt
-  - preferred_term: lactic acid
-    term:
-      id: CHEBI:422
-      label: (S)-lactic acid
-    notes: Product of lactose fermentation; substrate for chain elongation
+    notes: Detected reactor substrate/product; member-specific production or consumption is inferred, not measured
+      flux.
   - preferred_term: succinic acid
     term:
       id: CHEBI:30031
       label: succinate(2-)
-    notes: Produced primarily by Pauljensenia sp.
+    notes: Detected reactor substrate/product; member-specific production or consumption is inferred, not measured
+      flux.
   downstream:
-  - target: Actinobacteriota-Firmicutes Cross-Feeding Network
-    description: >
-      Actinobacteriota lactose fermentation supplies the lactic-acid pool
-      inferred to feed Firmicutes chain elongators in the UFMP reactor.
+  - target: Proposed Actinobacteriota-to-CLOS1 Lactate Cross-Feeding
+    description: 'HYPOTHESIZED: Lactate production by a subset of lactose-fermenting Actinobacteriota could supply
+      the proposed CLOS1 donor pool. Genomic potential and extracellular profiles support the model, not traced
+      member-specific secretion or transfer; ACT2 succinate production is not evidence of lactate donation.'
   evidence:
   - reference: PMID:37324413
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: 'members of the Actinobacteriota phylum are important in the degradation of lactose, via
-      the Leloir pathway and the bifid shunt, and the production of acetic, lactic, and succinic acids
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: 'members of the Actinobacteriota phylum are important in the degradation of lactose, via the Leloir
+      pathway and the bifid shunt, and the production of acetic, lactic, and succinic acids
 
       '
-    explanation: Documents lactose degradation pathways of Actinobacteriota members
-- name: Chain Elongation to Medium-Chain Fatty Acids
-  description: 'Firmicutes members (Clostridium, Agathobacter) perform reverse beta-oxidation (chain elongation)
-    using lactic acid, ethanol, or lactose as electron donors and carbon sources to produce butyric (C4),
-    hexanoic (C6), and octanoic (C8) acids. This represents a key cross-feeding interaction where Actinobacteriota-produced
-    lactic acid fuels Firmicutes chain elongation.
-
-    '
-  interaction_type: CROSS_FEEDING
+    explanation: Supports an author-proposed MAG role from gene content and reactor associations, not member-specific
+      flux or demonstrated partner dependence. Bulk reactor metabolites were measured separately by HPLC/GC-MS.
+  participating_taxa:
+  - preferred_term: Olsenella_B sp. (MAG ATO3)
+    term:
+      id: NCBITaxon:133925
+      label: Olsenella
+  - preferred_term: Pauljensenia sp. (MAG ACT2)
+    term:
+      id: NCBITaxon:2740557
+      label: Pauljensenia
+  - preferred_term: Bifidobacterium tibiigranuli (MAG BIF2)
+    term:
+      id: NCBITaxon:1678
+      label: Bifidobacterium
+  - preferred_term: Bifidobacterium sp. (MAG BIF11)
+    term:
+      id: NCBITaxon:1678
+      label: Bifidobacterium
+  - preferred_term: Olsenella_B sp900119625 (MAG ATO6)
+    term:
+      id: NCBITaxon:133925
+      label: Olsenella
+  - preferred_term: Bifidobacterium thermophilum (MAG BIF18)
+    term:
+      id: NCBITaxon:33905
+      label: Bifidobacterium thermophilum
+- name: Proposed Firmicutes Chain Elongation Roles
+  description: 'HYPOTHESIZED: Reverse-beta-oxidation genes, EtfB phylogeny/gene neighborhoods and reactor profiles
+    suggest different chain-elongating roles for the three abundant Firmicute MAGs. CLOS1 is proposed to use lactate
+    and predominantly produce butyrate; LCO1 is proposed to use lactose directly; ACID1 may use ethanol, but that
+    assignment is inconclusive and other substrates remain possible. Butyric, hexanoic and octanoic acids were measured
+    in reactor broth, not assigned to individual cells by flux experiments. No genomic diagnostic of terminal chain
+    length was established. Neither all Firmicutes consuming lactate nor every member producing all three acids
+    is demonstrated; C4 butyrate is distinguished from the C6/C8 medium-chain products.'
   scope: COMMUNITY_LEVEL
   metabolites:
-  - preferred_term: lactic acid
-    term:
-      id: CHEBI:422
-      label: (S)-lactic acid
-    notes: Electron donor and carbon source for chain elongation
   - preferred_term: ethanol
     term:
       id: CHEBI:16236
       label: ethanol
-    notes: Alternative electron donor for chain elongation
+    notes: Detected reactor substrate/product; member-specific production or consumption is inferred, not measured
+      flux.
   - preferred_term: butyric acid
     term:
       id: CHEBI:30772
       label: butyric acid
-    notes: C4 chain elongation product
+    notes: Detected reactor substrate/product; member-specific production or consumption is inferred, not measured
+      flux.
   - preferred_term: hexanoic acid
     term:
       id: CHEBI:30776
       label: hexanoic acid
-    notes: C6 chain elongation product
+    notes: Detected reactor substrate/product; member-specific production or consumption is inferred, not measured
+      flux.
   - preferred_term: octanoic acid
     term:
       id: CHEBI:28837
       label: octanoic acid
-    notes: C8 chain elongation product
+    notes: Detected reactor substrate/product; member-specific production or consumption is inferred, not measured
+      flux.
   evidence:
   - reference: PMID:37324413
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: 'members of the Firmicutes phylum contribute to the chain-elongation-mediated production
-      of butyric, hexanoic, and octanoic acids, with different microbes using either lactose, ethanol,
-      or lactic acid as the growth substrate
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: 'members of the Firmicutes phylum contribute to the chain-elongation-mediated production of butyric,
+      hexanoic, and octanoic acids, with different microbes using either lactose, ethanol, or lactic acid as the
+      growth substrate
 
       '
-    explanation: Documents chain elongation by Firmicutes using multiple substrates
-- name: Actinobacteriota-Firmicutes Cross-Feeding Network
-  description: 'The core metabolic interaction in the community is cross-feeding between Actinobacteriota
-    (which produce lactic acid from lactose) and Firmicutes (which consume lactic acid for chain elongation).
-    This syntrophic relationship enables the full conversion of lactose into medium-chain fatty acids
-    via a two-step metabolic cascade.
-
-    '
-  interaction_type: CROSS_FEEDING
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Olsenella_B sp. (MAG ATO3)
-    term:
-      id: NCBITaxon:133925
-      label: Olsenella
-    notes: 'Representative of Actinobacteriota acid producers. Grounded at genus, which is what this
-      participant''s own preferred_term names — it carried the species id NCBITaxon:133926
-      (Olsenella uli) while standing for the genus at COMMUNITY_LEVEL scope (#486).'
-  target_taxon:
-    preferred_term: Clostridium_B sp. (MAG CLOS1)
+    explanation: Supports an author-proposed MAG role from gene content and reactor associations, not member-specific
+      flux or demonstrated partner dependence. Bulk reactor metabolites were measured separately by HPLC/GC-MS.
+  participating_taxa:
+  - preferred_term: Clostridium_B sp. (MAG CLOS1)
     term:
       id: NCBITaxon:1485
       label: Clostridium
-    notes: Representative of Firmicutes chain elongators
-  metabolites:
-  - preferred_term: lactic acid
+  - preferred_term: Agathobacter rectalis (MAG LCO1)
     term:
-      id: CHEBI:422
-      label: (S)-lactic acid
-    notes: Key cross-feeding metabolite between Actinobacteriota and Firmicutes
+      id: NCBITaxon:1766253
+      label: Agathobacter
+  - preferred_term: Acidaminococcus sp. (MAG ACID1)
+    term:
+      id: NCBITaxon:904
+      label: Acidaminococcus
+- name: Proposed Actinobacteriota-to-CLOS1 Lactate Cross-Feeding
+  description: 'HYPOTHESIZED: The conceptual model proposes that lactate made by some lactose-fermenting Actinobacteriota
+    can supply CLOS1 chain elongation. ATO3 and Bifidobacterium MAGs represent proposed donor candidates, not a
+    measured set of donor-recipient transfers. CLOS1 contains the inferred LacT, electron-confurcating LDH and associated
+    EtfAB machinery; the other two abundant Firmicutes have different proposed substrates. The study did not directly
+    trace ATO3-to-CLOS1 carbon flow, establish obligatory syntrophy, determine lactate stereochemistry or show complete
+    conversion of lactose into medium-chain fatty acids. The canonical labels retain their existing genus-level
+    or ambiguous groundings rather than assert newly identified species.'
+  scope: COMMUNITY_LEVEL
   downstream:
-  - target: Chain Elongation to Medium-Chain Fatty Acids
-    description: >
-      The inferred Actinobacteriota-to-Firmicutes lactic-acid transfer routes
-      lactose-derived short-chain acid into reverse-beta-oxidation production
-      of butyrate, hexanoate, and octanoate.
+  - target: Proposed Firmicutes Chain Elongation Roles
+    description: 'HYPOTHESIZED: Access to donor-derived lactate could support the proposed CLOS1 branch of reverse
+      beta-oxidation, associated mainly with butyrate. This arrow does not route all C6/C8 synthesis through CLOS1
+      or make LCO1 direct-lactose and ACID1 possible-ethanol metabolism dependent on lactate transfer.'
   evidence:
   - reference: PMID:37324413
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: 'members of the Actinobacteriota phylum are important in the degradation of lactose, via
-      the Leloir pathway and the bifid shunt, and the production of acetic, lactic, and succinic acids
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: 'members of the Actinobacteriota phylum are important in the degradation of lactose, via the Leloir
+      pathway and the bifid shunt, and the production of acetic, lactic, and succinic acids
 
       '
-    explanation: Actinobacteriota produce lactic acid consumed by Firmicutes chain elongators
+    explanation: Supports an author-proposed MAG role from gene content and reactor associations, not member-specific
+      flux or demonstrated partner dependence. Bulk reactor metabolites were measured separately by HPLC/GC-MS.
+  participating_taxa:
+  - preferred_term: Olsenella_B sp. (MAG ATO3)
+    term:
+      id: NCBITaxon:133925
+      label: Olsenella
+  - preferred_term: Bifidobacterium tibiigranuli (MAG BIF2)
+    term:
+      id: NCBITaxon:1678
+      label: Bifidobacterium
+  - preferred_term: Bifidobacterium sp. (MAG BIF11)
+    term:
+      id: NCBITaxon:1678
+      label: Bifidobacterium
+  - preferred_term: Bifidobacterium thermophilum (MAG BIF18)
+    term:
+      id: NCBITaxon:33905
+      label: Bifidobacterium thermophilum
+  - preferred_term: Clostridium_B sp. (MAG CLOS1)
+    term:
+      id: NCBITaxon:1485
+      label: Clostridium
 related_ingredients:
 - preferred_term: lactose
   chebi_term:
@@ -818,3 +858,30 @@ cultivation_setup:
     evidence_source: IN_VITRO
     snippet: was continuously fed at a rate of 0.5 L/day throughout 282 days of operation resulting in solids and hydraulic retention times of 6 days
     explanation: Documents continuous feeding at 0.5 L/day and the 6-day hydraulic retention time.
+discussions:
+- discussion_id: ufmp_member_flux_and_terminal_products
+  prompt: Which MAGs exchange carbon and determine terminal chain length?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Proposed Actinobacteriota Lactose Fermentation Roles
+  - ecological_interactions#Proposed Firmicutes Chain Elongation Roles
+  - ecological_interactions#Proposed Actinobacteriota-to-CLOS1 Lactate Cross-Feeding
+  rationale: 'The reactor measurements support fermentation, whereas member roles and both retained model arrows
+    are hypotheses. Metatranscriptomics, isotope tracing and selective member/substrate perturbations would test
+    donor identity, CLOS1 uptake, ACID1 substrate and chain-length allocation. SPH2 has a separate proposed ethanol
+    role outside these existing Actinobacteriota/lactate and Firmicute nodes; no new node is invented to hide its
+    disconnected warning. Unsupported stereospecific CHEBI:422 entries are removed from graph nodes without guessing
+    a replacement. Non-graph ingredient/taxonomy role text and all #486/#624 grounding history remain unchanged
+    and are not certified by this graph-only review.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T12:10:36Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain heterogeneous Actinobacteriota genome-based fermentation hypotheses, not universal demonstrated
+    products.; Retain three substrate-distinct Firmicute hypotheses and distinguish measured reactor products from
+    member allocation.; Retain the proposed lactate-transfer model with candidate donors and CLOS1, not obligatory
+    syntrophy or complete conversion. Issue #1474; reports/causal_graph_review/decisions/20261006-three-records-batch44.yaml'
+  llm_assisted: true
