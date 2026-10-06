@@ -1,0 +1,158 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 54ce25c9b7f3b3bacd2f68d9e567756aff8fe397
+scope:
+- kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml
+- kb/communities/Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.yaml
+- kb/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch36.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch36.json
+findings:
+- issue: 1424
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'EcoFAB SynCom17 graph: separate treatment effects from trait hypotheses and sterile-plant
+    experiments'
+  disposition: Graph corrected; close only after protected main merge.
+- issue: 1425
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'HMO mutualism graph: bound reciprocal exchange to tested strains, nutrient limitation and
+    pH'
+  disposition: Graph corrected; close only after protected main merge.
+- issue: 1426
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'GL10 XL12 graph: qualify overlapping substrate specialization and measured community output'
+  disposition: Graph corrected; close only after protected main merge.
+- issue: 1427
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'EcoFAB SynCom17 metadata: disentangle ring-trial, isolate and nitrogen-study protocols'
+  disposition: Non-graph fields preserved and not certified. Remains open.
+- issue: 1428
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'HMO coculture metadata: distinguish K12 experimental strains and 0.5 percent mutualism assay'
+  disposition: Non-graph fields preserved and not certified. Remains open.
+- issue: 1429
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'GL10 XL12 quantitative metadata: reconcile xylose endpoints before treating them as one yield'
+  disposition: Non-graph fields preserved and not certified. Remains open.
+adversarial_checks:
+- Complete graph diffs compared against four cached primary main bodies at recorded access scope. Nine
+  nodes retained, one out-of-system node and two arrows removed. No added nodes or arrows; every original
+  node/arrow has a disposition.
+- EcoFAB nitrogen-status evidence concerns a separate sterile-plant experiment and 14 individual bacterial
+  bioassays, not SynCom17 co-inoculation. Remove that node; three ring-trial treatment-to-measured-outcome
+  arrows remain bounded to whole-treatment effects.
+- OAS925 isolate phenotypes and surveyed genomic modules do not establish a selective mechanism for community
+  dominance. Intrinsic source-only PAIRWISE node retains a HYPOTHESIZED arrow. Relative 16S dominance
+  is not absolute suppression or competition, and OAS925 was sixth in the separate biofilm assay.
+- 'Remove dominance-to-metabolome mediation: common treatment and net spent-medium abundance do not isolate
+  root/microbial production, uptake or extracellular enzyme activity. Remove categorical cross-feeding,
+  competition, colonization facilitation and unsupported symbiotic-process annotations. Canonical participants
+  identify the inoculum, not universal flux or equal final abundance.'
+- HMO cross-feeding is experimentally supported for laboratory K12 and an infant B. bifidum isolate under
+  nutrient limitation. Delta-cysE and viable-partner controls support dependence, not isotope-resolved
+  cysteine export, a release route or a quantified positive-feedback time course.
+- Chromatography supports fucose/galactose consumption; spent-medium growth required pH readjustment from
+  4.3 to 6.3. Return-to-cysteine maintenance remains PARTIAL. No control of E. coli abundance in infants
+  is claimed. Remove the sugar-to-mutualism part/whole summary arrow while retaining both reciprocal links.
+- GL10 and XL12 retain overlapping substrate capacities. The single existing NICHE_PARTITIONING node means
+  engineered specialization, not exclusive sugar use, measured interstrain exchange or universal benefit.
+  Preserve zero arrows and the earlier cross-feeding discussion. Abstract 53.21% xylose and Results 1.22
+  g/L at 36 h are not silently reconciled.
+- All three records were already in the 183-user participant registry. Registry and numeric bounds remain
+  unchanged. Intrinsic OAS925 representation changes mixed-scope 122 to 123, community-only 265 to 264,
+  and sole broad credit 1222 to 1221; this is not a new taxon.
+- Three guarded writes, append-only history artifacts and llm-assisted events; old history/discussions
+  semantically preserved, all non-graph raw blocks, 457 other records and 920 caches byte-preserved. Eight
+  regression tests cover scope, reciprocal direction, partial feedback, source quantitative conflict,
+  participants, anchors and full disposition accounting.
+- Zero structural errors and all 33 prior warnings preserved exactly. Repeat renders deterministic with
+  exact descriptions checked across 456 pages. Reference-validator 0.1.7 exits 0 with zero checks; explicitly
+  a no-op, not evidence validation. Textual snippet MATCH is not scientific support.
+- 'Deduplication includes 748 all-state titles/bodies and ignored/hidden-inclusive local files, not every
+  issue comment. Existing #1264, #826, #827, #830, #365 and #442 distinguished and their repairs preserved.
+  #1427-1429 remain open. No provider job, new causal structure, visual-source inspection, supplementary
+  or raw-data review claimed.'
+verification:
+  combined_regressions: 392 passed in 179.44s (0:02:59)
+  new_regression_tests: 8
+  schema_strict_terms_history: passed; actual output tails and log digests retained
+  snippet_counts_by_record:
+    kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml:
+      MATCH: 30
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.yaml:
+      MATCH: 11
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml:
+      MATCH: 38
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero errors; 33 baseline warnings exactly preserved, none added.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch36.yaml: 1b57537e06001eaf8d91b2ef58bf176281a616c4a21158cf4679fb969ce010e8
+    tests/test_causal_review_batch36.py: 7b5456197cd9afb2ac01e324356687aae69d8335755702e3c19b25ced69e32a2
+    kb/communities/EcoFAB_Ring_Trial_SynCom17.yaml: 2e0f6da3387904e4f33283c5117df14ab55c80a1ec7d7290fe00343f69569f1d
+    kb/communities/Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.yaml: 31e420e8e1553817b77ff5bde0d4229ee09eca2cbf62e5d6524a275801475627
+    kb/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml: 5d5c7c4e2d853489be775ef1cc44ec611af78b2dff902287c1bf2f18bfa9ad4d
+  post_commit_docs_current: Separate publication gate; not asserted in pre-commit record.
+  protected_ci_and_merge: Exact-head protected main checks and queue still required.
+participant_census:
+  connectivity_before:
+    community_level_only: 265
+    credited_solely_by_the_rule: 1222
+    mixed: 122
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  connectivity_after:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1221
+    mixed: 123
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  exact_change: All three records already registered; 183-user registry unchanged. EcoFAB becomes mixed-scope
+    as the OAS925 trait becomes intrinsic source-only PAIRWISE; sole broad credit falls by one. No taxonomy
+    or numeric-bound changes.
+  numeric_bounds_changed: false
+corpus:
+  records: 460
+  nodes: 1469
+  edges: 695
+  review_status_counts:
+    needs_research: 7
+    pending: 303
+    reviewed: 150
+limitations:
+- Nine existing nodes retained; one out-of-system node and two unsupported mediation/summary arrows removed.
+  No new connectivity or provider request.
+- Four cached primary main bodies reviewed at the stated access scope, not visual figures, separate supplements
+  or raw data. All source caches unchanged.
+- 'Canonical taxonomy and non-graph raw blocks preserved, not certified; #1427-1429 remain open.'
+- OAS925 dominance mechanism remains hypothesized; bulk medium is not direct cross-feeding. Separate sterile-plant
+  nitrogen evidence is excluded from this community graph.
+- HMO reciprocal exchange is supported in the tested in vitro pair. Its sugar-to-cysteine maintenance
+  link is PARTIAL; cysteine release route, feedback gain and host regulation remain unresolved.
+- GL10/XL12 specialization is overlapping, not exclusive. Zero arrows preserved; source quantitative disagreement
+  is not silently reconciled.
+- Self-adversarial review is not independent approval, protected main merge or full-corpus completion;
+  textual snippet matching is not scientific validation.
