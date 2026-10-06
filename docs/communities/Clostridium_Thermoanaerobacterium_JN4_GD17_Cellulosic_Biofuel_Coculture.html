@@ -563,7 +563,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Clostridium-Thermoanaerobacterium JN4-GD17 Cellulosic Biofuel Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -571,13 +571,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -585,17 +580,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Cellulosic Biofuel Efficiency Enhancement</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Enhanced Community Fermentation Products</h3>
                 </div>
-                <p class="prewrap interaction-description">Coculturing C. thermocellum JN4 with T. thermosaccharolyticum GD17 improves overall cellulosic biofuel production efficiency.</p>
-
-
-                <p><strong>Source Taxon:</strong> Clostridium thermocellum JN4</p>
+                <p class="prewrap interaction-description">The JN4-GD17 coculture produced more lactate, acetate and ethanol than JN4 alone in the reported cellulose experiments, without improved overall cellulose utilization. This is a community product outcome, not cellulose donation. Cellulose is the feedstock; soluble glucose and cellobiose are the proposed exchanged carbon.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Thermoanaerobacterium thermosaccharolyticum GD17</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Clostridium thermocellum JN4,
+
+                    Thermoanaerobacterium thermosaccharolyticum GD17
+
+                </p>
 
 
 
@@ -653,9 +651,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>GD17 Competitive Conversion of Released Sugars</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">T. thermosaccharolyticum GD17 has a competitive metabolic advantage over C. thermocellum JN4 in converting glucose or cellobiose into final fermentation products.</p>
+                <p class="prewrap interaction-description">GD17 consumed glucose and cellobiose and produced fermentation products faster than JN4 in separate monoculture assays. Low soluble sugars and altered cellulolytic-gene transcription in coculture support a resource-competition model. PARTIAL - these measurements do not directly partition partner carbon flux or establish reciprocal harm required by the COMPETITION enum.</p>
 
 
                 <p><strong>Source Taxon:</strong> Thermoanaerobacterium thermosaccharolyticum GD17</p>
@@ -697,9 +694,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Cellulosic Biofuel Efficiency Enhancement
-                        <p class="prewrap causal-description">GD17 capture and conversion of cellobiose or glucose released from lignocellulose accounts for the increased formation of fermentation end products in the cellulosic biofuel coculture.
-</p>
+                        <span class="flow-arrow">→</span> Enhanced Community Fermentation Products
+                        <p class="prewrap causal-description">PARTIAL - faster GD17 conversion of JN4-released soluble sugars can contribute to higher community fermentation output. Monoculture conversion assays and coculture product measurements support this model, but do not directly measure the partner-specific contribution.</p>
                     </div>
 
                 </div>
@@ -715,7 +711,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/31551972/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31551972</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"strong competitive metabolic advantage of T. thermosaccharolyticum GD17 over C. thermocellum JN4"</div>
@@ -742,9 +738,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>GD17 Growth Inhibition of JN4</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">Despite relieving carbon catabolite repression, T. thermosaccharolyticum GD17 hampers C. thermocellum JN4 growth in coculture.</p>
+                <p class="prewrap interaction-description">JN4 biomass estimated from total protein and genomic community proportions was lower in coculture; this is not a direct viable-cell count. Dextrin or sucrose addition favored GD17 and largely stopped cellulose use. PARTIAL - the positive perturbation supports community rebalancing, but also adds carbon and changes sampling time, so it does not selectively isolate growth suppression or prove reciprocal harm.</p>
 
 
                 <p><strong>Source Taxon:</strong> Thermoanaerobacterium thermosaccharolyticum GD17</p>
@@ -774,9 +769,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Cellulosic Biofuel Efficiency Enhancement
-                        <p class="prewrap causal-description">GD17-driven suppression of the cellulolytic JN4 population can rebalance the coculture away from cellulose degradation, making that competition a negative regulator of net cellulosic biofuel formation.
-</p>
+                        <span class="flow-arrow">→</span> Enhanced Community Fermentation Products
+                        <p class="prewrap causal-description">PARTIAL - reduced JN4 biomass and cellulose use can constrain the cellulose-derived contribution to community products. Stimulant-driven rebalancing supports this possibility, not a measured reduction of total fermentation products or a resolved carbon balance when extra substrate is supplied.</p>
                     </div>
 
                 </div>
@@ -792,7 +786,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/31551972/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31551972</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"T. thermosaccharolyticum GD17 significantly hampers the growth of C. thermocellum JN4"</div>
@@ -805,7 +799,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/31551972/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31551972</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"relieves the carbon catabolite repression of C. thermocellum JN4"</div>
@@ -818,7 +812,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/31551972/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31551972</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"re-balanced cocultures largely stopped degrading cellulose"</div>
@@ -834,6 +828,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How do GD17 sugar conversion and JN4 suppression separately determine cellulose-derived product flux?
+                </h3>
+                <p class="prewrap">Monoculture rates, coculture products, sugar concentrations and transcription support the proposed model. Protein-based biomass estimates and added-substrate rebalancing are not selective viable-growth or flux measurements. Partner-resolved carbon tracing and matched-carbon perturbations would distinguish conversion benefit from suppression without assuming reciprocal harm.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Enhanced Community Fermentation Products</code>, <code>ecological_interactions#GD17 Competitive Conversion of Released Sugars</code>, <code>ecological_interactions#GD17 Growth Inhibition of JN4</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1250,7 +1263,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1269,7 +1282,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Cellulosic Biofuel Efficiency Enhancement",
+                label: "Enhanced Community Fermentation Products",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1278,23 +1291,26 @@
             });
 
 
-            var srcKey = "Clostridium thermocellum JN4";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Thermoanaerobacterium thermosaccharolyticum GD17";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Clostridium thermocellum JN4",
+
+                "Thermoanaerobacterium thermosaccharolyticum GD17"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1338,7 +1354,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
