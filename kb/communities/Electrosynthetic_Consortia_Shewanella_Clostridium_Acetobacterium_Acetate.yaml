@@ -106,11 +106,12 @@ taxonomy:
       acetogen)
     explanation: Identifies A. woodii as the nonelectroactive acetogen partner of the consortium.
 ecological_interactions:
-- name: DIET from S. oneidensis to C. aceticum
-  description: In the S. oneidensis-C. aceticum consortium, direct interspecies electron transfer (DIET)
-    mediated by cytochrome c and riboflavin dominates at the biofilm-electrode interface, driving
-    CO2-to-acetate conversion.
-  interaction_type: SYNTROPHY
+- name: Proposed Biofilm-Associated IET in the S. oneidensis-C. aceticum Pair
+  description: 'PARTIAL: In the C. aceticum-S. oneidensis pair, biofilm-associated electron transfer is supported
+    by compartment-removal responses, electrochemical and spectroscopic readouts, and riboflavin add-back. The authors
+    call this DIET, but these assays do not uniquely establish contact-only transfer or selective cytochrome necessity;
+    riboflavin is also a diffusible mediator. The canonical target label Andreesenella acetica preserves the source
+    organism called C. aceticum. Product enhancement does not demonstrate obligatory syntrophy.'
   scope: PAIRWISE
   source_taxon:
     preferred_term: Shewanella oneidensis MR-1
@@ -129,22 +130,30 @@ ecological_interactions:
       label: riboflavin
   downstream:
   - target: Enhanced CO2-to-Acetate Conversion
-    description: >
-      Biofilm-localized DIET in the S. oneidensis-C. aceticum consortium
-      contributes electron flow for enhanced CO2-to-acetate electrosynthesis.
+    description: 'PARTIAL: Biofilm-associated electron supply and riboflavin-responsive transfer can support the
+      C. aceticum pair''s acetate increase. Compartment removal and add-back support this contribution, but do not
+      isolate the necessity of contact-only DIET or a specific cytochrome. This arrow concerns the CS pair, not
+      a simultaneous three-member culture.'
   evidence:
+  - reference: PMID:41236292
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: DIET via cytochrome c and riboflavin dominates at the biofilm-electrode interface in S. oneidensis-C.
+      aceticum consortia
+    explanation: The abstract states the authors' route model; the reviewed main-body assays do not uniquely resolve
+      contact-only DIET.
   - reference: PMID:41236292
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: DIET via cytochrome c and riboflavin dominates at the biofilm-electrode interface in S.
-      oneidensis-C. aceticum consortia
-    explanation: DIET (cytochrome c/riboflavin) as the electron-transfer mode of the S. oneidensis-C.
-      aceticum consortium.
-- name: H2/formate-mediated IET from S. oneidensis to A. woodii
-  description: In the S. oneidensis-A. woodii consortium, interspecies electron transfer proceeds via
-    H2/formate shuttling in the planktonic phase rather than direct contact, supporting acetate
-    production.
-  interaction_type: SYNTROPHY
+    snippet: metabolite profiling (H2, formate, riboflavin), biomass distribution and fhs gene copy numbers, and
+      functional prediction
+    explanation: Identifies complementary readouts rather than a selective molecular-route perturbation.
+- name: Proposed Planktonic H2/Formate IET in the S. oneidensis-A. woodii Pair
+  description: 'PARTIAL: The A. woodii-S. oneidensis pair favors suspension-associated acetate synthesis, consistent
+    with a diffusible hydrogen/formate electron-transfer model. These culture-level profiles and compartment interventions
+    do not trace donor-resolved transfer or establish an exclusive route; hydrogen was detected in both alternative
+    pairs. Daily apparent biofilm/suspension contributions are instantaneous responses to cell removal, not cumulative
+    mass-balanced flux fractions, and may exceed 100% through compensatory responses.'
   scope: PAIRWISE
   source_taxon:
     preferred_term: Shewanella oneidensis MR-1
@@ -167,25 +176,29 @@ ecological_interactions:
       label: formate
   downstream:
   - target: Enhanced CO2-to-Acetate Conversion
-    description: >
-      H2/formate-mediated electron transfer in the S. oneidensis-A. woodii
-      consortium contributes planktonic electron flow for enhanced
-      CO2-to-acetate electrosynthesis.
+    description: 'PARTIAL: Diffusible reducing equivalents are a supported explanation for suspension-associated
+      acetate synthesis in the AS pair, including acetate production where A. woodii alone failed at the tested
+      lower cell voltage. This does not establish exclusive hydrogen/formate mediation or identify the molecular
+      donor flux.'
   evidence:
+  - reference: PMID:41236292
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: whereas S. oneidensis-A. woodii consortia prefer H2/formate-mediated IET in the planktonic phase
+    explanation: States the authors' preferred route model, not a directly traced partner-to-partner flux.
   - reference: PMID:41236292
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: whereas S. oneidensis-A. woodii consortia prefer H2/formate-mediated IET in the planktonic
-      phase
-    explanation: H2/formate-mediated IET as the electron-transfer mode of the S. oneidensis-A. woodii
-      consortium.
+    snippet: failed to produce acetate
+    explanation: The 0.54-V A. woodii monoculture comparison supports assistance by the partner, without identifying
+      a unique transferred mediator.
 - name: Enhanced CO2-to-Acetate Conversion
-  description: >
-    Co-cultivation of Shewanella oneidensis MR-1 with either electroactive
-    Clostridium aceticum or nonelectroactive Acetobacterium woodii boosts
-    acetate production by linking spatially organized interspecies electron
-    transfer to CO2 reduction.
-  interaction_type: SYNTROPHY
+  description: Two alternative two-member consortia, not one three-member community, increased acetate accumulation
+    relative to their corresponding acetogen monocultures. At 0.88-V applied cell voltage, AS reached 1.16 g/L versus
+    0.62 g/L for A. woodii alone, and CS reached 1.05 g/L versus 0.56 g/L for C. aceticum alone. The participating
+    taxa are the combined comparison roster; the acetogens were alternatives. Open-circuit cultures used H2/CO2
+    whereas driven cultures used N2/CO2, so that contrast is not voltage-only. Aggregate production does not prove
+    reciprocal fitness or obligate syntrophy.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: carbon dioxide
@@ -208,12 +221,29 @@ ecological_interactions:
     snippet: Co-cultivation markedly boosts acetate production by up to 88%
     explanation: Supports enhanced acetate production in the Shewanella-acetogen consortia.
   - reference: PMID:41236292
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: orchestrating electron flow to optimize CO2-to-acetate conversion
-    explanation: >
-      Supports Shewanella-mediated electron-flow organization as the mechanism
-      that improves CO2-to-acetate conversion.
+    explanation: The source proposes organized electron flow as an explanation; output measurements do not uniquely
+      identify its molecular mediation.
+  - reference: PMID:41236292
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: representing a 1.87‐fold of A. woodii alone
+    explanation: Quantifies the AS pair-versus-monoculture contrast, not a joint three-member system.
+  participating_taxa:
+  - preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  - preferred_term: Clostridium aceticum (electroactive acetogen)
+    term:
+      id: NCBITaxon:84022
+      label: Andreesenella acetica
+  - preferred_term: Acetobacterium woodii (nonelectroactive acetogen)
+    term:
+      id: NCBITaxon:33952
+      label: Acetobacterium woodii
 growth_media:
 - name: DSMZ-Medium 135 base medium (optimized, cathode chamber)
   temperature: '37'
@@ -262,3 +292,30 @@ cultivation_setup:
     evidence_source: IN_VITRO
     snippet: Under an applied voltage of 0.88 V
     explanation: Documents the applied voltage of the bioelectrochemical cultivation.
+discussions:
+- discussion_id: electrosynthetic_route_specificity_and_alternative_pairs
+  prompt: Which electron-transfer routes are necessary within each alternative pair?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Proposed Biofilm-Associated IET in the S. oneidensis-C. aceticum Pair
+  - ecological_interactions#Proposed Planktonic H2/Formate IET in the S. oneidensis-A. woodii Pair
+  - ecological_interactions#Enhanced CO2-to-Acetate Conversion
+  rationale: 'Keep the two measured alternative pairs separate. Spectroscopy, electrochemistry, metabolite profiles,
+    riboflavin add-back and daily planktonic-cell removal support compartment-associated models but do not isolate
+    contact-only DIET or donor-resolved hydrogen/formate flux. Riboflavin is a diffusible mediator; hydrogen appears
+    in both systems. Instantaneous apparent compartment contributions can exceed 100% and are not cumulative flux
+    partitions. Main Methods describe DNA/16S, fhs copies and normalized gene abundance; do not call these transcript
+    measurements without reviewing the unread supplement. The proposed acetate-formate recycling and future three-member
+    consortium are hypotheses, not new measured causal nodes. Preserve canonical taxonomy and leave non-graph role,
+    voltage and control wording to #1455.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T10:16:21Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain biofilm-associated route as PARTIAL without contact-only DIET or syntrophy proof.; Retain planktonic
+    route as PARTIAL without exclusive or donor-resolved mediator flux.; Retain acetate enhancement with the alternative-pair
+    roster and explicit cell-voltage/control boundaries. Issue #1452; reports/causal_graph_review/decisions/20261006-three-records-batch40.yaml'
+  llm_assisted: true

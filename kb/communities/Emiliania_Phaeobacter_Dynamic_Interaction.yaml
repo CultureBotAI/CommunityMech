@@ -85,8 +85,11 @@ taxonomy:
     explanation: Supports the bacterial strain identity in the co-culture.
 ecological_interactions:
 - name: Algal Nutrient Provisioning Supports Bacterial Growth
-  description: E. huxleyi enables growth of P. inhibens in L1-Si medium, which is otherwise non-permissive
-    for the bacterium, by supplying suitable forms of essential nutrients.
+  description: E. huxleyi CCMP3266 supports P. inhibens DSM 17395 growth in otherwise nonpermissive L1-Si medium.
+    Nutrient-rescue comparisons support algal supply of usable nutrient forms; DMSP can contribute sulfur but did
+    not alone provide an adequate carbon supply in the tested context. Bacterial growth was monitored as colony-forming
+    units, which may represent rosettes rather than single cells. Nutrient support does not by itself demonstrate
+    a causal step from general biomass increase to the specific tryptophan/IAA response.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -99,26 +102,24 @@ ecological_interactions:
     term:
       id: NCBITaxon:391619
       label: Phaeobacter inhibens DSM 17395
-  biological_processes:
-  - preferred_term: photosynthesis
-    term:
-      id: GO:0015979
-      label: photosynthesis
-  downstream:
-  - target: Tryptophan-Enhanced Bacterial Attachment And IAA Production
-    description: Algal nutrient provisioning sustains P. inhibens growth in the
-      non-permissive L1-Si medium, putting the heterotroph in the phycosphere
-      where algal tryptophan stimulates attachment and IAA production.
   evidence:
   - reference: PMID:27855786
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: E. huxleyi can provide all four essential nutrients
     explanation: Supports algal provisioning of nutrients needed for heterotrophic bacterial growth.
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CFU may include rosettes as well as individual bacteria
+    explanation: Limits CFU interpretation; a colony-forming unit need not equal one bacterium.
 - name: Tryptophan-Enhanced Bacterial Attachment And IAA Production
-  description: Tryptophan exuded from algal cells increases P. inhibens attachment and bacterial production
-    of indole-3-acetic acid, linking algal exudates to bacterial behavior and hormone production.
-  interaction_type: MUTUALISM
+  description: Algal exudates supported tryptophan-auxotroph growth, establishing bioavailable tryptophan. In separate
+    bacterial cultures, added tryptophan increased IAA production and isotope labeling demonstrated conversion of
+    the added precursor into IAA. Added tryptophan also increased bacterial attachment in coculture, particularly
+    to naked algal cells. These assays do not trace the complete endogenous algal-to-bacterial-to-algal flux or
+    measure de novo tryptophan biosynthesis in the recipient. The E. coli auxotroph is an assay reporter, not a
+    community member.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Emiliania huxleyi CCMP3266
@@ -139,27 +140,38 @@ ecological_interactions:
     term:
       id: CHEBI:16411
       label: indole-3-acetic acid
-  biological_processes:
-  - preferred_term: tryptophan biosynthetic process
-    term:
-      id: GO:0000162
-      label: L-tryptophan biosynthetic process
   downstream:
-  - target: IAA-Mediated Algal Growth Promotion And Killing
-    description: Algal tryptophan stimulates P. inhibens indole-3-acetic acid
-      production, and that bacterially produced IAA drives the downstream
-      algal growth-promotion and killing response.
+  - target: Algal Growth Promotion and Late Killing with Proposed IAA Mediation
+    description: 'HYPOTHESIZED: Tryptophan-enhanced IAA production could contribute to initial algal promotion and
+      late killing. Added tryptophan accelerated coculture bleaching, but also changed attachment; bulk coculture
+      IAA was undetectable and pathway mutants retained production. The experiment therefore does not isolate IAA
+      mediation or show that measured bacterial IAA reached the exogenous toxic dose.'
   evidence:
   - reference: PMID:27855786
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Bacterial production of indole-3-acetic acid and attachment to algae are significantly increased
-      by tryptophan
-    explanation: Supports tryptophan-stimulated bacterial IAA production and attachment.
-- name: IAA-Mediated Algal Growth Promotion And Killing
-  description: P. inhibens affects E. huxleyi physiology through indole-3-acetic acid, initially promoting
-    algal growth but ultimately contributing to algal death in aging co-cultures.
-  interaction_type: PREDATION
+    snippet: Bacterial production of indole-3-acetic acid and attachment to algae are significantly increased by
+      tryptophan
+    explanation: Summarizes tryptophan responses; separate precursor-addition and exudate-bioavailability assays
+      must not be collapsed into a fully traced endogenous exchange.
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: all produced IAA is fully labeled
+    explanation: Supports conversion of added labeled tryptophan in bacterial culture, not tracing of algal-derived
+      precursor through coculture.
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This indicates that algal exudates contain bioavailable tryptophan
+    explanation: Auxotroph growth supports precursor availability without quantifying endogenous IAA transfer.
+- name: Algal Growth Promotion and Late Killing with Proposed IAA Mediation
+  description: 'P. inhibens coculture initially increased algal yield, followed by late bleaching and increased
+    algal death. Day-17 Sytox staining was reported as 94% dead in coculture versus 21% in axenic algae; day-20
+    TUNEL labeling showed more fragmented DNA. HYPOTHESIZED: IAA mediates both phases. Added IAA promoted growth
+    at 1 and 100 micromolar but was harmful at 1000 micromolar; these are not measured coculture exposures. IAA
+    was undetectable in coculture, and tested pathway mutants still produced IAA and bleached algae. The experiments
+    do not establish IAA necessity, nutrient-consuming predation, a unique death pathway or natural-bloom termination.'
   scope: PAIRWISE
   source_taxon:
     preferred_term: Phaeobacter inhibens DSM 17395
@@ -178,11 +190,27 @@ ecological_interactions:
       label: indole-3-acetic acid
   evidence:
   - reference: PMID:27855786
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Both algal growth enhancement and algal death are driven by the bacterially-produced phytohormone indole-3-acetic
+      acid
+    explanation: The abstract gives a strong IAA interpretation; main-body nondetection and non-null mutants leave
+      endogenous mediation unresolved.
+  - reference: PMID:27855786
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Both algal growth enhancement and algal death are driven by the bacterially-produced phytohormone
-      indole-3-acetic acid
-    explanation: Supports the dual growth-promoting and algicidal role of bacterial IAA.
+    snippet: in these conditions IAA was undetectable
+    explanation: The proposed local uptake/phycosphere accumulation was not a measured coculture exposure.
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: these mutants were still capable of producing IAA
+    explanation: These mutants are not IAA-null necessity tests.
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: while in the pure culture only 21% are dead by day 17
+    explanation: The primary comparison supports a host-death effect beyond a metabolite-only interpretation.
 cultivation_setup:
 - cultivation_mode: BATCH
   operating_temperature: 18.0
@@ -306,3 +334,31 @@ associated_datasets:
     evidence_source: IN_VITRO
     snippet: Dynamic metabolic exchange governs a marine algal-bacterial interaction
     explanation: Links this record to the source article and article-hosted data.
+discussions:
+- discussion_id: emiliania_endogenous_iaa_mediation_and_assay_scope
+  prompt: Is endogenous IAA necessary for algal promotion and late killing in this coculture?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Algal Nutrient Provisioning Supports Bacterial Growth
+  - ecological_interactions#Tryptophan-Enhanced Bacterial Attachment And IAA Production
+  - ecological_interactions#Algal Growth Promotion and Late Killing with Proposed IAA Mediation
+  rationale: 'The main text explicitly hypothesizes IAA mediation despite categorical abstract wording. Bulk coculture
+    IAA was undetectable, exogenous micromolar dose responses are not measured local exposure, and pathway mutants
+    retained IAA and bleaching. Labeled precursor conversion in bacterial culture plus exudate auxotroph rescue
+    does not trace the complete endogenous loop. Tryptophan addition is pleiotropic and changes attachment. Remove
+    the nutrient-provisioning workflow arrow rather than infer a selective route. Roseobacticide activity against
+    CCMP372 cannot be assigned to CCMP3266; neither that comparator nor the E. coli reporter is a community member.
+    Death staining and expression associations do not uniquely establish a death pathway or global bloom effects.
+    Preserve nonpermissive-medium guidance and original YAML aliases; non-graph claims remain #1456.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T10:16:21Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain nutrient-supported growth without a generic-to-specific workflow arrow or direct photosynthesis-flux
+    claim.; Retain precursor availability, added-tryptophan conversion and attachment responses without a complete
+    traced endogenous loop.; Retain observed promotion and late death with HYPOTHESIZED IAA mediation, not categorical
+    predation or unique death mechanism. Issue #1453; reports/causal_graph_review/decisions/20261006-three-records-batch40.yaml'
+  llm_assisted: true
