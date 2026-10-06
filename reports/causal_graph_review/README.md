@@ -225,3 +225,15 @@ the baseline exactly; its exit code of zero does not mean an all-match result.
 Textual matching also does not establish scientific support or independent source
 provenance. In particular, selected `.txt` excerpts have a separate trust limitation
 tracked in [issue 1362](https://github.com/CultureBotAI/CommunityMech/issues/1362).
+
+## Batch56: KB1 And KBase Models
+
+[Decisions](decisions/20261006-three-records-batch56.yaml),
+[validation](validation-20261006-batch56.json) and
+[self-adversarial review](adversarial-review-20261006-batch56.yaml) distinguish
+KB-1 community/field outcomes from external-recipient coculture rescue, preserve
+RFMIA outputs without workflow causality or imposed-constraint rescue claims,
+and expose ORT's gapfilled nitrogen-gas reaction. Nine existing nodes and three
+qualified arrows remain; no new graph structure or provider spend.
+Non-graph identity/model metadata and cached-abstract provenance remain open
+under #1526-#1528. Exact cache matching is not independent provenance approval.

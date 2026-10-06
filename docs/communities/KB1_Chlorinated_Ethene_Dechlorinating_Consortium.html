@@ -611,7 +611,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for KB-1 Chlorinated Ethene Dechlorinating Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -619,13 +619,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -634,14 +629,21 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Reductive Dechlorination to Ethene</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Dehalococcoides-related organisms in KB-1 use chlorinated ethenes as electron acceptors under anaerobic conditions, driving sequential reductive dechlorination of PCE and TCE to ethene in laboratory microcosms and field groundwater.</p>
+                <p class="prewrap interaction-description">KB-1 bioaugmentation produced ethene in laboratory microcosms and the Kelly Air Force Base field test. Field ethene accounted for chlorinated-ethene mass loss and KB-1-associated Dehalococcoides spread downgradient. These are consortium outcomes, not assignment of every PCE/TCE reaction to Dehalococcoides. Separate vitamin-free KB-1 enrichment experiments also sustained TCE-to-ethene conversion. The canonical taxa are a community subset, not a proven three-member inoculant or reciprocal syntrophy.</p>
 
 
-                <p><strong>Source Taxon:</strong> Dehalococcoides spp. in KB-1</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Dehalococcoides spp. in KB-1,
+
+                    Acetobacterium spp. in KB-1,
+
+                    Sporomusa spp. in KB-1
+
+                </p>
 
 
 
@@ -696,6 +698,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/31441646/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31441646</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Acetobacterium supports complete TCE dechlorination by Dehalococcoides"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -703,16 +718,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Acetogen Cobamide Support</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Acetobacterium and Sporomusa provide a supporting acetogenic guild in KB-1. Acetobacterium can synthesize the cobalamin lower ligand DMB, supporting Dehalococcoides dechlorination in vitamin-free medium and highlighting a cofactor-mediated syntrophic dependency.</p>
-
-
-                <p><strong>Source Taxon:</strong> Acetobacterium spp. in KB-1</p>
+                <p class="prewrap interaction-description">Vitamin-free KB-1 transfers sustained TCE dechlorination with increased Acetobacterium abundance and cobalamin, supported by a DMB-biosynthesis operon. These positive community experiments support Acetobacterium-associated cofactor provision. PARTIAL - donor-resolved transfer, exclusive mediation and the return benefit remain unresolved. The canonical Acetobacterium woodii label is not verified as the source population Acetobacterium sp. KB-1; its grounding remains #1526. Acid inhibition is distinct from cofactor shortage: DMB did not rescue stalled low-pH dechlorination, whereas pH adjustment did.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Dehalococcoides spp. in KB-1</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Dehalococcoides spp. in KB-1,
+
+                    Acetobacterium spp. in KB-1
+
+                </p>
 
 
 
@@ -744,7 +762,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Reductive Dechlorination to Ethene
-                        <p class="prewrap causal-description">Acetogen-derived cobalamin support supplies the cofactor context required for complete Dehalococcoides reductive dechlorination in KB-1 without exogenous vitamins.</p>
+                        <p class="prewrap causal-description">PARTIAL - Acetobacterium-associated cofactor availability can support Dehalococcoides dechlorination in the vitamin-free KB-1 laboratory cultures. Community transfers, cofactor measurements and biosynthetic genes support this route, but do not isolate its exclusive contribution or establish its mediation of the separate field bioaugmentation result.</p>
                     </div>
 
                 </div>
@@ -763,7 +781,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"the lower ligand of cobalamin, and Sporomusa are dominant acetogens"</div>
+                        <div class="snippet">"Acetobacterium supports complete TCE dechlorination by Dehalococcoides"</div>
 
                     </li>
 
@@ -787,16 +805,17 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Sporomusa DMB-Guided Cobalamin Support</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Sporomusa is a dominant acetogen in vitamin-free KB-1 cultures. A Sporomusa sp. strain KB-1 isolate was also tested as a Dehalococcoides partner population; its phenolic cobamides did not by themselves satisfy Dehalococcoides corrinoid requirements, but DMB amendment guided cobalamin biosynthesis in Sporomusa sp. cocultures and supported Dehalococcoides reductive dechlorination activity and growth.</p>
-
-
-                <p><strong>Source Taxon:</strong> Sporomusa spp. in KB-1</p>
+                <p class="prewrap interaction-description">Controlled cocultures tested a Sporomusa sp. KB-1 isolate with Dehalococcoides strains BAV1, GT and FL2. DMB amendment changed donor cobamide chemistry and restored partner dechlorination and growth; without DMB, the phenolic cofactors did not support those requirements. FL2 still produced both VC and ethene. The explicit canonical participant is the KB-1-derived donor only: these external recipient strains are not established as the record&#39;s KB-1 Dehalococcoides population. This positive conditional partner-support result is not demonstrated mediation of the field endpoint.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Dehalococcoides spp. in KB-1</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Sporomusa spp. in KB-1
+
+                </p>
 
 
 
@@ -823,25 +842,9 @@
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0006766</a>)
                     </li>
 
-                    <li>
-                        cobalamin transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015889"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015889</a>)
-                    </li>
-
                 </ul>
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Reductive Dechlorination to Ethene
-                        <p class="prewrap causal-description">DMB-guided cobalamin support can supply the corrinoid cofactor context required for Dehalococcoides reductive dechlorination.</p>
-                    </div>
-
-                </div>
 
 
 
@@ -896,6 +899,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which same-system cofactor routes mediate KB-1 dechlorination?
+                </h3>
+                <p class="prewrap">Keep the positive field outcome, vitamin-free community support and controlled donor chemistry/partner phenotypes distinct. Remove the Sporomusa-to-KB-1-outcome arrow because external recipient strains were not identified as the KB-1 population. The Acetobacterium route remains PARTIAL for exact transfer and field mediation. Canonical taxonomy and non-graph blocks are preserved, not recertified; #1526 tracks Acetobacterium identity. Full 2013/2019 primary main texts read; 2019 selected tables/figures inspected, 2002 field abstract only. No separate supplements/raw-data audit or new graph structure.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Reductive Dechlorination to Ethene</code>, <code>ecological_interactions#Acetogen Cobamide Support</code>, <code>ecological_interactions#Sporomusa DMB-Guided Cobalamin Support</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1155,7 +1177,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1168,7 +1190,7 @@
 
             var processes = [];
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1181,18 +1203,28 @@
             });
 
 
-            var srcKey = "Dehalococcoides spp. in KB-1";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Dehalococcoides spp. in KB-1",
+
+                "Acetobacterium spp. in KB-1",
+
+                "Sporomusa spp. in KB-1"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1218,23 +1250,26 @@
             });
 
 
-            var srcKey = "Acetobacterium spp. in KB-1";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Dehalococcoides spp. in KB-1";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Dehalococcoides spp. in KB-1",
+
+                "Acetobacterium spp. in KB-1"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1247,8 +1282,6 @@
 
 
             processes.push("vitamin metabolic process");
-
-            processes.push("cobalamin transport");
 
 
             var evidenceCount = 3;
@@ -1264,17 +1297,18 @@
             });
 
 
-            var srcKey = "Sporomusa spp. in KB-1";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Dehalococcoides spp. in KB-1";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Sporomusa spp. in KB-1"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
