@@ -5,6 +5,24 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch58: R2A Model And Agar Antagonism
+
+[Decisions](decisions/20261006-r2a-batch58.yaml),
+[validation](validation-20261006-batch58.json) and
+[self-adversarial review](adversarial-review-20261006-batch58.yaml) cover all three
+original nodes and both arrows. The misplaced MOPS/CF313 cross-feeding node and
+both unsupported arrows are removed. Conditional R2A FBA exchange predictions
+and measured GM17-to-CF313 agar inhibition remain, with explicit assay boundaries.
+Enzyme detection does not establish transferred flux; liquid-versus-agar conditions
+remain an alternative to metabolic rescue.
+
+The extracted primary main text, Methods, Tables1-2 and main captions were read;
+original figure pixels, supplements, raw data and KBase execution were not audited.
+All 920 cache files remain unchanged. Repair #1532 awaits protected-main merge;
+canonical membership and assembly metadata remain unresolved under #1533. The
+pre-source baseline is bound to the later tree-identical restack by its receipt.
+Dairy and kefir research is not credited as reviewed in this R2A-only batch.
+
 ## Batch57: DVM Tri-culture
 
 [Decisions](decisions/20261006-dvm-batch57.yaml),

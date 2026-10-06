@@ -1,0 +1,126 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 80c56fe71a1a42b4eebbba4b056ce690e031dfd6
+scope:
+- kb/communities/KBase_Synthetic_Bacterial_Community_R2A.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-r2a-batch58.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch58.json
+findings:
+- issue: 1532
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate R2A FBA predictions from MOPS CF313 attribution and agar antagonism.
+  disposition: Close only after protected-main merge.
+- issue: 1533
+  severity: P2
+  status: unresolved_non_graph
+  finding: R2A canonical membership, strain grounding and assembly metadata.
+  disposition: Keep open after graph repair merge.
+adversarial_checks:
+- Whole R2A record, all3 original nodes and2 arrows reviewed against the full extracted primary main text,
+  Methods2.1-2.6, Results3.1-3.5, Tables1-2 and main captions. No original image pixels, supplements/raw
+  data or independent KBase execution/model replication.
+- R2A uses YR343,GM17,AP49 in the three-member model; CF313 belongs to the four-member MOPS model. Remove
+  the transplanted CF313 cross-feeding node and Pantoea-to-CF313 arrow rather than silently moving MOPS
+  predictions into R2A. Partial canonical participants explicitly exclude missing AP49; no invented CURIE.
+- Preserve positive R2A exchange predictions and model-dependent Pantoea growth improvement. Gapfilling,
+  final-passage16S ratios and calibrated uptake bounds are assumptions. Metaproteomics detects relevant
+  enzymes but does not measure transferred flux or establish mutualism; 16S and protein abundance estimates
+  differ.
+- Preserve experimentally measured GM17-to-CF313 R2A-agar inhibition at25C/48h. It is a distinct pairwise
+  assay, not evidence of CF313 membership in the R2A model. No inhibitory molecule or selective metabolic
+  rescue was demonstrated.
+- Remove the antagonism-to-cross-feeding arrow. Shared-metabolite compensation is proposed, while liquid-versus-static-agar
+  conditions are an explicit alternative. Antagonistic pressure does not itself establish a causal cross-feeding
+  response.
+- Both removed arrows and the removed node have individual decisions; retained nodes carry exact OPEN
+  knowledge-gap anchors. Broad metabolite classes remain without fictitious concentrations. GO and CHEBI
+  preferred labels align with the retained canonical labels.
+- All raw non-graph blocks remain byte-identical, not certified.1533 stays OPEN for canonical membership/strain
+  grounding, CF313 role and ten-isolate assembly versus selected-member model. All920 caches and459 other
+  records unchanged; four graph snippets independently matched to fresh primary and cache.
+- Complete biological diff, test assertions and decision ledger reviewed. Both-root participant census
+  unchanged;36 baseline network warnings preserved with zero structural defects. No connectivity matching
+  rule or canonical membership change.
+- 'Initial regression run had535 passes and one failure: the exact participating_taxa USERS set lacked
+  R2A. Added only that intentional new user after the unchanged census was measured; kept the exact-set
+  guard and original failed output/digest, then reran the complete suite.'
+- Actual schema/strict/term/reference/snippet/history/rank/regression gates and output digests recorded.
+  Deterministic repeat rendering and456-page exact description parser verification passed; no browser-screenshot
+  claim. Post-commit docs-current is a separate publication gate.
+- 834 all-state issue titles/bodies searched and85 scoped ignored/hidden local matches; relevant issues
+  read, not every historical comment/PR or matching file.1532 addressed but OPEN until protected-main
+  merge;1533 unresolved. Exact-head GitHub review must be COMMENT, not independent approval.
+- This is an R2A-only repair, without new structure or provider spend. Dairy/kefir source research is
+  not credited as reviewed. Dairy one-community Edison dry run spent zero credits; the separate paid request/report
+  remains pending.
+verification:
+  combined_regressions: 536 passed in 179.05s (0:02:59)
+  new_regression_tests: 5
+  schema_strict_terms_history: Passed with actual output digests
+  references: CLI Total checks counts reported issues, not executed checks. Cache MATCH does not prove
+    scientific entailment or complete provenance. Full extracted primary main text inspected and all4
+    graph snippets independently matched; canonical membership/assembly metadata remains1533. Existing476/1091/1095
+    limitations remain.
+  snippet_counts_by_record:
+    kb/communities/KBase_Synthetic_Bacterial_Community_R2A.yaml:
+      MATCH: 11
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network:
+    existing_findings_preserved: 36
+    added_findings: {}
+    removed_findings: {}
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-r2a-batch58.yaml: c5cb8ae0a42a4d951d11f5b75a00fb656aba694fdabae70ddd6799579158bc05
+    tests/test_causal_review_batch58.py: 77120b16179c078c9ae2ce8cd15e977d426216cb4df23e2af8544277441b2087
+    tests/test_participating_taxa.py: 3b564c447b9cd252546559b0ae5148759a81b81267e8d55c5a35eac49f6662ed
+    kb/communities/KBase_Synthetic_Bacterial_Community_R2A.yaml: 8239899f70763acf1aa6be423b37e77737a7e6367b6203888c96e163e9419753
+    reports/causal_graph_review/README.md: 16fa7866ee2c8b2c4ff4cc9b4596455c0dc51f21b5495ccec4baf5144813fb23
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 390
+      mixed: 124
+      community_level_only: 266
+      taxa: 1505
+      credited_solely_by_the_rule: 1236
+    current:
+      records: 460
+      with_community_level: 390
+      mixed: 124
+      community_level_only: 266
+      taxa: 1505
+      credited_solely_by_the_rule: 1236
+  interpretation: R2A removes one misassigned community-level node, keeps one model node with a partial
+    canonical participant list and retains the pairwise agar assay. Canonical taxonomy is preserved.
+corpus:
+  records: 460
+  nodes: 1460
+  edges: 652
+  review_status_counts:
+    needs_research: 18
+    pending: 250
+    reviewed: 192
+limitations:
+- All three original nodes and both arrows reviewed. Removed one wrong-medium node and both unsupported
+  arrows; no new causal structure or Edison spend for R2A.
+- Full extracted primary main text/Methods/Tables1-2/main captions read. No original figure pixels, external
+  supplements, raw data or independent KBase execution/model replication.
+- 'Canonical taxonomy and all raw non-graph fields preserved, not recertified. #1533 tracks AP49/CF313
+  membership, strain grounding and ten-isolate assembly metadata and must remain OPEN after graph merge.'
+- All920 cache files unchanged;4 graph fragments matched independently to fresh primary and cache. MATCH
+  is not provenance certification of the entire cache or non-graph claims.
+- 834 all-state issue titles/bodies searched;85 matching ignored/hidden local files, with docs/site/cache
+  exclusions. Relevant issues read, not every matching file, historical comment or PR.
+- 'Self-adversarial review is not independent approval. #1532 stays OPEN until protected-main merge. Existing
+  SupportingReference coverage476, writer artifact1095 and Linux DOI lookup1091 limitations remain.'
+- Dairy and kefir source research is in progress and is NOT credited as reviewed by this R2A-only batch.
+  Dairy one-community dry run spent zero credits; paid authorization/report pending.
