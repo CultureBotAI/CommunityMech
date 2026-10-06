@@ -51,33 +51,13 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Exometabolite-Mediated Interaction
-  description: Community members interact chemically through small molecules, extracellular enzymes, and
-    antibiotics in shared medium.
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: N-acyl-L-homoserine lactone
-    term:
-      id: CHEBI:55474
-      label: N-acyl-L-homoserine lactone
-    notes: AHLs were the diffusible quorum-sensing molecules used in the Cv017-Cv026 reporter assay.
-  - preferred_term: antibacterial agent
-    term:
-      id: CHEBI:33282
-      label: antibacterial agent
-    notes: Antibiotics are one exometabolite class assayed from the shared reservoir.
-  biological_processes:
-  - preferred_term: quorum sensing
-    term:
-      id: GO:0009372
-      label: quorum sensing
-  evidence:
-  - *id001
 - name: AHL Diffusion and Violacein Induction
-  description: >
-    Chromobacterium violaceum Cv017 produces acyl-homoserine lactones that diffuse through the
-    Transwell reservoir and induce quorum sensing, vioC transcription, and violacein production in
-    the physically separated Cv026 biosensor.
+  description: In the two-strain reporter demonstration, AHL-producing Cv017 induced violacein and vioC transcription
+    in physically separated Cv026 through the shared reservoir. Replated Cv026 returned to a nonpigmented phenotype,
+    supporting signal-dependent response rather than contamination or a stable pigmented mutant. This supports diffusible
+    signaling in this assay, not a quantified signal dose, all extracellular enzyme classes or causation of the
+    separate three-member metabolomics phenotype. The canonical record currently has only a Bacteria umbrella; exact
+    strain participants remain unresolved rather than being assigned invented CURIEs.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: N-acyl-L-homoserine lactone
@@ -93,32 +73,32 @@ ecological_interactions:
   - reference: PMID:29152587
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: AHLs from Cv017 diffused through wells to induce quorum sensing and violacein
-      production in Cv026
-    explanation: >
-      Demonstrates that a diffusible AHL signal moved across the filter-plate reservoir and activated
-      the Cv026 quorum-sensing biosensor.
+    snippet: AHLs from Cv017 diffused through wells to induce quorum sensing and violacein production in Cv026
+    explanation: Supports the two-strain reporter response across the reservoir; endpoint transcription and replating
+      controls are described in the inspected main body. It is separate from the three-member time series.
 - name: Three-Member Exometabolite Time Series
-  description: >
-    A stationary-phase Burkholderia thailandensis, Chromobacterium violaceum and Pseudomonas syringae
-    Transwell community produced a reproducible nonpolar exometabolite profile in which mass features
-    were depleted, produced de novo, or enriched at early and mid time points.
+  description: 'The separate B. thailandensis E264, source-labeled C. violaceum and P. syringae DC3000 stationary-phase
+    assay showed time-varying nonpolar mass features over 15-35 hours. The 977 features are not 977 identified metabolites,
+    and changes do not resolve producer-consumer flux. Bactobolin was identified separately by polar HILIC-MS/MS;
+    its accumulation does not selectively establish the cause of lower P. syringae live-cell counts in B. thailandensis-containing
+    cultures. No bactobolin-to-inhibition or AHL-to-metabolomics arrow is asserted. The source has a Chromobacterium
+    strain-number discrepancy; taxonomy and a separately supported antagonism node remain pending under #1467.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: antibacterial agent
     term:
       id: CHEBI:33282
       label: antibacterial agent
-    notes: Bactobolin was identified as an accumulated antibacterial feature in the three-member assay.
+    notes: Bactobolin identified separately in the polar HILIC-MS/MS analysis; not an identity assignment for all
+      977 nonpolar features or selective proof of inhibition mediation.
   evidence:
   - reference: PMID:29152587
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We observed both decreases in existing features (clusters A and B) and production of
-      new features over time (clusters D, E, and F)
-    explanation: >
-      Supports time-resolved exometabolite depletion and production in the physically separated
-      three-member demonstration community.
+    snippet: We observed both decreases in existing features (clusters A and B) and production of new features over
+      time (clusters D, E, and F)
+    explanation: Supports temporal mass-feature differences, not resolved exchange flux or mediator-specific causality.
+      The polar bactobolin measurement and live-cell counts are distinct readouts.
 related_ingredients:
 - preferred_term: N-acyl-L-homoserine lactone
   chebi_term:
@@ -180,9 +160,35 @@ curation_history:
 - timestamp: '2026-10-02T05:52:18Z'
   curator: codex
   action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
-  changes: >
-    Removed two downstream edges from the umbrella exometabolite-mediated
-    interaction node to the AHL reporter and three-member exometabolite
-    time-series demonstrations because they represented assay examples rather
-    than causal transitions between ecological interactions.
+  changes: 'Removed two downstream edges from the umbrella exometabolite-mediated interaction node to the AHL reporter
+    and three-member exometabolite time-series demonstrations because they represented assay examples rather than
+    causal transitions between ecological interactions.
+
+    '
   llm_assisted: true
+- timestamp: '2026-10-06T11:03:47Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain the bounded Cv017/Cv026 diffusible reporter response without invented canonical strain endpoints.;
+    Retain nonpolar time-series observations, distinguishing polar bactobolin and live-cell counts from resolved
+    causal mediation. Issue #1467; reports/causal_graph_review/decisions/20261006-three-records-batch42.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: transwell_assay_roster_and_antagonism
+  prompt: Which strain-resolved antagonism belongs alongside the separate Transwell demonstrations?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#AHL Diffusion and Violacein Induction
+  - ecological_interactions#Three-Member Exometabolite Time Series
+  rationale: 'The platform-capability umbrella node is removed; prior workflow-arrow pruning remains intact. The
+    AHL reporter pair and three-member stationary-phase series are distinct experiments. The full primary body supports
+    lower P. syringae live-cell counts with B. thailandensis, but bactobolin accumulation is not selective mediator
+    necessity. New antagonism structure and exact canonical members remain pending #1467; Bacteria/NCBITaxon:2 must
+    not become invented species participants or a self-edge. The source uses SC11,368 in prose versus SC11,378/ATCC31532
+    in its strain table. One-community Edison dry run completed; specific credit authorization requested, no job
+    or spend. Metadata still conflates test-tube versus Transwell cultivation and different assay media; those preserved
+    fields are not certified. Main body, table text and captions read, not figure images, separate supplements or
+    raw spectra.'
+  posed_by: codex
+  posed_date: '2026-10-06'

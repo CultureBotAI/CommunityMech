@@ -266,12 +266,83 @@ taxonomy:
       Names Pseudomonas pergaminensis as one of the nine members of the
       GENIA-designed multipollutant-degrading community.
 ecological_interactions:
-- name: GENIA Multipollutant Assembly
-  description: >
-    GENIA integrated pollutant-growth phenotypes and whole-genome annotations to
-    assemble a community with complementary lignin, atrazine, and PFAS
-    degradation potential across hub and specialist strains.
-  interaction_type: NICHE_PARTITIONING
+- name: Predicted GENIA Metabolic Complementarity
+  description: 'HYPOTHESIZED: Genome annotations and computational network models predict complementary degradation
+    potential across nine selected members, including five predicted generalists and four specialists. Agreement
+    between GENIA and iNAP is computational cross-validation, not measured interspecies metabolite transfer, active
+    expression or catalytic necessity. Growth-screen fluorescence does not independently establish pollutant degradation.
+    The assembly workflow is not itself a biological cause of the measured removal phenotype; no design-to-removal
+    arrow is retained.'
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+  - preferred_term: atrazine
+    term:
+      id: CHEBI:15930
+      label: atrazine
+  - preferred_term: perfluorooctane-1-sulfonic acid
+    term:
+      id: CHEBI:39421
+      label: perfluorooctane-1-sulfonic acid
+  evidence:
+  - reference: PMID:42036878
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: 'Functional classification based on genomic capacity identified two ecological roles: 5 generalist
+      strains (55.6% of consortium) possessing enzymatic capacity across all three pollutant classes
+
+      '
+    explanation: Supports classification based on genomic capacity, not experimentally resolved resource partitioning,
+      metabolite transfer or a causal contribution of each member.
+  participating_taxa:
+  - preferred_term: Atlantibacter hermannii
+    term:
+      id: NCBITaxon:565
+      label: Atlantibacter hermannii
+  - preferred_term: Bacillus cabrialesii
+    term:
+      id: NCBITaxon:2487276
+      label: Bacillus cabrialesii
+  - preferred_term: Bacillus licheniformis
+    term:
+      id: NCBITaxon:1402
+      label: Bacillus licheniformis
+  - preferred_term: Bacillus pseudomycoides
+    term:
+      id: NCBITaxon:64104
+      label: Bacillus pseudomycoides
+  - preferred_term: Micrococcus luteus
+    term:
+      id: NCBITaxon:1270
+      label: Micrococcus luteus
+  - preferred_term: Paenibacillus polymyxa
+    term:
+      id: NCBITaxon:1406
+      label: Paenibacillus polymyxa
+  - preferred_term: Pantoea dispersa
+    term:
+      id: NCBITaxon:59814
+      label: Pantoea dispersa
+  - preferred_term: Pseudomonas fulva
+    term:
+      id: NCBITaxon:47880
+      label: Pseudomonas fulva
+  - preferred_term: Pseudomonas pergaminensis
+    term:
+      id: NCBITaxon:2853159
+      label: Pseudomonas pergaminensis
+- name: Reported GENIA Liquid Pollutant Removal
+  description: 'The source reports consortium removal above the best assayed monoculture: PFOS 93.1%, atrazine 91.4%
+    and lignin 91.6% in the separate treatment comparisons. A distinct seven-day mixed-pollutant experiment reports
+    PFOS 87.1%, atrazine 84.7% and lignin 88.9%; do not substitute the higher figures for this mixture. LC-MS/MS
+    loss and lignin UV-visible changes are community-level endpoints, not proof of reciprocal member benefit, assigned
+    cross-feeding or complete carbon mineralization. The paper reports fluoride and intermediates, but its PFOS
+    fluorine denominator and atrazine nitrogen/method descriptions conflict; removal is retained as source-reported,
+    not independent certification of defluorination efficiency or complete mineralization. Supplements and raw data
+    were not audited.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lignin
@@ -295,95 +366,135 @@ ecological_interactions:
     term:
       id: GO:0006805
       label: xenobiotic metabolic process
-  downstream:
-  - target: Liquid Multipollutant Degradation
-    description: >
-      The genome-informed community architecture yielded synergistic PFOS,
-      atrazine, and lignin removal in minimal medium.
   evidence:
   - reference: PMID:42036878
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      Functional classification based on genomic capacity identified two
-      ecological roles: 5 generalist strains (55.6% of consortium) possessing
-      enzymatic capacity across all three pollutant classes
-    explanation: >
-      Supports role partitioning across generalist and specialist members of the
-      GENIA community.
-- name: Liquid Multipollutant Degradation
-  description: >
-    The assembled nine-member SynCom degraded lignin, atrazine, and PFOS in M9
-    minimal-medium assays at levels greater than the best individually assayed
-    member.
-  interaction_type: MUTUALISM
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: lignin
-    term:
-      id: CHEBI:6457
-      label: lignin
-  - preferred_term: atrazine
-    term:
-      id: CHEBI:15930
-      label: atrazine
-  - preferred_term: perfluorooctane-1-sulfonic acid
-    term:
-      id: CHEBI:39421
-      label: perfluorooctane-1-sulfonic acid
-  biological_processes:
-  - preferred_term: lignin catabolic process
-    term:
-      id: GO:0046274
-      label: lignin catabolic process
-  - preferred_term: xenobiotic metabolic process
-    term:
-      id: GO:0006805
-      label: xenobiotic metabolic process
-  evidence:
+    snippet: 'The 9-member consortium achieved 93.1% PFOS removal (2.23-fold improvement over best individual),
+      91.4% atrazine removal (1.47-fold), and 91.6% lignin removal (1.46-fold).
+
+      '
+    explanation: Source-reported separate-treatment comparison, not mutualism or the lower mixed-pollutant outcomes;
+      mass-balance contradictions prevent adopting complete-mineralization claims.
   - reference: PMID:42036878
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      The 9-member consortium achieved 93.1% PFOS removal (2.23-fold improvement
-      over best individual), 91.4% atrazine removal (1.47-fold), and 91.6% lignin
-      removal (1.46-fold).
-    explanation: >
-      Quantifies emergent community-scale pollutant removal beyond the
-      strongest monoculture benchmarks.
-- name: Community Stability During Degradation
-  description: >
-    Full-length 16S rRNA tracking over the seven-day degradation assay showed
-    that all nine inoculated strains persisted, with the predicted Paenibacillus
-    polymyxa and Pseudomonas pergaminensis hub strains increasing in relative
-    abundance while specialist strains remained detectable.
-  interaction_type: NICHE_PARTITIONING
+    snippet: yielded 84.7 ± 2.3% atrazine, 87.1 ± 3.6% PFOS, and 88.9 ± 2.9% lignin removal after 7 days
+    explanation: The separately reported mixed-pollutant experiment has different endpoints; do not import the higher
+      separate-treatment figures.
+  participating_taxa:
+  - preferred_term: Atlantibacter hermannii
+    term:
+      id: NCBITaxon:565
+      label: Atlantibacter hermannii
+  - preferred_term: Bacillus cabrialesii
+    term:
+      id: NCBITaxon:2487276
+      label: Bacillus cabrialesii
+  - preferred_term: Bacillus licheniformis
+    term:
+      id: NCBITaxon:1402
+      label: Bacillus licheniformis
+  - preferred_term: Bacillus pseudomycoides
+    term:
+      id: NCBITaxon:64104
+      label: Bacillus pseudomycoides
+  - preferred_term: Micrococcus luteus
+    term:
+      id: NCBITaxon:1270
+      label: Micrococcus luteus
+  - preferred_term: Paenibacillus polymyxa
+    term:
+      id: NCBITaxon:1406
+      label: Paenibacillus polymyxa
+  - preferred_term: Pantoea dispersa
+    term:
+      id: NCBITaxon:59814
+      label: Pantoea dispersa
+  - preferred_term: Pseudomonas fulva
+    term:
+      id: NCBITaxon:47880
+      label: Pseudomonas fulva
+  - preferred_term: Pseudomonas pergaminensis
+    term:
+      id: NCBITaxon:2853159
+      label: Pseudomonas pergaminensis
+- name: GENIA DNA Composition and Ratio-Management Comparison
+  description: 'Full-length 16S rRNA gene profiles track relative DNA composition during removal; predicted hub
+    taxa increased in relative abundance and other inoculated taxa remained detectable. These measurements do not
+    establish absolute viable persistence, member-resolved flux or hub necessity. The source also compares self-organizing
+    communities with daily dilution/remixing to equal ratios, reporting lower PFOS and atrazine removal in the remixed
+    condition; the lignin comparison had p=0.092. PARTIAL: this treatment comparison supports a composition-management
+    association with performance, but does not isolate a particular taxon, metabolite or persistence-mediated pathway
+    from the handling intervention.'
   scope: COMMUNITY_LEVEL
   downstream:
-  - target: Liquid Multipollutant Degradation
-    description: >
-      Persistence of the complete inoculated roster maintained the multispecies
-      degradation network during the pollutant-removal time course.
+  - target: Reported GENIA Liquid Pollutant Removal
+    description: 'PARTIAL: Allowing composition to reorganize was associated with greater PFOS and atrazine removal
+      than daily equal-ratio dilution/remixing. This reported intervention supports a bounded community-management
+      effect, not selective proof that persistence or a particular cross-feeding network causes removal. Dilution/remixing
+      changes handling as well as ratios; the reported lignin difference was not significant at p<0.05.'
   evidence:
   - reference: PMID:42036878
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      Hub strains showed predicted expansion: P. polymyxa increased from 11.1%
-      (day 0) to 14.2% (day 3) to 15.6% (day 7), representing a 40.5% relative
-      increase
-    explanation: >
-      Supports molecular tracking of predicted hub-strain dynamics during the
-      degradation assay.
+    snippet: 'Hub strains showed predicted expansion: P. polymyxa increased from 11.1% (day 0) to 14.2% (day 3)
+      to 15.6% (day 7), representing a 40.5% relative increase
+
+      '
+    explanation: Supports source-reported relative DNA composition, not absolute viable abundance or selective causal
+      mediation.
   - reference: PMID:42036878
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      Critically, no invasive taxa (noninoculated strains) exceeded 1% relative
-      abundance at any time point
-    explanation: >
-      Supports persistence of the defined community without takeover by
-      contaminating noninoculated strains.
+    snippet: 'Critically, no invasive taxa (noninoculated strains) exceeded 1% relative abundance at any time point
+
+      '
+    explanation: Supports source-reported relative DNA composition, not absolute viable abundance or selective causal
+      mediation.
+  - reference: PMID:42036878
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Comparison of self-organizing community dynamics vs artificially maintained equal ratios
+    explanation: The primary Results describe daily dilution/remixing with pollutant-specific comparisons; supports
+      only the qualified treatment-level arrow.
+  participating_taxa:
+  - preferred_term: Atlantibacter hermannii
+    term:
+      id: NCBITaxon:565
+      label: Atlantibacter hermannii
+  - preferred_term: Bacillus cabrialesii
+    term:
+      id: NCBITaxon:2487276
+      label: Bacillus cabrialesii
+  - preferred_term: Bacillus licheniformis
+    term:
+      id: NCBITaxon:1402
+      label: Bacillus licheniformis
+  - preferred_term: Bacillus pseudomycoides
+    term:
+      id: NCBITaxon:64104
+      label: Bacillus pseudomycoides
+  - preferred_term: Micrococcus luteus
+    term:
+      id: NCBITaxon:1270
+      label: Micrococcus luteus
+  - preferred_term: Paenibacillus polymyxa
+    term:
+      id: NCBITaxon:1406
+      label: Paenibacillus polymyxa
+  - preferred_term: Pantoea dispersa
+    term:
+      id: NCBITaxon:59814
+      label: Pantoea dispersa
+  - preferred_term: Pseudomonas fulva
+    term:
+      id: NCBITaxon:47880
+      label: Pseudomonas fulva
+  - preferred_term: Pseudomonas pergaminensis
+    term:
+      id: NCBITaxon:2853159
+      label: Pseudomonas pergaminensis
 environmental_factors:
 - name: Liquid-culture PFOS removal
   value: 93.1% removal within 7 days
@@ -638,3 +749,32 @@ associated_datasets:
     explanation: >
       Links the published genome and 16S sequence data to BioProject
       PRJNA1370521.
+discussions:
+- discussion_id: genia_flux_mass_balance_and_intervention_scope
+  prompt: Which mechanisms and quantitative balances can be established independently of the GENIA predictions?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Predicted GENIA Metabolic Complementarity
+  - ecological_interactions#Reported GENIA Liquid Pollutant Removal
+  - ecological_interactions#GENIA DNA Composition and Ratio-Management Comparison
+  rationale: 'Retain reported removal and relative DNA profiles, not mutualism, measured handoffs or necessary hubs.
+    The daily equal-ratio intervention supports only PARTIAL management-level causality because handling and composition
+    change together; lignin p=0.092. A PFOS-only inventory at the stated 37.1 micromolar gives approximately 12.0
+    mg/L fluorine, not the alternatively stated 64.08 mg/L. Methods also mention a PFOA/PFOS mixture, so the true
+    denominator needs treatment-specific reconciliation rather than a blanket impossibility claim. Atrazine concentrations,
+    nitrogen yield and Nessler versus indophenol methods also conflict. Source-reported fluoride/intermediates are
+    not ignored, but no efficiency or complete-mineralization certification follows. Raw data and supplements were
+    not inspected; follow-up #1468 remains open. Existing graph corrections address #1466 without new structure
+    or provider spend.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T11:03:47Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain computational complementarity as a hypothesis and remove the workflow-to-removal arrow.; Retain
+    distinct reported removal endpoints without mutualism, assigned flux or certified mineralization.; Retain DNA
+    composition and the bounded daily-ratio intervention; qualify its existing removal arrow as PARTIAL. Issue #1466;
+    reports/causal_graph_review/decisions/20261006-three-records-batch42.yaml'
+  llm_assisted: true
