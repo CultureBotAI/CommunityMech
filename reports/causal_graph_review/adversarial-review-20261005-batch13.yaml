@@ -121,3 +121,24 @@ verification:
       credited_solely_by_the_rule: 1218
     cumulative_rerun_includes_connectivity_credit_tests: true
   rhizobium_only_new_excerpt: harvesting efficiency reached 45·0–50·0%
+ci_followup:
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1329
+  failed_run: https://github.com/CultureBotAI/CommunityMech/actions/runs/37391484568/job/112037379919
+  disposition: addressed_pending_protected_merge
+  validation_report: reports/causal_graph_review/ci-followup-20261005-batch13-history-base.json
+  finding: A queued event retained the deleted batch12 base branch name, causing the advisory history comparison
+    to fail after the parent had merged and the PR was retargeted.
+  resolution: Compare with the event's immutable base SHA. Reuse the checked-out commit when available and fetch
+    that exact SHA only when absent. An unavailable commit still fails; missing history remains advisory.
+  review_mode: source_based_self_adversarial_review
+  independent_approval: false
+  adversarial_checks:
+  - challenge: Does the change hide schema failures or certify history presence without a usable base?
+    resolution: No. The blocking schema step and all other workflow fields are unchanged. An unavailable base fails,
+      and the executable shell tests distinguish changed records with and without added history.
+  - challenge: Can branch deletion, reuse, advancement or PR retargeting change the recorded comparison?
+    resolution: No mutable branch name is read by the advisory step. Tests reproduce the former failure, then exercise
+      a deleted parent with the remote offline, an advanced branch, and an exact-SHA fallback fetch.
+  - challenge: Does this follow-up change the reviewed biological graph or claim independent approval?
+    resolution: No record, source cache, history artifact, generated page or decision ledger is changed. The follow-up
+      is a self-adversarial CI repair, not independent approval or completion of the full corpus.
