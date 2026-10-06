@@ -103,17 +103,11 @@ taxonomy:
       ethanol to methane
     explanation: Establishes M. harundinacea as a DIET-capable acetoclastic methanogen
 ecological_interactions:
-- name: Ethanol Oxidation and Direct Electron Transfer
-  description: 'Geobacter metallireducens oxidizes ethanol to acetate and CO2, transferring
-    electrons directly to Methanosaeta harundinacea via electrically conductive aggregates.
-    This direct interspecies electron transfer (DIET) bypasses the need for diffusible
-    electron carriers like H2 or formate. The conductive aggregates serve as biological
-    electrical conduits for long-range electron transfer between cells. Aggregate
-    formation is essential for DIET, providing the physical and electrical connection
-    necessary for electron flow from G. metallireducens to M. harundinacea.
-
-    '
-  interaction_type: SYNTROPHY
+- name: Geobacter Ethanol Oxidation
+  description: In the defined Geobacter metallireducens-Methanosaeta harundinacea coculture, Geobacter oxidizes
+    ethanol to acetate and releases electrons for DIET. This is the donor reaction, not a claim that ethanol carbon
+    is directly oxidized to CO2 at this step. The acetate coproduct also contributes to bulk methane through a separate
+    route, not yet represented as its own graph branch.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Geobacter metallireducens
@@ -137,27 +131,24 @@ ecological_interactions:
       id: GO:0006068
       label: ethanol catabolic process
   downstream:
-  - target: Conductive Aggregate-Mediated DIET
-    description: Ethanol metabolism and extracellular electron transfer by
-      aggregate-associated Geobacter feed the conductive aggregates where
-      Geobacter and Methanosaeta exchange electrons by DIET.
+  - target: DIET in Defined Coculture Aggregates
+    description: Ethanol oxidation releases reducing equivalents that Geobacter supplies to the defined partner
+      through DIET. This arrow routes electron supply, not acetate carbon, and does not assert that ethanol oxidation
+      selectively causes aggregate formation.
   evidence:
   - reference: doi:10.1039/C3EE42189A
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Furthermore, Geobacter species, the most abundant bacteria in the aggregates,
-      highly expressed genes for ethanol metabolism and for extracellular electron
-      transfer via electrically conductive pili, suggesting that Geobacter and Methanosaeta
-      species were exchanging electrons via direct interspecies electron transfer
-      (DIET)
-    explanation: Demonstrates ethanol oxidation coupled to direct electron transfer
-      in conductive aggregates
-- name: Conductive Aggregate-Mediated DIET
-  description: >
-    G. metallireducens and M. harundinacea cells in conductive aggregates
-    exchange electrons by direct interspecies electron transfer through
-    electrically conductive pili, replacing diffusible H2 or formate as the
-    interspecies electron carrier.
+    snippet: stoichiometrically converted ethanol to methane
+    explanation: Abstract support for coupled conversion; primary defined-coculture Results and Figure 4 locate
+      the donor reaction. Not environmental gene-expression proof.
+- name: DIET in Defined Coculture Aggregates
+  description: Defined G. metallireducens-M. harundinacea cocultures form mixed aggregates and support DIET; the
+    pilA-deficient Geobacter comparison supports a requirement for its pili-associated machinery under these conditions.
+    This evidence is distinct from Geobacter-species and Methanosaeta concilii expression in brewery-digester aggregates.
+    Aggregate formation itself was not selectively perturbed, and the methanogen electron-entry components remain
+    unresolved. Do not transfer measured conductivity of environmental aggregates to these defined aggregates as
+    a separately measured property.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -176,32 +167,24 @@ ecological_interactions:
       id: GO:0022900
       label: electron transport chain
   downstream:
-  - target: Direct Electron Acceptance and Methanogenesis
-    description: Conductive-aggregate electron transfer delivers electrons to
-      M. harundinacea for carbon dioxide reduction to methane.
+  - target: DIET-Linked Carbon Dioxide Reduction to Methane
+    description: DIET supplies electrons for M. harundinacea CO2 reduction to methane, supported by the defined-coculture
+      radiotracer and pilA comparison. This direction does not allocate acetate-derived methane to the CO2 branch
+      or establish a particular methanogen entry protein.
   evidence:
   - reference: doi:10.1039/C3EE42189A
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Furthermore, Geobacter species, the most abundant bacteria in the aggregates,
-      highly expressed genes for ethanol metabolism and for extracellular electron
-      transfer via electrically conductive pili, suggesting that Geobacter and Methanosaeta
-      species were exchanging electrons via direct interspecies electron transfer
-      (DIET)
-    explanation: Supports conductive aggregate-mediated electron transfer
-      between Geobacter and Methanosaeta cells.
-- name: Direct Electron Acceptance and Methanogenesis
-  description: 'Methanosaeta harundinacea accepts electrons directly from G. metallireducens
-    via DIET and uses them to reduce CO2 to methane. Unlike traditional hydrogen-mediated
-    syntrophy, this process involves direct biological electrical connections through
-    conductive aggregates rather than diffusible intermediates. M. harundinacea''s
-    ability to accept electrons via DIET is particularly significant as it is an obligate
-    acetoclastic methanogen, expanding our understanding of electron transfer mechanisms
-    beyond the more metabolically versatile Methanosarcina species. The electron transfer
-    enables stoichiometric conversion of ethanol to methane in the coculture.
-
-    '
-  interaction_type: MUTUALISM
+    snippet: Transcriptomic, radiotracer, and genetic analysis demonstrated that M. harundinacea accepted electrons
+      via DIET
+    explanation: The abstract identifies experimental DIET evidence in the defined coculture; Figures 4-5 bound
+      aggregate and mutant interpretation.
+- name: DIET-Linked Carbon Dioxide Reduction to Methane
+  description: M. harundinacea accepts DIET electrons for CO2 reduction to methane in the defined coculture, supported
+    by transcript, radiotracer and genetic analyses. Bulk methane also includes acetate conversion. The reported
+    stoichiometry and bicarbonate radiolabel are consistent with roughly one-third of methane arising through CO2
+    reduction, not all methane. This node represents that CO2 route; it does not replace the missing acetate branch
+    or identify the methanogen surface electron receptor.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Methanosaeta harundinacea
@@ -228,13 +211,9 @@ ecological_interactions:
   - reference: doi:10.1039/C3EE42189A
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Furthermore, Geobacter species, the most abundant bacteria in the aggregates,
-      highly expressed genes for ethanol metabolism and for extracellular electron
-      transfer via electrically conductive pili, suggesting that Geobacter and Methanosaeta
-      species were exchanging electrons via direct interspecies electron transfer
-      (DIET)
-    explanation: Establishes M. harundinacea's ability to use DIET-derived electrons
-      for methanogenesis
+    snippet: reduction of carbon dioxide to methane
+    explanation: Supports the CO2-reduction route, not an assertion that every methane carbon follows it. Primary
+      Figures 4c and 5 distinguish the routes.
 environmental_factors:
 - name: Anaerobic Conditions
   value: Strict anaerobic
@@ -411,35 +390,62 @@ metal_notes: Metal/REE detected via environmental factor measurements; Metal/REE
   via keyword matching in description (context-validated)
 discussions:
 - discussion_id: kg-geobacter-methanosaeta-acetate-route-unresolved
-  prompt: >
-    Alongside DIET-driven CO2 reduction, does M. harundinacea also cross-feed on the
-    acetate generated by G. metallireducens ethanol oxidation, and what fraction of
-    methane comes from each route in this defined coculture?
+  prompt: 'Alongside DIET-driven CO2 reduction, does M. harundinacea also cross-feed on the acetate generated by
+    G. metallireducens ethanol oxidation, and what fraction of methane comes from each route in this defined coculture?
+
+    '
+  kind: KNOWLEDGE_GAP
+  status: RESOLVED
+  attaches_to:
+  - ecological_interactions#Geobacter Ethanol Oxidation
+  - ecological_interactions#DIET-Linked Carbon Dioxide Reduction to Methane
+  rationale: The earlier discussion deferred an acetate branch because only the abstract was accessible and secondary
+    attributions were insufficient. The primary full paper is now available and has been read; its defined-coculture
+    evidence resolves the biological/source-access question, while graph implementation remains a separate open
+    curation task.
+  evidence:
+  - reference: doi:10.1039/C3EE42189A
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    explanation: Primary defined-coculture Results and Figures 4c/5, reviewed directly rather than inferred from
+      the environmental expression excerpt or secondary reviews.
+  resolved_date: '2026-10-06'
+  resolution_note: 'Primary Figure 4c separates acetate conversion from DIET-dependent CO2 reduction, and Figure
+    5 supports the route distinction by bicarbonate radiolabel. See the source hash and inspection scope in the
+    batch46 decision ledger. The missing branch remains open under #1482; resolving this discussion does not mark
+    the graph complete.'
+- discussion_id: methanosaeta_entry_and_aggregation_scope
+  prompt: Which methanogen surface components receive DIET electrons?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
-  - ecological_interactions#Ethanol Oxidation and Direct Electron Transfer
-  - ecological_interactions#Direct Electron Acceptance and Methanogenesis
-  rationale: >
-    A causal-graph pass on this record proposed an additional acetate cross-feeding node
-    and an acetate -> methanogenesis edge, on the reasoning that Methanosaeta is
-    classically an acetoclastic genus and that ethanol oxidation by G. metallireducens
-    yields acetate, giving an overall stoichiometry near 1.5 mol CH4 per mol ethanol.
-    That claim is NOT curated here as an interaction: the primary source
-    (doi:10.1039/C3EE42189A) is cached abstract-only and its full text was not
-    retrievable, and the abstract states only that M. harundinacea "accepted electrons
-    via DIET for the reduction of carbon dioxide to methane" - it does not report acetate
-    cross-feeding, the acetate/DIET split, or the per-route methane stoichiometry. The
-    supporting quotations offered for the acetate route came from secondary reviews
-    attributing findings to this study, which per this repo's conservative-curation rule
-    (see CommunityMech:000176) is not a sufficient basis for an exact-system causal edge.
-    Resolving this needs the primary full text or a radiotracer/isotope partition
-    experiment in this exact coculture.
-  evidence:
-  - reference: doi:10.1039/C3EE42189A
-    supports: PARTIAL
-    evidence_source: IN_VITRO
-    snippet: Transcriptomic, radiotracer, and genetic analysis demonstrated that M. harundinacea
-      accepted electrons via DIET for the reduction of carbon dioxide to methane
-    explanation: The abstract demonstrates only the DIET/CO2-reduction route; it is silent on an
-      acetate cross-feeding route, which is why that edge is filed as a gap rather than curated.
+  - ecological_interactions#Geobacter Ethanol Oxidation
+  - ecological_interactions#DIET in Defined Coculture Aggregates
+  - ecological_interactions#DIET-Linked Carbon Dioxide Reduction to Methane
+  rationale: The positive DIET result does not identify the receiver proteins or selectively establish aggregate
+    formation itself as necessary. Targeted perturbations would distinguish these mechanisms. Canonical Methanosaeta/Methanothrix
+    naming is preserved; stronger non-graph aggregate and uniqueness wording is not certified by this graph-only
+    review.
+  posed_by: codex
+  posed_date: '2026-10-06'
+- discussion_id: methanosaeta_acetate_branch_curation
+  prompt: Complete the separately supported acetate branch after Edison review.
+  kind: CURATION_TODO
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Geobacter Ethanol Oxidation
+  - ecological_interactions#DIET in Defined Coculture Aggregates
+  - ecological_interactions#DIET-Linked Carbon Dioxide Reduction to Methane
+  rationale: 'The primary evidence is now available, but an acetate-transfer/conversion branch is new causal structure.
+    A one-community Edison dry run completed without API calls or cost; specific credit authorization and report
+    inspection remain pending under #1482. Do not count the bounded CO2 route as completion of the whole graph.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T12:49:50Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate the donor reaction from aggregate formation and methane carbon allocation.; Retain positive
+    defined-coculture DIET while bounding aggregation and electron-entry claims.; Retain only the CO2 methane route,
+    explicitly not the missing acetate branch. Repair #1480; extension remains #1482; reports/causal_graph_review/decisions/20261006-methanogens-batch46.yaml'
+  llm_assisted: true
