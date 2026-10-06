@@ -1,0 +1,296 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: b2ff78be7c72cf747e8eb5dba398ffd9aa0ca16f
+issues:
+- 1330
+- 1331
+- 1332
+open_nongraph_followups:
+- 1333
+- 746
+issue_deduplication:
+  all_state_issue_titles_bodies: 669
+  ignored_hidden_local_files_included: true
+  comments_exhaustive: false
+  relevant_issues_read:
+  - 1326
+  - 1325
+  - 1322
+  - 1321
+  - 1319
+  - 1317
+  - 1316
+  - 1093
+  - 856
+  - 855
+  - 752
+  - 749
+  - 746
+  - 639
+  - 605
+  - 529
+  - 294
+  finding: No duplicate exact graph issue in searched scope. Existing 746 GTDB followup and broader enum issues
+    remain separate; subsequently created 1329 concerns CI.
+reference_cache_original_hashes:
+  references_cache/doi_10.1128_AEM.00789-16.md: 472f88aa5a51f01cec1bd55f0c241f1a048b0ce5301f211c31b5812cea0f229d
+  references_cache/PMID_27208134.txt: 9d217a9411ef01ac74c463007b02d481416dddf69e9bec7f3e787eb1afd85030
+  references_cache/doi_10.1016_j.ijhydene.2015.05.135.md: 01532520b45cb0bd05fa687240e472da0ce62c716a1a39c17114101dc9c02b8c
+  references_cache/PMID_41684672.md: a79b209e44712340ef9b0c877328edccd0f4b3cd992e851f07a84a4269fd4e1b
+  references_cache/PMID_27877166.md: f5d58eeda0793d84acbba058a501c80b29ecdce8deffb164183367c3c8f7ed3c
+chemical_grounding:
+  butyrate: CHEBI:17968
+  hexanoate: CHEBI:17120
+  sources:
+  - https://www.ebi.ac.uk/chebi/CHEBI:17968
+  - https://www.ebi.ac.uk/chebi/CHEBI:17120
+  note: Official ChEBI conjugate-base relationships verified; four graph groundings corrected, unrelated ingredient
+    fields preserved for issue1333.
+limitations:
+- No new nodes/arrows or Edison spend; five exact renames and three removed arrows.
+- Publisher primary access is selected-section; two other main bodies read. No visual images/supplements claimed.
+- All five reference caches unchanged; no copyrighted full body added to git.
+- Non-graph metadata and canonical taxonomy preserved, not scientifically certified.
+- Source-based self-adversarial review is not independent approval or corpus completion.
+records:
+- path: kb/communities/Clostridium_Cellulovorans_Rhodopseudomonas_Cellulose_Biohydrogen_Coculture.yaml
+  id: CommunityMech:000264
+  original_sha256: 784e79c6f8f3a4e87cabd49443686dce3284ed635752ca1dad687677a88b4004
+  record_sha256: 609d1b7276a71d3a613fe7ffc299e75b6e4862e12c8057e6edf87822ff2816cb
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch20.yaml
+  scope: Whole record and every original node/arrow; primary access scope bounded below.
+  summary: Retain VFA supply and a qualified metabolic link; separate pools and pH feedback from resolved flux.;
+    Retain enhanced output and the ammonium intervention; remove categorical endpoint syntrophy and unmeasured N2-fixation
+    typing.; Preserve expression observations; remove transfer typing and the expression-to-output arrow.
+  renamed_nodes:
+    Transcriptomic Division of Labor: Transcriptomic Responses Associated with Cocultivation
+  node_decisions:
+  - node: VFA Cross-Feeding and pH Stabilization
+    rationale: Retain VFA supply and a qualified metabolic link; separate pools and pH feedback from resolved flux.
+  - node: Integrated Dark and Photo Fermentation for Hydrogen
+    rationale: Retain enhanced output and the ammonium intervention; remove categorical endpoint syntrophy and unmeasured
+      N2-fixation typing.
+  - node: Transcriptomic Responses Associated with Cocultivation
+    rationale: Preserve expression observations; remove transfer typing and the expression-to-output arrow.
+  edges_before:
+  - source: VFA Cross-Feeding and pH Stabilization
+    target: Integrated Dark and Photo Fermentation for Hydrogen
+    description: 'R. palustris consumption of C. cellulovorans volatile fatty acids links cellulose-fed dark fermentation
+      to photofermentative metabolism and the enhanced hydrogen yield.
+
+      '
+  - source: Transcriptomic Division of Labor
+    target: Integrated Dark and Photo Fermentation for Hydrogen
+    description: 'C. cellulovorans cellulosomal induction and R. palustris nitrogenase induction represent the coordinated
+      dark- and photo-fermentative activities that drive enhanced cellulose-fed hydrogen production.
+
+      '
+  edges_after:
+  - source: VFA Cross-Feeding and pH Stabilization
+    target: Integrated Dark and Photo Fermentation for Hydrogen
+    description: VFA supply supports R. palustris photofermentation. PARTIAL - acid consumption can also sustain
+      fermenter activity through a smaller pH decline; partner fluxes and the separate contributions of these routes
+      are not directly resolved.
+  retained_edge_decisions:
+  - source: VFA Cross-Feeding and pH Stabilization
+    target: Integrated Dark and Photo Fermentation for Hydrogen
+    rationale: VFA supply supports R. palustris photofermentation. PARTIAL - acid consumption can also sustain fermenter
+      activity through a smaller pH decline; partner fluxes and the separate contributions of these routes are not
+      directly resolved.
+  removed_edge_decisions:
+  - source: Transcriptomic Division of Labor
+    target: Integrated Dark and Photo Fermentation for Hydrogen
+    description: 'C. cellulovorans cellulosomal induction and R. palustris nitrogenase induction represent the coordinated
+      dark- and photo-fermentative activities that drive enhanced cellulose-fed hydrogen production.
+
+      '
+    rationale: The reported association or attenuated phenotype does not establish this directed causal mechanism.
+  references:
+  - doi:10.1128/AEM.00789-16
+  issues:
+  - 1330
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    doi:10.1128/AEM.00789-16:
+      reference: doi:10.1128/AEM.00789-16
+      equivalent_pmid: PMID:27208134
+      url: https://journals.asm.org/doi/full/10.1128/aem.00789-16
+      reviewed_scope: Cached abstracts plus publicly readable publisher culture Methods and selected Results/Discussion,
+        including ammonium intervention, cellulose degradation, photosynthesis, transcript tables and conceptual-model
+        limitations. Not a full-body, visual-image or supplement review. Browser full-text retrieval succeeded;
+        direct curl returned 403. Separate 2015 physiology body was not obtained.
+      copyright: 2016 ASM; all rights reserved. No full text added to git.
+  history_files:
+  - history/records/Clostridium_Cellulovorans_Rhodopseudomonas_Cellulose_Biohydrogen_Coculture/2026-10-06T002338Z-codex-e65507.yaml
+- path: kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+  id: CommunityMech:000333
+  original_sha256: 2be858bacadcd30dc027e1b78c106675bebf13d50fd5d05221cc09c731e27cd2
+  record_sha256: 2f6a2ce202dc1f694ca8135b2fa16a97affaee218748de4a8de42ebf127a5e7a
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch20.yaml
+  scope: Whole record and every original node/arrow; primary access scope bounded below.
+  summary: Preserve observed label exchange and proposed shuttle, without metabolite-transfer typing or a growth-mediation
+    arrow.; Preserve directed inhibition and assay controls; remove reciprocal-competition typing and the inhibition-to-protection
+    arrow.; Retain directed lactate cross-feeding supported in the binary culture and filtered supernatant.; Retain
+    addition and soluble-medium benefits with OD600/qPCR limits, without colonization or unique shuttle causality.
+  renamed_nodes:
+    Minority-member mediation of community interactions: Fluorescent-Label Exchange and Proposed Minority-Member
+      Shuttle
+    Nitratidesulfovibrio Protection of Clostridial Growth: Nitratidesulfovibrio-Associated Recovery of Second-Phase
+      Growth
+  node_decisions:
+  - node: Fluorescent-Label Exchange and Proposed Minority-Member Shuttle
+    rationale: Preserve observed label exchange and proposed shuttle, without metabolite-transfer typing or a growth-mediation
+      arrow.
+  - node: E. coli-associated inhibition of C. acetobutylicum
+    rationale: Preserve directed inhibition and assay controls; remove reciprocal-competition typing and the inhibition-to-protection
+      arrow.
+  - node: E. coli-to-Clostridium lactate cross-feeding
+    rationale: Retain directed lactate cross-feeding supported in the binary culture and filtered supernatant.
+  - node: Nitratidesulfovibrio-Associated Recovery of Second-Phase Growth
+    rationale: Retain addition and soluble-medium benefits with OD600/qPCR limits, without colonization or unique
+      shuttle causality.
+  edges_before:
+  - source: Minority-member mediation of community interactions
+    target: Nitratidesulfovibrio Protection of Clostridial Growth
+    description: 'N. vulgaris shuttle activity is the mediator phenotype that reshapes the E. coli-C. acetobutylicum
+      relationship in the three-member consortium.
+
+      '
+  - source: E. coli-associated inhibition of C. acetobutylicum
+    target: Nitratidesulfovibrio Protection of Clostridial Growth
+    description: 'E. coli-associated inhibition is the pairwise phenotype attenuated when N. vulgaris is added as
+      a third, minority member.
+
+      '
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions:
+  - source: Minority-member mediation of community interactions
+    target: Nitratidesulfovibrio Protection of Clostridial Growth
+    description: 'N. vulgaris shuttle activity is the mediator phenotype that reshapes the E. coli-C. acetobutylicum
+      relationship in the three-member consortium.
+
+      '
+    rationale: The reported association or attenuated phenotype does not establish this directed causal mechanism.
+  - source: E. coli-associated inhibition of C. acetobutylicum
+    target: Nitratidesulfovibrio Protection of Clostridial Growth
+    description: 'E. coli-associated inhibition is the pairwise phenotype attenuated when N. vulgaris is added as
+      a third, minority member.
+
+      '
+    rationale: The reported association or attenuated phenotype does not establish this directed causal mechanism.
+  references:
+  - PMID:41684672
+  issues:
+  - 1331
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    PMID:41684672:
+      reference: PMID:41684672
+      pmcid: PMC12893348
+      url: https://europepmc.org/articles/PMC12893348
+      path: /private/tmp/communitymech-batch20/PMC12893348.xml
+      sha256: 11e0a13c235db5f00b4929ea591bc75580681bc34beaf93076e84032d1cbe004
+      reviewed_scope: Full Introduction, Results, Discussion, Methods and all seven main figure captions; images/supplements
+        not inspected.
+      license: CC BY; version not inferred
+  history_files:
+  - history/records/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium/2026-10-06T002338Z-codex-3e7140.yaml
+- path: kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+  id: CommunityMech:000202
+  original_sha256: 073efc4de28a6503de9a6ca62e8078c01ef5a5a779fdf31dc7a8dbe960cb6c05
+  record_sha256: 20f83f2018d5e58a63e1886835d1b4728359a8bbc1f3ed5b1f14bf2e828bd217
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch20.yaml
+  scope: Whole record and every original node/arrow; primary access scope bounded below.
+  summary: Retain the supported C2 supply link while distinguishing measured net products from inferred total flux.;
+    Clarify the carboxylate-supply direction and qualify its reduction arrow; correct named anion groundings.; Retain
+    alcohol products and proposed reduction without inventing reverse alcohol donation or a resolved reducing partner.;
+    Preserve tested pH/operating effects as community-level performance, not reciprocal ecological competition.
+  renamed_nodes:
+    Biological Reduction to Longer-Chain Alcohols: Proposed Carboxylate Reduction and Observed Longer-Chain Alcohols
+    pH-Restricted Product Formation: pH-Dependent Process Performance
+  node_decisions:
+  - node: Syngas Fermentation to Ethanol and Acetate
+    rationale: Retain the supported C2 supply link while distinguishing measured net products from inferred total
+      flux.
+  - node: Ethanol-Driven Chain Elongation
+    rationale: Clarify the carboxylate-supply direction and qualify its reduction arrow; correct named anion groundings.
+  - node: Proposed Carboxylate Reduction and Observed Longer-Chain Alcohols
+    rationale: Retain alcohol products and proposed reduction without inventing reverse alcohol donation or a resolved
+      reducing partner.
+  - node: pH-Dependent Process Performance
+    rationale: Preserve tested pH/operating effects as community-level performance, not reciprocal ecological competition.
+  edges_before:
+  - source: Syngas Fermentation to Ethanol and Acetate
+    target: Ethanol-Driven Chain Elongation
+    description: 'C. ljungdahlii syngas fermentation produces ethanol and acetate that C. kluyveri uses for reverse
+      beta-oxidation chain elongation.
+
+      '
+  - source: Ethanol-Driven Chain Elongation
+    target: Biological Reduction to Longer-Chain Alcohols
+    description: 'Chain elongation generates butyrate and hexanoate that C. ljungdahlii can reduce to the longer-chain
+      alcohols detected in the syngas coculture.
+
+      '
+  edges_after:
+  - source: Syngas Fermentation to Ethanol and Acetate
+    target: Ethanol-Driven Chain Elongation
+    description: 'C. ljungdahlii syngas fermentation produces ethanol and acetate that C. kluyveri uses for reverse
+      beta-oxidation chain elongation.
+
+      '
+  - source: Ethanol-Driven Chain Elongation
+    target: Proposed Carboxylate Reduction and Observed Longer-Chain Alcohols
+    description: PARTIAL - chain elongation supplies the carboxylate precursors for the observed longer-chain alcohols.
+      The primary study proposes that C. ljungdahlii reduces them, but does not selectively establish the reducing
+      organism or quantify donor-resolved precursor flux.
+  retained_edge_decisions:
+  - source: Syngas Fermentation to Ethanol and Acetate
+    target: Ethanol-Driven Chain Elongation
+    rationale: 'C. ljungdahlii syngas fermentation produces ethanol and acetate that C. kluyveri uses for reverse
+      beta-oxidation chain elongation.
+
+      '
+  - source: Ethanol-Driven Chain Elongation
+    target: Proposed Carboxylate Reduction and Observed Longer-Chain Alcohols
+    rationale: PARTIAL - chain elongation supplies the carboxylate precursors for the observed longer-chain alcohols.
+      The primary study proposes that C. ljungdahlii reduces them, but does not selectively establish the reducing
+      organism or quantify donor-resolved precursor flux.
+  removed_edge_decisions: []
+  references:
+  - PMID:27877166
+  issues:
+  - 1332
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    PMID:27877166:
+      reference: PMID:27877166
+      pmcid: PMC5099930
+      url: https://europepmc.org/articles/PMC5099930
+      path: /private/tmp/communitymech-batch20/PMC5099930.xml
+      sha256: 1cf9e4323868798a2f4540ed7e4ceea943bd657965ebef33fe0ee3e24687d582
+      reviewed_scope: Full Introduction, Methods, Results, Discussion, two main tables and five figure captions;
+        images/supplements not inspected.
+      license: CC BY 4.0
+  history_files:
+  - history/records/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture/2026-10-06T002339Z-codex-426420.yaml

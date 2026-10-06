@@ -1,0 +1,105 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: b2ff78be7c72cf747e8eb5dba398ffd9aa0ca16f
+decision_ledger: reports/causal_graph_review/decisions/20261005-three-records-batch20.yaml
+validation_report: reports/causal_graph_review/validation-20261005-batch20.json
+scope:
+- kb/communities/Clostridium_Cellulovorans_Rhodopseudomonas_Cellulose_Biohydrogen_Coculture.yaml
+- kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+- kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+findings:
+- issue: 1330
+  severity: P2
+  finding: Expression-to-output causality, N2-fixation typing and hydrogen attribution exceeded assay support.
+  disposition: addressed_and_locally_verified
+- issue: 1331
+  severity: P2
+  finding: Label exchange promoted to growth mediation, reciprocal competition inferred without E. coli harm, and
+    attenuation encoded as a causal arrow.
+  disposition: addressed_and_locally_verified
+- issue: 1332
+  severity: P2
+  finding: Alcohol-donation direction, reducing-partner certainty, process-versus-fitness competition and graph
+    acid/base groundings.
+  disposition: addressed_and_locally_verified
+open_nongraph_followups:
+- issue: 1333
+  disposition: intentionally_not_closed_by_graph_only_patch
+- issue: 746
+  disposition: existing_gtdb_grounding_reproducibility_followup_not_duplicated
+adversarial_checks:
+- 'Every original node and arrow accounted for: eleven nodes retained, five exact renames, three arrows retained/qualified,
+  three removed, none added.'
+- 'Challenge abstract-only hydrogen skepticism with the primary ammonium intervention: retain its positive support
+  while not treating it as complete partner-resolved gas flux.'
+- Keep enhanced hydrogen relative to C. cellulovorans; Methods use different monoculture carbon substrates. Nitrogenase-linked
+  proton reduction is not measured N2 fixation under argon.
+- Do not encode transcriptomic covariance itself as metabolite exchange or as an isolated output driver; keep supported
+  VFA supply and qualified pH feedback.
+- Distinguish engineered fluorescence-label assays from identified native nutrient transfer, shuttle necessity,
+  and causal growth mediation.
+- Keep the cell-free N. vulgaris/E. coli supernatant control; it supports a soluble effect without simultaneous
+  contact with C. acetobutylicum, not complete independence from upstream partner interactions.
+- 'Check the actual COMPETITION definition (-/-): the early E. coli phase is not measurably harmed in the reported
+  comparison. Preserve authors'' passive-competition interpretation without asserting that type.'
+- Retain supported lactate uptake in binary culture and filtered E. coli supernatant; do not erase the metabolic
+  interaction when qualifying other mechanisms.
+- Second-phase optical-density doubling estimates and genomic copies/ng DNA are not direct species-resolved live-cell
+  doubling counts. Preserve the authors' growth-phase interpretation with these assay bounds.
+- Keep both syngas metabolic links, making the C. kluyveri-to-C. ljungdahlii direction explicitly proposed acid
+  supply, not reversed ethanol supply.
+- Coculture alcohol output does not imply alcohol donation to C. kluyveri. The reducing-organism assignment remains
+  inferred; discussion of C. kluyveri alcohol capability does not quantify its contribution in this reactor.
+- The two-thirds ethanol figure comes from stoichiometric reconstruction; do not treat net products or calculated
+  total production as directly traced interspecies flux.
+- Correct named butyrate/hexanoate anions using official ChEBI conjugate relationships, while retaining pH-dependent
+  undissociated acids in the mechanism discussion.
+- One reactor, altered medium flow, phased pH values and operational disturbances are not independent replicated
+  pH treatments or proof of reciprocal fitness competition.
+- Participant list is exactly the two existing canonical syngas taxa; full connectivity tests and the exact registry
+  guard run without weakening bounds.
+- Unrelated metadata remains byte-preserved and not scientifically certified; issue1333 and existing746 remain open.
+- Selected publisher primary sections plus two full primary main bodies reviewed. No figure-image/supplement review
+  or independent approval is claimed. Caches unchanged, full copyrighted body not added.
+verification:
+  status: local_validation_complete
+  checks: 30
+  records: 460
+  nodes: 1474
+  edges: 710
+  review_status_counts:
+    needs_research: 3
+    pending: 348
+    reviewed: 109
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  unchanged_raw_blocks: 48
+  snippet_counts:
+    MATCH: 75
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1460
+    edge_descriptions: 702
+  render_determinism: passed
+  regressions: 254 passed in 157.48s (0:02:37)
+  rights: 3 passed in 1.54s
+  rights_import_root_verified: true
+  caches_unchanged: true
+  primary_artifact_hashes_rechecked: true
+  participant_registry_change: Add only the intentional syngas user; exact-set equality and connectivity bounds
+    retained.
+  connectivity_survey:
+    records: 460
+    with_community_level: 385
+    mixed: 118
+    community_level_only: 267
+    taxa: 1491
+    credited_solely_by_the_rule: 1218

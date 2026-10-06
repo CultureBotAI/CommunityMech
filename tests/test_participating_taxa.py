@@ -214,6 +214,7 @@ USERS = {
     "Chromium_Sulfur_Reduction_Enrichment.yaml",
     "Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture.yaml",
     "Clostridium_Caldicellulosiruptor_Minimal_Medium_Coculture.yaml",
+    "Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml",
     "Clostridium_Phytofermentans_Ecoli_Cellobiose_Biofilm_Consortium.yaml",
     "Community_G_GenX_Biodegradation_Consortium.yaml",
     "Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium.yaml",
