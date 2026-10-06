@@ -5,6 +5,19 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch47: Geobacter-Pseudomonas
+
+[Decisions](decisions/20261006-geobacter-pseudomonas-batch47.yaml),
+[validation](validation-20261006-batch47.json) and
+[self-adversarial review](adversarial-review-20261006-batch47.yaml) correct the
+electron donor direction and distinguish positive cytochrome/growth evidence,
+observed adaptation and added-compound inhibition from unresolved mechanisms.
+All four nodes are retained; the serial-transfer chronology arrow is removed.
+The 2018 full text was unavailable. Later transfer-route and competition
+mechanisms remain knowledge gaps, not new demonstrated causal links.
+Explicit community participants add one mixed-scope record; the validation
+records the measured census delta and the corresponding one-record test update.
+
 ## Batch46: Methanogen DIET Pairs
 
 [Decisions](decisions/20261006-methanogens-batch46.yaml),

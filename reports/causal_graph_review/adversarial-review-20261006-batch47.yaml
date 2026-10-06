@@ -1,0 +1,131 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: c52efa3ed75e43812b394a62cbcd5559c3c634ab
+scope:
+- kb/communities/Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-geobacter-pseudomonas-batch47.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch47.json
+findings:
+- issue: 1485
+  severity: P2
+  status: addressed_in_this_change
+  finding: Correct Pseudomonas-to-Geobacter electron direction; retain positive mutant/growth evidence;
+    remove the chronology arrow; separate population adaptation and added-PHZ-1-CA response from unproven
+    competition.
+  disposition: Close only after protected main merge.
+adversarial_checks:
+- Whole 374-line record and all four original nodes/two arrows reviewed. Complete 2018 primary abstract;
+  complete cached 2020 main body, Methods, Tables 1-2 and embedded captions. 2018 full text unavailable.
+  No figure images, separate supplements, raw data or analysis code inspected; attempted PDF screenshots
+  failed.
+- Correct the existing electron donor direction to Pseudomonas-to-Geobacter using canonical endpoints
+  and the explicit 2020 Results interpretation, not the common but wrong assumption that Geobacter must
+  always be the donor. This is an inferred direction in the described system, not a quantified flux.
+- Retain positive omcZ/omcS growth-perturbation and phz-mutant-growth evidence from the primary abstract,
+  not protein association alone. Preserve SYNTROPHY in the transfer node. The retained growth-enabling
+  arrow is PARTIAL because exclusive route mediation, complementation and pleiotropic mutant controls
+  were not established by the accessible material.
+- Remove the early-growth-to-later-dominance arrow as serial-transfer chronology. Retain observed dominance,
+  variant selection and protein changes without categorical COMPETITION, killing, variant-caused dominance
+  or complete partner independence. qPCR and FISH scope and failed isolation attempts remain explicit.
+- Later HybA/FdnG observations and hydrogen/direct-formate interpretations remain in the existing adaptation
+  node and a focused knowledge gap. No measured flux, resolved route switch or extra causal edge is invented;
+  no Edison job or credit spend occurred for this existing-structure repair.
+- Separate added commercial PHZ-1-CA inhibitory capacity from endogenous Pseudomonas antagonism. Coculture
+  PHZ-1-CA was below detection; this exposure did not select the reported variants, and variants also
+  arose with phz mutants. Neither all phenazine effects nor every alternative mediator is excluded. Remove
+  the unsupported PHZ-1-CA assignment from the adaptation node.
+- Schema review identified a remaining experimental sequencing evidence item mislabeled as COMPUTATIONAL.
+  Corrected before verification through the guarded writer, without rerunning append-only history. SWATH-MS
+  and sequence observations are IN_VITRO; they remain distinct from mechanistic predictions.
+- Main Methods and Results/Table 2 disagree on MIC duration units. The record does not silently choose
+  a precise duration. No source-cache change or invented snippet was used to hide this limitation.
+- Graph and test diffs inspected. All four nodes retained; two arrows to one. One guarded record, one
+  append-only history and one regenerated community page. All 459 other records, 920 caches, taxonomy
+  and non-graph raw blocks preserved, not certified.
+- Schema, strict, terms, references, snippets, rank and history gates passed with actual output digests.
+  All 34 network findings unchanged, zero structural defects. Repeat renders deterministic and descriptions
+  parser-checked across 456 pages without a browser screenshot claim.
+- Five new tests plus historical/shared regressions passed. Actual connectivity survey changes 388 to389
+  community-level, 125 to126 mixed and1496 to1498 taxa; community-level-only263 and solely-credited1223
+  unchanged. Participant registry194 to195. Only the corresponding mixed upper bound increases by one
+  with issue rationale; production matching logic and all other bounds unchanged.
+- Dedup includes798 all-state issue titles/bodies and ignored/hidden local files; no matching issue found.
+  Not every issue comment or PR review inspected. Self-adversarial review is not independent approval;
+  exact-head COMMENT, actual post-commit docs-current and protected main merge remain separate gates.
+verification:
+  combined_regressions: 466 passed in 189.53s (0:03:09)
+  new_regression_tests: 5
+  schema_strict_terms_history: Passed with actual outputs and digests
+  references: CLI Total checks counts reported issues, not executed checks. Exit0 is no reported issues,
+    not source verification. SupportingReference coverage (#476), Linux DOI-cache lookup (#1091) and selected-cache
+    provenance (#1362) remain limitations.
+  snippet_counts_by_record:
+    kb/communities/Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.yaml:
+      MATCH: 24
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network:
+    existing_findings_preserved: 34
+    added_findings: {}
+    removed_findings: {}
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-geobacter-pseudomonas-batch47.yaml: 8b4626d33a105e5ea3ff06a52dd67746f1d2823bf88c90bcfa4be054cae300b7
+    tests/test_causal_review_batch47.py: 4551b91cfb6885f4d7dc0c2aed58a68d5b3aab1c27ee4ec5c4d1e09537e7bef8
+    tests/test_participating_taxa.py: f9c46f0d44b0f8fb8aeb54ae3d7b92a9ad25729aae775c1bbc7c889028ac3c29
+    tests/test_community_level_connectivity_credit.py: b65e760b0a6a876a532ce4595fd713d3fa55495661ad76be1e13137a22a07806
+    kb/communities/Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.yaml: 23bc65dd7bc600d926ad4f080c7f5af377da12558d2602e08f8c77324bab6fe1
+    reports/causal_graph_review/README.md: 06bfd5f70fbd8f1ca39027c492d97ef9f63e73eb6f6b2382a574afeda27cee12
+  post_commit_docs_current: Separate publication gate; not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 388
+      mixed: 125
+      community_level_only: 263
+      taxa: 1496
+      credited_solely_by_the_rule: 1223
+    current:
+      records: 460
+      with_community_level: 389
+      mixed: 126
+      community_level_only: 263
+      taxa: 1498
+      credited_solely_by_the_rule: 1223
+  interpretation: One two-member record adds community-level growth/adaptation outcomes while retaining
+    pairwise transfer and an intrinsic response. Registry 194 to 195; mixed-scope upper bound 125 to 126
+    for this measured one-record delta. Other bounds and production matching logic unchanged.
+corpus:
+  records: 460
+  nodes: 1465
+  edges: 680
+  review_status_counts:
+    needs_research: 14
+    pending: 277
+    reviewed: 169
+limitations:
+- Whole 374-line record and all four original nodes/two arrows read. Complete 2018 primary abstract and
+  2020 cached main body, Methods, Tables 1-2 and embedded captions read; 2018 full text unavailable. No
+  figure images, separate supplements, raw data or analysis code inspected. PDF text access and failed
+  figure screenshots are not a complete PDF/figure audit.
+- 'Existing graph repair: four nodes retained, two to one PARTIAL arrow. Later HybA/FdnG observations
+  and their unquantified route implications are retained within the adaptation node and knowledge gap;
+  no experimentally resolved extra route or causal dominance mediator is invented. No Edison job or provider
+  spend was required for this existing-structure correction.'
+- All taxonomy, non-graph raw blocks, prior history and 920 source caches preserved, not certified. Stronger
+  overview wording remains outside this graph-scoped repair. Source-only PAIRWISE is the established intrinsic-response
+  convention, not a self-edge.
+- The 2020 cache says abstract_only but appends the primary main text. PHZ-1-CA was added commercially
+  and below detection in cocultures. Main Methods and Results/Table 2 disagree on duration units, so no
+  precise duration is asserted.
+- Reference CLI Total checks counts reported issues, not executed checks. SupportingReference coverage
+  (#476), Linux DOI-cache lookup (#1091) and independent selected-cache provenance (#1362) remain limitations;
+  matching text is not scientific support.
+- Self-adversarial review is not independent approval. Protected-main merge and full-corpus completion
+  remain pending.

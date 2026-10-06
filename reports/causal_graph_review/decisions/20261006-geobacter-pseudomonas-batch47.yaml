@@ -1,0 +1,130 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: c52efa3ed75e43812b394a62cbcd5559c3c634ab
+baseline_commit: c52efa3ed75e43812b394a62cbcd5559c3c634ab
+base_tree: 0f7d6ff2043a642b918cfa9f30b87075f715efe4
+pre_source_baseline_sha256: 9052f3954a983bbb841eae03d20bc12ed51a2227cc27bc50343917752d2e1e18
+issues:
+- 1485
+issue_deduplication:
+  all_state_issue_titles_and_bodies: 798
+  ignored_hidden_local_search: true
+  matching_issues: 0
+  matching_local_files: 14
+  limitations: No exhaustive inspection of all issue comments or PR reviews.
+reference_cache_original_hashes:
+  references_cache/PMID_28992596.md: 4fc74157445742ab973ced9ea9805ec9bd316ffd0a7656f6eb09fdf100ea04fb
+  references_cache/PMID_32265334.md: bf684a78b6f55a6436232d82760087d53595ee82d23d122d3b079ab4852a2286
+limitations:
+- Whole 374-line record and all four original nodes/two arrows read. Complete 2018 primary abstract and 2020 cached
+  main body, Methods, Tables 1-2 and embedded captions read; 2018 full text unavailable. No figure images, separate
+  supplements, raw data or analysis code inspected. PDF text access and failed figure screenshots are not a complete
+  PDF/figure audit.
+- 'Existing graph repair: four nodes retained, two to one PARTIAL arrow. Later HybA/FdnG observations and their
+  unquantified route implications are retained within the adaptation node and knowledge gap; no experimentally resolved
+  extra route or causal dominance mediator is invented. No Edison job or provider spend was required for this existing-structure
+  correction.'
+- All taxonomy, non-graph raw blocks, prior history and 920 source caches preserved, not certified. Stronger overview
+  wording remains outside this graph-scoped repair. Source-only PAIRWISE is the established intrinsic-response convention,
+  not a self-edge.
+- The 2020 cache says abstract_only but appends the primary main text. PHZ-1-CA was added commercially and below
+  detection in cocultures. Main Methods and Results/Table 2 disagree on duration units, so no precise duration is
+  asserted.
+- Reference CLI Total checks counts reported issues, not executed checks. SupportingReference coverage (#476), Linux
+  DOI-cache lookup (#1091) and independent selected-cache provenance (#1362) remain limitations; matching text is
+  not scientific support.
+- Self-adversarial review is not independent approval. Protected-main merge and full-corpus completion remain pending.
+records:
+- path: kb/communities/Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.yaml
+  id: CommunityMech:000201
+  original_sha256: dbef08d1731c382db77222a55e9b0ea021f739c52993a737a73b35007e328fb4
+  record_sha256: 23bc65dd7bc600d926ad4f080c7f5af377da12558d2602e08f8c77324bab6fe1
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-geobacter-pseudomonas-batch47.yaml
+  scope: Whole record and all original nodes/arrows; measured phenotypes separated from proposed causal mechanisms.
+  summary: Correct Pseudomonas-to-Geobacter electron direction; retain positive mutant/growth evidence; remove the
+    chronology arrow; separate population adaptation and added-PHZ-1-CA response from unproven competition.
+  renamed_nodes:
+    Direct Interspecies Electron Transfer Establishment: Cytochrome-Associated Interspecies Electron Transfer
+    Adaptation Toward Geobacter-Dominated Competition: Geobacter-Dominated Coculture Adaptation
+    Phenazine-Associated Inhibition Pressure: Inhibitory Response to Added Phenazine-1-Carboxylic Acid
+  node_decisions:
+  - node: Restricted-Medium Cooperative Growth
+    rationale: Retain the measured initial coculture growth contrast with both canonical participants; no all-stage
+      dependence or chronology-causation claim.
+  - node: Cytochrome-Associated Interspecies Electron Transfer
+    rationale: Correct donor/recipient using canonical endpoints and primary direction; retain positive cytochrome-mutant
+      evidence and SYNTROPHY while bounding DIET route exclusivity.
+  - node: Geobacter-Dominated Coculture Adaptation
+    rationale: Retain community dominance, variant/protein observations and bounded HybA/FdnG interpretations; remove
+      categorical competition and irrelevant PHZ-1-CA assignment.
+  - node: Inhibitory Response to Added Phenazine-1-Carboxylic Acid
+    rationale: Retain measured added-compound response as Geobacter intrinsic capacity, not demonstrated endogenous
+      Pseudomonas antagonism; preserve compound-specific negative selection evidence.
+  removed_node_decisions: []
+  edges_before:
+  - source: Restricted-Medium Cooperative Growth
+    target: Adaptation Toward Geobacter-Dominated Competition
+    description: 'The restricted formate-fumarate coculture established Geobacter-Pseudomonas syntrophy as the starting
+      state for serial transfers that later selected Geobacter dominance and a shift toward competition.
+
+      '
+  - source: Direct Interspecies Electron Transfer Establishment
+    target: Restricted-Medium Cooperative Growth
+    description: 'Upregulation of DIET-associated cytochromes in the initial cocultures helps establish the syntrophic
+      electron transfer needed for growth in restricted formate-fumarate medium.
+
+      '
+  edges_after:
+  - source: Cytochrome-Associated Interspecies Electron Transfer
+    target: Restricted-Medium Cooperative Growth
+    description: 'PARTIAL: Pseudomonas-to-Geobacter electron transfer could couple Pseudomonas formate use to Geobacter
+      fumarate respiration and thereby support initial cooperative growth. Cytochrome-deficient cocultures showed
+      impaired growth and initial cytochrome abundance was elevated, supporting this direction; the accessible evidence
+      does not selectively establish an exclusive DIET route or exclude pleiotropic mutant effects. This is not
+      a causal claim that protein upregulation itself creates electron transfer.'
+  retained_edge_decisions:
+  - source: Cytochrome-Associated Interspecies Electron Transfer
+    target: Restricted-Medium Cooperative Growth
+    description: 'PARTIAL: Pseudomonas-to-Geobacter electron transfer could couple Pseudomonas formate use to Geobacter
+      fumarate respiration and thereby support initial cooperative growth. Cytochrome-deficient cocultures showed
+      impaired growth and initial cytochrome abundance was elevated, supporting this direction; the accessible evidence
+      does not selectively establish an exclusive DIET route or exclude pleiotropic mutant effects. This is not
+      a causal claim that protein upregulation itself creates electron transfer.'
+    rationale: Positive growth perturbation plus abundance evidence supports electron supply enabling growth; precise
+      route mediation remains PARTIAL.
+  removed_edge_decisions:
+  - source: Restricted-Medium Cooperative Growth
+    target: Adaptation Toward Geobacter-Dominated Competition
+    description: 'The restricted formate-fumarate coculture established Geobacter-Pseudomonas syntrophy as the starting
+      state for serial transfers that later selected Geobacter dominance and a shift toward competition.
+
+      '
+    rationale: Serially transferring an initially growing culture before observing dominance is experimental chronology,
+      not a demonstrated growth-to-competition causal mechanism.
+  references:
+  - PMID:28992596
+  - PMID:32265334
+  issues:
+  - 1485
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture/2026-10-06T131449Z-codex-7d0c94.yaml
+  source_review:
+    PMID:28992596:
+      cache: references_cache/PMID_28992596.md
+      url: https://pubmed.ncbi.nlm.nih.gov/28992596/
+      scope: Complete primary abstract only; full text unavailable.
+      sha256: 4fc74157445742ab973ced9ea9805ec9bd316ffd0a7656f6eb09fdf100ea04fb
+    PMID:32265334:
+      cache: references_cache/PMID_32265334.md
+      url: https://doi.org/10.1128/mBio.02875-19
+      scope: Complete appended primary main body, Methods, Tables 1-2 and embedded captions; no figure images or
+        separate supplements.
+      sha256: bf684a78b6f55a6436232d82760087d53595ee82d23d122d3b079ab4852a2286
