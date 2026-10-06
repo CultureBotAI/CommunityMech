@@ -268,12 +268,13 @@ taxonomy:
       measured acetate-oxidation phenotype.
 ecological_interactions:
 - name: Magnetite-enhanced methanogenesis under sulfate stress
-  description: >
-    Adding 10 g/L magnetite to the 0.6 g/L sulfate condition relieved the
-    sulfate-associated methane-production penalty, reduced sulfide stress
-    through precipitation, and increased CH4 production by 19% relative to the
-    sulfate-only treatment without eliminating sulfate-reducer activity.
-  interaction_type: SYNTROPHY
+  description: At 0.6 g/L sulfate, 10 g/L magnetite increased cumulative methane by 19% relative to the sulfate-only
+    treatment in five-day batch assays, without reducing sulfate consumption. This is partial improvement, not full
+    sulfate-free recovery or rescue at 1.2 g/L sulfate. Separate abiotic tests showed sulfide removal and sulfur
+    retained on magnetite, but elemental analysis did not resolve sulfur species and no abiotic hydrogen accumulation
+    was detected. These results support toxicity mitigation as a contributing interpretation; they do not isolate
+    its mediation of the methane response or demonstrate syntrophy or direct interspecies electron transfer. The
+    four guilds identify an incomplete community context, not all organisms contributing to the bulk endpoints.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: sulfate
@@ -301,30 +302,48 @@ ecological_interactions:
   - reference: PMID:42231497
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      the presence of magnetite reversed the sulfate-induced inhibition at 0.6
-      g/L sulfate, resulting in a 19% increase in CH4 production in MAGN_0.6
-      compared to SULF_0.6
-    explanation: >
-      Supports the 19% methane-production rescue by magnetite at moderate
-      sulfate stress.
+    snippet: 'the presence of magnetite reversed the sulfate-induced inhibition at 0.6 g/L sulfate, resulting in
+      a 19% increase in CH4 production in MAGN_0.6 compared to SULF_0.6
+
+      '
+    explanation: Supports the moderate-sulfate methane improvement and sulfide-removal interpretation, not complete
+      rescue, high-sulfate efficacy, demonstrated DIET or selectively established biotic mediation.
   - reference: PMID:42231497
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      Magnetite reduced dissolved sulfide species accumulation via
-      precipitation and increased methane production by 19% at 0.6 g/L sulfate
-      addition without limiting sulfate utilization.
-    explanation: >
-      Supports the combined sulfide-scavenging and methane-enhancing outcome.
+    snippet: 'Magnetite reduced dissolved sulfide species accumulation via precipitation and increased methane production
+      by 19% at 0.6 g/L sulfate addition without limiting sulfate utilization.
+
+      '
+    explanation: Supports the moderate-sulfate methane improvement and sulfide-removal interpretation, not complete
+      rescue, high-sulfate efficacy, demonstrated DIET or selectively established biotic mediation.
+  participating_taxa:
+  - preferred_term: Methanoculleus methanogenic MAGs
+    term:
+      id: NCBITaxon:45989
+      label: Methanoculleus
+  - preferred_term: putative sulfate-reducing MAGs
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  - preferred_term: Limnochordia homoacetogenic MAGs
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  - preferred_term: Dethiobacteria syntrophic acetate-oxidizing MAGs
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
 - name: Acetate-centered four-guild redox cycling
-  description: >
-    Genome-scale metabolic models for the representative methanogen, SRB,
-    homoacetogen, and SAOB MAGs supported acetate turnover in which the
-    homoacetogen consumes H2 and CO2 to secrete acetate, and acetate is then
-    oxidized back to H2 and CO2 by SAOB or used by SRB as an electron donor for
-    sulfate reduction.
-  interaction_type: CROSS_FEEDING
+  description: 'HYPOTHESIZED - condition-specific four-member GEMs predict acetate-centered exchange: a homoacetogen
+    uses H2/CO2 and secretes acetate, a syntrophic acetate oxidizer returns H2/CO2, and a putative sulfate reducer
+    oxidizes acetate while reducing sulfate, with the shared pool supporting hydrogenotrophic methanogenesis. Representatives
+    are Methanoculleus DTU8, Halopseudomonas DTU25, Limnochordia DTU38 and Dethiobacteria DTU36, not every MAG in
+    the four canonical guild placeholders. Models were gap-filled and curated for expected roles, constrained by
+    measured reactor outputs, and analyzed using MICOM cooperative trade-off 0.7 and flux-space sampling. Agreement
+    is stoichiometric feasibility under assumptions, not independent validation, measured partner flux or demonstrated
+    DIET. One biological replicate per sequenced condition and relative MAG abundances cannot establish replicated
+    absolute guild growth.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Methanoculleus methanogenic MAGs
@@ -348,22 +367,32 @@ ecological_interactions:
     term:
       id: CHEBI:18276
       label: dihydrogen
+    notes: Modeled exchange context, not experimentally assigned donor-recipient flux. Computational evidence and
+      model assumptions qualify this annotation.
   - preferred_term: carbon dioxide
     term:
       id: CHEBI:16526
       label: carbon dioxide
+    notes: Modeled exchange context, not experimentally assigned donor-recipient flux. Computational evidence and
+      model assumptions qualify this annotation.
   - preferred_term: acetate
     term:
       id: CHEBI:30089
       label: acetate
+    notes: Modeled exchange context, not experimentally assigned donor-recipient flux. Computational evidence and
+      model assumptions qualify this annotation.
   - preferred_term: sulfate
     term:
       id: CHEBI:16189
       label: sulfate
+    notes: Modeled exchange context, not experimentally assigned donor-recipient flux. Computational evidence and
+      model assumptions qualify this annotation.
   - preferred_term: methane
     term:
       id: CHEBI:16183
       label: methane
+    notes: Modeled exchange context, not experimentally assigned donor-recipient flux. Computational evidence and
+      model assumptions qualify this annotation.
   biological_processes:
   - preferred_term: methanogenesis
     term:
@@ -377,31 +406,31 @@ ecological_interactions:
   - reference: PMID:42231497
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: >
-      The curated GEMs of the individual species were then integrated into
-      multispecies community networks, one per condition, i.e., for CTRL,
-      SULF_0.6, and MAGN_0.6.
-    explanation: >
-      Identifies the condition-specific four-member community GEMs behind the
-      flux predictions.
+    snippet: 'The curated GEMs of the individual species were then integrated into multispecies community networks,
+      one per condition, i.e., for CTRL, SULF_0.6, and MAGN_0.6.
+
+      '
+    explanation: Supports constrained model feasibility of acetate-centered exchanges, not direct transfer measurements
+      or independent validation of roles assigned during model curation.
   - reference: PMID:42231497
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: >
-      Solution-space sampling further identified acetate as a central
-      intermediate, produced and consumed by multiple guilds, with its turnover
-      redistributing carbon and reducing equivalents across the community and
-      thereby influencing methane formation.
-    explanation: >
-      Supports acetate as the shared intermediate in the modeled four-guild
-      redox cycle.
-- name: Model-predicted amino-acid and organic-acid exchange
-  description: >
-    Flux-space sampling of the community GEMs predicted exchange of glucogenic
-    amino acids and short-chain organic acids among the four modeled guilds,
-    with the homoacetogen, SAOB, and methanogen acting as major exchange hubs
-    and the SRB predicted to import several amino acids.
+    snippet: 'Solution-space sampling further identified acetate as a central intermediate, produced and consumed
+      by multiple guilds, with its turnover redistributing carbon and reducing equivalents across the community
+      and thereby influencing methane formation.
+
+      '
+    explanation: Supports constrained model feasibility of acetate-centered exchanges, not direct transfer measurements
+      or independent validation of roles assigned during model curation.
   interaction_type: CROSS_FEEDING
+- name: Model-predicted amino-acid and organic-acid exchange
+  description: HYPOTHESIZED - flux-space sampling of the four representative GEMs predicts exchange of amino acids
+    and organic acids, with the homoacetogen, acetate oxidizer and methanogen serving as modeled hubs and the putative
+    sulfate reducer importing multiple amino acids. The reported heatmaps select mean exchange fluxes above 0.1
+    mmol/gDW/hour from feasible solutions; these are model summaries, not extracellular metabolomics or traced donor-recipient
+    rates. Multiple solutions satisfy the imposed constraints, and regulation, protein capacity and kinetics are
+    not resolved. These exchanges could support alternative metabolic routes, but actual necessity, universal mutualism
+    and specific partner transfers remain untested.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Methanoculleus methanogenic MAGs
@@ -425,6 +454,8 @@ ecological_interactions:
     term:
       id: CHEBI:33709
       label: amino acid
+    notes: Modeled exchange context, not experimentally assigned donor-recipient flux. Computational evidence and
+      model assumptions qualify this annotation.
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
@@ -434,15 +465,14 @@ ecological_interactions:
   - reference: PMID:42231497
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: >
-      Flux-space sampling of the community model further provided a
-      comprehensive view of feasible interspecies exchange patterns, not easily
-      measurable in vivo (Supplementary material 3), suggesting extensive
-      exchange of amino acids and short-chain organic acids among the four
-      functional groups
-    explanation: >
-      Supports predicted amino-acid and organic-acid exchange among the modeled
-      methanogen, SRB, homoacetogen, and SAOB guilds.
+    snippet: 'Flux-space sampling of the community model further provided a comprehensive view of feasible interspecies
+      exchange patterns, not easily measurable in vivo (Supplementary material 3), suggesting extensive exchange
+      of amino acids and short-chain organic acids among the four functional groups
+
+      '
+    explanation: Supports computationally feasible exchange candidates and their modeled hubs, not experimentally
+      measured amino-acid transfer or obligate dependence.
+  interaction_type: CROSS_FEEDING
 environmental_factors:
 - name: moderate sulfate stress
   value: 0.6
@@ -633,59 +663,82 @@ metal_notes: >
   was not cultivated for iron recovery or biomining.
 discussions:
 - discussion_id: kg-magnetite-sulfate-diet-validation
-  prompt: >
-    Which members directly exchange electrons through magnetite or biological
-    conductive structures in the sulfate-stressed anaerobic microbiome?
+  prompt: 'Which members directly exchange electrons through magnetite or biological conductive structures in the
+    sulfate-stressed anaerobic microbiome?
+
+    '
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#Acetate-centered four-guild redox cycling
-  rationale: >
-    The Microbiome study links magnetite addition to a cooperative four-guild
-    network and model-feasible metabolite exchange, but direct DIET validation
-    was outside the experiment.
+  rationale: 'The Microbiome study links magnetite addition to a cooperative four-guild network and model-feasible
+    metabolite exchange, but direct DIET validation was outside the experiment.
+
+    '
   evidence:
   - reference: PMID:42231497
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: >
-      Direct validation of DIET requires additional targeted experimental
-      approaches beyond the scope of this study.
-    explanation: >
-      Records the source paper's own boundary around direct electron-transfer
-      validation.
+    snippet: 'Direct validation of DIET requires additional targeted experimental approaches beyond the scope of
+      this study.
+
+      '
+    explanation: 'Records the source paper''s own boundary around direct electron-transfer validation.
+
+      '
+- discussion_id: magnetite_assay_and_model_limits
+  prompt: Which processes mediate magnetite-associated methane improvement?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Magnetite-enhanced methanogenesis under sulfate stress
+  - ecological_interactions#Acetate-centered four-guild redox cycling
+  - ecological_interactions#Model-predicted amino-acid and organic-acid exchange
+  rationale: 'Keep zero arrows and preserve #914 backward-edge removal. Separate abiotic sulfide removal, replicated
+    bulk methane response and single-replicate compositional metagenomics. Feasibility of role-curated and output-constrained
+    GEMs does not independently verify partner flux. Retain the existing direct-DIET knowledge gap, #913 putative-SRB
+    caveats and #915 restriction to MAGN_0.6. Myxococcota DTU51 lacks sulfate-reduction genes; do not silently promote
+    it to a validated reducer. Source metadata and identity limits remain under #1574. Complete primary main text
+    and figure captions read, not original figure pixels, separate supplements, raw data or executable models.'
+  posed_by: codex
+  posed_date: '2026-10-06'
 curation_history:
 - timestamp: '2026-09-15T02:41:25Z'
   curator: codex
   action: CREATE_MAGNETITE_SULFATE_STRESS_ANAEROBIC_MICROBIOME
-  changes: >
-    Added the magnetite-amended sulfate-stressed anaerobic microbiome from
-    PMID:42231497 with four genome-resolved guilds, H2/CO2-fed serum-bottle
-    batch cultivation, the PRJNA1242289 metagenomic BioProject, and
-    evidence-backed experimental and GEM-supported interactions.
+  changes: 'Added the magnetite-amended sulfate-stressed anaerobic microbiome from PMID:42231497 with four genome-resolved
+    guilds, H2/CO2-fed serum-bottle batch cultivation, the PRJNA1242289 metagenomic BioProject, and evidence-backed
+    experimental and GEM-supported interactions.
+
+    '
   llm_assisted: true
 - timestamp: '2026-09-15T02:53:10Z'
   curator: codex
   action: ADDRESS_MAGNETITE_SULFATE_STRESS_REVIEW
-  changes: >
-    Addressed adversarial review issues #913, #914, and #915 by backing the
-    Myxococcota putative SRB inclusion with direct evidence, limiting the
-    curated medium composition to the MAGN_0.6 bottle condition, and removing a
-    backward causal edge from the methane-rescue observation to the modeled
-    acetate cycle.
+  changes: 'Addressed adversarial review issues #913, #914, and #915 by backing the Myxococcota putative SRB inclusion
+    with direct evidence, limiting the curated medium composition to the MAGN_0.6 bottle condition, and removing
+    a backward causal edge from the methane-rescue observation to the modeled acetate cycle.
+
+    '
   llm_assisted: true
 - timestamp: '2026-09-15T03:03:06Z'
   curator: codex
   action: FIX_MAGNETITE_SULFATE_STRESS_PARTICIPANT_TERMS
-  changes: >
-    Added required term identifiers to the two computed interaction participant
-    lists so their guild references remain closed-schema-valid.
+  changes: 'Added required term identifiers to the two computed interaction participant lists so their guild references
+    remain closed-schema-valid.
+
+    '
   llm_assisted: true
 - timestamp: '2026-09-15T03:31:05Z'
   curator: codex
   action: FIX_MAGNETITE_SULFATE_STRESS_PYTEST_GATES
-  changes: >
-    Replaced two citation-marker-bearing snippets with bracket-free exact
-    spans from the same source sentence and kept the Myxococcota caveat as a
-    separate evidence item.
+  changes: 'Replaced two citation-marker-bearing snippets with bracket-free exact spans from the same source sentence
+    and kept the Myxococcota caveat as a separate evidence item.
+
+    '
+  llm_assisted: true
+- timestamp: '2026-10-06T23:08:46Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate magnetite methane response from unvalidated DIET and constrained model flux. Issue #1573; reports/causal_graph_review/decisions/20261006-wetland-crossfeeding-batch66.yaml'
   llm_assisted: true

@@ -748,7 +748,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Magnetite Sulfate-Stress Anaerobic Microbiome</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -761,8 +761,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -771,13 +771,23 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Magnetite-enhanced methanogenesis under sulfate stress</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Adding 10 g/L magnetite to the 0.6 g/L sulfate condition relieved the sulfate-associated methane-production penalty, reduced sulfide stress through precipitation, and increased CH4 production by 19% relative to the sulfate-only treatment without eliminating sulfate-reducer activity.
-</p>
+                <p class="prewrap interaction-description">At 0.6 g/L sulfate, 10 g/L magnetite increased cumulative methane by 19% relative to the sulfate-only treatment in five-day batch assays, without reducing sulfate consumption. This is partial improvement, not full sulfate-free recovery or rescue at 1.2 g/L sulfate. Separate abiotic tests showed sulfide removal and sulfur retained on magnetite, but elemental analysis did not resolve sulfur species and no abiotic hydrogen accumulation was detected. These results support toxicity mitigation as a contributing interpretation; they do not isolate its mediation of the methane response or demonstrate syntrophy or direct interspecies electron transfer. The four guilds identify an incomplete community context, not all organisms contributing to the bulk endpoints.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Methanoculleus methanogenic MAGs,
+
+                    putative sulfate-reducing MAGs,
+
+                    Limnochordia homoacetogenic MAGs,
+
+                    Dethiobacteria syntrophic acetate-oxidizing MAGs
+
+                </p>
 
 
 
@@ -860,8 +870,7 @@
                     <h3>Acetate-centered four-guild redox cycling</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Genome-scale metabolic models for the representative methanogen, SRB, homoacetogen, and SAOB MAGs supported acetate turnover in which the homoacetogen consumes H2 and CO2 to secrete acetate, and acetate is then oxidized back to H2 and CO2 by SAOB or used by SRB as an electron donor for sulfate reduction.
-</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - condition-specific four-member GEMs predict acetate-centered exchange: a homoacetogen uses H2/CO2 and secretes acetate, a syntrophic acetate oxidizer returns H2/CO2, and a putative sulfate reducer oxidizes acetate while reducing sulfate, with the shared pool supporting hydrogenotrophic methanogenesis. Representatives are Methanoculleus DTU8, Halopseudomonas DTU25, Limnochordia DTU38 and Dethiobacteria DTU36, not every MAG in the four canonical guild placeholders. Models were gap-filled and curated for expected roles, constrained by measured reactor outputs, and analyzed using MICOM cooperative trade-off 0.7 and flux-space sampling. Agreement is stoichiometric feasibility under assumptions, not independent validation, measured partner flux or demonstrated DIET. One biological replicate per sequenced condition and relative MAG abundances cannot establish replicated absolute guild growth.</p>
 
 
 
@@ -967,8 +976,7 @@
                     <h3>Model-predicted amino-acid and organic-acid exchange</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Flux-space sampling of the community GEMs predicted exchange of glucogenic amino acids and short-chain organic acids among the four modeled guilds, with the homoacetogen, SAOB, and methanogen acting as major exchange hubs and the SRB predicted to import several amino acids.
-</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - flux-space sampling of the four representative GEMs predicts exchange of amino acids and organic acids, with the homoacetogen, acetate oxidizer and methanogen serving as modeled hubs and the putative sulfate reducer importing multiple amino acids. The reported heatmaps select mean exchange fluxes above 0.1 mmol/gDW/hour from feasible solutions; these are model summaries, not extracellular metabolomics or traced donor-recipient rates. Multiple solutions satisfy the imposed constraints, and regulation, protein capacity and kinetics are not resolved. These exchanges could support alternative metabolic routes, but actual necessity, universal mutualism and specific partner transfers remain untested.</p>
 
 
 
@@ -1075,7 +1083,7 @@
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -1112,6 +1120,21 @@
                     </div>
 
                 </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which processes mediate magnetite-associated methane improvement?
+                </h3>
+                <p class="prewrap">Keep zero arrows and preserve #914 backward-edge removal. Separate abiotic sulfide removal, replicated bulk methane response and single-replicate compositional metagenomics. Feasibility of role-curated and output-constrained GEMs does not independently verify partner flux. Retain the existing direct-DIET knowledge gap, #913 putative-SRB caveats and #915 restriction to MAGN_0.6. Myxococcota DTU51 lacks sulfate-reduction genes; do not silently promote it to a validated reducer. Source metadata and identity limits remain under #1574. Complete primary main text and figure captions read, not original figure pixels, separate supplements, raw data or executable models.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Magnetite-enhanced methanogenesis under sulfate stress</code>, <code>ecological_interactions#Acetate-centered four-guild redox cycling</code>, <code>ecological_interactions#Model-predicted amino-acid and organic-acid exchange</code></p>
+
+
 
 
             </div>
@@ -1508,7 +1531,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1541,6 +1564,23 @@
 
 
 
+
+            var participantKeys = [
+
+                "Methanoculleus methanogenic MAGs",
+
+                "putative sulfate-reducing MAGs",
+
+                "Limnochordia homoacetogenic MAGs",
+
+                "Dethiobacteria syntrophic acetate-oxidizing MAGs"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

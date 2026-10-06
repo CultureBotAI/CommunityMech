@@ -428,3 +428,17 @@ and expose ORT's gapfilled nitrogen-gas reaction. Nine existing nodes and three
 qualified arrows remain; no new graph structure or provider spend.
 Non-graph identity/model metadata and cached-abstract provenance remain open
 under #1526-#1528. Exact cache matching is not independent provenance approval.
+
+## Batch66: Wetlands, MWF001 And Magnetite
+
+[Decisions](decisions/20261006-wetland-crossfeeding-batch66.yaml),
+[validation](validation-20261006-batch66.json) and
+[self-adversarial review](adversarial-review-20261006-batch66.yaml) qualify nine
+existing nodes without adding arrows. MUCC associations and genomic potential
+are not demonstrated exchange; magnetite bulk outcomes and constrained model
+fluxes are distinct. MWF001 cross-feeding remains supported with assay limits,
+but its candidate coexistence link remains `needs_research` under #1575 pending
+the paid Edison workflow. A free dry run is not a completed research report.
+Non-graph metadata/source ambiguities remain #1574. Canonical taxonomy and all
+caches are preserved, not independently recertified. No independent approval
+or corpus completion is claimed.
