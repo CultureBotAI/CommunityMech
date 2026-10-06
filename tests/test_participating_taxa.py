@@ -243,6 +243,8 @@ USERS = {
     "Dolichospermum_FBCC_A233_Xenic_Phycosphere_Community.yaml",
     "Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml",
     "Drosophila_FiveSpecies_Gnotobiotic_Gut_Microbiota.yaml",
+    "Dual_Bacillus_coagulans_Pseudomonas_putida_Lactic_Acid_Coculture.yaml",
+    "ENIGMA_Denitrifying_SynCom.yaml",
     "EcoFAB_Ring_Trial_SynCom17.yaml",
     "Electrostimulated_Toluene_Methanogenic_Microbiota.yaml",
     "Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.yaml",
