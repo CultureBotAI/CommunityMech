@@ -1,0 +1,299 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: f76f44c1d6747017fd2e2d459aa021e9cf5787ec
+issues:
+- 1319
+- 1320
+- 1321
+open_nongraph_followups:
+- 1322
+issue_deduplication:
+  all_state_issue_titles_bodies: 661
+  ignored_hidden_local_files_included: true
+  comments_exhaustive: false
+  related_closed_issue: 1270
+  related_issue_scope: Different thermophile records 000179 and 000185; not reopened.
+reference_cache_original_hashes:
+  references_cache/PMID_27042211.md: d7b29431d7d4bccc911b697a99002a5c816da94a46ebed9c47583fe9c01bd579
+  references_cache/PMID_31792266.md: 8c07edb6fd5ae6091af0b34b42b6a4a0f7553b3c1849c60a0eb96c3a58ff179d
+  references_cache/PMID_33240469.md: f00b5583c3994f428c3e9f56ae9008bc094b1faa4ad8a7a8356a91e98a0743e9
+  references_cache/PMID_23306120.md: 4dd1df08abdab3eb7b660c9815208370d12492069c3ac15f1c9e5c36e603cb37
+  references_cache/PMID_21227922.md: ca8f0938652c7cc2de47580ea63becd77f2e5af4610e3fd20d21bbc80543393e
+  references_cache/PMID_34669248.md: 198790e7d9ce5552b88eaa2ae815e8af09cc8fa3cdab0736f2d1e78d3fce0f35
+  references_cache/PMID_37110426.md: dc71f42697cd1a44f604d697685f557165eae3f8597e754cf8059b148744c40e
+grounding_review:
+  url: https://www.ebi.ac.uk/chebi/CHEBI:17120
+  finding: Official ChEBI confirms hexanoate CHEBI:17120 is conjugate base of hexanoic acid CHEBI:30776; net charge
+    -1.
+limitations:
+- No new nodes/arrows and no Edison spend. Three exact node renames, one context-only arrow removed.
+- Four primary main bodies read; C. bescii molecular Results reviewed selectively, exact-system minimal-medium paper
+  abstract only, model abstract/Introduction only.
+- Images and supplements not visually inspected. Primary XML remains outside git and reference caches remain unchanged.
+- 'Separate non-graph followup #1322 remains open; unrelated top-level raw YAML blocks preserved.'
+- Self-adversarial review is not independent approval or corpus completion. Protected checks and queue remain required.
+records:
+- path: kb/communities/Clostridium_Autoethanogenum_Kluyveri_Syngas_Coculture.yaml
+  id: CommunityMech:000172
+  original_sha256: 5cb2019adbc5c0c390e928ea64b88219106a9c7892c6c107930c8f17d2a0521d
+  record_sha256: 21ed35857776bcd6e203c18ade2249e16cc8abb31fea0c5bc169df9b394c8861
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch18.yaml
+  scope: Whole record and all three original nodes plus all original arrows, using the source scopes below.
+  summary: Preserve supported C2 product supply and its existing chain-elongation arrow; distinguish product pools
+    from inferred partner flux.; Resolve the existing cross-feeding recipient and acid-versus-alcohol producers
+    using the primary pure-culture comparisons.; Retain feedback as an explicitly hypothesized mechanism, not reverse
+    ethanol donation or proof of exclusive thermodynamic regulation.
+  renamed_nodes:
+    Thermodynamic Ethanol Pull by C. kluyveri: Proposed thermodynamic ethanol pull by C. kluyveri
+  node_decisions:
+  - node: Acetogenic CO and Syngas Fermentation
+    rationale: Preserve supported C2 product supply and its existing chain-elongation arrow; distinguish product
+      pools from inferred partner flux.
+  - node: Ethanol-Driven Chain Elongation
+    rationale: Resolve the existing cross-feeding recipient and acid-versus-alcohol producers using the primary
+      pure-culture comparisons.
+  - node: Proposed thermodynamic ethanol pull by C. kluyveri
+    rationale: Retain feedback as an explicitly hypothesized mechanism, not reverse ethanol donation or proof of
+      exclusive thermodynamic regulation.
+  edges_before:
+  - source: Acetogenic CO and Syngas Fermentation
+    target: Ethanol-Driven Chain Elongation
+    description: 'C. autoethanogenum supplies ethanol and acetate that C. kluyveri consumes for chain elongation
+      to C4 and C6 products.
+
+      '
+  - source: Thermodynamic Ethanol Pull by C. kluyveri
+    target: Acetogenic CO and Syngas Fermentation
+    description: 'Continuous ethanol removal by C. kluyveri pulls C. autoethanogenum metabolism toward solventogenesis
+      and improves electron flow from CO or syngas into chain-elongated products.
+
+      '
+  edges_after:
+  - source: Acetogenic CO and Syngas Fermentation
+    target: Ethanol-Driven Chain Elongation
+    description: 'C. autoethanogenum supplies ethanol and acetate that C. kluyveri consumes for chain elongation
+      to C4 and C6 products.
+
+      '
+  - source: Proposed thermodynamic ethanol pull by C. kluyveri
+    target: Acetogenic CO and Syngas Fermentation
+    description: HYPOTHESIZED - C. kluyveri consumption keeps ethanol low and could favor C. autoethanogenum solventogenesis,
+      supplying further ethanol for chain elongation. Stoichiometric flux estimates and perturbations support this
+      feedback model, but do not uniquely establish thermodynamics as its mediator.
+  retained_edge_decisions:
+  - source: Acetogenic CO and Syngas Fermentation
+    target: Ethanol-Driven Chain Elongation
+    rationale: 'C. autoethanogenum supplies ethanol and acetate that C. kluyveri consumes for chain elongation to
+      C4 and C6 products.
+
+      '
+  - source: Proposed thermodynamic ethanol pull by C. kluyveri
+    target: Acetogenic CO and Syngas Fermentation
+    rationale: HYPOTHESIZED - C. kluyveri consumption keeps ethanol low and could favor C. autoethanogenum solventogenesis,
+      supplying further ethanol for chain elongation. Stoichiometric flux estimates and perturbations support this
+      feedback model, but do not uniquely establish thermodynamics as its mediator.
+  removed_edge_decisions: []
+  references:
+  - PMID:27042211
+  - PMID:31792266
+  - PMID:33240469
+  issues:
+  - 1319
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    PMID:27042211:
+      pmcid: PMC4818930
+      url: https://europepmc.org/articles/PMC4818930
+      path: /private/tmp/communitymech-batch18/PMC4818930.xml
+      sha256: 226da50f2270fe2bcbfc1c9fd73687b5f5108c5a08539ef2103ee5875ccb4000
+      license: CC BY 4.0
+      reviewed_scope: Full main body, Methods, three tables and seven figure captions; no visual image inspection.
+      stored_in_repository: false
+    PMID:31792266:
+      pmcid: PMC6889307
+      url: https://europepmc.org/articles/PMC6889307
+      path: /private/tmp/communitymech-batch18/PMC6889307.xml
+      sha256: abfeac91e2b4dc2de336bdd4eafef454d65b9b1aadad23e2f67c28df4130c59e
+      license: CC BY 4.0
+      reviewed_scope: Full main body, Methods, three tables and four main figure captions; supplements and images
+        not inspected.
+      stored_in_repository: false
+    PMID:33240469:
+      url: https://pubmed.ncbi.nlm.nih.gov/33240469/
+      reviewed_scope: Fresh abstract and cached Introduction only. Full XML downloaded but not read; computational
+        model predictions not promoted to experimental graph findings.
+  history_files:
+  - history/records/Clostridium_Autoethanogenum_Kluyveri_Syngas_Coculture/2026-10-05T232412Z-codex-8ac1e9.yaml
+- path: kb/communities/Clostridium_Caldicellulosiruptor_Minimal_Medium_Coculture.yaml
+  id: CommunityMech:000193
+  original_sha256: 912a98e500fa28504035f915fd6044c6ed55cbf5ab356932b5d28b2a135f958a
+  record_sha256: d4d2ba27f20dc52220bd8e443288c91b3b7e7a0606f8c2cc4855d63e48423e20
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch18.yaml
+  scope: Whole record and all three original nodes plus all original arrows, using the source scopes below.
+  summary: Retain reduced-medium development as context; remove context-only arrow and unsupported facilitation/process
+    annotations.; Preserve observed population maintenance with explicit abstract-only scope, without categorical
+    facilitation or indefinite stability.; Preserve measured member transcript/protein responses; remove unsupported
+    ecological niche partitioning and retain the earlier edge removal.
+  renamed_nodes:
+    Stable Co-Maintenance On Cellulose And Xylan: Observed Co-Maintenance On Cellulose And Xylan
+  node_decisions:
+  - node: Reduced-Nutrient Defined Cellulose-Xylan Medium
+    rationale: Retain reduced-medium development as context; remove context-only arrow and unsupported facilitation/process
+      annotations.
+  - node: Observed Co-Maintenance On Cellulose And Xylan
+    rationale: Preserve observed population maintenance with explicit abstract-only scope, without categorical facilitation
+      or indefinite stability.
+  - node: Thermophilic Plant-Polysaccharide Conversion Capacity
+    rationale: Preserve measured member transcript/protein responses; remove unsupported ecological niche partitioning
+      and retain the earlier edge removal.
+  edges_before:
+  - source: Reduced-Nutrient Defined Cellulose-Xylan Medium
+    target: Stable Co-Maintenance On Cellulose And Xylan
+    description: 'The reduced defined medium was the chemical setting in which the C. thermocellum and C. bescii
+      populations were maintained together.
+
+      '
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions:
+  - source: Reduced-Nutrient Defined Cellulose-Xylan Medium
+    target: Stable Co-Maintenance On Cellulose And Xylan
+    description: 'The reduced defined medium was the chemical setting in which the C. thermocellum and C. bescii
+      populations were maintained together.
+
+      '
+    rationale: Cultivation setting alone is not a source-backed causal ecological link.
+  references:
+  - PMID:23306120
+  - PMID:21227922
+  issues:
+  - 1320
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    PMID:23306120:
+      url: https://pubmed.ncbi.nlm.nih.gov/23306120/
+      reviewed_scope: Fresh primary abstract and two ORNL bibliographic abstracts only; no PMCID in fresh Europe
+        PMC metadata, publisher DOI route inaccessible via browser tool. Public search and ORNL pages did not supply
+        a main-body copy. This is an access-attempt limit, not a claim that no copy exists.
+      abstract_discrepancy: ORNL www abstract says xylan or hemicellulose; PubMed and ORNL impact record say cellulose
+        and xylan. Curated endpoint follows PubMed; full Methods unresolved.
+    PMID:21227922:
+      pmcid: PMC3082886
+      url: https://europepmc.org/articles/PMC3082886
+      path: /private/tmp/communitymech-batch18/PMC3082886.xml
+      sha256: de213fb6c339ace1781fec87045f99ce24d23cf20fcf50e46b9e52312fc0b8f5
+      license: CC BY-NC 2.5
+      reviewed_scope: Abstract, Introduction, Methods, proteomic/transcriptomic Results subsection and Conclusions
+        read; remaining Results, supplements and images not reviewed.
+      stored_in_repository: false
+  history_files:
+  - history/records/Clostridium_Caldicellulosiruptor_Minimal_Medium_Coculture/2026-10-05T232412Z-codex-3c1d88.yaml
+- path: kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+  id: CommunityMech:000266
+  original_sha256: 94b7ab8725dbf71b7bf54036ab32f1d26ec40bfc01e1c8ce4ac947e78b07183e
+  record_sha256: dfc0feb9084b682e6d5f9dfc9529d9ae7f146e31371d63c63960ffe6a3fd391a
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch18.yaml
+  scope: Whole record and all three original nodes plus all original arrows, using the source scopes below.
+  summary: Retain exact-system supported C2 supply and downstream chain-elongated acid conversion; distinguish growth
+    from ongoing activity.; Bound batch emergence and retain monoculture alcohol capacity; correct the existing
+    hexanoate chemical identity using official ChEBI.; Describe measured engineered staging with covarying pH/CO/flow/residence
+    time; retain causal substrate supply without ecological niche typing.
+  renamed_nodes:
+    Two-Stage CO Partial Pressure Division of Labor: Engineered CO and pH staging of chain elongation and alcohol
+      formation
+  node_decisions:
+  - node: Acetogen-Chain Elongator Product Coupling
+    rationale: Retain exact-system supported C2 supply and downstream chain-elongated acid conversion; distinguish
+      growth from ongoing activity.
+  - node: Organic Acid Reduction to Longer-Chain Alcohols
+    rationale: Bound batch emergence and retain monoculture alcohol capacity; correct the existing hexanoate chemical
+      identity using official ChEBI.
+  - node: Engineered CO and pH staging of chain elongation and alcohol formation
+    rationale: Describe measured engineered staging with covarying pH/CO/flow/residence time; retain causal substrate
+      supply without ecological niche typing.
+  edges_before:
+  - source: Acetogen-Chain Elongator Product Coupling
+    target: Organic Acid Reduction to Longer-Chain Alcohols
+    description: 'C. carboxidivorans C2-product fermentation feeds C. kluyveri chain elongation, whose organic acid
+      products are then reduced back by C. carboxidivorans to longer-chain alcohols.
+
+      '
+  - source: Two-Stage CO Partial Pressure Division of Labor
+    target: Organic Acid Reduction to Longer-Chain Alcohols
+    description: 'Partitioning the cascade into lower-CO chain elongation and higher-CO acid-reduction stages favors
+      the C. carboxidivorans reduction of chain-elongated acids into C2-C6 alcohols.
+
+      '
+  edges_after:
+  - source: Acetogen-Chain Elongator Product Coupling
+    target: Organic Acid Reduction to Longer-Chain Alcohols
+    description: 'C. carboxidivorans C2-product fermentation feeds C. kluyveri chain elongation, whose organic acid
+      products are then reduced back by C. carboxidivorans to longer-chain alcohols.
+
+      '
+  - source: Engineered CO and pH staging of chain elongation and alcohol formation
+    target: Organic Acid Reduction to Longer-Chain Alcohols
+    description: The first stage supplies chain-elongated organic acids to the second, whose combined pH-5.0/high-CO
+      conditions support C. carboxidivorans reduction to alcohols. Product balances also indicate de novo alcohol
+      synthesis, so downstream alcohol output is not all explained by reduction of incoming acids; the design does
+      not isolate the contribution of CO from the other changed operating conditions.
+  retained_edge_decisions:
+  - source: Acetogen-Chain Elongator Product Coupling
+    target: Organic Acid Reduction to Longer-Chain Alcohols
+    rationale: 'C. carboxidivorans C2-product fermentation feeds C. kluyveri chain elongation, whose organic acid
+      products are then reduced back by C. carboxidivorans to longer-chain alcohols.
+
+      '
+  - source: Engineered CO and pH staging of chain elongation and alcohol formation
+    target: Organic Acid Reduction to Longer-Chain Alcohols
+    rationale: The first stage supplies chain-elongated organic acids to the second, whose combined pH-5.0/high-CO
+      conditions support C. carboxidivorans reduction to alcohols. Product balances also indicate de novo alcohol
+      synthesis, so downstream alcohol output is not all explained by reduction of incoming acids; the design does
+      not isolate the contribution of CO from the other changed operating conditions.
+  removed_edge_decisions: []
+  references:
+  - PMID:34669248
+  - PMID:37110426
+  issues:
+  - 1321
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    PMID:34669248:
+      pmcid: PMC9049614
+      url: https://europepmc.org/articles/PMC9049614
+      path: /private/tmp/communitymech-batch18/PMC9049614.xml
+      sha256: c80e657af6d15be058b1cd2aaa8335e07ae37669daa0163e8c316fc17ff18d17
+      license: CC BY 4.0
+      reviewed_scope: Full main body, Methods, main table and six main figure captions; supplements and images not
+        inspected.
+      stored_in_repository: false
+    PMID:37110426:
+      pmcid: PMC10144111
+      url: https://europepmc.org/articles/PMC10144111
+      path: /private/tmp/communitymech-batch18/PMC10144111.xml
+      sha256: 69d6f30938a6843fd09bf15bafc68219a96552aa42b0b46ddc901b1785846a75
+      license: CC BY 4.0
+      reviewed_scope: Full main body, Methods, main table and nine main figure captions; supplements and images
+        not inspected. Figure 1 has separate permission attribution; no image copied.
+      stored_in_repository: false
+  history_files:
+  - history/records/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture/2026-10-05T232412Z-codex-96cf43.yaml
