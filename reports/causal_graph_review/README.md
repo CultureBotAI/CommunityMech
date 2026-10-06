@@ -5,6 +5,28 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch61: LBNL Plant, Gut And Soil Models
+
+[Decisions](decisions/20261006-lbnl-batch61.yaml),
+[validation](validation-20261006-batch61.json) and
+[self-adversarial review](adversarial-review-20261006-batch61.yaml) cover all
+15 original nodes and two arrows across three LBNL records. Four procedure nodes
+and one inference-workflow arrow are removed; the gut model's negative-feedback
+coexistence mechanism is retained with explicit model and parameter limits.
+
+Brachypodium liquid-culture persistence differs from host-associated persistence;
+the positive plant outcome follows rewatering, not sustained drought. Genomic and
+isolate-level traits do not establish host metabolite delivery. Soil experiments
+using 18 or 17/18 strains are distinguished from the final 16-member model.
+
+All three fresh open-access primary bodies, Methods, Results, Discussion and
+embedded captions/table text were read. Original figure pixels, separate
+supplements, raw data and executable models were not audited. All retained graph
+snippets match fresh primary text; all 920 caches remain unchanged. The canonical
+Bacteria entries remain explicit aggregate placeholders, not resolved strain
+rosters. Non-graph metadata #1548 stays open. Repairs #1545-#1547 await protected
+main merge. No new graph structure or paid Edison submission is claimed.
+
 ## Batch60: KZ, KMC And Co-inducible Biosynthesis
 
 [Decisions](decisions/20261006-kz-kmc-komagataella-batch60.yaml),

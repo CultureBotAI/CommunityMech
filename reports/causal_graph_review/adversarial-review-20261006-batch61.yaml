@@ -1,0 +1,177 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: e1b40d0123d5fe47d5ce14bab5fda21f4469997a
+scope:
+- kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml
+- kb/communities/LBNL_Human_Gut_Interaction_SynCom.yaml
+- kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-lbnl-batch61.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch61.json
+findings:
+- issue: 1545
+  severity: P2
+  status: addressed_in_this_change
+  finding: Brachypodium procedure nodes, persistence/recovery overclaims and mixed evidence context.
+  disposition: Close only after protected-main merge.
+- issue: 1546
+  severity: P2
+  status: addressed_in_this_change
+  finding: Gut inference workflow and unsupported acetate/niche labels with a valid model-feedback arrow.
+  disposition: Close only after protected-main merge.
+- issue: 1547
+  severity: P2
+  status: addressed_in_this_change
+  finding: Soil procedures and17/18-versus16 experimental membership scope.
+  disposition: Close only after protected-main merge.
+- issue: 1548
+  severity: P2
+  status: unresolved_non_graph
+  finding: Aggregate taxonomy, ingredient-mechanism and protocol metadata.
+  disposition: Keep OPEN after graph repair merge.
+adversarial_checks:
+- Read all three whole records and fresh open-access primary main bodies, Methods, Results, Discussion
+  and embedded captions/table text. Account for all15 original nodes and2 arrows. Original figure pixels,
+  separate supplements, raw data and executable models not audited; flattened matrices not used to recurate
+  exact gene-by-strain assignments.
+- Brachypodium design and five-phylum assembly are procedures, not ecological causal nodes. Remove both
+  while retaining design metadata and positive biological results. Retain genomic potential and member
+  assay phenotypes as bounded context, not traced expression, transfer or host mediation.
+- 'Brachypodium abstract stability is qualified by Results: six strains undetectable or below0.1% after
+  three weeks in vitro, with more balanced host-associated profiles. Do not equate relative detection
+  with viable counts or uniform15-member stability.'
+- Adversarial diff review caught mixed host/liquid evidence classification after the initial candidate.
+  Replace the broad stability excerpt with direct host Results labeled IN_VIVO and preserve separate IN_VITRO
+  low-detection evidence. Retain the initial31 actual outputs/digests as superseded; rerun all31 final-state
+  gates.
+- Brachypodium significant plant outcomes occur after rewatering; sustained-drought endpoints were not
+  significantly improved. Root-tip responses are strain/condition dependent; root exudate recruitment
+  and metabolite return remain hypotheses. Correct live-host evidence classification without claiming
+  universal tip preference or migration tracking.
+- Gut model predictions and effective signed interactions are not universal acetate cross-feeding or demonstrated
+  niche partitioning. The acetate passage is prior-literature context. Keep model/experimental evidence
+  distinct, acknowledge imperfect prediction and higher-order/parameter uncertainty, and do not turn OD-scaled
+  abundance into viable-cell counts.
+- 'Drop the gut inference-to-topology workflow arrow only. Retain topology-to-coexistence: coupled positive
+  and negative effects implement negative feedback in fitted pairwise gLV models over tested parameter
+  ranges, with CH-ER as an experimentally coexisting example. Do not erase this positive model mechanism
+  or generalize to every full-community condition.'
+- Soil nutrient tests used18 starting strains; ratio panels and EcoFAB17/18 differ from the final16. Keep
+  nutrient/ratio diversity and plant colonization as positive observations with correct variants/time
+  bounds. Pseudomonas in-vitro effects do not transfer automatically to EcoFAB. Single inoculum batch
+  and relic-DNA/relative-abundance limits remain explicit.
+- Remove soil automated assembly and storage nodes while preserving their valid methodological outcomes
+  in discussion. Taxon-dropout results remain described as context; proposed facilitation/competition
+  is not silently minted into new causal structure. No new nodes/arrows; no paid Edison calls.
+- Canonical taxa remain unchanged domain-level aggregate placeholders, explicitly named on all11 retained
+  nodes. This is not resolved experimental membership. Non-graph taxonomy, ingredient and protocol defects
+  remain separately OPEN under1548; raw non-graph blocks preserved, not recertified.
+- Full biological diffs, participant registry and focused tests reviewed.457 other records and920 caches
+  unchanged. Both-root participant census unchanged; no audit-rule changes.36 baseline network warnings
+  preserved, no structural defects, deterministic rerenders and456-page exact description parser, not
+  browser screenshots.
+- 844 all-state issue titles/bodies plus41 scoped ignored/hidden local matches searched; all10 matching
+  issue bodies read, not every comment/PR/local match.1545-1547 addressed but OPEN until protected-main
+  merge. Exact-head self-review is COMMENT, not independent approval. Post-commit docs-current remains
+  a separate publication gate.
+verification:
+  combined_regressions: 561 passed in 356.77s (0:05:56)
+  new_regression_tests: 9
+  schema_strict_terms_history: Passed on final revision with actual outputs/digests
+  references: CLI Total checks counts reported issues, not executed checks. MATCH does not prove scientific
+    entailment or historical provenance. All920 caches unchanged; all retained graph excerpts independently
+    matched to fresh primary bodies. Non-graph1548 and existing476/1091/1095 remain unresolved.
+  snippet_counts_by_record:
+    kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/LBNL_Human_Gut_Interaction_SynCom.yaml:
+      MATCH: 12
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml:
+      MATCH: 10
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    primary_matched_graph_snippets: 17
+    host_liquid_evidence_distinguished: true
+    paid_submissions: 0
+    new_nodes_or_arrows: 0
+  network:
+    existing_findings_preserved: 36
+    added_findings: {}
+    removed_findings: {}
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-lbnl-batch61.yaml: b9b1755235b23128b647fc2272b8ca0c2205286db36006b8f154cb6ba5679f21
+    tests/test_causal_review_batch61.py: 36c67aaf4c2b76ccbf7e2164827b47904e09f9d3c10f211dd858e211d157a13a
+    tests/test_participating_taxa.py: 3ba923dba13310cac9e8e141ed1a84a67b0c4535f3d648b5af645df39dda7789
+    kb/communities/LBNL_Brachypodium_Drought_SynCom15.yaml: a7e41d95bc05106486f450153065da247369b854b757d68d451bea5e64e0b8e4
+    kb/communities/LBNL_Human_Gut_Interaction_SynCom.yaml: aa02533254dbc2a5f78544e1d3155b49f65ba8cffaa2f88b99d625ebf91cd816
+    kb/communities/LBNL_Switchgrass_Soil_SynCom16.yaml: 9e12c5c9efe9440e6ae98386a71eaba63198a4eb71fca5a7bd25dcb1cc188562
+    reports/causal_graph_review/README.md: 5be3a344b20516479bfae527120da539f43b53e3f01ff2a78514ec88c93782ac
+  unchanged_caches: 920
+  superseded_initial_checks: 31
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    reason: Existing-node/arrow repair only; no new causal structure.
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 391
+      mixed: 124
+      community_level_only: 267
+      taxa: 1507
+      credited_solely_by_the_rule: 1238
+    current:
+      records: 460
+      with_community_level: 391
+      mixed: 124
+      community_level_only: 267
+      taxa: 1507
+      credited_solely_by_the_rule: 1238
+  interpretation: All three records retain community-level scope with one explicitly listed canonical
+    Bacteria aggregate each. This does not resolve their experimental strain rosters. Both-root participant
+    census is unchanged; no auditor-rule or canonical taxonomy change.
+corpus:
+  records: 460
+  nodes: 1454
+  edges: 650
+  review_status_counts:
+    needs_research: 21
+    pending: 242
+    reviewed: 197
+limitations:
+- 'All15 original nodes and2 arrows reviewed: four procedure nodes and one workflow arrow removed;11 biological/model
+  nodes and one bounded model-feedback arrow retained. No new nodes/arrows or Edison submission.'
+- All three fresh open-access primary main bodies, Methods, Results, Discussion and embedded captions/table
+  text read. Original figure pixels, separate supplementary files, raw data and executable models were
+  not audited; flattened tables were not used to recurate exact strain-by-gene matrices.
+- Brachypodium liquid persistence, sustained drought, rewatering and strain-specific spatial responses
+  remain distinct. Gene annotations and isolate assays do not establish host delivery or necessary mediation.
+- Gut gLV coexistence feedback retained as a positive model result. Pairwise prediction is not a categorical
+  exclusion of higher-order effects; effective signs do not identify unique molecular mechanisms.
+- Soil nutrient18, ratio17/18, EcoFAB17/18 and final16 contexts are distinguished. Additional taxon-dropout
+  evidence is described as context, not converted into unreviewed new causal structure.
+- 'Canonical aggregate taxonomy and raw non-graph blocks preserved, not recertified. #1548 remains unresolved
+  after graph repair merge.'
+- All920 reference caches unchanged. Every retained graph snippet independently matches fresh primary
+  text, but this does not certify all historical cache/non-graph provenance or resolve476/1091/1095.
+- 844 all-state issue titles/bodies and41 ignored/hidden local matches searched; all10 matching issue
+  bodies read, not every comment/PR/local match. Self-adversarial review is not independent approval.1545-1547
+  stay OPEN until protected-main merge.
