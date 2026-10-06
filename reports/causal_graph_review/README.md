@@ -5,6 +5,16 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch45: Geobacter-Clostridium
+
+[Decisions](decisions/20261006-clostridium-batch45.yaml),
+[validation](validation-20261006-batch45.json) and
+[self-adversarial review](adversarial-review-20261006-batch45.yaml) separate
+conditional measured fermentation yields from an inferred electron balance.
+The upstream arrow remains explicitly hypothetical; the duplicate outcome node
+and its restatement arrow are removed. The 2022 follow-up was reviewed at
+abstract scope only. Non-graph text is preserved, not certified.
+
 ## Batch44: UFMP, GOM and Garlic
 
 [Decisions](decisions/20261006-three-records-batch44.yaml),
