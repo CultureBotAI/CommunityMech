@@ -237,6 +237,7 @@ USERS = {
     "Defined_Multispecies_Enamel_Caries_Model.yaml",
     "Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml",
     "Dehalococcoides_Desulfovibrio_Pelosinus_Corrinoid_Triculture.yaml",
+    "Dehalococcoides_Syntrophomonas_TCE_Dechlorination_Coculture.yaml",
     "Dolichospermum_FBCC_A233_Xenic_Phycosphere_Community.yaml",
     "Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml",
     "EcoFAB_Ring_Trial_SynCom17.yaml",
