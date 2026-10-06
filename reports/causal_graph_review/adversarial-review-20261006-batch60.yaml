@@ -1,0 +1,179 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 4aed48731d913b28b88cd42e5bf8e425f4c8c2d9
+scope:
+- kb/communities/Klebsiella_Arthrobacter_KZ_Phenanthrene_Cadmium_SynCom.yaml
+- kb/communities/Kombucha_KMC_IMBG1_Fermentation_Community.yaml
+- kb/communities/Komagataella_Ecoli_Coinducible_Biosynthesis_Coculture.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-kz-kmc-komagataella-batch60.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch60.json
+findings:
+- issue: 1539
+  severity: P2
+  status: addressed_in_this_change
+  finding: KMC pellicle model versus observed structure and unsupported recruitment endpoint.
+  disposition: Close only after protected-main merge.
+- issue: 1540
+  severity: P2
+  status: addressed_in_this_change
+  finding: KZ assay roles encoded as resolved pairwise transfer.
+  disposition: Close only after protected-main merge.
+- issue: 1541
+  severity: P2
+  status: unresolved_research
+  finding: KZ corrigendum and complete mechanism verification.
+  disposition: Keep OPEN; needs_research.
+- issue: 1542
+  severity: P2
+  status: unresolved_research
+  finding: Komagataella empty causal graph and exact pathway/chassis evidence.
+  disposition: Keep OPEN; needs_research.
+- issue: 1543
+  severity: P2
+  status: unresolved_non_graph
+  finding: KMC cultivation and ingredient metadata.
+  disposition: Keep OPEN after graph repair merge.
+adversarial_checks:
+- Whole three records read; all four original nodes and both arrows assessed, plus the absent Komagataella
+  interaction field. Missing structure is not certified absence of biology.
+- KZ retains positive consortium outcomes and complementary biomass-normalized assays. Community-level
+  scope with both exact canonical strain labels removes unverified SZ-3-to-CW-D3T transfer direction without
+  erasing the division-of-labor interpretation. No new node or arrow.
+- KZ full Methods and linked correction body remain unread. PubMed identifies PMID41456976; official publisher
+  API returns core metadata only and openaccessArticle=false. Third-party OA labels do not establish access
+  or scientific correction content. Keep needs_research under1541; do not assume the correction is immaterial.
+- KMC source Introduction explicitly states pellicle-supported biochemical interplay. Retain that existing
+  arrow as HYPOTHESIZED, grounded by a primary-matched excerpt, while distinguishing observed pellicle/morphotype
+  association from selective mediation of reciprocal benefit.
+- Remove the accessory-composition-to-mutualism arrow because potential fermentation capacity is not measured
+  reciprocal benefit among the four core genera. Preserve positive composition changes and probable cabbage-derived
+  lactobacillus persistence; do not convert relative read proportions into absolute growth or niche partitioning.
+- KMC four canonical genera are a partial core representation, not every organism in every treatment.
+  No canonical taxonomy edit. Non-graph assertions about separately cultivating members, categorical shaking
+  effects and ingredients remain separately unresolved under1543.
+- Komagataella public abstract and publisher Introduction/section previews report compatible co-growth,
+  common induction and biosynthetic relays. Lack of engineered population-balancing crosstalk is not biological
+  neutralism; common induction is not cross-feeding. Exact host/construct assignments and full Methods
+  remain unresolved; do not borrow unmatched monoculture titres as experimental controls.
+- Komagataella stays needs_research under1542, with zero nodes/arrows and its originally absent interaction
+  field preserved. The reviewed one-community LITERATURE dry-run query contains7457 characters; zero provider
+  submissions or credits. No report or completed extension is claimed.
+- KMC full extracted primary main text and main/supplement captions were read. Original figure pixels,
+  Table1 numerical cells, supplementary PDF and raw sequences were not inspected. KZ/Komagataella complete
+  abstracts plus selected public publisher previews were read, not complete primary bodies. No access-control
+  workaround.
+- Full biological diffs, exact participant registry and focused test assertions reviewed.457 other record
+  hashes and920 cache hashes unchanged; raw non-graph blocks preserved. Both-root census explicitly measures
+  KZ scope change, with no auditor-rule edit.36 network warnings preserved and zero structural defects.
+- Actual per-record schema/strict/term/reference/snippet/rank/history gates and regression outputs/digests
+  recorded. Repeat renders and456-page exact description parser passed, not browser screenshots. Post-commit
+  docs-current is a separate publication gate.
+- 839 all-state issue titles/bodies and19 scoped ignored/hidden local matches searched; all three matching
+  issue bodies read, not every comment/PR or local file. Repair1539/1540 addressed but OPEN until protected-main
+  merge; research1541/1542 and metadata1543 remain unresolved. Exact-head self-review is COMMENT, not
+  independent approval.
+verification:
+  combined_regressions: 552 passed in 188.20s (0:03:08)
+  new_regression_tests: 8
+  schema_strict_terms_history: Passed with actual output digests
+  references: CLI Total checks counts reported issues, not executed checks. Cache MATCH does not prove
+    scientific entailment or complete provenance. All920 caches unchanged. KMC retained-arrow fragment
+    independently matched to fresh publisher primary text. KZ correction body and full mechanism1541,
+    empty Komagataella graph1542 and KMC non-graph1543 remain unresolved. Existing476/1091/1095 limitations
+    remain.
+  snippet_counts_by_record:
+    kb/communities/Klebsiella_Arthrobacter_KZ_Phenanthrene_Cadmium_SynCom.yaml:
+      MATCH: 13
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Kombucha_KMC_IMBG1_Fermentation_Community.yaml:
+      MATCH: 22
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Komagataella_Ecoli_Coinducible_Biosynthesis_Coculture.yaml:
+      MATCH: 7
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network:
+    existing_findings_preserved: 36
+    added_findings: {}
+    removed_findings: {}
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-kz-kmc-komagataella-batch60.yaml: 1e64150e4f7f3cde4b39dfc6bd97f2984ac3fcf26486b31bdbcdc710e2874a69
+    tests/test_causal_review_batch60.py: dd1e198d098c1fb74896d4820253859100932c708930bd55c287af99174e2133
+    tests/test_participating_taxa.py: 27d2df501648e404a9d722844d513ebb29719034fc911348055d161842bf4a02
+    kb/communities/Klebsiella_Arthrobacter_KZ_Phenanthrene_Cadmium_SynCom.yaml: 65275177a514ceb42276f4f416da7b727e5200b3a8f79fb1510cf6c49bbd083c
+    kb/communities/Kombucha_KMC_IMBG1_Fermentation_Community.yaml: 9df19ae1add5269721799ee3a8328edf0531e314c15e3a3abc71a2e4e659fa40
+    kb/communities/Komagataella_Ecoli_Coinducible_Biosynthesis_Coculture.yaml: f4024c9731b98eac233911893d44568c3a9097460fb1aa3fb93fced0647cb746
+    reports/causal_graph_review/README.md: 872013dbfec5086ef9db848b4f3d3578c68366efe4c5a7523f641bb9d50e0bf9
+  unchanged_caches: 920
+  edison_dry_run:
+    path: research/communities/Komagataella_Ecoli_Coinducible_Biosynthesis_Coculture-edison-literature-causal-meta.yaml
+    sha256: 753bcec2844b7256e2790a9907e2c2e2d0d18d3a01fe3d39dbd9d79db395b328
+    query_sha256: e429f0f613ac80c47e2e8ddfd83510abb8f87ba13c495f0d19a087207a5c33bb
+    query_chars: 7457
+    job: LITERATURE
+    status: dry-run
+    provider_submissions: 0
+    credits_spent: 0
+    paid_authorization: specific one-job request pending
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 390
+      mixed: 124
+      community_level_only: 266
+      taxa: 1505
+      credited_solely_by_the_rule: 1236
+    current:
+      records: 460
+      with_community_level: 391
+      mixed: 124
+      community_level_only: 267
+      taxa: 1507
+      credited_solely_by_the_rule: 1238
+  interpretation: KZ changes one pairwise interpretation to an explicitly two-member community-level observation;
+    KMC narrows all three nodes to its four canonical core genera. Canonical taxonomy is unchanged. Census
+    CL records390 to391, CL-only266 to267, taxa1505 to1507 and solely credited1236 to1238; no auditor-rule
+    change.
+corpus:
+  records: 460
+  nodes: 1458
+  edges: 651
+  review_status_counts:
+    needs_research: 21
+    pending: 245
+    reviewed: 194
+limitations:
+- All four original nodes and two arrows assessed; one explicit source model retained as HYPOTHESIZED
+  and one unsupported endpoint removed. No new causal structure.
+- KZ positive performance and assay-inferred roles preserved. Primary full Methods/supplements and correction
+  body unavailable; needs_research under1541. Publisher API metadata contradicts third-party OA labels;
+  no access-control bypass.
+- KMC full primary main text and main/supplement captions read. Numerical Table 1 cells, original figures,
+  supplementary PDF and raw data not inspected. Cooperation is a source model, not demonstrated reciprocal
+  mediation.
+- Komagataella abstract and public publisher Introduction/section previews read, not full Methods/supplements.
+  Empty graph remains needs_research under1542; no new nodes/arrows. One reviewed 7457-character Edison
+  dry run, zero provider submissions or credits.
+- Canonical taxa and raw non-graph blocks preserved, not recertified. KMC metadata1543 and research1541/1542
+  remain OPEN after graph repair merge.
+- All920 reference caches unchanged. Primary-matched graph fragment does not certify full historical cache
+  provenance or SupportingReference coverage476; Linux DOI lookup1091 and writer artifact1095 remain limitations.
+- Deduplication searched839 all-state issue titles/bodies and19 scoped ignored/hidden local matches; all
+  three matching issue bodies read, not every comment/PR or local match.
+- Self-adversarial review is COMMENT, not independent approval. Repair1539/1540 remain OPEN until protected-main
+  merge.

@@ -5,6 +5,27 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch60: KZ, KMC And Co-inducible Biosynthesis
+
+[Decisions](decisions/20261006-kz-kmc-komagataella-batch60.yaml),
+[validation](validation-20261006-batch60.json) and
+[self-adversarial review](adversarial-review-20261006-batch60.yaml) account for
+four original nodes and two arrows, plus the empty Komagataella-E. coli graph.
+KZ retains positive outcomes and assay-inferred complementary roles without
+asserting directed strain transfer. Its unread corrigendum and complete mechanism
+verification remain `needs_research` under #1541.
+
+KMC retains all three nodes and one source-explicit pellicle/cooperation arrow as
+`HYPOTHESIZED`; accessory composition is not established reciprocal benefit.
+Its full primary main text and captions were read, not original images, numerical
+Table 1 cells or supplementary PDF. Non-graph metadata #1543 remains open.
+
+Komagataella remains `needs_research` under #1542. Its reviewed one-community
+Edison dry run contains 7,457 characters, with no paid submission or credits.
+The public primary preview is not complete Methods or verified strain/pathway
+assignment. All 920 reference caches are unchanged. Repairs #1539 and #1540 await
+protected-main merge; the research and metadata issues stay open until resolved.
+
 ## Batch59: Kefir Flavor And Dairy-Panel Gap
 
 [Decisions](decisions/20261006-kefir-dairy-batch59.yaml),

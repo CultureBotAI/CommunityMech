@@ -602,7 +602,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Klebsiella-Arthrobacter KZ Phenanthrene-Cadmium SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -610,8 +610,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -619,17 +619,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>SZ-3 to CW-D3T phenanthrene-mineralization division of labor</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Assay-Inferred Phenanthrene Catabolic Division Of Labor</h3>
                 </div>
-                <p class="prewrap interaction-description">Arthrobacter sp. SZ-3 supplied stronger upstream catalytic activity, measured as 50% higher 2H1N conversion, whereas Klebsiella sp. CW-D3T dominated downstream mineralization with more than 80% contribution in the biomass-normalized enzyme activity assays.</p>
-
-
-                <p><strong>Source Taxon:</strong> Arthrobacter sp. SZ-3</p>
+                <p class="prewrap interaction-description">Under 25 mg/L cadmium stress, the KZ pair showed better phenanthrene degradation and mineralization than the monocultures. Biomass-normalized enzyme assays assign stronger upstream 2H1N conversion to Arthrobacter sp. SZ-3 and a dominant downstream mineralization contribution to Klebsiella sp. CW-D3T. PARTIAL - these complementary activities support a division-of-labor model, not a resolved donor-to-recipient transfer or necessary mediation. The linked corrigendum and complete assay Methods remain unverified.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Klebsiella sp. CW-D3T</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Klebsiella sp. CW-D3T,
+
+                    Arthrobacter sp. SZ-3
+
+                </p>
 
 
 
@@ -656,10 +659,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41365368/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41365368</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Through biomass-normalized enzyme activity assays, we uncovered a structured division of labor: SZ-3 exhibited superior upstream catalytic activity (50 % higher 2H1N conversion), while CW-D3T dominated downstream mineralization (&gt;80 % contribution)."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41365368/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41365368</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"which synergistically enhanced phenanthrene (PHE) degradation and mineralization under cadmium stress (25 mg/L Cd2+), outperforming monocultures by 1.2-1.9-fold."</div>
 
                     </li>
 
@@ -673,7 +689,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -684,6 +700,21 @@
                 <p class="prewrap">The PubMed abstract identifies the two KZ members, the 25 mg/L cadmium stressor, and the phenanthrene-mineralization phenotype, but it does not expose the medium recipe, inoculum composition, or phenanthrene dose needed for a fully reproducible cultivation record.</p>
 
                 <p class="muted small">Attaches to: <code>engineering_design#assembly_strategy</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    What does the corrigendum change, and which transfers mediate KZ performance?
+                </h3>
+                <p class="prewrap">The complete abstract and public publisher preview support positive KZ outcomes and assay-inferred upstream/downstream roles. Full enzyme Methods, supplements and tracer or selective perturbation evidence were not read. PMID:41456976 / doi:10.1016/j.biortech.2025.133853 is a linked corrigendum; the official publisher API supplied metadata only, not its body. Do not assume the correction is biologically immaterial or infer expression from metagenomic gene content. #1541 tracks unresolved verification. Keep this record needs_research after the bounded #1540 repair. Existing medium/inoculation questions remain open; routine LB/MSM mentioned in the preview is not a verified co-contamination assay recipe.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Assay-Inferred Phenanthrene Catabolic Division Of Labor</code></p>
 
 
 
@@ -934,7 +965,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -943,11 +974,11 @@
 
             var processes = [];
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "SZ-3 to CW-D3T phenanthrene-mineralization division of labor",
+                label: "Assay-Inferred Phenanthrene Catabolic Division Of Labor",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -956,17 +987,20 @@
             });
 
 
-            var srcKey = "Arthrobacter sp. SZ-3";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Klebsiella sp. CW-D3T";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Klebsiella sp. CW-D3T",
+
+                "Arthrobacter sp. SZ-3"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
