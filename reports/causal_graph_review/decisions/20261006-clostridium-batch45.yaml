@@ -1,0 +1,118 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 7bdc93828cb9585f0711253d58d7382037207010
+baseline_commit: 7bdc93828cb9585f0711253d58d7382037207010
+base_tree: ae873b509fa12c69970cbafa96265ab9d55b8eb5
+issues:
+- 1478
+issue_deduplication:
+  all_state_issue_titles_and_bodies: 793
+  ignored_hidden_local_search: true
+  relevant_bodies_read:
+  - 256
+  - 295
+  - 289
+  - 306
+  local_matching_lines: 63
+  limitations: Search includes two deferred methanogen candidates and historical render/audit logs. Not all comments
+    or PR reviews inspected.
+reference_cache_original_hashes:
+  references_cache/PMID_28287150.txt: fdddff4829504900d4fcc745c214415a4cd3db3f57b1afe864237a4ec0c8c333
+  references_cache/PMID_34939136.txt: 8e7d9b0ab75beb3caf39c10356a7f7b9cf97547b1c6388ba92154c00c7e9e4ba
+limitations:
+- Whole 653-line record, all three original nodes and both arrows read. Complete 2017 primary main body, Methods,
+  Table 1 and embedded captions read; 2022 complete abstract only, publisher confirms subscription preview. No figure
+  images, separate supplements, raw data or analysis code audited.
+- 'Repair only: three to two nodes and two to one explicitly HYPOTHESIZED arrow; no new causal structure or provider
+  spend for this record.'
+- All canonical taxonomy, non-graph raw blocks, prior history and 920 source caches preserved, not certified. Non-graph
+  uptake, nanowire and product-causation claims remain outside this graph-scoped correction.
+- 'Reference CLI Total checks counts reported issues, not executed checks; SupportingReference coverage remains
+  incomplete under #476. Textual matches do not independently establish source provenance (#1362) or scientific
+  support.'
+- Source-based self-adversarial review is not independent approval. Methanosaeta and Methanosarcina remain outside
+  this one-record edit and are not counted as reviewed. Full-corpus completion and protected-main merge are not
+  claimed.
+records:
+- path: kb/communities/Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture.yaml
+  id: CommunityMech:000031
+  original_sha256: d3a7d0c3298583e167a50201c8da4cd94d0ac51c1516a8587a41259e85f4718e
+  record_sha256: 2bfa8ffd6b7d147f3c471eb88aa26482f93b0cc8d7b23dc39838402715463329
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-clostridium-batch45.yaml
+  scope: Whole record and every original node/arrow reviewed; measurements distinguished from inferred mediator.
+  summary: Qualify growth-inferred electron transfer and its one retained arrow; restrict product yields to responding
+    cultures; remove duplicate outcome and unsupported mutualism; correct controversy and exact anchors.
+  renamed_nodes:
+    Acetate Oxidation and Interspecies Electron Transfer: Proposed Acetate Oxidation and Interspecies Electron Transfer
+    Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift: Coculture-Associated Glycerol Fermentation
+      Product Shift
+  node_decisions:
+  - node: Proposed Acetate Oxidation and Interspecies Electron Transfer
+    rationale: Retain only the HYPOTHESIZED growth-based acetate/IET model with both canonical participants; not
+      measured uptake or demonstrated syntrophy.
+  - node: Coculture-Associated Glycerol Fermentation Product Shift
+    rationale: Retain conditional measured product yields, remove mutualism and unproven electron-chain annotation;
+      incorporate duplicate outcome evidence.
+  removed_node_decisions:
+  - node: Increased 1,3-Propanediol and Butyrate Production
+    rationale: Same product shift as the fermentation-response node, not a distinct downstream causal event; preserve
+      its evidence in the surviving response.
+  edges_before:
+  - source: Acetate Oxidation and Interspecies Electron Transfer
+    target: Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift
+    description: Electrons taken up from G. sulfurreducens induce the metabolic shift in C. pasteurianum toward
+      1,3-propanediol and butyrate. The transfer route is unresolved, so this edge asserts electron uptake causing
+      the shift, not a contact-dependent mechanism.
+  - source: Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift
+    target: Increased 1,3-Propanediol and Butyrate Production
+    description: The electron-transfer-induced metabolic shift redirects glycerol fermentation products toward higher
+      1,3-propanediol and butyrate yields.
+  edges_after:
+  - source: Proposed Acetate Oxidation and Interspecies Electron Transfer
+    target: Coculture-Associated Glycerol Fermentation Product Shift
+    description: 'HYPOTHESIZED: Acetate-derived electron transfer could alter Clostridium redox regulation and thereby
+      its glycerol-fermentation product profile. Growth/product associations and an assumed electron balance motivate
+      this direction, but do not selectively establish electron uptake as the mediator. The follow-up proposes cobamides
+      and possible electron entry as alternatives or contributors, not verified replacements.'
+  retained_edge_decisions:
+  - source: Proposed Acetate Oxidation and Interspecies Electron Transfer
+    target: Coculture-Associated Glycerol Fermentation Product Shift
+    description: 'HYPOTHESIZED: Acetate-derived electron transfer could alter Clostridium redox regulation and thereby
+      its glycerol-fermentation product profile. Growth/product associations and an assumed electron balance motivate
+      this direction, but do not selectively establish electron uptake as the mediator. The follow-up proposes cobamides
+      and possible electron entry as alternatives or contributors, not verified replacements.'
+    rationale: Explicit hypothesis of redox-mediated product regulation; association and assumed balance do not
+      selectively prove the mediator.
+  removed_edge_decisions:
+  - source: Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift
+    target: Increased 1,3-Propanediol and Butyrate Production
+    description: The electron-transfer-induced metabolic shift redirects glycerol fermentation products toward higher
+      1,3-propanediol and butyrate yields.
+    rationale: A product-profile shift causing the same product-profile shift is a restatement, not a separate causal
+      link.
+  references:
+  - PMID:28287150
+  - PMID:34939136
+  issues:
+  - 1478
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture/2026-10-06T123147Z-codex-030fb7.yaml
+  source_review:
+    PMID:28287150:
+      cache: references_cache/PMID_28287150.txt
+      sha256: fdddff4829504900d4fcc745c214415a4cd3db3f57b1afe864237a4ec0c8c333
+      url: https://doi.org/10.1038/srep44334
+      scope: Complete appended primary main body/Methods/Table 1/captions, not figure images or separate supplements.
+    PMID:34939136:
+      cache: references_cache/PMID_34939136.txt
+      sha256: 8e7d9b0ab75beb3caf39c10356a7f7b9cf97547b1c6388ba92154c00c7e9e4ba
+      url: https://link.springer.com/article/10.1007/s00253-021-11736-7
+      scope: Complete abstract only; subscription preview. Cell-free assay not verified.

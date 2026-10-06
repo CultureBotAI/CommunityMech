@@ -276,6 +276,7 @@ USERS = {
     "GLBRC_UFMP_Fermentation_Community.yaml",
     "GOM_Oil_Degrading_Consortium.yaml",
     "Garlic_Pseudomonas_SynCom6.yaml",
+    "Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture.yaml",
     "Geobacter_Methanosarcina_DIET.yaml",
     "Ginseng_CL95_Rusty_Root_Rot_Biocontrol_SynCom.yaml",
     "Glutamicibacter_S11_Aquaculture_Nitrogen_Removal_SynCom.yaml",
