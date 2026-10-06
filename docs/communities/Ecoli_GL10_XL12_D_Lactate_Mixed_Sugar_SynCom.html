@@ -566,7 +566,7 @@
                     <h3>GL10-XL12 glucose-xylose niche partitioning</h3>
                     <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">GL10 and XL12 partition mixed glucose and xylose utilization as two E. coli metabolic specialists, enabling simultaneous hexose and pentose consumption and D-lactate accumulation in the synthetic consortium.</p>
+                <p class="prewrap interaction-description">GL10 and XL12 show partial, overlapping carbon-source specialization in the tested mixed-glucose/xylose fermentation. GL10 retains xylose metabolism in single-sugar medium, while XL12 still consumes glucose; these are not exclusive substrate users. The 1:1 consortium produced 3.76 g/L D-lactate at 36 h under the baseline conditions. NICHE_PARTITIONING denotes this engineered division of labor, not strain-resolved coculture flux, direct interstrain cross-feeding, partner-dependent growth or universal superiority across shaking speeds and inoculum ratios.</p>
 
 
 
@@ -636,7 +636,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42038008/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42038008</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Microbial consortium using GL10 and XL12 with the inoculation ratio of 1:1 achieved complete glucose depletion and 53.21% xylose utilization simultaneously."</div>
@@ -656,6 +656,32 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42038008/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42038008</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"GL10 was not modified to block xylose metabolism"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42038008/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42038008</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"XL12 co-utilized glucose and xylose simultaneously"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -666,7 +692,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -675,6 +701,21 @@
                     Which metabolites, if any, are directly exchanged between E. coli GL10 and E. coli XL12 during mixed-sugar D-lactate fermentation?
                 </h3>
                 <p class="prewrap">The primary article supports carbon-source niche partitioning by glucose- and xylose-specialized E. coli strains, but this curation did not find evidence for a named GL10-to-XL12 or XL12-to-GL10 cross-fed metabolite.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#GL10-XL12 glucose-xylose niche partitioning</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which strain-specific fluxes account for consortium output under each condition?
+                </h3>
+                <p class="prewrap">The two preferred strain labels must remain distinct despite shared NCBITaxon:562. Individual-strain phenotypes and consortium-level HPLC do not resolve each strain&#39;s flux during coculture or establish an exchanged metabolite. Keep the existing direct-cross-feeding gap and zero arrows; do not restore the dangling endpoint arrows removed under #826. The abstract and 36 h xylose quantities require reconciliation against unread original supplementary data under #1429, without merging supplement text back into the article cache (#827).</p>
 
                 <p class="muted small">Attaches to: <code>ecological_interactions#GL10-XL12 glucose-xylose niche partitioning</code></p>
 
@@ -1345,7 +1386,7 @@
             processes.push("fermentation");
 
 
-            var evidenceCount = 3;
+            var evidenceCount = 5;
 
             nodes.push({
                 id: intId,
