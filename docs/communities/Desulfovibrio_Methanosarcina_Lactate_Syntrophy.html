@@ -563,16 +563,11 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Desulfovibrio-Methanosarcina Lactate Syntrophy</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -581,8 +576,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -593,7 +588,7 @@
                     <h3>Lactate Degradation to Acetate and Methane</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">In sulfate-free coculture, D. desulfuricans catabolizes lactate and M. barkeri performs methanogenesis, yielding acetate and methane during early incubation.</p>
+                <p class="prewrap interaction-description">In the no-added-sulfate pair, D. desulfuricans supplies fermentation products supporting M. barkeri methanogenesis. The exact primary pair is Essex 6 with MS; D. vulgaris and M. smithii comparisons are separate systems.</p>
 
 
                 <p><strong>Source Taxon:</strong> Desulfovibrio desulfuricans</p>
@@ -646,12 +641,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Acetate Conversion by Methanosarcina
-                        <p class="prewrap causal-description">Acetate produced during lactate degradation becomes the substrate for the later Methanosarcina acetate-to-methane conversion phase.</p>
+                        <p class="prewrap causal-description">Donor-produced acetate supplies the later methanogenic substrate. Its utilization timing also depends on hydrogen and medium conditions.</p>
                     </div>
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Hydrogen Inhibition of Acetate Degradation
-                        <p class="prewrap causal-description">Hydrogen produced during Desulfovibrio growth on lactate creates the inhibitory condition that delays M. barkeri acetate degradation.</p>
+                        <p class="prewrap causal-description">PARTIAL - donor hydrogen production is implicated in delayed acetate use by coculture time courses and separate pure-culture hydrogen perturbation, not selective removal of donor hydrogen in the exact pair.</p>
                     </div>
 
                 </div>
@@ -681,9 +676,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Acetate Conversion by Methanosarcina</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">After lactate depletion, acetate produced during early lactate degradation is converted by M. barkeri to methane and presumably carbon dioxide.</p>
+                <p class="prewrap interaction-description">M. barkeri consumes acetate for methanogenesis as hydrogen declines. This recipient process is not reverse cross-feeding; the coculture carbon-dioxide coproduct is presumed rather than directly resolved.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methanosarcina barkeri</p>
@@ -748,9 +742,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Hydrogen Inhibition of Acetate Degradation</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">Hydrogen produced during Desulfovibrio growth can inhibit acetate degradation by M. barkeri, making hydrogen dynamics an important regulator of syntrophic carbon flow.</p>
+                <p class="prewrap interaction-description">Hydrogen availability delays acetate use under the tested conditions, not all methanogenesis: hydrogen can support greater growth and methane production. Enzyme repression is a proposed explanation. YE and RV media differ.</p>
 
 
                 <p><strong>Source Taxon:</strong> Desulfovibrio desulfuricans</p>
@@ -788,7 +781,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/16345708/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:16345708</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"H(2) produced by the Desulfovibrio species during growth with lactate inhibited acetate degradation"</div>
@@ -839,6 +832,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Should hydrogen inhibition have an explicit negative arrow to acetate conversion?
+                </h3>
+                <p class="prewrap">Existing positive support and conditional inhibition are retained. The missing negative arrow needs the one-community research workflow and primary-source assessment under #1400, so this record remains needs_research. Edison dry run only; no provider job/charge. Medium and strain metadata remain open under #1399.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Lactate Degradation to Acetate and Methane</code>, <code>ecological_interactions#Acetate Conversion by Methanosarcina</code>, <code>ecological_interactions#Hydrogen Inhibition of Acetate Degradation</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1108,7 +1120,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1149,7 +1161,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

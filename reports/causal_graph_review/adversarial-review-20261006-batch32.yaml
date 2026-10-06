@@ -1,0 +1,151 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: e62e9dada27db42557180f4897ff6f56fdbc6946
+scope:
+- kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+- kb/communities/Desulfovibrio_Methanococcus_Syntrophy.yaml
+- kb/communities/Desulfovibrio_Methanosarcina_Lactate_Syntrophy.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch32.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch32.json
+findings:
+- issue: 1394
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'SynCom C graph: qualify host mediation and remove untested mutualism'
+  disposition: Existing graph corrected; close only after protected main merge.
+- issue: 1395
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'DvH/M. maripaludis graph: distinguish intrinsic machinery and conditional genetic phenotypes'
+  disposition: Existing graph corrected; close only after protected main merge.
+- issue: 1396
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'D. desulfuricans/M. barkeri graph: separate acetate use from competition'
+  disposition: Existing graph corrected; close only after protected main merge.
+- issue: 1397
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'SynCom C metadata: reconcile whole-host evidence classifications and assay context'
+  disposition: Remains open; graph-only repair does not certify metadata or resolve new structure.
+- issue: 1398
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'DvH/M. maripaludis metadata: verify culture provenance, medium imports and source support'
+  disposition: Remains open; graph-only repair does not certify metadata or resolve new structure.
+- issue: 1399
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'D. desulfuricans/M. barkeri metadata: distinguish YE and RV experiments and inoculum conditions'
+  disposition: Remains open; graph-only repair does not certify metadata or resolve new structure.
+- issue: 1400
+  severity: P2
+  status: open_graph_research
+  finding: 'M. barkeri causal research: assess hydrogen-inhibition-to-acetate-use negative arrow'
+  disposition: Remains open; graph-only repair does not certify metadata or resolve new structure.
+adversarial_checks:
+- Actual three record diffs read against recorded primary-source access. Ten nodes and seven arrows retained,
+  no invented connectivity or new graph structure.
+- Tomato host benefit is not reciprocal microbial benefit. Canonical five-member participants added without
+  taxonomy changes. Sterile-sand single-strain validation, nonsterile combination screening and the larger
+  tracking experiment stay distinct. Two mediation arrows are PARTIAL. Earlier workflow-arrow removal
+  is preserved.
+- 'Whole-host graph evidence is IN_VIVO. Engineering/environmental blocks retain their original IN_VITRO
+  under open #1397; the shared anchor was detached only inside graph content. Raw non-graph blocks remain
+  byte-identical.'
+- DvH donor machinery uses source-only PAIRWISE convention without self-edge or exchange type. Coo/Hmc
+  versus Hyd/Hyn effects and the respiratory Hmc phenotype are distinguished; detailed electron routing
+  is qualified. Explicit partner directions preserve the physiological feedback cycle, not a reverse nutrient
+  donation.
+- 'M. barkeri acetate use is intrinsic recipient metabolism. Conditional hydrogen suppression is not resource
+  competition or universal methanogenic toxicity; donor attribution is qualified. Coculture timing and
+  pure-culture perturbation, YE/RV and exact strains stay distinct. New negative arrow is not silently
+  inserted; #1400 and needs_research remain.'
+- No figures visually inspected or supplement files read. A requested PDF screenshot did not produce a
+  visually inspected image. Complete main-body, caption and table-text scope is documented. No article
+  bodies/PDFs added.
+- Three guarded writes, llm-assisted events and append-only histories. Prior history preserved semantically;
+  every other non-graph raw block, 457 other records and 920 caches preserved. Six focused regression
+  tests added.
+- All 31 baseline network warnings remain exactly unchanged with zero structural errors. Registry 175
+  to 176 users adds only tomato; one mixed community-level record and two CL-counted taxa removed by intrinsic
+  recipient correction. No survey algorithms or numeric bounds changed.
+- Repeat render hashes match and every description is checked across 456 pages. No screenshot QA claimed.
+  Three reference-validator commands performed zero checks despite exit 0; independent snippet matching
+  does not establish scientific truth.
+- 'Deduplication covers 722 all-state issue titles/bodies and ignored/hidden-inclusive exact-target local
+  material, not every issue comment. #1397-1399 metadata and #1400 research stay open. One-community Edison
+  dry run only, no job/charge; pricing-map DNS fallback disclosed.'
+verification:
+  combined_regressions: 360 passed in 247.76s (0:04:07)
+  new_regression_tests: 6
+  schema_strict_terms_history: passed; commands and raw results retained
+  snippet_counts_by_record:
+    kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml:
+      MATCH: 14
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Desulfovibrio_Methanococcus_Syntrophy.yaml:
+      MATCH: 15
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Desulfovibrio_Methanosarcina_Lactate_Syntrophy.yaml:
+      MATCH: 12
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero errors; 31 unchanged baseline warnings, expected warning exit retained.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch32.yaml: 400a8403214d7c2fbd88bb8e533cc5e22c2982013a5c900f6ebd62c9a0263f16
+    tests/test_causal_review_batch32.py: dd6f701c2f6d4957460bc2b53e8fa37e111ff74bf03f6b0f35c211baef08974e
+    tests/test_participating_taxa.py: d2f88f92946cc426367f33bc040b2acdfe4e5ad4437db0c6407030675e5213fa
+    kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml: 7fb2c3641380b2013a82dfebdeda01aa6df976f96e8307e2e2df4e93f75d92c6
+    kb/communities/Desulfovibrio_Methanococcus_Syntrophy.yaml: 62ab309b887d822437b62ca6fdc9a90f055e70c7bd32d05be255d6e087eee8b0
+    kb/communities/Desulfovibrio_Methanosarcina_Lactate_Syntrophy.yaml: 21a3574175a120649f4dac15a262cf4ec861891f16f8beb1faae6d2ecd01913d
+  post_commit_docs_current: Separate publication gate, not yet asserted in pre-commit record.
+  protected_ci_and_merge: Exact-head protected main checks and queue required; not asserted here.
+participant_census:
+  connectivity_before:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1220
+    mixed: 124
+    records: 460
+    taxa: 1496
+    with_community_level: 388
+  connectivity_after:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1220
+    mixed: 123
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  exact_change: 175 -> 176 users; only tomato SynCom C added. Methanosarcina intrinsic recipient scope
+    removes one mixed CL record and two CL-counted taxa.
+  numeric_bounds_changed: false
+corpus:
+  records: 460
+  nodes: 1470
+  edges: 704
+  review_status_counts:
+    needs_research: 6
+    pending: 315
+    reviewed: 139
+limitations:
+- Two completed reviews; Methanosarcina remains needs_research for new negative structure. Ten existing
+  nodes and seven arrows retained, no added connectivity or provider job.
+- Source-only PAIRWISE is the established intrinsic-process convention, not a self-edge or reverse exchange.
+  Graph certainty differs from node observation certainty.
+- Primary main bodies and text captions/tables read as documented, no visually inspected figures or supplement
+  files. No article body/PDF added; caches and non-graph raw blocks preserved.
+- Self-adversarial review is not independent approval, protected main merge or full-corpus completion.
+  Textual snippet MATCH does not establish scientific support.

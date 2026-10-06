@@ -56,8 +56,9 @@ taxonomy:
     explanation: Supports Methanosarcina barkeri as the methanogenic partner.
 ecological_interactions:
 - name: Lactate Degradation to Acetate and Methane
-  description: In sulfate-free coculture, D. desulfuricans catabolizes lactate and M. barkeri performs
-    methanogenesis, yielding acetate and methane during early incubation.
+  description: In the no-added-sulfate pair, D. desulfuricans supplies fermentation products supporting M. barkeri
+    methanogenesis. The exact primary pair is Essex 6 with MS; D. vulgaris and M. smithii comparisons are separate
+    systems.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -97,23 +98,22 @@ ecological_interactions:
       label: methanogenesis
   downstream:
   - target: Acetate Conversion by Methanosarcina
-    description: Acetate produced during lactate degradation becomes the substrate for the later
-      Methanosarcina acetate-to-methane conversion phase.
+    description: Donor-produced acetate supplies the later methanogenic substrate. Its utilization timing also depends
+      on hydrogen and medium conditions.
   - target: Hydrogen Inhibition of Acetate Degradation
-    description: Hydrogen produced during Desulfovibrio growth on lactate creates the inhibitory
-      condition that delays M. barkeri acetate degradation.
+    description: PARTIAL - donor hydrogen production is implicated in delayed acetate use by coculture time courses
+      and separate pure-culture hydrogen perturbation, not selective removal of donor hydrogen in the exact pair.
   evidence:
   - reference: PMID:16345708
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: lactate was completely degraded, with almost stoichiometric production of acetate and CH(4)
-    explanation: Supports coupled lactate degradation and methane production in the D. desulfuricans-M.
-      barkeri coculture.
+    explanation: Supports coupled lactate degradation and methane production in the D. desulfuricans-M. barkeri
+      coculture.
 - name: Acetate Conversion by Methanosarcina
-  description: After lactate depletion, acetate produced during early lactate degradation is converted by
-    M. barkeri to methane and presumably carbon dioxide.
-  interaction_type: CROSS_FEEDING
-  scope: COMMUNITY_LEVEL
+  description: M. barkeri consumes acetate for methanogenesis as hydrogen declines. This recipient process is not
+    reverse cross-feeding; the coculture carbon-dioxide coproduct is presumed rather than directly resolved.
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Methanosarcina barkeri
     term:
@@ -146,11 +146,11 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Later, acetate was degraded to CH(4) and presumably to CO(2)
-    explanation: Supports subsequent acetate conversion to methane and carbon dioxide.
+    explanation: Supports methane formation with presumed carbon dioxide, not a measured complete carbon balance.
 - name: Hydrogen Inhibition of Acetate Degradation
-  description: Hydrogen produced during Desulfovibrio growth can inhibit acetate degradation by M. barkeri,
-    making hydrogen dynamics an important regulator of syntrophic carbon flow.
-  interaction_type: COMPETITION
+  description: 'Hydrogen availability delays acetate use under the tested conditions, not all methanogenesis: hydrogen
+    can support greater growth and methane production. Enzyme repression is a proposed explanation. YE and RV media
+    differ.'
   scope: PAIRWISE
   source_taxon:
     preferred_term: Desulfovibrio desulfuricans
@@ -175,10 +175,11 @@ ecological_interactions:
     notes: Acetate degradation was delayed until lactate was catabolized.
   evidence:
   - reference: PMID:16345708
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: H(2) produced by the Desulfovibrio species during growth with lactate inhibited acetate degradation
-    explanation: Supports hydrogen-mediated inhibition of acetate degradation by M. barkeri.
+    explanation: The abstract interprets partner hydrogen inhibition; coculture timing and pure-culture perturbation
+      are distinct evidence. This is not shared-resource competition.
 environmental_factors:
 - name: absence of added sulfate
   value: sulfate-free coculture condition
@@ -269,3 +270,25 @@ associated_datasets:
   description: Publication reporting lactate degradation, acetate dynamics, hydrogen effects, and methane
     production in Desulfovibrio-methanogen cocultures.
 metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: barkeri_hydrogen_inhibition_structure
+  prompt: Should hydrogen inhibition have an explicit negative arrow to acetate conversion?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Lactate Degradation to Acetate and Methane
+  - ecological_interactions#Acetate Conversion by Methanosarcina
+  - ecological_interactions#Hydrogen Inhibition of Acetate Degradation
+  rationale: 'Existing positive support and conditional inhibition are retained. The missing negative arrow needs
+    the one-community research workflow and primary-source assessment under #1400, so this record remains needs_research.
+    Edison dry run only; no provider job/charge. Medium and strain metadata remain open under #1399.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T06:38:52Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain positive syntrophic substrate provision and qualify donor-hydrogen attribution.; Represent intrinsic
+    recipient acetate use without community-level or reverse cross-feeding.; Retain conditional inhibition without
+    competition or universal toxicity; new negative structure remains pending. Issue #1396; reports/causal_graph_review/decisions/20261006-three-records-batch32.yaml'
+  llm_assisted: true
