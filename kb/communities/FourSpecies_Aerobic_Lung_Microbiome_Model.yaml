@@ -154,11 +154,37 @@ curation_history:
 - timestamp: '2026-09-24T13:24:51Z'
   curator: codex
   action: ADD_COMMUNITY_RECORD
-  changes: Created CommunityMech:000432 for the PMID:42545019 four-species aerobic lung microbiome model, including species-level
-    membership, 34°C BHI co-culture conditions, validation endpoints, and exact PubMed abstract evidence.
+  changes: Created CommunityMech:000432 for the PMID:42545019 four-species aerobic lung microbiome model, including
+    species-level membership, 34°C BHI co-culture conditions, validation endpoints, and exact PubMed abstract evidence.
   llm_assisted: true
 - timestamp: '2026-09-24T13:31:26Z'
   curator: codex
   action: FIX_EXTERNAL_RESOURCE_EVIDENCE
-  changes: Tightened the DOI external-resource evidence to cite the exact PMID:42545019 DOI line rather than the article title.
+  changes: Tightened the DOI external-resource evidence to cite the exact PMID:42545019 DOI line rather than the
+    article title.
   llm_assisted: true
+- timestamp: '2026-10-06T10:43:40Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Record full-text graph-expansion candidates and retain needs_research; no new nodes or arrows pending
+    the one-community research workflow Issue #1461; reports/causal_graph_review/decisions/20261006-three-records-batch41.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: lung_full_text_causal_expansion
+  prompt: Which observed phenotypes and proposed mechanisms belong in the four-species causal graph?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: 'The openly available primary main body (PMID:42545019; PMC13595950) now supports source review beyond
+    the abstract. The record still has no interaction nodes and remains needs_research under #1461. Day-10 vPCR
+    persistence, total CFU, DNA-qPCR and protein fractions are distinct readouts. P. koreensis-containing bicultures
+    alkalinize, and community pH recovers after acid perturbation, but total CFU does not resolve member-specific
+    compositional resilience. Siderophore uptake, partner-resolved acid/pyruvate exchange, ammonia mediation and
+    AI-2 coordination require hypothesis-qualified treatment, not inferred flux or selective causality from proteins
+    alone. Predicted antimicrobial pathways produced no inhibition zones in the tested agar assay, not proof of
+    universal absence. Nutrient-rich BHI and pH 9-10 are not physiological healthy-airway conditions. Challenge
+    organisms are not members of the canonical four-species record. One-community Edison dry run completed; specific
+    credit authorization requested and no provider job or spend made. Add no speculative nodes or arrows while research
+    is pending. Source body, tables and captions read; figure images, supplements and raw data not inspected. Strain
+    and model metadata remain #1463.'
+  posed_by: codex
+  posed_date: '2026-10-06'
