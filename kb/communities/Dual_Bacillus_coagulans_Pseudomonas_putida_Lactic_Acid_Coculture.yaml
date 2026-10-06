@@ -110,11 +110,11 @@ taxonomy:
       as a heterologous aromatic scavenger
     explanation: Identifies P. putida KT2440 ZL as the aromatic-scavenging third member.
 ecological_interactions:
-- name: Biodetoxification-mediated commensalism (DSM1-25280 to CC17B-1)
-  description: The PAD-overexpressing strain DSM1-25280 degrades inhibitory phenolic compounds
-    (including accelerated vanillin degradation) in the undetoxified hydrolysate, relieving toxicity
-    for the LA producer CC17B-1. This is the early commensalism phase of the niche-succession model.
-  interaction_type: COMMENSALISM
+- name: Biodetoxification-Mediated Facilitation of CC17B-1
+  description: DSM1-25280 pretreatment lowers inhibitory phenolics and permits subsequent CC17B-1 fermentation of
+    undetoxified corncob hydrolysate. The optimized dual-strain scheme adds 1 g/L DSM1-25280, then 3 g/L CC17B-1
+    after 12 h. CC17B-1 also contributes to detoxification; donor neutrality is not established. Accelerated vanillin
+    loss accompanies PAD overexpression but is not demonstrated direct PAD catalysis.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Bacillus coagulans DSM1-25280 (PAD-overexpressing)
@@ -132,90 +132,92 @@ ecological_interactions:
       id: CHEBI:18346
       label: vanillin
   downstream:
-  - target: Competitive exclusion in the dual Bacillus coagulans consortium
-    description: >
-      Phenolic-acid biodetoxification defines the early commensal phase of the
-      niche-succession model before the system transitions to competitive
-      exclusion between the Bacillus coagulans strains.
+  - target: CC17B-1 Dominance and Hypothesized Exclusion of DSM1-25280
+    description: HYPOTHESIZED - detoxification may remove the selective advantage of the stress-tolerant DSM1-25280
+      strain and permit CC17B-1 dominance. CFU succession supports the proposed trade-off model but does not isolate
+      resource competition from lactic-acid inhibition or loss of culturability.
   evidence:
   - reference: PMID:42098792
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: a strongly supported model of niche succession process within the system, transitioning
-      from biodetoxification-mediated commensalism to competitive exclusion
-    explanation: Abstract describes the early biodetoxification-mediated commensalism phase between
-      the two strains.
+    snippet: a strongly supported model of niche succession process within the system, transitioning from biodetoxification-mediated
+      commensalism to competitive exclusion
+    explanation: Supports the authors' succession model, not established donor neutrality or a selectively demonstrated
+      competition mechanism.
   - reference: PMID:42098792
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: overexpression of PAD in the engineered strain DSM1-25280 not only enhanced tolerance
-      to phenolic acids but also significantly accelerated vanillin degradation
-    explanation: Mechanism of biodetoxification (phenolic/vanillin degradation) provided by DSM1-25280.
-- name: Competitive exclusion in the dual Bacillus coagulans consortium
-  description: Following the biodetoxification phase, the two Bacillus coagulans strains transition
-    to competition, with competitive exclusion as the late phase of the induced niche succession.
-  interaction_type: COMPETITION
+    snippet: overexpression of PAD in the engineered strain DSM1-25280 not only enhanced tolerance to phenolic acids
+      but also significantly accelerated vanillin degradation
+    explanation: Supports the engineered-strain phenotype; primary Results explicitly describe accelerated vanillin
+      degradation as an indirect, unresolved effect rather than direct PAD reduction.
+- name: CC17B-1 Dominance and Hypothesized Exclusion of DSM1-25280
+  description: After 24 h in the optimized dual-strain culture, CC17B-1 CFU increased while DSM1-25280 CFU declined
+    and became undetectable after 72 h. The proposed direction of exclusion is CC17B-1 toward DSM1-25280. HYPOTHESIZED
+    resource competition and metabolic trade-offs may explain this pattern, but product inhibition is an explicit
+    alternative and CFU measures culturability, not demonstrated extinction or real-time metabolic viability.
   scope: PAIRWISE
   source_taxon:
+    preferred_term: Bacillus coagulans CC17B-1
+    term:
+      id: NCBITaxon:1398
+      label: Heyndrickxia coagulans
+  target_taxon:
     preferred_term: Bacillus coagulans DSM1-25280 (PAD-overexpressing)
     term:
       id: NCBITaxon:1398
       label: Heyndrickxia coagulans
-  target_taxon:
-    preferred_term: Bacillus coagulans CC17B-1
-    term:
-      id: NCBITaxon:1398
-      label: Heyndrickxia coagulans
-  biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
   evidence:
   - reference: PMID:42098792
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: transitioning from biodetoxification-mediated commensalism to competitive exclusion
-    explanation: Late phase of the niche-succession model is competitive exclusion between the strains.
+    explanation: The source proposes competition-driven succession; differential plating supports the directional
+      CFU shift, while the exact cause of DSM1-25280 decline remains unresolved.
 - name: Aromatic scavenging by P. putida KT2440 ZL reinforces LA fermentation
-  description: The sugar-metabolism-deficient engineered P. putida KT2440 ZL acts as a heterologous
-    aromatic scavenger, removing aromatic inhibitors without competing for sugars, which reinforces
-    the consortium and further elevates LA titer for the Bacillus coagulans producers.
-  interaction_type: COMMENSALISM
+  description: The three-strain protocol first incubates sugar-metabolism-deficient P. putida KT2440 ZL aerobically
+    at 30 C for 12 h, then shifts to 50 C anaerobic DSM1-25280 fermentation and adds CC17B-1 after another 12 h.
+    This staged treatment reached 146.00 g/L LA and 98.9% yield versus 124.72 g/L for the optimized dual culture.
+    Aromatic scavenging is the proposed contribution; the comparison does not selectively isolate that mediator,
+    donor neutrality or stable simultaneous three-strain coexistence.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Pseudomonas putida KT2440 ZL
-    term:
-      id: NCBITaxon:303
-      label: Pseudomonas putida
-  target_taxon:
-    preferred_term: Bacillus coagulans CC17B-1
-    term:
-      id: NCBITaxon:1398
-      label: Heyndrickxia coagulans
   biological_processes:
   - preferred_term: small molecule catabolic process
     term:
       id: GO:0044282
       label: small molecule catabolic process
   downstream:
-  - target: Biodetoxification-mediated commensalism (DSM1-25280 to CC17B-1)
-    description: >
-      P. putida KT2440 ZL eliminates recalcitrant aromatic toxicity without
-      consuming fermentation substrates, preparing the hydrolysate for the
-      downstream Bacillus coagulans detoxification and production relay.
+  - target: Biodetoxification-Mediated Facilitation of CC17B-1
+    description: PARTIAL - aerobic ZL pretreatment may reduce recalcitrant aromatic toxicity and facilitate the
+      subsequent anaerobic Bacillus relay. The staged treatment improves fermentation, but does not selectively
+      establish aromatic removal as the sole mediator or equate the two temperature/oxygen stages.
   evidence:
   - reference: PMID:42098792
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: an enhanced three-strain co-culture system by incorporating a sugar-metabolism-deficient
-      engineered Pseudomonas putida KT2440 ZL as a heterologous aromatic scavenger
-    explanation: P. putida ZL scavenges aromatics without consuming sugars, reinforcing the system.
+    snippet: an enhanced three-strain co-culture system by incorporating a sugar-metabolism-deficient engineered
+      Pseudomonas putida KT2440 ZL as a heterologous aromatic scavenger
+    explanation: Supports inclusion of the engineered aromatic-scavenging strain; primary Methods specify staged
+      aerobic pretreatment followed by an anaerobic temperature shift, not simultaneous equivalent growth conditions.
   - reference: PMID:42098792
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: This system further elevated the LA titer to 146.00 g/L with a yield of 98.9%
-    explanation: Adding the aromatic scavenger raised LA titer/yield, evidencing the beneficial effect.
+    explanation: Supports the measured output of the three-strain staged treatment, not selective aromatic mediation
+      or donor neutrality.
+  participating_taxa:
+  - preferred_term: Bacillus coagulans DSM1-25280 (PAD-overexpressing)
+    term:
+      id: NCBITaxon:1398
+      label: Heyndrickxia coagulans
+  - preferred_term: Bacillus coagulans CC17B-1
+    term:
+      id: NCBITaxon:1398
+      label: Heyndrickxia coagulans
+  - preferred_term: Pseudomonas putida KT2440 ZL
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
 growth_media:
 - name: hydrolysate fermentation medium (100% v/v undetoxified corncob hydrolysate; YE 7.3, CSLP 18.25, NH4Cl 7.3, MgSO4 0.2, KH2PO4 0.22 g/L)
   temperature: '50'
@@ -239,3 +241,28 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: The strains were inoculated at 4 g/L (wet weight) into 150 mL shake flasks containing 50 mL of hydrolysate fermentation medium, supplemented with 0.5 g CaCO3/g sugar to regulate the pH during fermentation.
     explanation: Names the shake-flask vessel and working volume, 4 g/L inoculum, fermentation medium, and CaCO3 pH regulation.
+discussions:
+- discussion_id: dual_bacillus_succession_and_staging
+  prompt: What causes the DSM1-25280 culturability decline and the benefit of ZL pretreatment?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Biodetoxification-Mediated Facilitation of CC17B-1
+  - ecological_interactions#CC17B-1 Dominance and Hypothesized Exclusion of DSM1-25280
+  - ecological_interactions#Aromatic scavenging by P. putida KT2440 ZL reinforces LA fermentation
+  rationale: 'Resolve resource competition versus product inhibition with selective perturbations and viability
+    measurements. Preserve the distinct DSM1-25280 and CC17B-1 labels despite their shared NCBITaxon ID. PAD-associated
+    vanillin removal has an unresolved indirect mechanism. ZL aromatic mediation needs stage-matched controls and
+    chemical measurements; no new nodes or arrows are required to express these limits. Vessel and medium-stage
+    metadata remain under #1414.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T07:30:10Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain early detoxification benefit without donor-neutrality or direct PAD-vanillin claims.; Correct
+    the proposed excluding strain and distinguish CFU succession from demonstrated competitive extinction.; Represent
+    the staged three-strain treatment with canonical strain-specific participants and qualified mediation. Issue
+    #1411; reports/causal_graph_review/decisions/20261006-three-records-batch34.yaml'
+  llm_assisted: true
