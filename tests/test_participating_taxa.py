@@ -256,6 +256,7 @@ USERS = {
     "Ecoli_K12_MG1655_Arg_Met_CrossFeeding_Coculture.yaml",
     "Ensifer_YF2_Sphingobacterium_Y2_Polyethylene_Degrading_Consortium.yaml",
     "Episymbiotic_CPR_DPANN_Groundwater_Community.yaml",
+    "Eucalyptus_Nursery_FiveStrain_Inoculant_SynCom.yaml",
     "Euglena_Chlorella_Microalgal_Biorefinery_Coculture.yaml",
     "Ewaste_Bioleaching_Consortium.yaml",
     "FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.yaml",

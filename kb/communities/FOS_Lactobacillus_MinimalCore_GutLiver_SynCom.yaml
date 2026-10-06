@@ -249,32 +249,64 @@ taxonomy:
     explanation: Identifies E. coli ATCC 25922 as a human-derived minimal-core member.
 ecological_interactions:
 - name: FOS-driven whole-community strain modulation
-  description: In 2% FOS DP ~ 10 whole-community cultures, L. plantarum PBS067, L. reuteri PBS072, and E. coli ATCC 25922
-    increased to about 10^8 bacterial counts/mL after 48 h, while B. cellulosilyticus CL02T12C19 and F. plautii 1_3_50AFAA
-    reached about 10^7 bacterial counts/mL. L. acidophilus PBS066 was a tracked member, but its lower growth was consistent
-    with the absence of scrB expression in this condition.
+  description: After 48 h in the seven-strain community with 2% FOS, species-specific DNA-qPCR estimated about 10^8
+    bacterial counts/mL for L. plantarum, L. reuteri and E. coli and about 10^7 for B. cellulosilyticus and F. plautii.
+    Calibration used strain-specific genomic-DNA standards, not CFU viability or direct cell counting. Low L. acidophilus
+    abundance and absent scrB expression are associated observations, not selective gene causality. The 1% glucose
+    reference is not carbon-mass matched to 2% FOS.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: carbohydrate metabolic process
-    term:
-      id: GO:0005975
-      label: carbohydrate metabolic process
   evidence:
   - reference: PMID:42781020
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: in the whole community, FOS promotes the growth of L. plantarum PBS067, L. reuteri PBS072, and E. coli reaching
-      values of bacterial counts around ~108 at 48 h
+    snippet: in the whole community, FOS promotes the growth of L. plantarum PBS067, L. reuteri PBS072, and E. coli
+      reaching values of bacterial counts around ~108 at 48 h
     explanation: Supports the dominant LP/LR/EC 48 h response in FOS-grown whole communities.
   - reference: PMID:42781020
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: B. cellulosilyticus and F. plautii showed values of ~107 bacterial counts/mL
     explanation: Supports the lower BC/FP 48 h FOS-grown whole-community counts.
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: calibration curves from serial dilutions of strain-specific genomic DNA
+    explanation: Defines the enumeration method and prevents conflation with CFU or RNA expression assays.
+  participating_taxa:
+  - preferred_term: Lactiplantibacillus plantarum PBS067
+    term:
+      id: NCBITaxon:1590
+      label: Lactiplantibacillus plantarum
+  - preferred_term: Lactobacillus acidophilus PBS066
+    term:
+      id: NCBITaxon:1579
+      label: Lactobacillus acidophilus
+  - preferred_term: Limosilactobacillus reuteri PBS072
+    term:
+      id: NCBITaxon:1598
+      label: Limosilactobacillus reuteri
+  - preferred_term: Bacteroides cellulosilyticus CL02T12C19
+    term:
+      id: NCBITaxon:246787
+      label: Bacteroides cellulosilyticus
+  - preferred_term: Clostridium symbiosum WAL-14673
+    term:
+      id: NCBITaxon:1512
+      label: '[Clostridium] symbiosum'
+  - preferred_term: Flavonifractor plautii 1_3_50AFAA
+    term:
+      id: NCBITaxon:292800
+      label: Flavonifractor plautii
+  - preferred_term: Escherichia coli ATCC 25922
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
 - name: Community-context Lactobacillus FOS-pathway expression
-  description: 'Lactobacillus FOS-utilization genes were not expressed as a fixed monoculture program: L. reuteri sacK1 remained
-    active in the probiotic consortium at 48 h, while L. plantarum sacA/sacK1 were expressed earlier in the consortium and
-    at 48 h in the seven-strain reconstructed whole community.'
+  description: Homology identified putative FOS-utilization genes in the three probiotic strains. RNA/cDNA-qPCR
+    showed community- and time-associated expression differences, including L. plantarum sacA/sacK1 and L. reuteri
+    fructokinase; whole-community 48-h expression excluded L. acidophilus scrB. Expression normalized to species
+    16S and glucose reference does not establish necessary enzyme activity, inability to use FOS or partner-resolved
+    cross-feeding. Participants name the assayed probiotic members, not every member of the seven-strain culture.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Lactiplantibacillus plantarum PBS067
@@ -296,38 +328,46 @@ ecological_interactions:
       label: carbohydrate metabolic process
   evidence:
   - reference: PMID:42781020
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: the differential expression of LP genes (sacA and sacK1) between the monoculture and the probiotic consortium
-      at 48 h suggests that interspecies interactions modulate the transcriptional regulation of FOS utilization pathways
-    explanation: Supports community-context regulation of L. plantarum FOS genes.
+    snippet: the differential expression of LP genes (sacA and sacK1) between the monoculture and the probiotic
+      consortium at 48 h suggests that interspecies interactions modulate the transcriptional regulation of FOS
+      utilization pathways
+    explanation: Supports the authors' inference from context-associated transcription, not a selective interaction
+      perturbation or identified transfer.
   - reference: PMID:42781020
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: In the reconstructed microbial community at 48 h, all FOS-related genes identified in the probiotic strains were
-      expressed, with the exception of scrB from LA
+    snippet: In the reconstructed microbial community at 48 h, all FOS-related genes identified in the probiotic
+      strains were expressed, with the exception of scrB from LA
     explanation: Supports the whole-community Lactobacillus FOS-expression profile at 48 h.
 - name: Whole-community organic-acid profile broadening
-  description: FOS-grown cultures of the probiotic formulation, minimal core, and reconstructed whole community produced distinct
-    GC-MS carboxylic-acid profiles; the whole community showed a broader profile than either subcommunity alone.
+  description: Qualitative GC-MS of derivatized culture extracts showed a broader carboxylic-acid profile for the
+    reconstructed whole community. Figure 7C labels acetic acid, lactic acid and butanoic acid among other peaks;
+    the propanoic-acid marker appears in minimal-core panel B, not separately in panel C. This does not establish
+    physiological absence of propionate from the whole community. Profiles do not measure absolute production, donor-resolved
+    flux or the host-active compound, and glucose-grown profiles were similar. Canonical acetate/butyrate terms
+    represent the reported acid identities, not measured ionic speciation.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: acetate
     term:
       id: CHEBI:30089
       label: acetate
+    notes: Qualitative Figure 7C peak identity; not quantified yield, ionic speciation or a demonstrated host-active
+      mediator.
   - preferred_term: lactic acid
     term:
       id: CHEBI:28358
       label: rac-lactic acid
-  - preferred_term: propionic acid
-    term:
-      id: CHEBI:30768
-      label: propionic acid
+    notes: Qualitative Figure 7C peak identity; not quantified yield, ionic speciation or a demonstrated host-active
+      mediator.
   - preferred_term: butyrate
     term:
       id: CHEBI:17968
       label: butyrate
+    notes: Qualitative Figure 7C peak identity; not quantified yield, ionic speciation or a demonstrated host-active
+      mediator.
   biological_processes:
   - preferred_term: fermentation
     term:
@@ -337,14 +377,49 @@ ecological_interactions:
   - reference: PMID:42781020
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: In the probiotic formulation, the metabolic profile showed typical fermentation products of lactobacilli, including
-      acetic acid
-    explanation: Supports lactobacilli-associated organic-acid detection in the probiotic formulation.
+    snippet: In the probiotic formulation, the metabolic profile showed typical fermentation products of lactobacilli,
+      including acetic acid
+    explanation: Probiotic subcommunity context only; whole-community assignments additionally depend on direct
+      inspection of Figure 7C.
   - reference: PMID:42781020
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: The whole reconstructed microbial community exhibited a broader metabolite profile
     explanation: Supports broader organic-acid diversity in the seven-strain whole community.
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: were qualitatively analyzed using a gas chromatograph
+    explanation: The Methods define a qualitative assay, not absolute yields or metabolite flux.
+  participating_taxa:
+  - preferred_term: Lactiplantibacillus plantarum PBS067
+    term:
+      id: NCBITaxon:1590
+      label: Lactiplantibacillus plantarum
+  - preferred_term: Lactobacillus acidophilus PBS066
+    term:
+      id: NCBITaxon:1579
+      label: Lactobacillus acidophilus
+  - preferred_term: Limosilactobacillus reuteri PBS072
+    term:
+      id: NCBITaxon:1598
+      label: Limosilactobacillus reuteri
+  - preferred_term: Bacteroides cellulosilyticus CL02T12C19
+    term:
+      id: NCBITaxon:246787
+      label: Bacteroides cellulosilyticus
+  - preferred_term: Clostridium symbiosum WAL-14673
+    term:
+      id: NCBITaxon:1512
+      label: '[Clostridium] symbiosum'
+  - preferred_term: Flavonifractor plautii 1_3_50AFAA
+    term:
+      id: NCBITaxon:292800
+      label: Flavonifractor plautii
+  - preferred_term: Escherichia coli ATCC 25922
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
 environmental_factors:
 - name: fructooligosaccharides DP ~ 10
   value: '2'
@@ -500,16 +575,16 @@ metal_notes: PMID:42781020 describes FOS-driven organic-acid metabolism in a gut
   bioremediation, or rare-earth-element processing.
 discussions:
 - discussion_id: fos_lactobacillus_hepg2_active_metabolites_unresolved
-  prompt: Which FOS-derived microbial metabolite or metabolite combination causally reduces HepG2 lipid accumulation and Cd36
-    expression?
+  prompt: Which FOS-derived microbial metabolite or metabolite combination causally reduces HepG2 lipid accumulation
+    and Cd36 expression?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#Whole-community organic-acid profile broadening
   - engineering_design
-  rationale: Finazzi et al. measured community-level organic-acid profiles and exposed HepG2 cells to extracted bacterial
-    metabolites, but the study reports that the specific metabolites responsible for the observed host-cell response were
-    not identified.
+  rationale: Finazzi et al. measured community-level organic-acid profiles and exposed HepG2 cells to extracted
+    bacterial metabolites, but the study reports that the specific metabolites responsible for the observed host-cell
+    response were not identified.
   evidence:
   - reference: PMID:42781020
     supports: SUPPORT
@@ -518,8 +593,8 @@ discussions:
     explanation: States the source-level limitation on causal metabolite assignment.
   proposed_experiments:
   - name: Fractionated FOS-fermentation metabolite add-back
-    description: Fractionate FOS-grown whole-community supernatants and add individual organic acids or reconstructed mixtures
-      back to palmitate-induced HepG2 cells to test lipid accumulation and Cd36 expression.
+    description: Fractionate FOS-grown whole-community supernatants and add individual organic acids or reconstructed
+      mixtures back to palmitate-induced HepG2 cells to test lipid accumulation and Cd36 expression.
     approach: metabolite fractionation and targeted add-back
     model_systems:
     - FOS-grown seven-strain in vitro human-gut community
@@ -532,29 +607,55 @@ discussions:
     - Oil Red O lipid staining
     - Cd36 RT-qPCR
     - targeted SCFA and organic-acid quantification
-    decision_criterion: A fraction or reconstructed metabolite mixture that reproduces both reduced lipid accumulation and
-      lower Cd36 expression would nominate a causal metabolite set for follow-up.
+    decision_criterion: A fraction or reconstructed metabolite mixture that reproduces both reduced lipid accumulation
+      and lower Cd36 expression would nominate a causal metabolite set for follow-up.
   posed_by: codex
   posed_date: '2026-09-28'
+- discussion_id: fos_readout_scope_and_host_response_expansion
+  prompt: How should the extract pretreatment response be represented without inventing its active mediator?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#FOS-driven whole-community strain modulation
+  - ecological_interactions#Community-context Lactobacillus FOS-pathway expression
+  - ecological_interactions#Whole-community organic-acid profile broadening
+  rationale: 'The existing nodes report DNA-qPCR abundance, relative transcript levels and qualitative chemical
+    profiles, not partner-resolved cross-feeding. Actual Figure 7 does not separately label propionate in whole-community
+    panel C; do not infer its biological absence. The source also reports 0.1 mg/mL extract pretreatment of HepG2
+    for 24 h, removal, then 0.25 mM palmitate for 24 h, with lipid and Cd36 mRNA responses. This missing graph endpoint
+    remains #1450 pending a separately authorized Edison expansion and source review; do not claim graph completeness.
+    Active compounds and Cd36 mediation are unresolved. Preserve the earlier active-metabolite discussion and #1206
+    role correction. Non-graph pretreatment and readout wording remain #1449.'
+  posed_by: codex
+  posed_date: '2026-10-06'
 curation_history:
 - timestamp: '2026-09-28T17:56:43Z'
   curator: codex
   action: CREATE_COMMUNITY
-  changes: Created CommunityMech:000466 for PMID:42781020 / doi:10.3389/fmicb.2026.1866842, a defined seven-strain FOS-grown
-    reductionist gut-liver SynCom with three DSM Lactobacillus probiotic strains, four minimal-core gut bacteria, FOS/glucose
-    mMRS growth conditions, RT-qPCR and GC-MS evidence, PubMed/DOI/PMC resources, and an open discussion for the unresolved
-    causal host-cell metabolites.
+  changes: Created CommunityMech:000466 for PMID:42781020 / doi:10.3389/fmicb.2026.1866842, a defined seven-strain
+    FOS-grown reductionist gut-liver SynCom with three DSM Lactobacillus probiotic strains, four minimal-core gut
+    bacteria, FOS/glucose mMRS growth conditions, RT-qPCR and GC-MS evidence, PubMed/DOI/PMC resources, and an open
+    discussion for the unresolved causal host-cell metabolites.
   llm_assisted: true
 - timestamp: '2026-09-28T17:59:27Z'
   curator: codex
   action: ADD_GTDB_GROUNDINGS
-  changes: Added GTDB grounding status to all seven FOS gut-liver SynCom taxonomy entries, reused species-level GTDB groundings
-    for L. plantarum, L. acidophilus, C. symbiosum, and E. coli, and left L. reuteri, B. cellulosilyticus, and F. plautii
-    unresolved because the local NCBI2GTDB.tsv.gz mapping was unavailable.
+  changes: Added GTDB grounding status to all seven FOS gut-liver SynCom taxonomy entries, reused species-level
+    GTDB groundings for L. plantarum, L. acidophilus, C. symbiosum, and E. coli, and left L. reuteri, B. cellulosilyticus,
+    and F. plautii unresolved because the local NCBI2GTDB.tsv.gz mapping was unavailable.
   llm_assisted: true
 - timestamp: '2026-09-28T18:06:13Z'
   curator: codex
   action: REMOVE_UNSUPPORTED_FUNCTIONAL_ROLES
-  changes: Removed seven PRIMARY_DEGRADER member roles from CommunityMech:000466 after adversarial review found the source
-    supported strain membership and FOS response measurements but not uniform primary-degrader labels for every member (#1206).
+  changes: Removed seven PRIMARY_DEGRADER member roles from CommunityMech:000466 after adversarial review found
+    the source supported strain membership and FOS response measurements but not uniform primary-degrader labels
+    for every member (#1206).
+  llm_assisted: true
+- timestamp: '2026-10-06T09:47:46Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain DNA-qPCR abundance estimates without viability, matched-carbon or selective scrB causality claims.;
+    Retain context-associated transcription without proved transfer or necessary enzyme activity.; Retain qualitative
+    whole-community acid profile and remove the unsupported panel-specific propionate assignment; host-response
+    expansion remains pending. Issue #1447; reports/causal_graph_review/decisions/20261006-three-records-batch39.yaml'
   llm_assisted: true
