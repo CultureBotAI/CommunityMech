@@ -1,0 +1,635 @@
+{
+  "scope_type": "evidence_validation_infrastructure",
+  "status": "validated_with_documented_source_coverage_gaps",
+  "issue": 1362,
+  "base_commit": "e65a2deffbbcd6aa30fb5548c6866a59d426ee9c",
+  "created_at": "2026-10-06T04:04:42.906503+00:00",
+  "change": "Exclude explicit selected-excerpt sections from trusted cache text, while retaining retrieved prefixes and later independent full-text sections.",
+  "biological_record_reviews_added": 0,
+  "review_status_counts_unchanged": {
+    "needs_research": 3,
+    "pending": 334,
+    "reviewed": 123
+  },
+  "corpus": {
+    "records": 460,
+    "nodes": 1474,
+    "edges": 710
+  },
+  "preservation": {
+    "record_files_byte_identical": 460,
+    "cache_files_byte_identical": 920,
+    "record_hash_manifest_sha256": "59d6567f065b778a5edfc36a7919d8949012575ccb4fb1910c869a69da8a56fa",
+    "cache_hash_manifest_sha256": "c904fc3aab754198326593c8dfd120e3329aa519a9087d7fef2cd7a7f46cbec3",
+    "all_cited_reference_views_compared": 643,
+    "unchanged_reference_views": 641,
+    "changed_reference_views": {
+      "PMID:41381587": {
+        "before": {
+          "trusted": true,
+          "chars": 85396,
+          "sha256": "22b647f41a2c4121d372997b605124a847299d0ddafd289e214fbde1858437cc",
+          "records": [
+            "kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml"
+          ]
+        },
+        "after": {
+          "trusted": true,
+          "chars": 78750,
+          "sha256": "2b129b621ddb6ecb9e90a8ece2c4edccda165551581f3761b24f458cfbf602c3",
+          "records": [
+            "kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml"
+          ]
+        }
+      },
+      "PMID:42613016": {
+        "before": {
+          "trusted": true,
+          "chars": 3819,
+          "sha256": "a5b89d867b4d0264fe7cbce7ff2e0abdf55a50e00d93ef3ee63a23511895b398",
+          "records": [
+            "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml"
+          ]
+        },
+        "after": {
+          "trusted": true,
+          "chars": 2393,
+          "sha256": "a71fbd8e00d51fde13e8670dae93a4e1c1aaf5dcc947cdde1e4d6e9d077f81bb",
+          "records": [
+            "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml"
+          ]
+        }
+      }
+    },
+    "graph_rank_output_byte_identical": true,
+    "network_findings_identical": true,
+    "network_errors": 0,
+    "network_warnings": 25
+  },
+  "affected_snippets_before": {
+    "MATCH": 43,
+    "RENDERING": 0,
+    "ASSEMBLED": 0,
+    "WEAK": 0,
+    "MISMATCH": 0,
+    "NOCONTENT": 0
+  },
+  "affected_snippets_after": {
+    "MATCH": 22,
+    "RENDERING": 1,
+    "ASSEMBLED": 1,
+    "WEAK": 0,
+    "MISMATCH": 19,
+    "NOCONTENT": 0
+  },
+  "affected_record_audits": {
+    "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml": {
+      "stats": {
+        "MISMATCH": 19,
+        "MATCH": 2
+      },
+      "diagnostics": [
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.engineering_design.evidence[0]",
+          "reference": "PMID:42613016",
+          "coverage": 0.01,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.engineering_design.evidence[1]",
+          "reference": "PMID:42613016",
+          "coverage": 0.01,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.engineering_design.evidence[2]",
+          "reference": "PMID:42613016",
+          "coverage": 0.02,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.engineering_design.evidence[3]",
+          "reference": "PMID:42613016",
+          "coverage": 0.02,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.taxonomy[0].evidence[0]",
+          "reference": "PMID:42613016",
+          "coverage": 0.02,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.taxonomy[1].evidence[0]",
+          "reference": "PMID:42613016",
+          "coverage": 0.02,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.taxonomy[2].evidence[0]",
+          "reference": "PMID:42613016",
+          "coverage": 0.03,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.taxonomy[2].evidence[1]",
+          "reference": "PMID:42613016",
+          "coverage": 0.02,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.ecological_interactions[0].evidence[0]",
+          "reference": "PMID:42613016",
+          "coverage": 0.01,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.ecological_interactions[0].evidence[1]",
+          "reference": "PMID:42613016",
+          "coverage": 0.01,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.ecological_interactions[1].evidence[0]",
+          "reference": "PMID:42613016",
+          "coverage": 0.01,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.ecological_interactions[1].evidence[1]",
+          "reference": "PMID:42613016",
+          "coverage": 0.01,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.ecological_interactions[2].evidence[0]",
+          "reference": "PMID:42613016",
+          "coverage": 0.01,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.ecological_interactions[2].evidence[1]",
+          "reference": "PMID:42613016",
+          "coverage": 0.01,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.environmental_factors[0].evidence[0]",
+          "reference": "PMID:42613016",
+          "coverage": 0.04,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.environmental_factors[1].evidence[0]",
+          "reference": "PMID:42613016",
+          "coverage": 0.03,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.growth_media[0].evidence[0]",
+          "reference": "PMID:42613016",
+          "coverage": 0.03,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.growth_media[0].evidence[1]",
+          "reference": "PMID:42613016",
+          "coverage": 0.5,
+          "classification": "MISMATCH"
+        },
+        {
+          "path": "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml.growth_media[0].evidence[2]",
+          "reference": "PMID:42613016",
+          "coverage": 0.03,
+          "classification": "MISMATCH"
+        }
+      ]
+    },
+    "kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml": {
+      "stats": {
+        "MATCH": 20,
+        "ASSEMBLED": 1,
+        "RENDERING": 1
+      },
+      "diagnostics": []
+    }
+  },
+  "additional_diagnostic_locations": [
+    {
+      "record": "kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml",
+      "path": "growth_media[0].evidence[1]",
+      "reference": "PMID:41381587",
+      "classification": "ASSEMBLED"
+    }
+  ],
+  "new_regression_cases": 22,
+  "expected_pre_fix_failures": {
+    "command": [
+      "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_snippet_audit_artefact_classes.py",
+      "-k",
+      "appended_selected or selected_only_cache or selected_section_does or selected_marker_case or empty_or_marker or retrieved_txt_without",
+      "--tb=short"
+    ],
+    "exit_code": 1,
+    "result": "14 failed, 5 passed, 24 deselected in 0.84s",
+    "log": "/private/tmp/communitymech-batch26/red-tests.log",
+    "sha256": "d35f48bb454b965c54d6274b735f51aa8b1cff28741e0ed45ac59672360be3e8"
+  },
+  "baseline_checks": [
+    {
+      "name": "just-network",
+      "command": [
+        "just",
+        "audit-network-json"
+      ],
+      "exit_code": 2,
+      "log": "/private/tmp/communitymech-batch26/baseline-just-network.log",
+      "sha256": "8595db43420d3f0a01c57acd6ad733a531a72e962486d20b4e1c2840dda55bff"
+    },
+    {
+      "name": "network",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "communitymech.cli",
+        "audit-network",
+        "--json"
+      ],
+      "exit_code": 1,
+      "log": "/private/tmp/communitymech-batch26/baseline-network.log",
+      "sha256": "1809e26154a0786ff23aa4219ed22e9f04aa23924f0308440d0df46ffcf7623a"
+    },
+    {
+      "name": "rank",
+      "command": [
+        "just",
+        "rank-causal-graphs"
+      ],
+      "exit_code": 0,
+      "log": "/private/tmp/communitymech-batch26/baseline-rank.log",
+      "sha256": "2b0c50077382ed6883b6c88e58eafd0173cdb9cf5d176ac167bca3b004da3880"
+    },
+    {
+      "name": "downstream",
+      "command": [
+        "rg",
+        "--no-ignore",
+        "--hidden",
+        "-n",
+        "downstream:",
+        "kb/communities",
+        "data/isolates",
+        "--glob",
+        "*.yaml"
+      ],
+      "exit_code": 0,
+      "log": "/private/tmp/communitymech-batch26/baseline-downstream.log",
+      "sha256": "e8d7d803a4b26c0f76dc91099d317baad11e41c9da46a2623e6d616a318909e3"
+    },
+    {
+      "name": "snippets",
+      "command": [
+        "just",
+        "audit-snippets",
+        "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml",
+        "kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml",
+        "--list-mismatch",
+        "--list-nocontent"
+      ],
+      "exit_code": 0,
+      "log": "/private/tmp/communitymech-batch26/baseline-snippets.log",
+      "sha256": "c56765867e185296589c86ef830edaaf06a5a781de31533da88e77b7fc4317f4"
+    }
+  ],
+  "verification_checks": [
+    {
+      "name": "snippets",
+      "command": [
+        "just",
+        "audit-snippets",
+        "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml",
+        "kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml",
+        "--list-mismatch",
+        "--list-nocontent"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "log": "/private/tmp/communitymech-batch26/verify-boundary-tightening-snippets.log",
+      "sha256": "471e3275f7298bc16422212ab61622dfeb5d8180c6459c865ef9cc1d29d3e4b8"
+    },
+    {
+      "name": "focused",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_snippet_audit_artefact_classes.py",
+        "tests/test_reference_error_annotation.py",
+        "tests/test_reference_validator_actually_validates.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "log": "/private/tmp/communitymech-batch26/verify-boundary-tightening-focused.log",
+      "sha256": "4b550c403253d49f8c62f7939dfc34149ff55ef47ef75bda4fce8afe4de736b3",
+      "summary": "60 passed in 131.45s (0:02:11)"
+    },
+    {
+      "name": "network",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "communitymech.cli",
+        "audit-network",
+        "--json"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "log": "/private/tmp/communitymech-batch26/verify-boundary-tightening-network.log",
+      "sha256": "1809e26154a0786ff23aa4219ed22e9f04aa23924f0308440d0df46ffcf7623a"
+    },
+    {
+      "name": "rank",
+      "command": [
+        "just",
+        "rank-causal-graphs"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "log": "/private/tmp/communitymech-batch26/verify-boundary-tightening-rank.log",
+      "sha256": "2b0c50077382ed6883b6c88e58eafd0173cdb9cf5d176ac167bca3b004da3880"
+    },
+    {
+      "name": "combined-regressions",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_causal_review_batch10.py",
+        "tests/test_causal_review_batch11.py",
+        "tests/test_causal_review_batch12.py",
+        "tests/test_causal_review_batch13.py",
+        "tests/test_causal_review_batch14.py",
+        "tests/test_causal_review_batch15.py",
+        "tests/test_causal_review_batch16.py",
+        "tests/test_causal_review_batch17.py",
+        "tests/test_causal_review_batch18.py",
+        "tests/test_causal_review_batch19.py",
+        "tests/test_causal_review_batch20.py",
+        "tests/test_causal_review_batch21.py",
+        "tests/test_causal_review_batch22.py",
+        "tests/test_causal_review_batch23.py",
+        "tests/test_causal_review_batch24.py",
+        "tests/test_causal_review_batch25.py",
+        "tests/test_causal_review_batch5.py",
+        "tests/test_causal_review_batch6.py",
+        "tests/test_causal_review_batch7.py",
+        "tests/test_causal_review_batch8.py",
+        "tests/test_causal_review_batch9.py",
+        "tests/test_site_audit_fixes.py",
+        "tests/test_causal_review_inventory.py",
+        "tests/test_rank_causal_graph_readiness.py",
+        "tests/test_network_auditor.py",
+        "tests/test_participating_taxa.py",
+        "tests/test_causal_descriptions_are_published.py",
+        "tests/test_published_pages_name_real_records.py",
+        "tests/test_reference_validator_actually_validates.py",
+        "tests/test_snippet_audit_artefact_classes.py",
+        "tests/test_reference_error_annotation.py",
+        "tests/test_community_level_connectivity_credit.py",
+        "tests/test_no_paywalled_text_in_repo.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "log": "/private/tmp/communitymech-batch26/verify-boundary-tightening-combined-regressions.log",
+      "sha256": "07bc17660897c4ddeee7dfd2bddec6f02fb19395dd60ba751c67d3868baa3bae",
+      "summary": "324 passed in 188.25s (0:03:08)"
+    },
+    {
+      "name": "black",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/3Q_kifQtLB624D5bBWGIf/bin/black",
+        "--check",
+        "scripts/evidence_snippet_audit.py",
+        "tests/test_snippet_audit_artefact_classes.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "log": "/private/tmp/communitymech-batch26/verify-boundary-tightening-black.log",
+      "sha256": "b9cf511501d306d2bd8355ccb165c8ddc0a6fdd62d7c72c4a7b1795cf8934c8c"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/wCcxEYRM4HeHgwYPZemHX/bin/ruff",
+        "check",
+        "scripts/evidence_snippet_audit.py",
+        "tests/test_snippet_audit_artefact_classes.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "log": "/private/tmp/communitymech-batch26/verify-boundary-tightening-ruff.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "name": "diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "log": "/private/tmp/communitymech-batch26/verify-boundary-tightening-diff-check.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "limitations": [
+    "The 19 DCPP MISMATCH items are missing from independently retrieved local abstract text; this does not establish that the source claims are false.",
+    "RAMC retains its independently retrieved full text; one assembled quotation and one rendering difference are now distinguished from literal matches.",
+    "Source retrieval and record-specific quotation review remain under issue #596. No biological record, cache, history, taxonomy, node, arrow, or reviewed-record counter was changed.",
+    "The upstream linkml-reference-validator was not modified or asserted to enforce this provenance rule. This change is in the complementary snippet auditor.",
+    "Audit exit zero indicates a completed diagnostic run, not that all snippets matched. Raw network exits 2 (just wrapper) and 1 (CLI) remain the same 25 warnings, not a newly passed zero-finding command.",
+    "No new primary-paper review, new Edison job, independent approval, or protected CI success is claimed by this infrastructure repair."
+  ],
+  "tested_file_sha256": {
+    "scripts/evidence_snippet_audit.py": "2cf71ec63fce9f25dbb9f367af843aa00bb9bd8313153ba41a40545763a738ff",
+    "tests/test_snippet_audit_artefact_classes.py": "d6cfa1dc6540876384387d3c400bf2e6427c854723563f2fda33f394ba2c187f"
+  },
+  "self_review_remediation": {
+    "issue": 1362,
+    "finding": "The first candidate terminated a selected section on malformed retrieval headers not recognized by FULLTEXT_MARKER.",
+    "correction": "Reuse the exact existing case-sensitive retrieval-marker expression; reject shortened delimiters, indentation and altered case as source-retrieval signals.",
+    "candidate_checks": [
+      {
+        "name": "snippets",
+        "command": [
+          "just",
+          "audit-snippets",
+          "kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml",
+          "kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml",
+          "--list-mismatch",
+          "--list-nocontent"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "log": "/private/tmp/communitymech-batch26/verify-snippets.log",
+        "sha256": "471e3275f7298bc16422212ab61622dfeb5d8180c6459c865ef9cc1d29d3e4b8"
+      },
+      {
+        "name": "focused",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_snippet_audit_artefact_classes.py",
+          "tests/test_reference_error_annotation.py",
+          "tests/test_reference_validator_actually_validates.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "log": "/private/tmp/communitymech-batch26/verify-focused.log",
+        "sha256": "c9567520e5ab72820f8260b1d37e27547731bc5b61fb9684188403c95c639ec5",
+        "summary": "57 passed in 132.82s (0:02:12)"
+      },
+      {
+        "name": "network",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "-m",
+          "communitymech.cli",
+          "audit-network",
+          "--json"
+        ],
+        "exit_code": 1,
+        "expected_exit_code": 1,
+        "log": "/private/tmp/communitymech-batch26/verify-network.log",
+        "sha256": "1809e26154a0786ff23aa4219ed22e9f04aa23924f0308440d0df46ffcf7623a"
+      },
+      {
+        "name": "rank",
+        "command": [
+          "just",
+          "rank-causal-graphs"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "log": "/private/tmp/communitymech-batch26/verify-rank.log",
+        "sha256": "2b0c50077382ed6883b6c88e58eafd0173cdb9cf5d176ac167bca3b004da3880"
+      },
+      {
+        "name": "combined-regressions",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_causal_review_batch10.py",
+          "tests/test_causal_review_batch11.py",
+          "tests/test_causal_review_batch12.py",
+          "tests/test_causal_review_batch13.py",
+          "tests/test_causal_review_batch14.py",
+          "tests/test_causal_review_batch15.py",
+          "tests/test_causal_review_batch16.py",
+          "tests/test_causal_review_batch17.py",
+          "tests/test_causal_review_batch18.py",
+          "tests/test_causal_review_batch19.py",
+          "tests/test_causal_review_batch20.py",
+          "tests/test_causal_review_batch21.py",
+          "tests/test_causal_review_batch22.py",
+          "tests/test_causal_review_batch23.py",
+          "tests/test_causal_review_batch24.py",
+          "tests/test_causal_review_batch25.py",
+          "tests/test_causal_review_batch5.py",
+          "tests/test_causal_review_batch6.py",
+          "tests/test_causal_review_batch7.py",
+          "tests/test_causal_review_batch8.py",
+          "tests/test_causal_review_batch9.py",
+          "tests/test_site_audit_fixes.py",
+          "tests/test_causal_review_inventory.py",
+          "tests/test_rank_causal_graph_readiness.py",
+          "tests/test_network_auditor.py",
+          "tests/test_participating_taxa.py",
+          "tests/test_causal_descriptions_are_published.py",
+          "tests/test_published_pages_name_real_records.py",
+          "tests/test_reference_validator_actually_validates.py",
+          "tests/test_snippet_audit_artefact_classes.py",
+          "tests/test_reference_error_annotation.py",
+          "tests/test_community_level_connectivity_credit.py",
+          "tests/test_no_paywalled_text_in_repo.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "log": "/private/tmp/communitymech-batch26/verify-combined-regressions.log",
+        "sha256": "6eb279ecc08b90acc7fba9e0e32596c071248086c57ec1115fa7644b2f99e90e",
+        "summary": "321 passed in 210.12s (0:03:30)"
+      },
+      {
+        "name": "black",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/3Q_kifQtLB624D5bBWGIf/bin/black",
+          "--check",
+          "scripts/evidence_snippet_audit.py",
+          "tests/test_snippet_audit_artefact_classes.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "log": "/private/tmp/communitymech-batch26/verify-black.log",
+        "sha256": "b9cf511501d306d2bd8355ccb165c8ddc0a6fdd62d7c72c4a7b1795cf8934c8c"
+      },
+      {
+        "name": "ruff",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/wCcxEYRM4HeHgwYPZemHX/bin/ruff",
+          "check",
+          "scripts/evidence_snippet_audit.py",
+          "tests/test_snippet_audit_artefact_classes.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "log": "/private/tmp/communitymech-batch26/verify-ruff.log",
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      {
+        "name": "diff-check",
+        "command": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "log": "/private/tmp/communitymech-batch26/verify-diff-check.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "candidate_failures": {
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_snippet_audit_artefact_classes.py",
+        "-k",
+        "only_established_fulltext",
+        "--tb=short"
+      ],
+      "exit_code": 1,
+      "result": "3 failed, 43 deselected in 0.43s",
+      "log": "/private/tmp/communitymech-batch26/adversarial-red-tests.log",
+      "candidate_script_sha256": "a821e38f86a596897bc805084ca89fec011e1a9036f8bb1f4c9d25be3ead5a78",
+      "sha256": "2081649d31812e06e2f4dd2e06d3c57809a7a66cdab59df78090e50e457f9452"
+    },
+    "superseded_uncommitted_report_sha256": {
+      "reports/causal_graph_review/cache-provenance-20261006-batch26.json": "43d1017b2506e21950b73a7bb56afe763506924350e926bf7b9a73da81fd4c2f",
+      "reports/causal_graph_review/adversarial-review-20261006-batch26.yaml": "fa7960443ab30443f97205585081df794bd4f8b83d4909e99c068cc716fb222a"
+    },
+    "status": "corrected_and_full_suite_rerun"
+  }
+}
