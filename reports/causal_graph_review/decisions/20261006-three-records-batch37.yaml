@@ -1,0 +1,248 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: a691e1d3b93d8eb91b24f0b0cfad5072f7b7d0f8
+baseline_commit: a691e1d3b93d8eb91b24f0b0cfad5072f7b7d0f8
+base_tree: 2d768412771a01f162425275107046bb75a2e95c
+issues:
+- 1431
+- 1432
+- 1433
+open_nongraph_followups:
+- 373
+- 1434
+- 1435
+open_graph_research:
+- 1436
+issue_deduplication:
+  all_state_issue_titles_bodies: 754
+  ignored_hidden_local_files_included: true
+  comments_exhaustive: false
+  relevant_issues_read:
+  - 1164
+  - 373
+  - 1120
+  - 1121
+  finding: 'No exact duplicate of new graph findings in searched scope; existing #373 reopened for live grounding
+    recurrence.'
+reference_cache_original_hashes:
+  references_cache/PMID_42592155.txt: 1a6ef1962b96d963213a15999cc601ddeb2f1dd77d94189ae1d25c4d6dbc89b3
+  references_cache/doi_10.21203_rs.3.rs-9518331_v1.md: fa3f006ff07e345f4e7721d70646431623335d31ce83cdc720fbfe815de92b5e
+  references_cache/PMID_38865893.txt: e801f5d665ea8d807869572afb4ac348fa92b31d007b7819fd9c79b38723300b
+edison:
+  status: dry_run_only_no_provider_job_or_charge
+  community: CommunityMech:000455
+  prompt_characters: 11543
+  prompt_sha256: 3436fd32f7df6cafd047bdeeebc44771d16606e56aca932689f3325786b001b5
+  receipt:
+    command:
+    - just
+    - research-community-causal
+    - Ecoli_K12_MG1655_Arg_Met_CrossFeeding_Coculture
+    - --dry-run
+    exit_code: 0
+    log: /private/tmp/communitymech-batch37/argmet-edison-dryrun.log
+    sha256: d625151da7e2e8d85c6d718fabc959c8541d4bdb6de95de17eaa431df95fab3d
+    bytes: 1081
+    actual_provider_job: false
+  limitation: Specific spend authorization requested; no actual provider job. LiteLLM remote pricing-map fetch failed
+    and used local fallback.
+limitations:
+- Eleven existing nodes retained; three unsupported arrows removed; two qualified VFA arrows retained. No added
+  connectivity.
+- Two completed existing-graph reviews; Arg/Met remains needs_research for source-backed mechanism expansion, not
+  omitted for convenience.
+- Primary main-body access for Arg/Met and mirrored VFA preprint; toluene abstract only. No visual figures, separate
+  supplements or raw data reviewed. All source caches unchanged.
+- 'Non-graph raw blocks and canonical terms preserved, not certified. #373, #1434 and #1435 remain open.'
+- Self-adversarial review is not independent approval, protected main merge or full-corpus completion. Textual snippet
+  matching is not scientific validation.
+records:
+- path: kb/communities/Ecoli_K12_MG1655_Arg_Met_CrossFeeding_Coculture.yaml
+  id: CommunityMech:000455
+  original_sha256: 73a13f3ab90537e4f60c32b4ea2124dd2937999f86a5cca2bd0bc5af4dad4d14
+  record_sha256: 2a72a54518f0a8635f1d599a91b7f750f94349c2f1c7a002159170a8f5be9c4c
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch37.yaml
+  scope: Whole record and every existing node/arrow assessed at recorded primary access scope. Arg/Met expansion
+    remains pending; non-graph fields preserved, not certified.
+  summary: Retain genotype-specific methionine support under tested nutrient limitation.; Retain reverse arginine
+    support without collapsing same-species engineered strains.; Qualify the fluorescence CV endpoint and remove
+    interspecies GO grounding; mechanism expansion remains pending.
+  renamed_nodes: {}
+  node_decisions:
+  - node: ΔargA-ΔmetJ methionine cross-feeding
+    rationale: Retain genotype-specific methionine support under tested nutrient limitation.
+  - node: ΔmetA-ΔargR arginine cross-feeding
+    rationale: Retain reverse arginine support without collapsing same-species engineered strains.
+  - node: Arg-Met obligate mutualism increases cell noise
+    rationale: Qualify the fluorescence CV endpoint and remove interspecies GO grounding; mechanism expansion remains
+      pending.
+  removed_node_decisions: []
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42592155
+  issues:
+  - 1431
+  - 1436
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Ecoli_K12_MG1655_Arg_Met_CrossFeeding_Coculture/2026-10-06T084910Z-codex-6ae26b.yaml
+  source_review:
+    PMID:42592155:
+      url: https://doi.org/10.1093/nsr/nwag357
+      scope: Cached primary main body through Methods and acknowledgements, including figure captions. No visual
+        figures, separate supplements or raw data.
+- path: kb/communities/Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium.yaml
+  id: CommunityMech:000287
+  original_sha256: 2839d3714e549d6affa0c5994e9670311e21d2648e427381ae2eaee513de0448
+  record_sha256: 39dd44074408cc2e990576c6b8c40c18e2faf74c862881e9643865b69da8e0e1
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch37.yaml
+  scope: Whole record and every existing node/arrow assessed at recorded primary access scope. Arg/Met expansion
+    remains pending; non-graph fields preserved, not certified.
+  summary: Retain the sequential operational context without a clean HRT-only causal claim.; Retain compartment
+    composition and only a hypothesized contribution to IC removal.; Retain computational potential without treating
+    prediction as biological flux.; Retain bulk IC removal without a causal product-fate claim.; Retain acetate
+    output without proven cross-feeding or an autotrophic fraction.
+  renamed_nodes: {}
+  node_decisions:
+  - node: HRT-Driven Mixotrophic Consortium Enrichment
+    rationale: Retain the sequential operational context without a clean HRT-only causal claim.
+  - node: Planktonic and Electrode-Biofilm Spatial Partitioning
+    rationale: Retain compartment composition and only a hypothesized contribution to IC removal.
+  - node: Electrode-Biofilm Carbon-Fixation Pathway Enrichment
+    rationale: Retain computational potential without treating prediction as biological flux.
+  - node: Biomass-Specific Inorganic Carbon Removal Increase
+    rationale: Retain bulk IC removal without a causal product-fate claim.
+  - node: Acetate-Directed Carbon Flux
+    rationale: Retain acetate output without proven cross-feeding or an autotrophic fraction.
+  removed_node_decisions: []
+  edges_before:
+  - source: HRT-Driven Mixotrophic Consortium Enrichment
+    target: Planktonic and Electrode-Biofilm Spatial Partitioning
+    description: 'HRT-driven enrichment yielded a community partitioned between the planktonic phase and electrode
+      biofilm.
+
+      '
+  - source: Planktonic and Electrode-Biofilm Spatial Partitioning
+    target: Electrode-Biofilm Carbon-Fixation Pathway Enrichment
+    description: 'Spatial enrichment at the electrode biofilm was the context in which predicted carbon-fixation
+      pathways and reducing-equivalent generation were concentrated.
+
+      '
+  - source: Planktonic and Electrode-Biofilm Spatial Partitioning
+    target: Biomass-Specific Inorganic Carbon Removal Increase
+    description: 'The organized planktonic and electrode-biofilm consortium exhibited higher biomass-specific inorganic
+      carbon removal.
+
+      '
+  - source: Electrode-Biofilm Carbon-Fixation Pathway Enrichment
+    target: Acetate-Directed Carbon Flux
+    description: 'Predicted biofilm carbon fixation supplied autotrophic metabolism consistent with the observed
+      excess acetate beyond heterotrophic stoichiometry.
+
+      '
+  - source: Biomass-Specific Inorganic Carbon Removal Increase
+    target: Acetate-Directed Carbon Flux
+    description: 'Increased inorganic-carbon utilization was coupled to selective acetate production at the shortest
+      hydraulic retention time.
+
+      '
+  edges_after:
+  - source: HRT-Driven Mixotrophic Consortium Enrichment
+    target: Planktonic and Electrode-Biofilm Spatial Partitioning
+    description: PARTIAL - altered residence time may select community composition, but sequential operation and
+      batch interruptions do not isolate its contribution to the endpoint compartment difference.
+  - source: Planktonic and Electrode-Biofilm Spatial Partitioning
+    target: Biomass-Specific Inorganic Carbon Removal Increase
+    description: HYPOTHESIZED - compartment-associated exchange of reducing equivalents could support carbon uptake.
+      Composition and bulk chemistry do not selectively establish that architecture as the cause of IC removal.
+  retained_edge_decisions:
+  - source: HRT-Driven Mixotrophic Consortium Enrichment
+    target: Planktonic and Electrode-Biofilm Spatial Partitioning
+    rationale: PARTIAL - altered residence time may select community composition, but sequential operation and batch
+      interruptions do not isolate its contribution to the endpoint compartment difference.
+  - source: Planktonic and Electrode-Biofilm Spatial Partitioning
+    target: Biomass-Specific Inorganic Carbon Removal Increase
+    rationale: HYPOTHESIZED - compartment-associated exchange of reducing equivalents could support carbon uptake.
+      Composition and bulk chemistry do not selectively establish that architecture as the cause of IC removal.
+  removed_edge_decisions:
+  - source: Planktonic and Electrode-Biofilm Spatial Partitioning
+    target: Electrode-Biofilm Carbon-Fixation Pathway Enrichment
+    rationale: Pathway prediction is derived from composition; an annotation workflow is not an independent biological
+      causal relation.
+  - source: Electrode-Biofilm Carbon-Fixation Pathway Enrichment
+    target: Acetate-Directed Carbon Flux
+    rationale: Predicted potential cannot itself cause measured acetate production; activity and flux were not resolved.
+  - source: Biomass-Specific Inorganic Carbon Removal Increase
+    target: Acetate-Directed Carbon Flux
+    rationale: IC removal and acetate are bulk endpoints; their association does not establish product fate or mediation.
+  references:
+  - doi:10.21203/rs.3.rs-9518331/v1
+  issues:
+  - 1432
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium/2026-10-06T084910Z-codex-0245f9.yaml
+  source_review:
+    doi:10.21203/rs.3.rs-9518331/v1:
+      url: https://www.researchgate.net/publication/404868953_Hydraulic_Retention_Time_and_Electric_Stimuli_as_Key_Levers_for_Tailoring_Mixotrophic_Consortia_Toward_Enhanced_Volatile_Fatty_Acid_Production_and_Carbon_Capture
+      scope: Cached abstract plus primary preprint main body, Methods through Conclusions and Declarations, read
+        via public ResearchGate mirror. Canonical Research Square retrieval returned 403. No visual figures, separate
+        supplements or raw data. Preprint, not peer-reviewed; no new body stored in cache.
+- path: kb/communities/Electrostimulated_Toluene_Methanogenic_Microbiota.yaml
+  id: CommunityMech:000440
+  original_sha256: e2fb839f390a646f5dc997bdd7766dec1fc25b53535b2860d0f378ec5f0d70ac
+  record_sha256: 6d55992d0ce9ba8a4398c071862cc167ca334085174ed5c7f04aed80829588c2
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch37.yaml
+  scope: Whole record and every existing node/arrow assessed at recorded primary access scope. Arg/Met expansion
+    remains pending; non-graph fields preserved, not certified.
+  summary: Retain alternate control-system candidates without confirmed syntrophic flux.; Retain the undirected
+    anode/MAG hypothesis with MAG-specific evidence.; Retain the proposed MAG60-to-MAG74 route without confirmed
+    hydrogen or electron sharing.
+  renamed_nodes: {}
+  node_decisions:
+  - node: Non-electrostimulated toluene degrader to acetoclastic methanogens
+    rationale: Retain alternate control-system candidates without confirmed syntrophic flux.
+  - node: Anode-linked Desulfoprunum and Syntrophobacteraceae electron transfer
+    rationale: Retain the undirected anode/MAG hypothesis with MAG-specific evidence.
+  - node: Aminidesulfovibrio electron and hydrogen sharing with Methanobacterium
+    rationale: Retain the proposed MAG60-to-MAG74 route without confirmed hydrogen or electron sharing.
+  removed_node_decisions: []
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:38865893
+  issues:
+  - 1433
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Electrostimulated_Toluene_Methanogenic_Microbiota/2026-10-06T084910Z-codex-af5821.yaml
+  source_review:
+    PMID:38865893:
+      url: https://pubmed.ncbi.nlm.nih.gov/38865893/
+      scope: Cached primary abstract only. ScienceDirect full page returned 403; other publisher/API tool retrievals
+        failed. ResearchGate entry offers a request, not acquired full text. Primary Methods/Results and supplements
+        not reviewed.

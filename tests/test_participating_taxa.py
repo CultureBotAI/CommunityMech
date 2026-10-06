@@ -249,6 +249,7 @@ USERS = {
     "East_River_Floodplain_Core_Microbiome.yaml",
     "East_River_Hillslope_Riparian_Transect_Community.yaml",
     "EcoFAB_Ring_Trial_SynCom17.yaml",
+    "Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium.yaml",
     "Electrostimulated_Toluene_Methanogenic_Microbiota.yaml",
     "Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.yaml",
     "Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml",

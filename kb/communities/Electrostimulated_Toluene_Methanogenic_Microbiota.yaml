@@ -191,9 +191,10 @@ taxonomy:
     explanation: Supports MAG60 as an inferred electrotroph and hydrogen producer.
 ecological_interactions:
 - name: Non-electrostimulated toluene degrader to acetoclastic methanogens
-  description: In non-electro-stimulated microbiota, Syntrophobacteraceae MAG116 was inferred as a toluene degrader proposed
-    to establish electron syntrophy with acetoclastic Methanosarcina spp. or Methanothrix sp. through e-pili or shared acetate.
-  interaction_type: SYNTROPHY
+  description: HYPOTHESIZED - the abstract proposes MAG116-mediated toluene conversion linked to Methanosarcina
+    OR Methanothrix through e-pili OR acetate. These are alternative partners and routes, not a demonstrated three-member
+    assembly or resolved direct-electron-transfer flux. The non-electrostimulated model must remain distinct from
+    electrode-associated hypotheses.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Syntrophobacteraceae MAG116
@@ -221,23 +222,18 @@ ecological_interactions:
     term:
       id: CHEBI:16183
       label: methane
-  biological_processes:
-  - preferred_term: methanogenesis
-    term:
-      id: GO:0015948
-      label: methanogenesis
   evidence:
   - reference: PMID:38865893
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: proposed to establish electron syntrophy with the acetoclastic methanogen Methanosarcina spp. (or Methanothrix
       sp.) through e-pili or shared acetate
-    explanation: Supports the candidate non-electrostimulated electron-syntrophy route, while preserving the abstract's proposed
-      status and alternate methanogen assignment.
+    explanation: Supports the candidate non-electrostimulated electron-syntrophy route, while preserving the abstract's
+      proposed status and alternate methanogen assignment.
 - name: Anode-linked Desulfoprunum and Syntrophobacteraceae electron transfer
-  description: In electro-stimulated microbiota, anode-recruited Desulfoprunum MAG10 was inferred to participate in interspecies
-    electron transfer with Syntrophobacteraceae MAG116 and the anode, potentially mediated by c-type cytochromes.
-  interaction_type: SYNTROPHY
+  description: HYPOTHESIZED - anode-associated Desulfoprunum MAG10 may exchange electrons with MAG116 and the electrode.
+    The abstract does not resolve donor-to-recipient direction between the MAGs or demonstrate a necessary transfer
+    protein. Electrode enrichment does not independently establish syntrophic flux.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Desulfoprunum sp. MAG10
@@ -252,13 +248,14 @@ ecological_interactions:
   - reference: PMID:38865893
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: facilitated by c-type cytochromes
-    explanation: Supports an inferred anode-linked electron-transfer mechanism for MAG10 rather than a directly tested pairwise
-      edge.
+    snippet: MAG10 engaged in interspecies electron transfer with both syntroph f_Syntrophobacteraceae MAG116 and
+      the anode
+    explanation: Identifies the proposed MAG-specific route; the abstract qualifies its molecular mechanism, without
+      selectively testing it.
 - name: Aminidesulfovibrio electron and hydrogen sharing with Methanobacterium
-  description: Electrotrophic Aminidesulfovibrio MAG60 was inferred to capture electrons from the external circuit and share
-    electrons and hydrogen with the hydrogenotrophic methanogen Methanobacterium MAG74.
-  interaction_type: SYNTROPHY
+  description: HYPOTHESIZED - MAG60 could supply electrons or hydrogen to Methanobacterium MAG74. The directed pair
+    encodes the proposed route, not a measured exchange rate, demonstrated obligate cooperation or resolved direct
+    versus hydrogen-mediated transfer. Hydrogenase gene content alone does not demonstrate that flux.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Aminidesulfovibrio sp. MAG60
@@ -279,17 +276,13 @@ ecological_interactions:
     term:
       id: CHEBI:16183
       label: methane
-  biological_processes:
-  - preferred_term: methanogenesis
-    term:
-      id: GO:0015948
-      label: methanogenesis
   evidence:
   - reference: PMID:38865893
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: could share electrons and hydrogen with the methanogen Methanobacterium sp. MAG74
-    explanation: Supports the inferred electron- and hydrogen-sharing syntrophy between MAG60 and MAG74.
+    explanation: Supports the abstract-level candidate donor/recipient model, not direct proof of electron or hydrogen
+      sharing.
 environmental_factors:
 - name: 800 mV electro-stimulation
   value: 800 mV
@@ -363,8 +356,8 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare-earth element processing role is reported for the methanogenic toluene-degrading microbiota.
 discussions:
 - discussion_id: full_text_bioelectrochemical_toluene_mag_details
-  prompt: Curate the full text before adding medium composition, inoculum source, electrode material, reference electrode,
-    MAG bin-quality metrics, exact MAG relative abundances, and public metagenome accessions.
+  prompt: Curate the full text before adding medium composition, inoculum source, electrode material, reference
+    electrode, MAG bin-quality metrics, exact MAG relative abundances, and public metagenome accessions.
   kind: CURATION_TODO
   status: OPEN
   attaches_to:
@@ -372,34 +365,59 @@ discussions:
   - growth_media
   - cultivation_setup
   - ecological_interactions
-  rationale: The PubMed abstract supports 800 mV electro-stimulation, named MAG or genus labels, and the proposed electron-transfer
-    model, but it omits the reactor geometry, reference electrode, culture medium, source inoculum, and full MAG taxonomy
-    needed to refine this abstract-level record.
+  rationale: The PubMed abstract supports 800 mV electro-stimulation, named MAG or genus labels, and the proposed
+    electron-transfer model, but it omits the reactor geometry, reference electrode, culture medium, source inoculum,
+    and full MAG taxonomy needed to refine this abstract-level record.
   evidence:
   - reference: PMID:38865893
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: metagenomic sequencing analyses revealed
-    explanation: Shows that the cached abstract summarizes genome-resolved analyses without exposing the underlying MAG table.
+    explanation: Shows that the cached abstract summarizes genome-resolved analyses without exposing the underlying
+      MAG table.
   posed_by: codex
   posed_date: '2026-09-26'
+- discussion_id: toluene_mag_routes_and_primary_access
+  prompt: Which candidate MAG routes are established by selective perturbation and primary reactor data?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Non-electrostimulated toluene degrader to acetoclastic methanogens
+  - ecological_interactions#Anode-linked Desulfoprunum and Syntrophobacteraceae electron transfer
+  - ecological_interactions#Aminidesulfovibrio electron and hydrogen sharing with Methanobacterium
+  rationale: 'The three abstract-supported mechanisms remain HYPOTHESIZED with PARTIAL computational evidence and
+    zero downstream arrows. A common electrical treatment does not establish a chain among control, anode and cathode
+    mechanisms. Preserve the alternate methanogen evidence from #1121 and recruitment evidence from #1120. Distinct
+    MAG116 and MAG60 labels must not collapse because both use NCBITaxon:2. Full primary Methods/Results and supplements
+    were not acquired; publisher requests failed and the ResearchGate entry requires a full-text request. This is
+    an access limitation, not proof that full text does not exist. Non-graph roles and reactor metadata remain #1435.'
+  posed_by: codex
+  posed_date: '2026-10-06'
 curation_history:
 - timestamp: '2026-09-26T18:38:36Z'
   curator: codex
   action: CREATE_ELECTROSTIMULATED_TOLUENE_METHANOGENIC_MICROBIOTA
-  changes: Created CommunityMech:000440 from PMID:38865893 with electro-stimulated methanogenic toluene microbiota membership,
-    proposed MAG-resolved syntrophic electron-transfer interactions, 800 mV bioelectrochemical context, PubMed/DOI resources,
-    and an abstract-level full-text curation todo.
+  changes: Created CommunityMech:000440 from PMID:38865893 with electro-stimulated methanogenic toluene microbiota
+    membership, proposed MAG-resolved syntrophic electron-transfer interactions, 800 mV bioelectrochemical context,
+    PubMed/DOI resources, and an abstract-level full-text curation todo.
   llm_assisted: true
 - timestamp: '2026-09-26T18:47:57Z'
   curator: codex
   action: FIX_ELECTROSTIMULATED_TOLUENE_REVIEW_ISSUES
-  changes: 'Addressed adversarial review issues #1120 and #1121 by adding explicit Desulfoprunum MAG10 anode-recruitment evidence
-    and by broadening the MAG116 acetoclastic-methanogen syntrophy snippet to include the Methanothrix alternate.'
+  changes: 'Addressed adversarial review issues #1120 and #1121 by adding explicit Desulfoprunum MAG10 anode-recruitment
+    evidence and by broadening the MAG116 acetoclastic-methanogen syntrophy snippet to include the Methanothrix
+    alternate.'
   llm_assisted: true
 - timestamp: '2026-09-26T18:59:02Z'
   curator: codex
   action: FIX_DESULFOPRUNUM_CANONICAL_LABEL
   changes: Updated NCBITaxon:2629275 labels from Desulfoprunum to unclassified Desulfoprunum to match the canonical
     NCBI Taxonomy label required by the ID-label correspondence gate.
+  llm_assisted: true
+- timestamp: '2026-10-06T08:49:09Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain alternate control-system candidates without confirmed syntrophic flux.; Retain the undirected
+    anode/MAG hypothesis with MAG-specific evidence.; Retain the proposed MAG60-to-MAG74 route without confirmed
+    hydrogen or electron sharing. Issue #1433; reports/causal_graph_review/decisions/20261006-three-records-batch37.yaml'
   llm_assisted: true
