@@ -1,0 +1,173 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 14e92e488e3100d1070ff27b2524688f73e59b6c
+scope:
+- kb/communities/Eucalyptus_Nursery_FiveStrain_Inoculant_SynCom.yaml
+- kb/communities/Ewaste_Bioleaching_Consortium.yaml
+- kb/communities/FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch39.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch39.json
+findings:
+- issue: 1445
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Eucalyptus nursery graph: separate prior traits, root composition and genotype-specific quality'
+  disposition: Existing-graph defect corrected; close only after protected main merge.
+- issue: 1446
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'E-waste graph: preserve real iron feedback without syntrophy, competition or faster-dissolution
+    claims'
+  disposition: Existing-graph defect corrected; close only after protected main merge.
+- issue: 1447
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'FOS gut-liver graph: qualify qPCR, expression and whole-community metabolite evidence'
+  disposition: Existing-graph defect corrected; close only after protected main merge.
+- issue: 1448
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'E-waste metadata: distinguish acid dosing, assay regimes and untested organism roles'
+  disposition: Non-graph fields preserved, not certified. Remains open.
+- issue: 1449
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'FOS gut-liver metadata: distinguish HepG2 pretreatment from rescue of established steatosis'
+  disposition: Non-graph fields preserved, not certified. Remains open.
+- issue: 1450
+  severity: P2
+  status: open_graph_research
+  finding: 'FOS gut-liver causal expansion: curate extract pretreatment and host-cell response with unresolved
+    mediator'
+  disposition: FOS remains needs_research. One-community dry run completed; specific authorization requested,
+    no provider job or charge.
+post_edit_corrections:
+- Expanded Eucalyptus endpoint snippet to include the severe-curvature criterion; classified the nursery
+  functional-measurement limitation as IN_VIVO.
+- Expanded e-waste snippet to include complete concentration units, all three metals and both solid-PCB
+  assay levels; no truncated g L unit.
+- Initial regression suite passed, but Ruff found SIM300 in a new assertion; corrected before the full
+  post-refinement verification. Initial incomplete verification retained separately, not reported as a
+  passed run.
+adversarial_checks:
+- Whole records, prior relevant histories and complete graph diffs reviewed against primary full main
+  bodies. Nine existing nodes and all three arrows retained with explicit dispositions. No invented links
+  or new structure.
+- Eucalyptus prior trait screens do not measure nursery nitrogen fixation or specific IAA exchange. Remove
+  colonization facilitation and mutualism; root compositional change does not prove member persistence
+  or robust taxon displacement. Explicit participants name inoculant/host context, not the exhaustive
+  root microbiome.
+- Eucalyptus dead category includes severe stem curvature, not literal mortality alone. Outcomes are genotype-dependent;
+  water control does not isolate the PBS carrier. Preserve the two workflow-arrow removals and AMBIGUOUS
+  Paenibacillus grounding.
+- E-waste FeIII dissolution and FeII regeneration constitute a real chemical-biological feedback. Rewrite
+  both directions as oxidant/substrate coupling rather than a leachate-transfer workflow. Preserve all
+  three existing arrows and remove syntrophy/competition categories.
+- Redox-inferred iron oxidation does not assay iron transport or carbon fixation. Serial transfer shortens
+  pre-oxidation lag, not the seven-day batch dissolution endpoint. Do not claim identified genetic resistance,
+  altered membranes, specific toxins or a universal above-8% inhibition threshold.
+- 'Separate 1/2% solid-PCB stirred-tank concentrations from equivalent-leachate toxicity flasks and continuous-startup
+  regimes. Account for the storage pause, 25-day observation window and planktonic-count limitations.
+  Preserve #596 vessel evidence. Non-graph acid-dosing/role claims remain #1448.'
+- FOS bacterial counts are DNA-qPCR estimates, not CFU viability. Expression is RNA/cDNA-based and genes
+  were homology-assigned; observed context differences do not establish selective gene causality or partner-resolved
+  cross-feeding. The glucose and FOS conditions are not carbon-mass matched.
+- Actual Figure 7 inspected, not publisher-generated alt text. Propionate peak 2 appears in minimal-core
+  B but not separately in whole-community C. Remove the whole-specific assignment without inferring physiological
+  absence. Retained acid identities are qualitative, not ionic-speciation, yield, flux or active-mediator
+  measurements.
+- 'The FOS host assay pretreated cells with extract, removed it, then challenged with palmitate. Cd36
+  mRNA association is not mediation, protein change or a clinical effect. The missing endpoint remains
+  #1450; FOS is needs_research, not a completed graph. One-community Edison dry run completed without
+  API call or credit spend; specific job authorization requested.'
+- 'Keep all seven FOS canonical strains and #1206 role corrections. Preserve the prior active-metabolite
+  gap and proposed experiments semantically; do not present those proposals as performed work. Non-graph
+  pretreatment/readout wording remains #1449.'
+- Guarded writes and append-only histories with llm-assisted events. Prior history/discussions and all
+  non-graph raw blocks preserved; 457 other records and 920 caches byte-identical. Eight new tests cover
+  source boundaries, participants, topology, histories and pending research.
+- Add only Eucalyptus to the participant registry (184 to 185). Connectivity census and numeric bounds
+  unchanged. All 33 baseline warnings exactly preserved, zero structural errors. No topology invented
+  to suppress sparse/disconnected warnings.
+- Repeat renders deterministic and every published node/arrow description parser-checked. Reference-validator
+  0.1.7 exits 0 with zero effective checks; explicitly a no-op. Textual snippet MATCH is not scientific
+  validation. Actual output tails, digests, baseline and Edison dry-run output are retained.
+- Issue deduplication searched 766 all-state titles/bodies and ignored/hidden-inclusive local files, not
+  all comments. No other figure images, separate supplements or raw data reviewed. Self-adversarial review
+  is not independent approval, protected merge or full-corpus completion.
+verification:
+  combined_regressions: 415 passed in 182.97s (0:03:02)
+  new_regression_tests: 8
+  schema_strict_terms_history: passed; actual output tails and digests retained
+  snippet_counts_by_record:
+    kb/communities/Eucalyptus_Nursery_FiveStrain_Inoculant_SynCom.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Ewaste_Bioleaching_Consortium.yaml:
+      MATCH: 25
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.yaml:
+      MATCH: 31
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero errors; 33 baseline warnings exactly preserved, none added.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch39.yaml: a1dee2681584def997c377ad6ae941a5595a60c864f2efbd465d907812d1ffe2
+    tests/test_causal_review_batch39.py: b76b69039c1ae43beb42e957cc0cd508042adfa3d9d2786617eabeccc5c18a81
+    tests/test_participating_taxa.py: abedbb9e64b503b9feaa1f2758ed88a000e9f5ef2ccba137058e76d6bc84f546
+    kb/communities/Eucalyptus_Nursery_FiveStrain_Inoculant_SynCom.yaml: e14a2eea79cf30da31d464f571f728fe07984e9cc854938340d075f8a2e02fd0
+    kb/communities/Ewaste_Bioleaching_Consortium.yaml: e55cc485b57d871ad1a431bd2de7ea20588cde4e61029b769e095b1380499965
+    kb/communities/FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.yaml: 0ca3ae19e967be3786f5495c5633b088efc2afd4dbe18c322eb2a3a6447d29ef
+  post_commit_docs_current: Separate publication gate; not asserted in pre-commit record.
+  protected_ci_and_merge: Eligible exact-head checks and protected queue still required.
+participant_census:
+  connectivity_before:
+    community_level_only: 263
+    credited_solely_by_the_rule: 1219
+    mixed: 124
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  connectivity_after:
+    community_level_only: 263
+    credited_solely_by_the_rule: 1219
+    mixed: 124
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  exact_change: 'Eucalyptus newly registered: participant roster grows from 184 to 185. Ewaste and FOS
+    already registered. Connectivity census and numeric bounds unchanged; canonical taxonomy preserved.'
+  numeric_bounds_changed: false
+corpus:
+  records: 460
+  nodes: 1469
+  edges: 689
+  review_status_counts:
+    needs_research: 9
+    pending: 294
+    reviewed: 157
+limitations:
+- 'Nine existing nodes and three arrows retained; no new structure. Two record reviews complete; FOS remains
+  needs_research under #1450.'
+- Full cached primary main bodies read for all three records, actual FOS Figure 7 visually inspected.
+  No other figure images, separate supplements or raw data reviewed. Publisher-generated alt text is not
+  visual evidence.
+- 'Canonical taxonomy, prior discussions/history and all non-graph raw blocks preserved, not certified.
+  Non-graph followups #1448 and #1449 remain open.'
+- One-community FOS Edison dry run only; no provider job or spend. Previously authorized unrelated jobs
+  are not blanket authorization for this one.
+- Source-based self-adversarial review is not independent approval, protected merge or full-corpus completion.
+  Textual snippet matching is not scientific validation.
