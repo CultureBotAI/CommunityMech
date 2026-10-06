@@ -109,71 +109,44 @@ taxonomy:
       made with the objective of determining its optimal growth conditions
     explanation: Confirms synergistic growth with Leptospirillum
 ecological_interactions:
-- name: Iron Oxidation by Leptospirillum
-  description: 'Leptospirillum ferriphilum oxidizes ferrous iron (Fe²⁺) to ferric iron (Fe³⁺) as its sole
-    energy source, using the electrons to fix CO₂ through the Calvin-Benson-Bassham cycle. This obligate
-    chemolithoautotroph oxidizes iron from pyrite and chalcopyrite mineral dissolution. The Fe³⁺ generated
-    attacks sulfide minerals, perpetuating the iron redox cycle. During growth, Leptospirillum releases
-    organic matter that can accumulate to toxic concentrations in pure culture. In co-culture with
-    Ferroplasma, this organic matter is consumed, relieving organic-compound stress.
-
-    '
-  scope: COMMUNITY_LEVEL
-  interaction_type: CROSS_FEEDING
-  participating_taxa:
-  - preferred_term: Leptospirillum ferriphilum
-    term:
-      id: NCBITaxon:178606
-      label: Leptospirillum ferriphilum
+- name: Proposed Leptospirillum Organic-Matter Supply
+  description: 'HYPOTHESIZED: L. ferriphilum growth supplies organic matter usable by F. acidiphilum. The inspected
+    Merino abstract states this as the study hypothesis, not a quantified release flux or a resolved substrate identity.
+    Retain the upstream supply context without asserting Calvin-Benson-Bassham fixation, mineral-specific dissolution,
+    toxic accumulation thresholds or their relief in the exact pair.'
+  scope: PAIRWISE
   metabolites:
-  - preferred_term: Fe(II)
-    term:
-      id: CHEBI:29033
-      label: iron(2+)
-    concentration: Substrate from mineral dissolution
-  - preferred_term: Fe(III)
-    term:
-      id: CHEBI:29034
-      label: iron(3+)
-    concentration: Product of ferrous-iron oxidation
   - preferred_term: organic molecular entity
     term:
       id: CHEBI:50860
       label: organic molecular entity
-    notes: Secreted organic matter consumed by Ferroplasma
-  biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
-  - preferred_term: carbon fixation
-    term:
-      id: GO:0015977
-      label: carbon fixation
+    notes: Generic proposed organic substrate class; no compound identity or release flux established by the inspected
+      abstract.
   downstream:
-  - target: Organic Matter Consumption by Ferroplasma
-    description: Organic compounds secreted by Leptospirillum are consumed by Ferroplasma
+  - target: Proposed Ferroplasma Organic-Matter Consumption
+    description: 'HYPOTHESIZED: Organic matter released during Leptospirillum growth would provide substrate for
+      Ferroplasma consumption. This is the source-stated supply hypothesis, not a traced partner-to-partner flux;
+      reciprocal supernatant growth does not identify the transferred compound or prove the detoxification mechanism.'
   evidence:
   - reference: PMID:27535541
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Ferroplasma acidiphilum and Leptospirillum ferriphilum are the dominant
-      species in extremely acid environments and have great use in bioleaching
-      applications
-    explanation: Merino et al. 2016 frame L. ferriphilum and F. acidiphilum as the
-      co-dominant bioleaching consortium, establishing L. ferriphilum's iron oxidation
-      role in the syntrophy.
-- name: Organic Matter Consumption by Ferroplasma
-  description: 'Ferroplasma acidiphilum grows chemomixotrophically, consuming organic matter secreted
-    by Leptospirillum ferriphilum while oxidizing ferrous iron for energy. F. acidiphilum uses the organic
-    matter for carbon assimilation, maintaining low organic compound levels in the culture medium that
-    prevents toxic effects on L. ferriphilum. This scavenging function is critical - in pure Leptospirillum
-    cultures, organic matter accumulates and inhibits growth, but in co-culture, Ferroplasma maintains
-    organic compounds below toxic thresholds. The archaeon can utilize diverse organic substrates including
-    amino acids, organic acids, and cell debris. This creates a mutualistic relationship where Ferroplasma
-    benefits from carbon supply while Leptospirillum benefits from detoxification.
-
-    '
+    snippet: The hypothesis of this work is that F. acidiphilum uses the organic matter secreted by L. ferriphilum
+      for growth
+    explanation: Preserves the explicit hypothesis qualifier rather than using co-occurrence as evidence of an exact
+      carbon-release pathway.
+  source_taxon:
+    preferred_term: Leptospirillum ferriphilum
+    term:
+      id: NCBITaxon:178606
+      label: Leptospirillum ferriphilum
+- name: Proposed Ferroplasma Organic-Matter Consumption
+  description: 'HYPOTHESIZED: Organic matter supplied by L. ferriphilum contributes carbon to F. acidiphilum BRL-115
+    and its removal relieves inhibition of the bacterium. Reciprocal filtered-supernatant growth supports soluble
+    partner effects, but the inspected abstract does not establish identified transferred substrates, assimilation
+    flux or detoxification thresholds. BRL-115 chemomixotrophy and the 0.04% yeast-extract growth optimum are characterization
+    results, not proof of the proposed mediator in mixed culture. CROSS_FEEDING denotes this proposed transfer,
+    not established obligate syntrophy.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -191,48 +164,31 @@ ecological_interactions:
     term:
       id: CHEBI:50860
       label: organic molecular entity
-    notes: Organic compounds from Leptospirillum secretion
-  - preferred_term: Fe(II)
-    term:
-      id: CHEBI:29033
-      label: iron(2+)
-    notes: Also oxidized by Ferroplasma for energy
-  downstream:
-  - target: Filtered Medium Cross-Feeding
-    description: Soluble organic compounds contribute to the reciprocal filtered-medium growth response
+    notes: Proposed Leptospirillum-derived organic matter; iron oxidation is not itself a transferred nutrient in
+      this arrow.
   evidence:
   - reference: PMID:27535541
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: F. acidiphilum uses the organic matter secreted by L. ferriphilum for
-      growth, maintaining low levels of organic compounds in the culture medium,
-      preventing their toxic effects on L. ferriphilum
-    explanation: Merino et al. 2016 describe the syntrophic mechanism — F. acidiphilum
-      consumes the organic matter secreted by L. ferriphilum, detoxifying the culture
-      and preventing organic-compound toxicity on L. ferriphilum.
+    snippet: The hypothesis of this work is that F. acidiphilum uses the organic matter secreted by L. ferriphilum
+      for growth
+    explanation: The authors state a working hypothesis; positive supernatant responses do not uniquely establish
+      organic-carbon assimilation or detoxification.
   - reference: PMID:27535541
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: acidiphilum, strain BRL-115 is a chemomixotrophic organism, and its growth is maximized with
-      yeast extract at a concentration of 0.04% wt/vol
-    explanation: Establishes mixotrophic metabolism
-- name: Iron Oxidation by Ferroplasma
-  description: 'Ferroplasma acidiphilum oxidizes ferrous iron microaerophilically, complementing Leptospirillum''s
-    aerobic iron oxidation. F. acidiphilum obtains energy by oxidation of ferrous iron using oxygen as
-    terminal electron acceptor, with a membrane-bound complex dedicated to this process. The archaeon
-    can function at lower oxygen concentrations than Leptospirillum, filling microaerobic niches. Ferroplasma''s
-    cellular machinery is iron-protein-dominated, with high iron content reflecting specialization for
-    iron metabolism. Both organisms oxidize Fe²⁺ to Fe³⁺, but occupy different physiological niches (aerobic
-    vs. microaerobic, autotrophic vs. mixotrophic), reducing direct competition and enabling stable coexistence.
-
-    '
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  participating_taxa:
-  - preferred_term: Ferroplasma acidiphilum
-    term:
-      id: NCBITaxon:74969
-      label: Ferroplasma acidiphilum
+    snippet: acidiphilum, strain BRL-115 is a chemomixotrophic organism, and its growth is maximized with yeast
+      extract at a concentration of 0.04% wt/vol
+    explanation: Supports BRL-115 characterization, not a measured carbon transfer or the mixed culture's optimal
+      yeast-extract requirement.
+- name: Ferroplasma Iron-Metabolism Context
+  description: 'Ferroplasma iron metabolism is physiological context, not an observed niche-partitioning interaction.
+    Ferrer studied strain Y(T), reporting ferrous-iron oxidation and iron-rich proteins; this is not BRL-115 in
+    the Leptospirillum pair. Wilson compared isolated rusticyanins: the archaeal FaR had similar redox potential
+    but slower electron transfer than AfR. These sources do not establish lower-oxygen complementarity, a pair-specific
+    membrane complex, competition relief or stable coexistence. Protein electron-transfer properties do not measure
+    consortium iron-oxidation flux.'
+  scope: PAIRWISE
   metabolites:
   - preferred_term: Fe(II)
     term:
@@ -242,35 +198,32 @@ ecological_interactions:
     term:
       id: CHEBI:29034
       label: iron(3+)
-  biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
   evidence:
   - reference: PMID:38593609
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: properties of the Type-1 copper protein rusticyanin from Acidithiobacillus
-      ferrooxidans (AfR) were compared with those from an ancestral form of this
-      enzyme (N0) and an archaeal enzyme identified in Ferroplasma acidiphilum (FaR)
-    explanation: Wilson et al. 2024 characterize the archaeal rusticyanin (FaR) from
-      Ferroplasma acidiphilum, the type-1 copper protein driving iron-oxidation
-      electron transfer — describes the Ferroplasma iron oxidation machinery.
+    snippet: While both N0 and FaR show redox potentials similar to that of AfR their electron transport rates were
+      significantly slower.
+    explanation: Isolated-protein comparison, not a demonstrated pathway in the BRL-115 coculture.
   - reference: PMID:17203061
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: acidiphilum therefore has a currently unique iron-protein-dominated cellular machinery and
-      biochemical phylogeny.
-    explanation: Establishes iron-centric metabolism
-- name: Filtered Medium Cross-Feeding
-  description: 'Cell growth is favorably affected by the presence of filtered medium of the partner organism.
-    The reciprocal supernatant response shows that the partnership involves soluble factors beyond direct
-    cell contact.
-
-    '
+    snippet: F. acidiphilum strain Y(T) is a chemoautotroph
+    explanation: Strain-specific physiological context; do not transfer the Y(T) result to chemomixotrophic BRL-115
+      or infer oxygen partitioning.
+  source_taxon:
+    preferred_term: Ferroplasma acidiphilum
+    term:
+      id: NCBITaxon:74969
+      label: Ferroplasma acidiphilum
+- name: Reciprocal Filtered-Medium Growth Response
+  description: In reciprocal assays, each organism grew favorably in filtered medium from its partner. This supports
+    diffusible partner-associated growth effects without requiring direct cell contact in those assays, but does
+    not identify the mediators, show equal reciprocal benefit in simultaneous coculture or prove obligatory syntrophy.
+    Mixed-culture growth rates were used as input to flux-balance analysis; model behavior is not independent measurement
+    of exchanged flux. Organic-matter consumption cannot be treated as the demonstrated cause of both reciprocal
+    responses.
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   participating_taxa:
   - preferred_term: Leptospirillum ferriphilum
     term:
@@ -280,12 +233,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:74969
       label: Ferroplasma acidiphilum
-  metabolites:
-  - preferred_term: organic molecular entity
-    term:
-      id: CHEBI:50860
-      label: organic molecular entity
-    notes: Soluble factors in filtered medium
   biological_processes:
   - preferred_term: response to other organism
     term:
@@ -295,10 +242,11 @@ ecological_interactions:
   - reference: PMID:27535541
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: acidiphilum supernatant and vice versa, it was observed that in both cases cell growth is
-      favorably affected by the presence of the filtered medium of the other microorganism, proving a
-      synergistic interaction between these species
-    explanation: Demonstrates soluble factor-mediated synergy
+    snippet: acidiphilum supernatant and vice versa, it was observed that in both cases cell growth is favorably
+      affected by the presence of the filtered medium of the other microorganism, proving a synergistic interaction
+      between these species
+    explanation: Supports the observed reciprocal filtered-medium response, not selective organic-detoxification
+      mediation or balanced mutualism in simultaneous coculture.
 environmental_factors:
 - name: Extreme Acidity
   value: 0.7-2.5
@@ -571,3 +519,30 @@ growth_media:
     explanation: Demonstrates syntrophic benefit of co-cultivation
   culturemech_id: CultureMech:003277
   culturemech_url: https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/CultureMech:003277
+discussions:
+- discussion_id: ferroplasma_soluble_mediation_and_strain_scope
+  prompt: Which soluble factors mediate the reciprocal growth response of BRL-115 and L. ferriphilum?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Proposed Leptospirillum Organic-Matter Supply
+  - ecological_interactions#Proposed Ferroplasma Organic-Matter Consumption
+  - ecological_interactions#Ferroplasma Iron-Metabolism Context
+  - ecological_interactions#Reciprocal Filtered-Medium Growth Response
+  rationale: 'Only cited abstracts were inspected. The primary abstract explicitly frames carbon supply and detoxification
+    as a hypothesis. Reciprocal filtered-medium responses do not identify molecules, quantify partner-resolved flux
+    or establish toxic thresholds. Growth-rate inputs to FBA are not independent flux observations. Preserve only
+    the HYPOTHESIZED supply-to-consumption arrow and remove its unsupported extension to both reciprocal assays.
+    Y(T) iron-rich proteins and isolated FaR kinetics are separate systems, not oxygen-niche or pair-specific membrane-complex
+    evidence. No new structure is added. Non-graph physiology, medium and syntrophy claims remain #1462.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T10:43:39Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain proposed organic supply as intrinsic source context without an unsupported carbon-fixation route.;
+    Retain proposed consumption with hypothesis-qualified evidence, without measured detoxification or the reciprocal-response
+    arrow.; Retain iron-metabolism context with explicit strain and isolated-protein limits, not niche partitioning.;
+    Retain reciprocal filtered-medium growth without assigned mediator or obligate mutualism. Issue #1459; reports/causal_graph_review/decisions/20261006-three-records-batch41.yaml'
+  llm_assisted: true
