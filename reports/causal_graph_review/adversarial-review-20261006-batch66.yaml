@@ -1,0 +1,204 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: e788ade71f030cd1c482ac279b5a6c554aa1f467
+scope:
+- kb/communities/MUCC_Freshwater_Wetland_Methane_Network_Community.yaml
+- kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml
+- kb/communities/Magnetite_Sulfate_Stress_Anaerobic_Microbiome.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-wetland-crossfeeding-batch66.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch66.json
+findings:
+- issue: 1571
+  severity: P2
+  status: addressed_in_this_change
+  finding: Wetland core/network and Methanoregula claims exceed observational and genomic evidence.
+  disposition: Close only after protected-main merge.
+- issue: 1572
+  severity: P2
+  status: addressed_in_this_change
+  finding: MWF001 claims omit finite coexistence, generic-model and spent-media assay limits.
+  disposition: Close only after protected-main merge.
+- issue: 1573
+  severity: P2
+  status: addressed_in_this_change
+  finding: Magnetite outcomes and constrained model fluxes overstate independently demonstrated mechanisms.
+  disposition: Close only after protected-main merge.
+- issue: 1574
+  severity: P2
+  status: unresolved_non_graph
+  finding: Identity, role/protocol metadata and source reporting inconsistencies.
+  disposition: Keep OPEN after graph repair merge.
+- issue: 1575
+  severity: P2
+  status: unresolved_research
+  finding: MWF001 candidate causal extension requires authorized paid Edison report review.
+  disposition: Keep OPEN and record needs_research until completed.
+adversarial_checks:
+- Read all three whole records and every original node. Nine nodes and zero original arrows retained,
+  with one MUCC rename and intact discussion anchors. Earlier MUCC workflow and magnetite backward-edge
+  deletions preserved. All three primary main texts and captions read; no original figure-pixel, separate-supplement,
+  raw-data or executable-model audit. Extracted table artifacts contain no main-table cells.
+- 'MUCC: eight core genera concern five marsh/swamp sites, not occupancy in every sample or all nine wetland
+  sites. JLA is a swamp despite marsh shorthand. Canonical whole-community and Archaea/Bacteria guild
+  entries are contextual placeholders, not a resolved eight-genus roster.'
+- 'MUCC: 12 samples/site, positive Spearman genus associations, environmental covariates and genus-matched
+  MAG potential do not demonstrate exchange, niche partitioning or syntrophy. Whole-community network
+  structure did not have the methanogen-network association. Preserve observations, not a causal network
+  from analytic workflow.'
+- 'MUCC: Methanoregula relative dominance and transcription are not selectively tested drivers or methane
+  flux. Methods describe 2018 expression and 2015 modeled production; temporal alignment and source counts
+  need reconciliation. Candidate methylated-sulfide/methoxylated-substrate machinery is not demonstrated
+  methanol use; graph methanol grounding removed while genomic potential remains.'
+- 'MWF001: retain experimentally supported cross-feeding interpretation and explicit four source strains.
+  Spent-medium growth plus carbon-source nonusers support the interpretation, but stationary OD does not
+  chemically establish complete resource depletion. The residual-resource exclusion applies to simulated
+  spent medium. Generic CRM species/resources and unequal affinities are not exact-strain pathways or
+  measured exchanged compounds.'
+- 'MWF001: finite eight-cycle persistence in 31 carbon-supplied conditions is not universal stability.
+  Preserve the additional 5X-malate Ct loss, no-carbon Ml loss, citrate/inosine dilution exceptions and
+  separate four-day chemostats. Pair effects are condition dependent, not universal reciprocity. Existing
+  exact-byproduct gap and #1127/#1128 corrections preserved.'
+- 'MWF001: the candidate PARTIAL cross-feeding-to-coexistence arrow is scientifically plausible and remains
+  explicitly unfinished under #1575. Free one-target Edison dry run passed; no paid run/report was completed
+  and no new structure added. needs_research prevents falsely declaring this sparse graph complete.'
+- 'Magnetite: the 19% effect is relative to SULF_0.6, not full CTRL recovery or rescue at 1.2 g/L. Separate
+  abiotic sulfide removal, unresolved sulfur species and no detected abiotic H2 do not selectively establish
+  the biotic mediator or DIET. Keep the supported bulk outcome without an unsupported syntrophy type.'
+- 'Magnetite: only one biological replicate per condition was sequenced. Relative abundance cannot establish
+  replicated absolute growth. Four representative GEMs are not every MAG in four broad guilds; putative
+  SRB status and #913 caveats remain. Gap filling, expected-role curation, reactor-output constraints,
+  trade-off0.7 and nonunique solution sampling mean feasibility, not independent validation.'
+- 'Magnetite: keep computational CROSS_FEEDING on acetate and amino-acid/organic-acid model nodes, explicitly
+  HYPOTHESIZED. Mean sampled fluxes are not measured extracellular exchange or necessary mutualism. Existing
+  direct-DIET gap, #914 arrow removal and #915 MAGN_0.6 medium restriction remain intact.'
+- Review full biological diff and eight focused tests. Canonical taxonomy, pre-existing discussions and
+  append-only curation events preserved semantically.457 other records,920 caches and all raw non-graph
+  blocks unchanged. Coarse participant census unchanged; this does not verify identity or exact partner
+  flux.46 baseline network findings retained exactly; no structural errors or audit-rule changes.
+- Actual schema, strict, term, reference, snippet, history, network, deterministic render and regression
+  outputs recorded. Exact descriptions parsed over456 pages, not browser screenshots. One primary match
+  requires straight/curly apostrophe equivalence; no cache rewrite. Post-commit docs-current is a separate
+  publication gate.
+- 'Dedup865 all-state issue titles/bodies and24 scoped ignored/hidden local matches; five relevant full
+  issue bodies and prior graph histories read, not every PR/comment/artifact. #1571-#1573 addressed but
+  OPEN until protected-main merge; #1574 metadata and #1575 research stay OPEN. Exact-head COMMENT self-review
+  is not independent approval; corpus work remains unfinished.'
+verification:
+  combined_regressions: 603 passed in 214.64s (0:03:34)
+  new_regression_tests: 8
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: 'CLI Total checks counts reported issues, not executed checks. MATCH is not scientific entailment
+    or historical provenance certification. All920 caches unchanged;16 graph excerpts match fresh primary
+    text (15 whitespace-only,1 apostrophe rendering equivalence). #1574 remains unresolved; broader #476/#1091/#1095
+    limitations persist.'
+  snippet_counts_by_record:
+    kb/communities/MUCC_Freshwater_Wetland_Methane_Network_Community.yaml:
+      MATCH: 23
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Magnetite_Sulfate_Stress_Anaerobic_Microbiome.yaml:
+      MATCH: 27
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    primary_matched_graph_snippets: 16
+    whitespace_only_matches: 15
+    apostrophe_rendering_matches: 1
+    primary_main_texts: 3
+    paid_submissions: 0
+    new_nodes_or_arrows: 0
+    separate_supplements_inspected: false
+    original_figure_pixels_inspected: false
+  network:
+    existing_findings_preserved: 46
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All46 baseline network findings preserved exactly; no auditor-rule changes or invented
+      links. Explicit participant lists identify tested panels/inoculants, not missing hosts or background
+      communities.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-wetland-crossfeeding-batch66.yaml: 25c1e04567419365da0bd38688918032decf12122cc83ab7c994b73d42a484f3
+    tests/test_causal_review_batch66.py: 225c29cd014b09e296d9f0ebf98c787d7cc88061d3e25f4f2c939c5b1e715f3b
+    tests/test_participating_taxa.py: f48d81d715605137dc9cb1951228142035ba8b242bf812489475294102ddaeb2
+    kb/communities/MUCC_Freshwater_Wetland_Methane_Network_Community.yaml: 7d4a55d47676c9d86d07bed817918b120fb80464e39212ef2cd4491c70c45abb
+    kb/communities/MWF001_FourSpecies_CrossFeeding_Consortium.yaml: e74f02ca9923e5df126fe571d3f6edc28a59451d385df9b89276f6a68882253b
+    kb/communities/Magnetite_Sulfate_Stress_Anaerobic_Microbiome.yaml: 1947b775f1ff0266347513042955d0502cae65b6fcfefc89264a35c2382217ca
+    reports/causal_graph_review/README.md: 16cb3f4925ca4a93dfdb19237bdfbfde11826ba388f62c5764406affe8274fba
+  unchanged_caches: 920
+  edison:
+    required_for_this_repair: false
+    required_for_pending_extension: true
+    provider_submissions: 0
+    credits_spent: 0
+    dry_run_receipt_sha256: 70eb5ca0534841446adb8e9e8ddad7a4ae7f0947a977d39795b91fd67b42c41b
+    reason: 'Existing-node repair only; MWF001 extension remains #1575, pending authorized paid run and
+      source-reviewed report.'
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 391
+      mixed: 124
+      community_level_only: 267
+      taxa: 1507
+      credited_solely_by_the_rule: 1238
+    current:
+      records: 460
+      with_community_level: 391
+      mixed: 124
+      community_level_only: 267
+      taxa: 1507
+      credited_solely_by_the_rule: 1238
+  interpretation: Canonical roster/scope census unchanged. Explicit participants identify MUCC aggregate/guild
+    context and focal genus, MWF001 input strains and four magnetite guild placeholders. This coarse census
+    does not certify exact identities, final abundance or partner flux.
+corpus:
+  records: 460
+  nodes: 1452
+  edges: 638
+  review_status_counts:
+    needs_research: 22
+    pending: 227
+    reviewed: 211
+limitations:
+- 'All9 original nodes retained;zero original arrows. No new causal structure. MWF001 candidate link remains
+  #1575 and needs_research, not complete.'
+- Three complete fresh primary main texts and captions read. Extracted main-table artifacts contain no
+  table cells. Original figure pixels, separate supplements, raw data and executable models not audited;
+  numerical summaries not independently recomputed.
+- MUCC core occupancy and genus networks are observational; MAG annotations are potential. Cross-site
+  flux prediction and transcription do not establish causal syntrophy. Methanol specificity removed from
+  graph; temporal input alignment remains unresolved.
+- MWF001 retains supported cross-feeding with exact-metabolite and residual-resource limits. Generic models
+  do not resolve exact strains; finite persistence has no-carbon/high-malate exceptions. Candidate causal
+  structure remains unfinished, not denied.
+- Magnetite bulk methane response is partial moderate-sulfate improvement. Abiotic sulfide removal does
+  not isolate biotic mediation or DIET. Single-replicate relative MAG abundance is not replicated absolute
+  growth; role-curated output-constrained GEMs provide feasible, nonunique flux hypotheses.
+- 'Canonical taxonomy and raw non-graph blocks preserved, not recertified. #1574 remains OPEN for metadata/source
+  ambiguities. Prior #1127/#1128/#913/#914/#915 corrections and existing knowledge gaps preserved.'
+- All920 caches unchanged;16 retained graph excerpts independently match fresh primary text after whitespace
+  normalization and a straight/curly apostrophe equivalence in one MWF001 excerpt. This does not certify
+  historical full-cache/non-graph provenance. Public OA XML used without access bypass; two sources are
+  CC-BY-NC-ND, not all CC-BY.
+- Deduplication covered865 all-state issue titles/bodies and24 scoped ignored/hidden local files;5 relevant
+  full issue bodies and prior graph histories read, not every PR/comment/local match. Self-review is not
+  independent approval; repair issues stay OPEN until protected-main merge.
+- One free MWF001 Edison dry run passed with zero provider submissions/credits. Specific paid-run authorization
+  was requested but the paid report and causal extension are not complete.

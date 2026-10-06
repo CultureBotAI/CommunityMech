@@ -148,141 +148,147 @@ taxonomy:
     explanation: Supports methanotrophs as a network-resolved guild.
 ecological_interactions:
 - name: Conserved Methane-Cycling Genera Across Wetlands
-  description: MUCC v2.0.0 integrates wetland microbiome and flux datasets to
-    identify conserved methane-cycling genera shared across multiple wetland
-    types.
-  interaction_type: NICHE_PARTITIONING
+  description: MUCC combines nine wetland sites; five high-emitting marsh and swamp sites share five methanogen
+    and three methanotroph genera under the authors occupancy definition. Core means present in at least one sample
+    at every site in this subset, not present in every sample or a demonstrated stable mutualistic consortium. The
+    canonical whole-community aggregate and Archaea/Bacteria guild participants are contextual placeholders, not
+    all eight resolved genera. Genus occupancy and relative abundance do not establish niche partitioning or metabolic
+    dependence.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methane
     term:
       id: CHEBI:16183
       label: methane
-  biological_processes:
-  - preferred_term: methanogenesis
-    term:
-      id: GO:0015948
-      label: methanogenesis
-  - preferred_term: methane metabolic process
-    term:
-      id: GO:0015947
-      label: methane metabolic process
+    notes: Methane-cycle context, not measured partner-to-partner exchange or taxon-specific production flux.
   evidence:
   - reference: PMID:39843444
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: identify eight methane-cycling genera shared across wetlands
-    explanation: Supports conserved methane-cycling genera across the wetland synthesis.
+    explanation: Supports the eight core genera; the primary Results locate this core analysis in five marsh/swamp
+      sites, not universal occupancy across every sample or all nine sites.
   - reference: PMID:39843444
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: Microorganisms drive methane cycling
-    explanation: Supports the microbial basis of wetland methane cycling.
-- name: Marsh Metabolic Interaction Networks
-  description: Marsh wetland networks show wetland-specific metabolic
-    interactions, including low methanogen-methanotroph connectivity in
-    high-emitting wetlands.
-  interaction_type: NICHE_PARTITIONING
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: MUCC wetland methanogens
+    explanation: General methane-cycle context only; this short statement does not establish a particular interaction
+      mechanism.
+  participating_taxa:
+  - preferred_term: MUCC freshwater wetland microbial community
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  - preferred_term: MUCC wetland methanogens
     term:
       id: NCBITaxon:2157
       label: Archaea
-  target_taxon:
-    preferred_term: MUCC wetland methanotrophs
+  - preferred_term: MUCC wetland methanotrophs
     term:
       id: NCBITaxon:2
       label: Bacteria
+- name: Wetland Methanogen Co-occurrence Networks
+  description: Positive Spearman genus co-occurrence networks used 12 late-season samples per site, four per depth
+    category, at JLA, LA2, OWC, PPR P7 and PPR P8. JLA is a swamp despite shorthand marsh wording. Fewer methanogen-associated
+    nodes and methanogen-methanotroph connections were associated with greater methane flux; whole-community network
+    structure did not show the same relationship. MAG-derived metabolic categories were matched at genus level,
+    providing potential cross-feeding interpretations rather than direct exchange measurements. Shared environmental
+    responses, relative-abundance effects and incomplete genome coverage remain alternatives. Broad canonical guilds
+    do not identify every network member or a directed donor-recipient pair.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methane
     term:
       id: CHEBI:16183
       label: methane
-  biological_processes:
-  - preferred_term: methane metabolic process
-    term:
-      id: GO:0015947
-      label: methane metabolic process
+    notes: Methane-cycle context, not measured partner-to-partner exchange or taxon-specific production flux.
   evidence:
   - reference: PMID:39843444
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: wetland-specific metabolic interactions in marshes
-    explanation: Supports marsh-specific metabolic interaction networks.
+    explanation: Supports computed co-occurrence patterns and the authors metabolic interpretation, not perturbed
+      pairwise causality or directly observed substrate transfer.
   - reference: PMID:39843444
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: low connections between methanogens and methanotrophs in high-emitting wetlands
-    explanation: Supports reduced methanogen-methanotroph connectivity in high-emitting wetlands.
-- name: Methanoregula Hub Methanogen And Flux Predictor
-  description: Methanoregula is identified as a network hub and predictor of
-    methane flux, linking methanogen network structure to wetland methane
-    emissions.
-  interaction_type: SYNTROPHY
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Methanoregula
+    explanation: Supports computed co-occurrence patterns and the authors metabolic interpretation, not perturbed
+      pairwise causality or directly observed substrate transfer.
+  participating_taxa:
+  - preferred_term: MUCC wetland methanogens
     term:
-      id: NCBITaxon:395331
-      label: Methanoregula
+      id: NCBITaxon:2157
+      label: Archaea
+  - preferred_term: MUCC wetland methanotrophs
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+- name: Methanoregula Hub Methanogen And Flux Predictor
+  description: Methanoregula was a core network member, and its fraction within methanogens predicted methane flux
+    across nine sites; temperature plus this dominance measure improved the reported fit. These are cross-site associations,
+    not evidence that removing or adding Methanoregula changes flux or that it is an obligate syntrophic hub. OWC
+    MAG/genus transcription supplies an activity proxy, not methane-production flux. Methods describe 2018 transcriptomes
+    and production estimates using 2015 flux/porewater inputs; temporal alignment needs reconciliation before treating
+    the VIP analysis as a matched contemporaneous test. The single canonical participant identifies the focal genus,
+    not its partners.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methane
     term:
       id: CHEBI:16183
       label: methane
-  biological_processes:
-  - preferred_term: methanogenesis
-    term:
-      id: GO:0015948
-      label: methanogenesis
+    notes: Methane-cycle context, not measured partner-to-partner exchange or taxon-specific production flux.
   evidence:
   - reference: PMID:39843444
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: Methanoregula emerged as a hub methanogen across networks
-    explanation: Supports Methanoregula as a hub methanogen.
+    explanation: Supports a network/predictor association, not demonstrated keystone necessity, syntrophy or a selectively
+      established contribution to methane flux.
   - reference: PMID:39843444
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: strong predictor of methane flux
-    explanation: Supports the Methanoregula-methane flux relationship.
-- name: Methylotrophic Methanogenesis Potential
-  description: In the MUCC wetlands, Methanoregula shows functional potential
-    for methylotrophic methanogenesis, highlighting a methane production
-    pathway that can contribute to wetland emissions.
-  interaction_type: NICHE_PARTITIONING
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Methanoregula
+    explanation: Supports a network/predictor association, not demonstrated keystone necessity, syntrophy or a selectively
+      established contribution to methane flux.
+  participating_taxa:
+  - preferred_term: Methanoregula
     term:
       id: NCBITaxon:395331
       label: Methanoregula
+- name: Methylotrophic Methanogenesis Potential
+  description: Some of 107 dereplicated Methanoregula MAGs encoded candidate methylotrophic machinery for methylated
+    sulfides and methoxylated compounds alongside broadly conserved hydrogenotrophic potential. Genomic annotation,
+    phylogenetic placement and synteny support metabolic potential, not confirmed substrate use, enzyme activity
+    or pathway-specific methane flux in these wetlands. This does not establish methanol use by the curated genus
+    or experimentally demonstrated niche partitioning. Physiological validation is needed to assign the proposed
+    expanded substrate range.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methane
     term:
       id: CHEBI:16183
       label: methane
-  - preferred_term: methanol
-    term:
-      id: CHEBI:17790
-      label: methanol
-  biological_processes:
-  - preferred_term: methanogenesis
-    term:
-      id: GO:0015948
-      label: methanogenesis
+    notes: Methane-cycle context, not measured partner-to-partner exchange or taxon-specific production flux.
   evidence:
   - reference: PMID:39843444
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: functional potential for methylotrophic methanogenesis
-    explanation: Supports methylotrophic methanogenesis potential in Methanoregula.
+    explanation: Supports candidate genomic methylotrophic potential, not measured methanol use or a quantified
+      contribution to methane production.
   - reference: PMID:39843444
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: highlighting the importance of this pathway
-    explanation: Supports the pathway relevance for these wetlands.
+    explanation: Supports candidate genomic methylotrophic potential, not measured methanol use or a quantified
+      contribution to methane production.
+  participating_taxa:
+  - preferred_term: Methanoregula
+    term:
+      id: NCBITaxon:395331
+      label: Methanoregula
 environmental_factors:
 - name: Wetland type
   value: marsh, swamp, fen, and bog
@@ -426,7 +432,30 @@ curation_history:
 - timestamp: '2026-10-02T06:10:22Z'
   curator: codex
   action: REVIEW_CAUSAL_GRAPH
-  changes: Removed three downstream edges that linked conserved-genera, network,
-    Methanoregula hub, and methylotrophic-potential findings as analysis
-    provenance instead of ecological causal steps.
+  changes: Removed three downstream edges that linked conserved-genera, network, Methanoregula hub, and methylotrophic-potential
+    findings as analysis provenance instead of ecological causal steps.
   llm_assisted: true
+- timestamp: '2026-10-06T23:08:45Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound wetland co-occurrence and Methanoregula predictions to observational and genomic evidence. Issue
+    #1571; reports/causal_graph_review/decisions/20261006-wetland-crossfeeding-batch66.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: mucc_association_and_substrate_limits
+  prompt: Which wetland associations correspond to causal metabolic exchange?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Conserved Methane-Cycling Genera Across Wetlands
+  - ecological_interactions#Wetland Methanogen Co-occurrence Networks
+  - ecological_interactions#Methanoregula Hub Methanogen And Flux Predictor
+  - ecological_interactions#Methylotrophic Methanogenesis Potential
+  rationale: 'Retain four observations and zero arrows, preserving the prior three workflow-edge removals. Genus
+    co-occurrence and MAG potential do not establish pairwise transfer or obligate syntrophy; flux prediction does
+    not establish a perturbed driver. Validate candidate methylated-sulfide/methoxylated-compound use rather than
+    substituting methanol. Temporal alignment of 2018 expression and 2015 modeled production, transcriptome counts
+    and roster/metadata ambiguities remain under #1574. Complete primary main text read, not original figure pixels,
+    separate supplements, raw data or executable models.'
+  posed_by: codex
+  posed_date: '2026-10-06'
