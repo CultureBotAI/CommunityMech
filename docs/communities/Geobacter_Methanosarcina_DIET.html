@@ -561,7 +561,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Geobacter-Methanosarcina DIET Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -574,8 +574,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -586,8 +586,7 @@
                     <h3>Ethanol Oxidation and Direct Electron Transfer</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Geobacter metallireducens oxidizes ethanol to acetate and CO2, transferring electrons directly to Methanosarcina barkeri via electrically conductive pili (e-pili). This direct interspecies electron transfer (DIET) bypasses the need for diffusible electron carriers like H2 or formate. The pili serve as biological electrical conduits for long-range electron transfer between cells. Pilin-deficient G. metallireducens mutants cannot initiate cocultures, demonstrating the essential role of pili in DIET. However, conductive materials like granular activated carbon can substitute for pili, showing that DIET can be mediated by abiotic conductors.
-</p>
+                <p class="prewrap interaction-description">G. metallireducens oxidizes ethanol to acetate and supplies electrons to M. barkeri through DIET. Pilin-deficient cocultures did not establish ethanol-to-methane conversion without amendment, whereas granular activated carbon enabled the tested mutant cocultures. Thus the pili-associated requirement is condition-dependent, not universal in conductive-material-amended cultures. The methanogen entry proteins remain unresolved; the donor reaction should not be described as direct ethanol-carbon oxidation to CO2.</p>
 
 
                 <p><strong>Source Taxon:</strong> Geobacter metallireducens</p>
@@ -629,8 +628,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Direct Electron Acceptance and Methanogenesis
-                        <p class="prewrap causal-description">Electrons transferred via DIET are accepted by M. barkeri for methanogenesis</p>
+                        <span class="flow-arrow">→</span> DIET-Linked Carbon Dioxide Reduction to Methane
+                        <p class="prewrap causal-description">DIET delivers ethanol-derived electrons to M. barkeri for CO2 reduction. This electron-supply arrow supports the CO2 route, not an attribution of all bulk methane to that route; acetate conversion is a separate missing branch.</p>
                     </div>
 
                 </div>
@@ -685,11 +684,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Direct Electron Acceptance and Methanogenesis</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>DIET-Linked Carbon Dioxide Reduction to Methane</h3>
                 </div>
-                <p class="prewrap interaction-description">Methanosarcina barkeri accepts electrons directly from G. metallireducens via DIET and uses them to reduce CO2 to methane. Unlike traditional hydrogen-mediated syntrophy, this process involves direct biological electrical connections between cells rather than diffusible intermediates. M. barkeri is unique as a methanogen capable of using either H2 or electrons from DIET for CO2 reduction, demonstrating metabolic flexibility. The electron transfer enables stoichiometric conversion of ethanol to methane in the coculture.
-</p>
+                <p class="prewrap interaction-description">M. barkeri accepts DIET electrons for CO2 reduction to methane. Bulk ethanol-to-methane conversion also includes acetate metabolism; its stoichiometry is not an isotope measurement assigning every methane molecule to a route. The 2014 first-report wording is historical, not timeless uniqueness. Whether DIET-driven CO2 reduction alone supports methanogen growth, without acetate metabolism, was proposed for future testing rather than established here.</p>
 
 
 
@@ -755,14 +752,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>T6SS-Associated Delay of DIET Establishment</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Hcp-Associated Delay of DIET Establishment</h3>
                 </div>
-                <p class="prewrap interaction-description">Geobacter metallireducens expresses a type VI secretion system (T6SS) during the initiation of DIET cocultures, and this is associated with a long delay before the partnership becomes productive. Cocultures started with wild-type G. metallireducens showed a lag of more than 30 days before methane production, whereas cocultures started with an Hcp-deficient (T6SS structural protein) mutant had very little lag and established DIET with M. barkeri faster. The sign of this edge is NEGATIVE: the wild-type T6SS-expressing state suppresses the rate at which the DIET partnership is established. The molecular attribution is confounded and must not be curated as demonstrated antagonism toward the archaeon - the same mutant also reduced Fe(III) oxide faster than wild type, a phenotype not expected from loss of the T6SS, and the authors state that the effect of T6SSs on archaeal cells still requires study. Encoded as a delay of establishment, not as predation, killing, or toxin delivery to M. barkeri.
-</p>
+                <p class="prewrap interaction-description">In the G. metallireducens-M. barkeri comparison, wild-type Geobacter cocultures had a methane-production lag exceeding 30 days, while hcp-deficient cocultures had little lag. This is a measured genotype-associated establishment phenotype, not niche partitioning or demonstrated toxin delivery. Discovery RNA-seq and GAC/AQDS comparisons used the G. sulfurreducens partner, not M. barkeri. Altered extracellular-electron-transfer transcripts and the mutant Fe(III)-oxide phenotype expose pleiotropy. T6SS-specific inhibition of the archaeon remains HYPOTHESIZED; protein secretion or killing was not measured by the lag comparison.</p>
 
-
-                <p><strong>Source Taxon:</strong> Geobacter metallireducens</p>
 
 
 
@@ -778,17 +771,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        protein secretion by the type VI secretion system
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0033103"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0033103</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
@@ -796,7 +778,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Ethanol Oxidation and Direct Electron Transfer
-                        <p class="prewrap causal-description">NEGATIVE edge - the wild-type T6SS-expressing state of G. metallireducens delays establishment of the DIET partnership (&gt;30 d lag vs very little lag for the Hcp-deficient mutant). Demonstrated by knockout phenotype in this exact coculture, but the mutant is pleiotropic, so the causal attribution to the T6SS specifically is HYPOTHESIZED rather than proven.</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED NEGATIVE: The wild-type Hcp/T6SS-associated state may delay DIET establishment relative to the hcp deletion strain. The exact coculture demonstrates a lag difference, but altered electron-transfer physiology prevents assigning the delay selectively to T6SS antagonism. The sign refers to establishment timing, not proven archaeal killing.</p>
                     </div>
 
                 </div>
@@ -867,6 +849,40 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which electron-entry components and hcp-dependent changes govern this DIET partnership?
+                </h3>
+                <p class="prewrap">Preserve the positive DIET and mutant-lag observations while separating genotype effects from secretion-specific antagonism. Partner-specific perturbations and complementation in the methanogenic coculture would distinguish proposed mechanisms. The Pelobacter/H2 comparator used a different medium and is not a selective same-medium H2 switch. Methanosaeta radiotracer results must not be imported into this system. Non-graph uniqueness/aggregation claims remain preserved, not certified.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Ethanol Oxidation and Direct Electron Transfer</code>, <code>ecological_interactions#DIET-Linked Carbon Dioxide Reduction to Methane</code>, <code>ecological_interactions#Hcp-Associated Delay of DIET Establishment</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">CURATION_TODO</span>
+                    <span class="role-badge">OPEN</span>
+                    Complete the separately supported acetate branch after Edison review.
+                </h3>
+                <p class="prewrap">The primary paper supports an acetate contribution, but the graph still lacks that branch. A separate one-community Edison dry run completed without API calls or credits; specific authorization and report inspection remain pending under #1483. Add source-backed structure with its own evidence, without promoting ideal stoichiometry to an isotope-measured fraction or claiming DIET-only growth. This repair remains needs_research.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Ethanol Oxidation and Direct Electron Transfer</code>, <code>ecological_interactions#DIET-Linked Carbon Dioxide Reduction to Methane</code>, <code>ecological_interactions#Hcp-Associated Delay of DIET Establishment</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1305,7 +1321,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1324,7 +1340,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Direct Electron Acceptance and Methanogenesis",
+                label: "DIET-Linked Carbon Dioxide Reduction to Methane",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1352,20 +1368,16 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("protein secretion by the type VI secretion system");
-
 
             var evidenceCount = 4;
 
             nodes.push({
                 id: intId,
-                label: "T6SS-Associated Delay of DIET Establishment",
+                label: "Hcp-Associated Delay of DIET Establishment",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1374,12 +1386,20 @@
             });
 
 
-            var srcKey = "Geobacter metallireducens";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Geobacter metallireducens",
+
+                "Methanosarcina barkeri"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

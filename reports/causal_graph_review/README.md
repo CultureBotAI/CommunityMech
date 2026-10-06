@@ -5,6 +5,17 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch46: Methanogen DIET Pairs
+
+[Decisions](decisions/20261006-methanogens-batch46.yaml),
+[validation](validation-20261006-batch46.json) and
+[self-adversarial review](adversarial-review-20261006-batch46.yaml) distinguish
+defined-coculture DIET evidence from environmental inference, bulk methane from
+its CO2 route, and the hcp mutant phenotype from T6SS-specific antagonism.
+Both records remain `needs_research`: the source-supported acetate branches
+are still missing under #1482 and #1483. Separate Edison dry runs spent no
+credits; paid research and report inspection remain pending.
+
 ## Batch45: Geobacter-Clostridium
 
 [Decisions](decisions/20261006-clostridium-batch45.yaml),
