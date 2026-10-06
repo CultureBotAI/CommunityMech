@@ -313,6 +313,8 @@ USERS = {
     "Lac_Pavin_Stratified_Lake_Community.yaml",
     "Lake_Washington_Methane_Oxygen_Methylotroph_Community.yaml",
     "Legume_Rhizobia_Mars_Simulant_Symbiosis.yaml",
+    "Lotus_LjSC3.yaml",
+    "Lunar_Martian_Simulant_PGPB_Lettuce_SynCom.yaml",
     "Lunar_Simulant_Phosphate_Solubilizing_Bacteria_Nicotiana.yaml",
     "MSC1_Dominant_Core.yaml",
     "MSC2_Model_Soil_Consortium.yaml",
