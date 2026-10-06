@@ -1,0 +1,156 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 5988d5ace91b79ad27e118720378e5fa58763949
+scope:
+- kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+- kb/communities/Dehalococcoides_Syntrophomonas_TCE_Dechlorination_Coculture.yaml
+- kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch31.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch31.json
+findings:
+- issue: 1388
+  severity: P2
+  status: addressed_in_this_change
+  finding: Recipient activity was reverse transfer, and the relief node pooled ANAS with strain 195 under
+    a colonization label.
+  disposition: Preserve three nodes/two arrows; source-only recipient, exact-pair primary-body rescue
+    and explicitly PARTIAL abstract evidence. Do not restore a copyrighted body or alter the GTDB pin.
+- issue: 1389
+  severity: P2
+  status: addressed_in_this_change
+  finding: Recipient activity was reverse transfer and joint aggregates/modeling were presented as demonstrated
+    directional colonization.
+  disposition: Preserve three nodes/two arrows with canonical joint participants, separate SEM and computational
+    evidence, and qualified aggregation mediation. Existing-structure repairs do not finish the CO question.
+- issue: 1390
+  severity: P2
+  status: addressed_in_this_change
+  finding: Common biochar outcomes were linked causally and guild composition was overinterpreted as functional
+    flux/stability.
+  disposition: Preserve five nodes/two arrows; remove only TCE outcome to VC outcome. Expose inoculum
+    dependence, sorption-versus-transformation limits and hypothesized guild mechanism.
+- issue: 1391
+  severity: P2
+  status: open_nongraph_followup
+  finding: D345/CWV2 identity, only-named-organism prose and proof-condition inconsistencies need separate
+    metadata curation.
+  disposition: Non-graph raw blocks preserved, not certified; final published body not accessed.
+- issue: 1392
+  severity: P2
+  status: open_graph_research
+  finding: Possible CO scavenging support is missing from the graph and requires new-structure assessment.
+  disposition: Keep the record needs_research. One-community dry run only; no provider job/charge. Specific
+    spend/transmission authorization and primary-source assessment remain required.
+- issue: 765
+  severity: P3
+  status: existing_open_nongraph_followup
+  finding: Pelobacter non-graph evidence debt after copyrighted-text removal predates this batch.
+  disposition: Reuse the existing issue, preserve metadata and caches; a snippet MATCH does not resolve
+    unsupported metadata blocks.
+adversarial_checks:
+- Actual record diffs read against the primary-source access recorded in the ledger. All eleven nodes
+  retained, six arrows retained, one unsupported common-intervention outcome arrow removed. No replacement
+  connectivity or new structure invented.
+- Pelobacter nutritional support remains positive. Exact strain-195 rescue is in primary Results/Figure
+  2, while the cached rescue phrase concerns ANAS and is PARTIAL. ANAS methanogenesis and BAV1 complete
+  dechlorination are not imported. Unchanged tceA expression is not induction-mediated rescue.
+- Both source-only PAIRWISE entries use the established recipient-process convention, not self-edges or
+  reverse nutrient exchange. The curated Pelobacter/Syntrophotalea GTDB pin is unchanged.
+- Syntrophomonas butyrate-fed support, crotonate comparisons, cobalamin supplementation and donor-limited
+  threshold assays remain distinct. Late VC cometabolism is not growth-coupled respiration. SEM aggregates
+  and diffusion predictions have different evidence classifications; necessity was not selectively perturbed.
+- 'CO consumption observations and proposed benefit are not silently added to the fermentation node. Open
+  #1392 and needs_research status retain the missing-structure obligation. The Edison dry run made no
+  provider job or charge; a failed LiteLLM pricing-map request is disclosed.'
+- The 2016 exact-Dhc expression assay is distinguished from M. hungatei protein/complex experiments. Induction
+  does not establish gene necessity or cell-specific flux.
+- CWV2/D345 proof-only body access is explicit. Biochar sorption is not biological transformation; BC600
+  is not claimed to sorb most. Lower-VC high-inoculum and higher-VC lower-inoculum comparisons are not
+  conflated. Community profiles do not demonstrate DIET, flux, guild necessity or long-term field persistence.
+- No final published CWV2 body, figure images or supplement files were inspected. Proof unit/concentration
+  inconsistencies are not normalized. Existing non-graph metadata is not certified by graph correction.
+- Three guarded writes, llm-assisted events and append-only histories. Prior history entries preserved
+  semantically; all non-graph raw blocks, 457 other records and 920 caches unchanged. No article body/PDF
+  committed.
+- Exact participant registry changes only 174 to 175 users. Measured connectivity and all 31 baseline
+  network warnings unchanged; no algorithms or numeric bounds altered.
+- Repeat rendering deterministic, exact descriptions checked across all 456 pages. No browser screenshot
+  QA claimed. All three reference-validator commands performed zero checks despite exit 0; this is no-op,
+  not validation. Actual independent snippet counts and source review are separate; textual matching is
+  not scientific support.
+- 'Deduplication covers 717 all-state issue titles/bodies, broader synonyms and ignored/hidden scoped
+  local files, not every issue comment. Metadata #765/#1391 and research #1392 remain open.'
+verification:
+  combined_regressions: 354 passed in 182.27s (0:03:02)
+  new_regression_tests: 6
+  schema_strict_terms_history: passed; commands and raw results retained
+  snippet_counts_by_record:
+    kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml:
+      MATCH: 18
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Dehalococcoides_Syntrophomonas_TCE_Dechlorination_Coculture.yaml:
+      MATCH: 31
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml:
+      MATCH: 8
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero structural errors; all 31 baseline warnings unchanged, expected warning exit retained.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch31.yaml: 3ae6fd42367e69f8ffe653271b91ef4cabc271b302f7f729d6d1204a1d7e7b88
+    tests/test_causal_review_batch31.py: eaae0577db25325acb3151834e0e15f9a7662ef5f01b0ffb6fe440a222e295da
+    tests/test_participating_taxa.py: 06833a684b7e82be1ed33ef8bfc1088c879f95d532ac5b624564a99a5e83397f
+    kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml: ab28a71ff971a76db7e6bc3989a24ff65fbf03b0eb1177ae70c85fab1d04c813
+    kb/communities/Dehalococcoides_Syntrophomonas_TCE_Dechlorination_Coculture.yaml: b0c182ee42aa14442f77f15b8a8ada5172fbbd989f8175c399af7f83877b6dd2
+    kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml: 252f1bd100591910deeb53b0de75130e7f38995f3de7a10aca6466f3f16e2c66
+  post_commit_docs_current: Separate publication gate; not yet claimed by this pre-commit record.
+  protected_ci_and_merge: Require exact-head protected main checks and queue; not asserted here.
+participant_census:
+  connectivity_before:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1220
+    mixed: 124
+    records: 460
+    taxa: 1496
+    with_community_level: 388
+  connectivity_after:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1220
+    mixed: 124
+    records: 460
+    taxa: 1496
+    with_community_level: 388
+  exact_change: 174 -> 175 users; only the Syntrophomonas/Dhc195 coculture added
+  numeric_bounds_changed: false
+corpus:
+  records: 460
+  nodes: 1470
+  edges: 704
+  review_status_counts:
+    needs_research: 5
+    pending: 318
+    reviewed: 137
+limitations:
+- Two completed graph reviews; the third has repaired existing structure but remains needs_research for
+  possible CO structure. All eleven nodes retained; six arrows retained and one unsupported arrow removed.
+  No new nodes/arrows or paid Edison job.
+- Primary-source access differs by study. The CWV2 body is an author-uploaded uncorrected proof, not the
+  final published body. No figure images or supplement files inspected.
+- No new article body/PDF is committed. All caches and non-graph raw blocks preserved. Exact-pair Pelobacter
+  rescue depends on externally read body text, not its ANAS abstract snippet. Textual MATCH is not scientific
+  validation.
+- Source-only PAIRWISE entries follow the existing intrinsic-recipient convention, not self-edges or reverse
+  exchange. Self-adversarial review is not independent approval, protected CI success or full-corpus completion.

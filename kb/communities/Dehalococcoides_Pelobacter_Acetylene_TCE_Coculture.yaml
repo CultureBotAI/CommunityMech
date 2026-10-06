@@ -116,9 +116,9 @@ taxonomy:
     explanation: Supports SFB93 as the organism added to relieve acetylene inhibition in the dechlorinating consortium.
 ecological_interactions:
 - name: Acetylene-Fueled Dechlorinating Coculture
-  description: Pelobacter strain SFB93 enables a defined coculture in which acetylene is
-    supplied as electron donor and carbon source while D. mccartyi strain 195 uses
-    TCE as the electron acceptor for reductive dechlorination.
+  description: SFB93 fermentation allows acetylene to supply electron donor and carbon for the defined strain-195
+    coculture through hydrogen and acetate provision. Strain 195 reductively dechlorinates TCE, predominantly to
+    vinyl chloride under the reported conditions. The BAV1 coculture and the ANAS enrichment are separate systems.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -147,10 +147,9 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: D. mccartyi Reductive Dechlorination
-    description: >
-      Pelobacter fermentation lets acetylene serve as the reduced substrate that
-      fuels D. mccartyi organohalide respiration of TCE in the defined
-      coculture.
+    description: SFB93 acetylene fermentation supplies hydrogen and acetate that support strain-195 TCE dechlorination
+      and growth. This positive nutritional coupling is distinct from removal of an initially inhibitory acetylene
+      exposure; it does not assign BAV1 vinyl-chloride respiration to strain 195.
   evidence:
   - reference: PMID:28075122
     supports: SUPPORT
@@ -161,23 +160,19 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: TCE or cis-DCE served as the electron acceptor
-    explanation: Supports chlorinated ethenes as electron acceptors in the defined cocultures.
+    explanation: The abstract covers TCE or cis-DCE across different cocultures. The strain-195 experiment uses
+      TCE; the substrate and product results of BAV1 are not pooled into this pair.
 - name: D. mccartyi Reductive Dechlorination
-  description: D. mccartyi strain 195 performs reductive dechlorination of TCE in the coculture;
-    transcriptomic observations indicate that reductive dehalogenase genes such as
-    tceA were monitored during acetylene inhibition.
-  interaction_type: CROSS_FEEDING
+  description: Strain 195 performs hydrogen-dependent reductive dechlorination of TCE in the coculture, predominantly
+    producing vinyl chloride. This is the recipient phenotype, not nutrient transfer back to SFB93. In separate
+    acetylene-inhibited strain-195 assays, unchanged tceA transcript abundance does not establish induction-mediated
+    rescue or identify the inhibited enzyme.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Dehalococcoides mccartyi strain 195
     term:
       id: NCBITaxon:243164
       label: Dehalococcoides mccartyi 195
-  target_taxon:
-    preferred_term: Pelobacter strain SFB93
-    term:
-      id: NCBITaxon:18
-      label: Pelobacter
   metabolites:
   - preferred_term: trichloroethene
     term:
@@ -200,16 +195,18 @@ ecological_interactions:
     snippet: reductive dechlorination of TCE by Dehalococcoides mccartyi
     explanation: Supports D. mccartyi as the TCE reductive dechlorinator.
   - reference: PMID:28075122
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: genes encoding for reductive dehalogenases
-    explanation: Supports the reductive dehalogenase mechanism monitored during the experiment.
+    explanation: The complete abstract says reductive-dehalogenase transcripts such as tceA were not affected during
+      inhibition. This snippet identifies monitored genes, not induced activity or a mechanism of rescue; the transcript
+      assay is distinct from the coculture outcome.
 - name: SFB93-Mediated Relief of Acetylene Inhibition
-  description: Addition of the acetylene-fermenting SFB93 partner removed acetylene inhibition
-    of reductive dechlorination and methanogenesis in the ANAS enrichment, supporting
-    the functional relevance of pairing acetylene metabolism with dechlorinating organisms.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
+  description: Adding SFB93 to acetylene-inhibited strain-195 cultures consumed acetylene and restored TCE reductive
+    dechlorination in the primary study. This exact-pair rescue is distinct from the separate ANAS enrichment and
+    its condition-dependent methanogenesis response; it is detoxification support, not demonstrated colonization
+    facilitation.
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Pelobacter strain SFB93
     term:
@@ -227,16 +224,23 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: D. mccartyi Reductive Dechlorination
-    description: >
-      Acetylene fermentation by SFB93 relieves acetylene inhibition of
-      organohalide respiration, allowing D. mccartyi to resume reductive
-      dechlorination in acetylene-fed cultures.
+    description: SFB93 consumption of inhibitory acetylene permits strain 195 to resume TCE reductive dechlorination,
+      as tested by delayed partner addition in the primary Results and Figure 2 caption. The local abstract rescue
+      phrase concerns ANAS and alone does not establish this exact-pair result; ANAS methanogenesis is not transferred
+      to this arrow.
   evidence:
   - reference: PMID:28075122
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: inhibition was removed by adding Pelobacter SFB93
-    explanation: Supports SFB93 as a functional partner that can relieve acetylene inhibition.
+    explanation: This cached abstract phrase refers to ANAS, not the defined pair. Primary Results and Figure 2
+      caption separately report recovery after SFB93 addition to acetylene-inhibited strain 195. Exact-pair support
+      depends on that externally read body; no paywalled body is restored to the cache.
+  target_taxon:
+    preferred_term: Dehalococcoides mccartyi strain 195
+    term:
+      id: NCBITaxon:243164
+      label: Dehalococcoides mccartyi 195
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: SERUM_BOTTLE
@@ -436,7 +440,31 @@ curation_history:
 - timestamp: '2026-09-13T00:56:49Z'
   curator: codex
   action: RECONCILE_PAYWALLED_EVIDENCE_REMOVAL
-  changes: "Reapplied PR #766's 10 unsupported evidence removals onto current main, preserving its newer
-    interaction curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in
-    #765."
+  changes: 'Reapplied PR #766''s 10 unsupported evidence removals onto current main, preserving its newer interaction
+    curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in #765.'
   llm_assisted: true
+- timestamp: '2026-10-06T06:18:22Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain positive acetylene-fed nutritional support, separating the exact pair from BAV1 and ANAS.; Represent
+    recipient dechlorination without reverse cross-feeding or induction-mediated rescue.; Retain directly observed
+    exact-pair acetylene rescue, exposing the abstract-only snippet limitation and removing the colonization label.
+    Issue #1388; reports/causal_graph_review/decisions/20261006-three-records-batch31.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: sfb93_exact_pair_rescue_scope
+  prompt: Which acetylene-sensitive processes limit strain-195 recovery after SFB93 addition?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Acetylene-Fueled Dechlorinating Coculture
+  - ecological_interactions#D. mccartyi Reductive Dechlorination
+  - ecological_interactions#SFB93-Mediated Relief of Acetylene Inhibition
+  rationale: 'The whole primary main body and six figure captions were read. Figure 2 reports exact strain-195 rescue
+    after delayed SFB93 addition; the cached abstract rescue sentence instead concerns ANAS. Unchanged tceA transcription
+    does not identify the inhibited enzyme. Distinguish the nutritional coculture, inhibited-isolate rescue and
+    ANAS methanogenesis assays. Exact-pair body evidence is not locally snippet-verifiable. Existing non-graph evidence
+    debt remains under #765; the curated Syntrophotalea grounding is unchanged. No figure images, Table 1 or supplements
+    were inspected.'
+  posed_by: codex
+  posed_date: '2026-10-06'
