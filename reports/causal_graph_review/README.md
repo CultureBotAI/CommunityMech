@@ -5,6 +5,21 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch51: Enrichments And Core-20
+
+[Decisions](decisions/20261006-enrichments-core20-batch51.yaml),
+[validation](validation-20261006-batch51.json) and
+[self-adversarial review](adversarial-review-20261006-batch51.yaml) retain
+nine nodes and six explicitly qualified arrows. Positive 0B conversion remains
+distinct from MAG-resolved syntrophy; switchgrass protein profiles and gas
+production remain distinct from selective enzyme mediation and methane-route
+flux. Core-20 immune transcripts and pathogen-load reduction remain positive
+results without asserting immune mediation. Complete cached main texts, Methods
+and embedded captions were read, not original figure images or supplements.
+Unrepresented proposed carrier, AA6/Fenton and PTS pathways remain acknowledged
+gaps; this is an existing-structure review, not an exhaustive mechanism expansion.
+Non-graph metadata and canonical taxonomy are preserved, not recertified.
+
 ## Batch50: HAMBI, Hanford And C6
 
 [Decisions](decisions/20261006-hambi-hanford-c6-batch50.yaml),
