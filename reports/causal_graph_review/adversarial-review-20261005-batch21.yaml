@@ -1,0 +1,109 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: cf322d4f9793d1a7e6ebd14eabefca78bf805fdb
+decision_ledger: reports/causal_graph_review/decisions/20261005-three-records-batch21.yaml
+validation_report: reports/causal_graph_review/validation-20261005-batch21.json
+scope:
+- kb/communities/Clostridium_Phytofermentans_Ecoli_Cellobiose_Biofilm_Consortium.yaml
+- kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+- kb/communities/Clostridium_Thermoanaerobacter_Cellulosic_Bioethanol_Coculture.yaml
+findings:
+- issue: 1335
+  severity: P2
+  finding: Cellobiose versus polymer scope, reciprocal necromass direction, oxygen-regime and viability bounds,
+    and unmeasured biofilm product claims.
+  disposition: addressed_and_locally_verified
+- issue: 1336
+  severity: P2
+  finding: Enzyme-assisted productivity was not distinguished from unsupplemented conversion and separate oxygen-dependent
+    viable population maintenance.
+  disposition: addressed_and_locally_verified
+- issue: 1337
+  severity: P2
+  finding: Community ethanol output and intrinsic B12 capacity were encoded as donor-recipient interactions; association
+    exceeded selective X514 causal support.
+  disposition: addressed_and_locally_verified
+open_nongraph_followups:
+- issue: 1338
+  disposition: intentionally_not_closed_by_graph_only_patch
+- issue: 746
+  disposition: existing_grounding_provenance_followup_not_duplicated
+adversarial_checks:
+- 'Every original node and arrow accounted for: ten nodes and seven arrows retained, five exact renames, no new
+  structure or Edison spend.'
+- Challenge excessive skepticism with the glucose-addition and extracellular-cellobiase controls. Preserve their
+  positive support without asserting selective consortium regulation or polymer conversion in cellobiose-fed experiments.
+- Keep both necromass growth effects, with aerobic E. coli and anaerobic C. phytofermentans assays distinct. Retain
+  positive CFU support while bounding specific peptide mediation and endogenous consortium turnover.
+- Use both existing canonical participants for reciprocal necromass effects; do not encode only the opposite donor-recipient
+  direction or classify the aerobic assay as fermentation.
+- Oxygen microprofiles support biological oxygen removal after anoxic biofilm establishment. Fully oxic inoculation
+  and genomic qPCR prevent unqualified establishment or viable-cell claims.
+- Biofilm total biomass includes extracellular material. Cellobiose consumption and ethanol were measured in planktonic
+  cultures, not directly in biofilms; retain the outcomes and qualify all three causal arrows.
+- 'Remove aggregate syntrophy typing: measured products alone are not a separate mechanism of product removal making
+  upstream metabolism favorable.'
+- Keep yeast respiratory protection and reciprocal sugar benefit as condition-dependent MUTUALISM. The actual enum
+  does not require universal obligacy; do not erase the supported positive controls.
+- The approximately 22 g/L ethanol comparison used added endoglucanase. It cannot establish the same productivity
+  improvement in unsupplemented coculture.
+- Long-term maintenance used 25 mL and 150 g/L cellulose, with viable counts at 30, 40 and 50 days. This is a separate
+  arm from enzyme-assisted production, not continuous monitoring or an unconditional mutualism endpoint.
+- 'Do not claim ethanol cannot be exchanged in all oxygen regimes: the sugar/output distinction is limited to the
+  low-oxygen ethanol-production regime.'
+- LQRI-to-X514 sugar transfer is a supported proposal, not directly traced flux. Higher ethanol does not imply greater
+  cellulose utilization under every process condition.
+- Represent ethanol output with both existing canonical participants, not ethanol donation to LQRI; the 194-440%
+  range spans multiple coculture comparisons. Keep the species-level 2011 abstract distinct from the LQRI-specific
+  fed-batch study rather than claiming abstract strain resolution.
+- B12 genomic capacity and the positive 39E supplementation response support a hypothesis, not selective X514 causality
+  or vitamin donation. The vitamin-supplemented fed-batch study does not demonstrate biosynthetic autonomy.
+- 'Challenge the initial draft against the actual schema: intrinsic B12 capacity retains X514 as its single source
+  with no recipient, rather than community-level scope. The hypothesized downstream contribution targets community
+  ethanol output. No invented donor-recipient relation or commensalism sign is retained.'
+- 'All four reference caches and unrelated YAML blocks remain byte-identical. Unrelated metadata is not certified;
+  #1338 and existing #746 remain open.'
+- Three primary main bodies with Methods and tables/captions plus the complete 2011 mechanism abstract reviewed.
+  No image or supplementary-file inspection, independent approval, or corpus completion claimed.
+verification:
+  status: local_validation_complete
+  checks: 30
+  records: 460
+  nodes: 1474
+  edges: 710
+  review_status_counts:
+    needs_research: 3
+    pending: 345
+    reviewed: 112
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  unchanged_raw_blocks: 55
+  snippet_counts:
+    MATCH: 83
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1460
+    edge_descriptions: 702
+  render_determinism: passed
+  regressions: 262 passed in 220.78s (0:03:40)
+  rights: 3 passed in 2.34s
+  rights_import_root_verified: true
+  caches_unchanged: true
+  primary_artifact_hashes_rechecked: true
+  participant_registry_change: Add only the intentional yeast-cellulose and X514 users; exact-set equality and connectivity
+    bounds retained.
+  connectivity_survey:
+    records: 460
+    with_community_level: 387
+    mixed: 120
+    community_level_only: 267
+    taxa: 1495
+    credited_solely_by_the_rule: 1218

@@ -601,6 +601,11 @@
                              aria-hidden="true" data-symbol="symbolSquare"
                              data-color="#9f2ebb"></svg> Mutualism
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
@@ -610,7 +615,7 @@
                     <h3>Cellulose Hydrolysis Feeds Yeast Fermentation</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">C. phytofermentans hydrolyzes alpha-cellulose and releases soluble sugars that can be fermented by S. cerevisiae cdt-1.</p>
+                <p class="prewrap interaction-description">C. phytofermentans hydrolysis supplies soluble sugars, including cellodextrins and glucose, that support S. cerevisiae cdt-1. Cellulose is the upstream feedstock. The approximately 22 g/L ethanol result used added endoglucanase; unsupplemented coculture did not show the same productivity improvement. Under the low-oxygen ethanol-production regime, ethanol is an output rather than the proposed sugar-transfer currency.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium phytofermentans ISDg</p>
@@ -662,9 +667,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Long-Term Symbiotic Population Maintenance
-                        <p class="prewrap causal-description">C. phytofermentans cellulose hydrolysis supplies soluble sugars that support yeast fermentation during the maintained bacterium-yeast population pairing.
-</p>
+                        <span class="flow-arrow">→</span> Oxygen-Dependent Long-Term Population Maintenance
+                        <p class="prewrap causal-description">Bacterial cellulose hydrolysis provides soluble carbon that can sustain yeast in the oxygen-controlled culture. PARTIAL - the long-term viable-count comparison supports this cooperation but does not directly partition carbon transfer or isolate every stabilizing mechanism.</p>
                     </div>
 
                 </div>
@@ -709,7 +713,7 @@
                     <h3>Oxygen Protection of Anaerobic Cellulolytic Partner</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">S. cerevisiae cdt-1 removes introduced oxygen, protecting oxygen-sensitive C. phytofermentans and allowing the coculture to persist under controlled oxygen delivery.</p>
+                <p class="prewrap interaction-description">The oxygen-removal arm of a condition-dependent mutualism protects oxygen-sensitive C. phytofermentans, while bacterial sugar supply benefits the yeast. Semi-aerobic mono-/coculture comparisons support respiratory protection, and controlled low oxygen delivery supports yeast persistence. This is not a claim that either organism universally requires its partner under other culture conditions.</p>
 
 
                 <p><strong>Source Taxon:</strong> Saccharomyces cerevisiae cdt-1</p>
@@ -747,9 +751,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Long-Term Symbiotic Population Maintenance
-                        <p class="prewrap causal-description">Yeast oxygen removal protects the anaerobic cellulolytic partner under controlled oxygen transfer, allowing both populations to persist in the long-term symbiosis.
-</p>
+                        <span class="flow-arrow">→</span> Oxygen-Dependent Long-Term Population Maintenance
+                        <p class="prewrap causal-description">PARTIAL - yeast respiratory protection together with oxygen-supported yeast growth and bacterial sugar supply can stabilize the pairing. Oxygen-positive versus oxygen-negative viable-count controls support the conditional cooperation, without selectively measuring every mediator.</p>
                     </div>
 
                 </div>
@@ -791,17 +794,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Long-Term Symbiotic Population Maintenance</h3>
-                    <span class="interaction-type">MUTUALISM</span>
+                    <h3>Oxygen-Dependent Long-Term Population Maintenance</h3>
                 </div>
-                <p class="prewrap interaction-description">Controlled diffusive oxygen transfer supported maintenance of both C. phytofermentans and S. cerevisiae cdt-1 populations for 50 days.</p>
-
-
-                <p><strong>Source Taxon:</strong> Saccharomyces cerevisiae cdt-1</p>
+                <p class="prewrap interaction-description">With controlled oxygen delivery, both partners remained culturable at the reported 30-, 40- and 50-day samples; without oxygen the yeast fell below detection before day 30. This long-term arm used 25 mL medium and 150 g/L alpha-cellulose. Population maintenance is a community outcome, distinct from the enzyme-assisted ethanol experiment and from an unconditional mutualism claim.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Clostridium phytofermentans ISDg</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Clostridium phytofermentans ISDg,
+
+                    Saccharomyces cerevisiae cdt-1
+
+                </p>
 
 
 
@@ -847,6 +853,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How do oxygen delivery and hydrolytic capacity separately control persistence and ethanol productivity?
+                </h3>
+                <p class="prewrap">The oxygen controls support conditional cooperation and viable population maintenance, while additional endoglucanase improves conversion. These are different experimental arms. Mediator-specific or partner-resolved measurements would separate respiratory protection, sugar supply and enzyme effects without inferring universal obligacy or unsupplemented productivity gains.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Cellulose Hydrolysis Feeds Yeast Fermentation</code>, <code>ecological_interactions#Oxygen Protection of Anaerobic Cellulolytic Partner</code>, <code>ecological_interactions#Oxygen-Dependent Long-Term Population Maintenance</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1378,7 +1403,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1391,7 +1416,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Long-Term Symbiotic Population Maintenance",
+                label: "Oxygen-Dependent Long-Term Population Maintenance",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1400,17 +1425,20 @@
             });
 
 
-            var srcKey = "Saccharomyces cerevisiae cdt-1";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Clostridium phytofermentans ISDg";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Clostridium phytofermentans ISDg",
+
+                "Saccharomyces cerevisiae cdt-1"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
