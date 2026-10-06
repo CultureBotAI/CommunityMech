@@ -5,6 +5,32 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch63: Coculture And Living-Host Assay Boundaries
+
+[Decisions](decisions/20261006-coculture-hosts-batch63.yaml),
+[validation](validation-20261006-batch63.json) and
+[self-adversarial review](adversarial-review-20261006-batch63.yaml) account for
+eight retained observations and four removed arrows. Correlation, experimental
+context, screening and co-measured gene copies do not establish causal mediation.
+
+Mangrove biomass maxima were reached on different days; the abstract does not
+resolve partner biomass, metabolite transfer or contact necessity. Lotus SC3
+preference, arrival-order effects and root invasion remain positive living-host
+observations. Lettuce retains compatibility screening, conditional gene-copy
+enrichment and plant benefits without strain-tracking, flux or IAA claims.
+
+Complete Lotus and lettuce primary main bodies and embedded captions were read;
+mangrove access was abstract-only. Figure pixels, linked lettuce table cells,
+separate supplements and raw data were not audited. The public Lotus supplement
+download timed out with an incomplete archive. Its canonical microbial roster is
+unverified, so only the securely grounded Lotus host is explicitly credited;
+the exposed connectivity warnings are tracked under #1559, not hidden.
+
+All 920 caches remain unchanged and 12 graph excerpts match fresh primary text.
+Non-graph roster, protocol and mechanism metadata remain open under #1559 and
+existing related issues. Repairs #1556-#1558 await protected-main merge. No new
+causal structure or Edison submission; this is self-review, not independent approval.
+
 ## Batch62: Lake Potential, Modeled Transfer And Host Reporters
 
 [Decisions](decisions/20261006-lakes-mars-batch62.yaml),

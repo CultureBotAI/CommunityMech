@@ -86,9 +86,11 @@ taxonomy:
     explanation: Names P. monteilii as the mangrove-water bacterial partner in the co-culture.
 ecological_interactions:
 - name: Pseudomonas-Associated Leptolyngbya Growth Promotion
-  description: P. monteilii-containing co-cultures reached a larger biomass peak earlier than axenic L. lignicola cultures
-    and P. monteilii produced several growth-promoting compounds, including indole-3-acetic acid, indole-3-butyric acid, vitamin
-    B12, and siderophores.
+  description: The primary abstract reports a coculture biomass maximum of 298.19 mg/L on day 6 versus 198.08 mg/L
+    on day 9 for axenic Leptolyngbya lignicola, with greater pigment and biochemical accumulation. These are maxima
+    on different days, not a matched-time comparison. Pseudomonas monteilii produced IAA, IBA, vitamin B12 and siderophores,
+    but metabolite production does not establish transfer or selective mediation of growth. Full Methods were unavailable,
+    so the biomass measurement cannot be assumed to resolve each partner separately.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Pseudomonas monteilii
@@ -105,14 +107,20 @@ ecological_interactions:
     term:
       id: CHEBI:16411
       label: indole-3-acetic acid
+    notes: Reported Pseudomonas production; abstract-only evidence does not establish transfer to Leptolyngbya or
+      selective mediation of the coculture outcome.
   - preferred_term: vitamin B12
     term:
       id: CHEBI:176843
       label: vitamin B12
+    notes: Reported Pseudomonas production; abstract-only evidence does not establish transfer to Leptolyngbya or
+      selective mediation of the coculture outcome.
   - preferred_term: siderophore
     term:
       id: CHEBI:26672
       label: siderophore
+    notes: Reported Pseudomonas production; abstract-only evidence does not establish transfer to Leptolyngbya or
+      selective mediation of the coculture outcome.
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
@@ -123,16 +131,18 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: significantly exceeding that of axenic L. lignicola
-    explanation: Supports the larger biomass peak in co-culture than in axenic L. lignicola.
+    explanation: Supports the reported coculture-versus-axenic biomass maxima, reached on different days; partner-resolved
+      biomass methods are unavailable.
   - reference: PMID:42573630
     supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: Metabolite profiling revealed the production of several growth-promoting compounds by P. monteilii
-    explanation: Associates growth-promoting metabolite production with P. monteilii, without resolving the causal contribution
-      of each compound.
+    explanation: Supports metabolite production, not transfer or selective growth mediation.
 - name: Pseudomonas Physical Association With Leptolyngbya
-  description: Scanning electron microscopy and supporting morphology and biochemical analyses showed P. monteilii in close
-    physical association with L. lignicola during co-culture.
+  description: Morphological, biochemical and scanning electron microscopic analyses in the primary abstract support
+    close physical association between Leptolyngbya lignicola and Pseudomonas monteilii. Association is not a selective
+    test that contact is required for growth promotion, nor proof of metabolite transfer or reciprocal benefit.
+    No physical-association-to-growth arrow is inferred.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Pseudomonas monteilii
@@ -149,7 +159,7 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: confirmed a close physical association between the two partners
-    explanation: Supports close spatial association between the cyanobacterial and bacterial partners.
+    explanation: Supports physical association at abstract scope; original images and full Methods were not inspected.
 environmental_factors:
 - name: Bhitarkanika mangrove-water source
   value: Bhitarkanika, Odisha, India
@@ -184,24 +194,40 @@ external_resources:
     explanation: Identifies the primary publication for this cyanobacterium-bacterium co-culture.
 discussions:
 - discussion_id: exact-growth-conditions
-  prompt: Recover the exact co-culture medium, inoculum densities, temperature, light regime, and time-series sampling conditions
-    from the article body when full text becomes inspectable.
+  prompt: Recover the exact co-culture medium, inoculum densities, temperature, light regime, and time-series sampling
+    conditions from the article body when full text becomes inspectable.
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - growth_media#Leptolyngbya-Pseudomonas
-  rationale: The cached PubMed abstract establishes the partner identities, mangrove origin, physical association, biomass
-    advantage, and P. monteilii metabolite profile, but it does not report the cultivation recipe or quantitative inoculation
-    details.
+  rationale: The cached PubMed abstract establishes the partner identities, mangrove origin, physical association,
+    biomass advantage, and P. monteilii metabolite profile, but it does not report the cultivation recipe or quantitative
+    inoculation details.
   evidence:
   - reference: PMID:42573630
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: co-culture achieved a maximum biomass of 298.19
-    explanation: Shows that cultivation outcomes were reported even though exact setup details were not available in the abstract
-      cache.
+    explanation: Shows that cultivation outcomes were reported even though exact setup details were not available
+      in the abstract cache.
   posed_by: codex
   posed_date: '2026-09-27'
+- discussion_id: mangrove_abstract_assay_and_mediation_limits
+  prompt: Which partner contributes to the biomass measurement, and which processes mediate the reported growth
+    response?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Pseudomonas-Associated Leptolyngbya Growth Promotion
+  - ecological_interactions#Pseudomonas Physical Association With Leptolyngbya
+  rationale: 'Retain both observations and zero arrows. The complete primary abstract and subscription-preview boundary
+    were read, not the full paper, original images or supplements. Compare day6 coculture and day9 axenic maxima,
+    not matched-time measurements. Metabolite production and physical association do not establish transfer, contact
+    necessity or reciprocal benefit. Earlier #1154/#1155 fixes remain intact. The existing exact-growth-conditions
+    discussion remains open; #1559 tracks separate metadata/source limits. No new mechanistic structure or paid
+    research submission.'
+  posed_by: codex
+  posed_date: '2026-10-06'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: INCIDENTAL
@@ -211,15 +237,18 @@ curation_history:
 - timestamp: '2026-09-27T16:39:11Z'
   curator: codex
   action: CREATE_LEPTOLYNGBYA_PSEUDOMONAS_MANGROVE_COCULTURE
-  changes: Created CommunityMech:000452 from PMID:42573630 and DOI 10.1007/s00203-026-05109-9 for the Leptolyngbya lignicola
-    and Pseudomonas monteilii mangrove-water growth-promotion co-culture.
+  changes: Created CommunityMech:000452 from PMID:42573630 and DOI 10.1007/s00203-026-05109-9 for the Leptolyngbya
+    lignicola and Pseudomonas monteilii mangrove-water growth-promotion co-culture.
   llm_assisted: true
 - timestamp: '2026-09-27T16:45:22Z'
   curator: codex
   action: ADDRESS_ADVERSARIAL_REVIEW
-  changes: >-
-    Addressed adversarial-review issues 1154 and 1155 by removing unsupported
-    cross-feeding typing and the Pseudomonas CROSS_FEEDER role, and by
-    replacing pigment evidence on the metabolite-profile factor with a direct
+  changes: Addressed adversarial-review issues 1154 and 1155 by removing unsupported cross-feeding typing and the
+    Pseudomonas CROSS_FEEDER role, and by replacing pigment evidence on the metabolite-profile factor with a direct
     metabolite-profiling snippet from PMID:42573630.
+  llm_assisted: true
+- timestamp: '2026-10-06T22:01:28Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound mangrove coculture outcomes to abstract-only assay and mediator evidence. Issue #1556; reports/causal_graph_review/decisions/20261006-coculture-hosts-batch63.yaml'
   llm_assisted: true
