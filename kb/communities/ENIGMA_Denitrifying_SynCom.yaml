@@ -105,20 +105,12 @@ taxonomy:
     explanation: Supports pathway-partitioned denitrification role for GW101-3H11
 ecological_interactions:
 - name: Pathway-Partitioned Denitrification Cooperation
-  description: The two-member SynCom completes denitrification through metabolite exchange, coupling the
-    denitrification pathway across both partners.
-  interaction_type: SYNTROPHY
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Rhodanobacter thiooxydans FW510-R12
-    term:
-      id: NCBITaxon:416169
-      label: Rhodanobacter thiooxydans
-  target_taxon:
-    preferred_term: Acidovorax sp. GW101-3H11
-    term:
-      id: NCBITaxon:1872122
-      label: Acidovorax sp.
+  description: The anaerobic two-member SynCom grows faster than either monoculture and clears transient nitrite
+    without accumulating N2O under the tested cooperative conditions. 3H11 supplies nitrite to R12; reverse nitric-oxide
+    transfer from R12 to 3H11 is a kinetic-model inference supported by transcription, not directly measured NO
+    flux. Both isolates grow separately on nitrate, so this is not obligate partner dependence. Complete reduction
+    to N2 was inferred from product accounting, not a direct N2 measurement.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: nitrite
     term:
@@ -139,27 +131,34 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:40349173
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: We have discovered that these two bacterial isolates, from a heavily nitrate (NO3-) contaminated superfund
+      site, complete denitrification through the exchange of nitrite (NO2-) and nitric oxide (NO)
+    explanation: The abstract combines measured physiology with model-enabled NO exchange. Primary Results explicitly
+      lack measured NO reduction rates; expression corroborates the model, not direct flux.
+  - reference: PMID:40349173
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We have discovered that these two bacterial isolates, from a heavily nitrate (NO3-) contaminated
-      superfund site, complete denitrification through the exchange of nitrite (NO2-) and nitric oxide
-      (NO)
-    explanation: Demonstrates cooperative denitrification through exchanged intermediates
-- name: High-Nitrate Destabilization of Cooperation
-  description: Under high nitrate conditions, growth becomes imbalanced and nitrite accumulates, disrupting
-    cooperative denitrification and increasing N2O release.
-  interaction_type: COMPETITION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Acidovorax sp. GW101-3H11
-    term:
-      id: NCBITaxon:1872122
-      label: Acidovorax sp.
-  target_taxon:
-    preferred_term: Rhodanobacter thiooxydans FW510-R12
+    snippet: The SynCom growth rate was significantly greater than the growth rate of both isolates in monoculture
+    explanation: Primary Results directly support improved joint growth; this does not independently validate every
+      inferred exchange flux.
+  participating_taxa:
+  - preferred_term: Rhodanobacter thiooxydans FW510-R12
     term:
       id: NCBITaxon:416169
       label: Rhodanobacter thiooxydans
+  - preferred_term: Acidovorax sp. GW101-3H11
+    term:
+      id: NCBITaxon:1872122
+      label: Acidovorax sp.
+- name: High-Nitrate Destabilization of Cooperation
+  description: Experiments varied initial nitrate (1-40 mM at equal inoculation) or starting composition (5-98%
+    3H11 at 10 mM nitrate). Higher nitrate and larger initial 3H11 fractions were associated with greater endpoint
+    N2O. Differences in substrate kinetics can unbalance nitrite production and removal; proteomic trends suggest
+    competition but also admit nutritional complementarity. This is a context-dependent community response, not
+    established pairwise competitive harm.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: denitrification
     term:
@@ -167,28 +166,39 @@ ecological_interactions:
       label: denitrification pathway
   downstream:
   - target: Toxic Nitrite Accumulation and N2O Off-Gassing
-    description: >
-      High nitrate unbalances the two-member exchange, drives toxic nitrite
-      accumulation, and disrupts cooperative denitrification with increased
-      N2O off-gassing.
+    description: PARTIAL - faster 3H11 nitrate reduction relative to R12 nitrite removal can increase toxic nitrite
+      exposure. Across varied nitrate and inoculum ratios, kinetic-model predictions of nitrite exposure correlate
+      with measured endpoint N2O; selective SynCom nitrite mediation was not isolated.
   evidence:
   - reference: PMID:40349173
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We demonstrate that certain contexts, such as high NO3-, cause unbalanced growth of community
-      members, due to differences in their substrate utilization kinetics
-    explanation: Supports context-dependent imbalance between SynCom members
+    snippet: We demonstrate that certain contexts, such as high NO3-, cause unbalanced growth of community members,
+      due to differences in their substrate utilization kinetics
+    explanation: Supports the experimentally varied community context and accompanying physiological imbalance;
+      it does not establish pairwise competitive harm.
   - reference: PMID:40349173
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The altered growth characteristics of community members drives accumulation of toxic NO2-,
-      which disrupts denitrification causing N2O off gassing
-    explanation: Links growth imbalance to nitrite toxicity and increased N2O release
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: The altered growth characteristics of community members drives accumulation of toxic NO2-, which disrupts
+      denitrification causing N2O off gassing
+    explanation: The proposed nitrite-mediated mechanism combines monoculture inhibition measurements with kinetic
+      predictions of SynCom exposure and measured N2O endpoints.
+  participating_taxa:
+  - preferred_term: Rhodanobacter thiooxydans FW510-R12
+    term:
+      id: NCBITaxon:416169
+      label: Rhodanobacter thiooxydans
+  - preferred_term: Acidovorax sp. GW101-3H11
+    term:
+      id: NCBITaxon:1872122
+      label: Acidovorax sp.
 - name: Toxic Nitrite Accumulation and N2O Off-Gassing
-  description: High-nitrate growth imbalance drives accumulation of toxic nitrite
-    in the two-member SynCom, disrupting cooperative denitrification and causing
-    nitrous oxide off-gassing.
-  interaction_type: COMPETITION
+  description: Nitrite inhibited both isolates in monoculture. In nitrate- and composition-varied SynCom experiments,
+    predicted nitrite exposure correlated with measured endpoint N2O accumulation, supporting toxicity as a mechanism
+    that limits complete denitrification. High-condition SynCom nitrite exposure and the approximate toxicity threshold
+    were model-derived; N2O accumulation was measured. This does not establish pairwise competition or prove that
+    N2O itself inhibits cooperation.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: nitrite
@@ -206,16 +216,26 @@ ecological_interactions:
       label: denitrification pathway
   downstream:
   - target: Pathway-Partitioned Denitrification Cooperation
-    description: Toxic NO2- accumulation disrupts the nitrite and nitric oxide
-      exchange that normally completes denitrification across the two partners.
+    description: PARTIAL - accumulated nitrite can inhibit partner growth and thereby impair completion of the shared
+      denitrification pathway. Monoculture inhibition and model-to-N2O correspondence support this negative effect,
+      not selective proof that NO exchange fails in the SynCom or that N2O is the inhibitory agent.
   evidence:
   - reference: PMID:40349173
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The altered growth characteristics of community members drives accumulation of toxic NO2-,
-      which disrupts denitrification causing N2O off gassing
-    explanation: Supports nitrite accumulation and N2O off-gassing as the downstream
-      outcome of high-nitrate growth imbalance.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: The altered growth characteristics of community members drives accumulation of toxic NO2-, which disrupts
+      denitrification causing N2O off gassing
+    explanation: The mechanism is supported by measured monoculture inhibition and observed N2O, but SynCom nitrite
+      exposure was kinetically predicted rather than selectively manipulated.
+  participating_taxa:
+  - preferred_term: Rhodanobacter thiooxydans FW510-R12
+    term:
+      id: NCBITaxon:416169
+      label: Rhodanobacter thiooxydans
+  - preferred_term: Acidovorax sp. GW101-3H11
+    term:
+      id: NCBITaxon:1872122
+      label: Acidovorax sp.
 environmental_factors:
 - name: Nitrate loading context
   value: high NO3-
@@ -342,3 +362,28 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: Liquid R2A cultures were incubated at 30°C with shaking at 100 rpm.
     explanation: Names the R2A starter-culture temperature and shaking speed.
+discussions:
+- discussion_id: enigma_measured_physiology_and_modeled_exchange
+  prompt: Which exchange fluxes and inhibitory steps directly mediate SynCom behavior?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Pathway-Partitioned Denitrification Cooperation
+  - ecological_interactions#High-Nitrate Destabilization of Cooperation
+  - ecological_interactions#Toxic Nitrite Accumulation and N2O Off-Gassing
+  rationale: 'NO reduction rates and transfer were not measured; the model combined NO2-to-N2O steps and adjusted
+    energetic contributions to represent the proposed NO handoff. Preserve measured nitrate/nitrite/N2O physiology
+    separately from modeled exchange and high-condition exposure. Selective nitrite/NO perturbations and direct
+    flux measurements would distinguish mechanisms; proteomic competition and amino-acid exchange remain alternative
+    hypotheses. Non-graph certainty language is tracked by #1415.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T07:30:10Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Represent complementary exchange at community scope and distinguish measured growth from modeled reverse
+    NO transfer.; Retain nitrate/composition perturbations without categorical competition; qualify modeled nitrite
+    mediation.; Retain nitrite inhibition and N2O endpoints with a qualified negative causal arrow, not N2O toxicity.
+    Issue #1412; reports/causal_graph_review/decisions/20261006-three-records-batch34.yaml'
+  llm_assisted: true
