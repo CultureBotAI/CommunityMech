@@ -293,6 +293,7 @@ USERS = {
     "Human_Gut_FourMember_Proteome_Complementarity_Consortium.yaml",
     "Iberian_Pit_Lake_Stratified_Community.yaml",
     "Industrial_Bioreactor_Consortium.yaml",
+    "Industrial_Milk_Line_FourSpecies_Model_Biofilm.yaml",
     "Infant_Gut_Strain_Persistence_Maternal_Community.yaml",
     "Legume_Rhizobia_Mars_Simulant_Symbiosis.yaml",
     "Lunar_Simulant_Phosphate_Solubilizing_Bacteria_Nicotiana.yaml",

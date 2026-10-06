@@ -171,10 +171,12 @@ taxonomy:
     snippet: Bacillus cereus ATCC14579T and B. cereus ATCC10987
     explanation: Supports Bacillus cereus strains used in the model system.
 ecological_interactions:
-- name: Dynamic Positive and Negative Biofilm Interactions
-  description: Species-subset biofilms and growth modeling revealed a dynamic network of positive and
-    negative interspecies effects that determined final biofilm composition.
-  interaction_type: NICHE_PARTITIONING
+- name: Biofilm Community Composition and Growth Interactions
+  description: Controlled species-subset biofilms and fitted growth curves support dynamic positive and negative
+    effects in this four-species model. Rhodocyclus adhesion/early growth was facilitated, Pseudomonas development
+    was delayed, and Kocuria abundance was suppressed. These distinct measured effects do not establish a community-wide
+    cooperation benefit, competitive niche partitioning or a resolved physical shielding mechanism. Bacillus ATCC14579T
+    was a laboratory substitution; canonical strain labels are preserved.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
@@ -190,50 +192,84 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: network of dynamic, positive, and negative interactions
-    explanation: Supports the inferred interaction network in the four-species model biofilm.
+    explanation: Supports the positive controlled model-biofilm finding, interpreted within the tested community,
+      endpoint and perturbations; not a universal ecological mechanism.
   - reference: doi:10.1002/mbo3.1254
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: determine the final composition of the biofilm
-    explanation: Supports the effect of interactions on equilibrium community composition.
-- name: Bacillus Thiocillin-Mediated Negative Interaction
-  description: A negative interaction in the biofilm is mediated by thiocillin I produced by the Bacillus
-    cereus strain, and mutational analysis showed that this molecule affects species distribution and
-    biofilm robustness.
-  interaction_type: COMPETITION
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Bacillus cereus
+    explanation: Supports the positive controlled model-biofilm finding, interpreted within the tested community,
+      endpoint and perturbations; not a universal ecological mechanism.
+  participating_taxa:
+  - preferred_term: Rhodocyclus sp.
+    term:
+      id: NCBITaxon:1064
+      label: Rhodocyclus
+  - preferred_term: Pseudomonas fluorescens
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+  - preferred_term: Kocuria varians
+    term:
+      id: NCBITaxon:1272
+      label: Kocuria varians
+  - preferred_term: Bacillus cereus
     term:
       id: NCBITaxon:1396
       label: Bacillus cereus
+- name: Thiocillin-Biosynthesis-Dependent Kocuria Suppression
+  description: B. cereus tclE-H deletion removed anti-Kocuria activity in the plate assay and, when substituted
+    into the four-species biofilm, increased Kocuria abundance by about 50-fold. This is positive genetic evidence
+    for thiocillin-biosynthesis-dependent suppression, interpreted by the authors as thiocillin I action. Activity
+    was mainly pellet-associated or unstable; a freely diffusible bulk-medium route is not established. The main
+    text did not report complementation or a purified-thiocillin rescue. The observed negative growth effect does
+    not require reciprocal harm to Bacillus.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Dynamic Positive and Negative Biofilm Interactions
-    description: Bacillus cereus thiocillin I changes the relative distribution of biofilm members.
-  - target: Robustness to Transient Perturbation
-    description: >
-      Removing Bacillus thiocillin reshapes the model biofilm response to transient and continuous
-      perturbations, linking this negative interaction to community robustness.
   evidence:
   - reference: PMID:34964290
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: thiocillin I synthesized by the B. cereus strain
-    explanation: Supports thiocillin I as the molecular determinant of a negative interaction.
+    explanation: Supports the positive controlled model-biofilm finding, interpreted within the tested community,
+      endpoint and perturbations; not a universal ecological mechanism.
   - reference: PMID:34964290
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: impact on robustness by mutational analysis
-    explanation: Supports the mutational evidence linking this interaction to biofilm robustness.
-- name: Robustness to Transient Perturbation
-  description: The model biofilm reproducibly returned to a stable equilibrium composition after transient
-    inoculum perturbations, but continuous perturbations reduced robustness.
-  interaction_type: COLONIZATION_FACILITATION
+    explanation: Supports the positive controlled model-biofilm finding, interpreted within the tested community,
+      endpoint and perturbations; not a universal ecological mechanism.
+  participating_taxa:
+  - preferred_term: Bacillus cereus
+    term:
+      id: NCBITaxon:1396
+      label: Bacillus cereus
+  - preferred_term: Kocuria varians
+    term:
+      id: NCBITaxon:1272
+      label: Kocuria varians
+  downstream:
+  - target: Biofilm Community Composition and Growth Interactions
+    description: Replacing wild-type B. cereus with the tclE-H deletion mutant increased Kocuria abundance and changed
+      the 72-hour four-species composition, supporting a causal contribution of the thiocillin-biosynthesis-dependent
+      negative interaction under the tested biofilm conditions. This does not establish every mechanism in the wider
+      interaction network.
+  - target: Condition-Specific Biofilm Response to Perturbation
+    description: The tclE-H mutant substitution changed the community response to initial Bacillus depletion and
+      to continuous substrate/medium changes. The genetic intervention supports a condition-specific contribution
+      to the measured response, not universal robustness, a mature-biofilm recovery trajectory or a fully isolated
+      thiocillin I rescue mechanism.
+- name: Condition-Specific Biofilm Response to Perturbation
+  description: Wild-type biofilms established similar 72-hour compositions after the tested initial physiological-state
+    and Bacillus-inoculum changes, while glass substitution and especially undiluted medium altered the community.
+    The thiocillin-biosynthesis mutant changed responses to particular transient and continuous perturbations. This
+    is an endpoint comparison during establishment, not a recovery time course after disrupting an already mature
+    biofilm, a general colonization-facilitation mechanism or robustness to every disturbance. Neither community
+    resisted strong continuous changes uniformly.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
@@ -245,12 +281,31 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: highly robust against initial, transient perturbations
-    explanation: Supports the biofilm robustness phenotype after transient perturbation.
+    explanation: Supports the positive controlled model-biofilm finding, interpreted within the tested community,
+      endpoint and perturbations; not a universal ecological mechanism.
   - reference: doi:10.1002/mbo3.1254
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: less so towards continuous perturbations
-    explanation: Supports reduced robustness under continuous perturbation.
+    explanation: Supports the positive controlled model-biofilm finding, interpreted within the tested community,
+      endpoint and perturbations; not a universal ecological mechanism.
+  participating_taxa:
+  - preferred_term: Rhodocyclus sp.
+    term:
+      id: NCBITaxon:1064
+      label: Rhodocyclus
+  - preferred_term: Pseudomonas fluorescens
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+  - preferred_term: Kocuria varians
+    term:
+      id: NCBITaxon:1272
+      label: Kocuria varians
+  - preferred_term: Bacillus cereus
+    term:
+      id: NCBITaxon:1396
+      label: Bacillus cereus
 cultivation_setup:
 - cultivation_mode: SEMI_CONTINUOUS
   system_type: OTHER
@@ -371,3 +426,28 @@ external_resources:
   url: https://www.pndb.fr/explore/assets/experimental-raw-data-associated-to-the-publication-entitled-dynamic-interspecies-interactions-and-robustness-in-a-four-species-model-biofilm/
   description: Public raw-data landing page associated with the four-species model biofilm publication.
 metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: milk_biofilm_mechanistic_and_perturbation_scope
+  prompt: Which molecular and spatial mechanisms determine the condition-specific biofilm response?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Biofilm Community Composition and Growth Interactions
+  - ecological_interactions#Thiocillin-Biosynthesis-Dependent Kocuria Suppression
+  - ecological_interactions#Condition-Specific Biofilm Response to Perturbation
+  rationale: 'Retain both genetic-intervention arrows and positive omission/growth findings. The assay distinguishes
+    initial/transient from continuous changes; it is not a mature-biofilm recovery experiment. Purified-molecule
+    or complementation controls would further separate thiocillin I from biosynthetic-locus effects, without negating
+    the existing knockout evidence. Protection of Kocuria by the other members could involve spatial shielding or
+    adsorption but was not selectively resolved. Canonical Pseudomonas CLL49 spelling is preserved despite CCL49
+    elsewhere in the paper. Prior cultivation-arm correction under #529 remains unchanged. Non-graph taxon roles
+    and origin claims are preserved, not recertified.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T16:24:02Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve thiocillin genetic effects with explicit participants and condition-specific perturbation scope.
+    Issue #1508; reports/causal_graph_review/decisions/20261006-pitlakes-bioleach-biofilm-batch53.yaml'
+  llm_assisted: true
