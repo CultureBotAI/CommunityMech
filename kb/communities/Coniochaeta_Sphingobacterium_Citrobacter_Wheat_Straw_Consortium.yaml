@@ -144,17 +144,12 @@ taxonomy:
     snippet: detoxification-related proteins
     explanation: Supports C. freundii so4 as a functional helper involved in detoxification-related expression.
 ecological_interactions:
-- name: Fungal Cellulose-Xylan-Lignin Modification Role
-  description: Coniochaeta sp. 2T2.1 expresses plant biomass-degrading enzymes in wheat-straw cultures
-    and is inferred to contribute cellulose and xylan degradation at early stages plus lignin modification
-    at later stages.
-  interaction_type: NICHE_PARTITIONING
-  scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Coniochaeta sp. 2T2.1
-    term:
-      id: NCBITaxon:1571157
-      label: Coniochaeta sp. 2T2.1
+- name: Fungal Lignocellulose-Associated Transcript Profile
+  description: Coniochaeta sp. 2T2.1 expresses genes annotated for cellulose and xylan degradation and lignin modification.
+    The 2023 study measures transcript profiles across 60 and 180 rpm and days 1, 5 and 13. These data support inferred
+    fungal capacity, not directly measured enzyme activity, transferred products or a demonstrated reduction of
+    competition through niche partitioning.
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Coniochaeta sp. 2T2.1
     term:
@@ -184,35 +179,28 @@ ecological_interactions:
       label: xylan catabolic process
   downstream:
   - target: Community Wheat-Straw Degradation
-    description: Fungal cellulose, xylan, and lignin-modification activity contributes
-      to the tripartite consortium's wheat-straw degradation output.
+    description: PARTIAL - expression of fungal lignocellulose-associated genes is consistent with a contribution
+      to measured wheat-straw loss. Protein activity, partner-resolved flux and selective enzyme perturbations are
+      needed to assign the fungal share or show that transcript differences mediate the shaking-speed effect.
   evidence:
   - reference: PMID:31769802
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: carbohydrate-active enzymes indicated an onset of (hemi)cellulose degradation
-    explanation: Supports Coniochaeta CAZyme expression during wheat-straw degradation.
+    explanation: Supports a transcript-based functional inference, not direct catalytic or partner-resolved flux
+      measurement; the 2020 study was reviewed at abstract scope.
   - reference: PMID:36991472
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: lignin modification processes
-    explanation: Supports the later-stage lignin-modification role assigned to Coniochaeta sp. 2T2.1.
-- name: Bacterial Hemicellulose And Oligosaccharide Partitioning
-  description: Sphingobacterium w15 and Citrobacter freundii so4 partition bacterial degradation roles,
-    with w15 associated mainly with hemicellulose degradation and vitamin B2 production and so4 associated
-    with oligosaccharide or sugar-dimer degradation and detoxification.
-  interaction_type: NICHE_PARTITIONING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Sphingobacterium multivorum w15
-    term:
-      id: NCBITaxon:2886510
-      label: Sphingobacterium paramultivorum
-  target_taxon:
-    preferred_term: Citrobacter freundii so4
-    term:
-      id: NCBITaxon:546
-      label: Citrobacter freundii
+    explanation: Supports a transcript-based functional inference, not direct catalytic or partner-resolved flux
+      measurement; the 2020 study was reviewed at abstract scope.
+- name: Bacterial Carbohydrate And Support Transcript Profiles
+  description: Transcript profiles support proposed roles for w15 in hemicellulose use and so4 in oligosaccharide
+    or sugar-dimer use and stress responses. PARTIAL - these are functional hypotheses, not demonstrated w15-to-so4
+    transfer or reduced competition. RibE is encoded by all three members, the medium supplies riboflavin, and so4
+    ribE expression increases late at 60 rpm; exclusive w15 vitamin B2 donation is not established.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: xylan
     term:
@@ -233,35 +221,38 @@ ecological_interactions:
       label: riboflavin biosynthetic process
   evidence:
   - reference: PMID:36991472
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: S. paramultivorum w15 is involved in the degradation of mainly hemicellulose
-    explanation: Supports hemicellulose-linked functional specialization by w15.
+    explanation: Supports a role inferred from the measured transcript profile and annotation, not directed metabolite
+      transfer or selective causal mediation.
   - reference: PMID:36991472
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: C. freundii so4 in the degradation of oligosaccharides or sugar dimers
-    explanation: Supports secondary carbohydrate utilization by C. freundii so4.
+    explanation: Supports a role inferred from the measured transcript profile and annotation, not directed metabolite
+      transfer or selective causal mediation.
   downstream:
   - target: Community Wheat-Straw Degradation
-    description: Bacterial hemicellulose, oligosaccharide, and sugar-dimer
-      partitioning contributes to wheat-straw degradation by the full consortium.
-- name: Inter-Kingdom Interaction And Amensalism Signal
-  description: The bacterial pair altered Coniochaeta gene expression, including upregulation of oxidases
-    and transporter genes, while the tripartite consortium showed suppression of the fungal hemicellulolytic
-    arsenal and lower degradation percentages under the tested conditions.
-  interaction_type: COMPETITION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Sphingobacterium multivorum w15
+    description: PARTIAL - the inferred bacterial carbohydrate and support functions could contribute to whole-consortium
+      wheat-straw loss. Transcript patterns and observed growth support this contribution, but do not selectively
+      establish enzyme activity, detoxification, exchanged-carbon flux or the bacterial share of degradation.
+  participating_taxa:
+  - preferred_term: Sphingobacterium multivorum w15
     term:
       id: NCBITaxon:2886510
       label: Sphingobacterium paramultivorum
-  target_taxon:
-    preferred_term: Coniochaeta sp. 2T2.1
+  - preferred_term: Citrobacter freundii so4
     term:
-      id: NCBITaxon:1571157
-      label: Coniochaeta sp. 2T2.1
+      id: NCBITaxon:546
+      label: Citrobacter freundii
+- name: Bacterial-Pair-Associated Fungal Response
+  description: The 2020 abstract reports altered fungal transcripts and lower degradation in the tripartite consortium
+    than with Coniochaeta alone under its tested conditions. The bacterial pair, not isolated w15, was compared
+    with the fungal monoculture. Amensalism is suggested, not established reciprocal competitive harm. The 2023
+    shaking-speed comparison shows condition-dependent transcript and growth patterns, so inhibition must not be
+    generalized to every culture condition.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
@@ -269,20 +260,35 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:31769802
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: inter-kingdom interactions (e.g. amensalism)
-    explanation: Supports a competitive or inhibitory interaction signal among fungal and bacterial members.
+    explanation: Supports the authors' amensalism hypothesis from the bacterial-pair comparison, not a selectively
+      demonstrated w15 effect or reciprocal harm.
   - reference: PMID:31769802
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: lower degradation percentages within the microbial consortium
-    explanation: Supports that the tripartite outcome was not simply synergistic under the tested conditions.
+    explanation: Preserves the reported unfavorable tripartite-versus-fungal outcome; complete 2020 experimental
+      details were not accessible in this review.
+  participating_taxa:
+  - preferred_term: Coniochaeta sp. 2T2.1
+    term:
+      id: NCBITaxon:1571157
+      label: Coniochaeta sp. 2T2.1
+  - preferred_term: Sphingobacterium multivorum w15
+    term:
+      id: NCBITaxon:2886510
+      label: Sphingobacterium paramultivorum
+  - preferred_term: Citrobacter freundii so4
+    term:
+      id: NCBITaxon:546
+      label: Citrobacter freundii
 - name: Community Wheat-Straw Degradation
-  description: Coniochaeta sp. 2T2.1, Sphingobacterium paramultivorum w15, and
-    Citrobacter freundii so4 collectively degrade wheat straw through alternative
-    lignocellulose, hemicellulose, oligosaccharide, and detoxification roles.
-  interaction_type: NICHE_PARTITIONING
+  description: The tripartite consortium lost more wheat-straw mass after 13 days at 60 rpm (27.1 +/- 2.4%) than
+    at 180 rpm (16.2 +/- 1.7%) in the 2023 experiment. This supports a culture-condition effect on community degradation,
+    not selectively demonstrated enzyme synergism or universal improvement over fungal monoculture. Functional roles,
+    detoxification and vitamin exchange remain proposed contributors.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cellulose
@@ -308,13 +314,25 @@ ecological_interactions:
       label: xylan catabolic process
   evidence:
   - reference: PMID:36991472
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: The synergism and alternative functional roles presented in this study enhance
-      the eco-enzymological understanding of the degradation of lignocellulose
-      in this tripartite microbial consortium.
-    explanation: Supports the full consortium output assembled from the fungal and
-      bacterial lignocellulose-degradation roles.
+    snippet: The synergism and alternative functional roles presented in this study enhance the eco-enzymological
+      understanding of the degradation of lignocellulose in this tripartite microbial consortium.
+    explanation: The abstract presents a functional-role interpretation. Primary Results directly measure condition-dependent
+      wheat-straw mass loss, but do not isolate the mediating proteins, interactions or partner fluxes.
+  participating_taxa:
+  - preferred_term: Coniochaeta sp. 2T2.1
+    term:
+      id: NCBITaxon:1571157
+      label: Coniochaeta sp. 2T2.1
+  - preferred_term: Sphingobacterium multivorum w15
+    term:
+      id: NCBITaxon:2886510
+      label: Sphingobacterium paramultivorum
+  - preferred_term: Citrobacter freundii so4
+    term:
+      id: NCBITaxon:546
+      label: Citrobacter freundii
 environmental_factors:
 - name: Wheat straw substrate
   value: wheat straw
@@ -521,3 +539,29 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role was reported for this wheat-straw
   lignocellulose-degrading consortium in the curated sources.
+discussions:
+- discussion_id: wheat_straw_partner_flux_and_conditions
+  prompt: Which partner functions mediate the condition-dependent wheat-straw degradation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Fungal Lignocellulose-Associated Transcript Profile
+  - ecological_interactions#Bacterial Carbohydrate And Support Transcript Profiles
+  - ecological_interactions#Bacterial-Pair-Associated Fungal Response
+  - ecological_interactions#Community Wheat-Straw Degradation
+  rationale: The 2023 primary body reports mass loss, growth and transcript differences under two shaking speeds,
+    with vitamin-supplemented medium. Selective partner/enzyme perturbations and flux measurements are needed to
+    test inferred carbohydrate roles, detoxification or vitamin transfer. The 2020 abstract reports a bacterial-pair
+    comparison, not a w15-only effect; its full Methods and Results were inaccessible. Do not infer reciprocal harm,
+    exclusive donation or universal synergy from these observations.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-06T01:57:43Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Represent intrinsic fungal transcript-based capacity with its canonical source only.; Represent the
+    two bacterial inferred roles as a subset, preserving vitamin supplementation and nonexclusive ribE expression.;
+    Attribute the reported fungal response to the tested bacterial pair, not solely w15 or reciprocal harm.; Preserve
+    measured shaking-speed-dependent community mass loss while qualifying proposed mediators. Issue #1349; reports/causal_graph_review/decisions/20261005-three-records-batch23.yaml'
+  llm_assisted: true

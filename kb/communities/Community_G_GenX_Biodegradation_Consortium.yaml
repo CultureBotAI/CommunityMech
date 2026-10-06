@@ -149,11 +149,13 @@ taxonomy:
     snippet: Stenotrophomonas cyclobalanopsidis and P. arcuscaelestis were competitively excluded
     explanation: Names Pseudomonas arcuscaelestis as an initially abundant Community G member that declined by day 3.
 ecological_interactions:
-- name: Community G GenX-Driven Taxonomic Restructuring
-  description: During active GenX biodegradation, Salmonella enterica, Pseudomonas tolaasii, Stenotrophomonas sp. LM091, and
-    Stenotrophomonas sp. MYb57 expanded while initially abundant Stenotrophomonas cyclobalanopsidis and Pseudomonas arcuscaelestis
-    declined or disappeared.
-  interaction_type: COMPETITION
+- name: Community G Relative Taxonomic Restructuring During GenX Exposure
+  description: Community G 16S profiles showed relative enrichment of Salmonella enterica, Pseudomonas tolaasii
+    and two Stenotrophomonas strains, with relative declines of initially abundant taxa, during GenX exposure. The
+    six named participants are an observed subset, not the complete consortium. Bulk GenX loss and fluoride release
+    support community activity; relative profiles, genomic homology and docking do not establish absolute viable
+    expansion or extinction, member-specific degradation, complete carbon mineralization or reciprocal competitive
+    harm.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Salmonella enterica
@@ -187,10 +189,12 @@ ecological_interactions:
       label: xenobiotic metabolic process
   evidence:
   - reference: PMID:42422733
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: This restructuring reflects adaptive enrichment of efficient GenX-degrading specialists.
-    explanation: Interprets the opposing abundance trajectories in Community G as GenX-driven enrichment and exclusion.
+    explanation: The caption interprets relative taxonomic trajectories as specialist enrichment. Primary Methods
+      and Results support the compositional observation and separate bulk chemical endpoints, not experimentally
+      assigned member functions or reciprocal harm.
 environmental_factors:
 - name: Soil-microcosm GenX removal
   value: 80.6% removal by day 3
@@ -314,15 +318,15 @@ associated_datasets:
     microbial consortia and soil microcosm experiments.
 discussions:
 - discussion_id: community-g-full-roster
-  prompt: The inspected GenX paper text names the enriched Community G specialists and initially abundant competitors, but
-    not the complete source roster or every species label present in its Figure 4C stack plot.
+  prompt: The inspected GenX paper text names the enriched Community G specialists and initially abundant competitors,
+    but not the complete source roster or every species label present in its Figure 4C stack plot.
   kind: CURATION_TODO
   status: OPEN
   attaches_to:
   - taxonomy
-  rationale: Resolving an explicit sample-to-condition map for the Figshare amplicon outputs, or the upstream Prospector supplement,
-    would allow the record to replace this explicitly partial taxonomy with the full Community G member list and species-level
-    strain identifiers.
+  rationale: Resolving an explicit sample-to-condition map for the Figshare amplicon outputs, or the upstream Prospector
+    supplement, would allow the record to replace this explicitly partial taxonomy with the full Community G member
+    list and species-level strain identifiers.
   evidence:
   - reference: PMID:42173377
     supports: SUPPORT
@@ -334,13 +338,26 @@ discussions:
     snippet: Stacked area plot showing relative abundance of Community G members
   posed_by: claude
   posed_date: '2026-09-18'
+- discussion_id: community_g_relative_abundance_and_function
+  prompt: Which Community G members causally contribute to GenX transformation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Community G Relative Taxonomic Restructuring During GenX Exposure
+  rationale: Absolute viable abundance, partner perturbations, enzyme assays and carbon/fluorine mass balance would
+    distinguish compositional change from degrader activity and competitive effects. Homology and docking predict
+    potential, not catalytic flux. Community G was followed in sterile soil; GENIA indigenous-microbiome comparisons
+    do not establish Community G ecological safety. The partial roster remains unresolved; the previously removed
+    dangling outcome arrow is not restored.
+  posed_by: codex
+  posed_date: '2026-10-05'
 curation_history:
 - timestamp: '2026-09-18T12:25:48Z'
   curator: claude
   action: CREATE_COMMUNITY
   changes: Created CommunityMech:000387 for the Community G GenX biodegradation consortium from PMID:42422733/PMID:42173377,
-    including explicitly reported taxonomic restructuring, GenX removal and defluorination outcomes, M9 plus GenX screening
-    conditions, and a discussion for the unresolved full Community G roster.
+    including explicitly reported taxonomic restructuring, GenX removal and defluorination outcomes, M9 plus GenX
+    screening conditions, and a discussion for the unresolved full Community G roster.
   llm_assisted: true
 - timestamp: '2026-09-18T12:29:03Z'
   curator: claude
@@ -352,6 +369,12 @@ curation_history:
 - timestamp: '2026-09-18T12:32:43Z'
   curator: claude
   action: FIX_CAUSAL_GRAPH
-  changes: Removed an invalid downstream edge from the Community G taxonomic-restructuring interaction because the GenX
-    removal endpoint is an environmental factor, not another named ecological interaction in the causal graph.
+  changes: Removed an invalid downstream edge from the Community G taxonomic-restructuring interaction because the
+    GenX removal endpoint is an environmental factor, not another named ecological interaction in the causal graph.
+  llm_assisted: true
+- timestamp: '2026-10-06T01:57:42Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain relative community restructuring and positive bulk chemical endpoints without reciprocal-harm,
+    absolute-growth or member-degrader claims. Issue #1347; reports/causal_graph_review/decisions/20261005-three-records-batch23.yaml'
   llm_assisted: true
