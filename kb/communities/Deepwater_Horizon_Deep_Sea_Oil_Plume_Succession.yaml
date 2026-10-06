@@ -145,16 +145,12 @@ taxonomy:
     snippet: Marinobacter was enriched with n-hexadecane
     explanation: Supports Marinobacter as an alkane-associated hydrocarbon degrader in DWH-derived experiments.
 ecological_interactions:
-- name: Intrinsic Hydrocarbon Bioremediation
-  description: Indigenous deep-sea bacteria degraded plume hydrocarbons under cold deep-water conditions,
-    creating potential for intrinsic bioremediation without substantial oxygen drawdown.
-  interaction_type: SYNTROPHY
+- name: Cold Hydrocarbon Biodegradation and Bioremediation Potential
+  description: Field hydrocarbon patterns and environmental-isolate incubations at 5 C support cold-water biodegradation
+    and the potential for intrinsic plume bioremediation without substantial oxygen drawdown. This is not a distinct
+    oxygen-conservation mechanism or established syntrophy. The named Oceanospirillales group represents a canonical
+    subset, not every degrader or all spill phases.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: DWH Oceanospirillales-like bacteria
-    term:
-      id: NCBITaxon:135619
-      label: Oceanospirillales
   metabolites:
   - preferred_term: hydrocarbon
     term:
@@ -169,57 +165,64 @@ ecological_interactions:
     term:
       id: GO:0043448
       label: alkane catabolic process
-  downstream:
-  - target: Oxygen-Conserving Deep-Plume Hydrocarbon Attenuation
-    description: Fast cold-water hydrocarbon biodegradation by indigenous
-      Gammaproteobacteria supports natural plume attenuation without a
-      substantial loss of dissolved oxygen.
   evidence:
   - reference: PMID:20736401
     supports: SUPPORT
-    evidence_source: IN_VIVO
+    evidence_source: OTHER
     snippet: faster-than-expected hydrocarbon biodegradation rates at 5°C
-    explanation: Supports cold deep-water hydrocarbon biodegradation.
+    explanation: The abstract combines field observations and in vitro isolate experiments. It supports biodegradation,
+      not a purely in vivo rate measurement or syntrophic dependence.
   - reference: PMID:20736401
-    supports: SUPPORT
-    evidence_source: IN_VIVO
+    supports: PARTIAL
+    evidence_source: OTHER
     snippet: intrinsic bioremediation of the oil plume in the deep-water column without substantial oxygen drawdown
-    explanation: Supports intrinsic bioremediation as a community-level function.
-- name: Colwellia Oil Droplet Floc Formation
-  description: Colwellia-dominated flocs formed with oil and biomass in cold incubations, linking cell
-    aggregation to hydrocarbon degradation in deep marine habitats.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Colwellia
+    explanation: The quoted phrase is governed by the abstract's potential-exists qualifier, not a demonstrated
+      oxygen-conserving mechanism or a plume-wide oxygen budget.
+  participating_taxa:
+  - preferred_term: DWH Oceanospirillales-like bacteria
     term:
-      id: NCBITaxon:28228
-      label: Colwellia
+      id: NCBITaxon:135619
+      label: Oceanospirillales
+- name: Colwellia-Dominated Oil-Associated Flocs
+  description: In cold oil/COREXIT enrichments from uncontaminated deep Gulf water without added FeCl2, oil-, carbohydrate-
+    and biomass-containing flocs were dominated by Colwellia. Oil degradation by an isolated Colwellia strain is
+    a separate positive result. Aggregation does not by itself demonstrate facilitation of another taxon or quantify
+    a floc-specific contribution to field attenuation.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: hydrocarbon
     term:
       id: CHEBI:24632
       label: hydrocarbon
   downstream:
-  - target: Intrinsic Hydrocarbon Bioremediation
-    description: Oil-associated Colwellia biomass flocs contribute a
-      particle-associated route into cold deep-water oil degradation.
+  - target: Cold Hydrocarbon Biodegradation and Bioremediation Potential
+    description: HYPOTHESIZED - aggregation with oil droplets could support Colwellia-associated hydrocarbon access
+      and degradation. The enrichment observations and separate isolate assay do not selectively test this route
+      or establish its contribution to in situ plume attenuation.
   evidence:
   - reference: PMID:22616650
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: flocs were comprised of oil, carbohydrates and biomass
-    explanation: Supports oil-associated floc formation as a Colwellia-linked mechanism.
+    explanation: Supports the observed Colwellia-dominated oil-associated aggregates in laboratory enrichments,
+      not an isolated causal effect of flocs on degradation or recipient colonization.
   - reference: PMID:22616650
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Colwellia were the dominant bacteria in the flocs
-    explanation: Supports Colwellia dominance in the oil-associated flocs.
-- name: Complex Hydrocarbon Substrate Partitioning
-  description: Different plume-associated taxa contributed distinct, non-redundant capacities for degrading
-    alkane and polycyclic aromatic hydrocarbons, so community-level degradation exceeded single-member
-    capabilities.
-  interaction_type: NICHE_PARTITIONING
+    explanation: Supports the observed Colwellia-dominated oil-associated aggregates in laboratory enrichments,
+      not an isolated causal effect of flocs on degradation or recipient colonization.
+  participating_taxa:
+  - preferred_term: Colwellia
+    term:
+      id: NCBITaxon:28228
+      label: Colwellia
+- name: Proposed Community Hydrocarbon Pathway Complementarity
+  description: HYPOTHESIZED - SIP enrichment and genome reconstruction suggest complementary hydrocarbon pathways.
+    The study separates deep-water hexadecane from surface-water PAH enrichments, incubated at room temperature
+    without added dispersant. Named taxa are a subset across those enrichments, not a proven five-member deep-plume
+    consortium. Coordinated metabolism is an alternative to unknown enzymes or incomplete assemblies, not resolved
+    metabolite exchange.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: hydrocarbon
@@ -236,55 +239,49 @@ ecological_interactions:
       id: GO:0043448
       label: alkane catabolic process
   downstream:
-  - target: Intrinsic Hydrocarbon Bioremediation
-    description: Partitioning alkane and PAH metabolism among non-redundant
-      plume guilds lets the community degrade complex petroleum mixtures.
+  - target: Cold Hydrocarbon Biodegradation and Bioremediation Potential
+    description: HYPOTHESIZED - complementary pathways could expand community hydrocarbon transformation and contribute
+      to bioremediation. SIP and annotated repertoires support this model but do not establish intertaxon flux,
+      necessity or the contribution of this room-temperature enrichment mechanism in the cold field plume.
   evidence:
   - reference: PMID:27572965
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: combined capabilities of the microbial community exceeded those of its individual components
-    explanation: Supports non-redundant substrate specialization across the oil-degrading community.
+    explanation: The abstract supports the proposed community-capability model. The full author proof explicitly
+      retains alternative enzymes and incomplete-genome explanations and distinguishes sample origins and enrichment
+      conditions.
+  - reference: PMID:27572965
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: degradation of complex hydrocarbon mixtures requires the non-redundant capabilities of a complex oil-degrading
+      community
+    explanation: The abstract supports the proposed community-capability model. The full author proof explicitly
+      retains alternative enzymes and incomplete-genome explanations and distinguishes sample origins and enrichment
+      conditions.
   - reference: PMID:27572965
     supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: degradation of complex hydrocarbon mixtures requires the non-redundant capabilities of a complex oil-degrading community
-    explanation: Supports niche partitioning among hydrocarbon-degrading taxa.
-- name: Oxygen-Conserving Deep-Plume Hydrocarbon Attenuation
-  description: Indigenous, cold-adapted Deepwater Horizon plume bacteria
-    carried out faster-than-expected hydrocarbon biodegradation in the deep
-    water column, supporting intrinsic oil-plume bioremediation without
-    substantial oxygen drawdown.
-  interaction_type: NICHE_PARTITIONING
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: hydrocarbon
+    evidence_source: IN_VITRO
+    snippet: assimilate alkane and polycyclic aromatic hydrocarbons during stable-isotope probing experiments
+    explanation: Preserves positive experimental assimilation evidence without equating the SIP label with resolved
+      cross-feeding or every annotated pathway being active.
+  participating_taxa:
+  - preferred_term: DWH Oceanospirillales-like bacteria
     term:
-      id: CHEBI:24632
-      label: hydrocarbon
-  - preferred_term: dioxygen
+      id: NCBITaxon:135619
+      label: Oceanospirillales
+  - preferred_term: Colwellia
     term:
-      id: CHEBI:15379
-      label: dioxygen
-  biological_processes:
-  - preferred_term: alkane catabolic process
+      id: NCBITaxon:28228
+      label: Colwellia
+  - preferred_term: Cycloclasticus
     term:
-      id: GO:0043448
-      label: alkane catabolic process
-  evidence:
-  - reference: PMID:20736401
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: faster-than-expected hydrocarbon biodegradation rates at 5°C
-    explanation: Supports rapid hydrocarbon biodegradation under cold
-      deep-water plume conditions.
-  - reference: PMID:20736401
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: intrinsic bioremediation of the oil plume in the deep-water column
-      without substantial oxygen drawdown
-    explanation: Supports oxygen-conserving intrinsic attenuation as the
-      community-level plume outcome.
+      id: NCBITaxon:34067
+      label: Cycloclasticus
+  - preferred_term: Marinobacter
+    term:
+      id: NCBITaxon:2742
+      label: Marinobacter
 environmental_factors:
 - name: Deepwater Horizon hydrocarbon plume
   value: Deepwater Horizon blowout, Gulf of Mexico
@@ -455,3 +452,30 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: "enriched and isolated indigenous hydrocarbon-degrading bacteria from deep, uncontaminated waters from the Gulf with oil (Macondo MC252) and dispersant used during the spill (COREXIT 9500)"
     explanation: "Documents inoculum source and oil/dispersant enrichment substrate."
+discussions:
+- discussion_id: deepwater_enrichment_to_field_causality
+  prompt: How much do floc formation and proposed pathway complementarity contribute to field hydrocarbon attenuation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Cold Hydrocarbon Biodegradation and Bioremediation Potential
+  - ecological_interactions#Colwellia-Dominated Oil-Associated Flocs
+  - ecological_interactions#Proposed Community Hydrocarbon Pathway Complementarity
+  rationale: 'Selective aggregation and member/pathway perturbations, direct intermediate tracing and field-resolved
+    measurements would test the two retained hypotheses. Surface and plume enrichments cannot be collapsed into
+    one co-occurring consortium. The duplicate oxygen-conservation node was consolidated without discarding the
+    bounded bioremediation potential. Hazen and Baelum claims remain abstract-bounded; the Dombrowski author proof
+    and Figure 3 were inspected. The partial Colwellia SAG supports predictions, not demonstrated missing enzymes
+    or siderophore exchange. Non-graph follow-up: #1379.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T05:24:50Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain measured cold biodegradation and qualified bioremediation potential; consolidate duplicate oxygen
+    context without asserting syntrophy or oxygen conservation.; Retain positive Colwellia-dominated flocs while
+    qualifying their proposed contribution to degradation and removing unsupported facilitation.; Retain positive
+    SIP/genome evidence and the complementary-pathway hypothesis, distinguish surface/deep and laboratory/field
+    contexts, and retain alternative explanations. Issue #1376; reports/causal_graph_review/decisions/20261006-three-records-batch29.yaml'
+  llm_assisted: true
