@@ -1,0 +1,309 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 5988d5ace91b79ad27e118720378e5fa58763949
+issues:
+- 1388
+- 1389
+- 1390
+open_nongraph_followups:
+- 765
+- 1391
+open_graph_research:
+- 1392
+issue_deduplication:
+  all_state_issue_titles_bodies: 717
+  ignored_hidden_local_files_included: true
+  comments_exhaustive: false
+  relevant_broader_issues_read:
+  - 1305
+  - 1245
+  - 1236
+  - 900
+  - 883
+  - 765
+  - 754
+  - 561
+  - 389
+  - 384
+  - 383
+  finding: No duplicate exact graph defect in searched titles/bodies or scoped local review records. Existing Pelobacter
+    non-graph evidence debt is reused, not duplicated.
+reference_cache_original_hashes:
+  references_cache/PMID_28075122.md: 9ff2ad42fd8c164b8779258503d2f08241e105d3b5f35b684f7508be4c9dfb48
+  references_cache/PMID_25576615.md: 3a02cd4c98774aee7e14e54cee4f54b87fd60188d31e1135386d057115a42fde
+  references_cache/doi_DOI:10.3389_fmicb.2016.01795.json: 4e06cb6bd7a6928d99d5b0ea408d3863854873aa20050b05029f94d8a758c8f7
+  references_cache/PMID_41442978.md: 76ca3d2056b40c34172ddda2b46e4106a9115f3a9a187b5520e6911239e67e38
+  references_cache/PMID_24015929.md: 5a8edfdf6d765c4eb0e041310e03ca88fb53a96c64f2d36383ed22f773f4ff49
+  references_cache/doi_10.3389_fmicb.2016.01795.md: 9bfa7cce73e10ae4946b239c265c4e7039b6880190833fc076b2052889f457c9
+edison:
+  status: dry_run_only_no_provider_job_or_charge
+  community: CommunityMech:000183
+  prompt_characters: 11572
+  prompt_sha256: 40cfa051650b6f7062774e8dddcd740db72e3f5415817324f4676c3de22b9e26
+  limitation: Specific spend/transmission authorization is pending. LiteLLM attempted a remote pricing-map fetch,
+    which failed DNS and used its fallback; no provider job was submitted.
+limitations:
+- Two completed graph reviews; the third has repaired existing structure but remains needs_research for possible
+  CO structure. All eleven nodes retained; six arrows retained and one unsupported arrow removed. No new nodes/arrows
+  or paid Edison job.
+- Primary-source access differs by study. The CWV2 body is an author-uploaded uncorrected proof, not the final published
+  body. No figure images or supplement files inspected.
+- No new article body/PDF is committed. All caches and non-graph raw blocks preserved. Exact-pair Pelobacter rescue
+  depends on externally read body text, not its ANAS abstract snippet. Textual MATCH is not scientific validation.
+- Source-only PAIRWISE entries follow the existing intrinsic-recipient convention, not self-edges or reverse exchange.
+  Self-adversarial review is not independent approval, protected CI success or full-corpus completion.
+records:
+- path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+  id: CommunityMech:000184
+  original_sha256: cb7e15cd85069763298df062a42ba1f54497fc8db00edd004215590b2a0a8aca
+  record_sha256: ab28a71ff971a76db7e6bc3989a24ff65fbf03b0eb1177ae70c85fab1d04c813
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch31.yaml
+  scope: Whole record and every original node/arrow reviewed at the documented source-access scope; non-graph fields
+    preserved, not certified. New CO structure remains pending only for the Syntrophomonas record.
+  summary: Retain positive acetylene-fed nutritional support, separating the exact pair from BAV1 and ANAS.; Represent
+    recipient dechlorination without reverse cross-feeding or induction-mediated rescue.; Retain directly observed
+    exact-pair acetylene rescue, exposing the abstract-only snippet limitation and removing the colonization label.
+  renamed_nodes: {}
+  node_decisions:
+  - node: Acetylene-Fueled Dechlorinating Coculture
+    rationale: Retain positive acetylene-fed nutritional support, separating the exact pair from BAV1 and ANAS.
+  - node: D. mccartyi Reductive Dechlorination
+    rationale: Represent recipient dechlorination without reverse cross-feeding or induction-mediated rescue.
+  - node: SFB93-Mediated Relief of Acetylene Inhibition
+    rationale: Retain directly observed exact-pair acetylene rescue, exposing the abstract-only snippet limitation
+      and removing the colonization label.
+  removed_node_decisions: []
+  edges_before:
+  - source: Acetylene-Fueled Dechlorinating Coculture
+    target: D. mccartyi Reductive Dechlorination
+    description: 'Pelobacter fermentation lets acetylene serve as the reduced substrate that fuels D. mccartyi organohalide
+      respiration of TCE in the defined coculture.
+
+      '
+  - source: SFB93-Mediated Relief of Acetylene Inhibition
+    target: D. mccartyi Reductive Dechlorination
+    description: 'Acetylene fermentation by SFB93 relieves acetylene inhibition of organohalide respiration, allowing
+      D. mccartyi to resume reductive dechlorination in acetylene-fed cultures.
+
+      '
+  edges_after:
+  - source: Acetylene-Fueled Dechlorinating Coculture
+    target: D. mccartyi Reductive Dechlorination
+    description: SFB93 acetylene fermentation supplies hydrogen and acetate that support strain-195 TCE dechlorination
+      and growth. This positive nutritional coupling is distinct from removal of an initially inhibitory acetylene
+      exposure; it does not assign BAV1 vinyl-chloride respiration to strain 195.
+  - source: SFB93-Mediated Relief of Acetylene Inhibition
+    target: D. mccartyi Reductive Dechlorination
+    description: SFB93 consumption of inhibitory acetylene permits strain 195 to resume TCE reductive dechlorination,
+      as tested by delayed partner addition in the primary Results and Figure 2 caption. The local abstract rescue
+      phrase concerns ANAS and alone does not establish this exact-pair result; ANAS methanogenesis is not transferred
+      to this arrow.
+  retained_edge_decisions:
+  - source: Acetylene-Fueled Dechlorinating Coculture
+    target: D. mccartyi Reductive Dechlorination
+    rationale: SFB93 acetylene fermentation supplies hydrogen and acetate that support strain-195 TCE dechlorination
+      and growth. This positive nutritional coupling is distinct from removal of an initially inhibitory acetylene
+      exposure; it does not assign BAV1 vinyl-chloride respiration to strain 195.
+  - source: SFB93-Mediated Relief of Acetylene Inhibition
+    target: D. mccartyi Reductive Dechlorination
+    rationale: SFB93 consumption of inhibitory acetylene permits strain 195 to resume TCE reductive dechlorination,
+      as tested by delayed partner addition in the primary Results and Figure 2 caption. The local abstract rescue
+      phrase concerns ANAS and alone does not establish this exact-pair result; ANAS methanogenesis is not transferred
+      to this arrow.
+  removed_edge_decisions: []
+  references:
+  - PMID:28075122
+  issues:
+  - 1388
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture/2026-10-06T061823Z-codex-d74031.yaml
+  source_review:
+    PMID:28075122:
+      url: https://escholarship.org/content/qt9nt8k5g2/qt9nt8k5g2.pdf
+      scope: 'Complete cached abstract and complete primary main body: Methods, Results, Discussion and Figures
+        1-6 captions. Exact strain-195 rescue in Results/Figure 2 differs from ANAS abstract wording. No figure
+        images, Table 1 or supplements inspected. Local cache remains abstract-only; no full article added.'
+- path: kb/communities/Dehalococcoides_Syntrophomonas_TCE_Dechlorination_Coculture.yaml
+  id: CommunityMech:000183
+  original_sha256: 3c229074814142c66fa8a5a8624c7bf3dbdebc243dfea7eebee3d1840a88f52a
+  record_sha256: b0c182ee42aa14442f77f15b8a8ada5172fbbd989f8175c399af7f83877b6dd2
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch31.yaml
+  scope: Whole record and every original node/arrow reviewed at the documented source-access scope; non-graph fields
+    preserved, not certified. New CO structure remains pending only for the Syntrophomonas record.
+  summary: Retain positive butyrate-fed hydrogen support with assay, cofactor and late-stage growth limits.; Represent
+    recipient dechlorination without reverse transfer or growth-coupled vinyl-chloride respiration.; Keep joint
+    aggregates and their conditional diffusion-model contribution while leaving new CO structure pending.
+  renamed_nodes: {}
+  node_decisions:
+  - node: Butyrate Fermentation Supporting TCE Dechlorination
+    rationale: Retain positive butyrate-fed hydrogen support with assay, cofactor and late-stage growth limits.
+  - node: Reductive Dechlorination by Dehalococcoides
+    rationale: Represent recipient dechlorination without reverse transfer or growth-coupled vinyl-chloride respiration.
+  - node: Aggregation-Enhanced Hydrogen Flux
+    rationale: Keep joint aggregates and their conditional diffusion-model contribution while leaving new CO structure
+      pending.
+  removed_node_decisions: []
+  edges_before:
+  - source: Butyrate Fermentation Supporting TCE Dechlorination
+    target: Reductive Dechlorination by Dehalococcoides
+    description: 'Hydrogen produced during syntrophic butyrate oxidation by S. wolfei supplies the electron donor
+      D. mccartyi 195 uses for TCE dechlorination; the coupling is demonstrated by nanomolar aqueous H2 during dechlorination
+      and the strain-195 minimum H2 threshold.
+
+      '
+  - source: Aggregation-Enhanced Hydrogen Flux
+    target: Reductive Dechlorination by Dehalococcoides
+    description: 'Cell aggregation shortens the interspecies distance and sustains the hydrogen flux required for
+      the observed TCE dechlorination rates (supported by the reported need for aggregation; lower-confidence than
+      the direct H2-threshold edge).
+
+      '
+  edges_after:
+  - source: Butyrate Fermentation Supporting TCE Dechlorination
+    target: Reductive Dechlorination by Dehalococcoides
+    description: Hydrogen from S. wolfei butyrate oxidation supplies the electron donor for strain-195 TCE dechlorination,
+      while recipient consumption maintains a favorable hydrogen sink. The separate donor-limited minimum-threshold
+      assay is not the routine culture concentration. Later residual butyrate consumption and cometabolic vinyl-chloride
+      conversion do not establish continued growth after the growth-supporting acceptors are depleted.
+  - source: Aggregation-Enhanced Hydrogen Flux
+    target: Reductive Dechlorination by Dehalococcoides
+    description: PARTIAL - aggregation could shorten diffusion distances and thereby support hydrogen delivery to
+      strain 195 at the measured dechlorination rate. This mechanistic contribution is inferred from the diffusion
+      model together with observed aggregates, not from selective disruption and rescue of aggregation.
+  retained_edge_decisions:
+  - source: Butyrate Fermentation Supporting TCE Dechlorination
+    target: Reductive Dechlorination by Dehalococcoides
+    rationale: Hydrogen from S. wolfei butyrate oxidation supplies the electron donor for strain-195 TCE dechlorination,
+      while recipient consumption maintains a favorable hydrogen sink. The separate donor-limited minimum-threshold
+      assay is not the routine culture concentration. Later residual butyrate consumption and cometabolic vinyl-chloride
+      conversion do not establish continued growth after the growth-supporting acceptors are depleted.
+  - source: Aggregation-Enhanced Hydrogen Flux
+    target: Reductive Dechlorination by Dehalococcoides
+    rationale: PARTIAL - aggregation could shorten diffusion distances and thereby support hydrogen delivery to
+      strain 195 at the measured dechlorination rate. This mechanistic contribution is inferred from the diffusion
+      model together with observed aggregates, not from selective disruption and rescue of aggregation.
+  removed_edge_decisions: []
+  references:
+  - PMID:25576615
+  - PMID:24015929
+  - doi:10.3389/fmicb.2016.01795
+  issues:
+  - 1389
+  - 1392
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Dehalococcoides_Syntrophomonas_TCE_Dechlorination_Coculture/2026-10-06T061823Z-codex-91ce0c.yaml
+  source_review:
+    PMID:25576615:
+      url: https://journals.asm.org/doi/10.1128/AEM.03464-14
+      scope: Complete cached abstract and complete primary main body, Tables 1-4 text and Figures 1-4 captions.
+        SEM observation and Fick model distinguished; CO mechanism remains pending. No visual figure inspection
+        or supplements.
+    PMID:24015929:
+      url: https://pubmed.ncbi.nlm.nih.gov/24015929/
+      scope: Complete cached primary abstract only. Exact-pair isotope-fractionation context, not a new mechanism.
+        No full body, figure images or supplements inspected.
+    doi:10.3389/fmicb.2016.01795:
+      url: https://doi.org/10.3389/fmicb.2016.01795
+      scope: Complete existing cached open-access main body, Tables 1-2 text, Figures 1-3 captions and supplementary-caption
+        summaries S1-S3. Despite abstract_only front matter, this existing cache contains OA full text. No figure
+        images or supplement files inspected. Protein/complex assays use M. hungatei; exact-Dhc evidence is qRT-PCR.
+        Cache unchanged.
+- path: kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+  id: CommunityMech:000301
+  original_sha256: 481d1d0cd521dbf852b91a98589b5f79c6735732afa88bc39c67e73f0e2a93d2
+  record_sha256: 252f1bd100591910deeb53b0de75130e7f38995f3de7a10aca6466f3f16e2c66
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch31.yaml
+  scope: Whole record and every original node/arrow reviewed at the documented source-access scope; non-graph fields
+    preserved, not certified. New CO structure remains pending only for the Syntrophomonas record.
+  summary: Retain the biochar amendment with consortium/isolate scope explicit.; Retain activity enhancement with
+    adsorption and mediation uncertainty.; Retain the TCE outcome but remove the unsupported causal arrow to lower
+    VC.; Retain the condition-specific lower-VC observation without generalizing across inocula.; Retain measured
+    composition and hypothesized guild contribution without demonstrated flux or stability.
+  renamed_nodes: {}
+  node_decisions:
+  - node: BC600 Biochar-Consortium Coupling
+    rationale: Retain the biochar amendment with consortium/isolate scope explicit.
+  - node: BC600 Colonization and Activity Enhancement
+    rationale: Retain activity enhancement with adsorption and mediation uncertainty.
+  - node: Biochar-Accelerated TCE Degradation
+    rationale: Retain the TCE outcome but remove the unsupported causal arrow to lower VC.
+  - node: Vinyl Chloride Accumulation Mitigation
+    rationale: Retain the condition-specific lower-VC observation without generalizing across inocula.
+  - node: Hydrogen- and Electroactive-Guild Dechlorination Stability
+    rationale: Retain measured composition and hypothesized guild contribution without demonstrated flux or stability.
+  removed_node_decisions: []
+  edges_before:
+  - source: BC600 Biochar-Consortium Coupling
+    target: BC600 Colonization and Activity Enhancement
+    description: Coupling BC600 to the native dechlorinating consortium lets the biochar combine adsorption with
+      enhanced microbial colonization and activity.
+  - source: BC600 Colonization and Activity Enhancement
+    target: Biochar-Accelerated TCE Degradation
+    description: Biochar-associated colonization and activity were linked to faster TCE degradation.
+  - source: Biochar-Accelerated TCE Degradation
+    target: Vinyl Chloride Accumulation Mitigation
+    description: Accelerated TCE degradation was part of the BC600 response that also limited accumulation of the
+      carcinogenic intermediate vinyl chloride.
+  edges_after:
+  - source: BC600 Biochar-Consortium Coupling
+    target: BC600 Colonization and Activity Enhancement
+    description: BC600 amendment supplies sorptive surfaces and is associated with enhanced microbial colonization
+      and activity in the tested consortium. Amendment effects depend on dose and inoculum conditions; this does
+      not establish that adsorption itself is biological dechlorination.
+  - source: BC600 Colonization and Activity Enhancement
+    target: Biochar-Accelerated TCE Degradation
+    description: PARTIAL - biochar-associated microbial colonization and activity could contribute to faster TCE
+      transformation, alongside sorption and bioavailability effects. The amendment comparison does not selectively
+      isolate colonization as the causal mediator, and TCE disappearance through adsorption is not itself degradation.
+  retained_edge_decisions:
+  - source: BC600 Biochar-Consortium Coupling
+    target: BC600 Colonization and Activity Enhancement
+    rationale: BC600 amendment supplies sorptive surfaces and is associated with enhanced microbial colonization
+      and activity in the tested consortium. Amendment effects depend on dose and inoculum conditions; this does
+      not establish that adsorption itself is biological dechlorination.
+  - source: BC600 Colonization and Activity Enhancement
+    target: Biochar-Accelerated TCE Degradation
+    rationale: PARTIAL - biochar-associated microbial colonization and activity could contribute to faster TCE transformation,
+      alongside sorption and bioavailability effects. The amendment comparison does not selectively isolate colonization
+      as the causal mediator, and TCE disappearance through adsorption is not itself degradation.
+  removed_edge_decisions:
+  - source: Biochar-Accelerated TCE Degradation
+    target: Vinyl Chloride Accumulation Mitigation
+    rationale: Common amendment-associated endpoints with condition-dependent direction; faster TCE transformation
+      is not demonstrated to cause lower VC.
+  references:
+  - PMID:41442978
+  issues:
+  - 1390
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium/2026-10-06T061824Z-codex-ea8b4f.yaml
+  source_review:
+    PMID:41442978:
+      url: https://doi.org/10.1016/j.jenvman.2025.128362
+      alternate_url: https://www.researchgate.net/publication/398909775_Biochar-assisted_detoxification_of_groundwater_trichloroethene_Mitigating_vinyl_chloride_accumulation_and_environmental_risks_via_Dehalococcoides_mccartyi-containing_consortium
+      scope: Complete cached published abstract and publisher-indexed highlights/introduction. Complete author-uploaded
+        UNCORRECTED PROOF main body, Table 1 text and Figures 1-7 captions; uploaded by Che-Wei Lu on 2025-12-24.
+        Final published full body not accessed (publisher 403). No figure images or supplements. Inconsistent proof
+        units and concentrations are not normalized.

@@ -585,16 +585,11 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Dehalococcoides-Pelobacter Acetylene TCE Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -603,8 +598,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -615,7 +610,7 @@
                     <h3>Acetylene-Fueled Dechlorinating Coculture</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Pelobacter strain SFB93 enables a defined coculture in which acetylene is supplied as electron donor and carbon source while D. mccartyi strain 195 uses TCE as the electron acceptor for reductive dechlorination.</p>
+                <p class="prewrap interaction-description">SFB93 fermentation allows acetylene to supply electron donor and carbon for the defined strain-195 coculture through hydrogen and acetate provision. Strain 195 reductively dechlorinates TCE, predominantly to vinyl chloride under the reported conditions. The BAV1 coculture and the ANAS enrichment are separate systems.</p>
 
 
                 <p><strong>Source Taxon:</strong> Pelobacter strain SFB93</p>
@@ -658,8 +653,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> D. mccartyi Reductive Dechlorination
-                        <p class="prewrap causal-description">Pelobacter fermentation lets acetylene serve as the reduced substrate that fuels D. mccartyi organohalide respiration of TCE in the defined coculture.
-</p>
+                        <p class="prewrap causal-description">SFB93 acetylene fermentation supplies hydrogen and acetate that support strain-195 TCE dechlorination and growth. This positive nutritional coupling is distinct from removal of an initially inhibitory acetylene exposure; it does not assign BAV1 vinyl-chloride respiration to strain 195.</p>
                     </div>
 
                 </div>
@@ -702,16 +696,13 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>D. mccartyi Reductive Dechlorination</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">D. mccartyi strain 195 performs reductive dechlorination of TCE in the coculture; transcriptomic observations indicate that reductive dehalogenase genes such as tceA were monitored during acetylene inhibition.</p>
+                <p class="prewrap interaction-description">Strain 195 performs hydrogen-dependent reductive dechlorination of TCE in the coculture, predominantly producing vinyl chloride. This is the recipient phenotype, not nutrient transfer back to SFB93. In separate acetylene-inhibited strain-195 assays, unchanged tceA transcript abundance does not establish induction-mediated rescue or identify the inhibited enzyme.</p>
 
 
                 <p><strong>Source Taxon:</strong> Dehalococcoides mccartyi strain 195</p>
 
 
-
-                <p><strong>Target Taxon:</strong> Pelobacter strain SFB93</p>
 
 
 
@@ -766,7 +757,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/28075122/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:28075122</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"genes encoding for reductive dehalogenases"</div>
@@ -780,14 +771,15 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>SFB93-Mediated Relief of Acetylene Inhibition</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Addition of the acetylene-fermenting SFB93 partner removed acetylene inhibition of reductive dechlorination and methanogenesis in the ANAS enrichment, supporting the functional relevance of pairing acetylene metabolism with dechlorinating organisms.</p>
+                <p class="prewrap interaction-description">Adding SFB93 to acetylene-inhibited strain-195 cultures consumed acetylene and restored TCE reductive dechlorination in the primary study. This exact-pair rescue is distinct from the separate ANAS enrichment and its condition-dependent methanogenesis response; it is detoxification support, not demonstrated colonization facilitation.</p>
 
 
                 <p><strong>Source Taxon:</strong> Pelobacter strain SFB93</p>
 
 
+
+                <p><strong>Target Taxon:</strong> Dehalococcoides mccartyi strain 195</p>
 
 
 
@@ -819,8 +811,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> D. mccartyi Reductive Dechlorination
-                        <p class="prewrap causal-description">Acetylene fermentation by SFB93 relieves acetylene inhibition of organohalide respiration, allowing D. mccartyi to resume reductive dechlorination in acetylene-fed cultures.
-</p>
+                        <p class="prewrap causal-description">SFB93 consumption of inhibitory acetylene permits strain 195 to resume TCE reductive dechlorination, as tested by delayed partner addition in the primary Results and Figure 2 caption. The local abstract rescue phrase concerns ANAS and alone does not establish this exact-pair result; ANAS methanogenesis is not transferred to this arrow.</p>
                     </div>
 
                 </div>
@@ -836,7 +827,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/28075122/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:28075122</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"inhibition was removed by adding Pelobacter SFB93"</div>
@@ -903,6 +894,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which acetylene-sensitive processes limit strain-195 recovery after SFB93 addition?
+                </h3>
+                <p class="prewrap">The whole primary main body and six figure captions were read. Figure 2 reports exact strain-195 rescue after delayed SFB93 addition; the cached abstract rescue sentence instead concerns ANAS. Unchanged tceA transcription does not identify the inhibited enzyme. Distinguish the nutritional coculture, inhibited-isolate rescue and ANAS methanogenesis assays. Exact-pair body evidence is not locally snippet-verifiable. Existing non-graph evidence debt remains under #765; the curated Syntrophotalea grounding is unchanged. No figure images, Table 1 or supplements were inspected.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Acetylene-Fueled Dechlorinating Coculture</code>, <code>ecological_interactions#D. mccartyi Reductive Dechlorination</code>, <code>ecological_interactions#SFB93-Mediated Relief of Acetylene Inhibition</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1332,7 +1342,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1367,16 +1377,11 @@
 
 
 
-            var tgtKey = "Pelobacter strain SFB93";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1408,6 +1413,11 @@
             }
 
 
+
+            var tgtKey = "Dehalococcoides mccartyi strain 195";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
 
         })();
 
