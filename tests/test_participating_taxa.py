@@ -286,6 +286,7 @@ USERS = {
     "HAMBI_Carbon_Gradient_SynCom16.yaml",
     "Hanford_300_Area_Unconfined_Aquifer_Community.yaml",
     "Hexamine_Formaldehyde_Consortium_C6.yaml",
+    "High_Solids_Switchgrass_Methanogenic_Microbiome.yaml",
     "Honeybee_Core20_Defined_Microbiota.yaml",
     "Hualgayoc_Acidic_Sulfate_Reducing_AMD_Consortium.yaml",
     "Iberian_Pit_Lake_Stratified_Community.yaml",

@@ -181,16 +181,13 @@ taxonomy:
     explanation: Supports Euryarchaeota as the archaeal methanogenic protein source tracked in the study.
 ecological_interactions:
 - name: High-Solids Switchgrass Carbohydrate Solubilization
-  description: Bacterial CAZyme-producing lineages collectively maintained carbohydrate solubilization
-    as switchgrass solids loading increased, with Firmicutes dominant and Chloroflexi/Thermotogae
-    showing fraction-specific enzyme contributions.
-  interaction_type: NICHE_PARTITIONING
+  description: The thermophilic HR1 community maintained fractional carbohydrate solubilization as switchgrass loading
+    increased from 30 to 150 g/L in one sequentially operated reactor. This positive bulk-carbohydrate result does
+    not demonstrate complete lignin mineralization or selectively identify the causal enzyme strategy. Vitamins,
+    medium optimization, mixing and adaptation also changed during operation. LC-MS profiles identify expressed
+    protein groups with annotated CAZyme potential, not direct catalytic activities; the five canonical taxa are
+    a curated subset, not every organism responsible for conversion.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Clostridia
-    term:
-      id: NCBITaxon:186801
-      label: Clostridia
   metabolites:
   - preferred_term: cellulose
     term:
@@ -210,38 +207,52 @@ ecological_interactions:
       id: GO:0045493
       label: xylan catabolic process
   downstream:
-  - target: Hydrogenotrophic Methanogenic Sink
-    description: High-solids carbohydrate solubilization and downstream
-      fermentation provide the reducing equivalents and carbon flow that
-      support methane and carbon dioxide as the main steady-state reactor
-      products.
+  - target: Methane Production and Inferred Hydrogenotrophic Route
+    description: PARTIAL - carbohydrate solubilization followed by fermentation can supply carbon and reducing equivalents
+      to methanogenesis, connecting the measured reactor outcomes. The broad trophic model is supported by bulk
+      products and protein profiles, but the hydrogenotrophic contribution and exact donor-to-methanogen flux were
+      not selectively quantified.
   evidence:
   - reference: PMID:35790765
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: undiminished fractional carbohydrate solubilization
-    explanation: Supports the high-solids deconstruction phenotype of the microbiome.
+    explanation: Supports maintained bulk fractional carbohydrate solubilization in the sequential reactor experiment,
+      not an isolated solids-only treatment effect or complete lignin mineralization.
   - reference: PMID:35790765
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: specific carbohydrate-active enzyme classes
-    explanation: Supports CAZymes as the measured enzymatic basis for carbohydrate solubilization.
-- name: Fraction-Specific CAZyme Functional Niches
-  description: Chloroflexi-associated CAZymes were more prevalent in planktonic-cell fractions, whereas
-    Thermotogae-associated enzymes were more represented in supernatant and substrate-bound fractions,
-    indicating spatially partitioned lignocellulose-deconstruction functions.
-  interaction_type: NICHE_PARTITIONING
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Chloroflexota
+    explanation: Supports the study's CAZyme-category analysis, not selective enzyme mediation or direct measurement
+      of catalytic activity.
+  participating_taxa:
+  - preferred_term: Clostridia
+    term:
+      id: NCBITaxon:186801
+      label: Clostridia
+  - preferred_term: Bacilli
+    term:
+      id: NCBITaxon:91061
+      label: Bacilli
+  - preferred_term: Chloroflexota
     term:
       id: NCBITaxon:200795
       label: Chloroflexota
-  target_taxon:
-    preferred_term: Thermotogota
+  - preferred_term: Thermotogota
     term:
       id: NCBITaxon:200918
       label: Thermotogota
+  - preferred_term: Euryarchaeota
+    term:
+      id: NCBITaxon:28890
+      label: Methanobacteriota
+- name: Fraction-Associated CAZyme Protein Profiles
+  description: Chloroflexi-assigned CAZyme proteins were more prevalent in the planktonic-cell fraction, whereas
+    Thermotogae-assigned proteins were more represented in supernatant and substrate-bound fractions. These positive
+    metaproteomic profiles motivated the authors' functional-niche interpretation. Centrifugation-enriched fractions
+    and protein adsorption do not directly locate every living organism, establish competitive niche partitioning,
+    or demonstrate a Chloroflexota-to-Thermotogota interaction.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cellulose
     term:
@@ -258,31 +269,39 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: High-Solids Switchgrass Carbohydrate Solubilization
-    description: Spatially partitioned Chloroflexi and Thermotogae CAZyme
-      contributions are part of the bacterial enzyme strategy that maintains
-      fractional carbohydrate solubilization as switchgrass solids increase.
+    description: PARTIAL - fraction-associated CAZyme proteins could contribute complementary hydrolysis functions
+      that maintain carbohydrate solubilization. Protein abundance and localization profiles support this interpretation,
+      not selective perturbation establishing that spatial partitioning causes the maintained phenotype.
   evidence:
   - reference: PMID:35790765
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: suggesting the presence of functional niches
-    explanation: Supports spatially differentiated CAZyme contributions across community fractions.
+    snippet: CAZymes from the phylum Chloroflexi were more prevalent in the PC fraction while enzymes from the phylum
+      Thermotogae were more represented in the SNT and SB fractions
+    explanation: Supports fraction-associated annotated protein profiles and the authors' suggested niches, not
+      experimentally established competitive partitioning.
   - reference: PMID:35790765
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: substrate bound
-    explanation: Supports the substrate-bound fraction as one localization context for lignocellulose enzymes.
-- name: Hydrogenotrophic Methanogenic Sink
-  description: Archaeal methanogenesis functions converted fermentation-derived reducing equivalents
-    and carbon dioxide to methane, consistent with methane and carbon dioxide as the main observed
-    reactor products and hydrogenotrophic methanogenesis proteins increasing at high solids.
-  interaction_type: SYNTROPHY
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Euryarchaeota
+    snippet: 'each sample was split into three fractions: supernatant (SNT), planktonic cells (PC), and substrate-bound
+      (SB)'
+    explanation: Defines the measured fractions without asserting pure compartments or direct live-cell localization.
+  participating_taxa:
+  - preferred_term: Chloroflexota
     term:
-      id: NCBITaxon:28890
-      label: Methanobacteriota
+      id: NCBITaxon:200795
+      label: Chloroflexota
+  - preferred_term: Thermotogota
+    term:
+      id: NCBITaxon:200918
+      label: Thermotogota
+- name: Methane Production and Inferred Hydrogenotrophic Route
+  description: Methane and carbon dioxide were measured reactor products. The higher abundance and diversity of
+    proteins assigned to hydrogenotrophic rather than acetoclastic pathways suggest a major hydrogenotrophic route,
+    but do not quantify its fraction of methane production or exclude other routes. Steady-state hydrogen and volatile
+    fatty acids below detection do not mean absent turnover. The canonical archaeal group represents inferred methanogenic
+    capacity, not the complete community or an experimentally resolved partner pair.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methane
     term:
@@ -306,12 +325,19 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: The main products observed were methane
-    explanation: Supports methane as a main reactor product.
+    explanation: Supports positive bulk methane production, not pathway-resolved carbon or electron flux.
   - reference: PMID:35790765
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: all hydrogenotrophic methanogenesis pathway enzymes
-    explanation: Supports hydrogenotrophic methanogenesis as a metaproteomic feature increasing at high solids.
+    snippet: both the aggregate abundance and diversity (protein count) of those mapping the hydrogenotrophic pathway
+      markedly exceeded that of the acetoclastic pathway
+    explanation: Supports the authors' dominant-route inference from annotated protein profiles, not a measured
+      methane-flux partition.
+  participating_taxa:
+  - preferred_term: Euryarchaeota
+    term:
+      id: NCBITaxon:28890
+      label: Methanobacteriota
 environmental_factors:
 - name: Switchgrass solids loading
   value: 30 to 150
@@ -473,3 +499,30 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role was reported for this thermophilic
   switchgrass methanogenic microbiome in the curated sources.
+discussions:
+- discussion_id: switchgrass_profile_to_function
+  prompt: Which enzymes and metabolic routes maintain conversion at high solids?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#High-Solids Switchgrass Carbohydrate Solubilization
+  - ecological_interactions#Fraction-Associated CAZyme Protein Profiles
+  - ecological_interactions#Methane Production and Inferred Hydrogenotrophic Route
+  rationale: One sequential HR1 reactor supports positive conversion and gas outcomes but does not isolate solids
+    loading from vitamin, medium, mixing or adaptation changes. Metaproteomic replicates are not independent replicate
+    reactors, and the sequence database was derived from lower-solids metagenomes. Selective enzyme perturbations,
+    catalytic assays and route-resolved flux would test both existing arrows. AA6 enrichment motivated an oxidative/Fenton
+    accessibility hypothesis, but ROS, iron cycling and lignin-depolymerization flux were not directly established
+    in the inspected study; no new oxidative branch is asserted. The authors' proposed syntrophic acetate oxidation
+    likewise remains unresolved. Canonical broad taxa are incomplete and are not a newly grounded strain roster.
+    Cache abstract-only metadata coexists with an appended primary full body, which was read. Non-graph metadata
+    is preserved, not recertified.
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T15:06:38Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate CAZyme protein profiles and inferred methanogenic routes from demonstrated mediation. Issue
+    #1498; reports/causal_graph_review/decisions/20261006-enrichments-core20-batch51.yaml'
+  llm_assisted: true
