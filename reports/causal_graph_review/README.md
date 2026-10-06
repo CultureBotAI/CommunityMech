@@ -5,6 +5,22 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch52: URLs, Hualgayoc And Gut Proteomes
+
+[Decisions](decisions/20261006-urls-amd-proteome-batch52.yaml),
+[validation](validation-20261006-batch52.json) and
+[self-adversarial review](adversarial-review-20261006-batch52.yaml) retain
+nine nodes, remove two contextual URL arrows and qualify three proposed links.
+Genomic potential remains distinct from measured flux; MAG assignments remain
+distinct from bulk remediation chemistry. Controlled proteome responses and
+annotated overlap remain distinct from demonstrated niche partitioning or yield
+mediation. Both URL habitat labels remain explicit despite their shared CURIE.
+Hualgayoc remains `needs_research` under #1504 for its missing positive outcome
+structure: an Edison dry run succeeded, but no paid report has been obtained.
+Complete cached primary main texts, Methods and embedded captions were read,
+not original images, supplementary files, raw data or code. Non-graph metadata
+is preserved, not recertified.
+
 ## Batch51: Enrichments And Core-20
 
 [Decisions](decisions/20261006-enrichments-core20-batch51.yaml),
