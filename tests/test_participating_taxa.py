@@ -236,6 +236,7 @@ USERS = {
     "Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml",
     "Defined_Multispecies_Enamel_Caries_Model.yaml",
     "Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml",
+    "Dehalococcoides_Desulfovibrio_Pelosinus_Corrinoid_Triculture.yaml",
     "Dolichospermum_FBCC_A233_Xenic_Phycosphere_Community.yaml",
     "Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml",
     "EcoFAB_Ring_Trial_SynCom17.yaml",
