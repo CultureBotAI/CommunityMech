@@ -1,0 +1,256 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 038ac9ce75c9922efa357610386a34da7a313305
+baseline_commit: 038ac9ce75c9922efa357610386a34da7a313305
+base_tree: 3c84057a0efa0f1ca56f874dd8a7c7fab3ba0b8a
+issues:
+- 1480
+- 1481
+- 1482
+- 1483
+repair_issues:
+- 1480
+- 1481
+open_research_issues:
+- 1482
+- 1483
+issue_deduplication:
+  all_state_issue_titles_and_bodies: 794
+  ignored_hidden_local_search: true
+  relevant_bodies_read:
+  - 1091
+  - 751
+  - 306
+  local_matching_files: 12
+  limitations: Matches include prior render/audit logs and current inventory, not completed source-specific reviews.
+    Not every comment or PR review inspected.
+reference_cache_original_hashes:
+  references_cache/doi_10.1039_C3EE42189A.md: 49d5dd97f9a4ae9a613f4cee1fb126c322d0bed9ae41ec15715e6b00baf13462
+  references_cache/doi_10.1039_C3EE42189A.txt: 3ae93752c8660aa7755dbfe95d4e943228ed4a7226049f30c5a92bfe9e41e4b4
+  references_cache/doi_10.1039_C3EE42189A.json: 114f83f2081e7586b73b29531ed2de8fa8eda05cd101fa3a306a54bcb157f9c8
+  references_cache/PMID_24837373.txt: 51a1f3c88ee49aba3f391b6341f1d05b5f59c4ffbe3b249237c1b77ae0a28e7c
+  references_cache/PMID_37650614.txt: f8a5276dd4ad1447a6f1e912e5ef4033039a05c845c1be2bec0dc9a1444f1a87
+pre_source_baseline:
+  path: /private/tmp/communitymech-batch45/baseline.json
+  sha256: 1fbc4cd6eac3bc1409a8b8a9111c512119db46daee9d493e26474f74968ba58a
+  base_commit: 7bdc93828cb9585f0711253d58d7382037207010
+  selected_record_and_cache_hashes_match_current: true
+edison:
+- community: Geobacter_Methanosaeta_DIET
+  issue: 1482
+  meta_path: /private/tmp/communitymech-batch45/edison/Geobacter_Methanosaeta_DIET-edison-literature-causal-meta.yaml
+  meta_sha256: 4a99808b7cd4b5ac10be8a8b63dfccb1f4c9e17d315966d3b38d31640867bb1d
+  query_sha256: e1f4b922bfcf60f8b40c0148c22b31e04c767f7ae8355be74783937c9a074b81
+  query_chars: 13233
+  job: LITERATURE
+  status: dry-run
+  provider_calls: 0
+  provider_credits_spent: 0
+  authorization: Specific async request pending; no paid run or report.
+- community: Geobacter_Methanosarcina_DIET
+  issue: 1483
+  meta_path: /private/tmp/communitymech-batch46/edison/Geobacter_Methanosarcina_DIET-edison-literature-causal-meta.yaml
+  meta_sha256: 14f5ea6d34fd2772d4721a607cc7321a4a981addce7ae479fa427c5973fe735d
+  query_sha256: 04978828f6bc783e3d6655b40e8ddc62d7f0eb9b50d1b777e6f770805442996c
+  query_chars: 13853
+  job: LITERATURE
+  status: dry-run
+  provider_calls: 0
+  provider_credits_spent: 0
+  authorization: Specific async request pending; no paid run or report.
+limitations:
+- Whole 445-line Methanosaeta and 501-line Methanosarcina records and all six nodes/four arrows reviewed. Complete
+  primary main bodies/Methods/captions read for both 2014 papers and the 2023 T6SS paper. Selected 2014 Figures
+  2-5 (Methanosaeta) and 1-3 (Methanosarcina) inspected; no 2023 figure images, separate supplements, raw data or
+  analysis code audited.
+- 'Existing-node/edge repairs only. Both acetate branches remain unimplemented new causal structure under #1482/#1483;
+  both records remain needs_research. Two separate dry runs spent no credits and produced no provider reports; specific
+  paid-job authorization remains pending.'
+- Canonical taxonomy, all non-graph raw blocks, prior history and all 920 caches are preserved, not certified. Selected
+  updated Methanosaeta excerpts were independently checked in the actual primary abstract; its cached composite
+  Content is not certified as a faithful complete abstract. Full copyrighted PDFs remain temporary, not committed.
+- Research began after the batch45 pre-source baseline at batch44 head. Both selected records and caches are unchanged
+  at the fresh batch46 pre-edit baseline; the latter is not falsely described as preceding all source reading.
+- Reference CLI Total checks counts reported issues, not executed checks. SupportingReference coverage remains incomplete
+  (#476); DOI cache casing remains a cross-platform limitation (#1091), and textual matching is not provenance or
+  scientific support (#1362).
+- Source-based self-adversarial review is not independent approval; protected-main merge and full-corpus completion
+  remain pending.
+records:
+- path: kb/communities/Geobacter_Methanosaeta_DIET.yaml
+  id: CommunityMech:000032
+  original_sha256: 3fc22ecba6b448dd63c54896e119773338b3e331d88be489b54bb1c58277fc6a
+  record_sha256: 8e194a9177b013c6db3e2dd9b4ed9744f06ca0379116f41a0f4ed62cf1d4fde1
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-methanogens-batch46.yaml
+  scope: Every original node/arrow assessed and repaired; source-supported missing acetate branch explicitly incomplete.
+  summary: Separate the donor reaction from aggregate formation and methane carbon allocation.; Retain positive
+    defined-coculture DIET while bounding aggregation and electron-entry claims.; Retain only the CO2 methane route,
+    explicitly not the missing acetate branch.
+  renamed_nodes:
+    Ethanol Oxidation and Direct Electron Transfer: Geobacter Ethanol Oxidation
+    Conductive Aggregate-Mediated DIET: DIET in Defined Coculture Aggregates
+    Direct Electron Acceptance and Methanogenesis: DIET-Linked Carbon Dioxide Reduction to Methane
+  node_decisions:
+  - node: Geobacter Ethanol Oxidation
+    rationale: Separate the donor reaction from aggregate formation and methane carbon allocation.
+  - node: DIET in Defined Coculture Aggregates
+    rationale: Retain positive defined-coculture DIET while bounding aggregation and electron-entry claims.
+  - node: DIET-Linked Carbon Dioxide Reduction to Methane
+    rationale: Retain only the CO2 methane route, explicitly not the missing acetate branch.
+  removed_node_decisions: []
+  edges_before:
+  - source: Ethanol Oxidation and Direct Electron Transfer
+    target: Conductive Aggregate-Mediated DIET
+    description: Ethanol metabolism and extracellular electron transfer by aggregate-associated Geobacter feed the
+      conductive aggregates where Geobacter and Methanosaeta exchange electrons by DIET.
+  - source: Conductive Aggregate-Mediated DIET
+    target: Direct Electron Acceptance and Methanogenesis
+    description: Conductive-aggregate electron transfer delivers electrons to M. harundinacea for carbon dioxide
+      reduction to methane.
+  edges_after:
+  - source: Geobacter Ethanol Oxidation
+    target: DIET in Defined Coculture Aggregates
+    description: Ethanol oxidation releases reducing equivalents that Geobacter supplies to the defined partner
+      through DIET. This arrow routes electron supply, not acetate carbon, and does not assert that ethanol oxidation
+      selectively causes aggregate formation.
+  - source: DIET in Defined Coculture Aggregates
+    target: DIET-Linked Carbon Dioxide Reduction to Methane
+    description: DIET supplies electrons for M. harundinacea CO2 reduction to methane, supported by the defined-coculture
+      radiotracer and pilA comparison. This direction does not allocate acetate-derived methane to the CO2 branch
+      or establish a particular methanogen entry protein.
+  retained_edge_decisions:
+  - source: Geobacter Ethanol Oxidation
+    target: DIET in Defined Coculture Aggregates
+    description: Ethanol oxidation releases reducing equivalents that Geobacter supplies to the defined partner
+      through DIET. This arrow routes electron supply, not acetate carbon, and does not assert that ethanol oxidation
+      selectively causes aggregate formation.
+    rationale: Retain defined-coculture electron supply and CO2 reduction, not selective aggregate necessity or
+      an acetate-carbon route.
+  - source: DIET in Defined Coculture Aggregates
+    target: DIET-Linked Carbon Dioxide Reduction to Methane
+    description: DIET supplies electrons for M. harundinacea CO2 reduction to methane, supported by the defined-coculture
+      radiotracer and pilA comparison. This direction does not allocate acetate-derived methane to the CO2 branch
+      or establish a particular methanogen entry protein.
+    rationale: Retain defined-coculture electron supply and CO2 reduction, not selective aggregate necessity or
+      an acetate-carbon route.
+  removed_edge_decisions: []
+  references:
+  - doi:10.1039/C3EE42189A
+  issues:
+  - 1480
+  - 1482
+  repair_issue: 1480
+  research_issue: 1482
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Geobacter_Methanosaeta_DIET/2026-10-06T124951Z-codex-b6123c.yaml
+  source_review:
+    doi:10.1039/C3EE42189A:
+      cache: references_cache/doi_10.1039_C3EE42189A.md
+      url: https://pdfs.semanticscholar.org/d55d/65d23dd2fac1ff913e959526f40f2d7ee5d0.pdf
+      primary_pdf: /private/tmp/communitymech-batch45/methanosaeta-primary.pdf
+      primary_sha256: 6932b5512bace814ae2ed86f9cb481ec11fa7f9411659aa02d03759cdb8b72cc
+      scope: Complete body/Methods/captions; Figures 2-5 inspected from PDF pages4/5. Transparent PNG background
+        limited body visibility, so body text was separately read. No separate supplements or raw data. Actual abstract
+        excerpts independently checked.
+      cache_sha256: 49d5dd97f9a4ae9a613f4cee1fb126c322d0bed9ae41ec15715e6b00baf13462
+- path: kb/communities/Geobacter_Methanosarcina_DIET.yaml
+  id: CommunityMech:000033
+  original_sha256: 3c1a692277d402834b3acc3d529d8abe87a2afe7a0ae03027aae66eff187a543
+  record_sha256: b6b5f1714e6692936ca408e74dba44df4cbb9518a258c7c7203425998c2979e0
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-methanogens-batch46.yaml
+  scope: Every original node/arrow assessed and repaired; source-supported missing acetate branch explicitly incomplete.
+  summary: Retain donor-to-partner DIET and condition-dependent pili/GAC evidence; correct the donor carbon reaction.;
+    Bound the existing methane node to CO2 reduction without universal uniqueness or DIET-only growth.; Retain the
+    exact hcp-lag phenotype and hypothetical negative arrow without niche partitioning, secretion or killing claims.
+  renamed_nodes:
+    Direct Electron Acceptance and Methanogenesis: DIET-Linked Carbon Dioxide Reduction to Methane
+    T6SS-Associated Delay of DIET Establishment: Hcp-Associated Delay of DIET Establishment
+  node_decisions:
+  - node: Ethanol Oxidation and Direct Electron Transfer
+    rationale: Retain donor-to-partner DIET and condition-dependent pili/GAC evidence; correct the donor carbon
+      reaction.
+  - node: DIET-Linked Carbon Dioxide Reduction to Methane
+    rationale: Bound the existing methane node to CO2 reduction without universal uniqueness or DIET-only growth.
+  - node: Hcp-Associated Delay of DIET Establishment
+    rationale: Retain the exact hcp-lag phenotype and hypothetical negative arrow without niche partitioning, secretion
+      or killing claims.
+  removed_node_decisions: []
+  edges_before:
+  - source: Ethanol Oxidation and Direct Electron Transfer
+    target: Direct Electron Acceptance and Methanogenesis
+    description: Electrons transferred via DIET are accepted by M. barkeri for methanogenesis
+  - source: T6SS-Associated Delay of DIET Establishment
+    target: Ethanol Oxidation and Direct Electron Transfer
+    description: NEGATIVE edge - the wild-type T6SS-expressing state of G. metallireducens delays establishment
+      of the DIET partnership (>30 d lag vs very little lag for the Hcp-deficient mutant). Demonstrated by knockout
+      phenotype in this exact coculture, but the mutant is pleiotropic, so the causal attribution to the T6SS specifically
+      is HYPOTHESIZED rather than proven.
+  edges_after:
+  - source: Ethanol Oxidation and Direct Electron Transfer
+    target: DIET-Linked Carbon Dioxide Reduction to Methane
+    description: DIET delivers ethanol-derived electrons to M. barkeri for CO2 reduction. This electron-supply arrow
+      supports the CO2 route, not an attribution of all bulk methane to that route; acetate conversion is a separate
+      missing branch.
+  - source: Hcp-Associated Delay of DIET Establishment
+    target: Ethanol Oxidation and Direct Electron Transfer
+    description: 'HYPOTHESIZED NEGATIVE: The wild-type Hcp/T6SS-associated state may delay DIET establishment relative
+      to the hcp deletion strain. The exact coculture demonstrates a lag difference, but altered electron-transfer
+      physiology prevents assigning the delay selectively to T6SS antagonism. The sign refers to establishment timing,
+      not proven archaeal killing.'
+  retained_edge_decisions:
+  - source: Ethanol Oxidation and Direct Electron Transfer
+    target: DIET-Linked Carbon Dioxide Reduction to Methane
+    description: DIET delivers ethanol-derived electrons to M. barkeri for CO2 reduction. This electron-supply arrow
+      supports the CO2 route, not an attribution of all bulk methane to that route; acetate conversion is a separate
+      missing branch.
+    rationale: Retain the bounded source-backed electron-supply direction; the hcp-associated negative direction
+      remains explicitly HYPOTHESIZED and pleiotropy-limited.
+  - source: Hcp-Associated Delay of DIET Establishment
+    target: Ethanol Oxidation and Direct Electron Transfer
+    description: 'HYPOTHESIZED NEGATIVE: The wild-type Hcp/T6SS-associated state may delay DIET establishment relative
+      to the hcp deletion strain. The exact coculture demonstrates a lag difference, but altered electron-transfer
+      physiology prevents assigning the delay selectively to T6SS antagonism. The sign refers to establishment timing,
+      not proven archaeal killing.'
+    rationale: Retain the bounded source-backed electron-supply direction; the hcp-associated negative direction
+      remains explicitly HYPOTHESIZED and pleiotropy-limited.
+  removed_edge_decisions: []
+  references:
+  - PMID:24837373
+  - PMID:37650614
+  issues:
+  - 1481
+  - 1483
+  repair_issue: 1481
+  research_issue: 1483
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Geobacter_Methanosarcina_DIET/2026-10-06T124951Z-codex-59a839.yaml
+  source_review:
+    PMID:24837373:
+      cache: references_cache/PMID_24837373.txt
+      url: https://protocols-files.s3.amazonaws.com/public/34a1ee6658ca764b1316f8c5129dedd263745006c6d75e75787d4763edf5ff16/bt5vbabx7.pdf
+      primary_pdf: /private/tmp/communitymech-batch45/methanosarcina-primary.pdf
+      primary_sha256: d6dd4a4309296ad0a611f3eaa8689a6561c3a6a5190431db871d3eabe6d9db77
+      scope: Complete body/Methods/captions from PDF pages1-5; Figures1-3 inspected. Pypdf escaped some math glyphs;
+        page4 JPEG inspected with white background. Gmet1868 Figure3b has residual methane, so no new zero-activity
+        claim. No Figure4 image, supplement or raw-data audit.
+      cache_sha256: 51a1f3c88ee49aba3f391b6341f1d05b5f59c4ffbe3b249237c1b77ae0a28e7c
+    PMID:37650614:
+      cache: references_cache/PMID_37650614.txt
+      scope: Complete appended main body/Methods/Table1/captions read. No figure images, separate supplements, raw
+        data or code inspected.
+      cache_sha256: f8a5276dd4ad1447a6f1e912e5ef4033039a05c845c1be2bec0dc9a1444f1a87
