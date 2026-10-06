@@ -5,6 +5,29 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch65: Soil And Mucin Assay Boundaries
+
+[Decisions](decisions/20261006-soil-mucin-batch65.yaml),
+[validation](validation-20261006-batch65.json) and
+[self-adversarial review](adversarial-review-20261006-batch65.yaml) account for
+all eight retained observations and three original arrows. MSC2's two biological
+arrows remain as hypotheses; MUC2's common-treatment mediation arrow is removed.
+
+MSC1 storage persistence, early NAG total-OD benefits and computational soil
+co-abundance are distinct observations, not demonstrated metabolic dependency.
+MSC2 pellet metabolomics is not extracellular transfer, temporal community
+transcripts are not matched induction assays, and mixed-bag modeling removes
+species boundaries. MUC2 group-qPCR estimates and net extracellular acid
+concentrations do not establish partner flux or composition-mediated effects.
+
+Three complete fresh primary bodies and main text tables were read. Original
+figure pixels, separate supplements, raw data and executable models were not
+audited. All 920 caches remain unchanged; 12 graph excerpts match fresh primary
+text. Canonical taxonomy and non-graph blocks are preserved, not recertified.
+Metadata and source inconsistencies remain under #1569 and existing related
+issues. Repairs #1566-#1568 await protected-main merge. No new causal structure
+or Edison submission; this is self-review, not independent approval.
+
 ## Batch64: Regolith, Lupin And MAMC Assay Boundaries
 
 [Decisions](decisions/20261006-assay-boundaries-batch64.yaml),

@@ -498,66 +498,179 @@ taxonomy:
       Names source-reported A. muciniphila ATCC BAA-83 as the Akkermansia
       member.
 ecological_interactions:
-- name: MUC2 Glycan Niche Restructuring
-  description: >-
-    Porcine MUC2 altered the qPCR-detected community profile after three days,
-    significantly increasing Akkermansia and decreasing Prevotella against the
-    vehicle-treated consortium.
-  interaction_type: NICHE_PARTITIONING
+- name: MUC2-Associated qPCR Community Profile
+  description: After 72 hours, the porcine-MUC2 treatment increased the Akkermansia qPCR estimate and decreased
+    the Prevotella estimate relative to vehicle controls. Six qPCR groups produced calculated CFU equivalents from
+    DNA standard curves, not direct viable counts or resolution of all fourteen inoculated strains. Total OD did
+    not significantly differ between treatments. The fourteen canonical participants identify the input roster,
+    not confirmed equal survival or endpoint abundance. CAZy glycosyl-hydrolase capacity classes summarize species-level
+    genome sets, not measured mucin-degrading enzymes in these exact inoculants; niche partitioning and antagonism
+    are not established by these endpoints.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: MUC2-Shifted Short-Chain Fatty Acid Output
-    description: >-
-      MUC2-dependent changes in community structure accompanied broad changes
-      in extracellular fermentation products.
   evidence:
   - reference: PMID:42007376
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      MUC2 supplementation significantly altered community structure, promoting
-      the expansion of Akkermansia muciniphila while reducing Prevotella.
-    explanation: >-
-      Supports the direction of the community-composition shift under MUC2.
-- name: MUC2-Shifted Short-Chain Fatty Acid Output
-  description: >-
-    The MUC2-amended defined consortium showed reduced acetate and elevated
-    propionate, butyrate, and formate relative to vehicle controls, consistent
-    with MUC2 changing how the community routed fermentation products.
-  interaction_type: CROSS_FEEDING
+    snippet: MUC2 supplementation significantly altered community structure, promoting the expansion of Akkermansia
+      muciniphila while reducing Prevotella.
+    explanation: Supports the positive treatment-associated qPCR profile shift. Group-level DNA estimates do not
+      establish direct viable counts, fourteen-strain resolution or ecological mechanism.
+  participating_taxa:
+  - preferred_term: Lactobacillus acidophilus ATCC 4796
+    term:
+      id: NCBITaxon:1579
+      label: Lactobacillus acidophilus
+  - preferred_term: Lactococcus lactis CB1
+    term:
+      id: NCBITaxon:1358
+      label: Lactococcus lactis
+  - preferred_term: Clostridium symbiosum DSZM 14940
+    term:
+      id: NCBITaxon:1512
+      label: '[Clostridium] symbiosum'
+  - preferred_term: Streptococcus thermophilus ATCC 491
+    term:
+      id: NCBITaxon:1308
+      label: Streptococcus thermophilus
+  - preferred_term: Escherichia coli Nissle 1917
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  - preferred_term: Enterococcus faecalis Symbioflor DSM 16431
+    term:
+      id: NCBITaxon:1351
+      label: Enterococcus faecalis
+  - preferred_term: Bifidobacterium longum ATCC 55813
+    term:
+      id: NCBITaxon:216816
+      label: Bifidobacterium longum
+  - preferred_term: Blautia coccoides ATCC 29236
+    term:
+      id: NCBITaxon:572511
+      label: Blautia
+  - preferred_term: Blautia producta ATCC 27340D
+    term:
+      id: NCBITaxon:33035
+      label: Blautia producta
+  - preferred_term: Prevotella copri DSM 18205
+    term:
+      id: NCBITaxon:165179
+      label: Segatella copri
+  - preferred_term: Bacteroides thetaiotaomicron ATCC 29148
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+  - preferred_term: Bacteroides fragilis ATCC 23745
+    term:
+      id: NCBITaxon:817
+      label: Bacteroides fragilis
+  - preferred_term: Bacteroides ovatus ATCC 8483
+    term:
+      id: NCBITaxon:28116
+      label: Bacteroides ovatus
+  - preferred_term: Akkermansia muciniphila ATCC BAA-83
+    term:
+      id: NCBITaxon:239935
+      label: Akkermansia muciniphila
+- name: MUC2-Associated Extracellular Acid Concentrations
+  description: At 72 hours, MUC2-supplemented bioreactors had lower acetate and higher propionate, butyrate and
+    formate concentrations in filtered cell-free supernatants than vehicle controls, measured by targeted LC-MS/MS.
+    These are net extracellular concentration endpoints, not production rates, traced mucin-carbon flux or donor-recipient
+    exchange. The experiment used three bioreactors per treatment, 0.5 mg/mL porcine MUC2 and daily 10% medium replacement;
+    pH was neither controlled nor measured. HYPOTHESIZED - mucin-derived substrates and cross-feeding may contribute,
+    but specific producers, consumers and composition-mediated effects were not established. The fourteen listed
+    participants are input members, not assigned acid producers, and no host response was tested.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: acetate
     term:
       id: CHEBI:30089
       label: acetate
+    notes: Measured extracellular concentration endpoint; net production rate, mucin-carbon origin and partner exchange
+      were not resolved.
   - preferred_term: propionate
     term:
       id: CHEBI:17272
       label: propionate
+    notes: Measured extracellular concentration endpoint; net production rate, mucin-carbon origin and partner exchange
+      were not resolved.
   - preferred_term: butyrate
     term:
       id: CHEBI:17968
       label: butyrate
+    notes: Measured extracellular concentration endpoint; net production rate, mucin-carbon origin and partner exchange
+      were not resolved.
   - preferred_term: formate
     term:
       id: CHEBI:15740
       label: formate
+    notes: Measured extracellular concentration endpoint; net production rate, mucin-carbon origin and partner exchange
+      were not resolved.
   evidence:
   - reference: PMID:42007376
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      MUC2 also reshaped microbial metabolism, decreasing acetate levels while
-      increasing propionate, butyrate, and formate.
-    explanation: >-
-      Supports the MUC2-dependent shift in extracellular short-chain fatty
-      acids and formate.
+    snippet: MUC2 also reshaped microbial metabolism, decreasing acetate levels while increasing propionate, butyrate,
+      and formate.
+    explanation: Supports directions of measured extracellular acid concentration changes, not exchange flux, specific
+      producers or mediation by the qPCR composition shift.
+  participating_taxa:
+  - preferred_term: Lactobacillus acidophilus ATCC 4796
+    term:
+      id: NCBITaxon:1579
+      label: Lactobacillus acidophilus
+  - preferred_term: Lactococcus lactis CB1
+    term:
+      id: NCBITaxon:1358
+      label: Lactococcus lactis
+  - preferred_term: Clostridium symbiosum DSZM 14940
+    term:
+      id: NCBITaxon:1512
+      label: '[Clostridium] symbiosum'
+  - preferred_term: Streptococcus thermophilus ATCC 491
+    term:
+      id: NCBITaxon:1308
+      label: Streptococcus thermophilus
+  - preferred_term: Escherichia coli Nissle 1917
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  - preferred_term: Enterococcus faecalis Symbioflor DSM 16431
+    term:
+      id: NCBITaxon:1351
+      label: Enterococcus faecalis
+  - preferred_term: Bifidobacterium longum ATCC 55813
+    term:
+      id: NCBITaxon:216816
+      label: Bifidobacterium longum
+  - preferred_term: Blautia coccoides ATCC 29236
+    term:
+      id: NCBITaxon:572511
+      label: Blautia
+  - preferred_term: Blautia producta ATCC 27340D
+    term:
+      id: NCBITaxon:33035
+      label: Blautia producta
+  - preferred_term: Prevotella copri DSM 18205
+    term:
+      id: NCBITaxon:165179
+      label: Segatella copri
+  - preferred_term: Bacteroides thetaiotaomicron ATCC 29148
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+  - preferred_term: Bacteroides fragilis ATCC 23745
+    term:
+      id: NCBITaxon:817
+      label: Bacteroides fragilis
+  - preferred_term: Bacteroides ovatus ATCC 8483
+    term:
+      id: NCBITaxon:28116
+      label: Bacteroides ovatus
+  - preferred_term: Akkermansia muciniphila ATCC BAA-83
+    term:
+      id: NCBITaxon:239935
+      label: Akkermansia muciniphila
 environmental_factors:
 - name: Porcine MUC2 supplementation
   value: '0.5'
@@ -652,36 +765,49 @@ metal_notes: >-
   response consortium.
 discussions:
 - discussion_id: kg-muc2-group-level-qpcr-resolution
-  prompt: >-
-    Which specific member strains mediate the MUC2-dependent metabolite shifts
-    in this 14-strain human-gut consortium?
+  prompt: Which specific member strains mediate the MUC2-dependent metabolite shifts in this 14-strain human-gut
+    consortium?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
-  - ecological_interactions#MUC2 Glycan Niche Restructuring
-  - ecological_interactions#MUC2-Shifted Short-Chain Fatty Acid Output
-  rationale: >-
-    The qPCR assay reported Bacteroides, Lactobacillus/Enterococcus,
-    Bifidobacterium, Escherichia, Prevotella, and Akkermansia groups rather
-    than final strain-level abundances for all 14 source strains, and the
-    metabolomics data were extracellular community readouts. These data support
-    community-level MUC2 responses but not exact pairwise donor-recipient
-    cross-feeding edges.
+  - ecological_interactions#MUC2-Associated qPCR Community Profile
+  - ecological_interactions#MUC2-Associated Extracellular Acid Concentrations
+  rationale: The qPCR assay reported Bacteroides, Lactobacillus/Enterococcus, Bifidobacterium, Escherichia, Prevotella,
+    and Akkermansia groups rather than final strain-level abundances for all 14 source strains, and the metabolomics
+    data were extracellular community readouts. These data support community-level MUC2 responses but not exact
+    pairwise donor-recipient cross-feeding edges.
   evidence:
   - reference: PMID:42007376
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      The following forward and reverse primers were used for bacterial species
-      detection: Bacteroides Forward primer
-    explanation: >-
-      Anchors the group/species-specific qPCR panel used to estimate community
-      structure after 72 h.
+    snippet: 'The following forward and reverse primers were used for bacterial species detection: Bacteroides Forward
+      primer'
+    explanation: Anchors the group/species-specific qPCR panel used to estimate community structure after 72 h.
+- discussion_id: muc2_common_treatment_not_mediation
+  prompt: Which processes explain the MUC2-associated extracellular acid shifts?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#MUC2-Associated qPCR Community Profile
+  - ecological_interactions#MUC2-Associated Extracellular Acid Concentrations
+  rationale: 'Both graph observations respond to the same MUC2 treatment; their co-measurement does not establish
+    composition-to-metabolite mediation, so remove that arrow while retaining positive outcomes. Preserve and retarget
+    the existing group-qPCR knowledge gap. Whole primary body and main statistical table read; no figure-pixel,
+    separate-supplement or raw-data audit. Selective removal, isotope tracing or genetic perturbations are needed
+    to assign partner flux. Unmeasured pH and nutrient replacement further limit mechanistic interpretation; porcine
+    mucin and a host-free reactor do not establish human-host outcomes. Canonical source strain text and prior culture-accession
+    safeguards stay intact; unresolved metadata belongs to #1569.'
+  posed_by: codex
+  posed_date: '2026-10-06'
 curation_history:
 - timestamp: '2026-09-12T00:36:53Z'
   curator: codex
   action: FIX_GTDB_STATUS_AND_STRAIN_ACCESSIONS
-  changes: >-
-    Added explicit GTDB grounding statuses to the MUC2 taxonomy and preserved
-    the source-reported DSZM 14940 Clostridium symbiosum strain text without an
-    unverified DSM culture collection accession.
+  changes: Added explicit GTDB grounding statuses to the MUC2 taxonomy and preserved the source-reported DSZM 14940
+    Clostridium symbiosum strain text without an unverified DSM culture collection accession.
+- timestamp: '2026-10-06T22:47:10Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate MUC2 group-qPCR and extracellular acid endpoints from untested causal mediation. Issue #1568;
+    reports/causal_graph_review/decisions/20261006-soil-mucin-batch65.yaml'
+  llm_assisted: true

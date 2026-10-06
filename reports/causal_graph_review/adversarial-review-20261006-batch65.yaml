@@ -1,0 +1,197 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 5b6301d3c4c61bbc12df8d7b7dd4f0e55d444e7e
+scope:
+- kb/communities/MSC1_Dominant_Core.yaml
+- kb/communities/MSC2_Model_Soil_Consortium.yaml
+- kb/communities/MUC2_Human_Gut_Commensal_Defined_Consortium.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-soil-mucin-batch65.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch65.json
+findings:
+- issue: 1566
+  severity: P2
+  status: addressed_in_this_change
+  finding: MSC1 persistence, early-OD and computational-network claims exceed demonstrated dependencies.
+  disposition: Close only after protected-main merge.
+- issue: 1567
+  severity: P2
+  status: addressed_in_this_change
+  finding: MSC2 mechanistic arrows omit hypothesis, pellet-metabolite and temporal-transcript limits.
+  disposition: Close only after protected-main merge.
+- issue: 1568
+  severity: P2
+  status: addressed_in_this_change
+  finding: MUC2 common-treatment association is represented as composition-mediated cross-feeding.
+  disposition: Close only after protected-main merge.
+- issue: 1569
+  severity: P2
+  status: unresolved_non_graph
+  finding: Incomplete or ambiguous identities, protocol and role metadata, and primary-source reporting
+    inconsistencies.
+  disposition: Keep OPEN after graph repair merge.
+adversarial_checks:
+- Read all three whole records and account for all8 original nodes and3 arrows. Three complete fresh primary
+  main bodies and main text tables read; original figure pixels, separate supplements, raw data and executable
+  models not audited. Numerical summaries remain author-reported, not independently recomputed.
+- 'MSC1: retain compositional persistence with drift, not invariant membership or demonstrated codependency.
+  Canonical nine-member roster is explicitly incomplete;31-versus-35 OTUs and Sect_C_4-versus-C2 source
+  naming remain unresolved. Preserve prior workflow-arrow deletion and bacterial Bosea grounding.'
+- 'MSC1: positive comparisons concern early-exponential total OD on supplied10mM soluble NAG against the
+  average of corresponding monocultures. The source reports no significant late-exponential difference.
+  This is not partner-resolved biomass, reciprocal benefit, obligate syntrophy or chitin-polymer turnover.
+  Four named canonical participants omit the unresolved Rhizobium isolate; V4 does not separate Ensifer
+  OTUs.'
+- 'MSC1: pooled relative16S Pearson associations and betweenness hubs are computational, not experimentally
+  demonstrated facilitation, niche partitioning or keystone necessity. Rhizobiales is an order. Soil chitin
+  and liquid NAG assays must not be collapsed into one causal test. Source Table1 isolate mismatch, herbicide
+  doses and conflicting Methods inequalities remain under1569.'
+- 'MSC2: preserve five monoculture chitin-growth phenotypes without assigning exclusive initial mixed-community
+  donor roles. Distinguish100ppm monocultures from500ppm community growth, chitin+NAG preconditioning
+  and18mM ammonium supply. Do not rewrite supported Sinorhizobium chitin use as nitrogen fixation merely
+  because of its genus or existing497.'
+- 'MSC2: retain both existing biological arrows as HYPOTHESIZED. Primary Discussion proposes product sharing
+  and resource-enablement of Streptomyces; lack of selective rescue/removal experiments limits certainty
+  but does not justify deleting the source-supported model. Previously removed dangling outcome arrows
+  stay absent.'
+- 'MSC2: GC-MS measured cell-pellet metabolites after supernatant removal, despite extracellular-pool
+  wording in Introduction. NAG accumulation is not directly measured extracellular transfer. Mixed-bag
+  FBA removes species boundaries and cannot establish actual partner exchange. Transcript comparisons
+  are70vs118h within the community, not matched mono/community induction or direct enzyme activity.'
+- 'MSC2: preserve positive community-responsive Streptomyces observations and its approximately12% alignedRNA
+  proportion at70h without treating RNA proportions as viable abundance or chitinase flux. NAG preconditioning
+  can complicate repression/induction interpretation. Canonical source strain labels and genomes are preserved,
+  not independently re-grounded.'
+- 'MUC2: preserve increased Akkermansia and decreased Prevotella qPCR estimates with no significant totalOD
+  difference. Six group assays and calculatedCFU equivalents are not live colony counts or fourteen-strain
+  resolution. Explicit participants are the inoculated roster, not proven endpoint survival. CAZy capacity
+  classes summarize species-genome sets, not exact-strain enzyme measurements.'
+- 'MUC2: retain lower acetate and higher propionate/butyrate/formate as net72h extracellular concentrations.
+  They are not production rates, traced mucin-carbon flux, identified producers or donor-recipient exchange.
+  Remove the common-treatment composition-to-acid arrow without denying either positive endpoint. pH was
+  not measured/controlled, daily medium replacement matters, and host effects were not tested.'
+- Review full biological diff and eight focused tests. Retarget both anchors of the existing MUC2 qPCR
+  gap without altering its rationale/evidence. Preserve culture-accession safeguards805/806/808 and grounding
+  statuses807; ambiguous labels remain a separate issue.457 other records,920 caches and raw non-graph
+  blocks unchanged;46 baseline warnings retained exactly and no structural defects or auditor changes.
+- Actual schema, strict, terms, references, snippets, histories, corpus audit, deterministic renders and
+  regression outputs captured. Exact descriptions parsed across456 pages, not browser screenshots. Coarse
+  roster/scope census unchanged and does not certify identity or flux. Post-commit docs-current remains
+  a separate publication gate.
+- Deduplication covered861 all-state issue titles/bodies and28 scoped ignored/hidden local files;8 matching
+  bodies read along with prior MSC1 workflow and MUC2 curation histories, not every PR/comment/local artifact.1566-1568
+  addressed but OPEN until protected-main merge;1569 remains OPEN afterward. Exact-head self-review is
+  COMMENT, not independent approval. No new causal structure or paid Edison submission.
+verification:
+  combined_regressions: 595 passed in 208.89s (0:03:28)
+  new_regression_tests: 8
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: CLI Total checks counts reported issues, not executed checks. MATCH is not scientific entailment
+    or certification of historical provenance. All920 caches unchanged;12 graph excerpts independently
+    match fresh primary text.1569 and existing476/1091/1095 limitations remain unresolved; graph repair
+    does not recertify non-graph blocks.
+  snippet_counts_by_record:
+    kb/communities/MSC1_Dominant_Core.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/MSC2_Model_Soil_Consortium.yaml:
+      MATCH: 7
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/MUC2_Human_Gut_Commensal_Defined_Consortium.yaml:
+      MATCH: 22
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    primary_matched_graph_snippets: 12
+    primary_main_bodies: 3
+    paid_submissions: 0
+    new_nodes_or_arrows: 0
+    separate_supplements_inspected: false
+    original_figure_pixels_inspected: false
+  network:
+    existing_findings_preserved: 46
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All46 baseline network findings preserved exactly; no auditor-rule changes or invented
+      links. Explicit participant lists identify tested panels/inoculants, not missing hosts or background
+      communities.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-soil-mucin-batch65.yaml: 7d017a2aa5bbfdc46ad78cd9911b3d342ea092867ae544a5f709594c650da054
+    tests/test_causal_review_batch65.py: a5d3506eeb86b87920c6d792c28baad4b15d8cbcdb0158bd024c48ac5dbce196
+    tests/test_participating_taxa.py: 8cf3459098b11203dcb48dcc1d5bddc1f329b1af62f148d0f59b1ce7f0411acb
+    kb/communities/MSC1_Dominant_Core.yaml: 479f6594e26ce8439b24c947798594f7e1a28c6deedf918911ed5d342885d540
+    kb/communities/MSC2_Model_Soil_Consortium.yaml: 2145f5d6484f30023f834b708ccb23d3625375ab32dcf1a2e8a9fc3c4083271d
+    kb/communities/MUC2_Human_Gut_Commensal_Defined_Consortium.yaml: 01cb4512723915154b17fa1676382c9807fda7f733fc62efb63afabdad3e3742
+    reports/causal_graph_review/README.md: 5786f9372607e97d3ec255b061958f0c320dd29c24680581a05807c05c2f854f
+  unchanged_caches: 920
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    reason: Existing-node/arrow repairs only; no new causal structure.
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 391
+      mixed: 124
+      community_level_only: 267
+      taxa: 1507
+      credited_solely_by_the_rule: 1238
+    current:
+      records: 460
+      with_community_level: 391
+      mixed: 124
+      community_level_only: 267
+      taxa: 1507
+      credited_solely_by_the_rule: 1238
+  interpretation: Canonical roster/scope census unchanged. Explicit participants identify the partial
+    MSC1 roster and hubs, MSC2 assay/focal subsets and fourteen MUC2 input members. This coarse census
+    does not certify exact identities, final abundance or partner flux.
+corpus:
+  records: 460
+  nodes: 1452
+  edges: 638
+  review_status_counts:
+    needs_research: 21
+    pending: 230
+    reviewed: 209
+limitations:
+- All8 original nodes retained;3 original arrows reviewed,2 MSC2 biological hypotheses retained and1 MUC2
+  common-treatment arrow removed. No new causal structure or Edison submission.
+- Three complete fresh primary main bodies and main text tables read. Original figure pixels, separate
+  supplements, raw data and executable models not audited; author-reported numerical summaries not independently
+  recomputed.
+- MSC1 persistence is not codependency; positive early total OD on soluble NAG does not establish late-phase
+  or partner-resolved benefit. Pooled relative-abundance centrality is computational association, not
+  causality. Rhizobiales is an order and the canonical roster is incomplete.
+- MSC2 retains source-proposed sharing and resource-enablement mechanisms as hypotheses. Cell-pellet GC-MS
+  is not extracellular transfer, temporal community DEGs are not matched induction, and mixed-bag FBA
+  removes species boundaries. Distinct chitin concentrations, NAG preconditioning and ammonium supply
+  matter.
+- MUC2 group-qPCR calculated CFUs are not viable plating or fourteen-strain resolution. Net supernatant
+  acid concentrations do not identify flux, producers or composition-mediated effects; pH was neither
+  controlled nor measured and medium was replaced daily. CAZy species-genome percentages are not exact-strain
+  enzyme measurements.
+- Canonical taxonomy and raw non-graph blocks preserved, not recertified. Issue1569 remains OPEN for source/culture
+  identity, roles, assay metadata and source reporting inconsistencies; prior corrections and existing497
+  remain intact.
+- All920 caches unchanged;12 retained graph excerpts independently match fresh primary text. This does
+  not certify historical full-cache/non-graph provenance. Public OA XML was used without bypassing publisher
+  access restrictions.
+- Deduplication covered861 all-state issue titles/bodies and28 scoped ignored/hidden local files;8 matching
+  full issue bodies read. Prior MSC1 workflow history and MUC2 curation history read, not every PR/comment/local
+  match. Self-review is not independent approval; repair issues stay OPEN until protected-main merge.
