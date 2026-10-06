@@ -1,0 +1,228 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: ee38b8f0a6166f3d56dbf9ec07ac3afbabe2d1eb
+issues:
+- 1351
+- 1352
+open_nongraph_followups:
+- 1353
+- 1354
+issue_deduplication:
+  all_state_issue_titles_bodies: 687
+  ignored_hidden_local_files_included: true
+  comments_exhaustive: false
+  relevant_issues_read:
+  - 1158
+  - 1159
+  - 529
+  - 746
+  - 524
+  finding: No exact new graph duplicate in searched scope. Closed Cordyceps findings remain fixed; no new issue
+    or record edit needed there.
+reference_cache_original_hashes:
+  references_cache/PMID_41280275.md: e9b2350c84a165a5448055f5ce32481e50e75b9bbfa899d461b4c1bbfe53b22e
+  references_cache/PMID_42203120.md: 7b567b431f735bc1384c900944b5828baf891f73e51c02e45443529afd4da156
+  references_cache/PMID_42543088.txt: 4d04c53d9685fe8b117a1fafe832b85d7ee8d492fda574d89fd693782abbbe8b
+limitations:
+- Three records reviewed; two changed with two histories and two gaps. Cordyceps is byte-unchanged and needs no
+  artificial arrow.
+- Eight nodes and four arrows retained with four exact renames. No new structure or Edison spend.
+- One complete primary main body and two complete abstracts reviewed. No figure images or supplementary files inspected.
+  No full copyrighted body added.
+- 'Unrelated metadata and canonical taxa preserved, not certified; #1353/#1354 explicitly track remaining metadata
+  findings.'
+- Copper and Coscinodiscus had baseline/source preparation only and remain pending; no review-completion claim for
+  them.
+- Self-adversarial review is not independent approval or full-corpus completion.
+records:
+- path: kb/communities/Cordyceps_Malbranchea_Antimicrobial_Coculture.yaml
+  id: CommunityMech:000453
+  original_sha256: 2b61b970b93b4db345670df9f86f00ba299b29ba76cb56b99333fd8bf68e7c6d
+  record_sha256: 2b61b970b93b4db345670df9f86f00ba299b29ba76cb56b99333fd8bf68e7c6d
+  status: reviewed
+  outcome: unchanged
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch24.yaml
+  scope: Whole record and every original node/arrow; source access bounded below.
+  summary: Retain the abstract-supported isolation of eight new and eleven known natural products. Coculture origin
+    is not proof of partner-dependent induction or reciprocal benefit; no such claim is present.; Retain selective
+    antibacterial activity of the assayed product subset against the four named test bacteria. The existing node
+    makes no universal compound-by-strain claim or fungal antagonism claim. No causal arrow is needed between two
+    descriptive isolation/assay endpoints without an induction or ecological-effect claim.
+  renamed_nodes: {}
+  node_decisions:
+  - node: Coculture-Derived Aromatic Natural Products
+    rationale: Retain the abstract-supported isolation of eight new and eleven known natural products. Coculture
+      origin is not proof of partner-dependent induction or reciprocal benefit; no such claim is present.
+  - node: Coculture-Derived Antibacterial Products
+    rationale: Retain selective antibacterial activity of the assayed product subset against the four named test
+      bacteria. The existing node makes no universal compound-by-strain claim or fungal antagonism claim. No causal
+      arrow is needed between two descriptive isolation/assay endpoints without an induction or ecological-effect
+      claim.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42543088
+  issues: []
+  allowed_changed_fields: []
+  curation_events_added: 0
+  history_files: []
+  source_review:
+    PMID:42543088:
+      url: https://pubmed.ncbi.nlm.nih.gov/42543088/
+      reviewed_scope: Complete primary abstract only; publisher body inaccessible (403). No full Methods/Results
+        or supplementary-material claim.
+- path: kb/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml
+  id: CommunityMech:000294
+  original_sha256: 4226ad9fea30e5f9235f7cf8f39e2f5ec754fd6823df63f8b44c152962501c9d
+  record_sha256: 1522534e0e993cff111c4fcde85182868aeae81389cb47120d97a3882b88250d
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch24.yaml
+  scope: Whole record and every original node/arrow; source access bounded below.
+  summary: Retain the measured external-additive response at coculture scope without asserting directed exchange
+    or syntrophy.; Represent Corynebacterium transcript response with its canonical source only and qualify inferred
+    flux and causal mediation.; Preserve distinct parent-strain and K1 intervention outcomes without assigning parent
+    results to the engineered derivative.
+  renamed_nodes:
+    Riboflavin-Mediated Redox Coupling: Riboflavin-Supplemented Coculture Response
+    Reprogrammed Corynebacterium Reductive TCA Flux: Corynebacterium Coculture Transcript Response
+  node_decisions:
+  - node: Riboflavin-Supplemented Coculture Response
+    rationale: Retain the measured external-additive response at coculture scope without asserting directed exchange
+      or syntrophy.
+  - node: Corynebacterium Coculture Transcript Response
+    rationale: Represent Corynebacterium transcript response with its canonical source only and qualify inferred
+      flux and causal mediation.
+  - node: Enhanced Succinic Acid Production
+    rationale: Preserve distinct parent-strain and K1 intervention outcomes without assigning parent results to
+      the engineered derivative.
+  edges_before:
+  - source: Riboflavin-Mediated Redox Coupling
+    target: Reprogrammed Corynebacterium Reductive TCA Flux
+    description: Coculture redox coupling leads into the transcriptome-level reinforcement of the C. glutamicum
+      electron transport system and reductive TCA flux.
+  - source: Reprogrammed Corynebacterium Reductive TCA Flux
+    target: Enhanced Succinic Acid Production
+    description: Redistribution toward the reductive TCA pathway and suppression of succinic-acid-consuming pathways
+      provide the immediate metabolic basis for higher succinic acid yield.
+  edges_after:
+  - source: Riboflavin-Supplemented Coculture Response
+    target: Corynebacterium Coculture Transcript Response
+    description: HYPOTHESIZED - altered coculture redox conditions could contribute to the Corynebacterium transcript
+      response. Additive screening and the transcriptomic interpretation support this candidate link, but the accessible
+      abstract does not selectively establish riboflavin-dependent electron transfer as its cause.
+  - source: Corynebacterium Coculture Transcript Response
+    target: Enhanced Succinic Acid Production
+    description: PARTIAL - the transcript-based interpretation is consistent with metabolic changes contributing
+      to increased succinic acid yield. Positive coculture, riboflavin and ldhA-deletion outcomes support the production
+      strategy, but do not selectively establish this transcript response or inferred flux redistribution as the
+      mediator of each yield comparison.
+  retained_edge_decisions:
+  - source: Riboflavin-Supplemented Coculture Response
+    target: Corynebacterium Coculture Transcript Response
+    rationale: HYPOTHESIZED - altered coculture redox conditions could contribute to the Corynebacterium transcript
+      response. Additive screening and the transcriptomic interpretation support this candidate link, but the accessible
+      abstract does not selectively establish riboflavin-dependent electron transfer as its cause.
+  - source: Corynebacterium Coculture Transcript Response
+    target: Enhanced Succinic Acid Production
+    rationale: PARTIAL - the transcript-based interpretation is consistent with metabolic changes contributing to
+      increased succinic acid yield. Positive coculture, riboflavin and ldhA-deletion outcomes support the production
+      strategy, but do not selectively establish this transcript response or inferred flux redistribution as the
+      mediator of each yield comparison.
+  removed_edge_decisions: []
+  references:
+  - PMID:42203120
+  issues:
+  - 1351
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture/2026-10-06T022828Z-codex-9a496b.yaml
+  source_review:
+    PMID:42203120:
+      url: https://pubmed.ncbi.nlm.nih.gov/42203120/
+      reviewed_scope: Complete primary abstract only; publisher body inaccessible (403). No full Methods/Results
+        or supplementary-material claim.
+- path: kb/communities/Crucian_Carp_Gut_Disease_Resistance_SynCom.yaml
+  id: CommunityMech:000293
+  original_sha256: a9cd17e6ecb847a4c0db764be949ecdf75a9af88ed2828a83f1822f88fb2c8ec
+  record_sha256: 5dc07af806fbaa10b2eb522c2e5221c404aabc6ff58ea1f9cec7062ba079f09e
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch24.yaml
+  scope: Whole record and every original node/arrow; source access bounded below.
+  summary: Retain measured enzyme/transcript responses while distinguishing pathway annotation from direct IgA measurement
+    or microbial fitness.; Retain transcript/pathway and DAO observations without promoting them to protein, permeability
+    or selective mediation evidence.; Preserve SynCom survival and calibrated qPCR endpoints, separate from FMT
+    and from reciprocal microbial competition.
+  renamed_nodes:
+    SynCom activation of intestinal immune responses: SynCom-associated intestinal immune responses
+    SynCom reinforcement of epithelial barrier defenses: SynCom-associated intestinal barrier markers
+  node_decisions:
+  - node: SynCom-associated intestinal immune responses
+    rationale: Retain measured enzyme/transcript responses while distinguishing pathway annotation from direct IgA
+      measurement or microbial fitness.
+  - node: SynCom-associated intestinal barrier markers
+    rationale: Retain transcript/pathway and DAO observations without promoting them to protein, permeability or
+      selective mediation evidence.
+  - node: SynCom-mediated suppression of Aeromonas hydrophila
+    rationale: Preserve SynCom survival and calibrated qPCR endpoints, separate from FMT and from reciprocal microbial
+      competition.
+  edges_before:
+  - source: SynCom activation of intestinal immune responses
+    target: SynCom-mediated suppression of Aeromonas hydrophila
+    description: Immune activation by the simplified gut SynCom is a reported mechanism for the subsequent increase
+      in resistance to A. hydrophila challenge.
+  - source: SynCom reinforcement of epithelial barrier defenses
+    target: SynCom-mediated suppression of Aeromonas hydrophila
+    description: Gut-barrier reinforcement cooperates with immune activation to improve host resistance and reduce
+      A. hydrophila abundance after challenge.
+  edges_after:
+  - source: SynCom-associated intestinal immune responses
+    target: SynCom-mediated suppression of Aeromonas hydrophila
+    description: PARTIAL - prechallenge immune-associated responses could contribute to the improved survival and
+      reduced pathogen DNA loads after SynCom feeding. The treatment comparison supports protection, but no selective
+      immune blockade or rescue establishes these responses as necessary or sufficient mediators.
+  - source: SynCom-associated intestinal barrier markers
+    target: SynCom-mediated suppression of Aeromonas hydrophila
+    description: PARTIAL - altered barrier-associated transcripts could contribute to lower intestinal and kidney
+      pathogen DNA loads and improved survival after challenge. The SynCom treatment effect is measured, but marker
+      changes and ambiguous DAO activity do not isolate epithelial barrier function as the necessary mediator.
+  retained_edge_decisions:
+  - source: SynCom-associated intestinal immune responses
+    target: SynCom-mediated suppression of Aeromonas hydrophila
+    rationale: PARTIAL - prechallenge immune-associated responses could contribute to the improved survival and
+      reduced pathogen DNA loads after SynCom feeding. The treatment comparison supports protection, but no selective
+      immune blockade or rescue establishes these responses as necessary or sufficient mediators.
+  - source: SynCom-associated intestinal barrier markers
+    target: SynCom-mediated suppression of Aeromonas hydrophila
+    rationale: PARTIAL - altered barrier-associated transcripts could contribute to lower intestinal and kidney
+      pathogen DNA loads and improved survival after challenge. The SynCom treatment effect is measured, but marker
+      changes and ambiguous DAO activity do not isolate epithelial barrier function as the necessary mediator.
+  removed_edge_decisions: []
+  references:
+  - PMID:41280275
+  issues:
+  - 1352
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Crucian_Carp_Gut_Disease_Resistance_SynCom/2026-10-06T022828Z-codex-90c7a0.yaml
+  source_review:
+    PMID:41280275:
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12637255/
+      path: /private/tmp/communitymech-batch24/PMC12637255.xml
+      sha256: daa2f38568db1c917f630d0abf5326625779758259a612d2c9a5e3a80a368fda
+      license: CC BY-NC-ND 4.0
+      reviewed_scope: 'Complete primary main body: Introduction, Methods, Results, Discussion, Conclusion and displayed
+        captions. No figure images or supplementary files inspected; main-text reports of supplementary experiments
+        are not independent supplementary review.'
