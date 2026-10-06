@@ -1,0 +1,264 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: a22f0f871bdfe84762b2dfcf2e38cb2c2d17949f
+baseline_commit: a22f0f871bdfe84762b2dfcf2e38cb2c2d17949f
+base_tree: 53fbd8501df23432e22ae64785408cff1c614027
+issues:
+- 1438
+- 1439
+- 1440
+open_nongraph_followups:
+- 1441
+- 1442
+- 1443
+open_graph_research: []
+issue_deduplication:
+  all_state_issue_titles_bodies: 760
+  ignored_hidden_local_files_included: true
+  comments_exhaustive: false
+  relevant_issues_read:
+  - 757
+  - 382
+  - 376
+  - 369
+  finding: No exact duplicate in searched scope; existing Ensifer taxonomy corrections and CPR workflow-arrow pruning
+    preserved.
+reference_cache_original_hashes:
+  references_cache/PMID_32252814.md: fa4a7f671f2b82f7b560d241b3afeafa0e0e166bbe39b14c98d9056e017dca45
+  references_cache/PMID_42248260.txt: c9e7b10ee96beacc3839d931b72ca9e2237476ccdbd637ea639ad23a9fd95d06
+  references_cache/PMID_41996795.md: 8f3a0a8ebba422912961d04df1d22b44e44f8d384cc767670d1d186eda9cb605
+  references_cache/PMID_33495623.txt: ebd08537cd681044d563e52704fb20ac576c6865e39f0959f2c56956a50bf4ae
+  references_cache/PMID_33495623.md: c8951d3d91ab4748ac5717c055fc194859bf51fb4461d2ab253d5cb67d73bfd6
+edison:
+  status: not_needed_for_existing_structure_repair_no_provider_job_or_charge
+  rationale: No new nodes/arrows; existing hypotheses and outcomes are corrected. External supplementation does
+    not establish a new endogenous exchange, and observational groundwater data do not resolve new partner-specific
+    mechanisms.
+limitations:
+- Twelve existing nodes retained; three part/whole arrows removed; one explicitly hypothesized mechanism link retained
+  in each record. No added connectivity.
+- Primary full main body for CPR/DPANN, abstract-only access for Ensifer and Euglena. Separate Oak Ridge source
+  read only through early Results to resolve provenance. No visual figures, separate supplements or raw data reviewed.
+- 'Canonical taxonomy and non-graph raw blocks preserved, not certified; #1441-1443 remain open. Access failure
+  is not proof of a paywall.'
+- Single-organism microalgal profiles become intrinsic source-only PAIRWISE, not self-edges. Higher aggregate output
+  does not establish reciprocal organism fitness.
+- Self-adversarial review is not independent approval, protected main merge or full-corpus completion. Textual snippet
+  matching is not scientific validation.
+records:
+- path: kb/communities/Ensifer_YF2_Sphingobacterium_Y2_Polyethylene_Degrading_Consortium.yaml
+  id: CommunityMech:000299
+  original_sha256: 5b40f0230b5889ca76a5a0780186ed46a92e9f3b7ef96477ae493d2b8101d5d6
+  record_sha256: 57ac6be6ce479d6e721e7c7a81a54ede921eee8620e3b466d061750d7d24d60c
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch38.yaml
+  scope: Whole record and every existing node/arrow assessed at recorded primary access scope; non-graph fields
+    preserved, not certified.
+  summary: Retain the genomic donor/recipient hypothesis without categorical cross-feeding or measured polymer-enzyme
+    flux.; Retain two-member comparative output without mutualism or a part/whole outcome arrow.; Retain polymer
+    surface endpoints without complete mineralization or interstrain flux claims.
+  renamed_nodes: {}
+  node_decisions:
+  - node: Metabolic division of labor in polyethylene degradation
+    rationale: Retain the genomic donor/recipient hypothesis without categorical cross-feeding or measured polymer-enzyme
+      flux.
+  - node: Synergistic enhancement of PE degradation in the dual-strain consortium
+    rationale: Retain two-member comparative output without mutualism or a part/whole outcome arrow.
+  - node: Polyethylene Oxidation and Surface Erosion
+    rationale: Retain polymer surface endpoints without complete mineralization or interstrain flux claims.
+  removed_node_decisions: []
+  edges_before:
+  - source: Metabolic division of labor in polyethylene degradation
+    target: Synergistic enhancement of PE degradation in the dual-strain consortium
+    description: Ensifer backbone cleavage and Sphingobacterium intermediate metabolism combine into the YF2/Y2
+      dual consortium's enhanced PE degradation phenotype.
+  - source: Synergistic enhancement of PE degradation in the dual-strain consortium
+    target: Polyethylene Oxidation and Surface Erosion
+    description: The enhanced dual-strain consortium grows with PE as the sole carbon source and induces oxidative
+      and physical damage to the polymer.
+  edges_after:
+  - source: Metabolic division of labor in polyethylene degradation
+    target: Synergistic enhancement of PE degradation in the dual-strain consortium
+    description: HYPOTHESIZED - complementary transformation capacities could contribute to the stronger YF2/Y2
+      consortium phenotype. Genomic annotation and the coculture comparison do not isolate cross-feeding as the
+      cause of that improvement.
+  retained_edge_decisions:
+  - source: Metabolic division of labor in polyethylene degradation
+    target: Synergistic enhancement of PE degradation in the dual-strain consortium
+    rationale: HYPOTHESIZED - complementary transformation capacities could contribute to the stronger YF2/Y2 consortium
+      phenotype. Genomic annotation and the coculture comparison do not isolate cross-feeding as the cause of that
+      improvement.
+  removed_edge_decisions:
+  - source: Synergistic enhancement of PE degradation in the dual-strain consortium
+    target: Polyethylene Oxidation and Surface Erosion
+    rationale: The surface phenotype is part of the reported performance, not an independently established downstream
+      effect.
+  references:
+  - PMID:41996795
+  issues:
+  - 1438
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Ensifer_YF2_Sphingobacterium_Y2_Polyethylene_Degrading_Consortium/2026-10-06T090852Z-codex-d2e3d0.yaml
+  source_review:
+    PMID:41996795:
+      url: https://www.sciencedirect.com/science/article/pii/S014765132600480X
+      scope: Complete cached primary abstract only. Publisher indexed text labels Open access / Creative Commons
+        and PubMed Free article; page retrieval returned403 and public publisher XML API retrieval failed. ResearchGate
+        request-only. No full Methods/Results, visual figures, supplements or raw data acquired.
+- path: kb/communities/Episymbiotic_CPR_DPANN_Groundwater_Community.yaml
+  id: CommunityMech:000237
+  original_sha256: 7f431b7ff46107d7d3a2fadd7dd99741e135627368f85ae917265810ccb716c9
+  record_sha256: 365db2424aa243d7f2727a5bb344aae80293574cc6a1d2db7e5780ccb475eb09
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch38.yaml
+  scope: Whole record and every existing node/arrow assessed at recorded primary access scope; non-graph fields
+    preserved, not certified.
+  summary: Retain the eight-site genomic framework without colonization facilitation or a defined-culture claim.;
+    Retain site differences without a selectively established niche mechanism.; Retain size-fraction attachment
+    proxies with modeled count and identification limits.; Retain reported physical attachment with uncertain cell
+    identities and a hypothesized CPR consequence.; Retain CPR-only population replication-state association without
+    causal or host-neutrality claims.
+  renamed_nodes: {}
+  node_decisions:
+  - node: Groundwater CPR/DPANN-Host Coexistence
+    rationale: Retain the eight-site genomic framework without colonization facilitation or a defined-culture claim.
+  - node: Site-Specific CPR/DPANN Differentiation
+    rationale: Retain site differences without a selectively established niche mechanism.
+  - node: Size-Fraction CPR/DPANN Host-Attachment Signal
+    rationale: Retain size-fraction attachment proxies with modeled count and identification limits.
+  - node: CPR/DPANN Episymbiotic Attachment to Hosts
+    rationale: Retain reported physical attachment with uncertain cell identities and a hypothesized CPR consequence.
+  - node: Host-Attached CPR Replication Stimulation
+    rationale: Retain CPR-only population replication-state association without causal or host-neutrality claims.
+  removed_node_decisions: []
+  edges_before:
+  - source: CPR/DPANN Episymbiotic Attachment to Hosts
+    target: Host-Attached CPR Replication Stimulation
+    description: 'Host-cell surface attachment is inferred to stimulate CPR bacterial replication because attached
+      CPR cells in larger size fractions showed higher instantaneous replication rates than unattached CPR cells
+      from the same groundwater community.
+
+      '
+  edges_after:
+  - source: CPR/DPANN Episymbiotic Attachment to Hosts
+    target: Host-Attached CPR Replication Stimulation
+    description: HYPOTHESIZED - access to host-associated resources could stimulate CPR replication. Attached-cell
+      images and higher CPR iRep in larger fractions support this interpretation, but attachment was not selectively
+      perturbed and the putative resource transfer was not measured. The replication comparison does not include
+      DPANN archaea.
+  retained_edge_decisions:
+  - source: CPR/DPANN Episymbiotic Attachment to Hosts
+    target: Host-Attached CPR Replication Stimulation
+    rationale: HYPOTHESIZED - access to host-associated resources could stimulate CPR replication. Attached-cell
+      images and higher CPR iRep in larger fractions support this interpretation, but attachment was not selectively
+      perturbed and the putative resource transfer was not measured. The replication comparison does not include
+      DPANN archaea.
+  removed_edge_decisions: []
+  references:
+  - PMID:33495623
+  - PMID:32252814
+  issues:
+  - 1439
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Episymbiotic_CPR_DPANN_Groundwater_Community/2026-10-06T090852Z-codex-64a1b6.yaml
+  source_review:
+    PMID:33495623:
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC7906910/
+      scope: Cached primary abstract plus full OA main body through all Methods and reporting-summary/supplement
+        listing, including figure captions. No visual figures, separate supplements or raw data. Cached .md front
+        matter says abstract_only but actual body includes full text; bytes preserved.
+    PMID:32252814:
+      url: https://doi.org/10.1186/s40168-020-00825-w
+      scope: Cached abstract, Introduction and early Results read to establish separate Oak Ridge sampling scope.
+        Remaining main body and separate supplements not reviewed; used only to flag non-graph provenance, not to
+        support new graph mechanisms.
+- path: kb/communities/Euglena_Chlorella_Microalgal_Biorefinery_Coculture.yaml
+  id: CommunityMech:000325
+  original_sha256: 83f811771cf8658d473066c8bc48b9cf2c75f792926fba1655e38930b15ab476
+  record_sha256: 4d5cdc403a12e77b46efdff937eebb29fd0e3b71418a497ea69287ac0a8d0bfc
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch38.yaml
+  scope: Whole record and every existing node/arrow assessed at recorded primary access scope; non-graph fields
+    preserved, not certified.
+  summary: Retain the Euglena-associated profile as intrinsic without a specific tocopherol donor claim or summary
+    arrow.; Retain the Chlorella-associated profile as intrinsic without proven transfer or a summary arrow.; Retain
+    proposed complementarity and only a hypothesized contribution to aggregate output.; Retain total production
+    gains without reciprocal organism fitness or supplementation conflation.
+  renamed_nodes: {}
+  node_decisions:
+  - node: Euglena Light Harvesting and Antioxidative Secretion
+    rationale: Retain the Euglena-associated profile as intrinsic without a specific tocopherol donor claim or summary
+      arrow.
+  - node: Chlorella Electron Transport and Lipid Metabolite Release
+    rationale: Retain the Chlorella-associated profile as intrinsic without proven transfer or a summary arrow.
+  - node: Complementary Microalgal Metabolic Division of Labor
+    rationale: Retain proposed complementarity and only a hypothesized contribution to aggregate output.
+  - node: Synergistic Biorefinery Production
+    rationale: Retain total production gains without reciprocal organism fitness or supplementation conflation.
+  removed_node_decisions: []
+  edges_before:
+  - source: Euglena Light Harvesting and Antioxidative Secretion
+    target: Complementary Microalgal Metabolic Division of Labor
+    description: Euglena light harvesting and antioxidative secretion form one side of the coculture division of
+      labor
+  - source: Chlorella Electron Transport and Lipid Metabolite Release
+    target: Complementary Microalgal Metabolic Division of Labor
+    description: Chlorella carbon fixation and lipid-associated metabolite release form the other side of the coculture
+      division of labor
+  - source: Complementary Microalgal Metabolic Division of Labor
+    target: Synergistic Biorefinery Production
+    description: 'Complementary light-harvesting, antioxidative secretion, electron transport, carbon-fixation,
+      and lipid-metabolite roles jointly drive the coculture biomass, lipid, and alpha-tocopherol production gains.
+
+      '
+  edges_after:
+  - source: Complementary Microalgal Metabolic Division of Labor
+    target: Synergistic Biorefinery Production
+    description: HYPOTHESIZED - complementary photosynthetic and metabolic capacities could contribute to the aggregate
+      production gains. The abstract links profiles and output, but does not resolve their selective mediation or
+      demonstrate reciprocal species fitness.
+  retained_edge_decisions:
+  - source: Complementary Microalgal Metabolic Division of Labor
+    target: Synergistic Biorefinery Production
+    rationale: HYPOTHESIZED - complementary photosynthetic and metabolic capacities could contribute to the aggregate
+      production gains. The abstract links profiles and output, but does not resolve their selective mediation or
+      demonstrate reciprocal species fitness.
+  removed_edge_decisions:
+  - source: Euglena Light Harvesting and Antioxidative Secretion
+    target: Complementary Microalgal Metabolic Division of Labor
+    rationale: The organism profile composes the complementarity summary; part/whole narration is not a biological
+      causal effect.
+  - source: Chlorella Electron Transport and Lipid Metabolite Release
+    target: Complementary Microalgal Metabolic Division of Labor
+    rationale: The organism profile composes the complementarity summary; part/whole narration is not a biological
+      causal effect.
+  references:
+  - PMID:42248260
+  issues:
+  - 1440
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Euglena_Chlorella_Microalgal_Biorefinery_Coculture/2026-10-06T090853Z-codex-5f6b10.yaml
+  source_review:
+    PMID:42248260:
+      url: https://pubmed.ncbi.nlm.nih.gov/42248260/
+      scope: Complete cached primary MEDLINE abstract. Publisher page returned403 and public XML API retrieval failed;
+        ResearchGate request-only. No full Methods/Results, visual figures, supplements or raw data acquired.
