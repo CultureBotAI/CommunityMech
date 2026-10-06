@@ -41,7 +41,7 @@ REPO = pathlib.Path(__file__).parent.parent
 # root class -- 4 records with 66 snippets, 3 ecological_interactions and 3
 # gtdb_classification blocks -- and this module could not see any of it (#689).
 COMMUNITIES = REPO / "kb/communities"
-# #312's illustration: 28 taxa, every interaction COMMUNITY_LEVEL.
+# #312's original illustration supplies 28 shared-CURIE taxa for a synthetic fixture.
 EXAMPLE = COMMUNITIES / "GLBRC_Populus_Variovorax_SynCom28.yaml"
 
 
@@ -59,7 +59,14 @@ def _disconnected(document: dict) -> int:
 
 @pytest.fixture
 def example() -> dict:
-    return yaml.safe_load(EXAMPLE.read_text(encoding="utf-8"))
+    document = yaml.safe_load(EXAMPLE.read_text(encoding="utf-8"))
+    # Keep auditor behavior probes independent of source-backed graph curation.
+    document["ecological_interactions"] = [
+        {"name": f"Synthetic community observation {i}", "scope": "COMMUNITY_LEVEL"}
+        for i in range(3)
+    ]
+    document.pop("discussions", None)
+    return document
 
 
 def _members(document: dict) -> list[dict]:
@@ -265,6 +272,7 @@ USERS = {
     "Ferroplasma_Leptospirillum_Syntrophy.yaml",
     "Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml",
     "GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml",
+    "GLBRC_Populus_Variovorax_SynCom28.yaml",
     "Geobacter_Methanosarcina_DIET.yaml",
     "Ginseng_CL95_Rusty_Root_Rot_Biocontrol_SynCom.yaml",
     "Glutamicibacter_S11_Aquaculture_Nitrogen_Removal_SynCom.yaml",
