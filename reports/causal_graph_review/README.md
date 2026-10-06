@@ -5,6 +5,29 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch64: Regolith, Lupin And MAMC Assay Boundaries
+
+[Decisions](decisions/20261006-assay-boundaries-batch64.yaml),
+[validation](validation-20261006-batch64.json) and
+[self-adversarial review](adversarial-review-20261006-batch64.yaml) account for
+all nine original nodes and two arrows. Seven observations remain; two MAMC
+procedure nodes and two Nicotiana mediation arrows are removed.
+
+Nicotiana retains phosphorus mobilization and time-dependent plant responses,
+including the adverse early response without pretreatment. Biofilms, named acids
+and exclusive phosphorus mediation remain untested. Lupin growth, FlowPot RNA-seq
+and CAS-soil relative profiles are kept distinct. MAMC's 50.6% mean of three
+FTIR-derived fraction estimates is not loss of 50.6% of each fraction or dry mass.
+
+Three complete fresh primary bodies, embedded tables and the complete 2026
+Nicotiana figure-label correction were read. MAMC's image-only Table 1 cells,
+original figure pixels, separate supplements and raw data were not audited.
+All 920 caches remain unchanged; nine graph excerpts match fresh primary text.
+Canonical taxonomy and non-graph blocks remain unchanged, not recertified.
+Metadata, missing hosts, strain identities and source inconsistencies stay open
+under #1564. Repairs #1561-#1563 await protected-main merge. No new causal
+structure or Edison submission; this is self-review, not independent approval.
+
 ## Batch63: Coculture And Living-Host Assay Boundaries
 
 [Decisions](decisions/20261006-coculture-hosts-batch63.yaml),

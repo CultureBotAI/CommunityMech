@@ -316,6 +316,8 @@ USERS = {
     "Lotus_LjSC3.yaml",
     "Lunar_Martian_Simulant_PGPB_Lettuce_SynCom.yaml",
     "Lunar_Simulant_Phosphate_Solubilizing_Bacteria_Nicotiana.yaml",
+    "Lupinus_SC7_Rhizosphere_SynCom.yaml",
+    "MAMC_M48_Lignocellulose.yaml",
     "MSC1_Dominant_Core.yaml",
     "MSC2_Model_Soil_Consortium.yaml",
     "Magnetite_Sulfate_Stress_Anaerobic_Microbiome.yaml",
