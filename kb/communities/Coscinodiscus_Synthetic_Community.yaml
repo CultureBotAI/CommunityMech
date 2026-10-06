@@ -204,16 +204,13 @@ taxonomy:
       and bacterial growth in the community
     explanation: Demonstrates dynamic temporal effect on diatom growth
 ecological_interactions:
-- name: Diatom Primary Production and Carbon Release
-  description: 'Coscinodiscus radiatus performs oxygenic photosynthesis, fixing atmospheric CO2 and producing
-    organic carbon compounds that are released into the surrounding medium. These photosynthate and exudates
-    include amino acids, vitamins, and dimethylsulfoniopropionate (DMSP), which serve as key resources
-    for the associated bacteria. The release of dissolved organic carbon supports bacterial growth and
-    metabolism in this synthetic community.
-
-    '
-  interaction_type: MUTUALISM
-  scope: COMMUNITY_LEVEL
+- name: Candidate Diatom Resource Provision
+  description: The phototrophic diatom is a candidate supplier of bacterial resources. Coculture increased Crocei1
+    abundance, but did not significantly increase CS4 or Rose1 and inhibited CS1 after day 9. Thus diatom presence
+    has partner-specific effects; neither universal bacterial dependence nor direct release and transfer of DMSP,
+    amino acids or vitamins was established. Photosynthetic resource provision is a proposed mediator rather than
+    a measured metabolite flux.
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Coscinodiscus radiatus
     term:
@@ -224,17 +221,17 @@ ecological_interactions:
     term:
       id: CHEBI:16457
       label: S,S-dimethyl-beta-propiothetin
-    concentration: Diatom-produced organic sulfur compound
+    concentration: Candidate exchanged resource; release and partner-resolved transfer not measured
   - preferred_term: amino acids
     term:
       id: CHEBI:33709
       label: amino acid
-    concentration: Organic nutrients released by diatom
+    concentration: Candidate exchanged resource; release and partner-resolved transfer not measured
   - preferred_term: vitamins
     term:
       id: CHEBI:33229
       label: vitamin (role)
-    concentration: Growth factors released by diatom
+    concentration: Candidate exchanged resource; release and partner-resolved transfer not measured
   biological_processes:
   - preferred_term: photosynthesis
     term:
@@ -245,23 +242,25 @@ ecological_interactions:
       id: GO:0015977
       label: carbon fixation
   downstream:
-  - target: Bacterial DMSP Metabolism
-    description: Diatom-released DMSP and organic compounds support bacterial growth
+  - target: Bacterial DMSP Catabolic Potential
+    description: HYPOTHESIZED - diatom-derived DMSP could provide substrate for the genomic catabolic potential
+      of CS4 and Rose1. No partner-resolved release, consumption or flux was measured, and added DMSP as the carbon-only
+      supplement did not promote growth under the tested minimal-medium conditions.
   evidence:
   - reference: PMID:36300970
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: No synergistic effects between bacteria in the presence of the diatom was observed
-    explanation: Demonstrates diatom provision of organic nutrients to bacteria
-- name: Bacterial DMSP Metabolism
-  description: 'The Roseobacteraceae members (Mameliella CS4 and Roseovarius Rose1) metabolize dimethylsulfoniopropionate
-    (DMSP) released by the diatom through demethylation and cleavage pathways. This sulfur cycling activity
-    is important for carbon and sulfur biogeochemistry in marine systems. The differential capacity for
-    DMSP metabolism among the bacteria (with Croceibacter lacking this capability) reflects functional
-    specialization within the community.
-
-    '
-  interaction_type: MUTUALISM
+    snippet: Crocei1 grew to significantly higher density
+    explanation: 'Primary Results, pairwise bacterial growth paragraph (Fig. 3d): supports increased Crocei1 abundance
+      in diatom coculture, not a measured chemical mediator. qPCR was calibrated against cells; it is not viable
+      coculture plating. Short excerpt verified against the publisher preview; absent from the abstract-only local
+      cache.'
+- name: Bacterial DMSP Catabolic Potential
+  description: BLASTP comparisons of predicted bacterial proteins support DMSP demethylation/cleavage potential
+    in CS4 and Rose1. Crocei1 had weak homologs and CS1 lacked the key DmdA sequence, although downstream homologs
+    suggest possible MMPA use. This is sequence-based potential, not measured DMSP consumption, DMS release or diatom-to-bacterium
+    flux. DMSP carbon-only supplementation did not promote growth; that negative growth result does not itself prove
+    absence of catabolic activity.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Mameliella CS4
@@ -272,11 +271,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:74030
       label: Roseovarius
-  source_taxon:
-    preferred_term: Mameliella CS4
-    term:
-      id: NCBITaxon:1434019
-      label: Mameliella
   metabolites:
   - preferred_term: dimethylsulfoniopropionate
     term:
@@ -286,7 +280,7 @@ ecological_interactions:
     term:
       id: CHEBI:17437
       label: dimethyl sulfide
-    concentration: Product of DMSP cleavage pathway
+    concentration: Candidate cleavage product; production not assayed in this community
   biological_processes:
   - preferred_term: dimethylsulfoniopropionate metabolic process
     term:
@@ -298,24 +292,24 @@ ecological_interactions:
       label: sulfur compound metabolic process
   evidence:
   - reference: PMID:36300970
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: We further established a synthetic phytoplankton/bacteria community with the centric diatom,
-      Coscinodiscus radiatus, and 4 phylogenetically distinctive bacterial isolates, Mameliella sp., Roseovarius
-      sp., Croceibacter sp., and Marinobacter sp. Supported by a Lotka-Volterra model, we show that interactions
-      within the consortium are specific and that the sum of the pairwise interactions can explain algal
-      and bacterial growth in the community
-    explanation: Demonstrates bacterial capacity to metabolize diatom-derived DMSP
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: potential for DMSP consumption
+    explanation: Primary Results and Table 2 infer catabolic potential from genome-protein homology. Not a metabolite-consumption
+      assay or reciprocal-benefit test. Short excerpt checked in the publisher preview, absent from the abstract-only
+      cache.
+    computational_provenance:
+      prediction_type: SEQUENCE_HOMOLOGY
+      tools:
+      - tool_name: BLASTP
+      parameters: Known DMSP-pathway proteins compared with predicted proteins from four bacterial genomes; Table
+        2 reports coverage and identity.
 - name: Growth Phase-Dependent Bacterial Effects
-  description: 'The bacterial members exert context-dependent effects on diatom growth that vary with
-    algal fitness state and growth phase. Mameliella CS4 and Roseovarius Rose1 extended the stationary
-    phase and promoted survival during late growth phases, while Croceibacter Crocei1 consistently inhibited
-    growth. Marinobacter CS1 initially suppressed growth but later enabled recovery. These dynamic temporal
-    effects demonstrate that bacterial function depends on the physiological state of the diatom and timing
-    of the interaction, with no universal growth-promoting or algicidal bacteria.
-
-    '
-  interaction_type: MUTUALISM
+  description: 'In pairwise cultures, CS4 and Rose1 prolonged algal stationary-phase survival; Crocei1 inhibited
+    the diatom across phases. CS1 initially suppressed algal growth, followed by recovery to control-like density
+    after day 9, not necessarily growth above control. Reciprocal bacterial responses differed: Crocei1 benefited,
+    CS1 was inhibited significantly on days 11-21, and CS4/Rose1 showed no significant diatom effect. These measured
+    responses do not support one global mutualism label or identify their chemical mediators.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Coscinodiscus radiatus
@@ -338,11 +332,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:2742
       label: Marinobacter
-  source_taxon:
-    preferred_term: Mameliella CS4
-    term:
-      id: NCBITaxon:1434019
-      label: Mameliella
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -353,26 +342,26 @@ ecological_interactions:
       id: GO:0009607
       label: response to biotic stimulus
   downstream:
-  - target: Community-Level Emergent Effects
-    description: Pairwise C. radiatus-bacterium effects vary across partners and growth phases and combine
-      into an all-member culture whose net effect on algal growth is inhibitory without requiring bacterial-bacterial
-      synergy.
+  - target: Community Growth and Pairwise Model
+    description: PARTIAL - the measured partner- and phase-specific effects combine into the observed predominantly
+      inhibitory all-member algal trajectory. A generalized Lotka-Volterra model fitted to monocultures and pairwise
+      cultures reproduces that trajectory with separate early/late parameter sets; this supports the proposed contribution
+      without isolating chemical mediators or proving higher-order interactions universally absent.
   evidence:
   - reference: PMID:36300970
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Bacteria utilize substrates produced by the phototrophic algae, while algal growth can be
-      supported by bacterial exudates
-    explanation: Demonstrates context-dependent nature of diatom-bacteria interactions
-- name: Bacterial Auxotrophy and Nutrient Dependence
-  description: 'Genome analysis revealed extensive auxotrophic requirements among the bacteria, with Croceibacter
-    Crocei1 showing the highest dependence on external nutrients. Most bacteria required amino acids and
-    vitamins (Rose1 needed niacin/B3, while Crocei1 and CS1 needed vitamin B12), indicating strong reliance
-    on diatom-derived compounds for growth. This auxotrophy drives the dependence of bacteria on the photosynthetic
-    diatom and shapes community assembly and dynamics.
-
-    '
-  interaction_type: COMMENSALISM
+    snippet: The activity of bacteria can even change during the aging of an algal culture from inhibitory to stimulatory
+      or vice versa
+    explanation: Supports phase-dependent response. Primary Results and Figs. 2-3 text distinguish partner-specific
+      algal and bacterial trajectories, not a universal positive fitness sign or resolved chemical mechanism.
+- name: Bacterial Nutrient Supplement Responses
+  description: Minimal-medium supplementation with a pooled 13-amino-acid mixture plus vitamins improved growth
+    of Rose1, Crocei1 and CS1; CS4 did not respond. DMSP or glucose supplied as carbon alone did not promote any
+    of the four bacteria. These are direct nutrient-response assays, not merely genomic predictions. Genome analysis
+    separately predicted amino-acid deficits, Rose1 niacin deficiency and Crocei1/CS1 vitamin B12 biosynthesis deficits.
+    The pooled rescue does not establish which individual nutrient was limiting, its exact B12 chemical form, or
+    donation by the diatom.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Roseovarius Rose1
@@ -392,16 +381,12 @@ ecological_interactions:
     term:
       id: CHEBI:33709
       label: amino acid
-  - preferred_term: cobalamin
+    concentration: Externally supplied pooled amino-acid/vitamin supplement; no individual nutrient rescue assigned
+  - preferred_term: vitamins
     term:
-      id: CHEBI:15982
-      label: cob(I)alamin
-    concentration: Vitamin B12 required by Crocei1 and CS1
-  - preferred_term: niacin
-    term:
-      id: CHEBI:15940
-      label: nicotinic acid
-    concentration: Vitamin B3 required by Rose1
+      id: CHEBI:33229
+      label: vitamin (role)
+    concentration: Externally supplied pooled amino-acid/vitamin supplement; no individual nutrient rescue assigned
   biological_processes:
   - preferred_term: vitamin metabolic process
     term:
@@ -415,22 +400,18 @@ ecological_interactions:
   - reference: PMID:36300970
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We further established a synthetic phytoplankton/bacteria community with the centric diatom,
-      Coscinodiscus radiatus, and 4 phylogenetically distinctive bacterial isolates, Mameliella sp., Roseovarius
-      sp., Croceibacter sp., and Marinobacter sp. Supported by a Lotka-Volterra model, we show that interactions
-      within the consortium are specific and that the sum of the pairwise interactions can explain algal
-      and bacterial growth in the community
-    explanation: Demonstrates bacterial auxotrophy and dependence on diatom-derived nutrients
-- name: Community-Level Emergent Effects
-  description: 'When all four bacteria were combined with the diatom, an overall inhibitory effect on
-    algal growth emerged throughout all growth phases. The growth-promoting effects of CS4 and Rose1 observed
-    in pairwise cultures did not prevail in the four-member community, demonstrating emergent community-level
-    properties. A Lotka-Volterra model successfully predicted community composition using only pairwise
-    interaction parameters, indicating that higher-order bacterial-bacterial interactions were negligible
-    and that the community dynamics arose primarily from pairwise diatom-bacteria interactions.
-
-    '
-  interaction_type: COMPETITION
+    snippet: all other bacteria grew better
+    explanation: Primary Results nutrient-supplementation paragraph and Fig. 5 caption report improved Rose1/Crocei1/CS1
+      growth with amino acids plus vitamins, with CS4 as the nonresponding comparison. Methods describe the pooled
+      mixture. Not individual B12/B3 rescue or diatom transfer. Short excerpt verified in publisher preview, absent
+      from abstract-only cache.
+- name: Community Growth and Pairwise Model
+  description: The all-member culture generally had lower algal cell counts than the axenic control, especially
+    before day 17; the paper also describes a very-late survival benefit. Bacteria performed similarly or slightly
+    better than in mono/pairwise cultures, so this is not reciprocal competitive harm. A generalized Lotka-Volterra
+    model fitted to mono/pairwise data with distinct days 1-17 and 17-41 parameter sets predicted the algal community
+    trajectory; a neutral model failed. Bacterial-bacterial terms were unnecessary for this tested fit, not proven
+    universally absent, and chemical cross-feeding was not thereby established.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Coscinodiscus radiatus
@@ -453,11 +434,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:2742
       label: Marinobacter
-  source_taxon:
-    preferred_term: Coscinodiscus radiatus
-    term:
-      id: NCBITaxon:33642
-      label: Coscinodiscus radiatus
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -472,7 +448,9 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: No synergistic effects between bacteria in the presence of the diatom was observed
-    explanation: Demonstrates emergent community-level effects and predictability from pairwise interactions
+    explanation: Supports the condition-bounded lack of detected bacterial synergy. Primary Results/Methods report
+      empirical community counts and a phase-specific pairwise model, not universal absence of higher-order ecology
+      or reciprocal competitive harm.
 related_ingredients:
 - preferred_term: carbon dioxide
   chebi_term:
@@ -715,3 +693,35 @@ environmental_factors:
       within the consortium are specific and that the sum of the pairwise interactions can explain algal
       and bacterial growth in the community
     explanation: Demonstrates role of nutrient availability in shaping community structure
+discussions:
+- discussion_id: coscinodiscus_resource_transfer_and_mediation
+  prompt: Which exchanged compounds mediate the partner- and phase-specific growth responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Candidate Diatom Resource Provision
+  - ecological_interactions#Bacterial DMSP Catabolic Potential
+  - ecological_interactions#Growth Phase-Dependent Bacterial Effects
+  - ecological_interactions#Bacterial Nutrient Supplement Responses
+  - ecological_interactions#Community Growth and Pairwise Model
+  rationale: 'Complete primary main text, tables and captions support pairwise growth, pooled nutrient supplementation
+    and a phase-specific community model. Direct DMSP release/consumption flux, individual nutrient rescue and mediator-specific
+    perturbations remain unresolved; carbon-only supplementation was negative. CS4 is a nonresponding supplementation
+    control despite predicted deficits. Prior rich-medium stores may buffer responses. The model fit does not rule
+    out interactions under other nutrient conditions. The publisher-provided preview was read without copying its
+    copyrighted body; three brief Results excerpts remain a documented abstract-cache retrieval gap under #596.
+    No figure images or supplementary files were inspected. Non-graph roles, cultivation parameters and source discrepancies
+    remain in #1359.'
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-06T02:52:27Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain candidate diatom resource provision and actual Crocei1 promotion without universal dependence
+    or measured metabolite donation.; Keep DMSP homology potential computational, distinct from consumption, product
+    flux and a negative carbon-only growth assay.; Preserve distinct reciprocal growth signs and control-relative
+    algal recovery rather than global mutualism.; Preserve real pooled nutrient responses and the CS4 negative control
+    without individual-vitamin rescue or exact B12-form claims.; Retain empirical community inhibition and phase-specific
+    model success without reciprocal harm or universal exclusion of higher-order interactions. Issue #1357; reports/causal_graph_review/decisions/20261005-two-records-batch25.yaml'
+  llm_assisted: true
