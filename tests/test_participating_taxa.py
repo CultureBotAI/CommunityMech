@@ -227,6 +227,7 @@ USERS = {
     "Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml",
     "Coscinodiscus_Synthetic_Community.yaml",
     "Crucian_Carp_Gut_Disease_Resistance_SynCom.yaml",
+    "Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml",
     "DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml",
     "DVM_Triculture.yaml",
     "Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml",
