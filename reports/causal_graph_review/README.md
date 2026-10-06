@@ -5,6 +5,22 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch57: DVM Tri-culture
+
+[Decisions](decisions/20261006-dvm-batch57.yaml),
+[validation](validation-20261006-batch57.json) and
+[self-adversarial review](adversarial-review-20261006-batch57.yaml) cover all four
+existing nodes and two arrows. Positive lactate conversion, methane production and
+sulfate-treatment responses remain. Both substrate-supply arrows are qualified for
+unresolved flux allocation; separate monoculture perturbations and pair mass balances
+are not presented as measured tri-culture pathway shares.
+
+The full 2019 primary main text, Methods, Tables1-2 and main captions were read;
+the 1981 source was limited to its cached abstract. Original images, supplements,
+raw data and independent mass-balance replication were not audited. All 920 caches
+remain unchanged. Repair #1530 awaits protected-main merge; existing non-graph
+metadata issue #1364 remains open. No new graph structure or paid provider call.
+
 ## Batch55: REE, Maize And Jiangshui
 
 [Decisions](decisions/20261006-three-records-batch55.yaml),
