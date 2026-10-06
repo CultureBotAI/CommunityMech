@@ -5,6 +5,17 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch48: Ginseng CL95 And Glutamicibacter S11
+
+[Decisions](decisions/20261006-ginseng-s11-batch48.yaml),
+[validation](validation-20261006-batch48.json) and
+[self-adversarial review](adversarial-review-20261006-batch48.yaml) preserve
+measured consortium outcomes without asserting reciprocal mutualism or resolved
+causal mediation. All four nodes remain; the CL95 correlation-only growth arrow
+is removed. Marker recovery does not track every CL95 member independently.
+S11 is reviewed at primary-abstract scope; its nitrogen routes remain unresolved.
+Canonical participants, shared non-graph evidence and previous fixes are preserved.
+
 ## Batch47: Geobacter-Pseudomonas
 
 [Decisions](decisions/20261006-geobacter-pseudomonas-batch47.yaml),
