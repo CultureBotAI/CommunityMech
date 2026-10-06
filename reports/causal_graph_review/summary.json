@@ -2,14 +2,14 @@
   "scope": "Every YAML under kb/communities and data/isolates; filesystem discovery includes hidden/ignored files.",
   "semantic_review_rule": "Structural checks and readiness scores do not establish causal support. Completed reviews must match the current record SHA-256, cover every node once with a rationale, and reproduce the current edge list.",
   "records": 460,
-  "nodes": 1468,
-  "edges": 684,
+  "nodes": 1466,
+  "edges": 682,
   "records_without_nodes": 8,
-  "records_without_edges": 147,
+  "records_without_edges": 148,
   "review_status_counts": {
     "needs_research": 12,
-    "pending": 284,
-    "reviewed": 164
+    "pending": 281,
+    "reviewed": 167
   },
   "structural_defects": [],
   "network_audit": [
@@ -674,6 +674,54 @@
         ]
       },
       "message": "Taxon 'Nitrospirae core floodplain members' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "GLBRC_UFMP_Fermentation_Community",
+      "type": "DISCONNECTED",
+      "taxon": "RUG023 sp. (MAG SPH2)",
+      "taxon_id": "NCBITaxon:203691",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "RUG023 sp. (MAG SPH2)",
+          "term": {
+            "id": "NCBITaxon:203691",
+            "label": "Spirochaetota"
+          },
+          "gtdb_grounding_status": "GROUNDED",
+          "gtdb_classification": {
+            "gtdb_id": "GTDB:p__Spirochaetota",
+            "gtdb_taxon": "Spirochaetota",
+            "gtdb_lineage": "d__Bacteria;p__Spirochaetota",
+            "ncbi_source_id": "NCBITaxon:203691",
+            "majority_fraction": 1.0,
+            "support_genomes": 6024,
+            "total_genomes": 6025,
+            "is_reclassified": false,
+            "mapping_source": "kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 2 GTDB taxa under the NCBI taxon]"
+          },
+          "notes": "Spirochaetota member (up to 16.1% relative abundance). Produces ethanol which serves as substrate for chain elongation by Firmicutes.\n"
+        },
+        "strain_designation": {
+          "strain_name": "MAG SPH2",
+          "isolation_source": "UFMP bioreactor metagenome"
+        },
+        "functional_role": [
+          "CROSS_FEEDER"
+        ],
+        "abundance_level": "DOMINANT",
+        "abundance_value": "up to 16.1% relative abundance",
+        "evidence": [
+          {
+            "reference": "PMID:37324413",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VITRO",
+            "snippet": "members of the Firmicutes phylum contribute to the chain-elongation-mediated production of butyric, hexanoic, and octanoic acids, with different microbes using either lactose, ethanol, or lactic acid as the growth substrate\n",
+            "explanation": "RUG023 sp. SPH2 produces ethanol used as chain elongation substrate"
+          }
+        ]
+      },
+      "message": "Taxon 'RUG023 sp. (MAG SPH2)' has no interactions",
       "severity": "warning"
     },
     {

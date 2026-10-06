@@ -1,0 +1,234 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 5b0b555a45aa07071a1e9865f46a37842d9ab27e
+baseline_commit: 5b0b555a45aa07071a1e9865f46a37842d9ab27e
+base_tree: 92a55c0de17232e3032e43e3f7e13c7023656126
+issues:
+- 1474
+- 1475
+- 1476
+issue_deduplication:
+  all_state_issue_titles_and_bodies: 790
+  ignored_hidden_local_search: true
+  relevant_bodies_read:
+  - 624
+  - 543
+  - 486
+  - 326
+  - 17
+  local_matching_lines: 42
+  limitations: Matches include prior taxonomy/history and generated render/audit logs, not existing source-specific
+    causal reviews. Not all comments or PR reviews inspected.
+reference_cache_original_hashes:
+  references_cache/PMID_37324413.md: 8acf781bd773c3159ec59504a0f719661bb71693482c0dd9e244e1abb6c3bc46
+  references_cache/doi_10.3389_fmars.2022.962071.md: 7d1eaf6c49a9c7146be668a6ab870222614d08bf1bd8c60627b1a210e38f3dd3
+  references_cache/PMID_32762153.txt: 779420a992ece6d588076f6e82f8fc8abc7b1c75859e705edbf409344e2a8c54
+limitations:
+- Whole records and complete primary main bodies, Methods, tables and embedded captions read. No figure images,
+  separate supplementary files, raw data or analysis code independently audited.
+- 'Repairs only: no new nodes/arrows, no Edison job or provider spend. UFMP retains two explicitly hypothesized
+  arrows; GOM removes two unsupported comparative-mediation arrows; Garlic removes two workflow nodes and does not
+  restore prior arrows.'
+- Canonical taxonomy, non-graph raw blocks, prior history and all source caches preserved, not certified. UFMP non-graph
+  stereospecific/functional claims and GOM non-graph significance wording remain outside this repair.
+- 'Reference CLI Total checks counts reported issues, not executed checks. SupportingReference coverage remains
+  incomplete under #476; snippet matching is not scientific support or independent source provenance.'
+- Source-based self-adversarial review is not independent approval or corpus completion.
+records:
+- path: kb/communities/GLBRC_UFMP_Fermentation_Community.yaml
+  id: CommunityMech:000029
+  original_sha256: da03a0180a9a75c6105755fe0f061f05964c258bf108a21ecd7ad11c4b14b755
+  record_sha256: 0cd65716c7bf522b2c8326bdc476339c3196f551d9a2ee92c405d15dc9ea9c92
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch44.yaml
+  scope: Whole record and every original node/arrow reviewed; positive observations and causal limits distinguished.
+  summary: Retain heterogeneous Actinobacteriota genome-based fermentation hypotheses, not universal demonstrated
+    products.; Retain three substrate-distinct Firmicute hypotheses and distinguish measured reactor products from
+    member allocation.; Retain the proposed lactate-transfer model with candidate donors and CLOS1, not obligatory
+    syntrophy or complete conversion.
+  renamed_nodes:
+    Lactose Degradation to Organic Acids: Proposed Actinobacteriota Lactose Fermentation Roles
+    Chain Elongation to Medium-Chain Fatty Acids: Proposed Firmicutes Chain Elongation Roles
+    Actinobacteriota-Firmicutes Cross-Feeding Network: Proposed Actinobacteriota-to-CLOS1 Lactate Cross-Feeding
+  node_decisions:
+  - node: Proposed Actinobacteriota Lactose Fermentation Roles
+    rationale: Retain heterogeneous Actinobacteriota genome-based fermentation hypotheses, not universal demonstrated
+      products.
+  - node: Proposed Firmicutes Chain Elongation Roles
+    rationale: Retain three substrate-distinct Firmicute hypotheses and distinguish measured reactor products from
+      member allocation.
+  - node: Proposed Actinobacteriota-to-CLOS1 Lactate Cross-Feeding
+    rationale: Retain the proposed lactate-transfer model with candidate donors and CLOS1, not obligatory syntrophy
+      or complete conversion.
+  removed_node_decisions: []
+  edges_before:
+  - source: Lactose Degradation to Organic Acids
+    target: Actinobacteriota-Firmicutes Cross-Feeding Network
+    description: 'Actinobacteriota lactose fermentation supplies the lactic-acid pool inferred to feed Firmicutes
+      chain elongators in the UFMP reactor.
+
+      '
+  - source: Actinobacteriota-Firmicutes Cross-Feeding Network
+    target: Chain Elongation to Medium-Chain Fatty Acids
+    description: 'The inferred Actinobacteriota-to-Firmicutes lactic-acid transfer routes lactose-derived short-chain
+      acid into reverse-beta-oxidation production of butyrate, hexanoate, and octanoate.
+
+      '
+  edges_after:
+  - source: Proposed Actinobacteriota Lactose Fermentation Roles
+    target: Proposed Actinobacteriota-to-CLOS1 Lactate Cross-Feeding
+    description: 'HYPOTHESIZED: Lactate production by a subset of lactose-fermenting Actinobacteriota could supply
+      the proposed CLOS1 donor pool. Genomic potential and extracellular profiles support the model, not traced
+      member-specific secretion or transfer; ACT2 succinate production is not evidence of lactate donation.'
+  - source: Proposed Actinobacteriota-to-CLOS1 Lactate Cross-Feeding
+    target: Proposed Firmicutes Chain Elongation Roles
+    description: 'HYPOTHESIZED: Access to donor-derived lactate could support the proposed CLOS1 branch of reverse
+      beta-oxidation, associated mainly with butyrate. This arrow does not route all C6/C8 synthesis through CLOS1
+      or make LCO1 direct-lactose and ACID1 possible-ethanol metabolism dependent on lactate transfer.'
+  retained_edge_decisions:
+  - source: Proposed Actinobacteriota Lactose Fermentation Roles
+    target: Proposed Actinobacteriota-to-CLOS1 Lactate Cross-Feeding
+    description: 'HYPOTHESIZED: Lactate production by a subset of lactose-fermenting Actinobacteriota could supply
+      the proposed CLOS1 donor pool. Genomic potential and extracellular profiles support the model, not traced
+      member-specific secretion or transfer; ACT2 succinate production is not evidence of lactate donation.'
+    rationale: Retain only the authors' explicitly hypothetical lactate-donor/CLOS1 model, not measured flux or
+      a universal Firmicute route.
+  - source: Proposed Actinobacteriota-to-CLOS1 Lactate Cross-Feeding
+    target: Proposed Firmicutes Chain Elongation Roles
+    description: 'HYPOTHESIZED: Access to donor-derived lactate could support the proposed CLOS1 branch of reverse
+      beta-oxidation, associated mainly with butyrate. This arrow does not route all C6/C8 synthesis through CLOS1
+      or make LCO1 direct-lactose and ACID1 possible-ethanol metabolism dependent on lactate transfer.'
+    rationale: Retain only the authors' explicitly hypothetical lactate-donor/CLOS1 model, not measured flux or
+      a universal Firmicute route.
+  removed_edge_decisions: []
+  references:
+  - PMID:37324413
+  issues:
+  - 1474
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/GLBRC_UFMP_Fermentation_Community/2026-10-06T121037Z-codex-6f8e55.yaml
+  source_review:
+    PMID:37324413:
+      cache: references_cache/PMID_37324413.md
+      sha256: 8acf781bd773c3159ec59504a0f719661bb71693482c0dd9e244e1abb6c3bc46
+      url: https://doi.org/10.3389/fbioe.2023.1173656
+      scope: Complete cached primary main body/Methods/tables/captions; no image or separate supplement inspection.
+- path: kb/communities/GOM_Oil_Degrading_Consortium.yaml
+  id: CommunityMech:000030
+  original_sha256: 6b90550db3bc1cc1a75459278ec2541043eab31f177007facca1d41229489f2f
+  record_sha256: 90d4d45224abfc9829feb8fd1cabde320c410a7a843ea3410c89dda4852cc299
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch44.yaml
+  scope: Whole record and every original node/arrow reviewed; positive observations and causal limits distinguished.
+  summary: Retain abiotic-referenced, time-dependent n-alkane depletion without assigned in-consortium member flux.;
+    Retain heterogeneous PAH-panel depletion, not substantial degradation of all 12 or generic phenanthrene.; Retain
+    gross removal improvement while exposing abiotic and total-inoculum limits on synergy.
+  renamed_nodes:
+    Enhanced Light Crude Oil Removal: Higher Gross Light Crude Oil Removal
+  node_decisions:
+  - node: Consortium n-Alkane Biodegradation
+    rationale: Retain abiotic-referenced, time-dependent n-alkane depletion without assigned in-consortium member
+      flux.
+  - node: Consortium Polyaromatic Hydrocarbon Biodegradation
+    rationale: Retain heterogeneous PAH-panel depletion, not substantial degradation of all 12 or generic phenanthrene.
+  - node: Higher Gross Light Crude Oil Removal
+    rationale: Retain gross removal improvement while exposing abiotic and total-inoculum limits on synergy.
+  removed_node_decisions: []
+  edges_before:
+  - source: Consortium n-Alkane Biodegradation
+    target: Enhanced Light Crude Oil Removal
+    description: Consortium-scale n-alkane biodegradation contributes to improved gravimetric light-crude-oil removal
+      by the selected four-strain consortium.
+  - source: Consortium Polyaromatic Hydrocarbon Biodegradation
+    target: Enhanced Light Crude Oil Removal
+    description: PAH biodegradation is one measured hydrocarbon-removal activity of the consortium that reached
+      higher total crude-oil removal than any individual member.
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions:
+  - source: Consortium n-Alkane Biodegradation
+    target: Enhanced Light Crude Oil Removal
+    description: Consortium-scale n-alkane biodegradation contributes to improved gravimetric light-crude-oil removal
+      by the selected four-strain consortium.
+    rationale: Class-specific abiotic-referenced depletion does not selectively mediate the comparative gross-removal
+      advantage; total starting inoculum and abiotic loss differ in interpretation.
+  - source: Consortium Polyaromatic Hydrocarbon Biodegradation
+    target: Enhanced Light Crude Oil Removal
+    description: PAH biodegradation is one measured hydrocarbon-removal activity of the consortium that reached
+      higher total crude-oil removal than any individual member.
+    rationale: Class-specific abiotic-referenced depletion does not selectively mediate the comparative gross-removal
+      advantage; total starting inoculum and abiotic loss differ in interpretation.
+  references:
+  - doi:10.3389/fmars.2022.962071
+  issues:
+  - 1475
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/GOM_Oil_Degrading_Consortium/2026-10-06T121037Z-codex-7c3bc4.yaml
+  source_review:
+    doi:10.3389/fmars.2022.962071:
+      cache: references_cache/doi_10.3389_fmars.2022.962071.md
+      sha256: 7d1eaf6c49a9c7146be668a6ab870222614d08bf1bd8c60627b1a210e38f3dd3
+      url: https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2022.962071/full
+      scope: Cached abstract plus one Methods sentence; separately read publisher complete main body/Methods/tables/captions.
+        No images or separate supplements inspected.
+      publisher:
+        url: https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2022.962071/full
+        html_sha256: 0cab5621ee8f05ce8d36d25a418c59d9fb96ba728ad38f68717797ffe5022831
+        text_sha256: 83d3dc509ad021a294906fa99adbdf241559ff3ee9e6d223bc7f96d98596a3bf
+        scope: Publisher main-body text extraction; no figure image or supplementary-file inspection
+- path: kb/communities/Garlic_Pseudomonas_SynCom6.yaml
+  id: CommunityMech:000095
+  original_sha256: 1336853814eb3ca22d64ec0a5c8663861c7ab544704d9216731b6b60816aef76
+  record_sha256: 0052209591a0d6d3e106ad27feaca9dde69645f9725f01ba63e41ebeb5c5c59c
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch44.yaml
+  scope: Whole record and every original node/arrow reviewed; positive observations and causal limits distinguished.
+  summary: Retain only the measured two-day radish host-response outcome, with unresolved six-member identity and
+    mechanism explicit.
+  renamed_nodes:
+    Pseudomonas-Mediated Growth Promotion: Radish Seedling Length Response to Pseudomonas SynCom6
+  node_decisions:
+  - node: Radish Seedling Length Response to Pseudomonas SynCom6
+    rationale: Retain only the measured two-day radish host-response outcome, with unresolved six-member identity
+      and mechanism explicit.
+  removed_node_decisions:
+  - node: Top-Down Pseudomonas PGPR Selection
+    rationale: Field nomination based on enrichment/co-occurrence is a selection workflow, not a demonstrated ecological
+      interaction.
+  - node: Six-Strain Pseudomonas SynCom Assembly
+    rationale: Equal-proportion experimental assembly is a design operation, not biological symbiosis.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:32762153
+  issues:
+  - 1476
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Garlic_Pseudomonas_SynCom6/2026-10-06T121038Z-codex-149752.yaml
+  source_review:
+    PMID:32762153:
+      cache: references_cache/PMID_32762153.txt
+      sha256: 779420a992ece6d588076f6e82f8fc8abc7b1c75859e705edbf409344e2a8c54
+      url: https://doi.org/10.1111/1751-7915.13640
+      scope: Complete cached primary main body/Methods/tables/captions; no image or separate supplement inspection.
