@@ -5,6 +5,28 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch53: Pit Lakes, Bioleaching And Model Biofilm
+
+[Decisions](decisions/20261006-pitlakes-bioleach-biofilm-batch53.yaml),
+[validation](validation-20261006-batch53.json) and
+[self-adversarial review](adversarial-review-20261006-batch53.yaml) retain all
+17 nodes, remove six unsupported cross-study or misassigned arrows, and retain
+both positive milk-biofilm genetic-intervention arrows. Pit-lake geochemistry,
+mineral observations and functional predictions remain distinct from partner flux.
+The industrial graph preserves population, genome and copper-yield findings;
+its composite roster and missing valid regeneration structure remain unresolved
+under #1509. The milk endpoint is condition-specific biofilm establishment,
+not universal robustness or a mature-biofilm recovery trajectory.
+
+Three cached primary main texts and a freshly retrieved 2023 primary main text
+were read, including Methods and embedded tables/captions. The 2022 pit-lake and
+2014 chalcopyrite papers were available only at abstract scope. No original
+images, external supplements, raw data or code were audited. Four short excerpts
+(24 source words) are added to one existing abstract cache with primary XML hash,
+context and CC BY attribution; its original content is preserved as an exact
+prefix. Non-graph metadata is preserved, not recertified. Validation links are
+publication outputs, not a claim of completion before their recorded gates run.
+
 ## Batch52: URLs, Hualgayoc And Gut Proteomes
 
 [Decisions](decisions/20261006-urls-amd-proteome-batch52.yaml),
