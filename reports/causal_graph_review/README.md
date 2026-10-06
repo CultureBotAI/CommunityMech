@@ -5,6 +5,25 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch59: Kefir Flavor And Dairy-Panel Gap
+
+[Decisions](decisions/20261006-kefir-dairy-batch59.yaml),
+[validation](validation-20261006-batch59.json) and
+[self-adversarial review](adversarial-review-20261006-batch59.yaml) cover kefir's
+six original nodes and the dairy panel's empty graph. Two procedural kefir nodes
+are removed; four bounded biological/potential nodes remain without arrows.
+Compound-specific interaction statistics, positive growth responses and conflicting
+ester-comparison wording remain distinct from demonstrated metabolite transfer.
+
+The dairy panel remains `needs_research`, not a certified absence of interactions.
+Its one-community Edison dry-run metadata is retained with zero provider calls or
+credits. Related primary research is limited to abstract/highlights; the data-article
+main text was read. Kefir review includes public indexed body sections with gaps,
+not complete full text or original figures. One cache appendix adds 21 verified
+excerpt words with its original prefix unchanged; 919 other caches are unchanged.
+Repair #1535 awaits protected-main merge. Metadata #1536 and research #1537 remain
+open until separately resolved.
+
 ## Batch58: R2A Model And Agar Antagonism
 
 [Decisions](decisions/20261006-r2a-batch58.yaml),
