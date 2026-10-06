@@ -442,3 +442,18 @@ the paid Edison workflow. A free dry run is not a completed research report.
 Non-graph metadata/source ambiguities remain #1574. Canonical taxonomy and all
 caches are preserved, not independently recertified. No independent approval
 or corpus completion is claimed.
+
+## Batch67: Maize SynComs
+
+[Decisions](decisions/20261006-maize-batch67.yaml),
+[validation](validation-20261006-batch67.json) and
+[self-adversarial review](adversarial-review-20261006-batch67.yaml) retain all 13
+nodes and qualify eight of 11 arrows. MBOA conversion and growth remain positive
+results without untested composition mediation; maize drought assays retain
+genotype-specific benefits and proposed mechanisms without linking separate
+recovery and yield experiments. The root keystone effect is a host-dependent
+community perturbation, not demonstrated pairwise competition; fungal biocontrol
+remains supported with unresolved molecular mechanism. No new causal structure
+or provider spend. Non-graph metadata remains #1580, coordinated with #615.
+Canonical taxonomy and caches are preserved, not recertified. Exact-head
+self-review is not independent approval or corpus completion.

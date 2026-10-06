@@ -324,6 +324,8 @@ USERS = {
     "MUCC_Freshwater_Wetland_Methane_Network_Community.yaml",
     "MWF001_FourSpecies_CrossFeeding_Consortium.yaml",
     "Magnetite_Sulfate_Stress_Anaerobic_Microbiome.yaml",
+    "Maize_Benzoxazinoid_Metabolizing_SynComs.yaml",
+    "Maize_Drought_Response_SynCom.yaml",
     "Maize_Root_Simplified_Community.yaml",
     "Maize_SC2_RootRot_Biocontrol_SynCom.yaml",
     "Mangrove_Benzene_MFC_Bioanode_Consortium.yaml",
