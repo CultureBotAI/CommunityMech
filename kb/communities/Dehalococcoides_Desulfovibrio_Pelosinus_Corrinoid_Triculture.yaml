@@ -177,8 +177,9 @@ taxonomy:
     explanation: Supports the corrinoid-supplying role assigned to PfR7.
 ecological_interactions:
 - name: Hydrogen Provision By Desulfovibrio
-  description: DvH ferments lactate in the defined consortium and supplies hydrogen
-    needed by Dhc195 for reductive dechlorination.
+  description: DvH ferments lactate and supplies hydrogen for Dhc195 reductive dechlorination in the defined triculture.
+    Dhc195 hydrogen consumption supports DvH fermentative energetics. Sustainable growth in the cobalamin-free experiment
+    additionally depends on the corrinoid-supplying partner and externally supplied DMB.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -215,10 +216,9 @@ ecological_interactions:
       label: anaerobic respiration
   downstream:
   - target: Hydrogen- and Corrinoid-Supported TCE Dechlorination
-    description: >
-      DvH-supplied hydrogen provides the electron donor input that Dhc195 needs,
-      together with PfR7-derived corrinoids, for sustainable reductive
-      dechlorination in the defined triculture.
+    description: DvH-supplied hydrogen supports the electron-donor requirement of Dhc195 in the lactate-fed triculture,
+      together with partner corrinoids and externally supplied DMB. Hydrogen provision alone does not make the cobalamin-free
+      two-member coculture sustainable.
   evidence:
   - reference: PMID:24463969
     supports: SUPPORT
@@ -231,8 +231,9 @@ ecological_interactions:
     snippet: trichloroethene (TCE)- and lactate-amended medium
     explanation: Supports lactate and TCE as the donor and acceptor context for the triculture.
 - name: Corrinoid Provision By Pelosinus
-  description: PfR7 provides corrinoids that allow Dhc195 to sustain dechlorination
-    and cell growth when cobalamin is not supplied exogenously.
+  description: PfR7 supplies corrinoids to Dhc195 in the DMB-amended, cobalamin-free triculture. These include precursors
+    for recipient remodeling; PfR7 can also form some cobalamin when supplied DMB. DMB is an external amendment,
+    not a demonstrated PfR7 product, and recipient remodeling is not the only possible functional-cofactor route.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -250,10 +251,13 @@ ecological_interactions:
     term:
       id: CHEBI:30411
       label: cobalamin
+    notes: Functional cofactor context; PfR7 also supplies other corrinoids. This entry does not identify every
+      transferred molecule as cobalamin.
   - preferred_term: 5,6-dimethylbenzimidazole
     term:
       id: CHEBI:15890
       label: 5,6-dimethylbenzimidazole
+    notes: Externally supplied lower ligand, not a demonstrated PfR7-to-Dhc195 transfer.
   biological_processes:
   - preferred_term: vitamin metabolic process
     term:
@@ -265,9 +269,9 @@ ecological_interactions:
       label: cobalamin transport
   downstream:
   - target: Dhc195 Corrinoid Salvaging And Remodeling
-    description: >
-      PfR7 corrinoid production supplies the phenolic corrinoids that Dhc195
-      imports and remodels into cobalamin when DMB is present.
+    description: PfR7 supplies corrinoid substrates that Dhc195 can salvage and remodel in the presence of externally
+      supplied DMB. This does not exclude donor guided cobalamin biosynthesis or establish that all functional cofactor
+      passes through recipient remodeling.
   evidence:
   - reference: PMID:24463969
     supports: SUPPORT
@@ -280,17 +284,11 @@ ecological_interactions:
     snippet: physiological level of 5,6-dimethylbenzimidazole (DMB)
     explanation: Supports DMB as the lower-ligand supplement required for sustainable triculture performance.
 - name: Dhc195 Corrinoid Salvaging And Remodeling
-  description: Dhc195 imports and remodels phenolic corrinoids produced by PfR7
-    into cobalamin in the presence of DMB, inducing corrinoid-remodeling and
-    corrinoid-transport genes.
-  interaction_type: CROSS_FEEDING
+  description: Dhc195 salvages and remodels PfR7-derived corrinoids into cobalamin when DMB is supplied. Corrinoid
+    profiles and laboratory transcript measurements support this recipient-intrinsic process, not another donor-to-recipient
+    exchange or proof that induced transporter/remodeling genes are individually necessary.
   scope: PAIRWISE
   source_taxon:
-    preferred_term: Pelosinus fermentans R7
-    term:
-      id: NCBITaxon:1122947
-      label: Pelosinus fermentans DSM 17108
-  target_taxon:
     preferred_term: Dehalococcoides mccartyi strain 195
     term:
       id: NCBITaxon:243164
@@ -315,10 +313,9 @@ ecological_interactions:
       label: cobalamin transport
   downstream:
   - target: Hydrogen- and Corrinoid-Supported TCE Dechlorination
-    description: >
-      Dhc195 corrinoid salvaging and remodeling turns PfR7-produced corrinoids
-      into cobalamin cofactors that support sustainable TCE dechlorination when
-      DvH also supplies hydrogen.
+    description: Recipient salvaging and remodeling contributes compatible cofactor for sustainable TCE dechlorination
+      in the DMB-amended triculture when DvH supplies hydrogen. The source supports this route but does not selectively
+      separate its contribution from cobalamin formed by the donor in the presence of DMB.
   evidence:
   - reference: PMID:24463969
     supports: SUPPORT
@@ -327,15 +324,15 @@ ecological_interactions:
     explanation: Supports Dhc195 corrinoid remodeling of PfR7-produced corrinoids.
   - reference: PMID:24463969
     supports: SUPPORT
-    evidence_source: COMPUTATIONAL
+    evidence_source: IN_VITRO
     snippet: CbiZ-dependent corrinoid-remodeling pathway and BtuFCD corrinoid ABC transporter genes
-    explanation: Supports the transcriptomic response associated with corrinoid salvaging and transport.
+    explanation: Supports measured microarray induction in laboratory cultures. Transcript abundance is not a selective
+      gene-necessity experiment or direct transporter activity measurement.
 - name: Hydrogen- and Corrinoid-Supported TCE Dechlorination
-  description: >
-    The three-member consortium combines DvH hydrogen provisioning with
-    PfR7-to-Dhc195 corrinoid transfer and Dhc195 cobalamin remodeling to sustain
-    TCE dechlorination and Dehalococcoides growth without exogenous cobalamin.
-  interaction_type: SYNTROPHY
+  description: The three-member lactate-fed consortium sustains TCE dechlorination and Dhc195 growth without exogenous
+    cobalamin when DMB is supplied. DvH provides hydrogen and PfR7 corrinoids, with Dhc195 remodeling contributing
+    compatible cofactor. This is a DMB-dependent community outcome, not self-sufficiency without any external lower
+    ligand.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: dihydrogen
@@ -368,12 +365,26 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Only the triculture exhibited sustainable dechlorination and cell growth
-    explanation: Supports the full Dhc195/DvH/PfR7 triculture as the sustainable TCE-dechlorinating state.
+    explanation: The abstract qualifies the sustainable triculture result by DMB provision. It does not deny growth
+      of cobalamin-amended controls or hydrogen-supplemented alternative cocultures.
   - reference: PMID:24463969
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: DvH provided hydrogen while PfR7 provided corrinoids to Dhc195
     explanation: Supports the combined hydrogen and corrinoid inputs needed for the triculture output.
+  participating_taxa:
+  - preferred_term: Dehalococcoides mccartyi strain 195
+    term:
+      id: NCBITaxon:243164
+      label: Dehalococcoides mccartyi 195
+  - preferred_term: Desulfovibrio vulgaris Hildenborough
+    term:
+      id: NCBITaxon:882
+      label: Nitratidesulfovibrio vulgaris str. Hildenborough
+  - preferred_term: Pelosinus fermentans R7
+    term:
+      id: NCBITaxon:1122947
+      label: Pelosinus fermentans DSM 17108
 environmental_factors:
 - name: Cobalamin-free medium
   value: no exogenous cobalamin
@@ -544,3 +555,29 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this dechlorinating
   corrinoid-transfer triculture.
+discussions:
+- discussion_id: dhc_pelosinus_cofactor_route_partition
+  prompt: How much functional cofactor comes from donor guided synthesis versus recipient remodeling?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Hydrogen Provision By Desulfovibrio
+  - ecological_interactions#Corrinoid Provision By Pelosinus
+  - ecological_interactions#Dhc195 Corrinoid Salvaging And Remodeling
+  - ecological_interactions#Hydrogen- and Corrinoid-Supported TCE Dechlorination
+  rationale: 'The primary corrinoid profiles and transcript measurements support remodeling but do not selectively
+    partition its contribution from PfR7 cobalamin production under DMB supplementation. Gene induction is not genetic
+    necessity. All three arrows retain the external lower-ligand condition. Other observed fermentation relationships
+    are not claimed to be exhaustively represented; no new node or arrow is introduced. Full main body and table
+    text were read, not figure images or supplements. Non-graph follow-up: #1385.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T05:48:23Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain syntrophic hydrogen support with the required cofactor context.; Retain corrinoid cross-feeding
+    without assigning DMB production or an exclusive cofactor route.; Assign salvaging/remodeling to Dhc195 and
+    classify measured transcript evidence correctly.; Make the complete canonical triculture and DMB-dependent outcome
+    explicit. Issue #1383; reports/causal_graph_review/decisions/20261006-three-records-batch30.yaml'
+  llm_assisted: true

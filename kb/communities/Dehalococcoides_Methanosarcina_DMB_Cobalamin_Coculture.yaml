@@ -108,8 +108,9 @@ taxonomy:
     explanation: Supports extracellular cobamide production by M. barkeri Fusaro.
 ecological_interactions:
 - name: DMB-Guided Cobalamin Support
-  description: M. barkeri Fusaro produces factor III cobamide, and when DMB is added the coculture can generate
-    a cobalamin that supports Dehalococcoides reductive dechlorination activity and growth.
+  description: DMB amendment enables compatible cobalamin production and supports BAV1 dechlorination and growth
+    in the Fusaro coculture. Native factor III alone does not supply an adequate cofactor under the tested conditions.
+    The experiment supports conditional partner assistance, not endogenous DMB supply or reciprocal nutrient exchange.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -142,10 +143,9 @@ ecological_interactions:
       label: organohalide respiration
   downstream:
   - target: Cobalamin-Dependent Reductive Dechlorination
-    description: >
-      DMB-guided biosynthesis converts the Methanosarcina cobamide supply into
-      a cobalamin compatible with the Dehalococcoides reductive
-      dechlorination machinery.
+    description: With externally supplied DMB, the partner-associated corrinoid system supplies compatible cofactor
+      and enables BAV1 dechlorination and growth. This does not assign an exclusive donor-versus-recipient remodeling
+      route or imply that DMB is required when compatible cobalamin is supplied directly.
   evidence:
   - reference: PMID:23479750
     supports: SUPPORT
@@ -158,9 +158,9 @@ ecological_interactions:
     snippet: supported Dehalococcoides' activity and growth
     explanation: Supports the functional outcome of cobalamin generation in the coculture.
 - name: Factor III Is Insufficient Without DMB
-  description: M. barkeri Fusaro produced factor III extracellular cobamide, but that cobamide alone did not
-    satisfy Dehalococcoides corrinoid requirements under the tested chlorinated-ethene conditions.
-  interaction_type: COMMENSALISM
+  description: Without DMB or a compatible cobalamin amendment, the tested Fusaro cobamide supply did not adequately
+    support BAV1 reductive dechlorination. This negative compatibility result is not commensalism, active factor-III
+    toxicity or proof that the methanogen inhibits an otherwise adequately supplemented dechlorinator.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Methanosarcina barkeri strain Fusaro
@@ -172,11 +172,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:216389
       label: Dehalococcoides mccartyi BAV1
-  metabolites:
-  - preferred_term: cobalamin
-    term:
-      id: CHEBI:30411
-      label: cobalamin
   biological_processes:
   - preferred_term: organohalide respiration
     term:
@@ -184,10 +179,9 @@ ecological_interactions:
       label: organohalide respiration
   downstream:
   - target: Cobalamin-Dependent Reductive Dechlorination
-    description: >
-      Unguided factor III production leaves the Dehalococcoides corrinoid
-      requirement unsatisfied, so organohalide respiration remains constrained
-      unless DMB enables compatible cobalamin production.
+    description: Failure to supply an adequate compatible cofactor leaves BAV1 dechlorination constrained in the
+      unamended coculture. This denotes a missing nutritional input, not active inhibition by factor III. DMB-associated
+      cofactor production or direct compatible-cobalamin supplementation can overcome that limitation.
   evidence:
   - reference: PMID:23479750
     supports: SUPPORT
@@ -200,20 +194,16 @@ ecological_interactions:
     snippet: M. barkeri and the Sporomusa sp. cannot fulfil Dehalococcoides' nutritional requirements
     explanation: Supports the caveat that partner-produced cobamides alone were not sufficient.
 - name: Cobalamin-Dependent Reductive Dechlorination
-  description: BAV1 uses cobalamin-dependent organohalide respiration to detoxify chlorinated ethenes, and
-    insufficient cobalamin causes incomplete dechlorination and vinyl chloride accumulation.
-  interaction_type: CROSS_FEEDING
+  description: BAV1 cobalamin-dependent organohalide respiration converts growth-supporting chlorinated ethenes
+    toward ethene; limited cofactor availability can leave incomplete dechlorination and vinyl chloride. This is
+    the recipient phenotype, not BAV1-to-Fusaro cross-feeding. Pooled BAV1, GT and FL2 responses are not all assigned
+    to this pair.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Dehalococcoides mccartyi BAV1
     term:
       id: NCBITaxon:216389
       label: Dehalococcoides mccartyi BAV1
-  target_taxon:
-    preferred_term: Methanosarcina barkeri strain Fusaro
-    term:
-      id: NCBITaxon:269797
-      label: Methanosarcina barkeri str. Fusaro
   metabolites:
   - preferred_term: chloroethene
     term:
@@ -238,12 +228,13 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: require vitamin B12 (CN-Cbl) to conserve energy via organohalide respiration
-    explanation: Supports cobalamin dependence for Dehalococcoides organohalide respiration.
+    explanation: Supports the recipient cobalamin requirement, not reverse nutrient transfer to the methanogen.
   - reference: PMID:23479750
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: incomplete leading to vinyl chloride (VC) accumulation
-    explanation: Supports vinyl chloride accumulation under insufficient cobalamin.
+    explanation: Supports cofactor-limited incomplete dechlorination across the tested strains. Their substrate
+      and numerical comparisons are not automatically BAV1/Fusaro-specific.
 environmental_factors:
 - name: DMB amendment
   value: 10 microM 5,6-dimethylbenzimidazole
@@ -447,3 +438,27 @@ rare_earth_elements_present: []
 metal_relevance: INCIDENTAL
 metal_notes: Cobalt-containing cobalamin is central to reductive dechlorination, but no metal or rare
   earth extraction/cycling role is curated for this coculture.
+discussions:
+- discussion_id: bav1_fusaro_cofactor_compatibility_limits
+  prompt: Which cofactor-production and remodeling routes support BAV1 in the DMB-amended pair?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#DMB-Guided Cobalamin Support
+  - ecological_interactions#Factor III Is Insufficient Without DMB
+  - ecological_interactions#Cobalamin-Dependent Reductive Dechlorination
+  rationale: 'The cached abstract and indexed primary excerpts support DMB-dependent rescue and native-cobamide
+    insufficiency, not an exclusive cell-resolved route or reciprocal transfer. Complete primary body, figure images
+    and supplements were not retrieved; fine-grained strain/substrate comparisons are therefore not generalized.
+    Preserve the positive rescue and negative compatibility observations without equating absence of support with
+    toxicity. Non-graph follow-up: #1386.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T05:48:23Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain conditional DMB-associated cofactor support without assigning an exclusive route.; Retain the
+    negative compatibility result without commensalism or toxicity.; Represent BAV1 dechlorination as a recipient
+    phenotype without reverse cross-feeding. Issue #1384; reports/causal_graph_review/decisions/20261006-three-records-batch30.yaml'
+  llm_assisted: true

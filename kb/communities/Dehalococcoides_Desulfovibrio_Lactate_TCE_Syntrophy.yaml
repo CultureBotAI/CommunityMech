@@ -131,9 +131,10 @@ taxonomy:
     explanation: Supports the same DvH strain in later constructed-consortium perturbation experiments.
 ecological_interactions:
 - name: Lactate Fermentation Supports Dehalococcoides Growth
-  description: D. vulgaris Hildenborough ferments lactate and provides hydrogen and
-    acetate that support D. mccartyi strain 195 growth and reductive dechlorination
-    in the coculture.
+  description: DvH fermentation of lactate supplies hydrogen as electron donor and acetate for strain-195 growth
+    in the syntrophic coculture. Hydrogen consumption by the dechlorinator supports fermentative energetics. This
+    does not establish that DvH supplies every required cofactor; later cobalamin-free tests required an additional
+    corrinoid source or cobalamin amendment.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -170,9 +171,10 @@ ecological_interactions:
       label: anaerobic respiration
   downstream:
   - target: Enhanced TCE Dechlorination By Syntrophic Support
-    description: H2 and acetate from DvH lactate fermentation feed the obligately
-      H2-consuming D. mccartyi strain 195, enabling and accelerating reductive TCE
-      dechlorination (the community's bioremediation function).
+    description: DvH-derived hydrogen and acetate support strain-195 growth and reductive dechlorination in the
+      tested coculture. The faster dechlorination comparison does not isolate every proposed ancillary benefit;
+      proton translocation, amino-acid supply and corrinoid-related effects are not separately demonstrated by this
+      arrow.
   evidence:
   - reference: PMID:21881617
     supports: SUPPORT
@@ -184,18 +186,18 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: capabilities of DVH to ferment lactate to provide H(2) and acetate for growth
     explanation: Supports the hydrogen and acetate cross-feeding mechanism from DvH to strain 195.
+  - reference: PMID:24463969
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Only the triculture exhibited sustainable dechlorination and cell growth
+    explanation: Constrains the cobalamin-free comparison to the tested DMB-amended consortia. It does not mean
+      the cobalamin-supplemented two-member coculture cannot grow.
 - name: Enhanced TCE Dechlorination By Syntrophic Support
-  description: D. mccartyi strain 195 uses partner-supported reducing equivalents
-    to dechlorinate trichloroethene, with coculture dechlorination rates and
-    strain 195 cell yield enhanced relative to strain 195 grown alone.
-  interaction_type: CROSS_FEEDING
+  description: Strain 195 showed faster reductive dechlorination and greater cell yield in DvH coculture than in
+    isolation. The approximately threefold comparison concerns maximum dechlorination rate, not every growth endpoint.
+    This is the recipient dechlorinator phenotype, not a second DvH-to-Dhc195 metabolite-transfer event.
   scope: PAIRWISE
   source_taxon:
-    preferred_term: Desulfovibrio vulgaris Hildenborough
-    term:
-      id: NCBITaxon:882
-      label: Nitratidesulfovibrio vulgaris str. Hildenborough
-  target_taxon:
     preferred_term: Dehalococcoides mccartyi strain 195
     term:
       id: NCBITaxon:243164
@@ -228,17 +230,18 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: maximum dechlorination rates of DE195 were enhanced by approximately three times
-    explanation: Supports enhanced reductive dechlorination in the coculture.
+    explanation: Supports the measured strain-195 rate comparison; the corresponding cell-yield result is distinct
+      and is not a threefold claim.
   - reference: PMID:21881617
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Cell yield of DE195 was enhanced in the co-culture
     explanation: Supports improved strain 195 growth in the DvH coculture.
-- name: Sulfate-Reduction Perturbation Of Dechlorination
-  description: Later constructed-consortium work tested how sulfate and generated
-    sulfide affect dechlorination, showing that sulfide toxicity can inhibit
-    growth and dechlorination under electron-acceptor-limiting conditions.
-  interaction_type: COMPETITION
+- name: Sulfide-Associated Inhibition Of Dechlorination
+  description: In the electron-acceptor-limited DvH/195 coculture, sulfate reduction at high initial sulfate generated
+    sulfide and inhibited strain-195 dechlorination and growth. This is conditional sulfide-associated inhibition,
+    not a general effect of sulfate itself or demonstrated hydrogen starvation. Donor-limited butyrate-triculture
+    and enrichment outcomes are separate experiments.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Desulfovibrio vulgaris Hildenborough
@@ -274,20 +277,24 @@ ecological_interactions:
       label: anaerobic respiration
   downstream:
   - target: Enhanced TCE Dechlorination By Syntrophic Support
-    description: Under high sulfate, DvH sulfate reduction diverts reducing equivalents
-      and generates sulfide, whose toxicity suppresses reductive TCE dechlorination —
-      opposing the syntrophic support edge.
+    description: Under the tested high-sulfate, electron-donor-excess conditions, accumulated sulfide suppresses
+      strain-195 dechlorination despite available hydrogen. Electron allocation to sulfate reduction is not sufficient
+      evidence that hydrogen competition caused this inhibition. The arrow qualifies the recipient phenotype under
+      this perturbation, not its unperturbed coculture rate.
   evidence:
   - reference: PMID:28159790
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: high sulfate concentrations (5 mM) inhibited reductive dechlorination due to the toxicity of generated sulfide
-    explanation: Supports sulfate/sulfide perturbation as a mechanistic stressor for dechlorination.
+    snippet: high sulfate concentrations (5 mM) inhibited reductive dechlorination due to the toxicity of generated
+      sulfide
+    explanation: Supports generated-sulfide toxicity in electron-acceptor-limited cocultures; does not establish
+      sulfate toxicity or a hydrogen-starvation mechanism.
   - reference: PMID:28159790
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: sulfide at 5 mM exhibited inhibitory effects on growth of the sulfate reducer
-    explanation: Supports sulfide toxicity to the sulfate-reducing partner and community function.
+    snippet: sulfide at 5 mM exhibited inhibitory effects
+    explanation: Supports sulfide inhibition in the tested cultures. The primary Results distinguish organism-specific
+      thresholds; the abstract and Results differ on the DvH threshold, which is not resolved here.
 environmental_factors:
 - name: Lactate-fed anaerobic condition
   value: lactate as sole energy and carbon source
@@ -511,3 +518,27 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this chlorinated-ethene
   dechlorinating coculture.
+discussions:
+- discussion_id: dhc_dvh_inhibition_and_support_limits
+  prompt: Which ancillary partner benefits and sulfide-sensitive processes explain strain-195 performance?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Lactate Fermentation Supports Dehalococcoides Growth
+  - ecological_interactions#Enhanced TCE Dechlorination By Syntrophic Support
+  - ecological_interactions#Sulfide-Associated Inhibition Of Dechlorination
+  rationale: 'Keep measured fermentation support and conditional inhibition distinct. The 2012 full body was unavailable;
+    ancillary benefits remain potential. The 2017 primary body distinguishes donor-excess cocultures from donor-limited
+    tricultures and shows inhibition despite hydrogen availability. Its abstract and Results differ on the DvH sulfide
+    threshold. Expression changes do not by themselves identify the inhibited enzyme. Broader field concentrations
+    and mechanisms are not established by these laboratory comparisons. Non-graph follow-up: #1385.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T05:48:23Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain positive fermentation support with cofactor and ancillary-mechanism limits.; Represent measured
+    recipient activity without a duplicate transfer claim.; Retain the conditional negative arrow while separating
+    sulfide toxicity from hydrogen competition. Issue #1382; reports/causal_graph_review/decisions/20261006-three-records-batch30.yaml'
+  llm_assisted: true
