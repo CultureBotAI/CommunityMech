@@ -25,6 +25,7 @@ change, not to freeze a number that legitimate curation moves.
 
 from __future__ import annotations
 
+import importlib.util
 import pathlib
 
 import pytest
@@ -33,23 +34,16 @@ import yaml
 from communitymech.paths import record_files
 
 REPO = pathlib.Path(__file__).parent.parent
+spec = importlib.util.spec_from_file_location(
+    "rank_causal_graph_readiness", REPO / "scripts/rank_causal_graph_readiness.py"
+)
+ranker = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(ranker)
 
 # Both record roots, not kb/communities alone. `data/isolates` holds the same
 # root class -- 4 records with 66 snippets, 3 ecological_interactions and 3
 # gtdb_classification blocks -- and this module could not see any of it (#689).
 COMMUNITIES = REPO / "kb/communities"
-
-
-def _names(block: dict) -> set[str]:
-    """Every string a pairwise edge could use to name this member."""
-    found = set()
-    if block.get("preferred_term"):
-        found.add(block["preferred_term"])
-    term = block.get("term") or {}
-    for key in ("label", "id"):
-        if term.get(key):
-            found.add(term[key])
-    return found
 
 
 def _survey() -> dict[str, int]:
@@ -70,19 +64,21 @@ def _survey() -> dict[str, int]:
         else:
             cl_only += 1
 
-        members = [(t or {}).get("taxon_term") or {} for t in (document.get("taxonomy") or [])]
-        pairwise: set[str] = set()
-        for interaction in interactions:
-            if interaction.get("scope") == "COMMUNITY_LEVEL":
-                continue
-            for role in ("source_taxon", "target_taxon"):
-                node = interaction.get(role)
-                if isinstance(node, dict):
-                    pairwise |= _names(node)
-                elif isinstance(node, str):
-                    pairwise.add(node)
+        taxonomy = document.get("taxonomy") or []
+        members = [(t or {}).get("taxon_term") or {} for t in taxonomy]
+        pairwise = ranker._connected_taxa(
+            [i for i in interactions if i.get("scope") != "COMMUNITY_LEVEL"], taxonomy
+        )
         taxa += len(members)
-        solely += sum(1 for m in members if not (_names(m) & pairwise))
+        solely += sum(
+            (
+                m.get("preferred_term")
+                or (m.get("term") or {}).get("label")
+                or (m.get("term") or {}).get("id")
+            )
+            not in pairwise
+            for m in members
+        )
     return {
         "records": records,
         "with_community_level": with_cl,
@@ -114,11 +110,12 @@ def test_the_mixed_records_are_where_the_coarseness_bites(survey):
 
     #1344 adds two source-backed mixed-scope records (120 -> 122).
     #1360 adds Copper and Coscinodiscus intrinsic-source corrections (122 -> 124).
+    #1471 restricts the existing Variovorax fucose result to CF313 (124 -> 125).
     #312 measured 46. In the
     community-level-only records the credit is not
     coarse — there is no pairwise edge it could be masking.
     """
-    assert 35 <= survey["mixed"] <= 124, survey
+    assert 35 <= survey["mixed"] <= 125, survey
     assert survey["mixed"] + survey["community_level_only"] == survey["with_community_level"]
 
 
@@ -141,9 +138,9 @@ def test_the_share_credited_solely_by_the_rule_has_not_stepped_up(survey):
 def test_the_worked_example_still_shows_the_limit():
     """`GLBRC_Populus_Variovorax_SynCom28` is #312's illustration.
 
-    28 taxa, and one community-level interaction makes DISCONNECTED unreachable
-    for every one. If this record ever gains pairwise edges the example should
-    move rather than be quietly dropped.
+    The original graph is now a synthetic fixture in test_participating_taxa.
+    The live record names all 28 participants for community observations and
+    only CF313 for its separate mutant assay (#1471).
     """
     path = COMMUNITIES / "GLBRC_Populus_Variovorax_SynCom28.yaml"
     assert path.exists(), "the worked example record is gone; pick another and update #312"
@@ -153,7 +150,12 @@ def test_the_worked_example_still_shows_the_limit():
         i for i in (document.get("ecological_interactions") or []) if isinstance(i, dict)
     ]
     assert len(members) >= 20
-    assert any(i.get("scope") == "COMMUNITY_LEVEL" for i in interactions)
+    community = [i for i in interactions if i.get("scope") == "COMMUNITY_LEVEL"]
+    assert len(community) == 2
+    assert all(len(i["participating_taxa"]) == 28 for i in community)
+    intrinsic = [i for i in interactions if i.get("scope") != "COMMUNITY_LEVEL"]
+    assert len(intrinsic) == 1
+    assert ranker._connected_taxa(intrinsic, document["taxonomy"]) == {"Variovorax sp. CF313"}
 
 
 def test_the_schema_can_now_name_participants():

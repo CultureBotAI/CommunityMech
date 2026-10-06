@@ -5,6 +5,17 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Connectivity Census Correction (2026-10-06)
+
+The historical test survey unioned names, labels and CURIEs for pairwise endpoints.
+This could credit every strain sharing a genus ID even when an endpoint named only
+one strain. Batch43 reuses the already strain-aware readiness resolver; production
+auditor behavior is unchanged. Historical raw survey outputs remain unchanged, but
+their `credited_solely_by_the_rule` counts must not be interpreted as exact
+strain-resolved counts. [Batch43 validation](validation-20261006-batch43.json)
+records both algorithms on both the pre-edit and post-edit corpus, separating this
+measurement correction from the CF313 scope change. See [issue 1472](https://github.com/CultureBotAI/CommunityMech/issues/1472).
+
 ## Reference-Validator Correction (2026-10-06)
 
 Some historical batch reports incorrectly interpret `Total checks: 0` as zero
