@@ -97,10 +97,10 @@ taxonomy:
       the candidate cofactor-dependence hypothesis.
 ecological_interactions:
 - name: Genome-inferred biotin asymmetry
-  description: D. flosaquae FBCC-A233 was the only recovered genome with a complete BioU-mediated
-    de novo biotin-biosynthesis route, whereas Sphingorhabdus sp. and Brevundimonas sp. lacked
-    complete de novo pathways while retaining biotin-dependent carboxylase genes.
-  interaction_type: CROSS_FEEDING
+  description: D. flosaquae FBCC-A233 was the only recovered genome with a complete BioU-mediated de novo biotin-biosynthesis
+    route, whereas Sphingorhabdus sp. and Brevundimonas sp. lacked complete de novo pathways while retaining biotin-dependent
+    carboxylase genes. These are genomic potentials in three recovered genomes, not measured production, transfer
+    or growth dependence, and not a complete culture census.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Dolichospermum flosaquae FBCC-A233
@@ -129,20 +129,20 @@ ecological_interactions:
   - reference: PMID:42535840
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: D. flosaquae FBCC-A233 was the only genome encoding the BioU-mediated de novo biotin
-      biosynthesis route
+    snippet: D. flosaquae FBCC-A233 was the only genome encoding the BioU-mediated de novo biotin biosynthesis route
     explanation: Supports a genome-inferred biotin asymmetry, not direct biotin exchange.
   - reference: PMID:42535840
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: associated bacterial genomes lacked complete de novo biosynthetic pathways
-    explanation: Supports the absence of complete de novo biotin biosynthesis in the recovered
-      Sphingorhabdus and Brevundimonas genomes.
+    explanation: Supports the absence of complete de novo biotin biosynthesis in the recovered Sphingorhabdus and
+      Brevundimonas genomes.
 - name: Genome-inferred corrinoid utilization asymmetry
-  description: D. flosaquae FBCC-A233 encoded most anaerobic corrinoid-ring biosynthesis genes, while
-    Sphingorhabdus sp. and Brevundimonas sp. lacked complete de novo cobamide biosynthesis and
-    retained different methionine-synthase repertoires.
-  interaction_type: CROSS_FEEDING
+  description: D. flosaquae FBCC-A233 encoded most anaerobic corrinoid-ring biosynthesis genes, while Sphingorhabdus
+    sp. and Brevundimonas sp. lacked complete de novo cobamide biosynthesis and retained different methionine-synthase
+    repertoires. A ring-pathway step and the canonical DMB lower-ligand branch remain unresolved; neither canonical
+    cobalamin identity nor cofactor exchange is established. Transport and methionine uptake alternatives do not
+    demonstrate cobamide import.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Dolichospermum flosaquae FBCC-A233
@@ -157,23 +157,13 @@ ecological_interactions:
     term:
       id: NCBITaxon:41275
       label: Brevundimonas
-  metabolites:
-  - preferred_term: vitamin B12
-    term:
-      id: CHEBI:176843
-      label: vitamin B12
-  biological_processes:
-  - preferred_term: cobalamin biosynthetic process
-    term:
-      id: GO:0009236
-      label: cobalamin biosynthetic process
   evidence:
   - reference: PMID:42535840
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: D. flosaquae FBCC-A233 encoded most genes required for anaerobic corrinoid-ring biosynthesis
-    explanation: Supports D. flosaquae as a candidate corrinoid producer, while retaining the paper's
-      caveat that cobamide identity and exchange were unresolved.
+    explanation: Supports D. flosaquae as a candidate corrinoid producer, while retaining the paper's caveat that
+      cobamide identity and exchange were unresolved.
   - reference: PMID:42535840
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
@@ -275,29 +265,39 @@ metal_notes: The FBCC-A233 culture was used for genome-resolved inference of cya
   phycosphere cofactor asymmetry, not metal or rare-earth-element transformation.
 discussions:
 - discussion_id: direct_cofactor_exchange_unresolved
-  prompt: Test whether D. flosaquae FBCC-A233 releases biotin or cobamides that are used by the
-    Sphingorhabdus and Brevundimonas associates.
-  kind: CURATION_TODO
+  prompt: Test whether D. flosaquae FBCC-A233 releases biotin or cobamides that are used by the Sphingorhabdus and
+    Brevundimonas associates.
+  kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
-  - ecological_interactions
-  rationale: The publication infers cofactor asymmetry from complete genomes but explicitly reports
-    that biotin and cobamide uptake, export, identity, and growth-dependence mechanisms remain unresolved.
+  - ecological_interactions#Genome-inferred biotin asymmetry
+  - ecological_interactions#Genome-inferred corrinoid utilization asymmetry
+  rationale: 'The publication infers cofactor asymmetry from complete genomes but explicitly reports that biotin
+    and cobamide uptake, export, identity, and growth-dependence mechanisms remain unresolved. No causal arrow connects
+    these parallel predictions. Cofactor chemistry, export, uptake and growth-rescue experiments are needed before
+    assigning cross-feeding. Recovered genomes do not exhaust the xenic culture; abundance and stability metadata
+    remain separate under #1406.'
   evidence:
   - reference: PMID:42535840
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: These profiles do not demonstrate cobamide cross-feeding
-    explanation: The authors explicitly warn that the genome profiles nominate candidate interactions
-      rather than directly demonstrating metabolite exchange.
+    explanation: The authors explicitly warn that the genome profiles nominate candidate interactions rather than
+      directly demonstrating metabolite exchange.
   posed_by: codex
   posed_date: '2026-09-26'
 curation_history:
 - timestamp: '2026-09-26T20:31:53Z'
   curator: codex
   action: CREATE_DOLICHOSPERMUM_FBCC_A233_XENIC_PHYCOSPHERE
-  changes: Added CommunityMech:000441 from PMID:42535840 with the Dolichospermum flosaquae FBCC-A233
-    cyanobacterial culture, two complete-genome alphaproteobacterial associates, BG11/light/temperature
-    culture conditions, genome-inferred biotin and corrinoid asymmetries, DOI/PubMed/BioProject
-    resources, and an open discussion for unmeasured direct cofactor exchange.
+  changes: Added CommunityMech:000441 from PMID:42535840 with the Dolichospermum flosaquae FBCC-A233 cyanobacterial
+    culture, two complete-genome alphaproteobacterial associates, BG11/light/temperature culture conditions, genome-inferred
+    biotin and corrinoid asymmetries, DOI/PubMed/BioProject resources, and an open discussion for unmeasured direct
+    cofactor exchange.
+  llm_assisted: true
+- timestamp: '2026-10-06T07:02:08Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain computational biotin potential without a categorical exchange claim.; Retain corrinoid potential
+    without canonical B12 identity or a causal link to biotin. Issue #1403; reports/causal_graph_review/decisions/20261006-three-records-batch33.yaml'
   llm_assisted: true

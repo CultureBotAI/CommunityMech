@@ -1,0 +1,152 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: ccc4b8719ca08fbcdc3bd47bc2cbbd8c4037c2e5
+scope:
+- kb/communities/Diclofenac_Activated_Sludge_Microbial_Consortium.yaml
+- kb/communities/Dolichospermum_FBCC_A233_Xenic_Phycosphere_Community.yaml
+- kb/communities/Drosophila_FiveSpecies_Gnotobiotic_Gut_Microbiota.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch33.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch33.json
+findings:
+- issue: 1402
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Diclofenac MC graph: separate consortium metabolites and community profiling'
+  disposition: Graph corrected; close only after protected main merge.
+- issue: 1403
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'FBCC-A233 graph: do not equate cofactor genomic potential with cross-feeding'
+  disposition: Graph corrected; close only after protected main merge.
+- issue: 1404
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Drosophila graph: distinguish joint host outcomes from metabolite exchange and mediation'
+  disposition: Graph corrected; close only after protected main merge.
+- issue: 1405
+  severity: null
+  status: withdrawn_incorrect_premise
+  finding: 'Diclofenac MC ingredients: remove pooled isolate-only metabolite attribution'
+  disposition: Closed NOT_PLANNED with public correction, not a fixed defect.
+- issue: 1406
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'FBCC-A233 metadata: distinguish recovered genomes from culture abundance and stability'
+  disposition: Remains open; graph-only repairs do not complete this work.
+- issue: 1407
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'Drosophila metadata: reconcile grouped taxon roles with species-dependent evidence'
+  disposition: Remains open; graph-only repairs do not complete this work.
+- issue: 1408
+  severity: P2
+  status: open_graph_research
+  finding: 'Drosophila causal research: resolve species-specific positive and negative abundance effects'
+  disposition: Remains open; graph-only repairs do not complete this work.
+- issue: 765
+  severity: P2
+  status: open_existing_followup
+  finding: Existing non-graph evidence-restoration debt reused.
+  disposition: No publisher body restored or metadata evidence repair claimed.
+adversarial_checks:
+- Actual three record diffs inspected against primary access documented in the ledger. Seven nodes retained,
+  one arrow retained as PARTIAL and one redundant endpoint-to-panel arrow removed. No new structure inserted.
+- Diclofenac MC attribution corrected using exact-system primary Results, not the pooled abstract alone.
+  Parent loss differs from mineralization and detoxification; partial-roster participation does not assign
+  individual degraders. Relative marker denominators and prior workflow-arrow removal preserved.
+- Dolichospermum cofactor predictions remain computational PARTIAL. Exchange and canonical cobalamin identity
+  are not established. Recovered genomes are not a complete culture census. Existing discussion updated
+  with exact anchors, not duplicated.
+- Drosophila host outcomes use canonical microbial-group and host participants. Species-resolved expansion
+  is still pending and no unsupported exchange mechanism is added. Host genotype context and null responses
+  remain explicit.
+- 'Incorrectly filed #1405 publicly corrected and closed NOT_PLANNED: related_ingredients contains only
+  diclofenac sodium, not the asserted metabolite entry. Metadata unchanged and no fix falsely claimed.
+  #765 evidence debt reused; #1406/#1407 and #1408 remain open.'
+- Three guarded writes, llm-assisted events and append-only histories; prior history preserved semantically
+  and all other non-graph raw blocks unchanged. 457 other records and 920 caches byte-identical. Eight
+  new regression tests.
+- All 31 baseline network warnings exactly unchanged, zero structural errors. Participant registry 176
+  to 178 adds only Diclofenac MC and Drosophila; measured connectivity survey unchanged. No numeric bounds
+  or survey algorithms changed.
+- Repeat-render hashes match; exact descriptions checked across 456 pages. No browser screenshot or visual-figure
+  QA claimed. Three reference-validator no-ops disclosed; independent literal snippet matching is not
+  scientific truth.
+- 'Access limits recorded per source: complete main bodies for the two cached OA papers and 2014 Drosophila;
+  targeted 2015 PDF passages and source-taxonomy abstract only. No supplements or corrected erratum figure
+  inspected; no publisher body/PDF cached.'
+- Issue deduplication covers 729 all-state titles/bodies and ignored/hidden-inclusive exact-target local
+  material, not every comment. One-community Edison dry run only; no job/charge, remote pricing-map DNS
+  fallback disclosed.
+verification:
+  combined_regressions: 368 passed in 260.55s (0:04:20)
+  new_regression_tests: 8
+  schema_strict_terms_history: passed; command outputs retained
+  snippet_counts_by_record:
+    kb/communities/Diclofenac_Activated_Sludge_Microbial_Consortium.yaml:
+      MATCH: 35
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Dolichospermum_FBCC_A233_Xenic_Phycosphere_Community.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Drosophila_FiveSpecies_Gnotobiotic_Gut_Microbiota.yaml:
+      MATCH: 12
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero errors; 31 unchanged baseline warnings, expected warning exit retained.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch33.yaml: a8fb32ab2e18b2b6cba09c2d4a607c74cb4d2d60a4871712ed26fdf4b03a2e4a
+    tests/test_causal_review_batch33.py: e07106479e60f804865600136b8116f5c15c34732092f03ad91c9d03795bd246
+    tests/test_participating_taxa.py: 815fb09225e8e5a5a3bb44ed3db56e38e68402a0ff92ef472d743e93c9b86d46
+    kb/communities/Diclofenac_Activated_Sludge_Microbial_Consortium.yaml: d8e197f2bb938229e5e6cb3424a509aad5c4f62e45022ae2e1a7860eaac5a1b1
+    kb/communities/Dolichospermum_FBCC_A233_Xenic_Phycosphere_Community.yaml: d4da92fc50e4b006fcaaf2d830d5c668e1e2671cea3b00655909a97a8c5e4bd1
+    kb/communities/Drosophila_FiveSpecies_Gnotobiotic_Gut_Microbiota.yaml: b4b58e41f802bbff0ca7c31fd870d6b11bea6c7ead8bd8201b896c45ebfb6efe
+  post_commit_docs_current: Separate publication gate, not yet asserted in pre-commit record.
+  protected_ci_and_merge: Exact-head protected main checks and queue required; not asserted here.
+participant_census:
+  connectivity_before:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1220
+    mixed: 123
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  connectivity_after:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1220
+    mixed: 123
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  exact_change: 176 -> 178 users; only Diclofenac MC and Drosophila added. Connectivity survey unchanged.
+  numeric_bounds_changed: false
+corpus:
+  records: 460
+  nodes: 1470
+  edges: 703
+  review_status_counts:
+    needs_research: 7
+    pending: 312
+    reviewed: 141
+limitations:
+- Two completed existing-graph reviews; Drosophila remains needs_research for species-resolved expansion.
+  Seven nodes retained; one arrow retained as PARTIAL, one redundant arrow removed; no added connectivity.
+- Canonical partial-roster participants do not assign every taxon a causal contribution. Pooled assay
+  summaries and relative marker profiles are not member-specific mechanisms.
+- Primary access is bounded per reference; no visual figures or supplement files reviewed. No publisher
+  bodies/PDFs restored. Non-graph raw blocks and caches preserved.
+- 'Self-adversarial review is not independent approval, protected main merge or full-corpus completion.
+  Textual MATCH is not scientific validation. Mistaken metadata issue #1405 explicitly withdrawn.'
