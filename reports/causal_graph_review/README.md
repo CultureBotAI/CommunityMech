@@ -5,6 +5,17 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch44: UFMP, GOM and Garlic
+
+[Decisions](decisions/20261006-three-records-batch44.yaml),
+[validation](validation-20261006-batch44.json) and
+[self-adversarial review](adversarial-review-20261006-batch44.yaml) distinguish
+genome-based UFMP flux hypotheses, GOM gross removal versus abiotic-referenced
+hydrocarbon depletion, and the garlic-derived SynCom's radish seedling endpoint.
+Two UFMP model arrows remain explicitly hypothetical; two GOM mediation arrows
+and two Garlic design-workflow nodes are removed. SPH2's uncovered proposed
+ethanol role is reported rather than hidden by an invented interaction.
+
 ## Connectivity Census Correction (2026-10-06)
 
 The historical test survey unioned names, labels and CURIEs for pairwise endpoints.
