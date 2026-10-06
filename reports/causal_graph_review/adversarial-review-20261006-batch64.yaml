@@ -1,0 +1,190 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: ba082c3e8c3f34f78e3f9dc32b35f57cc303bc7f
+scope:
+- kb/communities/Lunar_Simulant_Phosphate_Solubilizing_Bacteria_Nicotiana.yaml
+- kb/communities/Lupinus_SC7_Rhizosphere_SynCom.yaml
+- kb/communities/MAMC_M48_Lignocellulose.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-assay-boundaries-batch64.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch64.json
+findings:
+- issue: 1561
+  severity: P2
+  status: addressed_in_this_change
+  finding: Nicotiana assay identity and unsupported attachment/phosphorus mediation.
+  disposition: Close only after protected-main merge.
+- issue: 1562
+  severity: P2
+  status: addressed_in_this_change
+  finding: Lupinus assay, expression and relative-profile scope with explicit input roster.
+  disposition: Close only after protected-main merge.
+- issue: 1563
+  severity: P2
+  status: addressed_in_this_change
+  finding: MAMC procedure nodes, mechanism labels and unbounded fraction endpoint.
+  disposition: Close only after protected-main merge.
+- issue: 1564
+  severity: P2
+  status: unresolved_non_graph
+  finding: Host/strain/role metadata, inoculum and medium phases, non-graph mechanisms and primary-source
+    reporting inconsistencies.
+  disposition: Keep OPEN after graph repair merge.
+adversarial_checks:
+- Read all three whole records and account for9 original nodes and2 arrows. Three complete fresh primary
+  main bodies and complete Nicotiana2026 correction read; embedded text tables inspected. MAMC image-only
+  Table1 cells, original figure pixels, separate supplements and raw data were not audited. Numerical
+  endpoints are author-reported, not independently recomputed.
+- 'Nicotiana: separate five individual-strain flask treatments from the three-strain1:1:1 plant inoculum.
+  Attached microbial biomass phosphorus is an operational pool, not direct biofilm imaging. Its regression
+  with inferred dissociation and pH correlation do not selectively prove attachment or named-acid mediation.
+  Retain these hypotheses in prose, not asserted arrows or GO biofilm activity.'
+- 'Nicotiana: preserve increased phosphorus endpoints for three effective strains and limited activity
+  of two comparators. Total available phosphorus pools include dissolved, biomass and adsorbed fractions
+  and are not all freely dissolved inorganic phosphate. Remove unmeasured oxalate/citrate and CROSS_FEEDING
+  assertions while retaining phosphate context.'
+- 'Nicotiana: retain the18-day conditioning benefit, percentages of control rather than percent increases,
+  and adverse day6 seedling response without pretreatment. Controls were not pre-cultured and MS supplied
+  phosphorus from day6. Correct living-host evidence; these outcomes do not isolate exclusive phosphorus
+  mediation or lunar-environment performance. The2026 correction only fixes particle-size labels.'
+- 'Lupin: preserve positive SC7 growth in both systems and existing richness-versus-membership confounding.
+  Main Table1 confirms twelve input strain codes; keep both Streptomyces strain names despite their shared
+  genus CURIE. Input membership is not dominance, equal harvest abundance, complete host/background membership
+  or independently verified genome identity.'
+- 'Lupin: distinguish FlowPot root RNA-seq from non-sterile CAS-soil microbiome measurements. Expression/enrichment,
+  leghemoglobin and genomic annotations are not hormone secretion, nitrogen-fixation rate or a demonstrated
+  growth mediator. No transcription-to-growth or assembly-to-growth arrow is introduced.'
+- 'Lupin: relative genus profiles are not absolute exclusion or exact inoculant persistence. In-silico
+  ASV removal is not a biological knockout. Disclose conflicting PERMANOVA wording/p=.001 and preserve
+  observational conclusions without certifying blanket significance. Source timing contradiction and missing-host/dominance
+  metadata remain under1564.'
+- 'MAMC: remove enrichment and reductive screening nodes as procedures; preserve earlier workflow-arrow
+  deletion. Retain M48 study isolate IDs13/18/25/29/68 and its positive performance. FTIR estimates43.01/39.65/69.18%
+  average50.6%, not50.6% each, gravimetric mass loss, mineralization or partner-resolved flux.'
+- 'MAMC: metabolic functional groups and isolate secretome assays do not establish niche partitioning,
+  directed exchange or division of labor in M48. Keep source-reported16S identification labels with identity
+  caveats; canonical labels are not independently certified culture-strain equivalents. Approximately3e4
+  cells/mL per strain is stated for the18-strain control; separate non-graph metadata repair stays open.'
+- Review full biological diff and eight focused tests.457 other records,920 caches and raw non-graph blocks
+  unchanged. Canonical taxonomy preserved, not recertified.46 baseline network warnings retained exactly
+  with zero structural defects or auditor-rule changes. Coarse roster/scope census unchanged and does
+  not resolve missing hosts or strain identity.
+- Actual schema, strict, terms, references, snippets, histories, corpus audit, deterministic render and
+  regression outputs captured. Exact descriptions parsed across456 pages, not browser screenshots. Post-commit
+  docs-current remains a separate publication gate.
+- Deduplication covered857 all-state issue titles/bodies with no exact matches and21 scoped ignored/hidden
+  local files. Existing Lupinus review and MAMC workflow history read, not every PR/comment/local match.1561-1563
+  addressed but OPEN until protected-main merge;1564 remains OPEN afterward. Exact-head self-review is
+  COMMENT, not independent approval. No new graph structure or paid Edison submission.
+verification:
+  combined_regressions: 587 passed in 201.44s (0:03:21)
+  new_regression_tests: 8
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: CLI Total checks counts reported issues, not executed checks. MATCH is not scientific entailment
+    or certification of historical provenance. All920 caches unchanged;9 graph excerpts independently
+    match fresh primary text.1564 and existing476/1091/1095 limitations remain unresolved; graph repairs
+    do not recertify non-graph blocks.
+  snippet_counts_by_record:
+    kb/communities/Lunar_Simulant_Phosphate_Solubilizing_Bacteria_Nicotiana.yaml:
+      MATCH: 22
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Lupinus_SC7_Rhizosphere_SynCom.yaml:
+      MATCH: 28
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/MAMC_M48_Lignocellulose.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    primary_matched_graph_snippets: 9
+    primary_main_bodies: 3
+    complete_correction_texts: 1
+    paid_submissions: 0
+    new_nodes_or_arrows: 0
+    separate_supplements_inspected: false
+    mamc_image_only_table1_cells_inspected: false
+  network:
+    existing_findings_preserved: 46
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All46 baseline network findings preserved exactly; no auditor-rule changes or invented
+      links. Explicit participant lists identify tested panels/inoculants, not missing hosts or background
+      communities.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-assay-boundaries-batch64.yaml: c1ee5014ea7d83ad47d2a03e7392fb2e5f86722f7d29f90b1b132f41804982b4
+    tests/test_causal_review_batch64.py: 4a864fd15d4cb6988952b8f1a31364989276e99280b2225a06c88e051f847b70
+    tests/test_participating_taxa.py: 01e176fc992824021f3e48108ee225f94a5e3c2cf56e97d4468fa3cced4adbd0
+    kb/communities/Lunar_Simulant_Phosphate_Solubilizing_Bacteria_Nicotiana.yaml: 880e7a2f3269d73be3a9cdd38f7433934afbdf47ad3a04cc6820982256b3ce89
+    kb/communities/Lupinus_SC7_Rhizosphere_SynCom.yaml: 59a83e4d0b1defdc5f3bae63bccb38caa87fa9fd90a6c115e5be6f518998f6ff
+    kb/communities/MAMC_M48_Lignocellulose.yaml: d877e443187162745cbfa2adba246854e6b2667793da22f8837fd64d08925176
+    reports/causal_graph_review/README.md: a61930eb6b303a69168837c7cf82a476707ffc92d9748429fdbfbe8ce3163e7a
+  unchanged_caches: 920
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    reason: Existing-node/arrow repairs only; no new causal structure.
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 391
+      mixed: 124
+      community_level_only: 267
+      taxa: 1507
+      credited_solely_by_the_rule: 1238
+    current:
+      records: 460
+      with_community_level: 391
+      mixed: 124
+      community_level_only: 267
+      taxa: 1507
+      credited_solely_by_the_rule: 1238
+  interpretation: Canonical roster/scope census unchanged. Explicit participants separate the five-strain
+    Nicotiana test panel from its three-strain plant inoculum and preserve two distinct Lupinus Streptomyces
+    strain names. This coarse census does not resolve missing hosts, strain identity or background community
+    membership.
+corpus:
+  records: 460
+  nodes: 1452
+  edges: 639
+  review_status_counts:
+    needs_research: 21
+    pending: 233
+    reviewed: 206
+limitations:
+- All9 original nodes and2 arrows reviewed;7 outcome/observation nodes retained,2 procedure nodes and2
+  unsupported mediation arrows removed. No new causal structure or Edison submission.
+- 'Three complete fresh primary main bodies and complete Nicotiana2026 correction read, with embedded
+  tables. MAMC Table1 is an image: only its caption read. No original figure pixels, separate supplements
+  or raw data audited; numerical summaries are author-reported, not independently recomputed.'
+- Nicotiana correction PMID:42304108 fixes Fig1 particle-size labels only. Five individual-strain flasks,
+  three-strain plant mixture, time-dependent benefits/adverse early response, unconditioned controls and
+  later MS phosphorus supplementation remain distinct. Biofilm/acid/exclusive-P mediators remain hypotheses.
+- Lupin input roster follows main Table1, preserving two distinct Streptomyces strains. FlowPot RNA-seq
+  is not CAS-soil transcriptomics or biochemical flux. Richness/composition confounding and statistical/timing
+  wording inconsistencies remain unresolved.
+- MAMC FTIR fraction estimates and their mean are not dry-mass loss, individual partner flux or measured
+  division of labor. Source-reported strain-like16S labels are preserved, not recertified culture/genome
+  identities.
+- Canonical taxonomy and raw non-graph blocks preserved, not recertified. Issue1564 remains OPEN for metadata,
+  host/role/strain identities and source inconsistencies.
+- All920 caches unchanged. Retained graph excerpts match fresh primary text without certifying historical
+  full-cache or non-graph provenance. Public OA XML was used without bypassing publisher access restrictions.
+- Deduplication covered857 all-state issue titles/bodies with no exact matches and21 scoped ignored/hidden
+  local files. Existing Lupinus review and MAMC workflow history read, not every PR/comment/local match.
+  Self-adversarial review is not independent approval; repair issues remain OPEN until protected-main
+  merge.
