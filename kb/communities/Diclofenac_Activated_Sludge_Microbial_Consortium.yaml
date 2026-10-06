@@ -241,10 +241,9 @@ taxonomy:
     explanation: Supports the ITS fungal profile at the start of the MC biodegradation assay.
 ecological_interactions:
 - name: Glucose-Amended Diclofenac Dissipation by MC
-  description: The activated-sludge MC eliminated the 10 mg/L parent DCF spike within 5 days in MSM supplemented with 3 g/L
-    glucose, while extracellular 4'-hydroxy-diclofenac, 5-hydroxy-diclofenac, and putative nitro-DCF transformation products
-    accumulated.
-  interaction_type: NICHE_PARTITIONING
+  description: MC removed the 10 mg/L parent DCF spike within 5 days with 3 g/L glucose. MC retained extracellular
+    4'-OH-DCF and a tentative NO2-DCF signal, but 5-OH-DCF was not detected in MC. Parent disappearance does not
+    establish mineralization or detoxification. Participants are a curated subset, not assigned individual degraders.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: diclofenac
@@ -259,10 +258,6 @@ ecological_interactions:
     term:
       id: CHEBI:59613
       label: 4'-hydroxydiclofenac
-  - preferred_term: 5-hydroxydiclofenac
-    term:
-      id: CHEBI:59612
-      label: 5-hydroxydiclofenac
   biological_processes:
   - preferred_term: xenobiotic catabolic process
     term:
@@ -276,45 +271,82 @@ ecological_interactions:
   - reference: PMID:41718267
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Biodegradation assays supplemented with glucose showed limited removal (45.5%) by CSWD.1, whereas CSWD.2 and
-      the MC achieved complete elimination (100%) of 10 mg L-1 DCF in 21 and 5 days, respectively.
+    snippet: Biodegradation assays supplemented with glucose showed limited removal (45.5%) by CSWD.1, whereas CSWD.2
+      and the MC achieved complete elimination (100%) of 10 mg L-1 DCF in 21 and 5 days, respectively.
     explanation: Supports complete 10 mg/L DCF removal by the MC within 5 days in the glucose-supplemented biodegradation
       assay.
   - reference: PMID:41718267
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Three extracellular metabolites, 4'-hydroxy-diclofenac (4'-OH-DCF), 5-hydroxy-diclofenac (5-OH-DCF), and putative
-      NO2-DCF, were detected
-    explanation: Supports the detected DCF transformation products in the MC biodegradation assay.
+    snippet: Three extracellular metabolites, 4'-hydroxy-diclofenac (4'-OH-DCF), 5-hydroxy-diclofenac (5-OH-DCF),
+      and putative NO2-DCF, were detected
+    explanation: This abstract statement pools separate isolate and MC assays; it does not assign every metabolite
+      to MC. Primary Results explicitly report no detectable 5-OH-DCF in MC.
+  participating_taxa:
+  - preferred_term: Burkholderia
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
+  - preferred_term: Klebsiella
+    term:
+      id: NCBITaxon:570
+      label: Klebsiella
+  - preferred_term: Ochrobactrum
+    term:
+      id: NCBITaxon:528
+      label: Ochrobactrum
+  - preferred_term: Chthoniobacter
+    term:
+      id: NCBITaxon:295577
+      label: Chthoniobacter
+  - preferred_term: Parachlamydia
+    term:
+      id: NCBITaxon:83551
+      label: Parachlamydia
+  - preferred_term: Talaromyces
+    term:
+      id: NCBITaxon:5094
+      label: Talaromyces
+  - preferred_term: Aspergillus
+    term:
+      id: NCBITaxon:5052
+      label: Aspergillus
+  - preferred_term: Debaryomycetaceae
+    term:
+      id: NCBITaxon:766764
+      label: Debaryomycetaceae
+  - preferred_term: Malassezia
+    term:
+      id: NCBITaxon:55193
+      label: Malassezia
+  - preferred_term: Cladosporium
+    term:
+      id: NCBITaxon:5498
+      label: Cladosporium
 - name: DCF-Selected Community Shift
-  description: Twenty-eight days of DCF exposure reshaped the MC from initially Burkholderia-, Klebsiella-, Ochrobactrum-,
-    Chthoniobacter-, and Malassezia-rich bacterial/fungal profiles toward final profiles dominated by Burkholderia among bacteria
-    and Talaromyces among fungi.
-  interaction_type: NICHE_PARTITIONING
+  description: Before/after MC metabarcoding showed relative bacterial enrichment of Burkholderia and relative fungal
+    enrichment of Talaromyces after 28 days. The 16S and ITS percentages have separate denominators. This glucose-amended
+    time course does not establish absolute population growth, DCF-only causation, niche partitioning or member-specific
+    degradation; canonical participants are a partial roster.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: diclofenac
     term:
       id: CHEBI:47381
       label: diclofenac
-  biological_processes:
-  - preferred_term: xenobiotic catabolic process
-    term:
-      id: GO:0042178
-      label: xenobiotic catabolic process
   evidence:
   - reference: PMID:41718267
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: DNA was extracted from microbial pellet samples collected at the beginning (“before”) and the end (“after” 28
-      days) of the DCF biodegradation experiment using the DNeasy PowerSoil Pro Kit
-    explanation: Supports the before/after metabarcoding design used to compare the consortium before and after 28 days of
-      DCF exposure.
+    snippet: DNA was extracted from microbial pellet samples collected at the beginning (“before”) and the end (“after”
+      28 days) of the DCF biodegradation experiment using the DNeasy PowerSoil Pro Kit
+    explanation: Supports the before/after metabarcoding design used to compare the consortium before and after
+      28 days of DCF exposure.
   - reference: PMID:41718267
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Initially, the bacterial community was dominated by the genera Burkholderia (26.9% in relative abundance), Klebsiella
-      (20.1%), Ochrobactrum (16.8%), and Chthoniobacter (14.1%)
+    snippet: Initially, the bacterial community was dominated by the genera Burkholderia (26.9% in relative abundance),
+      Klebsiella (20.1%), Ochrobactrum (16.8%), and Chthoniobacter (14.1%)
     explanation: Supports the 16S bacterial profile at the start of the MC biodegradation assay.
   - reference: PMID:41718267
     supports: SUPPORT
@@ -334,8 +366,8 @@ ecological_interactions:
   - reference: PMID:41718267
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: The rare fungal community before exposure to DCF was represented by the genera Malassezia (97.6%), Cladosporium
-      (1.4%), and Talaromyces (0.9%).
+    snippet: The rare fungal community before exposure to DCF was represented by the genera Malassezia (97.6%),
+      Cladosporium (1.4%), and Talaromyces (0.9%).
     explanation: Supports the ITS fungal profile at the start of the MC biodegradation assay.
   - reference: PMID:41718267
     supports: SUPPORT
@@ -343,6 +375,47 @@ ecological_interactions:
     snippet: The genus Talaromyces dominated the community after complete DCF degradation (80.1%), followed by Aspergillus
       (15.1%) and a member of the Debaryomycetaceae family (4.8%).
     explanation: Supports the ITS fungal profile after the MC biodegradation assay.
+  participating_taxa:
+  - preferred_term: Burkholderia
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
+  - preferred_term: Klebsiella
+    term:
+      id: NCBITaxon:570
+      label: Klebsiella
+  - preferred_term: Ochrobactrum
+    term:
+      id: NCBITaxon:528
+      label: Ochrobactrum
+  - preferred_term: Chthoniobacter
+    term:
+      id: NCBITaxon:295577
+      label: Chthoniobacter
+  - preferred_term: Parachlamydia
+    term:
+      id: NCBITaxon:83551
+      label: Parachlamydia
+  - preferred_term: Talaromyces
+    term:
+      id: NCBITaxon:5094
+      label: Talaromyces
+  - preferred_term: Aspergillus
+    term:
+      id: NCBITaxon:5052
+      label: Aspergillus
+  - preferred_term: Debaryomycetaceae
+    term:
+      id: NCBITaxon:766764
+      label: Debaryomycetaceae
+  - preferred_term: Malassezia
+    term:
+      id: NCBITaxon:55193
+      label: Malassezia
+  - preferred_term: Cladosporium
+    term:
+      id: NCBITaxon:5498
+      label: Cladosporium
 environmental_factors:
 - name: DCF enrichment concentration
   value: '24'
@@ -546,16 +619,21 @@ external_resources:
 metal_relevance: NOT_APPLICABLE
 discussions:
 - discussion_id: diclofenac_mc_direct_degrader_assignment
-  prompt: Which bacteria or fungi in the MC directly transform DCF, and which members instead bloom through indirect tolerance,
-    glucose use, metabolite use, or release from competition?
-  kind: INTERPRETATION
+  prompt: Which bacteria or fungi in the MC directly transform DCF, and which members instead bloom through indirect
+    tolerance, glucose use, metabolite use, or release from competition?
+  kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - taxonomy#Burkholderia
   - taxonomy#Talaromyces
   - ecological_interactions#Glucose-Amended Diclofenac Dissipation by MC
-  rationale: The paper reports dominance shifts after DCF exposure but does not isolate MC members or run member-removal experiments
-    that would assign parent-DCF cleavage to Burkholderia, Talaromyces, or the other taxa detected by amplicon sequencing.
+  - ecological_interactions#DCF-Selected Community Shift
+  rationale: The paper reports dominance shifts after DCF exposure but does not isolate MC members or run member-removal
+    experiments that would assign parent-DCF cleavage to Burkholderia, Talaromyces, or the other taxa detected by
+    amplicon sequencing. Relative profiles and parent loss do not establish division of labor or causation between
+    these nodes. CSWD.1 and CSWD.2 are separate isolates, not assigned MC members. Endpoint mixture toxicity does
+    not identify its causal metabolite; putative NO2-DCF lacked an analytical standard. Preserve the prior workflow-arrow
+    removal.
   posed_by: codex
   posed_date: '2026-09-15'
 curation_history:
@@ -567,8 +645,8 @@ curation_history:
 - timestamp: '2026-09-15T00:45:36Z'
   curator: codex
   action: ADDRESS_DICLOFENAC_SLUDGE_CONSORTIUM_REVIEW
-  changes: 'Corrected the Aspergillus NCBITaxon label, marked fungal taxa as no-GTDB equivalents, and split the ENA associated
-    dataset into 16S and ITS2 amplicon entries for issues #901-#903.'
+  changes: 'Corrected the Aspergillus NCBITaxon label, marked fungal taxa as no-GTDB equivalents, and split the
+    ENA associated dataset into 16S and ITS2 amplicon entries for issues #901-#903.'
   llm_assisted: true
 - timestamp: '2026-09-15T01:13:20Z'
   curator: codex
@@ -579,13 +657,20 @@ curation_history:
 - timestamp: '2026-09-15T01:35:50Z'
   curator: codex
   action: ADDRESS_DICLOFENAC_SLUDGE_CONSORTIUM_NUMERIC_ABUNDANCE
-  changes: 'Removed numeric relative_abundance values from the diclofenac MC taxonomy entries so the record keeps article
-    percentages in notes and evidence snippets without expanding measured-abundance slot use while issue #908 is addressed.'
+  changes: 'Removed numeric relative_abundance values from the diclofenac MC taxonomy entries so the record keeps
+    article percentages in notes and evidence snippets without expanding measured-abundance slot use while issue
+    #908 is addressed.'
   llm_assisted: true
 - timestamp: '2026-10-02T05:45:52Z'
   curator: codex
   action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
-  changes: Removed the downstream edge from glucose-amended diclofenac dissipation to the DCF-selected community shift because
-    the edge described which biodegradation-assay pellets were metabarcoded rather than a source-backed ecological causal
-    transition; normalized the Aspergillus genus label to the NCBITaxon current label.
+  changes: Removed the downstream edge from glucose-amended diclofenac dissipation to the DCF-selected community
+    shift because the edge described which biodegradation-assay pellets were metabarcoded rather than a source-backed
+    ecological causal transition; normalized the Aspergillus genus label to the NCBITaxon current label.
+  llm_assisted: true
+- timestamp: '2026-10-06T07:02:07Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain MC parent loss, correct isolate-only 5-OH-DCF attribution and remove unsupported niche partitioning.;
+    Retain relative marker profiles without catabolic attribution or a restored workflow arrow. Issue #1402; reports/causal_graph_review/decisions/20261006-three-records-batch33.yaml'
   llm_assisted: true

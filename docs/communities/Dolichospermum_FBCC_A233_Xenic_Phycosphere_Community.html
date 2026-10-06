@@ -621,7 +621,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Dolichospermum FBCC-A233 Xenic Phycosphere Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -629,8 +629,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -639,9 +639,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Genome-inferred biotin asymmetry</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">D. flosaquae FBCC-A233 was the only recovered genome with a complete BioU-mediated de novo biotin-biosynthesis route, whereas Sphingorhabdus sp. and Brevundimonas sp. lacked complete de novo pathways while retaining biotin-dependent carboxylase genes.</p>
+                <p class="prewrap interaction-description">D. flosaquae FBCC-A233 was the only recovered genome with a complete BioU-mediated de novo biotin-biosynthesis route, whereas Sphingorhabdus sp. and Brevundimonas sp. lacked complete de novo pathways while retaining biotin-dependent carboxylase genes. These are genomic potentials in three recovered genomes, not measured production, transfer or growth dependence, and not a complete culture census.</p>
 
 
 
@@ -719,9 +718,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Genome-inferred corrinoid utilization asymmetry</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">D. flosaquae FBCC-A233 encoded most anaerobic corrinoid-ring biosynthesis genes, while Sphingorhabdus sp. and Brevundimonas sp. lacked complete de novo cobamide biosynthesis and retained different methionine-synthase repertoires.</p>
+                <p class="prewrap interaction-description">D. flosaquae FBCC-A233 encoded most anaerobic corrinoid-ring biosynthesis genes, while Sphingorhabdus sp. and Brevundimonas sp. lacked complete de novo cobamide biosynthesis and retained different methionine-synthase repertoires. A ring-pathway step and the canonical DMB lower-ligand branch remain unresolved; neither canonical cobalamin identity nor cofactor exchange is established. Transport and methionine uptake alternatives do not demonstrate cobamide import.</p>
 
 
 
@@ -738,26 +736,7 @@
 
 
 
-                <p><strong>Metabolites:</strong>
 
-                    vitamin B12
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=176843"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:176843</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        cobalamin biosynthetic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009236"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009236</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -806,13 +785,13 @@
 
             <div class="discussion">
                 <h3>
-                    <span class="role-badge">CURATION_TODO</span>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
                     <span class="role-badge">OPEN</span>
                     Test whether D. flosaquae FBCC-A233 releases biotin or cobamides that are used by the Sphingorhabdus and Brevundimonas associates.
                 </h3>
-                <p class="prewrap">The publication infers cofactor asymmetry from complete genomes but explicitly reports that biotin and cobamide uptake, export, identity, and growth-dependence mechanisms remain unresolved.</p>
+                <p class="prewrap">The publication infers cofactor asymmetry from complete genomes but explicitly reports that biotin and cobamide uptake, export, identity, and growth-dependence mechanisms remain unresolved. No causal arrow connects these parallel predictions. Cofactor chemistry, export, uptake and growth-rescue experiments are needed before assigning cross-feeding. Recovered genomes do not exhaust the xenic culture; abundance and stability metadata remain separate under #1406.</p>
 
-                <p class="muted small">Attaches to: <code>ecological_interactions</code></p>
+                <p class="muted small">Attaches to: <code>ecological_interactions#Genome-inferred biotin asymmetry</code>, <code>ecological_interactions#Genome-inferred corrinoid utilization asymmetry</code></p>
 
 
 
@@ -1204,7 +1183,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1251,18 +1230,10 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
-
-            metabolites.push("vitamin B12");
-
-
             var processes = [];
-
-
-            processes.push("cobalamin biosynthetic process");
-
 
             var evidenceCount = 2;
 
