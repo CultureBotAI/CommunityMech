@@ -106,22 +106,32 @@ taxonomy:
     explanation: Places KHED9 in the A22ED9 consortium with SK22.
 ecological_interactions:
 - name: Consortia-A22ED9 single-metal Fe-Cd-Cr removal
-  description: A22ED9 removed iron, chromium, and cadmium from pH 5.0 LB cultures over 24 h, with mean removal values of 92.08%
-    Fe across 50-1000 mg/L, 74.15% Cr across 1-32 mg/L, and 97.587% Cd across 1-32 mg/L.
+  description: In separate 24-hour LB assays initially at pH 5.0, A22ED9 showed reported mean removal of 92.08%
+    Fe across 50-1000 mg/L, 74.15% Cr and 97.587% Cd across 1-32 mg/L. ICP-OES measured residual metal after centrifugation
+    and filtration. These positive depletion endpoints do not identify oxidation state, intracellular uptake or
+    the shares attributable to biosorption and precipitation. Final pH varied rather than staying fixed at 5.0 or
+    universally reaching 8.0. Cell-free medium controls showed little loss, but pH-matched abiotic and live/dead
+    comparisons were not sufficient to partition mechanisms. The study does not establish enhanced consortium removal
+    over isolates or field efficacy.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: iron(2+)
     term:
       id: CHEBI:29033
       label: iron(2+)
+    notes: FeSO4 was the challenge source; residual elemental measurement does not resolve final iron speciation.
   - preferred_term: chromium
     term:
       id: CHEBI:28073
       label: chromium atom
+    notes: Element-level chromium reporting. The challenge used potassium dichromate, not chromium metal; residual
+      ICP-OES does not establish Cr(VI)-to-Cr(III) reduction.
   - preferred_term: cadmium(2+)
     term:
       id: CHEBI:48775
       label: cadmium(2+)
+    notes: Cadmium nitrate was supplied; depletion does not establish intracellular uptake or exclusive cell-surface
+      binding.
   evidence:
   - reference: PMID:42135302
     supports: SUPPORT
@@ -138,6 +148,15 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: Consortia-A22ED9 removed 97.587 ± 0.958% and Consortia-B18-4M11 removed 97.673 ± 0.475% of Cd respectively
     explanation: Quantifies mean cadmium removal by A22ED9 across the tested Cd concentration series.
+  participating_taxa:
+  - preferred_term: Bacillus sp. SK22
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+  - preferred_term: Bacillus sp. KHED9
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
 environmental_factors:
 - name: Acidic assay pH
   value: '5.0'
@@ -238,16 +257,16 @@ external_resources:
     explanation: Identifies the PubMed Central full-text record used for A22ED9 curation.
 discussions:
 - discussion_id: a22ed9_species_grounding_and_field_performance
-  prompt: Which species within Bacillus do SK22 and KHED9 belong to, and does A22ED9 retain Fe, Cd, and Cr removal in pilot-scale
-    or field acid-mine-drainage treatments?
+  prompt: Which species within Bacillus do SK22 and KHED9 belong to, and does A22ED9 retain Fe, Cd, and Cr removal
+    in pilot-scale or field acid-mine-drainage treatments?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - taxonomy#Bacillus sp. SK22
   - taxonomy#Bacillus sp. KHED9
   - modeled_environment#rat-hole coal-mine acid mine drainage
-  rationale: The inspected study reports 16S rRNA accessions and in vitro pH 5.0 shake-flask assays, while noting that field
-    trials and laboratory-scale fermentor validation remained future work.
+  rationale: The inspected study reports 16S rRNA accessions and in vitro pH 5.0 shake-flask assays, while noting
+    that field trials and laboratory-scale fermentor validation remained future work.
   posed_by: codex
   posed_date: '2026-09-21'
 - discussion_id: a22ed9_no_enhanced_consortium_removal
@@ -256,11 +275,26 @@ discussions:
   status: OPEN
   attaches_to:
   - ecological_interactions#Consortia-A22ED9 single-metal Fe-Cd-Cr removal
-  rationale: The paper reports high Fe, Cd, and Cr removal for A22ED9, but the abstract explicitly states that consortia did
-    not show significant differences in heavy-metal removal, so the curated interaction does not assert an emergent metal-removal
-    advantage.
+  rationale: The paper reports high Fe, Cd, and Cr removal for A22ED9, but the abstract explicitly states that consortia
+    did not show significant differences in heavy-metal removal, so the curated interaction does not assert an emergent
+    metal-removal advantage.
   posed_by: codex
   posed_date: '2026-09-21'
+- discussion_id: a22ed9_depletion_mechanisms_and_missing_stimulation
+  prompt: Which processes account for depletion, and what does filtrate stimulation contribute?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Consortia-A22ED9 single-metal Fe-Cd-Cr removal
+  rationale: 'Preserve Table 3 single-metal removal averages and prior #1009 labels. The source inconsistently says
+    abiotic controls were absent while also reporting cell-free controls; the defensible limit is unresolved pH-matched
+    biological/precipitation contributions, not erasure of reported controls. SEM-EDX examples name individual SK22
+    and SK18-4, not complete A22ED9-specific partitioning. Filtrate-associated SK22 stimulation by KHED9 is a separate
+    measured candidate for new structure under #1593; inspect supplementary Fig S2 and controls before extension.
+    Current record remains needs_research. #1591 repairs the existing endpoint; #1594 tracks non-graph metadata.
+    One-record Edison dry run only; no credits spent.'
+  posed_by: codex
+  posed_date: '2026-10-06'
 metals_present:
 - IRON
 - CHROMIUM
@@ -272,11 +306,18 @@ curation_history:
 - timestamp: '2026-09-21T10:58:01Z'
   curator: codex
   action: CREATE_COMMUNITY_RECORD
-  changes: Created CommunityMech:000406 for the Meghalaya Bacillus Consortia-A22ED9 Fe/Cd/Cr bioremediation consortium from
-    PMID:42135302.
+  changes: Created CommunityMech:000406 for the Meghalaya Bacillus Consortia-A22ED9 Fe/Cd/Cr bioremediation consortium
+    from PMID:42135302.
   llm_assisted: true
 - timestamp: '2026-09-21T11:08:35Z'
   curator: codex
   action: FIX_SINGLE_METAL_LABELS
-  changes: 'Renamed A22ED9 Fe/Cd/Cr assay labels to make the separate single-metal challenge scope explicit; fixes #1009.'
+  changes: 'Renamed A22ED9 Fe/Cd/Cr assay labels to make the separate single-metal challenge scope explicit; fixes
+    #1009.'
+  llm_assisted: true
+- timestamp: '2026-10-07T00:40:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain positive element depletion at assay scope without redox, exclusive biosorption or emergent-advantage
+    claims. Issue #1591; reports/causal_graph_review/decisions/20261006-four-records-batch69.yaml'
   llm_assisted: true

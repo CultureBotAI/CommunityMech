@@ -768,10 +768,26 @@
                 <div class="interaction-header">
                     <h3>AM Fungal Establishment and Sporulation Trajectory</h3>
                 </div>
-                <p class="prewrap interaction-description">The six-member arbuscular mycorrhizal fungal SynCom established and persisted with species-specific trajectories in plant roots and the rhizosphere spore pool; plant species composition had only a limited influence on overall AM fungal community structure in the abstract-level summary.</p>
+                <p class="prewrap interaction-description">The initially six-species AM fungal SynCom showed species-specific root-detection and rhizosphere-spore trajectories over three years of quarterly sampling in planted mesocosms. S. constrictum spores increased across plant-cover treatments; R. clarus and F. coronatum became undetectable in the spore pool, while F. mosseae and S. viscosum remained at low spore density. Initial membership does not mean all six persisted equally. Pooled root PCR-TTGE gives qualitative occurrence, not a quantitative root-to-spore abundance comparison; undetectable spores do not establish extinction from roots. The abstract reports limited plant-cover influence, not its complete absence or competitive exclusion. Named participants are the initial fungal roster; plants are external hosts.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Rhizophagus clarus,
+
+                    Septoglomus constrictum,
+
+                    Funneliformis coronatum,
+
+                    Rhizophagus intraradices,
+
+                    Funneliformis mosseae,
+
+                    Septoglomus viscosum
+
+                </p>
 
 
 
@@ -857,7 +873,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(3)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -925,6 +941,21 @@
                     </div>
 
                 </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    What explains the different root-occurrence and spore trajectories?
+                </h3>
+                <p class="prewrap">Root colonization supports the broad symbiotic-process context; the abstract does not establish reciprocal fitness, competition, or a causal sequence among species. Pooled PCR-TTGE cannot quantitatively compare intraradical occurrence with spores. Preserve the two existing inoculum/protocol gaps and prior #862/#863 fixes. #1589 bounds the current node. Full text is subscription content; only the complete primary abstract and publisher preview were read, not main methods, separate supplement or figure pixels. No arrows added.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#AM Fungal Establishment and Sporulation Trajectory</code></p>
+
+
 
 
             </div>
@@ -1272,6 +1303,27 @@
 
 
 
+
+            var participantKeys = [
+
+                "Rhizophagus clarus",
+
+                "Septoglomus constrictum",
+
+                "Funneliformis coronatum",
+
+                "Rhizophagus intraradices",
+
+                "Funneliformis mosseae",
+
+                "Septoglomus viscosum"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

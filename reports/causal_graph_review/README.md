@@ -5,6 +5,30 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch69: Medicago, Soil Activity And Metal Depletion
+
+[Decisions](decisions/20261006-four-records-batch69.yaml),
+[validation](validation-20261006-batch69.json) and
+[self-adversarial review](adversarial-review-20261006-batch69.yaml) account for
+all ten original nodes and two arrows. Nine observations remain; one redundant
+qSIP workflow node is removed and both Medicago mediation arrows are hypotheses.
+
+Positive strain traits, host benefits, fungal trajectories, isotope-inferred
+growth and metal depletion remain. These do not establish reciprocal benefit,
+equal fungal persistence, observed motility, carbon flux or exclusive biosorption.
+Prior fungal evidence fixes and A22ED9 single-metal labels are preserved.
+
+Three complete public primary main texts/captions and available main tables were
+read; the fungal source is abstract/subscription-preview only. Separate supplements,
+figure pixels, raw data and executable analyses were not audited. All 920 caches
+are unchanged and 19 graph excerpts match fresh primary text. Non-graph metadata
+remains under #1594, not recertified by this graph-only review.
+
+qSIP and A22ED9 remain `needs_research` under #1592/#1593 for missing phage-host
+and filtrate-stimulation structure. Two one-record Edison dry runs passed with
+zero submissions or credits; they are not research reports. Repairs #1588-#1591
+await protected-main merge. This is self-review, not independent approval.
+
 ## Batch65: Soil And Mucin Assay Boundaries
 
 [Decisions](decisions/20261006-soil-mucin-batch65.yaml),
