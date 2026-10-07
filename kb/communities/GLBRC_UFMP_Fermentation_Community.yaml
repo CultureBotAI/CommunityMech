@@ -611,9 +611,11 @@ ecological_interactions:
     can supply CLOS1 chain elongation. ATO3 and Bifidobacterium MAGs represent proposed donor candidates, not a
     measured set of donor-recipient transfers. CLOS1 contains the inferred LacT, electron-confurcating LDH and associated
     EtfAB machinery; the other two abundant Firmicutes have different proposed substrates. The study did not directly
-    trace ATO3-to-CLOS1 carbon flow, establish obligatory syntrophy, determine lactate stereochemistry or show complete
-    conversion of lactose into medium-chain fatty acids. The canonical labels retain their existing genus-level
-    or ambiguous groundings rather than assert newly identified species.'
+    trace ATO3-to-CLOS1 carbon flow, establish product-removal feedback on upstream fermentation, determine lactate
+    stereochemistry or show complete conversion of lactose into medium-chain fatty acids. The canonical labels retain
+    their existing genus-level or ambiguous groundings rather than assert newly identified species. CROSS_FEEDING
+    denotes the hypothesized transfer model. SYNTROPHY does not require obligacy in the local schema, but adds product-removal
+    feedback that this study does not resolve.'
   scope: COMMUNITY_LEVEL
   downstream:
   - target: Proposed Firmicutes Chain Elongation Roles
@@ -630,6 +632,13 @@ ecological_interactions:
       '
     explanation: Supports an author-proposed MAG role from gene content and reactor associations, not member-specific
       flux or demonstrated partner dependence. Bulk reactor metabolites were measured separately by HPLC/GC-MS.
+  - reference: PMID:37324413
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: The inferred connection between some Actinobacteriota fermenting lactose to lactic acid and some Firmicutes
+      utilizing lactic acid for chain elongation
+    explanation: The primary Discussion explicitly identifies the inferred producer-consumer connection. This supports
+      a hypothesized cross-feeding classification, not directly traced flux or product-removal feedback.
   participating_taxa:
   - preferred_term: Olsenella_B sp. (MAG ATO3)
     term:
@@ -651,6 +660,7 @@ ecological_interactions:
     term:
       id: NCBITaxon:1485
       label: Clostridium
+  interaction_type: CROSS_FEEDING
 related_ingredients:
 - preferred_term: lactose
   chebi_term:
@@ -873,7 +883,9 @@ discussions:
     role outside these existing Actinobacteriota/lactate and Firmicute nodes; no new node is invented to hide its
     disconnected warning. Unsupported stereospecific CHEBI:422 entries are removed from graph nodes without guessing
     a replacement. Non-graph ingredient/taxonomy role text and all #486/#624 grounding history remain unchanged
-    and are not certified by this graph-only review.'
+    and are not certified by this graph-only review. The local SYNTROPHY definition does not assert obligacy. The
+    existing lactate-transfer model is typed CROSS_FEEDING with PARTIAL evidence because the study proposes a producer-consumer
+    connection without resolving product-removal feedback on upstream metabolism.'
   posed_by: codex
   posed_date: '2026-10-06'
 curation_history:
@@ -884,4 +896,12 @@ curation_history:
     products.; Retain three substrate-distinct Firmicute hypotheses and distinguish measured reactor products from
     member allocation.; Retain the proposed lactate-transfer model with candidate donors and CLOS1, not obligatory
     syntrophy or complete conversion. Issue #1474; reports/causal_graph_review/decisions/20261006-three-records-batch44.yaml'
+  llm_assisted: true
+- timestamp: '2026-10-07T13:44:52Z'
+  curator: codex
+  action: REVIEW_INTERACTION_SEMANTICS
+  changes: 'Preserve heterogeneous genome-inferred producer roles without new member assignments.; Preserve substrate-distinct
+    proposed chain elongation and terminal-product limits.; Type the existing hypothesized lactate-transfer model
+    CROSS_FEEDING with primary Discussion evidence; distinguish product-removal feedback from obligacy. Issue #1744;
+    reports/causal_graph_review/decisions/20261007-five-records-batch91.yaml'
   llm_assisted: true

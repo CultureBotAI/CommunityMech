@@ -7,7 +7,7 @@ import hashlib
 import importlib.util
 import json
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 import yaml
@@ -54,6 +54,53 @@ def review_status(doc, digest, review):
     return status
 
 
+def index_reviews(decisions):
+    """Select the tip of each explicit, hash-linked review history."""
+    grouped = defaultdict(list)
+    for row in decisions:
+        grouped[row["path"]].append(row)
+    result = {}
+    for path, rows in grouped.items():
+        by_file = {row["review_file"]: row for row in rows}
+        if len(by_file) != len(rows):
+            raise ValueError(f"Duplicate record reviews within one ledger: {path}")
+        parents, superseded = {}, set()
+        for row in rows:
+            if "supersedes_review" not in row:
+                continue
+            link = row["supersedes_review"]
+            if not isinstance(link, dict) or set(link) != {"review_file", "record_sha256"}:
+                raise ValueError(f"Invalid supersedes_review link: {path}")
+            parent_file = link["review_file"]
+            if parent_file not in by_file or parent_file == row["review_file"]:
+                raise ValueError(f"Missing or self-referencing review parent: {path}")
+            parent = by_file[parent_file]
+            if (
+                row["id"] != parent["id"]
+                or link["record_sha256"] != parent["record_sha256"]
+                or row.get("original_sha256") != parent["record_sha256"]
+            ):
+                raise ValueError(f"Review supersession identity/hash mismatch: {path}")
+            if parent_file in superseded:
+                raise ValueError(f"Forked review history: {path}")
+            superseded.add(parent_file)
+            parents[row["review_file"]] = parent_file
+        roots, tips = set(by_file) - set(parents), set(by_file) - superseded
+        if len(roots) != 1 or len(tips) != 1:
+            raise ValueError(f"Unlinked or cyclic review history: {path}")
+        tip = next(iter(tips))
+        seen, cursor = set(), tip
+        while cursor is not None:
+            if cursor in seen:
+                raise ValueError(f"Cyclic review history: {path}")
+            seen.add(cursor)
+            cursor = parents.get(cursor)
+        if seen != set(by_file):
+            raise ValueError(f"Disconnected review history: {path}")
+        result[path] = by_file[tip]
+    return result
+
+
 def main():
     paths = sorted(record_files())
     discovered = sorted(p for root in default_record_roots() for p in root.rglob("*.yaml"))
@@ -69,8 +116,7 @@ def main():
             if row.get("review_file") != str(path.relative_to(ROOT)):
                 raise ValueError(f"Incorrect review-file pointer in {path}")
         decisions.extend(records)
-    by_path = {row["path"]: row for row in decisions}
-    assert len(by_path) == len(decisions), "Duplicate record reviews"
+    by_path = index_reviews(decisions)
     assert set(by_path) <= {str(p.relative_to(ROOT)) for p in paths}, "Review target is missing"
     rows, defects = [], []
     for path in paths:
@@ -126,8 +172,15 @@ def main():
         for issue in issues
     ]
     summary = {
-        "scope": "Every YAML under kb/communities and data/isolates; filesystem discovery includes hidden/ignored files.",
-        "semantic_review_rule": "Structural checks and readiness scores do not establish causal support. Completed reviews must match the current record SHA-256, cover every node once with a rationale, and reproduce the current edge list.",
+        "scope": (
+            "Every YAML under kb/communities and data/isolates; "
+            "filesystem discovery includes hidden/ignored files."
+        ),
+        "semantic_review_rule": (
+            "Structural checks and readiness scores do not establish causal support. "
+            "Completed reviews must match the current record SHA-256, cover every node once "
+            "with a rationale, and reproduce the current edge list."
+        ),
         "records": len(rows),
         "nodes": sum(row["nodes"] for row in rows),
         "edges": sum(row["edges"] for row in rows),

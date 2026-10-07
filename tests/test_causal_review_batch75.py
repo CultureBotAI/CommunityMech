@@ -116,7 +116,22 @@ def test_record_hashes_and_only_changed_record_histories_match():
     assert ledger["independent_approval"] is False
     assert sum(row["curation_events_added"] for row in rows) == 3
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        expected = row["record_sha256"]
+        if row["id"] == "CommunityMech:000274":
+            followup = yaml.safe_load(
+                (
+                    ROOT
+                    / "reports/causal_graph_review/decisions/20261007-five-records-batch91.yaml"
+                ).read_text()
+            )
+            current = next(r for r in followup["records"] if r["path"] == row["path"])
+            assert current["original_sha256"] == expected
+            assert current["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": expected,
+            }
+            expected = current["record_sha256"]
+        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected
         changed = row["outcome"] == "changed"
         assert row["curation_events_added"] == len(row["history_files"]) == int(changed)
         if changed:

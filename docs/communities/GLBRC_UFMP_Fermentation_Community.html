@@ -920,11 +920,16 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for GLBRC Ultra-Filtered Milk Permeate Fermentation Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolDiamond"
+                             data-color="#57c7ab"></svg> Cross-feeding
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -1086,8 +1091,9 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Proposed Actinobacteriota-to-CLOS1 Lactate Cross-Feeding</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">HYPOTHESIZED: The conceptual model proposes that lactate made by some lactose-fermenting Actinobacteriota can supply CLOS1 chain elongation. ATO3 and Bifidobacterium MAGs represent proposed donor candidates, not a measured set of donor-recipient transfers. CLOS1 contains the inferred LacT, electron-confurcating LDH and associated EtfAB machinery; the other two abundant Firmicutes have different proposed substrates. The study did not directly trace ATO3-to-CLOS1 carbon flow, establish obligatory syntrophy, determine lactate stereochemistry or show complete conversion of lactose into medium-chain fatty acids. The canonical labels retain their existing genus-level or ambiguous groundings rather than assert newly identified species.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED: The conceptual model proposes that lactate made by some lactose-fermenting Actinobacteriota can supply CLOS1 chain elongation. ATO3 and Bifidobacterium MAGs represent proposed donor candidates, not a measured set of donor-recipient transfers. CLOS1 contains the inferred LacT, electron-confurcating LDH and associated EtfAB machinery; the other two abundant Firmicutes have different proposed substrates. The study did not directly trace ATO3-to-CLOS1 carbon flow, establish product-removal feedback on upstream fermentation, determine lactate stereochemistry or show complete conversion of lactose into medium-chain fatty acids. The canonical labels retain their existing genus-level or ambiguous groundings rather than assert newly identified species. CROSS_FEEDING denotes the hypothesized transfer model. SYNTROPHY does not require obligacy in the local schema, but adds product-removal feedback that this study does not resolve.</p>
 
 
 
@@ -1138,6 +1144,19 @@
 
                         <div class="snippet">"members of the Actinobacteriota phylum are important in the degradation of lactose, via the Leloir pathway and the bifid shunt, and the production of acetic, lactic, and succinic acids
 "</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/37324413/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37324413</a>
+
+                            - PARTIAL (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"The inferred connection between some Actinobacteriota fermenting lactose to lactic acid and some Firmicutes utilizing lactic acid for chain elongation"</div>
 
                     </li>
 
@@ -1195,7 +1214,7 @@
                     <span class="role-badge">OPEN</span>
                     Which MAGs exchange carbon and determine terminal chain length?
                 </h3>
-                <p class="prewrap">The reactor measurements support fermentation, whereas member roles and both retained model arrows are hypotheses. Metatranscriptomics, isotope tracing and selective member/substrate perturbations would test donor identity, CLOS1 uptake, ACID1 substrate and chain-length allocation. SPH2 has a separate proposed ethanol role outside these existing Actinobacteriota/lactate and Firmicute nodes; no new node is invented to hide its disconnected warning. Unsupported stereospecific CHEBI:422 entries are removed from graph nodes without guessing a replacement. Non-graph ingredient/taxonomy role text and all #486/#624 grounding history remain unchanged and are not certified by this graph-only review.</p>
+                <p class="prewrap">The reactor measurements support fermentation, whereas member roles and both retained model arrows are hypotheses. Metatranscriptomics, isotope tracing and selective member/substrate perturbations would test donor identity, CLOS1 uptake, ACID1 substrate and chain-length allocation. SPH2 has a separate proposed ethanol role outside these existing Actinobacteriota/lactate and Firmicute nodes; no new node is invented to hide its disconnected warning. Unsupported stereospecific CHEBI:422 entries are removed from graph nodes without guessing a replacement. Non-graph ingredient/taxonomy role text and all #486/#624 grounding history remain unchanged and are not certified by this graph-only review. The local SYNTROPHY definition does not assert obligacy. The existing lactate-transfer model is typed CROSS_FEEDING with PARTIAL evidence because the study proposes a producer-consumer connection without resolving product-removal feedback on upstream metabolism.</p>
 
                 <p class="muted small">Attaches to: <code>ecological_interactions#Proposed Actinobacteriota Lactose Fermentation Roles</code>, <code>ecological_interactions#Proposed Firmicutes Chain Elongation Roles</code>, <code>ecological_interactions#Proposed Actinobacteriota-to-CLOS1 Lactate Cross-Feeding</code></p>
 
@@ -1590,12 +1609,12 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "UNKNOWN";
+            var intType = "CROSS_FEEDING";
             var metabolites = [];
 
             var processes = [];
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
