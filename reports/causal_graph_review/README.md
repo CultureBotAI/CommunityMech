@@ -5,6 +5,27 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch84: Diatom, Phenol, Phormidium And Phosphite
+
+[Decisions](decisions/20261007-four-records-batch84.yaml),
+[validation](validation-20261007-batch84.json) and
+[self-adversarial review](adversarial-review-20261007-batch84.yaml) cover
+15 original nodes and eight arrows. Twelve nodes and six positive arrows remain;
+three unsupported Phormidium service nodes and two arrows are removed.
+Measured attachment, carbon flow and syntrophic conversion survive, separately
+from proposed amino-acid competition, genomic niches and intracellular models.
+
+Three fresh primary main texts and one cached phenol primary were read; fresh
+phenol full-text retrieval failed. Phormidium PDF Figures 3/4 were visually
+checked. Eighteen graph quotations match their primary/cache sources, with
+phenol explicitly not counted as independent fresh full-text verification.
+All 921 caches, 456 other records and raw non-graph blocks are preserved.
+
+Repairs #1694-#1697 await protected-main merge. Extension issues #1698-#1700
+and metadata #1701 remain open afterward. Three separate Edison dry runs
+spent no credits; scoped paid questions are unanswered. This is self-review,
+not independent approval or completion of the corpus review.
+
 ## Batch83: Pyrene, Syntrophy And Pepper SynComs
 
 [Decisions](decisions/20261007-four-records-batch83.yaml),
