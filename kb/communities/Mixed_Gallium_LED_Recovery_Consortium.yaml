@@ -199,82 +199,47 @@ taxonomy:
       engineered mixed community.
 ecological_interactions:
 - name: Biogenic Sulfuric Acid Production for Gallium Leaching
-  description: 'Acidithiobacillus thiooxidans oxidizes elemental sulfur and reduced inorganic sulfur compounds
-    to generate sulfuric acid (H₂SO₄), the primary biogenic lixiviant for gallium dissolution from waste
-    LEDs. The sulfur oxidation process (S⁰ + 1.5O₂ + H₂O → H₂SO₄) produces protons that maintain extremely
-    low pH (1.0-1.5) in the bioreactor. This acidic lixiviant is then transferred to the leaching reactor
-    where it attacks gallium nitride (GaN) semiconductor layers in crushed LED waste. The sulfuric acid
-    protonates GaN surfaces and solubilizes gallium according to: GaN + 3H₂SO₄ → Ga³⁺ + NH₄⁺ + 3SO₄²⁻.
-    The non-contact bioleaching design separates microbial acid production from LED leaching, preventing
-    toxic LED components (polymers, epoxies, heavy metals) from inhibiting At. thiooxidans while enabling
-    continuous lixiviant generation. This process achieves remarkable 99.5% gallium recovery in just 3
-    days at 15 g/L pulp density, far exceeding conventional chemical leaching methods. The biogenic acid
-    also mobilizes copper and nickel from LED interconnects and plating.
-
-    '
-  interaction_type: MUTUALISM
+  description: PARTIAL - The existing 2025 source excerpt attributes sulfuric-acid generation from elemental sulfur
+    to A. thiooxidans in the mixed culture, lowering pH to 1.53. Acid is a reported contributor to gallium leaching,
+    not demonstrated mutualism or a complete member-specific leaching yield. The selected excerpt is retained with
+    provenance limits because the full primary Results was unavailable in this review; unbalanced GaN chemistry
+    and continuous-production claims are not retained.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Acidithiobacillus thiooxidans
-    term:
-      id: NCBITaxon:930
-      label: Acidithiobacillus thiooxidans
   metabolites:
-  - preferred_term: sulfur
-    term:
-      id: CHEBI:26833
-      label: sulfur atom
-    notes: Elemental sulfur (S⁰) substrate for oxidation
   - preferred_term: sulfuric acid
     term:
       id: CHEBI:26836
       label: sulfuric acid
-    concentration: Maintains pH 1.0-1.5 in bioreactor, pH 1.5 in spent lixiviant
-  - preferred_term: gallium(3+)
-    term:
-      id: CHEBI:49631
-      label: gallium atom
-    concentration: 99.5% leaching efficiency at 15 g/L pulp density in 3 days
   biological_processes:
   - preferred_term: sulfur compound metabolic process
     term:
       id: GO:0006790
       label: sulfur compound metabolic process
   downstream:
-  - target: Synergistic Lixiviant Production in Mixed Consortium
-    description: A. thiooxidans-derived sulfuric acid is one of the two biogenic
-      lixiviant components that jointly drive WLED gallium extraction.
+  - target: Mixed-Consortium Lixiviant Production
+    description: PARTIAL - Sulfur oxidation supplies the acid component of the mixed-culture lixiviant. The selected
+      2025 excerpt supports this production role, not a quantified cooperative effect or independently verified
+      member-removal experiment in the unavailable full Methods.
   evidence:
-  - reference: PMID:31203122
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: At a pulp density of 20 g/L, the copper, nickel, and gallium recovery
-      efficiency was 83%, 97%, 84%, respectively
-    explanation: Pourhossein & Mousavi 2019 quantify gallium recovery from WLEDs at
-      84% efficiency under indirect bioleaching at 20 g/L pulp density.
   - reference: doi:10.1016/j.jece.2025.120403
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Biological sulfuric acid can effectively dissolve the metallic gallium in WLEDs
-    explanation: Verbatim from Zhang et al. 2025 (full text now cached). Directly supports the
-      interaction — biogenic (biological) sulfuric acid is the lixiviant that dissolves metallic
-      gallium from WLED waste. Upgraded from PARTIAL to SUPPORT.
-- name: Ferric Iron Generation for Multi-Metal Recovery
-  description: 'Acidithiobacillus ferrooxidans and Leptospirillum ferrooxidans oxidize ferrous iron (Fe²⁺)
-    to ferric iron (Fe³⁺) in the bioreactor, producing a secondary biogenic oxidant for metal recovery
-    from LED waste. The iron oxidation reaction (2Fe²⁺ + 0.5O₂ + 2H⁺ → 2Fe³⁺ + H₂O) generates Fe³⁺ that
-    enhances dissolution of copper interconnects and nickel plating present in LEDs. Copper dissolution
-    follows: Cu⁰ + 2Fe³⁺ + 4H⁺ → Cu²⁺ + 2Fe²⁺ + 2H₂O, while nickel is solubilized through similar oxidative
-    attack. The Fe³⁺ may also participate in gallium mobilization through redox interactions with GaN
-    semiconductor materials. The mixed consortium design with both At. ferrooxidans and L. ferrooxidans
-    ensures robust iron oxidation across the pH 1.0-1.5 range - At. ferrooxidans provides activity at
-    pH >1.5 while L. ferrooxidans excels at pH <1.5. This complementary pH tolerance maintains continuous
-    Fe³⁺ supply. The non-contact design allows iron oxidizers to function optimally in the bioreactor
-    without exposure to toxic LED materials, while the generated Fe³⁺-rich lixiviant attacks metals in
-    the separate leaching reactor.
-
-    '
-  interaction_type: NICHE_PARTITIONING
+    snippet: A. thiooxidans in the mixed bacterial community oxidizes the elemental sulfur to generate sulfuric
+      acid, thereby decreasing the pH to 1.53.
+    explanation: Existing selected 2025 full-text excerpt supports this component-level claim. The local cache contains
+      an abstract and selected sentences, not a complete article. Full-text provenance was not independently revalidated
+      in this review; no member-removal, synergy or pH-partitioning result is inferred.
+  participating_taxa:
+  - preferred_term: Acidithiobacillus thiooxidans
+    term:
+      id: NCBITaxon:930
+      label: Acidithiobacillus thiooxidans
+- name: Ferric Iron Generation in the Mixed Consortium
+  description: PARTIAL - Existing 2025 source excerpts identify A. ferrooxidans and L. ferrooxidans as producers
+    of ferric ions from ferrous iron in the mixed community. This supports a joint iron-oxidizing guild contribution,
+    not experimentally resolved pH niche partition, mutual benefit or relative member contributions. The 4-5 g/L
+    stepwise ferric condition in PMID31203122 belongs to a separate adapted A. ferrooxidans system and is not an
+    exact-consortium result.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Acidithiobacillus ferrooxidans
@@ -296,53 +261,26 @@ ecological_interactions:
       id: CHEBI:29034
       label: iron(3+)
     concentration: Generated biogenic oxidant for metal dissolution
-  - preferred_term: copper(2+)
-    term:
-      id: CHEBI:29036
-      label: copper(2+)
-    notes: Recovered from LED copper interconnects
-  - preferred_term: nickel(2+)
-    term:
-      id: CHEBI:49786
-      label: nickel(2+)
-    notes: Recovered from LED nickel plating
-  biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
-  - preferred_term: carbon fixation
-    term:
-      id: GO:0015977
-      label: carbon fixation
   downstream:
-  - target: Synergistic Lixiviant Production in Mixed Consortium
-    description: Ferric ions generated by the two iron oxidizers are the oxidizing
-      lixiviant component paired with biogenic sulfuric acid for gallium extraction.
+  - target: Mixed-Consortium Lixiviant Production
+    description: PARTIAL - Iron oxidation supplies ferric ions as the oxidizing component of the mixed-culture lixiviant.
+      This component relationship is retained from the 2025 excerpts; the separate 2019 single-strain ferric-dosing
+      experiment does not establish its magnitude or guild dependence here.
   evidence:
-  - reference: PMID:31203122
-    supports: SUPPORT
+  - reference: doi:10.1016/j.jece.2025.120403
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: The ferric ion concentration was controlled at 4-5 g/L with step-wise
-      addition of biogenic ferric for faster bioleaching rate
-    explanation: Pourhossein & Mousavi 2019 document the Fe³⁺ oxidant requirement —
-      biogenic ferric (4-5 g/L) drives the multi-metal recovery in indirect
-      bioleaching.
-- name: Synergistic Lixiviant Production in Mixed Consortium
-  description: 'The 1:1:1 mixed consortium of At. thiooxidans, At. ferrooxidans, and L. ferrooxidans produces
-    synergistic biogenic lixiviants combining sulfuric acid and ferric iron for enhanced gallium and base
-    metal recovery. The three organisms occupy complementary metabolic niches: At. thiooxidans specializes
-    in sulfur oxidation, L. ferrooxidans in iron oxidation at extreme acidity (pH <1.5), and At. ferrooxidans
-    in dual iron/sulfur oxidation at moderate acidity (pH >1.5). This metabolic diversity ensures robust
-    lixiviant production across the full pH 1.0-1.5 operating range. The sulfuric acid from At. thiooxidans
-    maintains low pH essential for Fe³⁺ stability and prevents metal hydroxide precipitation, while simultaneously
-    providing protons for direct GaN dissolution. The Fe³⁺ from At. ferrooxidans and L. ferrooxidans attacks
-    metallic LED components. The consortium achieves 99.5% gallium recovery in 3 days, demonstrating the
-    power of mixed microbial communities for complex metal recovery tasks. Equal ratios (1:1:1) likely
-    optimize the balance between acid generation and oxidant production.
-
-    '
-  interaction_type: NICHE_PARTITIONING
+    snippet: In the mixed microbial community, iron-oxidizing bacteria (A. ferrooxidans and L. ferrooxidans) oxidized
+      Fe(II) to generate Fe(III) ions.
+    explanation: Existing selected 2025 full-text excerpt supports this component-level claim. The local cache contains
+      an abstract and selected sentences, not a complete article. Full-text provenance was not independently revalidated
+      in this review; no member-removal, synergy or pH-partitioning result is inferred.
+- name: Mixed-Consortium Lixiviant Production
+  description: PARTIAL - The consortium assembled at an A. thiooxidans:A. ferrooxidans:L. ferrooxidans ratio of
+    1:1:1 produces a biogenic lixiviant containing sulfuric acid and ferric ions. The source excerpt reports both
+    components contribute to gallium extraction. Joint contribution is not by itself evidence of synergy, optimized
+    inoculum ratio, persistent equal abundance or pH-partitioned coexistence. Selective component and member controls
+    remain to be checked against the complete primary source.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Acidithiobacillus thiooxidans
@@ -368,53 +306,32 @@ ecological_interactions:
       id: CHEBI:29034
       label: iron(3+)
     notes: Secondary oxidant from At. ferrooxidans and L. ferrooxidans
-  - preferred_term: gallium(3+)
-    term:
-      id: CHEBI:49631
-      label: gallium atom
-    concentration: 99.5% recovery efficiency in 3 days
   biological_processes:
   - preferred_term: sulfur compound metabolic process
     term:
       id: GO:0006790
       label: sulfur compound metabolic process
   downstream:
-  - target: Non-Contact Bioleaching System Design
-    description: The mixed consortium generates the cell-free sulfuric-acid and
-      ferric-ion lixiviant used for the non-contact WLED leaching stage.
+  - target: Non-Contact Gallium Recovery
+    description: Biogenic lixiviants produced by the mixed culture enable the non-contact gallium leaching endpoint
+      reported for 15 g/L waste LEDs over 3 days. The primary abstract directly supports this functional production-to-recovery
+      connection; it does not quantify separate acid/ferric contributions or demonstrate mutual benefit among the
+      producing organisms.
   evidence:
-  - reference: PMID:31203122
+  - reference: doi:10.1016/j.jece.2025.120403
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: all metals' recovery improved with step-wise indirect bioleaching
-    explanation: Pourhossein & Mousavi 2019 document the synergistic recovery boost
-      of the multi-step indirect bioleaching process — abstract addresses the
-      process rather than naming each consortium organism (PARTIAL).
-  - reference: doi:10.1016/j.jece.2025.120403
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Both sulfuric acid and ferric ions in the bioleaching agent contribute to gallium extraction
-      from WLEDs
-    explanation: Verbatim from Zhang et al. 2025 (full text now cached). Directly supports the
-      synergistic-lixiviant claim — both biogenic sulfuric acid (from At. thiooxidans) and ferric
-      ions (from the iron-oxidizers) jointly drive gallium extraction. Upgraded from PARTIAL to
-      SUPPORT.
-- name: Non-Contact Bioleaching System Design
-  description: 'The non-contact bioleaching process spatially separates microbial lixiviant production
-    from LED waste leaching, enabling optimal performance of both biological and chemical stages. In the
-    bioreactor, the mixed consortium grows on sulfur and iron substrates, generating sulfuric acid and
-    ferric iron without exposure to toxic LED components (polymers, epoxies, brominated flame retardants,
-    heavy metals) that would inhibit bacterial growth and acid production. The acidic, oxidizing lixiviant
-    (pH 1.5 spent lixiviant from bioreactor) is transferred to the leaching reactor where it attacks crushed
-    LED waste at 15 g/L pulp density. After leaching, the pregnant solution containing dissolved gallium,
-    copper, and nickel is separated from solid residues, while depleted lixiviant can be recycled to the
-    bioreactor for regeneration. This two-stage design achieves 99.5% gallium recovery in 3 days, outperforming
-    conventional one-step contact bioleaching or harsh chemical methods. The approach demonstrates how
-    engineered spatial separation can overcome toxicity barriers in microbial metal recovery from complex
-    electronic waste.
-
-    '
-  interaction_type: COMMENSALISM
+    snippet: Both sulfuric acid and ferric ions in the bioleaching agent contribute to gallium extraction from WLEDs
+    explanation: Existing selected 2025 full-text excerpt supports this component-level claim. The local cache contains
+      an abstract and selected sentences, not a complete article. Full-text provenance was not independently revalidated
+      in this review; no member-removal, synergy or pH-partitioning result is inferred.
+- name: Non-Contact Gallium Recovery
+  description: The mixed-community biogenic lixiviant achieved 99.5% gallium leaching at 15 g/L waste LEDs in 3
+    days under non-contact conditions, compared with 45.59% during contact bioleaching. This is a positive engineered
+    community output, not a commensal interaction or proof of continuous lixiviant recycling. The primary abstract
+    also reports contact-associated gallium adsorption up to 21.43% and proposes a role for bound extracellular
+    polymers; the component-specific adsorption mechanism and its contribution to the recovery difference remain
+    unresolved.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Acidithiobacillus thiooxidans
@@ -440,26 +357,20 @@ ecological_interactions:
       id: CHEBI:29034
       label: iron(3+)
     notes: Biogenic oxidant in lixiviant
+  - preferred_term: gallium(3+)
+    term:
+      id: CHEBI:84043
+      label: gallium(3+)
+    notes: Correct ion identifier already present in this record; bulk gallium recovery does not establish a resolved
+      aqueous-speciation measurement.
   evidence:
-  - reference: PMID:31203122
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: A novel step-wise indirect bioleaching process has been developed in
-      this study for recycling valuable metals from WLEDs using adapted
-      Acidithiobacillus ferrooxidans
-    explanation: Pourhossein & Mousavi 2019 design the step-wise indirect bioleaching
-      process — bacteria generate biogenic ferric separately from the LED leaching
-      stage, i.e. a non-contact process design.
   - reference: doi:10.1016/j.jece.2025.120403
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: non-contact bioleaching could avoid the adverse effects of high concentration metal toxicity
-      on microorganisms and completely recovered the Ga from WLEDs under the unfavorable condition
-      of high iron concentration
-    explanation: Verbatim from Zhang et al. 2025 (full text now cached). Directly supports the
-      non-contact system-design rationale — separating microbes from the leaching stage avoids
-      metal-toxicity inhibition while still achieving complete gallium recovery. Upgraded from
-      PARTIAL to SUPPORT.
+    snippet: The biogenic lixiviants achieved a Ga leaching efficiency of 99.5 % in 15 g/L pulp density during 3
+      days of non-contact bioleaching.
+    explanation: Primary abstract supports the non-contact endpoint, concentration and duration. It does not demonstrate
+      reciprocal fitness, complete metal speciation or continuous lixiviant regeneration.
 environmental_factors:
 - name: Extreme Acidity for Gallium Dissolution
   value: 1.0-1.5
@@ -576,3 +487,32 @@ growth_media:
     snippet: The biogenic lixiviants achieved a Ga leaching efficiency of 99.5 % in 15 g/L pulp density
       during 3 days of non-contact bioleaching.
     explanation: Names the 15 g/L pulp density and 3-day duration of the bioleaching process.
+discussions:
+- discussion_id: gallium_exact_system_and_adsorption_gap
+  prompt: How do individual lixiviant components and B-EPS adsorption control the contact/non-contact gallium difference?
+  rationale: Preserve the 2025 mixed-community recovery comparison, but keep it separate from the adapted single-strain
+    A. ferrooxidans experiment in PMID31203122 at20 g/L. Selected cached 2025 excerpts retain acid/iron roles with
+    PARTIAL support; content_type:full is not proof that complete Methods were read. Publisher access returned403.
+    The abstract reports Ga adsorption up to21.43% and hypothesizes protein/polysaccharide roles; this does not
+    isolate their contribution to the recovery gap or close a total-Ga balance. Obtain authorized primary Methods
+    and evaluate a distinct adsorption node/edge through the one-record Edison workflow before extending the graph.
+    No paid run or new structure is included here.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  attaches_to:
+  - ecological_interactions#Biogenic Sulfuric Acid Production for Gallium Leaching
+  - ecological_interactions#Ferric Iron Generation in the Mixed Consortium
+  - ecological_interactions#Mixed-Consortium Lixiviant Production
+  - ecological_interactions#Non-Contact Gallium Recovery
+curation_history:
+- timestamp: '2026-10-07T02:19:57Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain reported sulfuric-acid production with explicit source limits; remove unsupported fitness and
+    unbalanced chemistry.; Replace single-strain ferric evidence with the existing exact-consortium excerpt; no
+    pH niche or equal-contribution claim.; Retain joint acid/ferric production, not untested synergy or optimized
+    ratios; preserve the production-to-recovery connection.; Recast procedural design as the measured non-contact
+    recovery endpoint, preserve the contact comparison, and defer adsorption extension. Issue #1616; reports/causal_graph_review/decisions/20261007-four-records-batch73.yaml'
+  llm_assisted: true

@@ -102,9 +102,10 @@ taxonomy:
     explanation: Supports METH4 as the representative heterotrophic mutualist in the urea-transfer study.
 ecological_interactions:
 - name: Carbon-for-Nitrogen Resource Trading
-  description: M. vaginatus and Massilia sp. METH4 form a resource-trading mutualism under carbon- and
-    nitrogen-limited conditions, with cyanobacterial photosynthate supporting the heterotroph and heterotrophic
-    nitrogen acquisition supporting cyanobacterial growth.
+  description: 'M. vaginatus PCC 9802 and Massilia sp. METH4 participate in selective carbon-for-nitrogen mutualism:
+    coculture growth under organic-carbon and fixed-nitrogen limitation is consistent with photosynthate supporting
+    the heterotroph and diazotrophic nitrogen acquisition supporting the cyanobacterium. The shared growth phenotype
+    does not by itself identify the transferred organic-carbon compound or quantify partner-specific fluxes.'
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -136,13 +137,17 @@ ecological_interactions:
   - reference: PMID:32968213
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Co-culturing of pedigreed cyanosphere diazotroph isolates with axenic M. vaginatus resulted
-      in copious growth in C and N-free medium
+    snippet: Co-culturing of pedigreed cyanosphere diazotroph isolates with axenic M. vaginatus resulted in copious
+      growth in C and N-free medium
     explanation: Supports mutualistic growth when neither partner has external organic carbon or fixed nitrogen.
 - name: Urea-Mediated Nitrogen Transfer
-  description: In the M. vaginatus PCC 9802-Massilia sp. METH4 coculture, Massilia upregulates urea-biosynthesis
-    functions while M. vaginatus upregulates urea uptake and urea carboxylase/allophanate hydrolase functions,
-    supporting urea as the nitrogen-transfer vehicle.
+  description: PARTIAL - Urea is a strongly supported likely nitrogen-transfer vehicle in the exact PCC 9802/METH4
+    pair. Coculture increases extracellular urea release; METH4 upregulates urea-cycle genes and PCC 9802 upregulates
+    uptake and urea carboxylase/allophanate hydrolase genes. PCC 9802 can grow on supplied urea down to 5 micromolar,
+    but not 2 micromolar in the tested assay. These convergent results support cross-feeding without directly tracing
+    the origin and assimilation of each urea molecule or proving urea is the exclusive nitrogen carrier. Release
+    rates use total coculture biomass, because a heterotrophic origin of extracellular urea is inferred rather than
+    absolutely resolved.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -171,24 +176,33 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Carbon-for-Nitrogen Resource Trading
-    description: >
-      Massilia urea release supplies the low-concentration nitrogen vehicle that completes the
-      M. vaginatus carbon-for-nitrogen exchange with its heterotrophic partner.
+    description: PARTIAL - Coculture-associated urea release and cyanobacterial low-concentration urea utilization
+      provide a plausible, experimentally supported route for the nitrogen side of carbon-for-nitrogen trading.
+      Coordinated expression supports Massilia-to-Microcoleus transfer, but exclusive donor attribution and the
+      fraction of growth sustained by this route are not directly resolved.
   evidence:
   - reference: doi:10.1093/ismejo/wrae246
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: M. vaginatus and Massilia sp. METH4 in co-culture on N and C free media
-    explanation: Supports the exact two-member coculture condition used to test mutualistic exchange.
+    explanation: Supports the exact two-member coculture condition used to test mutualistic exchange. Full Results
+      also reports increased extracellular urea in coculture and growth on supplied urea; the authors explicitly
+      qualify donor attribution. Expression and pool measurements are not a traced transfer flux.
   - reference: doi:10.1093/ismejo/wrae246
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: these results are consistent with the notion that urea is likely the vehicle for interspecies N transfer
-    explanation: Supports urea as the inferred nitrogen-transfer metabolite between the partners.
+    explanation: Supports urea as the inferred nitrogen-transfer metabolite between the partners. Full Results also
+      reports increased extracellular urea in coculture and growth on supplied urea; the authors explicitly qualify
+      donor attribution. Expression and pool measurements are not a traced transfer flux.
 - name: GABA and Glutamate Spatial Signaling
-  description: Nitrogen-starved M. vaginatus and carbon-limited Massilia sp. METH4 produce GABA and glutamate
-    signals that modulate M. vaginatus motility and bundle formation, optimizing close spatial organization
-    for the mutualism.
+  description: GABA and glutamate released by C-limited Massilia sp. METH4 and N-starved M. vaginatus influence
+    cyanobacterial motility and bundling. Addition experiments establish N-dependent chemokinetic and chemophobic
+    responses, not measured Massilia migration; PCC 9802 did not show true chemotaxis to glutamate. Natural-bundle
+    assays additionally measure gliding reversals, a response poorly retained in the long-cultured PCC 9802 strain.
+    Low GABA can stabilize bundles, whereas high GABA can destabilize natural bundles, so increasing signal is not
+    uniformly beneficial. The proposed benefit to carbon-for-nitrogen exchange is spatial retention near heterotrophic
+    partners, not a directly measured flux increase.
   interaction_type: COLONIZATION_FACILITATION
   scope: PAIRWISE
   source_taxon:
@@ -213,31 +227,32 @@ ecological_interactions:
       label: L-glutamic acid
     notes: Glutamate signal measured in M. vaginatus and Massilia culture conditions.
   biological_processes:
-  - preferred_term: chemotaxis
-    term:
-      id: GO:0006935
-      label: chemotaxis
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Carbon-for-Nitrogen Resource Trading
-    description: >
-      GABA and glutamate signaling spatially organizes Massilia near nitrogen-starved M. vaginatus,
-      concentrating diazotrophic cyanosphere partners where they can optimize carbon-for-nitrogen
-      exchange.
+    description: PARTIAL - GABA/glutamate responses keep nitrogen-limited Microcoleus trichomes bundled near cyanosphere
+      partners, providing spatial proximity expected to facilitate nutrient exchange. Signal-addition and cyanosphere-cleansing
+      experiments support bundle organization, but the increase in carbon-for-nitrogen flux or fitness attributable
+      to this organization was not directly quantified. The responding motile organism is Microcoleus, not demonstrated
+      recruitment of motile Massilia.
   evidence:
   - reference: doi:10.1093/ismejo/wrad029
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the proximity of mutualistic diazotroph populations results in M. vaginatus bundle formation orchestrated through chemophobic and chemokinetic responses to gamma-aminobutyric acid (GABA) /glutamate (Glu) signals
-    explanation: Supports GABA/glutamate signaling as a mechanism organizing the cyanosphere mutualism.
+    snippet: the proximity of mutualistic diazotroph populations results in M. vaginatus bundle formation orchestrated
+      through chemophobic and chemokinetic responses to gamma-aminobutyric acid (GABA) /glutamate (Glu) signals
+    explanation: Direct support for cyanobacterial motility and bundle organization, including natural-population
+      experiments; not a measurement of partner-specific nutrient flux or Massilia motility.
   - reference: doi:10.1093/ismejo/wrad029
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Glutamate, by contrast, was only produced in measurable quantities by M. vaginatus PCC 9802 and Massilia sp. METH4
-    explanation: Supports M. vaginatus PCC 9802 and Massilia sp. METH4 as contributors to the glutamate signaling pool.
+    snippet: Glutamate, by contrast, was only produced in measurable quantities by M. vaginatus PCC 9802 and Massilia
+      sp. METH4
+    explanation: Supports M. vaginatus PCC 9802 and Massilia sp. METH4 as contributors to the glutamate signaling
+      pool.
 environmental_factors:
 - name: carbon and nitrogen limitation
   value: carbon-free and nitrogen-free BG11-based coculture condition
@@ -346,3 +361,30 @@ associated_datasets:
     snippet: a small, selected subset of OTUs was significantly enriched in close proximity to M. vaginatus
     explanation: Supports the environmental cyanosphere context without expanding the defined coculture composition.
 metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: cyanosphere_transfer_and_signal_mediation
+  prompt: How much nutrient exchange is mediated specifically by heterotrophic urea and GABA/Glu-dependent spatial
+    retention?
+  rationale: Retain demonstrated mutualistic growth, urea pool/release changes, supplied-urea growth and signal-induced
+    motility. The wrae246 Results explicitly does not absolutely resolve the urea donor in coculture; total biomass
+    normalizes release. No selective transfer tracing or uc/ah enzyme-affinity characterization establishes an exclusive
+    carrier. The wrad029 experiments distinguish PCC 9802 from natural bundles, chemokinesis/chemophobia from true
+    glutamate chemotaxis, and concentration-dependent stabilization from high-GABA destabilization. Improved nutrient-flux
+    efficiency is the mechanistic interpretation, not an independently quantified endpoint. No new self-loop is
+    inferred from the proposed feedback model.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  attaches_to:
+  - ecological_interactions#Urea-Mediated Nitrogen Transfer
+  - ecological_interactions#GABA and Glutamate Spatial Signaling
+curation_history:
+- timestamp: '2026-10-07T02:19:57Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain supported selective mutualistic growth; distinguish shared growth from resolved organic-carbon
+    identities or fluxes.; Retain urea cross-feeding as convergent PARTIAL mechanism, including positive release/growth
+    assays and explicit donor uncertainty.; Correct the responding organism and motility process; retain experimental
+    signaling, natural-versus-culture and high-GABA boundaries. Issue #1614; reports/causal_graph_review/decisions/20261007-four-records-batch73.yaml'
+  llm_assisted: true
