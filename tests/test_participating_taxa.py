@@ -404,6 +404,8 @@ USERS = {
     "Shewanella_Streptococcus_Starch_Microbial_Fuel_Cell.yaml",
     "Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.yaml",
     "Sichuan_Shai_Vinegar_Yeast_Flavor_SynCom.yaml",
+    "Soil_BGC_Phylum_Depth_Vegetation_Community.yaml",
+    "Soil_CPR_Nanoarchaea_Rare_Biosphere_Community.yaml",
     "Soil_Corrinoid_B12_Reservoir_Community.yaml",
     "Soybean_Chlorophyll_Selected_Biofertilizer_SynCom.yaml",
     "Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml",

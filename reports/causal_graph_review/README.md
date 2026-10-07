@@ -1179,3 +1179,23 @@ texts were not independently verified; repairs are bounded to primary abstracts.
 No new topology or Edison spend. Repairs #1798-#1800 await protected-main
 merge; non-graph #1801 stays open. Self-review is not independent approval or
 corpus completion.
+
+## Batch102: Observations, Predictions And Workflow Boundaries
+
+[Decisions](decisions/20261007-four-records-batch102.yaml),
+[validation](validation-20261007-batch102.json),
+[cache provenance](cache-provenance-20261007-batch102.json) and
+[self-adversarial review](adversarial-review-20261007-batch102.yaml) cover the
+vinegar yeast panel, SkinCom, and the soil BGC and CPR/DPANN surveys.
+Fourteen of twenty nodes and one of four existing directions remain. Six
+workflow nodes and three membership/context arrows are removed. Production
+roles and genomic differences are not automatically niche partitioning;
+inferred resource dependence is not a demonstrated commensal relationship.
+SkinCom's reported concordance retains its statistical and external-validity
+limits. The soil LAP name and CPR participant scopes are corrected.
+All caches and non-graph raw blocks remain unchanged, not recertified.
+Vinegar is abstract-bounded; primary main-text coverage and supplementary
+access limits for the other studies are recorded in the decision ledger.
+No new topology or Edison spend. Repairs #1803-#1806 await protected-main
+merge; non-graph #1807 stays open. Self-review is not independent approval or
+corpus completion.
