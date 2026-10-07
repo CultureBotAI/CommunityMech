@@ -1161,3 +1161,21 @@ Non-graph blocks and all other caches remain unchanged, not recertified.
 No new topology or Edison spend. Repairs #1791-#1794 await protected-main
 merge; non-graph #1795 and provenance #1796 stay open. Self-review is not
 independent approval or corpus completion.
+
+## Batch101: Transfer Direction And Outcome Attribution
+
+[Decisions](decisions/20261007-four-records-batch101.yaml),
+[validation](validation-20261007-batch101.json),
+[cache provenance](cache-provenance-20261007-batch101.json) and
+[self-adversarial review](adversarial-review-20261007-batch101.yaml) cover
+three Shewanella electrochemical records and the unchanged shrimp SynCom panel.
+Nine of ten nodes and five of six existing directions remain. The starch graph
+distinguishes sequential broth use from simultaneous coculture and no longer
+assigns reverse cross-feeding to the electrical endpoint. Electron-transfer
+claims retain reported outcomes without unverified syntrophic feedback or
+equating a methane indicator with calibrated total electron flux.
+All source caches and non-graph raw blocks remain unchanged. Complete main
+texts were not independently verified; repairs are bounded to primary abstracts.
+No new topology or Edison spend. Repairs #1798-#1800 await protected-main
+merge; non-graph #1801 stays open. Self-review is not independent approval or
+corpus completion.

@@ -108,9 +108,12 @@ taxonomy:
     snippet: Streptococcus bovis 148 metabolizes starch and produces lactic acid
     explanation: Supports the starch-fermenting lactate-producer role.
 ecological_interactions:
-- name: Starch Fermentation to Lactic Acid
-  description: S. bovis 148 metabolizes starch and produces lactic acid, converting
-    a polymeric substrate into an electron-donor intermediate usable by S. oneidensis MR-1.
+- name: Starch-Derived Lactate Provisioning
+  description: Streptococcus bovis 148 produces lactic acid from starch that Shewanella oneidensis MR-1 can use
+    for electricity generation. The reported two-step EGT configuration uses fermented broth after removal of the
+    fermenter, whereas the parallel EGP configuration contains simultaneous cultivation. The retained one-way metabolite
+    provisioning covers these distinct configurations; it does not imply a live two-member electricity-generation
+    phase in EGT or a reciprocal benefit.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -139,9 +142,10 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Lactate-Fed Current Generation
-    description: Lactic acid produced from starch by S. bovis is the
-      electron-donor intermediate that S. oneidensis oxidizes for current
-      production in the microbial fuel cell.
+    description: Starch-derived lactic acid supplies the substrate used by S. oneidensis MR-1 for current generation.
+      In EGT this is a sequential fermented-broth handoff after fermenter removal; EGP couples conversion and electricity
+      generation during simultaneous cultivation. Neither configuration supports a reverse metabolite transfer to
+      S. bovis.
   evidence:
   - reference: PMID:28434977
     supports: SUPPORT
@@ -153,21 +157,18 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: starch was first converted to lactic acid by S. bovis 148
     explanation: Supports lactic acid production from starch in the two-step configuration.
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The S. bovis 148 were then removed by centrifugation, and the fermented broth was preserved for electricity
+      generation by S. oneidensis MR-1.
+    explanation: Distinguishes the sequential broth experiment from live simultaneous coculture.
 - name: Lactate-Fed Current Generation
-  description: S. oneidensis MR-1 uses lactic acid produced from starch fermentation
-    to generate electrical current in the microbial fuel cell.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Shewanella oneidensis MR-1
-    term:
-      id: NCBITaxon:211586
-      label: Shewanella oneidensis MR-1
-  target_taxon:
-    preferred_term: Streptococcus bovis 148
-    term:
-      id: NCBITaxon:1335
-      label: Streptococcus equinus
+  description: Shewanella oneidensis MR-1 generates current from starch-derived lactic acid. The reported 1.8, 2.4
+    and 2.8 mA maxima belong to successive terms of the two-step EGT broth experiment, not to the simultaneous coculture.
+    The parallel EGP configuration also coupled starch-to-lactate conversion with electricity generation. This electrical
+    outcome does not represent reverse cross-feeding from Shewanella to Streptococcus.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lactate
     term:
@@ -183,57 +184,23 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: maximum currents at each term were 1.8, 2.4, and 2.8 mA
-    explanation: Supports measured current generation in the starch-fermentation workflow.
-- name: Parallel Starch Fermentation and Electrogenesis
-  description: In the parallel fermentation configuration, S. bovis 148 and
-    S. oneidensis MR-1 were cultivated simultaneously so starch conversion,
-    lactic acid production, and electricity generation occurred in one workflow.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Streptococcus bovis 148
-    term:
-      id: NCBITaxon:1335
-      label: Streptococcus equinus
-  target_taxon:
-    preferred_term: Shewanella oneidensis MR-1
-    term:
-      id: NCBITaxon:211586
-      label: Shewanella oneidensis MR-1
-  metabolites:
-  - preferred_term: starch
-    term:
-      id: CHEBI:28017
-      label: starch
-  - preferred_term: lactate
-    term:
-      id: CHEBI:24996
-      label: lactate
-  biological_processes:
-  - preferred_term: fermentation
-    term:
-      id: GO:0006113
-      label: fermentation
-  - preferred_term: electron transport chain
-    term:
-      id: GO:0022900
-      label: electron transport chain
-  downstream:
-  - target: Lactate-Fed Current Generation
-    description: In the parallel method, S. bovis starch fermentation occurs
-      while S. oneidensis oxidizes the resulting lactic acid for current
-      generation rather than after a separate S. bovis conversion step.
-  evidence:
+    explanation: Supports the EGT-specific current maxima, not current values for the simultaneous EGP coculture.
   - reference: PMID:28434977
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: cultivation and subsequent fermentation processes of S. bovis 148 and S. oneidensis MR-1 were performed simultaneously
+    snippet: cultivation and subsequent fermentation processes of S. bovis 148 and S. oneidensis MR-1 were performed
+      simultaneously
     explanation: Supports simultaneous operation of the two-member community in the parallel method.
   - reference: PMID:28434977
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: starch was also converted into lactic acid with electricity generation
     explanation: Supports coupled starch conversion, lactate production, and electrogenesis.
+  participating_taxa:
+  - preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:211586
+      label: Shewanella oneidensis MR-1
 environmental_factors:
 - name: Starch substrate
   value: starch
@@ -347,3 +314,30 @@ metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this starch-fed microbial fuel cell.
+discussions:
+- discussion_id: starch_graph_evidence_scope
+  prompt: Which inferences depend on sequential broth use versus simultaneous coculture?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The fresh primary abstract and complete committed cache distinguish EGT fermenter removal from EGP
+    simultaneous cultivation. The current endpoint is attributed to Shewanella, not to a reverse benefit or metabolite
+    transfer. Full main text was not independently verified, so the graph does not equate the configurations or
+    infer reciprocal fitness. The duplicate workflow node is removed while its positive result and evidence remain.
+  evidence:
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The S. bovis 148 were then removed by centrifugation, and the fermented broth was preserved for electricity
+      generation by S. oneidensis MR-1.
+    explanation: Distinguishes the sequential broth experiment from live simultaneous coculture.
+  attaches_to:
+  - ecological_interactions#Starch-Derived Lactate Provisioning
+  - ecological_interactions#Lactate-Fed Current Generation
+curation_history:
+- timestamp: '2026-10-07T22:45:55Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain one-way lactate provisioning with explicit sequential versus simultaneous scope.; Correct the
+    reversed pairwise cross-feeding assignment to a Shewanella-scoped electrical outcome; preserve both configurations
+    and their evidence. Issue#1799; reports/causal_graph_review/decisions/20261007-four-records-batch101.yaml
+  llm_assisted: true

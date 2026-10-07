@@ -76,43 +76,42 @@ taxonomy:
     explanation: Identifies R. palustris as the electron-accepting member of the co-culture.
 ecological_interactions:
 - name: Polydopamine-Driven Cell-to-Cell Coaggregation
-  description: In-situ polydopamine nano-encapsulation of S. oneidensis MR-1 surfaces
-    creates a conductive, adhesive interface that promotes stable coaggregation with
-    R. palustris.
-  interaction_type: SYNTROPHY
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Shewanella oneidensis MR-1
-    term:
-      id: NCBITaxon:70863
-      label: Shewanella oneidensis
-  target_taxon:
-    preferred_term: Rhodopseudomonas palustris
-    term:
-      id: NCBITaxon:1076
-      label: Rhodopseudomonas palustris
+  description: The source reports increased coaggregation of Shewanella oneidensis MR-1 and Rhodopseudomonas palustris
+    with the material-associated cell interface. This is a two-member physical community observation, not itself
+    a donor-to-recipient metabolic transfer or evidence of syntrophic feedback.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: cell aggregation
     term:
       id: GO:0098743
       label: cell aggregation
   downstream:
-  - target: Engineered interspecies electron transfer (MIET-to-DIET shift)
-    description: The stable conductive PDA cell-to-cell interface precedes the shift from
-      diffusible H2-mediated IET toward contact-dependent electron transfer.
+  - target: Shift Toward Contact-Dependent Electron Transfer
+    description: 'PARTIAL: the material-associated interface supports contact between the two members and is reported
+      to favor contact-dependent electron transfer. The abstract does not isolate coaggregation from the interface''s
+      conductive properties as the causal mediator of the transfer-mode shift.'
   evidence:
   - reference: PMID:42285537
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The coating promoted stable and intimate coaggregation of SW with Rhodopseudomonas
-      palustris (RP, electron accepting partner).
-    explanation: Supports PDA-driven cell-to-cell coaggregation between the engineered
-      electron-donating S. oneidensis partner and R. palustris.
-- name: Engineered interspecies electron transfer (MIET-to-DIET shift)
-  description: The PDA-stabilized cell-to-cell interface shifts the dominant IET mode from
-    H2-mediated MIET toward contact-dependent direct electron transfer involving
-    outer-membrane c-type cytochromes.
-  interaction_type: SYNTROPHY
+    snippet: The coating promoted stable and intimate coaggregation of SW with Rhodopseudomonas palustris (RP, electron
+      accepting partner).
+    explanation: Supports PDA-driven cell-to-cell coaggregation between the engineered electron-donating S. oneidensis
+      partner and R. palustris.
+  participating_taxa:
+  - preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  - preferred_term: Rhodopseudomonas palustris
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+- name: Shift Toward Contact-Dependent Electron Transfer
+  description: The primary abstract reports a shift from H2-mediated transfer toward contact-dependent electron
+    transfer in the tested two-species community, with Shewanella as donor and Rhodopseudomonas as acceptor. Retain
+    that direction without treating a shift in the dominant mode as elimination of all mediated transfer or as evidence
+    of product-removal feedback.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Shewanella oneidensis MR-1
@@ -136,22 +135,23 @@ ecological_interactions:
       label: electron transport chain
   downstream:
   - target: Enhanced Nitrogenase-Derived CH4 Indicator
-    description: Contact-dependent electron transfer increases the nitrogenase-derived
-      methane readout used to quantify IET efficiency.
+    description: 'PARTIAL: the reported transfer-mode shift is proposed to support the increased nitrogenase-derived
+      methane readout. The abstract presents methane as an IET indicator, but does not establish a calibrated proportional
+      increase in all interspecies electron flux or separate the contribution of each transfer route.'
   evidence:
   - reference: PMID:42285537
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: This cell-to-cell PDA interface promoted a shift in the dominant IET mode from H2-mediated
-      MIET toward contact-dependent electron transfer involving outer membrane C-type cytochromes.
-    explanation: Documents engineered electron transfer from the donor S. oneidensis to the acceptor
-      R. palustris, shifting from mediated to direct IET.
+    snippet: This cell-to-cell PDA interface promoted a shift in the dominant IET mode from H2-mediated MIET toward
+      contact-dependent electron transfer involving outer membrane C-type cytochromes.
+    explanation: Documents engineered electron transfer from the donor S. oneidensis to the acceptor R. palustris,
+      shifting from mediated to direct IET.
     confidence_score: 0.9
 - name: Enhanced Nitrogenase-Derived CH4 Indicator
-  description: The engineered two-species community shows roughly 380% more
-    nitrogenase-derived methane, the quantitative indicator used for IET efficiency in this
-    system.
-  interaction_type: SYNTROPHY
+  description: The engineered two-species community showed roughly 380% higher nitrogenase-derived methane, used
+    by the authors as an indicator of interspecies electron-transfer efficiency. Preserve this measured positive
+    result without equating the percentage with a calibrated change in total electron flux, natural methanogenesis
+    or reciprocal fitness benefit.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Shewanella oneidensis MR-1
@@ -171,7 +171,38 @@ ecological_interactions:
   - reference: PMID:42285537
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: nitrogenase-derived CH4, used as a quantitative indicator of IET efficiency,
-      increased by ∼380 % in the engineered two-species community.
-    explanation: Supports enhanced methane formation as the measured downstream outcome
-      of the PDA-enhanced interspecies electron transfer design.
+    snippet: nitrogenase-derived CH4, used as a quantitative indicator of IET efficiency, increased by ∼380 % in
+      the engineered two-species community.
+    explanation: Supports the reported indicator increase, not a separately calibrated total electron-flux increase
+      or syntrophic feedback.
+discussions:
+- discussion_id: pda_graph_evidence_scope
+  prompt: How do interface effects and indicator calibration constrain causal attribution?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The fresh primary abstract and whole committed cache support coaggregation, the reported transfer-mode
+    shift and the methane-indicator increase. Complete main text, route-specific controls and indicator calibration
+    were not independently reviewed. The retained PARTIAL directions distinguish interface-associated effects from
+    isolated mediation and a quantitative proxy from total electron flux; no product-removal feedback or reciprocal
+    fitness benefit is newly asserted.
+  evidence:
+  - reference: PMID:42285537
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: nitrogenase-derived CH4, used as a quantitative indicator of IET efficiency, increased by ∼380 % in
+      the engineered two-species community.
+    explanation: Supports the reported indicator increase, not a separately calibrated total electron-flux increase
+      or syntrophic feedback.
+  attaches_to:
+  - ecological_interactions#Polydopamine-Driven Cell-to-Cell Coaggregation
+  - ecological_interactions#Shift Toward Contact-Dependent Electron Transfer
+  - ecological_interactions#Enhanced Nitrogenase-Derived CH4 Indicator
+curation_history:
+- timestamp: '2026-10-07T22:45:55Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Scope coaggregation to both canonical members without a directed syntrophic classification.; Retain the
+    reported donor-to-recipient transfer shift with PARTIAL causal attribution and no claim that mediated transfer
+    disappears.; Retain the measured methane-indicator increase without equating the proxy to total flux or reciprocal
+    fitness. Issue#1800; reports/causal_graph_review/decisions/20261007-four-records-batch101.yaml
+  llm_assisted: true
