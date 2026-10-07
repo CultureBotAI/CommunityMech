@@ -334,6 +334,7 @@ USERS = {
     "Medicago_Nodule_Biofertilizer_SynCom.yaml",
     "Mediterranean_AM_Fungal_SixSpecies_SynCom.yaml",
     "Meghalaya_Bacillus_Consortia_A22ED9.yaml",
+    "Mercury_SFA_EFPC_Sediment_Community.yaml",
     "Mesorhizobium_Synechococcus_B12_Synthetic_Consortium.yaml",
     "Methane_MFC_Electrogenesis_Nitrogen_Fixation_Consortium.yaml",
     "Methane_Oxidation_CrVI_Reduction_SynCom.yaml",

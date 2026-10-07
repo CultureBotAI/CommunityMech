@@ -5,6 +5,28 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch70: Mercury Potential, B12 Rescue And Methane Pathways
+
+[Decisions](decisions/20261006-four-records-batch70.yaml),
+[validation](validation-20261006-batch70.json) and
+[self-adversarial review](adversarial-review-20261006-batch70.yaml) account for
+all 18 retained nodes and 12 original arrows. Eight pathway arrows are qualified;
+four cross-study or assembly/analysis-order arrows are removed.
+
+EFPC methylation remains background potential, not a measured function of its
+reconstructed MAGs. External methanogen culture results remain positive comparative
+evidence in the discussion. B12-limited growth rescue, isotope-confirmed nitrogen
+fixation, cytochrome/current results and methane-dependent Cr(VI) reduction remain
+positive findings without unresolved taxon or mediation claims being asserted.
+
+Three complete public primary main texts/captions and the EFPC MAG table were
+read. The two methane papers were available only as primary abstracts; separate
+supplements, original images, raw data and executable analyses were not audited.
+All 920 caches and non-graph raw blocks remain unchanged, not recertified. All 23
+retained graph excerpts match fresh primary text. Non-graph follow-up #1600 stays
+open; repairs #1596-#1599 await protected-main merge. No new graph structure or paid
+provider call. Self-review is not independent approval or corpus completion.
+
 ## Batch69: Medicago, Soil Activity And Metal Depletion
 
 [Decisions](decisions/20261006-four-records-batch69.yaml),
