@@ -354,6 +354,7 @@ USERS = {
     "Ogataea_Met10_Str3_Sulfur_CrossFeeding_Coculture.yaml",
     "Ostreococcus_Dinoroseobacter_BVitamin_Mutualism.yaml",
     "PET_Artificial_FourSpecies_Degradation_Consortium.yaml",
+    "PMI_Variovorax_Thermotolerance_Collection.yaml",
     "PPCP_Wastewater_Sphingopyxis_Ochrobactrum_Apiotrichum_SMC.yaml",
     "PSY_Transgenic_Rice_Rhizosphere_Methane_Community.yaml",
     "Parmigiano_NWS_Set2_LAB_Triculture.yaml",
