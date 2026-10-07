@@ -1,0 +1,387 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: e5ce1f8d359d1690b8cc0bd03d43ff41056f1339
+scope:
+- kb/communities/Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml
+- kb/communities/Prymnesium_Parvum_B12_Limited_SynCom.yaml
+- kb/communities/Pseudomonas_Acidovorax_Aniline_Degradation_SynCom.yaml
+- kb/communities/Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch88.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch88.json
+findings:
+- issue: 1724
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound propanotroph causal graph to abstract-supported selection and removal
+  disposition: Close only after protected-main merge.
+- issue: 1725
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate B12 SynCom outcomes from correlation-like causal arrows
+  disposition: Close only after protected-main merge.
+- issue: 1726
+  severity: P2
+  status: addressed_in_this_change
+  finding: Keep RF-PH aniline removal distinct from unverified mineralization
+  disposition: Close only after protected-main merge.
+- issue: 1727
+  severity: P2
+  status: addressed_in_this_change
+  finding: Remove factorial assembly workflow from the biological interaction graph
+  disposition: Close only after protected-main merge.
+- issue: 1728
+  severity: P2
+  status: unresolved_non_graph
+  finding: Reconcile conflicting B12 producer attribution in the Prymnesium source
+  disposition: Keep OPEN after graph repairs.
+- issue: 1729
+  severity: P2
+  status: unresolved_non_graph
+  finding: Clarify factorial assay panel versus individual-community membership
+  disposition: Keep OPEN after graph repairs.
+adversarial_checks:
+- Fresh both-root baseline preceded papers; all11originalnodes6arrows have dispositions:10nodes4arrows retained,
+  one assembly node and two outcome-to-expression directions removed. No new topology or reverse arrows.
+- Propanotroph positive removal and genus-selection findings survive. Expression was not examined; gene content
+  and abundance do not identify active enzymes or cross-feeding. Three existing directions remain with explicit
+  partial/hypothesized mediation, not blanket deletion of selection findings.
+- Prymnesium observed whole-community outcomes and expression responses remain. Correlation-like arrows do not establish
+  outcome-to-transcription causality. Carbon reciprocity remains the authors hypothesis. No directly measured extracellular
+  flux or competitive fitness cost is claimed.
+- Prymnesium producer attribution is inconsistent across source sections. The disputed participant is omitted without
+  substituting a new strain. Existing roles and proposed experiments remain outside certification; no new experimental
+  procedures, genetic designs or growth-optimization details are added.
+- Aniline retains the positive monoculture comparisons and previously corrected evidence. Analytical removal is
+  not proof of complete mineralization or a named pathway; conclusions and main results differ in evidentiary scope.
+  Supplements were not inspected, so source-exhaustive absence is not claimed.
+- Factorial assembly is removed as a workflow. The existing statistical phenotype is preserved with illustrative-ranking
+  and nonlinear-absorbance limits. The discussion no longer presupposes secreted or contact mechanisms. No biological
+  mechanism or optimization procedure is invented.
+- Five factorial panel members lose artificial connectivity supplied by the method node. Those warnings remain visible
+  and exact-strain bounded, with metadata1729open. No taxonomy or auditor-rule change and no all-member credit assigned
+  to a subset outcome.
+- Two fresh main texts and two other fresh abstracts read. Factorial relevant cached results/discussion/method passages
+  read after failed fresh retrieval, not a complete or independent full-text review. Three graph and one discussion
+  matches are explicitly cache-only. No separate supplements, raw data or figure pixels audited.
+- All921caches456otherrecords and raw non-graph blocks preserved; four append-only histories and ten focused tests.
+  Legacy community-level census unchanged; all51oldwarnings retained with only five expected additions; zero structural
+  defects.
+- Executed local gates and deterministic HTML-description checks are not browser screenshots or generated-model
+  loader certification. Loader1703remains open. Repairs1724-1727await protected-main merge;765/1728/1729remain open.
+  No paid Edison job or inferred authorization. Self-review is not independent approval or corpus completion.
+verification:
+  combined_regressions: 796 passed in 321.32s (0:05:21)
+  new_regression_tests: 10
+  primary_graph_snippet_proof:
+    graph_quotations: 18
+    discussion_quotations: 7
+    fresh_primary_matches: 21
+    cached_only_matches: 4
+    retained_nodes: 10
+    removed_nodes: 1
+    retained_arrows: 4
+    removed_arrows: 2
+    new_topology: 0
+    primary_main_texts_read: 2
+    other_primary_abstracts_read: 2
+    factorial_access: Relevant existing OA cached passages only; no independent fresh full text or whole-main-body
+      read.
+    cache_changes: 0
+  references: Four full-record reference-validator runs passed. CLI Total checks counts issues, not executed checks.
+    Eighteen graph and seven discussion quotations match available primary/cache text;21are independent fresh-primary
+    matches and4factorial quotes are existing-cache-only. Literal matching is not entailment or full-text certification.
+  snippet_counts_by_record:
+    kb/communities/Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml:
+      MATCH: 18
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Prymnesium_Parvum_B12_Limited_SynCom.yaml:
+      MATCH: 41
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Pseudomonas_Acidovorax_Aniline_Degradation_SynCom.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom.yaml:
+      MATCH: 18
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    caveat: Both-root recipe executed. Informational exit0 does not certify a clean corpus; four focused snippet
+      gates pass independently.
+    output: "# 8912 evidence snippets scanned across 460 files\n  MATCH      8777\n  RENDERING  20\n  ASSEMBLED\
+      \  1\n  WEAK       0\n  MISMATCH   38\n  NOCONTENT  76\n\n# Files with MISMATCH/WEAK (content present but\
+      \ snippet absent) \u2014 fabrication suspects\n  19 (19 hard)  kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml\n\
+      \  15 (15 hard)  kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml\n   3 (3 hard)  kb/communities/Coscinodiscus_Synthetic_Community.yaml\n\
+      \   1 (1 hard)  kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml\nuv run python scripts/evidence_snippet_audit.py\
+      \ \n"
+  network:
+    existing_findings_preserved: 51
+    added_findings:
+      Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom:
+      - type: DISCONNECTED
+        taxon: Pseudomonas aeruginosa MDR6-CAZ
+        taxon_id: NCBITaxon:287
+        taxon_data:
+          taxon_term:
+            preferred_term: Pseudomonas aeruginosa MDR6-CAZ
+            term:
+              id: NCBITaxon:287
+              label: Pseudomonas aeruginosa
+            gtdb_grounding_status: GROUNDED
+            gtdb_classification:
+              gtdb_id: GTDB:s__Pseudomonas_aeruginosa
+              gtdb_taxon: Pseudomonas aeruginosa
+              gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas
+                aeruginosa
+              ncbi_source_id: NCBITaxon:287
+              majority_fraction: 0.99
+              total_genomes: 17191
+              is_reclassified: false
+              mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+            notes: The eLife panel denotes this P. aeruginosa mutant as strain 8; represented at species level for
+              ontology stability.
+          strain_designation:
+            strain_name: MDR6-CAZ
+          abundance_value: Full-factorial SynCom panel member 8
+          evidence:
+          - reference: PMID:42153623
+            supports: SUPPORT
+            evidence_source: IN_VITRO
+            snippet: "Strains 1\u20138 (as labeled in the main text) correspond, in order, to mutants pAOV, PA14,\
+              \ NfxB, ParR- CAZ, mexZ, OrfN, NfxB- CAZ, and MDR6- CAZ"
+            explanation: Maps the source's strain numbers to the eight P. aeruginosa mutant labels.
+        message: Taxon 'Pseudomonas aeruginosa MDR6-CAZ' has no interactions
+      - type: DISCONNECTED
+        taxon: Pseudomonas aeruginosa NfxB-CAZ
+        taxon_id: NCBITaxon:287
+        taxon_data:
+          taxon_term:
+            preferred_term: Pseudomonas aeruginosa NfxB-CAZ
+            term:
+              id: NCBITaxon:287
+              label: Pseudomonas aeruginosa
+            gtdb_grounding_status: GROUNDED
+            gtdb_classification:
+              gtdb_id: GTDB:s__Pseudomonas_aeruginosa
+              gtdb_taxon: Pseudomonas aeruginosa
+              gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas
+                aeruginosa
+              ncbi_source_id: NCBITaxon:287
+              majority_fraction: 0.99
+              total_genomes: 17191
+              is_reclassified: false
+              mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+            notes: The eLife panel denotes this P. aeruginosa mutant as strain 7; represented at species level for
+              ontology stability.
+          strain_designation:
+            strain_name: NfxB-CAZ
+          abundance_value: Full-factorial SynCom panel member 7
+          evidence:
+          - reference: PMID:42153623
+            supports: SUPPORT
+            evidence_source: IN_VITRO
+            snippet: "Strains 1\u20138 (as labeled in the main text) correspond, in order, to mutants pAOV, PA14,\
+              \ NfxB, ParR- CAZ, mexZ, OrfN, NfxB- CAZ, and MDR6- CAZ"
+            explanation: Maps the source's strain numbers to the eight P. aeruginosa mutant labels.
+        message: Taxon 'Pseudomonas aeruginosa NfxB-CAZ' has no interactions
+      - type: DISCONNECTED
+        taxon: Pseudomonas aeruginosa OrfN
+        taxon_id: NCBITaxon:287
+        taxon_data:
+          taxon_term:
+            preferred_term: Pseudomonas aeruginosa OrfN
+            term:
+              id: NCBITaxon:287
+              label: Pseudomonas aeruginosa
+            gtdb_grounding_status: GROUNDED
+            gtdb_classification:
+              gtdb_id: GTDB:s__Pseudomonas_aeruginosa
+              gtdb_taxon: Pseudomonas aeruginosa
+              gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas
+                aeruginosa
+              ncbi_source_id: NCBITaxon:287
+              majority_fraction: 0.99
+              total_genomes: 17191
+              is_reclassified: false
+              mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+            notes: The eLife panel denotes this P. aeruginosa mutant as strain 6; represented at species level for
+              ontology stability.
+          strain_designation:
+            strain_name: OrfN
+          abundance_value: Full-factorial SynCom panel member 6
+          evidence:
+          - reference: PMID:42153623
+            supports: SUPPORT
+            evidence_source: IN_VITRO
+            snippet: "Strains 1\u20138 (as labeled in the main text) correspond, in order, to mutants pAOV, PA14,\
+              \ NfxB, ParR- CAZ, mexZ, OrfN, NfxB- CAZ, and MDR6- CAZ"
+            explanation: Maps the source's strain numbers to the eight P. aeruginosa mutant labels.
+        message: Taxon 'Pseudomonas aeruginosa OrfN' has no interactions
+      - type: DISCONNECTED
+        taxon: Pseudomonas aeruginosa PA14
+        taxon_id: NCBITaxon:287
+        taxon_data:
+          taxon_term:
+            preferred_term: Pseudomonas aeruginosa PA14
+            term:
+              id: NCBITaxon:287
+              label: Pseudomonas aeruginosa
+            gtdb_grounding_status: GROUNDED
+            gtdb_classification:
+              gtdb_id: GTDB:s__Pseudomonas_aeruginosa
+              gtdb_taxon: Pseudomonas aeruginosa
+              gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas
+                aeruginosa
+              ncbi_source_id: NCBITaxon:287
+              majority_fraction: 0.99
+              total_genomes: 17191
+              is_reclassified: false
+              mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+            notes: The eLife panel denotes this P. aeruginosa mutant as strain 2; represented at species level for
+              ontology stability.
+          strain_designation:
+            strain_name: PA14
+          abundance_value: Full-factorial SynCom panel member 2
+          evidence:
+          - reference: PMID:42153623
+            supports: SUPPORT
+            evidence_source: IN_VITRO
+            snippet: "Strains 1\u20138 (as labeled in the main text) correspond, in order, to mutants pAOV, PA14,\
+              \ NfxB, ParR- CAZ, mexZ, OrfN, NfxB- CAZ, and MDR6- CAZ"
+            explanation: Maps the source's strain numbers to the eight P. aeruginosa mutant labels.
+        message: Taxon 'Pseudomonas aeruginosa PA14' has no interactions
+      - type: DISCONNECTED
+        taxon: Pseudomonas aeruginosa mexZ
+        taxon_id: NCBITaxon:287
+        taxon_data:
+          taxon_term:
+            preferred_term: Pseudomonas aeruginosa mexZ
+            term:
+              id: NCBITaxon:287
+              label: Pseudomonas aeruginosa
+            gtdb_grounding_status: GROUNDED
+            gtdb_classification:
+              gtdb_id: GTDB:s__Pseudomonas_aeruginosa
+              gtdb_taxon: Pseudomonas aeruginosa
+              gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas
+                aeruginosa
+              ncbi_source_id: NCBITaxon:287
+              majority_fraction: 0.99
+              total_genomes: 17191
+              is_reclassified: false
+              mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+            notes: The eLife panel denotes this P. aeruginosa mutant as strain 5; represented at species level for
+              ontology stability.
+          strain_designation:
+            strain_name: mexZ
+          abundance_value: Full-factorial SynCom panel member 5
+          evidence:
+          - reference: PMID:42153623
+            supports: SUPPORT
+            evidence_source: IN_VITRO
+            snippet: "Strains 1\u20138 (as labeled in the main text) correspond, in order, to mutants pAOV, PA14,\
+              \ NfxB, ParR- CAZ, mexZ, OrfN, NfxB- CAZ, and MDR6- CAZ"
+            explanation: Maps the source's strain numbers to the eight P. aeruginosa mutant labels.
+        message: Taxon 'Pseudomonas aeruginosa mexZ' has no interactions
+    removed_findings: {}
+    interpretation: Five panel-member disconnections exposed by removal of a method node; all51existing findings
+      preserved. Zero structural defects. No taxonomy or auditor-rule changes. Follow-up1729remains open.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch88.yaml: ce41340909e65c676be7e53756385800335224b44432760dacd3a4ca98179429
+    tests/test_causal_review_batch88.py: d5c366e8b3861feaabe007572761be4230532f05fe5a3e02d7b5b408c5476b5c
+    kb/communities/Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml: 38f4a9e4e2c7293f477bbb3e387470a35fe4257b7ec93678185b67a20fbd8d2a
+    kb/communities/Prymnesium_Parvum_B12_Limited_SynCom.yaml: 2e1d674f45e85230bfdd1d05aeb6f6c6b0f58b44fb478515d13b3aa7535c1225
+    kb/communities/Pseudomonas_Acidovorax_Aniline_Degradation_SynCom.yaml: a7a32d2a84066629338c1735cea5104beac14a152498c123567349b8cbf7be34
+    kb/communities/Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom.yaml: 5771a8a97beb8ccb19b6cccad32062d896b09747ce0670788686060481cf68b9
+    reports/causal_graph_review/README.md: 600afb965f75db6aa5414d865b897dcbf4abcdad570040490ce594260c749b7e
+  unchanged_records: 456
+  unchanged_caches: 921
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 395
+      mixed: 126
+      community_level_only: 269
+      taxa: 1521
+      credited_solely_by_the_rule: 1247
+    current:
+      records: 460
+      with_community_level: 395
+      mixed: 126
+      community_level_only: 269
+      taxa: 1521
+      credited_solely_by_the_rule: 1247
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: Community-level legacy census unchanged; explicit participant credit exposes five disconnected
+    panel members. No canonical taxon or auditor-rule change.
+corpus:
+  records: 460
+  nodes: 1422
+  edges: 584
+  review_status_counts:
+    needs_research: 48
+    pending: 140
+    reviewed: 272
+limitations:
+- Fresh both-root baseline before papers:460records921caches1423nodes586arrows51warnings0structural defects. All11originalnodes6arrows
+  reviewed;10nodes4arrows retained, one assembly-method node and two correlation-like directions removed.
+- Prymnesium and aniline primary abstract/main text with embedded captions read from fresh EuropePMC XML. Separate
+  supplements, raw data and figure pixels not audited. Propanotroph uses only the fresh abstract; paywalled body
+  not retrieved.
+- Factorial fresh abstract and relevant existing OA cached primary passages read. XML500 after bounded retries;
+  publisher API and author-hosted PDF404. Publisher search independently exposed statistical-not-biological wording,
+  but no independently retrieved full paper or complete-main-text review is claimed. Three graph and one new discussion
+  quotations are cache-only matches, not independent fresh verification.
+- Propanotroph positive removal and substrate-linked selection remain; genus dominance and gene content do not identify
+  active enzymes or partner exchange. All three existing directions are retained with partial or hypothesized mediation.
+  Non-graph re-evidencing remains existing765.
+- Prymnesium community outcomes and transcript observations remain. Two outcome-to-expression arrows are removed
+  without reversing them. Carbon reciprocity remains an explicit hypothesis; transcription does not measure flux
+  or competitive fitness. One disputed producer is omitted, not replaced. Existing non-graph roles and proposed
+  experiments are not certified; no new mechanisms, procedures or optimization designs were added.
+- 'Aniline measured removal and prior monoculture evidence survive; the conclusion asserts a mineralization pathway
+  absent from the main results reviewed. No source-exhaustive absence claim: supplements not read. Factorial statistical
+  phenotype remains; assembly is not an interaction, ranking is illustrative and absorbance need not be linear in
+  biomass.'
+- 456otherrecords, all921caches and raw non-graph blocks preserved. Five factorial disconnection warnings are expected
+  after removal of the all-panel method node; no fabricated participant credit or auditor-rule changes. Panel metadata
+  follow-up remains open.
+- Dedup995all-state issue titles/bodies and25ignored/hidden local matches, excluding.git/docs/site/references_cache.
+  Relevant caches separately read. Prior754/765/1189-1192 and matching validation/rendering issues reviewed; comments
+  and PR search not exhaustive.
+- No new nodes or causal directions, Edison dry runs or provider submissions. Earlier pending/denied spend scopes
+  remain unchanged. Four repair issues close only after protected-main merge; producer/panel follow-ups and765remain
+  open.
+- Validation, rendering, publication and exact-head review are subsequent gates, not preasserted. Self-adversarial
+  review is not independent approval, generated-model loader certification or corpus completion. Loader1703 remains
+  open.
