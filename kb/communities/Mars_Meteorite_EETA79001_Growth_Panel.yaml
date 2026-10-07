@@ -156,67 +156,85 @@ taxonomy:
     explanation: Names Planococcus halocryophilus as the cold-adapted bacterial member of the panel.
 ecological_interactions:
 - name: EETA79001 Mineral Nutrient Supply
-  description: >-
-    Mars meteorite EETA79001 sawdust was tested as the sole nutrient source for
-    the panel, with its aqueous leachate providing phosphate, nitrate, sulfate,
-    calcium, and magnesium ions relevant to bacterial growth and maintenance.
+  description: 'The organisms were assayed separately, not as a coculture. COMMUNITY_LEVEL is retained as the current
+    container for shared abiotic/panel observations, not evidence of emergent community activity; record-model placement
+    remains OPEN under #573. EETA79001 sawdust supplied the intended nutrient substrate under terrestrial laboratory
+    conditions. Earlier leachate analyses cited in the paper reported phosphate, nitrate, sulfate and calcium among
+    candidate resources; the growth experiment did not quantify uptake or selectively test each ion. This low-perchlorate
+    meteorite is not representative of all Martian surface regolith, and the assay does not establish growth in
+    a Mars atmosphere, absence of toxicity generally or a complete regolith-derived carbon budget.'
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   metabolites:
   - preferred_term: phosphate
     term:
       id: CHEBI:18367
       label: phosphate(3-)
+    notes: Candidate resource from earlier leachate chemistry cited by the growth study, not directly traced uptake
+      or a selective nutrient-requirement test here.
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
+    notes: Candidate resource from earlier leachate chemistry cited by the growth study, not directly traced uptake
+      or a selective nutrient-requirement test here.
   - preferred_term: sulfate
     term:
       id: CHEBI:16189
       label: sulfate
+    notes: Candidate resource from earlier leachate chemistry cited by the growth study, not directly traced uptake
+      or a selective nutrient-requirement test here.
   - preferred_term: calcium(2+)
     term:
       id: CHEBI:29108
       label: calcium(2+)
-  biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
+    notes: Candidate resource from earlier leachate chemistry cited by the growth study, not directly traced uptake
+      or a selective nutrient-requirement test here.
   downstream:
-  - target: Regolith-Water Growth Assay
-    description: >-
-      Inorganic nutrients leached from the meteorite sawdust made water-amended
-      EETA79001 a usable growth substrate instead of an inert particulate
-      control.
+  - target: Hydration-dependent regolith growth and survival
+    description: PARTIAL - hydration can make meteorite-associated resources available and thereby support growth
+      or persistence in the separate cultures. Regolith/water treatments and water-only controls support a substrate
+      contribution for some organisms, but ion-specific mediation was not isolated and E. coli also persisted in
+      water-only controls.
   evidence:
   - reference: PMID:38665180
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Our work was aimed at directly observing the effect of martian regolith on
-      the growth and continued survival of bacteria, where the sole nutrient
-      source was the regolith.
-    explanation: >-
-      Supports modeling the meteorite sawdust itself as the nutrient source in
-      the growth assays.
+    snippet: Our work was aimed at directly observing the effect of martian regolith on the growth and continued
+      survival of bacteria, where the sole nutrient source was the regolith.
+    explanation: Supports modeling the meteorite sawdust itself as the nutrient source in the growth assays.
   - reference: PMID:38665180
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      The EETA79001 leachate includes sufficient amounts of inorganic nutrients
-      necessary for bacterial growth
-    explanation: >-
-      Names the leached inorganic nutrients that made EETA79001 sawdust a
-      candidate growth substrate.
-- name: Regolith-Water Growth Assay
-  description: >-
-    Adding water to EETA79001 sawdust across regolith:water ratios created the
-    aqueous substrate space used to quantify growth and survival of all four
-    separately inoculated panel organisms.
+    snippet: The EETA79001 leachate includes sufficient amounts of inorganic nutrients necessary for bacterial growth
+    explanation: The paper summarizes earlier leachate chemistry; retain candidate nutrient availability without
+      promoting it to measured uptake or causal sufficiency of each ion.
+  participating_taxa:
+  - preferred_term: Escherichia coli B
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  - preferred_term: Eucapsis sp.
+    term:
+      id: NCBITaxon:1521555
+      label: Eucapsis
+  - preferred_term: Chroococcidiopsis sp. Chr20-20201027-1
+    term:
+      id: NCBITaxon:54298
+      label: Chroococcidiopsis
+  - preferred_term: Planococcus halocryophilus
+    term:
+      id: NCBITaxon:1215089
+      label: Planococcus halocryophilus
+- name: Hydration-dependent regolith growth and survival
+  description: 'The organisms were assayed separately, not as a coculture. COMMUNITY_LEVEL is retained as the current
+    container for shared abiotic/panel observations, not evidence of emergent community activity; record-model placement
+    remains OPEN under #573. Water-amended 20 mg sawdust treatments supported condition-dependent growth and survival
+    over about 22-23 days. The wetter treatments generally prolonged heterotroph recovery; dry-design controls still
+    received a wet inoculum. Cyanobacterial most-probable-number recovery after resuscitation and bacterial CFU
+    plating measure different viable-recovery endpoints, not direct continuous cell production or comparable biomass
+    flux. The regolith:water series and water-only controls should not be conflated into a single growth condition
+    or a guarantee that every organism proliferated.'
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   metabolites:
   - preferred_term: water
     term:
@@ -227,30 +245,40 @@ ecological_interactions:
     term:
       id: GO:0040007
       label: growth
-  downstream:
-  - target: Extremophile-Weighted Regolith Persistence
-    description: >-
-      Growth across the water-amended regolith series exposed the stronger
-      longer-term survival of Chr20 and Planococcus halocryophilus relative to
-      the nonextremophile comparators.
   evidence:
   - reference: PMID:38665180
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Using the EETA79001 sawdust as a substrate with different ratios of
-      regolith:water (Fig. 1 ), we have investigated the growth and survival of
-      four non-spore-forming microorganisms under terrestrial conditions.
-    explanation: >-
-      Supports regolith:water ratio as the shared designed axis for the growth
-      and survival assays.
-- name: Extremophile-Weighted Regolith Persistence
-  description: >-
-    The Atacama cyanobacterium Chr20 and cold-adapted Planococcus
-    halocryophilus persisted better in the EETA79001 regolith assays than their
-    Eucapsis and Escherichia coli comparators.
+    snippet: Using the EETA79001 sawdust as a substrate with different ratios of regolith:water (Fig. 1 ), we have
+      investigated the growth and survival of four non-spore-forming microorganisms under terrestrial conditions.
+    explanation: Supports regolith:water ratio as the shared designed axis for the growth and survival assays.
+  participating_taxa:
+  - preferred_term: Escherichia coli B
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  - preferred_term: Eucapsis sp.
+    term:
+      id: NCBITaxon:1521555
+      label: Eucapsis
+  - preferred_term: Chroococcidiopsis sp. Chr20-20201027-1
+    term:
+      id: NCBITaxon:54298
+      label: Chroococcidiopsis
+  - preferred_term: Planococcus halocryophilus
+    term:
+      id: NCBITaxon:1215089
+      label: Planococcus halocryophilus
+- name: Strain-specific regolith persistence
+  description: 'The organisms were assayed separately, not as a coculture. COMMUNITY_LEVEL is retained as the current
+    container for shared abiotic/panel observations, not evidence of emergent community activity; record-model placement
+    remains OPEN under #573. Chr20 maintained or increased recoverable counts more successfully than Eucapsis, while
+    Planococcus halocryophilus showed strong early growth relative to E. coli in regolith. Planococcus late persistence
+    depended on hydration, chiefly the wettest 1:5 condition; most other ratios fell below quantification after
+    approximately 14-17 days. E. coli survived in water alone and declined from its starting count in regolith.
+    Unequal initial phototroph counts, MPN versus CFU methods and differing water ratios preclude a pooled universal
+    extremophile-fitness ranking. Below quantification does not establish extinction.'
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   biological_processes:
   - preferred_term: growth
     term:
@@ -258,24 +286,36 @@ ecological_interactions:
       label: growth
   evidence:
   - reference: PMID:38665180
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: >-
-      Chr20 fared much better than Eucapsis by an order of magnitude and was
-      able to survive and proliferate beyond its initial viable count regardless
-      of the regolith:water ratio for the 22 days
-    explanation: >-
-      Supports stronger long-term persistence by the desert cyanobacterium than
-      by the nonextremophile cyanobacterial comparator.
+    snippet: Chr20 fared much better than Eucapsis by an order of magnitude and was able to survive and proliferate
+      beyond its initial viable count regardless of the regolith:water ratio for the 22 days
+    explanation: Supports the authors comparative persistence summary, bounded by hydration, time, initial inoculum
+      and distinct recovery methods; not uniform late survival in every treatment or community niche partitioning.
   - reference: PMID:38665180
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: >-
-      P. halocryophilus growth and survival was significantly better in the
-      regolith at all ratios than the E. coli and showed strong growth overall.
-    explanation: >-
-      Supports stronger regolith growth and survival by the cold-adapted
-      bacterium than by the Escherichia coli comparator.
+    snippet: P. halocryophilus growth and survival was significantly better in the regolith at all ratios than the
+      E. coli and showed strong growth overall.
+    explanation: Supports the authors comparative persistence summary, bounded by hydration, time, initial inoculum
+      and distinct recovery methods; not uniform late survival in every treatment or community niche partitioning.
+  participating_taxa:
+  - preferred_term: Escherichia coli B
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  - preferred_term: Eucapsis sp.
+    term:
+      id: NCBITaxon:1521555
+      label: Eucapsis
+  - preferred_term: Chroococcidiopsis sp. Chr20-20201027-1
+    term:
+      id: NCBITaxon:54298
+      label: Chroococcidiopsis
+  - preferred_term: Planococcus halocryophilus
+    term:
+      id: NCBITaxon:1215089
+      label: Planococcus halocryophilus
 growth_media:
 - name: Alga-Gro, phototroph maintenance
   composition:
@@ -375,3 +415,27 @@ environmental_factors:
     explanation: Supports the range of regolith:water ratios tested.
 # No associated_datasets block: the study reports growth/survival measurements, not an
 # omics dataset, and DatasetTypeEnum covers only omics data types.
+discussions:
+- discussion_id: eeta79001_panel_resource_and_persistence_limits
+  prompt: Which abiotic resources explain strain-specific growth in the separate meteorite assays?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#EETA79001 Mineral Nutrient Supply
+  - ecological_interactions#Hydration-dependent regolith growth and survival
+  - ecological_interactions#Strain-specific regolith persistence
+  rationale: 'Preserve positive growth/persistence and hydration contrasts without niche partitioning or a procedure-to-result
+    arrow. Nutrient-specific uptake, carbon provenance, evaporation and salt effects are unresolved mechanisms.
+    The current panel container is explicitly provisional under existing #573, not a resolved community model. #1584
+    repairs the graph and #1586 tracks stale zero-interaction and vessel/volume metadata; prior #574 panel framing
+    preserved. Main text/captions read, not Supplementary Note 1, original images or raw counts. No new structure.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-07T00:06:10Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain bounded abiotic resource hypothesis from cited leachate chemistry, not niche partitioning.; Retain
+    hydration-dependent viable-recovery observations; remove assay-order causation.; Retain strain-specific positive
+    persistence with late-time and water-control exceptions. Issue #1584; reports/causal_graph_review/decisions/20261006-four-records-batch68.yaml'
+  llm_assisted: true

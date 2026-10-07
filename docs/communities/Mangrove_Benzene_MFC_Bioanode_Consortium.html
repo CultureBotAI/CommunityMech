@@ -647,16 +647,11 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Mangrove Benzene MFC Bioanode Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -669,11 +664,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Benzene-fed bioanode niche shift</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Benzene-fed bioanode composition shift</h3>
                 </div>
-                <p class="prewrap interaction-description">The shift from sodium acetate to benzene depleted the sodium-acetate-linked Comamonas signal and selected a benzene-fed bioanode in which Bacillus and Arcobacter together comprised 63.21% of genus-level 16S assignments.
-</p>
+                <p class="prewrap interaction-description">After sequential acclimation from acetate to benzene, relative 16S genus profiles showed Bacillus at 32.93% and Arcobacter at 30.28%, with Pelobacter and Pseudomonas also detected. These four canonical genera are a resolved subset, not a complete or necessarily active consortium. The compositional change supports substrate-associated selection but does not measure absolute expansion, niche partitioning, species identity or taxon-specific benzene degradation/electron transfer. Feed composition and biofilm acclimation changed together; no selective genus removal established the mediator of increased power.</p>
 
 
 
@@ -682,7 +675,11 @@
 
                     Bacillus,
 
-                    Arcobacter
+                    Arcobacter,
+
+                    Pelobacter,
+
+                    Pseudomonas
 
                 </p>
 
@@ -698,23 +695,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        xenobiotic metabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006805"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006805</a>)
-                    </li>
-
-                    <li>
-                        electron transport chain
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0022900"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0022900</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
@@ -722,8 +702,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Benzene removal with voltage generation
-                        <p class="prewrap causal-description">The benzene-selected bioanode removed benzene while producing a higher maximum voltage and power density than the acetate-fed bioanode.
-</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED - substrate-associated community restructuring could increase the bioanode capacity for benzene conversion and electron transfer, as proposed by the authors. Whole-biofilm chemical and electrochemical measurements support performance, but relative genus enrichment does not isolate composition from substrate/acclimation effects or establish Bacillus and Arcobacter as necessary catalytic partners.</p>
                     </div>
 
                 </div>
@@ -754,8 +733,7 @@
                 <div class="interaction-header">
                     <h3>Benzene removal with voltage generation</h3>
                 </div>
-                <p class="prewrap interaction-description">The benzene-acclimated MFC bioanode removed 98.7 +/- 2.4% of the supplied benzene within 96 h and generated up to 902.3 +/- 20.6 mV during the high-benzene feed cycle.
-</p>
+                <p class="prewrap interaction-description">The acclimated whole-biofilm MFC removed 98.7 +/- 2.4% of benzene within 96 h while generating electricity. Maximum voltage was 902.3 +/- 20.6 mV in cycle VI (250 mg/L benzene); the final 330 mg/L cycle VII reached 899.9 +/- 15.2 mV. Power density at 330 mg/L was 390.1 +/- 26 mW/m2 versus 238.8 +/- 19 with acetate, not a 100-fold acetate improvement. The abiotic control lacked sustained output voltage. Main-text GC/HPLC results report transient acetate/butyrate and final gaseous products, supporting whole-system conversion without tracing complete carbon fate or proving partner exchange. DET versus mediated transfer and catalytic roles of individual genera remain unresolved; the named participants are a partial roster.</p>
 
 
 
@@ -764,7 +742,11 @@
 
                     Bacillus,
 
-                    Arcobacter
+                    Arcobacter,
+
+                    Pelobacter,
+
+                    Pseudomonas
 
                 </p>
 
@@ -834,7 +816,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -845,7 +827,22 @@
                 <p class="prewrap">The ACS Omega full text reports genus-level 16S abundances in the final benzene-fed MFC but does not expose species-level identities, raw sequence accessions, or a direct metagenomic assignment of benzene-degradation and electron-transfer genes to each genus. The source also reports a genus spelled Desulfurumonas at 1.64% abundance; that member was not curated here until the label can be resolved against NCBI or GTDB.
 </p>
 
-                <p class="muted small">Attaches to: <code>taxonomy</code>, <code>ecological_interactions#Benzene-fed bioanode niche shift</code></p>
+                <p class="muted small">Attaches to: <code>taxonomy</code>, <code>ecological_interactions#Benzene-fed bioanode composition shift</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which members and electron-transfer routes mediate whole-bioanode performance?
+                </h3>
+                <p class="prewrap">Retain positive removal, product and electrochemical observations, while composition mediation remains HYPOTHESIZED. Relative genus profiles and other-strain literature cannot establish exact-system partner roles, niche partitioning, carbon balance or DET rather than MET. The prior #1124 removal of Bacillus PRIMARY_DEGRADER remains; Arcobacter non-graph role and Daphnia species metadata remain under #1586. Main Table 1 read, not separate supporting spectra/chromatograms or original figure pixels. #1583 repair adds no new structure.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Benzene-fed bioanode composition shift</code>, <code>ecological_interactions#Benzene removal with voltage generation</code></p>
 
 
 
@@ -1287,7 +1284,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1296,17 +1293,11 @@
 
             var processes = [];
 
-
-            processes.push("xenobiotic metabolic process");
-
-            processes.push("electron transport chain");
-
-
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Benzene-fed bioanode niche shift",
+                label: "Benzene-fed bioanode composition shift",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1321,7 +1312,11 @@
 
                 "Bacillus",
 
-                "Arcobacter"
+                "Arcobacter",
+
+                "Pelobacter",
+
+                "Pseudomonas"
 
             ];
             participantKeys.forEach(function(key) {
@@ -1366,7 +1361,11 @@
 
                 "Bacillus",
 
-                "Arcobacter"
+                "Arcobacter",
+
+                "Pelobacter",
+
+                "Pseudomonas"
 
             ];
             participantKeys.forEach(function(key) {

@@ -457,3 +457,19 @@ remains supported with unresolved molecular mechanism. No new causal structure
 or provider spend. Non-graph metadata remains #1580, coordinated with #615.
 Canonical taxonomy and caches are preserved, not recertified. Exact-head
 self-review is not independent approval or corpus completion.
+
+## Batch68: SC2, MFC And Mars Panels
+
+[Decisions](decisions/20261006-four-records-batch68.yaml),
+[validation](validation-20261006-batch68.json) and
+[self-adversarial review](adversarial-review-20261006-batch68.yaml) retain 11
+nodes, qualify four arrows and remove two assay-order arrows. SC2 inhibition,
+plant benefit and biochemical assays remain distinct; MFC removal and power
+remain whole-biofilm observations with proposed compositional mediation.
+Both Mars studies tested separate organisms, not cocultures. Their shared
+abiotic and assay observations remain explicitly bounded within the current
+record model; #573 is still open. Processed-culture Lemna benefits do not imply
+live commensalism or that stronger phototroph growth improves biofertilization.
+No new causal structure or provider spend. Non-graph metadata remains #1586,
+coordinated with #1580 and #573. Canonical taxonomy and caches are preserved,
+not recertified; self-review is not independent approval or corpus completion.

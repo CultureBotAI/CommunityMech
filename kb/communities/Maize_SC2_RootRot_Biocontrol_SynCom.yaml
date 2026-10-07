@@ -212,13 +212,12 @@ taxonomy:
       maize root seven-strain consortium from which Kaki et al. selected SC2.
 ecological_interactions:
 - name: Pythium torulosum suppression by SC2
-  description: >-
-    SC2 inhibited the oomycete pathogen Pythium torulosum in PDA dual-culture
-    assays at a level comparable to C7 and, in maize growth-chamber assays,
-    protected B73 seedlings from P. torulosum while improving plant height and
-    root biomass more than either a pathogen-only challenge or the parent C7
-    community.
-  interaction_type: COMPETITION
+  description: The three-member SC2 inhibited Pythium torulosum radial growth on PDA after seven days, comparably
+    to C7. In a separate growth-chamber experiment, SC2-treated B73 seedlings challenged with Pythium had improved
+    height and fresh root biomass at 14 days. These positive antagonist and protection phenotypes do not isolate
+    nutrient competition, secreted antimicrobials or host immune activation. The three canonical bacterial terms
+    identify the curated SC2 roster; Pythium is an external challenge organism, not an inoculum member. Exact strain-number
+    and ZK-alias mapping is preserved, not independently recertified.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Enterobacter cloacae S4
@@ -237,45 +236,34 @@ ecological_interactions:
     term:
       id: NCBITaxon:4799
       label: Pythium torulosum
-  biological_processes:
-  - preferred_term: defense response
-    term:
-      id: GO:0006952
-      label: defense response
   downstream:
   - target: Maize growth promotion under Pythium challenge
-    description: >-
-      Reduced pathogen pressure in the SC2 plus P. torulosum treatment was
-      accompanied by higher maize plant height and fresh root biomass than the
-      C7 plus P. torulosum treatment.
+    description: HYPOTHESIZED - pathogen inhibition could reduce injury and thereby contribute to improved maize
+      growth under challenge. Plate inhibition and plant height/root-mass outcomes support this interpretation,
+      but inhibition was not selectively separated from direct growth promotion in the pot experiment; pathogen
+      load and immune mediation were not established.
   evidence:
   - reference: PMID:42039819
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      All sub-communities displayed inhibition comparable to that of the
-      established biocontrol community C7
-    explanation: >-
-      Supports SC2 inhibition of Pythium torulosum in the plate assay.
+    snippet: All sub-communities displayed inhibition comparable to that of the established biocontrol community
+      C7
+    explanation: Supports SC2 inhibition of Pythium torulosum in the plate assay.
   - reference: PMID:42039819
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      Among the sub-communities tested, SC1 (comprising strains S4, S6, and S7)
-      and SC2 (comprising strains S4, S1, and S5) consistently showed enhanced
-      protection from the pathogen and promoted plant growth traits
-      significantly more than both the non-inoculated control and the C7
-      community.
-    explanation: >-
-      Supports the Pythium-challenge growth-chamber phenotype of SC2 relative
-      to uninoculated and C7 controls.
+    snippet: Among the sub-communities tested, SC1 (comprising strains S4, S6, and S7) and SC2 (comprising strains
+      S4, S1, and S5) consistently showed enhanced protection from the pathogen and promoted plant growth traits
+      significantly more than both the non-inoculated control and the C7 community.
+    explanation: Supports the Pythium-challenge growth-chamber phenotype of SC2 relative to uninoculated and C7
+      controls.
 - name: Maize growth promotion under Pythium challenge
-  description: >-
-    Maize seeds soaked with SC2 before growth in P. torulosum-infested potting
-    mix developed greater 14-day plant height and fresh root biomass than C7- or
-    pathogen-only treatments, linking the reduced community to a plant-beneficial
-    outcome under oomycete stress.
-  interaction_type: MUTUALISM
+  description: SC2 seed treatment improved B73 maize height and fresh root biomass after 14 days in Pythium-infested
+    potting mix relative to the challenged comparison treatments, with SC1 and SC2 outperforming C7 in the reported
+    experiment. These are treatment-level plant benefits, not reciprocal bacterial benefit, field yield or proof
+    of IAA-mediated protection. Zea mays is an external host, not a fourth bacterial inoculum member. The candidate
+    IAA mechanism derives from a separate culture assay, not a measured plant hormone pool or traced bacterial-to-host
+    delivery.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Enterobacter cloacae S4
@@ -299,6 +287,8 @@ ecological_interactions:
     term:
       id: CHEBI:16411
       label: indole-3-acetic acid
+    notes: Candidate mediator from a separate Salkowski culture-supernatant assay; not measured in the maize plant
+      experiment or selectively established as its cause.
   biological_processes:
   - preferred_term: plant growth
     term:
@@ -308,51 +298,59 @@ ecological_interactions:
   - reference: PMID:42039819
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      Among the sub-communities tested, SC1 (comprising strains S4, S6, and S7)
-      and SC2 (comprising strains S4, S1, and S5) consistently showed enhanced
-      protection from the pathogen and promoted plant growth traits
-      significantly more than both the non-inoculated control and the C7
-      community.
-    explanation: >-
-      Supports plant growth promotion by SC2 under Pythium torulosum challenge.
-- name: SC2 auxin and siderophore output
-  description: >-
-    As a whole consortium, SC2 accumulated about 45 ug/mL
-    indole-3-acetic acid by day 2 and about 65 ug/mL by day 7, the highest
-    measured IAA output among the assayed C7-derived communities; SC2 also
-    produced a significant 0.50 cm CAS-agar siderophore halo at day 7.
-  interaction_type: MUTUALISM
+    snippet: Among the sub-communities tested, SC1 (comprising strains S4, S6, and S7) and SC2 (comprising strains
+      S4, S1, and S5) consistently showed enhanced protection from the pathogen and promoted plant growth traits
+      significantly more than both the non-inoculated control and the C7 community.
+    explanation: Supports plant growth promotion by SC2 under Pythium torulosum challenge.
+- name: SC2 Salkowski and CAS assay outputs
+  description: 'SC2 culture supernatants gave Salkowski estimates of approximately 45 ug/mL at day 2 and 65 ug/mL
+    at day 7 against a pure-IAA calibration, highest among the tested C7-derived communities. CAS agar activity
+    was reported as a 0.50 cm halo at day 7 (p=0.015 versus control). Retain the authors auxin and siderophore interpretation
+    at assay scope: these colorimetric and halo measurements do not resolve molecular identities, biosynthetic pathways,
+    member-specific contributions, plant delivery or reciprocal mutualism. They were not selective mediator perturbations
+    of the plant or pathogen assays.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: indole-3-acetic acid
     term:
       id: CHEBI:16411
       label: indole-3-acetic acid
+    notes: 'Author-assigned assay interpretation: Salkowski calibrated to IAA or CAS iron-chelation activity, not
+      molecular identity or in-planta transfer established here.'
   - preferred_term: siderophore
     term:
       id: CHEBI:26672
       label: siderophore
-  biological_processes:
-  - preferred_term: indole-3-acetic acid biosynthetic process
-    term:
-      id: GO:0009684
-      label: indoleacetic acid biosynthetic process
+    notes: 'Author-assigned assay interpretation: Salkowski calibrated to IAA or CAS iron-chelation activity, not
+      molecular identity or in-planta transfer established here.'
   evidence:
   - reference: PMID:42039819
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      SC2 exhibited the highest IAA levels, reaching ∼45 μg/mL by day 2 and ∼65
-      μg/mL by day 7, indicating strong and sustained auxin synthesis.
-    explanation: Supports SC2 as the strongest measured IAA producer.
+    snippet: SC2 exhibited the highest IAA levels, reaching ∼45 μg/mL by day 2 and ∼65 μg/mL by day 7, indicating
+      strong and sustained auxin synthesis.
+    explanation: Supports the reported whole-SC2 assay output; Methods specify Salkowski calibration or CAS halos,
+      not resolved structures, pathway perturbation or mediation of plant protection.
   - reference: PMID:42039819
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      siderophore activity ( Figure 7B ) was most pronounced in SC1 (0.55 cm, p
-      = 0.01) and SC2 (0.50 cm, p = 0.015), followed by C7 (0.45 cm, p = 0.02).
-    explanation: Supports significant CAS-agar siderophore production by SC2.
+    snippet: siderophore activity ( Figure 7B ) was most pronounced in SC1 (0.55 cm, p = 0.01) and SC2 (0.50 cm,
+      p = 0.015), followed by C7 (0.45 cm, p = 0.02).
+    explanation: Supports the reported whole-SC2 assay output; Methods specify Salkowski calibration or CAS halos,
+      not resolved structures, pathway perturbation or mediation of plant protection.
+  participating_taxa:
+  - preferred_term: Enterobacter cloacae S4
+    term:
+      id: NCBITaxon:550
+      label: Enterobacter cloacae
+  - preferred_term: Stenotrophomonas maltophilia S1
+    term:
+      id: NCBITaxon:40324
+      label: Stenotrophomonas maltophilia
+  - preferred_term: Chryseobacterium indologenes S5
+    term:
+      id: NCBITaxon:253
+      label: Chryseobacterium indologenes
 environmental_factors:
 - name: controlled maize growth-chamber regime
   value: 25/20
@@ -460,23 +458,34 @@ external_resources:
     explanation: The primary PMID-linked article reports the SC2 SynCom assays.
 discussions:
 - discussion_id: maize_sc2_secreted_biocontrol_mechanism
-  prompt: >-
-    Which SC2 member metabolites or community-level interactions directly
-    suppress Pythium torulosum and connect the strong IAA and siderophore
-    phenotypes to maize protection?
+  prompt: Which SC2 member metabolites or community-level interactions directly suppress Pythium torulosum and connect
+    the strong IAA and siderophore phenotypes to maize protection?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#Pythium torulosum suppression by SC2
-  - ecological_interactions#SC2 auxin and siderophore output
-  rationale: >-
-    Kaki et al. 2026 showed that the S4/S1/S5 subcommunity inhibited Pythium in
-    plate assays, protected maize in growth-chamber assays, and produced high
-    IAA plus significant siderophore activity, but the specific antimicrobials,
-    responsible members, and causal links among siderophores, auxin, root growth,
-    and oomycete suppression remain unresolved.
+  - ecological_interactions#SC2 Salkowski and CAS assay outputs
+  rationale: Kaki et al. 2026 showed that the S4/S1/S5 subcommunity inhibited Pythium in plate assays, protected
+    maize in growth-chamber assays, and produced high IAA plus significant siderophore activity, but the specific
+    antimicrobials, responsible members, and causal links among siderophores, auxin, root growth, and oomycete suppression
+    remain unresolved.
   posed_by: codex
   posed_date: '2026-09-14'
+- discussion_id: sc2_assay_to_host_mediation
+  prompt: Which SC2 processes mediate pathogen protection and maize growth?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Pythium torulosum suppression by SC2
+  - ecological_interactions#Maize growth promotion under Pythium challenge
+  - ecological_interactions#SC2 Salkowski and CAS assay outputs
+  rationale: 'Preserve positive inhibition, plant benefit and biochemical assays. Qualify the existing suppression-to-growth
+    arrow and retain the earlier open metabolite question. Competition, immune activation, reciprocal benefit and
+    IAA/siderophore necessity were not established. External pathogen and host participants remain as in #888; #887
+    incidental metal and #889 removed design pseudo-node remain unchanged. #1582 is the graph repair; #1586 and
+    #1580 track non-graph mapping/metadata. No new structure.'
+  posed_by: codex
+  posed_date: '2026-10-06'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: INCIDENTAL
@@ -487,20 +496,22 @@ curation_history:
 - timestamp: '2026-09-14T18:41:32Z'
   curator: codex
   action: CURATE_MAIZE_SC2_ROOTROT_BIOCONTROL_SYNCOM
-  changes: >-
-    Added the S4/S1/S5 maize SC2 root-rot biocontrol SynCom from PMID:42039819
-    with Pythium torulosum suppression, maize growth-chamber biocontrol,
-    indole-3-acetic acid, siderophore, C7-derived strain-alias, growth-medium,
+  changes: Added the S4/S1/S5 maize SC2 root-rot biocontrol SynCom from PMID:42039819 with Pythium torulosum suppression,
+    maize growth-chamber biocontrol, indole-3-acetic acid, siderophore, C7-derived strain-alias, growth-medium,
     and unresolved-causality context.
   llm_assisted: true
 - timestamp: '2026-09-14T18:48:04Z'
   curator: codex
   action: ADDRESS_ADVERSARIAL_REVIEW
-  changes: >-
-    Addressed adversarial-review issues #887, #888, and #889 by marking the
-    siderophore-positive SC2 record as incidentally metal-relevant, replacing
-    host/pathogen target_taxon links with participating_taxa lists that keep Zea
-    mays and Pythium torulosum out of top-level SynCom membership, and removing
-    a design-rationale pseudo-interaction that had been typed as unsupported
-    niche partitioning.
+  changes: 'Addressed adversarial-review issues #887, #888, and #889 by marking the siderophore-positive SC2 record
+    as incidentally metal-relevant, replacing host/pathogen target_taxon links with participating_taxa lists that
+    keep Zea mays and Pythium torulosum out of top-level SynCom membership, and removing a design-rationale pseudo-interaction
+    that had been typed as unsupported niche partitioning.'
+  llm_assisted: true
+- timestamp: '2026-10-07T00:06:09Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain plate inhibition and plant protection, not competition or immune mechanism.; Retain plant benefit
+    under challenge, not reciprocal mutualism or demonstrated IAA mediation.; Retain Salkowski/CAS outputs with
+    chemical-identity, pathway and host-transfer limits. Issue #1582; reports/causal_graph_review/decisions/20261006-four-records-batch68.yaml'
   llm_assisted: true
