@@ -150,13 +150,12 @@ taxonomy:
     snippet: Metagenome binning recovered partial genomes of all abundant community members
     explanation: Supports genome-resolved assignment of abundant undermat community members.
 ecological_interactions:
-- name: Diel Phototrophic Carbon Fixation
-  description: >
-    Roseiflexus and Chloroflexus populations show diel expression of
-    bacteriochlorophyll, reaction-center, and 3-hydroxypropionate carbon
-    dioxide fixation genes, indicating time-resolved phototrophic carbon
-    metabolism in the mat.
-  interaction_type: NICHE_PARTITIONING
+- name: Putative Diel Phototrophic Carbon Fixation
+  description: 'Metatranscriptomics measured diel expression in Roseiflexus and Chloroflexus populations: bacteriochlorophyll
+    and reaction-center transcripts were more abundant at night, whereas key 3-hydroxypropionate carbon-fixation
+    genes were expressed during the day. PARTIAL - The authors infer daytime photomixotrophic carbon fixation from
+    these RNA patterns; direct fixation flux or resource partitioning between the genera is not established by the
+    available abstract.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Mushroom Spring Roseiflexus spp.
@@ -183,21 +182,22 @@ ecological_interactions:
       label: carbon fixation
   evidence:
   - reference: PMID:23575369
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: expressed key genes involved in the 3-hydroxypropionate (3-OHP) carbon dioxide fixation bi-cycle during the day
-    explanation: Supports daytime carbon dioxide fixation by phototrophic Chloroflexi populations.
+    snippet: expressed key genes involved in the 3-hydroxypropionate (3-OHP) carbon dioxide fixation bi-cycle during
+      the day
+    explanation: Directly supports measured daytime expression and indirectly supports putative carbon fixation;
+      it is not a fixation-flux measurement.
   - reference: PMID:23575369
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: Transcripts for genes involved in the biosynthesis of bacteriochlorophylls
     explanation: Supports diel expression of phototrophy genes in the mat community.
-- name: Phototroph Storage Polymer Cycling
-  description: >
-    Filamentous anoxygenic phototrophs shift between synthesis and use of
-    storage polymers across the diel cycle, coupling light availability to
-    community carbon and energy flow.
-  interaction_type: NICHE_PARTITIONING
+- name: Putative Diel Phototroph Storage Polymer Cycling
+  description: 'PARTIAL - Diel expression of storage-polymer synthesis and degradation genes supports the authors
+    proposed model: nighttime polyhydroxyalkanoate and wax-ester synthesis with glycogen fermentation, followed
+    by daytime use of stored carbon and electron reserves. Polymer turnover and flux through this model are inferred
+    from transcripts in the available abstract, not directly measured here.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Mushroom Spring Roseiflexus spp.
@@ -218,39 +218,29 @@ ecological_interactions:
       id: GO:0015977
       label: carbon fixation
   downstream:
-  - target: Diel Phototrophic Carbon Fixation
-    description: >
-      Daytime degradation of polyhydroxyalkanoates and wax esters supplies
-      carbon and electron reserves that support filamentous-anoxygenic-
-      phototroph photomixotrophy through the 3-OHP bi-cycle.
+  - target: Putative Diel Phototrophic Carbon Fixation
+    description: HYPOTHESIZED - The source model proposes that daytime polyhydroxyalkanoate and wax-ester degradation
+      supplies carbon and electron reserves that support photomixotrophic carbon fixation through the 3-OHP bi-cycle.
+      This metabolic link targets putative carbon fixation, not a demonstrated effect of polymer degradation on
+      gene expression.
   evidence:
   - reference: PMID:23575369
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: storage polymers, including glycogen, polyhydroxyalkanoates and wax esters
-    explanation: Supports storage polymer metabolism as a diel feature of the phototrophic mat.
+    explanation: Supports the transcript-informed conceptual model, not directly measured polymer turnover.
   - reference: PMID:23575369
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: in daytime, polyhydroxyalkanoates and wax esters are degraded
-    explanation: Supports daytime use of storage polymers by phototrophic Chloroflexi.
-- name: Upper-Mat and Undermat Nitrogen Fixation Partitioning
-  description: >
-    Nitrogen fixation potential is spatially partitioned between Synechococcus
-    spp. in the upper phototrophic layer and Thermodesulfovibrio sp. in the
-    undermat, while nitrate and nitrite metabolism appears limited.
-  interaction_type: NICHE_PARTITIONING
+    explanation: Supports the transcript-informed conceptual model, not directly measured polymer turnover.
+- name: Upper-Mat and Undermat Nitrogen Fixation Potential
+  description: PARTIAL - The undermat study contrasts previously demonstrated Synechococcus nitrogen fixation with
+    putative Thermodesulfovibrio diazotrophy supported by nifHDK and accessory genes. Thermodesulfovibrio nitrogen
+    fixation was not demonstrated in this study. This is a comparison of spatially associated capacities, not nitrogen
+    transfer between these taxa or exclusive layer occupancy. Limited nitrate/nitrite gene recovery in abundant-member
+    partial genomes does not establish pathway absence.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Mushroom Spring Synechococcus spp.
-    term:
-      id: NCBITaxon:1129
-      label: Synechococcus
-  target_taxon:
-    preferred_term: Mushroom Spring Thermodesulfovibrio sp.
-    term:
-      id: NCBITaxon:28261
-      label: Thermodesulfovibrio
   biological_processes:
   - preferred_term: nitrogen fixation
     term:
@@ -258,22 +248,32 @@ ecological_interactions:
       label: nitrogen fixation
   evidence:
   - reference: PMID:28634470
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: Nitrogen fixation appears to be limited to Synechococcus spp. in the upper mat layer and Thermodesulfovibrio sp. in the undermat
-    explanation: Supports spatial niche partitioning of nitrogen fixation potential.
+    snippet: Nitrogen fixation appears to be limited to Synechococcus spp. in the upper mat layer and Thermodesulfovibrio
+      sp. in the undermat
+    explanation: Supports the authors genomic and spatial interpretation; incomplete genomes, unresolved Thermodesulfovibrio
+      activity and overlapping layers limit causal inference.
   - reference: PMID:28634470
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: nitrate/nitrite metabolism was limited
-    explanation: Supports the limited nitrate/nitrite metabolism context for nitrogen cycling.
+    explanation: Supports the authors genomic and spatial interpretation; incomplete genomes, unresolved Thermodesulfovibrio
+      activity and overlapping layers limit causal inference.
+  participating_taxa:
+  - preferred_term: Mushroom Spring Synechococcus spp.
+    term:
+      id: NCBITaxon:1129
+      label: Synechococcus
+  - preferred_term: Mushroom Spring Thermodesulfovibrio sp.
+    term:
+      id: NCBITaxon:28261
+      label: Thermodesulfovibrio
 - name: Stratified Chlorophototrophic Community Structure
-  description: >
-    The Mushroom Spring mat is a stratified, highly uneven phototrophic
-    community in which upper-layer cyanobacteria coexist with abundant
-    filamentous anoxygenic phototrophs and an undermat assemblage resolved by
-    amplicon and metagenomic sequencing.
-  interaction_type: NICHE_PARTITIONING
+  description: 'Amplicon and metagenomic sequencing resolve a diverse but extremely uneven Mushroom Spring undermat
+    and a stratified phototrophic mat. Upper-layer members also occur in the undermat: the layers differ in relative
+    abundance, not exclusive occupancy. This positive community-structure result does not establish nitrogen transfer
+    or show that stratification causes nitrogen fixation.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Mushroom Spring Synechococcus spp.
@@ -297,12 +297,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Upper-Mat and Undermat Nitrogen Fixation Partitioning
-    description: >
-      Vertical separation of the upper phototrophic layer and orange undermat
-      places nitrogen-fixation potential in Synechococcus spp. above the
-      Thermodesulfovibrio sp. undermat population.
   evidence:
   - reference: PMID:28634470
     supports: SUPPORT
@@ -487,3 +481,29 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth processing role is curated for this hot-spring
   phototrophic mat community.
+discussions:
+- discussion_id: mushroom_transcripts_potential_and_spatial_context
+  prompt: Which observations distinguish activity and causal mediation from inferred potential?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: Preserve measured RNA and community structure. The 2013 carbon-flow model is explicit in the accessible
+    abstract; full-text XML failed and publisher access was restricted, so do not claim a complete Methods audit.
+    The 2017 main body supports inferred Thermodesulfovibrio diazotrophy, with maturation genes relevant beyond
+    nifHDK alone. Incomplete genomes limit absence claims. Distinct sampling campaigns and overlapping layers do
+    not establish spatially directed nitrogen exchange or a stratification-to-fixation causal link.
+  attaches_to:
+  - ecological_interactions#Putative Diel Phototrophic Carbon Fixation
+  - ecological_interactions#Putative Diel Phototroph Storage Polymer Cycling
+  - ecological_interactions#Upper-Mat and Undermat Nitrogen Fixation Potential
+  - ecological_interactions#Stratified Chlorophototrophic Community Structure
+curation_history:
+- timestamp: '2026-10-07T03:38:46Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve measured diel expression, not metabolic flux or demonstrated niche partitioning.; Retain proposed
+    polymer-to-photomixotrophy link as HYPOTHESIZED.; Bound diazotrophic potential and partial-genome absence; replace
+    unsupported directional taxa with participants.; Preserve uneven overlapping mat structure; remove spatial-context
+    arrow. Issue #1632; reports/causal_graph_review/decisions/20261007-four-records-batch76.yaml'
+  llm_assisted: true
