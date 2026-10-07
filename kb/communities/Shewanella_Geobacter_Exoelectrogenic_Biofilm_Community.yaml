@@ -146,10 +146,10 @@ taxonomy:
     snippet: Shewanella oneidensis, Geobacter sulfurreducens, and Geobacter metallireducens
     explanation: Supports G. metallireducens as a member of the exact three-species community.
 ecological_interactions:
-- name: Cooperative Exoelectrogenic Biofilm Formation
-  description: The three exoelectrogenic members formed a stable biofilm on the electrode surface
-    under mixed-species bioelectrochemical conditions.
-  interaction_type: COLONIZATION_FACILITATION
+- name: Three-Species Anode Biofilm Formation
+  description: The three-member culture formed a stable anode-associated biofilm under the tested bioelectrochemical
+    conditions. Coexistence on the electrode supports this community observation, but does not by itself establish
+    that one member facilitated another's colonization or that every member contributed equally.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
@@ -157,42 +157,26 @@ ecological_interactions:
       id: GO:0042710
       label: biofilm formation
   downstream:
-  - target: Accelerated Electron Transfer in Mixed-Species Anode Communities
-    description: >
-      Formation of the three-species anode biofilm creates the mixed-community
-      state in which positive strain interactions can accelerate electron
-      transfer to the electrode.
+  - target: Higher Current in the Three-Species Coculture
+    description: 'PARTIAL: the anode-associated community provides the setting for the measured mixed-culture electron
+      transfer. The study does not independently isolate biofilm formation or architecture as the cause of the current
+      increment over solitary cultures.'
   evidence:
   - reference: PMID:28087529
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: organisms build a stable biofilm on an electrode surface
-    explanation: Supports cooperative biofilm formation on the anode surface.
-- name: Positive Mixed-Species Interaction
-  description: Transcriptomic results indicated positive interactions among strains in the mixed
-    community, including central-metabolism upregulation by S. oneidensis and G. sulfurreducens.
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Shewanella oneidensis
-    term:
-      id: NCBITaxon:70863
-      label: Shewanella oneidensis
-  target_taxon:
-    preferred_term: Geobacter sulfurreducens
-    term:
-      id: NCBITaxon:35554
-      label: Geobacter sulfurreducens
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
+    explanation: Supports formation of the mixed anode biofilm, not an isolated colonization-facilitation mechanism.
+- name: Coculture-Associated Metabolic Responses
+  description: Shewanella oneidensis and Geobacter sulfurreducens upregulated central-metabolism and electron-transfer-associated
+    transcripts in the three-species coculture comparison. This supports the authors' positive-interaction hypothesis,
+    but is not a two-member perturbation experiment or a direct demonstration of reciprocal fitness benefit.
+  scope: COMMUNITY_LEVEL
   downstream:
-  - target: Accelerated Electron Transfer in Mixed-Species Anode Communities
-    description: Positive interactions among individual strains in the mixed
-      anode biofilm were proposed to drive accelerated electron transfer in the
-      bioelectrochemical community.
+  - target: Higher Current in the Three-Species Coculture
+    description: 'HYPOTHESIZED: the coculture-associated metabolic responses may contribute to increased electron
+      transfer. Transcript abundance and current covary, but the proposed interaction pathways were not individually
+      perturbed to establish their causal contribution.'
   evidence:
   - reference: PMID:28087529
     supports: SUPPORT
@@ -204,28 +188,33 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: S. oneidensis and G. sulfurreducens upregulated their central metabolisms
     explanation: Supports a mixed-species metabolic response by S. oneidensis and G. sulfurreducens.
-- name: Accelerated Electron Transfer in Mixed-Species Anode Communities
-  description: Positive interactions in the mixed-species anode community were linked to accelerated
-    electron transfer and electrical-energy conversion in the bioelectrochemical system.
-  interaction_type: SYNTROPHY
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
+  participating_taxa:
+  - preferred_term: Shewanella oneidensis
     term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  - preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+- name: Higher Current in the Three-Species Coculture
+  description: The three-species coculture produced more current than each solitary culture in the study-specific
+    reactor and feeding comparisons. Retain this measured positive community result without treating it as proof
+    of superadditivity, reciprocal fitness benefit or a resolved syntrophic product-removal feedback. The proposed
+    interaction mechanisms remain distinct from the electrical endpoint.
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:28087529
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: positive interactions that might lead to accelerated electron transfer
-    explanation: Supports the curated interaction between mixed-species biofilm structure and electron
-      transfer activity.
+    snippet: During solitary growth, each of the strains produced less current than that from coculture conditions
+    explanation: Direct primary result supporting the current comparison; a brief selected excerpt, not independently
+      cached full text.
   - reference: PMID:28087529
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: coculture anodic network
-    explanation: Supports the anode-linked coculture interaction context.
+    snippet: positive interactions that might lead to accelerated electron transfer
+    explanation: Supports the authors' proposed positive-interaction mechanism, not an individually isolated mediator.
 environmental_factors:
 - name: Electrode surface biofilm habitat
   value: anode-associated biofilm
@@ -289,3 +278,30 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   The curated system is an electrode-respiring bioelectrochemical biofilm. No metal or rare earth
   amendment is curated for this record.
+discussions:
+- discussion_id: biofilm_graph_evidence_scope
+  prompt: Which proposed interactions causally explain the measured coculture current advantage?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The current comparison and transcriptomic responses are real observations. Hydrogen exchange, shared
+    flavin use and propionate-related benefits remain proposed mechanisms with different degrees of support; they
+    do not establish reciprocal fitness or measured product-removal feedback. Preserve both existing directions
+    with explicit uncertainty instead of assigning mutualism or syntrophy to the aggregate endpoint.
+  evidence:
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: positive interactions that might lead to accelerated electron transfer
+    explanation: Supports the authors' proposed positive-interaction mechanism, not an individually isolated mediator.
+  attaches_to:
+  - ecological_interactions#Three-Species Anode Biofilm Formation
+  - ecological_interactions#Coculture-Associated Metabolic Responses
+  - ecological_interactions#Higher Current in the Three-Species Coculture
+curation_history:
+- timestamp: '2026-10-07T22:00:38Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain stable mixed biofilm formation without colonization-facilitation overclassification.; Retain the
+    two-taxon transcriptional response within the three-member culture at scoped community level.; Retain the measured
+    current advantage without syntrophy, mutualism or superadditivity claims. Issue#1794; reports/causal_graph_review/decisions/20261007-four-records-batch100.yaml
+  llm_assisted: true

@@ -52,155 +52,100 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Twelve-Shewanella Richness-Gradient SDC Construction
-  description: >
-    Twelve nitrate-respiring Shewanella strains were selected to seed defined
-    synthetic denitrifying communities across 1-, 2-, 4-, 8-, and 12-species
-    richness levels.
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: nitrate
-    term:
-      id: CHEBI:17632
-      label: nitrate
-  biological_processes:
-  - preferred_term: denitrification
-    term:
-      id: GO:0019333
-      label: denitrification pathway
-  evidence:
-  - *id001
-- name: 180-Day Serial Transfer Evolution
-  description: >
-    The Shewanella SDCs were transferred every 72 hours in nitrate-supplemented
-    modified marine broth to follow productivity and denitrification across 180
-    days of experimental evolution.
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: nitrate
-    term:
-      id: CHEBI:17632
-      label: nitrate
-  biological_processes:
-  - preferred_term: denitrification
-    term:
-      id: GO:0019333
-      label: denitrification pathway
-  downstream:
-  - target: Lower-Richness Functional Catch-Up
-    description: >
-      Long-term propagation revealed stronger functional increases in the
-      lower-richness SDCs than in the richer communities.
-  evidence:
-  - reference: PMID:37154752
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      This evolution experiment has been conducted for 180 days with 60
-      transfers
-    explanation: >
-      Supports the 180-day, 60-transfer serial-evolution design.
 - name: Early Richness-Function Correlation
-  description: >
-    Species richness was initially positively correlated with Shewanella SDC
-    productivity and denitrification rate, most clearly during the first 60 days
-    of the evolution experiment.
+  description: Higher initially assigned richness was associated with greater productivity at days 3, 30 and 60,
+    but with greater nitrate-reduction activity only at days 3 and 30. The source operationally measured nitrate
+    disappearance, not complete denitrification to gaseous products. These panel-level associations are time-dependent;
+    initial richness is not proof of invariant realized membership throughout propagation.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
-  biological_processes:
-  - preferred_term: denitrification
-    term:
-      id: GO:0019333
-      label: denitrification pathway
   evidence:
   - reference: PMID:37154752
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      A significant positive correlation was observed between community
-      richness and functions, represented by productivity (biomass) and
-      denitrification rate
-    explanation: >
-      Supports productivity and nitrate-reduction rate as richness-dependent
-      SDC outcomes.
-- name: Lower-Richness Functional Catch-Up
-  description: >
-    Lower-richness Shewanella SDCs showed larger evolutionary gains in
-    productivity and denitrification than high-richness SDCs, flattening the
-    positive richness-function relationship by the later transfers.
+    snippet: 'A significant positive correlation was observed between community richness and functions, represented
+      by productivity (biomass) and denitrification rate
+
+      '
+    explanation: 'Supports productivity and nitrate-reduction rate as richness-dependent SDC outcomes.
+
+      '
+  - reference: PMID:37154752
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: no association between denitrification rate and richness was detected (P > 0.05) at the 60th, 90th,
+      120th, 150th, and 180th days
+    explanation: Bounds the nitrate-reduction association separately from the productivity result.
+- name: Larger Functional Increases at Lower Initial Richness
+  description: Communities assigned lower initial richness showed larger increases in productivity and nitrate-reduction
+    activity across the transfer series, while the initially positive richness-function association became undetectable
+    later. This does not establish identical final performance or identify beneficial mutations as the cause; composition
+    changed during propagation and the proposed molecular mechanisms remain unresolved.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
-  biological_processes:
-  - preferred_term: denitrification
-    term:
-      id: GO:0019333
-      label: denitrification pathway
   evidence:
   - reference: PMID:37154752
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      microbial community functions with lower richness exhibited greater
-      increases than those with higher richness
-    explanation: >
-      Supports the stronger productivity and denitrification increases in
-      lower-richness communities.
+    snippet: 'microbial community functions with lower richness exhibited greater increases than those with higher
+      richness
+
+      '
+    explanation: 'Supports the stronger productivity and denitrification increases in lower-richness communities.
+
+      '
 - name: Complementarity-Dominated BEF Partitioning
-  description: >
-    Additive partitioning showed that the positive Shewanella SDC
-    biodiversity-ecosystem functioning relationship was driven more by
-    complementarity than by selection, with complementarity changing over the
-    transfer series.
+  description: Additive partitioning of biomass-based yields attributed more of the net biodiversity effect to complementarity
+    than selection. Complementarity increased over time, with larger increases at lower initial richness. This is
+    a statistical decomposition, not direct measurement of substrate exchange, niche differentiation or a molecular
+    mediator of nitrate reduction.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:37154752
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      Biodiversity effect analysis revealed positive BEF relationships largely
-      attributable to complementary effects
-    explanation: >
-      Supports complementarity as the dominant biodiversity effect in the SDC
-      BEF relationship.
-- name: Relative-Yield Interaction Inference
-  description: >
-    Relative yields from mixtures and corresponding monocultures were compared
-    to infer different species-interaction contributions to the positive and
-    dynamic Shewanella BEF relationship.
+    snippet: 'Biodiversity effect analysis revealed positive BEF relationships largely attributable to complementary
+      effects
+
+      '
+    explanation: 'Supports complementarity as the dominant biodiversity effect in the SDC BEF relationship.
+
+      '
+  - reference: PMID:37154752
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we partitioned the net biodiversity effect on productivity into complementarity and selection using
+      an additive partitioning equation
+    explanation: Defines the biomass/productivity-based analysis rather than pathway-resolved nitrate flux.
+- name: Mixture-Associated Relative Yield Differences
+  description: Mixture and corresponding monoculture yields differed among the constituent Shewanella taxa, and
+    the authors used relative yields to infer community interaction effects. Those aggregate comparisons do not
+    identify a specific pairwise interaction, exchanged metabolite, or causal genetic change.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:37154752
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      inferred species interactions by comparing the contribution of each
-      species in their mix-cultures and their corresponding monocultures
-    explanation: >
-      Supports using mix-culture and monoculture comparisons to infer SDC
-      species-interaction effects.
+    snippet: 'inferred species interactions by comparing the contribution of each species in their mix-cultures
+      and their corresponding monocultures
+
+      '
+    explanation: 'Supports using mix-culture and monoculture comparisons to infer SDC species-interaction effects.
+
+      '
 environmental_factors:
 - name: Serial nitrate-richness gradient
   value: 1, 2, 4, 8, and 12 species across 180 days
@@ -261,7 +206,35 @@ curation_history:
 - timestamp: '2026-10-02T06:04:09Z'
   curator: codex
   action: REPAIR_CAUSAL_GRAPH
-  changes: Removed four Shewanella richness-panel workflow or analysis edges
-    linking SDC construction and richness-function observations to serial
-    transfer setup, BEF partitioning, and relative-yield inference.
+  changes: Removed four Shewanella richness-panel workflow or analysis edges linking SDC construction and richness-function
+    observations to serial transfer setup, BEF partitioning, and relative-yield inference.
   llm_assisted: true
+- timestamp: '2026-10-07T22:00:37Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain the time-resolved initial-richness association and distinguish its nitrate-disappearance endpoint.;
+    Retain larger lower-richness functional increases without proven mutational causation or endpoint equivalence.;
+    Retain statistical complementarity as biomass-yield partitioning, not a resolved interaction mechanism.; Retain
+    mixture/monoculture relative-yield inference without species-pair or transfer assignments. Issue#1793; reports/causal_graph_review/decisions/20261007-four-records-batch100.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: richness_graph_evidence_scope
+  prompt: Which ecological and molecular changes explain the time-dependent richness-function relationship?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The primary study measures nitrate disappearance, productivity, changing composition and yield-derived
+    biodiversity effects. It does not resolve the proposed molecular mechanisms of larger gains at low initial richness.
+    The two workflow nodes and their remaining arrow are removed; the four biological observations or analytical
+    results remain without invented mechanistic directions.
+  evidence:
+  - reference: PMID:37154752
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: further studies should focus on the understanding of molecular mechanisms of asymmetrical complementary
+      effects on the dynamic BEF relationships
+    explanation: The authors explicitly leave the molecular explanation for future work.
+  attaches_to:
+  - ecological_interactions#Early Richness-Function Correlation
+  - ecological_interactions#Larger Functional Increases at Lower Initial Richness
+  - ecological_interactions#Complementarity-Dominated BEF Partitioning
+  - ecological_interactions#Mixture-Associated Relative Yield Differences
