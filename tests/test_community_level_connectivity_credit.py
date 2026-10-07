@@ -105,7 +105,8 @@ def test_most_records_carry_a_community_level_interaction(survey):
     # #1772-#1774 separate host/community outcomes in three previously pairwise records.
     # Census: 399 -> 402; exactly named participants, no extra solely-credited taxa.
     # #1786 re-scopes Atacama's six-member subset as a community profile (402 -> 403).
-    assert 130 <= survey["with_community_level"] <= 403, survey
+    # #1799 separates the Shewanella current endpoint from reverse cross-feeding (403 -> 404).
+    assert 130 <= survey["with_community_level"] <= 404, survey
 
 
 def test_the_mixed_records_are_where_the_coarseness_bites(survey):

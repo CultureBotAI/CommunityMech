@@ -588,7 +588,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Shewanella oneidensis + Pseudomonas aeruginosa Fe0-dependent Electro-syntrophic Denitrifying Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -596,8 +596,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -606,9 +606,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Shewanella Fe0-Biocorrosion Electron Harvesting</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Shewanella oneidensis uses its membrane-bound CymA-OmcA-MtrC complexes to harvest electrons and conserve energy from metallic-iron biocorrosion when Fe0 is supplied as the sole electron donor.</p>
+                <p class="prewrap interaction-description">The primary abstract reports that Shewanella oneidensis harvests electrons and conserves energy from metallic-iron biocorrosion in the model consortium. This donor-side process is retained without assigning a separate syntrophic feedback interaction.</p>
 
 
 
@@ -640,8 +639,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Fe0-dependent electro-syntrophic electron transfer
-                        <p class="prewrap causal-description">Electron harvest from Fe0 by S. oneidensis feeds the direct electron cross-feeding system that supplies P. aeruginosa.</p>
+                        <span class="flow-arrow">→</span> Fe0-Dependent Interspecies Electron Transfer
+                        <p class="prewrap causal-description">Electron harvest from metallic iron supplies the electrons that the source reports passing from S. oneidensis to P. aeruginosa in the model consortium. This preserves the reported upstream-to-transfer direction without adding a reciprocal feedback claim.</p>
                     </div>
 
                 </div>
@@ -670,10 +669,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Fe0-dependent electro-syntrophic electron transfer</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Fe0-Dependent Interspecies Electron Transfer</h3>
                 </div>
-                <p class="prewrap interaction-description">Direct electron cross-feeding in which S. oneidensis harvests electrons from Fe0 biocorrosion via its CymA-OmcA-MtrC complexes and transfers them to P. aeruginosa, which uses them to reduce nitrate and accomplish denitrification. The direct electron cross-feeding also facilitates expression of P. aeruginosa denitrification enzymes, intracellular electron-transfer proteins, and quorum-sensing genes.</p>
+                <p class="prewrap interaction-description">The source reports electron transfer from S. oneidensis to P. aeruginosa in the Fe0-dependent consortium, described by the authors as direct electron cross-feeding and electro-syntrophy. The reported metatranscriptomic response is not by itself proof that the associated expression changes are necessary for this route. The abstract does not independently establish the product-removal feedback required by the schema SYNTROPHY definition; direct electrons are not assigned a metabolite-exchange category.</p>
 
 
                 <p><strong>Source Taxon:</strong> Shewanella oneidensis</p>
@@ -755,9 +753,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Pseudomonas Nitrate Reduction by Accepted Electrons</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Pseudomonas aeruginosa accepts electrons from the Fe0-Shewanella electron-transfer system and uses them for nitrate reduction under anaerobic conditions.</p>
+                <p class="prewrap interaction-description">Pseudomonas aeruginosa is reported to use electrons from the Fe0-Shewanella transfer system for nitrate reduction in the model consortium. This recipient-side outcome is retained without treating it as a separate syntrophic interaction or as evidence of a feedback benefit to the donor.</p>
 
 
 
@@ -820,6 +817,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Does the reported electron-transfer route establish donor-side product-removal feedback?
+                </h3>
+                <p class="prewrap">The fresh primary abstract and whole committed abstract cache support the electron-transfer direction and nitrate-reduction outcome. Complete main text and the underlying controls were not independently reviewed. The authors&#39; electro-syntrophy terminology does not by itself establish the schema-specific feedback that makes the donor metabolism favorable; expression responses also do not isolate causal necessity. These are evidence-attribution limits, not evidence that the reported route is absent.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Shewanella Fe0-Biocorrosion Electron Harvesting</code>, <code>ecological_interactions#Fe0-Dependent Interspecies Electron Transfer</code>, <code>ecological_interactions#Pseudomonas Nitrate Reduction by Accepted Electrons</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/39504696/" rel="nofollow noreferrer">PMID:39504696</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Electrons released by S. oneidensis are utilized by P. aeruginosa for accomplishing microbial denitrification.</p>
+                        <p class="muted small prewrap">Supports the source-reported donor-to-recipient electron-transfer direction, not an independently verified reciprocal feedback.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1036,7 +1072,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1075,7 +1111,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1092,7 +1128,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Fe0-dependent electro-syntrophic electron transfer",
+                label: "Fe0-Dependent Interspecies Electron Transfer",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1117,7 +1153,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

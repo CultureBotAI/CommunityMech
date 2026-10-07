@@ -1,0 +1,230 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 17dbd4b8968db1a2ff3c21bb08b33e236d3a1303
+scope:
+- kb/communities/Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml
+- kb/communities/Shewanella_Streptococcus_Starch_Microbial_Fuel_Cell.yaml
+- kb/communities/Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.yaml
+- kb/communities/Shrimp_Vibrio_Resistance_Gut_Enrichment_SynCom_Panel.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch101.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch101.json
+findings:
+- issue: 1798
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate Fe0 electron-transfer steps from unverified syntrophic feedback
+  disposition: Close only after protected-main merge.
+- issue: 1799
+  severity: P2
+  status: addressed_in_this_change
+  finding: Correct starch MFC transfer direction and separate sequential broth use from coculture
+  disposition: Close only after protected-main merge.
+- issue: 1800
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound PDA coculture causality and distinguish methane readout from syntrophic feedback
+  disposition: Close only after protected-main merge.
+- issue: 1801
+  severity: P2
+  status: open_non_graph_follow_up
+  finding: Audit non-graph scope and abundance claims in the Shewanella electrochemical records
+  disposition: Separate non-graph curation required.
+adversarial_checks:
+- Whole four-record/all10node/6direction review preceded edits. Nine nodes/five existing directions remain; one
+  duplicate workflow node/arrow removed and three names updated. No new topology or Edison spend.
+- Fe0 retains donor harvesting, reported electron transfer and recipient nitrate reduction. Author electro-syntrophy
+  terminology and metatranscriptomics do not independently establish schema-specific product-removal feedback or
+  causal necessity. The definition is not obligacy; direct electrons are not forced into metabolite CROSS_FEEDING.
+- Starch retains one-way lactate provisioning and the real current outcome. EGT is a sequential broth handoff after
+  fermenter removal, EGP is simultaneous cultivation. Correct the reverse source/target/type assignment and preserve
+  both parallel-result snippets when removing the duplicate configuration node. EGT current maxima are not EGP values;
+  source unit inconsistency is not silently repaired.
+- PDA retains coaggregation, donor/recipient transfer direction and the measured roughly380% methane-indicator increase.
+  Aggregation becomes two-member community-level; both arrows are causal but PARTIAL. Interface conductivity is
+  not isolated aggregation mediation; proxy percentage is not calibrated total flux, natural methanogenesis or reciprocal
+  fitness.
+- 'Shrimp remains byte-identical: one community-level host-protection phenotype, no invented genus-to-pathogen antagonism
+  or arrows. Existing closed1105/1106 corrections and discussion preserved; no new event/history for unchanged content.'
+- Fifteen graph and three new-discussion quotations match fresh primary abstracts and pre-existing whole caches.
+  Main texts not independently verified, direct publisher403s and bounded searches disclosed. Shrimp independent
+  publisher-indexed abstract support followed an empty EuropePMC query; absence of a query hit does not disprove
+  historical access. No cache text added, no access bypass or source audit exception.
+- Three changed records/histories;457otherrecords/all923caches and prior history/decisions unchanged. Non-graph
+  raw blocks/taxonomy preserved, not recertified. Exact participant allowlist adds starch; measured CL census403to404
+  and mixed127to128, with solely-credited taxa1276unchanged. Only the CL census ceiling updates for the evidenced
+  classification correction; no runtime rule or other bound changes.
+- Seven new tests and919combined regressions passed, as did four full-record schema/strict/terms/reference/snippet
+  checks and three histories. Network exactly matches baseline56warnings/zero structural defects. Deterministic
+  rendering and description parser cover456pages/1388descriptions/560arrows, not browser screenshots. Plain just-lint
+  passed; explicit-runtime no-incremental mypy additionally checked. Whole-corpus snippet audit is informational,
+  not clean-corpus certification.
+- Repairs1798-1800 are addressed locally and remain open until protected-main merge. Non-graph1801 remains open.
+  Denied/unanswered Edison scopes, loader1703 and DOI-cache1091 remain outside certification. Self-review is not
+  independent approval; no artificial CI, protection bypass, premature issue closure or branch deletion.
+- Corpus320reviewed/92pending/48needs_research is not completion. Postcommit docs-current and exact-head publication
+  are separate gates, not preasserted here.
+verification:
+  combined_regressions: 919 passed in 264.17s (0:04:24)
+  new_regression_tests: 7
+  total_recorded_gate_outputs: 40
+  primary_graph_snippet_proof:
+    graph_quotations: 15
+    new_discussion_quotations: 3
+    fresh_primary_literal_matches: 18
+    all_cached_literal_matches: 18
+    retained_nodes: 9
+    removed_nodes: 1
+    retained_arrows: 5
+    removed_arrows: 1
+    new_nodes_or_directions: 0
+    scope: All reviewed quotations match fresh primary abstracts and unchanged existing caches literally after normalization;
+      entailment separately reviewed. No new cache text or audit exception.
+  references: Four full-record CLI and local snippet checks executed on macOS,not Linux; DOI-cache casing issue1091
+    remains. Literal matches do not establish entailment; abstract-level source access limits are recorded. CLI
+    Total checks counts issues,not executed checks. Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml:
+      MATCH: 12
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Shewanella_Streptococcus_Starch_Microbial_Fuel_Cell.yaml:
+      MATCH: 22
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.yaml:
+      MATCH: 6
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Shrimp_Vibrio_Resistance_Gut_Enrichment_SynCom_Panel.yaml:
+      MATCH: 25
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8955
+      categories:
+        MATCH: 8819
+        RENDERING: 20
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 39
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification; literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: One duplicate workflow node/arrow removed; all56existing warnings unchanged and zero structural
+      defects. No audit rules changed.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch101.yaml: fbb7b9763fedd9775f30a3a2aee832e1b2c61d5b2fb2d09f79fe4d991d6ea12c
+    tests/test_causal_review_batch101.py: 14f227ed74454a1ebd4914bfaaa91919ca21b52711d152858c971c60d2f80916
+    tests/test_participating_taxa.py: 56d44ffb6a812a3dd7364205106b9d6165621171e89dd38b0b303e1c7527053c
+    tests/test_community_level_connectivity_credit.py: 383a0f5904085a5cda800b5102923fc99301831f5769d8d4821e000773d2ea4c
+    reports/causal_graph_review/cache-provenance-20261007-batch101.json: 614a6b8dff9755a619626129dd6e44a2feeaa71be83d709f1e40ff64fcbef0cd
+    kb/communities/Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml: 1c9db92e6594e7744b051cec01e1f4cc33c3ff0370d73ca6419f56fd4edcc241
+    kb/communities/Shewanella_Streptococcus_Starch_Microbial_Fuel_Cell.yaml: 6917ed2f369a8a3bfb4ecc738a49e6aed50b59928193837164d20e8c87bed462
+    kb/communities/Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.yaml: 0d6ba37b5fc16d662cf8af50886da1c3822f57ef343f5e2587cbda30465d7301
+    kb/communities/Shrimp_Vibrio_Resistance_Gut_Enrichment_SynCom_Panel.yaml: f23b26c7b39205a716e77e5149c06e2c4e4c618dec523a3e5245c65370ec7c0e
+  unchanged_records: 457
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 793
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Bound existing graph claims and remove duplicate workflow topology; no new mechanisms or directions.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 403
+      mixed: 127
+      community_level_only: 276
+      taxa: 1548
+      credited_solely_by_the_rule: 1276
+    current:
+      records: 460
+      with_community_level: 404
+      mixed: 128
+      community_level_only: 276
+      taxa: 1550
+      credited_solely_by_the_rule: 1276
+  delta:
+    records: 0
+    with_community_level: 1
+    mixed: 1
+    community_level_only: 0
+    taxa: 2
+    credited_solely_by_the_rule: 0
+  interpretation: Starch current becomes a Shewanella-only community outcome; PDA aggregation scopes both existing
+    taxa. CL403to404,mixed127to128,taxa1548to1550,solely-credited1276unchanged. Exact participant allowlist adds
+    starch. Only CL census ceiling404 updates for this measured classification correction; connectivity rules and
+    other bounds unchanged.
+corpus:
+  records: 460
+  nodes: 1402
+  edges: 568
+  review_status_counts:
+    needs_research: 48
+    pending: 92
+    reviewed: 320
+lint_limitation: Plain just-lint passed; explicit-runtime no-incremental mypy additionally checked.
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary Python3.13 lint environment reuses validation runtime and locked mypy1.19.1/stubs/scikit-learn1.8.0/pacmap0.9.1
+    for static checks; not a complete embedding runtime. Project dependencies unchanged.
+limitations:
+- Fresh both-root pre-source baseline:460records,923caches,56existing warnings,zero structural defects. Four whole
+  records/all10originalnodes/6directions reviewed. Retain9nodes/5directions; remove1duplicate workflow node/arrow;
+  rename3nodes. Three records changed and shrimp unchanged. No new mechanism, direction or Edison submission/spend.
+- All four committed source caches read whole. Fresh EuropePMC abstracts read whole for Fe0, starch and PDA; no
+  PMCID returned. Shrimp exact DOI query returned no records; its cached claim independently matched the public
+  publisher-indexed abstract/highlights/bounded section previews. Empty query is not proof the historical EuropePMC
+  access note was false.
+- Ordinary direct publisher requests returned403 for all four records. Exact-title/PDF and Cranfield searches supplied
+  no independently verified complete main text. These are bounded access limits, not proof that no accessible copy
+  exists. No bypass, author contact, article-body import, raw-data, supplement or figure-pixel verification.
+- 'Fe0: retain reported donor electron harvest, interspecies transfer and recipient nitrate reduction. The schema
+  SYNTROPHY criterion is product-removal feedback making donor metabolism favorable, not obligacy. Abstract author
+  terminology and expression response do not independently establish that feedback or isolated causal necessity;
+  direct electrons are not automatically metabolite CROSS_FEEDING.'
+- 'Starch: retain one-way lactate provisioning and current outcome, distinguish EGT sequential broth after fermenter
+  removal from EGP simultaneous coculture, preserve both parallel snippets, and remove only the duplicate workflow
+  node/arrow. EGT1.8/2.4/2.8mA maxima are not EGP values. Do not introduce or resolve the source abstract''s current-density/power-unit
+  inconsistency. No reverse benefit is inferred.'
+- 'PDA: retain coaggregation, the reported contact-dependent transfer shift and roughly380% methane-indicator increase.
+  Coaggregation is scoped to both canonical members; PARTIAL edges distinguish conductive-interface effects from
+  isolated aggregation mediation and proxy change from total electron flux. No natural methanogenesis, complete
+  loss of mediated transfer or reciprocal fitness is asserted.'
+- 'Shrimp: retain the already bounded one-node community-level host-protection phenotype unchanged. No unsupported
+  genus-to-pathogen antagonism or causal edge is added to fill a sparse graph. Existing panel scope, prior1105/1106
+  corrections and discussion remain; zero curation events or histories added for unchanged content.'
+- Graph issues1798-1800 await protected-main merge. Non-graph1801 remains open for scope/category/role/abundance
+  and medium assertions. Initial narrow issue search matched0; expanded all-state title/body search matched closed1105/1106.
+  Ignored/hidden local search excludes.git/docs/site/references_cache; all four relevant caches separately read.
+  PRs/comments not exhaustively searched.
+- Canonical taxonomy and non-graph raw blocks remain byte-identical. Only identity descriptors are copied into participating_taxa.
+  Three append-only histories,457otherrecords and all923caches unchanged. No runtime/schema/audit-rule changes;
+  full-source validity is not inferred from literal snippet matches.
+- Self-adversarial review is not independent approval or corpus completion. Loader1703 and DOI-cache1091 not certified;
+  macOS results do not certify Linux DOI casing. Existing denied/unanswered Edison scopes unchanged. Validation
+  and publication are not preasserted.

@@ -594,16 +594,21 @@
                              aria-hidden="true" data-symbol="symbolDiamond"
                              data-color="#57c7ab"></svg> Cross-feeding
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Starch Fermentation to Lactic Acid</h3>
+                    <h3>Starch-Derived Lactate Provisioning</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">S. bovis 148 metabolizes starch and produces lactic acid, converting a polymeric substrate into an electron-donor intermediate usable by S. oneidensis MR-1.</p>
+                <p class="prewrap interaction-description">Streptococcus bovis 148 produces lactic acid from starch that Shewanella oneidensis MR-1 can use for electricity generation. The reported two-step EGT configuration uses fermented broth after removal of the fermenter, whereas the parallel EGP configuration contains simultaneous cultivation. The retained one-way metabolite provisioning covers these distinct configurations; it does not imply a live two-member electricity-generation phase in EGT or a reciprocal benefit.</p>
 
 
                 <p><strong>Source Taxon:</strong> Streptococcus bovis 148</p>
@@ -646,7 +651,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Lactate-Fed Current Generation
-                        <p class="prewrap causal-description">Lactic acid produced from starch by S. bovis is the electron-donor intermediate that S. oneidensis oxidizes for current production in the microbial fuel cell.</p>
+                        <p class="prewrap causal-description">Starch-derived lactic acid supplies the substrate used by S. oneidensis MR-1 for current generation. In EGT this is a sequential fermented-broth handoff after fermenter removal; EGP couples conversion and electricity generation during simultaneous cultivation. Neither configuration supports a reverse metabolite transfer to S. bovis.</p>
                     </div>
 
                 </div>
@@ -682,6 +687,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/28434977/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:28434977</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"The S. bovis 148 were then removed by centrifugation, and the fermented broth was preserved for electricity generation by S. oneidensis MR-1."</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -689,16 +707,17 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Lactate-Fed Current Generation</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">S. oneidensis MR-1 uses lactic acid produced from starch fermentation to generate electrical current in the microbial fuel cell.</p>
-
-
-                <p><strong>Source Taxon:</strong> Shewanella oneidensis MR-1</p>
+                <p class="prewrap interaction-description">Shewanella oneidensis MR-1 generates current from starch-derived lactic acid. The reported 1.8, 2.4 and 2.8 mA maxima belong to successive terms of the two-step EGT broth experiment, not to the simultaneous coculture. The parallel EGP configuration also coupled starch-to-lactate conversion with electricity generation. This electrical outcome does not represent reverse cross-feeding from Shewanella to Streptococcus.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Streptococcus bovis 148</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Shewanella oneidensis MR-1
+
+                </p>
 
 
 
@@ -745,74 +764,6 @@
 
                     </li>
 
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Parallel Starch Fermentation and Electrogenesis</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
-                </div>
-                <p class="prewrap interaction-description">In the parallel fermentation configuration, S. bovis 148 and S. oneidensis MR-1 were cultivated simultaneously so starch conversion, lactic acid production, and electricity generation occurred in one workflow.</p>
-
-
-                <p><strong>Source Taxon:</strong> Streptococcus bovis 148</p>
-
-
-
-                <p><strong>Target Taxon:</strong> Shewanella oneidensis MR-1</p>
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    starch
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=28017"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:28017</a>),
-
-                    lactate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=24996"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:24996</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        fermentation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006113"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006113</a>)
-                    </li>
-
-                    <li>
-                        electron transport chain
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0022900"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0022900</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Lactate-Fed Current Generation
-                        <p class="prewrap causal-description">In the parallel method, S. bovis starch fermentation occurs while S. oneidensis oxidizes the resulting lactic acid for current generation rather than after a separate S. bovis conversion step.</p>
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
                     <li class="evidence-item">
                         <div>
 
@@ -848,6 +799,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which inferences depend on sequential broth use versus simultaneous coculture?
+                </h3>
+                <p class="prewrap">The fresh primary abstract and complete committed cache distinguish EGT fermenter removal from EGP simultaneous cultivation. The current endpoint is attributed to Shewanella, not to a reverse benefit or metabolite transfer. Full main text was not independently verified, so the graph does not equate the configurations or infer reciprocal fitness. The duplicate workflow node is removed while its positive result and evidence remain.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Starch-Derived Lactate Provisioning</code>, <code>ecological_interactions#Lactate-Fed Current Generation</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/28434977/" rel="nofollow noreferrer">PMID:28434977</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">The S. bovis 148 were then removed by centrifugation, and the fermented broth was preserved for electricity generation by S. oneidensis MR-1.</p>
+                        <p class="muted small prewrap">Distinguishes the sequential broth experiment from live simultaneous coculture.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1239,11 +1229,11 @@
             processes.push("fermentation");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "Starch Fermentation to Lactic Acid",
+                label: "Starch-Derived Lactate Provisioning",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1268,7 +1258,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1277,7 +1267,7 @@
 
             var processes = [];
 
-            var evidenceCount = 2;
+            var evidenceCount = 4;
 
             nodes.push({
                 id: intId,
@@ -1290,63 +1280,18 @@
             });
 
 
-            var srcKey = "Shewanella oneidensis MR-1";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Streptococcus bovis 148";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Shewanella oneidensis MR-1"
 
-        })();
-
-        (function() {
-            var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
-            var metabolites = [];
-
-
-            metabolites.push("starch");
-
-            metabolites.push("lactate");
-
-
-            var processes = [];
-
-
-            processes.push("fermentation");
-
-            processes.push("electron transport chain");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Parallel Starch Fermentation and Electrogenesis",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
             });
-
-
-            var srcKey = "Streptococcus bovis 148";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-            var tgtKey = "Shewanella oneidensis MR-1";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
 
         })();
 
@@ -1369,7 +1314,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 5;
+        var nodeCount = 4;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 
