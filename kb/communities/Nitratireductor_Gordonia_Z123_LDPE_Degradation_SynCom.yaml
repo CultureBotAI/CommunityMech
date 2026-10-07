@@ -128,11 +128,12 @@ taxonomy:
     explanation: Identifies Gordonia sp. Z-3 as one of the three Z123 members.
 ecological_interactions:
 - name: Z123 LDPE functional differentiation
-  description: >-
-    Genomic and proteomic analyses of Z123 suggested functional differentiation
-    among the Nitratireductor and Gordonia members across oxidative activation,
-    chain scission, and downstream LDPE metabolism.
-  interaction_type: NICHE_PARTITIONING
+  description: PARTIAL - Integrated genomic and proteomic analyses suggest differentiation among the Z123 Nitratireductor
+    and Gordonia members across oxidative activation, chain scission and downstream metabolism. This combines gene
+    and protein evidence, but the accessible abstract does not establish strain-resolved substrate partitioning,
+    intermember transfer or polymer-carbon assimilation/mineralization. The consortium-level weight and molecular-weight
+    losses and recombinant MCO1/Lcp3 polymer-modification assays remain positive results; their missing graph endpoints
+    require separate curation.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: alkane catabolic process
@@ -141,15 +142,12 @@ ecological_interactions:
       label: alkane catabolic process
   evidence:
   - reference: PMID:42641428
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: >-
-      Integrated genomic and proteomic analyses suggested functional
-      differentiation among consortium members involving oxidative activation,
-      chain scission, and downstream metabolism.
-    explanation: >-
-      Supports a division of labor among Z123 members in the proposed LDPE
-      degradation mechanism.
+    snippet: Integrated genomic and proteomic analyses suggested functional differentiation among consortium members
+      involving oxidative activation, chain scission, and downstream metabolism.
+    explanation: Supports the proposed genomic/proteomic functional-differentiation model, not resolved reaction
+      assignments or demonstrated ecological niche partitioning.
 environmental_factors:
 - name: Pristine LDPE incubation time
   value: '30'
@@ -203,21 +201,40 @@ external_resources:
     explanation: Lists the exact primary publication for the Z123 LDPE-degrading SynCom.
 discussions:
 - discussion_id: z123_strain_specific_ldpe_steps
-  prompt: >-
-    Which Z123 strain encodes and expresses the oxidative activation, chain
-    scission, and downstream-metabolism steps in the consortium?
+  prompt: Which Z123 strain encodes and expresses the oxidative activation, chain scission, and downstream-metabolism
+    steps in the consortium?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#Z123 LDPE functional differentiation
-  rationale: >-
-    The abstract reports functional differentiation among consortium members and
-    recombinant MCO1/Lcp3 LDPE activity, but the accessible cache does not assign
-    individual enzymes or reaction steps to Nitratireductor sp. Z-1, Gordonia
-    sp. Z-2, or Gordonia sp. Z-3.
+  rationale: The abstract reports functional differentiation among consortium members and recombinant MCO1/Lcp3
+    LDPE activity, but the accessible cache does not assign individual enzymes or reaction steps to Nitratireductor
+    sp. Z-1, Gordonia sp. Z-2, or Gordonia sp. Z-3.
   posed_by: codex
   posed_date: '2026-09-11'
+- discussion_id: z123_measured_outcomes_and_mechanistic_limits
+  prompt: Which measurements establish the proposed causal mechanism in this exact system?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: Retain the reported 30-day 9.98% weight loss and 50.88% molecular-weight reduction as measured consortium
+    outcomes, and the recombinant MCO1/Lcp3 LDPE-modification assays as separate enzyme-level evidence. GC-MS products
+    are putative LDPE-associated compounds, not isotope-traced assimilation or mineralization. Combined enzymes
+    exceeded corresponding individual half-dose treatments; this does not by itself establish full-dose-matched
+    synergy, necessity in the living consortium or which strain supplied each enzyme. The existing strain-specific
+    question stays open. Missing endpoint nodes await scoped Edison causal research and primary-source inspection;
+    this sparse graph remains needs_research.
+  attaches_to:
+  - ecological_interactions#Z123 LDPE functional differentiation
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare-earth processing role is reported for the Z123 LDPE-degradation consortium.
+curation_history:
+- timestamp: '2026-10-07T04:15:50Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Qualify proposed genomic/proteomic differentiation without discarding measured polymer and enzyme outcomes;
+    missing endpoint topology stays needs_research. Issue #1639; reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml'
+  llm_assisted: true

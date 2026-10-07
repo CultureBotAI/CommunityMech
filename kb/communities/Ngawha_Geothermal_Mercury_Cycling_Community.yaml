@@ -106,13 +106,11 @@ taxonomy:
     explanation: Supports the archaeal members.
 ecological_interactions:
 - name: Acidic Warm-Spring Mercury Speciation Regime
-  description: >
-    Adjacent acidic warm springs in the Ngawha Geothermal Field had pH below
-    4.5, temperatures below 55 C, and exceptionally high dissolved total and
-    methylated mercury, defining the geochemical regime constraining microbial
-    Hg transformations.
+  description: Geochemical measurements characterize acidic warm Ngawha springs with high dissolved total mercury
+    and methylmercury and high sediment mercury. These measured environmental pools constrain hypotheses about bioavailability,
+    but total dissolved mercury is not synonymous with freely available Hg(II), and co-occurrence does not show
+    that the regime caused the observed diversity.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   metabolites:
   - preferred_term: mercury(2+)
     term:
@@ -122,34 +120,24 @@ ecological_interactions:
     term:
       id: CHEBI:49747
       label: methylmercury(1+)
-  biological_processes:
-  - preferred_term: mercury ion transport
-    term:
-      id: GO:0015694
-      label: mercury ion transport
-  downstream:
-  - target: Diverse Acidophile Guilds Under Ultrahigh Mercury
-    description: >
-      The high-Hg acidic spring regime was inhabited by unexpectedly diverse
-      sulfur-, iron-, Hg/As-resistance, and archaeal guilds.
   evidence:
   - reference: PMID:32414793
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >
-      acidic warm springs in the Ngawha Geothermal Field (<55°C, pH <4.5),
-      Northland Region, Aotearoa New Zealand
-    explanation: >
-      Supports the acidic warm-spring geochemical setting of the Hg-cycling
-      community.
-- name: Genome-Resolved Mercury Transformation Potential
-  description: >
-    Genome-resolved analysis identified members genetically equipped for the
-    three central Hg transformations in the springs: mercury methylation,
-    methylmercury demethylation, and Hg(II) reduction to volatile elemental
-    Hg(0).
+    snippet: 'acidic warm springs in the Ngawha Geothermal Field (<55°C, pH <4.5), Northland Region, Aotearoa New
+      Zealand
+
+      '
+    explanation: 'Supports the acidic warm-spring geochemical setting of the Hg-cycling community.
+
+      '
+- name: Metagenomic Mercury Transformation Potential
+  description: PARTIAL - Metagenomic merA/merB homologues support potential Hg(II) reduction and organomercurial
+    demethylation. Cub Bath yielded hgcA/hgcB evidence, but hgcA-bearing sequences could not be assigned to a resolved
+    genome or definitive taxon; Tiger Bath nondetection is sequencing-depth bounded. These are positive sequence
+    findings, not measured transformation rates or identified active members for every reaction. HMM merA counts
+    required paralog filtering.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   metabolites:
   - preferred_term: mercury(2+)
     term:
@@ -159,26 +147,25 @@ ecological_interactions:
     term:
       id: CHEBI:49747
       label: methylmercury(1+)
-  biological_processes:
-  - preferred_term: mercury ion transport
-    term:
-      id: GO:0015694
-      label: mercury ion transport
   evidence:
   - reference: PMID:32414793
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: merB genes were identified
+    explanation: 'Author manuscript Results, page9: actual gene identification supports potential, not enzymatic
+      activity.'
+  - reference: PMID:32414793
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: microorganisms genetically equipped for mercury methylation,
-      demethylation, or Hg(II) reduction to volatile Hg(0)
-    explanation: Supports the three curated Hg-cycling activities.
+    evidence_source: COMPUTATIONAL
+    snippet: The Cub Bath hgcA sequences could not be binned
+    explanation: 'Author manuscript Results, page11: directly limits genome-resolved methylator assignment, despite
+      positive hgcA evidence.'
 - name: Diverse Acidophile Guilds Under Ultrahigh Mercury
-  description: >
-    Despite ultrahigh dissolved and solid mercury concentrations, the geothermal
-    microbiome stayed unexpectedly diverse and was dominated by sulfur- and
-    iron-cycling bacteria, Hg/As-resistant bacteria, and thermophilic
-    acidophilic archaea.
+  description: The sampled Ngawha microbiomes were unexpectedly diverse despite high mercury, with sulfur- and iron-cycling
+    bacteria, Hg/As-resistance potential and acidophilic archaea; the two baths differed in composition. This metagenomic
+    observation does not demonstrate temporal stability, realized niche partitioning, or a mercury-driven diversity
+    increase.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   metabolites:
   - preferred_term: mercury(2+)
     term:
@@ -188,26 +175,18 @@ ecological_interactions:
     term:
       id: CHEBI:26833
       label: sulfur atom
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:32414793
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: In the context of such ultrahigh mercury levels, the geothermal
-      microbiome was unexpectedly diverse
+    evidence_source: COMPUTATIONAL
+    snippet: In the context of such ultrahigh mercury levels, the geothermal microbiome was unexpectedly diverse
     explanation: Supports the curated high-diversity-under-high-Hg observation.
-- name: Volatile Hg(0) Geothermal Mercury Emission
-  description: >
-    Hg- and As-resistant spring bacteria carried the genetic potential to
-    reduce inorganic Hg(II) to volatile Hg(0), connecting microbial detoxifying
-    potential to the aqueous and gaseous mercury emissions characteristic of
-    geothermal systems.
+- name: Measured Gaseous Mercury With Unresolved Microbial Contribution
+  description: 'Gaseous Hg(0) was measured above Tiger and Cub Baths, alongside aqueous and sediment mercury measurements.
+    The source also reports merA-based reduction potential. The measured atmospheric mercury is a positive environmental
+    result, not an isolated microbial emission rate: deep geological inputs and abiotic redox processes also contribute,
+    and their contributions were not separated from microbial reduction.'
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   metabolites:
   - preferred_term: mercury(2+)
     term:
@@ -217,27 +196,19 @@ ecological_interactions:
     term:
       id: CHEBI:16170
       label: mercury(0)
-  biological_processes:
-  - preferred_term: mercury ion transport
-    term:
-      id: GO:0015694
-      label: mercury ion transport
   evidence:
   - reference: PMID:32414793
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Hg(II) reduction to volatile Hg(0)
-    explanation: >
-      Supports reduction of inorganic Hg(II) to volatile elemental mercury as
-      one inferred spring-community transformation.
+    snippet: Gaseous Hg0 emissions were also recorded from the baths
+    explanation: 'Author manuscript Results, page7 and Table2: supports measured gaseous mercury; does not identify
+      its microbial fraction.'
 - name: Sulfur-Iron-Coupled Mercury Cycle Model
-  description: >
-    The study integrated spring-community metagenomic potential with abiotic
-    geochemical controls to produce a model in which mercury speciation is
-    linked to microbial community dynamics and to sulfur and iron
-    biogeochemistry.
+  description: HYPOTHESIZED - The conceptual model links sulfur/iron redox cycling and cinnabar precipitation/dissolution
+    to mercury bioavailability, with potential methylation, demethylation and Hg(II) reduction. These coupled biotic
+    and abiotic reactions are an evidence-informed model, not demonstrated interspecies syntrophy or a measured
+    taxon-to-taxon mercury flux.
   scope: COMMUNITY_LEVEL
-  interaction_type: SYNTROPHY
   metabolites:
   - preferred_term: mercury(2+)
     term:
@@ -247,21 +218,16 @@ ecological_interactions:
     term:
       id: CHEBI:26833
       label: sulfur atom
-  biological_processes:
-  - preferred_term: mercury ion transport
-    term:
-      id: GO:0015694
-      label: mercury ion transport
   evidence:
   - reference: PMID:32414793
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >
-      illustrates how geothermal mercury cycling may couple to microbial
-      community dynamics and sulfur and iron biogeochemistry
-    explanation: >
-      Supports the conceptual connection among Hg transformations, the
-      microbial community, and sulfur and iron cycles.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: 'illustrates how geothermal mercury cycling may couple to microbial community dynamics and sulfur and
+      iron biogeochemistry
+
+      '
+    explanation: Supports the explicitly conceptual coupling model; it does not establish syntrophy, exclusive biotic
+      attribution or reaction flux.
 environmental_factors:
 - name: Mercury concentration
   value: ultrahigh dissolved and solid Hg
@@ -373,7 +339,35 @@ curation_history:
 - timestamp: '2026-10-02T06:15:13Z'
   curator: codex
   action: REVIEW_CAUSAL_GRAPH
-  changes: Removed four downstream edges that linked mercury-speciation,
-    metagenomic-potential, acidophile-guild, and conceptual-model findings as
-    interpretation steps rather than geothermal mercury-cycling causes.
+  changes: Removed four downstream edges that linked mercury-speciation, metagenomic-potential, acidophile-guild,
+    and conceptual-model findings as interpretation steps rather than geothermal mercury-cycling causes.
   llm_assisted: true
+- timestamp: '2026-10-07T04:15:50Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain measured geochemistry; remove the co-occurrence arrow and unsupported transport/niche annotation.;
+    Preserve mer/hgc potential with unbinned methylator, paralog and activity limits; replace aim-fragment evidence
+    with actual result excerpts.; Preserve diversity without temporal stability or demonstrated niche partitioning.;
+    Preserve measured gaseous Hg(0) while separating microbial potential from geogenic and abiotic contributions.;
+    Preserve proposed sulfur/iron/mercury coupling without unsupported syntrophy or transport annotation. Issue
+    #1638; reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: ngawha_genes_geogenic_mercury_and_model
+  prompt: Which measurements establish the proposed causal mechanism in this exact system?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: Retain measured mercury pools, atmospheric Hg(0), diverse microbiomes and positive mer/hgc sequence
+    evidence. The hgcA sequences could not be binned, MerA HMM hits included paralogs, and no hgcAB was recovered
+    from resolved sulfate-reducing bins. Absence at one sequencing depth is not biological absence. Environmental
+    concentrations and mer/hgc potential do not isolate microbial rates or prove temporal stability. The sulfur/iron/cinnabar
+    coupling is proposed; selective activity assays and source partitioning are needed. Preserve the earlier removal
+    of four interpretation-workflow arrows and remove the remaining environmental-context arrow.
+  attaches_to:
+  - ecological_interactions#Acidic Warm-Spring Mercury Speciation Regime
+  - ecological_interactions#Metagenomic Mercury Transformation Potential
+  - ecological_interactions#Diverse Acidophile Guilds Under Ultrahigh Mercury
+  - ecological_interactions#Measured Gaseous Mercury With Unresolved Microbial Contribution
+  - ecological_interactions#Sulfur-Iron-Coupled Mercury Cycle Model

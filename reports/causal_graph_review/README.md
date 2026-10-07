@@ -5,6 +5,34 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch77: Xylan Mediation, Mercury Evidence And Missing Outcomes
+
+[Decisions](decisions/20261007-four-records-batch77.yaml),
+[validation](validation-20261007-batch77.json) and
+[self-adversarial review](adversarial-review-20261007-batch77.yaml) cover nine
+existing nodes and three arrows. Three records are repaired, one environmental
+context arrow removed, and two qualified xylan mediation links retained.
+
+Xylan utilization and protein-normalized enzyme gains remain positive findings.
+Ngawha retains measured gaseous mercury, diverse microbiomes and gene evidence,
+without assigning all mercury emission to microbes or unbinned methylators to
+resolved genomes. Z123 retains genomic/proteomic inference and measured polymer
+and recombinant-enzyme outcomes without claiming resolved niche partitioning.
+
+All 12 graph quotations match primary text. One cache adds 22 quoted words from
+Ngawha Results with manuscript provenance; its abstract and 919 other caches
+remain intact. Xylan indexed main text and Ngawha author manuscript were read;
+Ngawha Table2 was visually checked. Nasal full-text review uses an existing cache,
+and LDPE is abstract-bounded. Access barriers were respected.
+
+Nasal is unchanged but explicitly `needs_research`; its empty graph is not
+complete. Nasal and Z123 missing outcome nodes are tracked in #1640/#1641.
+Separate one-record Edison dry runs spent no credits; scoped paid questions
+remain unanswered. Repairs #1637-#1639 await protected-main merge. Metadata
+#1642 and both research issues stay open afterward. Three histories are appended;
+non-graph blocks and canonical taxa are preserved. Self-review is not independent
+approval or corpus completion.
+
 ## Batch76: Mat Transcripts, Floc Assembly And Inferred Metabolism
 
 [Decisions](decisions/20261007-four-records-batch76.yaml),
