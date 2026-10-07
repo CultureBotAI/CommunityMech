@@ -49,10 +49,10 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Oxic-Anoxic SkinCom Member Growth Profiling
-  description: >
-    Each aerobic or anaerobic human-skin type strain was cultured in BHI and profiled for growth
-    over several days before its abundance was tuned for SkinCom assembly.
+- name: SkinCom Medium-Associated Diversity Difference
+  description: The compared SkinCom medium conditions differed in diversity and composition. All intended isolates
+    were detected in both conditions. This is a community-composition observation, not evidence that the diversity
+    difference caused C. acnes presence or identified an interspecies mechanism.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: growth
@@ -63,14 +63,19 @@ ecological_interactions:
   - reference: PMID:39111313
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We monitored the growth rate of each species over 144 h through optical density
-      measurements.
-    explanation: >
-      Anchors the per-member growth characterization used before tuning the SkinCom assembly.
-- name: Defined-Cell SkinCom Assembly
-  description: >
-    A programmable CellenONE microfluidic device assembled SkinComs from pico-liter droplets so
-    wells were defined by the number of cells added at assembly time.
+    snippet: sequencing data confirmed the presence of all intended isolates within both sets of SkinComs
+    explanation: Supports presence in both compared conditions; the medium comparison does not establish the removed
+      causal arrow.
+  - reference: PMID:39111313
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: significant compositional differences between the 0.1× and 1× BHI communities
+    explanation: Supports the observed composition difference without asserting an interspecies mechanism.
+- name: Community-Associated Cutibacterium Detection in Oxic SkinCom
+  description: 'C. acnes was detected in the oxic mixed community; the authors interpret the metagenomic result
+    as proliferation. HYPOTHESIZED: oxygen consumption by aerobic members may explain this association. The reported
+    comparison does not isolate that mechanism or identify a particular facilitating partner, and is not represented
+    as demonstrated colonization facilitation.'
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: growth
@@ -79,59 +84,17 @@ ecological_interactions:
       label: growth
   evidence:
   - reference: PMID:39111313
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: This method ensures that communities are defined by the number of cells at assembly
-      time, yielding highly reproducible results.
-    explanation: >
-      Supports the assembly step that made the standardized SkinCom composition reproducible.
-- name: 1x BHI SkinCom Diversity Selection
-  description: >
-    SkinCom maintained better diversity in 1x BHI than in diluted 0.1x BHI, leading the authors to
-    use 1x BHI under aerobic conditions for later experiments.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
-  downstream:
-  - target: Aerobe-Facilitated Cutibacterium Oxic Proliferation
-    description: >
-      The 1x BHI aerobic SkinCom condition retained all intended isolates and exposed the
-      community-dependent growth of C. acnes in an oxic setting.
-  evidence:
-  - reference: PMID:39111313
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: superior diversity observed in 1× BHI cultures, we decided to carry out all subsequent
-      experiments under aerobic conditions using 1× BHI
-    explanation: >
-      Explains why 1x BHI became the standardized SkinCom medium for subsequent assays.
-- name: Aerobe-Facilitated Cutibacterium Oxic Proliferation
-  description: >
-    Cutibacterium acnes failed to grow axenically under oxic conditions but was detected in the
-    oxic SkinCom, consistent with facilitation by oxygen consumption from aerobic members.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
-  evidence:
-  - reference: PMID:39111313
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: metagenomic results confirmed the ability of C. acnes to proliferate in an oxic
-      setting, likely facilitated by oxygen consumption by aerobic members of the SkinCom
-    explanation: >
-      Supports the community-level oxygen-consumption facilitation that allowed the anaerobic
-      member to persist in oxic SkinCom culture.
+    snippet: metagenomic results confirmed the ability of C. acnes to proliferate in an oxic setting, likely facilitated
+      by oxygen consumption by aerobic members of the SkinCom
+    explanation: The source explicitly qualifies oxygen-consumption mediation as likely; retain its interpretation
+      without a categorical facilitation claim.
 - name: Cosmetic Chemical Response Concordance
-  description: >
-    The standardized SkinCom reproduced most measured skin-microbe responses to common cosmetic
-    chemicals in vitro when compared with a human trial.
+  description: The study reports an average 66% agreement in the direction of differential-abundance changes between
+    SkinCom and a small human pilot (13 participants). Only one human comparison was statistically significant.
+    Directional concordance is not replication of significant effects, clinical efficacy, or evidence that the in-vitro
+    and human results are interchangeable.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: response to xenobiotic stimulus
@@ -139,14 +102,18 @@ ecological_interactions:
       id: GO:0009410
       label: response to xenobiotic stimulus
   evidence:
-  - *id001
   - reference: PMID:39111313
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 66% of the responses to common cosmetic chemicals in vitro were in agreement with
-      a human trial
-    explanation: >
-      Links the standardized SkinCom to reproducible in-vitro responses to skin-applied chemicals.
+    snippet: 66% of the responses to common cosmetic chemicals in vitro were in agreement with a human trial
+    explanation: Supports the reported directional agreement, not significance replication or clinical efficacy.
+  - reference: PMID:39111313
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Note that the only statistically significant change observed was for S. epidermidis in the day 7 SLES
+      cohort. No other changes were statistically significant.
+    explanation: Bounds the human-trial statistical interpretation; most concordant signs were not significant human
+      effects.
 environmental_factors:
 - name: standardized skin model conditions
   value: SkinCom was evaluated in vitro and after application to dorsal skin of mice.
@@ -223,8 +190,35 @@ curation_history:
 - timestamp: '2026-10-02T06:04:09Z'
   curator: codex
   action: REPAIR_CAUSAL_GRAPH
-  changes: Removed three SkinCom workflow edges from growth profiling or
-    defined-cell assembly to later medium selection and cosmetic-response
-    comparison while retaining the aerobic SkinCom edge to C. acnes oxic
-    proliferation.
+  changes: Removed three SkinCom workflow edges from growth profiling or defined-cell assembly to later medium selection
+    and cosmetic-response comparison while retaining the aerobic SkinCom edge to C. acnes oxic proliferation.
   llm_assisted: true
+- timestamp: '2026-10-07T23:24:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain the composition observation, remove workflow causality and preserve detection in both conditions.;
+    Retain community-associated detection and explicitly hypothesized mediation, not categorical colonization facilitation.;
+    Preserve 66% directional concordance with statistical and external-validity limits. Issue#1804; reports/causal_graph_review/decisions/20261007-four-records-batch102.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: skin_causal_attribution_batch102
+  prompt: How strongly do the reported SkinCom observations establish mediation and transferability to human skin?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#SkinCom Medium-Associated Diversity Difference
+  - ecological_interactions#Community-Associated Cutibacterium Detection in Oxic SkinCom
+  - ecological_interactions#Cosmetic Chemical Response Concordance
+  rationale: The primary abstract, results, discussion and limitations were read. They support community-associated
+    detection, a proposed oxygen-consumption explanation and directional response agreement. They do not isolate
+    the proposed mediator or make the models interchangeable. Mechanistic attribution and external validity require
+    independent evidence. No new growth, colonization or infection procedures are proposed; existing non-graph cultivation
+    text is outside this graph review.
+  posed_by: codex
+  posed_date: '2026-10-07'
+  evidence:
+  - reference: PMID:39111313
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Due to such different experimental designs, results cannot be used interchangeably.
+    explanation: The authors explicitly limit cross-model equivalence.
