@@ -5,6 +5,25 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch88: Enrichments, B12, Aniline And Factorial Panel
+
+[Decisions](decisions/20261007-four-records-batch88.yaml),
+[validation](validation-20261007-batch88.json) and
+[self-adversarial review](adversarial-review-20261007-batch88.yaml) cover
+11 original nodes and six arrows. Ten nodes and four qualified directions remain;
+one experimental-method node and two correlation-like arrows are removed.
+Positive removal, community outcomes and statistical observations are preserved.
+Gene content, transcription and optical density retain their measurement limits.
+
+Two fresh main texts, two other abstracts and relevant cached factorial-paper
+passages were read. The latter are not independent fresh full-text verification.
+All 921 caches, 456 other records and raw non-graph blocks are preserved.
+Five panel-member disconnection warnings remain visible after method-node removal.
+Repairs #1724-#1727 await protected-main merge; source/panel follow-ups
+#1728/#1729 and existing re-evidencing #765 remain open.
+No new topology, paid Edison job or experimental design was added.
+Self-review is not independent approval or whole-corpus completion.
+
 ## Batch87: Wetland, Infant Gut, Rice And Helper Coculture
 
 [Decisions](decisions/20261007-four-records-batch87.yaml),
