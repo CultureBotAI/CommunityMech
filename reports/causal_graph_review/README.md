@@ -5,6 +5,23 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch89: Removal Assays And Social Spreading
+
+[Decisions](decisions/20261007-four-records-batch89.yaml),
+[validation](validation-20261007-batch89.json) and
+[self-adversarial review](adversarial-review-20261007-batch89.yaml) cover
+ten nodes and six arrows, all retained. One existing contact-initiation arrow
+is reattached to its intended existing source node, with target and wording
+unchanged. Positive removal and joint-movement observations remain separate
+from inferred mediation, assimilation, partitioning and reciprocal fitness.
+
+One fresh primary main text and four other abstracts were read. Source limits
+and the nitrogen paper's measurement terminology ambiguity remain explicit.
+All 921 caches, 456 other records and raw non-graph blocks are preserved.
+Repairs #1732-#1735 await protected-main merge; metadata #1736 remains open.
+No new biological causal claim, paid Edison job or experimental design was
+added. Self-review is not independent approval or whole-corpus completion.
+
 ## Batch88: Enrichments, B12, Aniline And Factorial Panel
 
 [Decisions](decisions/20261007-four-records-batch88.yaml),
