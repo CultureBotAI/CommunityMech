@@ -154,121 +154,11 @@ taxonomy:
       and Pseudomonas songnenensis'
     explanation: Names Pseudomonas songnenensis as a member of the artificial consortium.
 ecological_interactions:
-- name: En4 Gradient Enrichment and Domestication
-  description: >
-    The natural En4 consortium was developed for efficient pleuromutilin
-    degradation by gradient enrichment and domestication under pleuromutilin
-    selection.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  metabolites:
-  - preferred_term: pleuromutilin
-    term:
-      id: CHEBI:8269
-      label: Pleuromutilin
-  downstream:
-  - target: Pleuromutilin-Stress Core Specialization
-    description: >
-      Pleuromutilin gradient enrichment selected a domesticated En4 community
-      with stress-associated diversity loss and a specialized core-taxon set.
-  evidence:
-  - reference: PMID:42133144
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      A natural microbial consortium (En4) was developed in this study to
-      achieve efficient degradation of pleuromutilin through gradient
-      enrichment and domestication
-    explanation: >
-      Supports gradient enrichment and domestication of the natural En4
-      pleuromutilin-degrading consortium.
-- name: Pleuromutilin-Stress Core Specialization
-  description: >
-    Pleuromutilin stress reduced diversity in the natural consortium and
-    selected specialized core taxa, chiefly within Proteobacteria and including
-    pollutant-degrading genera enriched during the enrichment.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  metabolites:
-  - preferred_term: pleuromutilin
-    term:
-      id: CHEBI:8269
-      label: Pleuromutilin
-  evidence:
-  - reference: PMID:42133144
-    supports: SUPPORT
-    evidence_source: OTHER
-    snippet: >
-      pleuromutilin stress significantly reduced microbial diversity, and core
-      communities with functional specialization were identified across
-      multiple taxa
-    explanation: >
-      Supports pleuromutilin-associated diversity loss and functional
-      specialization across core taxa in the natural consortium.
-  - reference: PMID:42133144
-    supports: SUPPORT
-    evidence_source: OTHER
-    snippet: >
-      bacterial genera that have the potential to degrade pollutants, such as
-      Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium and Cupriavidus were
-      significantly enriched
-    explanation: >
-      Supports enrichment of pollutant-degrading bacteria under pleuromutilin
-      stress.
-- name: Fourteen-Degrader Bacterial Isolation
-  description: >
-    Fourteen pleuromutilin-degrading bacteria were isolated from the natural
-    En4 consortium as the strain source for designing an artificial degradation
-    community.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  metabolites:
-  - preferred_term: pleuromutilin
-    term:
-      id: CHEBI:8269
-      label: Pleuromutilin
-  evidence:
-  - reference: PMID:42133144
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: 14 degrading bacteria were isolated from the natural microbial community
-    explanation: >
-      Supports isolation of pleuromutilin-degrading bacteria from the natural
-      En4 consortium.
-- name: Five-Strain Artificial Consortium Construction
-  description: >
-    A defined artificial consortium was built from Stenotrophomonas pavanii,
-    Stenotrophomonas maltophilia, Lysinibacillus sphaericus, Lysinibacillus
-    mangiferihumi, and Pseudomonas songnenensis.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  metabolites:
-  - preferred_term: pleuromutilin
-    term:
-      id: CHEBI:8269
-      label: Pleuromutilin
-  downstream:
-  - target: Ninety-Two-Percent Pleuromutilin Degradation
-    description: >
-      The five-strain artificial consortium was the defined community that
-      achieved high pleuromutilin degradation.
-  evidence:
-  - reference: PMID:42133144
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      an efficient artificial microbial consortium comprising five strains:
-      Stenotrophomonas pavanii, Stenotrophomonas maltophilia, Lysinibacillus
-      sphaericus, Lysinibacillus mangiferihumi, and Pseudomonas songnenensis
-    explanation: >
-      Supports construction and membership of the five-strain artificial
-      pleuromutilin-degrading consortium.
 - name: Ninety-Two-Percent Pleuromutilin Degradation
-  description: >
-    The defined artificial consortium degraded pleuromutilin with a measured
-    degradation rate of 91.97%.
+  description: The defined five-strain artificial consortium achieved reported pleuromutilin degradation of 91.97%.
+    Preserve this positive community-level endpoint without asserting obligatory syntrophy, partner-specific flux,
+    complete mineralization or a superiority comparison not stated in the accessible abstract.
   scope: COMMUNITY_LEVEL
-  interaction_type: SYNTROPHY
   metabolites:
   - preferred_term: pleuromutilin
     term:
@@ -279,16 +169,36 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: was constructed, achieving a degradation rate of 91.97%
-    explanation: >
-      Supports the measured 91.97% pleuromutilin degradation rate of the
-      five-strain artificial consortium.
-- name: Artificial-Consortium Metabolic Profiling
-  description: >
-    Metabolic profiling during artificial-consortium pleuromutilin degradation
-    was used to propose potential pleuromutilin degradation products and
-    metabolic pathways.
+    explanation: 'Supports the measured 91.97% pleuromutilin degradation rate of the five-strain artificial consortium.
+
+      '
+  participating_taxa:
+  - preferred_term: Stenotrophomonas pavanii
+    term:
+      id: NCBITaxon:487698
+      label: Stenotrophomonas pavanii
+  - preferred_term: Stenotrophomonas maltophilia
+    term:
+      id: NCBITaxon:40324
+      label: Stenotrophomonas maltophilia
+  - preferred_term: Lysinibacillus sphaericus
+    term:
+      id: NCBITaxon:1421
+      label: Lysinibacillus sphaericus
+  - preferred_term: Lysinibacillus mangiferihumi
+    term:
+      id: NCBITaxon:1130819
+      label: Lysinibacillus mangiferihumi
+  - preferred_term: Pseudomonas songnenensis
+    term:
+      id: NCBITaxon:1176259
+      label: Pseudomonas songnenensis
+- name: Proposed Artificial-Consortium Degradation Products and Pathways
+  description: 'HYPOTHESIZED: metabolomic profiling of the artificial five-strain consortium motivated proposed
+    pleuromutilin degradation products and pathways. Public Supplement Table S3 compares pleuromutilin and glucose
+    conditions by untargeted metabolomics. Differential abundance and database spectral assignments do not alone
+    establish that every metabolite derives from pleuromutilin or identify a strain-resolved transfer route.'
   scope: COMMUNITY_LEVEL
-  interaction_type: SYNTROPHY
   metabolites:
   - preferred_term: pleuromutilin
     term:
@@ -298,19 +208,82 @@ ecological_interactions:
   - reference: PMID:42133144
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      The metabolic profile of the artificial microbial consortia during the
-      degradation of pleuromutilin were studied, and potential degradation
-      products and metabolic pathways were proposed
-    explanation: >
-      Supports downstream metabolic profiling of pleuromutilin degradation by
-      the artificial consortium.
+    snippet: 'The metabolic profile of the artificial microbial consortia during the degradation of pleuromutilin
+      were studied, and potential degradation products and metabolic pathways were proposed
+
+      '
+    explanation: Supports proposed products/pathways, not experimentally resolved interspecies exchange or obligate
+      syntrophy.
+  participating_taxa:
+  - preferred_term: Stenotrophomonas pavanii
+    term:
+      id: NCBITaxon:487698
+      label: Stenotrophomonas pavanii
+  - preferred_term: Stenotrophomonas maltophilia
+    term:
+      id: NCBITaxon:40324
+      label: Stenotrophomonas maltophilia
+  - preferred_term: Lysinibacillus sphaericus
+    term:
+      id: NCBITaxon:1421
+      label: Lysinibacillus sphaericus
+  - preferred_term: Lysinibacillus mangiferihumi
+    term:
+      id: NCBITaxon:1130819
+      label: Lysinibacillus mangiferihumi
+  - preferred_term: Pseudomonas songnenensis
+    term:
+      id: NCBITaxon:1176259
+      label: Pseudomonas songnenensis
 curation_history:
 - timestamp: '2026-10-02T06:00:47Z'
   curator: codex
   action: REPAIR_CAUSAL_GRAPH
-  changes: Removed four pleuromutilin workflow edges from enrichment or
-    isolate-selection steps to later isolation, artificial-consortium assembly,
-    and metabolic profiling, and rewrote the retained enrichment-to-core edge as
+  changes: Removed four pleuromutilin workflow edges from enrichment or isolate-selection steps to later isolation,
+    artificial-consortium assembly, and metabolic profiling, and rewrote the retained enrichment-to-core edge as
     direct stress selection.
   llm_assisted: true
+- timestamp: '2026-10-07T10:42:06Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain positive 91.97% degradation without obligatory syntrophy.; Retain proposed metabolic products/pathways
+    with attribution and metabolomics limits. Issue #1711; reports/causal_graph_review/decisions/20261007-four-records-batch86.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: pleuromutilin-parent-versus-defined-community
+  prompt: Which compatibility and degradation mechanisms belong to the defined five-strain community?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  rationale: 'Natural En4 enrichment showed reduced diversity and enriched pollutant-associated genera; preserve
+    those positives as parent-community context, not interactions among the five selected strains. Assembly/isolation
+    workflow remains in engineering_design. Public Table S1 lists bacterial and fungal isolates and identifies W12,
+    rather than same-species W10, as the selected Pseudomonas songnenensis in Table S2. Table S2 reports no inhibition
+    zones, not cross-feeding or long-term stability. Table S3 supports differential metabolomics, not compound provenance
+    or partner flux. Main text remains inaccessible; source DOCX tables were read by OOXML, not rendered pages.
+    Missing compatibility/pathway topology remains #1715 pending a reviewed, explicitly authorized Edison report;
+    no new structure is added. Non-graph isolate and strain identity remains #1716.'
+  attaches_to:
+  - ecological_interactions#Ninety-Two-Percent Pleuromutilin Degradation
+  - ecological_interactions#Proposed Artificial-Consortium Degradation Products and Pathways
+  evidence:
+  - reference: PMID:42133144
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'pleuromutilin stress significantly reduced microbial diversity, and core communities with functional
+      specialization were identified across multiple taxa
+
+      '
+    explanation: 'Supports pleuromutilin-associated diversity loss and functional specialization across core taxa
+      in the natural consortium.
+
+      '
+  - reference: PMID:42133144
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'The metabolic profile of the artificial microbial consortia during the degradation of pleuromutilin
+      were studied, and potential degradation products and metabolic pathways were proposed
+
+      '
+    explanation: Supports proposed products/pathways, not experimentally resolved interspecies exchange or obligate
+      syntrophy.
