@@ -1,0 +1,219 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 3e844683b766944da3bd8fbec2308ecb7a0982c4
+scope:
+- kb/communities/Mulberry_Distillers_Grains_Feed_Consortium.yaml
+- kb/communities/Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.yaml
+- kb/communities/Multiomics_Corn_Straw_Degradation_SynCom.yaml
+- kb/communities/Multispecies_Probiotic_MV_Luteolin_Consortium.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch75.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch75.json
+findings:
+- issue: 1626
+  severity: P2
+  status: addressed_in_this_change
+  finding: Digestion comparators, genomic inference and mediation.
+  disposition: Close only after protected-main merge.
+- issue: 1627
+  severity: P2
+  status: addressed_in_this_change
+  finding: Corn fraction contributions, enzyme causality and unsupported mutualism.
+  disposition: Close only after protected-main merge.
+- issue: 1628
+  severity: P2
+  status: addressed_in_this_change
+  finding: Probiotic growth, molecular exchange and aggregate counting.
+  disposition: Close only after protected-main merge.
+- issue: 1629
+  severity: P2
+  status: unresolved_research
+  finding: Missing vesicle outcome needs authorized Edison research and report inspection.
+  disposition: Keep OPEN after graph-repair merge.
+- issue: 1630
+  severity: P2
+  status: unresolved_non_graph
+  finding: Functional, strain and dosing metadata require separate reconciliation.
+  disposition: Keep OPEN after graph-repair merge.
+adversarial_checks:
+- Read all four whole records and every original node/arrow after the both-root baseline. Read full probiotic main
+  body, embedded tables and captions, and primary abstracts for the other three. No separate-supplement, raw-data
+  or original-figure-pixel audit. Abstract-only access is not evidence controls were absent.
+- 'Sparse does not imply defective: mulberry retains its two correctly bounded nodes and no arrows. Earlier1103/1104
+  recipe-panel and protein/ABTS fixes stay intact. Genus-level association does not justify a species-level causal
+  edge or an extra curation history.'
+- YSJ22% and J8% methane gains share a non-bioaugmented comparator; both reduce propionate1.6-fold. Correct the
+  former YSJ-specific propionate comparison while preserving both positive outcomes and nearly absent YSJ lag.
+- Do not convert metagenomic functional association into transcription, direct electrical transfer, electron flux
+  or obligate syntrophy. Retain the proposed staged-processing and environmental-selection arrows as HYPOTHESIZED,
+  not selectively isolated mediation; introduced and native activities remain unresolved.
+- 'Selection does not establish competitive fitness effects. Preserve elevated acetate, reduced propionate and moderate
+  non-inhibitory ammonia context, together with the source function/stability trade-off: J has the more robust network,
+  YSJ greater methane output.'
+- Corn cellulose34.91%, hemicellulose45.94%, lignin23.34% are distinct fractions, not additive whole-straw yield.
+  Preserve three component-to-whole causal contributions. Joint conversion does not establish reciprocal fitness
+  among eight strains, so MUTUALISM labels are removed.
+- Corn proteomic enzyme association is PARTIAL, with a direct measured-fraction snippet added independently. Do
+  not silently repair the unusual primary wording or call xylanases validated ligninases. Lignin contribution is
+  supported; selective barrier-opening mediation remains HYPOTHESIZED.
+- Probiotic cell-free-supernatant addition is a positive intervention, not merely a correlation. Preserve that evidence
+  and elevated viable counts while distinguishing diffusible growth promotion from identified nutrient transfer
+  or necessity. Methods give plate counting without member-resolved enumeration; do not equate total growth with
+  universal absence of antagonism.
+- 'Preserve the probiotic MsrA discussion and closed1065 category fix. The missing membrane-vesicle production/properties
+  outcome is not dismissed because the graph is sparse: mark needs_research and track1629. No growth-to-vesicle-yield
+  arrow, universal antioxidant superiority, MsrA necessity, microbiota mediation or human efficacy invented.'
+- Full-source scrutiny found L-MV ABTS greater than M-MV, Nile Red proxy rather than direct luteolin uptake, no
+  in-vivo biodistribution and a preventive male-mouse DSS model. Animal Results/Methods dosing chronology requires
+  reconciliation in separate1630, not silent certainty in this graph-only patch.
+- One-record Edison LITERATURE dry run completed with10231 query characters and zero calls/credits; no submitted
+  response means no inspected report and no extension. Scoped authorization question remains unanswered, not permission.
+  Earlier denied/pending scopes remain unchanged.
+- All10 original nodes and5 arrows have decisions. Three records and histories change,457 records including reviewed
+  mulberry remain byte-identical;920 caches and raw non-graph blocks preserved. No taxonomy or auditor-rule change.
+  Zero structural defects and44 baseline warnings unchanged; connectivity census unchanged.
+- Actual schema, strict, terms, references, snippets, histories, both-root inventory/network/rank, regression, lint
+  and deterministic render gates retained with digests. Ruff caught a missing strict=True in a new test zip; fixed
+  and reran full regressions plus lint, retaining three superseded outputs including the failed lint check. Exact
+  descriptions parsed across456 pages, not browser screenshots. Postcommit docs-current is a separate publication
+  gate.
+- Dedup scanned911 all-state issue titles/bodies and26 ignored/hidden-inclusive local matches; matching1104/1103/1065/310/183
+  bodies read. Existing183 membership work reused. No exhaustive historical PR-comment audit or global source-absence
+  claim. Repairs1626-1628 stay OPEN until protected-main merge;1629 and1630 stay OPEN afterward. Self-review is
+  not independent approval or corpus completion.
+verification:
+  combined_regressions: 669 passed in 195.80s (0:03:15)
+  new_regression_tests: 7
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: All four full-record reference validators exit0. CLI Total checks counts issues, not executed checks.
+    All19 graph quotations independently match fresh primary XML/abstract and selected existing caches. Cache matching
+    is not entailment. Three sources abstract-only; all920 caches unchanged, not recertified. Prior batch73 gallium
+    non-graph reference exception remains outside this batch.
+  snippet_counts_by_record:
+    kb/communities/Mulberry_Distillers_Grains_Feed_Consortium.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.yaml:
+      MATCH: 10
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Multiomics_Corn_Straw_Degradation_SynCom.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Multispecies_Probiotic_MV_Luteolin_Consortium.yaml:
+      MATCH: 21
+      RENDERING: 1
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    automatically_primary_matched: 19
+    new_nodes_or_arrows: 0
+    complete_primary_main_texts_read: 1
+    abstract_only_sources: 3
+    separate_supplements_or_original_figure_pixels_inspected: false
+  network:
+    existing_findings_preserved: 44
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All44 baseline warnings preserved exactly. Community scope remains aggregate, not resolved member-specific
+      activity. No taxonomy or auditor-rule changes.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch75.yaml: ab80d08a11b594625a0e0458b089ccab663f00def93cee6bd12c59e2b9f9d598
+    tests/test_causal_review_batch75.py: 22a96d796cbfe7178fbe5215773f81d1fd6b999105774d9051d478e6870b20fe
+    kb/communities/Mulberry_Distillers_Grains_Feed_Consortium.yaml: db5dd094bbd49fba2952851b1d8394c3b30d04cb08440f850ae04cc77614137d
+    kb/communities/Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.yaml: 5fa9fb489ff93f261f6e0d8d737057f511bfbba46fe3e08958e4cbb1eca42ed6
+    kb/communities/Multiomics_Corn_Straw_Degradation_SynCom.yaml: b6274bb4ad8beb9df16a81340ddbc536cdf94233e9e8961697a8423ec5a14a60
+    kb/communities/Multispecies_Probiotic_MV_Luteolin_Consortium.yaml: 65986397aa530933ed3b2d65d9cf8110e96b30898c3458c1d024e98fa42a81b4
+    reports/causal_graph_review/README.md: c57657d522ef8d7f6ccae3e83b0d96a7331fe5b94d89bdd44477a6421f6eca1b
+  unchanged_caches: 920
+  unchanged_records: 457
+  edison:
+    required_for_this_repair: false
+    required_for_deferred_extension: true
+    target: CommunityMech:000425
+    dry_run_complete: true
+    query_chars: 10231
+    job: LITERATURE
+    provider_submissions: 0
+    credits_spent: 0
+    authorization: Scoped async question unanswered; no inferred approval.
+    rationale: Existing growth structure repaired; missing vesicle outcome awaits authorized research and report
+      inspection.
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+    current:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: No scope-count change, taxonomy edit, or auditor-rule change. Aggregate outcomes do not establish
+    member-resolved activity.
+corpus:
+  records: 460
+  nodes: 1447
+  edges: 620
+  review_status_counts:
+    needs_research: 26
+    pending: 192
+    reviewed: 242
+limitations:
+- Pre-paper baseline covered460 records and920 caches across both roots, including ignored/hidden YAML. All10 nodes
+  and5 arrows reviewed and retained. Three repaired records/histories; mulberry byte-for-byte unchanged with no
+  manufactured event.
+- Primary abstracts read for mulberry, digestion and corn straw. Their metadata lists subscription-required full
+  text; no claim that controls are absent or that no full copy exists anywhere. Full probiotic primary main body,
+  embedded tables and captions read; separate supplements, original figure pixels and raw data not audited.
+- Every graph quotation independently matches fresh primary XML/abstract and an existing cache using whitespace-only
+  normalization. Cache matching is not entailment. All920 caches and raw non-graph blocks preserved, not recertified;
+  no complete primary paper uploaded.
+- Mulberry panel A/B/C boundaries, true-protein/ABTS evidence and genus-level quality correlation are already bounded.
+  Existing1103/1104 repairs preserved; no arbitrary arrow added to a valid zero-edge graph.
+- Preserve YSJ22% versus J8% methane gains over control and both-consortium1.6-fold propionate reduction. Metagenomics
+  alone is not expression, direct electron flux or obligate syntrophy. Two proposed mediation arrows remain HYPOTHESIZED;
+  competition is not established by selection. Preserve native-community context and function/stability trade-off.
+- Corn-straw fraction conversions34.91%,45.94%,23.34% and three component-to-whole links remain. Proteomic association
+  is not enzyme necessity, fraction percentages are not additive yield, and joint conversion is not reciprocal fitness.
+  Lignin-barrier mediation remains HYPOTHESIZED; unusual source wording is not silently repaired.
+- Probiotic growth and positive partner-supernatant interventions remain. Molecular nutritional exchange and absence
+  of member-specific antagonism are not established by aggregate co-culture counts. Existing MsrA discussion and
+  category1065 fix retained. Missing vesicle outcome stays needs_research in1629.
+- One-community Edison LITERATURE dry run for000425 complete, query10231 characters, zero submissions/credits. Scoped
+  paid approval question unanswered; no inferred permission and no extension. Previous denied/pending scopes remain
+  unchanged.
+- Dedup scanned911 all-state issue titles/bodies and26 matching local files with ignored/hidden-inclusive search
+  and explicit git/docs/site/cache exclusions. Matching1104/1103/1065/310/183 bodies read. No exhaustive PR-comment
+  audit or global source-absence claim.
+- Repair1626-1628 stays OPEN until protected-main merge. Research1629 and non-graph metadata1630 remain OPEN afterward;
+  existing183 membership work is not duplicated. Self-adversarial COMMENT is not independent approval; corpus review
+  unfinished.
