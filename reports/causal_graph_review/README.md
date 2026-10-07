@@ -5,6 +5,33 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch79: Field Selection, Nutrient Rescue And Hydrolysis
+
+[Decisions](decisions/20261007-four-records-batch79.yaml),
+[validation](validation-20261007-batch79.json) and
+[self-adversarial review](adversarial-review-20261007-batch79.yaml) account for
+12 existing nodes and four arrows across four records. Three bounded arrows
+remain: experimentally supported field selection and two proposed hydrolase
+contributions. The cross-study tolerance-to-redox arrow is removed.
+
+Positive isolate tolerance, yeast complementation and ratio effects, individual
+hydrolase activities, optimized rumen NDFD and cattle fermentation responses
+remain. Transfer measurements, quantitative consortium synergy and genomic
+mediation are distinguished from the measured outcomes. Uranyl grounding is
+corrected without changing canonical membership or non-graph metadata.
+
+All 21 graph quotations match fresh primary text and existing caches. Three
+complete main bodies were read; three further references remain abstract
+bounded. Subscription/access restrictions were respected. Separate supplements,
+raw datasets and original figure pixels were not audited. All 920 caches and
+456 other records are unchanged; four append-only histories are included.
+
+Research #1656/#1657 remains open for yeast topology and authorized Okeke
+full-text review. One Ogataea Edison dry run spent no credits; scoped paid
+authorization remains unanswered. Repairs #1652-#1655 stay open until protected
+main merge, and metadata #1658 remains open afterward. This is self-review,
+not independent approval or completion of the corpus.
+
 ## Batch78: Redox, Engraftment And Model Evidence
 
 [Decisions](decisions/20261007-four-records-batch78.yaml),
