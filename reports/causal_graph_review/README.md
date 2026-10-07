@@ -5,6 +5,27 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch83: Pyrene, Syntrophy And Pepper SynComs
+
+[Decisions](decisions/20261007-four-records-batch83.yaml),
+[validation](validation-20261007-batch83.json) and
+[self-adversarial review](adversarial-review-20261007-batch83.yaml) cover
+13 original nodes and nine arrows. Twelve biological nodes and eight bounded
+arrows remain; one inoculum-preparation node and its workflow arrow are removed.
+Measured pyrene removal, emulsification, syntrophic growth and plant responses
+remain distinct from candidate enzymes, modeled diffusion and proposed mediation.
+
+Three primary main texts and the PES correction were reviewed; the two older
+syntrophy papers remain abstract/caption limited. Selected pepper PDF pages were
+visually checked. Eighteen graph quotations match primary content and caches.
+The new coaggregation cache contains only 20 quoted words, not the full paper.
+All 920 original caches, 456 other records and non-graph blocks are preserved.
+
+Repairs #1685-#1688 await protected-main merge. Research #1689/#1690 and metadata
+#1691 remain open afterward. One syntrophy Edison dry run used no credits;
+its scoped paid question is unanswered. This is self-review, not independent
+approval or completion of the corpus review.
+
 ## Batch82: Tailings, Algal Coculture, Milk And Seed Biocontrol
 
 [Decisions](decisions/20261007-four-records-batch82.yaml),
