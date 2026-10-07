@@ -5,6 +5,29 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch75: Fermentation, Fraction Conversion And Probiotic Growth
+
+[Decisions](decisions/20261007-four-records-batch75.yaml),
+[validation](validation-20261007-batch75.json) and
+[self-adversarial review](adversarial-review-20261007-batch75.yaml) account for
+all ten existing nodes and five arrows. Three records are repaired; the sparse
+mulberry feed graph is reviewed unchanged, preserving its earlier scope fixes.
+
+Methane gains, corn-straw fraction conversion and partner-supernatant growth
+effects remain. Digestion mediation is qualified, metagenomic potential is not
+treated as expression, and component-to-decomposition links are retained without
+unsupported mutualism. Probiotic growth does not identify the exchanged molecule
+or establish absence of antagonism toward every member.
+
+All 19 graph quotations match fresh primary text and existing caches. Three
+papers are supported by abstracts; the probiotic main body and embedded tables
+were read, but not separate supplements or original figure pixels. All caches
+and raw non-graph blocks are preserved. Three append-only histories are added.
+Repairs #1626-#1628 await protected-main merge. Missing vesicle outcome #1629
+remains `needs_research`: one-record Edison dry run completed without spending
+credits; scoped paid authorization and report inspection remain pending.
+Non-graph #1630 stays open. Self-review is not independent approval.
+
 ## Batch74: Enrichment, Conditional Rescue And Mucin Responses
 
 [Decisions](decisions/20261007-four-records-batch74.yaml),
