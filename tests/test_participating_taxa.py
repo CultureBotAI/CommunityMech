@@ -358,6 +358,7 @@ USERS = {
     "PPCP_Wastewater_Sphingopyxis_Ochrobactrum_Apiotrichum_SMC.yaml",
     "PSY_Transgenic_Rice_Rhizosphere_Methane_Community.yaml",
     "Parmigiano_NWS_Set2_LAB_Triculture.yaml",
+    "Pepper_Phytophthora_SynCom5.yaml",
     "Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml",
     "Phaeodactylum_Aliivibrio_Diel_Coculture.yaml",
     "Phenol_Carboxylation_Consortium.yaml",
