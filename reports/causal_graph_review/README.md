@@ -5,6 +5,34 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch82: Tailings, Algal Coculture, Milk And Seed Biocontrol
+
+[Decisions](decisions/20261007-four-records-batch82.yaml),
+[validation](validation-20261007-batch82.json) and
+[self-adversarial review](adversarial-review-20261007-batch82.yaml) account for
+20 original nodes and 11 arrows. Fifteen biological nodes and three qualified
+arrows remain. Five unsupported or workflow nodes and eight arrows are removed.
+Positive plant/isolate, culture-productivity, fermentation and biocontrol results
+remain; the valid soil-carbon result is preserved with evidence in discussion
+pending repair of the composite tailings community identity.
+
+Four fresh primary main texts and seven further abstracts were inspected; one
+abstract is a review used only as context. All 25 graph quotations match fresh
+primary content and unchanged caches. Separate supplements and original figure
+pixels were not audited. New tailings disconnection warnings expose unresolved
+canonical membership rather than hiding it through all-member graph credit.
+
+Repairs #1676-#1679 await protected-main merge. Research #1680-#1682 and metadata
+#1683 remain open afterward, coordinated with #497. All 920 caches, 456 other
+records and raw non-graph blocks are preserved. Four append-only histories are
+included. One algae Edison dry run spent no credits; paid authorization is
+unanswered. This is self-review, not independent approval or corpus completion.
+
+The final reread narrowed an ambiguous IAA/siderophore overlap claim, removed
+gas annotations from the bulk-productivity node and qualified toxin-mechanism
+evidence. The 31 earlier passing outputs remain recorded as superseded; all
+affected checks were rerun and seven unchanged milk checks reused by hash.
+
 ## Batch81: Removal, PHB Production, Methane And Disease Suppression
 
 [Decisions](decisions/20261007-four-records-batch81.yaml),

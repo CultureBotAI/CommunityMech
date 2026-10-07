@@ -2,14 +2,14 @@
   "scope": "Every YAML under kb/communities and data/isolates; filesystem discovery includes hidden/ignored files.",
   "semantic_review_rule": "Structural checks and readiness scores do not establish causal support. Completed reviews must match the current record SHA-256, cover every node once with a rationale, and reproduce the current edge list.",
   "records": 460,
-  "nodes": 1444,
-  "edges": 609,
+  "nodes": 1439,
+  "edges": 601,
   "records_without_nodes": 8,
-  "records_without_edges": 168,
+  "records_without_edges": 170,
   "review_status_counts": {
-    "needs_research": 36,
-    "pending": 168,
-    "reviewed": 256
+    "needs_research": 39,
+    "pending": 164,
+    "reviewed": 257
   },
   "structural_defects": [],
   "network_audit": [
@@ -1202,6 +1202,127 @@
         ]
       },
       "message": "Taxon 'Legionella MAGs' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Panzhihua_Vanadium_Titanium_Tailings",
+      "type": "DISCONNECTED",
+      "taxon": "Polaromonas species",
+      "taxon_id": "NCBITaxon:52972",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Polaromonas species",
+          "term": {
+            "id": "NCBITaxon:52972",
+            "label": "Polaromonas"
+          },
+          "gtdb_grounding_status": "GROUNDED",
+          "gtdb_classification": {
+            "gtdb_id": "GTDB:g__Polaromonas",
+            "gtdb_taxon": "Polaromonas",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Polaromonas",
+            "ncbi_source_id": "NCBITaxon:52972",
+            "majority_fraction": 1.0,
+            "support_genomes": 12,
+            "total_genomes": 12,
+            "is_reclassified": false,
+            "mapping_source": "kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]"
+          },
+          "notes": "Betaproteobacteria capable of dissimilatory vanadium reduction in contaminated mine environments. While not specifically reported in the Panzhihua tailings studies reviewed, Polaromonas is a well-established V(V)-reducing organism in circumneutral pH vanadium mine tailings in northern China and likely present in Panzhihua tailings based on similar environmental conditions (circumneutral pH 6.5-7.5, moderate temperature, high vanadium concentrations). Polaromonas performs dissimilatory V(V) reduction to V(IV) using c-type cytochromes (cymA, omcA) and membrane-associated nitrate reductases (narG). The organism couples oxidation of organic electron donors (lactate, acetate) to V(V) reduction, decreasing vanadium solubility by 2-3 orders of magnitude through precipitation of V(IV) species. This metabolic capacity is critical for vanadium immobilization during anaerobic microsites in revegetated tailings. Polaromonas also reduces Fe(III), Mn(IV), and As(V), contributing to polymetallic redox cycling in V-Ti tailings.\n"
+        },
+        "functional_role": [
+          "PRIMARY_DEGRADER",
+          "SYNTROPHIC_PARTNER"
+        ],
+        "abundance_level": "COMMON",
+        "abundance_value": "Inferred presence based on V-reducing capacity in similar V-Ti tailings",
+        "evidence": [
+          {
+            "reference": "PMID:33125214",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VIVO",
+            "snippet": "Further, VV-reducing enrichments indicated that bacteria associated with Polaromonas, a genus belonging to the family Burkholderiaceae, were potentially responsible for VV reduction",
+            "explanation": "Establishes V(V) reduction mechanism relevant to Panzhihua conditions"
+          }
+        ]
+      },
+      "message": "Taxon 'Polaromonas species' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Panzhihua_Vanadium_Titanium_Tailings",
+      "type": "DISCONNECTED",
+      "taxon": "Rhizobium pisi",
+      "taxon_id": "NCBITaxon:574561",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Rhizobium pisi",
+          "term": {
+            "id": "NCBITaxon:574561",
+            "label": "Rhizobium pisi"
+          },
+          "gtdb_grounding_status": "UNRESOLVED",
+          "notes": "Fast-growing nitrogen-fixing rhizobium traditionally associated with pea (Pisum sativum) but adapted to form nodules with P. pinnata in V-Ti tailings. One isolate was identified as R. pisi, demonstrating the promiscuity of rhizobial-legume associations under metal stress conditions. R. pisi contributes to nitrogen enrichment of tailings soil through symbiotic nitrogen fixation and produces plant growth-promoting substances including IAA. The presence of R. pisi indicates that phytoremediation legumes can recruit diverse rhizobial species from indigenous tailings microbiota, not limited to traditional host-specific symbionts. This metabolic flexibility enhances the resilience and effectiveness of legume-rhizobia partnerships in contaminated environments.\n"
+        },
+        "functional_role": [
+          "PRIMARY_DEGRADER",
+          "NITROGEN_FIXING_SYMBIONT"
+        ],
+        "abundance_level": "RARE",
+        "abundance_value": "One isolate from P. pinnata nodules",
+        "evidence": [
+          {
+            "reference": "doi:10.3389/fmicb.2023.1078333",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VIVO",
+            "snippet": "Based on the phylogenetic analysis of 16S rRNA and four house-keeping genes (atpD, recA, rpoB, glnII), twelve isolates were identified as Bradyrhizobium pachyrhizi, four as Ochrobactrum anthropic, three as Rhizobium selenitireducens and one as Rhizobium pisi",
+            "explanation": "Documents R. pisi presence in V-Ti tailings rhizobia"
+          }
+        ]
+      },
+      "message": "Taxon 'Rhizobium pisi' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Panzhihua_Vanadium_Titanium_Tailings",
+      "type": "DISCONNECTED",
+      "taxon": "Rhizobium selenitireducens",
+      "taxon_id": "NCBITaxon:1336235",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Rhizobium selenitireducens",
+          "term": {
+            "id": "NCBITaxon:1336235",
+            "label": "Paenirhizobium selenitireducens ATCC BAA-1503"
+          },
+          "gtdb_grounding_status": "UNRESOLVED",
+          "notes": "Nitrogen-fixing alphaproteobacterium capable of selenium reduction and heavy metal tolerance, isolated from P. pinnata root nodules in V-Ti tailings. Three isolates were identified as R. selenitireducens, demonstrating nitrogen-fixing capacity and variable tolerance to Cu, Ni, Mn, and Zn. This species possesses unique metabolic capabilities including selenite reduction to elemental selenium, suggesting potential for metalloid detoxification in addition to nitrogen fixation. R. selenitireducens contributes to the functional diversity of the rhizobial community, providing complementary metal tolerance mechanisms and nitrogen enrichment. The organism forms effective symbioses with leguminous plants under metal stress conditions, promoting plant growth through nitrogen provision and IAA production. Like other tailings rhizobia, R. selenitireducens serves as a competent candidate for bioremediation of soils contaminated with multifarious metals due to its combined nitrogen-fixing and metal tolerance phenotypes.\n"
+        },
+        "functional_role": [
+          "PRIMARY_DEGRADER",
+          "CROSS_FEEDER",
+          "NITROGEN_FIXING_SYMBIONT"
+        ],
+        "abundance_level": "COMMON",
+        "abundance_value": "Three isolates from P. pinnata nodules",
+        "evidence": [
+          {
+            "reference": "doi:10.3389/fmicb.2023.1078333",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VIVO",
+            "snippet": "Based on the phylogenetic analysis of 16S rRNA and four house-keeping genes (atpD, recA, rpoB, glnII), twelve isolates were identified as Bradyrhizobium pachyrhizi, four as Ochrobactrum anthropic, three as Rhizobium selenitireducens and one as Rhizobium pisi",
+            "explanation": "Documents R. selenitireducens presence in tailings rhizobia"
+          },
+          {
+            "reference": "doi:10.3389/fmicb.2023.1078333",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VIVO",
+            "snippet": "effective rhizobia strains for bioremediation of VTM tailings or other contaminated soils",
+            "explanation": "Establishes metal tolerance and bioremediation potential"
+          }
+        ]
+      },
+      "message": "Taxon 'Rhizobium selenitireducens' has no interactions",
       "severity": "warning"
     },
     {

@@ -1,0 +1,372 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: c2f23b2053bde3329f2619bc45accadcec415d19
+scope:
+- kb/communities/Panzhihua_Vanadium_Titanium_Tailings.yaml
+- kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml
+- kb/communities/Parmigiano_NWS_Set2_LAB_Triculture.yaml
+- kb/communities/Peanut_Seed_Bacterial_CS_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch82.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch82.json
+findings:
+- issue: 1676
+  severity: P2
+  status: addressed_in_this_change
+  finding: Repair cross-study and taxon conflations in the Panzhihua causal graph
+  disposition: Close only after protected-main merge.
+- issue: 1677
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate Parachlorella coculture productivity from proposed gas and EPS mediation
+  disposition: Close only after protected-main merge.
+- issue: 1678
+  severity: P2
+  status: addressed_in_this_change
+  finding: Remove inference and subset-comparison arrows from Parmigiano set2 graph
+  disposition: Close only after protected-main merge.
+- issue: 1679
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate peanut CS biocontrol outcomes from construction and challenge workflow
+  disposition: Close only after protected-main merge.
+- issue: 1680
+  severity: P2
+  status: unresolved_research
+  finding: Resolve Panzhihua community identity before restoring carbon or vanadium topology
+  disposition: Keep OPEN after graph repair merge.
+- issue: 1681
+  severity: P2
+  status: unresolved_research
+  finding: Obtain exact Parachlorella assays and review missing EPS-adhesion structure
+  disposition: Keep OPEN after graph repair merge.
+- issue: 1682
+  severity: P2
+  status: unresolved_research
+  finding: Obtain peanut CS full text for SA mediation and toxin-removal interpretation
+  disposition: Keep OPEN after graph repair merge.
+- issue: 1683
+  severity: P2
+  status: unresolved_non_graph
+  finding: Reconcile Panzhihua non-graph identity, environment and source mismatches
+  disposition: Keep OPEN after graph repair merge.
+adversarial_checks:
+- Fresh both-root460record/920cache baseline preceded paper review. Four whole records,20nodes and11arrows assessed
+  including missing structures. Fifteen retained nodes/three qualified arrows and five removed nodes/eight removed
+  arrows all have dispositions. No new topology or provider spend.
+- Tailings canonical record combines distinct studies, not a verified six-member consortium. Preserve separate nodulation/N
+  enrichment and cultured-isolate traits.2023Results placePP1inRhizobium, while abstract/species-tree labels conflict.
+  Do not assignPP1toB.pachyrhizi or resolve conflictingCd/Znassays by guesswork.
+- Metal-tolerance node now names the directly assayed2014Bacillus collection. S.saheli/Leucaena reduced metal uptake;
+  B.liaoningense phytoextraction cannot be credited toB.pachyrhizi. Isolate growth tolerance does not isolate efflux,
+  sequestration, ACC degradation, redox or plant-uptake mechanisms.
+- 'The2014Ochrobactrum bulk-soil group is distinct from2023nodule isolates. PreserveIAAproduction,KT80reported83.05micrograms/mL
+  and siderophore producers. Final reread caught ambiguous only-half scope: do not assert both siderophore producers
+  also producedIAAwithout the supplementary table. Shorten quotation and explanation accordingly.'
+- Carbon-remediation positives remain evidence-backed in discussion:ROC/POC/DOC/MBC, enzyme measures and carbon-functional
+  gene abundance increased. Remove the unsupported Bacillus/Bradyrhizobium pair, carbon-dioxide grounding ofDOC
+  and reciprocal cross-study nitrogen/carbon arrows. A correct community identity must precede a replacement graph
+  node; do not erase positive biology or give every canonical member credit.
+- External Polaromonas reduction and untested rhizobial compensatory redundancy no longer assert exact-site functions.
+  Three real disconnected canonical taxa become visible:Polaromonas,R.pisi,R.selenitireducens.47warnings=44preserved+3new;
+  zero structural defects. Canonical taxonomy and auditor rules remain unchanged;1680/1683track repair beyond graph
+  scope.
+- Algal fourfold culture output, yeast-associated algal growth afterday6glucose exhaustion and viability>68%remain
+  positive. Introductory gas exchange is not measured exact-system flux. EPS support is explicitly possible, and
+  AFM/FluidFM adhesion is not carbon transfer. Final reread removes oxygen/CO2annotations from the bulk-productivity
+  node while retaining them on the hypothesized gas node.
+- Milk controlled compositions show positiveSt/Ldand negativeLh/Ldacidification responses. Preserve the exactset2pair
+  rate comparable to triculture, while triculture total lactate is higher. Total inoculum constant does not mean
+  each species inoculum constant. Bulk lactate and acidification are not member-specific fitness. No pair-to-triculture
+  or measurement-to-inferred-activity arrow.
+- 'D-lactate pool is not exclusiveC5I3: Lhproduces both enantiomers, andC001.27produces83%L-lactate rather than
+  exclusivelyL-lactate. Preserve1077-1079removal of mutualism, unsupported roles and exclusive producer attribution,
+  plus the existing molecular mechanism gap.'
+- Peanut two workflow nodes/four workflow arrows removed; four positive outcomes and author-reportedSA-to-resistance
+  direction retained. Missing full text means mediator controls are uninspected, not absent. Keep bestCSroot-rot
+  response, fungal/toxin suppression and abstract-scope growth. Final reread marks toxin-mechanism evidencePARTIALrather
+  than proving degradation from abundance. YAMLaliases remain unchanged.
+- Four fresh primary main texts/captions plus seven abstracts read, one abstract being a context-only review.25graph
+  quotations match fresh primaries and caches. No original figure pixels, separate supplements or raw data audited.
+  Primary copies stay outside repository. Normal publisher access barriers respected.954all-state issues/five matched
+  bodies and64localmatching files searched with hidden/ignored inclusion and declared exclusions.
+- Three final claim/annotation fixes applied without extra history events.31superseded passing outputs retained
+  and affected gates rerun; seven unchanged milk checks reused with hashes. Four guarded history events,456otherrecords920caches
+  and all raw non-graph blocks preserved. Deterministic rendering and exact description checks across456pages are
+  not browser screenshots.
+- One9111character algae Edison causal dry run is not a report or paid authorization. Scoped question unanswered;
+  earlier denial/pending scopes unchanged. Repairs1676-1679close only after protected-main merge; research1680-1682andmetadata1683remain
+  open. Self-adversarial COMMENT is not independent approval or corpus completion. Protected lifecycle must move
+  dependents before branch deletion.
+verification:
+  combined_regressions: 736 passed in 494.44s (0:08:14)
+  new_regression_tests: 10
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: Four full-record reference validators exit0. CLI Total checks counts issues, not executed checks.25graph
+    quotations independently match fresh primary content and unchanged caches. Literal matching is not entailment
+    or whole-record provenance certification; non-graph claims/caches are preserved, not globally recertified.
+  snippet_counts_by_record:
+    kb/communities/Panzhihua_Vanadium_Titanium_Tailings.yaml:
+      MATCH: 40
+      RENDERING: 1
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml:
+      MATCH: 10
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Parmigiano_NWS_Set2_LAB_Triculture.yaml:
+      MATCH: 20
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Peanut_Seed_Bacterial_CS_SynCom.yaml:
+      MATCH: 11
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    fresh_primary_matched: 25
+    cache_matched: 25
+    new_discussion_quotations_fresh_primary_matched: 9
+    new_nodes_or_arrows: 0
+    retained_nodes: 15
+    removed_nodes: 5
+    retained_arrows: 3
+    removed_arrows: 8
+    complete_fresh_main_texts_read: 4
+    additional_abstracts_read: 7
+    review_abstract_context_only: 1
+    original_figure_pixels_supplements_raw_data_audited: false
+  network:
+    existing_findings_preserved: 44
+    added_findings:
+      Panzhihua_Vanadium_Titanium_Tailings:
+      - type: DISCONNECTED
+        taxon: Polaromonas species
+        taxon_id: NCBITaxon:52972
+        taxon_data:
+          taxon_term:
+            preferred_term: Polaromonas species
+            term:
+              id: NCBITaxon:52972
+              label: Polaromonas
+            gtdb_grounding_status: GROUNDED
+            gtdb_classification:
+              gtdb_id: GTDB:g__Polaromonas
+              gtdb_taxon: Polaromonas
+              gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Polaromonas
+              ncbi_source_id: NCBITaxon:52972
+              majority_fraction: 1.0
+              support_genomes: 12
+              total_genomes: 12
+              is_reclassified: false
+              mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__
+                rank; 1 GTDB taxa under the NCBI taxon]
+            notes: 'Betaproteobacteria capable of dissimilatory vanadium reduction in contaminated mine environments.
+              While not specifically reported in the Panzhihua tailings studies reviewed, Polaromonas is a well-established
+              V(V)-reducing organism in circumneutral pH vanadium mine tailings in northern China and likely present
+              in Panzhihua tailings based on similar environmental conditions (circumneutral pH 6.5-7.5, moderate
+              temperature, high vanadium concentrations). Polaromonas performs dissimilatory V(V) reduction to V(IV)
+              using c-type cytochromes (cymA, omcA) and membrane-associated nitrate reductases (narG). The organism
+              couples oxidation of organic electron donors (lactate, acetate) to V(V) reduction, decreasing vanadium
+              solubility by 2-3 orders of magnitude through precipitation of V(IV) species. This metabolic capacity
+              is critical for vanadium immobilization during anaerobic microsites in revegetated tailings. Polaromonas
+              also reduces Fe(III), Mn(IV), and As(V), contributing to polymetallic redox cycling in V-Ti tailings.
+
+              '
+          functional_role:
+          - PRIMARY_DEGRADER
+          - SYNTROPHIC_PARTNER
+          abundance_level: COMMON
+          abundance_value: Inferred presence based on V-reducing capacity in similar V-Ti tailings
+          evidence:
+          - reference: PMID:33125214
+            supports: SUPPORT
+            evidence_source: IN_VIVO
+            snippet: Further, VV-reducing enrichments indicated that bacteria associated with Polaromonas, a genus
+              belonging to the family Burkholderiaceae, were potentially responsible for VV reduction
+            explanation: Establishes V(V) reduction mechanism relevant to Panzhihua conditions
+        message: Taxon 'Polaromonas species' has no interactions
+      - type: DISCONNECTED
+        taxon: Rhizobium pisi
+        taxon_id: NCBITaxon:574561
+        taxon_data:
+          taxon_term:
+            preferred_term: Rhizobium pisi
+            term:
+              id: NCBITaxon:574561
+              label: Rhizobium pisi
+            gtdb_grounding_status: UNRESOLVED
+            notes: 'Fast-growing nitrogen-fixing rhizobium traditionally associated with pea (Pisum sativum) but
+              adapted to form nodules with P. pinnata in V-Ti tailings. One isolate was identified as R. pisi, demonstrating
+              the promiscuity of rhizobial-legume associations under metal stress conditions. R. pisi contributes
+              to nitrogen enrichment of tailings soil through symbiotic nitrogen fixation and produces plant growth-promoting
+              substances including IAA. The presence of R. pisi indicates that phytoremediation legumes can recruit
+              diverse rhizobial species from indigenous tailings microbiota, not limited to traditional host-specific
+              symbionts. This metabolic flexibility enhances the resilience and effectiveness of legume-rhizobia
+              partnerships in contaminated environments.
+
+              '
+          functional_role:
+          - PRIMARY_DEGRADER
+          - NITROGEN_FIXING_SYMBIONT
+          abundance_level: RARE
+          abundance_value: One isolate from P. pinnata nodules
+          evidence:
+          - reference: doi:10.3389/fmicb.2023.1078333
+            supports: SUPPORT
+            evidence_source: IN_VIVO
+            snippet: Based on the phylogenetic analysis of 16S rRNA and four house-keeping genes (atpD, recA, rpoB,
+              glnII), twelve isolates were identified as Bradyrhizobium pachyrhizi, four as Ochrobactrum anthropic,
+              three as Rhizobium selenitireducens and one as Rhizobium pisi
+            explanation: Documents R. pisi presence in V-Ti tailings rhizobia
+        message: Taxon 'Rhizobium pisi' has no interactions
+      - type: DISCONNECTED
+        taxon: Rhizobium selenitireducens
+        taxon_id: NCBITaxon:1336235
+        taxon_data:
+          taxon_term:
+            preferred_term: Rhizobium selenitireducens
+            term:
+              id: NCBITaxon:1336235
+              label: Paenirhizobium selenitireducens ATCC BAA-1503
+            gtdb_grounding_status: UNRESOLVED
+            notes: 'Nitrogen-fixing alphaproteobacterium capable of selenium reduction and heavy metal tolerance,
+              isolated from P. pinnata root nodules in V-Ti tailings. Three isolates were identified as R. selenitireducens,
+              demonstrating nitrogen-fixing capacity and variable tolerance to Cu, Ni, Mn, and Zn. This species
+              possesses unique metabolic capabilities including selenite reduction to elemental selenium, suggesting
+              potential for metalloid detoxification in addition to nitrogen fixation. R. selenitireducens contributes
+              to the functional diversity of the rhizobial community, providing complementary metal tolerance mechanisms
+              and nitrogen enrichment. The organism forms effective symbioses with leguminous plants under metal
+              stress conditions, promoting plant growth through nitrogen provision and IAA production. Like other
+              tailings rhizobia, R. selenitireducens serves as a competent candidate for bioremediation of soils
+              contaminated with multifarious metals due to its combined nitrogen-fixing and metal tolerance phenotypes.
+
+              '
+          functional_role:
+          - PRIMARY_DEGRADER
+          - CROSS_FEEDER
+          - NITROGEN_FIXING_SYMBIONT
+          abundance_level: COMMON
+          abundance_value: Three isolates from P. pinnata nodules
+          evidence:
+          - reference: doi:10.3389/fmicb.2023.1078333
+            supports: SUPPORT
+            evidence_source: IN_VIVO
+            snippet: Based on the phylogenetic analysis of 16S rRNA and four house-keeping genes (atpD, recA, rpoB,
+              glnII), twelve isolates were identified as Bradyrhizobium pachyrhizi, four as Ochrobactrum anthropic,
+              three as Rhizobium selenitireducens and one as Rhizobium pisi
+            explanation: Documents R. selenitireducens presence in tailings rhizobia
+          - reference: doi:10.3389/fmicb.2023.1078333
+            supports: SUPPORT
+            evidence_source: IN_VIVO
+            snippet: effective rhizobia strains for bioremediation of VTM tailings or other contaminated soils
+            explanation: Establishes metal tolerance and bioremediation potential
+        message: Taxon 'Rhizobium selenitireducens' has no interactions
+    removed_findings: {}
+    interpretation: 'Three newly exposed Panzhihua disconnections: R.selenitireducens, R.pisi and Polaromonas. Removed
+      unsupported redundancy/external-system claims; no invented all-member credit, taxonomy or auditor-rule change.
+      Identity research1680/metadata1683remainOPEN.'
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch82.yaml: 287d391e90ad2e832c8cf57a63e6db79adfd6a73fa59a670dc6441c1466cea58
+    tests/test_causal_review_batch82.py: f8a1c608f6e523301ee878e347a451309f7bb7032b631410fb4fd251bd9c481b
+    kb/communities/Panzhihua_Vanadium_Titanium_Tailings.yaml: b5a4255cbaf18200e7002f843bffa20e870a5d1676d5c7cf3f4036c9ce92b0a0
+    kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml: ee3166c701c928154cb1f46337d3d43a5ee56946d75f93fcd6d4ac8ecb3f8b82
+    kb/communities/Parmigiano_NWS_Set2_LAB_Triculture.yaml: 1ca3e250bbd757768243c691712d2139c54a2da4e59570360417188516bb4b2c
+    kb/communities/Peanut_Seed_Bacterial_CS_SynCom.yaml: faf0f4193278f1fc4c65f5666b79129629c3e1add520245a3ff941596b96513c
+    reports/causal_graph_review/README.md: 6a7fce42f05cab4061692231e2a17092c0554c85d1f9a520478e36cea2d69a6c
+  unchanged_caches: 920
+  cache_changes: []
+  unchanged_records: 456
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: true
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs:
+    - community_id: CommunityMech:000295
+      job: LITERATURE
+      query_chars: 9111
+      query_sha256: 4515810ac69377baf2c9f943bc9854134ccf49cc1a302b3133d192fef3319ded
+      meta_path: /private/tmp/communitymech-batch82/edison-algae/Parachlorella_Saccharomyces_Mutualistic_Coculture-edison-literature-causal-meta.yaml
+      authorization: Scoped asynchronous question unanswered; preselection is not approval.
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+    current:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: No scope-count change, taxonomy edit, or auditor-rule change. Aggregate outcomes do not establish
+    member-resolved activity.
+corpus:
+  records: 460
+  nodes: 1439
+  edges: 601
+  review_status_counts:
+    needs_research: 39
+    pending: 164
+    reviewed: 257
+limitations:
+- Fresh pre-paper baseline:460records/920caches across both roots. Four whole records,20existing nodes and11arrows
+  reviewed.15nodes/3arrows retained;5nodes/8arrows removed with explicit dispositions. No new topology.
+- Four complete fresh primary main texts/captions read:2023rhizobia,2014bulk-soil bacteria,2018S.saheli and2026milk.
+  Seven further abstracts checked; one is a2023vanadium review, context only. Original figure pixels, separate supplements
+  and raw data not audited. Exact matching does not establish entailment.
+- Normal publisher access for algae returned403 and peanut DOI delivery was unavailable. No bypass attempted, and
+  no inference that unseen full-text assays do not exist. Primary evidence copies remain outside the repository;
+  unchanged caches are not globally recertified.
+- Tailings is a composite record with unresolved canonical identities, source/site mismatches and internally inconsistent2023species/metal
+  labels. Positive nodulation/N enrichment, Bacillus metal tolerance and Ochrobactrum production survive. The carbon-remediation
+  result remains evidence-backed in discussion, not assigned to an unsupported pair or every canonical member. Removed
+  Polaromonas and redundancy claims expose genuine disconnected taxa; no auditor or taxonomy changes.
+- Algal fourfold culture output, yeast-associated algal support, viability and biophysical observations survive.
+  Gas exchange is contextual/proposed and EPS transfer is explicitly possible. Full text and future biophysical
+  topology remain1681. No algal-only biomass assignment or mutualistic benefit inferred from bulk output.
+- Milk retains four positive/negative assay phenotypes, exact set2rate exception and mixed D-lactate pool. Two arrows
+  were subset comparison and measurement-to-inference, not causal mediation. Prior1077-1079fixes and molecular gap
+  preserved; no broad downgrade of the controlled fermentation comparisons.
+- Peanut retains four biological outcomes and the author-reported SA-to-resistance direction as partial. Two methods
+  nodes/four workflow arrows removed. Toxin reduction is not automatically chemical degradation; abstract growth
+  conclusion is not CS-specific. Raw engineering/taxonomy/environment YAML anchors preserved.
+- 954all-state issue titles/bodies searched; all5matched bodies1077-1079,497,258read, plus prior milk review and
+  Polaromonas author-request lead.64local matching files from ignored/hidden-inclusive search excluding.git/docs/site/references_cache.
+  No exhaustive historical PR/comment audit. Some combined/cache outputs truncated; relevant fresh main texts read
+  in bounded chunks, and absence claims do not depend on truncated output.
+- One9111character one-community algae Edison causal dry run; zero provider submissions/credits. Scoped paid question
+  unanswered. Earlier paid denials and pending scopes unchanged. Repair1676-1679remainOPENuntil protected-main merge;
+  research1680-1682andmetadata1683remainOPENafterward.
+- Four append-only histories;456otherrecords920caches and all raw non-graph blocks preserved, not certified. Render/description
+  checks are not browser screenshots. Self-adversarial review is not independent approval or completion of the corpus
+  objective.
+- Final adversarial reread narrowed ambiguous Ochrobactrum IAA/siderophore overlap, removed gas-metabolite annotations
+  from the aggregate productivity endpoint, and marked peanut toxin-mechanism evidence PARTIAL. Affected checks
+  rerun with earlier outputs retained; four original append-only histories unchanged.
