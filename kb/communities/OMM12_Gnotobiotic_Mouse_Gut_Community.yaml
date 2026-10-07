@@ -75,10 +75,11 @@ taxonomy:
     explanation: Provides direct evidence from Table 2 for named OMM12 member strains.
 ecological_interactions:
 - name: Double-Dose OMM12 Engraftment
-  description: A standardized frozen mixture of the 12 OMM strains can be
-    gavaged into germ-free mice, and repeating the application 72 h after the
-    initial inoculation improves stable community composition and engraftment.
-  interaction_type: COLONIZATION_FACILITATION
+  description: A second frozen OMM12 inoculum application 72 h after the first improved establishment across the
+    participating germ-free mouse facilities, including more reliable detection of the slow-colonizing Muribaculum
+    intestinale YL27. This is a tested dosing-protocol improvement, not demonstrated biotic facilitation by one
+    member. Some strains remained below fecal qPCR detection in some samples, and the facility cohorts were not
+    a fully matched randomized comparison.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
@@ -87,22 +88,23 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Reproducible Multi-Strain Intestinal Colonization
-    description: The optimized double-dose frozen inoculum protocol enables
-      reproducible de novo association of germ-free mice with the full OMM12
-      synthetic community.
+    description: The repeat application after 72 h improved reproducibility of OMM12 establishment, particularly
+      YL27 detection, relative to the single-dose protocol. This supports a protocol-to-colonization effect in the
+      studied facility cohorts, not guaranteed detection of every strain or isolation of the effects of dose, timing
+      and gut redox.
   evidence:
   - reference: PMID:31998276
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: We show that a second application of the OMM12 strains after 72 h leads to a
-      more stable community composition than a single application.
-    explanation: Supports the 72 h repeat-dose protocol as an OMM12 engraftment
-      improvement.
+    snippet: We show that a second application of the OMM12 strains after 72 h leads to a more stable community
+      composition than a single application.
+    explanation: Supports the observed repeat-dose protocol improvement; neither all-12 detection in every sample
+      nor a specific member-mediated mechanism follows.
 - name: Colonization Resistance Against Salmonella
-  description: OMM12 was designed to provide conventional-like colonization resistance against Salmonella
-    enterica serovar Typhimurium in gnotobiotic mice, making it useful for dissecting microbe-microbe and
-    host-microbe mechanisms that prevent pathogen expansion.
-  interaction_type: COMPETITION
+  description: The 12-member OMM12 community provided colonization resistance against Salmonella enterica serovar
+    Typhimurium in gnotobiotic mice, but less than a conventional complex microbiota. Conventional-like resistance
+    belongs to the expanded version with three added facultative anaerobic bacteria, not to this 12-member community.
+    The phenotype is retained without assigning a uniquely established competition mechanism.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
@@ -113,24 +115,22 @@ ecological_interactions:
   - reference: PMID:27869789
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: confers colonization resistance against Salmonella enterica serovar Typhimurium
-    explanation: Supports pathogen-resistance as a primary ecological function of the designed community.
+    snippet: provided colonization resistance against S. Tm infection, albeit not to the degree of a conventional
+      complex microbiota.
+    explanation: The primary abstract explicitly supports resistance by the 12-member community and its lower degree
+      than conventional microbiota; the improved expanded community is a separate condition.
 - name: Reproducible Multi-Strain Intestinal Colonization
-  description: OMM12 can reproducibly colonize germ-free mice across different animal facilities, and
-    individual strain abundances can be resolved by strain-specific qPCR. This makes the consortium a
-    standardized model for comparing mouse microbiome experiments.
-  interaction_type: COLONIZATION_FACILITATION
+  description: OMM12 was established in multiple germ-free mouse facilities, with strain-resolved fecal 16S rRNA
+    gene-copy qPCR monitoring. The repeat-dose protocol improved reproducibility and YL27 establishment, but some
+    other strains were undetected in some samples and facility differences persisted. Gene-copy counts per volume
+    of extracted DNA are not viable cell counts or uniformly fecal-mass-normalized abundance. Compositional reproducibility
+    alone does not establish functional equivalence or increased pathogen resistance.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: multi-organism process
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Colonization Resistance Against Salmonella
-    description: Stable multi-strain Oligo-MM12 colonization supplies the
-      defined community context in which the consortium resists expansion of
-      Salmonella enterica serovar Typhimurium.
   evidence:
   - reference: PMID:31998276
     supports: SUPPORT
@@ -141,7 +141,8 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: Absolute abundance of each strain was determined by a strain-specific qPCR assay
-    explanation: Supports strain-resolved monitoring of the defined community.
+    explanation: Supports strain-specific qPCR monitoring; the Methods normalize 16S gene copies to extracted DNA
+      volume, not viable cells, and fecal weight was not available for every sample.
 environmental_factors:
 - name: Germ-free mouse host
   value: Axenic mice colonized with OMM12
@@ -203,3 +204,31 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: Media used for cultivation were kept under anoxic conditions
     explanation: Establishes anaerobic (anoxic) cultivation of the OMM12 strains.
+discussions:
+- discussion_id: omm12_composition_dose_and_resistance_boundaries
+  prompt: Which exact-system measurements distinguish the observed outcome from the proposed mechanism?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: Preserve the positive repeat-dose establishment and 12-member resistance results. The protocol study
+    compared staged facility cohorts and did not isolate a member-mediated redox mechanism; early colonizers lowering
+    gut redox is proposed. Double inoculation improved YL27 detection while four other strains remained variably
+    undetected. Facility-associated variation persisted, and compositional similarity was not a functional challenge
+    assay. The 2016 primary abstract distinguishes OMM12 resistance from conventional-like resistance of the version
+    expanded by three facultative anaerobes; full infection Methods were not inspected because the publisher provides
+    subscription preview only. Remove the context-only colonization-to-resistance arrow rather than treating the
+    two separate studies as a mediation experiment.
+  attaches_to:
+  - ecological_interactions#Double-Dose OMM12 Engraftment
+  - ecological_interactions#Colonization Resistance Against Salmonella
+  - ecological_interactions#Reproducible Multi-Strain Intestinal Colonization
+curation_history:
+- timestamp: '2026-10-07T04:42:13Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain the repeat-dose intervention and bounded improvement arrow without a biotic-facilitation classification.;
+    Retain resistance while distinguishing 12-member and expanded-community outcomes; remove unisolated competition
+    annotation.; Preserve multisite establishment with qPCR/detection limits; remove the context-only resistance
+    arrow. Issue #1645; reports/causal_graph_review/decisions/20261007-four-records-batch78.yaml'
+  llm_assisted: true
