@@ -5,6 +5,31 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch81: Removal, PHB Production, Methane And Disease Suppression
+
+[Decisions](decisions/20261007-four-records-batch81.yaml),
+[validation](validation-20261007-batch81.json) and
+[self-adversarial review](adversarial-review-20261007-batch81.yaml) account for
+all 13 existing nodes and four arrows, retained with explicit assay and causal
+bounds. Positive pollutant removal, PHB production and stress resilience,
+rice methane and exudate responses, and Panax disease protection remain.
+
+Three primary main texts and their captions were read; PPCP is abstract-only.
+All 28 graph quotations match fresh primary text and unchanged caches. Separate
+supplements, raw data and original figure pixels were not audited. Graph claims
+distinguish measured phenotypes from proposed metabolite exchange, hydrogen
+mediation, oxygen scavenging, systemic resistance and network resilience.
+
+All 920 caches, 456 other records and raw non-graph blocks are preserved. Four
+append-only histories accompany repairs #1668-#1671, which await protected-main
+merge. Research #1672/#1673 and metadata #1674 stay open afterward. One PSY rice
+Edison dry run used no credits; scoped paid authorization is unanswered.
+Self-review is not independent approval or completion of the corpus.
+
+The first regression run passed, but lint caught an unbound loop variable in
+the new test helper. The helper was fixed and the combined suite, Black and Ruff
+rerun; all three earlier outputs, including the failure, remain recorded.
+
 ## Batch80: Vitamins, PET, Catalyst Leaching And Plant Protection
 
 [Decisions](decisions/20261007-four-records-batch80.yaml),

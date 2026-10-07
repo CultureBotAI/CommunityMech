@@ -105,9 +105,12 @@ taxonomy:
     explanation: Identifies Apiotrichum sp. IB-1 as one of the three introduced PPCP-removal SMC members.
 ecological_interactions:
 - name: Simultaneous chloramphenicol-triclocarban-naproxen removal
-  description: The SMC enhanced simultaneous removal of chloramphenicol, triclocarban, and naproxen in both simulated and
-    real wastewater, with removal supported under aerobic and anoxic operation.
-  interaction_type: CROSS_FEEDING
+  description: The introduced Sphingopyxis sp. GC21, Ochrobactrum sp. TCC-2 and Apiotrichum sp. IB-1 SMC enhanced
+    simultaneous chloramphenicol, triclocarban and naproxen removal in simulated and real wastewater. The accessible
+    abstract reports aerobic simulated-wastewater removal of 97.83%, 68.19% and 85.34%, respectively, within 8 h;
+    aerobic real-wastewater values exceeded 70%, and anoxic values exceeded 60% in both matrices. These are aggregate
+    removal outcomes, not complete mineralization, resolved per-strain transformation assignments or demonstrated
+    inter-member metabolite exchange. Indigenous wastewater organisms may contribute.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Sphingopyxis sp. GC21
@@ -144,18 +147,22 @@ ecological_interactions:
   - reference: PMID:42526243
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: "simultaneous removal of three representative PPCPs: chloramphenicol (CAP), triclocarban (TCC), and naproxen (NPX)"
-    explanation: Supports the three PPCP substrates targeted by the constructed SMC.
+    snippet: 'simultaneous removal of three representative PPCPs: chloramphenicol (CAP), triclocarban (TCC), and
+      naproxen (NPX)'
+    explanation: Supports the stated community-level removal condition in the primary abstract; no strain-specific
+      pathway or cross-feeding mechanism is established by this quotation.
   - reference: PMID:42526243
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: reached 97.83% for CAP, 68.19% for TCC, and 85.34% for NPX
-    explanation: Supports aerobic removal of chloramphenicol, triclocarban, and naproxen by the SMC in simulated wastewater.
+    explanation: Supports the stated community-level removal condition in the primary abstract; no strain-specific
+      pathway or cross-feeding mechanism is established by this quotation.
   - reference: PMID:42526243
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Under anoxic conditions, REs exceeded 60% for CAP, TCC and NPX both in SW and RW.
-    explanation: Supports anoxic SMC removal of the three PPCPs in both simulated and real wastewater.
+    explanation: Supports the stated community-level removal condition in the primary abstract; no strain-specific
+      pathway or cross-feeding mechanism is established by this quotation.
 environmental_factors:
 - name: Chloramphenicol, triclocarban, and naproxen PPCP mixture
   value: target PPCPs
@@ -251,30 +258,58 @@ external_resources:
     explanation: Supports the DOI for the primary PPCP wastewater SMC publication.
 discussions:
 - discussion_id: ppcp_wastewater_smc_strain_mechanisms
-  prompt: Which PPCP transformation reactions were carried out by Sphingopyxis sp. GC21, Ochrobactrum sp. TCC-2, Apiotrichum
-    sp. IB-1, and indigenous wastewater members, and what inoculation ratio and medium recipe were used for the simulated-
-    and real-wastewater reactors?
+  prompt: Which PPCP transformation reactions were carried out by Sphingopyxis sp. GC21, Ochrobactrum sp. TCC-2,
+    Apiotrichum sp. IB-1, and indigenous wastewater members, and what inoculation ratio and medium recipe were used
+    for the simulated- and real-wastewater reactors?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - engineering_design
   - ecological_interactions#Simultaneous chloramphenicol-triclocarban-naproxen removal
-  rationale: The accessible PubMed abstract reports the three introduced strains, the three target PPCPs, aerobic and anoxic
-    removal endpoints, and aggregate CAP/TCC/NPX transformation chemistry, but it does not allocate each reaction to a
-    specific strain or report inoculation ratios, wastewater composition, or reactor operating details.
+  rationale: The accessible PubMed abstract reports the three introduced strains, the three target PPCPs, aerobic
+    and anoxic removal endpoints, and aggregate CAP/TCC/NPX transformation chemistry, but it does not allocate each
+    reaction to a specific strain or report inoculation ratios, wastewater composition, or reactor operating details.
+- discussion_id: ppcp-removal-versus-metabolite-exchange
+  prompt: Which introduced and indigenous organisms mediate each transformation, and is metabolite transfer responsible
+    for improved removal?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Simultaneous chloramphenicol-triclocarban-naproxen removal
+  rationale: The abstract reports transformation classes, detoxification and ARG responses, but controls and full-text
+    assays have not been inspected. Genus relative abundances do not establish strain-resolved persistence, and
+    bacterial/fungal fractions need not share a denominator. Preserve removal and the three canonical participants
+    without assigning every reaction to every strain. Authorized full text and scoped extension research remain
+    necessary before adding causal links.
+  evidence:
+  - reference: PMID:42526243
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'simultaneous removal of three representative PPCPs: chloramphenicol (CAP), triclocarban (TCC), and
+      naproxen (NPX)'
+    explanation: Supports the stated community-level removal condition in the primary abstract; no strain-specific
+      pathway or cross-feeding mechanism is established by this quotation.
+  posed_by: codex
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is reported for this PPCP-removal wastewater synthetic community.
 curation_history:
 - timestamp: '2026-09-22T12:06:12Z'
   curator: codex
   action: CREATE_RECORD
-  changes: Created CommunityMech:000420 for the three-member Sphingopyxis sp. GC21, Ochrobactrum sp. TCC-2, and Apiotrichum
-    sp. IB-1 SMC that removes chloramphenicol, triclocarban, and naproxen from simulated and real wastewater in PMID:42526243.
+  changes: Created CommunityMech:000420 for the three-member Sphingopyxis sp. GC21, Ochrobactrum sp. TCC-2, and
+    Apiotrichum sp. IB-1 SMC that removes chloramphenicol, triclocarban, and naproxen from simulated and real wastewater
+    in PMID:42526243.
   llm_assisted: true
 - timestamp: '2026-09-22T12:13:20Z'
   curator: codex
   action: FIX_REVIEW_FINDINGS
-  changes: >-
-    Addressed adversarial-review issues #1048, #1049, and #1050 by removing unsupported taxon-level DOMINANT and
-    PRIMARY_DEGRADER assertions and adding direct engineering evidence for the MGE, pathogen, and ARG measurement endpoint.
+  changes: 'Addressed adversarial-review issues #1048, #1049, and #1050 by removing unsupported taxon-level DOMINANT
+    and PRIMARY_DEGRADER assertions and adding direct engineering evidence for the MGE, pathogen, and ARG measurement
+    endpoint.'
+  llm_assisted: true
+- timestamp: '2026-10-07T06:12:44Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve three-member aggregate removal with aerobic/anoxic matrix boundaries; remove unsupported cross-feeding
+    classification. Issue #1668; reports/causal_graph_review/decisions/20261007-four-records-batch81.yaml'
   llm_assisted: true
