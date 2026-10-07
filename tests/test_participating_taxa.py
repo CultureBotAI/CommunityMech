@@ -399,6 +399,7 @@ USERS = {
     "Salar_Atacama_Lithium_Brine_Community.yaml",
     "Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml",
     "Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml",
+    "Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml",
     "Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml",
     "Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.yaml",
     "Sichuan_Shai_Vinegar_Yeast_Flavor_SynCom.yaml",

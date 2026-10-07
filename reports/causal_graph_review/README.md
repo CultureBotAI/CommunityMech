@@ -1143,3 +1143,21 @@ Caches and non-graph blocks are unchanged, not recertified. No new topology,
 experimental instructions or provider spend. Repairs #1784-#1787 await protected
 main merge; non-graph #1788, cache provenance #1789 and re-evidencing #765 stay
 open. Self-review is not independent approval or corpus completion.
+
+## Batch100: Process Outcomes And Mechanism Bounds
+
+[Decisions](decisions/20261007-four-records-batch100.yaml),
+[validation](validation-20261007-batch100.json),
+[cache provenance](cache-provenance-20261007-batch100.json) and
+[self-adversarial review](adversarial-review-20261007-batch100.yaml) cover the
+sedimenting yeast coculture and three Shewanella community records.
+Twelve of fourteen nodes and four of five directions remain. Measured
+conversion, nitrogen-removal and current outcomes are preserved; workflow,
+statistical complementarity and transcript associations are distinguished
+from isolated ecological mechanisms. One 15-word primary quotation is added
+as a selected excerpt, not independent full-text coverage. The independent
+snippet audit continues to exclude it and reports one cache mismatch.
+Non-graph blocks and all other caches remain unchanged, not recertified.
+No new topology or Edison spend. Repairs #1791-#1794 await protected-main
+merge; non-graph #1795 and provenance #1796 stay open. Self-review is not
+independent approval or corpus completion.

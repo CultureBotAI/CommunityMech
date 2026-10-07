@@ -67,7 +67,10 @@ taxonomy:
     explanation: Identifies the engineered arabinose specialist and its sedimenting phenotype.
 ecological_interactions:
 - name: Glucose-Arabinose Substrate Specialization
-  description: The two S. cerevisiae strains occupy distinct metabolic niches as glucose and arabinose specialists during mixed-substrate fermentation.
+  description: The two yeast specialists partition glucose and arabinose use in the tested defined-medium coculture.
+    The slower arabinose conversion is the bottleneck for complete mixed-sugar depletion. This substrate specialization
+    does not itself demonstrate reciprocal facilitation or explain the improvement obtained with selective biomass
+    retention.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   metabolites:
@@ -82,18 +85,21 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Selective Sedimentation Accelerates Mixed-Sugar Conversion
-    description: Assigning arabinose conversion to a specialist makes that slow
-      pentose-fermenting population the rate-limiting target for selective retention
-      between batch cycles.
+    description: 'PARTIAL: separating sugar use makes the slow arabinose specialist a target for selective retention.
+      The faster overall conversion requires the sedimenting phenotype and repeated settling treatment; specialization
+      alone was not shown to cause the batch-time improvement.'
   evidence:
   - reference: PMID:42461012
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Co-cultures of a glucose-specialist S. cerevisiae strain with the sedimenting arabinose specialist on a glucose-arabinose mixture
+    snippet: Co-cultures of a glucose-specialist S. cerevisiae strain with the sedimenting arabinose specialist
+      on a glucose-arabinose mixture
     explanation: Supports the exact two-specialist composition and substrate partitioning.
 - name: Selective Sedimentation Accelerates Mixed-Sugar Conversion
-  description: Retention of the fast-sedimenting arabinose specialist raises its biomass concentration across cycles, shortening coculture batch time and approaching simultaneous sugar depletion.
-  interaction_type: NICHE_PARTITIONING
+  description: Under the reported sequential-batch settling regime, cocultures containing the sedimenting arabinose
+    specialist had a 29% shorter batch time than those with its non-sedimenting counterpart. The authors attribute
+    the improvement to selective biomass retention. This is a process-level conversion outcome, not a separate niche-partitioning
+    interaction or evidence of faster intrinsic growth.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: glucose
@@ -107,9 +113,9 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Near-Simultaneous Mixed-Sugar Depletion
-    description: Extending biomass settling to one hour further retains the slow
-      arabinose specialist and moves the culture toward matched glucose and arabinose
-      depletion.
+    description: Longer settling increased retained biomass and accelerated arabinose conversion, bringing its depletion
+      closer to glucose depletion in the tested sequential-batch coculture. This supports the retention-to-timing
+      direction under the reported treatment, not a universal relation between settling and performance.
   evidence:
   - reference: PMID:42461012
     supports: SUPPORT
@@ -119,13 +125,13 @@ ecological_interactions:
   - reference: PMID:42461012
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Increasing the biomass settling period to 1 h further reduced the batch time to 8.1 ± 0.1 h and resulted in near-simultaneous depletion of both sugars
+    snippet: Increasing the biomass settling period to 1 h further reduced the batch time to 8.1 ± 0.1 h and resulted
+      in near-simultaneous depletion of both sugars
     explanation: Supports the effect of longer settling on batch duration and depletion timing.
 - name: Near-Simultaneous Mixed-Sugar Depletion
-  description: Increasing the settling period to one hour reduced the batch time to
-    8.1 h and produced near-simultaneous depletion of glucose and arabinose in the
-    two-specialist coculture.
-  interaction_type: NICHE_PARTITIONING
+  description: The reported longer-settling treatment yielded near-simultaneous glucose and arabinose depletion
+    and a batch time of 8.1 hours. This is the measured timing outcome of the tested two-specialist process, distinct
+    from the underlying substrate partitioning and not proof of an interstrain benefit.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: glucose
@@ -141,9 +147,10 @@ ecological_interactions:
   - reference: PMID:42461012
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Increasing the biomass settling period to 1 h further reduced the batch time to 8.1 ± 0.1 h and resulted in near-simultaneous depletion of both sugars
-    explanation: Supports matched glucose and arabinose depletion as the downstream
-      process outcome of extending selective sedimentation.
+    snippet: Increasing the biomass settling period to 1 h further reduced the batch time to 8.1 ± 0.1 h and resulted
+      in near-simultaneous depletion of both sugars
+    explanation: Supports matched glucose and arabinose depletion as the downstream process outcome of extending
+      selective sedimentation.
 environmental_factors:
 - name: Mixed-sugar substrate
   value: glucose 10 g/L and arabinose 10 g/L
@@ -247,3 +254,30 @@ external_resources:
     explanation: Supports the related exact-species composition and distinguishes its three-member design.
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare-earth processing role is reported for this mixed-sugar yeast coculture.
+discussions:
+- discussion_id: yeast_graph_evidence_scope
+  prompt: How far does the selective-retention benefit transfer beyond the tested defined-medium process?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The source supports the specialist coculture comparison and settling-associated conversion benefit,
+    but industrial transfer remains conditional. Retain the two existing directions with an explicit limitation
+    on specialization alone as a cause. Do not equate faster batch conversion with faster intrinsic growth or mutualism.
+  evidence:
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: if selective sedimentation of specific slow-fermenting strains can be implemented under relevant process
+      conditions
+    explanation: The authors make process transfer conditional rather than establishing universal performance.
+  attaches_to:
+  - ecological_interactions#Glucose-Arabinose Substrate Specialization
+  - ecological_interactions#Selective Sedimentation Accelerates Mixed-Sugar Conversion
+  - ecological_interactions#Near-Simultaneous Mixed-Sugar Depletion
+curation_history:
+- timestamp: '2026-10-07T22:00:37Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain substrate specialization, with a PARTIAL link to the retention-dependent improvement.; Retain
+    the controlled batch-duration result without an additional niche-partitioning label.; Retain near-simultaneous
+    depletion as a measured process outcome. Issue#1791; reports/causal_graph_review/decisions/20261007-four-records-batch100.yaml
+  llm_assisted: true

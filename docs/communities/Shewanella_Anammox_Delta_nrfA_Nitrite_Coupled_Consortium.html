@@ -630,7 +630,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Delta nrfA Shewanella-Anammox Nitrite Coupled Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -643,8 +643,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -655,7 +655,7 @@
                     <h3>Delta nrfA nitrate-to-nitrite supply for anammox</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Deleting nrfA in S. oneidensis MR-1 blocks terminal DNRA reduction of nitrite to ammonium. In the Delta-B batch cultures this diverted nitrate reduction toward nitrite accumulation, enriched the Brocadia-containing anammox guild, and let the sludge community route ammonium plus nitrite toward total-nitrogen removal instead of losing anammox contribution to excess ammonium production.</p>
+                <p class="prewrap interaction-description">PARTIAL: the nrfA-deficient Shewanella treatment enhanced nitrate-to-nitrite conversion in the sludge consortium, consistent with supplying anammox substrates. Brocadia and anammox-gene enrichment support this interpretation, but final-time metagenomic abundance is not expression or a taxon-resolved flux measurement. Liquid nitrogen profiles do not separately quantify anammox, denitrification and DNRA contributions or establish that all removed nitrogen followed the proposed pairwise route.</p>
 
 
                 <p><strong>Source Taxon:</strong> Delta nrfA Shewanella oneidensis MR-1</p>
@@ -761,9 +761,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Mutant dosage window for anammox performance</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">Adding a small Delta nrfA S. oneidensis MR-1 inoculum to anammox sludge improved nitrogen-removal kinetics, but increasing the mutant culture fraction caused nitrite and ammonium accumulation patterns consistent with reduced anammox contribution. The optimal Delta B1 treatment kept 25 mL anammox sludge with 5 mL mutant culture in 500 mL total liquid, a 5:1 sludge-to-mutant culture-volume ratio.</p>
+                <p class="prewrap interaction-description">The tested mutant-addition series showed context-dependent nitrogen-removal performance, with the reported 5:1 sludge-to-mutant culture-volume treatment reaching 97% total-nitrogen removal. Higher mutant culture fractions had less favorable ammonium/nitrite profiles. HYPOTHESIZED: the authors attribute this pattern partly to ecological competition, but the comparisons do not isolate competition from other community and substrate effects. The ratio is a culture-volume ratio, not a cell-number ratio or universal optimum.</p>
 
 
 
@@ -878,7 +877,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -938,6 +937,41 @@
                         </div>
                         <p class="snippet small prewrap">future research could carry out isotope labeling tests to quantitatively differentiate the contribution of anammox, denitrification, and DNRA</p>
                         <p class="muted small prewrap">Names the unresolved isotope-flux attribution gap.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which mechanisms account for the mutant-addition performance gradient?
+                </h3>
+                <p class="prewrap">The dose-response outcome is measured, while competition for ecological niches is an interpretation of mixed-sludge chemistry and community profiles. The existing discussion already records unresolved pathway flux and continuous-reactor stability. Neither bulk removal nor gene abundance identifies a unique inhibitory mechanism at higher mutant fractions.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Delta nrfA nitrate-to-nitrite supply for anammox</code>, <code>ecological_interactions#Mutant dosage window for anammox performance</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42655905/" rel="nofollow noreferrer">PMID:42655905</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">an excessive proportion of ΔnrfA S. oneidensis MR‐1 could compete with anammox bacteria for ecological niches</p>
+                        <p class="muted small prewrap">Supports an explicitly proposed competition interpretation, not an isolated competitive mechanism.</p>
                     </div>
 
                 </details>
@@ -1464,7 +1498,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
