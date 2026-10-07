@@ -998,3 +998,17 @@ claim of main-text access. Canonical taxonomy and other non-graph fields are
 preserved, not certified; missing participant support is exposed rather than
 silently credited. Repairs #1711-#1714 await protected-main merge; research
 #1715 and metadata #1716 remain open. One Edison dry run, no paid submission.
+
+## Batch92: Hypotheses And Outcome Boundaries
+
+[Decisions](decisions/20261007-four-records-batch92.yaml),
+[validation](validation-20261007-batch92.json) and
+[self-adversarial review](adversarial-review-20261007-batch92.yaml) cover Pu'er,
+QY2-S1, SCDY1 and RH1. Five nodes remain; one unsupported RH1 carbon-fate
+arrow is removed. Pu'er's association-only record is unchanged. QY2 support
+is an explicit hypothesis, SCDY1 plant benefit is not reciprocal fitness,
+and RH1's processed-sample TOC endpoint is not a closed carbon balance.
+Two fresh primary main bodies, one existing primary full-text extraction
+and two SCDY1 abstract versions were read. A selected cache excerpt is not
+independent source verification. No new topology or Edison spend; repairs
+#1746-#1748 await protected-main merge. Self-review is not independent approval.

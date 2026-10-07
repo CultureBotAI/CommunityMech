@@ -138,10 +138,11 @@ taxonomy:
     explanation: Identifies Streptomyces griseoincarnatus SC as an RH1 member.
 ecological_interactions:
 - name: RH1 glyphosate biodegradation
-  description: The four Streptomyces members were compatible in the antagonism assay and, as the RH1 mixed culture, degraded
-    glyphosate at all tested initial concentrations. At 50 mg/L glyphosate, RH1 exceeded the previously reported single-strain
-    removal and TOC-reduction rates. Pairwise exchange metabolites and glyphosate-catabolic genes were not directly resolved.
-  interaction_type: MUTUALISM
+  description: The four Streptomyces members were compatible in the antagonism assay and, as the RH1 mixed culture,
+    degraded glyphosate at all tested initial concentrations. At 50 mg/L glyphosate, RH1 exceeded the previously
+    reported single-strain removal and TOC-reduction rates. Pairwise exchange metabolites and glyphosate-catabolic
+    genes were not directly resolved. Compatibility and greater aggregate performance do not establish reciprocal
+    fitness benefits among the four members.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: glyphosate
@@ -153,32 +154,30 @@ ecological_interactions:
     term:
       id: GO:0006805
       label: xenobiotic metabolic process
-  downstream:
-  - target: RH1 total organic carbon reduction
-    description: Glyphosate transformation by the mixed RH1 culture reduced TOC after 15 days at 50 mg/L initial glyphosate.
   evidence:
   - reference: PMID:42582159
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The antagonism test of strains Herb, IT, SC, and SPA2 showed a negative result, which explains that these actinobacterial
-      strains could be cultured together to form the consortium RH1.
+    snippet: The antagonism test of strains Herb, IT, SC, and SPA2 showed a negative result, which explains that
+      these actinobacterial strains could be cultured together to form the consortium RH1.
     explanation: Supports compatibility among the four Streptomyces members before glyphosate-degradation testing.
   - reference: PMID:42582159
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The consortium RH1 degraded 92.06% of the initial glyphosate concentration (50 mg/L) within 15 days under optimal
-      conditions (Temperature 30 °C, pH 7.2, and inoculum volume 4%).
+    snippet: The consortium RH1 degraded 92.06% of the initial glyphosate concentration (50 mg/L) within 15 days
+      under optimal conditions (Temperature 30 °C, pH 7.2, and inoculum volume 4%).
     explanation: Supports the RH1 degradation endpoint and its comparison concentration.
   - reference: PMID:42582159
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: This rate of biodegradation is maximal compared to the single strains Herb, IT, SC, and SPA2, which degraded
-      78.36%, 48.82%, 73.56%, and 68.22% respectively, at the same conditions
+    snippet: This rate of biodegradation is maximal compared to the single strains Herb, IT, SC, and SPA2, which
+      degraded 78.36%, 48.82%, 73.56%, and 68.22% respectively, at the same conditions
     explanation: Supports the consortium-level improvement over the four individual members.
 - name: RH1 total organic carbon reduction
-  description: At 50 mg/L initial glyphosate, the RH1 consortium removed 91.03% of measured total organic carbon over the
-    15-day incubation, supporting substantial transformation of glyphosate-derived organic carbon.
-  interaction_type: MUTUALISM
+  description: At 50 mg/L initial glyphosate, RH1 showed a 91.03% decrease in measured total organic carbon after
+    15 days. TOC was measured after centrifugation and filtration. This positive processed-sample endpoint does
+    not distinguish mineralization from biomass incorporation or other carbon partitioning, and does not independently
+    establish a direct glyphosate-transformation-to-TOC causal link.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: glyphosate
@@ -189,10 +188,11 @@ ecological_interactions:
   - reference: PMID:42582159
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The results of the reduction of total organic carbon by the actinobacteria consortium RH1, using glyphosate as
-      the sole carbon source at a concentration of 50 mg/L, showed that the consortium was able to eliminate 91.03% of the
-      total organic carbon during a 15-day incubation period.
-    explanation: Supports TOC reduction by RH1 at the 50 mg/L glyphosate comparison point.
+    snippet: The results of the reduction of total organic carbon by the actinobacteria consortium RH1, using glyphosate
+      as the sole carbon source at a concentration of 50 mg/L, showed that the consortium was able to eliminate
+      91.03% of the total organic carbon during a 15-day incubation period.
+    explanation: Supports the reported TOC decrease; methods 2.4 establish that samples were centrifuged and filtered,
+      so this is not a closed carbon-balance measurement.
 environmental_factors:
 - name: Initial glyphosate concentration range
   value: 1, 10, 25, 50, 100, and 200
@@ -343,20 +343,48 @@ discussions:
   status: OPEN
   attaches_to:
   - ecological_interactions#RH1 glyphosate biodegradation
-  rationale: The paper explains that glyphosate degradation can proceed through the AMPA and sarcosine pathways and proposes
-    phnJ, dadA, and soxA as future molecular targets; the authors state that functional genes were not directly characterized
-    in this study. The RH1 record therefore asserts only the observed degradation, TOC, ATR-FTIR, and kinetic endpoints.
+  rationale: The paper explains that glyphosate degradation can proceed through the AMPA and sarcosine pathways
+    and proposes phnJ, dadA, and soxA as future molecular targets; the authors state that functional genes were
+    not directly characterized in this study. The RH1 record therefore asserts only the observed degradation, TOC,
+    ATR-FTIR, and kinetic endpoints.
   evidence:
   - reference: PMID:42582159
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Although functional genes were not directly characterized in this study, the observed biodegradation behavior
-      strongly indicates the involvement of conserved phosphonate-degrading genetic systems, warranting future molecular analyses
-      targeting genes such as phnJ, dadA, and soxA.
+    snippet: Although functional genes were not directly characterized in this study, the observed biodegradation
+      behavior strongly indicates the involvement of conserved phosphonate-degrading genetic systems, warranting
+      future molecular analyses targeting genes such as phnJ, dadA, and soxA.
     explanation: Supports leaving the proposed glyphosate-pathway genes as an open mechanistic gap.
+- discussion_id: rh1_fitness_and_carbon_fate
+  prompt: How are member fitness benefits and glyphosate-derived carbon partitioned in RH1?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#RH1 glyphosate biodegradation
+  - ecological_interactions#RH1 total organic carbon reduction
+  rationale: The negative antagonism test demonstrates compatibility, not MUTUALISM. The single-strain comparisons
+    cite earlier work, and consortium-level growth/removal does not measure each member benefit. Glyphosate removal,
+    ATR-FTIR changes and TOC decline remain positive observations, but centrifuged/filtered TOC does not resolve
+    mineralization versus biomass or other partitioning. The stoichiometric reaction is predicted, not an empirical
+    carbon balance. The direct arrow between the two outcome nodes is removed while both endpoints and the existing
+    unresolved-gene discussion are preserved.
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After 15 days of incubation, samples were centrifuged, filtered, and diluted before analysis
+    explanation: Methods 2.4 delimit the measured TOC fraction; this preparation does not itself resolve the missing
+      carbon fate.
 curation_history:
 - timestamp: '2026-09-13T12:33:33Z'
   curator: claude
   action: CREATE_RH1_GLYPHOSATE_CONSORTIUM
   changes: Created the RH1 Glyphosate Streptomyces Consortium record from PMID:42582159.
+  llm_assisted: true
+- timestamp: '2026-10-07T14:46:11Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain consortium glyphosate removal and compatibility, remove unsupported MUTUALISM and the unproven
+    carbon-fate arrow.; Retain the 91.03% processed-sample TOC endpoint without MUTUALISM or treating it as measured
+    mineralization or a closed carbon balance. Issue #1748; reports/causal_graph_review/decisions/20261007-four-records-batch92.yaml'
   llm_assisted: true
