@@ -82,10 +82,10 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Methylocystis Hypoxic Methane Oxidation
-  description: Under hypoxic methane-fed conditions, Methylocystis is the core
-    microorganism oxidizing methane and initiating electron flow toward Cr(VI)
-    reduction.
-  interaction_type: CROSS_FEEDING
+  description: MAG analysis assigned Methylocystis, reported at 6.30% abundance, as the methane-oxidizing core under
+    hypoxic conditions. This is the source's taxon assignment, not an isolated-strain electron-flux measurement
+    or proof that only this genus oxidizes methane. Hypoxia does not make this an established oxygen-independent
+    methane pathway; the study describes aerobic methanotrophs under low oxygen.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Methylocystis sp.
@@ -104,23 +104,22 @@ ecological_interactions:
       label: methane metabolic process
   downstream:
   - target: Extracellular Electron Transfer to Cr(VI)
-    description: Hypoxic methane oxidation by Methylocystis supplies electrons that
-      reach Cr(VI) through extracellular electron transfer mediated by c-type
-      cytochromes, conductive pili, and dominant partner genera.
+    description: PARTIAL - methane oxidation can supply reducing equivalents for the proposed EET routes. Inhibiting
+      oxidation reduced Cr(VI) reduction, supporting functional coupling, but the abstract does not resolve how
+      much reaches chromium through Methylocystis cytochromes/pili versus partner-associated routes.
   evidence:
   - reference: PMID:41932525
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: under hypoxic conditions, Methylocystis (6.30%) was the core microorganism driving
-      methane oxidation
-    explanation: Supports Methylocystis as the methane-oxidizing core taxon in the
-      hypoxic Cr(VI)-reducing SynCom.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: under hypoxic conditions, Methylocystis (6.30%) was the core microorganism driving methane oxidation
+    explanation: MAG-based assignment in the experimental enrichment, not a purified-strain flux or exclusive functional
+      attribution.
 - name: Extracellular Electron Transfer to Cr(VI)
-  description: Methylocystis achieves extracellular electron transfer through
-    multiheme c-type cytochromes and conductive pili or jointly with dominant
-    Hyphomicrobium and Thiobacillus partners, coupling methane oxidation to Cr(VI)
-    reduction.
-  interaction_type: SYNTROPHY
+  description: The source proposes Methylocystis EET via multiheme c-type cytochromes and conductive pili, or jointly
+    with dominant Hyphomicrobium and Thiobacillus. Preserve these alternative route assignments from MAG/multi-omics
+    analysis, not a single demonstrated serial transfer chain, obligatory syntrophy, measured metabolite exchange
+    or selective proof of each protein and partner. The three named genera are a reported subset of the enrichment,
+    not its complete composition or a verified three-isolate coculture.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Methylocystis sp.
@@ -144,6 +143,8 @@ ecological_interactions:
     term:
       id: CHEBI:35404
       label: chromate(2-)
+    notes: Canonical chromate representation of reported Cr(VI); exact challenge salt/speciation is not established
+      by the abstract.
   biological_processes:
   - preferred_term: electron transport chain
     term:
@@ -155,23 +156,25 @@ ecological_interactions:
       label: methane metabolic process
   downstream:
   - target: Methane-Driven Chromium Reduction
-    description: Extracellular electron transfer from methane oxidation connects the
-      methane-oxidizing core and partner genera to Cr(VI) reduction in the
-      chromium-removing SynCom.
+    description: PARTIAL - proposed extracellular transfer could deliver methane-derived electrons to Cr(VI). Positive
+      removal and the methane-inhibition result support coupling, not selective demonstration that this EET route
+      is the sole mediator; inhibitor specificity and route-specific controls require the unavailable Methods.
   evidence:
   - reference: PMID:41932525
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: It achieved extracellular electron transfer (EET) through multiheme c-type cytochromes
-      and conductive pili, or jointly with dominant genera such as Hyphomicrobium and
-      Thiobacillus, to couple methane oxidation with Cr(VI) reduction.
-    explanation: Supports the extracellular electron-transfer module linking methane
-      oxidation to Cr(VI) reduction in the three-genus consortium.
+    snippet: It achieved extracellular electron transfer (EET) through multiheme c-type cytochromes and conductive
+      pili, or jointly with dominant genera such as Hyphomicrobium and Thiobacillus, to couple methane oxidation
+      with Cr(VI) reduction.
+    explanation: Source-reported alternative EET routes from community/MAG evidence. Abstract scope does not resolve
+      partner-specific transfer, cytochrome/pilus necessity or flux allocation.
 - name: Methane-Driven Chromium Reduction
-  description: The SynCom couples methane oxidation with Cr(VI) reduction through
-    extracellular electron transfer and a quorum-sensing, methane-metabolism, ABC
-    transporter, and porin expression program.
-  interaction_type: CROSS_FEEDING
+  description: The enrichment reached a maximum reported Cr(VI) removal load of 20.63 mg/L/d. Inhibiting methane
+    oxidation reduced Cr(VI)-reduction efficiency, a positive perturbation result supporting coupling. Omics associated
+    the system with quorum-sensing and methane-metabolism proteins, ABC substrate-binding protein and porin expression;
+    these are not selectively established mediators. The abstract does not resolve inhibitor off-target effects,
+    chromium mass balance, exact reduced-product speciation, or each genus' share. Named participants are a subset,
+    not a tested minimal consortium.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methane
@@ -182,6 +185,8 @@ ecological_interactions:
     term:
       id: CHEBI:35404
       label: chromate(2-)
+    notes: Canonical chromate representation of reported Cr(VI); exact challenge salt/speciation is not established
+      by the abstract.
   biological_processes:
   - preferred_term: methane metabolic process
     term:
@@ -191,30 +196,39 @@ ecological_interactions:
     term:
       id: GO:0022900
       label: electron transport chain
-  - preferred_term: quorum sensing
-    term:
-      id: GO:0009372
-      label: quorum sensing
   evidence:
-  - *id001
   - reference: PMID:41932525
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: to couple methane oxidation with Cr(VI) reduction
-    explanation: Supports methane as the oxidized electron donor and Cr(VI) as
-      the reduced chromium species in the community-level electron-transfer process.
+    explanation: Supports methane as the oxidized electron donor and Cr(VI) as the reduced chromium species in the
+      community-level electron-transfer process.
   - reference: PMID:41932525
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: significant enrichment of differentially expressed proteins involved in quorum
-      sensing and methane metabolism
-    explanation: Supports quorum sensing and methane metabolism as enriched protein
-      functions in the Cr(VI)-reducing SynCom.
+    snippet: significant enrichment of differentially expressed proteins involved in quorum sensing and methane
+      metabolism
+    explanation: Supports differential protein enrichment, not demonstrated quorum-sensing mediation of chromium
+      reduction.
   - reference: PMID:41932525
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: inhibiting the methane oxidation would directly reduce the efficiency of Cr(VI) reduction
-    explanation: Supports methane oxidation as the upstream driver of Cr(VI) reduction efficiency.
+    explanation: Supports the positive methane-oxidation inhibition result; specificity and route-level mediation
+      cannot be assessed from the abstract alone.
+  participating_taxa:
+  - preferred_term: Methylocystis sp.
+    term:
+      id: NCBITaxon:133
+      label: Methylocystis
+  - preferred_term: Hyphomicrobium sp.
+    term:
+      id: NCBITaxon:82
+      label: Hyphomicrobium sp.
+  - preferred_term: Thiobacillus sp.
+    term:
+      id: NCBITaxon:919
+      label: Thiobacillus
 environmental_factors:
 - name: defined synthetic community design
   value: SynCom was constructed by controlling methane concentration and chromium load, enriching Methylocystis
@@ -275,3 +289,28 @@ growth_media:
       and chromium load
     explanation: Names methane concentration (headspace substrate) and chromium load as the controlled
       cultivation conditions.
+discussions:
+- discussion_id: methane_chromium_alternative_eet_and_inhibitor_limits
+  prompt: Which EET route mediates methane-linked chromium reduction?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Methylocystis Hypoxic Methane Oxidation
+  - ecological_interactions#Extracellular Electron Transfer to Cr(VI)
+  - ecological_interactions#Methane-Driven Chromium Reduction
+  rationale: 'Retain positive Cr(VI) removal and methane-oxidation inhibition results, with two PARTIAL pathway
+    arrows. MAGs and protein expression do not establish exclusive electron flux through pili, cytochromes or each
+    partner; quorum-sensing enrichment is not a perturbation. Full primary Methods, control specificity, exact chromium
+    chemistry and taxon-specific roles remain unavailable after public publisher requests failed. #1599 repairs
+    existing structure; #1600 retains non-graph enrichment/composition claims and the unresolved canonical Hyphomicrobium
+    grounding. Canonical labels/IDs are preserved, not independently recertified.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-07T01:03:05Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain MAG-associated hypoxic methane oxidation without exclusive genus attribution.; Retain alternative
+    proposed EET routes, not an obligatory serial partner chain.; Retain positive chromium removal and inhibition
+    coupling, not omics-proven mediation. Issue #1599; reports/causal_graph_review/decisions/20261006-four-records-batch70.yaml'
+  llm_assisted: true

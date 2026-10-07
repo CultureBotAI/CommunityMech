@@ -731,7 +731,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Methane-Fed MFC Electrogenesis and Nitrogen-Fixation Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -739,13 +739,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -754,12 +749,27 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Methane-Fed Syntrophic Division of Labor</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">The consortium partitions anaerobic methane oxidation, extracellular electron transfer, and nitrogen fixation while supporting current and ammonium production.</p>
+                <p class="prewrap interaction-description">The methane-fed, nitrogen-limited enrichment generated current and fixed nitrogen. DNA-SIP/sequencing supported the authors&#39; division-of-labor interpretation: Methanobacterium for methane oxidation, Geobacter/Desulfovibrio for EET and Sulfurivermis/Desulfobulbus/Azoarcus for diazotrophy. These six reported functional groups are not a complete roster or a defined six-isolate test. The abstract does not resolve obligatory reciprocal dependence, exact partner exchanges or quantitative pathway shares.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Methanobacterium,
+
+                    Geobacter,
+
+                    Desulfovibrio,
+
+                    Sulfurivermis,
+
+                    Desulfobulbus,
+
+                    Azoarcus
+
+                </p>
 
 
 
@@ -803,10 +813,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Extracellular Electron-Transfer Specialization</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Reported Extracellular Electron-Transfer Guild</h3>
                 </div>
-                <p class="prewrap interaction-description">Geobacter and Desulfovibrio are the genera assigned to extracellular electron transfer in the methane-fed fuel cell.</p>
+                <p class="prewrap interaction-description">DNA-SIP combined with sequencing assigned Geobacter and Desulfovibrio to EET in the enriched methane-fed fuel cell. Retain this reported functional assignment, not direct evidence that every member expresses the same cytochromes, that either genus is individually necessary, or that a measured limited-resource niche was partitioned. Taxon-resolved pathway and inhibitor-control details are unavailable at abstract scope.</p>
 
 
 
@@ -823,17 +832,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
@@ -841,7 +839,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Cytochrome c-Mediated Electrogenesis
-                        <p class="prewrap causal-description">The Geobacter and Desulfovibrio EET guild feeds the cytochrome c-mediated electron-transfer pathway that dominates electrogenesis in the methane-fed fuel cell.</p>
+                        <p class="prewrap causal-description">PARTIAL - the assigned EET guild could contribute to the cytochrome c-associated current pathway. Community electrochemistry and inhibitor results support that pathway, but the accessible abstract does not isolate each genus&#39; contribution or establish an exclusive partner-to-electrode route.</p>
                     </div>
 
                 </div>
@@ -871,9 +869,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Core Diazotroph Specialization</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Sulfurivermis, Desulfobulbus, and Azoarcus form the reported nitrogen-fixing functional group.</p>
+                <p class="prewrap interaction-description">Sulfurivermis, Desulfobulbus and Azoarcus were reported as core diazotrophs based on DNA-SIP/sequencing. This preserves the study&#39;s assignment without equating community-level isotope incorporation with separately measured fixation by each genus or experimental proof of niche partitioning.</p>
 
 
 
@@ -910,8 +907,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Nitrogen Fixation to Ammonium Accumulation
-                        <p class="prewrap causal-description">The Sulfurivermis, Desulfobulbus, and Azoarcus diazotroph guild carries the nitrogen-fixation activity that accumulates ammonium in the methane-fed, nitrogen-limited fuel cell.
-</p>
+                        <p class="prewrap causal-description">PARTIAL - activity of the assigned diazotroph guild could account for fixed nitrogen accumulating in the medium. The 15N2 result demonstrates positive fixation at enrichment level, but contributions of individual genera, release routes and subsequent cross-feeding are not quantified in the abstract.</p>
                     </div>
 
                 </div>
@@ -941,15 +937,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Nitrogen Fixation to Ammonium Accumulation</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">The methane-fed fuel-cell consortium fixed nitrogen under nitrogen-limited operation, incorporating nitrogen-15 and accumulating ammonium in the medium over the 30-day run.
-</p>
+                <p class="prewrap interaction-description">The whole enrichment incorporated supplied 15N2: reported 15N abundances reached 13.55% in biomass and 7.15% in aqueous ammonium. Ammonium accumulated to 0.22 +/- 0.01 mg/L over 30 days. These positive isotope results support biological nitrogen fixation, not merely ammonium accumulation. Participants denote the reported enrichment subset, not six individually proven fixers; the three assigned diazotrophs are distinguished in the guild node. Net accumulation does not equal gross fixation or resolved donor-to-recipient transfer.</p>
 
 
 
 
                 <p><strong>Participating Taxa:</strong>
+
+                    Methanobacterium,
+
+                    Geobacter,
+
+                    Desulfovibrio,
 
                     Sulfurivermis,
 
@@ -999,7 +999,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42551599/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42551599</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Sulfurivermis, Desulfobulbus and Azoarcus acted as the core diazotrophs"</div>
@@ -1026,18 +1026,25 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Cytochrome c-Mediated Electrogenesis</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Cytochrome c-mediated electron transfer was identified as the dominant electrogenic pathway at community level.</p>
+                <p class="prewrap interaction-description">The enrichment reached 1.17 +/- 0.18 mA peak current with 78.1% Coulombic efficiency. Electrochemical and inhibitor assays identified cytochrome c-mediated electron transfer as the dominant pathway, and Raman spectroscopy detected 15N incorporation into cytochrome c. Preserve these positive whole-system results; labeled cytochrome synthesis does not itself demonstrate that newly fixed nitrogen caused increased current, nor assign the entire pathway to the two EET genera. The abstract does not establish an exclusive route or identify all relevant controls.</p>
 
 
 
 
                 <p><strong>Participating Taxa:</strong>
 
+                    Methanobacterium,
+
                     Geobacter,
 
-                    Desulfovibrio
+                    Desulfovibrio,
+
+                    Sulfurivermis,
+
+                    Desulfobulbus,
+
+                    Azoarcus
 
                 </p>
 
@@ -1085,6 +1092,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How are methane oxidation, fixed nitrogen and cytochrome current causally distributed among members?
+                </h3>
+                <p class="prewrap">Positive isotope, current and inhibitor results are retained; both guild-to-endpoint arrows remain PARTIAL. Whole-enrichment endpoints are distinct from DNA-SIP functional assignments. Label incorporation into cytochrome is not a selective test that nitrogen fixation improves current. Full Methods, inhibitor specificity, cross-feeding controls and exact taxon fluxes were unavailable: public publisher links failed, and only the primary abstract was read. #1598 bounds existing nodes/arrows; #1600 retains non-graph roles and protocol uncertainty. No new methane or nitrogen-to-current arrow is asserted.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Methane-Fed Syntrophic Division of Labor</code>, <code>ecological_interactions#Reported Extracellular Electron-Transfer Guild</code>, <code>ecological_interactions#Core Diazotroph Specialization</code>, <code>ecological_interactions#Nitrogen Fixation to Ammonium Accumulation</code>, <code>ecological_interactions#Cytochrome c-Mediated Electrogenesis</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1400,7 +1426,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1426,24 +1452,41 @@
 
 
 
+            var participantKeys = [
+
+                "Methanobacterium",
+
+                "Geobacter",
+
+                "Desulfovibrio",
+
+                "Sulfurivermis",
+
+                "Desulfobulbus",
+
+                "Azoarcus"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
 
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Extracellular Electron-Transfer Specialization",
+                label: "Reported Extracellular Electron-Transfer Guild",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1471,7 +1514,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1514,7 +1557,7 @@
 
         (function() {
             var intId = "interaction:3";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1546,6 +1589,12 @@
 
             var participantKeys = [
 
+                "Methanobacterium",
+
+                "Geobacter",
+
+                "Desulfovibrio",
+
                 "Sulfurivermis",
 
                 "Desulfobulbus",
@@ -1563,7 +1612,7 @@
 
         (function() {
             var intId = "interaction:4";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1589,9 +1638,17 @@
 
             var participantKeys = [
 
+                "Methanobacterium",
+
                 "Geobacter",
 
-                "Desulfovibrio"
+                "Desulfovibrio",
+
+                "Sulfurivermis",
+
+                "Desulfobulbus",
+
+                "Azoarcus"
 
             ];
             participantKeys.forEach(function(key) {

@@ -185,8 +185,11 @@ taxonomy:
     explanation: Supports presence of Azoarcus and its reported nitrogen-fixation role.
 ecological_interactions:
 - name: Methane-Fed Syntrophic Division of Labor
-  description: The consortium partitions anaerobic methane oxidation, extracellular electron transfer, and nitrogen fixation while supporting current and ammonium production.
-  interaction_type: SYNTROPHY
+  description: 'The methane-fed, nitrogen-limited enrichment generated current and fixed nitrogen. DNA-SIP/sequencing
+    supported the authors'' division-of-labor interpretation: Methanobacterium for methane oxidation, Geobacter/Desulfovibrio
+    for EET and Sulfurivermis/Desulfobulbus/Azoarcus for diazotrophy. These six reported functional groups are not
+    a complete roster or a defined six-isolate test. The abstract does not resolve obligatory reciprocal dependence,
+    exact partner exchanges or quantitative pathway shares.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methane
@@ -203,9 +206,36 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: concurrent electrogenesis and BNF via a syntrophic division of labor mechanism
     explanation: Supports the reported community-level syntrophic organization.
-- name: Extracellular Electron-Transfer Specialization
-  description: Geobacter and Desulfovibrio are the genera assigned to extracellular electron transfer in the methane-fed fuel cell.
-  interaction_type: NICHE_PARTITIONING
+  participating_taxa:
+  - preferred_term: Methanobacterium
+    term:
+      id: NCBITaxon:2160
+      label: Methanobacterium
+  - preferred_term: Geobacter
+    term:
+      id: NCBITaxon:28231
+      label: Geobacter
+  - preferred_term: Desulfovibrio
+    term:
+      id: NCBITaxon:872
+      label: Desulfovibrio
+  - preferred_term: Sulfurivermis
+    term:
+      id: NCBITaxon:2034504
+      label: Sulfurivermis
+  - preferred_term: Desulfobulbus
+    term:
+      id: NCBITaxon:893
+      label: Desulfobulbus
+  - preferred_term: Azoarcus
+    term:
+      id: NCBITaxon:12960
+      label: Azoarcus
+- name: Reported Extracellular Electron-Transfer Guild
+  description: DNA-SIP combined with sequencing assigned Geobacter and Desulfovibrio to EET in the enriched methane-fed
+    fuel cell. Retain this reported functional assignment, not direct evidence that every member expresses the same
+    cytochromes, that either genus is individually necessary, or that a measured limited-resource niche was partitioned.
+    Taxon-resolved pathway and inhibitor-control details are unavailable at abstract scope.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Geobacter
@@ -216,16 +246,11 @@ ecological_interactions:
     term:
       id: NCBITaxon:872
       label: Desulfovibrio
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Cytochrome c-Mediated Electrogenesis
-    description: The Geobacter and Desulfovibrio EET guild feeds the cytochrome
-      c-mediated electron-transfer pathway that dominates electrogenesis in the
-      methane-fed fuel cell.
+    description: PARTIAL - the assigned EET guild could contribute to the cytochrome c-associated current pathway.
+      Community electrochemistry and inhibitor results support that pathway, but the accessible abstract does not
+      isolate each genus' contribution or establish an exclusive partner-to-electrode route.
   evidence:
   - reference: PMID:42551599
     supports: SUPPORT
@@ -233,8 +258,9 @@ ecological_interactions:
     snippet: Geobacter and Desulfovibrio specialized in EET
     explanation: Supports assignment of the EET function to these two genera.
 - name: Core Diazotroph Specialization
-  description: Sulfurivermis, Desulfobulbus, and Azoarcus form the reported nitrogen-fixing functional group.
-  interaction_type: NICHE_PARTITIONING
+  description: Sulfurivermis, Desulfobulbus and Azoarcus were reported as core diazotrophs based on DNA-SIP/sequencing.
+    This preserves the study's assignment without equating community-level isotope incorporation with separately
+    measured fixation by each genus or experimental proof of niche partitioning.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Sulfurivermis
@@ -256,10 +282,9 @@ ecological_interactions:
       label: nitrogen fixation
   downstream:
   - target: Nitrogen Fixation to Ammonium Accumulation
-    description: >
-      The Sulfurivermis, Desulfobulbus, and Azoarcus diazotroph guild carries
-      the nitrogen-fixation activity that accumulates ammonium in the
-      methane-fed, nitrogen-limited fuel cell.
+    description: PARTIAL - activity of the assigned diazotroph guild could account for fixed nitrogen accumulating
+      in the medium. The 15N2 result demonstrates positive fixation at enrichment level, but contributions of individual
+      genera, release routes and subsequent cross-feeding are not quantified in the abstract.
   evidence:
   - reference: PMID:42551599
     supports: SUPPORT
@@ -267,13 +292,25 @@ ecological_interactions:
     snippet: Sulfurivermis, Desulfobulbus and Azoarcus acted as the core diazotrophs
     explanation: Supports the reported diazotrophic functional group.
 - name: Nitrogen Fixation to Ammonium Accumulation
-  description: >
-    The methane-fed fuel-cell consortium fixed nitrogen under nitrogen-limited
-    operation, incorporating nitrogen-15 and accumulating ammonium in the
-    medium over the 30-day run.
-  interaction_type: SYNTROPHY
+  description: 'The whole enrichment incorporated supplied 15N2: reported 15N abundances reached 13.55% in biomass
+    and 7.15% in aqueous ammonium. Ammonium accumulated to 0.22 +/- 0.01 mg/L over 30 days. These positive isotope
+    results support biological nitrogen fixation, not merely ammonium accumulation. Participants denote the reported
+    enrichment subset, not six individually proven fixers; the three assigned diazotrophs are distinguished in the
+    guild node. Net accumulation does not equal gross fixation or resolved donor-to-recipient transfer.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
+  - preferred_term: Methanobacterium
+    term:
+      id: NCBITaxon:2160
+      label: Methanobacterium
+  - preferred_term: Geobacter
+    term:
+      id: NCBITaxon:28231
+      label: Geobacter
+  - preferred_term: Desulfovibrio
+    term:
+      id: NCBITaxon:872
+      label: Desulfovibrio
   - preferred_term: Sulfurivermis
     term:
       id: NCBITaxon:2034504
@@ -302,20 +339,28 @@ ecological_interactions:
       label: nitrogen fixation
   evidence:
   - reference: PMID:42551599
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: Sulfurivermis, Desulfobulbus and Azoarcus acted as the core diazotrophs
-    explanation: Supports the functional guild assigned to biological nitrogen fixation.
+    explanation: Supports the assigned guild only; the abstract separately reports 15N2 incorporation into biomass
+      and aqueous ammonium, establishing the whole-enrichment fixation outcome, not each genus' flux.
   - reference: PMID:42551599
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: ammonium in the medium accumulated to 0.22 ± 0.01 mg/L over a 30-day operation
     explanation: Supports ammonium accumulation as the measured nitrogen-fixation endpoint.
 - name: Cytochrome c-Mediated Electrogenesis
-  description: Cytochrome c-mediated electron transfer was identified as the dominant electrogenic pathway at community level.
-  interaction_type: SYNTROPHY
+  description: The enrichment reached 1.17 +/- 0.18 mA peak current with 78.1% Coulombic efficiency. Electrochemical
+    and inhibitor assays identified cytochrome c-mediated electron transfer as the dominant pathway, and Raman spectroscopy
+    detected 15N incorporation into cytochrome c. Preserve these positive whole-system results; labeled cytochrome
+    synthesis does not itself demonstrate that newly fixed nitrogen caused increased current, nor assign the entire
+    pathway to the two EET genera. The abstract does not establish an exclusive route or identify all relevant controls.
   scope: COMMUNITY_LEVEL
   participating_taxa:
+  - preferred_term: Methanobacterium
+    term:
+      id: NCBITaxon:2160
+      label: Methanobacterium
   - preferred_term: Geobacter
     term:
       id: NCBITaxon:28231
@@ -324,6 +369,18 @@ ecological_interactions:
     term:
       id: NCBITaxon:872
       label: Desulfovibrio
+  - preferred_term: Sulfurivermis
+    term:
+      id: NCBITaxon:2034504
+      label: Sulfurivermis
+  - preferred_term: Desulfobulbus
+    term:
+      id: NCBITaxon:893
+      label: Desulfobulbus
+  - preferred_term: Azoarcus
+    term:
+      id: NCBITaxon:12960
+      label: Azoarcus
   biological_processes:
   - preferred_term: electron transport chain
     term:
@@ -333,7 +390,8 @@ ecological_interactions:
   - reference: PMID:42551599
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: electrochemical analyses and inhibitor assays identified cytochrome c-mediated electron transfer as the dominant pathway for electrogenesis
+    snippet: electrochemical analyses and inhibitor assays identified cytochrome c-mediated electron transfer as
+      the dominant pathway for electrogenesis
     explanation: Supports the experimentally identified electron-transfer mechanism.
 environmental_factors:
 - name: Carbon and nitrogen regime
@@ -399,3 +457,32 @@ external_resources:
     explanation: Links the publication to the reported community composition and roles.
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare-earth processing role is reported for this methane-fed microbial fuel-cell consortium.
+discussions:
+- discussion_id: methane_mfc_taxon_flux_and_control_resolution
+  prompt: How are methane oxidation, fixed nitrogen and cytochrome current causally distributed among members?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Methane-Fed Syntrophic Division of Labor
+  - ecological_interactions#Reported Extracellular Electron-Transfer Guild
+  - ecological_interactions#Core Diazotroph Specialization
+  - ecological_interactions#Nitrogen Fixation to Ammonium Accumulation
+  - ecological_interactions#Cytochrome c-Mediated Electrogenesis
+  rationale: 'Positive isotope, current and inhibitor results are retained; both guild-to-endpoint arrows remain
+    PARTIAL. Whole-enrichment endpoints are distinct from DNA-SIP functional assignments. Label incorporation into
+    cytochrome is not a selective test that nitrogen fixation improves current. Full Methods, inhibitor specificity,
+    cross-feeding controls and exact taxon fluxes were unavailable: public publisher links failed, and only the
+    primary abstract was read. #1598 bounds existing nodes/arrows; #1600 retains non-graph roles and protocol uncertainty.
+    No new methane or nitrogen-to-current arrow is asserted.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-07T01:03:05Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain simultaneous positive endpoints and reported division of labor, not obligatory reciprocal dependence.;
+    Retain SIP-associated EET assignment with incomplete genus-specific causality.; Retain reported diazotroph assignment,
+    not individually quantified fixation.; Retain positive 15N2 incorporation and net ammonium accumulation at enrichment
+    scope.; Retain positive current, cytochrome inhibitor evidence and labeled protein without a new nitrogen-to-current
+    causal claim. Issue #1598; reports/causal_graph_review/decisions/20261006-four-records-batch70.yaml'
+  llm_assisted: true
