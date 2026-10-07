@@ -2,14 +2,14 @@
   "scope": "Every YAML under kb/communities and data/isolates; filesystem discovery includes hidden/ignored files.",
   "semantic_review_rule": "Structural checks and readiness scores do not establish causal support. Completed reviews must match the current record SHA-256, cover every node once with a rationale, and reproduce the current edge list.",
   "records": 460,
-  "nodes": 1438,
-  "edges": 600,
+  "nodes": 1435,
+  "edges": 598,
   "records_without_nodes": 8,
   "records_without_edges": 170,
   "review_status_counts": {
-    "needs_research": 41,
-    "pending": 160,
-    "reviewed": 259
+    "needs_research": 44,
+    "pending": 156,
+    "reviewed": 260
   },
   "structural_defects": [],
   "network_audit": [
@@ -1323,6 +1323,50 @@
         ]
       },
       "message": "Taxon 'Rhizobium selenitireducens' has no interactions",
+      "severity": "warning"
+    },
+    {
+      "record": "Phormidium_Alkaline_Consortium",
+      "type": "DISCONNECTED",
+      "taxon": "Bacteroidota members",
+      "taxon_id": "NCBITaxon:976",
+      "taxon_data": {
+        "taxon_term": {
+          "preferred_term": "Bacteroidota members",
+          "term": {
+            "id": "NCBITaxon:976",
+            "label": "Bacteroidota"
+          },
+          "gtdb_grounding_status": "GROUNDED",
+          "gtdb_classification": {
+            "gtdb_id": "GTDB:p__Bacteroidota",
+            "gtdb_taxon": "Bacteroidota",
+            "gtdb_lineage": "d__Bacteria;p__Bacteroidota",
+            "ncbi_source_id": "NCBITaxon:976",
+            "majority_fraction": 0.999,
+            "support_genomes": 151365,
+            "total_genomes": 151454,
+            "is_reclassified": false,
+            "mapping_source": "kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 5 GTDB taxa under the NCBI taxon]"
+          },
+          "notes": "Multiple heterotrophic Bacteroidota species present in the consortium. These organisms contribute to organic matter degradation, polysaccharide utilization, and nutrient cycling. They occupy ecological niches related to fermentation product utilization and compatible solute metabolism.\n"
+        },
+        "functional_role": [
+          "PRIMARY_DEGRADER",
+          "SECONDARY_FERMENTER"
+        ],
+        "abundance_level": "COMMON",
+        "evidence": [
+          {
+            "reference": "doi:10.3389/fmicb.2022.780346",
+            "supports": "SUPPORT",
+            "evidence_source": "IN_VITRO",
+            "snippet": "Using shotgun metagenomic sequencing, 29 heterotrophic metagenome-assembled-genomes (MAGs) were retrieved and were assigned to Bacteroidota, Alphaproteobacteria, Gammaproteobacteria, Verrucomicrobiota, Patescibacteria, Planctomycetota, and Archaea",
+            "explanation": "Documents presence of diverse Bacteroidota in the heterotrophic community"
+          }
+        ]
+      },
+      "message": "Taxon 'Bacteroidota members' has no interactions",
       "severity": "warning"
     },
     {

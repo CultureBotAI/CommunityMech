@@ -206,15 +206,10 @@ taxonomy:
     explanation: Documents Planctomycetes role in polymer degradation
 ecological_interactions:
 - name: Photosynthetic CO2 Fixation
-  description: 'Candidatus Phormidium alkaliphilum fixes atmospheric CO2 through oxygenic photosynthesis
-    at extremely high pH (>11). The alkaline conditions permit direct CO2 capture from air without acidification
-    issues common in neutral pH cultures. Fixed carbon is incorporated into biomass and also released
-    as dissolved organic matter (DOM) through multiple pathways including active excretion, osmotic shock
-    response, membrane vesicle release, and cell lysis. This DOM production supports the diverse heterotrophic
-    community.
-
-    '
-  interaction_type: CROSS_FEEDING
+  description: Ca. P. alkaliphilum is the primary producer in this alkaline consortium. Label from supplied 13C-bicarbonate
+    entered cyanobacterial proteins and subsequently heterotrophic proteins. Preserve photosynthetic carbon input
+    without assigning every proposed release route (excretion, vesicles, lysis or osmotic shock) as measured in
+    this community, or treating all cultures as uniformly above pH 11.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Candidatus Phormidium alkaliphilum
@@ -226,12 +221,11 @@ ecological_interactions:
     term:
       id: CHEBI:16526
       label: carbon dioxide
-    concentration: Direct capture from air at pH >11
   - preferred_term: dissolved organic matter
     term:
       id: CHEBI:50860
       label: organic molecular entity
-    concentration: Released through excretion, lysis, and vesicle production
+    notes: Generic organic-carbon pool; the exchanged compounds and release routes were not resolved by protein/SIP.
   biological_processes:
   - preferred_term: photosynthesis
     term:
@@ -243,194 +237,58 @@ ecological_interactions:
       label: carbon fixation
   downstream:
   - target: Carbon Transfer to Heterotrophs
-    description: Fixed carbon flows from cyanobacteria to heterotrophic populations
+    description: Cyanobacterial fixation supplies carbon subsequently incorporated into heterotrophic proteins,
+      as supported by 13C-bicarbonate protein/SIP. Preserve this experimental donor-to-heterotroph direction without
+      claiming that labeling identifies the exact exchanged compounds or a trophic cascade.
   evidence:
   - reference: doi:10.3389/fmicb.2022.780346
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: tight coupling of carbon transfer from cyanobacteria to the heterotrophic populations
-    explanation: Establishes the primary carbon fixation mechanism at alkaline pH
+    explanation: The primary protein/SIP results support transfer of photosynthetically fixed carbon; they do not
+      resolve the release route.
 - name: Carbon Transfer to Heterotrophs
-  description: 'Heterotrophic bacteria, particularly Wenzhouxiangella species, assimilate organic carbon
-    released by cyanobacteria. Stable isotope probing with ¹³C-bicarbonate combined with proteomics revealed
-    tight coupling of carbon flow from autotrophs to heterotrophs. The heterotrophic community utilizes
-    six main ecological niches: (1) phototrophy using unused solar energy, (2) fermentation products (formate,
-    acetate, lactate, ethanol, H₂), (3) compatible solutes released during osmotic stress, (4) storage
-    compounds, (5) cell wall polysaccharides, and (6) dead cell biomass. Despite this carbon consumption,
-    productivity losses to heterotrophs are relatively small compared to other photosynthetic losses.
-
-    '
+  description: Protein/SIP supports cyanobacterial carbon transfer to heterotrophs, with strong peptide coverage
+    for Wenzhouxiangella MAG57 and Phycisphaerales MAG34. These populations lagged cyanobacterial labeling, consistent
+    with use of macromolecular carbon; specific protein/glycogen transfer remains an interpretation. Planctomycetota
+    is the existing broad canonical grounding for MAG34, not evidence that every member of that phylum participates.
+    Do not assign all proposed fermentation products to Wenzhouxiangella or infer nutrient return and reciprocal
+    fitness from carbon uptake.
   interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Candidatus Phormidium alkaliphilum
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: doi:10.3389/fmicb.2022.780346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: tight coupling of carbon transfer from cyanobacteria to the heterotrophic populations
+    explanation: Experimental labeling supports carbon flow; full Figure 4 distinguishes the two major heterotrophic
+      populations from lower-peptide populations.
+  participating_taxa:
+  - preferred_term: Candidatus Phormidium alkaliphilum
     term:
       id: NCBITaxon:1807132
       label: Candidatus Phormidium alkaliphilum
-  target_taxon:
-    preferred_term: Wenzhouxiangella sp.
+  - preferred_term: Wenzhouxiangella sp.
     term:
       id: NCBITaxon:1979961
       label: Wenzhouxiangella sp.
-  metabolites:
-  - preferred_term: formate
-    term:
-      id: CHEBI:15740
-      label: formate
-  - preferred_term: acetate
-    term:
-      id: CHEBI:30089
-      label: acetate
-  - preferred_term: lactate
-    term:
-      id: CHEBI:24996
-      label: lactate
-  - preferred_term: ethanol
-    term:
-      id: CHEBI:16236
-      label: ethanol
-  - preferred_term: dihydrogen
-    term:
-      id: CHEBI:18276
-      label: dihydrogen
-  downstream:
-  - target: Nutrient Remineralization
-    description: Heterotrophs remineralize nutrients for cyanobacterial reuse
-  evidence:
-  - reference: doi:10.3389/fmicb.2022.780346
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: tight coupling of carbon transfer from cyanobacteria to the heterotrophic populations
-    explanation: Direct evidence of carbon transfer using isotope labeling
-- name: Nutrient Remineralization
-  description: 'Heterotrophic bacteria remineralize nutrients from complex organic matter, returning inorganic
-    nutrients to the cyanobacterial primary producer. This includes breakdown of biopolymers using extracellular
-    enzymes. The recycling of nutrients helps sustain long-term community productivity and stability.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Bacteroidota members
-    term:
-      id: NCBITaxon:976
-      label: Bacteroidota
-  target_taxon:
-    preferred_term: Candidatus Phormidium alkaliphilum
-    term:
-      id: NCBITaxon:1807132
-      label: Candidatus Phormidium alkaliphilum
-  metabolites:
-  - preferred_term: inorganic nutrient
-    term:
-      id: CHEBI:33284
-      label: nutrient
-  biological_processes:
-  - preferred_term: nutrient cycling
-    term:
-      id: GO:0033013
-      label: tetrapyrrole metabolic process
-  downstream:
-  - target: Vitamin and Cofactor Exchange
-    description: Remineralization supports vitamin production pathways
-  evidence:
-  - reference: doi:10.3389/fmicb.2022.780346
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: tight coupling of carbon transfer from cyanobacteria to the heterotrophic populations
-    explanation: Documents nutrient recycling by heterotrophs
-- name: Vitamin and Cofactor Exchange
-  description: 'Heterotrophic community members provide essential vitamins to the cyanobacterium, including
-    cobalamin (vitamin B12), thiamine (vitamin B1), and biotin (vitamin B7). These vitamins are essential
-    cofactors that many cyanobacteria cannot synthesize. Heterotrophs also produce siderophores that increase
-    iron solubility and availability in the alkaline environment, addressing a key nutrient limitation.
-    This metabolic cooperation represents a critical mutualistic exchange supporting community stability.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Bacteroidota members
-    term:
-      id: NCBITaxon:976
-      label: Bacteroidota
-  target_taxon:
-    preferred_term: Candidatus Phormidium alkaliphilum
-    term:
-      id: NCBITaxon:1807132
-      label: Candidatus Phormidium alkaliphilum
-  metabolites:
-  - preferred_term: cobalamin
-    term:
-      id: CHEBI:30411
-      label: cobalamin
-    notes: Vitamin B12
-  - preferred_term: thiamine
-    term:
-      id: CHEBI:18385
-      label: thiamine(1+)
-    notes: Vitamin B1
-  - preferred_term: biotin
-    term:
-      id: CHEBI:15956
-      label: biotin
-    notes: Vitamin B7
-  biological_processes:
-  - preferred_term: vitamin biosynthetic process
-    term:
-      id: GO:0009110
-      label: vitamin biosynthetic process
-  evidence:
-  - reference: doi:10.3389/fmicb.2022.780346
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Use of cyanobacterial consortium increases biodiversity, which provides functional redundancy
-      and prevents invading species from disrupting the production ecosystem
-    explanation: Documents vitamin exchange as mutualistic interaction
-- name: Oxidative Stress Reduction
-  description: 'Heterotrophic bacteria help reduce oxidative stress in the community, likely by consuming
-    reactive oxygen species or providing antioxidant compounds. This protects the photosynthetic machinery
-    of the cyanobacteria from photo-oxidative damage and contributes to the long-term stability of the
-    consortium.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Wenzhouxiangella sp.
-    term:
-      id: NCBITaxon:1979961
-      label: Wenzhouxiangella sp.
-  target_taxon:
-    preferred_term: Candidatus Phormidium alkaliphilum
-    term:
-      id: NCBITaxon:1807132
-      label: Candidatus Phormidium alkaliphilum
-  biological_processes:
-  - preferred_term: response to oxidative stress
-    term:
-      id: GO:0006979
-      label: response to oxidative stress
-  evidence:
-  - reference: doi:10.3389/fmicb.2022.780346
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: tight coupling of carbon transfer from cyanobacteria to the heterotrophic populations
-    explanation: Documents stress mitigation by heterotrophs
-- name: Polysaccharide Degradation
-  description: 'Planctomycetes and Verrucomicrobia possess glycoside hydrolases that degrade sulfated
-    polysaccharides and other complex carbohydrates from cyanobacterial cell walls and extracellular polymeric
-    substances. This degradation recycles carbon and prevents accumulation of recalcitrant polymers that
-    could inhibit community function.
-
-    '
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Planctomycetota members
+  - preferred_term: Planctomycetota members
     term:
       id: NCBITaxon:203682
       label: Planctomycetota
+- name: Proposed Cyanobacterial Polymer Use by Verrucomicrobiota
+  description: PARTIAL - The four Verrucomicrobiota MAGs encode multiple glycoside hydrolases and sulfatases, supporting
+    a proposed niche consuming cyanobacterial sulfated glycopolymers. Gene content is not a direct substrate-use
+    or transfer assay. Low-peptide isotope signals are compatible with heterotrophic carbon assimilation but do
+    not identify polymers as the substrate. No Planctomycetota-to-Verrucomicrobiota transfer or benefit from removal
+    of inhibitory polymers was established.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Candidatus Phormidium alkaliphilum
+    term:
+      id: NCBITaxon:1807132
+      label: Candidatus Phormidium alkaliphilum
   target_taxon:
     preferred_term: Verrucomicrobiota members
     term:
@@ -448,40 +306,36 @@ ecological_interactions:
       label: polysaccharide catabolic process
   evidence:
   - reference: doi:10.3389/fmicb.2022.780346
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: tight coupling of carbon transfer from cyanobacteria to the heterotrophic populations
-    explanation: Documents specialized polymer degradation capacity
-- name: Alphaproteobacterial Heterotrophy and Symbiosis
-  description: Alphaproteobacteria members contribute to the alkaline consortium through heterotrophic
-    metabolism of cyanobacterial exudates and potentially through nitrogen cycling. This diverse group
-    likely includes species involved in vitamin production, siderophore synthesis for iron acquisition,
-    and organic matter degradation. Alphaproteobacteria often form close associations with phototrophs
-    in microbial mat systems, providing complementary metabolic functions that enhance consortium stability
-    and productivity.
-  interaction_type: MUTUALISM
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: All four consortium members affiliated with Verrucomicrobiota had 6–38 genes for glycoside hydrolysis
+      and 12–37 genes encoding sulfatases
+    explanation: Primary Results assign the hydrolase/sulfatase genomic capacity to these four MAGs, not a demonstrated
+      cross-phylum handoff.
+- name: Alphaproteobacterial Heterotrophic Carbon Use
+  description: PARTIAL - Alphaproteobacterial genomes support heterotrophic niches, and the lower-peptide Rhodobacteraceae
+    MAG58 isotope signal is consistent with cyanobacterial carbon use. Oceanicaulis MAG52 and Roseinatronobacter
+    MAG58 also encode bacteriochlorophyll-associated phototrophic capacity, not demonstrated photosynthetic flux.
+    The study does not establish class-wide vitamin provision, siderophore delivery, nitrogen recycling or reciprocal
+    cyanobacterial benefit; Figure 4 has much weaker peptide coverage for MAG58 than the major heterotrophs.
   scope: PAIRWISE
   source_taxon:
-    preferred_term: Alphaproteobacteria members
-    term:
-      id: NCBITaxon:28211
-      label: Alphaproteobacteria
-  target_taxon:
     preferred_term: Candidatus Phormidium alkaliphilum
     term:
       id: NCBITaxon:1807132
       label: Candidatus Phormidium alkaliphilum
-  biological_processes:
-  - preferred_term: mutualism
+  target_taxon:
+    preferred_term: Alphaproteobacteria members
     term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
+      id: NCBITaxon:28211
+      label: Alphaproteobacteria
   evidence:
   - reference: doi:10.3389/fmicb.2022.780346
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: tight coupling of carbon transfer from cyanobacteria to the heterotrophic populations
-    explanation: Documents heterotrophic bacterial coupling with cyanobacterium
+    explanation: General experimental carbon-transfer evidence, narrowed by the lower-peptide MAG58 signal in Figure
+      4; not support for reciprocal services or every alphaproteobacterial member.
 environmental_factors:
 - name: Alkaline pH
   value: '>11'
@@ -633,3 +487,45 @@ cultivation_setup:
     snippet: After 1 year of enrichment, the culture was transferred to tubular PBRs and was grown as
       biofilms on a mesh
     explanation: Defines the photobioreactor (PBR) cultivation system used for the consortium.
+discussions:
+- discussion_id: phormidium-observed-carbon-versus-proposed-services
+  prompt: Which genomic niches and reciprocal services operate in this alkaline consortium?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Photosynthetic CO2 Fixation
+  - ecological_interactions#Carbon Transfer to Heterotrophs
+  - ecological_interactions#Proposed Cyanobacterial Polymer Use by Verrucomicrobiota
+  - ecological_interactions#Alphaproteobacterial Heterotrophic Carbon Use
+  rationale: 'Retain experimental carbon flow and qualified genomic niches. Introductory examples of vitamin/siderophore
+    delivery, nutrient remineralization and ROS protection in other phototroph systems do not demonstrate the removed
+    exact-community services. The nutrient-return to vitamin-production arrow has no supporting experiment. Figure
+    3 explicitly depicts inference from gene content; Figure 4 supports carbon flow, not compound-resolved flux
+    or a trophic cascade. Bacteroidota remains a genuine member with inferred metabolic niches, not proven nutrient-return
+    function. Stability over years does not mean fixed membership or experimentally established redundancy mediation.
+    Additional niche and MAG-resolved graph coverage remains issue #1699 pending scoped Edison report; no unsupported
+    edge is added to give every taxon connectivity credit.'
+  evidence:
+  - reference: doi:10.3389/fmicb.2022.780346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: tight coupling of carbon transfer from cyanobacteria to the heterotrophic populations
+    explanation: Experimental labeling supports carbon flow; full Figure 4 distinguishes the two major heterotrophic
+      populations from lower-peptide populations.
+  - reference: doi:10.3389/fmicb.2022.780346
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: All four consortium members affiliated with Verrucomicrobiota had 6–38 genes for glycoside hydrolysis
+      and 12–37 genes encoding sulfatases
+    explanation: Primary Results assign the hydrolase/sulfatase genomic capacity to these four MAGs, not a demonstrated
+      cross-phylum handoff.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-07T08:42:05Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve photosynthetic carbon supply and the experimentally supported downstream direction.; Preserve
+    major-population isotope uptake with explicit participants and no invented compound specificity.; Retain gene-supported
+    polymer-use hypothesis with corrected donor and recipient.; Preserve alpha heterotrophic evidence without class-wide
+    reciprocal services. Issue #1696; reports/causal_graph_review/decisions/20261007-four-records-batch84.yaml'
+  llm_assisted: true

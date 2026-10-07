@@ -361,6 +361,7 @@ USERS = {
     "Pepper_Phytophthora_SynCom5.yaml",
     "Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml",
     "Phaeodactylum_Aliivibrio_Diel_Coculture.yaml",
+    "Phormidium_Alkaline_Consortium.yaml",
     "Phenol_Carboxylation_Consortium.yaml",
     "Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml",
     "Prymnesium_Parvum_B12_Limited_SynCom.yaml",
