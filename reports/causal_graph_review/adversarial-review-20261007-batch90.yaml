@@ -1,0 +1,304 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: f63d0b98e06bd1e35016fcfd826b03721fe28f0b
+scope:
+- kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
+- kb/communities/Pseudomonas_putida_PpTE_Rhodococcus_RDK17_Terephthalic_Acid_Consortium.yaml
+- kb/communities/Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.yaml
+- kb/communities/Pseudonitzschia_Sulfitobacter_Association.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch90.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch90.json
+findings:
+- issue: 1738
+  severity: P2
+  status: addressed_in_this_change
+  finding: Correct the reverse-feeding implication in chloronitrobenzene degradation
+  disposition: Close only after protected-main merge.
+- issue: 1739
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate TPA dominance observations from evidence for competitive mechanisms
+  disposition: Close only after protected-main merge.
+- issue: 1740
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound the biochar electron-transfer model separately from removal endpoints
+  disposition: Close only after protected-main merge.
+- issue: 1741
+  severity: P2
+  status: addressed_in_this_change
+  finding: Keep the diatom signaling graph distinct from workflow and environmental prevalence
+  disposition: Close only after protected-main merge.
+- issue: 1742
+  severity: P2
+  status: unresolved_non_graph
+  finding: Re-evidence diatom cultivation and metal metadata against the exact SA11 association
+  disposition: Keep OPEN after graph repairs.
+adversarial_checks:
+- Fresh both-root baseline preceded papers. All14originalnodes7arrows have dispositions:12biologicalnodes and all7directions
+  retained; two out-of-scope diatom nodes removed. No new node or direction and no arrow endpoint changes.
+- Chloronitro preserves chemical identification, sequential transformations and reported conditional mineralization.
+  The downstream Rhodococcus process no longer asserts metabolite provision back to Pseudomonas. Both original causal
+  directions remain.
+- Conditional mineralization is not silently downgraded to disappearance. The endpoint alone does not establish
+  product-removal feedback making upstream metabolism favourable, so it is untyped. Local SYNTROPHY does not require
+  obligacy. Full carbon balances were not inspected; unavailable methods do not prove absent controls.
+- TPA retains all three competition nodes and both arrows. Dominance alone is not evidence for resource competition;
+  the source-reported metabolism-loss comparison is added. Positive contact inhibition and relative-kinetics attribution
+  remain; separate effect sizes are not invented.
+- Naphthalene retains the authors DIET/circuit interpretation as PARTIAL SYNTROPHY on the first two nodes, electrochemical
+  and multi-omics findings and separate untyped removal/mineralization endpoints. Specific interspecies route and
+  mediator necessity remain qualified. Collective nodes use canonical participants.
+- Diatom consortium resolution is a workflow, while coastal prevalence is broader environmental evidence already
+  retained outside the pair graph. Removing those nodes does not erase the three signal/exchange nodes or existing
+  positive causal arrow.
+- Individual diatom signal/exchange processes are not categorical reciprocal fitness measurements. Canonical participants
+  are preserved. H3 taxonomic evidence and another-system background citation do not certify the exact SA11 cultivation
+  fields; metadata1742remains open.
+- Four exact-system primary abstracts and two attribution abstracts read. No complete primary main text retrieved.
+  Chloronitro XML500/PMC challenge/OA metadata404 and Nature redirect/subscription preview disclosed. Cached secondary
+  background paragraphs are not independent fresh primary evidence. No figures, supplements or raw data audited.
+- Adversarial schema reading caught an incorrect obligacy premise after the initial816-test pass. That report and
+  tested inputs are archived as superseded with verified digests. Two appended correction histories preserve the
+  original four histories. A schema-contract regression and fresh full validation bind the corrected state.
+- All921caches456otherrecords and raw non-graph blocks preserved. Six append-only histories and eleven focused tests.
+  Two new explicit-participant users, measured legacy census unchanged, all56oldwarnings retained and zero structural
+  defects. No taxonomy or auditor-rule changes.
+- No new genetic designs, resistance-selection details, harmful-algal optimization, toxin guidance or experimental
+  protocols. No Edison dry run or provider submission. Executed gates and deterministic HTML checks are not browser
+  screenshots or generated-model loader certification. Loader1703remains open. Repairs1738-1741await protected-main
+  merge;1742remains open. Self-review is not independent approval or corpus completion.
+verification:
+  combined_regressions: 817 passed in 280.29s (0:04:40)
+  new_regression_tests: 11
+  primary_graph_snippet_proof:
+    graph_quotations: 16
+    discussion_quotations: 8
+    fresh_primary_matches: 24
+    cached_only_matches: 0
+    retained_nodes: 12
+    removed_nodes: 2
+    retained_arrows: 7
+    removed_arrows: 0
+    mechanical_source_endpoint_corrections: 0
+    new_biological_causal_claims: 0
+    primary_main_texts_read: 0
+    exact_system_primary_abstracts_read: 4
+    attribution_abstracts_read: 2
+    cache_changes: 0
+  references: Four full-record reference-validator runs passed. CLI Total checks counts issues, not executed checks.
+    Sixteen graph and eight discussion quotations match independent fresh-primary abstract and cache text. Literal
+    matching is not entailment or full-text certification.
+  snippet_counts_by_record:
+    kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml:
+      MATCH: 22
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Pseudomonas_putida_PpTE_Rhodococcus_RDK17_Terephthalic_Acid_Consortium.yaml:
+      MATCH: 10
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.yaml:
+      MATCH: 9
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Pseudonitzschia_Sulfitobacter_Association.yaml:
+      MATCH: 10
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    caveat: Both-root recipe executed. Informational exit0 does not certify a clean corpus; four focused snippet
+      gates pass independently.
+    output: "# 8929 evidence snippets scanned across 460 files\n  MATCH      8794\n  RENDERING  20\n  ASSEMBLED\
+      \  1\n  WEAK       0\n  MISMATCH   38\n  NOCONTENT  76\n\n# Files with MISMATCH/WEAK (content present but\
+      \ snippet absent) \u2014 fabrication suspects\n  19 (19 hard)  kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml\n\
+      \  15 (15 hard)  kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml\n   3 (3 hard)  kb/communities/Coscinodiscus_Synthetic_Community.yaml\n\
+      \   1 (1 hard)  kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml\nuv run python scripts/evidence_snippet_audit.py\
+      \ \n"
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All56existing warnings preserved, zero structural defects. No edge endpoint changes; two out-of-scope
+      nodes removed. No taxonomy or auditor-rule changes.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch90.yaml: bdcd291bfeb14293712b5b408e7ef8cc396a18317827618ed75fee517b1f9d58
+    tests/test_causal_review_batch90.py: 12dfffa68bd63e815e76f50dd9cb52ac459390f0bf48a0a1da3521134a3a98be
+    tests/test_participating_taxa.py: 89d6e67cd3a8401b2fe96f3e83d2aa5737f6f123cc849a0afdbab40eb25a4942
+    kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml: 2638bb5668d31d6c8a59d616e36777b22d38f03e1fef80dc58fada489628e41e
+    kb/communities/Pseudomonas_putida_PpTE_Rhodococcus_RDK17_Terephthalic_Acid_Consortium.yaml: 6416089a1d115f7834f71f98182476728a7f936f8b544c6551103c712a2bb825
+    kb/communities/Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.yaml: d987d0d184c409b62a9e96034e7dd8f294742b10bc3adefe4617ddd7208c97f8
+    kb/communities/Pseudonitzschia_Sulfitobacter_Association.yaml: 1a0fd950b4dc5fbb21331be3995a2fffb05ac8d4e3df772f5008cb88a9b9d4e6
+    reports/causal_graph_review/README.md: 727ecad74acba894907ac59be451da98bb734ae08bf099e7970f1cf9c493cc48
+  unchanged_records: 456
+  unchanged_caches: 921
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: No new node or direction. Existing source-backed arrows retained; non-biological and out-of-scope
+      nodes removed.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+  superseded_precommit_validation:
+    report: /private/tmp/communitymech-batch90/before-syntrophy-correction/reports/causal_graph_review/validation-20261007-batch90.json
+    sha256: 313fe985877fc7e3b5bb5a92bc7b68e68d91918954f824213265e7b25f875f18
+    regressions: 816 passed in 296.55s (0:04:56)
+    reason: Adversarial reading of the actual enum shows SYNTROPHY does not assert obligacy. Preserve the authors
+      qualified metabolic-coupling model; classify endpoints by their meaning, not an obsolete obligation requirement.
+    original_logs_verified: true
+    archived_inputs_verified: true
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 396
+      mixed: 126
+      community_level_only: 270
+      taxa: 1523
+      credited_solely_by_the_rule: 1249
+    current:
+      records: 460
+      with_community_level: 396
+      mixed: 126
+      community_level_only: 270
+      taxa: 1523
+      credited_solely_by_the_rule: 1249
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: Legacy community-level census unchanged; two new explicit-participant users. No canonical taxon
+    or auditor-rule change.
+corpus:
+  records: 460
+  nodes: 1420
+  edges: 584
+  review_status_counts:
+    needs_research: 48
+    pending: 132
+    reviewed: 280
+limitations:
+- Fresh both-root baseline before papers:460records921caches1422nodes584arrows56warnings0structural defects. All14originalnodes7arrows
+  accounted for;12biologicalnodes and all7directions retained. Two out-of-scope diatom nodes removed, with environmental
+  evidence preserved outside the graph.
+- Four fresh exact-system primary abstracts and two attribution abstracts read. No complete fresh primary main text.
+  Chloronitro XML500 after bounded retries, PMC challenge and open-access metadata404. Nature public search-index
+  preview read, with explicit subscription notice; direct publisher redirect failed. No challenges or paywalls bypassed.
+  No figure pixels, supplements or raw data inspected.
+- Chloronitro chemically supported upstream conversion, downstream degradation and conditional mineralization remain.
+  The intermediate-degradation node no longer implies reverse metabolite provision. The endpoint itself does not
+  demonstrate product-removal feedback on upstream metabolism; lack of obligacy is not a reason to reject SYNTROPHY.
+- TPA preserves three competition nodes and both directions, including reported contact inhibition, relative kinetics
+  and metabolism-loss comparison. Dominance is an outcome, not standalone evidence for resource competition. Full
+  controls and separate effect sizes remain uninspected; positive causal findings are not removed.
+- Naphthalene retains the authors SYNTROPHY classification on the PARTIAL electron-transfer/circuit model. The actual
+  enum does not require obligacy. The measured removal/mineralization endpoint is kept distinct from the proposed
+  coupling interaction; route-specific mediation remains qualified.
+- Diatom workflow resolution and broad environmental prevalence are not pair-specific biological interactions. Three
+  signal/exchange nodes and the existing positive signaling arrow remain. Individual processes are not categorical
+  reciprocal fitness measurements. No new harmful-algal growth optimization, toxin guidance or experimental designs
+  were added.
+- The fresh H3 taxonomic abstract is not the exact SA11 study. PMID30228381 is another-system primary whose cached
+  background discussion mentions SA11; only relevant background paragraphs were inspected, not independently fresh
+  main text. Public Nature preview identifies the canonical pair. Non-graph citation, culture and metal claims remain
+  the metadata issue, not silently corrected or certified.
+- 456otherrecords, all921caches and raw non-graph blocks preserved. Two new explicit participant users; legacy community-level
+  census is to be measured. No taxon IDs, taxonomy or auditor rules changed. No new genetic designs, resistance-selection
+  details or optimization protocols.
+- Dedup1006all-state issue titles/bodies with broad aliases; nine matching bodies read and49local ignored/hidden
+  matches found, excluding .git/docs/site/references_cache. Relevant caches separately inspected. Explicit529/573/605read.
+  Matching1091is a general DOI-cache case issue; these graph evidence references use PMIDs. Comments and PRs not
+  exhaustively searched.
+- No new node, direction, Edison dry run or provider submission. Earlier pending and denied spend scopes remain
+  unchanged. Four repair issues close only after protected-main merge; the metadata follow-up remains open. Validation,
+  rendering and publication are subsequent gates, not preasserted. Self-review is not independent approval, generated-model
+  loader certification or corpus completion. Loader1703remains open.
+- Adversarial review caught an obsolete obligacy premise after the initial816-test pass. Corrected before publication,
+  retained initial inputs/results as superseded, appended two additional histories without rewriting the four earlier
+  artifacts, and required a fresh full validation run. A schema-contract regression guards the distinction.
+precommit_adversarial_correction:
+  reason: Adversarial reading of the actual enum shows SYNTROPHY does not assert obligacy. Preserve the authors
+    qualified metabolic-coupling model; classify endpoints by their meaning, not an obsolete obligation requirement.
+  schema_path: src/communitymech/schema/communitymech.yaml
+  schema_sha256: 99079e7712d0c6b5eef0f278822a6b04fdb9a3a55b446e1f73f0752e4e626d04
+  schema_definition: 'Metabolic cooperation in which one partner''s product is another''s substrate, and removing
+    that product is what makes the first partner''s metabolism favourable.
+
+    **Obligacy is not asserted.** This value used to read "Obligate metabolic cooperation", which the corpus''s
+    135 uses do not honour and which a single record can rarely establish: showing that neither partner grows alone
+    needs a monoculture arm, and where sources have one they often disprove obligacy. CommunityMech:000336 is the
+    worked case - every paper calls that pairing a syntrophy and its seed paper grows both species as monocultures
+    in the same experiment (#752).
+
+    Where the distinction matters, state it in the interaction''s `description` with the evidence for it. METPO:1007200
+    obligate syntrophy interaction and METPO:1007201 facultative syntrophy interaction are proposed in `proposals/metpo_communitymech_interaction_semantics_v1/`
+    so it can eventually be typed rather than narrated.'
+  superseded_validation: /private/tmp/communitymech-batch90/before-syntrophy-correction/reports/causal_graph_review/validation-20261007-batch90.json
+  superseded_validation_sha256: 313fe985877fc7e3b5bb5a92bc7b68e68d91918954f824213265e7b25f875f18
+  superseded_regressions: 816 passed in 296.55s (0:04:56)
+  archived_inputs:
+    ? /private/tmp/communitymech-batch90/before-syntrophy-correction/history/records/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture/2026-10-07T125451Z-codex-edc25d.yaml
+    : 271a08af4cba3eabb3cf7a342e8e9a281083767ce6c50f24b07a87137cc276f2
+    ? /private/tmp/communitymech-batch90/before-syntrophy-correction/history/records/Pseudomonas_putida_PpTE_Rhodococcus_RDK17_Terephthalic_Acid_Consortium/2026-10-07T125451Z-codex-55758a.yaml
+    : 8b5c559e995515bca1f98cb6a3e7c8be078de36235b7597948d54cd04127d663
+    ? /private/tmp/communitymech-batch90/before-syntrophy-correction/history/records/Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium/2026-10-07T125451Z-codex-1ff079.yaml
+    : d175709b5dc8d6f6b60ed8db6e52b5a697c84c3470316f9f97702853cdaf5f74
+    ? /private/tmp/communitymech-batch90/before-syntrophy-correction/history/records/Pseudonitzschia_Sulfitobacter_Association/2026-10-07T125452Z-codex-a42433.yaml
+    : 5d914980c60f787a52d05932653e4ef7a5d32da0faee8e1fb64ef381b3cd73d8
+    ? /private/tmp/communitymech-batch90/before-syntrophy-correction/kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
+    : 931c479671d16ea771c7e1a45356e4fefa166a823dbcf1863f184058ae167d07
+    ? /private/tmp/communitymech-batch90/before-syntrophy-correction/kb/communities/Pseudomonas_putida_PpTE_Rhodococcus_RDK17_Terephthalic_Acid_Consortium.yaml
+    : 6416089a1d115f7834f71f98182476728a7f936f8b544c6551103c712a2bb825
+    ? /private/tmp/communitymech-batch90/before-syntrophy-correction/kb/communities/Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.yaml
+    : 5acea2e42c6ce0d29a2602ce285bb4d8853cedbd5ce3fbef9038f46b78c0410a
+    ? /private/tmp/communitymech-batch90/before-syntrophy-correction/kb/communities/Pseudonitzschia_Sulfitobacter_Association.yaml
+    : 1a0fd950b4dc5fbb21331be3995a2fffb05ac8d4e3df772f5008cb88a9b9d4e6
+    /private/tmp/communitymech-batch90/before-syntrophy-correction/reports/causal_graph_review/README.md: 0219db95d1142cee2c9b69a7b845976e83bcebc6a63384120469ae9b4ceb794c
+    ? /private/tmp/communitymech-batch90/before-syntrophy-correction/reports/causal_graph_review/decisions/20261007-four-records-batch90.yaml
+    : 59d039596548e55dbeda8456ae93999e7131f1e3759ba22b3b0b35ddda6aea18
+    ? /private/tmp/communitymech-batch90/before-syntrophy-correction/reports/causal_graph_review/validation-20261007-batch90.json
+    : 313fe985877fc7e3b5bb5a92bc7b68e68d91918954f824213265e7b25f875f18
+    /private/tmp/communitymech-batch90/before-syntrophy-correction/tests/test_causal_review_batch90.py: baa964c9086a4a568a2ed2829e1f8bbdb61403f52fa537c87119ab2e23162756
+    /private/tmp/communitymech-batch90/before-syntrophy-correction/tests/test_participating_taxa.py: 89d6e67cd3a8401b2fe96f3e83d2aa5737f6f123cc849a0afdbab40eb25a4942
+  records:
+  - path: kb/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml
+    before_sha256: 931c479671d16ea771c7e1a45356e4fefa166a823dbcf1863f184058ae167d07
+    after_sha256: 2638bb5668d31d6c8a59d616e36777b22d38f03e1fef80dc58fada489628e41e
+    history: history/records/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture/2026-10-07T130739Z-codex-a070e2.yaml
+    summary: 'Correct the precommit syntrophy rationale: the local enum does not require obligacy; an endpoint alone
+      does not establish product-removal feedback.'
+  - path: kb/communities/Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.yaml
+    before_sha256: 5acea2e42c6ce0d29a2602ce285bb4d8853cedbd5ce3fbef9038f46b78c0410a
+    after_sha256: d987d0d184c409b62a9e96034e7dd8f294742b10bc3adefe4617ddd7208c97f8
+    history: history/records/Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium/2026-10-07T130739Z-codex-d6881b.yaml
+    summary: Restore the authors qualified SYNTROPHY model on the transfer and circuit nodes; the local enum explicitly
+      does not assert obligacy. Keep the measurement endpoint distinct.
+issue_rationale_correction:
+  issue: 1740
+  original_sha256: 9a15e63beaaa1ba3c792d904a62963946968e4f7eb3fd3e0d12b2337d4afd76f
+  corrected_sha256: f36150f31e55f3db383554c05a0f3ce670432a5664f56d920b020924a57cbd3f
+  comments:
+  - issue: 1738
+    url: https://github.com/CultureBotAI/CommunityMech/issues/1738#issuecomment-6038701522
+  - issue: 1740
+    url: https://github.com/CultureBotAI/CommunityMech/issues/1740#issuecomment-6038702011
+issue_rationale_correction_sha256: 8fe52cd28c1d024ae6e48fdc38c0798aad6a22190c56cb1343723d072f1731fc
