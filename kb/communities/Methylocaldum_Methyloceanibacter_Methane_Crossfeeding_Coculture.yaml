@@ -118,8 +118,10 @@ taxonomy:
     explanation: Supports the cross-feeding role assigned to Gela4.
 ecological_interactions:
 - name: Methane-Derived Carbon Cross-Feeding
-  description: M. marinum S8 oxidizes methane and releases methane-derived carbon that supports growth
-    of the non-methanotrophic methylotroph M. caenitepidi Gela4 in coculture.
+  description: 'M. marinum S8 supports growth of M. caenitepidi Gela4 with methane supplied as the sole added carbon
+    source after washed inocula. Acetate is a source-supported candidate cross-fed compound: concentrations, transcript
+    profiles and acetate-grown reference qRT-PCR are consistent with it. These results do not quantify donor-to-recipient
+    acetate flux or exclude methanol turnover.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -141,6 +143,8 @@ ecological_interactions:
     term:
       id: CHEBI:30089
       label: acetate
+    notes: Measured in culture supernatants and proposed as a transferred carbon source; concentration is not a
+      flux measurement.
   biological_processes:
   - preferred_term: methane metabolic process
     term:
@@ -150,15 +154,17 @@ ecological_interactions:
     term:
       id: GO:0006083
       label: acetate metabolic process
+    notes: Proposed acetate use supported by expression and reference acetate-grown cells, not demonstrated exclusive
+      substrate use.
   downstream:
-  - target: Methanol-Independent Methylotroph Response
-    description: Methane-derived carbon cross-feeding induces the Gela4 expression
-      profile that points away from methanol and toward an acetate-linked cross-fed
-      substrate.
+  - target: Gela4 Carbon-Metabolism Response in Coculture
+    description: HYPOTHESIZED - a change in available methanotroph-derived carbon could drive the observed Gela4
+      transcript response. The main RNA-seq comparison changes both partner presence and supplied carbon source;
+      acetate reference qRT-PCR supports the interpretation without selectively identifying the cross-fed inducer.
   - target: Methylotroph Growth in Methane-Fed Coculture
-    description: >
-      Methane-derived carbon released by M. marinum S8 supports syntrophic growth
-      of the facultative methylotroph in methane-fed coculture.
+    description: PARTIAL - S8-derived carbon supports the observed Gela4 growth in methane-fed coculture. Acetate
+      is a plausible mediator, but its share versus methanol or other metabolites is unresolved; this is not evidence
+      of obligatory mutual dependence.
   evidence:
   - reference: PMID:30870453
     supports: SUPPORT
@@ -166,18 +172,16 @@ ecological_interactions:
     snippet: cross-feeding on methane-derived carbon
     explanation: Supports methane-derived carbon transfer as the central interaction.
   - reference: PMID:30870453
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: organic compound other than methanol, possibly acetate
-    explanation: Supports acetate as the likely cross-fed carbon compound.
+    explanation: The primary authors nominate acetate, without resolving its quantitative contribution or excluding
+      methanol.
 - name: Methylotroph Growth in Methane-Fed Coculture
-  description: >
-    Methyloceanibacter caenitepidi Gela4 grows syntrophically with M. marinum S8
-    when methane is supplied as the methanotroph substrate. Chemical and RNA-seq
-    evidence ruled out accumulated methanol as the dominant cross-fed product and
-    implicated acetate as the likely methane-derived carbon source supporting
-    Gela4 growth.
-  interaction_type: CROSS_FEEDING
+  description: Gela4 grew in methane-fed S8 coculture, with a reported specific growth rate of 0.02/h versus 0.03/h
+    in methanol-grown pure culture. Positive growth is preserved; the different substrates make that comparison
+    unsuitable for claiming growth enhancement. Methanol below 310 nM does not rule out low-concentration, high-turnover
+    cross-feeding, explicitly acknowledged by the authors. Acetate remains a candidate major substrate.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Methylocaldum marinum S8
@@ -198,31 +202,28 @@ ecological_interactions:
     term:
       id: CHEBI:30089
       label: acetate
-  biological_processes:
-  - preferred_term: acetate metabolic process
-    term:
-      id: GO:0006083
-      label: acetate metabolic process
+    notes: Proposed growth-supporting compound, not established as the exclusive or predominant transferred substrate.
   evidence:
   - reference: PMID:30870453
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Methyloceanibacter caenitepidi Gela4, which grows syntrophically with the
-      methanotroph, Methylocaldum marinum S8
-    explanation: Shows that the Gela4 methylotroph grows syntrophically with
-      M. marinum S8.
+    snippet: Methyloceanibacter caenitepidi Gela4, which grows syntrophically with the methanotroph, Methylocaldum
+      marinum S8
+    explanation: Shows that the Gela4 methylotroph grows syntrophically with M. marinum S8.
   - reference: PMID:30870453
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: organic compound other than methanol, possibly acetate, might be the major
-      carbon source for M. caenitepidi Gela4 cross-fed by M. marinum S8
-    explanation: PARTIAL - identifies acetate as the likely, but not definitively
-      proven, methane-derived carbon source that supports Gela4 in coculture.
-- name: Methanol-Independent Methylotroph Response
-  description: Under coculture conditions, M. caenitepidi Gela4 downregulated serine-pathway genes while
-    upregulating TCA-cycle and acetyl-CoA synthetase genes, consistent with use of acetate-linked carbon
-    rather than methanol as the dominant cross-fed substrate.
-  interaction_type: CROSS_FEEDING
+    snippet: organic compound other than methanol, possibly acetate, might be the major carbon source for M. caenitepidi
+      Gela4 cross-fed by M. marinum S8
+    explanation: PARTIAL - identifies acetate as the likely, but not definitively proven, methane-derived carbon
+      source that supports Gela4 in coculture.
+- name: Gela4 Carbon-Metabolism Response in Coculture
+  description: Relative to methanol-grown Gela4 monoculture, methane-fed S8 coculture showed serine-pathway downregulation
+    and TCA/acetyl-CoA-associated upregulation, including acsA log2FC 3.57. Acetate reached <15.6 micromol/L in
+    S8 culture and <12.4 micromol/L in coculture; methanol was below 310 nM. Acetate-grown reference qRT-PCR supported
+    the interpretation, with late-phase coculture acsA/hpr significantly higher than the methanol control, whereas
+    the early-phase difference was not significant. These are measured concentration and expression results, not
+    direct acetate transfer or proof of methanol independence.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Methylocaldum marinum S8
@@ -399,3 +400,27 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this methane cross-feeding
   coculture.
+discussions:
+- discussion_id: gela4_carbon_flux_and_expression_comparison
+  prompt: What fractions of recipient carbon come from acetate, methanol and other S8 products?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Methane-Derived Carbon Cross-Feeding
+  - ecological_interactions#Methylotroph Growth in Methane-Fed Coculture
+  - ecological_interactions#Gela4 Carbon-Metabolism Response in Coculture
+  rationale: 'Retain positive growth and the authors'' acetate interpretation with two qualified existing arrows.
+    Main RNA-seq contrasts methanol monoculture with methane coculture; partner and substrate change together. Acetate-reference
+    qRT-PCR adds support but does not identify transferred carbon by itself. The paper expressly allows low-concentration
+    high-turnover methanol. Main text, captions and Tables 1-2 were read; raw RNA-seq, supplements and figure pixels
+    were not audited. #1604 repairs the graph; methanol ingredient wording and other non-graph fields remain #1606.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-07T01:27:50Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain supported cross-feeding and candidate acetate while bounding exact flux.; Retain positive recipient
+    growth without methanol exclusion or growth-enhancement claims.; Retain chemical, RNA-seq and reference qRT-PCR
+    results without selectively established mediation. Issue #1604; reports/causal_graph_review/decisions/20261007-four-records-batch71.yaml'
+  llm_assisted: true
