@@ -1,0 +1,240 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: f74410c51a59c6c5690b6c4e4fe732772ba37bd4
+scope:
+- kb/communities/SPRUCE_Peatland_Methane_Cycling_Community.yaml
+- kb/communities/SPRUCE_Peatland_Warming_Community.yaml
+- kb/communities/Saanich_Inlet_OMZ_Redox_Gradient_Community.yaml
+- kb/communities/Saccharomyces_Acinetobacter_Lignocellulose_Detox_Coculture.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch98.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch98.json
+findings:
+- issue: 1778
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound SPRUCE methane graph to multiomics and depth-specific inference
+  disposition: Close only after protected-main merge.
+- issue: 1779
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate SPRUCE root and viral observations from unmeasured mechanisms
+  disposition: Close only after protected-main merge.
+- issue: 1780
+  severity: P2
+  status: addressed_in_this_change
+  finding: Mark Saanich causal directions as calibrated model predictions
+  disposition: Close only after protected-main merge.
+- issue: 1781
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound yeast-Acinetobacter detoxification mediation and wax-ester reproducibility
+  disposition: Close only after protected-main merge.
+- issue: 1782
+  severity: P2
+  status: open_non_graph_follow_up
+  finding: Review non-graph SPRUCE scope and coculture product generalizations
+  disposition: Separate non-graph curation required.
+adversarial_checks:
+- Fresh both-root baseline preceded source reads. Four whole records and all13nodes/8directions reviewed and retained,
+  with4renames. No topology extension or provider spend.
+- 'SPRUCE methane: retain organic-matter electron acceptor and acetate interpretations as hypotheses. Gene abundance
+  is not flux; deep acetate accumulation does not prove transport to surface methanogens, and acetate is not the
+  direct hydrogenotrophic substrate.'
+- 'SPRUCE warming: retain measured root-zone community response and ECM colonization, but not fungal-bacterial mutualism,
+  unmeasured compound exchange or enzyme activity. Existing directions are PARTIAL and cannot propagate a uniformly
+  positive effect because warming and elevatedCO2 have contrasting saprotroph responses.'
+- 'SPRUCE virus: keep computational bacterial host predictions and depth associations, not experimentally demonstrated
+  predation, lysis or methane-cycler host links. Entire sampled peat column was saturated. No new infection mechanism
+  is inferred.'
+- 'Saanich: retain the calibrated model and its observational support, while distinguishing fitted nitrite leakage
+  from direct transfer measurement. Complementary denitrification co-occurs at the transition zone; it is not demonstrated
+  spatial separation or competition reduction.'
+- 'Detox coculture: retain positive inhibitor conversion and lactic-acid productivity. The proposed mediator is
+  PARTIAL; neutral ADP1 fitness is not established. Residual feedstock is distinct from secreted yeast carbon. Wax
+  esters were reliably quantified in only one of four replicates; similar lactic-acid yield is not enhanced yield.'
+- Adversarial diff review found residual stronger evidence explanations in Saanich and the coculture. Corrected
+  competition-reduction and direct-carbon-transfer/isolated-mediation wording, preserving four initial histories
+  and adding two correction histories before final gates.
+- All24graph and4new-discussion quotations match fresh primary text and maintained caches. Primary access boundaries
+  and exact read sections are recorded, including Saanich XML500/normal PMC HTML and Wiley direct403/public web-rendered
+  text. No challenge solved. No full cache-body, figure-pixel, supplement or raw-data certification.
+- Four records changed;456otherrecords,923caches and all non-graph raw blocks preserved. Scope-specific participant
+  identities use only existing canonical labels/IDs. Two exact participant-list users added; existing connectivity
+  bounds and equality checks unchanged. Census stays402community-level/128mixed/1542taxa; solely community-credited
+  taxa1266->1268 after unsupported fungal-bacterial and viral pairwise claims are re-scoped. No runtime connectivity-rule
+  change.
+- Eight focused tests and896combined regressions passed.44gate output records/digests retained, including six history
+  validations. Network comparison and measured census are recorded in validation. Deterministic HTML-description
+  validation is not browser screenshots; postcommit docs-current is separate.
+- Nine matching all-state issue bodies read after ignored/hidden-inclusive dedup with recorded exclusions. Graph1778-1781
+  are addressed but await protected-main merge; non-graph1782 and ontology463 stay open. Linux DOI-cache1091 and
+  loader1703 not certified.
+- Self-adversarial COMMENT is not independent approval. No protection bypass, fabricated CI or premature issue closure.
+  Corpus308reviewed/104pending/48needs_research is not complete.
+adversarial_prepublication_fix:
+  findings:
+  - issue: 1780
+    details: 'Correct residual evidence explanations after adversarial diff review: modeled complementarity and
+      depth sorting do not demonstrate competition reduction.'
+    preserved_initial_histories:
+      history/records/Saanich_Inlet_OMZ_Redox_Gradient_Community/2026-10-07T195157Z-codex-00098e.yaml: 042d2c8005a9cad3e1148bd058b204deb6a3beaa3dc8c9fcf0f8117f6f8acc7e
+    correction_history: history/records/Saanich_Inlet_OMZ_Redox_Gradient_Community/2026-10-07T195643Z-codex-35020d.yaml
+  - issue: 1781
+    details: 'Correct residual evidence explanations after adversarial diff review: carbon routing is an interpretation
+      and the productivity comparison does not isolate its mediator.'
+    preserved_initial_histories:
+      history/records/Saccharomyces_Acinetobacter_Lignocellulose_Detox_Coculture/2026-10-07T195157Z-codex-37ce41.yaml: 0c6952b47781b90a9a2ff9842197bea1d3d68fee5aedf126c420352218cb1e68
+    correction_history: history/records/Saccharomyces_Acinetobacter_Lignocellulose_Detox_Coculture/2026-10-07T195644Z-codex-0fbfc4.yaml
+  timing: Both corrections preceded final validation; no interrupted verification attempt.
+verification:
+  combined_regressions: 896 passed in 412.41s (0:06:52)
+  new_regression_tests: 8
+  total_recorded_gate_outputs: 44
+  primary_graph_snippet_proof:
+    graph_quotations: 24
+    new_discussion_quotations: 4
+    fresh_primary_matches: 28
+    retained_nodes: 13
+    removed_nodes: 0
+    retained_arrows: 8
+    removed_arrows: 0
+    new_nodes_or_directions: 0
+    scope: Primary sections read as recorded in the ledger; fresh primary and maintained cache matches do not automatically
+      establish entailment. Warming publisher web text read despite direct403; Saanich PMC HTML used after XML500.
+  references: Four full-record CLI and local snippet checks executed on macOS,not Linux; DOI-cache casing issue1091
+    remains. Literal matches do not establish entailment; primary access and section limits are recorded in the
+    ledger. CLI Total checks counts issues,not executed checks. Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/SPRUCE_Peatland_Methane_Cycling_Community.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/SPRUCE_Peatland_Warming_Community.yaml:
+      MATCH: 20
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Saanich_Inlet_OMZ_Redox_Gradient_Community.yaml:
+      MATCH: 18
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Saccharomyces_Acinetobacter_Lignocellulose_Detox_Coculture.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8948
+      categories:
+        MATCH: 8813
+        RENDERING: 20
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 38
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification; literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All13nodes8directions retained with model, profile and process-outcome scope corrections. All56warnings
+      unchanged,zero structural defects.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch98.yaml: 5b95f488ed804598afa6316926acf84342d18a44551f0908a3b76c648c48fcad
+    tests/test_causal_review_batch98.py: b588a33fa97ec96b61ff88d314a9c3df9ae96bdba95fcdbc0833d8fb2f690e18
+    tests/test_participating_taxa.py: d05643165cd6b89c247141c0ac9774c2e3dc6ba44c2cb94c5b90676989df690e
+    tests/test_community_level_connectivity_credit.py: 2bbf90543ae806230d546f26ad572aa97f9ace8895076a314006b8e4c5c51686
+    reports/causal_graph_review/README.md: 173201a5f6112661fb4447f1105b922fec431034a6b5217f54878d30d649ba26
+    reports/causal_graph_review/cache-provenance-20261007-batch98.json: 22810f55e0b42f71135979c271aadcb53cec12ef26b00dcfa2086363410053c3
+    kb/communities/SPRUCE_Peatland_Methane_Cycling_Community.yaml: 1220cde892d3ac209965e1a36fd0a3abd34cf5fe549fa0fea20d6b7297e77971
+    kb/communities/SPRUCE_Peatland_Warming_Community.yaml: ffa1825a97b4437efcf9b037aef5464113db4243c49a2c3b9a371274339ea0c5
+    kb/communities/Saanich_Inlet_OMZ_Redox_Gradient_Community.yaml: 2c2b466385e645988ee3833bc3ca4fc428d3feb8a67c9d063e564f32560971d0
+    kb/communities/Saccharomyces_Acinetobacter_Lignocellulose_Detox_Coculture.yaml: 27f8794dbd947ba51b80c9fb76c107fb0acd83ba630902a2e920bf2155f58dd8
+  unchanged_records: 456
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 775
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Bound existing multiomic/model inferences and coculture outcomes; retain all nodes and directions.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 402
+      mixed: 128
+      community_level_only: 274
+      taxa: 1542
+      credited_solely_by_the_rule: 1266
+    current:
+      records: 460
+      with_community_level: 402
+      mixed: 128
+      community_level_only: 274
+      taxa: 1542
+      credited_solely_by_the_rule: 1268
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 2
+  interpretation: 'Existing community-scope records gain scoped identity-only participants: bacterial/fungal decomposers,
+    viral/bacterial host predictions, and the two coculture members. Census measured, existing bounds unchanged;
+    exact participant allowlist extended by two stems.'
+corpus:
+  records: 460
+  nodes: 1410
+  edges: 572
+  review_status_counts:
+    needs_research: 48
+    pending: 104
+    reviewed: 308
+limitations:
+- Four whole records, all13originalnodes and8arrows retained, with4node renames. Four changed records. No new topology,
+  Edison dryrun, submission or credits.
+- Methane primary abstract/introduction/results/discussion/conclusions1-540 read. Process-specific flux and deep-to-surface
+  acetate transfer are not established. Retained metabolic potential is not commensalism or reduced competition.
+- Warming fresh abstract1-14 and Wiley web-rendered methods/results/discussion326-459 read. ECM colonization is
+  measured; compound transfer and isolated root-trait mediation are not. Direct publisher fetch returned403 and
+  was not bypassed; PubMed returned a browser challenge, not solved. Public web-rendered publisher text supplied
+  the main-text sections.
+- Virus primary abstract13-38,results/discussion97-245 and conclusions464-477 read. CRISPR host links are predictions
+  to bacterial MAGs, not observed lysis or methane-cycler infection. The sampled column was saturated despite depth-dependent
+  water content.
+- Saanich fresh abstract1-19 and public PMC HTML construction/calibration/results115-257 and conclusions405-419
+  read. EuropePMC XML returnedHTTP500; normal PMC HTML succeeded. Model predictions retain substantial observation-based
+  support without equating fitted leakage with a direct transfer measurement.
+- Detox fresh primary abstract and results350-412,discussion495-584,conclusion586-596 read. Wax esters were reliably
+  quantified in one of four coculture replicates; productivity differs from yield. Residual feedstock differs from
+  yeast byproducts. No new culture or strain-design instructions.
+- Relevant cache abstracts and graph quotations checked; a combined flattened cache read was truncated, so complete
+  cache-body review is not claimed. No figure-pixel, supplement or raw-data review. All923caches unchanged; fresh
+  source bodies remain private local artifacts.
+- All456otherrecords, canonical taxonomy and non-graph raw blocks preserved. Six append-only histories, including
+  two evidence-explanation corrections. Identity-only participant lists name exact existing members or scoped groups.
+  Non-graph1782 and ontology463 remain open.
+- All-state issue title/body dedup and ignored/hidden-inclusive local search performed with .git/docs/site/references_cache
+  excluded; relevant caches separately inspected. Nine matching issue bodies read and distinct. Comments and PRs
+  not exhaustive. Repairs1778-1781 close only after protected-main merge.
+- Self-adversarial review is not independent approval or corpus completion. Loader1703 and DOI-cache1091 not certified.
+  Denied and unanswered Edison scopes unchanged. Validation and publication not preasserted.
