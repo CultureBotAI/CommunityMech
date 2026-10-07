@@ -5,6 +5,26 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch71: Methane Coculture Assay Boundaries
+
+[Decisions](decisions/20261007-four-records-batch71.yaml),
+[validation](validation-20261007-batch71.json) and
+[self-adversarial review](adversarial-review-20261007-batch71.yaml) account for
+all 14 original nodes and ten arrows. Ten nodes and five arrows remain;
+four cross-system, procedural or duplicate nodes and five arrows are removed.
+
+Positive oxygen support and competition, bacterial growth and PHBV contents remain.
+Net gas-based carbon fixation is a system endpoint. Acetate transfer is bounded;
+methanol nondetection does not exclude rapid flux. PHBV gas contrasts also change
+oxygen, and supplied VFAs do not establish partner exchange or mutualism.
+
+Three complete primary main texts/captions and embedded tables were read;
+Cupriavidus is abstract-only. Separate supplements, original images and raw data
+were not audited. All 20 retained graph excerpts match fresh primary text. All
+920 caches and non-graph raw blocks remain unchanged, not recertified. Repairs
+#1602-#1605 await protected-main merge; metadata #1606 stays open afterward.
+No new structure or paid provider call. Self-review is not independent approval.
+
 ## Batch70: Mercury Potential, B12 Rescue And Methane Pathways
 
 [Decisions](decisions/20261006-four-records-batch70.yaml),

@@ -581,7 +581,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Methylacidiphilum-Galdieria Thermoacidophilic Methane Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -589,18 +589,13 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
                              aria-hidden="true" data-symbol="symbolTimes"
                              data-color="#a91919"></svg> Competition
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -609,9 +604,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Low-Oxygen Algal O2 Support for Methane Oxidation</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Under low-oxygen conditions, Galdieria sp. RTK37.1 supplies oxygen that benefits Methylacidiphilum sp. RTK17.1, enhancing methanotroph growth and methane oxidation.</p>
+                <p class="prewrap interaction-description">Under low initial oxygen, photosynthetic Galdieria sp. RTK37.1 supplies oxygen supporting Methylacidiphilum sp. RTK17.1 growth and methane oxidation. The positive support depends on inoculum proportions and gas supply. This directed benefit does not by itself establish reciprocal carbon donation to the alga or obligatory mutualism.</p>
 
 
                 <p><strong>Source Taxon:</strong> Galdieria sp. RTK37.1</p>
@@ -660,8 +654,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Methane-Linked Carbon Valorisation
-                        <p class="prewrap causal-description">Algal oxygen supply supports aerobic methane oxidation by Methylacidiphilum, coupling low-oxygen coculture growth to methane-linked net carbon assimilation.
-</p>
+                        <p class="prewrap causal-description">Algal oxygen production supports aerobic methane oxidation and contributes to greater whole-coculture net carbon fixation at low methanotroph-to-alga ratios. This is a condition-dependent system benefit, not quantified methanotroph-to-alga carbon transfer.</p>
                     </div>
 
                 </div>
@@ -706,7 +699,7 @@
                     <h3>Biomass-Ratio-Dependent Oxygen Competition</h3>
                     <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">The coculture interaction changes with initial biomass ratio. Low methanotroph-to-alga ratios improve net carbon fixation, while elevated Methylacidiphilum abundance can deplete oxygen, inhibit Galdieria photosystem pigment biosynthesis, cause chlorosis, and reduce carbon fixation.</p>
+                <p class="prewrap interaction-description">At initial Methylacidiphilum:Galdieria biomass ratios &gt;=0.23:1 in low-oxygen methane-fed batches, growth fell 66-100% and net carbon fixation fell 44-62% relative to methane-free controls. Pigment loss, chlorosis and LC-MS-confirmed extracellular coproporphyrin III accompanied oxygen competition. Daily CH4/CO2/O2 replenishment prevented chlorosis. In a separate recovery experiment, methane was removed on day 4 and oxygen was allowed to accumulate without oxygen addition; pigments recovered before growth resumed. Oxygen-dependent HemF inhibition and porphyrin reuptake are proposed molecular explanations, not directly measured enzyme inhibition or transport.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methylacidiphilum sp. RTK17.1</p>
@@ -749,8 +742,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Methane-Linked Carbon Valorisation
-                        <p class="prewrap causal-description">Oxygen competition at high Methylacidiphilum abundance reduces Galdieria photosynthetic carbon fixation, opposing the low-ratio methane-fed biomass gain.
-</p>
+                        <p class="prewrap causal-description">Oxygen competition at high methanotroph abundance suppresses algal activity and decreases whole-coculture carbon fixation, opposing the low-ratio benefit. Ratio and gas interventions support this physiological mechanism; they do not individually establish HemF inhibition, porphyrin reuptake or a universal ratio threshold.</p>
                     </div>
 
                 </div>
@@ -795,7 +787,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"upon oxygen replenishment"</div>
+                        <div class="snippet">"No O2 was added at any point."</div>
 
                     </li>
 
@@ -806,16 +798,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Methane-Linked Carbon Valorisation</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Methane-fed cocultures at low initial methanotroph-to-alga ratios achieved higher net carbon fixation than methane-free controls, supporting methane-linked carbon valorisation by the two-member system.</p>
-
-
-                <p><strong>Source Taxon:</strong> Methylacidiphilum sp. RTK17.1</p>
+                <p class="prewrap interaction-description">Methane-fed cocultures at low initial Methylacidiphilum:Galdieria ratios (&lt;0.18:1) showed 17-28% greater net carbon fixation than methane-free controls. This endpoint was calculated from initial/final gas concentrations, pressure and temperature across six days; it is a whole-system carbon balance, not partner-resolved assimilation or proof of CO2 transfer from methanotroph to alga. The maximum measured methane-consumption rate was 0.124 +/- 0.001 mmol/L/h at 0.15:1, where methane was depleted, so it is not an unconstrained rate optimum.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Galdieria sp. RTK37.1</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Methylacidiphilum sp. RTK17.1,
+
+                    Galdieria sp. RTK37.1
+
+                </p>
 
 
 
@@ -866,7 +861,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"17-28% greater net"</div>
+                        <div class="snippet">"greater net carbon fixation"</div>
 
                     </li>
 
@@ -892,6 +887,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which molecular and partner-resolved processes explain the physiological oxygen trade-off?
+                </h3>
+                <p class="prewrap">Retain the positive oxygen-support and inhibitory competition arrows. Separate daily gas replenishment from day-4 methane removal without added O2. HemF inhibition, porphyrin reuptake and potential metal sequestration remain interpretations; no new molecular arrow is added. Gas-based net fixation is not taxon-resolved carbon donation, and the ratio threshold depends on culture conditions. PMID:41888821 main text and captions were read, not separate supplements or figure pixels. #1602 repairs graph scope; #1606 retains protocol discrepancies, pure-culture formate context and canonical-taxonomy follow-up.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Low-Oxygen Algal O2 Support for Methane Oxidation</code>, <code>ecological_interactions#Biomass-Ratio-Dependent Oxygen Competition</code>, <code>ecological_interactions#Methane-Linked Carbon Valorisation</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1251,7 +1265,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1341,7 +1355,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1371,17 +1385,20 @@
             });
 
 
-            var srcKey = "Methylacidiphilum sp. RTK17.1";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Galdieria sp. RTK37.1";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Methylacidiphilum sp. RTK17.1",
+
+                "Galdieria sp. RTK37.1"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
