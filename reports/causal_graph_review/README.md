@@ -5,6 +5,35 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch78: Redox, Engraftment And Model Evidence
+
+[Decisions](decisions/20261007-four-records-batch78.yaml),
+[validation](validation-20261007-batch78.json) and
+[self-adversarial review](adversarial-review-20261007-batch78.yaml) account for
+13 existing nodes and seven arrows. Four records are repaired, one context-only
+arrow removed, and six bounded trophic, protocol, selection or proposed-support
+arrows retained.
+
+Nitrifier redox-dependent performance, OMM12 resistance and repeat-dose gains,
+the ORNL trophic community and PD10 medium-dependent assembly remain positive
+findings. Model allocations, agar phenotypes, qPCR units and protein evidence
+are distinguished from resolved causal mechanisms. Incorrect PD10 chemical
+groundings are removed while their generic predicted classes remain in prose;
+graph fumarate uses the correct anion grounding.
+
+All 22 graph quotations match fresh primary text and existing caches. Six
+complete primary main bodies and embedded tables were read; the OMM design
+paper remains abstract-bounded. Separate supplements, original figure pixels,
+raw datasets and live KBase model execution were not audited. All 920 caches,
+456 other records, canonical taxa and raw non-graph blocks are preserved.
+
+Missing nitrifier endpoints and PD10 MOPS exchange structure remain
+`needs_research` in #1648/#1649. Two separate Edison dry runs spent no credits;
+scoped paid questions remain unanswered. Repairs #1644-#1647 stay open until
+protected-main merge. Research and metadata #1650 remain open afterward.
+Four append-only histories are included. Self-review is not independent
+approval or corpus completion.
+
 ## Batch77: Xylan Mediation, Mercury Evidence And Missing Outcomes
 
 [Decisions](decisions/20261007-four-records-batch77.yaml),

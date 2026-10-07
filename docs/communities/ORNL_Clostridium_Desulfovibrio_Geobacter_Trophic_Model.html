@@ -640,7 +640,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for ORNL Clostridium-Desulfovibrio-Geobacter Trophic Model Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -653,13 +653,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -670,7 +665,7 @@
                     <h3>Cellobiose Fermentation Supports Partner Growth</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">C. cellulolyticum uses cellobiose as the carbon and energy source and produces metabolic byproducts that support D. vulgaris Hildenborough and G. sulfurreducens.</p>
+                <p class="prewrap interaction-description">Cellobiose fermentation by C. cellulolyticum supported the maintained three-species anaerobic chemostat community. Cellobiose depletion, acetate accumulation, sulfate consumption and fumarate reduction support trophic coupling. Individual metabolite allocations in the carbon/electron-flow model remain estimates, not independently traced interspecies fluxes; the exact hydrogen-versus-ethanol contribution to D. vulgaris was unresolved.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium cellulolyticum</p>
@@ -707,14 +702,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Sulfate-Linked Dependence of D. vulgaris
-                        <p class="prewrap causal-description">C. cellulolyticum cellobiose-fermentation products are the carbon/energy (electron-donor) source D. vulgaris consumes while reducing its supplied sulfate acceptor; the fermentation cross-feeding is required for D. vulgaris&#39;s sulfate-linked growth. (Abstract-level / directly implied, not perturbation-demonstrated.)
-</p>
+                        <p class="prewrap causal-description">C. cellulolyticum fermentation supplies carbon and reducing equivalents that support D. vulgaris growth with supplied sulfate. Maintained coculture and sulfate depletion support this dependence under the tested medium; hydrogen/ethanol partitioning is proposed rather than selectively measured, and reciprocal obligate dependence of the fermenter is not established.</p>
                     </div>
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Fumarate-Linked Dependence of G. sulfurreducens
-                        <p class="prewrap causal-description">The same fermentation products support G. sulfurreducens, which reduces its supplied fumarate acceptor; the cross-feeding is required for its fumarate-linked growth. (Abstract-level / directly implied, not perturbation-demonstrated.)
-</p>
+                        <p class="prewrap causal-description">Fermentation-derived substrates support G. sulfurreducens growth with supplied fumarate; measured acetate availability, fumarate depletion and succinate formation support the trophic interpretation. The allocation of acetate specifically to G. sulfurreducens is model-based rather than isotope-traced, so the arrow does not assert an independently measured donor-recipient flux.</p>
                     </div>
 
                 </div>
@@ -757,9 +750,9 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Sulfate-Linked Dependence of D. vulgaris</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">D. vulgaris Hildenborough depends on C. cellulolyticum metabolic products while sulfate is supplied as its electron acceptor.</p>
+                <p class="prewrap interaction-description">D. vulgaris Hildenborough persisted using fermentation-derived nutrients with sulfate supplied as electron acceptor. Sulfate was depleted but remained available, supporting electron-donor limitation. Hydrogen and ethanol were proposed donors, but their relative transfer could not be distinguished by the measurements. This is supported trophic dependence under the tested medium, not proof of reciprocal obligate syntrophy with C. cellulolyticum.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium cellulolyticum</p>
@@ -833,7 +826,7 @@
                     <h3>Fumarate-Linked Dependence of G. sulfurreducens</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">G. sulfurreducens depends on C. cellulolyticum metabolic products while fumarate is supplied as its electron acceptor.</p>
+                <p class="prewrap interaction-description">G. sulfurreducens persisted with C. cellulolyticum fermentation products and supplied fumarate. Fumarate depletion, residual acetate and succinate production support fumarate-linked respiration and acceptor limitation. Acetate use and its species-specific allocation are interpreted through the metabolic model; the source does not directly trace every exchange or establish absolute exclusion of alternate interspecies routes.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium cellulolyticum</p>
@@ -847,8 +840,8 @@
                 <p><strong>Metabolites:</strong>
 
                     fumarate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18012"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18012</a>)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29806"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29806</a>)
 
                 </p>
 
@@ -894,9 +887,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Electron Donor and Acceptor Limitation</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Metabolic modeling indicated C. cellulolyticum and D. vulgaris were electron-donor limited, while G. sulfurreducens was electron-acceptor limited.</p>
+                <p class="prewrap interaction-description">Residual-substrate measurements and carbon/electron modeling indicated cellobiose limitation for C. cellulolyticum, electron-donor limitation for D. vulgaris and fumarate-acceptor limitation for G. sulfurreducens. This is an experimentally informed inference, not demonstrated ecological niche partitioning. Elevated-fumarate trials were associated with succinate accumulation and culture upset, but selective succinate causation was not isolated.</p>
 
 
 
@@ -914,8 +906,8 @@
                         class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16189</a>),
 
                     fumarate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18012"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18012</a>)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29806"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29806</a>)
 
                 </p>
 
@@ -934,7 +926,7 @@
                             <a href="https://doi.org/10.1186/1471-2180-10-149"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1186/1471-2180-10-149</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"growth of C. cellulolyticum and D. vulgaris were electron donor limited"</div>
@@ -947,7 +939,7 @@
                             <a href="https://doi.org/10.1186/1471-2180-10-149"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1186/1471-2180-10-149</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"G. sulfurreducens was electron acceptor limited"</div>
@@ -970,11 +962,9 @@
                 <h3>
                     <span class="role-badge">KNOWLEDGE_GAP</span>
                     <span class="role-badge">OPEN</span>
-                    Which exact C. cellulolyticum fermentation products are transferred to D. vulgaris and G. sulfurreducens, and is the electron-acceptor to cross-feeding coupling perturbation-demonstrated rather than only abstract-level implied?
-
+                    Which donor-recipient fluxes and limitation mechanisms can be resolved beyond the measured bulk substrates and model estimates?
                 </h3>
-                <p class="prewrap">The curated donor-to-partner causal edges rest on the abstract statement that the partners &#34;derived carbon and energy from the metabolic products&#34; of C. cellulolyticum; the primary full text (doi:10.1186/1471-2180-10-149) was not retrievable, so the exact exchanged metabolites and any sulfate/fumarate-removal or inhibitor perturbation evidence remain unresolved. Products reported for a related two-species C. cellulolyticum / G. sulfurreducens fuel-cell system (acetate, ethanol, H2) must NOT be imported here without exact-system verification.
-</p>
+                <p class="prewrap">The complete exact-system primary main text is now inspected, superseding the prior full-text-access limitation. It reports bulk cellobiose, acetate, fumarate/succinate and sulfate measurements, qPCR and microscopy supporting the maintained trophic community. Hydrogen and ethanol transfer could not be distinguished, and species-specific carbon/electron allocations were modeled. The later OptCom study of the same composition predicts a different hydrogen/ethanol allocation under biomass objectives and an assumed hydrogen recipient; those predictions are not new measured transfer. Elevated-fumarate upsets and possible succinate inhibition remain associated observations, not selective perturbation proof. No products from the separate two-species fuel-cell system are imported, and the modeled fourth-member extension is not part of this community.</p>
 
                 <p class="muted small">Attaches to: <code>ecological_interactions#Sulfate-Linked Dependence of D. vulgaris</code>, <code>ecological_interactions#Fumarate-Linked Dependence of G. sulfurreducens</code></p>
 
@@ -993,7 +983,7 @@
 
                         </div>
                         <p class="snippet small prewrap">D. vulgaris and G. sulfurreducens derived carbon and energy from the metabolic products</p>
-                        <p class="muted small prewrap">The cross-feeding is stated only at the level of &#34;metabolic products&#34; without naming the exact exchanged compounds — the basis for filing this as a knowledge gap.</p>
+                        <p class="muted small prewrap">Supports trophic dependence; the now-inspected main text constrains the unresolved flux allocation rather than leaving all named products unknown.</p>
                     </div>
 
                 </details>
@@ -1453,7 +1443,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "CROSS_FEEDING";
             var metabolites = [];
 
 
@@ -1533,7 +1523,7 @@
 
         (function() {
             var intId = "interaction:3";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
