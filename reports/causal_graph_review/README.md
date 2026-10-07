@@ -5,6 +5,26 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch91: Interaction Semantics Re-Review
+
+[Decisions](decisions/20261007-five-records-batch91.yaml),
+[validation](validation-20261007-batch91.json) and
+[self-adversarial review](adversarial-review-20261007-batch91.yaml) recheck five
+earlier records after the batch90 schema correction. Three records are edited;
+the MFC and Crystal Geyser records remain unchanged. All 14 nodes, seven arrows
+and participant assignments are retained. UFMP's existing transfer hypothesis
+is typed CROSS_FEEDING with PARTIAL evidence. Digestion and pleuromutilin remain
+untyped for unresolved product-removal feedback or outcome scope, not because
+obligacy is unproven.
+
+Earlier ledgers and history artifacts are preserved. Explicit hash-linked
+supersession selects the current review without accepting unlinked duplicates,
+forks or cycles. Coverage remains 280 reviewed, 132 pending and 48 needing
+research; re-review does not increase the completed count. Two complete main
+bodies and four primary abstracts were read. An unrelated reference lookup is
+excluded explicitly. Repair #1744 awaits protected-main merge; research #1715
+and non-graph follow-ups remain open. No new topology, protocol or Edison job.
+
 ## Batch90: Degradation, Competition And Diatom Signaling
 
 [Decisions](decisions/20261007-four-records-batch90.yaml),

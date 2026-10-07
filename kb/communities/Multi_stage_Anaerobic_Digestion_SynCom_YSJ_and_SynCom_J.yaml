@@ -164,8 +164,9 @@ ecological_interactions:
   description: PARTIAL - Metagenomic analysis associates YSJ bioaugmentation with hydrolysis, acidogenesis, interspecies
     electron transfer, energy metabolism and methanogenesis functions. The abstract calls this gene upregulation;
     this metagenomic statement alone does not establish transcription, protein activity, measured electron flux,
-    direct electrical transfer or obligate syntrophy. Methane gains are retained independently of the unresolved
-    transfer mechanism.
+    direct electrical transfer or product-removal feedback making upstream metabolism favourable. Methane gains
+    are retained independently of the unresolved transfer mechanism. SYNTROPHY does not require obligacy in the
+    local schema; the unresolved feedback mechanism, not unproven obligacy, is the reason this node remains untyped.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methane
@@ -266,7 +267,9 @@ discussions:
     staged hand-off/electron-transfer/environment-selection chain. Obtain authorized full Methods to distinguish
     metagenomic abundance from expression, native from inoculated contributions, and direct from carrier-mediated
     electron exchange. Preserve the observed function/stability trade-off and the existing membership follow-up
-    #183. Abstract-only access does not show that controls were absent.'
+    #183. Abstract-only access does not show that controls were absent. The local SYNTROPHY definition concerns
+    product-removal feedback and does not assert obligacy. Metagenomic functional association alone does not resolve
+    that feedback; retain the putative transfer interpretation without a categorical SYNTROPHY label.'
   attaches_to:
   - ecological_interactions#Staged metabolic hand-off across hydrolytic, acidogenic and methanogenic members
   - ecological_interactions#Putative interspecies electron transfer supporting methanogenesis
@@ -279,4 +282,11 @@ curation_history:
     mechanism.; Retain metagenomic transfer interpretation as PARTIAL, not expression, direct flux or obligate syntrophy.;
     Retain environmental selection interpretation and function/stability trade-off; remove unsupported competition
     label. Issue #1626; reports/causal_graph_review/decisions/20261007-four-records-batch75.yaml'
+  llm_assisted: true
+- timestamp: '2026-10-07T13:44:53Z'
+  curator: codex
+  action: REVIEW_INTERACTION_SEMANTICS
+  changes: 'Preserve measured methane/comparator outcomes and the qualified staged-transfer model.; Keep the metagenomically
+    inferred transfer node untyped for unresolved product-removal feedback, not unproven obligacy.; Preserve environmental
+    selection interpretation and function/stability distinction. Issue #1744; reports/causal_graph_review/decisions/20261007-five-records-batch91.yaml'
   llm_assisted: true

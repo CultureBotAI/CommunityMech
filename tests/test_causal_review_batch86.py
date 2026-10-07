@@ -143,4 +143,19 @@ def test_history_and_unfinished_lifecycle_are_explicit():
     for row, doc in zip(rows, docs, strict=True):
         assert row["curation_events_added"] == len(row["history_files"]) == 1
         assert doc["curation_history"][-1]["llm_assisted"]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        expected = row["record_sha256"]
+        if row["id"] == "CommunityMech:000300":
+            followup = yaml.safe_load(
+                (
+                    ROOT
+                    / "reports/causal_graph_review/decisions/20261007-five-records-batch91.yaml"
+                ).read_text()
+            )
+            current = next(r for r in followup["records"] if r["path"] == row["path"])
+            assert current["original_sha256"] == expected
+            assert current["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": expected,
+            }
+            expected = current["record_sha256"]
+        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected

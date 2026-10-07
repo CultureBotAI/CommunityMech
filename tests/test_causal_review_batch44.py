@@ -21,7 +21,7 @@ def test_ufmp_roles_and_both_arrows_remain_hypotheses():
     for node in (first, chain, transfer):
         assert node["description"].startswith("HYPOTHESIZED:")
         assert "source_taxon" not in node and "target_taxon" not in node
-        assert "interaction_type" not in node
+        assert node.get("interaction_type") == ("CROSS_FEEDING" if node is transfer else None)
         assert all(e["supports"] == "PARTIAL" for e in node["evidence"])
         assert all(e["evidence_source"] == "COMPUTATIONAL" for e in node["evidence"])
         assert all(m["term"]["id"] != "CHEBI:422" for m in node.get("metabolites", []))
@@ -87,7 +87,22 @@ def test_every_original_node_and_arrow_has_a_decision():
     assert sum(len(r["removed_edge_decisions"]) for r in ledger["records"]) == 2
     for row, doc in zip(ledger["records"], docs, strict=True):
         assert row["status"] == "reviewed"
-        assert row["record_sha256"] == hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest()
+        expected = row["record_sha256"]
+        if row["id"] == "CommunityMech:000029":
+            followup = yaml.safe_load(
+                (
+                    ROOT
+                    / "reports/causal_graph_review/decisions/20261007-five-records-batch91.yaml"
+                ).read_text()
+            )
+            current = next(r for r in followup["records"] if r["path"] == row["path"])
+            assert current["original_sha256"] == expected
+            assert current["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": expected,
+            }
+            expected = current["record_sha256"]
+        assert expected == hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest()
         assert len(row["history_files"]) == 1 and (ROOT / row["history_files"][0]).is_file()
         assert doc["curation_history"][-1]["llm_assisted"] is True
         assert doc["discussions"][-1]["status"] == "OPEN"

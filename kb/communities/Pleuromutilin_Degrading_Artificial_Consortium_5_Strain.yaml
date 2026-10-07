@@ -156,8 +156,9 @@ taxonomy:
 ecological_interactions:
 - name: Ninety-Two-Percent Pleuromutilin Degradation
   description: The defined five-strain artificial consortium achieved reported pleuromutilin degradation of 91.97%.
-    Preserve this positive community-level endpoint without asserting obligatory syntrophy, partner-specific flux,
-    complete mineralization or a superiority comparison not stated in the accessible abstract.
+    Preserve this positive community-level endpoint without asserting product-removal cooperation, partner-specific
+    flux, complete mineralization or a superiority comparison not stated in the accessible abstract. SYNTROPHY does
+    not require obligacy, but a measured community degradation endpoint is not itself the product-removal mechanism.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: pleuromutilin
@@ -212,8 +213,8 @@ ecological_interactions:
       were studied, and potential degradation products and metabolic pathways were proposed
 
       '
-    explanation: Supports proposed products/pathways, not experimentally resolved interspecies exchange or obligate
-      syntrophy.
+    explanation: Supports proposed products/pathways, not experimentally resolved interspecies exchange or product-removal
+      feedback on upstream metabolism.
   participating_taxa:
   - preferred_term: Stenotrophomonas pavanii
     term:
@@ -249,6 +250,13 @@ curation_history:
   changes: 'Retain positive 91.97% degradation without obligatory syntrophy.; Retain proposed metabolic products/pathways
     with attribution and metabolomics limits. Issue #1711; reports/causal_graph_review/decisions/20261007-four-records-batch86.yaml'
   llm_assisted: true
+- timestamp: '2026-10-07T13:44:53Z'
+  curator: codex
+  action: REVIEW_INTERACTION_SEMANTICS
+  changes: 'Keep the positive degradation endpoint distinct from a product-removal mechanism; obligacy is not required
+    by SYNTROPHY.; Preserve proposed products/pathways without treating metabolomic differences as partner feedback;
+    unresolved topology remains #1715. Issue #1744; reports/causal_graph_review/decisions/20261007-five-records-batch91.yaml'
+  llm_assisted: true
 discussions:
 - discussion_id: pleuromutilin-parent-versus-defined-community
   prompt: Which compatibility and degradation mechanisms belong to the defined five-strain community?
@@ -257,12 +265,14 @@ discussions:
   posed_by: codex
   rationale: 'Natural En4 enrichment showed reduced diversity and enriched pollutant-associated genera; preserve
     those positives as parent-community context, not interactions among the five selected strains. Assembly/isolation
-    workflow remains in engineering_design. Public Table S1 lists bacterial and fungal isolates and identifies W12,
-    rather than same-species W10, as the selected Pseudomonas songnenensis in Table S2. Table S2 reports no inhibition
-    zones, not cross-feeding or long-term stability. Table S3 supports differential metabolomics, not compound provenance
-    or partner flux. Main text remains inaccessible; source DOCX tables were read by OOXML, not rendered pages.
-    Missing compatibility/pathway topology remains #1715 pending a reviewed, explicitly authorized Edison report;
-    no new structure is added. Non-graph isolate and strain identity remains #1716.'
+    workflow remains in the record description. Public Table S1 lists bacterial and fungal isolates and identifies
+    W12, rather than same-species W10, as the selected Pseudomonas songnenensis in Table S2. Table S2 reports no
+    inhibition zones, not cross-feeding or long-term stability. Table S3 supports differential metabolomics, not
+    compound provenance or partner flux. Main text remains inaccessible; source DOCX tables were read by OOXML,
+    not rendered pages. Missing compatibility/pathway topology remains #1715 pending a reviewed, explicitly authorized
+    Edison report; no new structure is added. Non-graph isolate and strain identity remains #1716. The local SYNTROPHY
+    definition does not assert obligacy. The retained outcome and proposed-products nodes remain untyped because
+    they do not themselves establish product-removal feedback, not because obligatory dependence is unproven.'
   attaches_to:
   - ecological_interactions#Ninety-Two-Percent Pleuromutilin Degradation
   - ecological_interactions#Proposed Artificial-Consortium Degradation Products and Pathways
@@ -285,5 +295,5 @@ discussions:
       were studied, and potential degradation products and metabolic pathways were proposed
 
       '
-    explanation: Supports proposed products/pathways, not experimentally resolved interspecies exchange or obligate
-      syntrophy.
+    explanation: Supports proposed products/pathways, not experimentally resolved interspecies exchange or product-removal
+      feedback on upstream metabolism.
