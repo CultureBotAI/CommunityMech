@@ -1,0 +1,236 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: a74e8e81dc708280fedbf1fe63453275b3d53394
+scope:
+- kb/communities/Nasal_SynCom_C_Bioreactor.yaml
+- kb/communities/Neocallimastix_Methanobrevibacter_Xylan_Coculture.yaml
+- kb/communities/Ngawha_Geothermal_Mercury_Cycling_Community.yaml
+- kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch77.json
+findings:
+- issue: 1637
+  severity: P2
+  status: addressed_in_this_change
+  finding: Xylan mediation, utilization/depolymerization and normalized enzyme boundaries.
+  disposition: Close only after protected-main merge.
+- issue: 1638
+  severity: P2
+  status: addressed_in_this_change
+  finding: Ngawha gene, gas-measurement, conceptual-coupling and context-arrow claims.
+  disposition: Close only after protected-main merge.
+- issue: 1639
+  severity: P2
+  status: addressed_in_this_change
+  finding: Z123 proposed functional differentiation versus measured outcomes and unresolved assignments.
+  disposition: Close only after protected-main merge.
+- issue: 1640
+  severity: P2
+  status: unresolved_research
+  finding: Missing Nasal stable-assembly and strain-specific challenge nodes.
+  disposition: Keep OPEN after graph-repair merge; scoped research authorization and report inspection remain pending.
+- issue: 1641
+  severity: P2
+  status: unresolved_research
+  finding: Missing Z123 polymer and enzyme outcome nodes.
+  disposition: Keep OPEN after graph-repair merge; scoped research authorization and report inspection remain pending.
+- issue: 1642
+  severity: P2
+  status: unresolved_non_graph
+  finding: Xylan exact strain detail and Ngawha non-graph activity/stability wording.
+  disposition: Keep OPEN after graph-repair merge.
+adversarial_checks:
+- Every whole record and original node/arrow reviewed after a fresh both-root baseline. Empty Nasal is explicitly
+  needs_research, not omitted or reported complete. No topology invented to satisfy a sparse-graph heuristic.
+- Preserve xylan utilization and extracellular enzyme gains with SUPPORT evidence and correct canonical pairwise
+  directions. Enzyme activities are protein-normalized; increased biomass is not the entire explanation. Abstract
+  maxima span fungi/time/substrates, not uniform PNK2 values.
+- Xylan utilization is distinct from polymer depolymerization. Preserve both existing causal links with partial/hypothesized
+  mediation. Replace shared-context wording by the actual source proposal involving sugar uptake and xylose repression;
+  do not claim a selective hydrogen-removal or repression-rescue perturbation.
+- Ngawha mer/hgc findings are positive sequence evidence. hgcA sequences could not be binned, no definitive methylator
+  taxon is assigned, HMM MerA hits require paralog filtering and Tiger Bath nondetection is depth-bounded. Replace
+  an abstract aim fragment with actual result excerpts, not false activity certainty.
+- 'Ngawha atmospheric Hg(0) really was measured: retain the environmental outcome. Do not attribute the measurement
+  solely to microorganisms because deep geological inputs and abiotic reactions were not isolated. Main manuscript
+  Results and Methods and Table2 were checked; this is not a microbial flux assay.'
+- Retain unexpectedly diverse sampled microbiomes without temporal-stability or niche-partitioning claims. Remove
+  the last environment-to-diversity context arrow while preserving the earlier four-edge removal. Keep the sulfur/iron/cinnabar
+  conceptual model without syntrophy or transport ontology overclaims.
+- Z123 uses genomics plus proteomics, not merely gene prediction. Preserve reported polymer losses and recombinant
+  enzyme assays. Putative GC-MS compounds are not traced assimilation/mineralization; half-dose comparators do not
+  establish full-dose synergy or assign enzyme necessity to a live strain. Missing endpoint nodes remain research
+  work.
+- Nasal source read distinguishes experiment5 from swab experiments1-4, one control plus two reactors per challenge
+  strain, nondetected residents from nine-member inoculum, and proposed tyrosine mechanism from isolated causal
+  rescue. Prior969-972 fixes retained. Fresh full-text access failed; previous cache provenance is explicit.
+- Only22 words of selected author-manuscript Results were appended to one cache, with URL, version and PDF SHA.
+  Original abstract and919 other caches remain unchanged; no publication PDF or full manuscript body is committed.
+  Three result snippets total22 words, verified by test.
+- Nine nodes and three original arrows are accounted for; nine nodes/two arrows remain. Three histories,457 unchanged
+  records and non-graph raw blocks preserved. Canonical taxonomy and auditor rules unchanged. Forty-four baseline
+  warnings and connectivity census must be preserved exactly, not interpreted as resolved member activity.
+- Two separate one-record Edison LITERATURE dry runs completed, with no provider submissions or credits. Scoped
+  asynchronous questions are unanswered; preselection is not approval and earlier denied scopes are unchanged. Research1640/1641
+  and metadata1642 stay OPEN after repairs1637-1639 merge.
+- Schema, strict, terms, full-record references, snippets, histories, both-root inventory/network/rank, regression/lint
+  and deterministic rendering outputs are captured. Exact descriptions are parsed across456 pages, not browser screenshots.
+  Exact-commit review publication and postcommit docs-current remain separate gates. Self-review is not independent
+  approval or corpus completion.
+verification:
+  combined_regressions: 686 passed in 188.36s (0:03:08)
+  new_regression_tests: 9
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: All four full-record reference validators exit0. CLI Total checks counts issues, not executed checks.
+    All12 graph quotations independently match primary abstract or author-PDF extraction; the latter removes marginal
+    line numbers. One cache adds22 quoted words with provenance;919 others are unchanged. String matching is not
+    entailment. Nasal full-text provenance is a prior cache; LDPE remains abstract-bounded. No recertification of
+    all920 caches.
+  snippet_counts_by_record:
+    kb/communities/Nasal_SynCom_C_Bioreactor.yaml:
+      MATCH: 25
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Neocallimastix_Methanobrevibacter_Xylan_Coculture.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Ngawha_Geothermal_Mercury_Cycling_Community.yaml:
+      MATCH: 16
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml:
+      MATCH: 10
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    primary_matched: 12
+    new_nodes_or_arrows: 0
+    complete_main_bodies_read: 3
+    nasal_fulltext_provenance: pre-existing cache
+    ldpe_abstract_bounded: true
+    ngawha_table2_visually_inspected: true
+    other_original_figure_pixels_or_separate_pdfs_inspected: false
+  network:
+    existing_findings_preserved: 44
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All44 baseline warnings preserved exactly. Community scope remains aggregate, not resolved member-specific
+      activity. No taxonomy or auditor-rule changes.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml: 0a99a772e824fc64f57a5bb1fb0d68a7f35fb6ad10b12e71fcef5a75739487cc
+    tests/test_causal_review_batch77.py: 33ca8c1ac9006dde5fc1e9a3a8b7322cb351010c5c3cca943879ee1f4b6a7a2a
+    kb/communities/Nasal_SynCom_C_Bioreactor.yaml: 4bd66811333c6960ebab5553e7ce71c8a4f92aa1d81f0fc2c9e2b4f6b75dac2e
+    kb/communities/Neocallimastix_Methanobrevibacter_Xylan_Coculture.yaml: 2dfcebb0ae5d58d6bedffe10cda2f9c71f2e8866278739376d7e788835859864
+    kb/communities/Ngawha_Geothermal_Mercury_Cycling_Community.yaml: f483df7d09ad54db2c7ee6ef0e4bcaa8f40aa66a12fc8cb4aa5568c2f84243df
+    kb/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml: b782163d991445cbfabe4645db8c21b3597c0cb40046148fa0f5a208c5342838
+    reports/causal_graph_review/README.md: f53c02d8e2f6d2b5c31555904159855ea85d269fef1424aea68e85d9512ca3c2
+    references_cache/PMID_32414793.md: a75f648c2ea5f44d46a64de72ef5b19ba1a8d9ae076e0369d05834efd06d81c3
+  unchanged_caches: 919
+  cache_changes:
+  - path: references_cache/PMID_32414793.md
+    original_sha256: 0dabdbcc6bfedb6a3941d5ee284628d1d9679351cfa113c96bb9b73d948f96bd
+    sha256: a75f648c2ea5f44d46a64de72ef5b19ba1a8d9ae076e0369d05834efd06d81c3
+    added_quoted_words: 22
+    scope: Original abstract retained plus three selected author-manuscript result excerpts; no full-text redistribution.
+  unchanged_records: 457
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: true
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs:
+    - community_id: CommunityMech:000395
+      job: LITERATURE
+      query_chars: 10512
+      query_sha256: ac0cadaf9977b247dcff336ef57ae50ea322b7c3f24fa78d75b1848e3974f365
+      meta_path: /private/tmp/communitymech-batch77/edison-nasal/Nasal_SynCom_C_Bioreactor-edison-literature-causal-meta.yaml
+      authorization: Scoped asynchronous question unanswered; preselection is not approval.
+    - community_id: CommunityMech:000342
+      job: LITERATURE
+      query_chars: 8208
+      query_sha256: 4287fdb9eb800acdc04b5ab0f1e3725588bbadefce5cbe6c7ea6309e079e8f79
+      meta_path: /private/tmp/communitymech-batch77/edison-ldpe/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom-edison-literature-causal-meta.yaml
+      authorization: Scoped asynchronous question unanswered; preselection is not approval.
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+    current:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: No scope-count change, taxonomy edit, or auditor-rule change. Aggregate outcomes do not establish
+    member-resolved activity.
+corpus:
+  records: 460
+  nodes: 1447
+  edges: 615
+  review_status_counts:
+    needs_research: 28
+    pending: 184
+    reviewed: 248
+limitations:
+- Fresh before-paper baseline covers460 records and920 caches across both roots including ignored/hidden files.
+  All9 existing nodes and3 arrows reviewed;9nodes2arrows remain. Three guarded repairs/histories; Nasal byte-for-byte
+  unchanged but needs_research, not complete.
+- Nasal full cached main body and embedded captions read with folded bounded output; initial oversized-line truncation
+  and S6 caption gap were corrected by rereading. Fresh abstract only independently retrieved. Cached supplement
+  table extraction read, not original PDF pixels. BioRxiv403 was respected.
+- Xylan complete main body, tables and captions read from publisher-indexed PDF acquired before normal download403.
+  PMC challenge respected; screenshot tool returned citation text rather than image pixels, so no visual figure
+  audit is claimed. EuropePMC XML500 was not absence of full text.
+- Ngawha author manuscript main body, tables and captions read; Table2 page44 visually inspected. Original figure
+  panels and separate supplement not audited. Final abstract and author manuscript are distinct versions; no silent
+  replacement of final abstract numbers.
+- LDPE review is primary-abstract bounded. Missing Methods are not evidence that controls do not exist. Genomics
+  plus proteomics and actual recombinant enzyme assays are preserved; no isotope-traced assimilation or full-dose
+  matched synergy inferred.
+- All12 graph excerpts independently match fresh abstract or author-PDF text. Only22 quoted words from actual Ngawha
+  Results are appended to one cache with URL/version/PDF digest; original abstract and919 other caches preserved.
+  No full paper or publication PDF uploaded. String matching is not entailment proof.
+- Preserve xylan hydrogen transfer, utilization and specific-enzyme gains. Utilization is not depolymerization;
+  panel maxima are not uniform PNK2 effects. Two existing arrows retained as partial/hypothesized mediation; sugar-uptake
+  control remains unresolved.
+- Preserve Ngawha environmental Hg pools and actual atmospheric Hg(0), sequence potential and diversity. Unbinned
+  hgcA, paralog filtering, sequencing depth and geogenic inputs bound causality. No temporal stability, demonstrated
+  niche partitioning, syntrophy or transport process is inferred. Prior four-edge removal is preserved.
+- Nasal graph and Z123 measured endpoint extensions remain needs_research. Two separate one-record Edison LITERATURE
+  dry runs used zero credits; no provider submission. Scoped questions await actual reply; generic authorization
+  and earlier pending or denied scopes are not broadened.
+- Dedup:920 all-state issue titles/bodies and22 local matching files with ignored/hidden-inclusive search excluding
+  git/docs/site/cache. Matching969-972 read and retained. No exhaustive PR-comment audit. One incorrect research-source
+  path errored; corrected script inspection supersedes it and is not an absence claim.
+- Repairs1637-1639 remain OPEN until protected-main merge; research1640/1641 and metadata1642 remain OPEN afterward.
+  Non-graph blocks and canonical taxa are preserved, not certified. Self-adversarial review is not independent approval
+  or corpus completion.
