@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-09-09T20:30:33
+# Generation date: 2026-10-07T00:39:48
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -32,8 +32,8 @@ version = None
 CHEBI = CurieNamespace("CHEBI", "http://purl.obolibrary.org/obo/CHEBI_")
 CL = CurieNamespace("CL", "http://purl.obolibrary.org/obo/CL_")
 ENVO = CurieNamespace("ENVO", "http://purl.obolibrary.org/obo/ENVO_")
-GO = CurieNamespace("GO", "http://purl.obolibrary.org/obo/GO_")
 GITHUB = CurieNamespace("GITHUB", "https://github.com/")
+GO = CurieNamespace("GO", "http://purl.obolibrary.org/obo/GO_")
 NCBITAXON = CurieNamespace("NCBITaxon", "http://purl.obolibrary.org/obo/NCBITaxon_")
 OBI = CurieNamespace("OBI", "http://purl.obolibrary.org/obo/OBI_")
 PMID = CurieNamespace("PMID", "http://www.ncbi.nlm.nih.gov/pubmed/")
@@ -1858,6 +1858,54 @@ class GeneAnnotation(YAMLRoot):
         self.evidence = [
             v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence
         ]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class CrossCorpusLink(YAMLRoot):
+    """
+    A directed link from the containing record or sub-object to a record in another Mech corpus. The five field names
+    preserve NaturalProductMech's existing link shape. Consumers define allowed relations and evidence requirements;
+    this class alone does not verify a target, its version, organism scope, or the scientific basis of the relation.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MECH_SHARED["CrossCorpusLink"]
+    class_class_curie: ClassVar[str] = "mech_shared:CrossCorpusLink"
+    class_name: ClassVar[str] = "CrossCorpusLink"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.CrossCorpusLink
+
+    corpus: str = None
+    identifier: str = None
+    relation: str = None
+    basis: str = None
+    source_version: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.corpus):
+            self.MissingRequiredField("corpus")
+        if not isinstance(self.corpus, str):
+            self.corpus = str(self.corpus)
+
+        if self._is_empty(self.identifier):
+            self.MissingRequiredField("identifier")
+        if not isinstance(self.identifier, str):
+            self.identifier = str(self.identifier)
+
+        if self._is_empty(self.relation):
+            self.MissingRequiredField("relation")
+        if not isinstance(self.relation, str):
+            self.relation = str(self.relation)
+
+        if self._is_empty(self.basis):
+            self.MissingRequiredField("basis")
+        if not isinstance(self.basis, str):
+            self.basis = str(self.basis)
+
+        if self.source_version is not None and not isinstance(self.source_version, str):
+            self.source_version = str(self.source_version)
 
         super().__post_init__(**kwargs)
 
@@ -5357,6 +5405,51 @@ slots.geneAnnotation__evidence = Slot(
     model_uri=COMMUNITYMECH.geneAnnotation__evidence,
     domain=None,
     range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
+)
+
+slots.crossCorpusLink__corpus = Slot(
+    uri=MECH_SHARED.corpus,
+    name="crossCorpusLink__corpus",
+    curie=MECH_SHARED.curie("corpus"),
+    model_uri=COMMUNITYMECH.crossCorpusLink__corpus,
+    domain=None,
+    range=str,
+)
+
+slots.crossCorpusLink__identifier = Slot(
+    uri=MECH_SHARED.identifier,
+    name="crossCorpusLink__identifier",
+    curie=MECH_SHARED.curie("identifier"),
+    model_uri=COMMUNITYMECH.crossCorpusLink__identifier,
+    domain=None,
+    range=str,
+)
+
+slots.crossCorpusLink__relation = Slot(
+    uri=MECH_SHARED.relation,
+    name="crossCorpusLink__relation",
+    curie=MECH_SHARED.curie("relation"),
+    model_uri=COMMUNITYMECH.crossCorpusLink__relation,
+    domain=None,
+    range=str,
+)
+
+slots.crossCorpusLink__basis = Slot(
+    uri=MECH_SHARED.basis,
+    name="crossCorpusLink__basis",
+    curie=MECH_SHARED.curie("basis"),
+    model_uri=COMMUNITYMECH.crossCorpusLink__basis,
+    domain=None,
+    range=str,
+)
+
+slots.crossCorpusLink__source_version = Slot(
+    uri=MECH_SHARED.source_version,
+    name="crossCorpusLink__source_version",
+    curie=MECH_SHARED.curie("source_version"),
+    model_uri=COMMUNITYMECH.crossCorpusLink__source_version,
+    domain=None,
+    range=Optional[str],
 )
 
 slots.supportingReference__reference = Slot(
