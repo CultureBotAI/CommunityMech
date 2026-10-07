@@ -1,0 +1,403 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: c33f6896716f6cfa4ccaac9b3ad97359de0674f9
+scope:
+- kb/communities/SMutans_CAlbicans_ECC_Biofilm.yaml
+- kb/communities/SMutans_SSputigena_ECC_Pathobiont.yaml
+- kb/communities/SMutans_VParvula_ASC_Biofilm.yaml
+- kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch97.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch97.json
+findings:
+- issue: 1772
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate Candida biofilm facilitation from rodent disease outcome
+  disposition: Close only after protected-main merge.
+- issue: 1773
+  severity: P2
+  status: addressed_in_this_change
+  finding: Correct Selenomonas graph evidence modality and outcome scope
+  disposition: Close only after protected-main merge.
+- issue: 1774
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound Veillonella expression and rodent outcome claims
+  disposition: Close only after protected-main merge.
+- issue: 1775
+  severity: P2
+  status: addressed_in_this_change
+  finding: Retain SO3-BS3 detoxification without an untested neutral partner effect
+  disposition: Close only after protected-main merge.
+- issue: 1776
+  severity: P2
+  status: open_non_graph_follow_up
+  finding: Review oral-biofilm non-graph evidence labels and model boundaries
+  disposition: Separate non-graph curation required.
+adversarial_checks:
+- Fresh both-root baseline preceded source reads. Four whole records and all11nodes/7directions accounted for; all
+  retained,5nodes renamed. No new topology or provider spend.
+- Candida mutualism and directional biofilm facilitation remain. EPS evidence is IN_VITRO; the rodent carriage/lesion
+  endpoint is COMMUNITY_LEVEL. The existing lesion arrow is PARTIAL mediation, not a proven human causal effect.
+- Selenomonas entrapment and structure evidence is IN_VITRO. Retain experimentally supported S. mutans-to-S. sputigena
+  facilitation and the structural direction. The primary matrix-disruption and ex-vivo evidence must not be erased
+  as mere association. Mixed acidogenesis and rodent lesions are not recipient colonization measurements.
+- Veillonella gtf expression and EPS fluorescence remain, without independently quantified enzyme activity or species-resolved
+  cell abundance. Correct the in-vitro source, use named community participants for composite outcomes, and distinguish
+  rodent intervention from adult human association. Both mediator directions are PARTIAL.
+- Battery detoxification, EET and leaching remain. Beneficial detoxification does not establish neutral fitness
+  of BS3 in the exact pair, so COMMENSALISM is removed. Predecessor comparisons and the final-consortium interpretation
+  are distinguished; perturbation and riboflavin evidence is not a quantitative partition of direct/shuttle flux.
+  Earlier scale-up discussion preserved.
+- Adversarial diff review found that two newly explicit interpretation statements lacked direct result quotations
+  at the node. Added source-matched Selenomonas structural and SO3 perturbation quotations, with two new correction
+  histories referencing and preserving the initial histories. Both fixes preceded final validation; no interrupted
+  attempt.
+- All16graph and4new-discussion quotations match fresh primary text and unchanged caches. Candida XML retrieval
+  failed; fresh abstract/PubMed captions and selected primary sections for the other sources were read. Truncated
+  flattened cache output is not a complete cache-body read. No figure pixels, supplements or raw-data certification.
+- Four records changed;456otherrecords,923caches, canonical taxonomy and all non-graph raw blocks preserved. Six
+  append-only histories. No culture procedures, genetic designs or pathogen-enhancement instructions added. Non-graph1776
+  remains separate.
+- 'Connectivity census: records with community scope399->402,mixed125->128,taxa1536->1542,solely credited1266 unchanged.
+  Exactly named two-member participant lists explain the change; narrow bounds updated with dedicated scope tests.
+  Initial regression found an incomplete participant allowlist (887passed/1failed). Added exactly the three intentional
+  users; equality guard retained. Failed output and initial snapshot preserved, complete regression rerun; unchanged
+  earlier gates digest-checked on resume.'
+- Eight focused tests and888combined regressions passed;44output records and digests retained. Whole-record gates
+  and six history gates ran.56network warnings unchanged,zero structural defects. Deterministic rendering and exact
+  HTML description parsing are not screenshots; postcommit docs-current remains a separate gate.
+- Fresh all-state issue title/body and ignored/hidden-inclusive local dedup with stated exclusions performed;941/942
+  read and distinct. PRs/comments not exhaustive. Repairs1772-1775 close only after protected-main merge;1776 remains
+  open. Linux DOI-cache1091 and loader1703 not certified.
+- Self-adversarial review is COMMENT, not independent approval. No protection bypass, CI fabrication or automatic
+  issue closure. Corpus304reviewed/108pending/48needs_research remains incomplete.
+adversarial_prepublication_fix:
+  findings:
+  - issue: 1773
+    details: Attach direct primary-result evidence to the retained Honeycomb Biofilm Acidogenesis interpretation
+      after adversarial diff review; no new node, direction, mechanism or protocol.
+    preserved_initial_histories:
+      history/records/SMutans_SSputigena_ECC_Pathobiont/2026-10-07T184554Z-codex-0f7a08.yaml: 6489f27ee2b5c35d4131815469e2761ff1cd7e3ed53a87bb08782f65d1739230
+    correction_history: history/records/SMutans_SSputigena_ECC_Pathobiont/2026-10-07T185016Z-codex-9c291b.yaml
+  - issue: 1775
+    details: Attach direct primary-result evidence to the retained MtrC/OmcA and riboflavin NCM reduction interpretation
+      after adversarial diff review; no new node, direction, mechanism or protocol.
+    preserved_initial_histories:
+      history/records/SO3_BS3_Lithium_Battery_Bioleaching_Consortium/2026-10-07T184554Z-codex-3515ec.yaml: fa0a65de9df956d2143f1370a94d1aacec667c3ba2280b3fa7f2664060aa798b
+    correction_history: history/records/SO3_BS3_Lithium_Battery_Bioleaching_Consortium/2026-10-07T185016Z-codex-8bc7a6.yaml
+  timing: Both corrections preceded final validation; no interrupted verification attempt.
+  participant_fixture_correction:
+    details: Initial regression:887passed/1failed because the explicit participant allowlist lacked the three newly
+      curated oral records. Added exactly those three entries after measured census; equality guard retained. Failed
+      output and initial validation snapshot preserved; full regression rerun, unchanged earlier gates digest-checked
+      on resume.
+    failed_output: /private/tmp/communitymech-batch97/verification-final/regressions-attempt1.log
+    failed_output_sha256: 8fa08d48a4811313045065e543271e7296247431252649fd350220a53197978f
+    initial_snapshot: /private/tmp/communitymech-batch97/validation-initial.json
+    initial_snapshot_sha256: 46a188ae9e6357498dbdd9175ba4e84c9e473ba37b3abd57fe08fbc9a128c4de
+verification:
+  combined_regressions: 888 passed in 507.98s (0:08:27)
+  new_regression_tests: 8
+  total_recorded_gate_outputs: 44
+  primary_graph_snippet_proof:
+    graph_quotations: 16
+    new_discussion_quotations: 4
+    fresh_primary_matches: 20
+    retained_nodes: 11
+    removed_nodes: 0
+    retained_arrows: 7
+    removed_arrows: 0
+    new_nodes_or_directions: 0
+    scope: Selected primary results/discussions for Selenomonas, Veillonella and battery; Candida abstract and PubMed
+      captions. All quotations matched, not automatic entailment or figure-pixel certification.
+  references: Four full-record CLI and local snippet checks executed on macOS,not Linux; DOI-cache casing issue1091
+    remains. Literal matches do not establish entailment; Candida full text unavailable and other sources read in
+    stated sections. CLI Total checks counts issues,not executed checks. Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/SMutans_CAlbicans_ECC_Biofilm.yaml:
+      MATCH: 13
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/SMutans_SSputigena_ECC_Pathobiont.yaml:
+      MATCH: 13
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/SMutans_VParvula_ASC_Biofilm.yaml:
+      MATCH: 13
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8939
+      categories:
+        MATCH: 8804
+        RENDERING: 20
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 38
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification; literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All11nodes7directions retained with evidence-modality, outcome-scope and mediation corrections.
+      All56warnings unchanged,zero structural defects.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch97.yaml: f3e566e8551faa3722556919317158cc3f7e5cc14a8efb44c0517b02519e907b
+    tests/test_causal_review_batch97.py: 4eb722b7646f410036a63562b2bf464bd272ef3f9cfb9b81767306d5ed7eb9da
+    tests/test_participating_taxa.py: 609b5ce90381373a0201fca0d8a391052403d62ad11ca412653c012b5d560eb0
+    tests/test_community_level_connectivity_credit.py: 2bbf90543ae806230d546f26ad572aa97f9ace8895076a314006b8e4c5c51686
+    reports/causal_graph_review/README.md: 00275ecb17f43571008c91f4066c5b90a44e640ce0833a684d55a051518ab45f
+    reports/causal_graph_review/cache-provenance-20261007-batch97.json: 2b4ae0fb1591e187d73ef784979e2c69def0e1bcb111ef6eec0e64bec01ba43d
+    kb/communities/SMutans_CAlbicans_ECC_Biofilm.yaml: fb7d747151fb52f52127e035683a77dcb1596d6f1fc97ac1e8635298ce24fd34
+    kb/communities/SMutans_SSputigena_ECC_Pathobiont.yaml: 8c32ed74a997011d25ad1e3501b42f6da246ba28e23d58a85a92ee9fad169846
+    kb/communities/SMutans_VParvula_ASC_Biofilm.yaml: 1c331f8546d510e5a20819f77901353203ba43b317c92f5bdb4ad8ab2364e265
+    kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml: b70b100dcdc43b4caf560b3794f0165db3b7c99410a7ba8d5b811825ebdceef4
+  unchanged_records: 456
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 768
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Correct existing node categories, source modality and mediation strength; retain all existing
+      directions without new topology.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+  failed_attempts:
+  - check: regressions
+    command:
+    - /Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3
+    - -m
+    - pytest
+    - -q
+    - tests/test_causal_review_batch10.py
+    - tests/test_causal_review_batch11.py
+    - tests/test_causal_review_batch12.py
+    - tests/test_causal_review_batch13.py
+    - tests/test_causal_review_batch14.py
+    - tests/test_causal_review_batch15.py
+    - tests/test_causal_review_batch16.py
+    - tests/test_causal_review_batch17.py
+    - tests/test_causal_review_batch18.py
+    - tests/test_causal_review_batch19.py
+    - tests/test_causal_review_batch20.py
+    - tests/test_causal_review_batch21.py
+    - tests/test_causal_review_batch22.py
+    - tests/test_causal_review_batch23.py
+    - tests/test_causal_review_batch24.py
+    - tests/test_causal_review_batch25.py
+    - tests/test_causal_review_batch27.py
+    - tests/test_causal_review_batch28.py
+    - tests/test_causal_review_batch29.py
+    - tests/test_causal_review_batch30.py
+    - tests/test_causal_review_batch31.py
+    - tests/test_causal_review_batch32.py
+    - tests/test_causal_review_batch33.py
+    - tests/test_causal_review_batch34.py
+    - tests/test_causal_review_batch35.py
+    - tests/test_causal_review_batch36.py
+    - tests/test_causal_review_batch37.py
+    - tests/test_causal_review_batch38.py
+    - tests/test_causal_review_batch39.py
+    - tests/test_causal_review_batch40.py
+    - tests/test_causal_review_batch41.py
+    - tests/test_causal_review_batch42.py
+    - tests/test_causal_review_batch43.py
+    - tests/test_causal_review_batch44.py
+    - tests/test_causal_review_batch45.py
+    - tests/test_causal_review_batch46.py
+    - tests/test_causal_review_batch47.py
+    - tests/test_causal_review_batch48.py
+    - tests/test_causal_review_batch49.py
+    - tests/test_causal_review_batch5.py
+    - tests/test_causal_review_batch50.py
+    - tests/test_causal_review_batch51.py
+    - tests/test_causal_review_batch52.py
+    - tests/test_causal_review_batch53.py
+    - tests/test_causal_review_batch54.py
+    - tests/test_causal_review_batch55.py
+    - tests/test_causal_review_batch56.py
+    - tests/test_causal_review_batch57.py
+    - tests/test_causal_review_batch58.py
+    - tests/test_causal_review_batch59.py
+    - tests/test_causal_review_batch6.py
+    - tests/test_causal_review_batch60.py
+    - tests/test_causal_review_batch61.py
+    - tests/test_causal_review_batch62.py
+    - tests/test_causal_review_batch63.py
+    - tests/test_causal_review_batch64.py
+    - tests/test_causal_review_batch65.py
+    - tests/test_causal_review_batch66.py
+    - tests/test_causal_review_batch67.py
+    - tests/test_causal_review_batch68.py
+    - tests/test_causal_review_batch69.py
+    - tests/test_causal_review_batch7.py
+    - tests/test_causal_review_batch70.py
+    - tests/test_causal_review_batch71.py
+    - tests/test_causal_review_batch72.py
+    - tests/test_causal_review_batch73.py
+    - tests/test_causal_review_batch74.py
+    - tests/test_causal_review_batch75.py
+    - tests/test_causal_review_batch76.py
+    - tests/test_causal_review_batch77.py
+    - tests/test_causal_review_batch78.py
+    - tests/test_causal_review_batch79.py
+    - tests/test_causal_review_batch8.py
+    - tests/test_causal_review_batch80.py
+    - tests/test_causal_review_batch81.py
+    - tests/test_causal_review_batch82.py
+    - tests/test_causal_review_batch83.py
+    - tests/test_causal_review_batch84.py
+    - tests/test_causal_review_batch85.py
+    - tests/test_causal_review_batch86.py
+    - tests/test_causal_review_batch87.py
+    - tests/test_causal_review_batch88.py
+    - tests/test_causal_review_batch89.py
+    - tests/test_causal_review_batch9.py
+    - tests/test_causal_review_batch90.py
+    - tests/test_causal_review_batch91.py
+    - tests/test_causal_review_batch92.py
+    - tests/test_causal_review_batch93.py
+    - tests/test_causal_review_batch94.py
+    - tests/test_causal_review_batch95.py
+    - tests/test_causal_review_batch96.py
+    - tests/test_causal_review_batch97.py
+    - tests/test_site_audit_fixes.py
+    - tests/test_causal_review_inventory.py
+    - tests/test_rank_causal_graph_readiness.py
+    - tests/test_network_auditor.py
+    - tests/test_participating_taxa.py
+    - tests/test_causal_descriptions_are_published.py
+    - tests/test_published_pages_name_real_records.py
+    - tests/test_reference_validator_actually_validates.py
+    - tests/test_snippet_audit_artefact_classes.py
+    - tests/test_reference_error_annotation.py
+    - tests/test_community_level_connectivity_credit.py
+    - tests/test_no_paywalled_text_in_repo.py
+    exit_code: 1
+    expected_exit_codes:
+    - 0
+    log: /private/tmp/communitymech-batch97/verification-final/regressions-attempt1.log
+    log_sha256: 8fa08d48a4811313045065e543271e7296247431252649fd350220a53197978f
+    output_tail: "........................................................................ [  8%]\n........................................................................\
+      \ [ 16%]\n........................................................................ [ 24%]\n........................................................................\
+      \ [ 32%]\n........................................................................ [ 40%]\n........................................................................\
+      \ [ 48%]\n........................................................................ [ 56%]\n........................................................................\
+      \ [ 64%]\n........................................................................ [ 72%]\n........................................................................\
+      \ [ 81%]\n........................................................................ [ 89%]\n...............F........................................................\
+      \ [ 97%]\n........................                                                 [100%]\n===================================\
+      \ FAILURES ===================================\n_________________ test_the_corpus_is_unchanged_by_this_feature\
+      \ _________________\n\n    def test_the_corpus_is_unchanged_by_this_feature():\n        \"\"\"Only the records\
+      \ that mean to use the slot do.\n    \n        Asserted on the corpus rather than trusted from the schema:\
+      \ an\n        `ifabsent` or a default that quietly populated the slot would change 312\n        records' connectivity\
+      \ without anyone editing a record. That is still the\n        failure this catches \u2014 a silent default\
+      \ would put every record in `users`,\n        not just the three named below.\n        \"\"\"\n        users\
+      \ = {\n            path.name\n            for path in record_files()\n            for interaction in (yaml.safe_load(path.read_text())\
+      \ or {}).get(\"ecological_interactions\")\n            or []\n            if isinstance(interaction, dict)\
+      \ and interaction.get(\"participating_taxa\")\n        }\n>       assert users == USERS, (\n            f\"\
+      {len(users)} records use participating_taxa, expected {len(USERS)}. \"\n            f\"Adding a user is fine\
+      \ \u2014 but the connectivity numbers in \"\n            f\"tests/test_community_level_connectivity_credit.py\
+      \ were measured \"\n            f\"before the slot was used, so re-check them and then update USERS. \"\n\
+      \            f\"Added: {sorted(users - USERS)}. Removed: {sorted(USERS - users)}\"\n        )\nE       AssertionError:\
+      \ 262 records use participating_taxa, expected 259. Adding a user is fine \u2014 but the connectivity numbers\
+      \ in tests/test_community_level_connectivity_credit.py were measured before the slot was used, so re-check\
+      \ them and then update USERS. Added: ['SMutans_CAlbicans_ECC_Biofilm.yaml', 'SMutans_SSputigena_ECC_Pathobiont.yaml',\
+      \ 'SMutans_VParvula_ASC_Biofilm.yaml']. Removed: []\nE       assert {'AMD_Acidoph...re.yaml', ...} == {'AMD_Acidoph...re.yaml',\
+      \ ...}\nE         \nE         Extra items in the left set:\nE         'SMutans_CAlbicans_ECC_Biofilm.yaml'\n\
+      E         'SMutans_SSputigena_ECC_Pathobiont.yaml'\nE         'SMutans_VParvula_ASC_Biofilm.yaml'\nE     \
+      \    Use -v to get more diff\n\ntests/test_participating_taxa.py:444: AssertionError\n===========================\
+      \ short test summary info ============================\nFAILED tests/test_participating_taxa.py::test_the_corpus_is_unchanged_by_this_feature\n\
+      1 failed, 887 passed in 356.49s (0:05:56)\n"
+    disposition: Exact participant allowlist adds the three explicitly curated oral records after measured census;
+      equality guard remains. Full regression suite rerun.
+  initial_validation_snapshot:
+    path: /private/tmp/communitymech-batch97/validation-initial.json
+    sha256: 46a188ae9e6357498dbdd9175ba4e84c9e473ba37b3abd57fe08fbc9a128c4de
+    final_verification: false
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 399
+      mixed: 125
+      community_level_only: 274
+      taxa: 1536
+      credited_solely_by_the_rule: 1266
+    current:
+      records: 460
+      with_community_level: 402
+      mixed: 128
+      community_level_only: 274
+      taxa: 1542
+      credited_solely_by_the_rule: 1266
+  delta:
+    records: 0
+    with_community_level: 3
+    mixed: 3
+    community_level_only: 0
+    taxa: 6
+    credited_solely_by_the_rule: 0
+  interpretation: Three oral records now include community outcomes with exactly two named participants. Measured
+    records with community scope399->402,mixed125->128,taxa1536->1542;solely credited1266 unchanged. Bounds reflect
+    reviewed scope changes, not validator weakening.
+corpus:
+  records: 460
+  nodes: 1410
+  edges: 572
+  review_status_counts:
+    needs_research: 48
+    pending: 108
+    reviewed: 304
+limitations:
+- Four whole records, all11originalnodes and7arrows reviewed and retained, with5node renames. Four records changed.
+  No new topology, Edison dryrun, submission or credits.
+- Candida fresh primary abstract and PubMed figure captions read. Full-text XML retrieval returned HTTP500; complete
+  main text, figure pixels, supplements and raw data not reviewed. Mutualism and positive biofilm facilitation remain;
+  the rodent outcome is community-scoped and mediation PARTIAL.
+- Selenomonas fresh abstract1-30 and primary results/discussion210-575 read, including matrix-disruption and ex-vivo
+  evidence. Do not demote the supported structural direction to mere correlation. Human observations are cross-sectional;
+  the rodent mediation bridge is PARTIAL. No figure pixels, supplements or raw data reviewed.
+- Veillonella fresh abstract1-28 and results/discussion110-355 read, with initially truncated284-355 reread. Measured
+  expression and mixed fluorescence are not direct catalytic activity, species-resolved abundance or isolated mediation.
+  Rodent outcome is not proven human causation.
+- Battery fresh abstract1-24, results94-140,169-293,352-503, discussion504-606 and conclusions607-622 read. Predecessor
+  detoxification experiments and final-consortium EET evidence distinguished. Reciprocal neutral fitness and relative
+  direct/shuttle flux are not established. Existing scale-up discussion preserved.
+- Relevant cache abstracts and graph quotations checked, with long flattened cache output truncated; fresh structured
+  main-text sections used for the detailed review. Complete cache-body review is not claimed. All923caches unchanged;
+  no new primary body published.
+- All456otherrecords and non-graph raw blocks preserved. Six append-only histories, including two evidence-attachment
+  corrections. Taxonomy, culture conditions and engineering designs unchanged, not recertified. Two-member community
+  participant lists copy only canonical identity fields.
+- Fresh all-state issue title/body dedup and ignored/hidden-inclusive local search with .git/docs/site/references_cache
+  excluded; relevant caches separately inspected. Prior941/942 read and distinct. PRs/comments not exhaustively
+  searched. Repair1772-1775 close only after protected-main merge; non-graph1776 remains open.
+- Source-based self-adversarial review is not independent approval or corpus completion. Loader1703 and DOI-cache
+  casing1091 remain outside scope. Denied/pending Edison scopes unchanged. No pathogen-enhancement instructions,
+  wet-lab protocol or new mechanism added. Validation and publication not preasserted.
+- Initial regression:887passed/1failed because the explicit participant allowlist lacked the three newly curated
+  oral records. Added exactly those three entries after measured census; equality guard retained. Failed output
+  and initial validation snapshot preserved; full regression rerun, unchanged earlier gates digest-checked on resume.

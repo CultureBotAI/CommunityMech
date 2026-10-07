@@ -96,13 +96,10 @@ taxonomy:
       parvula.
     explanation: Establishes Veillonella parvula as the adult severe caries-associated pathobiont.
 ecological_interactions:
-- name: Veillonella parvula Boost of Streptococcus mutans Glucosyltransferase-EPS Output
-  description: >-
-    Veillonella parvula coculture increases Streptococcus mutans gtfB, gtfC,
-    and gtfD expression and raises the EPS/bacteria ratio in sucrose-grown
-    dual-species biofilms, increasing the extracellular matrix component of the
-    mixed biofilm.
-  interaction_type: COLONIZATION_FACILITATION
+- name: Veillonella-Associated gtf Expression and Mixed-Biofilm EPS
+  description: The primary in-vitro comparison reports increased S. mutans gtf transcript levels and a higher EPS-to-bacteria
+    fluorescence ratio in the mixed biofilm. These observations do not independently measure catalytic enzyme activity,
+    species-resolved cell numbers or the necessity of this expression change for the other phenotypes.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Veillonella parvula
@@ -129,83 +126,59 @@ ecological_interactions:
       id: GO:0042710
       label: biofilm formation
   downstream:
-  - target: Veillonella parvula Promotion of Streptococcus mutans Biofilm Virulence
-    description: Increased S. mutans glucosyltransferase expression and EPS
-      production strengthen the sucrose-grown mixed biofilm matrix that V.
-      parvula makes denser and more viable.
+  - target: Mixed-Biofilm and Stress-Response Phenotypes
+    description: 'PARTIAL: increased EPS is proposed to contribute to the observed mixed-biofilm phenotype. The
+      expression and imaging comparisons do not independently isolate the expression-to-phenotype mediator or establish
+      its contribution to the separate stress-response assays.'
   evidence:
   - reference: PMID:39345197
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      V. parvula enhances the glucosyltransferase activities of S. mutans and
-      boosts S. mutans to produce more EPS
-    explanation: Supports Veillonella-driven induction of S. mutans
-      glucosyltransferase activity and EPS production.
-  - reference: PMID:39345197
-    supports: SUPPORT
-    evidence_source: IN_VITRO
     snippet: gtfb, gtfc, and gtfd in dual-strains biofilm dramatically increased
-    explanation: Supports the measured increase in S. mutans gtf expression in
-      dual-species biofilms.
+    explanation: Supports the measured increase in S. mutans gtf expression in dual-species biofilms.
   - reference: PMID:39345197
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: increased the EPS/bacteria ratio
-    explanation: Supports a higher EPS load in S. mutans/V. parvula mixed
-      biofilms than in S. mutans biofilms.
-- name: Veillonella parvula Promotion of Streptococcus mutans Biofilm Virulence
-  description: >-
-    Veillonella parvula promotes mature Streptococcus mutans biofilm formation
-    and increases stress tolerance and virulence traits in the dual-species
-    consortium.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Veillonella parvula
-    term:
-      id: NCBITaxon:29466
-      label: Veillonella parvula
-  target_taxon:
-    preferred_term: Streptococcus mutans
-    term:
-      id: NCBITaxon:1309
-      label: Streptococcus mutans
+    explanation: Supports a higher EPS load in S. mutans/V. parvula mixed biofilms than in S. mutans biofilms.
+- name: Mixed-Biofilm and Stress-Response Phenotypes
+  description: The in-vitro study reports denser mixed biofilms and improved S. mutans survival in separate stress-response
+    assays. These positive observations remain, while mixed-community biomass and fluorescence do not separately
+    resolve the abundance of each species. The composite phenotype is not itself a directed colonization measurement.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
     term:
       id: GO:0042710
       label: biofilm formation
   downstream:
-  - target: Pathobiont-Driven Adult Severe Caries Exacerbation
-    description: Veillonella-driven mature biofilm formation and stress tolerance
-      set up the dual-species biofilm virulence measured as worsened rodent caries.
+  - target: Rodent Coinfection Caries Outcome
+    description: 'PARTIAL: the in-vitro phenotypes are proposed contributors to the greater rodent disease outcome.
+      The coinfection experiment supports the overall disease effect, but does not independently identify which
+      phenotype mediates it or prove a causal effect in adults.'
   evidence:
   - reference: PMID:39345197
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >-
-      In vitro experiments found that V. parvula can effectively promote S.
-      mutans mature biofilm formation with enhanced acid resistance, hydrogen
-      peroxide detoxicity, and biofilm virulence.
-    explanation: Supports Veillonella-driven enhancement of S. mutans virulence traits.
-- name: Pathobiont-Driven Adult Severe Caries Exacerbation
-  description: >-
-    Veillonella parvula is not independently cariogenic in the model but
-    significantly worsens disease progression when coinfected with
-    Streptococcus mutans.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Veillonella parvula
-    term:
-      id: NCBITaxon:29466
-      label: Veillonella parvula
-  target_taxon:
-    preferred_term: Streptococcus mutans
+    evidence_source: IN_VITRO
+    snippet: In vitro experiments found that V. parvula can effectively promote S. mutans mature biofilm formation
+      with enhanced acid resistance, hydrogen peroxide detoxicity, and biofilm virulence.
+    explanation: Supports the reported in-vitro phenotypes, not an animal experiment or a species-resolved abundance
+      measurement.
+  participating_taxa:
+  - preferred_term: Streptococcus mutans
     term:
       id: NCBITaxon:1309
       label: Streptococcus mutans
+  - preferred_term: Veillonella parvula
+    term:
+      id: NCBITaxon:29466
+      label: Veillonella parvula
+- name: Rodent Coinfection Caries Outcome
+  description: The dual-species rodent group had greater caries progression and severity than single-species groups,
+    while V. parvula alone did not differ significantly from the control. This is a rodent community-associated
+    disease outcome. The separate adult plaque association does not establish the same causal effect in human adult
+    severe caries.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
     term:
@@ -215,12 +188,20 @@ ecological_interactions:
   - reference: PMID:39345197
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      Rodent model experiments revealed that V. parvula was incapable of
-      causing disease on its own, but it significantly heightened the biofilm
-      virulence of S. mutans when being co-infected and augmented the
-      progression, quantity, and severity of dental caries.
-    explanation: Supports Veillonella parvula as a synergistic pathobiont in adult severe caries.
+    snippet: Rodent model experiments revealed that V. parvula was incapable of causing disease on its own, but
+      it significantly heightened the biofilm virulence of S. mutans when being co-infected and augmented the progression,
+      quantity, and severity of dental caries.
+    explanation: Supports the rodent coinfection outcome, not a human causal estimate or recipient colonization
+      benefit.
+  participating_taxa:
+  - preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  - preferred_term: Veillonella parvula
+    term:
+      id: NCBITaxon:29466
+      label: Veillonella parvula
 related_ingredients:
 - preferred_term: hydrogen peroxide
   chebi_term:
@@ -296,3 +277,32 @@ cultivation_setup:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: For the biofilm studies, 1% sucrose was added to the BHI broth
+discussions:
+- discussion_id: veillonella_graph_evidence_and_model_scope
+  prompt: Which measured in-vitro phenotype mediates the rodent disease effect?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: Results and discussion distinguish transcript abundance, mixed-biofilm imaging, stress-response assays
+    and the rodent endpoint. A results heading says activity, but the accompanying measurements do not independently
+    quantify enzyme catalysis. Positive findings remain with both existing directions explicitly PARTIAL. Mixed
+    fluorescence is not species-resolved abundance, and the small human comparison is observational. No new molecular
+    mechanism, pathogen-enhancement design or wet-lab instruction is added.
+  evidence:
+  - reference: PMID:39345197
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the specific mechanism of its influence on oral diseases at the molecular level still need further
+      studies
+    explanation: The primary discussion leaves molecular mediation unresolved.
+  attaches_to:
+  - ecological_interactions#Veillonella-Associated gtf Expression and Mixed-Biofilm EPS
+  - ecological_interactions#Mixed-Biofilm and Stress-Response Phenotypes
+  - ecological_interactions#Rodent Coinfection Caries Outcome
+curation_history:
+- timestamp: '2026-10-07T18:45:53Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain measured expression and EPS, not direct enzyme activity or colonization.; Retain in-vitro composite
+    phenotypes at community scope with correct modality.; Retain the positive rodent outcome, not proven human adult
+    causation. Issue#1774; reports/causal_graph_review/decisions/20261007-four-records-batch97.yaml
+  llm_assisted: true

@@ -1092,3 +1092,20 @@ evidence and cultivation confounding are recorded. Caches and non-graph raw
 blocks are unchanged, not globally certified. No new topology or provider
 spend. Repairs #1766-#1769 await protected-main merge; non-graph #1770 stays
 open. Self-review is not independent approval or corpus completion.
+
+## Batch97: Evidence Modality And Host Outcomes
+
+[Decisions](decisions/20261007-four-records-batch97.yaml),
+[validation](validation-20261007-batch97.json),
+[cache provenance](cache-provenance-20261007-batch97.json) and
+[self-adversarial review](adversarial-review-20261007-batch97.yaml) cover
+three oral-biofilm records and the SO3-BS3 battery-bioleaching consortium.
+All 11 nodes and seven directions remain. In-vitro observations, composite
+community phenotypes and rodent disease outcomes are distinguished; supported
+facilitation remains, with unisolated mediation marked PARTIAL. The battery
+graph retains detoxification and EET without asserting neutral partner fitness.
+Direct-result citations were added after adversarial diff review, with separate
+append-only correction histories. Caches and non-graph blocks are unchanged.
+No new topology, experimental instructions or provider spend. Repairs
+#1772-#1775 await protected-main merge; non-graph #1776 remains open.
+Self-review is not independent approval or corpus completion.
