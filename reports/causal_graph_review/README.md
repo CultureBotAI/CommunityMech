@@ -1074,3 +1074,21 @@ primary abstracts were read; no figure-pixel or supplement certification.
 All caches and non-graph blocks are preserved. Repairs #1761-#1763 await
 protected-main merge; non-graph #1764 stays open. Self-review is not independent
 approval or corpus completion.
+
+## Batch96: Field Outcomes And Model Boundaries
+
+[Decisions](decisions/20261007-four-records-batch96.yaml),
+[validation](validation-20261007-batch96.json),
+[cache provenance](cache-provenance-20261007-batch96.json) and
+[self-adversarial review](adversarial-review-20261007-batch96.yaml) cover
+Rifle uranium, rumen enrichment, SF356 and SIHUMIx. Four records change:
+14 of 16 nodes and six of ten existing directions remain. Rifle's early
+removal is distinguished from later sulfate-associated uranium increases;
+wrong-system mechanisms are removed. Rumen selection is not resolved niche
+partitioning. SF356's positive feedback and negative effects remain, without
+reciprocal-harm overclassification. SIHUMIx expression, predicted exchange and
+measured output remain distinct. Primary access limits, positive CR2 assay
+evidence and cultivation confounding are recorded. Caches and non-graph raw
+blocks are unchanged, not globally certified. No new topology or provider
+spend. Repairs #1766-#1769 await protected-main merge; non-graph #1770 stays
+open. Self-review is not independent approval or corpus completion.
