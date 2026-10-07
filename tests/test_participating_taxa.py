@@ -386,6 +386,7 @@ USERS = {
     "Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml",
     "Rhodococcus_Pseudomonas_PPOW_Consortium.yaml",
     "Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture.yaml",
+    "Richmond_Mine_AMD_Biofilm.yaml",
     "Rifle_Aquifer_Bioanode_EET_Community.yaml",
     "SF356_Cellulose_Degrader.yaml",
     "SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
