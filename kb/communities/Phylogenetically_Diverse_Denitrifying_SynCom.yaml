@@ -61,91 +61,33 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: CR and DR Denitrifying SynCom Design
-  description: >
-    Synthetic denitrifying communities were assembled by phylogenetic distance
-    into a closely related group made only from Shewanella strains and a
-    distantly related group whose members came from different genera.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: denitrification
-    term:
-      id: GO:0019333
-      label: denitrification pathway
-  downstream:
-  - target: Two-Hundred-Generation SDC Evolution
-    description: >
-      The phylogenetic-distance-based CR and DR SynComs seeded a
-      200-generation laboratory evolution experiment.
-  evidence:
-  - *id001
-- name: Two-Hundred-Generation SDC Evolution
-  description: >
-    All synthetic denitrifying communities were subjected to experimental
-    evolution for 200 generations before evolved community function and
-    stability were compared across the phylogenetic-diversity designs.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: denitrification
-    term:
-      id: GO:0019333
-      label: denitrification pathway
-  downstream:
-  - target: High-Phylogenetic-Diversity Function and Stability
-    description: >
-      Experimental evolution exposed the functional and temporal-stability
-      advantage of the high-phylogenetic-diversity DR communities.
-  evidence:
-  - reference: PMID:37207729
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      All synthetic denitrifying communities (SDCs) were experimentally evolved
-      for 200 generations
-    explanation: >
-      Supports the 200-generation experimental-evolution treatment applied to
-      all CR and DR synthetic denitrifying communities.
 - name: High-Phylogenetic-Diversity Function and Stability
-  description: >
-    High phylogenetic diversity followed by experimental evolution improved
-    synthetic denitrifying community productivity, denitrification rate, and
-    temporal stability.
+  description: In the 200-generation experiment, the high-phylogenetic-diversity DR design showed greater productivity,
+    denitrification rate and temporal stability than the closely related Shewanella-only CR design. Preserve the
+    positive community comparison without treating the two designs as one coexisting Shewanella-Paracoccus pair
+    or asserting a measured compound-resolved niche mechanism.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   biological_processes:
   - preferred_term: denitrification
     term:
       id: GO:0019333
       label: denitrification pathway
-  downstream:
-  - target: Paracoccus-Dominated DR Denitrification
-    description: >
-      Evolved, distantly related communities had higher productivity and
-      denitrification rates when Paracoccus denitrificans dominated them.
-  - target: DR Overyielding and Asynchronous Stability
-    description: >
-      Evolved DR stability was decomposed into overyielding, asynchronous
-      species fluctuations, and higher complementarity than the CR group.
   evidence:
   - reference: PMID:37207729
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      high phylogenetic diversity followed by experimental evolution promoted
-      the function and stability of synthetic denitrifying communities
-    explanation: >
-      Supports improved function and stability in evolved
-      phylogenetically diverse denitrifying SynComs.
+    snippet: 'high phylogenetic diversity followed by experimental evolution promoted the function and stability
+      of synthetic denitrifying communities
+
+      '
+    explanation: Supports the experimentally observed function/stability advantage, not a particular interspecies
+      transfer mechanism.
 - name: Paracoccus-Dominated DR Denitrification
-  description: >
-    In the evolved distantly related communities, Paracoccus denitrificans
-    dominance from the 50th generation onward coincided with significantly
-    higher productivity and denitrification rates than in the closely related
-    Shewanella-only communities.
+  description: Paracoccus denitrificans dominated the DR community from generation 50 onward, where productivity
+    and denitrification rates were significantly higher than in the CR communities. Preserve this positive abundance/function
+    observation. Dominance is not a demonstrated reciprocal competition assay, nor does this comparison isolate
+    Paracoccus abundance as the causal driver of higher function.
   scope: COMMUNITY_LEVEL
-  interaction_type: COMPETITION
   biological_processes:
   - preferred_term: denitrification
     term:
@@ -155,17 +97,18 @@ ecological_interactions:
   - reference: PMID:37207729
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: productivity and denitrification rates were significantly
-    explanation: Supports denitrification as the process whose rate improved in
-      the experimentally evolved, phylogenetically diverse synthetic community.
+    snippet: higher with Paracocus denitrificans as the dominant species (since the 50th generation) in the DR community
+      than those in the CR community
+    explanation: The abstract spells the genus Paracocus; retain canonical Paracoccus identity while preserving
+      the literal source. Supports dominance associated with higher productivity/denitrification, not a dominance
+      intervention.
 - name: DR Overyielding and Asynchronous Stability
-  description: >
-    The evolved distantly related communities were more stable than the closely
-    related Shewanella communities through overyielding and asynchronous
-    fluctuations, and showed stronger complementarity across experimental
-    evolution.
+  description: DR communities had significantly higher temporal stability, with overyielding and asynchronous species
+    fluctuations, and more complementarity than CR communities during evolution. Preserve the reported stability
+    result and statistical ecological interpretation. Aggregate complementarity/asynchrony does not identify exchanged
+    resources or demonstrate a species-resolved causal chain; higher stability is not an upstream cause of its own
+    decomposition.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   biological_processes:
   - preferred_term: denitrification
     term:
@@ -175,19 +118,17 @@ ecological_interactions:
   - reference: PMID:37207729
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      higher stability through overyielding and asynchrony of species
-      fluctuations
-    explanation: >
-      Supports overyielding and asynchronous species fluctuations as the
-      stability basis in the distantly related community.
+    snippet: 'higher stability through overyielding and asynchrony of species fluctuations
+
+      '
+    explanation: Supports the reported ecological pattern and interpretation, without identifying compound-resolved
+      niche partitioning or an experimentally isolated mediator.
   - reference: PMID:37207729
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: showed more complementarity than the CR group during the experimental evolution
-    explanation: >
-      Supports higher complementarity in DR than CR communities during the
-      evolution experiment.
+    explanation: Supports the reported ecological pattern and interpretation, without identifying compound-resolved
+      niche partitioning or an experimentally isolated mediator.
 environmental_factors:
 - name: defined synthetic community design
   value: Closely related communities used Shewanella strains; distantly related communities used constituents
@@ -267,3 +208,45 @@ growth_media:
     snippet: as the electron acceptor
     explanation: Supports 20 mM nitrate (NaNO3) supplied as the terminal electron acceptor for
       anaerobic denitrification in the medium.
+discussions:
+- discussion_id: denitrifying-design-versus-biological-direction
+  prompt: Which biological mechanisms link phylogenetic diversity to denitrification and stability?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#High-Phylogenetic-Diversity Function and Stability
+  - ecological_interactions#Paracoccus-Dominated DR Denitrification
+  - ecological_interactions#DR Overyielding and Asynchronous Stability
+  rationale: 'The removed CR/DR assembly and 200-generation nodes described workflow, retained in engineering_design.
+    Endpoint-to-dominance and endpoint-to-stability-decomposition arrows did not establish those causal directions.
+    All three positive biological findings remain. Exact-system main text was unavailable; the open companion all-Shewanella
+    experiment is not interchangeable with this CR/DR design. Missing biological directions remain #1706 pending
+    a scoped Edison report; no new reversed arrow. Non-graph medium equivalence, taxon-design evidence and greenhouse-gas
+    wording remain #1709.'
+  evidence:
+  - reference: PMID:37207729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'high phylogenetic diversity followed by experimental evolution promoted the function and stability
+      of synthetic denitrifying communities
+
+      '
+    explanation: Supports the experimentally observed function/stability advantage, not a particular interspecies
+      transfer mechanism.
+  - reference: PMID:37207729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'higher stability through overyielding and asynchrony of species fluctuations
+
+      '
+    explanation: Supports the reported ecological pattern and interpretation, without identifying compound-resolved
+      niche partitioning or an experimentally isolated mediator.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-07T09:58:33Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve positive DR function and stability without workflow causality.; Preserve Paracoccus dominance/function
+    association without competition or mediation claims.; Preserve overyielding, asynchrony and complementarity
+    without unmeasured resource mechanisms. Issue #1704; reports/causal_graph_review/decisions/20261007-four-records-batch85.yaml'
+  llm_assisted: true
