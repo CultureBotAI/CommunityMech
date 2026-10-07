@@ -554,16 +554,11 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for SO3-BS3 Lithium-ion Battery Bioleaching Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -577,9 +572,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>BS3 ethanol detoxification of brewing wastewater</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Bacillus subtilis BS3 converts residual ethanol in brewing wastewater to acetate via heterologous alcohol dehydrogenase and aldehyde dehydrogenase, removing an inhibitor of S. oneidensis extracellular electron transfer.</p>
+                <p class="prewrap interaction-description">Bacillus subtilis BS3 converts residual ethanol in brewing wastewater to acetate via heterologous alcohol dehydrogenase and aldehyde dehydrogenase, removing an inhibitor of S. oneidensis extracellular electron transfer. This supports facilitation of SO3 electron transfer, but does not establish that BS3 is unaffected by SO3 as required for COMMENSALISM.</p>
 
 
                 <p><strong>Source Taxon:</strong> Bacillus subtilis 168 BS3</p>
@@ -611,7 +605,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> MtrC/OmcA and riboflavin NCM reduction
-                        <p class="prewrap causal-description">Removing ethanol relieves inhibition of the S. oneidensis EET machinery that reduces NCM for metal oxide leaching.</p>
+                        <p class="prewrap causal-description">Ethanol removal relieves inhibition of Shewanella electron transfer and thereby supports NCM leaching in the authors&#39; consortium model. The detoxification comparisons were conducted in predecessor strains; the final SO3-BS3 synthesis retains this function, without separately isolating its quantitative contribution from the other modifications.</p>
                     </div>
 
                 </div>
@@ -642,7 +636,7 @@
                 <div class="interaction-header">
                     <h3>MtrC/OmcA and riboflavin NCM reduction</h3>
                 </div>
-                <p class="prewrap interaction-description">Shewanella oneidensis SO3 catabolizes lactate from brewing wastewater and transfers electrons to NCM black mass either directly through outer-membrane cytochromes MtrC/OmcA or indirectly through riboflavin, reducing NCM metal oxides and releasing Li, Ni, Co, and Mn into solution.</p>
+                <p class="prewrap interaction-description">Shewanella oneidensis SO3 catabolizes lactate from brewing wastewater and transfers electrons to NCM black mass either directly through outer-membrane cytochromes MtrC/OmcA or indirectly through riboflavin, reducing NCM metal oxides and releasing Li, Ni, Co, and Mn into solution. Final-consortium cytochrome perturbations and the reduced-riboflavin assay support the EET interpretation. The proposed direct and shuttle routes are not a quantitative partition of in-consortium electron flux.</p>
 
 
 
@@ -716,6 +710,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42733304/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42733304</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"confirming that the disruption of MtrC and OmcA significantly inhibited the EET process in strain SO3."</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -726,7 +733,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -756,6 +763,41 @@
                         </div>
                         <p class="snippet small prewrap">the long‐term stability and reproducibility of the microbial consortium at a larger scale needed to be thoroughly considered, in particular under the condition of natural fluctuations in raw brewing wastewater compositions</p>
                         <p class="muted small prewrap">Records the authors&#39; stated scale-up uncertainty without asserting it as a demonstrated limitation.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    What is the reciprocal fitness effect and relative contribution of the retained processes?
+                </h3>
+                <p class="prewrap">Primary predecessor comparisons support ethanol removal, electron-transfer improvement and leaching. Final-consortium perturbations and riboflavin evidence support the retained reduction node. Neither benefit to SO3 nor greater leaching establishes neutral fitness of BS3 in the exact pair, so the optional COMMENSALISM type is removed without denying the supported facilitation. Direct-versus-shuttle flux and the isolated contribution of detoxification in the final consortium are not quantified by the cited comparisons. The existing scale-up discussion remains unchanged.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#BS3 ethanol detoxification of brewing wastewater</code>, <code>ecological_interactions#MtrC/OmcA and riboflavin NCM reduction</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42733304/" rel="nofollow noreferrer">PMID:42733304</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">confirming that the ethanol inhibition of the EET of the SO1‐BS1 consortium was significantly alleviated</p>
+                        <p class="muted small prewrap">Identifies the predecessor consortium used for the detoxification comparison.</p>
                     </div>
 
                 </details>
@@ -1183,7 +1225,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1240,7 +1282,7 @@
 
             var processes = [];
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
