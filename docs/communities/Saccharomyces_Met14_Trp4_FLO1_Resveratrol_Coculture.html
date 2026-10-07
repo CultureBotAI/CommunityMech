@@ -596,6 +596,11 @@
                              aria-hidden="true" data-symbol="symbolSquare"
                              data-color="#9f2ebb"></svg> Mutualism
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
@@ -605,7 +610,7 @@
                     <h3>Met-Trp4 Coauxotrophic Cross-Feeding</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">The two engineered S. cerevisiae auxotrophs require one another for growth in SM medium; the Met-Trp4 pair couples a met14-deficient cell-1 lineage with a trp4-deficient cell-2 lineage in a defined cross-feeding coculture.</p>
+                <p class="prewrap interaction-description">The Met-Trp4 coauxotrophic yeast pair forms a mutually dependent growth system in the tested medium lacking the complementary required nutrients. This growth relationship is distinct from the resveratrol pathway handoff and does not by itself establish enhanced product titer or unconditional dependence in supplemented environments.</p>
 
 
 
@@ -651,7 +656,7 @@
                     <h3>Resveratrol Pathway Division of Labor</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The met14 cell-1 partner runs module A to convert L-tyrosine into the p-coumaric acid intermediate, which is then routed to the trp4 cell-2 partner carrying module B for conversion into resveratrol.</p>
+                <p class="prewrap interaction-description">The existing met14 module-A and trp4 module-B partners divide the resveratrol pathway around p-coumaric acid. The reported module assignment and product/intermediate measurements support the intended metabolic handoff, but do not directly quantify intercellular transfer flux or show that it alone explains the FLO1-associated production increment.</p>
 
 
                 <p><strong>Source Taxon:</strong> Saccharomyces cerevisiae 007 met14 module A FLO1 cell 1</p>
@@ -679,7 +684,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> FLO1 Adhesion-Enhanced Resveratrol Production
-                        <p class="prewrap causal-description">The divided module A/module B pathway supplies the p-coumaric-acid handoff used by the FLO1 Met-Trp4 A-B bioproduction coculture.</p>
+                        <p class="prewrap causal-description">PARTIAL: the divided pathway supplies the precursor-to-product route in the tested FLO1 coculture, enabling resveratrol synthesis. It does not independently explain the increase over the no-FLO1 control; adhesion-dependent transfer efficiency was not isolated as the mediator.</p>
                     </div>
 
                 </div>
@@ -709,9 +714,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>FLO1 Adhesion-Enhanced Resveratrol Production</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Adding the FLO1 adhesion system to the Met-Trp4 A-B division-of-labor coculture increased resveratrol production compared with the no-FLO1 Met-Trp4 A-B coculture, the corresponding FLO1 noncross-feeding control, and the full-pathway monoculture control.</p>
+                <p class="prewrap interaction-description">The tested Met-Trp4 A-B:FLO1 coculture produced more resveratrol than its no-FLO1 counterpart, the corresponding FLO1 noncross-feeding control and the full-pathway monoculture. This is an aggregate production endpoint, not by itself a mutualistic fitness measurement. The higher titer co-occurred with precursor accumulation and lower biomass in this configuration; it does not establish more efficient precursor conversion or a universal benefit of adhesion across yeast pairs.</p>
 
 
 
@@ -770,6 +774,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How much of the FLO1-associated titer increment is mediated by intercellular precursor transfer?
+                </h3>
+                <p class="prewrap">The production comparison and coauxotrophic mutualism are supported, but neither an endpoint titer nor pathway assignment independently measures transfer efficiency or reciprocal fitness. The source explicitly leaves aggregate morphology and metabolic exchange for further study. Preserve the one existing direction as PARTIAL, without restoring the previously removed growth-background arrow.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Met-Trp4 Coauxotrophic Cross-Feeding</code>, <code>ecological_interactions#Resveratrol Pathway Division of Labor</code>, <code>ecological_interactions#FLO1 Adhesion-Enhanced Resveratrol Production</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/41491832/" rel="nofollow noreferrer">PMID:41491832</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Systematic investigation of aggregate morphology and its impact on metabolic exchange represents an important direction for future research</p>
+                        <p class="muted small prewrap">The authors distinguish their demonstrated production endpoint from unresolved exchange mechanisms.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1104,7 +1147,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
