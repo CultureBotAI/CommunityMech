@@ -879,3 +879,20 @@ live commensalism or that stronger phototroph growth improves biofertilization.
 No new causal structure or provider spend. Non-graph metadata remains #1586,
 coordinated with #1580 and #573. Canonical taxonomy and caches are preserved,
 not recertified; self-review is not independent approval or corpus completion.
+
+## Batch86: Enrichment And Host-Response Boundaries
+
+[Decisions](decisions/20261007-four-records-batch86.yaml),
+[validation](validation-20261007-batch86.json) and
+[self-adversarial review](adversarial-review-20261007-batch86.yaml) review all
+18 original nodes and 11 arrows in four records. Ten nodes and five qualified
+directions remain. Positive pleuromutilin degradation, vanadium reduction and
+precipitation, Populus host responses and poultry MFC power are preserved.
+Workflow, parent-community scope leakage and unsupported partner mechanisms
+are removed. Populus mediation stays PARTIAL; poultry complementarity stays
+HYPOTHESIZED, with an explicit primary-source COD arithmetic discrepancy.
+The vanadium cache gains a source-labeled public Figure S2 caption, not a
+claim of main-text access. Canonical taxonomy and other non-graph fields are
+preserved, not certified; missing participant support is exposed rather than
+silently credited. Repairs #1711-#1714 await protected-main merge; research
+#1715 and metadata #1716 remain open. One Edison dry run, no paid submission.
