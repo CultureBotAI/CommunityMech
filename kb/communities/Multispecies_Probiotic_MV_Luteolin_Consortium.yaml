@@ -131,9 +131,12 @@ taxonomy:
     explanation: Names the three exact CICC probiotic strains assembled in the M-MV co-culture.
 ecological_interactions:
 - name: Three-Strain Co-Culture Growth Enhancement
-  description: B. longum CICC25033, C. butyricum CICC23847, and L. reuteri CICC6131 grew without detectable antagonism when
-    paired or assembled as a 1:1:1 MRS co-culture, and cell-free supernatants from partner strains enhanced mono-culture growth,
-    especially for L. reuteri. The authors attributed these responses to a putative cross-feeding relationship.
+  description: The exact B. longum CICC25033, C. butyricum CICC23847 and L. reuteri CICC6131 pairwise and three-strain
+    cultures showed higher viable counts, and 1% partner cell-free supernatant promoted monoculture growth, especially
+    of L. reuteri. PARTIAL - These interventions support diffusible growth promotion and the authors putative cross-feeding
+    interpretation, but do not identify a transferred nutrient or its necessity. Co-culture plate counts are not
+    reported here as member-resolved counts, so increased total growth does not establish absence of antagonism
+    toward every member.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   biological_processes:
@@ -146,17 +149,17 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: viable cell counts in the co-cultured strains increased significantly
-    explanation: Supports higher viable counts in co-cultures than in mono-cultures.
+    explanation: Supports increased co-culture viable counts, not separately demonstrated improvement of every member.
   - reference: PMID:42604006
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: This could be attributed to a cross-feeding relationship
-    explanation: Supports the source's cross-feeding interpretation for the growth enhancement.
+    explanation: Explicitly tentative molecular cross-feeding interpretation of positive growth effects.
   - reference: PMID:42604006
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Each probiotic strain was cultured in MRS medium supplemented with 1% cell-free supernatant
-    explanation: Supports the partner-supernatant experiment used to assay diffusible growth effects.
+    explanation: Supports the partner-supernatant intervention; transferred growth-promoting molecules remain unresolved.
 growth_media:
 - name: anaerobic MRS broth with C. butyricum L-cysteine amendment
   composition:
@@ -312,19 +315,20 @@ metal_notes: The three-strain probiotic co-culture was used to produce membrane 
   rare-earth element processing role was reported.
 discussions:
 - discussion_id: cicc_mmv_msra_causality_unresolved
-  prompt: Does the M-MV-only methionine sulfoxide reductase MsrA protein causally drive the improved antioxidant and colitis-protective
-    phenotype of mixed-species vesicles?
+  prompt: Does the M-MV-only methionine sulfoxide reductase MsrA protein causally drive the improved antioxidant
+    and colitis-protective phenotype of mixed-species vesicles?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions
   - associated_datasets#PXD071787
-  rationale: The LC-MS/MS dataset identified MsrA as unique to M-MVs and its known antioxidant role is directionally consistent
-    with higher radical scavenging, but the study did not test an MsrA knockout, inhibition, or add-back design.
+  rationale: The LC-MS/MS dataset identified MsrA as unique to M-MVs and its known antioxidant role is directionally
+    consistent with higher radical scavenging, but the study did not test an MsrA knockout, inhibition, or add-back
+    design.
   proposed_experiments:
   - name: MsrA-deficient M-MV comparison
-    description: Generate an MsrA-deficient M-MV preparation and compare vesicle protein composition, DPPH/ABTS scavenging,
-      and DSS-colitis rescue against wild-type M-MVs.
+    description: Generate an MsrA-deficient M-MV preparation and compare vesicle protein composition, DPPH/ABTS
+      scavenging, and DSS-colitis rescue against wild-type M-MVs.
     approach: genetic perturbation of probiotic MsrA followed by vesicle proteomics and activity assays
     model_systems:
     - defined three-strain MRS co-culture
@@ -336,8 +340,8 @@ discussions:
     - M-MV LC-MS/MS
     - DPPH and ABTS scavenging
     - DSS-colitis endpoints
-    decision_criterion: A specific loss of M-MV antioxidant and colitis-protective activity would support a causal MsrA contribution;
-      retention of activity would point to other vesicle cargo.
+    decision_criterion: A specific loss of M-MV antioxidant and colitis-protective activity would support a causal
+      MsrA contribution; retention of activity would point to other vesicle cargo.
   evidence:
   - reference: PMID:42604006
     supports: SUPPORT
@@ -346,16 +350,36 @@ discussions:
     explanation: Documents the paper's stated absence of direct MsrA causal validation.
   posed_by: codex
   posed_date: '2026-09-22'
+- discussion_id: probiotic_diffusible_growth_and_missing_vesicle_outcome
+  prompt: Which selective mechanisms explain the measured community responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: 'Preserve higher viable counts and the positive cell-free-supernatant assay; distinguish soluble growth
+    promotion from traced nutritional exchange and aggregate from member-resolved growth. The graph still lacks
+    the measured mixed-species membrane-vesicle production/properties outcome. One-record Edison dry run is complete;
+    paid authorization and report inspection are pending before extension. Do not infer growth-to-vesicle-yield
+    causation, MsrA necessity, or universally superior antioxidant activity: L-MVs exceed M-MVs in the reported
+    ABTS assay. Existing MsrA knowledge gap remains open.'
+  attaches_to:
+  - ecological_interactions#Three-Strain Co-Culture Growth Enhancement
 curation_history:
 - timestamp: '2026-09-22T19:55:11Z'
   curator: codex
   action: ADD_COMMUNITY_RECORD
-  changes: Added CommunityMech:000425 for the B. longum CICC25033, C. butyricum CICC23847, and L. reuteri CICC6131 M-MV probiotic
-    co-culture from PMID:42604006.
+  changes: Added CommunityMech:000425 for the B. longum CICC25033, C. butyricum CICC23847, and L. reuteri CICC6131
+    M-MV probiotic co-culture from PMID:42604006.
   llm_assisted: true
 - timestamp: '2026-09-22T19:55:11Z'
   curator: codex
   action: ADVERSARIAL_REVIEW_FIX
-  changes: 'Changed community_category from DIET to BIOTECHNOLOGY after issue #1065; DIET denotes direct interspecies electron
-    transfer rather than probiotic membrane-vesicle biotechnology.'
+  changes: 'Changed community_category from DIET to BIOTECHNOLOGY after issue #1065; DIET denotes direct interspecies
+    electron transfer rather than probiotic membrane-vesicle biotechnology.'
+  llm_assisted: true
+- timestamp: '2026-10-07T03:09:29Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve co-culture and partner-supernatant growth gains; qualify molecular cross-feeding and per-member
+    absence of antagonism. Missing vesicle outcome remains needs_research. Issue #1628; reports/causal_graph_review/decisions/20261007-four-records-batch75.yaml'
   llm_assisted: true
