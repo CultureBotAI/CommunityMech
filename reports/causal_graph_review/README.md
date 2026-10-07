@@ -5,6 +5,27 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch74: Enrichment, Conditional Rescue And Mucin Responses
+
+[Decisions](decisions/20261007-four-records-batch74.yaml),
+[validation](validation-20261007-batch74.json) and
+[self-adversarial review](adversarial-review-20261007-batch74.yaml) cover all
+13 existing nodes and seven original arrows. Four records are repaired;
+four analysis-workflow, engineering-workflow or shared-outcome links are removed.
+
+Positive core enrichment, formaldehyde lowering, conditional methionine rescue,
+moss treatment gains and mucin-substrate responses remain. Core membership is
+operational, not universal; gene content is not measured exchange. Methionine
+rescue has the corrected donor direction and producer-substrate requirement.
+Moss and mucin mediation remain explicitly bounded, with no new graph topology.
+
+All 21 graph quotations match existing caches: 17 also match fresh primary XML,
+and four moss quotations were visually matched to the publisher-indexed abstract.
+Moss full-text access returned 403; separate supplements and original figure
+pixels were not audited. All caches and non-graph blocks are preserved.
+Repairs #1620-#1623 await protected-main merge; metadata #1624 stays open.
+Four histories are appended. Self-review is not independent approval.
+
 ## Batch73: Nitrogen Mediation And Bioleaching Evidence
 
 [Decisions](decisions/20261007-four-records-batch73.yaml),
