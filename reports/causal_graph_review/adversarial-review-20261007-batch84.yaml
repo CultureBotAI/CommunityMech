@@ -1,0 +1,320 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: f29d9295102b2cac41dd1a8269ed340823a35d3b
+scope:
+- kb/communities/Phaeodactylum_Aliivibrio_Diel_Coculture.yaml
+- kb/communities/Phenol_Carboxylation_Consortium.yaml
+- kb/communities/Phormidium_Alkaline_Consortium.yaml
+- kb/communities/Phosphitivorax_Methanoculleus_Lithosyntrophy_Phosphite_Coculture.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch84.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch84.json
+findings:
+- issue: 1694
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound diatom competition claims while preserving surface attachment and physiological decline
+  disposition: Close only after protected-main merge.
+- issue: 1695
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound phenol syntrophy to measured conversion and condition-specific electron disposal
+  disposition: Close only after protected-main merge.
+- issue: 1696
+  severity: P2
+  status: addressed_in_this_change
+  finding: Repair Phormidium graph evidence and unsupported reciprocal services
+  disposition: Close only after protected-main merge.
+- issue: 1697
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate observed lithosyntrophy from proposed intracellular energy mechanism
+  disposition: Close only after protected-main merge.
+- issue: 1698
+  severity: P2
+  status: unresolved_research
+  finding: Review missing diatom physiological and diel-response graph structure
+  disposition: Keep OPEN after graph-repair merge.
+- issue: 1699
+  severity: P2
+  status: unresolved_research
+  finding: Review missing Phormidium niche and carbon-transfer graph coverage
+  disposition: Keep OPEN after graph-repair merge.
+- issue: 1700
+  severity: P2
+  status: unresolved_research
+  finding: Review missing hydrogen-removal feedback in phosphite lithosyntrophy
+  disposition: Keep OPEN after graph-repair merge.
+- issue: 1701
+  severity: P2
+  status: unresolved_non_graph
+  finding: Reconcile batch84 non-graph composition and evidence-scope claims
+  disposition: Keep OPEN after graph-repair merge.
+adversarial_checks:
+- Before papers, fresh two-root baseline covered460records/921caches,1438nodes600arrows,47warnings0structural. Every
+  original node/arrow and missing structure reviewed in four whole records:12retained nodes/6arrows and3removed
+  nodes/2arrows have dispositions. No new node or downstream arrow.
+- Diatom SEM attachment remains positive. Filamentous EPS identity/source and attachment-mediated physiological
+  damage were not established. Amino-acid competition is an author hypothesis from nutrient/pigment observations,
+  not measured amino-acid exchange. Medium-matched HAC supports negative coculture physiology; broth enrichment
+  is not a demonstrated bacterial growth benefit.
+- Late physiological controls exist, while day8axenic transcriptomics does not. Diel gene counts do not prove endogenous
+  clock disruption; transcript-constrained biomass flux and ICA modules are model/association outputs. No competition-to-clock-to-flux
+  path is invented. Additional physiological/diel structure remains1698research.
+- 'All three phenol arrows retain positive perturbation/conversion support: BES and highH2block degradation in the
+  methanogenic culture. Hydrogen is supported without excluding formate. AQDS enables acetate production under methanogenic
+  inhibition, but axenic isolation failed. The alternative Desulfovibrio culture is not added to the canonical pair.'
+- Phenol intermediates support a proposed carboxylation/dehydroxylation route, not identified enzymes or aromatic-carbon
+  transfer to the methanogen. Acetate remains an organic product and Table2has residual substrate at100days. Rename
+  mineralization to conversion; do not downgrade the measured product phenotype. Existing CHEBI30746parent-acid
+  grounding is explicitly labeled, not silently reassigned.
+- Phormidium protein/SIP genuinely supports cyanobacterial carbon flow. Major heterotroph peptide coverage is WenzhouxiangellaMAG57andPhycisphaeralesMAG34;
+  explicit canonical participants do not credit every member of their phyla. Lag supports a macromolecule-use interpretation,
+  not identified protein/glycogen transfer or a trophic cascade. Do not assign all fermentation substrates to Wenzhouxiangella.
+- Phormidium Figure3is explicitly gene-content inference. Verrucomicrobiota hydrolases/sulfatases support a polymer-use
+  hypothesis, not Planctomycetota-to-Verruco transfer. MAG58isotope signal has lower peptide coverage, while alpha
+  bacteriochlorophyll genes are capacity, not measured phototrophic flux. Canonical taxonomy is unchanged.
+- Vitamin/cofactor delivery, ROS protection and nutrient return were unsupported exact-community nodes using general
+  introductory examples. Their three nodes/two arrows are removed with rationale, not treated as negative experimental
+  results. Unrelated tetrapyrrole nutrient-cycling GO and untested mutualism removed. Bacteroidota disconnection
+  remains visible and tracked1699; no fabricated link for audit credit. Long-term crash-free culture does not establish
+  static membership or redundancy mediation.
+- Phosphite H2-mediated partnership and both donor-to-methane arrows survive. BES/highH2inhibition and G11rescue
+  support lowH2sink dependence. HndABCD/Rnfdetails remain a metaproteomic/thermodynamic model, not an enzyme perturbation.
+  Net oxidation is exergonic; the proposed bottleneck concerns intracellular energy conservation. Methanoculleus
+  is the sink actor, not the donor. Acetate assimilation is distinct from methane carbon.
+- Phosphite enrichment had seven taxa with acetate/sulfide and sixteen with cysteine, not a pure two-member culture.
+  The physiology-supported sink-to-donor feedback candidate is recorded without adding unreviewed topology;1700remains
+  research and1701tracks raw non-graph composition/identity claims.
+- Three fresh full primary main texts and one cached phenol primary read, with actual access limits recorded. PhormidiumPDFpages8/11visually
+  inspected for Figures3/4. Separate supplements/raw data and other original figures uninspected. Failed HTTP500/BioCNoresult/browser-check
+  responses are not full text. Eleven graph quotations match fresh primary and seven use cached phenol; eight new
+  discussion quotations also checked.
+- All921caches,456otherrecords and raw non-graph blocks hash-verified unchanged; four guarded curation events and
+  append-only histories. Schema/strict/terms/references/snippets/history pass; actual broad regressions, deterministic
+  renders and exact published descriptions recorded. HTML parser checks are not browser screenshots.47priorwarnings
+  preserved plus one Bacteroidota disconnection; no structural defect or auditor-rule change.
+- Dedup969all-state issue titles/bodies and hidden/ignored local search with declared exclusions; comments/PRs not
+  exhaustive. Three scoped one-community Edison dry runs, no provider job/credits; questions unanswered and prior
+  denials unchanged. Repairs1694-1697close only after protected-main merge;1698-1701remainOPEN. Self-adversarial
+  COMMENT is not independent approval. Move dependents before deleting parents.
+verification:
+  combined_regressions: 756 passed in 350.42s (0:05:50)
+  new_regression_tests: 10
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: Four full-record reference validators exit0. CLI Total checks counts issues, not executed checks.18graph
+    quotations match primary/cache content;11match independent fresh full text and7match the existing cached phenol
+    primary. Literal matching is not entailment or whole-record certification. Original921caches and non-graph blocks
+    preserved, not globally recertified.
+  snippet_counts_by_record:
+    kb/communities/Phaeodactylum_Aliivibrio_Diel_Coculture.yaml:
+      MATCH: 21
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Phenol_Carboxylation_Consortium.yaml:
+      MATCH: 26
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Phormidium_Alkaline_Consortium.yaml:
+      MATCH: 22
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Phosphitivorax_Methanoculleus_Lithosyntrophy_Phosphite_Coculture.yaml:
+      MATCH: 10
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    caveat: Full both-root recipe actually executed; exit0 is informational, not a clean-corpus certificate. Focused
+      edited-record gates separately passed. Mismatch and missing-content labels are retrieval/matching flags, not
+      findings of fabrication.
+    output: "# 8902 evidence snippets scanned across 460 files\n  MATCH      8767\n  RENDERING  20\n  ASSEMBLED\
+      \  1\n  WEAK       0\n  MISMATCH   38\n  NOCONTENT  76\n\n# Files with MISMATCH/WEAK (content present but\
+      \ snippet absent) \u2014 fabrication suspects\n  19 (19 hard)  kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml\n\
+      \  15 (15 hard)  kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml\n   3 (3 hard)  kb/communities/Coscinodiscus_Synthetic_Community.yaml\n\
+      \   1 (1 hard)  kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml\nuv run python scripts/evidence_snippet_audit.py\
+      \ \n"
+  primary_graph_snippet_proof:
+    primary_matched: 18
+    independent_fresh_primary_matched: 11
+    cached_phenol_primary_matched: 7
+    new_discussion_quotations_primary_matched: 8
+    retained_nodes: 12
+    removed_nodes: 3
+    retained_arrows: 6
+    removed_arrows: 2
+    new_nodes_or_arrows: 0
+    fresh_main_texts_read: 3
+    cached_main_texts_read: 1
+    original_pdf_pages_visually_inspected:
+      phormidium:
+      - 8
+      - 11
+    separate_supplements_and_raw_data_audited: false
+  network:
+    existing_findings_preserved: 47
+    added_findings:
+      Phormidium_Alkaline_Consortium:
+      - type: DISCONNECTED
+        taxon: Bacteroidota members
+        taxon_id: NCBITaxon:976
+        taxon_data:
+          taxon_term:
+            preferred_term: Bacteroidota members
+            term:
+              id: NCBITaxon:976
+              label: Bacteroidota
+            gtdb_grounding_status: GROUNDED
+            gtdb_classification:
+              gtdb_id: GTDB:p__Bacteroidota
+              gtdb_taxon: Bacteroidota
+              gtdb_lineage: d__Bacteria;p__Bacteroidota
+              ncbi_source_id: NCBITaxon:976
+              majority_fraction: 0.999
+              support_genomes: 151365
+              total_genomes: 151454
+              is_reclassified: false
+              mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__
+                rank; 5 GTDB taxa under the NCBI taxon]
+            notes: 'Multiple heterotrophic Bacteroidota species present in the consortium. These organisms contribute
+              to organic matter degradation, polysaccharide utilization, and nutrient cycling. They occupy ecological
+              niches related to fermentation product utilization and compatible solute metabolism.
+
+              '
+          functional_role:
+          - PRIMARY_DEGRADER
+          - SECONDARY_FERMENTER
+          abundance_level: COMMON
+          evidence:
+          - reference: doi:10.3389/fmicb.2022.780346
+            supports: SUPPORT
+            evidence_source: IN_VITRO
+            snippet: Using shotgun metagenomic sequencing, 29 heterotrophic metagenome-assembled-genomes (MAGs)
+              were retrieved and were assigned to Bacteroidota, Alphaproteobacteria, Gammaproteobacteria, Verrucomicrobiota,
+              Patescibacteria, Planctomycetota, and Archaea
+            explanation: Documents presence of diverse Bacteroidota in the heterotrophic community
+        message: Taxon 'Bacteroidota members' has no interactions
+    removed_findings: {}
+    interpretation: All47existingwarnings unchanged; one new Bacteroidota disconnection records removal of unsupported
+      nutrient return. No structural defects or taxonomy/auditor-rule changes. Major carbon-transfer participants
+      explicitly include cyanobacterium,Wenzhouxiangella,Planctomycetota.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch84.yaml: 944e494bb79234154a6a174cad642894bdbee78c8da22a7295305fa257c413ec
+    tests/test_causal_review_batch84.py: c6a5a04cc824af468062bc9cf38d3e4bd2b19228b0f620a505e2e0bb64d6d770
+    tests/test_participating_taxa.py: 3ad9940c08fd620da13f232b1a3adde4ada1f598a3afd0c3baeeae4c571505f1
+    kb/communities/Phaeodactylum_Aliivibrio_Diel_Coculture.yaml: c3b29dc71d33c53774afd1181099ef90ade79efb42a0e8ff0b55e9ea3bfffc10
+    kb/communities/Phenol_Carboxylation_Consortium.yaml: a778ef6c883f5d6b7c80dc22be5611de4027d08d4f9d3b23e9a0d330f3f768b1
+    kb/communities/Phormidium_Alkaline_Consortium.yaml: 5bd6ec7333293e123e4b68212ddd64a6db8a8efd69f446912d154b260d79f2f5
+    kb/communities/Phosphitivorax_Methanoculleus_Lithosyntrophy_Phosphite_Coculture.yaml: e2eda8deadaaa36ce6ee96ed15871e1cc8c674fea990cd76c77bc74d3e13695a
+    reports/causal_graph_review/README.md: 112d5fd1dcf32f988c4b0066eda72e863969d2b8efe52edbc26cfa35e79c5854
+  unchanged_caches: 921
+  cache_changes: []
+  unchanged_records: 456
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: true
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs:
+    - community_id: CommunityMech:000446
+      job: LITERATURE
+      query_chars: 11324
+      query_sha256: 890c4edc5f497d2845719d2fc05c34731035d42383148e5c538c1f5f305e3ab1
+      meta_path: /private/tmp/communitymech-batch84/edison-diatom/Phaeodactylum_Aliivibrio_Diel_Coculture-edison-literature-causal-meta.yaml
+      authorization: Scoped asynchronous question unanswered; preselection is not authorization.
+    - community_id: CommunityMech:000054
+      job: LITERATURE
+      query_chars: 18291
+      query_sha256: 16869e3b6ce8ae6d74a64c917aebbf558165555b9e45b651f741752e51925d35
+      meta_path: /private/tmp/communitymech-batch84/edison-phormidium/Phormidium_Alkaline_Consortium-edison-literature-causal-meta.yaml
+      authorization: Scoped asynchronous question unanswered; preselection is not authorization.
+    - community_id: CommunityMech:000290
+      job: LITERATURE
+      query_chars: 8897
+      query_sha256: 5cdb7f0f717b829e13c39e5b9f603e592757d5fec7c55d007cc12b8f1054bb54
+      meta_path: /private/tmp/communitymech-batch84/edison-phosphite/Phosphitivorax_Methanoculleus_Lithosyntrophy_Phosphite_Coculture-edison-literature-causal-meta.yaml
+      authorization: Scoped asynchronous question unanswered; preselection is not authorization.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+  validation_expectation_correction: 'Initial wrapper assertion incorrectly expected zero added surveyed taxa and
+    one solely-by-rule member. The actual survey output was preserved and its implementation inspected: correct
+    deltas are six and three, not six new canonical taxa or three newly connected taxa. Resumed from digest-verified
+    successful gates; no production record or test bound was changed for this correction.'
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+    current:
+      records: 460
+      with_community_level: 394
+      mixed: 126
+      community_level_only: 268
+      taxa: 1517
+      credited_solely_by_the_rule: 1243
+  delta:
+    records: 0
+    with_community_level: 1
+    mixed: 1
+    community_level_only: 0
+    taxa: 6
+    credited_solely_by_the_rule: 3
+  interpretation: The legacy survey counts all taxa in records with community-level nodes and members without pairwise
+    representation; it does not apply explicit participant lists. Phormidium adds six members to that surveyed subset
+    and three without pairwise representation (Wenzhouxiangella,Planctomycetota,Bacteroidota). The actual auditor
+    credits only the two named carbon recipients and leaves Bacteroidota disconnected. No taxonomy or auditor-rule
+    change.
+corpus:
+  records: 460
+  nodes: 1435
+  edges: 598
+  review_status_counts:
+    needs_research: 44
+    pending: 156
+    reviewed: 260
+limitations:
+- Fresh before-paper two-root baseline:460records/921caches,1438nodes600arrows,47warnings and zero structural defects.
+  Four whole records,15nodes8arrows reviewed;12nodes6arrows retained. No new node or downstream arrow.
+- Fresh primary main text read for diatom, Phormidium and phosphite, including embedded tables/captions. Phenol
+  full primary read from existing cache; fresh Europe PMC XML failed HTTP500 and official BioC returned No result.
+  No access-control bypass or fresh-fulltext claim for phenol. Original Phormidium PDF pages8/11 (Figures3/4) visually
+  inspected; separate supplements/raw data and other original figure pixels not audited.
+- Phormidium gene-based niches are not flux, compound-resolved handoffs or reciprocal services. Carbon node explicitly
+  covers canonical cyanobacterium/Wenzhouxiangella/Planctomycetota based on major SIP populations. Broad labels
+  do not imply all phylum members. Bacteroidota membership survives despite removal of unsupported nutrient-return
+  role; no topology invented for connectivity credit.
+- Phenol BES/high-H2 perturbation arrows and phosphite H2-to-methane directions remain positive. Acetate/methane
+  conversion is not complete mineralization. AQDS alternative disposal and G11 rescue bound partner exclusivity.
+  Phosphite intracellular energy-conservation model is distinct from net chemical thermodynamics; seven-member enrichment
+  is not a pure pair.
+- 'Diatom SEM/late physiological effects survive; amino-acid competition is a hypothesis. Day8 physiological controls
+  must not be conflated with absent day8 axenic transcriptomics. Diel counts/model flux/ICA are not clock-perturbation
+  or exchange measurements. Missing dedicated structure remains #1698; Phormidium niches #1699 and phosphite feedback
+  #1700 remain research.'
+- 'All921reference caches and456otherrecords/raw non-graph blocks preserved; no cache addition or source rewrite.
+  Graph benzoic-acid preferred labels now match existing CHEBI identity, without asserting chemical speciation.
+  Non-graph composition/evidence issues remain #1701.'
+- Dedup969all-state issue titles/bodies; original three matched issues1134/1136/543 read. Additional exact IDs/DOIs/PMID
+  matched no issue. Hidden/ignored local searches found22original and6additional files excluding.git/docs/site/references_cache.
+  Comments/PRs not exhaustively searched; cache full texts with long lines were not separately certified after truncated
+  display, but independently extracted main texts were read.
+- Three separate one-community Edison causal dry runs:11324/18291/8897characters. An initial --output-dir argument
+  failed before rendering and was corrected to --out-dir. No API/provider job or credits spent. Scoped paid questions
+  unanswered; earlier denied/pending scopes unchanged. Repairs1694-1697close only after protected-main merge;1698-1701remainOPEN.
+- Four append-only histories; separate validation/rendering gates are not preasserted. Self-adversarial review is
+  not independent approval or whole-corpus completion.
