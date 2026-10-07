@@ -114,20 +114,10 @@ taxonomy:
     explanation: Supports the Pedobacter member in the exact-pair follow-up study.
 ecological_interactions:
 - name: Interspecies Social Spreading
-  description: Coculture of P. fluorescens Pf0-1 and Pedobacter sp. V48 reveals an emergent surface
-    spreading phenotype on hard agar where neither monoculture spreads under the same conditions.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Pedobacter sp. V48
-    term:
-      id: NCBITaxon:84567
-      label: Pedobacter
-  target_taxon:
-    preferred_term: Pseudomonas fluorescens Pf0-1
-    term:
-      id: NCBITaxon:294
-      label: Pseudomonas fluorescens
+  description: The canonical two-species coculture spreads across hard agar under the tested conditions while neither
+    monoculture shows the same behavior. Preserve this emergent joint phenotype without assigning an untested one-way
+    inducer or a specific motility motor.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: locomotion
     term:
@@ -139,30 +129,31 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Pseudomonas-Pedobacter Comigration
-    description: >
-      Emergent social spreading carries both species across the hard-agar
-      surface rather than releasing only one partner from the colony.
+    description: 'Emergent social spreading carries both species across the hard-agar surface rather than releasing
+      only one partner from the colony.
+
+      '
   evidence:
   - reference: PMID:30700513
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: coculture reveals an emergent phenotype that we term “interspecies social spreading,” where the mixed colony spreads across the hard surface
+    snippet: coculture reveals an emergent phenotype that we term “interspecies social spreading,” where the mixed
+      colony spreads across the hard surface
     explanation: Supports the emergent coculture motility phenotype.
-- name: Pseudomonas-Pedobacter Comigration
-  description: Both species remain present across the spreading colony, so the behavior is comigration
-    rather than one species escaping the other.
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Pseudomonas fluorescens Pf0-1
+  participating_taxa:
+  - preferred_term: Pseudomonas fluorescens Pf0-1
     term:
       id: NCBITaxon:294
       label: Pseudomonas fluorescens
-  target_taxon:
-    preferred_term: Pedobacter sp. V48
+  - preferred_term: Pedobacter sp. V48
     term:
       id: NCBITaxon:84567
       label: Pedobacter
+- name: Pseudomonas-Pedobacter Comigration
+  description: Culture recovery and fluorescent imaging detected both partners throughout the spreading colony,
+    with reproducible nonhomogeneous spatial distributions. This supports comigration rather than one partner escaping,
+    not proof of reciprocal fitness benefits or a feedback cause of initiation.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: locomotion
     term:
@@ -172,11 +163,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Interspecies Social Spreading
-    description: >
-      Close association or contact between Pf0-1 and V48 initiates the
-      two-species colony expansion phenotype on hard agar.
   evidence:
   - reference: PMID:30700513
     supports: SUPPORT
@@ -188,21 +174,20 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: we recovered both species from each point in the spreading colony
     explanation: Supports that both members occupy center, middle, and edge regions of the spreading colony.
-- name: Contact-Dependent Initiation
-  description: In the canonical Pf0-1 plus V48 pair, initiation of social spreading requires physical
-    proximity or contact between the two species.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Pedobacter sp. V48
-    term:
-      id: NCBITaxon:84567
-      label: Pedobacter
-  target_taxon:
-    preferred_term: Pseudomonas fluorescens Pf0-1
+  participating_taxa:
+  - preferred_term: Pseudomonas fluorescens Pf0-1
     term:
       id: NCBITaxon:294
       label: Pseudomonas fluorescens
+  - preferred_term: Pedobacter sp. V48
+    term:
+      id: NCBITaxon:84567
+      label: Pedobacter
+- name: Contact-Dependent Initiation
+  description: 'Close physical association was required for initiation in the canonical pair: spreading followed
+    colony contact, and semipermeable separation prevented it. PARTIAL: the molecular trigger and whether direct
+    cell-cell signaling or a localized environmental process mediates the requirement remain unresolved.'
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: cell communication
     term:
@@ -218,6 +203,26 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: initiation of social spreading requires close association between the two species of bacteria
     explanation: Supports the contact/proximity dependence of the canonical pair.
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: motility is precluded when a semipermeable membrane is placed between the two colonies
+    explanation: Supports the experimental association requirement without identifying a molecular contact sensor.
+  downstream:
+  - target: Interspecies Social Spreading
+    description: 'Close association or contact between Pf0-1 and V48 initiates the two-species colony expansion
+      phenotype on hard agar.
+
+      '
+  participating_taxa:
+  - preferred_term: Pseudomonas fluorescens Pf0-1
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+  - preferred_term: Pedobacter sp. V48
+    term:
+      id: NCBITaxon:84567
+      label: Pedobacter
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: OTHER
@@ -339,3 +344,38 @@ associated_datasets:
     snippet: We previously showed that cocultured Pseudomonas fluorescens Pf0-1 and Pedobacter sp. V48 engage in interspecies social spreading
     explanation: Lists a follow-up publication explicitly discussing the same exact two-member pair.
 metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: spreading-initiation-versus-comigration
+  prompt: How does the demonstrated association requirement produce the joint spreading phenotype?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  rationale: 'The existing contact-initiation arrow was attached to Comigration even though its text describes the
+    existing Contact-Dependent Initiation node. It was moved unchanged to that node, repairing the source endpoint
+    without inventing a new causal claim. All three observations and both arrows remain. The primary membrane, adjacent-colony,
+    conditioned-medium and heat-killed-cell results support an association requirement, not a resolved signal or
+    motor. The follow-up abstract reports different requirements for other isolate pairs; these do not override
+    the canonical pair. Non-graph temperature, timing and cross-feeder roles remain #1736.'
+  attaches_to:
+  - ecological_interactions#Interspecies Social Spreading
+  - ecological_interactions#Pseudomonas-Pedobacter Comigration
+  - ecological_interactions#Contact-Dependent Initiation
+  evidence:
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: motility is precluded when a semipermeable membrane is placed between the two colonies
+    explanation: Supports the experimental association requirement without identifying a molecular contact sensor.
+  - reference: PMID:34288708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: While Pf0-1+V48 require low nutrient but high NaCl conditions
+    explanation: Supports the same environment dependence in the exact-pair follow-up study.
+curation_history:
+- timestamp: '2026-10-07T12:23:50Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve emergent spreading without a one-way inducer or resolved motor.; Preserve measured comigration
+    without mutual-fitness or initiation-feedback inference.; Repair the existing initiation arrow source and preserve
+    the tested association requirement. Issue #1735; reports/causal_graph_review/decisions/20261007-four-records-batch89.yaml'
+  llm_assisted: true
