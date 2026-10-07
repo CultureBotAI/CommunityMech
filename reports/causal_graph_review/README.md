@@ -5,6 +5,29 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch76: Mat Transcripts, Floc Assembly And Inferred Metabolism
+
+[Decisions](decisions/20261007-four-records-batch76.yaml),
+[validation](validation-20261007-batch76.json) and
+[self-adversarial review](adversarial-review-20261007-batch76.yaml) cover all
+11 original nodes and six arrows. Three records are repaired, four context or
+model-utility arrows removed, and the valid NDC6 graph reviewed unchanged.
+
+Measured mat transcripts, uneven overlapping populations, stable nitrifier
+microcolonies and actual mixed macroclusters remain. Polymer flux and Naica
+metabolic activity are qualified as inferred; calcium-rich resuspension and
+centrifugation conditions are explicit. Negative PCR does not establish absence.
+Naica ammonia oxidation now uses the correct GO term, not ammonia assimilation.
+
+All 18 graph quotations match fresh primary text and existing caches. Three
+complete main bodies were read; diel and NDC6 review remains abstract-bounded,
+with only a partial indexed view of the diel Methods. No separate supplements,
+raw data or original figure pixels were audited. All caches and non-graph blocks
+are preserved. No Edison submission or new topology is involved in these repairs.
+Three append-only histories accompany repairs #1632-#1634, which stay open until
+protected-main merge; separate metadata #1635 remains open afterward.
+Self-adversarial review is not independent approval.
+
 ## Batch75: Fermentation, Fraction Conversion And Probiotic Growth
 
 [Decisions](decisions/20261007-four-records-batch75.yaml),
