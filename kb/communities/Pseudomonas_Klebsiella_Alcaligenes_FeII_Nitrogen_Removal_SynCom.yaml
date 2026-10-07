@@ -122,12 +122,10 @@ taxonomy:
       bacterium.
 ecological_interactions:
 - name: Composite nitrogen-removal metabolic network
-  description: Pseudomonas stutzeri, Klebsiella sp., and Alcaligenes sp. were combined into a synthetic consortium spanning
-    aerobic denitrification, facultative anaerobic denitrification, and heterotrophic nitrification-aerobic denitrification.
-    Fe2+ chemical regulation increased nitrate-N removal efficiency relative to other iron species and shifted the metagenomic
-    carbon and nitrogen network toward higher dissimilatory nitrate reduction to ammonium pathway abundance and lower denitrification
-    pathway abundance.
-  interaction_type: NICHE_PARTITIONING
+  description: 'The three-member consortium showed higher nitrate-N removal under the reported iron-species treatment
+    comparison and associated changes in carbon/nitrogen pathway abundance. PARTIAL: complementary named capabilities
+    do not establish niche partitioning, member-specific contributions or measured pathway flux. The abstract labels
+    the analysis metagenomic but calls the reported counts transcript abundance, leaving the measurement type unresolved.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: nitrate
@@ -147,17 +145,38 @@ ecological_interactions:
   - reference: PMID:42520901
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: comprising the aerobic denitrifier Pseudomonas stutzeri, the facultative anaerobic denitrifier Klebsiella sp.,
-      and the heterotrophic nitrifying-aerobic denitrifying bacterium Alcaligenes sp.
+    snippet: comprising the aerobic denitrifier Pseudomonas stutzeri, the facultative anaerobic denitrifier Klebsiella
+      sp., and the heterotrophic nitrifying-aerobic denitrifying bacterium Alcaligenes sp.
     explanation: Supports the complementary nitrogen-metabolism capacities represented in the consortium.
   - reference: PMID:42520901
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: 'Metagenomic analysis revealed that Fe2+ modulated the carbon and nitrogen metabolic networks: in the carbon
-      metabolic network, enrichment of the por gene in the glycolytic pathway generated substantial reducing power in the
-      form of reduced ferredoxin; concomitantly, the transcript abundance of the dissimilatory nitrate reduction to ammonium
-      pathway increased from 775 to 802, whereas that of the denitrification pathway decreased from 1259 to 1222.'
-    explanation: Supports the Fe2+-associated shift in carbon and nitrogen network abundance.
+    snippet: 'Metagenomic analysis revealed that Fe2+ modulated the carbon and nitrogen metabolic networks: in the
+      carbon metabolic network, enrichment of the por gene in the glycolytic pathway generated substantial reducing
+      power in the form of reduced ferredoxin; concomitantly, the transcript abundance of the dissimilatory nitrate
+      reduction to ammonium pathway increased from 775 to 802, whereas that of the denitrification pathway decreased
+      from 1259 to 1222.'
+    explanation: Supports the source-reported abundance shift with an unresolved metagenomic/transcript terminology
+      inconsistency, not verified transcription, reducing-power production or nitrogen flux.
+  - reference: PMID:42520901
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: compared with the other iron species, the Fe2+ group achieved a 20-30% increase in nitrate-N removal
+      efficiency
+    explanation: Supports Fe2+ as the iron species that increased nitrate-N removal efficiency.
+  participating_taxa:
+  - preferred_term: Pseudomonas stutzeri
+    term:
+      id: NCBITaxon:316
+      label: Stutzerimonas stutzeri
+  - preferred_term: Klebsiella sp.
+    term:
+      id: NCBITaxon:570
+      label: Klebsiella
+  - preferred_term: Alcaligenes sp.
+    term:
+      id: NCBITaxon:507
+      label: Alcaligenes
 environmental_factors:
 - name: Ferrous iron regulation
   value: Fe2+
@@ -217,19 +236,47 @@ external_resources:
     explanation: Lists the primary DOI-linked article for the Fe2+-regulated SynCom.
 discussions:
 - discussion_id: fe2_syncom_exact_strains_and_cultivation_conditions
-  prompt: Which Pseudomonas stutzeri, Klebsiella sp., and Alcaligenes sp. strains, nitrogen source, iron doses, PAM dose,
-    medium recipe, inoculation ratio, and incubation conditions were used to assemble and assay the Fe2+-regulated nitrogen-removal
-    consortium?
+  prompt: Which Pseudomonas stutzeri, Klebsiella sp., and Alcaligenes sp. strains, nitrogen source, iron doses,
+    PAM dose, medium recipe, inoculation ratio, and incubation conditions were used to assemble and assay the Fe2+-regulated
+    nitrogen-removal consortium?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - engineering_design#assembly_strategy
   - growth_media#Fe2+-regulated nitrogen-removal assay
-  rationale: PubMed exposes the abstract but PubMed Central does not link open full text for PMID:42520901. The abstract identifies
-    the three member taxa and Fe2+/PAM perturbation design but not the strain designations or cultivation details needed for
-    a fully reproducible setup.
+  rationale: PubMed exposes the abstract but PubMed Central does not link open full text for PMID:42520901. The
+    abstract identifies the three member taxa and Fe2+/PAM perturbation design but not the strain designations or
+    cultivation details needed for a fully reproducible setup.
   posed_by: codex
   posed_date: '2026-09-14'
+- discussion_id: fe2-abundance-versus-nitrogen-flux
+  prompt: What measurement supports the reported pathway shift and net nitrogen fate?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  rationale: The nitrate-N treatment response remains a measured positive endpoint. The accessible abstract mixes
+    metagenomic sequencing with transcript-abundance terminology; it does not resolve that inconsistency, taxon-specific
+    partitioning or flux. Nitrate disappearance alone does not establish whole-system nitrogen loss. Full text and
+    complete nitrogen balances were not available in this review. No new arrows or experimental protocols were added.
+  attaches_to:
+  - ecological_interactions#Composite nitrogen-removal metabolic network
+  evidence:
+  - reference: PMID:42520901
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'Metagenomic analysis revealed that Fe2+ modulated the carbon and nitrogen metabolic networks: in the
+      carbon metabolic network, enrichment of the por gene in the glycolytic pathway generated substantial reducing
+      power in the form of reduced ferredoxin; concomitantly, the transcript abundance of the dissimilatory nitrate
+      reduction to ammonium pathway increased from 775 to 802, whereas that of the denitrification pathway decreased
+      from 1259 to 1222.'
+    explanation: Supports the source-reported abundance shift with an unresolved metagenomic/transcript terminology
+      inconsistency, not verified transcription, reducing-power production or nitrogen flux.
+  - reference: PMID:42520901
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: compared with the other iron species, the Fe2+ group achieved a 20-30% increase in nitrate-N removal
+      efficiency
+    explanation: Supports Fe2+ as the iron species that increased nitrate-N removal efficiency.
 metals_present:
 - IRON
 rare_earth_elements_present: []
@@ -240,18 +287,24 @@ curation_history:
 - timestamp: '2026-09-14T03:19:25Z'
   curator: codex
   action: CURATE_FE2_NITROGEN_SYNCOM
-  changes: Added the Fe2+-regulated Pseudomonas-Klebsiella-Alcaligenes nitrogen-removal SynCom from PMID:42520901 with abstract-backed
-    member, perturbation, and metagenomic claims.
+  changes: Added the Fe2+-regulated Pseudomonas-Klebsiella-Alcaligenes nitrogen-removal SynCom from PMID:42520901
+    with abstract-backed member, perturbation, and metagenomic claims.
   llm_assisted: true
 - timestamp: '2026-09-14T03:23:07Z'
   curator: codex
   action: ADD_FE2_GTDB_STATUSES
-  changes: Replaced the provisional NOT_ATTEMPTED GTDB state for Pseudomonas stutzeri with the same-taxon stored ambiguous
-    outcome, and marked the genus-level Klebsiella and Alcaligenes members unresolved.
+  changes: Replaced the provisional NOT_ATTEMPTED GTDB state for Pseudomonas stutzeri with the same-taxon stored
+    ambiguous outcome, and marked the genus-level Klebsiella and Alcaligenes members unresolved.
   llm_assisted: true
 - timestamp: '2026-09-14T03:30:25Z'
   curator: codex
   action: ADDRESS_REVIEW_878
-  changes: Removed the manually copied Klebsiella GTDB classification so genus-level Klebsiella remains UNRESOLVED until
-    gtdb_ground.py can derive a reproducible current grounding.
+  changes: Removed the manually copied Klebsiella GTDB classification so genus-level Klebsiella remains UNRESOLVED
+    until gtdb_ground.py can derive a reproducible current grounding.
+  llm_assisted: true
+- timestamp: '2026-10-07T12:23:49Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve nitrate removal and reported abundance shifts without verified flux or niche partitioning.
+    Issue #1733; reports/causal_graph_review/decisions/20261007-four-records-batch89.yaml'
   llm_assisted: true

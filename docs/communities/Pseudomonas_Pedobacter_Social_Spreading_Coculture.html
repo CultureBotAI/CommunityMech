@@ -581,7 +581,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Pseudomonas-Pedobacter Social Spreading Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -589,13 +589,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -604,16 +599,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Interspecies Social Spreading</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Coculture of P. fluorescens Pf0-1 and Pedobacter sp. V48 reveals an emergent surface spreading phenotype on hard agar where neither monoculture spreads under the same conditions.</p>
-
-
-                <p><strong>Source Taxon:</strong> Pedobacter sp. V48</p>
+                <p class="prewrap interaction-description">The canonical two-species coculture spreads across hard agar under the tested conditions while neither monoculture shows the same behavior. Preserve this emergent joint phenotype without assigning an untested one-way inducer or a specific motility motor.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Pseudomonas fluorescens Pf0-1</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas fluorescens Pf0-1,
+
+                    Pedobacter sp. V48
+
+                </p>
 
 
 
@@ -674,16 +672,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Pseudomonas-Pedobacter Comigration</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Both species remain present across the spreading colony, so the behavior is comigration rather than one species escaping the other.</p>
-
-
-                <p><strong>Source Taxon:</strong> Pseudomonas fluorescens Pf0-1</p>
+                <p class="prewrap interaction-description">Culture recovery and fluorescent imaging detected both partners throughout the spreading colony, with reproducible nonhomogeneous spatial distributions. This supports comigration rather than one partner escaping, not proof of reciprocal fitness benefits or a feedback cause of initiation.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Pedobacter sp. V48</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas fluorescens Pf0-1,
+
+                    Pedobacter sp. V48
+
+                </p>
 
 
 
@@ -707,17 +708,6 @@
                 </ul>
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Interspecies Social Spreading
-                        <p class="prewrap causal-description">Close association or contact between Pf0-1 and V48 initiates the two-species colony expansion phenotype on hard agar.
-</p>
-                    </div>
-
-                </div>
 
 
 
@@ -757,16 +747,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Contact-Dependent Initiation</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">In the canonical Pf0-1 plus V48 pair, initiation of social spreading requires physical proximity or contact between the two species.</p>
-
-
-                <p><strong>Source Taxon:</strong> Pedobacter sp. V48</p>
+                <p class="prewrap interaction-description">Close physical association was required for initiation in the canonical pair: spreading followed colony contact, and semipermeable separation prevented it. PARTIAL: the molecular trigger and whether direct cell-cell signaling or a localized environmental process mediates the requirement remain unresolved.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Pseudomonas fluorescens Pf0-1</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas fluorescens Pf0-1,
+
+                    Pedobacter sp. V48
+
+                </p>
 
 
 
@@ -791,6 +784,17 @@
 
 
 
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Interspecies Social Spreading
+                        <p class="prewrap causal-description">Close association or contact between Pf0-1 and V48 initiates the two-species colony expansion phenotype on hard agar.
+</p>
+                    </div>
+
+                </div>
+
 
 
                 <h4>Evidence</h4>
@@ -806,6 +810,19 @@
                         </div>
 
                         <div class="snippet">"initiation of social spreading requires close association between the two species of bacteria"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/30700513/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:30700513</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"motility is precluded when a semipermeable membrane is placed between the two colonies"</div>
 
                     </li>
 
@@ -869,6 +886,60 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How does the demonstrated association requirement produce the joint spreading phenotype?
+                </h3>
+                <p class="prewrap">The existing contact-initiation arrow was attached to Comigration even though its text describes the existing Contact-Dependent Initiation node. It was moved unchanged to that node, repairing the source endpoint without inventing a new causal claim. All three observations and both arrows remain. The primary membrane, adjacent-colony, conditioned-medium and heat-killed-cell results support an association requirement, not a resolved signal or motor. The follow-up abstract reports different requirements for other isolate pairs; these do not override the canonical pair. Non-graph temperature, timing and cross-feeder roles remain #1736.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Interspecies Social Spreading</code>, <code>ecological_interactions#Pseudomonas-Pedobacter Comigration</code>, <code>ecological_interactions#Contact-Dependent Initiation</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/30700513/" rel="nofollow noreferrer">PMID:30700513</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">motility is precluded when a semipermeable membrane is placed between the two colonies</p>
+                        <p class="muted small prewrap">Supports the experimental association requirement without identifying a molecular contact sensor.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/34288708/" rel="nofollow noreferrer">PMID:34288708</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">While Pf0-1+V48 require low nutrient but high NaCl conditions</p>
+                        <p class="muted small prewrap">Supports the same environment dependence in the exact-pair follow-up study.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1106,7 +1177,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1130,23 +1201,26 @@
             });
 
 
-            var srcKey = "Pedobacter sp. V48";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Pseudomonas fluorescens Pf0-1";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Pseudomonas fluorescens Pf0-1",
+
+                "Pedobacter sp. V48"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1170,23 +1244,26 @@
             });
 
 
-            var srcKey = "Pseudomonas fluorescens Pf0-1";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Pedobacter sp. V48";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Pseudomonas fluorescens Pf0-1",
+
+                "Pedobacter sp. V48"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1197,7 +1274,7 @@
             processes.push("biological process involved in interspecies interaction between organisms");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1210,17 +1287,20 @@
             });
 
 
-            var srcKey = "Pedobacter sp. V48";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Pseudomonas fluorescens Pf0-1";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Pseudomonas fluorescens Pf0-1",
+
+                "Pedobacter sp. V48"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
