@@ -329,6 +329,8 @@ USERS = {
     "Maize_Root_Simplified_Community.yaml",
     "Maize_SC2_RootRot_Biocontrol_SynCom.yaml",
     "Mangrove_Benzene_MFC_Bioanode_Consortium.yaml",
+    "Mars_Meteorite_EETA79001_Growth_Panel.yaml",
+    "Mars_Regolith_Cyanobacteria_Biofertilizer_Panel.yaml",
     "Medicago_Nodule_Biofertilizer_SynCom.yaml",
     "Mesorhizobium_Synechococcus_B12_Synthetic_Consortium.yaml",
     "Methane_MFC_Electrogenesis_Nitrogen_Fixation_Consortium.yaml",

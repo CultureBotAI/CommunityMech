@@ -139,12 +139,14 @@ taxonomy:
     explanation: Names Chlorella vulgaris as the green-microalga member of the panel.
 ecological_interactions:
 - name: MGS-1 Regolith Extract Nutrient Supply
-  description: >-
-    Mars Global Simulant MGS-1 was extracted with water to make the poor
-    martian-resource medium whose sulfur, potassium, and calcium content
-    supplied a subset of the nutrients needed by the photosynthetic panel.
+  description: 'The organisms were assayed separately, not as a coculture. COMMUNITY_LEVEL is retained as the current
+    container for shared abiotic/panel observations, not evidence of emergent community activity; record-model placement
+    remains OPEN under #573. Autoclaved MGS-1 aqueous extract contained measured S, K and Ca and smaller amounts
+    of other elements (main Table 1). Element totals do not establish ionic speciation, bioavailable uptake or a
+    complete growth medium. Phosphorus was not detected in the extract, and 5 mL of established inoculum was added
+    to 75 mL treatment, so intracellular reserves and medium carryover cannot be excluded. Cultivation used an Earth-like
+    atmosphere, not exposed Martian surface conditions.'
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   metabolites:
   - preferred_term: water
     term:
@@ -154,95 +156,117 @@ ecological_interactions:
     term:
       id: CHEBI:29103
       label: potassium(1+)
+    notes: Element detected by TXRF; the ionic term denotes candidate nutrient context, not directly measured speciation
+      or uptake.
   - preferred_term: calcium(2+)
     term:
       id: CHEBI:29108
       label: calcium(2+)
-  biological_processes:
-  - preferred_term: photosynthesis
-    term:
-      id: GO:0015979
-      label: photosynthesis
+    notes: Element detected by TXRF; the ionic term denotes candidate nutrient context, not directly measured speciation
+      or uptake.
   downstream:
-  - target: Diazotrophic Mars Extract Growth Advantage
-    description: >-
-      The MGS-1 aqueous extract provided the mineral and water resource base
-      on which the nitrogen-fixing cyanobacteria outperformed the
-      non-diazotrophic panel members.
+  - target: Separate-culture growth on Mars regolith extract
+    description: PARTIAL - water-extracted MGS-1 resources could support the observed growth above water-only controls.
+      The authors propose nitrogen-fixing capacity as an explanation for differential performance, but nitrogen
+      flux, ion requirements and reserve/carryover contributions were not independently isolated; species traits
+      and growth rates differ.
   evidence:
   - reference: PMID:35865930
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Mars regolith extract was rich in S, K, and Ca and contained smaller
-      concentrations of Mn, Fe, and Sr, and trace concentrations of Cu, Zn, Br,
-      and Rb
-    explanation: >-
-      Names the main elements measured in the Mars regolith extract used as the
-      test growth medium.
-- name: Diazotrophic Mars Extract Growth Advantage
-  description: >-
-    The diazotrophic cyanobacteria Nostoc muscorum and Anabaena cylindrica
-    thrived in short-term Mars regolith extract culture, whereas the
-    non-nitrogen-fixing Arthrospira platensis and Chlorella vulgaris did not.
+    snippet: Mars regolith extract was rich in S, K, and Ca and contained smaller concentrations of Mn, Fe, and
+      Sr, and trace concentrations of Cu, Zn, Br, and Rb
+    explanation: Names the main elements measured in the Mars regolith extract used as the test growth medium.
+  participating_taxa:
+  - preferred_term: Anabaena cylindrica
+    term:
+      id: NCBITaxon:1165
+      label: Anabaena cylindrica
+  - preferred_term: Nostoc muscorum
+    term:
+      id: NCBITaxon:1179
+      label: Desmonostoc muscorum
+  - preferred_term: Arthrospira platensis
+    term:
+      id: NCBITaxon:118562
+      label: Limnospira platensis
+  - preferred_term: Chlorella vulgaris
+    term:
+      id: NCBITaxon:3077
+      label: Chlorella vulgaris
+- name: Separate-culture growth on Mars regolith extract
+  description: 'The organisms were assayed separately, not as a coculture. COMMUNITY_LEVEL is retained as the current
+    container for shared abiotic/panel observations, not evidence of emergent community activity; record-model placement
+    remains OPEN under #573. Over 25 days, OD440 and photosystem-II fluorescence supported stronger growth of Nostoc
+    muscorum and Anabaena cylindrica in regolith extract than Arthrospira platensis or Chlorella vulgaris. Nostoc
+    was most consistent; Anabaena fluorescence declined after day 15 and biomass browned later. Arthrospira had
+    mild visible growth and clumping that limited optical measurements, so categorical absence of viable growth
+    is too strong. Photosynthetic efficiency is not measured oxygen production. Diazotrophy is an author-proposed
+    explanation, not directly measured N2 fixation or an interaction among the four organisms.'
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   biological_processes:
   - preferred_term: photosynthesis
     term:
       id: GO:0015979
       label: photosynthesis
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
   - preferred_term: growth
     term:
       id: GO:0040007
       label: growth
-  downstream:
-  - target: End-of-Life Biomass Biofertilization
-    description: >-
-      The 25-day phototroph cultures produced the cyanobacterial and microalgal
-      biomass subsequently supplied to Lemna minor as filtered or sonicated
-      biofertilizer treatments.
   evidence:
   - reference: PMID:35865930
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: >-
-      N. muscorum showed the best growth performance when compared to the other
-      species, while A. platensis and C. vulgaris were not able to thrive on
-      Mars regolith extract.
-    explanation: >-
-      Supports differential growth of the phototroph panel on Mars regolith
-      extract.
+    snippet: N. muscorum showed the best growth performance when compared to the other species, while A. platensis
+      and C. vulgaris were not able to thrive on Mars regolith extract.
+    explanation: Supports the broad separate-culture comparison; Results qualify Arthrospira with mild growth/clumping
+      and Anabaena with late decline. Nitrogen-fixation mediation was not directly measured.
   - reference: PMID:35865930
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: >-
-      C. vulgaris was unable to grow, while N. muscorum and A. cylindrica
-      thrived in Mars regolith extract.
-    explanation: >-
-      Supports the growth advantage of the two diazotrophic cyanobacteria in
-      the Mars regolith extract treatment.
-- name: End-of-Life Biomass Biofertilization
-  description: >-
-    Biomass from the Mars-regolith-grown phototroph cultures acted as a
-    biofertilizer for Lemna minor, with Arthrospira- and Chlorella-derived
-    treatments stimulating duckweed dry weight to levels comparable to standard
-    synthetic medium.
+    snippet: C. vulgaris was unable to grow, while N. muscorum and A. cylindrica thrived in Mars regolith extract.
+    explanation: Supports the broad separate-culture comparison; Results qualify Arthrospira with mild growth/clumping
+      and Anabaena with late decline. Nitrogen-fixation mediation was not directly measured.
+  participating_taxa:
+  - preferred_term: Anabaena cylindrica
+    term:
+      id: NCBITaxon:1165
+      label: Anabaena cylindrica
+  - preferred_term: Nostoc muscorum
+    term:
+      id: NCBITaxon:1179
+      label: Desmonostoc muscorum
+  - preferred_term: Arthrospira platensis
+    term:
+      id: NCBITaxon:118562
+      label: Limnospira platensis
+  - preferred_term: Chlorella vulgaris
+    term:
+      id: NCBITaxon:3077
+      label: Chlorella vulgaris
+- name: Processed-culture Lemna biofertilization
+  description: Separate 25-day regolith-extract cultures were filtered through 0.45-um membranes or sonicated and
+    supplied as media for a seven-day Lemna minor assay. Arthrospira filtrate and sonicate, and Chlorella filtrate,
+    supported dry-weight yields not significantly different from Steinberg medium, while frond yields remained lower.
+    Filtered versus sonicated treatments of the same species did not significantly differ. These positive processed-material
+    effects are not live commensalism or statistical proof of equivalence. The better-growing Nostoc cultures gave
+    the lowest Lemna yield, so phototroph growth advantage does not establish biofertilizer advantage. Nutrient
+    profiles suggest possible mediation, but carryover, released contents and other metabolites were not selectively
+    isolated. Lemna is the external recipient, not part of the four-phototroph inoculum roster.
   scope: COMMUNITY_LEVEL
-  interaction_type: COMMENSALISM
   metabolites:
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
+    notes: Measured medium constituent discussed as a candidate contributor; nitrate was detected only in Arthrospira
+      samples and phosphate mainly in Arthrospira/Nostoc. Neither is a selectively established cause of Lemna benefit.
   - preferred_term: phosphate
     term:
       id: CHEBI:18367
       label: phosphate(3-)
+    notes: Measured medium constituent discussed as a candidate contributor; nitrate was detected only in Arthrospira
+      samples and phosphate mainly in Arthrospira/Nostoc. Neither is a selectively established cause of Lemna benefit.
   biological_processes:
   - preferred_term: growth
     term:
@@ -250,16 +274,31 @@ ecological_interactions:
       label: growth
   evidence:
   - reference: PMID:35865930
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: >-
-      Cyanobacteria and microalgae (A. platensis and C. vulgaris) showed good
-      abilities as biofertilizing agents, i.e., they stimulated biomass (i.e.,
-      dry weight) production at levels comparable to the plants that grew on
-      standard synthetic medium.
-    explanation: >-
-      Supports the biofertilizing effect of end-of-life phototroph biomass on
-      Lemna minor dry-weight production.
+    snippet: Cyanobacteria and microalgae (A. platensis and C. vulgaris) showed good abilities as biofertilizing
+      agents, i.e., they stimulated biomass (i.e., dry weight) production at levels comparable to the plants that
+      grew on standard synthetic medium.
+    explanation: The abstract supports positive dry-weight outcomes; main Results distinguish Arthrospira filtered/sonicated
+      and Chlorella filtered treatments, lower frond yields and nonsignificant contrasts rather than equivalence
+      or live commensalism.
+  participating_taxa:
+  - preferred_term: Anabaena cylindrica
+    term:
+      id: NCBITaxon:1165
+      label: Anabaena cylindrica
+  - preferred_term: Nostoc muscorum
+    term:
+      id: NCBITaxon:1179
+      label: Desmonostoc muscorum
+  - preferred_term: Arthrospira platensis
+    term:
+      id: NCBITaxon:118562
+      label: Limnospira platensis
+  - preferred_term: Chlorella vulgaris
+    term:
+      id: NCBITaxon:3077
+      label: Chlorella vulgaris
 environmental_factors:
 - name: Mars regolith simulant (MGS-1) extract as sole nutrient resource
   value: MGS-1 regolith extract culture medium
@@ -411,3 +450,28 @@ cultivation_setup:
     snippet: A Martian regolith extract was produced and used as a culture medium to grow these species.
       Their growth was assessed during a period of 25 days, using optical density and fluorometric parameters.
     explanation: Gives the batch growth period and how growth was measured.
+discussions:
+- discussion_id: mgs1_panel_and_processed_material_mediation
+  prompt: Which resources mediate phototroph growth and the separate Lemna material-transfer effect?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#MGS-1 Regolith Extract Nutrient Supply
+  - ecological_interactions#Separate-culture growth on Mars regolith extract
+  - ecological_interactions#Processed-culture Lemna biofertilization
+  rationale: 'Retain extract chemistry, positive separate-culture growth and processed-material benefits. Remove
+    the growth-advantage-to-fertilizer workflow arrow: the stronger phototroph growers were not the strongest fertilizer
+    treatments. Nitrogen fixation, phosphate reserves, carryover and specific nutrients remain candidate mechanisms.
+    Living partner benefit and oxygen flux were not measured. #573 remains the shared panel-modeling question; #1585
+    graph repair and #1586 non-graph assay metadata are distinct. Main Table 1/captions read, not separate supplementary
+    elemental tables/images or raw data. No new nodes/arrows.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-07T00:06:10Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain measured extract chemistry with speciation, carryover and phosphorus limits.; Retain species-specific
+    optical growth/photophysiology, not measured nitrogen flux; remove workflow arrow.; Retain processed-culture
+    plant benefit with endpoint and treatment specificity, not live commensalism. Issue #1585; reports/causal_graph_review/decisions/20261006-four-records-batch68.yaml'
+  llm_assisted: true
