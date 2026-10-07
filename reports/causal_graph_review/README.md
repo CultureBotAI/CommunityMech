@@ -5,6 +5,34 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch90: Degradation, Competition And Diatom Signaling
+
+[Decisions](decisions/20261007-four-records-batch90.yaml),
+[validation](validation-20261007-batch90.json) and
+[self-adversarial review](adversarial-review-20261007-batch90.yaml) account for
+14 original nodes and seven arrows. Twelve biological nodes and all seven
+directions remain. A diatom workflow and a broad environmental-prevalence node
+are removed from the pair-specific graph; the environmental evidence remains.
+Reported degradation, competition and signaling findings are preserved while
+reverse-feeding implications, categorical interaction types and mediation
+claims are bounded to the available evidence.
+
+Adversarial review caught an incorrect obligacy requirement after the initial
+816-test run. The actual schema explicitly does not assert obligacy for
+SYNTROPHY. The two naphthalene mechanism nodes retain that qualified type;
+the measurement endpoint remains distinct. Six append-only history artifacts
+preserve both the initial edits and correction. The initial validation and
+inputs are archived as superseded; the current report is a fresh full rerun,
+including an additional schema-contract regression.
+
+Four exact-system primary abstracts and two attribution abstracts were read.
+No complete primary main text was retrieved; access failures and the public
+publisher-preview limits are recorded. All 921 caches, 456 other records and
+raw non-graph blocks are preserved. Repairs #1738-#1741 await protected-main
+merge; diatom metadata #1742 remains open. No new causal direction, paid Edison
+job, genetic design, harmful-algal optimization or experimental protocol was
+added. Self-review is not independent approval or whole-corpus completion.
+
 ## Batch89: Removal Assays And Social Spreading
 
 [Decisions](decisions/20261007-four-records-batch89.yaml),
