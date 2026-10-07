@@ -590,7 +590,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Rhizorhabdus-Cupriavidus BDE-47 Degradation SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -603,8 +603,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -645,7 +645,7 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> JMP134 2,4-dibromophenol rescue
+                        <span class="flow-arrow">→</span> JMP134 2,4-dibromophenol conversion
                         <p class="prewrap causal-description">YL-JM2C-generated 2,4-dibromophenol is subsequently converted to 3,5-dibromocatechol by JMP134 TfdB.</p>
                     </div>
 
@@ -688,17 +688,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>JMP134 2,4-dibromophenol rescue</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>JMP134 2,4-dibromophenol conversion</h3>
                 </div>
-                <p class="prewrap interaction-description">Cupriavidus necator JMP134 hydroxylase TfdB converts the YL-JM2C dead-end 2,4-dibromophenol product to 3,5-dibromocatechol, linking YL-JM2C&#39;s initial BDE-47 attack to the downstream ortho-cleavage pathway shared by both strains.</p>
-
-
-                <p><strong>Source Taxon:</strong> Cupriavidus necator JMP134</p>
+                <p class="prewrap interaction-description">Cupriavidus necator JMP134 hydroxylase TfdB converts the YL-JM2C dead-end 2,4-dibromophenol product to 3,5-dibromocatechol, linking YL-JM2C&#39;s initial BDE-47 attack to the downstream ortho-cleavage pathway shared by both strains. This is the recipient conversion step in the diffusible cross-feeding relay, not evidence of a reverse metabolite transfer or improved YL-JM2C fitness. Both strains having a downstream pathway does not demonstrate exchange of 3,5-DBC back to YL-JM2C.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Rhizorhabdus wittichii YL-JM2C</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Rhizorhabdus wittichii YL-JM2C,
+
+                    Cupriavidus necator JMP134
+
+                </p>
 
 
 
@@ -721,8 +724,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Consortium BDE-47 removal
-                        <p class="prewrap causal-description">Removal of the 2,4-DBP bottleneck connects the two isolate pathways and enables community-level BDE-47 degradation.</p>
+                        <span class="flow-arrow">→</span> Consortium BDE-47 removal without 2,4-DBP accumulation
+                        <p class="prewrap causal-description">JMP134 conversion of the YL-JM2C-derived 2,4-DBP prevents that intermediate from accumulating during consortium treatment. It is not required for disappearance of the parent BDE-47, which also occurred in the YL-JM2C monoculture.</p>
                     </div>
 
                 </div>
@@ -764,10 +767,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Consortium BDE-47 removal</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Consortium BDE-47 removal without 2,4-DBP accumulation</h3>
                 </div>
-                <p class="prewrap interaction-description">The mixed YL-JM2C/JMP134 consortium removes BDE-47 from minimal salts medium, releases bromide during low-concentration BDE-47 degradation, and fully removes BDE-47 from several amended real-wastewater microcosms.</p>
+                <p class="prewrap interaction-description">The mixed YL-JM2C/JMP134 consortium removes BDE-47 from minimal salts medium, releases bromide during low-concentration BDE-47 degradation, and fully removes BDE-47 from several amended real-wastewater microcosms. In the direct comparison, both the mixed culture and YL-JM2C alone removed BDE-47 within 20 hours, but only the monoculture accumulated stoichiometric 2,4-DBP. The consortium therefore clears this intermediate as well as the parent. Pathway reconstruction and bromide release support catabolism, not an empirical closed carbon balance or demonstrated donor-feedback benefit.</p>
 
 
 
@@ -889,7 +891,7 @@
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -917,6 +919,56 @@
                         </div>
 
 
+                    </div>
+
+                </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Does clearing 2,4-DBP feed back on YL-JM2C metabolism or fitness, and what is the carbon fate?
+                </h3>
+                <p class="prewrap">The main-text monoculture comparison and transwell experiment support diffusible intermediate cross-feeding. Parent disappearance occurs in YL-JM2C alone, while the partner prevents2,4-DBP accumulation. Current SYNTROPHY does not assert obligacy; the unresolved criterion is product-removal feedback making the donor metabolism more favourable. The demonstrated relay, functional enzymes, sequential growth and positive wastewater endpoints remain. They do not independently establish reciprocal fitness, return transfer of3,5-DBC or a closed carbon balance. Preserve the pre-existing image-panel curation task; this review did not inspect supplement pixels. Non-graph SYNTROPHIC_PARTNER roles remain for issue1753.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#YL-JM2C BDE-47 initiation</code>, <code>ecological_interactions#JMP134 2,4-dibromophenol conversion</code>, <code>ecological_interactions#Consortium BDE-47 removal without 2,4-DBP accumulation</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42364169/" rel="nofollow noreferrer">PMID:42364169</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">when strain YL-JM2C was inoculated alone, BDE-47 disappeared within 20 h but accompanying by stoichiometric accumulation of 2,4-DBP.</p>
+                        <p class="muted small prewrap">Main-text contrast distinguishes parent removal from clearance of the intermediate.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42364169/" rel="nofollow noreferrer">PMID:42364169</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">this metabolic relay is mediated by cross-feeding of diffusible metabolites rather than direct physical contact.</p>
+                        <p class="muted small prewrap">Transwell interpretation supports the positive cross-feeding relay, not reverse exchange or donor-feedback fitness.</p>
                     </div>
 
                 </details>
@@ -1428,7 +1480,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1441,7 +1493,7 @@
 
             nodes.push({
                 id: intId,
-                label: "JMP134 2,4-dibromophenol rescue",
+                label: "JMP134 2,4-dibromophenol conversion",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1450,23 +1502,26 @@
             });
 
 
-            var srcKey = "Cupriavidus necator JMP134";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Rhizorhabdus wittichii YL-JM2C";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Rhizorhabdus wittichii YL-JM2C",
+
+                "Cupriavidus necator JMP134"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1479,7 +1534,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Consortium BDE-47 removal",
+                label: "Consortium BDE-47 removal without 2,4-DBP accumulation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

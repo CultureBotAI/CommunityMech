@@ -1012,3 +1012,28 @@ Two fresh primary main bodies, one existing primary full-text extraction
 and two SCDY1 abstract versions were read. A selected cache excerpt is not
 independent source verification. No new topology or Edison spend; repairs
 #1746-#1748 await protected-main merge. Self-review is not independent approval.
+
+## Batch93: Exact Sources And Metabolic Relay
+
+[Decisions](decisions/20261007-four-records-batch93.yaml),
+[validation](validation-20261007-batch93.json),
+[cache provenance](cache-provenance-20261007-batch93.json) and
+[self-adversarial review](adversarial-review-20261007-batch93.yaml) cover
+Rammelsberg, BDE-47, RAMC and PPOW. Eight of nine nodes and three of six
+directions remain. Rammelsberg uses its correct primary study and community
+scope; BDE-47 intermediate cross-feeding is distinct from parent disappearance
+and donor feedback. RAMC is unchanged. PPOW member roles remain hypothetical,
+with the source's contradictory control reporting explicit. Positive outcomes
+are preserved. Three fresh main bodies and a public Rammelsberg pre-proof were
+read; the retained BDE bromide quote matches only an existing supplement
+caption, not a fresh supplement or pixel review. No new direction or provider
+spend. Two independent full-text caches were added; PPOW's initial cache-access
+failure and RAMC's existing snippet-classification exception remain recorded.
+Repairs #1750-#1752 await protected-main merge; non-graph metadata #1753
+remains open. Self-review is not independent approval or corpus completion.
+
+Reference CLI passes were measured on macOS, not Linux. Existing #1091 tracks
+the pinned validator's DOI-cache casing mismatch on case-sensitive filesystems;
+the new DOI cache follows repository convention, without claiming that issue is
+fixed. The initial participant-census regression failure is retained alongside
+the corrected expected-record list and rerun.
