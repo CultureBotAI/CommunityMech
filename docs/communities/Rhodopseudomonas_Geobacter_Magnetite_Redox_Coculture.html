@@ -585,7 +585,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Rhodopseudomonas-Geobacter Magnetite Redox Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -593,18 +593,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -613,17 +603,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Magnetite-Mediated Electron Sharing</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Rhodopseudomonas palustris TIE-1 withdraws electrons from magnetite during phototrophic Fe(II) oxidation, while Geobacter sulfurreducens returns electrons to magnetite through anaerobic Fe(III) reduction.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Rhodopseudomonas palustris TIE-1</p>
+                <p class="prewrap interaction-description">The two recorded bacteria exchange electrons with a shared mixed-valence magnetite reservoir: R. palustris TIE-1 withdraws electrons during phototrophic Fe(II) oxidation, whereas G. sulfurreducens supplies electrons during Fe(III) reduction. This is mineral-mediated redox cycling, not a direct nutrient transfer from TIE-1 to Geobacter.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Geobacter sulfurreducens</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Rhodopseudomonas palustris TIE-1,
+
+                    Geobacter sulfurreducens
+
+                </p>
 
 
 
@@ -645,17 +637,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        iron ion transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006826</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
@@ -663,8 +644,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Biogeochemical Battery Function
-                        <p class="prewrap causal-description">Magnetite-mediated electron sharing between the phototrophic Fe(II) oxidizer and the anaerobic Fe(III) reducer manifests as the emergent, reusable mineral electron-storage system (the &#34;battery&#34;).
-</p>
+                        <p class="prewrap causal-description">Opposed microbial electron withdrawal and supply allow magnetite to function as the shared redox reservoir under the tested externally controlled conditions.</p>
                     </div>
 
                 </div>
@@ -707,17 +687,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Phototrophic Magnetite Fe(II) Oxidation</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Under light, R. palustris TIE-1 oxidizes Fe(II) in magnetite nanoparticles, decreasing the reduced fraction of the mixed-valence mineral.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Rhodopseudomonas palustris TIE-1</p>
+                <p class="prewrap interaction-description">Under light, R. palustris TIE-1 oxidizes magnetite Fe(II), withdrawing stored electrons and discharging the mineral. In the coculture cycle this is one community redox step, not a demonstrated pairwise fitness benefit or resource-partitioning experiment.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Geobacter sulfurreducens</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Rhodopseudomonas palustris TIE-1,
+
+                    Geobacter sulfurreducens
+
+                </p>
 
 
 
@@ -753,14 +735,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Anaerobic Magnetite Fe(III) Reduction
-                        <p class="prewrap causal-description">Light-driven oxidation of magnetite Fe(II) to Fe(III) supplies the oxidized Fe(III) that G. sulfurreducens subsequently uses as its anaerobic electron acceptor.
-</p>
+                        <p class="prewrap causal-description">Oxidation regenerates magnetite Fe(III) that Geobacter can subsequently reduce when electron donor is supplied under the tested reducing conditions; the observed cycle depends on external conditions.</p>
                     </div>
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Biogeochemical Battery Function
-                        <p class="prewrap causal-description">TIE-1 phototrophic Fe(II) oxidation is one half of the reversible redox cycling that charges magnetite toward its oxidized state.
-</p>
+                        <p class="prewrap causal-description">Phototrophic Fe(II) oxidation withdraws electrons from magnetite and discharges the mineral reservoir; it does not charge an oxidized electron store.</p>
                     </div>
 
                 </div>
@@ -790,17 +770,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Anaerobic Magnetite Fe(III) Reduction</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Geobacter sulfurreducens reduces Fe(III) in magnetite, reversing the TIE-1-driven oxidation and restoring the mineral&#39;s reduced electron-storage capacity.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Geobacter sulfurreducens</p>
+                <p class="prewrap interaction-description">G. sulfurreducens reduces magnetite Fe(III), storing supplied electrons as reduced Fe(II) and charging the mineral. The demonstrated reversal requires suitable electron-donor and environmental conditions; it is not evidence of direct reciprocal nutrient exchange.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Rhodopseudomonas palustris TIE-1</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Rhodopseudomonas palustris TIE-1,
+
+                    Geobacter sulfurreducens
+
+                </p>
 
 
 
@@ -822,17 +804,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        iron ion transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006826</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
@@ -840,14 +811,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Phototrophic Magnetite Fe(II) Oxidation
-                        <p class="prewrap causal-description">G. sulfurreducens reduction of magnetite Fe(III) regenerates the reduced Fe(II) electron donor for TIE-1, closing the reversible redox loop (the process is reversible in co-cultures).
-</p>
+                        <p class="prewrap causal-description">Reduction regenerates magnetite Fe(II) that TIE-1 can oxidize during a subsequent illuminated phase, closing the experimentally demonstrated conditional redox cycle.</p>
                     </div>
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Biogeochemical Battery Function
-                        <p class="prewrap causal-description">Fe(III) reduction is the complementary half-reaction that restores the mineral&#39;s reduced electron-storage capacity, making the magnetite store reusable.
-</p>
+                        <p class="prewrap causal-description">Fe(III) reduction charges magnetite with electrons and restores the reduced electron reservoir for later phototrophic discharge.</p>
                     </div>
 
                 </div>
@@ -877,13 +846,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Biogeochemical Battery Function</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">The paired Fe(II)-oxidizing and Fe(III)-reducing activities make magnetite function as a reusable mineral electron-storage system for the coculture.
-</p>
+                <p class="prewrap interaction-description">Repeated microbial reduction and oxidation make magnetite a reusable electron reservoir in the tested cocultures: reduction charges it and oxidation discharges it. External light and electron-donor supply drive the cycle; this is not a self-sustaining loop or a demonstrated syntrophic fitness relationship.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Rhodopseudomonas palustris TIE-1,
+
+                    Geobacter sulfurreducens
+
+                </p>
 
 
 
@@ -914,19 +889,6 @@
                         </div>
 
                         <div class="snippet">"effectively rendering magnetite a naturally occurring battery"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.1126/science.aaa4834"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1126/science.aaa4834</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"magnetite, which contains both Fe(II) and Fe(III), can serve as both an electron acceptor and donor"</div>
 
                     </li>
 
@@ -975,6 +937,45 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which ecological benefits follow from the demonstrated mineral redox cycle?
+                </h3>
+                <p class="prewrap">The full primary paper supports repeated coculture redox reversals with externally controlled light and electron-donor conditions. Preserve the real feedback directions, but distinguish mineral electron storage from direct nutrient cross-feeding, competition-based niche partitioning and product-removal syntrophy. Current SYNTROPHY does not require obligacy; the missing evidence is the relevant metabolic/fitness feedback. Redox chemistry is not iron-ion transport. The DOI cache contains an editorial summary, so graph evidence now uses the primary PMID abstract. Non-graph functional roles remain for issue1759.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Magnetite-Mediated Electron Sharing</code>, <code>ecological_interactions#Phototrophic Magnetite Fe(II) Oxidation</code>, <code>ecological_interactions#Anaerobic Magnetite Fe(III) Reduction</code>, <code>ecological_interactions#Biogeochemical Battery Function</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/25814583/" rel="nofollow noreferrer">PMID:25814583</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">This process is reversible in co-cultures</p>
+                        <p class="muted small prewrap">Primary abstract supports reversal, not direct nutrient exchange or self-sustaining reciprocal fitness.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1321,7 +1322,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1333,10 +1334,6 @@
 
 
             var processes = [];
-
-
-            processes.push("iron ion transport");
-
 
             var evidenceCount = 2;
 
@@ -1351,23 +1348,26 @@
             });
 
 
-            var srcKey = "Rhodopseudomonas palustris TIE-1";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Geobacter sulfurreducens";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Rhodopseudomonas palustris TIE-1",
+
+                "Geobacter sulfurreducens"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1395,23 +1395,26 @@
             });
 
 
-            var srcKey = "Rhodopseudomonas palustris TIE-1";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Geobacter sulfurreducens";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Rhodopseudomonas palustris TIE-1",
+
+                "Geobacter sulfurreducens"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1423,10 +1426,6 @@
 
 
             var processes = [];
-
-
-            processes.push("iron ion transport");
-
 
             var evidenceCount = 1;
 
@@ -1441,23 +1440,26 @@
             });
 
 
-            var srcKey = "Geobacter sulfurreducens";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Rhodopseudomonas palustris TIE-1";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Rhodopseudomonas palustris TIE-1",
+
+                "Geobacter sulfurreducens"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:3";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1466,7 +1468,7 @@
 
             var processes = [];
 
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
@@ -1480,6 +1482,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Rhodopseudomonas palustris TIE-1",
+
+                "Geobacter sulfurreducens"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

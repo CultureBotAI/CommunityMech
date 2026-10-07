@@ -151,27 +151,24 @@ taxonomy:
     explanation: Documents polyketide-based antagonism specialization
 ecological_interactions:
 - name: Division-of-Labor Growth Promotion
-  description: Individual strains within the SynCom specialize in auxin production and siderophore-linked
-    iron mobilization, complementing each other for rice growth promotion. These complementary yet partially
-    redundant contributions render community performance resilient to single-member loss.
-  interaction_type: MUTUALISM
+  description: 'The eight-member SynCom shows complementary, partly redundant metabolic contributions in member-dropout
+    and omics comparisons. These support a division-of-labor interpretation associated with rice growth promotion.
+    PARTIAL: specific metabolite-to-plant effects and reciprocal fitness among the bacteria are not established
+    by those comparisons.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: indole-3-acetic acid
     term:
       id: CHEBI:16411
       label: indole-3-acetic acid
-    notes: Auxin produced by specialist member(s) for rice growth promotion
+    notes: Reported growth-associated metabolite; its individual causal contribution to the plant phenotype remains
+      unresolved.
   - preferred_term: acetoin
     term:
       id: CHEBI:15688
       label: acetoin
-    notes: Volatile organic compound contributing to plant growth promotion
-  - preferred_term: 2,3-butanediol
-    term:
-      id: CHEBI:16982
-      label: (R,R)-butane-2,3-diol
-    notes: Volatile organic compound contributing to plant growth promotion
+    notes: Reported growth-associated metabolite; its individual causal contribution to the plant phenotype remains
+      unresolved.
   biological_processes:
   - preferred_term: plant growth
     term:
@@ -179,28 +176,30 @@ ecological_interactions:
       label: growth
   downstream:
   - target: Concurrent Rice Growth Promotion and Sheath Blight Suppression
-    description: >
-      Recovery of the full plant-growth metabolite suite contributes the
-      growth-promotion arm of the complete SynCom's multi-trait greenhouse
-      phenotype.
+    description: 'PARTIAL: the complementary growth-associated metabolic pool is proposed to contribute to the complete
+      SynCom greenhouse growth phenotype. Dropout/omics associations do not establish genetic necessity or in-plant
+      chemical mediation.'
   evidence:
   - reference: PMID:41736136
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: complementary yet partially redundant contributions mapped members, metabolite pools, plant
-      outcomes and rendered community performance resilient to single-member loss
-    explanation: Documents complementary growth promotion through division of labor
+    snippet: complementary yet partially redundant contributions mapped members, metabolite pools, plant outcomes
+      and rendered community performance resilient to single-member loss
+    explanation: Supports complementary contributions and a division-of-labor interpretation, not reciprocal bacterial
+      fitness or chemical necessity.
 - name: Antimicrobial Biocontrol of Sheath Blight
-  description: SynCom members produce lipopeptides (surfactin, bacillomycin, fengycin) and polyketides
-    (difficidin) that suppress Rhizoctonia solani sheath blight, reducing the final disease index by 70%.
-  interaction_type: COMPETITION
+  description: 'SynCom treatment suppressed R. solani sheath blight, with about 70% reduction of the final disease
+    index in the tested greenhouse comparison. PARTIAL: lipopeptide/polyketide-associated features and dropout phenotypes
+    suggest contributing chemistries, but the individual compounds are not established as necessary causes of this
+    plant outcome. Antagonism is not itself proof of resource competition.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: surfactin
     term:
       id: CHEBI:29681
       label: surfactin
-    notes: Lipopeptide antibiotic contributing to biocontrol
+    notes: Reported antimicrobial-associated metabolite; individual necessity for greenhouse disease suppression
+      is unresolved.
   biological_processes:
   - preferred_term: defense response to fungus
     term:
@@ -208,35 +207,34 @@ ecological_interactions:
       label: defense response to fungus
   downstream:
   - target: Concurrent Rice Growth Promotion and Sheath Blight Suppression
-    description: >
-      The antimicrobial lipopeptide and polyketide arm contributes the
-      Rhizoctonia solani suppression component of the complete SynCom's
-      multi-trait greenhouse phenotype.
+    description: 'PARTIAL: the antimicrobial-associated component is proposed to contribute to the complete SynCom
+      disease-suppression phenotype; the observed plant protection is stronger evidence than the assignment of that
+      protection to individual compounds.'
   evidence:
   - reference: PMID:41736136
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: SynCom concurrently promoted rice growth and suppressed sheath blight caused by Rhizoctonia
-      solani, reducing the final disease index by 70% without detectable phytotoxicity
-    explanation: Documents 70% disease index reduction through antimicrobial metabolites
+    snippet: SynCom concurrently promoted rice growth and suppressed sheath blight caused by Rhizoctonia solani,
+      reducing the final disease index by 70% without detectable phytotoxicity
+    explanation: Supports the positive greenhouse disease-index outcome, not causal attribution to specific antimicrobial
+      metabolites.
 - name: Concurrent Rice Growth Promotion and Sheath Blight Suppression
-  description: >
-    The complete Bacillus-dominated SynCom recovers both plant-growth metabolites
-    and antimicrobial chemistries, giving a combined greenhouse phenotype of
-    rice growth promotion plus Rhizoctonia solani sheath-blight suppression.
-  interaction_type: COLONIZATION_FACILITATION
+  description: The complete SynCom concurrently promoted rice growth and suppressed sheath blight under the tested
+    greenhouse conditions. Its culture metabolome contained both growth- and antimicrobial-associated features.
+    These observations do not establish colonization facilitation, field efficacy, or an equivalent benefit from
+    adding duckweed itself.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: indole-3-acetic acid
     term:
       id: CHEBI:16411
       label: indole-3-acetic acid
-    notes: Auxin included in the full plant-growth metabolite suite recovered by the complete SynCom.
+    notes: Reported culture-metabolome feature, not an independently established mediator of the greenhouse outcome.
   - preferred_term: surfactin
     term:
       id: CHEBI:29681
       label: surfactin
-    notes: Antimicrobial lipopeptide included in the antimicrobial chemistries recovered by the complete SynCom.
+    notes: Reported culture-metabolome feature, not an independently established mediator of the greenhouse outcome.
   biological_processes:
   - preferred_term: plant growth
     term:
@@ -250,22 +248,23 @@ ecological_interactions:
   - reference: PMID:41736136
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: SynCom concurrently promoted rice growth and suppressed sheath blight caused by Rhizoctonia
-      solani, reducing the final disease index by 70% without detectable phytotoxicity
-    explanation: >
-      Supports the combined greenhouse endpoint produced by the complete
-      eight-member Bacillus SynCom.
+    snippet: SynCom concurrently promoted rice growth and suppressed sheath blight caused by Rhizoctonia solani,
+      reducing the final disease index by 70% without detectable phytotoxicity
+    explanation: 'Supports the combined greenhouse endpoint produced by the complete eight-member Bacillus SynCom.
+
+      '
   - reference: PMID:41736136
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      the complete SynCom uniquely recovered the full suite of plant-growth
-      metabolites (e.g., indole-3-acetic acid, acetoin/2,3-butanediol) together
-      with antimicrobial chemistries (e.g., surfactin, bacillomycin, fengycin,
+    snippet: 'the complete SynCom uniquely recovered the full suite of plant-growth metabolites (e.g., indole-3-acetic
+      acid, acetoin/2,3-butanediol) together with antimicrobial chemistries (e.g., surfactin, bacillomycin, fengycin,
       difficidin)
-    explanation: >
-      Links the complete SynCom to both the plant-growth metabolite pool and the
-      antimicrobial chemistry pool measured in leave-one-member perturbations.
+
+      '
+    explanation: 'Links the complete SynCom to both the plant-growth metabolite pool and the antimicrobial chemistry
+      pool measured in leave-one-member perturbations.
+
+      '
 environmental_factors:
 - name: Host Plant
   value: Oryza sativa (rice)
@@ -341,3 +340,36 @@ growth_media:
     snippet: each of the eight Bacillus isolates was first cultured independently in LB broth at 28 °C
       with shaking (180 rpm) until reaching mid-log phase
     explanation: Bacillus SynCom members grown in LB at 28 °C, 180 rpm to mid-log phase before assembly.
+discussions:
+- discussion_id: duckweed_chemical_and_ecological_scope
+  prompt: Which metabolic contributions causally explain the greenhouse plant benefits?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Division-of-Labor Growth Promotion
+  - ecological_interactions#Antimicrobial Biocontrol of Sheath Blight
+  - ecological_interactions#Concurrent Rice Growth Promotion and Sheath Blight Suppression
+  rationale: The complete primary main text supports dropout-dependent functional contributions and positive greenhouse
+    outcomes, but not genetic necessity or in-plant chemical confirmation. Individual strain abundances during coculture
+    were not measured; contribution scores are not abundance data. The source also conflicts about unique versus
+    shared auxin production and about duckweed-comparison disease effects versus unmeasured agronomic outcomes.
+    Do not resolve these by selecting a favorable sentence. No ecological mutualism, resource competition or colonization-facilitation
+    type is assigned merely from benefit to rice. The unqualified 2,3-butanediol feature does not establish a specific
+    stereoisomer. Canonical input taxonomy is preserved, but its four role placeholders do not resolve eight strain
+    identities; issue1759 tracks non-graph corrections. No field efficacy or general safety is certified.
+  evidence:
+  - reference: PMID:41736136
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: this study is limited to greenhouse conditions and does not yet establish genetic necessity for the
+      proposed metabolite-to-phenotype links.
+    explanation: Explicit primary limitation separates plant efficacy from the proposed chemical mechanisms.
+curation_history:
+- timestamp: '2026-10-07T16:17:08Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain complementary growth-associated contributions as PARTIAL without MUTUALISM or unverified stereochemistry.;
+    Retain observed biocontrol and positive disease-index result without COMPETITION or compound-specific causal
+    certainty.; Retain the concurrent greenhouse phenotype without COLONIZATION_FACILITATION or field/duckweed-intervention
+    generalization. Issue#1758; reports/causal_graph_review/decisions/20261007-four-records-batch94.yaml
+  llm_assisted: true

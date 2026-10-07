@@ -5,6 +5,24 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch94: Exchange And Plant Mechanism Boundaries
+
+Four records retain 14 nodes and 13 existing directions; experimental SynCom
+assembly and its arrow are removed. Reciprocal nutrient exchange remains
+strain-bounded, and the real magnetite cycle remains with reduction charging
+and oxidation discharging. Acid-soil phosphorus mediation and rice-duckweed
+chemical mediation remain hypotheses, while measured plant benefits remain
+positive. Complete E. coli and magnetite primary main texts and fresh duckweed
+PMC text were read; acid-soil review is abstract/limited-preview bounded.
+All 923 baseline caches and non-graph record blocks are preserved. Issues
+#1755-#1758 track graph repairs; #1759 requires separate non-graph curation.
+[Decisions](decisions/20261007-four-records-batch94.yaml),
+[provenance](cache-provenance-20261007-batch94.json),
+[validation](validation-20261007-batch94.json), and
+[self-adversarial review](adversarial-review-20261007-batch94.yaml) state
+the source and execution limits; self-review is not independent approval.
+No new topology or paid Edison submission was used.
+
 ## Batch91: Interaction Semantics Re-Review
 
 [Decisions](decisions/20261007-five-records-batch91.yaml),
