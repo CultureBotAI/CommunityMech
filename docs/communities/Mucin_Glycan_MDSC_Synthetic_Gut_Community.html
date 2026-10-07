@@ -993,7 +993,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Mucin Glycan-Degrading MDSC Synthetic Gut Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -1001,13 +1001,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -1016,9 +1011,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Mucin-Type-Dependent MDSC Restructuring</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">After four sequential transfers, the MDSC stabilized into distinct species-level compositions on PGM, PGM plus BSM, and PGM plus added sialylated glycans, with BSM alone supporting limited growth.</p>
+                <p class="prewrap interaction-description">After four sequential transfers, the MDSC stabilized into distinct species-level compositions on PGM, PGM plus BSM, and PGM plus added sialylated glycans, with BSM alone supporting limited growth. Substrate-regime interventions establish composition responses, but taxon-specific niche partitioning or competition is an interpretation, not selectively isolated by these abundance data.</p>
 
 
 
@@ -1045,7 +1039,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Substrate-Dependent Mucin Glycan Degradation
-                        <p class="prewrap causal-description">Community composition tracked with different O- and N-glycan degradation patterns on the four mucin substrate regimes.</p>
+                        <p class="prewrap causal-description">PARTIAL - Substrate-selected community composition can change the available glycan-degrading enzyme repertoire and thereby influence degradation. The paper reports coordinated composition and glycan changes, including convergence of added-glycan degradation rates, but changes mucin substrate rather than holding substrate fixed while selectively changing composition. Direct substrate accessibility and composition-mediated effects are therefore not separated.</p>
                     </div>
 
                 </div>
@@ -1075,9 +1069,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Substrate-Dependent Mucin Glycan Degradation</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The MDSC degraded PGM O-glycans, PGM plus BSM O-glycans, and PGM plus added sialylated glycans in sequential batch culture, but showed limited growth and only minimal O-glycan degradation when BSM was supplied alone.</p>
+                <p class="prewrap interaction-description">The MDSC rapidly degrades PGM and mixed PGM/BSM O-glycans and degrades added sialylated glycans. BSM alone supports little growth and only minimal O-glycan degradation, while its low-abundance identified N-glycans are completely degraded. Added sialylated structures show different early rates and some remain detectable at120 h. These community substrate-processing outcomes do not identify the donor-recipient fluxes implied by a pairwise cross-feeding mechanism.</p>
 
 
 
@@ -1124,9 +1117,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Mucin-Type-Dependent Fermentation Profile</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">HPLC measurements showed that PGM, BSM, PGM/BSM, and PGM plus sialylated glycans yielded distinct extracellular metabolite profiles, including condition-dependent changes in acetate, propionate, formate, and ethanol after community stabilization.</p>
+                <p class="prewrap interaction-description">HPLC measurements showed that PGM, BSM, PGM/BSM, and PGM plus sialylated glycans yielded distinct extracellular metabolite profiles, including condition-dependent changes in acetate, propionate, formate, and ethanol after community stabilization. These are extracellular pool profiles, not measured transfer between particular members. Low metabolite output on BSM may include yeast-extract fermentation; an increase in metabolite concentration is not proof of production exclusively from mucin.</p>
 
 
 
@@ -1247,7 +1239,7 @@
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -1258,6 +1250,21 @@
                 <p class="prewrap">The 2026 MDSC paper states that the community design included primary mucin degraders, secondary degraders, and hydrogen consumers and measured condition-level community composition, glycan degradation, and metabolite production. Pairwise member-to-member carbon or gas fluxes in the exact 14-strain MDSC were not resolved from this paper alone, so this record captures only community-level mucin responses.</p>
 
                 <p class="muted small">Attaches to: <code>ecological_interactions</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which selective mechanisms explain the measured community responses?
+                </h3>
+                <p class="prewrap">Preserve the experimentally altered mucin regimes and positive composition, glycan and metabolite responses. The retained composition-to-degradation mechanism is PARTIAL because composition and substrate accessibility change together. Do not confuse failure to degrade most BSM O-glycans with failure to degrade its N-glycans, or A.muciniphila abundance with demonstrated sialic-acid utilization. Monoculture BSM plus threonine did not restore A.muciniphila growth. Existing unresolved pairwise-flux discussion and prior957/958/959 repairs remain intact.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Mucin-Type-Dependent MDSC Restructuring</code>, <code>ecological_interactions#Substrate-Dependent Mucin Glycan Degradation</code>, <code>ecological_interactions#Mucin-Type-Dependent Fermentation Profile</code></p>
 
 
 
@@ -1767,7 +1774,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1795,7 +1802,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1823,7 +1830,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
