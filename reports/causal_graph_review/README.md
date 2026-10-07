@@ -5,6 +5,29 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch72: Gas Rates, Peptide Panels And Isotope Evidence
+
+[Decisions](decisions/20261007-four-records-batch72.yaml),
+[validation](validation-20261007-batch72.json) and
+[self-adversarial review](adversarial-review-20261007-batch72.yaml) account for
+all nine retained nodes and six arrows, plus a justified empty peptide graph.
+
+Positive mutual growth, photosynthetic oxygen support, biomass carbon and
+sulfadiazine cross-feeding remain. Whole-culture carbon is not partner flux;
+individual gas rates are stoichiometric estimates. Raman supports carbon
+incorporation, not independent nitrogen assimilation or activity of every cell.
+The two peptide biomasses and their processing assays do not establish a living
+ecological chain. Their empty graph is reviewed, not overlooked.
+
+Two exact-pair studies remain abstract-supported after full-text access failures.
+The quantitative follow-up manuscript, peptide and sulfadiazine main texts, and
+both cross-system modeling papers were read. Follow-up equation pages 10-11 were
+visually inspected; other figure pixels and separate supplements were not audited.
+All 17 retained graph excerpts match fresh primary text. All 920 caches and raw
+non-graph blocks remain unchanged, not recertified. Tasks #1608-#1611 await
+protected-main merge; metadata #1612 stays open afterward. No new structure or
+paid provider call. Self-review is not independent approval or corpus completion.
+
 ## Batch71: Methane Coculture Assay Boundaries
 
 [Decisions](decisions/20261007-four-records-batch71.yaml),

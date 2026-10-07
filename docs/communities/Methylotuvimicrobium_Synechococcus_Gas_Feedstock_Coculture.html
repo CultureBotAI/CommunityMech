@@ -581,7 +581,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Methylotuvimicrobium-Synechococcus Gas Feedstock Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -594,8 +594,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -604,9 +604,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Photosynthetic O2 Support for Methane Oxidation</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Synechococcus PCC 7002 performs oxygenic photosynthesis and supplies O2 that supports aerobic methane oxidation by M. alcaliphilum 20z, enabling coculture growth without feeding external CH4/O2 mixtures.</p>
+                <p class="prewrap interaction-description">Synechococcus PCC 7002 supplies photosynthetic O2 supporting aerobic methane oxidation by M. alcaliphilum 20z. The 2017 continuous synthetic-natural-gas process reached steady state under coupled light and O2 limitations, with an O2-depleted reactor and no fed CH4/O2 mixture. Oxygen depletion does not imply anaerobic methane oxidation; directed support alone does not establish reciprocal fitness benefit.</p>
 
 
                 <p><strong>Source Taxon:</strong> Synechococcus PCC 7002</p>
@@ -655,8 +654,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Methane and Carbon Dioxide Conversion to Biomass
-                        <p class="prewrap causal-description">Photosynthetic O2 production supports aerobic methane oxidation, allowing the coculture to convert methane and carbon dioxide into biomass.
-</p>
+                        <p class="prewrap causal-description">Photosynthetic oxygen production supports aerobic methane oxidation and thereby positive whole-coculture conversion of gas carbon into biomass. This physiological coupling is retained without requiring an independently measured respiratory-CO2 transfer rate or reciprocal growth enhancement.</p>
                     </div>
 
                 </div>
@@ -701,7 +699,7 @@
                     <h3>CO2 Utilization by Cyanobacterial Partner</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">CO2 from the supplied gas stream and methanotroph respiration is available to the cyanobacterial partner, allowing simultaneous methane and carbon dioxide utilization into biomass.</p>
+                <p class="prewrap interaction-description">PARTIAL - the cyanobacterium uses inorganic carbon from the supplied gas/medium and can use CO2 released by methanotroph respiration. The 20ZR/PCC7002 follow-up supports this exchange interpretation using an experimental-computational mass balance, not independently measured partner-specific CO2 flux. The respiratory contribution is inferred from methane uptake and growth stoichiometry; it is not separately isotope-resolved from supplied inorganic carbon.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methylomicrobium alcaliphilum 20z</p>
@@ -746,8 +744,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Methane and Carbon Dioxide Conversion to Biomass
-                        <p class="prewrap causal-description">Cyanobacterial CO2 assimilation closes the reciprocal O2/CO2 exchange that supports simultaneous gas conversion by the two-member coculture.
-</p>
+                        <p class="prewrap causal-description">PARTIAL - cyanobacterial carbon assimilation contributes to coculture biomass, with respiratory CO2 recycling supported by the follow-up mass-balance interpretation. The individual rates are stoichiometric estimates, so this arrow does not establish the exact recycled fraction or mutually enhanced growth.</p>
                     </div>
 
                 </div>
@@ -763,10 +760,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/28092828/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:28092828</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"simultaneous utilization of methane and carbon dioxide"</div>
+                        <div class="snippet">"robust growth on diverse gas mixtures"</div>
 
                     </li>
 
@@ -776,7 +773,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/33064298/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33064298</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"individual consumption and production rates of O2 and CO2"</div>
@@ -790,13 +787,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Methane and Carbon Dioxide Conversion to Biomass</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Coupled methanotrophic methane oxidation and cyanobacterial photosynthesis let the two-member coculture convert methane and carbon dioxide from gas feedstocks into microbial biomass.
-</p>
+                <p class="prewrap interaction-description">The 20z/PCC7002 coculture converts methane and carbon dioxide from tested gas feedstocks into microbial biomass. This positive system endpoint is distinct from a demonstrated increase in each partner&#39;s fitness. The quantitative follow-up uses the 20ZR derivative with PCC7002; its mass-balance estimates should not be treated as direct exchange measurements in the original continuous reactor.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Methylomicrobium alcaliphilum 20z,
+
+                    Synechococcus PCC 7002
+
+                </p>
 
 
 
@@ -864,6 +867,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How much cyanobacterial carbon derives from methanotroph respiration under each gas regime?
+                </h3>
+                <p class="prewrap">Keep positive photosynthetic O2 support and gas-to-biomass conversion. The 2017 exact-pair abstract was read; PNNL PDF download returned 403, so its full controls are not certified. Public PMID:33064298 accepted manuscript and included supplement text were read; equation pages 10-11 visually checked. Organism-specific O2/CO2 rates derive from total gas changes, TIC and growth coefficients, with dissolved O2 neglected. Flow cytometry/OD checks support biomass estimation, not independent gas-flux validation. Its saltwater 20ZR/PCC7002 pair differs from the separate M. capsulatus/C. sorokiniana pair; the latter&#39;s oxygen-limited inoculum response must not be imported here. #1609 repairs graph wording; #1612 keeps non-graph measurement/protocol claims open.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Photosynthetic O2 Support for Methane Oxidation</code>, <code>ecological_interactions#CO2 Utilization by Cyanobacterial Partner</code>, <code>ecological_interactions#Methane and Carbon Dioxide Conversion to Biomass</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1242,7 +1264,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1332,7 +1354,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1365,6 +1387,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Methylomicrobium alcaliphilum 20z",
+
+                "Synechococcus PCC 7002"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

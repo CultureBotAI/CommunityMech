@@ -337,6 +337,8 @@ USERS = {
     "Mercury_SFA_EFPC_Sediment_Community.yaml",
     "Methylacidiphilum_Galdieria_Thermoacidophilic_Coculture.yaml",
     "Methylocystis_Rhodococcus_Methane_VFA_PHBV_Coculture.yaml",
+    "Methylomicrobium_Chlorella_Methane_Sequestration_Coculture.yaml",
+    "Methylotuvimicrobium_Synechococcus_Gas_Feedstock_Coculture.yaml",
     "Mesorhizobium_Synechococcus_B12_Synthetic_Consortium.yaml",
     "Methane_MFC_Electrogenesis_Nitrogen_Fixation_Consortium.yaml",
     "Methane_Oxidation_CrVI_Reduction_SynCom.yaml",

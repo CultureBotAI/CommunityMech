@@ -98,10 +98,10 @@ taxonomy:
     explanation: Supports Terrabacter as the member that assimilates sulfadiazine-derived 2-aminopyrimidine.
 ecological_interactions:
 - name: Microbacterium 2-Aminopyrimidine Release
-  description: >-
-    Microbacterium sp. BR1 cleaves sulfadiazine to release the dead-end
-    intermediate 2-aminopyrimidine, making the intermediate available for
-    degradation by Terrabacter.
+  description: Microbacterium sp. BR1 transforms sulfadiazine and releases 2-aminopyrimidine (2-AP), which accumulates
+    in its axenic culture. This supplies the intermediate used by Terrabacter in coculture. The complementary cultures,
+    chemical time course and recipient isotope signal support sequential cross-feeding rather than merely co-occurring
+    degradation.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -126,10 +126,9 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Terrabacter 2-Aminopyrimidine Assimilation
-    description: >-
-      Terrabacter assimilation and degradation of the Microbacterium-derived
-      2-aminopyrimidine intermediate removes the dead-end product that
-      accumulates in Microbacterium monoculture.
+    description: Microbacterium cleavage supplies sulfadiazine-derived 2-AP to Terrabacter, enabling recipient carbon
+      assimilation. Terrabacter alone did not remove parent sulfadiazine; the coculture-specific recipient Raman
+      shift and axenic 2-AP accumulation support this causal sequence.
   evidence:
   - reference: PMID:42598292
     supports: SUPPORT
@@ -142,10 +141,12 @@ ecological_interactions:
     snippet: Microbacterium led to the entire degradation of sulfadiazine with concomitant accumulation of 2-AP
     explanation: Supports 2-aminopyrimidine accumulation as a Microbacterium monoculture dead-end product.
 - name: Terrabacter 2-Aminopyrimidine Assimilation
-  description: >-
-    Terrabacter sp. 2APm3 consumes the 2-aminopyrimidine released from
-    sulfadiazine by Microbacterium sp. BR1, assimilating
-    2-aminopyrimidine-derived carbon and nitrogen during biomass growth.
+  description: Terrabacter assimilates carbon from Microbacterium-released 2-AP in coculture. Its phenylalanine
+    Raman peak shifted from about 1000 to 988 cm-1 with the pyrimidine-labeled substrate, supporting 13C incorporation;
+    this signal does not independently establish 15N assimilation. Detectably labeled Terrabacter fractions were
+    42.8 +/- 1.8% on day 2 and 45.9 +/- 3.2% on day 4, so activity is heterogeneous and subthreshold activity is
+    not excluded. Recipient cell counts recovered between days 2 and 4 after an initial decline, not uninterrupted
+    growth of both partners.
   interaction_type: COMMENSALISM
   scope: PAIRWISE
   source_taxon:
@@ -170,10 +171,9 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Coculture Sulfadiazine Degradation
-    description: >-
-      Terrabacter utilization of 2-aminopyrimidine allows the coculture to
-      degrade labeled sulfadiazine without the 2-aminopyrimidine accumulation
-      seen in Microbacterium monoculture.
+    description: 'Terrabacter utilization removes the 2-AP intermediate that persists in Microbacterium axenic cultures,
+      allowing the coculture endpoint to lack detectable 2-AP. This complements parent transformation but does not
+      accelerate it: parent sulfadiazine disappeared by day 2 in Microbacterium alone and day 4 in coculture.'
   evidence:
   - reference: PMID:42598292
     supports: SUPPORT
@@ -184,12 +184,14 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Terrabacter assimilated carbon derived from 13C,15N-labeled 2-AP
-    explanation: Supports 2-aminopyrimidine assimilation by Terrabacter in the coculture.
+    explanation: Supports carbon incorporation from the dual-labeled substrate, not a separate nitrogen-incorporation
+      measurement or activity of every recipient cell.
 - name: Coculture Sulfadiazine Degradation
-  description: >-
-    The Microbacterium-Terrabacter coculture degrades sulfadiazine and prevents
-    detectable 2-aminopyrimidine accumulation by coupling Microbacterium
-    sulfadiazine cleavage to Terrabacter 2-aminopyrimidine degradation.
+  description: With 1 mM supplied sulfadiazine, the coculture showed complete parent disappearance by day 4 and
+    no detectable 2-AP at sampled days 0, 2 and 4. Microbacterium alone removed parent by day 2 while accumulating
+    about 1 mM 2-AP; Terrabacter alone did not remove parent. Preserve the positive complementary degradation endpoint
+    without claiming faster parent removal, continuous absence of any intermediate pool, or quantitative mineralization
+    from a closed carbon balance.
   interaction_type: COMMENSALISM
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -220,7 +222,8 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: No traces of 2-AP were detected in cocultures at all sampling times
-    explanation: Supports the absence of 2-aminopyrimidine buildup in coculture.
+    explanation: Supports nondetection at sampled times, not continuous zero intermediate concentration or a measured
+      carbon-mineralization balance.
 environmental_factors:
 - name: sulfadiazine isotope-tracing substrate
   value: 13C,15N-diazine-labeled sulfadiazine
@@ -270,29 +273,41 @@ external_resources:
     explanation: Identifies the primary article for this sulfadiazine-degrading synthetic ecosystem.
 discussions:
 - discussion_id: exact-brunner-msm-vitamin-composition
-  prompt: >-
-    Which Brunner MSM salts, vitamins, and supplement concentrations were
-    present in the sulfadiazine isotope-tracing coculture medium?
+  prompt: Which Brunner MSM salts, vitamins, and supplement concentrations were present in the sulfadiazine isotope-tracing
+    coculture medium?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - growth_media#sulfadiazine isotope-tracing coculture medium
-  rationale: >-
-    The open article body identifies MSM Brunner plus vitamins and labeled
-    sulfadiazine as the isotope-tracing coculture medium, but places full
-    materials and methods details in supporting information.
+  rationale: The open article body identifies MSM Brunner plus vitamins and labeled sulfadiazine as the isotope-tracing
+    coculture medium, but places full materials and methods details in supporting information.
   evidence:
   - reference: PMID:42598292
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Supplementary experimental procedures: synthesis of 13C,15N-labeled
-      sulfadiazine
-    explanation: >-
-      Indicates that additional procedure details were separated into
-      supporting information rather than fully reproduced in the article body.
+    snippet: 'Supplementary experimental procedures: synthesis of 13C,15N-labeled sulfadiazine'
+    explanation: Indicates that additional procedure details were separated into supporting information rather than
+      fully reproduced in the article body.
   posed_by: codex
   posed_date: '2026-09-28'
+- discussion_id: sulfadiazine_isotope_kinetics_and_donor_benefit
+  prompt: What nitrogen incorporation and donor benefit accompany the demonstrated carbon cross-feeding?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Microbacterium 2-Aminopyrimidine Release
+  - ecological_interactions#Terrabacter 2-Aminopyrimidine Assimilation
+  - ecological_interactions#Coculture Sulfadiazine Degradation
+  rationale: 'Retain all three nodes and both supported arrows. Dual-labeled substrate does not make the observed
+    phenylalanine Raman shift an independent 15N readout. Partial recipient labeling, initial population decline
+    and subsequent Terrabacter recovery bound the growth claim. Parent disappearance is slower in coculture than
+    BR1 alone, whereas 2-AP removal is the complementary benefit. The paper''s proposed donor protection from 2-AP
+    is not a selectively tested feedback mechanism, so no new return arrow is added. Complete primary main text
+    and Table 1 read; supporting information/raw spectra not audited. #1611 repairs graph interpretation; #1612
+    retains axenic-label wording and culture-stock/medium follow-up. Preserve the prior #1196 coculture-label fix
+    and #1195 Brunner MSM discussion.'
+  posed_by: codex
+  posed_date: '2026-10-07'
 metal_relevance: NOT_APPLICABLE
 metal_notes: >-
   The Microbacterium-Terrabacter coculture degrades the sulfonamide antibiotic
@@ -301,8 +316,13 @@ curation_history:
 - timestamp: '2026-09-28T10:00:01Z'
   curator: codex
   action: CREATE_RECORD
-  changes: >-
-    Created CommunityMech:000462 for the two-member Microbacterium sp. BR1 and
-    Terrabacter sp. 2APm3 sulfadiazine-degrading coculture from PMID:42598292
-    and DOI 10.1021/acs.estlett.6c00474.
+  changes: Created CommunityMech:000462 for the two-member Microbacterium sp. BR1 and Terrabacter sp. 2APm3 sulfadiazine-degrading
+    coculture from PMID:42598292 and DOI 10.1021/acs.estlett.6c00474.
+  llm_assisted: true
+- timestamp: '2026-10-07T01:54:29Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve donor intermediate release and make its enabling arrow explicitly upstream causal.; Retain
+    recipient carbon assimilation and heterogeneous activity without independent nitrogen claims.; Preserve complementary
+    degradation and sampled nondetection, not faster parent removal or complete mineralization. Issue #1611; reports/causal_graph_review/decisions/20261007-four-records-batch72.yaml'
   llm_assisted: true
