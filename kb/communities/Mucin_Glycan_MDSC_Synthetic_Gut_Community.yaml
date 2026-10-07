@@ -489,11 +489,10 @@ taxonomy:
     explanation: Names Desulfovibrio piger DSM 749T as an MDSC member.
 ecological_interactions:
 - name: Mucin-Type-Dependent MDSC Restructuring
-  description: >-
-    After four sequential transfers, the MDSC stabilized into distinct
-    species-level compositions on PGM, PGM plus BSM, and PGM plus added
-    sialylated glycans, with BSM alone supporting limited growth.
-  interaction_type: NICHE_PARTITIONING
+  description: After four sequential transfers, the MDSC stabilized into distinct species-level compositions on
+    PGM, PGM plus BSM, and PGM plus added sialylated glycans, with BSM alone supporting limited growth. Substrate-regime
+    interventions establish composition responses, but taxon-specific niche partitioning or competition is an interpretation,
+    not selectively isolated by these abundance data.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction
@@ -502,9 +501,11 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Substrate-Dependent Mucin Glycan Degradation
-    description: >-
-      Community composition tracked with different O- and N-glycan degradation
-      patterns on the four mucin substrate regimes.
+    description: PARTIAL - Substrate-selected community composition can change the available glycan-degrading enzyme
+      repertoire and thereby influence degradation. The paper reports coordinated composition and glycan changes,
+      including convergence of added-glycan degradation rates, but changes mucin substrate rather than holding substrate
+      fixed while selectively changing composition. Direct substrate accessibility and composition-mediated effects
+      are therefore not separated.
   evidence:
   - reference: PMID:42109165
     supports: SUPPORT
@@ -512,11 +513,11 @@ ecological_interactions:
     snippet: After four transfers, the composition of the community differed as a result of mucin type condition
     explanation: Supports mucin-type-dependent restructuring of the synthetic community.
 - name: Substrate-Dependent Mucin Glycan Degradation
-  description: >-
-    The MDSC degraded PGM O-glycans, PGM plus BSM O-glycans, and PGM plus
-    added sialylated glycans in sequential batch culture, but showed limited
-    growth and only minimal O-glycan degradation when BSM was supplied alone.
-  interaction_type: CROSS_FEEDING
+  description: The MDSC rapidly degrades PGM and mixed PGM/BSM O-glycans and degrades added sialylated glycans.
+    BSM alone supports little growth and only minimal O-glycan degradation, while its low-abundance identified N-glycans
+    are completely degraded. Added sialylated structures show different early rates and some remain detectable at120
+    h. These community substrate-processing outcomes do not identify the donor-recipient fluxes implied by a pairwise
+    cross-feeding mechanism.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: carbohydrate metabolic process
@@ -528,14 +529,14 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Furthermore, glycan degradation and metabolite production were also affected by mucin type
-    explanation: Supports the substrate-dependent mucin glycan degradation and metabolic output of the MDSC.
+    explanation: Supports the substrate-dependent mucin glycan degradation and metabolic output of the MDSC. Community-level
+      outcome only; no resolved member-to-member exchange follows from this measurement.
 - name: Mucin-Type-Dependent Fermentation Profile
-  description: >-
-    HPLC measurements showed that PGM, BSM, PGM/BSM, and PGM plus sialylated
-    glycans yielded distinct extracellular metabolite profiles, including
-    condition-dependent changes in acetate, propionate, formate, and ethanol
-    after community stabilization.
-  interaction_type: CROSS_FEEDING
+  description: HPLC measurements showed that PGM, BSM, PGM/BSM, and PGM plus sialylated glycans yielded distinct
+    extracellular metabolite profiles, including condition-dependent changes in acetate, propionate, formate, and
+    ethanol after community stabilization. These are extracellular pool profiles, not measured transfer between
+    particular members. Low metabolite output on BSM may include yeast-extract fermentation; an increase in metabolite
+    concentration is not proof of production exclusively from mucin.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: acetate
@@ -564,7 +565,8 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Incubation of the MDSC with different mucin types resulted in distinct metabolite profiles
-    explanation: Supports mucin-type-dependent extracellular metabolite output.
+    explanation: Supports mucin-type-dependent extracellular metabolite output. Community-level outcome only; no
+      resolved member-to-member exchange follows from this measurement.
 environmental_factors:
 - name: Porcine gastric mucin
   value: '0.5'
@@ -731,50 +733,62 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this mucin glycan-degrading gut SynCom.
 discussions:
 - discussion_id: mucin-mdsc-pairwise-crossfeeding-resolution
-  prompt: >-
-    Which exact MDSC members acted as primary mucin glycan degraders, secondary
-    degraders, and hydrogen consumers in each mucin condition?
+  prompt: Which exact MDSC members acted as primary mucin glycan degraders, secondary degraders, and hydrogen consumers
+    in each mucin condition?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions
-  rationale: >-
-    The 2026 MDSC paper states that the community design included primary mucin
-    degraders, secondary degraders, and hydrogen consumers and measured
-    condition-level community composition, glycan degradation, and metabolite
-    production. Pairwise member-to-member carbon or gas fluxes in the exact
-    14-strain MDSC were not resolved from this paper alone, so this record
-    captures only community-level mucin responses.
+  rationale: The 2026 MDSC paper states that the community design included primary mucin degraders, secondary degraders,
+    and hydrogen consumers and measured condition-level community composition, glycan degradation, and metabolite
+    production. Pairwise member-to-member carbon or gas fluxes in the exact 14-strain MDSC were not resolved from
+    this paper alone, so this record captures only community-level mucin responses.
   posed_by: codex
   posed_date: '2026-09-20'
+- discussion_id: mucin_substrate_and_composition_mediation
+  prompt: Which selective mechanisms explain the measured community responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: Preserve the experimentally altered mucin regimes and positive composition, glycan and metabolite responses.
+    The retained composition-to-degradation mechanism is PARTIAL because composition and substrate accessibility
+    change together. Do not confuse failure to degrade most BSM O-glycans with failure to degrade its N-glycans,
+    or A.muciniphila abundance with demonstrated sialic-acid utilization. Monoculture BSM plus threonine did not
+    restore A.muciniphila growth. Existing unresolved pairwise-flux discussion and prior957/958/959 repairs remain
+    intact.
+  attaches_to:
+  - ecological_interactions#Mucin-Type-Dependent MDSC Restructuring
+  - ecological_interactions#Substrate-Dependent Mucin Glycan Degradation
+  - ecological_interactions#Mucin-Type-Dependent Fermentation Profile
 curation_history:
 - timestamp: '2026-09-20T10:22:27Z'
   curator: codex
   action: CREATE_RECORD
-  changes: >-
-    Created CommunityMech:000392 for the 14-member MDSC synthetic gut
-    community from PMID:42109165, including exact type-strain membership,
-    mucin-substrate sequential-batch cultivation, community-level
-    mucin-dependent composition, glycan-degradation and metabolite responses,
-    and linked ENA/Yoda datasets.
+  changes: Created CommunityMech:000392 for the 14-member MDSC synthetic gut community from PMID:42109165, including
+    exact type-strain membership, mucin-substrate sequential-batch cultivation, community-level mucin-dependent
+    composition, glycan-degradation and metabolite responses, and linked ENA/Yoda datasets.
   llm_assisted: true
 - timestamp: '2026-09-20T10:30:35Z'
   curator: codex
   action: FIX_MDSC_REVIEW_FINDINGS
-  changes: >-
-    Addressed adversarial review issues #957 and #958 by clarifying that PGM
-    plus SG was one condition with two added sialylated glycans, capturing the
-    sequential-batch change from 0.05% to 0.03% w/v combined sialylated glycans,
-    and narrowing the fermentation-profile description to result-level HPLC
-    outputs rather than the full standard list.
+  changes: 'Addressed adversarial review issues #957 and #958 by clarifying that PGM plus SG was one condition with
+    two added sialylated glycans, capturing the sequential-batch change from 0.05% to 0.03% w/v combined sialylated
+    glycans, and narrowing the fermentation-profile description to result-level HPLC outputs rather than the full
+    standard list.'
   llm_assisted: true
 - timestamp: '2026-09-20T11:01:12Z'
   curator: codex
   action: FIX_MDSC_GTDB_GROUNDINGS
-  changes: >-
-    Addressed CI issue #959 by grounding Akkermansia muciniphila, Bacteroides
-    caccae, Ruminococcus torques, and Blautia hydrogenotrophica with manual GTDB
-    R232 pins; marking Desulfovibrio piger as an ambiguous R232 split; and
-    retaining Faecalibacterium duncaniae as unresolved because R232 did not
-    resolve the current NCBI species to a majority GTDB cluster.
+  changes: 'Addressed CI issue #959 by grounding Akkermansia muciniphila, Bacteroides caccae, Ruminococcus torques,
+    and Blautia hydrogenotrophica with manual GTDB R232 pins; marking Desulfovibrio piger as an ambiguous R232 split;
+    and retaining Faecalibacterium duncaniae as unresolved because R232 did not resolve the current NCBI species
+    to a majority GTDB cluster.'
+  llm_assisted: true
+- timestamp: '2026-10-07T02:43:02Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain causal substrate response; qualify composition-to-degradation mediation.; Preserve O-glycan versus
+    N-glycan and residual-added-glycan distinctions without claiming resolved cross-feeding.; Retain measured metabolite
+    profiles and prior analyte fix; pool changes are not transfer flux. Issue #1623; reports/causal_graph_review/decisions/20261007-four-records-batch74.yaml'
   llm_assisted: true
