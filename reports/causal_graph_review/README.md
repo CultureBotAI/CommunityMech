@@ -5,6 +5,32 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch73: Nitrogen Mediation And Bioleaching Evidence
+
+[Decisions](decisions/20261007-four-records-batch73.yaml),
+[validation](validation-20261007-batch73.json) and
+[self-adversarial review](adversarial-review-20261007-batch73.yaml) account for
+all eleven existing nodes and seven arrows. Three records are repaired;
+the mineral-litter graph is reviewed unchanged, preserving earlier fixes.
+
+Positive nutrient exchange, signal-induced cyanobacterial motility, plant biomass
+gains and gallium recovery remain. Urea donor attribution and nitrogen-to-growth
+mediation are bounded; the responding organism in the signaling arrow is corrected.
+Single-strain gallium results no longer support the three-member consortium.
+Joint lixiviant production is not equated with synergy or reciprocal fitness.
+
+All 17 graph excerpts match selected caches. Thirteen match fresh primary text;
+one gallium abstract sentence was visually matched to publisher-indexed text.
+Three selected gallium full-text excerpts retain explicit provenance limits.
+Gallium remains `needs_research`: adsorption extension and primary-source
+reconciliation are #1617. Its one-record Edison dry run spent no credits;
+scoped paid approval remains pending. Repairs #1614-#1616 await protected-main
+merge; non-graph #1618 stays open. Three histories are appended, with no
+gratuitous edit/history for the unchanged record. All caches and raw non-graph
+blocks are preserved, not recertified. Self-review is not independent approval.
+One unchanged non-graph gallium reference-validator error reproduces on the parent
+record and is tracked in #1618; that full-record reference gate is not green.
+
 ## Batch72: Gas Rates, Peptide Panels And Isotope Evidence
 
 [Decisions](decisions/20261007-four-records-batch72.yaml),

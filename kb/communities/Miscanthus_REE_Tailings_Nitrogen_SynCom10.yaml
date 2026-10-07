@@ -114,9 +114,10 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Nitrogen Transformation in REE Tailings
-  description: Root-derived bacteria couple nitrification, denitrification, and plant growth promotion
-    to remove ammonia nitrogen.
-  interaction_type: MUTUALISM
+  description: The ten-strain root-derived SynCom was selected for nitrification and denitrification capabilities
+    and plant growth promotion in ammonia-nitrogen-polluted REE tailings. The five named participants are the existing
+    grouped taxonomy entries, not five strains or ten fully resolved strain identities. Capability and community-level
+    outcomes do not establish every member contribution or reciprocal microbial fitness benefit.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: ammonia
@@ -134,23 +135,50 @@ ecological_interactions:
       label: denitrification pathway
   downstream:
   - target: Live-SynCom Ammonia Nitrogen Removal
-    description: Nitrifying and denitrifying root-derived strains transform the high
-      ammonia-nitrogen load in REE tailings, reducing pollutant AN in both
-      unplanted and Miscanthus-planted tailing soil.
+    description: PARTIAL - The SynCom nitrogen-cycle capabilities support biological transformation as a contributor
+      to the observed ammonia-nitrogen reduction. The primary abstract attributes removal jointly to microbial transformation
+      and plant-associated uptake; the available evidence does not partition their quantitative contributions or
+      establish every participating strain as necessary.
   evidence:
-  - *id001
   - reference: PMID:39481489
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: possessing nitrification and denitrification capabilities, to help REEs mine
-      plants efficiently convert pollutant AN into nutrients
-    explanation: Supports nitrification and denitrification as the SynCom
-      capabilities coupled to ammonia-nitrogen removal in rare-earth tailings.
+    snippet: This SynCom, consisting of 10 bacterial strains, included species of the genera Burkholderia (5) Paraburkholderia
+      (1), Curtobacterium (1), Leifsonia (1) and Sinomonas (2).
+    explanation: Supports the defined synthetic community design and represented community context.
+  - reference: PMID:39481489
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: possessing nitrification and denitrification capabilities, to help REEs mine plants efficiently convert
+      pollutant AN into nutrients
+    explanation: Supports nitrification and denitrification as the SynCom capabilities coupled to ammonia-nitrogen
+      removal in rare-earth tailings.
+  participating_taxa:
+  - preferred_term: Burkholderia sp.
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
+  - preferred_term: Paraburkholderia sp.
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
+  - preferred_term: Curtobacterium sp.
+    term:
+      id: NCBITaxon:2034
+      label: Curtobacterium
+  - preferred_term: Leifsonia sp.
+    term:
+      id: NCBITaxon:110932
+      label: Leifsonia
+  - preferred_term: Sinomonas sp.
+    term:
+      id: NCBITaxon:37927
+      label: Sinomonas atrocyanea
 - name: Live-SynCom Ammonia Nitrogen Removal
-  description: The live Miscanthus-root SynCom reduced ammonia nitrogen in REE
-    tailing soil, both by itself and more strongly when inoculated with Miscanthus
-    plants.
-  interaction_type: MUTUALISM
+  description: The SynCom alone reduced tailing-soil ammonia nitrogen by 24.8%; with Miscanthus the reduction was
+    32.6%, compared with 25.5% for plants alone. These positive community/plant treatment effects are retained without
+    calling ammonia-nitrogen disappearance a measured complete nitrogen balance, universal strain cooperation or
+    reciprocal fitness gain.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: ammonia
@@ -172,28 +200,49 @@ ecological_interactions:
       label: denitrification pathway
   downstream:
   - target: Miscanthus Biomass Stimulation
-    description: Ammonia-nitrogen transformation by live SynCom cells increases
-      the plant-associated removal effect and accompanies larger Miscanthus shoot
-      and root biomass.
+    description: HYPOTHESIZED - Reduced ammonia-nitrogen stress and altered nitrogen availability could contribute
+      to the shoot/root biomass increase after live SynCom inoculation. The primary abstract reports both outcomes
+      but does not isolate this mediation from other growth-promoting activities or the reverse contribution of
+      larger plants to nitrogen uptake; this arrow is not a selectively demonstrated causal direction.
   evidence:
   - reference: PMID:39481489
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: This SynCom alone achieved a significant reduction of 24.8% in AN content in tailing
-      soil
+    snippet: this SynCom alone achieved a significant reduction of 24.8% in AN content in tailing soil
     explanation: Quantifies ammonia-nitrogen removal by the live SynCom in REE tailing soil.
   - reference: PMID:39481489
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: When the SynCom inoculated with plants, the reduction in AN was even more significant
-      (32.6%)
-    explanation: Supports the stronger ammonia-nitrogen removal observed when the SynCom was
-      paired with Miscanthus plants.
+    snippet: When the SynCom inoculated with plants, the reduction in AN was even more significant (32.6%)
+    explanation: Supports the stronger ammonia-nitrogen removal observed when the SynCom was paired with Miscanthus
+      plants.
+  participating_taxa:
+  - preferred_term: Burkholderia sp.
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
+  - preferred_term: Paraburkholderia sp.
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
+  - preferred_term: Curtobacterium sp.
+    term:
+      id: NCBITaxon:2034
+      label: Curtobacterium
+  - preferred_term: Leifsonia sp.
+    term:
+      id: NCBITaxon:110932
+      label: Leifsonia
+  - preferred_term: Sinomonas sp.
+    term:
+      id: NCBITaxon:37927
+      label: Sinomonas atrocyanea
 - name: Miscanthus Biomass Stimulation
-  description: Live SynCom inoculation significantly increases Miscanthus shoot and
-    root biomass in REE tailings, and plant roots enrich nitrogen-cycle strains
-    that accelerate nitrogen transformation and absorption.
-  interaction_type: MUTUALISM
+  description: Live SynCom inoculation increased Miscanthus shoot and root biomass by 39.8% and 49.7%, respectively,
+    relative to dead SynCom inoculation. Seven nitrogen-cycle strains were particularly enriched, consistent with
+    selective root association. These results establish positive inoculation effects and enrichment, not proof that
+    enrichment itself causes biomass gain or a quantitative measurement of plant nitrogen uptake mediated by each
+    strain.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: ammonia
@@ -217,15 +266,35 @@ ecological_interactions:
   - reference: PMID:39481489
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: live SynCom inoculation significantly increased shoot and root biomass by 39.8%
-      and 49.7%, respectively
-    explanation: Supports the Miscanthus biomass response to live SynCom inoculation.
+    snippet: live SynCom inoculation significantly increased shoot and root biomass by 39.8% and 49.7%, respectively
+    explanation: Supports the measured shoot/root biomass gains specifically relative to dead SynCom inoculation.
   - reference: PMID:39481489
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: seven nitrifying and denitrifying strains of the SynCom are particularly enriched
-    explanation: Supports selective enrichment of nitrogen-cycle strains by Miscanthus
-      roots in the inoculated REE tailings.
+    explanation: Supports reported strain enrichment; recruitment and its causal contribution to nitrogen uptake
+      remain interpretations.
+  participating_taxa:
+  - preferred_term: Burkholderia sp.
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
+  - preferred_term: Paraburkholderia sp.
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
+  - preferred_term: Curtobacterium sp.
+    term:
+      id: NCBITaxon:2034
+      label: Curtobacterium
+  - preferred_term: Leifsonia sp.
+    term:
+      id: NCBITaxon:110932
+      label: Leifsonia
+  - preferred_term: Sinomonas sp.
+    term:
+      id: NCBITaxon:37927
+      label: Sinomonas atrocyanea
 environmental_factors:
 - name: defined synthetic community design
   value: Ten bacterial strains from Miscanthus floridulus roots representing Burkholderia, Paraburkholderia,
@@ -277,3 +346,29 @@ related_ingredients:
     snippet: Ammonium sulfate, as the primary leaching agent, has caused significant nitrogen pollution
     explanation: The snippet anchors the ammonium ion via the ammonium sulfate source compound that
       supplies the ammonium driving the community's nitrogen transformation.
+discussions:
+- discussion_id: miscanthus_nitrogen_growth_mediation
+  prompt: Which nitrogen transformations and plant-growth pathways mediate the live-inoculum effects?
+  rationale: PMID39481489 supports positive AN removal, live-versus-dead biomass gains and enrichment of seven strains.
+    The available primary abstract does not resolve transformation versus uptake contributions or the direction
+    of mediation between AN loss and biomass. Full Methods, supplements and nitrogen-fate controls need inspection;
+    abstract-only access is not evidence those controls were absent. The canonical Sinomonas sp./species-level taxon
+    mismatch is preserved for separate metadata review, and grouped participants do not claim resolved strain-specific
+    activity.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  attaches_to:
+  - ecological_interactions#Nitrogen Transformation in REE Tailings
+  - ecological_interactions#Live-SynCom Ammonia Nitrogen Removal
+  - ecological_interactions#Miscanthus Biomass Stimulation
+curation_history:
+- timestamp: '2026-10-07T02:19:57Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain nitrogen-cycle capability; name existing grouped participants and bound its contribution to AN
+    reduction.; Retain positive AN reduction and plant-alone comparator; qualify removal-to-growth mediation as
+    HYPOTHESIZED.; Retain live-versus-dead biomass gains and enrichment without converting them to strain-resolved
+    uptake or mutual fitness. Issue #1615; reports/causal_graph_review/decisions/20261007-four-records-batch73.yaml'
+  llm_assisted: true
