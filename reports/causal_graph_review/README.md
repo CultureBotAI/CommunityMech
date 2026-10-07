@@ -5,6 +5,24 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch85: Denitrification, Beverage, Refinery And Pine
+
+[Decisions](decisions/20261007-four-records-batch85.yaml),
+[validation](validation-20261007-batch85.json) and
+[self-adversarial review](adversarial-review-20261007-batch85.yaml) cover nine
+existing nodes, six arrows and two empty graphs. Seven biological nodes remain;
+two workflow nodes and six unsupported causal directions are removed. Positive
+denitrification, stability, isolate compatibility/inhibition, pot growth and
+defense-enzyme findings remain. Pine supplements separate Phomopsis plate assays
+from cell-free urediniospore inhibition; neither proves SynCom disease control.
+The beverage and refinery records receive discussion-only updates that preserve
+positive endpoints and treatment-specific limits without inventing exchange.
+Missing structures remain `needs_research` under #1706-#1708; non-graph claims
+remain #1709. Three one-community Edison dry runs are not completed paid reports.
+All existing caches and non-graph blocks are preserved, not recertified.
+Repair issues #1704/#1705 close only after protected-main merge. Self-review is
+not independent approval or whole-corpus completion.
+
 ## Batch84: Diatom, Phenol, Phormidium And Phosphite
 
 [Decisions](decisions/20261007-four-records-batch84.yaml),

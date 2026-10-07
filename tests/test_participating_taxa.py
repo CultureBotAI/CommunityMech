@@ -363,6 +363,7 @@ USERS = {
     "Phaeodactylum_Aliivibrio_Diel_Coculture.yaml",
     "Phormidium_Alkaline_Consortium.yaml",
     "Phenol_Carboxylation_Consortium.yaml",
+    "Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml",
     "Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml",
     "Prymnesium_Parvum_B12_Limited_SynCom.yaml",
     "Pseudomonas_Acidovorax_Aniline_Degradation_SynCom.yaml",
