@@ -1,0 +1,323 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 2eb1818f3d94f9420099a991136254501b543891
+issues:
+- 1356
+- 1357
+- 1360
+open_nongraph_followups:
+- 1358
+- 1359
+issue_deduplication:
+  all_state_issue_titles_bodies: 691
+  ignored_hidden_local_files_included: true
+  comments_exhaustive: false
+  relevant_issues_read:
+  - 596
+  - 1082
+  - 1289
+  - 1344
+  finding: No exact new graph duplicate in searched scope; broad cache and external-link issues remain open.
+reference_cache_original_hashes:
+  references_cache/PMID_36300970.md: 27c42cb32ffce7ca994a115959fbb6aa13ef7d2d64fc9c6179ab588a0007daad
+  references_cache/doi_10.3389_fmicb.2022.820052.md: 17d049e355cb0e99c41ab947a8336594a3bf6313204209ca59a1f8538d0cb2cd
+  references_cache/doi_10.3389_fmicb.2018.03059.md: a20b7009f3ea56dcba891cac42b9b8cae962b80ccb470e37ee8945f76122fffd
+  references_cache/PMID_22123759.txt: 7ced7a1e9863755e1af1bc7cf3de11d6c889770e4a7dd725423cd937134393f3
+  references_cache/doi_10.1038_s41598-021-95324-9.md: 9186374fcd627ba15f1d6f5cc3473c0032d872ab2073459e61068347b8995577
+  references_cache/PMID_19104861.txt: 8aa57bcf203a71cd9b5df4b79c3c668ed5eec29e43c787deeb347a72aa391538
+  references_cache/doi_10.1111_j.1751-7915.2009.00112.x.md: 9e3ea21b12625ecc4e829d5677761bd3dbf5aadb29b1970e0956cac93ace72e9
+  references_cache/doi_DOI:10.3389_fmicb.2018.03059.json: 14a45425d23cbb930e450dd34ea6b8eba7e1c605b28b0efad6c0ad1e3798c2b2
+limitations:
+- Two records, ten nodes and ten arrows retained; seven renames and two focused gaps/histories. No new graph structure
+  or Edison spend.
+- Four complete primary main bodies and three contextual abstracts reviewed; no figure images or supplementary files
+  inspected.
+- 'Three short Coscinodiscus Results quotes (15 words total) were verified in publisher-provided preview but remain
+  absent from abstract-only local cache; automated mismatch is a documented retrieval gap under #596, not a silently
+  passed independent match.'
+- Eight tracked cache artifacts unchanged; no full copyrighted body or PDF added.
+- 'Unrelated metadata and canonical taxa preserved, not certified; #1358/#1359 remain separate followups.'
+- 'Issue #1360 accounts for the measured mixed-scope count 122 -> 124; only that census ceiling and its explanatory comment change. Other bounds, participant checks and connectivity behavior stay unchanged.'
+- Self-adversarial review is not independent approval, protected CI success or full-corpus completion.
+records:
+- path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+  id: CommunityMech:000019
+  original_sha256: 49e5dcc2b5ca5164ebb9437f56bddbb7806d97d8f04ee8b89d68d170ffd3c1e3
+  record_sha256: 5c620e46ecbe040463098d40373531e88b5b2bc12f08bb57b4d926b3537a0c4e
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-two-records-batch25.yaml
+  scope: Whole record and every original node/arrow; primary access and cache limits below.
+  summary: Separate measured intrinsic iron oxidation from early-heap association and failed recovery under SX reagent.;
+    Retain observed succession with correct abundance scale and species boundaries, without competition or resolved
+    field flux.; Distinguish sulfur-oxidation capacity and RNA activity from stable DNA counts, constant acid flux
+    and selective passivation removal.; Retain conditional mineral/redox feedback and direct laboratory outcomes
+    without a closed five-member consortium claim.; Preserve laboratory Sulfobacillus oxidation/leaching and low-ORP
+    advantage; bound field genus-to-species and thermal inference.
+  renamed_nodes:
+    Ferrous Iron Oxidation in Early Heaps: Acidithiobacillus Iron Oxidation and Early-Heap Association
+    Ferrous Iron Oxidation in Aged Heaps: Aged-Heap Iron-Oxidizer Association
+    Thermophilic Iron and Sulfur Oxidation: Sulfobacillus Iron and Sulfur Oxidation Capacity
+  node_decisions:
+  - node: Acidithiobacillus Iron Oxidation and Early-Heap Association
+    rationale: Separate measured intrinsic iron oxidation from early-heap association and failed recovery under
+      SX reagent.
+  - node: Aged-Heap Iron-Oxidizer Association
+    rationale: Retain observed succession with correct abundance scale and species boundaries, without competition
+      or resolved field flux.
+  - node: Sulfur Oxidation to Sulfuric Acid
+    rationale: Distinguish sulfur-oxidation capacity and RNA activity from stable DNA counts, constant acid flux
+      and selective passivation removal.
+  - node: Copper Sulfide Dissolution
+    rationale: Retain conditional mineral/redox feedback and direct laboratory outcomes without a closed five-member
+      consortium claim.
+  - node: Sulfobacillus Iron and Sulfur Oxidation Capacity
+    rationale: Preserve laboratory Sulfobacillus oxidation/leaching and low-ORP advantage; bound field genus-to-species
+      and thermal inference.
+  edges_before:
+  - source: Ferrous Iron Oxidation in Early Heaps
+    target: Copper Sulfide Dissolution
+    description: Fe³⁺ oxidizes chalcopyrite to release Cu²⁺ and regenerate Fe²⁺
+  - source: Ferrous Iron Oxidation in Aged Heaps
+    target: Copper Sulfide Dissolution
+    description: Sustained Fe³⁺ generation maintains copper leaching in aged heaps
+  - source: Sulfur Oxidation to Sulfuric Acid
+    target: Copper Sulfide Dissolution
+    description: Sulfuric acid production sustains the low pH needed for ferric-iron attack on chalcopyrite
+  - source: Copper Sulfide Dissolution
+    target: Ferrous Iron Oxidation in Early Heaps
+    description: Released Fe²⁺ is re-oxidized to regenerate Fe³⁺ oxidant
+  - source: Copper Sulfide Dissolution
+    target: Ferrous Iron Oxidation in Aged Heaps
+    description: Released Fe²⁺ also feeds the acid-tolerant iron oxidizers in aged heap strips
+  - source: Copper Sulfide Dissolution
+    target: Sulfur Oxidation to Sulfuric Acid
+    description: Released reduced inorganic sulfur compounds feed sulfur oxidation to sulfuric acid
+  - source: Copper Sulfide Dissolution
+    target: Thermophilic Iron and Sulfur Oxidation
+    description: Chalcopyrite-associated Fe²⁺ and sulfur substrates feed Sulfobacillus activity in hotter bioleaching
+      niches
+  - source: Thermophilic Iron and Sulfur Oxidation
+    target: Copper Sulfide Dissolution
+    description: Sulfobacillus iron and sulfur oxidation can maintain copper extraction in thermophilic chalcopyrite
+      bioleaching
+  edges_after:
+  - source: Acidithiobacillus Iron Oxidation and Early-Heap Association
+    target: Copper Sulfide Dissolution
+    description: PARTIAL - A. ferrooxidans iron oxidation can replenish ferric oxidant for mineral attack. The chemical
+      cycle and laboratory oxidation support this direction, but the SX assay shows that retained iron oxidation
+      need not sustain copper recovery, and the field contribution is not taxon-resolved.
+  - source: Aged-Heap Iron-Oxidizer Association
+    target: Copper Sulfide Dissolution
+    description: PARTIAL - iron oxidation by the aged-heap associated taxa could replenish ferric oxidant for dissolution.
+      Field succession and separate L. ferriphilum cultures support the proposed contribution without measuring
+      their individual heap fluxes or proving displacement-driven leaching.
+  - source: Sulfur Oxidation to Sulfuric Acid
+    target: Copper Sulfide Dissolution
+    description: PARTIAL - sulfur oxidation can generate acidity and limit reduced-sulfur accumulation, helping
+      sustain mineral attack under suitable conditions. A. thiooxidans-specific acid flux and passivation removal
+      were not selectively established in the field survey.
+  - source: Copper Sulfide Dissolution
+    target: Acidithiobacillus Iron Oxidation and Early-Heap Association
+    description: PARTIAL - mineral attack releases ferrous iron that can supply A. ferrooxidans oxidation, regenerating
+      ferric oxidant. This is a chemically grounded substrate feedback, not a measured taxon-resolved closed loop
+      in the industrial heap.
+  - source: Copper Sulfide Dissolution
+    target: Aged-Heap Iron-Oxidizer Association
+    description: PARTIAL - released ferrous iron can supply the iron-oxidizing taxa associated with older strips.
+      Their individual uptake and feedback fluxes were not traced by the field abundance and RNA assays.
+  - source: Copper Sulfide Dissolution
+    target: Sulfur Oxidation to Sulfuric Acid
+    description: PARTIAL - mineral dissolution generates reduced inorganic sulfur substrates that can feed A. thiooxidans
+      sulfur oxidation. The reaction-cycle context supports direction, not selective proof of its share of field
+      acid generation or passivation control.
+  - source: Copper Sulfide Dissolution
+    target: Sulfobacillus Iron and Sulfur Oxidation Capacity
+    description: PARTIAL - chalcopyrite-associated ferrous iron and reduced sulfur can feed Sulfobacillus oxidation
+      in the tested cultures. This substrate feedback does not demonstrate exact-species transfer or activity in
+      hotter industrial heap niches.
+  - source: Sulfobacillus Iron and Sulfur Oxidation Capacity
+    target: Copper Sulfide Dissolution
+    description: PARTIAL - Sulfobacillus iron/sulfur oxidation can support leaching in the tested laboratory systems,
+      subject to redox potential and SX inhibition. The lower-ORP advantage contradicts a universal more-iron-oxidation
+      benefit; exact field-species and hot-zone contributions remain unresolved.
+  retained_edge_decisions:
+  - source: Acidithiobacillus Iron Oxidation and Early-Heap Association
+    target: Copper Sulfide Dissolution
+    rationale: PARTIAL - A. ferrooxidans iron oxidation can replenish ferric oxidant for mineral attack. The chemical
+      cycle and laboratory oxidation support this direction, but the SX assay shows that retained iron oxidation
+      need not sustain copper recovery, and the field contribution is not taxon-resolved.
+  - source: Aged-Heap Iron-Oxidizer Association
+    target: Copper Sulfide Dissolution
+    rationale: PARTIAL - iron oxidation by the aged-heap associated taxa could replenish ferric oxidant for dissolution.
+      Field succession and separate L. ferriphilum cultures support the proposed contribution without measuring
+      their individual heap fluxes or proving displacement-driven leaching.
+  - source: Sulfur Oxidation to Sulfuric Acid
+    target: Copper Sulfide Dissolution
+    rationale: PARTIAL - sulfur oxidation can generate acidity and limit reduced-sulfur accumulation, helping sustain
+      mineral attack under suitable conditions. A. thiooxidans-specific acid flux and passivation removal were not
+      selectively established in the field survey.
+  - source: Copper Sulfide Dissolution
+    target: Acidithiobacillus Iron Oxidation and Early-Heap Association
+    rationale: PARTIAL - mineral attack releases ferrous iron that can supply A. ferrooxidans oxidation, regenerating
+      ferric oxidant. This is a chemically grounded substrate feedback, not a measured taxon-resolved closed loop
+      in the industrial heap.
+  - source: Copper Sulfide Dissolution
+    target: Aged-Heap Iron-Oxidizer Association
+    rationale: PARTIAL - released ferrous iron can supply the iron-oxidizing taxa associated with older strips.
+      Their individual uptake and feedback fluxes were not traced by the field abundance and RNA assays.
+  - source: Copper Sulfide Dissolution
+    target: Sulfur Oxidation to Sulfuric Acid
+    rationale: PARTIAL - mineral dissolution generates reduced inorganic sulfur substrates that can feed A. thiooxidans
+      sulfur oxidation. The reaction-cycle context supports direction, not selective proof of its share of field
+      acid generation or passivation control.
+  - source: Copper Sulfide Dissolution
+    target: Sulfobacillus Iron and Sulfur Oxidation Capacity
+    rationale: PARTIAL - chalcopyrite-associated ferrous iron and reduced sulfur can feed Sulfobacillus oxidation
+      in the tested cultures. This substrate feedback does not demonstrate exact-species transfer or activity in
+      hotter industrial heap niches.
+  - source: Sulfobacillus Iron and Sulfur Oxidation Capacity
+    target: Copper Sulfide Dissolution
+    rationale: PARTIAL - Sulfobacillus iron/sulfur oxidation can support leaching in the tested laboratory systems,
+      subject to redox potential and SX inhibition. The lower-ORP advantage contradicts a universal more-iron-oxidation
+      benefit; exact field-species and hot-zone contributions remain unresolved.
+  removed_edge_decisions: []
+  references:
+  - doi:10.1111/j.1751-7915.2009.00112.x
+  - doi:10.3389/fmicb.2018.03059
+  - doi:10.3389/fmicb.2022.820052
+  - doi:10.1038/s41598-021-95324-9
+  - PMID:22123759
+  - PMID:19104861
+  issues:
+  - 1356
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Copper_Biomining_Heap_Leach/2026-10-06T025228Z-codex-9c8b7f.yaml
+  source_review:
+    doi:10.1111/j.1751-7915.2009.00112.x:
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3815317/
+      path: /private/tmp/communitymech-batch24/PMC3815317.xml
+      sha256: 98fa9e2416d7d3e7a8505121448bd4aadd44eac77603d59fb3d3fecc1fa6fdc6
+      license: Copyright 2009 authors/journal; no new full body committed
+      reviewed_scope: 'Complete primary main body: Methods, Results, Discussion/Conclusion, main tables and displayed
+        captions. No figure images or supplementary files inspected.'
+    doi:10.3389/fmicb.2018.03059:
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6315122/
+      path: /private/tmp/communitymech-batch24/PMC6315122.xml
+      sha256: 78bc2cc1d5990d5f151e3bb67114f5a850473a1f10eb92f7eca824c503a1039b
+      license: CC BY
+      reviewed_scope: 'Complete primary main body: Methods, Results, Discussion/Conclusion, main tables and displayed
+        captions. No figure images or supplementary files inspected.'
+    doi:10.3389/fmicb.2022.820052:
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8972061/
+      path: /private/tmp/communitymech-batch24/PMC8972061.xml
+      sha256: 0aa10fd1dcac06b5e769dd0042ad638227aa38e54ccaa06d3607ab4bb108018a
+      license: CC BY 4.0
+      reviewed_scope: 'Complete primary main body: Methods, Results, Discussion/Conclusion, main tables and displayed
+        captions. No figure images or supplementary files inspected.'
+    doi:10.1038/s41598-021-95324-9:
+      url: https://pubmed.ncbi.nlm.nih.gov/34381075/
+      reviewed_scope: Complete abstract only, contextual source; not a full-body or exact-field mechanistic review.
+    PMID:22123759:
+      url: https://pubmed.ncbi.nlm.nih.gov/22123759/
+      reviewed_scope: Complete abstract only, contextual source; not a full-body or exact-field mechanistic review.
+    PMID:19104861:
+      url: https://pubmed.ncbi.nlm.nih.gov/19104861/
+      reviewed_scope: Complete abstract only, contextual source; not a full-body or exact-field mechanistic review.
+- path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+  id: CommunityMech:000020
+  original_sha256: f92a79a6011428899eba0cc8e8de5bbd1410bb2e2e7e13b10593869ad1fd3b32
+  record_sha256: 96bf155c9e47de5f8934bbf367f392bfcee5073098125c841db171fd0b9dda1a
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-two-records-batch25.yaml
+  scope: Whole record and every original node/arrow; primary access and cache limits below.
+  summary: Retain candidate diatom resource provision and actual Crocei1 promotion without universal dependence
+    or measured metabolite donation.; Keep DMSP homology potential computational, distinct from consumption, product
+    flux and a negative carbon-only growth assay.; Preserve distinct reciprocal growth signs and control-relative
+    algal recovery rather than global mutualism.; Preserve real pooled nutrient responses and the CS4 negative control
+    without individual-vitamin rescue or exact B12-form claims.; Retain empirical community inhibition and phase-specific
+    model success without reciprocal harm or universal exclusion of higher-order interactions.
+  renamed_nodes:
+    Diatom Primary Production and Carbon Release: Candidate Diatom Resource Provision
+    Bacterial DMSP Metabolism: Bacterial DMSP Catabolic Potential
+    Bacterial Auxotrophy and Nutrient Dependence: Bacterial Nutrient Supplement Responses
+    Community-Level Emergent Effects: Community Growth and Pairwise Model
+  node_decisions:
+  - node: Candidate Diatom Resource Provision
+    rationale: Retain candidate diatom resource provision and actual Crocei1 promotion without universal dependence
+      or measured metabolite donation.
+  - node: Bacterial DMSP Catabolic Potential
+    rationale: Keep DMSP homology potential computational, distinct from consumption, product flux and a negative
+      carbon-only growth assay.
+  - node: Growth Phase-Dependent Bacterial Effects
+    rationale: Preserve distinct reciprocal growth signs and control-relative algal recovery rather than global
+      mutualism.
+  - node: Bacterial Nutrient Supplement Responses
+    rationale: Preserve real pooled nutrient responses and the CS4 negative control without individual-vitamin rescue
+      or exact B12-form claims.
+  - node: Community Growth and Pairwise Model
+    rationale: Retain empirical community inhibition and phase-specific model success without reciprocal harm or
+      universal exclusion of higher-order interactions.
+  edges_before:
+  - source: Diatom Primary Production and Carbon Release
+    target: Bacterial DMSP Metabolism
+    description: Diatom-released DMSP and organic compounds support bacterial growth
+  - source: Growth Phase-Dependent Bacterial Effects
+    target: Community-Level Emergent Effects
+    description: Pairwise C. radiatus-bacterium effects vary across partners and growth phases and combine into
+      an all-member culture whose net effect on algal growth is inhibitory without requiring bacterial-bacterial
+      synergy.
+  edges_after:
+  - source: Candidate Diatom Resource Provision
+    target: Bacterial DMSP Catabolic Potential
+    description: HYPOTHESIZED - diatom-derived DMSP could provide substrate for the genomic catabolic potential
+      of CS4 and Rose1. No partner-resolved release, consumption or flux was measured, and added DMSP as the carbon-only
+      supplement did not promote growth under the tested minimal-medium conditions.
+  - source: Growth Phase-Dependent Bacterial Effects
+    target: Community Growth and Pairwise Model
+    description: PARTIAL - the measured partner- and phase-specific effects combine into the observed predominantly
+      inhibitory all-member algal trajectory. A generalized Lotka-Volterra model fitted to monocultures and pairwise
+      cultures reproduces that trajectory with separate early/late parameter sets; this supports the proposed contribution
+      without isolating chemical mediators or proving higher-order interactions universally absent.
+  retained_edge_decisions:
+  - source: Candidate Diatom Resource Provision
+    target: Bacterial DMSP Catabolic Potential
+    rationale: HYPOTHESIZED - diatom-derived DMSP could provide substrate for the genomic catabolic potential of
+      CS4 and Rose1. No partner-resolved release, consumption or flux was measured, and added DMSP as the carbon-only
+      supplement did not promote growth under the tested minimal-medium conditions.
+  - source: Growth Phase-Dependent Bacterial Effects
+    target: Community Growth and Pairwise Model
+    rationale: PARTIAL - the measured partner- and phase-specific effects combine into the observed predominantly
+      inhibitory all-member algal trajectory. A generalized Lotka-Volterra model fitted to monocultures and pairwise
+      cultures reproduces that trajectory with separate early/late parameter sets; this supports the proposed contribution
+      without isolating chemical mediators or proving higher-order interactions universally absent.
+  removed_edge_decisions: []
+  references:
+  - PMID:36300970
+  issues:
+  - 1357
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Coscinodiscus_Synthetic_Community/2026-10-06T025228Z-codex-c5e0cf.yaml
+  source_review:
+    PMID:36300970:
+      url: https://www.researchgate.net/publication/364814644_Dynamic_Diatom-Bacteria_Consortia_in_Synthetic_Plankton_Communities
+      doi: 10.1128/aem.01619-22
+      publisher_attribution: ASM-provided publisher full-text preview, explicitly identified on page
+      license: Copyright 2022 American Society for Microbiology, all rights reserved
+      reviewed_scope: Complete primary main body, Methods, Results, Discussion/Conclusion, Tables 1-2 and displayed
+        captions. No figure images or supplementary files inspected; OCR equations not visually validated.
+      cache_scope: Existing abstract-only cache byte-preserved; three new short Results quotes independently read
+        in publisher preview, not matched by local abstract. No curated excerpt promoted to independent cache text.
+      new_body_quotes_words: 15
