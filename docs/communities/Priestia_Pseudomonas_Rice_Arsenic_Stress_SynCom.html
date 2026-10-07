@@ -582,7 +582,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Priestia-Pseudomonas Rice Arsenic-Stress SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -590,8 +590,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -600,12 +600,21 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>SynCom restriction of rice arsenic accumulation</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Inoculation with the Priestia flexa and Pseudomonas putida SynCom substantially reduced arsenic accumulation in rice roots, shoots and grains by coordinating down-regulation of arsenic-transporter genes that drive arsenic uptake and internal translocation.</p>
+                <p class="prewrap interaction-description">The Priestia flexa and Pseudomonas putida SynCom reduced arsenic accumulation in rice roots, shoots and grains. PARTIAL: the abstract attributes this effect to coordinated transporter-gene downregulation; accessible evidence does not establish transporter necessity, individual-strain contribution or reciprocal microbial benefit.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Priestia flexa,
+
+                    Pseudomonas putida,
+
+                    Oryza sativa var. Sarju-52
+
+                </p>
 
 
 
@@ -662,12 +671,21 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>SynCom restoration of rice stress physiology</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">The two-member SynCom restored host photosynthetic and metabolic function under arsenic exposure, with improved photosynthesis, increased soluble sugars, reduced proline accumulation, and suppression of overactive antioxidant-enzyme responses.</p>
+                <p class="prewrap interaction-description">SynCom inoculation improved photosynthesis and soluble sugars and reduced proline accumulation and antioxidant-enzyme overactivation under arsenic stress. Preserve these positive rice responses without asserting reciprocal mutualism or an untested causal direction between these composite outcome nodes.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Priestia flexa,
+
+                    Pseudomonas putida,
+
+                    Oryza sativa var. Sarju-52
+
+                </p>
 
 
 
@@ -713,6 +731,60 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which bacterial activities and host transporters mediate the SynCom benefit?
+                </h3>
+                <p class="prewrap">The accessible abstract supports two-member inoculation, arsenic restriction and host physiological improvement. Full text was unavailable. It does not establish reciprocal benefit, strain necessity or a direction between the two existing outcome nodes. Transporter downregulation remains the authors explanation, with causal mediation qualified; no new structure is needed for this repair.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#SynCom restriction of rice arsenic accumulation</code>, <code>ecological_interactions#SynCom restoration of rice stress physiology</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VIVO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42691895/" rel="nofollow noreferrer">PMID:42691895</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">SynCom substantially reduced arsenic accumulation in roots, shoots and grains by coordinate downregulation of arsenic transporter genes</p>
+                        <p class="muted small prewrap">Supports the reported whole-SynCom endpoint and proposed transporter explanation, not mediator-specific intervention proof.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VIVO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42691895/" rel="nofollow noreferrer">PMID:42691895</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Inoculation with SynCom restored physiological function and metabolic balance, as evidenced by improved photosynthesis, increased soluble sugars, and reduced proline accumulation.</p>
+                        <p class="muted small prewrap">Supports improved host photosynthetic and metabolic performance under arsenic stress after SynCom inoculation.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -913,7 +985,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -937,11 +1009,26 @@
 
 
 
+            var participantKeys = [
+
+                "Priestia flexa",
+
+                "Pseudomonas putida",
+
+                "Oryza sativa var. Sarju-52"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -964,6 +1051,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Priestia flexa",
+
+                "Pseudomonas putida",
+
+                "Oryza sativa var. Sarju-52"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
