@@ -379,6 +379,8 @@ USERS = {
     "Pseudomonas_Paracoccus_Bifenthrin_Degradation_Consortium.yaml",
     "Pseudomonas_Pedobacter_Social_Spreading_Coculture.yaml",
     "Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml",
+    "Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.yaml",
+    "Pseudonitzschia_Sulfitobacter_Association.yaml",
     "Rhizorhabdus_Cupriavidus_BDE47_Degradation_SynCom.yaml",
     "Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml",
     "Rhodococcus_Pseudomonas_PPOW_Consortium.yaml",
