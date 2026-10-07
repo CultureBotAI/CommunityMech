@@ -1,0 +1,210 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 3a00e0cc7d5a343addb3f766c5f065340af1eb36
+scope:
+- kb/communities/Mushroom_Spring_Hot_Spring_Phototrophic_Mat_Community.yaml
+- kb/communities/NCycle_Bioflocculation_Model_Consortium.yaml
+- kb/communities/NDC6_Psychrotolerant_Nitrogen_Removal_SynCom.yaml
+- kb/communities/Naica_Deep_Subsurface_Thermophilic.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch76.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch76.json
+findings:
+- issue: 1632
+  severity: P2
+  status: addressed_in_this_change
+  finding: Mat transcripts, putative carbon-fixation endpoint and spatial nitrogen claims.
+  disposition: Close only after protected-main merge.
+- issue: 1633
+  severity: P2
+  status: addressed_in_this_change
+  finding: Conditional floc assembly and model-utility arrow.
+  disposition: Close only after protected-main merge.
+- issue: 1634
+  severity: P2
+  status: addressed_in_this_change
+  finding: Naica inferred physiology, ontology, exact quotations and context arrows.
+  disposition: Close only after protected-main merge.
+- issue: 1635
+  severity: P2
+  status: unresolved_non_graph
+  finding: N-cycle exact membership and Naica physiological metadata.
+  disposition: Keep OPEN after graph-repair merge.
+adversarial_checks:
+- All four whole records and every original node/arrow reviewed after fresh both-root baseline. Three complete main
+  bodies plus tables/captions; two abstract-bounded sources and only partial indexed diel Methods. Access errors
+  and subscription barriers respected, not bypassed. No claim that unseen controls are absent.
+- Retain measured Mushroom Spring RNA patterns. The metabolic endpoint remains putative carbon fixation so the polymer-reserve
+  arrow does not spuriously become a cause of gene expression. This intermediate self-review finding was corrected,
+  and complete verification rerun with superseded outputs preserved. Polymer flux is the explicit source model,
+  not a measured flux assay.
+- Thermodesulfovibrio nitrogen fixation is putative even with accessory nif genes; prior Synechococcus activity
+  is not transferred to it. Remove source/target implication and preserve canonical participants. Partial genomes
+  limit absence conclusions; mat layers overlap and distinct sampling campaigns are not a simultaneous intervention.
+  Remove spatial restatement arrow without discarding measured community structure.
+- Preserve real stable nitrifier microcolonies and mixed macroclusters. Release alone did not suffice; centrifugation
+  plus calcium-rich resuspension and their unresolved separation are explicit. FISH-induced aggregation is a separate
+  artefact, not a reason to deny later suspended clusters. Remove only the model-utility causal stage, not biological
+  assembly.
+- 'NDC6 is valid unchanged: measured aggregate low-temperature removal and functional complementation need no arbitrary
+  arrow. Preserve1197/1198 no-mutualism and optimization-versus-three-day boundaries. Do not falsely recast reported
+  gene-expression evidence as metagenomics or assert unmeasured per-member fitness.'
+- Naica thermophily is inferred from high GC in specified lineages, not universal OP3 growth measurements. AamoA
+  detection supports putative oxidation but not flux or concentrations. Correct assimilation GO0019676 to oxidation
+  GO0019329, verified against AmiGO, without taxonomy changes.
+- Negative dsrA amplification does not establish absence. Preserve proposed donor scarcity and non-dominance interpretation
+  with sampling/primer limits, unpublished H2S context and no claimed donor-rescue assay. Neither environmental
+  context nor co-occurrence with AamoA creates a causal link. Unsupported competition label and two context arrows
+  removed.
+- Three case-inexact graph quotations corrected and the truncated negative-PCR quote shortened; all18 graph quotes
+  match both fresh source and cache. Original erroneous cache-suffix search is not evidence of absence.920 caches
+  and all raw non-graph blocks remain untouched; residual metadata claims tracked separately in1635.
+- Every11 nodes and6 original arrows accounted for;11nodes2arrows remain. Three guarded writes and histories;457
+  records including NDC6 unchanged. Zero structural defects and44 baseline warnings unchanged. Connectivity census
+  unchanged, not evidence of member-level effects.
+- Actual schema, strict, terms, full-record references, snippets, histories, both-root inventory/network/rank, regression,
+  lint and deterministic rendering checks retained. Exact descriptions parsed across456 generated pages, not browser
+  screenshots. Postcommit docs-current is separate.
+- No new topology or paid provider call. Earlier Edison authorization scopes are unchanged.916 issue bodies and27
+  ignored/hidden local matches deduplicated;1197/1198/939/396 preserved. No exhaustive PR-comment audit.1632-1634
+  stay OPEN until protected-main merge;1635 stays OPEN afterward. Self-review is not independent approval or corpus
+  completion.
+verification:
+  combined_regressions: 677 passed in 244.49s (0:04:04)
+  new_regression_tests: 8
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: All four full-record reference validators exit0. CLI Total checks counts issues, not executed checks.
+    All18 graph quotations independently match fresh primary XML/abstract and existing caches. Cache matching is
+    not entailment. Diel and NDC sources remain abstract-bounded; all920 caches unchanged, not recertified. Prior
+    batch73 non-graph reference exception is outside this batch.
+  snippet_counts_by_record:
+    kb/communities/Mushroom_Spring_Hot_Spring_Phototrophic_Mat_Community.yaml:
+      MATCH: 29
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/NCycle_Bioflocculation_Model_Consortium.yaml:
+      MATCH: 10
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/NDC6_Psychrotolerant_Nitrogen_Removal_SynCom.yaml:
+      MATCH: 20
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Naica_Deep_Subsurface_Thermophilic.yaml:
+      MATCH: 21
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    automatically_primary_matched: 18
+    new_nodes_or_arrows: 0
+    complete_primary_main_texts_read: 3
+    abstract_bounded_sources: 2
+    separate_supplements_or_original_figure_pixels_inspected: false
+  network:
+    existing_findings_preserved: 44
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All44 baseline warnings preserved exactly. Community scope remains aggregate, not resolved member-specific
+      activity. No taxonomy or auditor-rule changes.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch76.yaml: d47e9413b55b8d9a4400a2736a3d3474d0b4b59384bbfccb86144d148c72d3fb
+    tests/test_causal_review_batch76.py: 544c58aab2b596fff744ab779ff803bd2d987978450b7279f449c904e6a8deac
+    kb/communities/Mushroom_Spring_Hot_Spring_Phototrophic_Mat_Community.yaml: 8d131584e1660e832aa9da1946b7d4181fca2c0bccd3fe88dc20ff4dcc4c8fed
+    kb/communities/NCycle_Bioflocculation_Model_Consortium.yaml: f0b81d66223077f101b4157c1d115a99d0be593a2b9b4a0c2dcfb8f6ad38f21a
+    kb/communities/NDC6_Psychrotolerant_Nitrogen_Removal_SynCom.yaml: 1a1c02d8b33165075608eba9bc482646843cecfe41a7a99c3d47f5ab9bbb5c97
+    kb/communities/Naica_Deep_Subsurface_Thermophilic.yaml: 18f4bc69aff646a74cd4f402b36be2a789d02e69a04efcd9c43a94e2c15dc8e9
+    reports/causal_graph_review/README.md: 5b53fb08cc7a5d3a8d9ef53410687db660bae18d43c514069ef1d9c5f45388f8
+  unchanged_caches: 920
+  unchanged_records: 457
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    rationale: Existing nodes and two qualified links retained; four noncausal links removed. No new causal structure.
+      Prior pending/denied scopes unchanged.
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+    current:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: No scope-count change, taxonomy edit, or auditor-rule change. Aggregate outcomes do not establish
+    member-resolved activity.
+corpus:
+  records: 460
+  nodes: 1447
+  edges: 616
+  review_status_counts:
+    needs_research: 26
+    pending: 188
+    reviewed: 246
+limitations:
+- Fresh pre-paper baseline covered460 records and920 caches across both roots including ignored/hidden YAML. All11
+  original nodes and6 arrows reviewed;11 nodes and2 arrows retained. Three records repaired with three histories;
+  NDC6 byte-for-byte unchanged.
+- Full primary main bodies, embedded tables and captions read for undermat, bioflocculation and Naica. Diel and
+  NDC6 fresh primary abstracts read; diel indexed publisher view was only partially read through early Results.
+  Diel XML returned500, PMC challenge and normal publisher403; NDC publisher is a subscription preview. No access-barrier
+  bypass or full-Methods claim for those two. Separate supplements, raw data and original figure pixels not audited.
+- All graph quotations match fresh primary and existing caches with whitespace-only normalization. Three case-inexact
+  Naica graph quotes corrected to source text, and a misleadingly truncated negative-PCR quote shortened. This is
+  not entailment proof or recertification of920 unchanged caches. Original search using two incorrect cache suffixes
+  errored and truncated; corrected structured exact-reference matching supersedes it. No complete paper uploaded.
+- Mushroom measured diel transcripts and uneven overlapping mat populations retained. Polymer flux remains the explicitly
+  proposed model; Thermodesulfovibrio nitrogen fixation is putative, not Synechococcus-to-Thermodesulfovibrio transfer.
+  nifHDK alone and partial-genome absence are insufficient. Distinct sampling campaigns are not merged into a simultaneous
+  experiment.
+- Biofloc microcolonies and positive mixed macroclusters retained with calcium-rich resuspension and centrifugation
+  conditions. Release alone did not suffice; FISH preparation caused separate artefacts. Calcium versus centrifugation
+  remains unresolved. Model utility is not a second biological causal event; no full-scale performance equivalence
+  or isolated EPS mechanism inferred.
+- NDC6 aggregate removal and functional complementation retained unchanged. Existing1197/1198 fixes preserve no
+  unsupported mutualism and the distinction between three-day10C performance and separate10.2C optimization. Gene-expression
+  evidence is actually reported, not reclassified as metagenomics. Sparse valid graph does not require invented
+  topology.
+- Naica high-GC thermophily and AamoA capacity remain positive but inferred, not growth/flux measurements. Correct
+  GO0019676 assimilation to GO0019329 oxidation, confirmed against AmiGO. Negative dsrA PCR is not absence; donor
+  scarcity is proposed, not competition or causal promotion of oxidation. No taxonomy edits, including396 near-tie
+  and curated groundings.
+- Dedup scanned916 all-state issue titles/bodies and27 local matching files with ignored/hidden-inclusive search
+  excluding git/docs/site/cache. Matching1197/1198/939/396 bodies read and preserved. No exhaustive PR-comment audit
+  or global source-absence claim.
+- 'No new topology: repairs and evidence qualification require no Edison extension. Zero provider submissions/credits.
+  Earlier scoped paid questions and the AM_AB denial are not overridden.'
+- Three repair issues stay OPEN until protected-main merge; separate metadata issue stays OPEN afterward. Non-graph
+  blocks are preserved, not certified. Self-adversarial review is not independent approval; corpus review remains
+  unfinished.
+- 'Self-adversarial review corrected an intermediate endpoint rename: the retained polymer link targets putative
+  carbon fixation, not gene expression. Measured RNA remains positive evidence; no new node or arrow, no second
+  curation event, and initial validation outputs are retained as superseded.'
