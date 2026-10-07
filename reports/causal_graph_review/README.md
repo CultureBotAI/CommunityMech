@@ -1055,3 +1055,22 @@ the pinned validator's DOI-cache casing mismatch on case-sensitive filesystems;
 the new DOI cache follows repository convention, without claiming that issue is
 fixed. The initial participant-census regression failure is retained alongside
 the corrected expected-record list and rerun.
+
+## Batch95: Observations And Genomic Candidates
+
+[Decisions](decisions/20261007-four-records-batch95.yaml),
+[validation](validation-20261007-batch95.json),
+[cache provenance](cache-provenance-20261007-batch95.json) and
+[self-adversarial review](adversarial-review-20261007-batch95.yaml) cover
+FSQN, rice phosphorus, Richmond Mine and Rifle bioanodes. All 18 original
+nodes and nine arrows have dispositions: 12 nodes and six existing directions
+remain. FSQN is unchanged. The positive rice pot response is distinguished
+from field intercropping and unresolved mediation. Richmond's real iron/mineral
+cycle remains, without pairwise fitness or unsupported contact identities.
+Rifle enrichment and dominance remain; genomic inventories are not ecological
+interactions. Three records change, with no new topology or provider spend.
+Two fresh primary main texts, selected Richmond geochemical sections and
+primary abstracts were read; no figure-pixel or supplement certification.
+All caches and non-graph blocks are preserved. Repairs #1761-#1763 await
+protected-main merge; non-graph #1764 stays open. Self-review is not independent
+approval or corpus completion.

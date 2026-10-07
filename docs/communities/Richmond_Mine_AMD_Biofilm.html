@@ -795,7 +795,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Richmond Mine AMD Biofilm</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, syntrophy, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -803,23 +803,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -828,15 +813,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Ferrous Iron Oxidation by Leptospirillum</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Leptospirillum group II oxidizes ferrous iron [Fe(II)] to ferric iron [Fe(III)] as the primary energy source for chemolithoautotrophic growth. This process generates reducing equivalents used for CO₂ fixation through the Calvin-Benson-Bassham cycle. The ferric iron produced serves as the oxidant for pyrite dissolution, creating a positive feedback loop that perpetuates extreme acidity. Iron oxidation is the predominant metabolism in the biofilm, reflected in Leptospirillum comprising 78% of detected clones.
-</p>
+                <p class="prewrap interaction-description">Iron-oxidizing Leptospirillum populations contribute ferric iron to Richmond Mine mineral oxidation. Group II and III occurrence and dominance vary among samples and times; canonical member identifiers are retained without identifying every clone as the 5-way CG population. Clone fractions are not iron-oxidation rates. No Calvin-cycle pathway or direct nutrient cross-feeding is asserted.</p>
 
 
-                <p><strong>Source Taxon:</strong> Leptospirillum group II</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Leptospirillum group II,
+
+                    Leptospirillum ferrodiazotrophum
+
+                </p>
 
 
 
@@ -854,23 +843,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        iron ion transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006826</a>)
-                    </li>
-
-                    <li>
-                        carbon fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015977"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015977</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
@@ -878,7 +850,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Pyrite Dissolution
-                        <p class="prewrap causal-description">Fe(III) oxidizes pyrite to generate more Fe(II) and sulfuric acid</p>
+                        <p class="prewrap causal-description">Leptospirillum iron oxidation contributes regenerated ferric oxidant to pyrite dissolution in the oxygen-supplied mine system. The source supports this community redox coupling, not a species-resolved dissolution rate or direct pairwise nutrient exchange.</p>
                     </div>
 
                 </div>
@@ -891,13 +863,13 @@
                     <li class="evidence-item">
                         <div>
 
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/10966399/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:10966399</a>
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/19429552/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:19429552</a>
 
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"Nearest relatives to the majority of sequences came from iron-oxidizing acidophiles, and it appears that iron oxidation is the predominant metabolic characteristic of the organisms in the slime"</div>
+                        <div class="snippet">"coexisting acidophilic iron-oxidizing Leptospirillum group II and III bacteria"</div>
 
                     </li>
 
@@ -910,7 +882,7 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"The detachment of thiosulfate () as a leaving group in pyrite oxidation should result in the formation and persistence of tetrathionate in low pH ferric iron-rich AMD solutions"</div>
+                        <div class="snippet">"microorganisms oxidize ferrous to ferric iron"</div>
 
                     </li>
 
@@ -921,15 +893,17 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Ferrous Iron Oxidation by Ferroplasma</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Ferroplasma acidarmanus oxidizes ferrous iron microaerophilically in extremely acidic microniches (pH approaching 0.5). This archaeon thrives where pH is too low for bacterial competitors, filling an ecological niche unavailable to Leptospirillum and Acidithiobacillus. Ferroplasma maintains cytoplasmic pH ~5.6 through specialized proton-pumping mechanisms while oxidizing Fe(II) in near-zero pH environments. The organism exhibits extreme metal resistance, tolerating high concentrations of arsenic and copper that would inhibit bacterial iron oxidizers.
-</p>
+                <p class="prewrap interaction-description">Ferroplasma is an iron-oxidizing contributor to the Richmond Mine ferric-iron pool. Comparative culture evidence supports iron-oxidizing mixotrophy and an organic-carbon requirement for F. acidarmanus Fer1. Field geochemistry supports its community role, not autotrophic carbon fixation, a measured species-specific flux or competitive exclusion of bacterial iron oxidizers.</p>
 
 
-                <p><strong>Source Taxon:</strong> Ferroplasma acidarmanus</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Ferroplasma acidarmanus
+
+                </p>
 
 
 
@@ -947,17 +921,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        carbon fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015977"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015977</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
@@ -965,7 +928,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Pyrite Dissolution
-                        <p class="prewrap causal-description">Fe(III) from Ferroplasma contributes to pyrite oxidation</p>
+                        <p class="prewrap causal-description">Ferroplasma iron oxidation contributes ferric oxidant to pyrite dissolution in the site-level redox model. Isolate physiology does not apportion that field flux or establish reciprocal fitness with Leptospirillum.</p>
                     </div>
 
                 </div>
@@ -991,13 +954,13 @@
                     <li class="evidence-item">
                         <div>
 
-                            <a href="https://doi.org/10.1111/j.1462-2920.2005.00861.x"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1111/j.1462-2920.2005.00861.x</a>
+                            <a href="https://doi.org/10.1186/1467-4866-5-13"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1186/1467-4866-5-13</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"However, during the last few years, new studies of a number of acidic environments, particularly mining waste waters, acidic pools, etc., in diverse geographical locations have revealed the presence of new cell wall‐lacking archaea related to the recently described, acidophilic, ferrous‐iron oxidizing Ferroplasma acidiphilum"</div>
+                        <div class="snippet">"the dominance of iron-oxidizing microorganisms (Ferroplasma acidarmanus and Leptospirillum spp.) ensures a continual supply of ferric iron"</div>
 
                     </li>
 
@@ -1008,17 +971,21 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Pyrite Dissolution</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Ferric iron generated by Leptospirillum and Ferroplasma oxidizes pyrite (FeS₂) minerals according to: FeS₂ + 14Fe³⁺ + 8H₂O → 15Fe²⁺ + 2SO₄²⁻ + 16H⁺. This process releases ferrous iron, sulfate, and protons, generating extreme acidity (pH 0.5-1.0) and solubilizing metals. The Richmond Mine community oxidizes approximately 1-2 × 10⁵ moles of pyrite per day, demonstrating the massive scale of microbially-mediated mineral dissolution. Sulfate concentrations increase dramatically, and the released Fe(II) is re-oxidized by the microbial community, creating a closed iron redox cycle.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Leptospirillum group II</p>
+                <p class="prewrap interaction-description">Microbially regenerated ferric iron oxidizes pyrite, releasing ferrous iron for subsequent microbial oxidation and contributing sulfate and acidity. The reported approximately 1-2 x 10^5 moles pyrite/day is a mine-outflow-derived estimate at the sampled times, not the rate of this particular biofilm or any pair of species. The coupled cycle depends on external oxygen and mineral supply; it is not closed or self-sustaining.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Ferroplasma acidarmanus</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Leptospirillum group II,
+
+                    Leptospirillum ferrodiazotrophum,
+
+                    Ferroplasma acidarmanus
+
+                </p>
 
 
 
@@ -1047,7 +1014,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Ferrous Iron Oxidation by Leptospirillum
-                        <p class="prewrap causal-description">Released Fe(II) is re-oxidized by iron-oxidizing community</p>
+                        <p class="prewrap causal-description">Pyrite oxidation reduces ferric iron and releases ferrous iron that supports subsequent Leptospirillum iron oxidation. This existing feedback is chemically grounded and depends on external oxygen/mineral supply; it is not proof of ecological mutualism.</p>
                     </div>
 
                 </div>
@@ -1066,7 +1033,7 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"The detachment of thiosulfate () as a leaving group in pyrite oxidation should result in the formation and persistence of tetrathionate in low pH ferric iron-rich AMD solutions"</div>
+                        <div class="snippet">"acceleration of the otherwise slow Fe-oxidation reaction"</div>
 
                     </li>
 
@@ -1076,7 +1043,7 @@
                             <a href="https://doi.org/10.1186/1467-4866-5-13"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1186/1467-4866-5-13</a>
 
-                            - PARTIAL (IN_VIVO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
                         <div class="snippet">"oxidation of approximately 1 × 105 to 2 × 105 moles pyrite/day"</div>
@@ -1089,95 +1056,12 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Nitrogen Fixation by Leptospirillum Group III</h3>
-                    <span class="interaction-type">MUTUALISM</span>
-                </div>
-                <p class="prewrap interaction-description">Leptospirillum ferrodiazotrophum (group III) fixes atmospheric nitrogen through nitrogenase activity, providing fixed nitrogen to the nitrogen-limited biofilm community. This organism is the only Leptospirillum capable of nitrogen fixation, making it a keystone species despite not being numerically dominant. Fixed nitrogen is released through cell lysis, excretion, or after predation, becoming available to other community members including groups II Leptospirillum and Ferroplasma that lack nitrogen fixation genes. Group III typically appears in later stages of biofilm development, suggesting nitrogen limitation shapes community succession.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Leptospirillum ferrodiazotrophum</p>
-
-
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    dinitrogen
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17997"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17997</a>),
-
-                    ammonia
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16134"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16134</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        nitrogen fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009399"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009399</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/16204553/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:16204553</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"Based on the prediction that this organism is solely responsible for nitrogen fixation in the community, we pursued a selective isolation strategy to obtain the organism in pure culture"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/19429552/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:19429552</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"Although only Leptospirillum group III can fix nitrogen, these proteins were not identified by proteomics"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
                     <h3>Thermoplasmatales-ARMAN Cell Contact</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Ultrasmall ARMAN archaea occur with Thermoplasmatales in Richmond Mine acid biofilms; 3D cryo-electron tomography showed Thermoplasmatales protuberances penetrating ARMAN cell walls and cytoplasmic membranes, indicating direct interspecies contact that could support parasitic or syntrophic exchange.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Ferroplasma acidarmanus</p>
+                <p class="prewrap interaction-description">The primary abstract reports direct contact in a small subset of cryo-electron tomographic reconstructions: Thermoplasmatales protuberances penetrate ARMAN cell envelopes. It does not identify those imaged pairs as F. acidarmanus with a particular Micrarchaeota or Parvarchaeota subgroup. Observed contact is retained, without a demonstrated nutrient exchange, fitness effect or syntrophic metabolic feedback.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Micrarchaeota (ARMAN-1/2)</p>
 
 
 
@@ -1220,109 +1104,22 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Thermoplasmatales-Parvarchaeota Cell Contact</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Higher-pH Acidithiobacillus Distribution</h3>
                 </div>
-                <p class="prewrap interaction-description">Ultrasmall ARMAN-4 and ARMAN-5 Parvarchaeota co-occur with Thermoplasmatales in Richmond Mine acid biofilms; 3D cryo-electron tomography showed Thermoplasmatales projections penetrating ARMAN cell envelopes, consistent with direct interspecies contact.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Ferroplasma acidarmanus</p>
-
-
-
-                <p><strong>Target Taxon:</strong> Parvarchaeota (ARMAN-4/5)</p>
+                <p class="prewrap interaction-description">A. ferrooxidans was detected and predominated in the higher-pH Red Pool during the reported Richmond Mine survey. Community composition covaried with pH, temperature and solution chemistry. This supports a spatial distribution observation, not competitive exclusion, a pH optimum at 1.4 or measured iron/sulfur flux by the same population.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/20421484/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:20421484</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"tomographic reconstructions clearly show penetration of the ARMAN cell wall and cytoplasmic membranes by protuberances extended from cells of the archaeal order Thermoplasmatales"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Iron and Sulfur Oxidation at Higher pH Refugia</h3>
-                    <span class="interaction-type">COMPETITION</span>
-                </div>
-                <p class="prewrap interaction-description">Acidithiobacillus ferrooxidans occupies higher pH niches (pH &gt;1.0) such as the Red Pool (pH 1.4) where it can outcompete Leptospirillum and Ferroplasma. This versatile chemolithoautotroph oxidizes both ferrous iron and reduced sulfur compounds, fixing carbon and nitrogen from the atmosphere. At pH 1.4, A. ferrooxidans grows optimally while Ferroplasma activity declines. This spatial partitioning by pH creates distinct microenvironments within the mine where different iron oxidizers dominate, expanding the overall metabolic capacity and pH range of the biofilm ecosystem. A. ferrooxidans contributes to pyrite dissolution in moderate pH zones while Leptospirillum and Ferroplasma dominate at extreme acidity (pH &lt;1.0).
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Acidithiobacillus ferrooxidans</p>
-
-
-
-                <p><strong>Target Taxon:</strong> Leptospirillum group II</p>
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    Fe(II)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29033</a>),
-
-                    Fe(III)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29034</a>),
-
-                    elemental sulfur
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=26833"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:26833</a>)
+                    Acidithiobacillus ferrooxidans
 
                 </p>
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
 
-                    <li>
-                        iron ion transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006826</a>)
-                    </li>
-
-                    <li>
-                        carbon fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015977"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015977</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -1340,20 +1137,7 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"Several novel lineages were identified within the archaeal Thermoplasmatales order associated with the pyrite slump, and the Red Pool (pH 1.4) contained the only population of Acidithiobacillus"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/19077236/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:19077236</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"BACKGROUND: Acidithiobacillus ferrooxidans is a major participant in consortia of microorganisms used for the industrial recovery of copper (bioleaching or biomining)"</div>
+                        <div class="snippet">"Fluorescent in-situ hybridization (FISH) analyses confirmed that At. ferrooxidans predominates"</div>
 
                     </li>
 
@@ -1366,6 +1150,95 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Does group III diazotrophy supply nitrogen to other biofilm members?
+                </h3>
+                <p class="prewrap">The primary isolation abstract supports a free-living nitrogen-fixing organism. The biofilm proteomic abstract reports nitrogen-fixation proteins were not identified. Neither accessible primary abstract resolves nitrogen release, uptake by another member or the asserted succession/keystone mechanism. Remove the transfer node without treating nondetection as proof of no capacity. Complete main texts for these sources were not accessible in this pass; non-graph roles remain issue1764.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Ferrous Iron Oxidation by Leptospirillum</code>, <code>ecological_interactions#Ferrous Iron Oxidation by Ferroplasma</code>, <code>ecological_interactions#Pyrite Dissolution</code>, <code>ecological_interactions#Thermoplasmatales-ARMAN Cell Contact</code>, <code>ecological_interactions#Higher-pH Acidithiobacillus Distribution</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/16204553/" rel="nofollow noreferrer">PMID:16204553</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">iron-oxidizing, free-living diazotroph</p>
+                        <p class="muted small prewrap">The isolated organism has positive diazotrophic capacity, not demonstrated nitrogen delivery to other members.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VIVO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/19429552/" rel="nofollow noreferrer">PMID:19429552</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Although only Leptospirillum group III can fix nitrogen, these proteins were not identified by proteomics</p>
+                        <p class="muted small prewrap">Protein nondetection constrains claims about demonstrated nitrogen fixation in the sampled biofilms.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which organisms and functions underlie the observed contacts and field redox coupling?
+                </h3>
+                <p class="prewrap">Retain direct generic ARMAN contact, but leave exact imaged partners and metabolic/fitness consequences unresolved. Current SYNTROPHY does not require obligacy; contact alone does not demonstrate the required metabolic feedback. The coarse COMMUNITY_LEVEL contact has unspecified participants and must not be read as an observation for every canonical member. The geochemical primary sections support a real iron/mineral feedback, variable field populations and higher-pH A. ferrooxidans distribution, not a closed loop, competition or species-resolved flux. The Ferroplasma review and reference Acidithiobacillus genome are not exact-system functional tests. Taxonomy and non-graph claims remain unchanged pending issue1764.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Ferrous Iron Oxidation by Leptospirillum</code>, <code>ecological_interactions#Ferrous Iron Oxidation by Ferroplasma</code>, <code>ecological_interactions#Pyrite Dissolution</code>, <code>ecological_interactions#Thermoplasmatales-ARMAN Cell Contact</code>, <code>ecological_interactions#Higher-pH Acidithiobacillus Distribution</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VIVO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/20421484/" rel="nofollow noreferrer">PMID:20421484</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">A small subset of 3D cryo-electron tomographic reconstructions</p>
+                        <p class="muted small prewrap">The primary abstract limits the observed contacts to a subset of reconstructions.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -2143,7 +2016,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -2153,12 +2026,6 @@
 
 
             var processes = [];
-
-
-            processes.push("iron ion transport");
-
-            processes.push("carbon fixation");
-
 
             var evidenceCount = 2;
 
@@ -2173,18 +2040,26 @@
             });
 
 
-            var srcKey = "Leptospirillum group II";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Leptospirillum group II",
+
+                "Leptospirillum ferrodiazotrophum"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -2194,10 +2069,6 @@
 
 
             var processes = [];
-
-
-            processes.push("carbon fixation");
-
 
             var evidenceCount = 2;
 
@@ -2212,18 +2083,24 @@
             });
 
 
-            var srcKey = "Ferroplasma acidarmanus";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Ferroplasma acidarmanus"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -2249,62 +2126,28 @@
             });
 
 
-            var srcKey = "Leptospirillum group II";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Ferroplasma acidarmanus";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Leptospirillum group II",
+
+                "Leptospirillum ferrodiazotrophum",
+
+                "Ferroplasma acidarmanus"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:3";
-            var intType = "MUTUALISM";
-            var metabolites = [];
-
-
-            metabolites.push("dinitrogen");
-
-            metabolites.push("ammonia");
-
-
-            var processes = [];
-
-
-            processes.push("nitrogen fixation");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Nitrogen Fixation by Leptospirillum Group III",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-            var srcKey = "Leptospirillum ferrodiazotrophum";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:4";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -2326,36 +2169,22 @@
             });
 
 
-            var srcKey = "Ferroplasma acidarmanus";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
-
-
-            var tgtKey = "Micrarchaeota (ARMAN-1/2)";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
 
         })();
 
         (function() {
-            var intId = "interaction:5";
-            var intType = "SYNTROPHY";
+            var intId = "interaction:4";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("interspecies interaction between organisms");
-
 
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Thermoplasmatales-Parvarchaeota Cell Contact",
+                label: "Higher-pH Acidithiobacillus Distribution",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -2364,65 +2193,18 @@
             });
 
 
-            var srcKey = "Ferroplasma acidarmanus";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Parvarchaeota (ARMAN-4/5)";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Acidithiobacillus ferrooxidans"
 
-        })();
-
-        (function() {
-            var intId = "interaction:6";
-            var intType = "COMPETITION";
-            var metabolites = [];
-
-
-            metabolites.push("Fe(II)");
-
-            metabolites.push("Fe(III)");
-
-            metabolites.push("elemental sulfur");
-
-
-            var processes = [];
-
-
-            processes.push("iron ion transport");
-
-            processes.push("carbon fixation");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Iron and Sulfur Oxidation at Higher pH Refugia",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
             });
-
-
-            var srcKey = "Acidithiobacillus ferrooxidans";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-            var tgtKey = "Leptospirillum group II";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
 
         })();
 
@@ -2445,7 +2227,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 13;
+        var nodeCount = 11;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 
