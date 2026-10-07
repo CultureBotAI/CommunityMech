@@ -162,14 +162,12 @@ taxonomy:
       resolve which of its members entered the purified consortium. The taxon records the
       consortium's origin rather than a member with a characterised role.
 ecological_interactions:
-- name: Microcystis-Bloom Selection into Syn7002 Epibionts
-  description: >
-    Syn7002 was co-cultured with algal sediment from a Lake Taihu Microcystis
-    bloom and then passaged through a rising salinity gradient, an assembly
-    pressure that removed Microcystis while retaining Microcystis-associated
-    epibionts able to persist with the cyanobacterium.
+- name: Microcystis Disappearance During Salinity Passaging
+  description: Increasing salinity during Syn7002 co-cultivation with a Lake Taihu bloom inoculum was accompanied
+    by disappearance of Microcystis and persistence of associated epibionts. This is a treatment-associated compositional
+    result, not proof of niche partitioning, an exclusive salinity mechanism or the cause of later B12 complementarity.
+    Microcystis is the source inoculum, not a confirmed member of the final pair.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   participating_taxa:
   - preferred_term: Synechococcus sp. PCC 7002 (Syn7002)
     term:
@@ -179,43 +177,33 @@ ecological_interactions:
     term:
       id: NCBITaxon:1125
       label: Microcystis <cyanobacteria>
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Syn7002-MesTH-PseTH Community Sorting
-    description: >
-      The selected consortium was dominated at early passages by Syn7002,
-      MesTH, and PseTH before PseTH fell out of the stabilized community.
   evidence:
   - reference: PMID:41790499
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      Syn7002 was co-cultured with algal sediment collected from a
-      cyanobacterial bloom in Lake TaiHu
-    explanation: >
-      Supports the Microcystis-bloom source inoculum used to seed the Syn7002
-      synthetic community.
+    snippet: 'Syn7002 was co-cultured with algal sediment collected from a cyanobacterial bloom in Lake TaiHu
+
+      '
+    explanation: 'Supports the Microcystis-bloom source inoculum used to seed the Syn7002 synthetic community.
+
+      '
   - reference: PMID:41790499
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      the salinity gradient was gradually increased, leading to the
-      disappearance of Microcystis
-    explanation: >
-      Supports salinity passaging as the pressure that removed the original
-      Microcystis source while epibionts persisted.
+    snippet: 'the salinity gradient was gradually increased, leading to the disappearance of Microcystis
+
+      '
+    explanation: 'Supports salinity passaging as the pressure that removed the original Microcystis source while
+      epibionts persisted.
+
+      '
 - name: Syn7002-MesTH-PseTH Community Sorting
-  description: >
-    Consecutive streak-plate purifications resolved a three-member early
-    community of Syn7002, MesTH, and PseTH; Syn7002 initially dominated, PseTH
-    declined through the second purification set, and MesTH became the dominant
-    persistent epibiont once the consortium stabilized.
+  description: Across successive streak-purification rounds, Syn7002, MesTH and PseTH were the major early components;
+    relative PseTH abundance declined and MesTH became dominant after the second round. This preserves compositional
+    stabilization without asserting PseTH extinction, competitive exclusion, absolute viable growth or B12 availability
+    as the isolated cause. Purification and changing conditions are part of the observation, not an ecological arrow
+    to later assays.
   scope: COMMUNITY_LEVEL
-  interaction_type: COMPETITION
   participating_taxa:
   - preferred_term: Synechococcus sp. PCC 7002 (Syn7002)
     term:
@@ -229,41 +217,27 @@ ecological_interactions:
     term:
       id: NCBITaxon:286
       label: Pseudomonas
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Close Spatial Association of Partner Bacteria with Syn7002 Cells
-    description: >
-      Stabilization yielded partner bacteria close enough to Syn7002 cells to
-      be visualized as surface-associated rods by electron microscopy.
-  - target: MesTH Vitamin B12 Biosynthesis and Transport Response
-    description: >
-      Persistence of MesTH focused the downstream metatranscriptomic analysis
-      on B12 biosynthesis and transport in that partner.
   evidence:
   - reference: PMID:41790499
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Syn7002, PseTH and MesTH constituted the major components of the community
-    explanation: >
-      Supports the three dominant early members resolved during Syn7002
-      synthetic-community assembly.
+    explanation: 'Supports the three dominant early members resolved during Syn7002 synthetic-community assembly.
+
+      '
   - reference: PMID:41790499
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: MesTH became the dominant component after the second round
-    explanation: >
-      Supports MesTH replacing PseTH as the dominant partner as the consortium
-      stabilized.
+    explanation: 'Supports MesTH replacing PseTH as the dominant partner as the consortium stabilized.
+
+      '
 - name: Vitamin B12 Provision from Mesorhizobium TaiHu to Synechococcus PCC 7002
-  description: >
-    Syn7002 lacks the vitamin B12 biosynthesis gene cluster, and MesTH significantly upregulates
-    B12 biosynthesis and transport genes in the consortium. Together with B12-positive control
-    experiments, this supports MesTH supplying the small amount of B12 Syn7002 requires, making the
-    partnership a vitamin-mediated cross-feeding rather than a shared-medium coexistence.
+  description: HYPOTHESIZED - MesTH supplies B12 needed by auxotrophic Syn7002 in the washed, B12-free BG11 coculture.
+    Positive growth rescue, B12-supplemented controls and genomic/transcript evidence support this proposed cross-feeding.
+    Targeted LC-MS/MS did not detect free B12 in day-20 pelleted cultures; that is not an extracellular assay, proof
+    of rapid utilization or demonstration of donor-to-recipient transfer. Delivery by release versus contact and
+    the necessity of MesTH B12 biosynthesis were not selectively resolved.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -281,8 +255,7 @@ ecological_interactions:
     term:
       id: CHEBI:176843
       label: vitamin B12
-    notes: The cyanobacterium cannot synthesise it; the paper reports MesTH supplying the small
-      amount required.
+    notes: Proposed transferred cofactor. The pellet non-detection does not quantify secretion, transfer or uptake.
   biological_processes:
   - preferred_term: cobalamin biosynthetic process
     term:
@@ -290,59 +263,51 @@ ecological_interactions:
       label: cobalamin biosynthetic process
   downstream:
   - target: MesTH Growth Rescue of B12-Limited Syn7002
-    description: >
-      In vitamin-B12-free BG11, MesTH increased Syn7002 growth relative to the
-      no-B12 condition and reduced B12-deficiency-driven extinction.
+    description: HYPOTHESIZED - B12 supplied by MesTH could relieve the auxotroph limitation and explain positive
+      Syn7002 growth rescue. Coculture and added-B12 controls support this mechanism without directly measuring
+      vitamin delivery or selectively disrupting the donor pathway.
   evidence:
   - reference: PMID:41790499
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: The results further suggest that MesTH promotes the growth of Syn7002 in the community
-      by providing the small amount of vitamin B12 needed for its growth
-    explanation: PARTIAL - the paper states this as what the results "suggest", supported by
-      expression data and B12-positive controls rather than by direct measurement of transfer
-      between the strains, so provision is well-evidenced but not demonstrated isotopically.
+    snippet: The results further suggest that MesTH promotes the growth of Syn7002 in the community by providing
+      the small amount of vitamin B12 needed for its growth
+    explanation: PARTIAL - source-explicit proposed provision supported by positive rescue and expression. Pellet
+      B12 was undetected; the limitation is not merely absence of isotopic tracing, but unresolved delivery and
+      pathway necessity.
 - name: Close Spatial Association of Partner Bacteria with Syn7002 Cells
-  description: >
-    Electron microscopy found numerous rod-shaped bacteria clustered around Syn7002 cells,
-    indicating a physical association between the cyanobacterium and its partner bacteria rather
-    than mere co-occurrence in the medium.
+  description: SEM showed rod-shaped bacteria clustered around Syn7002 in fixed, dehydrated coculture material.
+    MesTH morphology is compatible with the rods, but morphology alone does not independently resolve every cell
+    identity. Close association is a positive observation, not experimentally demonstrated colonization facilitation,
+    mandatory contact or vitamin transfer.
   scope: COMMUNITY_LEVEL
-  interaction_type: COLONIZATION_FACILITATION
   participating_taxa:
   - preferred_term: Synechococcus sp. PCC 7002 (Syn7002)
     term:
       id: NCBITaxon:32049
       label: Picosynechococcus sp. PCC 7002
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Vitamin B12 Provision from Mesorhizobium TaiHu to Synechococcus PCC 7002
-    description: >
-      Physical clustering provided spatial context for B12 complementarity,
-      while leaving whether B12 moved extracellularly or through direct contact
-      unresolved.
+    description: HYPOTHESIZED - proximity could facilitate local B12 availability or contact-associated delivery.
+      The source leaves extracellular release versus direct contact unresolved; microscopy does not establish that
+      proximity is required or sufficient for transfer.
   evidence:
   - reference: PMID:41790499
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Electron microscopy revealed numerous rod-shaped bacteria clustered around Syn7002
-      cells, indicating close spatial associations between species
-    explanation: >
-      Supports physical clustering of rod-shaped partner bacteria around
-      Syn7002 cells without assigning those cells to a specific bacterial
-      taxon.
+    snippet: Electron microscopy revealed numerous rod-shaped bacteria clustered around Syn7002 cells, indicating
+      close spatial associations between species
+    explanation: 'Supports physical clustering of rod-shaped partner bacteria around Syn7002 cells without assigning
+      those cells to a specific bacterial taxon.
+
+      '
 - name: MesTH Vitamin B12 Biosynthesis and Transport Response
-  description: >
-    Metatranscriptomics linked the persistent MesTH partner to the B12 axis:
-    vitamin B12 biosynthesis and transport genes were more highly expressed in
-    MesTH than in Syn7002 across community formation, while Syn7002 maintained
-    only low-level B12 transporter expression.
+  description: MesTH showed B12 biosynthesis/transport-associated transcript changes during community formation,
+    while Syn7002 had lower reported transporter expression. Figure 4 presents log2 fold changes relative to the
+    initial stage; these are not absolute cross-species vitamin-output measurements or a matched coculture-versus-monoculture
+    induction test. Transcription supports the proposed B12 role, not secretion, uptake flux or pathway necessity.
+    Nitrogen-related expression is likewise not direct nitrogen fixation or assimilation.
   scope: COMMUNITY_LEVEL
-  interaction_type: CROSS_FEEDING
   participating_taxa:
   - preferred_term: Synechococcus sp. PCC 7002 (Syn7002)
     term:
@@ -362,29 +327,29 @@ ecological_interactions:
     term:
       id: GO:0009236
       label: cobalamin biosynthetic process
+    notes: Genomic/transcriptional support for biosynthetic capacity, not measured B12 production flux.
   downstream:
   - target: Vitamin B12 Provision from Mesorhizobium TaiHu to Synechococcus PCC 7002
-    description: >
-      Higher MesTH B12 synthesis and transport expression was the expression
-      signal supporting the inferred vitamin handoff to Syn7002.
+    description: HYPOTHESIZED - MesTH biosynthetic and transport capacity could support B12 availability to Syn7002.
+      Transcript profiles are consistent with this proposal but do not establish that their changes drive secretion
+      or donor-to-recipient transfer.
   evidence:
   - reference: PMID:41790499
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: >
-      vitamin B12 biosynthesis and transport-related genes were more highly
-      expressed in MesTH compared to Syn7002
-    explanation: >
-      Supports MesTH as the partner with the strongest B12 biosynthesis and
-      transport transcriptional response during community formation.
+    snippet: 'vitamin B12 biosynthesis and transport-related genes were more highly expressed in MesTH compared
+      to Syn7002
+
+      '
+    explanation: Source-reported expression comparison, with Figure 4 using within-time-series fold changes. It
+      is not an absolute cross-species synthesis/output comparison or direct transfer measurement.
 - name: MesTH Growth Rescue of B12-Limited Syn7002
-  description: >
-    When washed Syn7002 and MesTH were combined in vitamin-B12-free BG11, MesTH
-    increased Syn7002 growth relative to the B12-free alga-only treatment,
-    placing the inferred B12 provision in a culture condition where the
-    cyanobacterium otherwise approaches B12-deficiency-driven extinction.
+  description: Adding washed MesTH to washed Syn7002 in B12-free BG11 promoted the cyanobacterial growth endpoint
+    relative to the unsupplemented alga-only condition; supplied B12 was the positive control. Growth was followed
+    by absorbance and culture appearance over 20 days. Preserve the positive rescue without claiming directly measured
+    photosynthetic flux, reciprocal benefit, universal long-term survival or that B12 is the sole mediator. Washing
+    does not by itself quantify residual or intracellular vitamin stores.
   scope: COMMUNITY_LEVEL
-  interaction_type: CROSS_FEEDING
   participating_taxa:
   - preferred_term: Synechococcus sp. PCC 7002 (Syn7002)
     term:
@@ -399,20 +364,16 @@ ecological_interactions:
     term:
       id: CHEBI:176843
       label: vitamin B12
-  biological_processes:
-  - preferred_term: photosynthesis
-    term:
-      id: GO:0015979
-      label: photosynthesis
   evidence:
   - reference: PMID:41790499
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      the presence of MesTH promoted the growth of Syn7002 compared to the
-      group without vitamin B12 supplementation
-    explanation: >
-      Supports MesTH-mediated growth rescue of B12-limited Syn7002.
+    snippet: 'the presence of MesTH promoted the growth of Syn7002 compared to the group without vitamin B12 supplementation
+
+      '
+    explanation: 'Supports MesTH-mediated growth rescue of B12-limited Syn7002.
+
+      '
 growth_media:
 - name: Vitamin B12-supplemented BG11, Syn7002 culture
   composition:
@@ -524,3 +485,34 @@ environmental_factors:
       vitamin B12 complementarity between the two strains
     explanation: Records the supplementation control as a tested condition and the basis, with the
       expression data, for the complementarity claim.
+discussions:
+- discussion_id: syn7002_b12_delivery_and_compositional_limits
+  prompt: Does MesTH-derived B12 mediate rescue, and does spatial association contribute?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Microcystis Disappearance During Salinity Passaging
+  - ecological_interactions#Syn7002-MesTH-PseTH Community Sorting
+  - ecological_interactions#Vitamin B12 Provision from Mesorhizobium TaiHu to Synechococcus PCC 7002
+  - ecological_interactions#Close Spatial Association of Partner Bacteria with Syn7002 Cells
+  - ecological_interactions#MesTH Vitamin B12 Biosynthesis and Transport Response
+  - ecological_interactions#MesTH Growth Rescue of B12-Limited Syn7002
+  rationale: 'All six observations remain. Remove salinity-to-sorting and sorting-to-microscopy/transcript arrows
+    because they describe assembly or analysis order. Retain three source-consistent B12 links as hypotheses. Pellet
+    non-detection does not prove rapid uptake; separate extracellular assays, donor perturbation/rescue and contact
+    separation would test delivery. PseTH decline is not extinction or isolated competition; nitrogen transcripts
+    are not functional fixation. Preserve B12-free and added-B12 controls, canonical genus groundings and #583 guidance.
+    #1597 repairs graph claims; non-graph vitamin certainty and PseTH/source wording remain #1600. Complete primary
+    main text/captions read, not separate Table S1, images or raw data.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-07T01:03:05Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain salinity-associated Microcystis disappearance, not later-assay causality.; Retain relative compositional
+    changes without competition or extinction claims.; Retain source-proposed B12 provision with pellet non-detection
+    and unresolved delivery.; Retain spatial association and explicitly hypothetical facilitation.; Retain temporal
+    transcript profiles without absolute output or transfer inference.; Retain positive B12-limited growth rescue
+    and the supplementation control. Issue #1597; reports/causal_graph_review/decisions/20261006-four-records-batch70.yaml'
+  llm_assisted: true
