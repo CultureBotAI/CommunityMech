@@ -1,0 +1,290 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 1d74c2f53e1cb0039ef82ac18a3a94f51032a78f
+scope:
+- kb/communities/Maize_SC2_RootRot_Biocontrol_SynCom.yaml
+- kb/communities/Mangrove_Benzene_MFC_Bioanode_Consortium.yaml
+- kb/communities/Mars_Meteorite_EETA79001_Growth_Panel.yaml
+- kb/communities/Mars_Regolith_Cyanobacteria_Biofertilizer_Panel.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-four-records-batch68.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch68.json
+findings:
+- issue: 1582
+  severity: P2
+  status: addressed_in_this_change
+  finding: SC2 distinct phenotypes overtyped as competition/mutualism and unisolated mediation.
+  disposition: Close only after protected-main merge.
+- issue: 1583
+  severity: P2
+  status: addressed_in_this_change
+  finding: MFC relative composition overtyped as partitioning and catalytic mediation.
+  disposition: Close only after protected-main merge.
+- issue: 1584
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate meteorite panel overtyped as niche partitioning with workflow causality.
+  disposition: Close only after protected-main merge.
+- issue: 1585
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate regolith growth and processed-culture fertilizer assays conflated with ecological
+    causality.
+  disposition: Close only after protected-main merge.
+- issue: 1586
+  severity: P2
+  status: unresolved_non_graph
+  finding: 'Non-graph assay/role/identity metadata needs source-specific reconciliation; coordinate #1580.'
+  disposition: Keep OPEN after graph repair merge.
+- issue: 573
+  severity: P2
+  status: unresolved_non_graph
+  finding: Panel-model placement remains unresolved; graph repair does not establish a coculture.
+  disposition: Keep OPEN after graph repair merge.
+adversarial_checks:
+- Verification also caught ruff B023 in the new mapping test helper after619 tests passed. Explicitly
+  bind the per-record rename map, preserve pre-fix regression/formatting outputs and rerun the full suite
+  on final content. No scientific record changed for these verification fixes.
+- Read four whole records and all11 original nodes/six arrows, four complete fresh primary main texts/captions
+  and both main tables. Retain11 nodes, qualifyfour arrows and remove two assay-order arrows. No new causal
+  structure. Original figure pixels, separate supplements, raw data and external papers cited in the four
+  studies were not independently audited.
+- 'SC2: retain seven-day PDA inhibition comparable to C7 and14-day B73 height/fresh-root-mass improvement.
+  The plate and plant assays do not isolate competition, pathogen-load mediation or host immunity. Keep
+  the existing inhibition-to-growth hypothesis explicitly HYPOTHESIZED, not causal certainty or proof
+  of no contribution.'
+- 'SC2: Salkowski with pure-IAA calibration and CAS halo assays support the reported45/65ugmL and0.50cm
+  outputs. Keep chemical interpretations with their assay limits, not exact siderophore identity, pathway
+  perturbation, in-planta delivery or reciprocal benefit. Preserve host/pathogen as external participants
+  and prior #887-#889 repairs; do not resolve strain aliases from species-list order.'
+- 'MFC: retain positive98.7% benzene removal, product observations, sustained biotic voltage and higher
+  power density than acetate.902.3mV belongs to250mgL cycleVI,899.9mV to330mgL cycleVII;390.1 versus238.8mWm2
+  is not100fold. The awkward removal sentence is resolved against abstract, main Table1 and Conclusion,
+  not interpreted as98.7% residual benzene.'
+- 'MFC: relative genus enrichment does not resolve absolute expansion, niche partitioning or member catalytic
+  necessity. Keep composition-to-output as the authors HYPOTHESIZED route, with confounded substrate/acclimation
+  context. Four named genera are a partial roster. DET/MET and traced partner exchange remain unresolved.
+  Preserve #1124 Bacillus role correction; existing Arcobacter role and Daphnia metadata remain follow-up.'
+- 'Meteorite: shared abiotic substrate and separate growth/persistence results are not a coculture. Earlier
+  leachate chemistry does not prove current ion-specific uptake or carbon source. Low-perchlorate meteorite
+  and terrestrial conditions are not general Martian habitability. Water controls, unequal initial phototroph
+  counts, MPN recovery and heterotroph CFUs bound inference.'
+- 'Meteorite: preserve positive Chr20 persistence and early Planococcus growth while stating most Planococcus
+  ratios lose late recoverability, E.coli survives in water-only controls, and below quantification is
+  not extinction. Remove the assay-to-persistence workflow arrow, not the measured endpoint. Keep qualified
+  substrate support rather than erase the positive resource hypothesis.'
+- 'MGS-1: retain TXRF elemental chemistry, separate OD440/PSII growth and Nostoc/Anabaena performance
+  with Anabaena late decline and Arthrospira clumping/mild-growth limits. Element totals are not speciation/uptake.
+  No direct N2 or O2 flux measured; undetected extract phosphorus, inoculum and reserves/carryover matter.'
+- 'Lemna: preserve seven-day positive dry-weight outcomes for Arthrospira filtered/sonicated and Chlorella
+  filtered culture material. Lower frond yields, nonsignificant filtered/sonicated differences and nonequivalence
+  caveat retained. Processed-material benefit is not live commensalism. Growth-advantage mediation of
+  fertilizer advantage is not established: Nostoc grows well but supplies the weakest material treatment. Remove that workflow
+  arrow while retaining resource-transfer observations.'
+- 'Panel-model caveat remains unresolved, not hidden by graph status. Existing COMMUNITY_LEVEL is retained
+  only as the current container for shared abiotic/panel observations; #573 is still OPEN for record-model
+  placement. No new schema convention, coculture or emergent microbial community is certified. Prior PR574
+  and graph-adding commit fa3f1a8c read.'
+- 'Read complete biological diff. Remove unsupported specific interaction/process annotations but preserve
+  supported growth/photosynthesis context, positive endpoints and author-proposed routes. Renames retarget
+  every retained edge and prior discussion anchor. Detach graph aliases; preserve explicit benzene and
+  benzene_term anchors needed by untouched non-graph references.456 other records and920 caches preserved;
+  append one history/event per target. Initial regressions found one exact-registry failure with618 passing:
+  add the two deliberately named Mars panel records to USERS after measuring the census. Retain all test
+  logic, preserve the failed output/digest in superseded_checks, and rerun the complete suite.'
+- Actual focused schema/strict/terms/references/snippets/history gates, network/rank, repeat rendering,
+  regressions and formatting outputs recorded.17 graph excerpts independently primary-matched with whitespace
+  normalization. Coarse scope census unchanged; network warnings46->44 because two observed MFC genera
+  are now explicitly named in whole-biofilm nodes, not because their catalytic roles were established.
+  Initial verifier no-delta assumption was corrected after inspecting actual output; no scientific edits
+  made to satisfy the gate. Other44 warnings preserved exactly, no auditor-rule changes. Exact descriptions
+  parsed over456 pages, not screenshots; postcommit docs-current is a separate gate.
+- 'Dedup874 all-state issue titles/bodies and47 scoped ignored/hidden local files; matching issue bodies,
+  relevant histories, prior PR574 and graph-adding commit read, not every PR/comment/local match. #1582-#1585
+  addressed but OPEN until protected-main merge. #1586/#573 remain OPEN afterward. No provider spend;
+  exact-head COMMENT self-review is not independent approval or corpus completion.'
+verification:
+  combined_regressions: 619 passed in 201.31s (0:03:21)
+  new_regression_tests: 8
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: 'CLI Total checks counts reported issues, not executed checks. Cache MATCH is not scientific
+    entailment or historical provenance certification. All920 caches unchanged;17 graph excerpts independently
+    match fresh primary text after whitespace normalization. #1586 metadata, #573 panel modeling and broader
+    #476/#1091/#1095 source limitations persist.'
+  snippet_counts_by_record:
+    kb/communities/Maize_SC2_RootRot_Biocontrol_SynCom.yaml:
+      MATCH: 20
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Mangrove_Benzene_MFC_Bioanode_Consortium.yaml:
+      MATCH: 22
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Mars_Meteorite_EETA79001_Growth_Panel.yaml:
+      MATCH: 16
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Mars_Regolith_Cyanobacteria_Biofertilizer_Panel.yaml:
+      MATCH: 22
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    primary_matched_graph_snippets: 17
+    whitespace_only_matches: 17
+    primary_main_texts: 4
+    main_tables_read: 2
+    paid_submissions: 0
+    new_nodes_or_arrows: 0
+    separate_supplements_inspected: false
+    original_figure_pixels_inspected: false
+  network:
+    existing_findings_preserved: 44
+    added_findings: {}
+    removed_findings:
+      Mangrove_Benzene_MFC_Bioanode_Consortium:
+      - type: DISCONNECTED
+        taxon: Pelobacter
+        taxon_id: NCBITaxon:18
+        taxon_data:
+          taxon_term:
+            preferred_term: Pelobacter
+            term:
+              id: NCBITaxon:18
+              label: Pelobacter
+            gtdb_grounding_status: UNRESOLVED
+            notes: 'Pelobacter was a lower-abundance genus in the benzene-fed 16S profile; no species-level
+              identity or functional role was resolved.
+
+              '
+          relative_abundance: 2.22
+          relative_abundance_unit: percent
+          evidence:
+          - reference: PMID:41210787
+            supports: SUPPORT
+            evidence_source: IN_VITRO
+            snippet: Pelobacter, Desulfurumonas, and Pseudomonas were also identified at 2.22, 1.64, and
+              0.87%
+            explanation: Supports Pelobacter as a minor detected genus in the benzene-fed MFC biofilm.
+        message: Taxon 'Pelobacter' has no interactions
+      - type: DISCONNECTED
+        taxon: Pseudomonas
+        taxon_id: NCBITaxon:286
+        taxon_data:
+          taxon_term:
+            preferred_term: Pseudomonas
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+            gtdb_grounding_status: UNRESOLVED
+            notes: 'Pseudomonas was a lower-abundance genus in the benzene-fed 16S profile; no species-level
+              identity or functional role was resolved.
+
+              '
+          relative_abundance: 0.87
+          relative_abundance_unit: percent
+          evidence:
+          - reference: PMID:41210787
+            supports: SUPPORT
+            evidence_source: IN_VITRO
+            snippet: Pelobacter, Desulfurumonas, and Pseudomonas were also identified at 2.22, 1.64, and
+              0.87%
+            explanation: Supports Pseudomonas as a minor detected genus in the benzene-fed MFC biofilm.
+        message: Taxon 'Pseudomonas' has no interactions
+    interpretation: 'Two MFC disconnected-member warnings removed by explicitly naming detected Pelobacter
+      and Pseudomonas in whole-biofilm observations. This is observed membership, not established catalytic
+      function. Other44 baseline findings preserved exactly; no auditor-rule changes or invented pairwise
+      links. External SC2 participants preserved; #573 panel-model caveat remains.'
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-four-records-batch68.yaml: 38c139438dc2f375e40000b15ed237a0cd08d19c3c1fbe695aa348fcf026cf5a
+    tests/test_causal_review_batch68.py: 126ed9f133a679ba2ec71ea01650ee91bea59b42860f3285a54ea4b2eb08873d
+    tests/test_participating_taxa.py: 1d7dbde060a29bc777751e3cf225e72952a0031cf1a2293be687a0065f82bc12
+    kb/communities/Maize_SC2_RootRot_Biocontrol_SynCom.yaml: ce0f1152033785546b47d35e4c92d120e1f0a78c30e1cafab3033a34924c0113
+    kb/communities/Mangrove_Benzene_MFC_Bioanode_Consortium.yaml: 96166a3b9e1e6298b99bb0930ac0cab6b69018ea5b54788e0e9f65231f9bbb6e
+    kb/communities/Mars_Meteorite_EETA79001_Growth_Panel.yaml: 8cf227fbe445dfa8d4088670d65eec045904f27f4236a321fe3a2e1c76ef6306
+    kb/communities/Mars_Regolith_Cyanobacteria_Biofertilizer_Panel.yaml: 95c7aa9378753e3c664f27b1f65569bb2bf36cd4c9dcef95e9f47ad88ec1a805
+    reports/causal_graph_review/README.md: eb58f79fb2b556b9a65c1cb6168b7f3edd39cb84cb29df47cfe49ae036a878cf
+  unchanged_caches: 920
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    reason: Existing-node/arrow repair and renames only; no new causal structure.
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 391
+      mixed: 123
+      community_level_only: 268
+      taxa: 1507
+      credited_solely_by_the_rule: 1240
+    current:
+      records: 460
+      with_community_level: 391
+      mixed: 123
+      community_level_only: 268
+      taxa: 1507
+      credited_solely_by_the_rule: 1240
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: 'Canonical taxa and coarse scope census unchanged. This survey counts taxa lacking pairwise
+    links, not exact narrowed participant credit; the network delta separately records two MFC warnings
+    removed. Explicit partial-roster and panel participants do not prove catalytic interactions or resolve
+    #573. No taxonomy or auditor-rule change.'
+corpus:
+  records: 460
+  nodes: 1452
+  edges: 633
+  review_status_counts:
+    needs_research: 22
+    pending: 220
+    reviewed: 218
+limitations:
+- All11 original nodes and6 arrows reviewed;11 nodes retained/qualified and renamed where needed,4 arrows
+  qualified,2 workflow arrows removed. No new causal structure or provider submission.
+- Four complete primary main texts/captions and both main tables read. No original figure-pixel, separate
+  supplement, raw-data or executable-analysis audit. Numerical results not independently recomputed. Source
+  statements about other papers are not independent reviews of those papers.
+- 'SC2 positive inhibition, plant growth and Salkowski/CAS outputs retained without competition, immune
+  activation, reciprocal benefit or selectively established mediator. Preserve external participants and
+  prior #887-#889 repairs.'
+- 'Mangrove whole-biofilm removal/electrochemistry remain positive. Relative genus response is not member
+  activity or isolated mediation; DET/MET, partner exchange and carbon balance unresolved. Preserve #1124
+  Bacillus role removal. Named genera are a partial roster.'
+- 'Both Mars records remain separate-organism panels, not cocultures. Existing COMMUNITY_LEVEL containers
+  preserve shared abiotic/assay observations but do not settle #573 model placement or prove emergent
+  interactions. Do not count this repair as resolution of that open modeling issue.'
+- Meteorite hydration, unequal inocula and different viable-recovery assays bound persistence comparisons;
+  E.coli water-only survival and late Planococcus loss at most ratios retained. Regolith composition is
+  not universal Mars habitability or resolved uptake.
+- MGS-1 growth is optical/photophysiological, not direct N2 or O2 flux; inoculum/carryover and undetected
+  extract phosphorus matter. Processed-culture Lemna benefits are treatment/endpoint specific, not live
+  commensalism or equivalence. Worst phototroph growth does not preclude positive material benefit.
+- 'Canonical taxonomy and raw non-graph blocks preserved, not recertified; #1586 remains OPEN and coordinates
+  #1580 and #573. No new taxon mappings or experimental roles inferred. Preserve graph-owned benzene anchors
+  required by unchanged non-graph aliases.'
+- All920 caches unchanged;17 graph excerpts match fresh primary text after whitespace normalization. Not
+  historical cache/non-graph provenance certification. Public primary XML available without access bypass;
+  full sources remain scratch-only.
+- Dedup874 all-state issue titles/bodies and47 scoped ignored/hidden local matches; seven matching issue
+  bodies and prior PR574, relevant histories and graph-adding commit read, not every PR/comment/local
+  match. Self-review is not independent approval. Repair issues remain OPEN pending protected-main merge.
