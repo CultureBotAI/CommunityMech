@@ -5,6 +5,24 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch87: Wetland, Infant Gut, Rice And Helper Coculture
+
+[Decisions](decisions/20261007-four-records-batch87.yaml),
+[validation](validation-20261007-batch87.json) and
+[self-adversarial review](adversarial-review-20261007-batch87.yaml) cover
+12 original nodes and four arrows. Ten nodes and all four directions remain;
+two infant-analysis method nodes are removed. Positive genomic findings,
+transcript-ratio associations, rice benefits and helper protection remain.
+Viral effects and niche mechanisms are hypotheses; transporter and catalase
+mediation are qualified separately from measured treatment outcomes.
+
+Two primary main texts and three other abstracts were read. Helper full-text
+retrieval failed after a partial publisher extraction, so full methods and
+supplements are not certified. All 921 caches, 456 other records and raw
+non-graph blocks are preserved. Repairs #1718-#1721 await protected-main merge;
+non-graph #1722 stays open. No new graph topology or paid Edison job was added.
+Self-review is not independent approval or completion of the corpus.
+
 ## Batch85: Denitrification, Beverage, Refinery And Pine
 
 [Decisions](decisions/20261007-four-records-batch85.yaml),

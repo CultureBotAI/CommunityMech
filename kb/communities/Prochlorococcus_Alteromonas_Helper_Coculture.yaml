@@ -134,10 +134,9 @@ taxonomy:
     explanation: Supports Alteromonas EZ55 as the paired heterotrophic member.
 ecological_interactions:
 - name: Hydrogen Peroxide Cross-Protection
-  description: Alteromonas protects Prochlorococcus by removing hydrogen peroxide and other reactive oxygen
-    species. This detoxification service reduces oxidative stress for Prochlorococcus, which lacks catalase,
-    and increases its growth under otherwise inhibitory peroxide and temperature conditions.
-  interaction_type: COMMENSALISM
+  description: Alteromonas scavenging of hydrogen peroxide protects Prochlorococcus and supports growth under inhibitory
+    peroxide and temperature conditions. Preserve this positive facilitation; it does not establish detoxification
+    of every reactive oxygen species or a neutral fitness effect on Alteromonas.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Alteromonas macleodii EZ55
@@ -162,9 +161,9 @@ ecological_interactions:
       label: response to oxidative stress
   downstream:
   - target: Helper-Dependent Prochlorococcus Growth
-    description: >
-      Alteromonas hydrogen-peroxide removal relieves oxidative stress enough to
-      support helper-dependent Prochlorococcus growth.
+    description: Hydrogen-peroxide removal reduces oxidative inhibition and permits helper-dependent Prochlorococcus
+      growth. Retain this source-supported direction within the laboratory assay conditions, not as a universal
+      requirement at every density or temperature.
   evidence:
   - reference: PMID:29087377
     supports: SUPPORT
@@ -177,10 +176,10 @@ ecological_interactions:
     snippet: lacks the gene catalase and relies on 'helper' bacteria
     explanation: Supports the dependence of Prochlorococcus on helper bacteria for oxidative stress relief.
 - name: Carbon Dioxide Perturbation of Helper Function
-  description: Elevated carbon dioxide weakens the Alteromonas helper interaction by decreasing Alteromonas
-    catalase gene expression and reducing the rate at which cocultures remove hydrogen peroxide. This
-    makes Prochlorococcus more vulnerable to oxidative stress under projected high-CO2 conditions.
-  interaction_type: COLONIZATION_FACILITATION
+  description: 'At 800 versus 400 ppm CO2, cocultures showed reduced Alteromonas catalase transcripts, approximately
+    sixfold lower peroxide removal and longer Prochlorococcus post-transfer lag with greater apparent die-off. PARTIAL:
+    catalase-mediated weakening is the authors explanation; available evidence does not isolate catalase necessity
+    from other CO2 responses.'
   scope: PAIRWISE
   source_taxon:
     preferred_term: Alteromonas macleodii EZ55
@@ -208,27 +207,24 @@ ecological_interactions:
       label: response to oxidative stress
   downstream:
   - target: Hydrogen Peroxide Cross-Protection
-    description: >
-      Elevated carbon dioxide lowers Alteromonas catalase expression and
-      hydrogen-peroxide removal, weakening the helper detoxification service
-      that protects Prochlorococcus from oxidative stress.
+    description: 'PARTIAL: reduced catalase expression is proposed to lower peroxide removal and weaken protection.
+      Retain the measured treatment-associated loss of detoxification without treating transcript abundance as proof
+      of the sole causal mediator.'
   evidence:
   - reference: doi:10.1038/ismej.2017.189
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: decreased expression of the catalase gene
-    explanation: Supports the mechanism by which elevated CO2 perturbs Alteromonas helper function.
+    explanation: Supports decreased catalase transcription, not a catalase-specific necessity or rescue experiment.
   - reference: doi:10.1038/ismej.2017.189
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: decrease in removal rates of hydrogen peroxide
     explanation: Supports reduced peroxide detoxification under elevated CO2.
 - name: Helper-Dependent Prochlorococcus Growth
-  description: >
-    Peroxide scavenging by A. macleodii EZ55 lowers oxidative stress and
-    facilitates the growth of Prochlorococcus MIT9312 at ecologically relevant
-    cell concentrations.
-  interaction_type: COMMENSALISM
+  description: Helper coculture facilitates Prochlorococcus growth under the tested peroxide and thermal conditions
+    at ecologically relevant concentrations. Preserve the positive growth response while keeping the separate temperature
+    and CO2 experiments distinct.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Alteromonas macleodii EZ55
@@ -260,9 +256,10 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Alteromonas facilitate the growth of Prochlorococcus by scavenging HOOH
-    explanation: >
-      Supports helper-bacterium peroxide scavenging as a mechanism that
-      facilitates Prochlorococcus growth.
+    explanation: 'Supports helper-bacterium peroxide scavenging as a mechanism that facilitates Prochlorococcus
+      growth.
+
+      '
 environmental_factors:
 - name: Hydrogen peroxide stress
   value: Ambient to elevated HOOH treatments
@@ -358,3 +355,37 @@ growth_media:
       μmol photons m−2 s−1 on a 14:10 light–dark cycle.'
     explanation: Gives incubation temperature (21 °C), light intensity (150 µmol photons
       m-2 s-1), and photoperiod (14:10 light:dark).
+discussions:
+- discussion_id: helper-detoxification-versus-co2-mediation
+  prompt: How much of the CO2 response is mediated specifically by helper catalase?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  rationale: 'Peroxide protection remains supported and both existing directions remain. CO2-associated catalase
+    transcription and peroxide-removal changes support a partial explanation, not exclusive mediation. Fresh abstracts
+    were read; only introduction and early thermal methods were exposed by the public publisher archive before subsequent
+    retrieval failures. No full-methods, supplement or figure-pixel verification is claimed. Exact strain and separate
+    medium contexts remain #1722; missing access does not prove experiments are absent.'
+  attaches_to:
+  - ecological_interactions#Hydrogen Peroxide Cross-Protection
+  - ecological_interactions#Carbon Dioxide Perturbation of Helper Function
+  - ecological_interactions#Helper-Dependent Prochlorococcus Growth
+  evidence:
+  - reference: PMID:29087377
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Alteromonas facilitate the growth of Prochlorococcus by scavenging HOOH
+    explanation: Directly supports the helper-bacterium peroxide-scavenging mechanism.
+  - reference: doi:10.1038/ismej.2017.189
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: decreased expression of the catalase gene
+    explanation: Supports decreased catalase transcription, not a catalase-specific necessity or rescue experiment.
+curation_history:
+- timestamp: '2026-10-07T11:17:02Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve peroxide protection without broad ROS or neutral-helper assumptions.; Preserve measured CO2
+    effects with qualified catalase-specific mediation.; Preserve positive helper growth within distinct assay contexts.
+    Issue #1721; reports/causal_graph_review/decisions/20261007-four-records-batch87.yaml'
+  llm_assisted: true
