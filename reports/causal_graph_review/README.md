@@ -5,6 +5,33 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch80: Vitamins, PET, Catalyst Leaching And Plant Protection
+
+[Decisions](decisions/20261007-four-records-batch80.yaml),
+[validation](validation-20261007-batch80.json) and
+[self-adversarial review](adversarial-review-20261007-batch80.yaml) account for
+17 existing nodes and ten arrows. Four repairs preserve 14 biological-result
+nodes and six arrows; three protocol nodes and four unsupported arrows are removed.
+Reciprocal vitamin rescue, PET inhibition relief and degradation, separate metal
+extraction results, and individual Variovorax plant benefits remain positive findings.
+
+PET Results timing supersedes its conflicting abstract. Synthetic Pd leaching
+is not the refinery column; solid depletion is not dissolved recovery. Live-cell
+plant protection does not isolate a physical-contact requirement. Three fresh
+primary main bodies, the cached vitamin manuscript and the column abstract were
+read. All 25 graph quotations match source content and caches; 22 also match fresh
+primary retrievals. No original figure pixels, supplements or raw data were audited.
+
+The final adversarial fix explicitly assigns both CF313 follow-ups to that strain,
+despite all six strains sharing a genus CURIE. The 17 affected checks were rerun;
+their earlier outputs remain recorded as superseded, not silently discarded.
+
+All 920 caches, 456 other records and raw non-graph blocks are preserved. Four
+append-only histories accompany repairs #1660-#1663, which await protected-main
+merge. Research #1664/#1665 and metadata #1666 stay open afterward. One vitamin
+Edison dry run used no credits; scoped authorization is unanswered. Self-review
+is not independent approval or corpus completion.
+
 ## Batch79: Field Selection, Nutrient Rescue And Hydrolysis
 
 [Decisions](decisions/20261007-four-records-batch79.yaml),

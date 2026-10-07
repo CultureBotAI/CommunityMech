@@ -168,9 +168,10 @@ taxonomy:
     explanation: Supports the assigned ethylene-glycol utilization role.
 ecological_interactions:
 - name: PETase-MHETase Depolymerization Module
-  description: The two engineered B. subtilis strains divide PET hydrolysis into PETase-mediated PET to
-    MHET conversion and MHETase-mediated MHET conversion to terephthalic acid and ethylene glycol.
-  interaction_type: CROSS_FEEDING
+  description: Two engineered B. subtilis strains secrete complementary extracellular PETase and MHETase, converting
+    PET through MHET to TPA and EG. The paired module degrades BHET faster than Bs_PETase alone, and the two-member
+    consortium degraded 13.6% of PET film after 7 days in LB. This enzyme division of labor does not establish nutrient
+    uptake by the MHETase-producing Bacillus itself.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Bacillus subtilis 168 Bs_PETase
@@ -189,11 +190,11 @@ ecological_interactions:
       label: poly(ethylene terephthalate) macromolecule
   downstream:
   - target: Rhodococcus TPA Detoxification Module
-    description: MHETase releases terephthalic acid from MHET, creating the
-      inhibitory PET hydrolysis product consumed by Rhodococcus jostii RHA1.
+    description: MHETase releases terephthalic acid from MHET, creating the inhibitory PET hydrolysis product consumed
+      by Rhodococcus jostii RHA1.
   - target: Pseudomonas EG Detoxification Module
-    description: MHETase also releases ethylene glycol from MHET, creating the
-      inhibitory PET hydrolysis product consumed by Pseudomonas putida KT2440.
+    description: MHETase also releases ethylene glycol from MHET, creating the inhibitory PET hydrolysis product
+      consumed by Pseudomonas putida KT2440.
   evidence:
   - reference: PMID:35003008
     supports: SUPPORT
@@ -206,8 +207,10 @@ ecological_interactions:
     snippet: MHET is degraded into TPA and EG catalyzed by MHETase
     explanation: Supports the MHETase part of the depolymerization module.
 - name: Rhodococcus TPA Detoxification Module
-  description: R. jostii RHA1 uses terephthalic acid, reducing TPA inhibition of PETase activity and
-    improving PET degradation by the three- and four-member consortia.
+  description: R. jostii RHA1 completely degraded 2 g/L TPA within 28 h in the standalone assay. Exogenous TPA inhibited
+    degradation and bacterial growth; adding RHA1 lowered TPA during BHET hydrolysis and improved three-member PET-film
+    weight loss to 31.2% after 7 days in Results, not the 3 days stated in the abstract. These assays support product-inhibition
+    relief, without directly isolating enzyme secretion as its only mediator.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -231,23 +234,28 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
   downstream:
-  - target: Four-Species PET Film Degradation
-    description: R. jostii consumes TPA to relieve product inhibition during
-      PET hydrolysis by the engineered Bacillus modules.
+  - target: Four-Member PET Film Degradation
+    description: PARTIAL - RHA1 utilization removes inhibitory TPA produced by the Bacillus module, supporting the
+      four-member degradation design. Standalone consumption, exogenous-product inhibition and consortium comparisons
+      support this mechanism, but do not isolate its quantitative contribution to the optimized Wn-film endpoint
+      or directly measure enzyme-secretion mediation.
   evidence:
   - reference: PMID:35003008
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: adding R. jostii to reduce the inhibition caused by terephthalic acid (TPA), a breakdown product of PET
-    explanation: Supports the TPA detoxification role of R. jostii in the consortium.
+    snippet: R. jostii RHA1 was verified to degrade TPA efficiently, with 2 g/L TPA being completely degraded within
+      28 h
+    explanation: Direct standalone TPA utilization, not film weight loss misassigned as a TPA assay.
   - reference: PMID:35003008
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The weight of PET film was reduced by 31.2% within 3 days
-    explanation: Supports efficient TPA utilization by the R. jostii module.
+    snippet: After 7 days, 31.2 ± 2.2% of PET was degraded by the three-species microbial consortium
+    explanation: Results timing and endpoint supersede the conflicting three-day abstract wording.
 - name: Pseudomonas EG Detoxification Module
-  description: P. putida KT2440 is added to consume ethylene glycol, another PET hydrolysis product,
-    making the four-member consortium more complete in product utilization.
+  description: P. putida KT2440 was reported to degrade 2 g/L EG within 20 h before addition to the four-member
+    consortium. Exogenous EG inhibited PET hydrolysis but had little effect on bacterial growth. TPA and EG did
+    not accumulate during the reported 2 g/L BHET assay; this is not a PET-film mass balance or proof of complete
+    mineralization, and PET-film TPA transiently increased on day 3.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -271,23 +279,28 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
   downstream:
-  - target: Four-Species PET Film Degradation
-    description: P. putida consumes EG so the four-member consortium avoids
-      accumulating both inhibitory PET hydrolysis products.
+  - target: Four-Member PET Film Degradation
+    description: PARTIAL - KT2440 provides EG utilization for the four-member design and can remove an inhibitory
+      hydrolysis product. The study supports EG consumption and product inhibition separately, but changed medium
+      and inoculum prevent assigning the film-weight-loss difference solely to EG removal; four-member film loss
+      was below the three-member LB result.
   evidence:
   - reference: PMID:35003008
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: P. putida was introduced to reduce the inhibition caused by ethylene glycol
-    explanation: Supports the EG detoxification role of P. putida in the consortium.
+    snippet: After preliminarily verifying the ability of P. putida KT2440 to completely degrade 2 g/L of EG within
+      20 h
+    explanation: Main text reports the standalone EG assay; separate supplementary figure pixels were not audited.
   - reference: PMID:35003008
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: TPA and EG were not accumulated
-    explanation: Supports product utilization in the four-species consortium.
+    explanation: Supports nonaccumulation in the BHET assay, not zero intermediates throughout PET-film degradation.
 - name: Nutrient-Mediated Competition Control
-  description: Because P. putida overgrew the other members in rich media, the four-member consortium
-    was shifted to Wn medium to constrain P. putida growth and maintain the engineered division of labor.
+  description: P. putida dominated recoverable growth after 24 h in rich-media cocultures, motivating a nutrient-poor
+    W-derived medium and inoculum optimization. Wn supplementation and a strongly reduced P. putida inoculum allowed
+    four-member PET degradation; these manipulations do not demonstrate durable coexistence, a unique resource-competition
+    mechanism or species-resolved abundance throughout the 7 day assay.
   interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
   biological_processes:
@@ -296,10 +309,10 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
   downstream:
-  - target: Four-Species PET Film Degradation
-    description: Wn medium and the optimized inoculation ratio constrain P. putida
-      overgrowth and maintain the engineered four-member PET-degradation division
-      of labor.
+  - target: Four-Member PET Film Degradation
+    description: PARTIAL - Medium and inoculum changes constrain the observed P. putida overgrowth and enable measurable
+      four-member PET degradation. The optimized consortium response is experimentally supported, but durable population
+      stability and the separate mediation of each nutrient adjustment were not demonstrated.
   evidence:
   - reference: PMID:35003008
     supports: SUPPORT
@@ -309,14 +322,15 @@ ecological_interactions:
   - reference: PMID:35003008
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: obtaining a four-species microbial consortium
-    explanation: Supports medium choice as a way to stabilize the four-member consortium.
-- name: Four-Species PET Film Degradation
-  description: >-
-    The complete Bs_PETase, Bs_MHETase, Rhodococcus jostii, and Pseudomonas putida
-    consortium hydrolyzes PET and then consumes the TPA and EG hydrolysis products,
-    reaching 23.2% PET film weight loss under the optimized Wn-medium condition.
-  interaction_type: NICHE_PARTITIONING
+    snippet: only P. putida was found.
+    explanation: Describes the 24 h recoverable-growth assay in rich media, not long-term extinction or stable Wn
+      composition.
+- name: Four-Member PET Film Degradation
+  description: 'The four-member consortium contains two engineered B. subtilis strains, R. jostii RHA1 and P. putida
+    KT2440: three species, not four. Optimized Wn conditions at 37 C and starting ratio 3:1:10:10^-5 produced 23.2%
+    PET-film weight loss in 7 days. The same-medium comparison supports improved degradation over the two-member
+    module, while the three-member LB consortium achieved 31.2%. Weight loss and metabolite assays do not establish
+    complete carbon mineralization or absence of every intermediate.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacillus subtilis 168 Bs_PETase
@@ -357,9 +371,13 @@ ecological_interactions:
   - reference: PMID:35003008
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: With the four-species consortium, the weight loss of PET film reached 23.2% under
-      ambient temperature.
-    explanation: Supports the endpoint PET-film degradation by the complete four-member consortium.
+    snippet: The most suitable temperature was 37°C
+    explanation: Main text specifies the optimized four-member condition rather than an unspecified ambient temperature.
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a degradation rate of 23.2 ± 2.3%.
+    explanation: Quantifies optimized seven-day film weight loss, not total mineralization.
 cultivation_setup:
 - cultivation_mode: FED_BATCH
   working_volume: 20.0
@@ -559,3 +577,36 @@ related_ingredients:
     snippet: TPA, EG and the TPA/EG combination also inhibited degradation of BHET
     explanation: Names BHET as a substrate whose degradation is inhibited by TPA and EG.
 metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: pet-module-mediation-and-material-balance
+  prompt: How much of four-member PET degradation is mediated by each product-utilization module under matched medium
+    and inoculum conditions?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#PETase-MHETase Depolymerization Module
+  - ecological_interactions#Rhodococcus TPA Detoxification Module
+  - ecological_interactions#Pseudomonas EG Detoxification Module
+  - ecological_interactions#Nutrient-Mediated Competition Control
+  - ecological_interactions#Four-Member PET Film Degradation
+  rationale: Five existing arrows remain as supported biochemical links or bounded contribution inferences. Preserve
+    inhibition perturbations, standalone consumption and film degradation; distinguish BHET from PET, the abstract
+    timing error, rich versus Wn media and transient TPA. Mineralization, durable coexistence and isolated EG-mediated
+    improvement need additional evidence.
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After 7 days, 31.2 ± 2.2% of PET was degraded by the three-species microbial consortium
+    explanation: Results timing and endpoint supersede the conflicting three-day abstract wording.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-07T05:33:25Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve complementary extracellular hydrolysis and both product-supply arrows without Bacillus nutrient-uptake
+    claims.; Replace misassigned film evidence with direct TPA consumption and correct Results timing.; Preserve
+    EG utilization while separating BHET nonaccumulation, PET intermediates and partial mediation.; Preserve experimental
+    medium/inoculum control without long-term coexistence claims.; Preserve23.2%seven-day optimized37C film loss
+    and correct four-member versus three-species scope. Issue #1661; reports/causal_graph_review/decisions/20261007-four-records-batch80.yaml'
+  llm_assisted: true
