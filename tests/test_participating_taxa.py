@@ -396,6 +396,7 @@ USERS = {
     "SPRUCE_Peatland_Warming_Community.yaml",
     "Saccharomyces_Acinetobacter_Lignocellulose_Detox_Coculture.yaml",
     "Saccharomyces_Met14_Trp4_FLO1_Resveratrol_Coculture.yaml",
+    "Salar_Atacama_Lithium_Brine_Community.yaml",
     "Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml",
     "Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml",
     "Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml",

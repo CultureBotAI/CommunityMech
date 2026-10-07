@@ -1125,3 +1125,21 @@ replicate. Caches and non-graph blocks remain unchanged, not recertified.
 No new topology or provider spend. Repairs #1778-#1781 await protected-main
 merge; non-graph #1782 and ontology #463 remain open. Self-review is not
 independent approval or corpus completion.
+
+## Batch99: Resource Loops And Claim Scope
+
+[Decisions](decisions/20261007-four-records-batch99.yaml),
+[validation](validation-20261007-batch99.json),
+[cache provenance](cache-provenance-20261007-batch99.json) and
+[self-adversarial review](adversarial-review-20261007-batch99.yaml) cover the
+yeast-alga mutualism, resveratrol yeast coculture, Atacama brine and sclerotia
+biocontrol community. Nine of fourteen nodes and four of six directions remain.
+Reciprocal resource dependence and measured treatment outcomes remain, with
+unisolated mediation distinguished from direct causal evidence. Unsupported
+oxygen-benefit and brine metabolic claims are removed. Spatial timing does not
+establish niche partitioning; dropout contribution is not universal necessity.
+Two accepted-manuscript quotations have explicit final-version wording checks.
+Caches and non-graph blocks are unchanged, not recertified. No new topology,
+experimental instructions or provider spend. Repairs #1784-#1787 await protected
+main merge; non-graph #1788, cache provenance #1789 and re-evidencing #765 stay
+open. Self-review is not independent approval or corpus completion.

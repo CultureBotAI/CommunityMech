@@ -104,7 +104,8 @@ def test_most_records_carry_a_community_level_interaction(survey):
     """The rule's reach. #312 measured 156; ongoing curation reached 381."""
     # #1772-#1774 separate host/community outcomes in three previously pairwise records.
     # Census: 399 -> 402; exactly named participants, no extra solely-credited taxa.
-    assert 130 <= survey["with_community_level"] <= 402, survey
+    # #1786 re-scopes Atacama's six-member subset as a community profile (402 -> 403).
+    assert 130 <= survey["with_community_level"] <= 403, survey
 
 
 def test_the_mixed_records_are_where_the_coarseness_bites(survey):

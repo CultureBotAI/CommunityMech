@@ -175,10 +175,10 @@ related_ingredients:
     explanation: Supports resveratrol as the target product of the FLO1 coculture.
 ecological_interactions:
 - name: Met-Trp4 Coauxotrophic Cross-Feeding
-  description: >-
-    The two engineered S. cerevisiae auxotrophs require one another for growth
-    in SM medium; the Met-Trp4 pair couples a met14-deficient cell-1 lineage
-    with a trp4-deficient cell-2 lineage in a defined cross-feeding coculture.
+  description: The Met-Trp4 coauxotrophic yeast pair forms a mutually dependent growth system in the tested medium
+    lacking the complementary required nutrients. This growth relationship is distinct from the resveratrol pathway
+    handoff and does not by itself establish enhanced product titer or unconditional dependence in supplemented
+    environments.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -194,17 +194,14 @@ ecological_interactions:
   - reference: PMID:41491832
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      two auxotrophic cells, cell 1 and cell 2, must be present simultaneously
-      to form cross-feeding for growth
-    explanation: >-
-      Supports the mutual dependence of the engineered two-member auxotrophic
-      yeast cocultures.
+    snippet: two auxotrophic cells, cell 1 and cell 2, must be present simultaneously to form cross-feeding for
+      growth
+    explanation: Supports the mutual dependence of the engineered two-member auxotrophic yeast cocultures.
 - name: Resveratrol Pathway Division of Labor
-  description: >-
-    The met14 cell-1 partner runs module A to convert L-tyrosine into the
-    p-coumaric acid intermediate, which is then routed to the trp4 cell-2
-    partner carrying module B for conversion into resveratrol.
+  description: The existing met14 module-A and trp4 module-B partners divide the resveratrol pathway around p-coumaric
+    acid. The reported module assignment and product/intermediate measurements support the intended metabolic handoff,
+    but do not directly quantify intercellular transfer flux or show that it alone explains the FLO1-associated
+    production increment.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -224,27 +221,23 @@ ecological_interactions:
       label: trans-4-coumaric acid
   downstream:
   - target: FLO1 Adhesion-Enhanced Resveratrol Production
-    description: >-
-      The divided module A/module B pathway supplies the p-coumaric-acid
-      handoff used by the FLO1 Met-Trp4 A-B bioproduction coculture.
+    description: 'PARTIAL: the divided pathway supplies the precursor-to-product route in the tested FLO1 coculture,
+      enabling resveratrol synthesis. It does not independently explain the increase over the no-FLO1 control; adhesion-dependent
+      transfer efficiency was not isolated as the mediator.'
   evidence:
   - reference: PMID:41491832
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Module A contained FjTAL, catalyzing L-tyrosine to p-coumaric acid, while
-      module B contained At4CL and VvVST1, converting p-coumaric acid to
-      resveratrol
-    explanation: >-
-      Supports the module A to module B p-coumaric-acid handoff in the divided
-      resveratrol pathway.
+    snippet: Module A contained FjTAL, catalyzing L-tyrosine to p-coumaric acid, while module B contained At4CL
+      and VvVST1, converting p-coumaric acid to resveratrol
+    explanation: Supports the assigned two-module pathway and intended precursor handoff, not a directly measured
+      intercellular flux or isolated cause of the FLO1 increment.
 - name: FLO1 Adhesion-Enhanced Resveratrol Production
-  description: >-
-    Adding the FLO1 adhesion system to the Met-Trp4 A-B division-of-labor
-    coculture increased resveratrol production compared with the no-FLO1
-    Met-Trp4 A-B coculture, the corresponding FLO1 noncross-feeding control,
-    and the full-pathway monoculture control.
-  interaction_type: MUTUALISM
+  description: The tested Met-Trp4 A-B:FLO1 coculture produced more resveratrol than its no-FLO1 counterpart, the
+    corresponding FLO1 noncross-feeding control and the full-pathway monoculture. This is an aggregate production
+    endpoint, not by itself a mutualistic fitness measurement. The higher titer co-occurred with precursor accumulation
+    and lower biomass in this configuration; it does not establish more efficient precursor conversion or a universal
+    benefit of adhesion across yeast pairs.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Saccharomyces cerevisiae 007 met14 module A FLO1 cell 1
@@ -259,21 +252,13 @@ ecological_interactions:
   - reference: PMID:41491832
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Notably, the pair Met-Trp4, in the presence of FLO1, always increased
-      production
-    explanation: >-
-      Supports FLO1 adhesion as beneficial for resveratrol production in the
-      Met-Trp4 background.
+    snippet: Notably, the pair Met-Trp4, in the presence of FLO1, always increased production
+    explanation: Supports FLO1 adhesion as beneficial for resveratrol production in the Met-Trp4 background.
   - reference: PMID:41491832
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Met–Trp4A–B:FLO1 produced 0.67 μM of resveratrol, a 2.47-fold increase
-      compared to Mctrl
-    explanation: >-
-      Quantifies the Met-Trp4 A-B:FLO1 endpoint against the full-pathway
-      monoculture control.
+    snippet: Met–Trp4A–B:FLO1 produced 0.67 μM of resveratrol, a 2.47-fold increase compared to Mctrl
+    explanation: Quantifies the Met-Trp4 A-B:FLO1 endpoint against the full-pathway monoculture control.
 growth_media:
 - name: SM medium
   temperature: '30'
@@ -363,18 +348,41 @@ curation_history:
 - timestamp: '2026-09-27T03:08:31Z'
   curator: codex
   action: CREATE_YEAST_ADHESION_RESVERATROL_COCULTURE
-  changes: >-
-    Created CommunityMech:000445 from PMID:41491832 and DOI
-    10.1038/s41589-025-02081-1 with evidence-backed Met-Trp4 FLO1 S.
-    cerevisiae membership, FjTAL/At4CL/VvVST1 resveratrol pathway division of
-    labor, coauxotrophic cross-feeding, FLO1 adhesion enhancement, SM medium,
-    and microplate bioproduction conditions.
+  changes: Created CommunityMech:000445 from PMID:41491832 and DOI 10.1038/s41589-025-02081-1 with evidence-backed
+    Met-Trp4 FLO1 S. cerevisiae membership, FjTAL/At4CL/VvVST1 resveratrol pathway division of labor, coauxotrophic
+    cross-feeding, FLO1 adhesion enhancement, SM medium, and microplate bioproduction conditions.
   llm_assisted: true
 - timestamp: '2026-10-02T06:15:13Z'
   curator: codex
   action: REVIEW_CAUSAL_GRAPH
-  changes: Removed the Met-Trp4 coauxotrophic cross-feeding to
-    FLO1-enhanced-resveratrol edge because it described an auxotrophic test
-    background rather than the divided-pathway cause of the FLO1 production
-    endpoint.
+  changes: Removed the Met-Trp4 coauxotrophic cross-feeding to FLO1-enhanced-resveratrol edge because it described
+    an auxotrophic test background rather than the divided-pathway cause of the FLO1 production endpoint.
   llm_assisted: true
+- timestamp: '2026-10-07T20:37:42Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain condition-dependent coauxotrophic mutualism, distinct from product formation.; Retain the intended
+    divided-pathway handoff and PARTIAL production direction without direct flux certainty.; Retain the measured
+    titer comparison without assigning mutualism or conversion-efficiency benefit to the aggregate endpoint. Issue#1785;
+    reports/causal_graph_review/decisions/20261007-four-records-batch99.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: resveratrol_graph_evidence_scope
+  prompt: How much of the FLO1-associated titer increment is mediated by intercellular precursor transfer?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The production comparison and coauxotrophic mutualism are supported, but neither an endpoint titer
+    nor pathway assignment independently measures transfer efficiency or reciprocal fitness. The source explicitly
+    leaves aggregate morphology and metabolic exchange for further study. Preserve the one existing direction as
+    PARTIAL, without restoring the previously removed growth-background arrow.
+  evidence:
+  - reference: PMID:41491832
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Systematic investigation of aggregate morphology and its impact on metabolic exchange represents an
+      important direction for future research
+    explanation: The authors distinguish their demonstrated production endpoint from unresolved exchange mechanisms.
+  attaches_to:
+  - ecological_interactions#Met-Trp4 Coauxotrophic Cross-Feeding
+  - ecological_interactions#Resveratrol Pathway Division of Labor
+  - ecological_interactions#FLO1 Adhesion-Enhanced Resveratrol Production
