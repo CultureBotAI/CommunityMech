@@ -393,6 +393,8 @@ USERS = {
     "SMutans_SSputigena_ECC_Pathobiont.yaml",
     "SMutans_VParvula_ASC_Biofilm.yaml",
     "SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
+    "SPRUCE_Peatland_Warming_Community.yaml",
+    "Saccharomyces_Acinetobacter_Lignocellulose_Detox_Coculture.yaml",
     "Saccharomyces_Met14_Trp4_FLO1_Resveratrol_Coculture.yaml",
     "Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml",
     "Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml",

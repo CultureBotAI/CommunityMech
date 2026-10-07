@@ -1109,3 +1109,19 @@ append-only correction histories. Caches and non-graph blocks are unchanged.
 No new topology, experimental instructions or provider spend. Repairs
 #1772-#1775 await protected-main merge; non-graph #1776 remains open.
 Self-review is not independent approval or corpus completion.
+
+## Batch98: Profiles, Predictions And Process Outcomes
+
+[Decisions](decisions/20261007-four-records-batch98.yaml),
+[validation](validation-20261007-batch98.json),
+[cache provenance](cache-provenance-20261007-batch98.json) and
+[self-adversarial review](adversarial-review-20261007-batch98.yaml) cover
+both SPRUCE graphs, Saanich Inlet and the yeast-Acinetobacter detoxification
+coculture. All 13 nodes and eight directions remain. Metabolic potential,
+root-trait associations, predicted viral hosts and calibrated model transfers
+are distinguished from directly measured mechanisms. The positive coculture
+productivity result remains, with wax-ester quantification limited to one
+replicate. Caches and non-graph blocks remain unchanged, not recertified.
+No new topology or provider spend. Repairs #1778-#1781 await protected-main
+merge; non-graph #1782 and ontology #463 remain open. Self-review is not
+independent approval or corpus completion.
