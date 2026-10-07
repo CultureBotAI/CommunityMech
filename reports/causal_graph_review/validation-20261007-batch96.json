@@ -1,0 +1,1589 @@
+{
+  "base_commit": "69727bed5e54f9de9d60323de0fb5879ae18c509",
+  "scope": [
+    "kb/communities/Rifle_Uranium_Reducing_Community.yaml",
+    "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml",
+    "kb/communities/SF356_Cellulose_Degrader.yaml",
+    "kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml"
+  ],
+  "results": [
+    {
+      "check": "focused",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_causal_review_batch96.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/focused.log",
+      "log_sha256": "f5af5078494ab6d944835b68cfe0fb05d341d7d87956d4b7591ecaeb1e1be936",
+      "output_tail": "........                                                                 [100%]\n8 passed in 2.13s\n"
+    },
+    {
+      "check": "Rifle_Uranium_Reducing_Community-schema",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Rifle_Uranium_Reducing_Community.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/Rifle_Uranium_Reducing_Community-schema.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "Rifle_Uranium_Reducing_Community-strict",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "/private/tmp/communitymech-batch96/Rifle_Uranium_Reducing_Community-strict.tsv",
+        "kb/communities/Rifle_Uranium_Reducing_Community.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/Rifle_Uranium_Reducing_Community-strict.log",
+      "log_sha256": "5fb7b3a255f33a7138a38dc961b2f059103da9ec3e6ccdefccb8807199d6a57d",
+      "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch96/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch96/Rifle_Uranium_Reducing_Community-strict.tsv\n"
+    },
+    {
+      "check": "Rifle_Uranium_Reducing_Community-terms",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+        "validate-data",
+        "kb/communities/Rifle_Uranium_Reducing_Community.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/Rifle_Uranium_Reducing_Community-terms.log",
+      "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+      "output_tail": "\u2705 Validation passed\n"
+    },
+    {
+      "check": "Rifle_Uranium_Reducing_Community-references",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Rifle_Uranium_Reducing_Community.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/Rifle_Uranium_Reducing_Community-references.log",
+      "log_sha256": "bc6a5e6879eefb6f509334fe6ad5ba8a38c5b9b4f8743766fd2de1c7c65f0eec",
+      "output_tail": "Validating kb/communities/Rifle_Uranium_Reducing_Community.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "explained_output_tail": "Validating kb/communities/Rifle_Uranium_Reducing_Community.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "check": "Rifle_Uranium_Reducing_Community-snippets",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Rifle_Uranium_Reducing_Community.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/Rifle_Uranium_Reducing_Community-snippets.log",
+      "log_sha256": "e8fe5a6250456e2c30f1d505e351e747d7545f77929e05a8d20e9212e652c822",
+      "output_tail": "# 30 evidence snippets scanned across 1 files\n  MATCH      30\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n"
+    },
+    {
+      "check": "Rifle_Uranium_Reducing_Community-rank",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Rifle_Uranium_Reducing_Community.yaml",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/Rifle_Uranium_Reducing_Community-rank.log",
+      "log_sha256": "c87ec5d490392d34f22a235385627061e44f8f92f34956305895983aa7bd0820",
+      "output_tail": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000060\",\n    \"name\": \"Rifle Uranium-Reducing Community\",\n    \"score\": 88.8,\n    \"taxonomy\": 5,\n    \"connected_taxa\": 5,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 4,\n    \"downstream_edges\": 2,\n    \"interaction_evidence\": 6,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"metabolites_or_biological_processes\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Rifle_Uranium_Reducing_Community.yaml\"\n  }\n]\n"
+    },
+    {
+      "check": "Rifle_Uranium_Reducing_Community-history-0",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Rifle_Uranium_Reducing_Community/2026-10-07T175405Z-codex-c93b49.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/Rifle_Uranium_Reducing_Community-history-0.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-schema",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-schema.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-strict",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "/private/tmp/communitymech-batch96/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-strict.tsv",
+        "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-strict.log",
+      "log_sha256": "5e202573e55ebf2f706b21ef132da551f9e127ea610d579cca4bce3815a3abec",
+      "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch96/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch96/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-strict.tsv\n"
+    },
+    {
+      "check": "Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-terms",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+        "validate-data",
+        "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-terms.log",
+      "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+      "output_tail": "\u2705 Validation passed\n"
+    },
+    {
+      "check": "Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-references",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-references.log",
+      "log_sha256": "ae67f2b62ff00ce5cf243e16603df71cf5981d10d5419d7fff3e06e2e7508f70",
+      "output_tail": "Validating kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "explained_output_tail": "Validating kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "check": "Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-snippets",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-snippets.log",
+      "log_sha256": "1c9990014dd9f6bed49afe23f3bde6f02654b79d56ea866deb0fba96af74c6f6",
+      "output_tail": "# 42 evidence snippets scanned across 1 files\n  MATCH      42\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n"
+    },
+    {
+      "check": "Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-rank",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-rank.log",
+      "log_sha256": "ebbb2f9051c2c1b0bb56581a7f23aed8880307d320f4b80b814f693c6e4cbab5",
+      "output_tail": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000389\",\n    \"name\": \"Rumen Substrate-Adapted Lignocellulose Enrichment Consortia\",\n    \"score\": 80.0,\n    \"taxonomy\": 15,\n    \"connected_taxa\": 15,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 3,\n    \"downstream_edges\": 1,\n    \"interaction_evidence\": 6,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"additional_downstream\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml\"\n  }\n]\n"
+    },
+    {
+      "check": "Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-history-0",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia/2026-10-07T175406Z-codex-c1b021.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-history-0.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "SF356_Cellulose_Degrader-schema",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/SF356_Cellulose_Degrader.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SF356_Cellulose_Degrader-schema.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "SF356_Cellulose_Degrader-strict",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "/private/tmp/communitymech-batch96/SF356_Cellulose_Degrader-strict.tsv",
+        "kb/communities/SF356_Cellulose_Degrader.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SF356_Cellulose_Degrader-strict.log",
+      "log_sha256": "ff6b9a31958466f62978be33bfce47c5531d850e11df1d2eef687a416420a63b",
+      "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch96/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch96/SF356_Cellulose_Degrader-strict.tsv\n"
+    },
+    {
+      "check": "SF356_Cellulose_Degrader-terms",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+        "validate-data",
+        "kb/communities/SF356_Cellulose_Degrader.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SF356_Cellulose_Degrader-terms.log",
+      "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+      "output_tail": "\u2705 Validation passed\n"
+    },
+    {
+      "check": "SF356_Cellulose_Degrader-references",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/SF356_Cellulose_Degrader.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SF356_Cellulose_Degrader-references.log",
+      "log_sha256": "86462a92666476613e38c6682249801fdaf2d1fee5b88b35aecb87dc2e02ed7a",
+      "output_tail": "Validating kb/communities/SF356_Cellulose_Degrader.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "explained_output_tail": "Validating kb/communities/SF356_Cellulose_Degrader.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "check": "SF356_Cellulose_Degrader-snippets",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/SF356_Cellulose_Degrader.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SF356_Cellulose_Degrader-snippets.log",
+      "log_sha256": "5f0e8a5be45b94195ee5599498c60e06ff8db089c85d0bf23969aa37351ca96e",
+      "output_tail": "# 17 evidence snippets scanned across 1 files\n  MATCH      17\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n"
+    },
+    {
+      "check": "SF356_Cellulose_Degrader-rank",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/SF356_Cellulose_Degrader.yaml",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SF356_Cellulose_Degrader-rank.log",
+      "log_sha256": "4391a8b03369502a279c885ab26827d46ebe735ebc352e47dbcae304224b6522",
+      "output_tail": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000061\",\n    \"name\": \"SF356 Thermophilic Cellulose-Degrading Community\",\n    \"score\": 95.0,\n    \"taxonomy\": 5,\n    \"connected_taxa\": 5,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 4,\n    \"downstream_edges\": 3,\n    \"interaction_evidence\": 4,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/SF356_Cellulose_Degrader.yaml\"\n  }\n]\n"
+    },
+    {
+      "check": "SF356_Cellulose_Degrader-history-0",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/SF356_Cellulose_Degrader/2026-10-07T175406Z-codex-a8a03e.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SF356_Cellulose_Degrader-history-0.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "SF356_Cellulose_Degrader-history-1",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/SF356_Cellulose_Degrader/2026-10-07T180340Z-codex-26309a.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SF356_Cellulose_Degrader-history-1.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "SIHUMIx_Human_Intestinal_Model_Community-schema",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SIHUMIx_Human_Intestinal_Model_Community-schema.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "SIHUMIx_Human_Intestinal_Model_Community-strict",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "/private/tmp/communitymech-batch96/SIHUMIx_Human_Intestinal_Model_Community-strict.tsv",
+        "kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SIHUMIx_Human_Intestinal_Model_Community-strict.log",
+      "log_sha256": "c915dfd9b31d688f6359c5d23648d5fcd58a92ea355d2eaeda7eac8ece6d2d69",
+      "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch96/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch96/SIHUMIx_Human_Intestinal_Model_Community-strict.tsv\n"
+    },
+    {
+      "check": "SIHUMIx_Human_Intestinal_Model_Community-terms",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+        "validate-data",
+        "kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SIHUMIx_Human_Intestinal_Model_Community-terms.log",
+      "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+      "output_tail": "\u2705 Validation passed\n"
+    },
+    {
+      "check": "SIHUMIx_Human_Intestinal_Model_Community-references",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SIHUMIx_Human_Intestinal_Model_Community-references.log",
+      "log_sha256": "9e46f3ef0525fa3a8b1cd97d065b0b7e16734e2461755e8c53ff7f75f6d1bcd8",
+      "output_tail": "Validating kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "explained_output_tail": "Validating kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "check": "SIHUMIx_Human_Intestinal_Model_Community-snippets",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SIHUMIx_Human_Intestinal_Model_Community-snippets.log",
+      "log_sha256": "4840e2de4e260572822d66750868f711a6cff9ac07dd8055c04fa45aaf319445",
+      "output_tail": "# 29 evidence snippets scanned across 1 files\n  MATCH      29\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n"
+    },
+    {
+      "check": "SIHUMIx_Human_Intestinal_Model_Community-rank",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SIHUMIx_Human_Intestinal_Model_Community-rank.log",
+      "log_sha256": "ab70a603e28c21a907be65fea391bc9073b0b9c16d4bd316747a9c3dd71b017b",
+      "output_tail": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000080\",\n    \"name\": \"SIHUMIx Human Intestinal Model Community\",\n    \"score\": 68.3,\n    \"taxonomy\": 8,\n    \"connected_taxa\": 8,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 3,\n    \"downstream_edges\": 0,\n    \"interaction_evidence\": 4,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"downstream\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml\"\n  }\n]\n"
+    },
+    {
+      "check": "SIHUMIx_Human_Intestinal_Model_Community-history-0",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/SIHUMIx_Human_Intestinal_Model_Community/2026-10-07T175406Z-codex-47e42a.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/SIHUMIx_Human_Intestinal_Model_Community-history-0.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "inventory",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "reports/causal_graph_review/build_inventory.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/inventory.log",
+      "log_sha256": "adb8c469d6b32d9690d81f187930ed18e4a60ba9ebb95ec51fe87d60d5b931ed",
+      "output_tail": "{\n  \"scope\": \"Every YAML under kb/communities and data/isolates; filesystem discovery includes hidden/ignored files.\",\n  \"semantic_review_rule\": \"Structural checks and readiness scores do not establish causal support. Completed reviews must match the current record SHA-256, cover every node once with a rationale, and reproduce the current edge list.\",\n  \"records\": 460,\n  \"nodes\": 1410,\n  \"edges\": 572,\n  \"records_without_nodes\": 8,\n  \"records_without_edges\": 175,\n  \"review_status_counts\": {\n    \"needs_research\": 48,\n    \"pending\": 112,\n    \"reviewed\": 300\n  },\n  \"structural_defects\": []\n}\n"
+    },
+    {
+      "check": "network",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "communitymech.cli",
+        "audit-network",
+        "--json"
+      ],
+      "exit_code": 1,
+      "expected_exit_codes": [
+        1
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/network.log",
+      "log_sha256": "8febc2a966f5c2b51cd59095a8877c8773cd1e9383e5214bcdc3832c5858c097",
+      "output_tail": "      \"total_genomes\": 17191,\n            \"is_reclassified\": false,\n            \"mapping_source\": \"kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)\"\n          },\n          \"notes\": \"The eLife panel denotes this P. aeruginosa mutant as strain 5; represented at species level for ontology stability.\"\n        },\n        \"strain_designation\": {\n          \"strain_name\": \"mexZ\"\n        },\n        \"abundance_value\": \"Full-factorial SynCom panel member 5\",\n        \"evidence\": [\n          {\n            \"reference\": \"PMID:42153623\",\n            \"supports\": \"SUPPORT\",\n            \"evidence_source\": \"IN_VITRO\",\n            \"snippet\": \"Strains 1\\u20138 (as labeled in the main text) correspond, in order, to mutants pAOV, PA14, NfxB, ParR- CAZ, mexZ, OrfN, NfxB- CAZ, and MDR6- CAZ\",\n            \"explanation\": \"Maps the source's strain numbers to the eight P. aeruginosa mutant labels.\"\n          }\n        ]\n      },\n      \"message\": \"Taxon 'Pseudomonas aeruginosa mexZ' has no interactions\"\n    }\n  ],\n  \"Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom\": [\n    {\n      \"type\": \"UNKNOWN_TARGET\",\n      \"interaction\": \"Twelve-Strain SynCom Suppression of Sclerotinia Sclerotia\",\n      \"interaction_index\": 0,\n      \"taxon\": \"Sclerotinia sclerotiorum\",\n      \"severity\": \"warning\",\n      \"message\": \"Target taxon 'Sclerotinia sclerotiorum' not found in taxonomy section (community-level scope)\"\n    },\n    {\n      \"type\": \"UNKNOWN_TARGET\",\n      \"interaction\": \"Trinickia MC Key Contribution to Sclerotia Mortality\",\n      \"interaction_index\": 1,\n      \"taxon\": \"Sclerotinia sclerotiorum\",\n      \"severity\": \"warning\",\n      \"message\": \"Target taxon 'Sclerotinia sclerotiorum' not found in taxonomy section (community-level scope)\"\n    }\n  ],\n  \"Space_Habitat_SevenMember_Stress_Tolerance_SynCom\": [\n    {\n      \"type\": \"DISCONNECTED\",\n      \"taxon\": \"Acinetobacter radioresistens 50V1\",\n      \"taxon_id\": \"NCBITaxon:40216\",\n      \"taxon_data\": {\n        \"taxon_term\": {\n          \"preferred_term\": \"Acinetobacter radioresistens 50V1\",\n          \"term\": {\n            \"id\": \"NCBITaxon:40216\",\n            \"label\": \"Acinetobacter radioresistens\"\n          },\n          \"gtdb_grounding_status\": \"UNRESOLVED\",\n          \"notes\": \"The isolate came from the preflight Mars Odyssey Orbiter; ontology grounding is at species level.\"\n        },\n        \"strain_designation\": {\n          \"strain_name\": \"50V1\",\n          \"genome_accession\": \"GCA_002834555.1\"\n        },\n        \"evidence\": [\n          {\n            \"reference\": \"PMID:42577390\",\n            \"supports\": \"SUPPORT\",\n            \"evidence_source\": \"IN_VITRO\",\n            \"snippet\": \"Acinetobacter radioresistens | 50V1 | Preflight Mars Odyssey Orbiter | \\u2013 | Mccoy et al., 2012 | GCA_002834555.1 | TSYB/TSYA | 37 \\u00b0C | 16\\u201318 h\",\n            \"explanation\": \"Identifies A. radioresistens 50V1 as a consortium member and gives its spacecraft-associated source, genome accession and cultivation conditions.\"\n          }\n        ]\n      },\n      \"message\": \"Taxon 'Acinetobacter radioresistens 50V1' has no interactions\"\n    },\n    {\n      \"type\": \"DISCONNECTED\",\n      \"taxon\": \"Micrococcus luteus W4-Al-K1\",\n      \"taxon_id\": \"NCBITaxon:1270\",\n      \"taxon_data\": {\n        \"taxon_term\": {\n          \"preferred_term\": \"Micrococcus luteus W4-Al-K1\",\n          \"term\": {\n            \"id\": \"NCBITaxon:1270\",\n            \"label\": \"Micrococcus luteus\"\n          },\n          \"gtdb_grounding_status\": \"UNRESOLVED\",\n          \"notes\": \"The isolate was recovered from an ISS aluminum-case touch array; ontology grounding is at species level.\"\n        },\n        \"strain_designation\": {\n          \"strain_name\": \"W4-Al-K1\",\n          \"genome_accession\": \"GCA_057816565.1\"\n        },\n        \"evidence\": [\n          {\n            \"reference\": \"PMID:42577390\",\n            \"supports\": \"SUPPORT\",\n            \"evidence_source\": \"IN_VITRO\",\n            \"snippet\": \"Micrococcus luteus | W4-Al-K1 | ISS, Touch Array Aluminum Case | - | Kr\\u00e4mer et al., 2025 | GCA_057816565.1 | NB, TSYB/TSYA | 37 \\u00b0C | 24 h\",\n            \"explanation\": \"Identifies M. luteus W4-Al-K1 as a consortium member and gives its ISS source, genome accession and cultivation conditions.\"\n          }\n        ]\n      },\n      \"message\": \"Taxon 'Micrococcus luteus W4-Al-K1' has no interactions\"\n    },\n    {\n      \"type\": \"DISCONNECTED\",\n      \"taxon\": \"Propionibacterium cyclohexanicum TA-12T\",\n      \"taxon_id\": \"NCBITaxon:64702\",\n      \"taxon_data\": {\n        \"taxon_term\": {\n          \"preferred_term\": \"Propionibacterium cyclohexanicum TA-12T\",\n          \"term\": {\n            \"id\": \"NCBITaxon:64702\",\n            \"label\": \"Propionibacterium cyclohexanicum\"\n          },\n          \"gtdb_grounding_status\": \"UNRESOLVED\",\n          \"notes\": \"The source used the P. cyclohexanicum type strain as a biosafety-level-1 representative.\"\n        },\n        \"strain_designation\": {\n          \"strain_name\": \"TA-12T\",\n          \"genome_accession\": \"GCA_900111365\",\n          \"culture_collections\": [\n            {\n              \"collection\": \"DSM\",\n              \"accession\": \"16859\"\n            }\n          ]\n        },\n        \"evidence\": [\n          {\n            \"reference\": \"PMID:42577390\",\n            \"supports\": \"SUPPORT\",\n            \"evidence_source\": \"IN_VITRO\",\n            \"snippet\": \"Propionibacterium cyclohexanicum | TA-12 T | Spoilt Orange Juice | DSM 16859 T | Kusano et al., 1997 | GCA_900111365 | BHI, TSYB/TSYA | 37 \\u00b0C | 24 h\",\n            \"explanation\": \"Identifies P. cyclohexanicum TA-12T as a consortium member and gives its source, DSM number, genome accession and cultivation conditions.\"\n          }\n        ]\n      },\n      \"message\": \"Taxon 'Propionibacterium cyclohexanicum TA-12T' has no interactions\"\n    },\n    {\n      \"type\": \"DISCONNECTED\",\n      \"taxon\": \"Pseudomonas antarctica CMS 35T\",\n      \"taxon_id\": \"NCBITaxon:219572\",\n      \"taxon_data\": {\n        \"taxon_term\": {\n          \"preferred_term\": \"Pseudomonas antarctica CMS 35T\",\n          \"term\": {\n            \"id\": \"NCBITaxon:219572\",\n            \"label\": \"Pseudomonas antarctica\"\n          },\n          \"gtdb_grounding_status\": \"UNRESOLVED\",\n          \"notes\": \"The source used the P. antarctica type strain as a biosafety-level-1 Pseudomonas surrogate.\"\n        },\n        \"strain_designation\": {\n          \"strain_name\": \"CMS 35T\",\n          \"genome_accession\": \"GCA_010634845\",\n          \"culture_collections\": [\n            {\n              \"collection\": \"DSM\",\n              \"accession\": \"15318\"\n            }\n          ]\n        },\n        \"evidence\": [\n          {\n            \"reference\": \"PMID:42577390\",\n            \"supports\": \"SUPPORT\",\n            \"evidence_source\": \"IN_VITRO\",\n            \"snippet\": \"Pseudomonas antarctica | CMS 35 T | Antarctica | DSM 15318 T | Reddy et al., 2004 | GCA_010634845 | TSYB/TSYA | Ambient | 12\\u201316 h\",\n            \"explanation\": \"Identifies P. antarctica CMS 35T as a consortium member and gives its source, DSM number, genome accession and cultivation conditions.\"\n          }\n        ]\n      },\n      \"message\": \"Taxon 'Pseudomonas antarctica CMS 35T' has no interactions\"\n    },\n    {\n      \"type\": \"DISCONNECTED\",\n      \"taxon\": \"Staphylococcus capitis K1-2-2-23\",\n      \"taxon_id\": \"NCBITaxon:29388\",\n      \"taxon_data\": {\n        \"taxon_term\": {\n          \"preferred_term\": \"Staphylococcus capitis K1-2-2-23\",\n          \"term\": {\n            \"id\": \"NCBITaxon:29388\",\n            \"label\": \"Staphylococcus capitis\"\n          },\n          \"gtdb_grounding_status\": \"UNRESOLVED\",\n          \"notes\": \"The isolate was recovered from ISS V2A steel; ontology grounding is at species level.\"\n        },\n        \"strain_designation\": {\n          \"strain_name\": \"K1-2-2-23\",\n          \"genome_accession\": \"GCA_025272695\",\n          \"culture_collections\": [\n            {\n              \"collection\": \"DSM\",\n              \"accession\": \"111179\"\n            }\n          ]\n        },\n        \"evidence\": [\n          {\n            \"reference\": \"PMID:42577390\",\n            \"supports\": \"SUPPORT\",\n            \"evidence_source\": \"IN_VITRO\",\n            \"snippet\": \"Staphylococcus capitis | K1-2-2-23 | ISS, V2A Steel | DSM 111179 | Sobisch et al., 2019 | GCA_025272695 | TSYB/TSYA | 37 \\u00b0C | 16\\u201324 h\",\n            \"explanation\": \"Identifies S. capitis K1-2-2-23 as a consortium member and gives its source, DSM number, genome accession and cultivation conditions.\"\n          }\n        ]\n      },\n      \"message\": \"Taxon 'Staphylococcus capitis K1-2-2-23' has no interactions\"\n    },\n    {\n      \"type\": \"DISCONNECTED\",\n      \"taxon\": \"Streptococcus halotolerans HTS9T\",\n      \"taxon_id\": \"NCBITaxon:1814128\",\n      \"taxon_data\": {\n        \"taxon_term\": {\n          \"preferred_term\": \"Streptococcus halotolerans HTS9T\",\n          \"term\": {\n            \"id\": \"NCBITaxon:1814128\",\n            \"label\": \"Streptococcus halotolerans\"\n          },\n          \"gtdb_grounding_status\": \"UNRESOLVED\",\n          \"notes\": \"The source used the S. halotolerans type strain as a biosafety-level-1 representative.\"\n        },\n        \"strain_designation\": {\n          \"strain_name\": \"HTS9T\",\n          \"genome_accession\": \"GCA_001598035\",\n          \"culture_collections\": [\n            {\n              \"collection\": \"DSM\",\n              \"accession\": \"101996\"\n            }\n          ]\n        },\n        \"evidence\": [\n          {\n            \"reference\": \"PMID:42577390\",\n            \"supports\": \"SUPPORT\",\n            \"evidence_source\": \"IN_VITRO\",\n            \"snippet\": \"Streptococcus halotolerans | HTS9 T | Respiratory Tract of Marmota himalayana | DSM 101996 T | Niu et al., 2016 | GCA_001598035 | 2xLB, TSYB/TSYA | 37 \\u00b0C | 24 h\",\n            \"explanation\": \"Identifies S. halotolerans HTS9T as a consortium member and gives its source, DSM number, genome accession and cultivation conditions.\"\n          }\n        ]\n      },\n      \"message\": \"Taxon 'Streptococcus halotolerans HTS9T' has no interactions\"\n    }\n  ]\n}\n"
+    },
+    {
+      "check": "just-network-json",
+      "command": [
+        "just",
+        "audit-network-json"
+      ],
+      "exit_code": 2,
+      "expected_exit_codes": [
+        2
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/just-network-json.log",
+      "log_sha256": "8595db43420d3f0a01c57acd6ad733a531a72e962486d20b4e1c2840dda55bff",
+      "output_tail": "uv run communitymech audit-network --json\nerror: Failed to spawn: `communitymech`\n  Caused by: No such file or directory (os error 2)\nerror: recipe `audit-network-json` failed on line 574 with exit code 2\n"
+    },
+    {
+      "check": "rank-all",
+      "command": [
+        "just",
+        "rank-causal-graphs"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/rank-all.log",
+      "log_sha256": "7d368e1a67994e4672975f0c85b84ae8e27adc3feec083455d2ad8851707cf49",
+      "output_tail": "ities/Soybean_N_Fixation_sfSynCom.yaml\tCommunityMech:000064\tSoybean N-Fixation Simplified SynCom\t4\t4\t0\t3\t2\t3\t\t0\t0\n402\t100.0\tkb/communities/Sphingobium_Rhodococcus_Lignin_Dimer_Valorization_Coculture.yaml\tCommunityMech:000267\tSphingobium-Rhodococcus Lignin-Dimer Valorization Coculture\t2\t2\t0\t3\t2\t7\t\t0\t0\n403\t100.0\tkb/communities/Staphylococcus_Candida_Context_Dependent_Biofilm_Coculture.yaml\tCommunityMech:000326\tStaphylococcus-Candida Context-Dependent Biofilm Coculture\t2\t2\t0\t6\t2\t13\t\t0\t0\n404\t100.0\tkb/communities/Stordalen_Mire_Methylotrophic_Methanogenesis_Community.yaml\tCommunityMech:000254\tStordalen Mire Methylotrophic Methanogenesis Community\t3\t3\t0\t4\t4\t9\t\t0\t0\n405\t100.0\tkb/communities/Streptomyces_A2_A5_A11_M7_Pesticide_Consortium.yaml\tCommunityMech:000335\tStreptomyces A2-A5-A11-M7 Pesticide-Bioremediation Consortium\t4\t4\t0\t4\t2\t5\t\t0\t0\n406\t100.0\tkb/communities/Subsurface_Carboxydocella_CO_Aquifer_Community.yaml\tCommunityMech:000251\tSubsurface Carboxydocella CO-Oxidation Aquifer Community\t1\t1\t0\t5\t2\t5\t\t0\t0\n407\t100.0\tkb/communities/Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom.yaml\tCommunityMech:000312\tSuillus clintonianus-Bacillus altitudinis Thiamine Cross-Feeding SynCom\t3\t3\t0\t4\t3\t4\t\t0\t0\n408\t100.0\tkb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml\tCommunityMech:000222\tSulfide Spring Autotrophic CPR-Hosting Biofilm\t3\t3\t0\t3\t2\t4\t\t0\t0\n409\t100.0\tkb/communities/SynComBac10_Chicken_Intestinal_SynCom.yaml\tCommunityMech:000127\tSynComBac10 Chicken Intestinal SynCom\t3\t3\t0\t3\t2\t3\t\t0\t0\n410\t100.0\tkb/communities/SynCom_ARC_Peanut_Aflatoxin_Nodulation.yaml\tCommunityMech:000314\tSynCom ARC Peanut Aflatoxin-Control and Nodulation-Coupling Community\t5\t5\t0\t3\t2\t3\t\t0\t0\n411\t100.0\tkb/communities/SynCom_BsBv_Cigar_Tobacco_Leaf_Fermentation.yaml\tCommunityMech:000278\tSynCom BsBv Cigar Tobacco Leaf Fermentation\t2\t2\t0\t3\t2\t3\t\t0\t0\n412\t100.0\tkb/communities/SynCom_Chlorella_sorokiniana_Biogas_Slurry_Coupling_System.yaml\tCommunityMech:000285\tSynCom + Chlorella sorokiniana Biogas-slurry Coupling System\t2\t2\t0\t5\t3\t5\t\t0\t0\n413\t100.0\tkb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml\tCommunityMech:000302\tSynCom MetG2 Rhizobacteria Sugarcane Stress Resilience\t2\t2\t0\t3\t2\t4\t\t0\t0\n414\t100.0\tkb/communities/SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus.yaml\tCommunityMech:000283\tSesame-flavor Baijiu Fuqu SynCom (13-genus)\t13\t13\t0\t3\t2\t3\t\t0\t0\n415\t100.0\tkb/communities/SynCom_Y_Agrobacterium_Bacillus_Biofilm_Biocontrol_Coculture.yaml\tCommunityMech:000272\tSynCom Y Agrobacterium-Bacillus Biofilm Biocontrol Co-culture\t2\t2\t0\t4\t2\t6\t\t0\t0\n416\t100.0\tkb/communities/Synechococcus_Azotobacter_Photoproduction_Mutualism.yaml\tCommunityMech:000207\tSynechococcus-Azotobacter Photoproduction Mutualism\t2\t2\t0\t3\t2\t6\t\t0\t0\n417\t100.0\tkb/communities/Synechococcus_Bacillus_SPC.yaml\tCommunityMech:000065\tSynechococcus-Bacillus Synthetic Photosynthetic Consortium\t2\t2\t0\t3\t2\t4\t\t0\t0\n418\t100.0\tkb/communities/Synechococcus_Ecoli_SPC.yaml\tCommunityMech:000066\tSynechococcus-E.coli Synthetic Photosynthetic Consortium\t2\t2\t0\t3\t2\t4\t\t0\t0\n419\t100.0\tkb/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml\tCommunityMech:000198\tSynechococcus-Halomonas Light-Driven PHB Coculture\t2\t2\t0\t3\t2\t6\t\t0\t0\n420\t100.0\tkb/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml\tCommunityMech:000167\tSynechococcus-Pseudomonas Phototrophic PHA and DNT Coculture\t2\t2\t0\t4\t2\t8\t\t0\t0\n421\t100.0\tkb/communities/Synechococcus_Saccharomyces_SPC.yaml\tCommunityMech:000067\tSynechococcus-Saccharomyces Synthetic Photosynthetic Consortium\t2\t2\t0\t3\t2\t4\t\t0\t0\n422\t100.0\tkb/communities/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.yaml\tCommunityMech:000211\tSynechococcus-Shewanella D-Lactate Biophotovoltaic Consortium\t2\t2\t0\t3\t2\t6\t\t0\t0\n423\t100.0\tkb/communities/Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.yaml\tCommunityMech:000149\tSynthetic Lichen Synechococcus-Rhodotorula Coculture\t2\t2\t0\t3\t2\t4\t\t0\t0\n424\t100.0\tkb/communities/Syntrophobacter_Methanobacterium_Syntrophy.yaml\tCommunityMech:000068\tSyntrophobacter-Methanobacterium Syntrophic Consortium\t2\t2\t0\t3\t3\t8\t\t0\t0\n425\t100.0\tkb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml\tCommunityMech:000069\tSyntrophobacter-Methanospirillum Syntrophic Consortium\t2\t2\t0\t3\t3\t5\t\t0\t0\n426\t100.0\tkb/communities/Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.yaml\tCommunityMech:000189\tSyntrophomonas-Methanococcus Butyrate Growth Coordination Coculture\t2\t2\t0\t3\t2\t6\t\t0\t0\n427\t100.0\tkb/communities/Syntrophomonas_Methanospirillum_Syntrophy.yaml\tCommunityMech:000070\tSyntrophomonas-Methanospirillum Syntrophic Consortium\t2\t2\t0\t3\t3\t7\t\t0\t0\n428\t100.0\tkb/communities/Syntrophus_Benzoate_Degrader.yaml\tCommunityMech:000071\tSyntrophus Benzoate Degrader\t2\t2\t0\t3\t2\t6\t\t0\t0\n429\t100.0\tkb/communities/Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.yaml\tCommunityMech:000187\tSyntrophus-Methanospirillum Gentianae Benzoate Coculture\t2\t2\t0\t3\t2\t7\t\t0\t0\n430\t100.0\tkb/communities/THOR_Rhizosphere_Model_Community.yaml\tCommunityMech:000079\tTHOR Rhizosphere Model Community\t3\t3\t0\t4\t2\t5\t\t0\t0\n431\t100.0\tkb/communities/TYQ1_Nematode_Biocontrol_SynCom.yaml\tCommunityMech:000072\tTYQ1 Nematode Biocontrol SynCom\t8\t8\t0\t4\t4\t4\t\t0\t0\n432\t100.0\tkb/communities/Teosinte_Maize_Biofertilizer_SynCom7.yaml\tCommunityMech:000100\tTeosinte-Derived Maize Biofertilizer SynCom7\t4\t4\t0\t6\t2\t12\t\t0\t0\n433\t100.0\tkb/communities/Thalassiosira_Marinobacter_Marine_Snow_Coculture.yaml\tCommunityMech:000259\tThalassiosira-Marinobacter Marine Snow Coculture\t2\t2\t0\t4\t2\t10\t\t0\t0\n434\t100.0\tkb/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml\tCommunityMech:000162\tThalassiosira-Ruegeria Phycosphere Coculture\t2\t2\t0\t3\t2\t4\t\t0\t0\n435\t100.0\tkb/communities/Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.yaml\tCommunityMech:000182\tThermacetogenium-Methanothermobacter Acetate Oxidation Coculture\t2\t2\t0\t3\t2\t8\t\t0\t0\n436\t100.0\tkb/communities/Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.yaml\tCommunityMech:000282\tThermophilic Lignocellulose-degrading Composting SynCom\t5\t5\t0\t3\t2\t3\t\t0\t0\n437\t100.0\tkb/communities/Thermophilic_Pyrite_QS_Consortium.yaml\tCommunityMech:000073\tThermophilic Pyrite Quorum Sensing Consortium\t3\t3\t0\t6\t2\t14\t\t0\t0\n438\t100.0\tkb/communities/Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.yaml\tCommunityMech:000186\tThermotoga-Methanocaldococcus Hyperthermophilic Syntrophy\t2\t2\t0\t3\t2\t8\t\t0\t0\n439\t100.0\tkb/communities/Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.yaml\tCommunityMech:000239\tThiocyanate-Degrading Afipia and Thiobacillus Bioreactor Community\t3\t3\t0\t3\t2\t3\t\t0\t0\n440\t100.0\tkb/communities/Tinto_River_Iron_Cycling_Community.yaml\tCommunityMech:000074\tTinto River Iron Cycling Community\t6\t6\t0\t5\t3\t6\t\t0\t0\n441\t100.0\tkb/communities/Tobacco_Chemotactic_Biocontrol_SynCom.yaml\tCommunityMech:000106\tTobacco Chemotactic Biocontrol SynCom\t2\t2\t0\t3\t2\t4\t\t0\t0\n442\t100.0\tkb/communities/Tomato_Oxylipin_SynCom3.yaml\tCommunityMech:000107\tTomato Oxylipin-Protective SynCom3\t3\t3\t0\t3\t2\t4\t\t0\t0\n443\t100.0\tkb/communities/Tribromophenol_Anaerobic_Bioremediation_SynCom.yaml\tCommunityMech:000112\tTribromophenol Anaerobic Bioremediation SynCom\t3\t3\t0\t4\t3\t5\t\t0\t0\n444\t100.0\tkb/communities/Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.yaml\tCommunityMech:000188\tTrichococcus-Syntrophomonas-Methanospirillum Butyrate Coculture\t3\t3\t0\t3\t2\t6\t\t0\t0\n445\t100.0\tkb/communities/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.yaml\tCommunityMech:000205\tTrichoderma-E. coli Cellulosic Isobutanol Coculture\t2\t2\t0\t3\t2\t5\t\t0\t0\n446\t100.0\tkb/communities/Trichoderma_Lactate_Platform.yaml\tCommunityMech:000075\tTrichoderma Lactate Platform for SCFA Production\t3\t3\t0\t3\t2\t3\t\t0\t0\n447\t100.0\tkb/communities/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.yaml\tCommunityMech:000270\tTrichoderma-Streptomyces Filamentous Cellulose Coculture\t2\t2\t0\t3\t2\t7\t\t0\t0\n448\t100.0\tkb/communities/Trichodesmium_Alteromonas_Marine_Consortium.yaml\tCommunityMech:000147\tTrichodesmium-Alteromonas Marine Consortium\t3\t3\t0\t3\t2\t5\t\t0\t0\n449\t100.0\tkb/communities/Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.yaml\tCommunityMech:000337\tTropidoatractus magnetotacticus Magnetotactic Ciliate Tripartite Syntrophy\t3\t3\t0\t4\t2\t9\t\t0\t0\n450\t100.0\tkb/communities/Urine_Nitrification_SynCom.yaml\tCommunityMech:000117\tUrine Nitrification Synthetic Microbial Community\t5\t5\t0\t3\t2\t5\t\t0\t0\n451\t100.0\tkb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml\tCommunityMech:000213\tVariovorax-Cryptococcus Vitamin Cross-Feeding Microcosm\t2\t2\t0\t3\t2\t4\t\t0\t0\n452\t100.0\tkb/communities/Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml\tCommunityMech:000328\tWaste-Sludge Electro-Fermentation Biofilm-Suspension Community\t5\t5\t0\t4\t2\t6\t\t0\t0\n453\t100.0\tkb/communities/Watermelon_Rhizosphere_Fusarium_SynCom8.yaml\tCommunityMech:000098\tWatermelon Rhizosphere Fusarium-Protective SynCom8\t2\t2\t0\t3\t2\t7\t\t0\t0\n454\t100.0\tkb/communities/Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.yaml\tCommunityMech:000255\tWetland Oxygen-Sulfate Greenhouse Gas Microcosm Community\t3\t3\t0\t3\t2\t6\t\t0\t0\n455\t100.0\tkb/communities/Wheat_Straw_Biogas_Pretreatment_SynCom.yaml\tCommunityMech:000118\tWheat Straw Biogas Pretreatment SynCom\t4\t4\t0\t3\t2\t4\t\t0\t0\n456\t100.0\tkb/communities/Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml\tCommunityMech:000354\tYarrowia lipolytica Division-of-Labor Lipid Consortium\t2\t2\t0\t3\t2\t3\t\t0\t0\n457\t100.0\tkb/communities/Yogurt_TwoSpecies_Starter_Culture.yaml\tCommunityMech:000164\tYogurt Two-Species Starter Culture\t2\t2\t0\t4\t2\t9\t\t0\t0\n458\t100.0\tkb/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml\tCommunityMech:000210\tZymomonas-E. coli Exometabolomics-Designed Obligate Mutualism\t2\t2\t0\t3\t2\t6\t\t0\t0\n459\t100.0\tkb/communities/hCom2_Complex_Gut_Microbiome.yaml\tCommunityMech:000123\thCom2 Complex Gut Microbiome\t1\t1\t0\t3\t2\t3\t\t0\t0\n460\t100.0\tkb/communities/mCAFEs_Brachypodium_RCC.yaml\tCommunityMech:000078\tm-CAFEs Brachypodium Reduced Complexity Consortia\t10\t10\t0\t6\t2\t11\t\t0\t0\nPYTHONPATH=src uv run python scripts/rank_causal_graph_readiness.py \n"
+    },
+    {
+      "check": "render",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "communitymech.render"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/render.log",
+      "log_sha256": "035c555a2113b0d6c06a25974e1f86a777b8943977206a7bcc89d9f8a2e5308d",
+      "output_tail": "sm.html\n  \u2713 Synechococcus_Bacillus_SPC.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synechococcus_Bacillus_SPC.html\n  \u2713 Synechococcus_Ecoli_SPC.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synechococcus_Ecoli_SPC.html\n  \u2713 Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.html\n  \u2713 Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.html\n  \u2713 Synechococcus_Saccharomyces_SPC.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synechococcus_Saccharomyces_SPC.html\n  \u2713 Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.html\n  \u2713 Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.html\n  \u2713 Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.html\n  \u2713 Synthetic_Periphyton_Freshwater_Biofilm.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synthetic_Periphyton_Freshwater_Biofilm.html\n  \u2713 Syntrophobacter_Methanobacterium_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Syntrophobacter_Methanobacterium_Syntrophy.html\n  \u2713 Syntrophobacter_Methanospirillum_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Syntrophobacter_Methanospirillum_Syntrophy.html\n  \u2713 Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.html\n  \u2713 Syntrophomonas_Methanospirillum_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Syntrophomonas_Methanospirillum_Syntrophy.html\n  \u2713 Syntrophus_Benzoate_Degrader.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Syntrophus_Benzoate_Degrader.html\n  \u2713 Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.html\n  \u2713 TCP_NonDehalogenimonas_Groundwater_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/TCP_NonDehalogenimonas_Groundwater_Consortium.html\n  \u2713 THOR_Rhizosphere_Model_Community.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/THOR_Rhizosphere_Model_Community.html\n  \u2713 TYQ1_Nematode_Biocontrol_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/TYQ1_Nematode_Biocontrol_SynCom.html\n  \u2713 Teosinte_Maize_Biofertilizer_SynCom7.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Teosinte_Maize_Biofertilizer_SynCom7.html\n  \u2713 Thalassiosira_Marinobacter_Marine_Snow_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thalassiosira_Marinobacter_Marine_Snow_Coculture.html\n  \u2713 Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.html\n  \u2713 Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.html\n  \u2713 Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.html\n  \u2713 Thermophilic_ExSitu_Biomethanation_Mixed_Culture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thermophilic_ExSitu_Biomethanation_Mixed_Culture.html\n  \u2713 Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.html\n  \u2713 Thermophilic_Pyrite_QS_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thermophilic_Pyrite_QS_Consortium.html\n  \u2713 Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.html\n  \u2713 Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.html\n  \u2713 Tinto_River_Iron_Cycling_Community.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Tinto_River_Iron_Cycling_Community.html\n  \u2713 Tobacco_Chemotactic_Biocontrol_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Tobacco_Chemotactic_Biocontrol_SynCom.html\n  \u2713 Tomato_Oxylipin_SynCom3.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Tomato_Oxylipin_SynCom3.html\n  \u2713 Tribromophenol_Anaerobic_Bioremediation_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Tribromophenol_Anaerobic_Bioremediation_SynCom.html\n  \u2713 Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.html\n  \u2713 Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.html\n  \u2713 Trichoderma_Lactate_Platform.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Trichoderma_Lactate_Platform.html\n  \u2713 Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.html\n  \u2713 Trichodesmium_Alteromonas_Marine_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Trichodesmium_Alteromonas_Marine_Consortium.html\n  \u2713 Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.html\n  \u2713 Urine_Nitrification_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Urine_Nitrification_SynCom.html\n  \u2713 Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.html\n  \u2713 Viili_Fungus_Bacterium_EPS_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Viili_Fungus_Bacterium_EPS_SynCom.html\n  \u2713 Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.html\n  \u2713 Watermelon_Rhizosphere_Fusarium_SynCom8.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Watermelon_Rhizosphere_Fusarium_SynCom8.html\n  \u2713 Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.html\n  \u2713 Wheat_Consortium_C1.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wheat_Consortium_C1.html\n  \u2713 Wheat_Consortium_C6.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wheat_Consortium_C6.html\n  \u2713 Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.html\n  \u2713 Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wheat_CrownRot_TB_CrossKingdom_SynCom.html\n  \u2713 Wheat_DT_Rhizosphere_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wheat_DT_Rhizosphere_SynCom.html\n  \u2713 Wheat_Straw_Biogas_Pretreatment_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wheat_Straw_Biogas_Pretreatment_SynCom.html\n  \u2713 Wheat_SynCom_SASW01_Drought_Inoculant.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wheat_SynCom_SASW01_Drought_Inoculant.html\n  \u2713 Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.html\n  \u2713 Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.html\n  \u2713 Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.html\n  \u2713 Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.html\n  \u2713 Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.html\n  \u2713 Yogurt_TwoSpecies_Starter_Culture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Yogurt_TwoSpecies_Starter_Culture.html\n  \u2713 Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.html\n  \u2713 hCom2_Complex_Gut_Microbiome.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/hCom2_Complex_Gut_Microbiome.html\n  \u2713 mCAFEs_Brachypodium_RCC.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/mCAFEs_Brachypodium_RCC.html\n\n\u2705 Rendered 456 communities to /private/tmp/communitymech-causal-batch96/docs/communities\n  \u2713 Generated browser at /private/tmp/communitymech-causal-batch96/docs/browser.html\n  \u2713 Generated landing at /private/tmp/communitymech-causal-batch96/docs/index.html\n"
+    },
+    {
+      "check": "render-repeat",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "communitymech.render"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/render-repeat.log",
+      "log_sha256": "035c555a2113b0d6c06a25974e1f86a777b8943977206a7bcc89d9f8a2e5308d",
+      "output_tail": "sm.html\n  \u2713 Synechococcus_Bacillus_SPC.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synechococcus_Bacillus_SPC.html\n  \u2713 Synechococcus_Ecoli_SPC.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synechococcus_Ecoli_SPC.html\n  \u2713 Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.html\n  \u2713 Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.html\n  \u2713 Synechococcus_Saccharomyces_SPC.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synechococcus_Saccharomyces_SPC.html\n  \u2713 Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.html\n  \u2713 Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.html\n  \u2713 Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.html\n  \u2713 Synthetic_Periphyton_Freshwater_Biofilm.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Synthetic_Periphyton_Freshwater_Biofilm.html\n  \u2713 Syntrophobacter_Methanobacterium_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Syntrophobacter_Methanobacterium_Syntrophy.html\n  \u2713 Syntrophobacter_Methanospirillum_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Syntrophobacter_Methanospirillum_Syntrophy.html\n  \u2713 Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.html\n  \u2713 Syntrophomonas_Methanospirillum_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Syntrophomonas_Methanospirillum_Syntrophy.html\n  \u2713 Syntrophus_Benzoate_Degrader.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Syntrophus_Benzoate_Degrader.html\n  \u2713 Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.html\n  \u2713 TCP_NonDehalogenimonas_Groundwater_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/TCP_NonDehalogenimonas_Groundwater_Consortium.html\n  \u2713 THOR_Rhizosphere_Model_Community.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/THOR_Rhizosphere_Model_Community.html\n  \u2713 TYQ1_Nematode_Biocontrol_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/TYQ1_Nematode_Biocontrol_SynCom.html\n  \u2713 Teosinte_Maize_Biofertilizer_SynCom7.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Teosinte_Maize_Biofertilizer_SynCom7.html\n  \u2713 Thalassiosira_Marinobacter_Marine_Snow_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thalassiosira_Marinobacter_Marine_Snow_Coculture.html\n  \u2713 Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.html\n  \u2713 Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.html\n  \u2713 Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.html\n  \u2713 Thermophilic_ExSitu_Biomethanation_Mixed_Culture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thermophilic_ExSitu_Biomethanation_Mixed_Culture.html\n  \u2713 Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.html\n  \u2713 Thermophilic_Pyrite_QS_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thermophilic_Pyrite_QS_Consortium.html\n  \u2713 Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.html\n  \u2713 Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.html\n  \u2713 Tinto_River_Iron_Cycling_Community.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Tinto_River_Iron_Cycling_Community.html\n  \u2713 Tobacco_Chemotactic_Biocontrol_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Tobacco_Chemotactic_Biocontrol_SynCom.html\n  \u2713 Tomato_Oxylipin_SynCom3.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Tomato_Oxylipin_SynCom3.html\n  \u2713 Tribromophenol_Anaerobic_Bioremediation_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Tribromophenol_Anaerobic_Bioremediation_SynCom.html\n  \u2713 Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.html\n  \u2713 Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.html\n  \u2713 Trichoderma_Lactate_Platform.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Trichoderma_Lactate_Platform.html\n  \u2713 Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.html\n  \u2713 Trichodesmium_Alteromonas_Marine_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Trichodesmium_Alteromonas_Marine_Consortium.html\n  \u2713 Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.html\n  \u2713 Urine_Nitrification_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Urine_Nitrification_SynCom.html\n  \u2713 Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.html\n  \u2713 Viili_Fungus_Bacterium_EPS_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Viili_Fungus_Bacterium_EPS_SynCom.html\n  \u2713 Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.html\n  \u2713 Watermelon_Rhizosphere_Fusarium_SynCom8.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Watermelon_Rhizosphere_Fusarium_SynCom8.html\n  \u2713 Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.html\n  \u2713 Wheat_Consortium_C1.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wheat_Consortium_C1.html\n  \u2713 Wheat_Consortium_C6.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wheat_Consortium_C6.html\n  \u2713 Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.html\n  \u2713 Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wheat_CrownRot_TB_CrossKingdom_SynCom.html\n  \u2713 Wheat_DT_Rhizosphere_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wheat_DT_Rhizosphere_SynCom.html\n  \u2713 Wheat_Straw_Biogas_Pretreatment_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wheat_Straw_Biogas_Pretreatment_SynCom.html\n  \u2713 Wheat_SynCom_SASW01_Drought_Inoculant.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wheat_SynCom_SASW01_Drought_Inoculant.html\n  \u2713 Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.html\n  \u2713 Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.html\n  \u2713 Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.html\n  \u2713 Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.html\n  \u2713 Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.html\n  \u2713 Yogurt_TwoSpecies_Starter_Culture.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Yogurt_TwoSpecies_Starter_Culture.html\n  \u2713 Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.html\n  \u2713 hCom2_Complex_Gut_Microbiome.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/hCom2_Complex_Gut_Microbiome.html\n  \u2713 mCAFEs_Brachypodium_RCC.yaml \u2192 /private/tmp/communitymech-causal-batch96/docs/communities/mCAFEs_Brachypodium_RCC.html\n\n\u2705 Rendered 456 communities to /private/tmp/communitymech-causal-batch96/docs/communities\n  \u2713 Generated browser at /private/tmp/communitymech-causal-batch96/docs/browser.html\n  \u2713 Generated landing at /private/tmp/communitymech-causal-batch96/docs/index.html\n"
+    },
+    {
+      "check": "connectivity-survey",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-c",
+        "import json,pathlib,runpy\nfn=runpy.run_path('tests/test_community_level_connectivity_credit.py')['_survey']\nresult={}\nfor name,root in [('baseline',pathlib.Path('/private/tmp/communitymech-causal-batch95')),('current',pathlib.Path.cwd())]:\n paths=sorted(p for r in ['kb/communities','data/isolates'] for p in (root/r).rglob('*.yaml'))\n assert len(paths)==460\n fn.__globals__['record_files']=lambda:paths\n result[name]=fn()\nprint(json.dumps(result))\n"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/connectivity-survey.log",
+      "log_sha256": "c8b934a6e4ec2577bffc39138d4be267e0ca8afb414a858c438e631e9b062b2c",
+      "output_tail": "{\"baseline\": {\"records\": 460, \"with_community_level\": 398, \"mixed\": 125, \"community_level_only\": 273, \"taxa\": 1531, \"credited_solely_by_the_rule\": 1259}, \"current\": {\"records\": 460, \"with_community_level\": 399, \"mixed\": 125, \"community_level_only\": 274, \"taxa\": 1536, \"credited_solely_by_the_rule\": 1266}}\n"
+    },
+    {
+      "check": "regressions",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_causal_review_batch10.py",
+        "tests/test_causal_review_batch11.py",
+        "tests/test_causal_review_batch12.py",
+        "tests/test_causal_review_batch13.py",
+        "tests/test_causal_review_batch14.py",
+        "tests/test_causal_review_batch15.py",
+        "tests/test_causal_review_batch16.py",
+        "tests/test_causal_review_batch17.py",
+        "tests/test_causal_review_batch18.py",
+        "tests/test_causal_review_batch19.py",
+        "tests/test_causal_review_batch20.py",
+        "tests/test_causal_review_batch21.py",
+        "tests/test_causal_review_batch22.py",
+        "tests/test_causal_review_batch23.py",
+        "tests/test_causal_review_batch24.py",
+        "tests/test_causal_review_batch25.py",
+        "tests/test_causal_review_batch27.py",
+        "tests/test_causal_review_batch28.py",
+        "tests/test_causal_review_batch29.py",
+        "tests/test_causal_review_batch30.py",
+        "tests/test_causal_review_batch31.py",
+        "tests/test_causal_review_batch32.py",
+        "tests/test_causal_review_batch33.py",
+        "tests/test_causal_review_batch34.py",
+        "tests/test_causal_review_batch35.py",
+        "tests/test_causal_review_batch36.py",
+        "tests/test_causal_review_batch37.py",
+        "tests/test_causal_review_batch38.py",
+        "tests/test_causal_review_batch39.py",
+        "tests/test_causal_review_batch40.py",
+        "tests/test_causal_review_batch41.py",
+        "tests/test_causal_review_batch42.py",
+        "tests/test_causal_review_batch43.py",
+        "tests/test_causal_review_batch44.py",
+        "tests/test_causal_review_batch45.py",
+        "tests/test_causal_review_batch46.py",
+        "tests/test_causal_review_batch47.py",
+        "tests/test_causal_review_batch48.py",
+        "tests/test_causal_review_batch49.py",
+        "tests/test_causal_review_batch5.py",
+        "tests/test_causal_review_batch50.py",
+        "tests/test_causal_review_batch51.py",
+        "tests/test_causal_review_batch52.py",
+        "tests/test_causal_review_batch53.py",
+        "tests/test_causal_review_batch54.py",
+        "tests/test_causal_review_batch55.py",
+        "tests/test_causal_review_batch56.py",
+        "tests/test_causal_review_batch57.py",
+        "tests/test_causal_review_batch58.py",
+        "tests/test_causal_review_batch59.py",
+        "tests/test_causal_review_batch6.py",
+        "tests/test_causal_review_batch60.py",
+        "tests/test_causal_review_batch61.py",
+        "tests/test_causal_review_batch62.py",
+        "tests/test_causal_review_batch63.py",
+        "tests/test_causal_review_batch64.py",
+        "tests/test_causal_review_batch65.py",
+        "tests/test_causal_review_batch66.py",
+        "tests/test_causal_review_batch67.py",
+        "tests/test_causal_review_batch68.py",
+        "tests/test_causal_review_batch69.py",
+        "tests/test_causal_review_batch7.py",
+        "tests/test_causal_review_batch70.py",
+        "tests/test_causal_review_batch71.py",
+        "tests/test_causal_review_batch72.py",
+        "tests/test_causal_review_batch73.py",
+        "tests/test_causal_review_batch74.py",
+        "tests/test_causal_review_batch75.py",
+        "tests/test_causal_review_batch76.py",
+        "tests/test_causal_review_batch77.py",
+        "tests/test_causal_review_batch78.py",
+        "tests/test_causal_review_batch79.py",
+        "tests/test_causal_review_batch8.py",
+        "tests/test_causal_review_batch80.py",
+        "tests/test_causal_review_batch81.py",
+        "tests/test_causal_review_batch82.py",
+        "tests/test_causal_review_batch83.py",
+        "tests/test_causal_review_batch84.py",
+        "tests/test_causal_review_batch85.py",
+        "tests/test_causal_review_batch86.py",
+        "tests/test_causal_review_batch87.py",
+        "tests/test_causal_review_batch88.py",
+        "tests/test_causal_review_batch89.py",
+        "tests/test_causal_review_batch9.py",
+        "tests/test_causal_review_batch90.py",
+        "tests/test_causal_review_batch91.py",
+        "tests/test_causal_review_batch92.py",
+        "tests/test_causal_review_batch93.py",
+        "tests/test_causal_review_batch94.py",
+        "tests/test_causal_review_batch95.py",
+        "tests/test_causal_review_batch96.py",
+        "tests/test_site_audit_fixes.py",
+        "tests/test_causal_review_inventory.py",
+        "tests/test_rank_causal_graph_readiness.py",
+        "tests/test_network_auditor.py",
+        "tests/test_participating_taxa.py",
+        "tests/test_causal_descriptions_are_published.py",
+        "tests/test_published_pages_name_real_records.py",
+        "tests/test_reference_validator_actually_validates.py",
+        "tests/test_snippet_audit_artefact_classes.py",
+        "tests/test_reference_error_annotation.py",
+        "tests/test_community_level_connectivity_credit.py",
+        "tests/test_no_paywalled_text_in_repo.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/regressions.log",
+      "log_sha256": "e41824ca3609978372371ee2cdce40e839bc0b52254adb5f1e13abdaae70bf75",
+      "output_tail": "........................................................................ [  8%]\n........................................................................ [ 16%]\n........................................................................ [ 24%]\n........................................................................ [ 32%]\n........................................................................ [ 40%]\n........................................................................ [ 49%]\n........................................................................ [ 57%]\n........................................................................ [ 65%]\n........................................................................ [ 73%]\n........................................................................ [ 81%]\n........................................................................ [ 90%]\n........................................................................ [ 98%]\n................                                                         [100%]\n880 passed in 285.17s (0:04:45)\n"
+    },
+    {
+      "check": "black",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/3Q_kifQtLB624D5bBWGIf/bin/black",
+        "--check",
+        "tests/test_causal_review_batch96.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/black.log",
+      "log_sha256": "1a56c7cd8457fd05d978cfbd139d7bfd86e86acaa9b57668e718ef8bccc0cf48",
+      "output_tail": "All done! \u2728 \ud83c\udf70 \u2728\n1 file would be left unchanged.\n"
+    },
+    {
+      "check": "ruff",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/wCcxEYRM4HeHgwYPZemHX/bin/ruff",
+        "check",
+        "tests/test_causal_review_batch96.py",
+        "tests/test_participating_taxa.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/ruff.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "output_tail": "All checks passed!\n"
+    },
+    {
+      "check": "audit-snippets-all",
+      "command": [
+        "just",
+        "audit-snippets"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/audit-snippets-all.log",
+      "log_sha256": "d81908b02afc67c8264f4c1d1d4945478bde0d90e0d47a95a97202465843cacb",
+      "output_tail": "# 8934 evidence snippets scanned across 460 files\n  MATCH      8799\n  RENDERING  20\n  ASSEMBLED  1\n  WEAK       0\n  MISMATCH   38\n  NOCONTENT  76\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n  19 (19 hard)  kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml\n  15 (15 hard)  kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml\n   3 (3 hard)  kb/communities/Coscinodiscus_Synthetic_Community.yaml\n   1 (1 hard)  kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml\nuv run python scripts/evidence_snippet_audit.py \n"
+    },
+    {
+      "check": "diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/verification-final/diff-check.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_tail": ""
+    },
+    {
+      "check": "focused-final",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_causal_review_batch96.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch96/focused-final.log",
+      "log_sha256": "0cd05b908e9989b81ec3278ca3800318abdbde5d05b34e10151233b7d9e25493",
+      "output_tail": "........                                                                 [100%]\n8 passed in 2.36s\n"
+    }
+  ],
+  "limitations": [
+    "Four whole records and all16originalnodes/10arrows reviewed.14nodes and6existingdirections remain,2nodes and4arrows removed;4nodes renamed.4records changed. No new topology, Edison dryrun/submission or credits.",
+    "Rifle primary abstract freshly read plus cached main text (all main sections, with the initially truncated Results reread). EuropePMC full-text HTTP500 and PMC challenge left unresolved; cached main text is not fresh independent full-text verification. New graph and discussion quotations nevertheless all match fresh primary abstracts and unchanged caches.",
+    "Rumen complete fresh main text through Conclusions and embedded captions read. No supplement, raw-data or figure-pixel review; retrieved back matter not a claim of full reference review. Keep separate enrichment/endpoint observations and a PARTIAL mediator direction, not resolved niches or hydrogen transfer.",
+    "SF356 and CSK1 fresh primary abstracts read; SF356 full-text XML retrieval failed. Positive member-removal-based relationships and the existing metabolite/oxygen feedback remain. Negative effects do not establish reciprocal harm. SYNTROPHY does not require obligacy but is not a synonym for any positive relationship.",
+    "SIHUMIx fresh abstract/background/cultivation lines1-132, model methods286-329 and expression/results/discussion/conclusions542-736 read. Transit study abstract/introduction1-80, results241-268 and369-422, discussion/conclusions484-551 read. Remaining main text, supplements, raw data and figure pixels not reviewed. Positive synthetic-CR2 assay acknowledged in a gap, not expanded into a new graph mechanism.",
+    "Five additional Rifle-context primary abstracts read: wrong-organism transcriptome, two Oak Ridge studies, high-salinity enrichment and D. hippei isolate. These are scope checks, not new Rifle membership evidence. Retrieved source bodies remain local; no new cache or full text published.",
+    "All923baselinecaches and456unchangedrecords preserved.5append-only histories. All non-graph raw blocks and canonical taxonomy remain unchanged, not recertified. Unspecified Rifle COMMUNITY_LEVEL participants do not prove every canonical member participated; legacy connectivity remains coarse.",
+    "Fresh all-state issue title/body dedup and ignored/hidden-inclusive local search performed with .git/docs/site/references_cache excluded; relevant caches separately inspected. Matching1246/939/765/592/529 read and distinct. No exhaustive PR/comment claim. Repair1766-1769 close only after protected-main merge; non-graph1770 stays open.",
+    "Source-based self-adversarial review is not independent approval or corpus completion. Existing loader1703 and DOI-cache casing1091 remain. Denied/pending Edison scopes unchanged. Validation and publication are not preasserted."
+  ],
+  "reference_validator_version": "0.1.7",
+  "snippet_counts_by_record": {
+    "kb/communities/Rifle_Uranium_Reducing_Community.yaml": {
+      "MATCH": 30,
+      "RENDERING": 0,
+      "ASSEMBLED": 0,
+      "WEAK": 0,
+      "MISMATCH": 0,
+      "NOCONTENT": 0
+    },
+    "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml": {
+      "MATCH": 42,
+      "RENDERING": 0,
+      "ASSEMBLED": 0,
+      "WEAK": 0,
+      "MISMATCH": 0,
+      "NOCONTENT": 0
+    },
+    "kb/communities/SF356_Cellulose_Degrader.yaml": {
+      "MATCH": 17,
+      "RENDERING": 0,
+      "ASSEMBLED": 0,
+      "WEAK": 0,
+      "MISMATCH": 0,
+      "NOCONTENT": 0
+    },
+    "kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml": {
+      "MATCH": 29,
+      "RENDERING": 0,
+      "ASSEMBLED": 0,
+      "WEAK": 0,
+      "MISMATCH": 0,
+      "NOCONTENT": 0
+    }
+  },
+  "unchanged_record_files": 456,
+  "unchanged_cache_files": 923,
+  "unchanged_raw_blocks": 58,
+  "cache_changes": [],
+  "edison": {
+    "required_for_this_repair": false,
+    "required_for_unresolved_extensions": false,
+    "provider_submissions": 0,
+    "credits_spent": 0,
+    "dry_runs": [],
+    "repair_scope": "Bound existing nodes/directions and remove unsupported/contradicted links. New CR2 or other mechanisms remain outside this repair; no new topology."
+  },
+  "primary_artifacts": {
+    "/private/tmp/communitymech-batch96/anaero-metadata.json": "9c4864a2f5dcb9499793c05b35eb6c342f7f525cd0d0d702233119ddf995bca8",
+    "/private/tmp/communitymech-batch96/anaero-primary.txt": "0b2ee2a1f70c4067f65e5989be6c6a3fe342a602de5d896641b8a3238c71e10e",
+    "/private/tmp/communitymech-batch96/baseline.json": "3490852968a42fd77d8f61edd8746fe31a2d5a3e488be91316a1fee93094a652",
+    "/private/tmp/communitymech-batch96/csk-metadata.json": "bf19e7cffa23cfc69c2505f31c477f866ede6d25d8620327af360d298bbcbb39",
+    "/private/tmp/communitymech-batch96/csk-primary.txt": "13804f9cb1939f0674b0153669892c209635bc79d579d9214fee670b99e9f853",
+    "/private/tmp/communitymech-batch96/cyto-metadata.json": "21a472cb53d4d46d7515a45eec94b7bb19f8e21667f629a822abb61c97af475e",
+    "/private/tmp/communitymech-batch96/cyto-primary.txt": "3aabf39840f0a29682c89a3cfbcd6200be7094ab065c3fefece137b6146af08a",
+    "/private/tmp/communitymech-batch96/dedup-local-current.txt": "5760ea464340e8c76eb81a72e86dcf5ffccd3b2073dabdb1f041c84e94997141",
+    "/private/tmp/communitymech-batch96/desulfo-metadata.json": "f0ea6f159909ec2d30d6bebbf3378fac2c8b46a537481d0d84fcb686dec0f9a9",
+    "/private/tmp/communitymech-batch96/desulfo-primary.txt": "81a8fba923909bab2ff600b520ad6679129844fcc724dc51706e202c16c62580",
+    "/private/tmp/communitymech-batch96/hippei-metadata.json": "ea5e94f9c74c528bc29a320993795d233c6672a169ae0c6315ce1ec8d4cab578",
+    "/private/tmp/communitymech-batch96/hippei-primary.txt": "2721f8fcd349a686fee593a0307b24947411e2eec7248a95922806ee243a995c",
+    "/private/tmp/communitymech-batch96/issue-dedup-current.json": "9bd408e68452f0e4074a8fb3364667995d855984ad8b1ca087d4756908001ed6",
+    "/private/tmp/communitymech-batch96/primary-manifest.json": "c12cf3512b76162eb75f0817dd757dbf6ea43c996391c79447513bf27ee57a44",
+    "/private/tmp/communitymech-batch96/rifle-metadata.json": "e4a6b21790f54918f8b04f111875405b98316a79c6abdf2bb09db5d97981fdcb",
+    "/private/tmp/communitymech-batch96/rifle-primary.txt": "329c91e12259b3b650a1509b838d0084ac700f253947272eb3781c6655a2d473",
+    "/private/tmp/communitymech-batch96/rumen-metadata.json": "c78d533fda807e3d3e2cf0664747f10d3ba4d5b1a50096711a1c436f49975862",
+    "/private/tmp/communitymech-batch96/rumen-primary.txt": "ff6f83c62d24a283796366f949fa04b40a51a35c9d14407bc9e46ca5f214be5e",
+    "/private/tmp/communitymech-batch96/rumen-primary.xml": "42cf22770216a89f72c39563323127ded3070ff2beac719af22260952e01a9d1",
+    "/private/tmp/communitymech-batch96/sf356-metadata.json": "e9b51eb2b3175b9ca135ba7c35dd44b054c0f6b416f2e948afa352bbc867904c",
+    "/private/tmp/communitymech-batch96/sf356-primary.txt": "c08780893b2d058f8f36c570cc2c43e4ae094a8afbbe8f1b5b906bfceffe2e89",
+    "/private/tmp/communitymech-batch96/sihumix-metadata.json": "3aad18aa7dd2c06a3b391d63b9170c01c273820d861331e66027c8875ae92eee",
+    "/private/tmp/communitymech-batch96/sihumix-primary.txt": "1367ee4e4152cfb60879bfa5339ab7fba82b27d2e9340304f45b23c266c90597",
+    "/private/tmp/communitymech-batch96/sihumix-primary.xml": "2b87c35f055775641f3f2cf03f75cb54149ed3001ab40f9649565845c8e941e3",
+    "/private/tmp/communitymech-batch96/transit-metadata.json": "e3a43503c11337ccd1111691b7bfae15ab5f299401dee09e7ae2132d4fc2c9a5",
+    "/private/tmp/communitymech-batch96/transit-primary.txt": "1635a1f3021f8e01b2f211a259b3e9422684df07eeec193f0e0a6febf97769d4",
+    "/private/tmp/communitymech-batch96/transit-primary.xml": "cfb8a58d93f2cb80c033bd030ac64501e547c4a0891f9d89e11bc3c9b634bf51",
+    "/private/tmp/communitymech-batch96/ureview-metadata.json": "d8d16cc266dd35180591f73bcc2594845c1597be7ac2c296de4b35d07454168a",
+    "/private/tmp/communitymech-batch96/ureview-primary.txt": "d44ff60b3a54bab237eefbf1eea820f38d24ce0c0369b049a0a7eeb9a14071be",
+    "references_cache/PMID_12788780.md": "e5dbcf54ef8fbbf97103026c05791bc90ba9e7da57a0547d015a4b66dd472804",
+    "references_cache/PMID_14532040.md": "34fa9362ad230f71bd718516f6553b702c3bb8850d86474cbe9f4bfb743cf788",
+    "references_cache/PMID_15545431.md": "a5a9109a80db083caeebe28a88756a086b13b12884356a8002951576113a6eac",
+    "references_cache/PMID_16269746.txt": "e033f711179ad9046c83659b5f616b32e6232996b8669b6b31d92f057d748c01",
+    "references_cache/PMID_18456853.md": "0a61b44339027bff9e1b695ce1f65d70786117a125bfab940834c3eceab08032",
+    "references_cache/PMID_18843300.md": "238c52c1fa3d4169a1a3ecff477eae43d31a75187dbd4ee5b4b0af8314f4779e",
+    "references_cache/PMID_19346346.md": "7bc57f2ee40979a3119aacd4462a378c6f728888bd355dac2c763b37bf2939d2",
+    "references_cache/PMID_33622394.md": "fa085796c78d3a5be1fb2230f08edaf46eacf588e25bd30d9301df1ad0ca8814",
+    "references_cache/PMID_36889400.md": "eab4fbbb3f3fa4fd0f740ded0b2aca23c4c4f7f8a14eb5c20c8f7a48dff86262",
+    "references_cache/PMID_42197533.txt": "9308ac3f9a72336f66bce1aa99b4b0ed671b0292a33b9b0c54435f71049213c6",
+    "references_cache/doi_10.3390_microorganisms7120641.md": "a6297b254ea436fce12ddba3e7049c5fa7d14ab7ad4413bb9088a259c8697aec",
+    "/private/tmp/communitymech-batch96/validation-interrupted.json": "0ebcd2ac05c191e39d905c8390f2bdfe466e2be64387e4dd74e6fd1eca12b653"
+  },
+  "immutable_prior_history_and_decision_files": 762,
+  "primary_graph_snippet_proof": {
+    "graph_quotations": 20,
+    "new_discussion_quotations": 8,
+    "fresh_primary_matches": 28,
+    "retained_nodes": 14,
+    "removed_nodes": 2,
+    "retained_arrows": 6,
+    "removed_arrows": 4,
+    "new_nodes_or_directions": 0,
+    "scope": "Complete rumen main text, selected SIHUMIx/transit sections, cached Rifle main text and fresh primary abstracts read. All quotations matched; not automatic entailment or figure-pixel certification."
+  },
+  "network_delta": {
+    "existing_findings_preserved": 56,
+    "added_findings": {},
+    "removed_findings": {},
+    "interpretation": "Two unsupported nodes and four wrong-system/contradicted/model bridges removed;14nodes6directions retained. All56warnings unchanged,zero structural defects."
+  },
+  "render_determinism": true,
+  "published_description_coverage": {
+    "pages": 456,
+    "nodes": 1396,
+    "arrows": 564
+  },
+  "render_scope": "Deterministic rendering and exact HTML-description parser, not browser screenshots; postcommit docs-current separately required.",
+  "participant_census": {
+    "measurements": {
+      "baseline": {
+        "records": 460,
+        "with_community_level": 398,
+        "mixed": 125,
+        "community_level_only": 273,
+        "taxa": 1531,
+        "credited_solely_by_the_rule": 1259
+      },
+      "current": {
+        "records": 460,
+        "with_community_level": 399,
+        "mixed": 125,
+        "community_level_only": 274,
+        "taxa": 1536,
+        "credited_solely_by_the_rule": 1266
+      }
+    },
+    "delta": {
+      "records": 0,
+      "with_community_level": 1,
+      "mixed": 0,
+      "community_level_only": 1,
+      "taxa": 5,
+      "credited_solely_by_the_rule": 7
+    },
+    "interpretation": "Rifle field processes are now community-scoped with unspecified participants because the canonical taxonomy is not exact source-level membership. Legacy connectivity is not evidence that every canonical member participated."
+  },
+  "full_corpus_snippet_counts": {
+    "records": 460,
+    "total": 8934,
+    "categories": {
+      "MATCH": 8799,
+      "RENDERING": 20,
+      "ASSEMBLED": 1,
+      "WEAK": 0,
+      "MISMATCH": 38,
+      "NOCONTENT": 76
+    }
+  },
+  "full_corpus_snippet_audit_caveat": "Both-root informational audit exit0 is not clean-corpus certification; literal matches are not entailment.",
+  "corpus": {
+    "scope": "Every YAML under kb/communities and data/isolates; filesystem discovery includes hidden/ignored files.",
+    "records": 460,
+    "nodes": 1410,
+    "edges": 572,
+    "records_without_nodes": 8,
+    "records_without_edges": 175,
+    "review_status_counts": {
+      "needs_research": 48,
+      "pending": 112,
+      "reviewed": 300
+    },
+    "structural_defects": []
+  },
+  "tested_file_sha256": {
+    "reports/causal_graph_review/decisions/20261007-four-records-batch96.yaml": "22afc9eecf18964ffd4346e5f36b77dc7e3596af19113a4db7ba7dcff8cb67b2",
+    "tests/test_causal_review_batch96.py": "0d44ab0734e36cddaee7d2034e0f72148cba578b5a2215383ee3916ee9bac4c9",
+    "tests/test_participating_taxa.py": "38d4a7d8cfb31468d07611a053ab6df0c427b52fc57c08e7883e4420af04adfb",
+    "reports/causal_graph_review/README.md": "e8c3b8ecd5f95a8cdf6c77d0ea14ed8b9abbd35c48a7afd3062d01c008f29952",
+    "reports/causal_graph_review/cache-provenance-20261007-batch96.json": "302437ac65a8988df9cfbefb0dee604b09631a191ebf8806fd01c6ac0164a364",
+    "kb/communities/Rifle_Uranium_Reducing_Community.yaml": "5232c86c135db06616a847e0d21d7ab88bf15028fc91986af38447c9e7ec5307",
+    "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml": "410363912e73521cefc995b7bbc58bd97e0390cf4c3197215346dde0aa2bcf80",
+    "kb/communities/SF356_Cellulose_Degrader.yaml": "0d056f8e6b611f25f39e521ad50507e2c5ef40a4a68a4a6da983d36dd45b5733",
+    "kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml": "c2acfe799a9cf91799a1238d5ca2c5b23b7020e6182055aa0cefea75799bfef0"
+  },
+  "pre_research_baseline": {
+    "base_commit": "69727bed5e54f9de9d60323de0fb5879ae18c509",
+    "base_tree": "30b346d63553c719c2078e1bb31c84833927ad69",
+    "research_worktree": "/private/tmp/communitymech-causal-batch95",
+    "checks": [
+      {
+        "name": "rank",
+        "command": [
+          "just",
+          "rank-causal-graphs"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "log": "/private/tmp/communitymech-batch96/baseline-rank.log",
+        "sha256": "59588eefd816f04a112061d7cda583da2076cdaa796c9f8932c54685cabeebe2"
+      },
+      {
+        "name": "just-network",
+        "command": [
+          "just",
+          "audit-network-json"
+        ],
+        "exit_code": 2,
+        "expected_exit_code": 2,
+        "log": "/private/tmp/communitymech-batch96/baseline-just-network.log",
+        "sha256": "8595db43420d3f0a01c57acd6ad733a531a72e962486d20b4e1c2840dda55bff"
+      },
+      {
+        "name": "network",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "-m",
+          "communitymech.cli",
+          "audit-network",
+          "--json"
+        ],
+        "exit_code": 1,
+        "expected_exit_code": 1,
+        "log": "/private/tmp/communitymech-batch96/baseline-network.log",
+        "sha256": "8febc2a966f5c2b51cd59095a8877c8773cd1e9383e5214bcdc3832c5858c097"
+      },
+      {
+        "name": "downstream",
+        "command": [
+          "rg",
+          "--no-ignore",
+          "--hidden",
+          "-n",
+          "downstream:",
+          "kb/communities",
+          "data/isolates",
+          "--glob",
+          "*.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "log": "/private/tmp/communitymech-batch96/baseline-downstream.log",
+        "sha256": "6e8d3e7d3850480cdc86444d39edf86e217ca2120f1281e12b1849e68ae6c97f"
+      }
+    ],
+    "baseline_sha256": "3490852968a42fd77d8f61edd8746fe31a2d5a3e488be91316a1fee93094a652"
+  },
+  "reference_validator_caveat": "Four full-record CLI and local snippet checks executed on macOS,not Linux; DOI-cache casing issue1091 remains. Literal matches do not establish entailment; SF356 and Rifle-context fresh sources are abstract bounded; the Rifle main text was read from the maintained cache. CLI Total checks counts issues,not executed checks. Loader1703 not certified.",
+  "status": "verified_existing_graph_repairs_with_source_access_limits",
+  "preliminary_attempt": {
+    "base_commit": "69727bed5e54f9de9d60323de0fb5879ae18c509",
+    "scope": [
+      "kb/communities/Rifle_Uranium_Reducing_Community.yaml",
+      "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml",
+      "kb/communities/SF356_Cellulose_Degrader.yaml",
+      "kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml"
+    ],
+    "results": [
+      {
+        "check": "focused",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_causal_review_batch96.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/focused.log",
+        "log_sha256": "3b45c40b02bbf6109765e64b36a39a7d5acba2f704406c3df8b08e9de548697a",
+        "output_tail": "........                                                                 [100%]\n8 passed in 1.92s\n"
+      },
+      {
+        "check": "Rifle_Uranium_Reducing_Community-schema",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "kb/communities/Rifle_Uranium_Reducing_Community.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/Rifle_Uranium_Reducing_Community-schema.log",
+        "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+        "output_tail": "No issues found\n"
+      },
+      {
+        "check": "Rifle_Uranium_Reducing_Community-strict",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+          "scripts/validate_strict.py",
+          "--workers",
+          "1",
+          "--out",
+          "/private/tmp/communitymech-batch96/Rifle_Uranium_Reducing_Community-strict.tsv",
+          "kb/communities/Rifle_Uranium_Reducing_Community.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/Rifle_Uranium_Reducing_Community-strict.log",
+        "log_sha256": "5fb7b3a255f33a7138a38dc961b2f059103da9ec3e6ccdefccb8807199d6a57d",
+        "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch96/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch96/Rifle_Uranium_Reducing_Community-strict.tsv\n"
+      },
+      {
+        "check": "Rifle_Uranium_Reducing_Community-terms",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+          "validate-data",
+          "kb/communities/Rifle_Uranium_Reducing_Community.yaml",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "--labels"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/Rifle_Uranium_Reducing_Community-terms.log",
+        "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+        "output_tail": "\u2705 Validation passed\n"
+      },
+      {
+        "check": "Rifle_Uranium_Reducing_Community-references",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+          "validate",
+          "data",
+          "kb/communities/Rifle_Uranium_Reducing_Community.yaml",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "--config",
+          "conf/reference_validator.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/Rifle_Uranium_Reducing_Community-references.log",
+        "log_sha256": "bc6a5e6879eefb6f509334fe6ad5ba8a38c5b9b4f8743766fd2de1c7c65f0eec",
+        "output_tail": "Validating kb/communities/Rifle_Uranium_Reducing_Community.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+        "explained_output_tail": "Validating kb/communities/Rifle_Uranium_Reducing_Community.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+      },
+      {
+        "check": "Rifle_Uranium_Reducing_Community-snippets",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "scripts/evidence_snippet_audit.py",
+          "kb/communities/Rifle_Uranium_Reducing_Community.yaml",
+          "--list-mismatch",
+          "--list-nocontent",
+          "--list-rendering",
+          "--list-assembled"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/Rifle_Uranium_Reducing_Community-snippets.log",
+        "log_sha256": "e8fe5a6250456e2c30f1d505e351e747d7545f77929e05a8d20e9212e652c822",
+        "output_tail": "# 30 evidence snippets scanned across 1 files\n  MATCH      30\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n"
+      },
+      {
+        "check": "Rifle_Uranium_Reducing_Community-rank",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "scripts/rank_causal_graph_readiness.py",
+          "kb/communities/Rifle_Uranium_Reducing_Community.yaml",
+          "--format",
+          "json"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/Rifle_Uranium_Reducing_Community-rank.log",
+        "log_sha256": "c87ec5d490392d34f22a235385627061e44f8f92f34956305895983aa7bd0820",
+        "output_tail": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000060\",\n    \"name\": \"Rifle Uranium-Reducing Community\",\n    \"score\": 88.8,\n    \"taxonomy\": 5,\n    \"connected_taxa\": 5,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 4,\n    \"downstream_edges\": 2,\n    \"interaction_evidence\": 6,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"metabolites_or_biological_processes\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Rifle_Uranium_Reducing_Community.yaml\"\n  }\n]\n"
+      },
+      {
+        "check": "Rifle_Uranium_Reducing_Community-history-0",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+          "-s",
+          "src/communitymech/schema/history.yaml",
+          "--target-class",
+          "HistoryRecord",
+          "history/records/Rifle_Uranium_Reducing_Community/2026-10-07T175405Z-codex-c93b49.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/Rifle_Uranium_Reducing_Community-history-0.log",
+        "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+        "output_tail": "No issues found\n"
+      },
+      {
+        "check": "Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-schema",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-schema.log",
+        "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+        "output_tail": "No issues found\n"
+      },
+      {
+        "check": "Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-strict",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+          "scripts/validate_strict.py",
+          "--workers",
+          "1",
+          "--out",
+          "/private/tmp/communitymech-batch96/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-strict.tsv",
+          "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-strict.log",
+        "log_sha256": "5e202573e55ebf2f706b21ef132da551f9e127ea610d579cca4bce3815a3abec",
+        "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch96/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch96/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-strict.tsv\n"
+      },
+      {
+        "check": "Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-terms",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+          "validate-data",
+          "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "--labels"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-terms.log",
+        "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+        "output_tail": "\u2705 Validation passed\n"
+      },
+      {
+        "check": "Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-references",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+          "validate",
+          "data",
+          "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "--config",
+          "conf/reference_validator.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-references.log",
+        "log_sha256": "ae67f2b62ff00ce5cf243e16603df71cf5981d10d5419d7fff3e06e2e7508f70",
+        "output_tail": "Validating kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+        "explained_output_tail": "Validating kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+      },
+      {
+        "check": "Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-snippets",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "scripts/evidence_snippet_audit.py",
+          "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml",
+          "--list-mismatch",
+          "--list-nocontent",
+          "--list-rendering",
+          "--list-assembled"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-snippets.log",
+        "log_sha256": "1c9990014dd9f6bed49afe23f3bde6f02654b79d56ea866deb0fba96af74c6f6",
+        "output_tail": "# 42 evidence snippets scanned across 1 files\n  MATCH      42\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n"
+      },
+      {
+        "check": "Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-rank",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "scripts/rank_causal_graph_readiness.py",
+          "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml",
+          "--format",
+          "json"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-rank.log",
+        "log_sha256": "ebbb2f9051c2c1b0bb56581a7f23aed8880307d320f4b80b814f693c6e4cbab5",
+        "output_tail": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000389\",\n    \"name\": \"Rumen Substrate-Adapted Lignocellulose Enrichment Consortia\",\n    \"score\": 80.0,\n    \"taxonomy\": 15,\n    \"connected_taxa\": 15,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 3,\n    \"downstream_edges\": 1,\n    \"interaction_evidence\": 6,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"additional_downstream\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml\"\n  }\n]\n"
+      },
+      {
+        "check": "Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-history-0",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+          "-s",
+          "src/communitymech/schema/history.yaml",
+          "--target-class",
+          "HistoryRecord",
+          "history/records/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia/2026-10-07T175406Z-codex-c1b021.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia-history-0.log",
+        "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+        "output_tail": "No issues found\n"
+      },
+      {
+        "check": "SF356_Cellulose_Degrader-schema",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "kb/communities/SF356_Cellulose_Degrader.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/SF356_Cellulose_Degrader-schema.log",
+        "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+        "output_tail": "No issues found\n"
+      },
+      {
+        "check": "SF356_Cellulose_Degrader-strict",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+          "scripts/validate_strict.py",
+          "--workers",
+          "1",
+          "--out",
+          "/private/tmp/communitymech-batch96/SF356_Cellulose_Degrader-strict.tsv",
+          "kb/communities/SF356_Cellulose_Degrader.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/SF356_Cellulose_Degrader-strict.log",
+        "log_sha256": "ff6b9a31958466f62978be33bfce47c5531d850e11df1d2eef687a416420a63b",
+        "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch96/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch96/SF356_Cellulose_Degrader-strict.tsv\n"
+      },
+      {
+        "check": "SF356_Cellulose_Degrader-terms",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+          "validate-data",
+          "kb/communities/SF356_Cellulose_Degrader.yaml",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "--labels"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/SF356_Cellulose_Degrader-terms.log",
+        "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+        "output_tail": "\u2705 Validation passed\n"
+      },
+      {
+        "check": "SF356_Cellulose_Degrader-references",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+          "validate",
+          "data",
+          "kb/communities/SF356_Cellulose_Degrader.yaml",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "--config",
+          "conf/reference_validator.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/SF356_Cellulose_Degrader-references.log",
+        "log_sha256": "86462a92666476613e38c6682249801fdaf2d1fee5b88b35aecb87dc2e02ed7a",
+        "output_tail": "Validating kb/communities/SF356_Cellulose_Degrader.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+        "explained_output_tail": "Validating kb/communities/SF356_Cellulose_Degrader.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+      },
+      {
+        "check": "SF356_Cellulose_Degrader-snippets",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "scripts/evidence_snippet_audit.py",
+          "kb/communities/SF356_Cellulose_Degrader.yaml",
+          "--list-mismatch",
+          "--list-nocontent",
+          "--list-rendering",
+          "--list-assembled"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/SF356_Cellulose_Degrader-snippets.log",
+        "log_sha256": "5f0e8a5be45b94195ee5599498c60e06ff8db089c85d0bf23969aa37351ca96e",
+        "output_tail": "# 17 evidence snippets scanned across 1 files\n  MATCH      17\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n"
+      },
+      {
+        "check": "SF356_Cellulose_Degrader-rank",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "scripts/rank_causal_graph_readiness.py",
+          "kb/communities/SF356_Cellulose_Degrader.yaml",
+          "--format",
+          "json"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/SF356_Cellulose_Degrader-rank.log",
+        "log_sha256": "4391a8b03369502a279c885ab26827d46ebe735ebc352e47dbcae304224b6522",
+        "output_tail": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000061\",\n    \"name\": \"SF356 Thermophilic Cellulose-Degrading Community\",\n    \"score\": 95.0,\n    \"taxonomy\": 5,\n    \"connected_taxa\": 5,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 4,\n    \"downstream_edges\": 3,\n    \"interaction_evidence\": 4,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/SF356_Cellulose_Degrader.yaml\"\n  }\n]\n"
+      },
+      {
+        "check": "SF356_Cellulose_Degrader-history-0",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+          "-s",
+          "src/communitymech/schema/history.yaml",
+          "--target-class",
+          "HistoryRecord",
+          "history/records/SF356_Cellulose_Degrader/2026-10-07T175406Z-codex-a8a03e.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/SF356_Cellulose_Degrader-history-0.log",
+        "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+        "output_tail": "No issues found\n"
+      },
+      {
+        "check": "SIHUMIx_Human_Intestinal_Model_Community-schema",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+          "-s",
+          "src/communitymech/schema/communitymech.yaml",
+          "kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_codes": [
+          0
+        ],
+        "log": "/private/tmp/communitymech-batch96/verification-interrupted/SIHUMIx_Human_Intestinal_Model_Community-schema.log",
+        "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+        "output_tail": "No issues found\n"
+      }
+    ],
+    "limitations": [
+      "Four whole records and all16originalnodes/10arrows reviewed.14nodes and6existingdirections remain,2nodes and4arrows removed;4nodes renamed.4records changed. No new topology, Edison dryrun/submission or credits.",
+      "Rifle primary abstract freshly read plus cached main text (all main sections, with the initially truncated Results reread). EuropePMC full-text HTTP500 and PMC challenge left unresolved; cached main text is not fresh independent full-text verification. New graph and discussion quotations nevertheless all match fresh primary abstracts and unchanged caches.",
+      "Rumen complete fresh main text through Conclusions and embedded captions read. No supplement, raw-data or figure-pixel review; retrieved back matter not a claim of full reference review. Keep separate enrichment/endpoint observations and a PARTIAL mediator direction, not resolved niches or hydrogen transfer.",
+      "SF356 and CSK1 fresh primary abstracts read; SF356 full-text XML retrieval failed. Positive member-removal-based relationships and the existing metabolite/oxygen feedback remain. Negative effects do not establish reciprocal harm. SYNTROPHY does not require obligacy but is not a synonym for any positive relationship.",
+      "SIHUMIx fresh abstract/background/cultivation lines1-132, model methods286-329 and expression/results/discussion/conclusions542-736 read. Transit study abstract/introduction1-80, results241-268 and369-422, discussion/conclusions484-551 read. Remaining main text, supplements, raw data and figure pixels not reviewed. Positive synthetic-CR2 assay acknowledged in a gap, not expanded into a new graph mechanism.",
+      "Five additional Rifle-context primary abstracts read: wrong-organism transcriptome, two Oak Ridge studies, high-salinity enrichment and D. hippei isolate. These are scope checks, not new Rifle membership evidence. Retrieved source bodies remain local; no new cache or full text published.",
+      "All923baselinecaches and456unchangedrecords preserved.4append-only histories. All non-graph raw blocks and canonical taxonomy remain unchanged, not recertified. Unspecified Rifle COMMUNITY_LEVEL participants do not prove every canonical member participated; legacy connectivity remains coarse.",
+      "Fresh all-state issue title/body dedup and ignored/hidden-inclusive local search performed with .git/docs/site/references_cache excluded; relevant caches separately inspected. Matching1246/939/765/592/529 read and distinct. No exhaustive PR/comment claim. Repair1766-1769 close only after protected-main merge; non-graph1770 stays open.",
+      "Source-based self-adversarial review is not independent approval or corpus completion. Existing loader1703 and DOI-cache casing1091 remain. Denied/pending Edison scopes unchanged. Validation and publication are not preasserted."
+    ],
+    "reference_validator_version": "0.1.7",
+    "snippet_counts_by_record": {
+      "kb/communities/Rifle_Uranium_Reducing_Community.yaml": {
+        "MATCH": 30,
+        "RENDERING": 0,
+        "ASSEMBLED": 0,
+        "WEAK": 0,
+        "MISMATCH": 0,
+        "NOCONTENT": 0
+      },
+      "kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml": {
+        "MATCH": 42,
+        "RENDERING": 0,
+        "ASSEMBLED": 0,
+        "WEAK": 0,
+        "MISMATCH": 0,
+        "NOCONTENT": 0
+      },
+      "kb/communities/SF356_Cellulose_Degrader.yaml": {
+        "MATCH": 17,
+        "RENDERING": 0,
+        "ASSEMBLED": 0,
+        "WEAK": 0,
+        "MISMATCH": 0,
+        "NOCONTENT": 0
+      }
+    },
+    "status": "deliberately_interrupted_for_adversarial_fix",
+    "interruption": "Own validation process group interrupted during SIHUMIx strict validation. Completed gate outputs preserved; no final-verification claim."
+  },
+  "adversarial_prepublication_fix": {
+    "issue": 1768,
+    "details": "Make the FG4 excess-acid inhibition node community-scoped and remove its unsupported CSK1 pairwise target. Retain FG4 as source and the existing arrow to community cellulose degradation; no new node, direction or canonical taxon.",
+    "initial_verification": "Interrupted with SIGINT before completion; all final gates rerun from scratch."
+  },
+  "total_recorded_gate_outputs": 43
+}
