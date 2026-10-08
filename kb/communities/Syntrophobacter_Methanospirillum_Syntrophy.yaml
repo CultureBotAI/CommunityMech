@@ -92,14 +92,13 @@ taxonomy:
     explanation: Establishes M. hungatei as the H2/formate-utilizing syntrophic partner
 ecological_interactions:
 - name: Propionate Oxidation and H2/Formate Production
-  description: 'Syntrophobacter fumaroxidans oxidizes propionate to acetate via the methylmalonyl-CoA
-    pathway, using protons as the electron acceptor and producing H2 and formate as electron sink products.
-    This propionate oxidation is thermodynamically unfavorable under standard conditions and only proceeds
-    when H2 and formate partial pressures are kept extremely low by a syntrophic partner. Formate dehydrogenase
-    Fdh1 and hydrogenase Hox are the main confurcating enzymes used for energy conservation, while periplasmic
-    Fdh2 and hydrogenase Hyn play an important role in reverse electron transport.
-
-    '
+  description: 'S. fumaroxidans oxidizes propionate in syntrophy with M. hungatei, releasing reducing equivalents
+    through hydrogen and/or formate. The methylmalonyl-CoA pathway produces acetate and inorganic carbon. Partner
+    consumption maintains low hydrogen partial pressure and formate concentration; these are different physical
+    quantities. This is the tested methanogenic growth context, not universal partner dependence: sulfate or fumarate
+    can support axenic growth. PARTIAL: comparative protein abundance and homology support proposed Fdh1/Hox confurcation
+    and Fdh2/Hyn reverse-electron-transport roles, not direct demonstration of every enzyme assignment or the fraction
+    of electrons carried by each route in this pair.'
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -117,22 +116,22 @@ ecological_interactions:
     term:
       id: CHEBI:17272
       label: propionate
-    concentration: Substrate for oxidation
+    notes: Substrate for oxidation
   - preferred_term: acetate
     term:
       id: CHEBI:30089
       label: acetate
-    concentration: Product of propionate oxidation
+    notes: Product of propionate oxidation
   - preferred_term: dihydrogen
     term:
       id: CHEBI:18276
       label: dihydrogen
-    concentration: Electron sink product - must be maintained at low levels
+    notes: Electron sink product - must be maintained at low levels
   - preferred_term: formate
     term:
       id: CHEBI:15740
       label: formate
-    concentration: Electron sink product - must be maintained at low levels
+    notes: Electron sink product - must be maintained at low levels
   biological_processes:
   - preferred_term: propionate metabolic process
     term:
@@ -144,31 +143,34 @@ ecological_interactions:
       label: propionate catabolic process
   downstream:
   - target: Interspecies Electron Transfer and Methanogenesis
-    description: H2 and formate produced by S. fumaroxidans are consumed by M. hungatei for methanogenesis
+    description: 'DIRECTLY IMPLIED: reducing equivalents released during bacterial propionate oxidation supply M.
+      hungatei through hydrogen and/or formate for methanogenesis. The evidence does not quantify their separate
+      fluxes in this pair.'
   evidence:
-  - reference: PMID:9828440
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: It oxidized propionate syntrophically in co-culture with the hydrogen- and formate-utilizing
-      Methanospirillum hungateii, and was able to oxidize propionate and other organic compounds in pure
-      culture with sulfate or fumarate as the electron acceptor
-    explanation: Demonstrates the core metabolic activity of S. fumaroxidans in propionate degradation
-      with H2/formate transfer
   - reference: PMID:29611893
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Formate dehydrogenase Fdh1 and hydrogenase Hox were the main confurcating enzymes used for
-      energy conservation
-    explanation: Demonstrates the enzymatic mechanism of H2 and formate production during syntrophic propionate
-      oxidation
+    snippet: We performed a proteome analysis of S. fumaroxidans growing with propionate axenically with sulfate
+      or fumarate, and in syntrophy with Methanospirillum hungatei, Methanobacterium formicicum or Desulfovibrio
+      desulfuricans
+    explanation: The proteomic study cultivated both named methanogenic pairings; this supports the exact partner,
+      not carrier apportionment.
+  - reference: PMID:29611893
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: a very plausible candidate for a confurcating-type of formate dehydrogenase
+    explanation: The main Discussion qualifies the Fdh1 assignment; abundance and homology are not an enzyme-specific
+      intervention.
+  - reference: PMID:29611893
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Hox is most probably a confurcating hydrogenase involved in energy conservation
+    explanation: The source explicitly qualifies the Hox mechanism.
 - name: Interspecies Electron Transfer and Methanogenesis
-  description: 'Methanospirillum hungatei consumes the H2 and formate produced by S. fumaroxidans, combining
-    them with CO2 to produce methane via hydrogenotrophic methanogenesis. This H2/formate removal maintains
-    low partial pressures, making the thermodynamically unfavorable propionate oxidation by S. fumaroxidans
-    energetically feasible. This interspecies electron transfer via both H2 and formate is a classic example
-    of syntrophic metabolism in anaerobic environments critical for biogeochemical cycling.
-
-    '
+  description: M. hungatei acts as the hydrogen/formate-using methanogenic partner of S. fumaroxidans. Carrier consumption
+    supports methane formation and relieves the thermodynamic constraint on propionate oxidation. Low hydrogen partial
+    pressure and low formate concentration are distinct constraints; formate is not a gas pressure. The comparative
+    proteome suggests an important formate route but does not independently quantify exact-pair carrier partitioning.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -186,17 +188,17 @@ ecological_interactions:
     term:
       id: CHEBI:18276
       label: dihydrogen
-    concentration: Consumed from environment - must be maintained at low levels
+    notes: Consumed from environment - must be maintained at low levels
   - preferred_term: formate
     term:
       id: CHEBI:15740
       label: formate
-    concentration: Consumed from environment - must be maintained at low levels
+    notes: Consumed from environment - must be maintained at low levels
   - preferred_term: methane
     term:
       id: CHEBI:16183
       label: methane
-    concentration: End product of methanogenesis
+    notes: End product of methanogenesis
   biological_processes:
   - preferred_term: methanogenesis
     term:
@@ -204,40 +206,39 @@ ecological_interactions:
       label: methanogenesis
   downstream:
   - target: Propionate Oxidation and H2/Formate Production
-    description: H2/formate scavenging by M. hungatei keeps the partial pressures of both carriers
-      low enough for propionate oxidation to remain thermodynamically feasible. S. fumaroxidans
-      oxidizes propionate either syntrophically with an H2/formate-utilizing partner or, in pure
-      culture, only when supplied with an external electron acceptor (sulfate or fumarate) —
-      establishing the partner-dependence that this feedback edge encodes. Reciprocal arm of the
-      syntrophic loop.
+    description: 'DIRECTLY IMPLIED feedback: hydrogen/formate consumption by M. hungatei lowers hydrogen partial
+      pressure and formate concentration, enabling continued propionate oxidation. This retains the thermodynamic
+      cooperation inferred from syntrophic versus electron-acceptor-supported axenic growth; it is not a selective
+      carrier-removal assay in this exact pair.'
   - target: Syntrophic Propionate-to-Methane Conversion
-    description: >
-      Reciprocal formate and H2 exchange links S. fumaroxidans propionate
-      oxidation to M. hungatei hydrogenotrophic methanogenesis.
+    description: Methanogenic consumption of bacterially supplied reducing equivalents couples propionate oxidation
+      to methane production. Cooperation is reciprocal, but the carrier transfer described here is bacterial-to-methanogen,
+      not bidirectional donation.
   evidence:
-  - reference: PMID:9828440
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: It oxidized propionate syntrophically in co-culture with the hydrogen- and formate-utilizing
-      Methanospirillum hungateii, and was able to oxidize propionate and other organic compounds in pure
-      culture with sulfate or fumarate as the electron acceptor
-    explanation: Demonstrates successful syntrophic coculture with M. hungatei as H2/formate-utilizing
-      partner; the pure-culture contrast (electron acceptor required in the absence of the partner) is
-      the basis for the feedback edge
   - reference: PMID:29611893
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: fumaroxidans mainly used formate for electron release and that different confurcating mechanisms
-      were used in its sulfidogenic metabolism
-    explanation: Confirms the importance of formate as an interspecies electron carrier in addition to
-      H2
+    snippet: We performed a proteome analysis of S. fumaroxidans growing with propionate axenically with sulfate
+      or fumarate, and in syntrophy with Methanospirillum hungatei, Methanobacterium formicicum or Desulfovibrio
+      desulfuricans
+    explanation: Supports growth with this exact methanogen in the comparative study.
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: During syntrophic growth, S. fumaroxidans needs to transfer electrons via hydrogen and/or formate to
+      a syntrophic partner.
+    explanation: Source interpretation supports the carrier-removal feedback; it does not assign a measured fraction
+      to either carrier.
+  - reference: PMID:29611893
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: It has long been speculated that formate plays a more important role than hydrogen as an electron carrier
+    explanation: The main text explicitly frames relative carrier importance as a mechanistic interpretation rather
+      than a measured exact-pair flux.
 - name: Syntrophic Propionate-to-Methane Conversion
-  description: >
-    S. fumaroxidans oxidizes propionate syntrophically with the
-    H2/formate-utilizing methanogen M. hungatei, forming a coupled anaerobic
-    conversion that joins propionate catabolism with hydrogenotrophic
-    methanogenesis.
-  interaction_type: SYNTROPHY
+  description: The S. fumaroxidans-M. hungatei coculture joins propionate oxidation to methanogenesis. This community
+    conversion is the outcome of the two existing partner processes, not a third pairwise exchange. Acetate remains
+    a bacterial product, so this does not assert complete mineralization of propionate carbon to methane.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Syntrophobacter fumaroxidans
@@ -271,15 +272,14 @@ ecological_interactions:
       id: GO:0015948
       label: methanogenesis
   evidence:
-  - reference: PMID:9828440
+  - reference: PMID:29611893
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: It oxidized propionate syntrophically in co-culture with the hydrogen- and formate-utilizing
-      Methanospirillum hungateii, and was able to oxidize propionate and other organic compounds in pure
-      culture with sulfate or fumarate as the electron acceptor
-    explanation: >
-      Establishes S. fumaroxidans syntrophic propionate growth with the exact
-      M. hungatei partner.
+    snippet: We performed a proteome analysis of S. fumaroxidans growing with propionate axenically with sulfate
+      or fumarate, and in syntrophy with Methanospirillum hungatei, Methanobacterium formicicum or Desulfovibrio
+      desulfuricans
+    explanation: Supports the exact syntrophic pairing and its coupled growth, without a carbon-complete methane
+      yield claim.
 environmental_factors:
 - name: Anaerobic Conditions
   value: Strict anaerobic
@@ -595,3 +595,30 @@ growth_media:
       during syntrophic propionate oxidation by S. fumaroxidans
   culturemech_id: CultureMech:000423
   culturemech_url: https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/CultureMech:000423
+discussions:
+- discussion_id: propionate-carrier-partition-and-enzyme-roles
+  prompt: What are the separate carrier fluxes and enzyme contributions in this exact pairing?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: Comparative proteomics supports candidate energy-conservation and electron-transfer roles. It does
+    not resolve exact carrier fractions or selectively demonstrate all enzyme assignments. Existing metabolic feedback
+    is retained with that boundary.
+  attaches_to:
+  - ecological_interactions#Propionate Oxidation and H2/Formate Production
+  - ecological_interactions#Interspecies Electron Transfer and Methanogenesis
+  evidence:
+  - reference: PMID:29611893
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: It has long been speculated that formate plays a more important role than hydrogen as an electron carrier
+    explanation: The main text explicitly frames relative carrier importance as a mechanistic interpretation rather
+      than a measured exact-pair flux.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-08T07:10:55Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Bound propionate oxidation and enzyme inference to exact partner and assay.; Retain carrier-removal feedback
+    with physical units and flux uncertainty explicit.; Retain coupled community conversion without duplicate exchange
+    typing. Issue#1871; reports/causal_graph_review/decisions/20261008-seven-records-batch112.yaml
+  llm_assisted: true

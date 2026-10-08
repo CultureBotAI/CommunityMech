@@ -108,7 +108,8 @@ def test_most_records_carry_a_community_level_interaction(survey):
     # #1799 separates the Shewanella current endpoint from reverse cross-feeding (403 -> 404).
     # #1859 adds a scoped electrode process (407 -> 408); no new solely-credited taxa.
     # #1865 separates the scoped butanol endpoint (408 -> 409), with no new sole credit.
-    assert 130 <= survey["with_community_level"] <= 409, survey
+    # #1872/#1875/#1876 add three scoped outcomes; the ES5 triculture is community-only.
+    assert 130 <= survey["with_community_level"] <= 412, survey
 
 
 def test_the_mixed_records_are_where_the_coarseness_bites(survey):
@@ -126,7 +127,8 @@ def test_the_mixed_records_are_where_the_coarseness_bites(survey):
     # #1772-#1774 change the mixed-record census from 125 to 128.
     # #1851-#1854 add four mixed-scope records; batch109 pins the exact measured census.
     # #1865 adds one mixed-scope record (133 -> 134); the share guard is unchanged.
-    assert 35 <= survey["mixed"] <= 134, survey
+    # Batch112 adds two mixed-scope records and one community-only record.
+    assert 35 <= survey["mixed"] <= 136, survey
     assert survey["mixed"] + survey["community_level_only"] == survey["with_community_level"]
 
 
