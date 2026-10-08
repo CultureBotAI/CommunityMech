@@ -27,18 +27,22 @@ taxonomy:
 - taxon_term:
     preferred_term: Thiothrix
     term:
-      id: NCBITaxon:1031
-      label: Thiothrix nivea
+      id: NCBITaxon:1030
+      label: Thiothrix
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:s__Thiothrix_nivea
-      gtdb_taxon: Thiothrix nivea
-      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Thiotrichales;f__Thiotrichaceae;g__Thiothrix;s__Thiothrix nivea
-      ncbi_source_id: NCBITaxon:1031
-      majority_fraction: 1.0
-      total_genomes: 2
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
+      gtdb_id: GTDB:g__Thiothrix
+      gtdb_taxon: Thiothrix
+      gtdb_lineage: d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Thiotrichales;f__Thiotrichaceae;g__Thiothrix
+      ncbi_source_id: NCBITaxon:1030
+      curated: true
+      curation_note: Source-specific genus assignment from primary Table S4 row104; species is blank. Replaces the
+        inherited Thiothrix nivea species mapping. No genome-count vote or identification of imaged cells is implied.
+      mapping_source: PMID:38273328 Table S4, S4- Genomes classification row104; study GTDB release unspecified;
+        publisher supplement retrieved 2026-10-08.
+    notes: The MS4 bin ALUMROCK_MS4_Thiothrix_nivea-related_50_537_curated is assigned to Thiothrix with no species
+      in Table S4. NCBI genus1030 is verified; 51% amino-acid similarity does not establish T. nivea. The study
+      classification does not identify individual imaged filaments or imply dominance in every sample.
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_PRODUCER
@@ -47,10 +51,23 @@ taxonomy:
   - reference: PMID:38273328
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Chemolithotrophic sulfur-oxidizing bacteria, including Thiothrix and
-      Beggiatoa, dominate the biofilms
-    explanation: Supports Thiothrix dominance among the chemolithotrophic
-      sulfur-oxidizing bacteria.
+    snippet: Chemolithotrophic sulfur-oxidizing bacteria, including Thiothrix and Beggiatoa, dominate the biofilms
+    explanation: Supports Thiothrix dominance among the chemolithotrophic sulfur-oxidizing bacteria.
+  - reference: PMID:38273328
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Thiotrichales;f__Thiotrichaceae;g__Thiothrix;s__
+    explanation: Primary Table S4 row104 assigns the named MS4 bin to genus Thiothrix and leaves species blank;
+      this supports genus-level attribution only.
+    computational_provenance:
+      prediction_type: OTHER
+      tools:
+      - tool_name: iQ-TREE
+        tool_version: 1.6.12
+        role: Concatenated ribosomal-protein phylogeny
+      model_source: Study metagenomic bin ALUMROCK_MS4_Thiothrix_nivea-related_50_537_curated
+      parameters: 'Primary Methods and Table S4: genome classification using representative GTDB genomes and ribosomal-protein
+        trees; no species assignment or cell identification.'
 - taxon_term:
     preferred_term: Beggiatoa
     term:
@@ -66,7 +83,8 @@ taxonomy:
       support_genomes: 9
       total_genomes: 9
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank;
+        1 GTDB taxa under the NCBI taxon]
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_PRODUCER
@@ -75,8 +93,7 @@ taxonomy:
   - reference: PMID:38273328
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Chemolithotrophic sulfur-oxidizing bacteria, including Thiothrix and
-      Beggiatoa, dominate the biofilms
+    snippet: Chemolithotrophic sulfur-oxidizing bacteria, including Thiothrix and Beggiatoa, dominate the biofilms
     explanation: Supports Beggiatoa as a co-dominant sulfur-oxidizing member.
 - taxon_term:
     preferred_term: Candidate Phyla Radiation (CPR) bacteria
@@ -84,18 +101,17 @@ taxonomy:
       id: NCBITaxon:1783273
       label: Patescibacteria group
     gtdb_grounding_status: UNRESOLVED
-    notes: The biofilm hosts diverse CPR lineages (Gracilibacteria,
-      Absconditabacteria, Saccharibacteria, Peregrinibacteria, Berkelbacteria,
-      Microgenomates, Parcubacteria), with imaging suggesting episymbiotic
-      association with filamentous bacteria.
+    notes: The biofilm hosts diverse CPR lineages (Gracilibacteria, Absconditabacteria, Saccharibacteria, Peregrinibacteria,
+      Berkelbacteria, Microgenomates, Parcubacteria), with imaging suggesting episymbiotic association with filamentous
+      bacteria.
   functional_role:
   - SYNTROPHIC_PARTNER
   evidence:
   - reference: PMID:38273328
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: CPR Gracilibacteria, Absconditabacteria, Saccharibacteria,
-      Peregrinibacteria, Berkelbacteria, Microgenomates, and Parcubacteria
+    snippet: CPR Gracilibacteria, Absconditabacteria, Saccharibacteria, Peregrinibacteria, Berkelbacteria, Microgenomates,
+      and Parcubacteria
     explanation: Supports the diverse CPR membership of the biofilm.
 related_ingredients:
 - preferred_term: elemental sulfur
@@ -171,16 +187,17 @@ related_ingredients:
 ecological_interactions:
 - name: Filamentous Sulfur Oxidation with Encapsulated S Granules
   description: 'STXM and sulfur-edge spectroscopy show protein-associated elemental sulfur granules in filaments
-    from the MS4 and MS11 spring biofilms, consistent with sulfur oxidation. The authors infer Thiothrix-like and
-    Beggiatoa-related identities from the surrounding community evidence. HYPOTHESIZED/PARTIAL: the legacy canonical
-    participant links do not identify the imaged cells, and NCBITaxon:1031 is not established for the MS4 lineage.
-    These observations do not demonstrate commensalism or neutral effects on a host.'
+    from the MS4 and MS11 spring biofilms, consistent with sulfur oxidation. Primary Table S4 supports Thiothrix
+    genus attribution for the named MS4 bin, with no species assignment. HYPOTHESIZED/PARTIAL: this is not identification
+    of the imaged cells; Thiothrix nivea is not established. The Beggiatoa-related canonical participant remains
+    unresolved because the supplementary classification leaves genus blank. These observations do not demonstrate
+    commensalism or neutral effects on a host.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Thiothrix
     term:
-      id: NCBITaxon:1031
-      label: Thiothrix nivea
+      id: NCBITaxon:1030
+      label: Thiothrix
   - preferred_term: Beggiatoa
     term:
       id: NCBITaxon:1021
@@ -207,12 +224,27 @@ ecological_interactions:
       they are sulfur oxidizers, likely Thiothrix
     explanation: Supports sulfur-containing filaments and a likely taxonomic interpretation, not identification
       as Thiothrix nivea or an organism-to-organism fitness relationship.
+  - reference: PMID:38273328
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Thiotrichales;f__Thiotrichaceae;g__Thiothrix;s__
+    explanation: Primary Table S4 row104 assigns the named MS4 bin to genus Thiothrix and leaves species blank;
+      this supports genus-level attribution only.
+    computational_provenance:
+      prediction_type: OTHER
+      tools:
+      - tool_name: iQ-TREE
+        tool_version: 1.6.12
+        role: Concatenated ribosomal-protein phylogeny
+      model_source: Study metagenomic bin ALUMROCK_MS4_Thiothrix_nivea-related_50_537_curated
+      parameters: 'Primary Methods and Table S4: genome classification using representative GTDB genomes and ribosomal-protein
+        trees; no species assignment or cell identification.'
 - name: Putative CPR association with sulfur-oxidizing filaments
   description: 'HYPOTHESIZED/PARTIAL: small cells occur near or on sulfur-bearing filaments, and the authors propose
     that some are CPR episymbionts. Attempts to identify CPR cells by FISH were unsuccessful, so the observed cells,
-    their hosts and the fitness consequences remain unresolved. The source/target links retain legacy canonical
-    cross-references for this proposed association; they do not verify a CPR-Thiothrix nivea pair. A possible cryptic
-    sulfur-cycling symbiosis remains a source hypothesis, not demonstrated exchange.'
+    their hosts and the fitness consequences remain unresolved. The target now uses the source-supported Thiothrix
+    genus rather than an unsupported species. These source/target links do not verify a CPR-Thiothrix pair. A possible
+    cryptic sulfur-cycling symbiosis remains a source hypothesis, not demonstrated exchange.'
   scope: PAIRWISE
   source_taxon:
     preferred_term: Candidate Phyla Radiation (CPR) bacteria
@@ -222,8 +254,8 @@ ecological_interactions:
   target_taxon:
     preferred_term: Thiothrix
     term:
-      id: NCBITaxon:1031
-      label: Thiothrix nivea
+      id: NCBITaxon:1030
+      label: Thiothrix
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -243,6 +275,21 @@ ecological_interactions:
     snippet: our attempts to perform fluorescent in situ hybridization to determine CPR bacterial identity were
       unsuccessful due to low amount of material, so this inference remains tentative.
     explanation: States the unresolved identification boundary directly.
+  - reference: PMID:38273328
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Thiotrichales;f__Thiotrichaceae;g__Thiothrix;s__
+    explanation: Primary Table S4 row104 assigns the named MS4 bin to genus Thiothrix and leaves species blank;
+      this supports genus-level attribution only.
+    computational_provenance:
+      prediction_type: OTHER
+      tools:
+      - tool_name: iQ-TREE
+        tool_version: 1.6.12
+        role: Concatenated ribosomal-protein phylogeny
+      model_source: Study metagenomic bin ALUMROCK_MS4_Thiothrix_nivea-related_50_537_curated
+      parameters: 'Primary Methods and Table S4: genome classification using representative GTDB genomes and ribosomal-protein
+        trees; no species assignment or cell identification.'
 - name: Predicted CPR sulfur and hydrogen metabolic capacity
   description: 'HYPOTHESIZED/PARTIAL: metagenomic gene content, genomic context and structural models suggest a
     potentially electron-bifurcating group 3b hydrogenase in Berkelbacteria/Moranbacteria and thiosulfate-conversion
@@ -347,19 +394,21 @@ metal_notes: No metal or rare earth element processing role is curated for this
   sulfide-spring biofilm.
 discussions:
 - discussion_id: spring-unresolved-cell-identity-and-metabolic-coupling
-  prompt: Can the imaged cells and canonical participant groundings be resolved before asserting a specific CPR-host
-    metabolic interaction?
+  prompt: How should the Beggiatoa-related participants be reconciled across taxonomies, and can the imaged cells
+    and metabolic coupling be identified?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#Filamentous Sulfur Oxidation with Encapsulated S Granules
   - ecological_interactions#Putative CPR association with sulfur-oxidizing filaments
   - ecological_interactions#Predicted CPR sulfur and hydrogen metabolic capacity
-  rationale: The dominant MS4 genome is reported as only 51% average amino-acid similarity to Thiothrix nivea, so
-    the current species identifier is not validated. FISH did not resolve CPR identity. Proximity does not cause
-    encoded metabolic potential; the two former spatial arrows are removed while preserving the observations and
-    source hypotheses. Canonical taxonomy and graph references need a coordinated identity repair; this record remains
-    needs_research.
+  rationale: 'Table S4 resolves the MS4 Thiothrix bin to genus, not species, consistent with the reported 51% average
+    amino-acid similarity to T. nivea. Canonical taxonomy and both Thiothrix graph links now use NCBITaxon:1030.
+    The named dominant MS11 Beggiatoa-related bin is classified within Beggiatoaceae with empty genus and species,
+    and other related bins lack a family assignment. The legacy Beggiatoa genus link is not recertified; source-specific
+    reconciliation with NCBI remains necessary. FISH did not resolve CPR identity, and proximity does not establish
+    metabolic exchange. Issue #1841 and needs_research remain open. Non-graph functional-role and ingredient assertions
+    are outside this partial identity repair.'
   evidence:
   - reference: PMID:38273328
     supports: SUPPORT
@@ -388,4 +437,10 @@ curation_history:
   action: CORRECT_EVIDENCE_PROVENANCE
   changes: Narrow Doudnabacteria sulfur-enzyme provenance to METABOLIC and AlphaFold2; HydDB applies only to the
     separate hydrogenase prediction. Adversarial follow-up to Issue1838; reports/causal_graph_review/decisions/20261008-four-records-batch107.yaml
+  llm_assisted: true
+- timestamp: '2026-10-08T20:58:05Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Replace unsupported Thiothrix nivea attribution with supplement-supported Thiothrix genus in the roster
+    and two graph links; retain the Beggiatoa and cell-identity gaps. Issue#1841; reports/causal_graph_review/decisions/20261008-spring-identity-batch127.yaml
   llm_assisted: true

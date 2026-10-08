@@ -5,6 +5,24 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch127: Thiothrix Genus Identity
+
+[Decisions](decisions/20261008-spring-identity-batch127.yaml),
+[source rows](sources/20261008-spring-supplements-batch127.json),
+[validation](validation-20261008-batch127.json), and
+[self-adversarial review](adversarial-review-20261008-batch127.yaml) record
+a partial repair of #1841. Primary Table S4 assigns the named MS4 genome to
+Thiothrix but leaves species blank. The roster and two existing graph links
+now use the verified genus identifier, with a source-specific GTDB assignment.
+
+Both publisher supplement URLs returned the same six-sheet workbook; selected
+classification and coverage rows are preserved with its hash and access limits.
+The Beggiatoa-related classification remains unresolved, as do cell identity and
+metabolic coupling. No new nodes, arrows or Edison submissions were added.
+The record stays `needs_research`; #1841 stays open. Counts remain 406 reviewed,
+zero pending and 54 requiring research. This extends PR #1975 without changing
+the 100 existing native-stack heads or claiming merge/cleanup is complete.
+
 ## Batch126: Halomonas Strain Evidence
 
 [Decisions](decisions/20261008-halomonas-identity-batch126.yaml),
