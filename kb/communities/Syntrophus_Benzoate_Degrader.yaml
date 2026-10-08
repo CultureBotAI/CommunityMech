@@ -91,13 +91,10 @@ taxonomy:
       produces methane in benzoate-grown cocultures.
 ecological_interactions:
 - name: Syntrophus Benzoate Metabolism
-  description: 'S. aciditrophicus strain SB metabolizes benzoate in coculture with
-    hydrogen-using partners and transiently produces cyclohexane carboxylate,
-    cyclohex-1-ene carboxylate, pimelate, and glutarate during growth on
-    benzoate. These Syntrophus reactions initiate the methanogenic coculture
-    conversion of benzoate to acetate and methane.
-
-    '
+  description: S. aciditrophicus strain SB metabolizes benzoate in the M. hungatei coculture, with transient alicyclic
+    and dicarboxylate intermediates. This is the syntrophic route; the separate pure-culture experiment also demonstrates
+    benzoate fermentation with a different product balance. Enzyme activities measured with Desulfovibrio or crotonate-grown
+    pure cultures are not attributed as exact-pair assays here.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -113,60 +110,52 @@ ecological_interactions:
   metabolites:
   - preferred_term: benzoate
     term:
-      id: CHEBI:30746
-      label: benzoic acid
-    concentration: Aromatic substrate for degradation
+      id: CHEBI:16150
+      label: benzoate
+    notes: Aromatic substrate for degradation
   - preferred_term: acetate
     term:
       id: CHEBI:30089
       label: acetate
-    concentration: Product of benzoate degradation
+    notes: Product of benzoate degradation
   - preferred_term: dihydrogen
     term:
       id: CHEBI:18276
       label: dihydrogen
-    concentration: Electron sink product - must be maintained at low levels
+    notes: Electron sink product - must be maintained at low levels
   - preferred_term: carbon dioxide
     term:
       id: CHEBI:16526
       label: carbon dioxide
-    concentration: Benzoate oxidation product
+    notes: Benzoate oxidation product
   biological_processes:
   - preferred_term: benzoate metabolic process
     term:
       id: GO:0018874
       label: benzoate metabolic process
   downstream:
-  - target: Community Benzoate Mineralization to Acetate and Methane
-    description: S. aciditrophicus benzoate metabolism supplies reduced products
-      to the methanogenic partner and enables methane-producing benzoate mineralization
-      by the coculture.
+  - target: Community Benzoate Conversion to Acetate and Methane
+    description: Bacterial benzoate metabolism supplies reducing equivalents for the methanogenic partner and generates
+      acetate, enabling the coupled coculture conversion rather than complete carbon mineralization.
   evidence:
   - reference: doi:10.1128/aem.67.4.1728-1738.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: In this study, we investigated the pathway for syntrophic benzoate metabolism
-      in “ Syntrophus aciditrophicus ” strain SB by identifying and quantifying
-      metabolites produced during growth of this organism with benzoate, cyclohexane
-      carboxylate, and cyclohex-1-ene carboxylate in cocultures with hydrogen-utilizing
-      partners
-    explanation: Demonstrates S. aciditrophicus strain SB syntrophic metabolism
-      with hydrogen-utilizing partners.
+    snippet: Cyclohexane carboxylate, cyclohex-1-ene carboxylate, pimelate, and glutarate
+    explanation: 'The primary passage identifies these transient intermediates or their coenzyme A derivatives;
+      it does not assign every enzyme assay to this methanogenic pair. The contiguous excerpt avoids the known bracket-stripping
+      validator bug #622 without silently changing quoted text.'
   - reference: doi:10.1128/aem.67.4.1728-1738.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: During growth of the “ S. aciditrophicus ”- M. hungatei cocultures with
-      benzoate, cyclohexane carboxylate, cyclohex-1-ene carboxylate, pimelate,
-      and glutarate were detected as their TMS derivatives.
-    explanation: Identifies the alicyclic and dicarboxylate intermediates
-      produced during benzoate-grown S. aciditrophicus-M. hungatei coculture.
+    snippet: Cocultures of "S. aciditrophicus" and Methanospirillum hungatei readily metabolized cyclohexane carboxylate
+      and cyclohex-1-ene carboxylate
+    explanation: Identifies the methanogenic pairing used for metabolism of the alicyclic substrates.
 - name: Interspecies Hydrogen Transfer and Methanogenesis
-  description: 'M. hungatei functions as the hydrogen-using methanogen in the
-    S. aciditrophicus coculture. Hydrogen consumption keeps the concentration
-    of hydrogen produced during benzoate oxidation low, a thermodynamic requirement
-    for anaerobic benzoate degradation through interspecies hydrogen transfer.
-
-    '
+  description: 'M. hungatei is the hydrogen-using methanogen in the benzoate coculture. Hydrogen consumption provides
+    an electron sink for the syntrophic conversion to acetate and methane. This does not mean benzoate metabolism
+    is impossible without a partner: S. aciditrophicus pure cultures ferment benzoate with cyclohexane carboxylate
+    accumulation and a different acetate yield.'
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -184,51 +173,46 @@ ecological_interactions:
     term:
       id: CHEBI:18276
       label: dihydrogen
-    concentration: Consumed from environment - must be maintained at low levels
+    notes: Consumed from environment - must be maintained at low levels
   - preferred_term: carbon dioxide
     term:
       id: CHEBI:16526
       label: carbon dioxide
-    concentration: Cosubstrate for hydrogenotrophic methanogenesis
+    notes: Cosubstrate for hydrogenotrophic methanogenesis
   - preferred_term: methane
     term:
       id: CHEBI:16183
       label: methane
-    concentration: End product of methanogenesis
+    notes: End product of methanogenesis
   biological_processes:
   - preferred_term: methanogenesis
     term:
       id: GO:0015948
       label: methanogenesis
   downstream:
-  - target: Community Benzoate Mineralization to Acetate and Methane
-    description: Methanogenic hydrogen removal closes the syntrophic electron
-      sink that lets benzoate oxidation continue to methane production.
+  - target: Community Benzoate Conversion to Acetate and Methane
+    description: Methanogenic hydrogen consumption supplies the electron sink that couples benzoate oxidation to
+      methane production and the coculture product balance; a different benzoate fermentation remains possible without
+      this partner.
   evidence:
   - reference: doi:10.1128/aem.67.12.5520-5525.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The pure culture of S. aciditrophicus produced approximately 0.5 mol of cyclohexane
-      carboxylate and 1.5 mol of acetate per mol of benzoate, while a coculture
-      of S . aciditrophicus with the hydrogen-using methanogen Methanospirillum
-      hungatei produced 3 mol of acetate and 0.75 mol of methane per mol of
-      benzoate.
-    explanation: Demonstrates methane-producing syntrophy between S. aciditrophicus
-      and M. hungatei.
+    snippet: a coculture of S. aciditrophicus with the hydrogen-using methanogen Methanospirillum hungatei produced
+      3 mol of acetate and 0.75 mol of methane per mol of benzoate.
+    explanation: Supports the named hydrogen user and coculture product balance.
   - reference: doi:10.1128/aem.67.12.5520-5525.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Degradation proceeds only if the concentration of hydrogen produced during
-      benzoate oxidation is continuously maintained at a low level by a hydrogen-using
-      microorganism ( 12 , 19 , 24 , 26 ).
-    explanation: Confirms the low-hydrogen requirement that the methanogen satisfies.
-- name: Community Benzoate Mineralization to Acetate and Methane
-  description: 'The two-member S. aciditrophicus-M. hungatei coculture consumes
-    benzoate and completes the methanogenic community outcome by producing acetate
-    and methane at the stoichiometry predicted for syntrophic benzoate degradation.
-
-    '
-  interaction_type: SYNTROPHY
+    snippet: The anaerobic bacterium Syntrophus aciditrophicus metabolized benzoate in pure culture in the absence
+      of hydrogen-utilizing partners or terminal electron acceptors.
+    explanation: Prevents the low-hydrogen requirement of the syntrophic route from becoming a universal dependence
+      claim.
+- name: Community Benzoate Conversion to Acetate and Methane
+  description: 'The two-member benzoate coculture produced approximately three mol acetate and 0.75 mol methane
+    per mol benzoate, as summarized in the primary abstract. This is substrate conversion, not complete mineralization:
+    acetate remains organic carbon. The reported pure-culture product balance differs, including cyclohexane carboxylate
+    accumulation.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Syntrophus aciditrophicus SB
@@ -242,19 +226,19 @@ ecological_interactions:
   metabolites:
   - preferred_term: benzoate
     term:
-      id: CHEBI:30746
-      label: benzoic acid
-    concentration: Aromatic substrate consumed by the coculture
+      id: CHEBI:16150
+      label: benzoate
+    notes: Aromatic substrate consumed by the coculture
   - preferred_term: acetate
     term:
       id: CHEBI:30089
       label: acetate
-    concentration: Syntrophic benzoate degradation product
+    notes: Syntrophic benzoate degradation product
   - preferred_term: methane
     term:
       id: CHEBI:16183
       label: methane
-    concentration: Methanogenesis product
+    notes: Methanogenesis product
   biological_processes:
   - preferred_term: benzoate metabolic process
     term:
@@ -268,20 +252,16 @@ ecological_interactions:
   - reference: doi:10.1128/aem.67.12.5520-5525.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The pure culture of S. aciditrophicus produced approximately 0.5 mol of cyclohexane
-      carboxylate and 1.5 mol of acetate per mol of benzoate, while a coculture
-      of S . aciditrophicus with the hydrogen-using methanogen Methanospirillum
-      hungatei produced 3 mol of acetate and 0.75 mol of methane per mol of
-      benzoate.
-    explanation: Supports acetate and methane as the methanogenic benzoate-coculture
-      products.
-  - reference: doi:10.1128/aem.67.4.1728-1738.2001
+    snippet: a coculture of S. aciditrophicus with the hydrogen-using methanogen Methanospirillum hungatei produced
+      3 mol of acetate and 0.75 mol of methane per mol of benzoate.
+    explanation: Abstract-level approximate product stoichiometry; not a time-resolved or carbon-complete mineralization
+      claim.
+  - reference: doi:10.1128/aem.67.12.5520-5525.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Only after 100% of the benzoate was consumed (day 11) was the methane-to-benzoate
-      ratio (0.76) close to the theoretical value, 0.75.
-    explanation: Supports complete benzoate consumption and the expected methane
-      yield in S. aciditrophicus-M. hungatei coculture.
+    snippet: The pure culture of S. aciditrophicus produced approximately 0.5 mol of cyclohexane carboxylate and
+      1.5 mol of acetate per mol of benzoate
+    explanation: Documents the distinct partner-free metabolic outcome.
 environmental_factors:
 - name: Anaerobic Conditions
   value: Strict anaerobic
@@ -342,3 +322,17 @@ growth_media:
     snippet: All media and stock solutions were prepared anaerobically by using the
       techniques described by Balch and Wolfe ( 3 ).
     explanation: Establishes strict anaerobic preparation of the culture medium.
+curation_history:
+- timestamp: '2026-10-08T07:10:55Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain coculture benzoate metabolism without importing other-partner enzyme assays.; Bound hydrogen-user
+    dependence to the syntrophic product route.; Rename mineralization as conversion and correct graph benzoate
+    grounding. Issue#1874; reports/causal_graph_review/decisions/20261008-seven-records-batch112.yaml
+  llm_assisted: true
+- timestamp: '2026-10-08T07:25:00Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Use a shorter contiguous benzoate-intermediate quote after bracket-stripping failure #622; retain the
+    compound-or-CoA qualification and original failed validation log. Issue#1874; reports/causal_graph_review/decisions/20261008-seven-records-batch112.yaml'
+  llm_assisted: true

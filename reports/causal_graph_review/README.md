@@ -5,6 +5,38 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch112: Syntrophic Feedback And Assay Boundaries
+
+[Decisions](decisions/20261008-seven-records-batch112.yaml),
+[provenance](cache-provenance-20261008-batch112.json),
+[validation](validation-20261008-batch112.json), and
+[self-adversarial review](adversarial-review-20261008-batch112.yaml) cover
+seven propionate, butyrate and benzoate records. All 21 nodes remain; 16 of
+17 existing arrows remain. The misplaced population-ratio reverse arrow is
+removed, and benzoate mineralization is renamed as conversion. Supported
+metabolic feedback remains; carrier partitioning, enzyme assignments and
+aggregation/protein mediation retain their evidence limits.
+
+Four fresh extracted primary main bodies and five older primary abstracts
+support this review. Of 53 graph/discussion quotations, 51 match fresh primary
+artifacts and two match only existing curator-supplied publisher text, whose
+fresh retrieval was unavailable. No original figure pixels, separate supplements
+or raw data were audited. Eight append-only histories preserve the trail,
+including a shorter contiguous benzoate quote after a bracket-stripping failure;
+the original failed output and pre-correction evidence remain recorded.
+All 923 caches and 453 other records are unchanged. The measured scope census
+adds three solely-credited taxa from the community-scoped ES5 triculture;
+connectivity rules and the share guard are unchanged. No new topology or Edison spend.
+The exact participant-user test now includes the three newly explicit records;
+the initial failed regression output is retained alongside the corrected rerun.
+
+Graph repairs #1871-#1876 await protected-main merge. Non-graph culture metadata
+and residual claim follow-ups #1877-#1878 remain open. Self-review is not
+independent approval or whole-record certification.
+The unchanged coordination cultivation quote still triggers bracket-stripping
+validator issue #622. Its failure is reproduced on the parent and its text matches
+the primary source; it is recorded as an exception, not a reference-validation pass.
+
 ## Batch111: Carbon, Lipid And Attachment Evidence
 
 [Decisions](decisions/20261008-three-records-batch111.yaml),
