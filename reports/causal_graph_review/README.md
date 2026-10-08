@@ -5,6 +5,29 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch125: Cable-Biofilm Identity
+
+[Decisions](decisions/20261008-cable-biofilm-batch125.yaml),
+[validation](validation-20261008-batch125.json), and
+[self-adversarial review](adversarial-review-20261008-batch125.yaml) revisit
+the unresolved identity in #1267. The inherited biofilm member is now grounded
+to Bacillariophyta, and the related sulfide term matches the measured H2S species
+without treating calculated total sulfide as one molecule. Unsupported syntrophy
+is removed from the cable-bacteria role.
+
+All three nodes and both arrows remain. Mechanism, reciprocal-benefit and
+statistical qualifications remain, including the open mechanistic discussion.
+The earlier partial-review ledger is preserved through explicit hash-linked
+supersession. Whole-record certification, original figure inspection, and
+supplement or raw-data audits are not claimed.
+
+All eleven evidence instances match the primary source and cache; only eight
+new quoted words are appended with attribution. The other 459 records,
+923 caches and all earlier histories and decision ledgers remain unchanged.
+No Edison submission or new causal topology was needed. The inventory has
+406 reviewed records, zero pending and 54 requiring research. Issue #1267
+awaits protected-main merge; #1268 remains open for other records.
+
 ## Batch124: Final Pending Records
 
 [Decisions](decisions/20261008-six-records-batch124.yaml),
