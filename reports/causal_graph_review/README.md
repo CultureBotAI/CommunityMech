@@ -5,6 +5,36 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch113: Marine Assay And Causal Boundaries
+
+[Decisions](decisions/20261008-three-records-batch113.yaml),
+[provenance](cache-provenance-20261008-batch113.json),
+[validation](validation-20261008-batch113.json), and
+[self-adversarial review](adversarial-review-20261008-batch113.yaml) cover
+the diatom-HP15, diatom-Ruegeria and Trichodesmium-Alteromonas records.
+All ten existing nodes remain; four unsupported arrows are removed and two
+condition-bounded HP15 directions remain. Positive growth and attachment
+findings are preserved without promoting transcript correlations or genomic
+candidates to demonstrated mechanisms.
+
+Three fresh extracted primary main bodies and three complete primary PDF
+text extractions were read, with selected PDF figures visually inspected.
+The 2018 diel main body was read from existing curator text; chemotaxis is
+abstract-bounded and the MEPS fibre evidence remains caption-only. Of 24
+graph/discussion quotations, 23 match fresh primary text and one matches
+the existing MEPS caption. No publication bodies or PDFs were added.
+Three append-only histories preserve all non-graph blocks, 457 other records
+and 923 caches. Explicit participant lists change in two records while the
+measured connectivity census and connectivity rules remain unchanged.
+
+Repairs #1880-#1882 await protected-main merge. Ruegeria remains
+`needs_research`: its distinct B12 growth-support extension (#1883) needs
+the skill-required Edison step. The one-community dry run completed; the
+authorized real invocation stopped before submission because its configured
+key loader found no key. No provider credits were spent. Non-graph metadata
+follow-ups #1884-#1886 remain open. Self-review is not independent approval
+or completion of the corpus review.
+
 ## Batch112: Syntrophic Feedback And Assay Boundaries
 
 [Decisions](decisions/20261008-seven-records-batch112.yaml),

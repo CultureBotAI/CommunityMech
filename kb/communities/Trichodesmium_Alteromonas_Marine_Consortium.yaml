@@ -94,42 +94,42 @@ taxonomy:
     explanation: Supports inclusion of a broader heterotrophic microbiome in addition to Alteromonas.
 ecological_interactions:
 - name: Colony Substrate Colonization by Heterotrophs
-  description: Trichodesmium colonies provide nutrient-rich physical substrates that are colonized by
-    heterotrophic bacteria, linking diazotrophic primary production to associated heterotrophic metabolism.
-  interaction_type: COMMENSALISM
+  description: Trichodesmium colonies provide physical and nutrient-rich habitats associated with heterotrophs.
+    The 2017 study recovered an A. macleodii representative genome from an IMS101 laboratory enrichment and found
+    a conserved association across culture and environmental samples. This establishes association, not commensal
+    neutrality, universal mutualism or a causal explanation of the separate 2018 field day-night transcript patterns.
+    Named participants here identify the laboratory association, not an assertion that the field host was the IMS101
+    strain.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Trichodesmium erythraeum IMS101
-    term:
-      id: NCBITaxon:203124
-      label: Trichodesmium erythraeum IMS101
-  target_taxon:
-    preferred_term: Trichodesmium-associated heterotrophic microbiome
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
   biological_processes:
   - preferred_term: nitrogen fixation
     term:
       id: GO:0009399
       label: nitrogen fixation
     notes: Trichodesmium fixes nitrogen in oligotrophic marine environments.
-  downstream:
-  - target: Diel Coordinated Resource Cycling
-    description: Trichodesmium colony colonization provides the host-microbiome
-      setting in which diel nitrogen, carbon, iron, and B12 expression patterns
-      were observed.
   evidence:
   - reference: PMID:28440800
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: macroscopic colonies that serve as relatively nutrient-rich substrates
-    explanation: Supports a colony habitat effect that enables heterotrophic colonization.
-- name: Alteromonas Helper Functions in Trichodesmium Colonies
-  description: Comparative genomics suggests that Alteromonas macleodii contributes functions that may
-    support Trichodesmium-associated community maintenance, including nutrient acquisition, vitamin exchange,
-    catabolism of small carbon compounds, and reactive oxygen detoxification.
-  interaction_type: MUTUALISM
+    explanation: Supports nutrient-rich colony habitat context; neither fitness neutrality nor mediation of field
+      expression was established.
+  participating_taxa:
+  - preferred_term: Trichodesmium erythraeum IMS101
+    term:
+      id: NCBITaxon:203124
+      label: Trichodesmium erythraeum IMS101
+  - preferred_term: Alteromonas macleodii Trichodesmium associate
+    term:
+      id: NCBITaxon:28108
+      label: Alteromonas macleodii
+- name: Putative Alteromonas Helper Functions in Trichodesmium Colonies
+  description: 'HYPOTHESIZED: comparative genomics and transcription identify candidate A. macleodii contributions
+    to Trichodesmium nutrient acquisition, small-carbon recycling and ROS detoxification. The study also assayed
+    siderophore production in isolates and reported Trichodesmium DMSP production; those measurements do not establish
+    complete interpartner fluxes or reciprocal fitness effects. The proposed B12 direction is host-to-epibiont,
+    not Alteromonas-to-Trichodesmium, and the 2017 genome permits facultative B12 use. These candidates are not
+    demonstrated causes of the later field co-expression phenotype.'
   scope: PAIRWISE
   source_taxon:
     preferred_term: Alteromonas macleodii Trichodesmium associate
@@ -146,71 +146,61 @@ ecological_interactions:
     term:
       id: CHEBI:18367
       label: phosphate(3-)
-    notes: Phosphorus acquisition was one inferred interaction axis.
+    notes: Phosphate release is a proposed APase-mediated nutrient-acquisition mechanism (2017 Figure 3), not a
+      measured interpartner phosphate flux.
   - preferred_term: iron(2+)
     term:
       id: CHEBI:29033
       label: iron(2+)
-    notes: Iron acquisition was one inferred interaction axis; ferrous iron is used as a conservative
-      CHEBI grounding for iron availability.
+    notes: The 2017 Fe-acquisition model includes siderophore-bound Fe(III), photoreduction and Fe(II) availability;
+      this term is one proposed species, not a generic or measured iron-transfer grounding.
   - preferred_term: vitamin B12
     term:
       id: CHEBI:176843
       label: vitamin B12
-    notes: Cobalamin exchange was an inferred interaction axis and later a
-      detected diel co-expression dependency.
+    notes: Proposed Trichodesmium-to-Alteromonas provision, opposite to the helper node taxon direction. The 2017
+      genome supports facultative vitamin use; the 2018 field co-expression inference does not prove exact-strain
+      dependence or transfer flux.
   - preferred_term: reactive oxygen species
     term:
       id: CHEBI:26523
       label: reactive oxygen species
-    notes: The compound. What the consortium does with it is the sibling biological_processes
-      entry - ROS is involved in the interaction, and its detoxification is the process
-      (#297).
+    notes: The compound. What the consortium does with it is the sibling biological_processes entry - ROS is involved
+      in the interaction, and its detoxification is the process (#297).
   biological_processes:
   - preferred_term: reactive oxygen species detoxification
     term:
       id: GO:0098869
       label: cellular oxidant detoxification
-    notes: 'Modelled as both compound and process, which is what the note this replaces
-      described: "reactive oxygen species detoxification is an inferred interaction process".
-      CHEBI:26523 is the species; GO:0098869 is what is done to it. Its definition -
-      "reduces or removes the toxicity of superoxide radicals or hydrogen peroxide" - is
-      the general oxidant case, chosen over GO:0141082 "symbiont-mediated detoxification
-      of host-generated reactive oxygen species", which would assert a host-symbiont
-      relation this consortium does not have, and over GO:0061692, which is hydrogen
-      peroxide only. Inherits the interaction''s COMPUTATIONAL evidence: this is the
+    notes: 'Modelled as both compound and process, which is what the note this replaces described: "reactive oxygen
+      species detoxification is an inferred interaction process". CHEBI:26523 is the species; GO:0098869 is what
+      is done to it. Its definition - "reduces or removes the toxicity of superoxide radicals or hydrogen peroxide"
+      - is the general oxidant case, chosen over GO:0141082 "symbiont-mediated detoxification of host-generated
+      reactive oxygen species", which would assert a host-symbiont relation this consortium does not have, and over
+      GO:0061692, which is hydrogen peroxide only. Inherits the interaction''s COMPUTATIONAL evidence: this is the
       inferred axis the source names, not a measured one (#297).'
-  downstream:
-  - target: Diel Coordinated Resource Cycling
-    description: Alteromonas Fe, P, B12, carbon-catabolism, and
-      ROS-detoxification gene complements are candidate mechanisms for
-      resource-linked diel coordination in Trichodesmium colonies.
   evidence:
   - reference: PMID:28440800
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: iron and phosphorus acquisition, vitamin B12 exchange
-    explanation: Supports inferred nutrient and vitamin exchange between Alteromonas and Trichodesmium.
+    explanation: Names genomic candidate axes, not measured mutualistic fitness or a demonstrated direction for
+      every compound. B12 provision is proposed in the reverse taxon direction.
   - reference: PMID:28440800
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: detoxification of reactive oxygen species
-    explanation: Supports an oxidative-stress helper mechanism in the association.
-- name: Diel Coordinated Resource Cycling
-  description: Field metatranscriptomes show coordinated day-night gene expression between Trichodesmium
-    and its microbiome, with co-expressed functions linked to nitrogen, carbon, iron, and vitamin B12 cycling.
-  interaction_type: CROSS_FEEDING
+    explanation: Names a candidate oxidative-stress helper function; the exact association was not subjected to
+      a selective ROS-rescue test in this study.
+- name: Field Host-Microbiome Diel Coexpression
+  description: Sixteen field-colony metatranscriptomes over three day-night transitions in the North Pacific Subtropical
+    Gyre showed coordinated host/microbiome expression, including nitrogen-, carbon-, iron- and B12-related functions.
+    This is coexpression supporting candidate resource interactions, not directly demonstrated cross-feeding, a
+    metabolite flux, or causation by A. macleodii helper genes. The host was field Trichodesmium, not demonstrated
+    to be IMS101; Alteromonas genus transcripts must not be assigned wholesale to A. macleodii. The participant
+    list credits only the record microbiome guild that this field measurement supports. Pseudocobalamin/DMB remodeling
+    and host-to-microbiome provision remain interpretations.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Trichodesmium erythraeum IMS101
-    term:
-      id: NCBITaxon:203124
-      label: Trichodesmium erythraeum IMS101
-  target_taxon:
-    preferred_term: Trichodesmium-associated heterotrophic microbiome
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
   biological_processes:
   - preferred_term: photosynthesis
     term:
@@ -221,18 +211,26 @@ ecological_interactions:
     term:
       id: GO:0009399
       label: nitrogen fixation
-    notes: Diel expression patterns can affect nitrogen fixation and resource cycling.
+    notes: Nitrogen-fixation-related expression is coordinated with microbiome transcripts; feedback on fixation
+      rates is proposed, not measured by coexpression.
   evidence:
   - reference: PMID:29382945
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: significantly coordinated patterns of gene expression between host and microbiome
-    explanation: Supports coordinated diel activity between Trichodesmium and associated bacteria.
+    explanation: Supports the measured field coexpression phenotype, not exact-strain field membership or demonstrated
+      causal coupling.
   - reference: PMID:29382945
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: linked to key resources including nitrogen, carbon, and iron
-    explanation: Supports resource-linked functional coordination in the holobiont.
+    explanation: Supports functional resource annotations of correlated genes; it does not measure transfers of
+      these resources.
+  participating_taxa:
+  - preferred_term: Trichodesmium-associated heterotrophic microbiome
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
 environmental_factors:
 - name: oligotrophic warm ocean habitat
   value: warm oligotrophic oceans
@@ -365,8 +363,39 @@ curation_history:
 - timestamp: '2026-09-13T01:01:48Z'
   curator: codex
   action: REMOVE_UNVERIFIABLE_PUBLICATION_EVIDENCE
-  changes: "Removed 1 evidence items that no longer match the retained abstracts after PR #766's publication-body
-    policy caught newer main caches. Preserved all scientific claims, taxonomy and interaction topology;
-    these claims require re-evidencing where support was removed. See the linked publication-text-removal
-    history for license/version uncertainty."
+  changes: 'Removed 1 evidence items that no longer match the retained abstracts after PR #766''s publication-body
+    policy caught newer main caches. Preserved all scientific claims, taxonomy and interaction topology; these claims
+    require re-evidencing where support was removed. See the linked publication-text-removal history for license/version
+    uncertainty.'
   llm_assisted: true
+- timestamp: '2026-10-08T08:31:38Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Represent colony association without commensal neutrality or a habitat-setting arrow; distinguish laboratory
+    and field identities.; Bound helper functions to hypotheses, preserve ROS compound/process grounding and correct
+    the B12 direction and facultative-use distinction.; Retain field coexpression without cross-feeding typing or
+    exact IMS101 attribution; narrow connectivity to the supported guild. Issue#1882; reports/causal_graph_review/decisions/20261008-three-records-batch113.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: trichodesmium-helper-flux-and-field-identity
+  prompt: Which candidate helper activities mediate resource flux or host benefit in the exact association?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: 'Genomic complementation and field coexpression generate testable hypotheses, not selective mediation
+    or reciprocal-fitness measurements. The removed arrows described habitat context and cross-study candidate explanations.
+    Host-to-microbiome B12 provision, pseudocobalamin remodeling and possible DMB supply are unresolved mechanistic
+    interpretations. Exact laboratory strain, isolate source and field-community identities must remain distinct;
+    non-graph reconciliation is #1886. Existing #297 ROS compound/process and #765 publication-body provenance decisions
+    are preserved.'
+  attaches_to:
+  - ecological_interactions#Colony Substrate Colonization by Heterotrophs
+  - ecological_interactions#Putative Alteromonas Helper Functions in Trichodesmium Colonies
+  - ecological_interactions#Field Host-Microbiome Diel Coexpression
+  evidence:
+  - reference: PMID:29382945
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Evidence of microbiome reliance on Trichodesmium-derived vitamin B12
+    explanation: The abstract gives the proposed host-to-microbiome direction as an inference from coexpression,
+      not a traced flux.
+  posed_by: codex
