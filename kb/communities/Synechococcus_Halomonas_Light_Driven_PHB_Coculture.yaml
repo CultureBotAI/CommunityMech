@@ -125,9 +125,9 @@ taxonomy:
 ecological_interactions:
 - name: Photosynthetic Sucrose Transfer To Halomonas
   description: The study reports that sucrose secreted by S. elongatus CscB directly supports H. boliviensis in
-    the light-driven consortium. CO2 is the photosynthetic substrate, not the exchanged organic carbon. The record
-    retains its canonical LC1 identity, but the available primary abstract identifies the heterotroph only at species
-    level; strain-specific attribution and complete medium inputs remain unverified.
+    the light-driven consortium. CO2 is the photosynthetic substrate, not the exchanged organic carbon. The primary
+    Introduction identifies the heterotroph as LC1 (DSM 15516), supporting the canonical strain-specific attribution.
+    Complete medium inputs remain unverified.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -170,11 +170,17 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: sucrose secreted by S. elongatus CscB directly supports the bacterium Halomonas boliviensis
     explanation: Supports direct sucrose cross-feeding from the cyanobacterium to the Halomonas partner.
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Halomonas boliviensis LC1 (DSM 15516)
+    explanation: Primary Introduction names the actual coculture strain; this identity evidence does not resolve
+      the complete medium or PHB mediation mechanism.
 - name: Light-Driven Biopolymer Production
   description: The light-driven consortium accumulated PHB in H. boliviensis. The primary abstract reports up to
     31% of heterotroph dry weight as PHB and productive coculture persistence for over five months. This is a community
-    production endpoint, not an additional pairwise exchange or direct photosynthesis by Halomonas. Exact assay
-    and LC1 attribution await primary Methods.
+    production endpoint, not an additional pairwise exchange or direct photosynthesis by Halomonas. LC1 identity
+    is supported by the primary Introduction; exact assay details await full Methods.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: poly(3-hydroxybutyrate)
@@ -192,6 +198,12 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: cultures were continuously productive for over 5 months
     explanation: Supports the reported duration without assigning an unverified operating mode.
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Halomonas boliviensis LC1 (DSM 15516)
+    explanation: Primary Introduction names the actual coculture strain; this identity evidence does not resolve
+      the complete medium or PHB mediation mechanism.
   participating_taxa:
   - preferred_term: Synechococcus elongatus PCC 7942 cscB
     term:
@@ -352,12 +364,12 @@ metal_notes: No metal or rare earth element processing role is curated for this 
   coculture.
 discussions:
 - discussion_id: halomonas-strain-and-production-context
-  prompt: Which primary methods establish LC1 identity and the contribution of encapsulation to PHB output?
-  rationale: 'Fresh Europe PMC abstract and Crossref DOI metadata were checked. Publisher retrieval failed and bounded
-    author-page/title/DOI/OSTI searches did not recover the full article. The abstract supports species-level sucrose
-    feeding, PHB and enhanced stability, but not LC1 attribution, the complete organic-input accounting or isolated
-    mediation. Obtain authorized primary Methods/supplements before treating these exact-system details as verified;
-    issue #1860 remains open.'
+  prompt: Which full primary methods establish medium inputs and the contribution of encapsulation to PHB output?
+  rationale: 'The publisher-indexed Introduction now establishes LC1 (DSM 15516) as the coculture heterotroph. It
+    also reports growth without supplemental carbon sources, but the accessible section previews do not provide
+    complete medium accounting or isolate encapsulation-mediated PHB output. Direct publisher retrieval failed;
+    full Methods, Table 1 and supplements remain unaudited. Issue #1860 remains open for these methods and mediation
+    limits, not for the resolved LC1 identity.'
   kind: KNOWLEDGE_GAP
   status: OPEN
   posed_by: codex
@@ -370,7 +382,7 @@ discussions:
     supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: enhances the co-culture stability
-    explanation: A positive stability finding does not resolve the missing strain and mediation details.
+    explanation: The stability finding does not resolve the remaining medium and mediation details.
 curation_history:
 - timestamp: '2026-10-08T05:36:17Z'
   curator: codex
@@ -378,4 +390,10 @@ curation_history:
   changes: Retain abstract-supported sucrose feeding while exposing unresolved LC1/medium scope.; Retain PHB and
     persistence as a community phenotype, not duplicate exchange or photosynthesis.; Retain alginate intervention
     effects without colonization typing or proven PHB mediation. Issue#1857; reports/causal_graph_review/decisions/20261008-three-records-batch110.yaml
+  llm_assisted: true
+- timestamp: '2026-10-08T20:22:22Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Resolve LC1 graph attribution from the primary Introduction; retain existing topology and unresolved
+    medium/encapsulation limits. Issue#1860; reports/causal_graph_review/decisions/20261008-halomonas-identity-batch126.yaml
   llm_assisted: true

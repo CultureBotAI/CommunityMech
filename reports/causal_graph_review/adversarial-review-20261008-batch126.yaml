@@ -1,0 +1,78 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 6f062d2eb68fedab336b700c758cd21622fabbb6
+scope:
+- kb/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-halomonas-identity-batch126.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch126.json
+findings:
+- issue: 1860
+  severity: P2
+  status: partially_addressed_pending_protected_main_merge
+  finding: The existing graph still treats LC1 attribution as unverified despite accessible primary Introduction
+    evidence.
+  disposition: Correct two node descriptions and narrow the open discussion; medium accounting and isolated encapsulation
+    mediation remain unresolved.
+adversarial_checks:
+- The new excerpt is in the actual-system Introduction paragraph, not a cited older LC1 publication or an unrelated
+  citing-article abstract.
+- Exact-system strain support is not a claim to have obtained full Methods, Table1, images, supplements or raw data.
+  The ledger explicitly identifies indexed-preview access and failed direct retrieval.
+- Graph identities, canonical participants, two arrows and the complete alginate node remain unchanged. PHB is a
+  community endpoint, not a second exchange or direct heterotroph photosynthesis.
+- The record remains needs_research; issue1860 stays OPEN for medium and mediation. No new topology or Edison submission
+  is implied by this partial correction.
+- Five attributed words are appended to the preferred Markdown cache. The original prefix and header are preserved;
+  the appendix explicitly disclaims a full-text import.
+- Historical batch110 ledger remains immutable. Updated regression verifies both original-to-successor hash linkage
+  and the current record hash, without weakening tests for the other two records.
+- Seven focused tests include four control/mutation/restored-control cases rejecting missing identity evidence,
+  false medium certification, proven mediation and premature gap closure.
+- 459otherrecords,923othercaches,allpriorhistory/decisions and46userfiles are preserved. Existing network warning
+  set unchanged; zero structural defects. Deterministic render tests check content, not visual screenshots.
+- This is self-adversarial review, not independent approval. Full historical regression suite and full-repo lint/mypy
+  were not rerun for this narrow data/test change.
+verification:
+  regressions: 212 passed in 233.01s (0:03:53)
+  focused_tests: 7
+  mutation_cases: 4
+  recorded_gate_outputs: 18
+  test_scope: Focused current/prior record regressions plus inventory, graph, participant, cache, model and publication
+    contracts. Not all historical batches or the complete suite.
+  preservation:
+    unchanged_records: 459
+    unchanged_caches: 923
+    unchanged_prior_histories: 794
+    unchanged_prior_decisions: 124
+    preserved_user_files: 46
+    unrelated_raw_blocks_unchanged: true
+    original_cache_prefix_preserved: true
+    alginate_node_structurally_unchanged: true
+    edges_and_participants_structurally_unchanged: true
+  reference_scope: 22 local-cache snippet instances match; reference validator checked21 quotations and0titles,
+    with network re-fetch failing and documented fallback to the older cache. Only the newly added identity excerpt
+    received fresh primary comparison in this pass. Cache matching is not entailment proof.
+  tested_file_sha256:
+    kb/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml: 5de5347f2d9d23ab1b6bd0c0d7f46b424d8a2c8b603a683e7de0a975f7cd4502
+    references_cache/PMID_29061492.md: f51fc90476e6cfe4bbbdd6bacad50f16382ea3851b8fd92beaeaab262289af08
+    reports/causal_graph_review/decisions/20261008-halomonas-identity-batch126.yaml: 84735dd0ec45f4f682cfa8c9505451579396222bb381e3c5564f5f216472cf93
+    reports/causal_graph_review/README.md: 8771ee6b7f175da8cfcb5c9c7074aa6f8ab05a24526e2c0096369bc37389cb00
+    tests/test_causal_review_batch110.py: 9d88cf987a0c60c350012544e047490edff85df33b0942242ee7c2fddbd70f58
+    tests/test_causal_review_batch126.py: 0d006184bc103792c01f7a2bd07e283b620ed22431c6a6903221baf98d64740f
+    docs/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.html: f811fb2edba0b22686ff4ae53151ae79792c5a1128f67746dd257879de76b3b9
+    history/records/Synechococcus_Halomonas_Light_Driven_PHB_Coculture/2026-10-08T202223Z-codex-6b4786.yaml: ed25bb36983529596eb464e8a8ef6bd240260e8384438861d4ce67d8fedf1abd
+  postcommit_docs_current: Required separately; not preasserted.
+limitations:
+- Indexed primary Introduction and bounded section previews, not retrieved full Methods, Table1, figure pixels,
+  supplements or raw data.
+- Only the newly added identity excerpt was freshly reverified in this pass; old abstract evidence is retained without
+  claiming a fresh whole-record snippet audit.
+- The roster, canonical identifiers, GTDB payload, functional-role assignments and other non-graph metadata are
+  unchanged and not independently recertified.
+- Three nodes, two arrows, participating taxa and alginate mediation uncertainty remain. Needs_research and issue1860
+  remain open.
+- One five-word attributed appendix in the preferred Markdown cache. Historical ledger preserved via hash-linked
+  supersession; no full-text import or Edison spend.
+- Source-based self-review is not independent approval. Protected merge and branch cleanup are separate unfinished
+  requirements.

@@ -15,12 +15,13 @@ def records():
     return ledger, rows, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
 
 
-def test_halomonas_preserves_outcomes_without_certifying_lc1_or_mediation():
+def test_halomonas_preserves_outcomes_without_certifying_medium_or_mediation():
     _, rows, docs = records()
     carbon, product, partition = docs[0]["ecological_interactions"]
     assert rows[0]["status"] == "needs_research" and 1860 in rows[0]["issues"]
     assert carbon["interaction_type"] == "CROSS_FEEDING"
     assert "strain-specific attribution" in carbon["description"]
+    assert "Complete medium inputs remain unverified" in carbon["description"]
     assert "31%" in product["description"] and "five months" in product["description"]
     assert product["scope"] == "COMMUNITY_LEVEL" and "interaction_type" not in product
     assert "biological_processes" not in product
@@ -109,7 +110,21 @@ def test_hashes_history_and_identity_only_participants_are_explicit():
     ledger, rows, docs = records()
     assert ledger["independent_approval"] is False
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        latest = row
+        if row["id"] == "CommunityMech:000198":
+            successor = (
+                ROOT
+                / "reports/causal_graph_review/decisions/20261008-halomonas-identity-batch126.yaml"
+            )
+            latest = yaml.safe_load(successor.read_text())["records"][0]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )
         assert set(row["allowed_changed_fields"]) == {
             "ecological_interactions",
             "discussions",
