@@ -160,7 +160,9 @@ taxonomy:
     explanation: Supports Petrimonas enrichment and its suspension-associated fermentative role.
 ecological_interactions:
 - name: Biofilm-Suspension Spatial Division of Labor
-  description: Electrode biofilms perform reductive debromination while planktonic suspensions perform acidogenesis, partitioning contaminant degradation from carbon recovery.
+  description: 'Multi-omics supports a spatial division of labor in the waste-sludge reactor: electrode biofilms
+    are primarily associated with reductive debromination and planktonic suspensions with acidogenesis. The five
+    listed genera are representative enrichments, not an exhaustive membership or a defined five-strain consortium.'
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   biological_processes:
@@ -185,8 +187,10 @@ ecological_interactions:
     snippet: planktonic suspensions mainly drove acidogenesis
     explanation: Supports the suspension function within the spatially divided community.
 - name: Biofilm Electroactivity and Dehalogenation
-  description: Syntrophomonas and Geobacter are enriched as electroactive biofilm members, while Hydrogenophaga is enriched as a dehalogenator.
-  interaction_type: NICHE_PARTITIONING
+  description: Biofilm enrichment associates Syntrophomonas and Geobacter with electroactivity and Hydrogenophaga
+    with dehalogenation. These are representative genus-level roles inferred from enrichment and multi-omics, not
+    separately measured electron or dehalogenation fluxes for every genus or evidence of niche partitioning within
+    this fraction.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
@@ -199,9 +203,23 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: enriching electroactive bacteria (e.g., Syntrophomonas and Geobacter) and dehalogenators (e.g., Hydrogenophaga)
     explanation: Supports the differentiated functions of the three named biofilm genera.
+  participating_taxa:
+  - preferred_term: Syntrophomonas
+    term:
+      id: NCBITaxon:862
+      label: Syntrophomonas
+  - preferred_term: Geobacter
+    term:
+      id: NCBITaxon:28231
+      label: Geobacter
+  - preferred_term: Hydrogenophaga
+    term:
+      id: NCBITaxon:47420
+      label: Hydrogenophaga
 - name: Suspension Acidogenesis
-  description: Sedimentibacter and Petrimonas are enriched in the planktonic suspension associated with hydrolysis, fatty-acid biosynthesis, and acidogenesis.
-  interaction_type: NICHE_PARTITIONING
+  description: Suspension enrichment associates Sedimentibacter and Petrimonas with fermentation, hydrolysis, fatty-acid
+    biosynthesis and acidogenesis. These representative roles do not assign all activities to each genus or establish
+    niche partitioning between the two genera.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
@@ -212,11 +230,23 @@ ecological_interactions:
   - reference: PMID:41793807
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: enriching fermentative bacteria (e.g., Sedimentibacter and Petrimonas) and accelerating hydrolysis and fatty acid biosynthesis pathways
+    snippet: enriching fermentative bacteria (e.g., Sedimentibacter and Petrimonas) and accelerating hydrolysis
+      and fatty acid biosynthesis pathways
     explanation: Supports the reported suspension-associated taxa and acidogenic mechanisms.
-- name: EET-Reinforced Biofilm-Suspension Syntrophy
-  description: Extracellular electron transfer reinforces cooperation between the spatial fractions and contributes to dehalogenation and acidogenesis.
-  interaction_type: SYNTROPHY
+  participating_taxa:
+  - preferred_term: Sedimentibacter
+    term:
+      id: NCBITaxon:190972
+      label: Sedimentibacter
+  - preferred_term: Petrimonas
+    term:
+      id: NCBITaxon:307628
+      label: Petrimonas
+- name: Modeled EET support for biofilm-suspension cooperation
+  description: 'PARTIAL: partial least squares path modeling identifies extracellular electron transfer as a factor
+    supporting cooperation between the biofilm and suspension and their dehalogenation and acidogenesis outputs.
+    The authors call this syntrophy, but the abstract does not resolve a product-removal thermodynamic dependency,
+    obligatory reciprocal growth or a direct EET interruption/rescue experiment.'
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
@@ -225,19 +255,18 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Biofilm Electroactivity and Dehalogenation
-    description: EET reinforces the electrode-biofilm side of the syntrophy,
-      where electroactive Syntrophomonas and Geobacter and dehalogenating
-      Hydrogenophaga are enriched.
+    description: 'PARTIAL: the path model links EET to biofilm-associated dehalogenation. Retain this inferred contribution,
+      not a directly perturbed EET-to-output mechanism or a flux assigned to each representative genus.'
   - target: Suspension Acidogenesis
-    description: EET also contributes to the suspension side of the syntrophy,
-      where Sedimentibacter and Petrimonas are enriched with hydrolysis,
-      fatty-acid biosynthesis, and acidogenesis.
+    description: 'PARTIAL: the path model links EET to suspension-associated acidogenesis. Retain this inferred
+      contribution, not a directly perturbed EET-to-output mechanism or a flux assigned to each representative genus.'
   evidence:
   - reference: PMID:41793807
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: extracellular electron transfer as the key factor reinforcing this biofilm-suspension syntrophy, significantly contributing to both dehalogenation and acidogenesis
-    explanation: Supports EET as the mechanistic link between the two spatial fractions.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Partial least squares path modeling identified extracellular electron transfer as the key factor
+    explanation: Identifies the modeling basis of the proposed EET contribution; it is not an independent causal
+      perturbation.
 environmental_factors:
 - name: Waste activated sludge feedstock
   value: waste activated sludge
@@ -302,3 +331,30 @@ external_resources:
     explanation: Links the publication to the curated community system.
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare-earth processing role is reported for this electro-fermentation community.
+discussions:
+- discussion_id: sludge_causal_graph_scope_batch118
+  prompt: Which electron-transfer route causally links the biofilm and suspension outputs?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Biofilm-Suspension Spatial Division of Labor
+  - ecological_interactions#Biofilm Electroactivity and Dehalogenation
+  - ecological_interactions#Suspension Acidogenesis
+  - ecological_interactions#Modeled EET support for biofilm-suspension cooperation
+  rationale: The accessible abstract identifies a partial least squares path model, not the route-resolved inhibition/rescue
+    or partner-fitness controls needed to isolate EET mediation and thermodynamic dependence. Full methods and relevant
+    perturbation data are needed; compartment enrichment and reactor-level removal/carbon recovery remain supported.
+  evidence:
+  - reference: PMID:41793807
+    snippet: Partial least squares path modeling identified extracellular electron transfer as the key factor
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T12:47:20Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain observed spatial differentiation without exhaustive five-genus membership.; Limit biofilm roles
+    to its three representative genera and omit unsupported within-fraction partitioning.; Limit suspension roles
+    to its two representative genera without assigning each all pathways.; Qualify both EET arrows as computational
+    inference and leave unspecified dependency untyped. Issue#1916; reports/causal_graph_review/decisions/20261008-four-records-batch118.yaml
+  llm_assisted: true

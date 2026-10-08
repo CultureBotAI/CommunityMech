@@ -1,0 +1,417 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: fc5c4d103c134cee549a76e8c71addcf8c322e09
+scope:
+- kb/communities/Viili_Fungus_Bacterium_EPS_SynCom.yaml
+- kb/communities/Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml
+- kb/communities/Watermelon_Rhizosphere_Fusarium_SynCom8.yaml
+- kb/communities/Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-four-records-batch118.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch118.json
+findings:
+- issue: 1915
+  severity: P2
+  finding: Distinguish Viili nitrogen cross-feeding from AI-2 regulation
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1916
+  severity: P2
+  finding: Separate electro-fermentation fraction roles from modeled EET causality
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1917
+  severity: P2
+  finding: Separate SSC8 growth tests from parent SynCom disease and biofilm results
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1918
+  severity: P2
+  finding: Remove common-cause arrows from wetland oxygen-sulfate graph
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1919
+  severity: P2
+  finding: Resolve SSC8 composition and non-graph assay conflation in watermelon record
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1920
+  severity: P2
+  finding: Correct wetland bottle-volume and inferred medium-requirement metadata
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+adversarial_checks:
+- All13original nodes/eight arrows accounted for:12nodes/four arrows retained,one misassigned node/four arrows removed,four
+  renames,no new topology. Targets and discussion anchors resolve; no shortcut edge invented.
+- 'Viili positive evidence retained: nutrient depletion/supplementation and AI-2 perturbations support their respective
+  outcomes. The nitrogen-signaling bridge is partial,not growth-independent valine mediation. AI-2 regulation is
+  untyped rather than nutrient transfer. Prior1014/1015 fixes preserved.'
+- Sludge division of labor and reactor outcomes retained. Biofilm participants are three representative genera;
+  suspension participants are two. EET support is partial least squares inference,not an interruption/rescue experiment,genus-resolved
+  flux or obligatory thermodynamic syntrophy.
+- Watermelon SSC8 outcome is growth without added pathogen. Parent16-member SBC disease challenge and biofilm-pathway
+  enrichment are not transferred. Seven partners have positive spent-medium effects; only three pairs are bilateral.
+  Potential exchange is not compound-specific rescue or resolved stereochemistry. Exact SSC8 roster and non-graph
+  fields remain1919.
+- Wetland treatment responses remain experimental while pathway fluxes and competition are inferred. Shared exposure
+  does not establish response-to-model arrows. Model subnetwork is not direct donor-recipient transfer; residual
+  methane is not zero. Some source results/discussion statements differ and are not silently reconciled. Vessel
+  and ingredient issues remain1920.
+- Twenty-five graph and four discussion quotes match fresh primary texts and caches,not entailment certification.
+  Two complete main-body XML texts read including methods/tables/captions; no original pixels,supplements,raw data
+  or model-code audit. Viili/sludge are abstract-bounded; no claim of exhaustive full-text absence.
+- Four guarded writes and append-only histories preserve456otherrecords,923caches,unrelated raw blocks and previous
+  histories/decisions. Shared evidence aliases detached. Canonical taxon IDs/labels/ranks unchanged. No cache import.
+- Twelve focused tests plus ten control/mutation/restored-control probes pass. Mutations reject erasing nutrient
+  benefit,misclassifying signaling,overstating EET,wrong fraction credit,seven mutualisms,compound certainty,parent-to-SSC8
+  assay transfer,common-cause arrows and direct model cross-feeding. No canonical files changed during probes.
+- All four records pass schema,strict,terms,full-record references,snippets,rank and history.1101selected tests
+  including palette pass; not full Linux CI certification. Network has57unchanged warnings and zero structural defects.456pages/1364nodes/523arrows
+  exactly match descriptions with deterministic rendering,not screenshot QA.
+- Participant-list users rise296to298; scope census remains414community-level,136mixed,278community-only,1568taxa,1280solelycredited.
+  This census is not actual participant coverage. Connectivity logic and all thresholds unchanged.
+- Issues1915-1918 are addressed pending protected-main merge;1919/1920 remain open. No Edison extension or credits.
+  Prior Ruegeria1883 still needs configured authentication. Self-adversarial review is not independent approval;
+  root1836 and real exact-head protected checks remain required.
+- Corpus380reviewed,26pending,54needs_research across460records. Overall goal,protected merge and branch deletion
+  remain incomplete. Postcommit docs-current and exact-head publication are separate gates,not preasserted here.
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: Erase validated nitrogen cross-feeding
+      test: test_viili_retains_validated_nitrogen_and_tested_eps_maximum
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 21
+      assertion: assert nitrogen["interaction_type"] == "CROSS_FEEDING"
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/0/interaction_type
+        before: CROSS_FEEDING
+        after: COMPETITION
+    - mutation: Type AI2 regulation as nutrient delivery
+      test: test_viili_ai2_regulation_is_not_fungal_nutrient_transfer
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 35
+      assertion: assert "interaction_type" not in signal
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/1/interaction_type
+        before: null
+        after: CROSS_FEEDING
+    - mutation: Promote nitrogen bridge to isolated signaling mechanism
+      test: test_viili_signaling_bridge_is_partial_but_eps_regulation_is_supported
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 46
+      assertion: assert nitrogen["downstream"][0]["description"].startswith("PARTIAL:")
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/0/downstream/0/description
+        before: 'PARTIAL: fungal nitrogen provision supports bacterial growth and is accompanied by stronger quorum-sensing
+          activity. It may contribute to activation of the AI-2 regulatory node, but the abstract does not isolate
+          valine-specific mediation from growth effects.'
+        after: Valine alone directly activates AI2.
+    - mutation: Credit suspension genera to biofilm
+      test: test_sludge_fraction_participants_are_not_all_five_genera
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 58
+      assertion: assert [t["preferred_term"] for t in biofilm["participating_taxa"]] == [
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/1/participating_taxa
+        before:
+        - preferred_term: Syntrophomonas
+          term:
+            id: NCBITaxon:862
+            label: Syntrophomonas
+        - preferred_term: Geobacter
+          term:
+            id: NCBITaxon:28231
+            label: Geobacter
+        - preferred_term: Hydrogenophaga
+          term:
+            id: NCBITaxon:47420
+            label: Hydrogenophaga
+        after:
+        - preferred_term: Syntrophomonas
+          term:
+            id: NCBITaxon:862
+            label: Syntrophomonas
+        - preferred_term: Geobacter
+          term:
+            id: NCBITaxon:28231
+            label: Geobacter
+        - preferred_term: Hydrogenophaga
+          term:
+            id: NCBITaxon:47420
+            label: Hydrogenophaga
+        - preferred_term: Petrimonas
+          term:
+            id: NCBITaxon:307628
+            label: Petrimonas
+          gtdb_grounding_status: GROUNDED
+          gtdb_classification:
+            gtdb_id: GTDB:g__Petrimonas
+            gtdb_taxon: Petrimonas
+            gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Dysgonomonadaceae;g__Petrimonas
+            ncbi_source_id: NCBITaxon:307628
+            majority_fraction: 1.0
+            support_genomes: 8
+            total_genomes: 8
+            is_reclassified: false
+            mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__
+              rank; 1 GTDB taxa under the NCBI taxon]
+          notes: Enriched fermentative genus in the planktonic suspension; no species or strain is identified in
+            the abstract.
+    - mutation: Recast PLS support as experimental intervention
+      test: test_sludge_eet_model_is_not_a_route_resolved_intervention
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 76
+      assertion: assert model["evidence"][0]["evidence_source"] == "COMPUTATIONAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/3/evidence/0/evidence_source
+        before: COMPUTATIONAL
+        after: IN_VITRO
+      - path: records/1/ecological_interactions/3/evidence/0/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Declare all helper pairs mutualistic
+      test: test_watermelon_seven_positive_partners_are_not_seven_mutualisms
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 86
+      assertion: assert facilitation["interaction_type"] == "CROSS_FEEDING"
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/0/interaction_type
+        before: CROSS_FEEDING
+        after: MUTUALISM
+    - mutation: Promote candidate exchange to proven compound mediation
+      test: test_watermelon_candidates_do_not_establish_specific_metabolite_transfer
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 100
+      assertion: assert facilitation["evidence"][2]["supports"] == "PARTIAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/0/evidence/2/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Assign parent pathogen challenge to SSC8
+      test: test_ssc8_growth_does_not_inherit_parent_pathogen_challenge
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 108
+      assertion: assert "must not be assigned to SSC8" in outcome["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/1/description
+        before: The eight-member SSC8 improved ungrafted-watermelon growth in non-sterile greenhouse soil, with
+          height, root weight and dry weight comparable to the parent16-member SBC. This simplified-consortium experiment
+          had no added pathogen. The55.6% disease-index reduction and biofilm-pathway enrichment were measured for
+          SBC and must not be assigned to SSC8; neither plant protection nor biofilm mediation is established by
+          this growth assay.
+        after: SSC8 proved Fusarium resistance with55.6%less disease.
+    - mutation: Restore common-cause wetland arrow
+      test: test_wetland_treatment_responses_are_not_causes_of_fitted_subnetwork
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 126
+      assertion: assert not sulfate.get("downstream") and not oxygen.get("downstream")
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/0/downstream
+        before: null
+        after:
+        - target: Modeled lactate-sulfate carbon and sulfur subnetwork
+          description: Methane suppression causes this model.
+    - mutation: Type fitted subnetwork as direct cross-feeding
+      test: test_wetland_model_is_not_directly_measured_cross_feeding
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 140
+      assertion: assert "interaction_type" not in model
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/2/interaction_type
+        before: null
+        after: CROSS_FEEDING
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/Viili_Fungus_Bacterium_EPS_SynCom.yaml: b39ce1ba60102209db112c70cc7f1a64b16e8b1f889cecdaff6d3e2d3f149c02
+      kb/communities/Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml: 96790620c4f70dd5ca498af0636db53fc9fb7d6779a96851bb31385b71c6f329
+      kb/communities/Watermelon_Rhizosphere_Fusarium_SynCom8.yaml: 4eda48481991d8d22dad2d32ec24284d8580ba33e540377b8f5509bced74c31b
+      kb/communities/Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.yaml: 0703409d520c9c561d99c075761f37adff7ca856e14b3d438df2080e975e1e1a
+      tests/test_causal_review_batch118.py: aa5608897c5eaecc64b78ee158357124603e07b2e46d98e9f03c5f4bb9ff6297
+    probe_script_sha256: f9b246f22ec24202639616027aa392c5e08fa7a5f0f9d81bba4683a4cb8b1c77
+    scope: In-memory control/mutation/restored-control; no canonical writes and not additional pytest tests.
+  artifact: /private/tmp/communitymech-batch118/adversarial-regression-proof.json
+  sha256: cd1b6c338c91efc8b8f6b5a99273b896bd6c68e11bb4f31560ba77db63af796f
+verification:
+  combined_regressions: 1101 passed in 379.68s (0:06:19)
+  new_regression_tests: 12
+  total_recorded_gate_outputs: 41
+  primary_graph_snippet_proof:
+    graph_quotations: 25
+    discussion_quotations: 4
+    fresh_primary_literal_matches: 29
+    all_cached_literal_matches: 29
+    retained_nodes: 12
+    removed_nodes: 1
+    renamed_nodes: 4
+    retained_arrows: 4
+    removed_arrows: 4
+    new_nodes_or_directions: 0
+  references: Full-record local passes are macOS, not Linux certification. Literal matching does not establish entailment.
+    Total checks in the reference CLI counts issues, not examined snippets.
+  snippet_counts_by_record:
+    kb/communities/Viili_Fungus_Bacterium_EPS_SynCom.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Watermelon_Rhizosphere_Fusarium_SynCom8.yaml:
+      MATCH: 15
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.yaml:
+      MATCH: 33
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 9035
+      categories:
+        MATCH: 8890
+        RENDERING: 28
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 40
+        NOCONTENT: 76
+    caveat: Informational audit exit0 is not clean-corpus or entailment certification.
+  network:
+    existing_findings_preserved: 57
+    added_findings: {}
+    removed_findings: {}
+    structural_defects: 0
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-four-records-batch118.yaml: 7e901fb9fa8882cead15b1bb895f7108e285b7b80dbbe3bf6ce089d4f2ea88f6
+    tests/test_causal_review_batch118.py: aa5608897c5eaecc64b78ee158357124603e07b2e46d98e9f03c5f4bb9ff6297
+    tests/test_participating_taxa.py: 6cb1226981cf15eb2f1fd74e15bbf1365fb2b162ea28fbfc94504dbfa33f6b11
+    tests/test_community_level_connectivity_credit.py: 996cc631423bfa7adc5d8e693d67d55b374a24379d119ab0fa8f1802f38f216a
+    tests/test_causal_review_batch109.py: 921f9541c07a8251b4f813fb9b6fd29945f78cc74dc10e61b68dc1978b90daa1
+    tests/test_datamodel.py: f8d4750ad64eb4156857a86a8c6adf16dedefb09ca3c3da908f697e609a35f25
+    reports/causal_graph_review/cache-provenance-20261008-batch118.json: 36984968b7b432e92261a2e616e14628311118015432dc64056ee1489bcaf553
+    kb/communities/Viili_Fungus_Bacterium_EPS_SynCom.yaml: b39ce1ba60102209db112c70cc7f1a64b16e8b1f889cecdaff6d3e2d3f149c02
+    kb/communities/Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml: 96790620c4f70dd5ca498af0636db53fc9fb7d6779a96851bb31385b71c6f329
+    kb/communities/Watermelon_Rhizosphere_Fusarium_SynCom8.yaml: 4eda48481991d8d22dad2d32ec24284d8580ba33e540377b8f5509bced74c31b
+    kb/communities/Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.yaml: 0703409d520c9c561d99c075761f37adff7ca856e14b3d438df2080e975e1e1a
+  history_sha256:
+    history/records/Viili_Fungus_Bacterium_EPS_SynCom/2026-10-08T124721Z-codex-2774fb.yaml: db9f0fb2b0bb5407b8cbbc79d72c5ae25e8d78a094caba43dca903111f65e6ac
+    history/records/Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community/2026-10-08T124721Z-codex-ba3224.yaml: 78a6145ad7c5c83621080df476d69910eb2ecca06f3a8c5c13a23920eab81bdc
+    history/records/Watermelon_Rhizosphere_Fusarium_SynCom8/2026-10-08T124721Z-codex-4fbc8e.yaml: 9c2511d3ab47cde0e4e040f0824d244d1e7ba6575f1501bca78ffa204f7dfbe7
+    history/records/Wetland_Oxygen_Sulfate_GHG_Microcosm_Community/2026-10-08T124721Z-codex-37eb64.yaml: 41a9b042fdef7dac87465e7273cf5d18179832a2e12d3d6dffcce0e71fd403fd
+  unchanged_records: 456
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 879
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    new_nodes_or_directions: 0
+    prior_extension_blocker: 'Ruegeria1883: configured authentication unavailable in prior approved invocation;
+      no unchanged-state retry.'
+  post_commit_docs_current: Separate publication gate,not preasserted.
+participant_census:
+  current:
+    records: 460
+    with_community_level: 414
+    mixed: 136
+    community_level_only: 278
+    taxa: 1568
+    credited_solely_by_the_rule: 1280
+  delta_from_batch117:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  explanation: Two explicit participant-list users added for sludge and wetland guild roles;298total. The existing
+    scope census is unchanged because all records retain community-level scope. Sole-credit does not certify actual
+    participant coverage. Connectivity logic and thresholds are unchanged.
+corpus:
+  records: 460
+  nodes: 1378
+  edges: 531
+  review_status_counts:
+    needs_research: 54
+    pending: 26
+    reviewed: 380
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary established Python3.13 lint environment; project dependencies unchanged.
+limitations:
+- Both-root baseline precedes primary research:460records,923caches,57existing warnings,zero structural defects.
+  Whole four records and all13existing nodes/eight arrows reviewed; retain12nodes/four arrows,remove one misassigned
+  node/four unsupported arrows,rename four nodes,no new topology.
+- Fresh EuropePMC abstracts and Crossref identities checked for all four. Watermelon and wetland complete main-body
+  XML text including methods/results/discussion,table text and captions read. No original figure pixels,separate
+  supplementary files,raw data or wetland model code audited. Snippet matching does not establish entailment.
+- Viili and sludge repairs are abstract-bounded. DOI/publisher search yielded accessible abstracts; no open full
+  text was inspected. No exhaustive absence claim,access bypass,publication-body import or cache change.
+- Viili retains experimental nutrient provision and AI-2 perturbation support; nitrogen-to-signaling mediation remains
+  PARTIAL and regulation is not nutrient transfer. Prior tested-combination EPS and no-EPS-as-nitrogen fixes1014/1015
+  preserved.
+- Sludge compartment roles remain representative enrichments. EET arrows retain partial least squares model support
+  without route-specific intervention or thermodynamic-dependency claims. Scientific observations are not discarded
+  because causal mediation is inferred.
+- Watermelon retains seven positive spent-medium effects and three mutually beneficial pairs,not seven mutualisms.
+  SSC8 growth assay used no added pathogen. Parent16-member disease/biofilm results are not SSC8 outcomes; candidate
+  metabolites are not specific causal mediators or stereochemically resolved exchange. Missing SSC8 roster/non-graph
+  fields remain issue1919.
+- Wetland measured gas effects remain; marker proteins/fitted fluxes are not pathway-resolved direct flux measurements.
+  Removed arrows confused shared exposure with succession. Results/discussion contain differences about additivity
+  and oxygen-linked routes; no silent resolution or universal-zero methane claim. Non-graph vessel/ingredient evidence
+  issues remain1920.
+- Fresh all-state1154issue titles/bodies searched initially; pre-creation receipt records fresh count. Matching1452/1014/1015/644
+  bodies read and distinct. Hidden/ignored-inclusive local search found135paths excluding.git,docs,site,references_cache,.env;
+  not a historical PR-comment audit.
+- Four guarded writes preserve unrelated raw YAML blocks,456otherrecords,923caches,all prior histories/decisions.
+  Four append-only record histories and four curation events. Canonical taxon identities unchanged. Existing shared
+  evidence aliases detached before graph editing.
+- 'Existing-graph repair with no new nodes/directions: no Edison run,provider submission or credit spend. Prior
+  authorized Ruegeria1883 authentication blocker not retried without state change; no credential inspected. Self-adversarial
+  review is not independent approval. Overall review,protected merge and branch deletion remain incomplete.'

@@ -687,7 +687,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Waste-Sludge Electro-Fermentation Biofilm-Suspension Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for syntrophy, niche partitioning.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for niche partitioning. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -695,13 +695,13 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolSquare2"
+                             data-color="#1212ed"></svg> Niche partitioning
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -712,7 +712,7 @@
                     <h3>Biofilm-Suspension Spatial Division of Labor</h3>
                     <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Electrode biofilms perform reductive debromination while planktonic suspensions perform acidogenesis, partitioning contaminant degradation from carbon recovery.</p>
+                <p class="prewrap interaction-description">Multi-omics supports a spatial division of labor in the waste-sludge reactor: electrode biofilms are primarily associated with reductive debromination and planktonic suspensions with acidogenesis. The five listed genera are representative enrichments, not an exhaustive membership or a defined five-strain consortium.</p>
 
 
 
@@ -785,12 +785,21 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Biofilm Electroactivity and Dehalogenation</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Syntrophomonas and Geobacter are enriched as electroactive biofilm members, while Hydrogenophaga is enriched as a dehalogenator.</p>
+                <p class="prewrap interaction-description">Biofilm enrichment associates Syntrophomonas and Geobacter with electroactivity and Hydrogenophaga with dehalogenation. These are representative genus-level roles inferred from enrichment and multi-omics, not separately measured electron or dehalogenation fluxes for every genus or evidence of niche partitioning within this fraction.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Syntrophomonas,
+
+                    Geobacter,
+
+                    Hydrogenophaga
+
+                </p>
 
 
 
@@ -834,12 +843,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Suspension Acidogenesis</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Sedimentibacter and Petrimonas are enriched in the planktonic suspension associated with hydrolysis, fatty-acid biosynthesis, and acidogenesis.</p>
+                <p class="prewrap interaction-description">Suspension enrichment associates Sedimentibacter and Petrimonas with fermentation, hydrolysis, fatty-acid biosynthesis and acidogenesis. These representative roles do not assign all activities to each genus or establish niche partitioning between the two genera.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Sedimentibacter,
+
+                    Petrimonas
+
+                </p>
 
 
 
@@ -882,10 +898,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>EET-Reinforced Biofilm-Suspension Syntrophy</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Modeled EET support for biofilm-suspension cooperation</h3>
                 </div>
-                <p class="prewrap interaction-description">Extracellular electron transfer reinforces cooperation between the spatial fractions and contributes to dehalogenation and acidogenesis.</p>
+                <p class="prewrap interaction-description">PARTIAL: partial least squares path modeling identifies extracellular electron transfer as a factor supporting cooperation between the biofilm and suspension and their dehalogenation and acidogenesis outputs. The authors call this syntrophy, but the abstract does not resolve a product-removal thermodynamic dependency, obligatory reciprocal growth or a direct EET interruption/rescue experiment.</p>
 
 
 
@@ -912,12 +927,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Biofilm Electroactivity and Dehalogenation
-                        <p class="prewrap causal-description">EET reinforces the electrode-biofilm side of the syntrophy, where electroactive Syntrophomonas and Geobacter and dehalogenating Hydrogenophaga are enriched.</p>
+                        <p class="prewrap causal-description">PARTIAL: the path model links EET to biofilm-associated dehalogenation. Retain this inferred contribution, not a directly perturbed EET-to-output mechanism or a flux assigned to each representative genus.</p>
                     </div>
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Suspension Acidogenesis
-                        <p class="prewrap causal-description">EET also contributes to the suspension side of the syntrophy, where Sedimentibacter and Petrimonas are enriched with hydrolysis, fatty-acid biosynthesis, and acidogenesis.</p>
+                        <p class="prewrap causal-description">PARTIAL: the path model links EET to suspension-associated acidogenesis. Retain this inferred contribution, not a directly perturbed EET-to-output mechanism or a flux assigned to each representative genus.</p>
                     </div>
 
                 </div>
@@ -933,10 +948,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"extracellular electron transfer as the key factor reinforcing this biofilm-suspension syntrophy, significantly contributing to both dehalogenation and acidogenesis"</div>
+                        <div class="snippet">"Partial least squares path modeling identified extracellular electron transfer as the key factor"</div>
 
                     </li>
 
@@ -949,6 +964,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which electron-transfer route causally links the biofilm and suspension outputs?
+                </h3>
+                <p class="prewrap">The accessible abstract identifies a partial least squares path model, not the route-resolved inhibition/rescue or partner-fitness controls needed to isolate EET mediation and thermodynamic dependence. Full methods and relevant perturbation data are needed; compartment enrichment and reactor-level removal/carbon recovery remain supported.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Biofilm-Suspension Spatial Division of Labor</code>, <code>ecological_interactions#Biofilm Electroactivity and Dehalogenation</code>, <code>ecological_interactions#Suspension Acidogenesis</code>, <code>ecological_interactions#Modeled EET support for biofilm-suspension cooperation</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+
+
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/" rel="nofollow noreferrer">PMID:41793807</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Partial least squares path modeling identified extracellular electron transfer as the key factor</p>
+
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1291,7 +1345,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1315,11 +1369,26 @@
 
 
 
+            var participantKeys = [
+
+                "Syntrophomonas",
+
+                "Geobacter",
+
+                "Hydrogenophaga"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1343,11 +1412,24 @@
 
 
 
+            var participantKeys = [
+
+                "Sedimentibacter",
+
+                "Petrimonas"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:3";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1360,7 +1442,7 @@
 
             nodes.push({
                 id: intId,
-                label: "EET-Reinforced Biofilm-Suspension Syntrophy",
+                label: "Modeled EET support for biofilm-suspension cooperation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

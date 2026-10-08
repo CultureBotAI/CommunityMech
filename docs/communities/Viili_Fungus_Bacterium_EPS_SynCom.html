@@ -640,7 +640,7 @@
                     <h3>Geotrichum nitrogen supply to lactic acid bacteria</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Metabolomics and amino-acid perturbation assays linked G. candidum to nitrogen-source supply, including valine, that enhanced lactic-acid-bacterial growth, biofilm formation, and EPS production.</p>
+                <p class="prewrap interaction-description">G. candidum Y1 supplies nitrogen sources, including valine, to L. lactis V9 and L. paracasei V21. Metabolomics and amino-acid depletion/supplementation support nutrient provision associated with increased bacterial growth, biofilm formation and EPS production. These assays do not by themselves isolate a valine-specific signaling mechanism independent of growth.</p>
 
 
 
@@ -677,8 +677,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> G. candidum activation of AI-2-linked EPS production
-                        <p class="prewrap causal-description">The fungus-associated nitrogen supply was coupled with stronger lactic-acid-bacterial growth, quorum-sensing activity, and EPS production.</p>
+                        <span class="flow-arrow">→</span> AI-2 regulation of Viili bacterial EPS production
+                        <p class="prewrap causal-description">PARTIAL: fungal nitrogen provision supports bacterial growth and is accompanied by stronger quorum-sensing activity. It may contribute to activation of the AI-2 regulatory node, but the abstract does not isolate valine-specific mediation from growth effects.</p>
                     </div>
 
                 </div>
@@ -720,10 +720,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>G. candidum activation of AI-2-linked EPS production</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>AI-2 regulation of Viili bacterial EPS production</h3>
                 </div>
-                <p class="prewrap interaction-description">Co-culture with G. candidum increased AI-2 production and luxS transcription in the lactic acid bacteria; AI-2 activation and inhibition assays linked this quorum-sensing response to EPS synthesis.</p>
+                <p class="prewrap interaction-description">Fungal co-culture increases bacterial AI-2 production and luxS transcription. AI-2 activation and inhibition assays support positive regulation of EPS synthesis. This is signaling regulation, not evidence that G. candidum supplies AI-2 as an exchanged nutrient; the abstract describes fungal-metabolite activation of signaling as a possible contribution.</p>
 
 
 
@@ -772,7 +771,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Three-species Viili EPS maximum
-                        <p class="prewrap causal-description">AI-2-mediated quorum sensing positively regulated EPS synthesis in the three-member Viili consortium.</p>
+                        <p class="prewrap causal-description">AI-2 activation and inhibition support positive regulation of bacterial EPS synthesis and thus a contribution to the three-member output. They do not establish AI-2 as the sole explanation of the tested consortium maximum.</p>
                     </div>
 
                 </div>
@@ -808,6 +807,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42372608/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42372608</a>
+
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"fungal metabolites may contribute to the activation of AI-2 signaling"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -820,6 +832,16 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Lactococcus lactis V9,
+
+                    Lacticaseibacillus paracasei V21,
+
+                    Geotrichum candidum Y1
+
+                </p>
 
 
 
@@ -863,7 +885,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -876,6 +898,41 @@
                 <p class="muted small">Attaches to: <code>growth_media</code>, <code>taxonomy</code></p>
 
 
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Does fungal valine activate AI-2 signaling independently of its effect on bacterial growth?
+                </h3>
+                <p class="prewrap">The abstract reports nutrient depletion/supplementation and AI-2 perturbation assays, but the inspected source does not isolate the full nitrogen-to-signaling mediation chain. Full methods and growth-matched signaling perturbations are needed to resolve this link. The measured nutrient, AI-2 and EPS responses remain supported.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Geotrichum nitrogen supply to lactic acid bacteria</code>, <code>ecological_interactions#AI-2 regulation of Viili bacterial EPS production</code>, <code>ecological_interactions#Three-species Viili EPS maximum</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+
+
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42372608/" rel="nofollow noreferrer">PMID:42372608</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">fungal metabolites may contribute to the activation of AI-2 signaling</p>
+
+                    </div>
+
+                </details>
 
 
             </div>
@@ -1115,7 +1172,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1130,11 +1187,11 @@
             processes.push("quorum sensing");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "G. candidum activation of AI-2-linked EPS production",
+                label: "AI-2 regulation of Viili bacterial EPS production",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1187,6 +1244,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Lactococcus lactis V9",
+
+                "Lacticaseibacillus paracasei V21",
+
+                "Geotrichum candidum Y1"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
