@@ -1236,3 +1236,27 @@ Primary read and access limits are recorded; no raw-data reanalysis, new topolog
 or Edison spend. Repairs #1816-#1819 await protected-main merge; identity #1820
 and non-graph #1821 stay open. Self-review is not independent approval or
 corpus completion.
+
+## Batch105: Endpoints And Mechanism Boundaries
+
+[Decisions](decisions/20261008-four-records-batch105.yaml),
+[validation](validation-20261008-batch105.json),
+[cache provenance](cache-provenance-20261008-batch105.json) and
+[self-adversarial review](adversarial-review-20261008-batch105.yaml) cover the
+space-habitat, phenanthrene-carbon, lignin-dimer and staged cattle-manure records.
+All nine nodes remain; one existing direction is explicitly hypothetical and
+one substrate-range restatement arrow is removed. Reduced colony recovery does
+not establish reciprocal competition or definitive viability loss. Soil carbon
+stocks are distinct from fixation flux, muconate conversion from gallate
+potential, and Ensifer-specific transcript abundance from proven mediation.
+Positive observed outcomes and their comparison groups are retained.
+The whole lignin abstract supports six linkage classes; the three retained
+class snippets are representative, not exhaustive quotations.
+All caches and non-graph raw blocks remain unchanged, not recertified.
+Space-habitat primary body coverage is bounded; the other three reviews are
+abstract-limited. No new topology, provider spend or biological optimization
+procedures are introduced. Repairs #1823-#1826 await protected-main merge;
+non-graph #1827 stays open. Prior #847 concerns interaction typing, not
+environmental grounding; the new issue and review metadata were corrected
+without changing old histories. Self-review is not independent approval or
+corpus completion.

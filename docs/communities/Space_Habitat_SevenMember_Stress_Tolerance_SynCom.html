@@ -726,7 +726,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Space Habitat Seven-Member Stress-Tolerance SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -734,8 +734,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -744,9 +744,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Whole-consortium reduction of recoverable Bacillus subtilis after co-cultivation</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">After 24 h co-cultivation, culturable B. subtilis CFU were significantly lower in the whole seven-member consortium than in B. subtilis single culture under the tested recovery conditions. The source discusses possible antimicrobial competition but does not resolve which partner, metabolite or mechanism drove this effect.</p>
+                <p class="prewrap interaction-description">After co-cultivation, culturable B. subtilis CFU were significantly lower in the whole seven-member laboratory consortium than in single culture under the tested recovery conditions. This is decreased cultivability, not definitive loss of viability or demonstrated reciprocal negative effects on a pair of partners. The source discusses possible competition, but does not identify a causal partner or confirmed metabolite activity.</p>
 
 
 
@@ -778,6 +777,19 @@
                         </div>
 
                         <div class="snippet">"Quantification of viable cells of B. subtilis revealed an increase of CFU/mL when co-cultivated with A. radioresistens and M. luteus , respectively, and decrease of CFU/mL when co-cultivated with S. capitis and P. antarctica , and a statistically significant decrease of CFU/mL when co-cultivated with the whole consortium ( p = 0.008)"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42577390/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42577390</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"reduced CFU recovery corresponds to decreased cultivability rather than definitive loss of viability"</div>
 
                     </li>
 
@@ -826,7 +838,7 @@
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -839,6 +851,56 @@
                 <p class="muted small">Attaches to: <code>ecological_interactions#Whole-consortium reduction of recoverable Bacillus subtilis after co-cultivation</code></p>
 
 
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Does the reported colony-recovery decrease establish reciprocal competition or loss of viability?
+                </h3>
+                <p class="prewrap">The measured decrease is retained. COMPETITION requires both partners to be negatively affected; this result does not establish that relationship. Candidate genomic functions are not confirmed activity. This metadata review adds no stress-survival procedures or new partner mechanisms.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Whole-consortium reduction of recoverable Bacillus subtilis after co-cultivation</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42577390/" rel="nofollow noreferrer">PMID:42577390</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">reduced CFU recovery corresponds to decreased cultivability rather than definitive loss of viability</p>
+                        <p class="muted small prewrap">The source explicitly limits interpretation of reduced colony recovery.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42577390/" rel="nofollow noreferrer">PMID:42577390</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">these findings reflect genomic potential rather than confirmed metabolite activity.</p>
+                        <p class="muted small prewrap">Bounds the source interpretation; no metabolite-mediated causal edge is established.</p>
+                    </div>
+
+                </details>
 
 
             </div>
@@ -1184,12 +1246,12 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,

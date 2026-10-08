@@ -109,11 +109,11 @@ taxonomy:
     snippet: funnel multiple lignin-derived dimers to cis, cis-muconate and gallate
     explanation: Supports the R. opacus role in product funneling within the coculture system.
 ecological_interactions:
-- name: Lignin-Dimer Cleavage Feeds Aromatic Monomer Funneling
-  description: >
-    Sphingobium sp. cleaves lignin-derived dimers, supplying aromatic
-    intermediates that R. opacus can funnel into target products.
-  interaction_type: CROSS_FEEDING
+- name: Designed Lignin-Dimer Cleavage and Monomer-Conversion Coupling
+  description: 'HYPOTHESIZED: the designed coculture systems combine the lignin-dimer-cleavage bacterium Sphingobium
+    sp. with the monomer-conversion bacterium R. opacus. PARTIAL: this supports a cleavage-to-conversion design,
+    but the accessible abstract does not trace a specific exchanged intermediate between partners or identify each
+    strain/formulation variant. Listed metabolites are feedstock context, not a measured exchange pool.'
   scope: PAIRWISE
   source_taxon:
     preferred_term: Sphingobium sp.
@@ -136,67 +136,58 @@ ecological_interactions:
       label: guaiacylglycerol-beta-guaiacyl ether
     notes: Representative beta-O-4 lignin-derived dimer substrate tested in the study.
   downstream:
-  - target: Funneling of Lignin-Derived Dimers to cis,cis-Muconate and Gallate
-    description: >
-      Sphingobium cleavage of lignin-derived dimers supplies the monomers that
-      R. opacus funnels into cis,cis-muconate and gallate in the designed
-      coculture.
+  - target: Reported Lignin-Dimer Conversion Outcomes
+    description: 'HYPOTHESIZED/PARTIAL: dimer cleavage is the designed upstream step supplying substrates for monomer
+      conversion in the source coculture systems. The abstract implies this coupling but does not trace the transferred
+      intermediate, isolate its causal contribution, or demonstrate simultaneous muconate/gallate production by
+      one formulation.'
   evidence:
   - reference: PMID:36030484
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: combining lignin-derived dimers cleavage bacterium Sphingobium sp. and monomers conversion bacterium Rhodococcus opacus
-    explanation: Supports cross-feeding between the dimer-cleaving and monomer-converting partners.
-  - reference: PMID:36030484
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: lignin-derived aromatic monomers have been funneled to target compounds
-    explanation: Supports aromatic monomer funneling as the downstream conversion task.
-- name: Funneling of Lignin-Derived Dimers to cis,cis-Muconate and Gallate
-  description: >
-    The coculture converts multiple lignin-derived dimers with different linkage
-    classes into cis,cis-muconate and gallate.
-  interaction_type: CROSS_FEEDING
+    snippet: combining lignin-derived dimers cleavage bacterium Sphingobium sp. and monomers conversion bacterium
+      Rhodococcus opacus
+    explanation: Supports the designed cleavage/conversion coupling, not direct tracing of exchanged intermediates;
+      the removed second quotation described previous studies.
+- name: Reported Lignin-Dimer Conversion Outcomes
+  description: The developed coculture systems converted multiple lignin-derived dimer classes to cis,cis-muconate.
+    The abstract separately reports potential for gallate conversion; this is not a coequal quantified product result
+    or demonstrated simultaneous production of both products by one formulation. Exact strain/formulation variants
+    are not resolved by the accessible abstract.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cis,cis-muconate
     term:
       id: CHEBI:32379
       label: cis,cis-muconate
-  - preferred_term: gallic acid
+  - preferred_term: gallate
     term:
-      id: CHEBI:30778
-      label: gallic acid
-    notes: The publication reports gallate as a target product.
+      id: CHEBI:16918
+      label: gallate
+    notes: Qualified conversion potential in the abstract, not a quantified simultaneous product endpoint.
   evidence:
   - reference: PMID:36030484
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: funnel multiple lignin-derived dimers to cis, cis-muconate and gallate
-    explanation: Supports the target product profile for the coculture.
+    snippet: were converted to cis, cis-muconate
+    explanation: The preceding abstract list identifies the converted lignin-dimer classes; this is the measured
+      product claim.
   - reference: PMID:36030484
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: were converted to cis, cis-muconate
-    explanation: Supports conversion of several lignin-derived dimer classes to cis,cis-muconate.
+    snippet: the developed coculture systems also showed potential in conversion of lignin-derived dimers to gallate.
+    explanation: Preserves the source qualification of gallate as conversion potential, not a coequal quantified
+      endpoint.
 - name: Lignin-Dimer Linkage-Class Substrate Range
-  description: >
-    The coculture system was tested across several low-molecular-weight
-    lignin-derived dimer linkage types, broadening biological funneling beyond
-    aromatic monomers.
-  interaction_type: NICHE_PARTITIONING
+  description: The abstract reports conversion of beta-O-4, 4-O-5, beta-5, beta-beta, beta-1 and 5-5 lignin-derived
+    dimers to cis,cis-muconate using the developed coculture systems. This is substrate-range evidence, not distinct
+    partner niches or reduced competition. It does not constitute a separate causal driver of the product node.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lignin
     term:
       id: CHEBI:6457
       label: lignin
-  downstream:
-  - target: Funneling of Lignin-Derived Dimers to cis,cis-Muconate and Gallate
-    description: >
-      Activity across beta-O-4, 4-O-5, and beta-5 dimer linkage classes
-      broadens the substrate pool that the Sphingobium-Rhodococcus coculture can
-      funnel into cis,cis-muconate and gallate.
   evidence:
   - reference: PMID:36030484
     supports: SUPPORT
@@ -348,3 +339,35 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element processing role is curated for this
   lignin-dimer valorization coculture.
+discussions:
+- discussion_id: lignin_coupling_and_formulation_limits
+  prompt: Which exact coculture variants and transferred intermediates underlie the reported muconate outcomes and
+    qualified gallate potential?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Designed Lignin-Dimer Cleavage and Monomer-Conversion Coupling
+  - ecological_interactions#Reported Lignin-Dimer Conversion Outcomes
+  - ecological_interactions#Lignin-Dimer Linkage-Class Substrate Range
+  rationale: The abstract describes systems plural and combines cleavage and monomer-conversion roles. Keep the
+    existing direction as HYPOTHESIZED/PARTIAL and preserve substrate coverage, without converting background monomer
+    studies into this-system evidence or asserting simultaneous products. The primary publisher URL redirected to
+    an abstract/access page; no full body or supplement was read.
+  evidence:
+  - reference: PMID:36030484
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: combining lignin-derived dimers cleavage bacterium Sphingobium sp. and monomers conversion bacterium
+      Rhodococcus opacus
+    explanation: Supports the designed cleavage/conversion coupling, not direct tracing of exchanged intermediates;
+      the removed second quotation described previous studies.
+curation_history:
+- timestamp: '2026-10-08T01:27:46Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain designed pairwise cleavage/conversion coupling and its existing direction as HYPOTHESIZED/PARTIAL;
+    remove the background-study quotation and categorical cross-feeding.; Preserve muconate conversion separately
+    from gallate potential across source systems; correct the graph gallate identity using the existing local descriptor.;
+    Retain reported dimer substrate coverage; remove niche-partitioning classification and the product restatement
+    arrow. Issue#1825; reports/causal_graph_review/decisions/20261008-four-records-batch105.yaml
+  llm_assisted: true
