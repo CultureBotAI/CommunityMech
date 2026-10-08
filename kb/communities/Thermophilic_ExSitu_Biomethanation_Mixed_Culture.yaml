@@ -223,10 +223,13 @@ taxonomy:
     explanation: Supports the acetoclastic role assigned to the Methanosaeta target.
 ecological_interactions:
 - name: Thermophilic H2/CO2 Biomethanation
-  description: The conditioned archaeal fraction used H2 and CO2 to produce CH4 under a 4:1 H2:CO2 gas feed at 50 C; the final
-    phase favoured hydrogenotrophic Methanobacteria, with Methanosarcina contributing at lower abundance through hydrogenotrophic
-    and acetoclastic metabolism.
-  interaction_type: CROSS_FEEDING
+  description: A conditioned mixed culture converted externally supplied H2/CO2 to methane in a single proof-of-concept
+    CSTR. Output methane content reached 86% by day 69 in the final thermophilic phase; exceeding 90% was proposed,
+    not observed. Cylinder-fed gas conversion is not itself interspecies cross-feeding. Methanobacteria enrichment
+    and contributions by Methanosarcina are source interpretations informed by group-specific qPCR and community
+    profiles, not taxon-resolved flux measurements. The listed phylum, class and genus are overlapping taxonomic
+    summaries rather than independent strain members. Sequential conditioning and washout changes do not independently
+    isolate temperature as the cause of every performance difference.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Euryarchaeota
@@ -263,23 +266,26 @@ ecological_interactions:
   - reference: PMID:42293522
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'The high H₂: CO₂ throughput at 50'
-    explanation: Supports high-throughput H2/CO2 feeding as the operational context for methanogen selection.
+    snippet: H₂ and CO₂ gases were supplied from pressurised gas cylinders
+    explanation: Identifies the external source of methanogenic substrates.
   - reference: PMID:42293522
     supports: SUPPORT
     evidence_source: IN_VITRO
+    snippet: CH₄ levels in the output gas steadily increased with each washout, reaching 86% by day 69
+    explanation: Preserves the measured final gas-composition outcome, not a prediction above90%.
+  - reference: PMID:42293522
+    supports: PARTIAL
+    evidence_source: OTHER
     snippet: favoured hydrogenotrophic Methanobacteria
-    explanation: Supports hydrogenotrophic methanogenesis by Methanobacteria in the final phase.
-  - reference: PMID:42293522
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: levels in the output gas steadily increased with each washout, reaching 86% by day 69
-    explanation: Reports the final methane-content outcome under the conditioned final-phase regime.
-- name: VFA Syntrophic Turnover
-  description: Thermophilic bacterial partners produced and transformed volatile fatty acids while archaeal acetoclastic methanogens
-    consumed acetate for methane production; by day 69, VFA concentrations fell to approximately 3.5 g/L and were dominated
-    by acetate.
-  interaction_type: SYNTROPHY
+    explanation: The source interprets enrichment from group-level measurements; not organism-specific gas tracing.
+- name: VFA dynamics and inferred interspecies turnover
+  description: 'The measured VFA pool fell from approximately 5 to 3.5 g/L during the final phase and ended with
+    73% acetate, 16% propionic acid and 10% n-butyric acid. These are pool measurements during washout-managed operation,
+    not direct rates of metabolite exchange. PARTIAL: the authors interpret Firmicutes as VFA producers, Coprothermobacterota
+    as acetate oxidizers and Methanosaeta/Methanothrix as acetoclastic methanogens, with Methanosarcina potentially
+    using both substrates. Group abundance and gene copies do not demonstrate those exact taxa executing each route,
+    metabolic activity per cell, or product-removal-dependent thermodynamic cooperation. Washout and substrate-pool
+    changes remain alternatives to attributing every VFA decrease to consumption.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Firmicutes
@@ -333,22 +339,33 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: At this point, the VFAs comprised 73% acetate, 16% propionic acid, and 10% n-butyric acid
-    explanation: Reports the final VFA pool available to syntrophic acetate turnover and acetoclastic methanogenesis.
+    explanation: Measured final VFA composition; it does not by itself identify producers, consumers or exchange
+      rates.
   - reference: PMID:42293522
-    supports: SUPPORT
-    evidence_source: IN_VITRO
+    supports: PARTIAL
+    evidence_source: OTHER
     snippet: Overall, in the final phase, the system exhibited a balanced microbial community
-    explanation: Supports the final-phase syntrophic interpretation linking Firmicutes, Coprothermobacterota, and Methanosaeta.
+    explanation: Author interpretation integrating community profiles and bulk chemistry; not directly measured
+      taxon-specific transfer or thermodynamic dependence.
   - reference: PMID:42293522
-    supports: SUPPORT
-    evidence_source: IN_VITRO
+    supports: PARTIAL
+    evidence_source: OTHER
     snippet: Coprothermobacterota converting acetate
-    explanation: Supports the acetate-oxidizing role assigned to Coprothermobacterota.
+    explanation: Author interpretation integrating community profiles and bulk chemistry; not directly measured
+      taxon-specific transfer or thermodynamic dependence.
+  - reference: PMID:42293522
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: Methanosaeta converting acetate
+    explanation: Author interpretation integrating community profiles and bulk chemistry; not directly measured
+      taxon-specific transfer or thermodynamic dependence.
   - reference: PMID:42293522
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Methanosaeta converting acetate
-    explanation: Supports acetoclastic methane production by the Methanosaeta qPCR target.
+    snippet: VFA concentrations were measured immediately before washout, capturing peak accumulation prior to dilution
+      or biomass replacement
+    explanation: The phase-1 paragraph defines this sampling context; it does not establish phase-4 sampling timing
+      or convert pool concentrations into flux.
 environmental_factors:
 - name: Thermophilic operating temperature
   value: '50'
@@ -484,9 +501,9 @@ external_resources:
     explanation: Identifies the primary publication used to curate this record.
 discussions:
 - discussion_id: taxonomy_resolution
-  prompt: The final reactor community is resolved primarily at phylum level by 16S rRNA sequencing and by group-specific qPCR.
-    Species- or MAG-level assignments for the dominant Euryarchaeota, Firmicutes, and Coprothermobacterota partners remain
-    unresolved.
+  prompt: The final reactor community is resolved primarily at phylum level by 16S rRNA sequencing and by group-specific
+    qPCR. Species- or MAG-level assignments for the dominant Euryarchaeota, Firmicutes, and Coprothermobacterota
+    partners remain unresolved.
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
@@ -509,8 +526,9 @@ discussions:
   attaches_to:
   - engineering_design
   - cultivation_setup
-  rationale: A non-sterile continuous-feeding trial would test whether the selected thermophilic consortium remains stable
-    under industrially realistic operation rather than washout-managed autoclaved-sludge proof-of-concept conditions.
+  rationale: A non-sterile continuous-feeding trial would test whether the selected thermophilic consortium remains
+    stable under industrially realistic operation rather than washout-managed autoclaved-sludge proof-of-concept
+    conditions.
   evidence:
   - reference: PMID:42293522
     supports: SUPPORT
@@ -519,10 +537,34 @@ discussions:
     explanation: Names the industrial robustness gap stated by the authors.
   posed_by: codex
   posed_date: '2026-09-21'
+- discussion_id: biomethane_causal_scope_batch120
+  prompt: Which taxon-specific VFA and methane routes were active beyond the bulk chemistry and DNA profiles?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Thermophilic H2/CO2 Biomethanation
+  - ecological_interactions#VFA dynamics and inferred interspecies turnover
+  rationale: The study follows one reactor through sequential temperature, gas and washout changes. Methane production
+    is measured, but its organism-specific allocation and interspecies fluxes are inferred. Direct sludge qPCR/16S
+    can include DNA from killed or inactive cells; bacterial plate recovery is a separate culturable fraction. The
+    original taxonomy-resolution and industrial-stability discussions remain open. No new causal link between the
+    two process nodes is introduced.
+  evidence:
+  - reference: PMID:42293522
+    snippet: These approaches reflect the total microbial DNA pool
+  posed_by: codex
+  posed_date: '2026-10-08'
 curation_history:
 - timestamp: '2026-09-22T04:09:10Z'
   curator: codex
   action: CREATE_RECORD
-  changes: Created CommunityMech:000416 for PMID:42293522, a thermophilic ex-situ biomethanation CSTR mixed culture enriched
-    from autoclaved anaerobic digestate sludge.
+  changes: Created CommunityMech:000416 for PMID:42293522, a thermophilic ex-situ biomethanation CSTR mixed culture
+    enriched from autoclaved anaerobic digestate sludge.
+  llm_assisted: true
+- timestamp: '2026-10-08T14:15:40Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain measured external-gas methane production without coding abiotic supply as microbial cross-feeding
+    or qPCR as activity.; Retain VFA measurements and source interpretations while removing an unsupported demonstrated-syntrophy
+    type. Issue#1932; reports/causal_graph_review/decisions/20261008-four-records-batch120.yaml
   llm_assisted: true

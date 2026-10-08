@@ -1,0 +1,423 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 0c53674faea0dcf72f3fb830f46ebb656811684a
+scope:
+- kb/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml
+- kb/communities/Thermophilic_ExSitu_Biomethanation_Mixed_Culture.yaml
+- kb/communities/Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.yaml
+- kb/communities/Tobacco_Chemotactic_Biocontrol_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-four-records-batch120.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch120.json
+findings:
+- issue: 1931
+  severity: P2
+  finding: Separate measured carbon transfer and reciprocal benefit from predicted arsenic-coculture routes
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1932
+  severity: P2
+  finding: Distinguish external gas conversion and inferred VFA routes in thermophilic biomethanation
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1933
+  severity: P2
+  finding: Bound compost bio-sanitization and HGT claims to metagenomic and correlation evidence
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1934
+  severity: P2
+  finding: Keep tobacco isolate-specific prebiotic responses separate from chemotaxis-mediated field protection
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1935
+  severity: P2
+  finding: Audit biomethanation non-graph viability claims and group-level functional roles
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1936
+  severity: P2
+  finding: Qualify compost record overview and cultivation claims to the available source scope
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1937
+  severity: P2
+  finding: Resolve the three tobacco SynCom strains and non-graph assay boundaries
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+adversarial_checks:
+- 'All 10 original nodes and 4 arrows accounted for: 10 nodes and 3 arrows retained, one unsupported common-treatment
+  arrow removed, six renames, no new topology. Targets and discussion anchors resolve. No direction invented.'
+- Arsenic carbon transfer and reciprocal growth remain positive evidence, retaining CROSS_FEEDING and MUTUALISM.
+  Genomic complementarity is not direct nitrogen/oxygen tracing. Oxygen-supplemented pure culture is not a demonstrated
+  oxygen requirement. Exact strains and canonical identities unchanged.
+- Biomethane 86% by day 69 remains observed; above 90% remains proposed. External cylinder gas is not microbial
+  cross-feeding. qPCR/16S profiles are not viability or taxon-specific flux; positive plate recovery is separate.
+  VFA pools and inferred routes do not establish thermodynamic syntrophy. Prewashout sampling quotation explicitly
+  belongs to phase 1, not demonstrated phase 4 timing.
+- Compost retains maturation, transient ARG rebound, later attenuation and reported pathogen elimination. Aggregate
+  treatment benefit is not mutualism or bilateral competition. KEGG and potential host-gene network signals are
+  not expression, motility or actual transfer events. 26.6% refers to potential associations. One environmental-mediation
+  arrow stays PARTIAL; common-treatment maturation-to-HGT arrow removed.
+- Tobacco retains isolate-specific positive resource responses, Y878 null enhancement, compatible antagonist isolates
+  and positive combined field treatment. cheA PCR is not measured migration/colonization; cheA-negative isolates
+  also antagonize. The resource library cites tomato exudates. Missing non-chemotactic controls are explicit future
+  work. qPCR and Tax4Fun are not viability/activity. Results/Discussion counts and tomato-caption inconsistencies
+  are not silently reconciled.
+- Twenty-seven graph and six discussion quotes match fresh primary texts and all existing caches. Full main bodies,
+  methods, results, discussion, table text and captions read for biomethane and tobacco; arsenic and compost review
+  bounded to fresh primary abstracts. No original figure pixels, supplements, raw data or analysis-code audit. No
+  cache edits or full-body imports. Tobacco license is CC BY-NC-ND 4.0, not unrestricted CC BY. Matching is not
+  entailment certification.
+- 'Four guarded writes and append-only histories preserve 456 other records, all 923 caches, unrelated raw blocks
+  and previous histories/decisions. Canonical taxon identities/ranks unchanged. Metadata/composition/scope findings
+  remain separate issues #1935-#1937. Shared evidence aliases detached before edits.'
+- Fifteen focused tests and twelve control/mutation/restored-control probes pass. Mutations reject loss of positive
+  carbon/field evidence, syntrophy overclaims, oxygen inference promotion, external-gas cross-feeding, compost mutualism,
+  HGT proof promotion, loss of ARG rebound, restored common-treatment arrow, loss of Y878 null and unmeasured chemotaxis.
+  No canonical writes during probes.
+- The initial mutation harness removed a required dictionary key and stopped with KeyError before producing a report.
+  It was changed to a wrong interaction-type value so the intended scientific assertion is exercised. All 12 cases
+  then completed with restored controls; no test or canonical-record weakening.
+- 'All four records pass schema, strict, terms, full-record references, snippets, rank and history. 1131 selected
+  tests including palette pass; not full Linux CI certification. Network: 57 unchanged warnings, zero structural
+  defects. Descriptions on 456 pages, 1361 nodes and 522 arrows exactly match descriptions with deterministic rendering,
+  not screenshot QA.'
+- 'All participant lists and scopes unchanged; 299 participant-list users. Census: 414 community-level, 136 mixed,
+  278 community-only, 1568 taxa, 1281 solely credited unchanged. Scope credit is not actual participant coverage.
+  Connectivity logic and thresholds unchanged.'
+- 'Issues #1931-#1934 addressed pending protected-main merge; #1935-#1937 remain open. No Edison extension or credits.
+  Prior Ruegeria #1883 still needs configured authentication and was not retried unchanged. Self-adversarial review
+  is not independent approval; root #1836 and actual exact-head protected checks remain required.'
+- 'Corpus: 388 reviewed, 18 pending, 54 needs_research across 460 records. Overall goal, protected merge and branch
+  deletion incomplete. Postcommit docs-current and exact-head publication are separate gates, not preasserted here.'
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: Erase directly measured carbon cross-feeding
+      test: test_arsenic_preserves_direct_carbon_cross_feeding
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 21
+      assertion: assert node["interaction_type"] == "CROSS_FEEDING"
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/0/interaction_type
+        before: CROSS_FEEDING
+        after: COMPETITION
+    - mutation: Turn reciprocal benefit into thermodynamic syntrophy
+      test: test_arsenic_mutualism_keeps_actual_reciprocal_growth_evidence
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 32
+      assertion: assert node["interaction_type"] == "MUTUALISM"
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/1/interaction_type
+        before: MUTUALISM
+        after: SYNTROPHY
+    - mutation: Promote oxygen-supplement comparison to route proof
+      test: test_arsenic_genomic_routes_are_not_traced_oxygen_or_nitrogen
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 43
+      assertion: assert node["evidence"][-1]["supports"] == "PARTIAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/1/evidence/3/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Call external cylinder-gas supply cross-feeding
+      test: test_biomethanation_external_gas_is_not_interspecies_cross_feeding
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 54
+      assertion: assert "interaction_type" not in node
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/0/interaction_type
+        before: null
+        after: CROSS_FEEDING
+    - mutation: Turn VFA pool dynamics into demonstrated syntrophy
+      test: test_biomethanation_vfa_pools_do_not_prove_thermodynamic_syntrophy
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 78
+      assertion: assert "interaction_type" not in node
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/1/interaction_type
+        before: null
+        after: SYNTROPHY
+    - mutation: Call compost maturation microbial mutualism
+      test: test_compost_maturation_is_not_demonstrated_member_mutualism
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 91
+      assertion: assert "interaction_type" not in node
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/0/interaction_type
+        before: null
+        after: MUTUALISM
+    - mutation: Erase transient ARG rebound from reported trajectory
+      test: test_compost_preserves_rebound_and_later_reported_attenuation
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 103
+      assertion: '"transient ARG rebound followed by profound attenuation" in node["evidence"][1]["snippet"]'
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/1/evidence/1/snippet
+        before: Metagenomic analysis showed SynCom inoculation caused a transient ARG rebound followed by profound
+          attenuation
+        after: ARGs immediately declined without rebound.
+    - mutation: Promote inferred HGT restriction to demonstrated mechanism
+      test: test_compost_hgt_is_potential_not_measured_transfer_frequency
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 117
+      assertion: assert node["evidence"][2]["supports"] == "PARTIAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/2/evidence/2/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Restore common-treatment maturation-to-HGT arrow
+      test: test_compost_retains_partial_environmental_mediation_not_common_cause_arrow
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 125
+      assertion: assert len(maturation["downstream"]) == 1
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/0/downstream
+        before:
+        - target: Reported compost resistome and pathogen attenuation
+          description: 'PARTIAL: intensified fermentation and the correlated C/N decrease and humification are proposed
+            environmental contributors to later ARG and pathogen attenuation. Mantel association and the common
+            inoculation treatment support this interpretation, not selective demonstration that maturation alone
+            mediates elimination or prevents every gene-transfer event.'
+        after:
+        - target: Reported compost resistome and pathogen attenuation
+          description: 'PARTIAL: intensified fermentation and the correlated C/N decrease and humification are proposed
+            environmental contributors to later ARG and pathogen attenuation. Mantel association and the common
+            inoculation treatment support this interpretation, not selective demonstration that maturation alone
+            mediates elimination or prevents every gene-transfer event.'
+        - target: Metagenomic signatures of reduced HGT potential
+          description: Maturation demonstrates HGT suppression.
+    - mutation: Erase isolate-specific Y878 null enhancement
+      test: test_tobacco_prebiotic_results_are_isolate_specific_with_y878_null
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 138
+      assertion: assert "for Y878, none" in node["evidence"][1]["snippet"]
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/0/evidence/1/snippet
+        before: for Y878, none of the tested compounds showed a significant difference compared with the mock treatment
+        after: Every isolate showed enhanced antagonism.
+    - mutation: Treat cheA marker as measured chemotaxis
+      test: test_tobacco_chea_marker_and_compatibility_are_not_colonization_measurements
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 145
+      assertion: assert "interaction_type" not in node and "biological_processes" not in node
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/1/biological_processes
+        before: null
+        after:
+        - preferred_term: chemotaxis
+          term:
+            id: GO:0006935
+            label: chemotaxis
+    - mutation: Erase positive field yield result
+      test: test_tobacco_positive_field_result_is_a_combined_treatment
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 159
+      assertion: assert "nearly doubled crop yield" in node["evidence"][1]["snippet"]
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/2/evidence/1/snippet
+        before: the chemotactic SynCom fertilizer nearly doubled crop yield
+        after: No positive crop yield effect was observed.
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml: bc09df336e1e5a701bf24c3f47eed41c24829eb4618c8597840052a93d0f822c
+      kb/communities/Thermophilic_ExSitu_Biomethanation_Mixed_Culture.yaml: 51357584e2099b2916e81f893f46fc0af8cede23e3b2616ca957adc5f7a4bf71
+      kb/communities/Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.yaml: 9d6ab3706fb821b6231441efc4342728b21ede4ab1aad3e5962ba5dab5d79199
+      kb/communities/Tobacco_Chemotactic_Biocontrol_SynCom.yaml: 2d1851c88c385f813706b923eeb0754bf70bbac4dd94fb15369bf5e45317e371
+      tests/test_causal_review_batch120.py: 6f25ad6bbd01d3eb06b6bfd1b9f4b03372f2ccfafca2923d6f4ac9cbc7673aa4
+    probe_script_sha256: 4ee94b8660194e8e5321fd3a567be404a10fcc85fd33be08769c97b07c966bbb
+    scope: In-memory control/mutation/restored-control; no canonical writes and not additional pytest tests.
+  artifact: /private/tmp/communitymech-batch120/adversarial-regression-proof.json
+  sha256: 94b88f130c95e5183173ae781c751c0f2bd72af36b59b29056fac11b72c69cdd
+verification:
+  combined_regressions: 1131 passed in 305.98s (0:05:05)
+  new_regression_tests: 15
+  total_recorded_gate_outputs: 41
+  primary_graph_snippet_proof:
+    graph_quotations: 27
+    discussion_quotations: 6
+    fresh_primary_literal_matches: 33
+    all_cached_literal_matches: 33
+    retained_nodes: 10
+    removed_nodes: 0
+    renamed_nodes: 6
+    retained_arrows: 3
+    removed_arrows: 1
+    new_nodes_or_directions: 0
+  references: Full-record local passes are macOS, not Linux certification. Literal matching does not establish entailment.
+    Total checks in the reference CLI counts issues, not examined snippets.
+  snippet_counts_by_record:
+    kb/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml:
+      MATCH: 13
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Thermophilic_ExSitu_Biomethanation_Mixed_Culture.yaml:
+      MATCH: 43
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.yaml:
+      MATCH: 16
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Tobacco_Chemotactic_Biocontrol_SynCom.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 9059
+      categories:
+        MATCH: 8914
+        RENDERING: 28
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 40
+        NOCONTENT: 76
+    caveat: Informational audit exit0 is not clean-corpus or entailment certification.
+  network:
+    existing_findings_preserved: 57
+    added_findings: {}
+    removed_findings: {}
+    structural_defects: 0
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-four-records-batch120.yaml: 02d8e5bcf94ac4a351a5c23517211f8dfe3d3545b73c3de784f53d23ddc6105b
+    tests/test_causal_review_batch120.py: 6f25ad6bbd01d3eb06b6bfd1b9f4b03372f2ccfafca2923d6f4ac9cbc7673aa4
+    tests/test_participating_taxa.py: f438815b4a028c0f38a077df53c95f685f98b3c2b523593896a124b544269db1
+    tests/test_community_level_connectivity_credit.py: 996cc631423bfa7adc5d8e693d67d55b374a24379d119ab0fa8f1802f38f216a
+    tests/test_causal_review_batch109.py: ff8e9e26771545e1ace22b3c1d42076789c99cc4bc83e588b6a4b9ad698d3d73
+    tests/test_datamodel.py: f8d4750ad64eb4156857a86a8c6adf16dedefb09ca3c3da908f697e609a35f25
+    reports/causal_graph_review/cache-provenance-20261008-batch120.json: 151d0064a128baf905eba3e41ae9b2035d47b740eab7b134d091caf52f7a4290
+    kb/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml: bc09df336e1e5a701bf24c3f47eed41c24829eb4618c8597840052a93d0f822c
+    kb/communities/Thermophilic_ExSitu_Biomethanation_Mixed_Culture.yaml: 51357584e2099b2916e81f893f46fc0af8cede23e3b2616ca957adc5f7a4bf71
+    kb/communities/Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.yaml: 9d6ab3706fb821b6231441efc4342728b21ede4ab1aad3e5962ba5dab5d79199
+    kb/communities/Tobacco_Chemotactic_Biocontrol_SynCom.yaml: 2d1851c88c385f813706b923eeb0754bf70bbac4dd94fb15369bf5e45317e371
+  history_sha256:
+    history/records/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture/2026-10-08T141541Z-codex-62412f.yaml: 9644536c1fb24245f489189b18624c2877a158673da516875031ba5942419103
+    history/records/Thermophilic_ExSitu_Biomethanation_Mixed_Culture/2026-10-08T141542Z-codex-8205c5.yaml: 74d79e3776faa7d8a0f754652e6923b8496510ef06fc0c5a82a9638329695cee
+    history/records/Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization/2026-10-08T141542Z-codex-0c3005.yaml: a1bbcfe8f0d52db5daaddd9171d68644d74c5c4f76e034ec6a00f36f1a20b294
+    history/records/Tobacco_Chemotactic_Biocontrol_SynCom/2026-10-08T141542Z-codex-fb2ec0.yaml: 4b26a768b2d5dfc11255ccf65473deb7e28591ef37d9aee8dda17f832da5f078
+  unchanged_records: 456
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 889
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    new_nodes_or_directions: 0
+    prior_extension_blocker: 'Ruegeria1883: configured authentication unavailable in prior approved invocation;
+      no unchanged-state retry.'
+  post_commit_docs_current: Separate publication gate,not preasserted.
+participant_census:
+  current:
+    records: 460
+    with_community_level: 414
+    mixed: 136
+    community_level_only: 278
+    taxa: 1568
+    credited_solely_by_the_rule: 1281
+  delta_from_batch119:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  explanation: All participant lists and scopes are unchanged;299participant-list users. Scope credit is not certification
+    of actual participant coverage. Connectivity logic and thresholds are unchanged.
+corpus:
+  records: 460
+  nodes: 1375
+  edges: 530
+  review_status_counts:
+    needs_research: 54
+    pending: 18
+    reviewed: 388
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary established Python3.13 lint environment; project dependencies unchanged.
+limitations:
+- Both-root baseline precedes primary research:460records,923caches,57existing warnings,zero structural defects.
+  All four whole records and10existing nodes/four arrows reviewed. Retain10nodes/three arrows,remove one common-cause
+  arrow,rename six nodes,no new topology.
+- All four fresh EuropePMC abstracts and Crossref identities checked. Biomethanation and tobacco complete main-body
+  XML texts read including methods,results,discussion,table text and captions. No original figure pixels,separate
+  supplementary files,raw data or analysis code audited. Figure alt text is not independent experimental evidence.
+- Arsenic and compost changes are abstract-bounded. Neither EuropePMC metadata exposed a PMC article; DOI searches
+  found publisher pages whose opens returned403. No exhaustive full-text absence claim,access bypass or author contact.
+  Existing caches retained; no article-body import. Tobacco source license is CC BY-NC-ND4.0,not unrestricted CC
+  BY.
+- Arsenic retains direct NanoSIMS carbon transfer and reciprocal-growth mutualism. Supplemented heterotroph culture
+  and genomic complementarity do not independently establish oxygen-source necessity,nitrogen transfer or the identity
+  of exchanged carbon compounds. Existing culture-conditions discussion remains open.
+- Biomethanation preserves measured methane and VFA outcomes from a single sequential CSTR. External gas supply
+  is not microbial cross-feeding. Taxon-specific routes and thermodynamic cooperation remain interpretations; qPCR
+  counts are not activity or viability. Washout affects pools,phase1sampling wording is not assigned to phase4.
+  Non-graph roles/viability claims remain1935.
+- Compost retains reported maturation,transient ARG rebound and later attenuation. KEGG and potential host-gene
+  networks are not expression,actual motility or transfer-frequency measurements. Maturation-to-attenuation remains
+  PARTIAL; no maturation-to-profile causation is inferred from shared inoculation. Non-graph overview/role/access
+  wording remains1936.
+- Tobacco keeps positive strain-specific broth and combined field-treatment results,including the Y878 null enhancement.
+  cheA positivity is potential,not measured root migration; authors call for non-chemotactic controls. Source species/strain
+  rows,resource-count discrepancies and tomato caption wording remain1937. The graph does not certify the current
+  merged two-row taxonomy.
+- Initial all-state1168issue titles/bodies searched; fresh pre-creation expanded alias/DOI search receipt records
+  exact count and local paths. Matching1160/1162 bodies read and distinct. Local searches include hidden/ignored
+  files,excluding.git,docs,site,references_cache,.env; not a historical PR-comment audit.
+- Four guarded writes preserve456otherrecords,all923caches,unrelated raw YAML blocks,all prior histories/decisions.
+  Four append-only histories and curation events. Taxon identities unchanged; evidence aliases detached. No new
+  experimental or optimization protocol.
+- 'Existing-graph repair with no new nodes/directions: no Edison run,provider submission or spend. Prior authorized
+  Ruegeria1883 authentication blocker not retried unchanged; no credential inspected. Source-based self-adversarial
+  review is not independent approval. Overall review,protected merge and branch deletion remain incomplete.'
