@@ -1,0 +1,79 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: b67230b18333580f43b58cb916714704247dc1f9
+source_access:
+  manifest: reports/causal_graph_review/sources/20261008-spring-supplements-batch127.json
+  sha256: e95387a98bd9afe49b2c51830fa02f05002d8936985d739efda40f5e7ccd7505
+  ncbi_xml_sha256: d80cfad0cfb5f2fa0ee8b9387007006a7b74d58c90a93e54d4106a990684f0a5
+  ncbi_url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1030&mode=Info
+cache_changes:
+- path: references_cache/PMID_38273328.md
+  before_sha256: a7cc4c5561b4a8b33686c68ca4f7939331f5d78b256794b4561d10330c52c675
+  after_sha256: 9ba82a9b9ffa63754f6575ef42dff1476c8e1b22d0514ada1f72cc7f200a365b
+  original_prefix_preserved: true
+reviewed_counts:
+  records: 1
+  retained_nodes: 3
+  retained_arrows: 0
+  new_nodes_or_directions: 0
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+limitations:
+- The same six-sheet workbook was returned by both publisher supplement URLs.
+- S4 has no header; column D is preserved verbatim, not interpreted as an accession of the study genome.
+- S4 supports Thiothrix genus with empty species for the selected bins; this does not identify photographed cells.
+- S4 assigns the dominant named MS11 Beggiatoa-related bin to Beggiatoaceae with empty genus/species; other bins
+  lack family. No direct NCBI genus substitution is licensed.
+- S5 relative coverages vary by sample; the manuscript dominance summary must not become a universal sample-level
+  claim.
+- GTDB release is not specified in these table rows. No current crosswalk vote or species-level assignment is inferred.
+- 'Partial repair: Beggiatoa canonical and graph identities remain unresolved; needs_research and issue1841 stay
+  open.'
+- CPR identity, host fitness and metabolic exchange remain hypothetical. No new topology or paid-provider use.
+- Only the new supplementary identity evidence was freshly checked in this pass. Existing graph evidence was read
+  but not all old snippets were freshly refetched.
+- Related ingredients and non-graph functional roles remain unchanged and uncertified; the necessary taxonomy/GTDB
+  dependency is explicitly in scope.
+- Self-adversarial review is not independent approval. PR1975 is outside the full100-entry native stack; protected
+  merge and cleanup remain unfinished.
+records:
+- path: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+  id: CommunityMech:000222
+  original_sha256: 5d3a32811ff6817ac9002bd39f79c53511fa76bc15d97a9adca897220471f235
+  record_sha256: 94a4a5855730de3a7f9aea67e694040d9ae7337e6c0d8072438a2d46a8670c87
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261008-spring-identity-batch127.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-four-records-batch107.yaml
+    record_sha256: 5d3a32811ff6817ac9002bd39f79c53511fa76bc15d97a9adca897220471f235
+  summary: Replace unsupported Thiothrix nivea attribution with supplement-supported Thiothrix genus in the roster
+    and two graph links; retain the Beggiatoa and cell-identity gaps.
+  scope: Whole canonical record read; partial participant identity repair, not whole-record or complete-graph certification.
+  node_decisions:
+  - node: Filamentous Sulfur Oxidation with Encapsulated S Granules
+    rationale: Genus-level Thiothrix link repaired; observations and Beggiatoa uncertainty retained.
+  - node: Putative CPR association with sulfur-oxidizing filaments
+    rationale: Hypothesized pair retains unresolved cell identity and fitness; target narrowed to supported rank.
+  - node: Predicted CPR sulfur and hydrogen metabolic capacity
+    rationale: Lineage-specific computational predictions retained byte-for-byte at the semantic node level.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:38273328
+  issues:
+  - 1841
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  - taxonomy
+  history_files:
+  - history/records/Sulfide_Spring_Autotrophic_CPR_Biofilm/2026-10-08T205806Z-codex-1f0fb9.yaml
+  curation_events_added: 1

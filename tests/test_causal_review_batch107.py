@@ -127,7 +127,21 @@ def test_review_hashes_histories_and_non_graph_boundaries_are_explicit():
     assert ledger["independent_approval"] is False
     assert [r["status"] for r in rows] == ["reviewed", "needs_research", "reviewed", "reviewed"]
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        expected_hash = row["record_sha256"]
+        if row["id"] == "CommunityMech:000222":
+            successor = yaml.safe_load(
+                (
+                    ROOT
+                    / "reports/causal_graph_review/decisions/20261008-spring-identity-batch127.yaml"
+                ).read_text()
+            )["records"][0]
+            assert successor["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": expected_hash,
+            }
+            assert successor["status"] == "needs_research"
+            expected_hash = successor["record_sha256"]
+        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected_hash
         assert set(row["allowed_changed_fields"]) == {
             "ecological_interactions",
             "discussions",
