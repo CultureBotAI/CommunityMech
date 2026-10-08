@@ -620,7 +620,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Thiocyanate-Degrading Afipia and Thiobacillus Bioreactor Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, competition, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -628,18 +628,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -647,13 +637,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Thiocyanate Degradation and Autotrophic CO2 Fixation by Afipia</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Predicted Afipia Thiocyanate Metabolism and CO2 Fixation</h3>
                 </div>
-                <p class="prewrap interaction-description">The Afipia variant degrades SCN- via a novel thiocyanate desulfurase, oxidizes the resulting reduced sulfur, breaks down the cyanate product to ammonia and CO2 via cyanate hydratase, and refixes CO2 via the Calvin-Benson-Bassham cycle.</p>
+                <p class="prewrap interaction-description">PARTIAL: the Afipia_64_1782 genome and protein structural models predict thiocyanate desulfurase, cyanate hydratase, sulfur oxidation and Calvin-Benson-Bassham CO2 fixation. Reactor chemistry demonstrates community-level SCN degradation, not measured flux through this exact strain or biochemical validation of its novel enzyme. These are predicted intrinsic capacities, not cross-feeding from Afipia to another canonical member.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Afipia thiocyanate-degrader variant
+
+                </p>
 
 
 
@@ -703,7 +698,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/33897653/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33897653</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"predicted to break down SCN- using a novel thiocyanate desulfurase, oxidize resulting reduced sulfur, degrade product cyanate to ammonia and CO2 via cyanate hydratase, and fix CO2 via the Calvin-Benson-Bassham cycle"</div>
@@ -717,27 +712,25 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Molasses Removal Selects for Afipia</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">Removal of molasses from input feed solutions reproducibly led to dominance of the autotrophic Afipia variant over heterotrophic competitors.</p>
+                <p class="prewrap interaction-description">Molasses withdrawal reproducibly favored Afipia_64_1782 at the studied moderate loadings within a complex community. R2 and R3 were held at 250 mg/L SCN, with R3 switched to no molasses; other reactors continued ramping. Community history and loading also affected composition. The canonical taxa list is a recorded subset, not a defined three-member consortium or proof that each background strain competes pairwise with Afipia.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Thiobacillus thiocyanate-degrader strain,
+
+                    Afipia thiocyanate-degrader variant,
+
+                    Rhizobiales background strains
+
+                </p>
 
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -745,13 +738,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Thiocyanate Degradation and Autotrophic CO2 Fixation by Afipia
-                        <p class="prewrap causal-description">Removing molasses selects the autotrophic Afipia variant predicted to break down thiocyanate and refix the released carbon dioxide.</p>
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Loss of Biofilm Niche Diversity Without Molasses
-                        <p class="prewrap causal-description">The same molasses-free perturbation that selects Afipia is associated with loss of biofilm-associated niche diversity at high thiocyanate loading.</p>
+                        <span class="flow-arrow">→</span> Predicted Afipia Thiocyanate Metabolism and CO2 Fixation
+                        <p class="prewrap causal-description">PARTIAL: selection increases the representation of Afipia carrying the predicted SCN-degradation and carbon-fixation machinery. This links composition to enriched functional potential, not induction of the pathway or demonstration of strain-specific SCN flux.</p>
                     </div>
 
                 </div>
@@ -780,13 +768,22 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Loss of Biofilm Niche Diversity Without Molasses</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Unstable High-Loading SCN Degradation Without Molasses</h3>
                 </div>
-                <p class="prewrap interaction-description">Although sustained by autotrophy, molasses-free reactors did not stably degrade SCN- at high loading rates, possibly due to loss of biofilm-associated niche diversity.</p>
+                <p class="prewrap interaction-description">SCN degradation became incomplete or erratic as high SCN inputs were imposed on molasses-free reactors R4 and R5, whereas R3 stably degraded the fixed 250 mg/L input after molasses withdrawal. HYPOTHESIZED: reduced biofilm-associated niche diversity contributes to instability, alongside altered nitrogen processing, ammonia accumulation and cofactor provision. Thin biofilms were observed, but selective loss of niche diversity was not established as the mediator, nor was the outcome shown to be caused by Afipia dominance. Canonical participants are a subset of the assayed microbiome, not identical functional roles.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Thiobacillus thiocyanate-degrader strain,
+
+                    Afipia thiocyanate-degrader variant,
+
+                    Rhizobiales background strains
+
+                </p>
 
 
 
@@ -816,7 +813,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/33897653/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33897653</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"reactors without molasses did not stably degrade SCN- at high loading rates, perhaps due to loss of biofilm-associated niche diversity"</div>
@@ -832,6 +829,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    What mediates high-loading instability after molasses removal?
+                </h3>
+                <p class="prewrap">Composition shifts, biofilm changes and performance can share an environmental cause. Neither Afipia pathway induction nor selective niche-diversity mediation was measured. Strain assays and matched biofilm/cofactor/nitrogen perturbations would distinguish them. Preserve the correct startup/HRT history while repairing the separate loading metadata under issue #1897.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Predicted Afipia Thiocyanate Metabolism and CO2 Fixation</code>, <code>ecological_interactions#Molasses Removal Selects for Afipia</code>, <code>ecological_interactions#Unstable High-Loading SCN Degradation Without Molasses</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/33897653/" rel="nofollow noreferrer">PMID:33897653</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">reactors without molasses did not stably degrade SCN- at high loading rates, perhaps due to loss of biofilm-associated niche diversity</p>
+                        <p class="muted small prewrap">High-loading instability was observed; the snippet explicitly labels the niche-diversity explanation as tentative.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1074,7 +1110,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1097,7 +1133,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Thiocyanate Degradation and Autotrophic CO2 Fixation by Afipia",
+                label: "Predicted Afipia Thiocyanate Metabolism and CO2 Fixation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1108,18 +1144,25 @@
 
 
 
+            var participantKeys = [
+
+                "Afipia thiocyanate-degrader variant"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
 
             var evidenceCount = 1;
 
@@ -1136,11 +1179,26 @@
 
 
 
+            var participantKeys = [
+
+                "Thiobacillus thiocyanate-degrader strain",
+
+                "Afipia thiocyanate-degrader variant",
+
+                "Rhizobiales background strains"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1153,7 +1211,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Loss of Biofilm Niche Diversity Without Molasses",
+                label: "Unstable High-Loading SCN Degradation Without Molasses",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1163,6 +1221,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Thiobacillus thiocyanate-degrader strain",
+
+                "Afipia thiocyanate-degrader variant",
+
+                "Rhizobiales background strains"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

@@ -139,12 +139,11 @@ taxonomy:
     snippet: Despite the presence of many Rhizobiales strains
     explanation: Supports Rhizobiales background membership.
 ecological_interactions:
-- name: Thiocyanate Degradation and Autotrophic CO2 Fixation by Afipia
-  description: The Afipia variant degrades SCN- via a novel thiocyanate
-    desulfurase, oxidizes the resulting reduced sulfur, breaks down the
-    cyanate product to ammonia and CO2 via cyanate hydratase, and refixes CO2
-    via the Calvin-Benson-Bassham cycle.
-  interaction_type: CROSS_FEEDING
+- name: Predicted Afipia Thiocyanate Metabolism and CO2 Fixation
+  description: 'PARTIAL: the Afipia_64_1782 genome and protein structural models predict thiocyanate desulfurase,
+    cyanate hydratase, sulfur oxidation and Calvin-Benson-Bassham CO2 fixation. Reactor chemistry demonstrates community-level
+    SCN degradation, not measured flux through this exact strain or biochemical validation of its novel enzyme.
+    These are predicted intrinsic capacities, not cross-feeding from Afipia to another canonical member.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: thiocyanate
@@ -170,43 +169,55 @@ ecological_interactions:
       label: carbon fixation
   evidence:
   - reference: PMID:33897653
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: predicted to break down SCN- using a novel thiocyanate desulfurase,
-      oxidize resulting reduced sulfur, degrade product cyanate to ammonia and
-      CO2 via cyanate hydratase, and fix CO2 via the Calvin-Benson-Bassham
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: predicted to break down SCN- using a novel thiocyanate desulfurase, oxidize resulting reduced sulfur,
+      degrade product cyanate to ammonia and CO2 via cyanate hydratase, and fix CO2 via the Calvin-Benson-Bassham
       cycle
-    explanation: Supports the curated four-step Afipia metabolic pathway.
-- name: Molasses Removal Selects for Afipia
-  description: Removal of molasses from input feed solutions reproducibly led
-    to dominance of the autotrophic Afipia variant over heterotrophic
-    competitors.
-  interaction_type: COMPETITION
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
+    explanation: The paper explicitly predicts the strain pathway from genome annotation and protein models; it
+      does not directly assign reactor flux to Afipia.
+  participating_taxa:
+  - preferred_term: Afipia thiocyanate-degrader variant
     term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
+      id: NCBITaxon:1033
+      label: Afipia
+- name: Molasses Removal Selects for Afipia
+  description: Molasses withdrawal reproducibly favored Afipia_64_1782 at the studied moderate loadings within a
+    complex community. R2 and R3 were held at 250 mg/L SCN, with R3 switched to no molasses; other reactors continued
+    ramping. Community history and loading also affected composition. The canonical taxa list is a recorded subset,
+    not a defined three-member consortium or proof that each background strain competes pairwise with Afipia.
+  scope: COMMUNITY_LEVEL
   downstream:
-  - target: Thiocyanate Degradation and Autotrophic CO2 Fixation by Afipia
-    description: Removing molasses selects the autotrophic Afipia variant predicted to
-      break down thiocyanate and refix the released carbon dioxide.
-  - target: Loss of Biofilm Niche Diversity Without Molasses
-    description: The same molasses-free perturbation that selects Afipia is associated
-      with loss of biofilm-associated niche diversity at high thiocyanate loading.
+  - target: Predicted Afipia Thiocyanate Metabolism and CO2 Fixation
+    description: 'PARTIAL: selection increases the representation of Afipia carrying the predicted SCN-degradation
+      and carbon-fixation machinery. This links composition to enriched functional potential, not induction of the
+      pathway or demonstration of strain-specific SCN flux.'
   evidence:
   - reference: PMID:33897653
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Removal of molasses from input feed solutions reproducibly led to
-      dominance of this strain
+    snippet: Removal of molasses from input feed solutions reproducibly led to dominance of this strain
     explanation: Supports the molasses-driven Afipia selection.
-- name: Loss of Biofilm Niche Diversity Without Molasses
-  description: Although sustained by autotrophy, molasses-free reactors did not
-    stably degrade SCN- at high loading rates, possibly due to loss of
-    biofilm-associated niche diversity.
-  interaction_type: NICHE_PARTITIONING
+  participating_taxa:
+  - preferred_term: Thiobacillus thiocyanate-degrader strain
+    term:
+      id: NCBITaxon:919
+      label: Thiobacillus
+  - preferred_term: Afipia thiocyanate-degrader variant
+    term:
+      id: NCBITaxon:1033
+      label: Afipia
+  - preferred_term: Rhizobiales background strains
+    term:
+      id: NCBITaxon:356
+      label: Hyphomicrobiales
+- name: Unstable High-Loading SCN Degradation Without Molasses
+  description: 'SCN degradation became incomplete or erratic as high SCN inputs were imposed on molasses-free reactors
+    R4 and R5, whereas R3 stably degraded the fixed 250 mg/L input after molasses withdrawal. HYPOTHESIZED: reduced
+    biofilm-associated niche diversity contributes to instability, alongside altered nitrogen processing, ammonia
+    accumulation and cofactor provision. Thin biofilms were observed, but selective loss of niche diversity was
+    not established as the mediator, nor was the outcome shown to be caused by Afipia dominance. Canonical participants
+    are a subset of the assayed microbiome, not identical functional roles.'
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
@@ -215,11 +226,25 @@ ecological_interactions:
       label: biofilm formation
   evidence:
   - reference: PMID:33897653
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: reactors without molasses did not stably degrade SCN- at high
-      loading rates, perhaps due to loss of biofilm-associated niche diversity
-    explanation: Supports the curated niche-diversity rationale.
+    snippet: reactors without molasses did not stably degrade SCN- at high loading rates, perhaps due to loss of
+      biofilm-associated niche diversity
+    explanation: High-loading instability was observed; the snippet explicitly labels the niche-diversity explanation
+      as tentative.
+  participating_taxa:
+  - preferred_term: Thiobacillus thiocyanate-degrader strain
+    term:
+      id: NCBITaxon:919
+      label: Thiobacillus
+  - preferred_term: Afipia thiocyanate-degrader variant
+    term:
+      id: NCBITaxon:1033
+      label: Afipia
+  - preferred_term: Rhizobiales background strains
+    term:
+      id: NCBITaxon:356
+      label: Hyphomicrobiales
 cultivation_setup:
 - cultivation_mode: CONTINUOUS
   system_type: STIRRED_TANK_BIOREACTOR
@@ -354,3 +379,35 @@ related_ingredients:
     evidence_source: IN_VITRO
     snippet: degrade product cyanate to ammonia and CO2 via cyanate
     explanation: Names CO2 as a product of cyanate degradation.
+discussions:
+- discussion_id: loading-history-and-biofilm-mediation-batch115
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  prompt: What mediates high-loading instability after molasses removal?
+  rationale: 'Composition shifts, biofilm changes and performance can share an environmental cause. Neither Afipia
+    pathway induction nor selective niche-diversity mediation was measured. Strain assays and matched biofilm/cofactor/nitrogen
+    perturbations would distinguish them. Preserve the correct startup/HRT history while repairing the separate
+    loading metadata under issue #1897.'
+  attaches_to:
+  - ecological_interactions#Predicted Afipia Thiocyanate Metabolism and CO2 Fixation
+  - ecological_interactions#Molasses Removal Selects for Afipia
+  - ecological_interactions#Unstable High-Loading SCN Degradation Without Molasses
+  evidence:
+  - reference: PMID:33897653
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: reactors without molasses did not stably degrade SCN- at high loading rates, perhaps due to loss of
+      biofilm-associated niche diversity
+    explanation: High-loading instability was observed; the snippet explicitly labels the niche-diversity explanation
+      as tentative.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T09:48:00Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Keep the Afipia pathway as computationally predicted intrinsic capacity, not measured flux or cross-feeding.;
+    Retain observed selection and a qualified link to enriched genomic potential; remove shared-perturbation-as-mediation
+    arrow.; Distinguish R4/R5 high-loading instability from stable R3 and keep biofilm/nitrogen/cofactor explanations
+    hypothetical. Issue#1894; reports/causal_graph_review/decisions/20261008-three-records-batch115.yaml
+  llm_assisted: true

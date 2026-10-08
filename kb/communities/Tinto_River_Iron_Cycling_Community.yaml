@@ -206,53 +206,49 @@ taxonomy:
     explanation: Documents fungal presence
 ecological_interactions:
 - name: Iron Oxidation and Acid Generation
-  description: 'Leptospirillum and Acidithiobacillus oxidize ferrous iron (Fe²⁺) from pyrite weathering
-    to ferric iron (Fe³⁺), generating energy for autotrophic growth. The reaction (4Fe²⁺ + O₂ + 4H⁺ →
-    4Fe³⁺ + 2H₂O) couples iron oxidation to proton consumption, while subsequent Fe³⁺ hydrolysis and sulfur
-    oxidation produce sulfuric acid that maintains pH 2.2. The continuous iron cycling drives stromatolite-like
-    iron oxide precipitation and sustains the chemolithoautotrophic base of the food web.
-
-    '
-  interaction_type: MUTUALISM
+  description: 'PARTIAL: the 2003 river survey and isolate physiology support L. ferrooxidans and A. ferrooxidans
+    as principal iron oxidizers. Their conversion of ferrous to ferric iron supplies the iron cycle; ferric iron
+    also contributes to acidic buffering. Iron oxidation itself consumes protons and must not be equated with sulfuric-acid
+    production. The field-derived model does not demonstrate mutual benefit or a universal species abundance, iron
+    concentration or pH.'
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Leptospirillum ferrooxidans
-    term:
-      id: NCBITaxon:180
-      label: Leptospirillum ferrooxidans
   metabolites:
   - preferred_term: Fe(II)
     term:
       id: CHEBI:29033
       label: iron(2+)
-    concentration: 2.3 g/L total Fe
   - preferred_term: Fe(III)
     term:
       id: CHEBI:29034
       label: iron(3+)
   downstream:
   - target: Heterotrophic Carbon-Iron Coupling
-    description: Autotrophic production supports heterotrophs
+    description: 'PARTIAL: oxidation supplies ferric iron that Acidiphilium can use as an electron acceptor during
+      organic-carbon respiration, connecting the oxidative and reductive arms of the authors'' iron-cycle model.
+      This is not a measured transfer of autotroph-derived organic carbon or a quantified in situ exchange flux.'
   evidence:
   - reference: doi:10.1128/aem.69.8.4853-4865.2003
     supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: all related to the iron cycle, accounted for most of the prokaryotic microorganisms detected
-    explanation: Documents iron cycling as central process
-- name: Heterotrophic Carbon-Iron Coupling
-  description: 'Acidiphilium links iron and carbon cycles by consuming organic matter from algal exudates
-    and autotroph biomass while also performing Fe²⁺ oxidation in mixotrophic mode. This coupling enables
-    nutrient remineralization that sustains autotrophic production, creating a closed biogeochemical cycle
-    despite extreme oligotrophic conditions.
-
-    '
-  interaction_type: MUTUALISM
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Acidiphilium
+    explanation: The abstract establishes iron-cycle membership; the paper's p4863 and Figure6 support a physiological
+      model, not direct field-flux or mutual-benefit measurements.
+  participating_taxa:
+  - preferred_term: Leptospirillum ferrooxidans
     term:
-      id: NCBITaxon:522
-      label: Acidiphilium
+      id: NCBITaxon:180
+      label: Leptospirillum ferrooxidans
+  - preferred_term: Acidithiobacillus ferrooxidans
+    term:
+      id: NCBITaxon:920
+      label: Acidithiobacillus ferrooxidans
+- name: Heterotrophic Carbon-Iron Coupling
+  description: 'PARTIAL: the 2003 model assigns Acidiphilium organic-carbon respiration coupled to ferric-iron reduction,
+    producing ferrous iron, particularly under anoxic or microaerobic conditions. It does not assign ferrous-iron
+    oxidation to this heterotrophic role. The survey combines taxon detection and physiological knowledge; it does
+    not trace algal exudates, fungal products or autotroph biomass into Acidiphilium, quantify in situ carbon/iron
+    flux, or establish a closed mutually beneficial nutrient cycle.'
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: organic molecular entity
     term:
@@ -276,69 +272,48 @@ ecological_interactions:
     supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: all related to the iron cycle, accounted for most of the prokaryotic microorganisms detected
-    explanation: Documents carbon-iron coupling
+    explanation: The abstract supplies iron-cycle context; Figure6 and the model text on p4863 specify ferric reduction
+      linked to carbon respiration, not ferrous oxidation or traced carbon donors.
+  participating_taxa:
+  - preferred_term: Acidiphilium
+    term:
+      id: NCBITaxon:522
+      label: Acidiphilium
 - name: Eukaryotic Primary Production
-  description: 'Photosynthetic algae (diatoms, Chlorophyta, Rhodophyta, Euglenozoa) perform oxygenic photosynthesis
-    at pH 1.0-2.5, fixing CO₂ and producing organic matter that supports the heterotrophic community.
-    Eukaryotes contribute >65% of total biomass, dominating the ecosystem despite extreme acidity. This
-    demonstrates eukaryotic photosynthesis can function in acid-metal environments previously thought
-    incompatible with complex life.
-
-    '
-  interaction_type: CROSS_FEEDING
+  description: Phototrophic eukaryotes, including diatoms and green algae represented by the canonical Bacillariophyceae
+    and Chlorophyta entries, support primary production in acidic Tinto biofilms. The 2013 review summarizes photosynthesis
+    measurements and the 2011 primary abstract confirms biofilm photosynthesis-versus-irradiance assays. This is
+    not a diatom-to-green-alga cross-feeding experiment, nor a demonstration that their fixed carbon reaches Acidiphilium.
+    Broad eukaryotic biomass estimates must not be assigned to these two taxa alone.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Bacillariophyceae
-    term:
-      id: NCBITaxon:33849
-      label: Bacillariophyceae
-  target_taxon:
-    preferred_term: Chlorophyta
-    term:
-      id: NCBITaxon:3041
-      label: Chlorophyta
   biological_processes:
   - preferred_term: photosynthesis
     term:
       id: GO:0015979
       label: photosynthesis
-  downstream:
-  - target: Heterotrophic Carbon-Iron Coupling
-    description: >
-      Photosynthetic eukaryotes provide organic carbon that supports
-      Acidiphilium and other heterotrophic acidophiles in the iron-rich river
-      community.
   evidence:
   - reference: PMID:25369810
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: However, highly acidic environments are usually inhabited by acidophilic and acidotolerant
-      eukaryotic microorganisms such as algae, amoebas, ciliates, heliozoan and rotifers, not to mention
-      filamentous fungi and yeasts
-    explanation: Quantifies eukaryotic biomass dominance
+    supports: PARTIAL
+    evidence_source: REVIEW
+    snippet: Most the photosynthetic eukaryotes in the Tinto ecosystem are forming biofilms
+    explanation: The review summarizes detected photosynthetic activity in Pinnularia biofilms and cites the 2011
+      primary study; no specific intertaxon carbon transfer is established.
+  participating_taxa:
+  - preferred_term: Bacillariophyceae
+    term:
+      id: NCBITaxon:33849
+      label: Bacillariophyceae
+  - preferred_term: Chlorophyta
+    term:
+      id: NCBITaxon:3041
+      label: Chlorophyta
 - name: Complementary Iron and Sulfur Oxidation
-  description: 'Acidithiobacillus ferrooxidans complements Leptospirillum iron oxidation by providing
-    dual metabolic capability for both iron and sulfur oxidation. While Leptospirillum specializes in
-    Fe²⁺ oxidation, At. ferrooxidans oxidizes both Fe²⁺ and reduced sulfur compounds to sulfuric acid,
-    removing sulfur that would otherwise passivate mineral surfaces and inhibit iron oxidation. This metabolic
-    partnership enhances overall iron cycling efficiency and maintains acidic conditions through sulfuric
-    acid production. At. ferrooxidans contributes ~25% of prokaryotic community, providing functional
-    redundancy in iron oxidation and additional sulfur removal capacity. The organism is chemolithoautotrophic,
-    fixing CO₂ via Calvin cycle and contributing to the autotrophic carbon base alongside Leptospirillum.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Acidithiobacillus ferrooxidans
-    term:
-      id: NCBITaxon:920
-      label: Acidithiobacillus ferrooxidans
-  target_taxon:
-    preferred_term: Leptospirillum ferrooxidans
-    term:
-      id: NCBITaxon:180
-      label: Leptospirillum ferrooxidans
+  description: 'PARTIAL: the 2003 field-derived model includes ferrous-iron oxidation by L. ferrooxidans and A.
+    ferrooxidans, with sulfur oxidation also assigned to A. ferrooxidans. These complementary physiological capacities
+    do not establish a mutualistic partner benefit, selective removal of a passivating layer, or a uniform 25 percent
+    abundance across river sites. No new sulfur-to-iron causal direction is added from physiological plausibility
+    alone.'
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: Fe(II)
     term:
@@ -348,74 +323,26 @@ ecological_interactions:
     term:
       id: CHEBI:29034
       label: iron(3+)
-  - preferred_term: elemental sulfur
-    term:
-      id: CHEBI:26833
-      label: sulfur atom
   - preferred_term: sulfuric acid
     term:
       id: CHEBI:26836
       label: sulfuric acid
-  biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
   evidence:
   - reference: doi:10.1128/aem.69.8.4853-4865.2003
     supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: all related to the iron cycle, accounted for most of the prokaryotic microorganisms detected
-    explanation: Documents At. ferrooxidans role in iron cycle alongside Leptospirillum
-  - reference: doi:10.1128/aem.69.8.4853-4865.2003
-    supports: PARTIAL
-    evidence_source: IN_VIVO
-    snippet: Comparative sequence analysis of DGGE bands showed the presence of organisms related to
-    explanation: Establishes presence in iron-cycling community
-- name: Fungal Organic Matter Degradation and Biofilm Formation
-  description: 'Basidiomycota fungi including acidophilic black yeasts (Hortaea werneckii) contribute
-    to organic matter degradation, biofilm formation, and nutrient cycling through extracellular enzyme
-    secretion. Fungi decompose complex organic polymers from algal biomass and microbial necromass, releasing
-    simpler compounds available to heterotrophic bacteria like Acidiphilium. Fungal hyphae and biofilms
-    provide structural scaffolding for stromatolite-like iron oxide precipitates, enhancing community
-    spatial organization. The acidophilic fungi tolerate extreme pH and metal concentrations, forming
-    a eukaryotic decomposer guild that complements bacterial heterotrophs. Fungal presence indicates functional
-    redundancy in organic matter processing, contributing to the ecosystem resilience observed in Rio
-    Tinto despite extreme environmental stress.
-
-    '
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Basidiomycota
+    explanation: Iron-cycle membership in the abstract plus the p4863 sulfur-cycle model support physiological roles,
+      not directly measured complementarity or mutualism.
+  participating_taxa:
+  - preferred_term: Leptospirillum ferrooxidans
     term:
-      id: NCBITaxon:5204
-      label: Basidiomycota
-  target_taxon:
-    preferred_term: Acidiphilium
+      id: NCBITaxon:180
+      label: Leptospirillum ferrooxidans
+  - preferred_term: Acidithiobacillus ferrooxidans
     term:
-      id: NCBITaxon:522
-      label: Acidiphilium
-  metabolites:
-  - preferred_term: organic molecular entity
-    term:
-      id: CHEBI:50860
-      label: organic molecular entity
-    notes: Complex organic polymers from algae and microbial biomass
-  downstream:
-  - target: Heterotrophic Carbon-Iron Coupling
-    description: >
-      Fungal organic-matter degradation releases simpler organic substrates that
-      feed Acidiphilium and other heterotrophic bacteria linking carbon turnover
-      to the acidic iron cycle.
-  evidence:
-  - reference: PMID:25369810
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: However, highly acidic environments are usually inhabited by acidophilic and acidotolerant
-      eukaryotic microorganisms such as algae, amoebas, ciliates, heliozoan and rotifers, not to mention
-      filamentous fungi and yeasts
-    explanation: Documents fungal presence in Rio Tinto eukaryotic community
+      id: NCBITaxon:920
+      label: Acidithiobacillus ferrooxidans
 environmental_factors:
 - name: pH
   value: '2.2'
@@ -528,3 +455,37 @@ metals_present:
 metal_relevance: PRIMARY
 metal_notes: Metal/REE detected via CHEBI terms in metabolites; Metal/REE detected via environmental factor
   measurements; Metal/REE detected via keyword matching in description (context-validated)
+discussions:
+- discussion_id: carbon-donors-fungal-identity-and-flux-batch115
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  prompt: Which phototrophic or fungal products actually support Acidiphilium carbon and iron metabolism?
+  rationale: 'The primary fungal isolation abstract (PMID15644909) includes basidiomycete and ascomycete yeasts;
+    Basidiomycota presence is not rejected. It does not establish the removed exchange/scaffolding mechanism. Hortaea
+    werneckii belongs to Ascomycota (NCBITaxon91943), so it cannot justify that Basidiomycota assignment. Taxon-specific
+    carbon tracing and coordinated fungal identity curation are needed before reinstating a causal exchange. Non-graph
+    identities, abundances and redox descriptions remain issue #1898.'
+  attaches_to:
+  - ecological_interactions#Heterotrophic Carbon-Iron Coupling
+  - ecological_interactions#Eukaryotic Primary Production
+  evidence:
+  - reference: PMID:25369810
+    supports: PARTIAL
+    evidence_source: REVIEW
+    snippet: Within the decomposers, fungi are very abundant and exhibit great diversity, including yeast and filamentous
+      forms
+    explanation: Review supports a fungal decomposer guild generally, not Basidiomycota-to-Acidiphilium exchange
+      or Hortaea membership in Basidiomycota.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T09:48:00Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain iron oxidation in the field-derived model without acid-generation stoichiometry errors or mutualism;
+    qualify the retained direction as ferric acceptor supply.; Correct the existing Acidiphilium role to ferric
+    reduction coupled to organic-carbon respiration, not ferrous oxidation or traced partner carbon.; Retain review-supported
+    phototrophic production with primary-abstract corroboration; remove the untraced carbon-transfer arrow.; Retain
+    complementary physiological capacities, not measured mutualism, passivation removal or uniform abundance. Issue#1895;
+    reports/causal_graph_review/decisions/20261008-three-records-batch115.yaml
+  llm_assisted: true
