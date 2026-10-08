@@ -194,32 +194,47 @@ taxonomy:
     snippet: E. ludwigii FWP1205, P. putida FWP0405, and S. maltophilia HLPD6
     explanation: Identifies Stenotrophomonas maltophilia HLPD6 as a SynCom-SASW01 member.
 ecological_interactions:
-- name: EPS-associated rhizosphere water retention
-  description: SynCom-SASW01 treatment ameliorated drought-induced water deficits and was interpreted to stabilize the rhizosphere
-    in part through exopolysaccharide secretion by core community members.
-  interaction_type: COLONIZATION_FACILITATION
+- name: SynCom-SASW01 biocoating-associated water retention
+  description: 'In drought-stressed wheat pots, the combined SynCom-SASW01 plus coating-matrix treatment (BCC) increased
+    rhizosphere relative water content versus untreated NC. EPS-mediated water retention is HYPOTHESIZED, not selectively
+    demonstrated: the matrix includes biochar and other additives. The design also includes coating-only CC and
+    SynCom-only BC, but a BCC-versus-NC contrast does not isolate the microbial or EPS contribution. This water
+    outcome is not itself evidence of colonization facilitation.'
   scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:42513902
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: SynCom-SASW01 treatment significantly ameliorated drought-induced water deficits, which may be partly
+      attributable to the EPS secretion capacity of the consortium’s core members.
+    explanation: The authors explicitly qualify EPS attribution; it is not a selective EPS perturbation or a matrix-controlled
+      causal estimate.
+  - reference: PMID:42513902
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: SynCom-SASW01 treatment significantly ameliorated drought-induced water deficits, which may be partly attributable
-      to the EPS secretion capacity of the consortium’s core members.
-    explanation: Supports the paper's community-level interpretation that EPS-producing SynCom-SASW01 members helped improve
-      rhizosphere water retention.
+    snippet: rhizosphere soil RWC in the BCC (biochar-consortium coating) treatment was significantly higher than
+      that in the uninoculated control (NC) group
+    explanation: Directly supports the measured combined-treatment water outcome.
 - name: SynCom-SASW01 root endosphere reshaping
-  description: The SynCom-SASW01 biological coating reorganized wheat root-associated bacterial communities under drought
-    stress and especially shifted the root endosphere.
-  interaction_type: COLONIZATION_FACILITATION
+  description: The BCC biological coating shifted wheat root-associated bacterial DNA profiles under drought, particularly
+    in the endosphere, with relative enrichment of Pseudomonas and other taxa. The microbiome comparison was BCC
+    versus NC, not SynCom alone versus coating alone. Matching 16S ASVs do not uniquely identify viable inoculant
+    strains or establish priority-effect causality. Correlation/RDA and PICRUSt2 functional predictions do not prove
+    BCAA transfer, taxon necessity or a community-to-antioxidant causal cascade.
   scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:42513902
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: the exogenous synthetic community efficiently colonized the endosphere and promoted the enrichment
+      of keystone genera such as Pseudomonas.
+    explanation: An author-level interpretation of relative community profiles; it does not independently establish
+      unique-strain viability or keystone necessity.
+  - reference: PMID:42513902
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: the exogenous synthetic community efficiently colonized the endosphere and promoted the enrichment of keystone
-      genera such as Pseudomonas.
-    explanation: Supports SynCom-SASW01 endosphere colonization and enrichment of Pseudomonas-associated beneficial taxa after
-      inoculation.
+    snippet: in the endosphere, En_BCC samples exhibited a clear separation from En_NC samples
+    explanation: Supports the observed community-profile contrast without assigning its mediator.
 environmental_factors:
 - name: Host crop
   value: Triticum aestivum
@@ -291,26 +306,53 @@ external_resources:
     explanation: Identifies the primary publication for the curated SynCom-SASW01 record.
 discussions:
 - discussion_id: wheat_sasw01_isolation_and_individual_pgp_traits
-  prompt: Which original isolation sites and individual plant-growth-promoting traits belong to each SynCom-SASW01 strain?
+  prompt: Which original isolation sites and individual plant-growth-promoting traits belong to each SynCom-SASW01
+    strain?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - taxonomy
-  rationale: The article body names Supplementary Table S1 for strain isolation sites and Supplementary Table S2 for individual
-    plant-growth-promoting traits, but the curated record has not inspected those tables. The current taxonomy asserts only
-    the strain names and species supported by the article Methods section.
+  rationale: The article body names Supplementary Table S1 for strain isolation sites and Supplementary Table S2
+    for individual plant-growth-promoting traits, but the curated record has not inspected those tables. The current
+    taxonomy asserts only the strain names and species supported by the article Methods section.
+- discussion_id: sasw_causal_scope_batch122
+  prompt: Which microbial effects are separable from the coating matrix in SASW01-associated drought benefits?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#SynCom-SASW01 biocoating-associated water retention
+  - ecological_interactions#SynCom-SASW01 root endosphere reshaping
+  rationale: Positive BCC field yields and pot water, nutrient and physiological outcomes remain real treatment
+    observations. Field comparisons contain only NC and BCC; the two-site yield benefit is not a SynCom-only or
+    EPS-specific effect. Amplicon matching, inferred functions and correlations cannot establish a priority-effect
+    or BCAA-transfer mechanism. Prior removal of assembly and PICRUSt-derived mechanism nodes remains intact. Source
+    yield percentages differ between Results and Conclusions; non-graph reconciliation is separate.
+  evidence:
+  - reference: PMID:42513902
+    snippet: 'Two treatments were established: NC (control) and BCC (SynCom-SASW01 biological coating).'
+  - reference: PMID:42513902
+    snippet: Functional potential prediction was conducted using PICRUSt2 (2.6.0) based on MetaCyc Level 3 pathways
+  posed_by: codex
+  posed_date: '2026-10-08'
 curation_history:
 - timestamp: '2026-09-21T16:09:11Z'
   curator: codex
   action: CREATE_RECORD
-  changes: Created CommunityMech:000409 for the five-strain SynCom-SASW01 wheat drought-resistance inoculant from PMID:42513902,
-    including exact strain membership, equal-ratio assembly, seed-coating deployment, moderate-drought pot setup, dual-site
-    field design, and rhizosphere/endosphere response evidence.
+  changes: Created CommunityMech:000409 for the five-strain SynCom-SASW01 wheat drought-resistance inoculant from
+    PMID:42513902, including exact strain membership, equal-ratio assembly, seed-coating deployment, moderate-drought
+    pot setup, dual-site field design, and rhizosphere/endosphere response evidence.
   llm_assisted: true
 - timestamp: '2026-09-21T16:12:15Z'
   curator: codex
   action: UPDATE_EVIDENCE
-  changes: 'Addressed adversarial review issues #1016 and #1017 by removing equal-ratio inoculum assembly and the PICRUSt2
-    BCAA/antioxidant association from ecological_interactions, while retaining OD600 normalization and 1:1:1:1:1 assembly
-    as engineering_design evidence.'
+  changes: 'Addressed adversarial review issues #1016 and #1017 by removing equal-ratio inoculum assembly and the
+    PICRUSt2 BCAA/antioxidant association from ecological_interactions, while retaining OD600 normalization and
+    1:1:1:1:1 assembly as engineering_design evidence.'
+  llm_assisted: true
+- timestamp: '2026-10-08T16:00:03Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain measured combined-treatment water retention while marking EPS mediation as hypothesized and coating-confounded.;
+    Keep relative DNA-profile shifts distinct from unique-strain colonization, priority effects and predicted metabolic
+    causality. Issue#1950; reports/causal_graph_review/decisions/20261008-four-records-batch122.yaml
   llm_assisted: true

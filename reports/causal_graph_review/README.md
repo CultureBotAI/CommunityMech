@@ -5,6 +5,33 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch122: Treatment Outcomes And Mechanism Limits
+
+[Decisions](decisions/20261008-four-records-batch122.yaml),
+[provenance](cache-provenance-20261008-batch122.json),
+[validation](validation-20261008-batch122.json), and
+[self-adversarial review](adversarial-review-20261008-batch122.yaml) cover
+wheat crown-rot TB, wheat-origin DT-SynCom, straw enzyme pretreatment and SASW01.
+All nine nodes and both arrows remain, with one rename and no new topology.
+
+TB keeps positive pot efficacy while distinguishing relative DNA profiles and
+simulated network robustness from biological causality. DT keeps barley disease
+protection and selective pre-challenge RNA changes, not inoculant superiority or
+proven hormone-pathway dependence. Straw keeps enzyme-mediated pretreatment and
+improved downstream biogas, not reciprocal mutualism or methane-only yield.
+SASW01 retains combined biocoating outcomes with EPS mediation hypothesized and
+coating effects distinct from SynCom-only contributions.
+
+Three open main bodies and all four abstracts were read; straw is abstract-bounded.
+Original figure pixels, separate supplements, raw data and code were not audited.
+All 23 graph/discussion quotes match fresh primary sources and existing caches.
+All 923 caches and 456 other records remain unchanged. Four append-only histories
+record the repairs. No Edison submission or spend was needed.
+
+Repairs #1947-#1950 await protected-main merge. Source timing/figure and yield
+follow-ups #1951-#1952 remain open. This is source-based self-review, not
+independent approval or completion of the overall review and protected merge.
+
 ## Batch121: Plant Outcomes And Mixture Contrasts
 
 [Decisions](decisions/20261008-four-records-batch121.yaml),
