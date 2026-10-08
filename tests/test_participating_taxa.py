@@ -407,6 +407,7 @@ USERS = {
     "Soil_BGC_Phylum_Depth_Vegetation_Community.yaml",
     "Soil_CPR_Nanoarchaea_Rare_Biosphere_Community.yaml",
     "Soil_Corrinoid_B12_Reservoir_Community.yaml",
+    "South_Bay_Salt_Pond_Methane_Restoration_Community.yaml",
     "Soybean_Chlorophyll_Selected_Biofertilizer_SynCom.yaml",
     "Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml",
     "Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml",

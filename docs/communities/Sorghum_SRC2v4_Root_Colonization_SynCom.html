@@ -1014,7 +1014,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Sorghum SRC2v4 Root Colonization SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -1022,13 +1022,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -1036,10 +1031,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Root-Colonization-Selected SRC2v4 Stability</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>SRC2v4 Composition Relative to Its Inoculum</h3>
                 </div>
-                <p class="prewrap interaction-description">SRC2v4, the 15-member variant selected for root colonization efficiency, was the most compositionally representative of its inoculum among the four SRC2 variants and shifted no members in the differential-abundance test against the starting inoculum.</p>
+                <p class="prewrap interaction-description">In the controlled gnotobiotic comparison, SRC2v4 was the most compositionally representative of its inoculum among the four tested variants, with no member shift detected by the reported differential-abundance test. Nonsignificance does not establish invariant abundance, equivalence or universal stability. The result does not identify one organism facilitating another, and the paper&#39;s prose and figure caption differ on root diversity loss.</p>
 
 
 
@@ -1047,17 +1041,6 @@
 
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        symbiotic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044403"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044403</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -1075,7 +1058,7 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"Differential abundance testing reinforced SRC2v4&#39;s exceptional stability"</div>
+                        <div class="snippet">"Across all variants, SRC2v4 was the most compositionally representative of its inoculum, suggesting greater compositional stability within the controlled gnotobiotic environment used here."</div>
 
                     </li>
 
@@ -1086,9 +1069,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Live SRC2v4 Plant Growth Promotion</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Live SRC2v4 promoted above- and below-ground S. bicolor growth in 1-month gnotobiotic microboxes, whereas heat-killed SRC2v4 failed to significantly induce plant growth promotion.</p>
+                <p class="prewrap interaction-description">In the reported gnotobiotic comparison, live SRC2v4 increased shoot fresh weight, shoot dry weight and root fresh weight; the heat-killed treatment did not significantly induce plant growth promotion. This is a host phenotype under the tested conditions, not demonstrated reciprocal microbial fitness benefit, field efficacy or identification of a specific living-cell mechanism.</p>
 
 
 
@@ -1134,7 +1116,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42454401/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42454401</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
                         <div class="snippet">"host interaction with live SRC2v4 was required for PGP"</div>
@@ -1148,9 +1130,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>SRC2v4 Host Flavonoid Response</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Colonization by SRC2v4 induced a dynamic root and shoot host transcriptomic response that upregulated flavonoid biosynthesis genes and was corroborated by LC-MS/MS detection of enriched flavones in root and rhizosphere samples.</p>
+                <p class="prewrap interaction-description">SRC2v4 treatment was associated with dynamic host flavonoid-pathway transcription and enriched flavone-related metabolites in root and rhizosphere samples. These observations do not establish that flavonoids facilitate colonization or mediate the host growth response. The paper leaves recruitment versus prevention of colonization unresolved; correlations restricted to SRC2v4-treated samples were not significant.</p>
 
 
 
@@ -1263,6 +1244,45 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Do the reported composition and flavonoid responses establish a specific ecological mechanism in SRC2v4?
+                </h3>
+                <p class="prewrap">They support observations, not a demonstrated interspecies fitness sign or flavonoid-mediated colonization. Differential-abundance nonsignificance is not invariance; the main text and Fig.2 caption also differ on root diversity loss. No raw-data reanalysis was performed. The source leaves flavonoid function unresolved. Preserve the absence of assay-order edges fixed in #782. No new growth, colonization, infection or genetic-design procedures are added; existing non-graph protocols are outside this review.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#SRC2v4 Composition Relative to Its Inoculum</code>, <code>ecological_interactions#Live SRC2v4 Plant Growth Promotion</code>, <code>ecological_interactions#SRC2v4 Host Flavonoid Response</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">OTHER</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42454401/" rel="nofollow noreferrer">PMID:42454401</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Roles for both recruitment and prevention of colonization by plant-produced flavonoids remain open.</p>
+                        <p class="muted small prewrap">The authors explicitly leave the direction and mechanism unresolved.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1618,20 +1638,16 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("symbiotic process");
-
 
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Root-Colonization-Selected SRC2v4 Stability",
+                label: "SRC2v4 Composition Relative to Its Inoculum",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1646,7 +1662,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1674,7 +1690,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];

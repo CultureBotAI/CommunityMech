@@ -1199,3 +1199,21 @@ access limits for the other studies are recorded in the decision ledger.
 No new topology or Edison spend. Repairs #1803-#1806 await protected-main
 merge; non-graph #1807 stays open. Self-review is not independent approval or
 corpus completion.
+
+## Batch103: Source Identity And Qualified Mechanisms
+
+[Decisions](decisions/20261008-four-records-batch103.yaml),
+[validation](validation-20261008-batch103.json),
+[cache provenance](cache-provenance-20261008-batch103.json) and
+[self-adversarial review](adversarial-review-20261008-batch103.yaml) cover the
+soil corrinoid reservoir, two sorghum records and South Bay salt-pond methane.
+Ten of fourteen nodes remain; both original corrinoid directions are retained
+only as hypotheses. Four SRC1 nodes are withheld because the claimed subset
+identity is unverified, not because the parent study's observations are rejected.
+That record remains `needs_research` under #1813. SRC2v4 and salt-pond findings
+retain positive observations without unmeasured fitness signs or mediation.
+All caches and non-graph raw blocks remain unchanged, not recertified.
+Source access/read limits are recorded; no full SRC1 body or raw-data reanalysis
+is claimed. No new topology or Edison spend. Repairs #1809-#1812 await protected
+main merge; identity #1813 and non-graph #1814 stay open. Self-review is not
+independent approval or corpus completion.
