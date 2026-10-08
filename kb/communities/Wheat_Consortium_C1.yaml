@@ -157,36 +157,10 @@ taxonomy:
       sp. B12, Pseudomonas sp. P25
     explanation: Identifies Pseudomonas sp. P25 as a C1 member.
 ecological_interactions:
-- name: Equal-Ratio Pseudomonas C1 Assembly
-  description: >
-    Pseudomonas sp. B5, Pseudomonas sp. B11, Pseudomonas sp. B12, and
-    Pseudomonas sp. P25 were combined at equal ratios as the same-genus C1
-    consortium within the ten-SynCom wheat-rhizosphere design.
-  scope: COMMUNITY_LEVEL
-  interaction_type: COLONIZATION_FACILITATION
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:36118206
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: SynCom 1(C1) Pseudomonas sp. B5, Pseudomonas sp. B11, Pseudomonas
-      sp. B12, Pseudomonas sp. P25
-    explanation: Table 1 names the four Pseudomonas isolates that make up SynCom
-      1.
-  - reference: PMID:36118206
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: SynComs were obtained by mixing the individuals in equal ratios
-    explanation: Supports the equal-ratio inoculum construction used for C1 and
-      the other wheat-rhizosphere SynComs.
 - name: C1 SynCom inhibition of R. solani AG8 radial growth
-  description: The four-Pseudomonas C1 SynCom inhibited Rhizoctonia solani AG8
-    radial growth in the in vitro dual-culture assay.
-  interaction_type: COMPETITION
+  description: The assembled C1 inhibited Rhizoctonia solani AG8 radial growth in dual culture, with reported inhibition
+    of 37.00% (SD 6.57) in Table 2. This is a positive fungal-growth outcome, not evidence that both bacterial and
+    fungal fitness declined. Plate inhibition does not establish the mediator or guarantee host protection.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pseudomonas sp. B5
@@ -214,15 +188,21 @@ ecological_interactions:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: In vitro dual-culture assay showed eight SynComs, including C1-C4, C6-C8,
-      and C10, inhibited the growth of R. solani AG8 to varying degrees
-    explanation: Places C1 among the SynComs with significant AG8 radial-growth
-      inhibition.
+    snippet: In vitro dual-culture assay showed eight SynComs, including C1-C4, C6-C8, and C10, inhibited the growth
+      of R. solani AG8 to varying degrees
+    explanation: Places C1 among the SynComs with significant AG8 radial-growth inhibition.
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom 1(C1)37.00 ± 6.57
+    explanation: Table 2 reports the whole-mixture plate inhibition estimate and standard deviation.
 - name: C1 SynCom protection of wheat under AG8 challenge
-  description: C1 significantly reduced wheat root rot scores and increased wheat
-    fresh root weight relative to AG8-challenged controls in greenhouse soil.
+  description: C1 reduced root-rot scores and increased fresh root weight of AG8-challenged Alpowa wheat in the
+    three-week greenhouse soil assay. Preserve this positive whole-mixture benefit. The study did not show superiority
+    over the best individual strain or establish reciprocal microbial benefit, bilateral competition, inoculum persistence,
+    or a unique IAA/volatile mechanism. Only B5 among the four C1 members significantly reduced disease when tested
+    individually.
   scope: COMMUNITY_LEVEL
-  interaction_type: COMPETITION
   participating_taxa:
   - preferred_term: Pseudomonas sp. B5
     term:
@@ -249,10 +229,14 @@ ecological_interactions:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: SynCom C1, composed of four different Pseudomonas members, significantly
-      reduced wheat root rot and increased root weight, compared with the controls
-    explanation: Supports the host-protection outcome measured for the whole C1
-      consortium.
+    snippet: SynCom C1, composed of four different Pseudomonas members, significantly reduced wheat root rot and
+      increased root weight, compared with the controls
+    explanation: Supports the host-protection outcome measured for the whole C1 consortium.
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: None of them was significantly better than a single strain
+    explanation: Bounds claims of emergent superiority without erasing the significant C1 host outcome.
 environmental_factors:
 - name: Host plant
   value: Triticum aestivum
@@ -314,6 +298,36 @@ curation_history:
 - timestamp: '2026-10-02T06:10:22Z'
   curator: codex
   action: REVIEW_CAUSAL_GRAPH
-  changes: Removed three downstream edges that linked Wheat C1 equal-ratio
-    assembly and dual-culture AG8 inhibition to subsequent assay endpoints.
+  changes: Removed three downstream edges that linked Wheat C1 equal-ratio assembly and dual-culture AG8 inhibition
+    to subsequent assay endpoints.
   llm_assisted: true
+- timestamp: '2026-10-08T15:02:27Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Keep measured whole-C1 fungal inhibition without a bilateral-competition interpretation.; Retain positive
+    greenhouse protection and root weight without claiming superiority or identified mediation. Issue#1940; reports/causal_graph_review/decisions/20261008-four-records-batch121.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: c1_causal_scope_batch121
+  prompt: Which processes explain C1 protection beyond its separate laboratory phenotypes?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#C1 SynCom inhibition of R. solani AG8 radial growth
+  - ecological_interactions#C1 SynCom protection of wheat under AG8 challenge
+  rationale: C1 is protective in soil, yet individual-versus-mixture phenotypes differ. The paper reports no antifungal
+    activity from any SynCom cell-free supernatant and identifies C2-C4/C7, not C1, as significant volatile mixtures.
+    Lower C1 auxin and volatile outputs are not selective proof that these routes are impossible. Inoculum persistence
+    was explicitly not assessed. Equal-ratio preparation remains in metadata and the earlier removal of workflow
+    arrows remains intact.
+  evidence:
+  - reference: PMID:36118206
+    snippet: None of them was significantly better than a single strain
+  - reference: PMID:36118206
+    snippet: the cell-free supernatants from the rest of the eight bacteria and 10 SynComs did not show any antifungal
+      activities
+  - reference: PMID:36118206
+    snippet: While not assessed here, investigation of the fate of those inoculations in the soil after plant growth
+      is needed to address their persistence and stability
+  posed_by: codex
+  posed_date: '2026-10-08'
