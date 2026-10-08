@@ -852,7 +852,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Thermophilic Ex-Situ Biomethanation Mixed Culture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding, syntrophy.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -860,13 +860,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -875,9 +870,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Thermophilic H2/CO2 Biomethanation</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The conditioned archaeal fraction used H2 and CO2 to produce CH4 under a 4:1 H2:CO2 gas feed at 50 C; the final phase favoured hydrogenotrophic Methanobacteria, with Methanosarcina contributing at lower abundance through hydrogenotrophic and acetoclastic metabolism.</p>
+                <p class="prewrap interaction-description">A conditioned mixed culture converted externally supplied H2/CO2 to methane in a single proof-of-concept CSTR. Output methane content reached 86% by day 69 in the final thermophilic phase; exceeding 90% was proposed, not observed. Cylinder-fed gas conversion is not itself interspecies cross-feeding. Methanobacteria enrichment and contributions by Methanosarcina are source interpretations informed by group-specific qPCR and community profiles, not taxon-resolved flux measurements. The listed phylum, class and genus are overlapping taxonomic summaries rather than independent strain members. Sequential conditioning and washout changes do not independently isolate temperature as the cause of every performance difference.</p>
 
 
 
@@ -939,7 +933,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"The high H₂: CO₂ throughput at 50"</div>
+                        <div class="snippet">"H₂ and CO₂ gases were supplied from pressurised gas cylinders"</div>
 
                     </li>
 
@@ -950,22 +944,22 @@
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42293522</a>
 
                             - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"CH₄ levels in the output gas steadily increased with each washout, reaching 86% by day 69"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42293522/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42293522</a>
+
+                            - PARTIAL (OTHER)
                         </div>
 
                         <div class="snippet">"favoured hydrogenotrophic Methanobacteria"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/42293522/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42293522</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"levels in the output gas steadily increased with each washout, reaching 86% by day 69"</div>
 
                     </li>
 
@@ -975,10 +969,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>VFA Syntrophic Turnover</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>VFA dynamics and inferred interspecies turnover</h3>
                 </div>
-                <p class="prewrap interaction-description">Thermophilic bacterial partners produced and transformed volatile fatty acids while archaeal acetoclastic methanogens consumed acetate for methane production; by day 69, VFA concentrations fell to approximately 3.5 g/L and were dominated by acetate.</p>
+                <p class="prewrap interaction-description">The measured VFA pool fell from approximately 5 to 3.5 g/L during the final phase and ended with 73% acetate, 16% propionic acid and 10% n-butyric acid. These are pool measurements during washout-managed operation, not direct rates of metabolite exchange. PARTIAL: the authors interpret Firmicutes as VFA producers, Coprothermobacterota as acetate oxidizers and Methanosaeta/Methanothrix as acetoclastic methanogens, with Methanosarcina potentially using both substrates. Group abundance and gene copies do not demonstrate those exact taxa executing each route, metabolic activity per cell, or product-removal-dependent thermodynamic cooperation. Washout and substrate-pool changes remain alternatives to attributing every VFA decrease to consumption.</p>
 
 
 
@@ -1064,7 +1057,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42293522/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42293522</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (OTHER)
                         </div>
 
                         <div class="snippet">"Overall, in the final phase, the system exhibited a balanced microbial community"</div>
@@ -1077,7 +1070,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42293522/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42293522</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (OTHER)
                         </div>
 
                         <div class="snippet">"Coprothermobacterota converting acetate"</div>
@@ -1090,10 +1083,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42293522/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42293522</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (OTHER)
                         </div>
 
                         <div class="snippet">"Methanosaeta converting acetate"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42293522/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42293522</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"VFA concentrations were measured immediately before washout, capturing peak accumulation prior to dilution or biomass replacement"</div>
 
                     </li>
 
@@ -1107,7 +1113,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(3)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -1172,6 +1178,41 @@
                         </div>
                         <p class="snippet small prewrap">long-term stability under non-sterile conditions typical of industrial operation remains to be validated</p>
                         <p class="muted small prewrap">Names the industrial robustness gap stated by the authors.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which taxon-specific VFA and methane routes were active beyond the bulk chemistry and DNA profiles?
+                </h3>
+                <p class="prewrap">The study follows one reactor through sequential temperature, gas and washout changes. Methane production is measured, but its organism-specific allocation and interspecies fluxes are inferred. Direct sludge qPCR/16S can include DNA from killed or inactive cells; bacterial plate recovery is a separate culturable fraction. The original taxonomy-resolution and industrial-stability discussions remain open. No new causal link between the two process nodes is introduced.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Thermophilic H2/CO2 Biomethanation</code>, <code>ecological_interactions#VFA dynamics and inferred interspecies turnover</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+
+
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42293522/" rel="nofollow noreferrer">PMID:42293522</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">These approaches reflect the total microbial DNA pool</p>
+
                     </div>
 
                 </details>
@@ -1632,7 +1673,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1683,7 +1724,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1706,11 +1747,11 @@
             processes.push("methanogenesis");
 
 
-            var evidenceCount = 4;
+            var evidenceCount = 5;
 
             nodes.push({
                 id: intId,
-                label: "VFA Syntrophic Turnover",
+                label: "VFA dynamics and inferred interspecies turnover",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

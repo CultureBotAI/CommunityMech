@@ -62,12 +62,13 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Root-Exudate Prebiotic Enhancement
-  description: Root-exudate-derived vitamin C, propionic acid, and esculetin
-    stimulate growth of the chemotactic SynCom strains and increase the
-    antagonistic activity of their fermentation broth against Ralstonia
-    solanacearum.
-  interaction_type: COLONIZATION_FACILITATION
+- name: Strain-specific prebiotic enhancement
+  description: Added resource compounds produced strain-specific growth and cell-free broth responses. Vitamin C
+    increased Y364 broth antagonism; selected compounds including propionic acid and esculetin increased Y832 broth
+    antagonism. No tested compound significantly enhanced Y878 broth inhibition relative to its mock treatment.
+    Growth screening and broth inhibition are distinct assays, and the selected compounds did not show uniform benefit
+    across every isolate. The resource library drew on compounds commonly found in tomato root exudates; these assays
+    do not demonstrate that all were secreted by tobacco roots in the field.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: L-ascorbic acid
@@ -83,72 +84,70 @@ ecological_interactions:
       id: CHEBI:490095
       label: esculetin
   downstream:
-  - target: Chemotactic Bacterial Wilt Suppression
-    description: Prebiotic-stimulated SynCom growth and antagonistic bioactivity
-      strengthen the chemotactic consortium's suppression of Ralstonia.
+  - target: Antagonism by cheA-positive SynCom isolates
+    description: 'Selected compound additions enhanced broth antagonism in particular isolate assays. PARTIAL for
+      growth as the mediator: growth, broth chemistry and residual additives were not selectively separated. The
+      Y878 null enhancement result prevents generalizing this effect to all three members, and the comparison does
+      not establish enhanced chemotaxis or root colonization.'
   evidence:
   - reference: PMID:40670700
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: vitamin C, propionic acid, and esculetin significantly promoted the growth and
-      antagonistic ability of chemotactic SynCom strains
-    explanation: Supports the root-exudate-derived compounds as prebiotics that
-      increase growth and pathogen antagonism by the chemotactic SynCom.
-- name: Chemotactic Bacterial Wilt Suppression
-  description: Chemotactic SynCom members colonize the rhizosphere and suppress Ralstonia invasion.
-  interaction_type: COLONIZATION_FACILITATION
+    snippet: vitamin C, propionic acid, and esculetin significantly promoted the growth and antagonistic ability
+      of chemotactic SynCom strains
+    explanation: Abstract-level summary of positive resource responses; the main Results narrow the effect to specific
+      isolate/compound combinations.
+  - reference: PMID:40670700
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: for Y878, none of the tested compounds showed a significant difference compared with the mock treatment
+    explanation: Preserves the explicit null enhancement result for the Bacillus isolate.
+- name: Antagonism by cheA-positive SynCom isolates
+  description: The selected Y364, Y832 and Y878 isolates showed antagonism against Ralstonia solanacearum, mutual
+    compatibility and PCR detection of cheA. The source identifies two Pseudomonas strains and one Bacillus strain;
+    the canonical two-row taxonomy remains a broad, incomplete representation. cheA detection supports chemotaxis
+    potential, not directly measured root migration or colonization. Strong antagonism was also observed among cheA-negative
+    screened isolates. Compatibility and pathogen inhibition do not establish within-SynCom cross-feeding or facilitation
+    of another member's establishment.
   scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: L-ascorbic acid
-    term:
-      id: CHEBI:29073
-      label: L-ascorbic acid
-  - preferred_term: propionic acid
-    term:
-      id: CHEBI:30768
-      label: propionic acid
-  - preferred_term: esculetin
-    term:
-      id: CHEBI:490095
-      label: esculetin
-  biological_processes:
-  - preferred_term: chemotaxis
-    term:
-      id: GO:0006935
-      label: chemotaxis
   downstream:
   - target: Tobacco Field Protection and Yield Enhancement
-    description: Rhizosphere colonization and antagonism by the chemotactic
-      SynCom carry through the bioorganic fertilizer into lower field
-      Ralstonia invasion and higher tobacco yield.
+    description: 'PARTIAL: laboratory antagonism is a candidate contribution to the field benefit of the formulated
+      SynCom fertilizer. The field contrast combined strains, prebiotics and an organic matrix against conventional
+      cow-manure fertilization; it did not isolate chemotaxis, colonization or broth antagonism as the mediator.
+      The authors explicitly identify non-chemotactic SynCom controls as future work.'
   evidence:
-  - *id001
   - reference: PMID:40670700
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: vitamin C, propionic acid, and esculetin significantly promoted the growth and antagonistic
-      ability of chemotactic SynCom strains
-    explanation: Names the three root-exudate prebiotics that promoted
-      chemotactic SynCom growth and antagonism against Ralstonia solanacearum.
+    snippet: exhibited strong antagonism against R. solanacearum, harbored the chemotaxis gene cheA, and showed
+      mutual compatibility
+    explanation: Directly supports the selected isolates' screening phenotypes and marker, not measured migration.
+  - reference: PMID:40670700
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: another half of isolated strains, which lacked cheA gene, still displayed strong antagonistic activity
+    explanation: Shows that cheA positivity was not required for antagonism across the screened isolate set.
 - name: Tobacco Field Protection and Yield Enhancement
-  description: Bioorganic fertilizer carrying the chemotactic SynCom protects
-    diseased tobacco fields from Ralstonia solanacearum invasion and increases
-    crop yield under field conditions.
-  interaction_type: COLONIZATION_FACILITATION
+  description: In the reported tobacco field trial, the SynCom-containing bioorganic fertilizer plus prebiotics
+    was associated with a lower disease index, lower Ralstonia qPCR abundance and nearly doubled crop yield relative
+    to conventional fertilization. This is a positive combined-treatment result, not an independently isolated effect
+    of chemotaxis or microbial colonization facilitation. qPCR abundance is not a direct viable-cell count, and
+    Tax4Fun predictions of indigenous-community functions do not establish active pathways or strain-resolved establishment
+    of the inoculum.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: chemotaxis
-    term:
-      id: GO:0006935
-      label: chemotaxis
   evidence:
   - reference: PMID:40670700
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: bioorganic fertilizer containing chemotactic SynCom can protect diseased tobacco
-      field from R. solanacearum invasion and enhance yields
-    explanation: Supports the field endpoint of the chemotactic SynCom
-      bioorganic fertilizer.
+    snippet: bioorganic fertilizer containing chemotactic SynCom can protect diseased tobacco field from R. solanacearum
+      invasion and enhance yields
+    explanation: Supports the field endpoint of the chemotactic SynCom bioorganic fertilizer.
+  - reference: PMID:40670700
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the chemotactic SynCom fertilizer nearly doubled crop yield
+    explanation: Retains the positive field result without converting it into proof of a unique mechanism.
 environmental_factors:
 - name: defined synthetic community design
   value: Two Pseudomonas strains and one Bacillus strain selected from healthy tobacco rhizosphere isolates.
@@ -247,3 +246,30 @@ cultivation_setup:
     evidence_source: IN_VITRO
     snippet: During fermentation, the mixture was turned every 12 h, and a moisture
       content was maintained at 40% to ensure aeration and looseness of the compost
+discussions:
+- discussion_id: tobacco_causal_scope_batch120
+  prompt: How much of the tobacco field benefit specifically depends on chemotaxis or the tested broth effects?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Strain-specific prebiotic enhancement
+  - ecological_interactions#Antagonism by cheA-positive SynCom isolates
+  - ecological_interactions#Tobacco Field Protection and Yield Enhancement
+  rationale: The field comparison combines the inoculum, prebiotics and fertilizer matrix. It does not isolate chemotaxis,
+    and the authors explicitly identify non-chemotactic controls as future work. cheA PCR and Tax4Fun inference
+    should not stand in for measured root migration, strain persistence or active metabolic pathways. The paper
+    also differs between Results and Discussion on resource counts and has tomato wording in some captions despite
+    a tobacco trial; those details are not silently reconciled or used to erase the positive field outcome.
+  evidence:
+  - reference: PMID:40670700
+    snippet: future studies should include non-chemotactic SynCom as experimental controls
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T14:15:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain positive compound responses with isolate-specific limits and the Y878 null result.; Keep antagonism
+    and compatibility distinct from cheA-based potential and unmeasured colonization.; Preserve the positive field
+    co-treatment outcome while bounding qPCR, Tax4Fun and mechanistic attribution. Issue#1934; reports/causal_graph_review/decisions/20261008-four-records-batch120.yaml
+  llm_assisted: true

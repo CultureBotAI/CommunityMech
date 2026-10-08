@@ -558,7 +558,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Tobacco Chemotactic Biocontrol SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for colonization facilitation.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -566,8 +566,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -575,10 +575,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Root-Exudate Prebiotic Enhancement</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Strain-specific prebiotic enhancement</h3>
                 </div>
-                <p class="prewrap interaction-description">Root-exudate-derived vitamin C, propionic acid, and esculetin stimulate growth of the chemotactic SynCom strains and increase the antagonistic activity of their fermentation broth against Ralstonia solanacearum.</p>
+                <p class="prewrap interaction-description">Added resource compounds produced strain-specific growth and cell-free broth responses. Vitamin C increased Y364 broth antagonism; selected compounds including propionic acid and esculetin increased Y832 broth antagonism. No tested compound significantly enhanced Y878 broth inhibition relative to its mock treatment. Growth screening and broth inhibition are distinct assays, and the selected compounds did not show uniform benefit across every isolate. The resource library drew on compounds commonly found in tomato root exudates; these assays do not demonstrate that all were secreted by tobacco roots in the field.</p>
 
 
 
@@ -609,8 +608,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Chemotactic Bacterial Wilt Suppression
-                        <p class="prewrap causal-description">Prebiotic-stimulated SynCom growth and antagonistic bioactivity strengthen the chemotactic consortium&#39;s suppression of Ralstonia.</p>
+                        <span class="flow-arrow">→</span> Antagonism by cheA-positive SynCom isolates
+                        <p class="prewrap causal-description">Selected compound additions enhanced broth antagonism in particular isolate assays. PARTIAL for growth as the mediator: growth, broth chemistry and residual additives were not selectively separated. The Y878 null enhancement result prevents generalizing this effect to all three members, and the comparison does not establish enhanced chemotaxis or root colonization.</p>
                     </div>
 
                 </div>
@@ -633,50 +632,35 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40670700/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40670700</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"for Y878, none of the tested compounds showed a significant difference compared with the mock treatment"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Chemotactic Bacterial Wilt Suppression</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Antagonism by cheA-positive SynCom isolates</h3>
                 </div>
-                <p class="prewrap interaction-description">Chemotactic SynCom members colonize the rhizosphere and suppress Ralstonia invasion.</p>
+                <p class="prewrap interaction-description">The selected Y364, Y832 and Y878 isolates showed antagonism against Ralstonia solanacearum, mutual compatibility and PCR detection of cheA. The source identifies two Pseudomonas strains and one Bacillus strain; the canonical two-row taxonomy remains a broad, incomplete representation. cheA detection supports chemotaxis potential, not directly measured root migration or colonization. Strong antagonism was also observed among cheA-negative screened isolates. Compatibility and pathogen inhibition do not establish within-SynCom cross-feeding or facilitation of another member&#39;s establishment.</p>
 
 
 
 
 
 
-                <p><strong>Metabolites:</strong>
 
-                    L-ascorbic acid
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29073"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29073</a>),
-
-                    propionic acid
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30768"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30768</a>),
-
-                    esculetin
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=490095"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:490095</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        chemotaxis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006935"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006935</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -685,7 +669,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Tobacco Field Protection and Yield Enhancement
-                        <p class="prewrap causal-description">Rhizosphere colonization and antagonism by the chemotactic SynCom carry through the bioorganic fertilizer into lower field Ralstonia invasion and higher tobacco yield.</p>
+                        <p class="prewrap causal-description">PARTIAL: laboratory antagonism is a candidate contribution to the field benefit of the formulated SynCom fertilizer. The field contrast combined strains, prebiotics and an organic matrix against conventional cow-manure fertilization; it did not isolate chemotaxis, colonization or broth antagonism as the mediator. The authors explicitly identify non-chemotactic SynCom controls as future work.</p>
                     </div>
 
                 </div>
@@ -704,7 +688,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"we constructed a chemotactic SynCom comprising two Pseudomonas strains and one Bacillus strain."</div>
+                        <div class="snippet">"exhibited strong antagonism against R. solanacearum, harbored the chemotaxis gene cheA, and showed mutual compatibility"</div>
 
                     </li>
 
@@ -717,7 +701,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"vitamin C, propionic acid, and esculetin significantly promoted the growth and antagonistic ability of chemotactic SynCom strains"</div>
+                        <div class="snippet">"another half of isolated strains, which lacked cheA gene, still displayed strong antagonistic activity"</div>
 
                     </li>
 
@@ -728,9 +712,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Tobacco Field Protection and Yield Enhancement</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Bioorganic fertilizer carrying the chemotactic SynCom protects diseased tobacco fields from Ralstonia solanacearum invasion and increases crop yield under field conditions.</p>
+                <p class="prewrap interaction-description">In the reported tobacco field trial, the SynCom-containing bioorganic fertilizer plus prebiotics was associated with a lower disease index, lower Ralstonia qPCR abundance and nearly doubled crop yield relative to conventional fertilization. This is a positive combined-treatment result, not an independently isolated effect of chemotaxis or microbial colonization facilitation. qPCR abundance is not a direct viable-cell count, and Tax4Fun predictions of indigenous-community functions do not establish active pathways or strain-resolved establishment of the inoculum.</p>
 
 
 
@@ -738,17 +721,6 @@
 
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        chemotaxis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006935"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006935</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -770,6 +742,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40670700/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40670700</a>
+
+                            - SUPPORT (IN_VIVO)
+                        </div>
+
+                        <div class="snippet">"the chemotactic SynCom fertilizer nearly doubled crop yield"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -779,6 +764,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How much of the tobacco field benefit specifically depends on chemotaxis or the tested broth effects?
+                </h3>
+                <p class="prewrap">The field comparison combines the inoculum, prebiotics and fertilizer matrix. It does not isolate chemotaxis, and the authors explicitly identify non-chemotactic controls as future work. cheA PCR and Tax4Fun inference should not stand in for measured root migration, strain persistence or active metabolic pathways. The paper also differs between Results and Discussion on resource counts and has tomato wording in some captions despite a tobacco trial; those details are not silently reconciled or used to erase the positive field outcome.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Strain-specific prebiotic enhancement</code>, <code>ecological_interactions#Antagonism by cheA-positive SynCom isolates</code>, <code>ecological_interactions#Tobacco Field Protection and Yield Enhancement</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+
+
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/40670700/" rel="nofollow noreferrer">PMID:40670700</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">future studies should include non-chemotactic SynCom as experimental controls</p>
+
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -972,7 +996,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -985,11 +1009,11 @@
 
             var processes = [];
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Root-Exudate Prebiotic Enhancement",
+                label: "Strain-specific prebiotic enhancement",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1004,28 +1028,16 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
-
-            metabolites.push("L-ascorbic acid");
-
-            metabolites.push("propionic acid");
-
-            metabolites.push("esculetin");
-
-
             var processes = [];
-
-
-            processes.push("chemotaxis");
-
 
             var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Chemotactic Bacterial Wilt Suppression",
+                label: "Antagonism by cheA-positive SynCom isolates",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1040,16 +1052,12 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
-
-            processes.push("chemotaxis");
-
-
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,

@@ -151,11 +151,12 @@ taxonomy:
       Bacillus cereus, Achromobacter sp., Pseudomonas sp., Cladosporium sp., and Trichoderma harzianum)
     explanation: Names Trichoderma harzianum as a fungal member of the composting SynCom.
 ecological_interactions:
-- name: SynCom-driven lignocellulose decomposition and humification
-  description: The five-member SynCom intensifies thermophilic fermentation,
-    rapidly lowers the carbon/nitrogen ratio, and enhances humification in the
-    manure-composting matrix.
-  interaction_type: MUTUALISM
+- name: SynCom-associated compost maturation
+  description: The five-member inoculum is reported to intensify thermophilic fermentation, lower the compost carbon/nitrogen
+    ratio and increase humification. These are community-treatment and substrate outcomes, not evidence that all
+    five inoculated members obtain reciprocal fitness benefits. The accessible abstract relates maturation to resistance-gene
+    attenuation using Mantel correlation; it does not resolve individual-strain contributions or a uniquely demonstrated
+    causal mediator.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: cellulose catabolic process
@@ -163,61 +164,77 @@ ecological_interactions:
       id: GO:0030245
       label: cellulose catabolic process
   downstream:
-  - target: Community-level bio-sanitization of high-risk pathogens
-    description: Intensified thermophilic fermentation and faster organic-matter
-      turnover create the SynCom-driven composting trajectory linked to deep
-      bio-sanitization and high-risk pathogen elimination.
-  - target: SynCom-driven suppression of horizontal gene transfer
-    description: The SynCom-driven composting trajectory is tied to metabolic
-      reprogramming away from a biofilm-dependent defense-survival mode,
-      restricting horizontal gene transfer opportunities in the compost.
+  - target: Reported compost resistome and pathogen attenuation
+    description: 'PARTIAL: intensified fermentation and the correlated C/N decrease and humification are proposed
+      environmental contributors to later ARG and pathogen attenuation. Mantel association and the common inoculation
+      treatment support this interpretation, not selective demonstration that maturation alone mediates elimination
+      or prevents every gene-transfer event.'
   evidence:
   - reference: PMID:41839407
     supports: SUPPORT
-    evidence_source: IN_VIVO
+    evidence_source: OTHER
     snippet: SynCom-driven rapid decrease in carbon/nitrogen ratio and enhanced humification
-    explanation: Supports the SynCom as the driver of faster humification and
-      carbon/nitrogen turnover in thermophilic compost.
-- name: Community-level bio-sanitization of high-risk pathogens
-  description: By intensifying thermophilic fermentation and driving down the carbon/nitrogen ratio,
-    the SynCom collapses high-risk ARG-mobilome interactomes and eliminates high-risk pathogens
-    including Pseudomonas aeruginosa, an emergent community-level function rather than a single
-    pairwise edge.
-  interaction_type: COMPETITION
+    explanation: Abstract-reported compost maturation; the experimental venue and detailed assay design were not
+      reconstructed from full text.
+  - reference: PMID:41839407
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Mantel correlation analysis revealed
+    explanation: Identifies the association analysis underlying the environmental-driver interpretation.
+- name: Reported compost resistome and pathogen attenuation
+  description: The abstract reports a transient ARG rebound after SynCom inoculation followed by attenuation, reduced
+    multidrug-resistance genes and virulence factors, and elimination of source-identified high-risk pathogens.
+    Preserve this reported bio-sanitization result without equating metagenomic or network signals with demonstrated
+    loss of every viable pathogen, universal fertilizer biosafety, or bilateral negative fitness effects. The accessible
+    abstract does not resolve the viability-detection limits or provide a direct causal competition assay.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:41839407
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: deep bio-sanitization was achieved by synchronously eliminating high-risk pathogens (e.g.,
-      Pseudomonas aeruginosa), phytopathogens, and specific virulence factors
-    explanation: The consortium collectively suppresses and eliminates high-risk pathogens including
-      P. aeruginosa.
-- name: SynCom-driven suppression of horizontal gene transfer
-  description: SynCom inoculation reprograms community metabolism from a biofilm-dependent
-    defense-survival model to an active motility-metabolism mode (depleted lipopolysaccharide
-    biosynthesis, enriched flagellar assembly), a fitness-cost trade-off that physically restricts
-    horizontal gene transfer and suppresses key recombinases (XerD, IntI1).
-  interaction_type: COMPETITION
+    evidence_source: OTHER
+    snippet: deep bio-sanitization was achieved by synchronously eliminating high-risk pathogens (e.g., Pseudomonas
+      aeruginosa), phytopathogens, and specific virulence factors
+    explanation: Preserves the authors' reported bio-sanitization outcome; the abstract alone does not establish
+      viability-detection limits or universal eradication.
+  - reference: PMID:41839407
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Metagenomic analysis showed SynCom inoculation caused a transient ARG rebound followed by profound
+      attenuation
+    explanation: Retains the non-monotonic resistance-gene trajectory instead of claiming immediate uniform removal.
+- name: Metagenomic signatures of reduced HGT potential
+  description: 'KEGG and metagenomic analyses suggest a shift in functional potential from biofilm-associated defense
+    toward motility/metabolism, with lower lipopolysaccharide biosynthesis and higher flagellar-assembly representation.
+    The reported network change includes 26.6% fewer potential host-gene associations. PARTIAL: reduced HGT opportunity,
+    recombinase suppression and physical restriction of transfer are source interpretations, not measurements of
+    conjugation frequency, gene expression, actual cell motility or proven necessity of a particular route. Potential
+    host-gene associations are not a count of observed horizontal-transfer events.'
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: horizontal gene transfer
     term:
       id: GO:0009292
       label: horizontal gene transfer
+    notes: Inferred change in HGT potential; not a directly measured transfer rate.
   evidence:
   - reference: PMID:41839407
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: a pivotal metabolic reprogramming from a biofilm-dependent defense-survival model to an
-      active motility-metabolism mode, characterized by depleted lipopolysaccharide biosynthesis and
-      enriched flagellar assembly
-    explanation: Community-level metabolic reprogramming that restricts horizontal gene transfer.
+    evidence_source: COMPUTATIONAL
+    snippet: a pivotal metabolic reprogramming from a biofilm-dependent defense-survival model to an active motility-metabolism
+      mode, characterized by depleted lipopolysaccharide biosynthesis and enriched flagellar assembly
+    explanation: KEGG-based functional interpretation; not directly measured motility, biofilm loss or transfer
+      frequency.
+  - reference: PMID:41839407
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: reducing potential host-gene associations by 26.6%
+    explanation: Network statistic, not observed gene-transfer frequency.
+  - reference: PMID:41839407
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: This metabolic shift implies a fitness cost trade-off that physically restricts horizontal gene transfer
+      (HGT) opportunities
+    explanation: The source labels this a mechanistic implication; it is retained as partial support only.
 growth_media:
 - name: Thermophilic manure-composting substrate (solid-state)
   temperature: thermophilic (no numeric value reported in the abstract)
@@ -244,3 +261,32 @@ growth_media:
     snippet: SynCom-driven rapid decrease in carbon/nitrogen ratio and enhanced humification
     explanation: Names the C/N ratio decrease and humification that characterize the composting
       substrate over time.
+discussions:
+- discussion_id: compost_causal_scope_batch120
+  prompt: Which inferred compost mechanisms explain attenuation beyond metagenomic and correlation-based evidence?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#SynCom-associated compost maturation
+  - ecological_interactions#Reported compost resistome and pathogen attenuation
+  - ecological_interactions#Metagenomic signatures of reduced HGT potential
+  rationale: The abstract describes treatment-associated chemistry, a transient ARG rebound, later attenuation,
+    KEGG interpretation and potential host-gene networks. It does not resolve causal necessity or viable-pathogen
+    detection limits. Full methods and direct functional evidence are needed to distinguish the proposed HGT restriction
+    and environmental mediation from parallel responses to inoculation. This uncertainty does not erase the reported
+    positive bio-sanitization outcome.
+  evidence:
+  - reference: PMID:41839407
+    snippet: This metabolic shift implies a fitness cost trade-off that physically restricts horizontal gene transfer
+      (HGT) opportunities
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T14:15:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain reported maturation without coding aggregate improvement as mutualism; bound the remaining environmental-mediation
+    arrow.; Retain positive later attenuation and the early rebound without claiming universal viable-pathogen elimination
+    or bilateral competition.; Represent KEGG and network findings as HGT potential, not measured transfer, expression
+    or motility. Issue#1933; reports/causal_graph_review/decisions/20261008-four-records-batch120.yaml
+  llm_assisted: true

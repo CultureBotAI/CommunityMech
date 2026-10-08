@@ -5,6 +5,40 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch120: Measured Outcomes And Inferred Routes
+
+[Decisions](decisions/20261008-four-records-batch120.yaml),
+[provenance](cache-provenance-20261008-batch120.json),
+[validation](validation-20261008-batch120.json), and
+[self-adversarial review](adversarial-review-20261008-batch120.yaml) cover
+the Thermoleptolyngbya-Chelatococcus arsenic pair, thermophilic ex-situ
+biomethanation, lignocellulose-composting SynCom and tobacco chemotaxis SynCom.
+All ten nodes remain, with six renames. Three existing arrows remain qualified;
+one compost arrow that confounded parallel responses to inoculation is removed.
+
+Arsenic carbon tracing and reciprocal growth remain direct positive evidence;
+genomic complementarity does not establish traced oxygen or nitrogen transfer.
+Biomethanation retains measured gas and VFA outcomes, without calling external
+gas supply cross-feeding or group-level inference demonstrated syntrophy.
+Compost retains the transient ARG rebound and later attenuation; KEGG and
+host-gene networks describe potential, not measured gene-transfer frequency.
+Tobacco retains strain-specific broth and combined field-treatment benefits,
+including the Y878 null enhancement, without equating cheA PCR with measured
+chemotaxis or isolating that mechanism from fertilizer co-treatment.
+
+Four whole records and four fresh primary abstracts were reviewed. Biomethanation
+and tobacco main-body XML, methods, results, discussion, tables and captions were
+read; original figure pixels, supplements, raw data and analysis code were not.
+Arsenic and compost repairs are abstract-bounded, not an exhaustive claim that
+full text is absent. All 33 graph/discussion quotations match primary text and
+existing caches. All 923 caches, 456 other records and unrelated raw fields are
+unchanged. Four append-only histories record the edits. No new topology,
+experimental protocol, Edison invocation or provider spend is introduced.
+
+Repairs #1931-#1934 await protected-main merge; non-graph follow-ups #1935-#1937
+remain open. Source-based self-review is not independent approval, and the
+overall review and protected merge are still incomplete.
+
 ## Batch119: Strain Identity And Inferred Networks
 
 [Decisions](decisions/20261008-four-records-batch119.yaml),
