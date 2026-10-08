@@ -1260,3 +1260,27 @@ non-graph #1827 stays open. Prior #847 concerns interaction typing, not
 environmental grounding; the new issue and review metadata were corrected
 without changing old histories. Self-review is not independent approval or
 corpus completion.
+
+## Batch106: Study Boundaries And Omics Interpretation
+
+[Decisions](decisions/20261008-four-records-batch106.yaml),
+[validation](validation-20261008-batch106.json),
+[cache provenance](cache-provenance-20261008-batch106.json) and
+[self-adversarial review](adversarial-review-20261008-batch106.yaml) cover
+Staphylococcus-Candida, Stordalen Mire, the four-member Streptomyces pesticide
+consortium and the subsurface Carboxydocella aquifer record.
+Eighteen of nineteen nodes and five qualified existing directions remain.
+One analysis-workflow node and five cross-study, wrong-route or restatement
+arrows are removed. Study-specific observations and source hypotheses remain
+distinct from reciprocal fitness effects, traced exchange and measured flux.
+The mire fen niche proposal and both pesticide directions remain explicitly
+hypothetical; gene detection is not demonstrated expression or causal mediation.
+The prior aquifer analysis-edge repair and existing cache repairs are preserved.
+All caches and non-graph raw blocks remain unchanged, not recertified.
+Source review includes nine whole primary abstracts and bounded mire2023 and
+pesticide2013 main-text spans, not whole-paper or raw-data certification.
+Available Staphylococcus-Candida full-text leads were not reviewed; no global
+full-text absence is asserted. No new topology, Edison spend or pathogen
+enhancement procedures are introduced. Repairs #1829-#1832 await protected-main
+merge; non-graph #1833 stays open. Self-review is not independent approval or
+corpus completion.

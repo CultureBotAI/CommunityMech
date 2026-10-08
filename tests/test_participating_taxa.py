@@ -412,6 +412,7 @@ USERS = {
     "Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml",
     "Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml",
     "Staged_Cattle_Manure_Ensifer_Bacillus_SynCom.yaml",
+    "Stordalen_Mire_Methylotrophic_Methanogenesis_Community.yaml",
     "Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml",
     "SynComBac10_Chicken_Intestinal_SynCom.yaml",
     "SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation.yaml",

@@ -124,18 +124,12 @@ taxonomy:
     snippet: with expression across 12 phyla
     explanation: Supports transcriptional activity of bacterial anaerobic methylotrophy.
 ecological_interactions:
-- name: Methanogenic Methylotrophy Across Thaw Gradient
-  description: Methanogenic archaea encode and express methylotrophic genes,
-    revising Stordalen Mire methanogenesis from only hydrogenotrophic and
-    acetoclastic pathways to co-occurring methylotrophic methane production
-    across permafrost thaw stages.
-  interaction_type: SYNTROPHY
+- name: Methanogenic Methylotrophic Potential and Expression
+  description: Methanogen MAGs encode methylotrophic potential and express associated genes in Stordalen Mire. Integrated
+    field omics support a methylotrophic contribution alongside other methanogenesis routes, but do not quantify
+    pathway-specific methane flux. These observations do not establish syntrophic product-removal feedback between
+    partners.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Stordalen Mire methanogenic archaea
-    term:
-      id: NCBITaxon:2157
-      label: Archaea
   metabolites:
   - preferred_term: methane
     term:
@@ -154,33 +148,38 @@ ecological_interactions:
   - reference: PMID:38063415
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Methanogenesis across increasing permafrost thaw is thus revised
-    explanation: Supports the revised methanogenesis model across the thaw gradient.
+    snippet: Of the 36 methanogen MAGs identified as being active in this data set, 10 expressed genes for methylotrophy
+    explanation: Supports methylotrophy-associated transcript evidence in methanogen MAGs, not direct methane flux
+      or thermodynamic dependence.
+    computational_provenance:
+      prediction_type: OTHER
+      parameters: 'Genome-resolved field omics: DRAM annotation with manual methylotrophy-gene assessment and mapped
+        transcript expression. The source uses homology, synteny and selected phylogenetic checks; bacterial phylogenetic
+        validation was restricted to selected phyla. Encoded/expression potential is not direct flux. Exact claim-specific
+        full pipeline reproduction was not performed.'
   - reference: PMID:38063415
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: co-occurrence of methylotrophy throughout
-    explanation: Supports methylotrophy as a co-occurring methanogenesis mode.
-  - reference: PMID:30013118
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: Microbial and geochemical data highlight lineages that correlate with
-      the production of greenhouse gases and indicate novel syntrophic relationships
-    explanation: Woodcroft et al. 2018 establish novel syntrophic relationships and
-      lineage-greenhouse-gas correlations in a permafrost thaw gradient, supporting
-      the SYNTROPHY framing of methanogenic methylotrophy at the community level.
-      Partial because the abstract does not name Stordalen Mire specifically.
-- name: Bacterial Anaerobic Methylotrophy
-  description: Bacterial MAGs encode and express anaerobic methylotrophic
-    potential across Stordalen Mire, indicating a bacterial route for processing
-    methylated compounds that can interact with methane-generating carbon flow.
-  interaction_type: CROSS_FEEDING
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Stordalen Mire anaerobic methylotrophic bacteria
+    snippet: co-occurrence of methylotrophy throughout
+    explanation: Supports the source integrated-omics interpretation of co-occurring pathways; their quantitative
+      methane contributions remain unresolved.
+    computational_provenance:
+      prediction_type: OTHER
+      parameters: 'Genome-resolved field omics: DRAM annotation with manual methylotrophy-gene assessment and mapped
+        transcript expression. The source uses homology, synteny and selected phylogenetic checks; bacterial phylogenetic
+        validation was restricted to selected phyla. Encoded/expression potential is not direct flux. Exact claim-specific
+        full pipeline reproduction was not performed.'
+  participating_taxa:
+  - preferred_term: Stordalen Mire methanogenic archaea
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:2157
+      label: Archaea
+- name: Bacterial Anaerobic Methylotrophic Potential and Expression
+  description: Bacterial MAGs encode anaerobic methylotrophic potential and associated transcripts occur across
+    the mire. Preserve the broad genomic and expression evidence without asserting traced cross-feeding. The removed
+    acetate-to-methylotrophic-methanogenesis arrow named the wrong recipient route; no replacement exchange mechanism
+    or recipient node is added.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methanol
     term:
@@ -191,27 +190,39 @@ ecological_interactions:
     term:
       id: GO:0009056
       label: catabolic process
-  downstream:
-  - target: Methanogenic Methylotrophy Across Thaw Gradient
-    description: >
-      Anaerobic bacterial methylotrophs provide a potential indirect route to
-      methane production by forming methanogenic by-products such as acetate.
   evidence:
   - reference: PMID:38063415
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: In addition to methanogenic methylotrophy, >1,700 bacterial MAGs
-    explanation: Supports bacterial methylotrophy alongside methanogenic methylotrophy.
+    snippet: '>1,700 bacterial MAGs across 19 phyla encoded anaerobic methylotrophic potential'
+    explanation: Supports broad encoded bacterial potential, not a measured exchanged-metabolite flux.
+    computational_provenance:
+      prediction_type: OTHER
+      parameters: 'Genome-resolved field omics: DRAM annotation with manual methylotrophy-gene assessment and mapped
+        transcript expression. The source uses homology, synteny and selected phylogenetic checks; bacterial phylogenetic
+        validation was restricted to selected phyla. Encoded/expression potential is not direct flux. Exact claim-specific
+        full pipeline reproduction was not performed.'
   - reference: PMID:38063415
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: bacterial methylotrophy may be an important and previously underappreciated component
-    explanation: Supports bacterial methylotrophy as a meaningful community process.
-- name: Methylated-Compound Substrate Niche Partitioning
-  description: Metabolomics detected diverse methylated compounds, and
-    methanogen orders differed in inferred methylated substrate use, suggesting
-    substrate-based partitioning of methylotrophic activity in bog and fen
-    methanogen communities.
+    snippet: with expression across 12 phyla
+    explanation: Supports detected transcription across bacterial phyla without demonstrating recipient use of bacterial
+      products.
+    computational_provenance:
+      prediction_type: OTHER
+      parameters: 'Genome-resolved field omics: DRAM annotation with manual methylotrophy-gene assessment and mapped
+        transcript expression. The source uses homology, synteny and selected phylogenetic checks; bacterial phylogenetic
+        validation was restricted to selected phyla. Encoded/expression potential is not direct flux. Exact claim-specific
+        full pipeline reproduction was not performed.'
+  participating_taxa:
+  - preferred_term: Stordalen Mire anaerobic methylotrophic bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+- name: Proposed Methylated-Substrate Niche Partitioning
+  description: 'HYPOTHESIZED/PARTIAL: metabolite detection and differing methyltransferase expression led the authors
+    to propose methylated-substrate niche partitioning in the fen. Retain this source proposal, not demonstrated
+    substrate uptake, reduced competition or an established bog-and-fen partitioning mechanism.'
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   metabolites:
@@ -220,56 +231,65 @@ ecological_interactions:
       id: CHEBI:17790
       label: methanol
   downstream:
-  - target: Methanogenic Methylotrophy Across Thaw Gradient
-    description: >
-      Substrate-partitioned methyltransferase expression routes methylated
-      oxygen compounds, sulfides, and amines into direct methylotrophic
-      methanogenesis by different methanogen orders.
+  - target: Methanogenic Methylotrophic Potential and Expression
+    description: 'HYPOTHESIZED/PARTIAL: differing inferred substrate preferences could support co-occurring methylotrophic
+      pathways among fen methanogens. The expression and metabolite evidence motivates this existing direction but
+      does not isolate niche partitioning as its cause, measure substrate-specific flux or demonstrate reduced competition.'
   evidence:
   - reference: PMID:38063415
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: Metabolomic analyses revealed the presence of diverse methylated compounds in the Mire
-    explanation: Supports availability of methylated substrates in the community environment.
+    explanation: Supports detected environmental methylated compounds, not uptake by a particular methanogen or
+      reduced competition.
+    computational_provenance:
+      prediction_type: OTHER
+      parameters: Source-reported metabolomic compound identification by LC-MS/NMR interpreted alongside genome-resolved
+        omics. Metabolite presence does not assign uptake to a particular population; raw spectra were not reanalyzed.
   - reference: PMID:38063415
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: Methanosarcinales and Methanobacteriales MAGs, these data indicated the use of
-      methylated oxygen compounds
-    explanation: Supports substrate differentiation among methanogenic groups.
-- name: Thaw-Stage Activity Gradient
-  description: Palsa hosted bacterial methylotrophy, while partially thawed bog
-    and fully thawed fen hosted both methanogenic and bacterial methylotrophic
-    activity, indicating functional changes along the permafrost thaw gradient.
-  interaction_type: NICHE_PARTITIONING
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: response to abiotic stimulus
+    snippet: Our expression data also hint at methylotrophic niche partitioning that may occur in the fen
+    explanation: Explicitly supports the authors qualified fen niche interpretation, not demonstrated competition
+      reduction.
+    computational_provenance:
+      prediction_type: OTHER
+      parameters: Source integration of methanogen gene assignments and mapped transcript expression with environmental
+        metabolites. Substrate preferences and fen niche partitioning are interpretations, not direct uptake or
+        competition measurements.
+  participating_taxa:
+  - preferred_term: Stordalen Mire methanogenic archaea
     term:
-      id: GO:0009628
-      label: response to abiotic stimulus
-  downstream:
-  - target: Methanogenic Methylotrophy Across Thaw Gradient
-    description: >
-      Partially thawed bog and fully thawed fen habitats housed active
-      methanogenic methylotrophy, while the frozen palsa was described as
-      non-methanogenic.
-  - target: Bacterial Anaerobic Methylotrophy
-    description: >
-      Bacterial methylotrophy was active across the thaw gradient, including in
-      palsa where methanogenic methylotrophy was not detected.
+      id: NCBITaxon:2157
+      label: Archaea
+- name: Thaw-Stage Methylotrophic Expression Patterns
+  description: Field omics support bacterial methylotrophic expression in palsa and both bacterial and methanogenic
+    methylotrophic expression in bog and fen. This is a habitat-associated expression pattern, not measured pathway-specific
+    production rates or evidence that the pattern itself causes the same activities. No niche-partitioning classification
+    is assigned to this gradient observation.
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:38063415
     supports: SUPPORT
-    evidence_source: IN_VIVO
+    evidence_source: COMPUTATIONAL
     snippet: the most frozen non-methanogenic palsa found to host bacterial methylotrophy
-    explanation: Supports palsa-stage bacterial methylotrophic activity.
+    explanation: Supports the source habitat-associated omics interpretation, not direct pathway-rate measurements
+      or a separate causal driver.
+    computational_provenance:
+      prediction_type: OTHER
+      parameters: Source comparison of annotated methylotrophy-associated transcripts across palsa, bog and fen
+        field samples. Expression is used as an activity indicator, not a measured methane production rate.
   - reference: PMID:38063415
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: partially thawed bog and fully thawed fen seen to house both methanogenic and
-      bacterial methylotrophic activities
-    explanation: Supports bog and fen stages with both methanogenic and bacterial methylotrophy.
+    evidence_source: COMPUTATIONAL
+    snippet: partially thawed bog and fully thawed fen seen to house both methanogenic and bacterial methylotrophic
+      activities
+    explanation: Supports the source habitat-associated omics interpretation, not direct pathway-rate measurements
+      or a separate causal driver.
+    computational_provenance:
+      prediction_type: OTHER
+      parameters: Source comparison of annotated methylotrophy-associated transcripts across palsa, bog and fen
+        field samples. Expression is used as an activity indicator, not a measured methane production rate.
 environmental_factors:
 - name: Permafrost thaw stage
   value: palsa, bog, and fen thaw-gradient habitats
@@ -393,3 +413,41 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: This community is curated for permafrost wetland carbon cycling and
   methane emissions; no metal or rare earth element process is curated as a
   primary function.
+discussions:
+- discussion_id: mire_omics_flux_and_route_limits
+  prompt: How much methane is attributable to each inferred pathway, and which proposed transfers are demonstrated?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Methanogenic Methylotrophic Potential and Expression
+  - ecological_interactions#Bacterial Anaerobic Methylotrophic Potential and Expression
+  - ecological_interactions#Proposed Methylated-Substrate Niche Partitioning
+  - ecological_interactions#Thaw-Stage Methylotrophic Expression Patterns
+  rationale: Preserve genomic, transcript and metabolite observations and the qualified fen niche proposal. The
+    source assigns acetate to acetoclastic methanogenesis, not the methylotrophic target of the removed arrow. Neither
+    omics co-occurrence nor the broad 2018 catalog establishes product-removal feedback or traced partner exchange.
+    Habitat patterns remain observations without redundant arrows. Quantitative pathway contribution remains a stated
+    source gap.
+  evidence:
+  - reference: PMID:38063415
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: which are substrates for acetoclastic and hydrogenotrophic methanogens, respectively.
+    explanation: In the preceding source sentence these substrates are acetate and carbon dioxide, respectively;
+      this bounds the removed route claim.
+  - reference: PMID:38063415
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: experimentation is needed to resolve the question of the comparative kinetics of
+    explanation: The source explicitly identifies unresolved pathway kinetics and production contributions.
+curation_history:
+- timestamp: '2026-10-08T02:08:53Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain archaeal encoded potential and transcripts with canonical participant scope; remove unsupported
+    syntrophy and unrelated catalog evidence.; Retain bacterial encoded potential and transcripts with canonical
+    participant scope; remove categorical cross-feeding and the acetate-to-methylotrophic route error.; Retain source-proposed
+    fen niche partitioning and its existing functional direction as HYPOTHESIZED/PARTIAL, not measured uptake or
+    reduced competition.; Retain habitat-associated transcript patterns with computational provenance; remove niche
+    typing and activity-restatement arrows. Issue#1830; reports/causal_graph_review/decisions/20261008-four-records-batch106.yaml
+  llm_assisted: true
