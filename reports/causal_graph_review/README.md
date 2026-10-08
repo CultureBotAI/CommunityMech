@@ -5,6 +5,42 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch118: Treatment Identity And Modeled Mechanisms
+
+[Decisions](decisions/20261008-four-records-batch118.yaml),
+[provenance](cache-provenance-20261008-batch118.json),
+[validation](validation-20261008-batch118.json), and
+[self-adversarial review](adversarial-review-20261008-batch118.yaml) cover
+Viili, waste-sludge electrofermentation, watermelon SSC8, and wetland
+oxygen-sulfate microcosms. Twelve of 13 nodes and four of eight arrows
+remain, with four renames and no new topology.
+
+Viili retains experimental nitrogen provision and AI-2 regulation of EPS,
+while the nutrient-to-signaling mediation remains partial. Sludge roles
+are limited to the representative genera in each spatial fraction; its
+EET arrows remain explicitly model-based, not intervention-proven.
+
+Watermelon SSC8 retains positive growth results from its no-added-pathogen
+experiment. The parent 16-member SynCom's disease-challenge result and
+biofilm-pathway node are not assigned to SSC8. Seven helper strains promote
+Q6, but only three pairs show bilateral benefit. Metabolomic candidates
+remain potential exchange, not a validated compound-specific mechanism.
+The wetland graph retains measured gas responses and its fitted subnetwork
+without arrows that confuse shared exposure with causal succession.
+
+All four whole records were read. Watermelon and wetland primary main-body
+XML, methods, results, discussion, tables and captions were reviewed; original
+figure pixels, supplements, raw data and model code were not. Viili and
+sludge repairs are abstract-bounded. All 29 graph/discussion quotations
+match fresh primary sources and existing caches. No caches were changed.
+
+Four guarded writes and append-only histories preserve unrelated raw fields
+and 456 other records. Two participant-list users are added without changing
+the scope census, connectivity logic or thresholds. Repairs #1915-#1918
+await protected-main merge; metadata and composition follow-ups #1919/#1920
+remain open. No Edison extension or spend was required. Self-review is not
+independent approval, and the overall review remains incomplete.
+
 ## Batch117: Sequential Treatment And Evidence Boundaries
 
 [Decisions](decisions/20261008-four-records-batch117.yaml),

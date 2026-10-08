@@ -452,6 +452,8 @@ USERS = {
     "Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.yaml",
     "Urine_Nitrification_SynCom.yaml",
     "Viili_Fungus_Bacterium_EPS_SynCom.yaml",
+    "Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml",
+    "Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.yaml",
     "Wheat_Consortium_C1.yaml",
     "Wheat_Consortium_C6.yaml",
     "Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml",
