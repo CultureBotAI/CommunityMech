@@ -5,6 +5,32 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch110: Polymer And Electron-Recipient Boundaries
+
+[Decisions](decisions/20261008-three-records-batch110.yaml),
+[provenance](cache-provenance-20261008-batch110.json),
+[validation](validation-20261008-batch110.json), and
+[self-adversarial review](adversarial-review-20261008-batch110.yaml) cover
+the Synechococcus-Halomonas, -Pseudomonas and -Shewanella records.
+All ten nodes and six directions remain. PHA is distinguished from PHB,
+DNT transformation from complete mineralization, and the abiotic anode
+from a cyanobacterial recipient. Positive production and growth findings
+remain; unmeasured mediation stays explicitly hypothetical.
+
+Five primary main texts were read in bounded spans and one primary abstract
+in full. Twenty-seven graph/discussion quotations match fresh primary text
+and unchanged caches. Four append-only histories include a quotation
+correction; its initial failed check is retained. A separate PDF fi-ligature
+false positive remains explicitly recorded under validator issue #1863,
+not silently counted as a clean snippet audit. Four in-memory mutation
+probes reject claim inflation. All 923 caches and 457 other records remain
+unchanged. No new topology or Edison spend.
+
+Repairs #1857-#1859 await protected-main merge. Halomonas remains
+`needs_research` for primary-methods access and exact-system scope (#1860).
+Non-graph follow-ups #1861-#1862 and validator #1863 remain open. Self-review
+is not independent approval or completion of the whole corpus review.
+
 ## Batch109: Strain And Assay Boundaries
 
 [Decisions](decisions/20261008-six-records-batch109.yaml),
