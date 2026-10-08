@@ -124,9 +124,10 @@ related_ingredients:
     explanation: Names microcrystalline cellulose as the model cellulosic substrate.
 ecological_interactions:
 - name: Fungal Cellulase Hydrolysis
-  description: Trichoderma reesei secretes cellulase enzymes that hydrolyze lignocellulosic
-    biomass into soluble saccharides available to the bacterial partner.
-  interaction_type: COMMENSALISM
+  description: T. reesei cellulases release soluble saccharides from cellulosic biomass for consumption by engineered
+    E. coli. This resource delivery supports cross-feeding; it does not by itself establish a neutral effect on
+    the fungus or unconditional commensalism.
+  interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
     preferred_term: Trichoderma reesei
@@ -154,13 +155,14 @@ ecological_interactions:
       label: cellulose catabolic process
   downstream:
   - target: Bacterial Isobutanol Production From Soluble Saccharides
-    description: >
-      T. reesei cellulase activity releases soluble saccharides that engineered
-      E. coli consumes for isobutanol production.
-  - target: Cooperator-Cheater Population Stability
-    description: >
-      Fungal cellulase secretion creates the soluble-saccharide public good
-      underlying the modeled cooperator-cheater population dynamics.
+    description: 'T. reesei cellulase activity releases soluble saccharides that engineered E. coli consumes for
+      isobutanol production.
+
+      '
+  - target: Reported Cooperator-Cheater Population Equilibria
+    description: 'PARTIAL: fungal saccharide release supplies the resource basis of the reported cooperator-cheater
+      dynamics. Stable equilibria depend on the study conditions and model assumptions; hydrolysis alone is not
+      sufficient evidence of coexistence. The abstract reports experimental model validation.'
   evidence:
   - reference: PMID:23959872
     supports: SUPPORT
@@ -168,20 +170,11 @@ ecological_interactions:
     snippet: hydrolyze lignocellulosic biomass into soluble saccharides
     explanation: Supports the T. reesei cellulase-mediated hydrolysis interaction.
 - name: Bacterial Isobutanol Production From Soluble Saccharides
-  description: Escherichia coli consumes the soluble saccharides released by fungal
-    hydrolysis and converts them into isobutanol as the target biofuel product.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Trichoderma reesei
-    term:
-      id: NCBITaxon:51453
-      label: Trichoderma reesei
-  target_taxon:
-    preferred_term: Escherichia coli
-    term:
-      id: NCBITaxon:562
-      label: Escherichia coli
+  description: Engineered E. coli converts soluble saccharides supplied by fungal hydrolysis into isobutanol. This
+    is the recipient production outcome, not evidence that isobutanol itself is exchanged between the partners.
+    The abstract reports maximum titers of 1.88 g/L and yields up to 62 percent of theoretical; these maxima are
+    not assumed to describe the same assay.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: glucose
     term:
@@ -207,22 +200,19 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: titers up to 1.88 g/L
     explanation: Supports measured isobutanol production by the consortium.
-- name: Cooperator-Cheater Population Stability
-  description: The consortium exhibits cooperator-cheater dynamics, with cellulase-producing
-    T. reesei acting as the public-goods producer and E. coli benefiting from soluble
-    saccharides; the study reported stable population equilibria and tunable composition.
-  interaction_type: COMMENSALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Trichoderma reesei
-    term:
-      id: NCBITaxon:51453
-      label: Trichoderma reesei
-  target_taxon:
-    preferred_term: Escherichia coli
+  participating_taxa:
+  - preferred_term: Escherichia coli
     term:
       id: NCBITaxon:562
       label: Escherichia coli
+- name: Reported Cooperator-Cheater Population Equilibria
+  description: 'PARTIAL: the study reports cooperator-cheater dynamics and stable population equilibria using a
+    comprehensive mathematical model that was experimentally validated. Fungal cellulase production and bacterial
+    use of released sugars underlie the modeled interaction. The abstract supports this combined modeling/experimental
+    framework, not stable coexistence under every starting ratio or environmental condition. Full-paper access was
+    unavailable for checking the exact perturbations and model assumptions; experimental validation is not being
+    reclassified as purely computational speculation.'
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -230,15 +220,26 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:23959872
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: cooperator-cheater dynamics within T. reesei/E. coli consortia
-    explanation: Supports the ecological interpretation of the interaction.
+    explanation: Abstract supports the reported cooperator-cheater framework, not universal commensalism or a full
+      audit of model assumptions.
   - reference: PMID:23959872
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: stable population equilibria
-    explanation: Supports stable coexistence as an observed consortium property.
+    explanation: Stable equilibria are reported in an experimentally validated modeling study; the abstract alone
+      does not resolve condition-specific validation.
+  participating_taxa:
+  - preferred_term: Trichoderma reesei
+    term:
+      id: NCBITaxon:51453
+      label: Trichoderma reesei
+  - preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
 environmental_factors:
 - name: Cellulosic feedstock
   value: microcrystalline cellulose and pretreated corn stover
@@ -334,3 +335,33 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this cellulosic
   biofuel production consortium.
+discussions:
+- discussion_id: isobutanol-conditions-and-mediation-batch116
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  prompt: Which experimental perturbations and model assumptions bound the reported stable equilibria?
+  rationale: The primary abstract explicitly reports experimental model validation. Full text was unavailable after
+    bounded public retrieval attempts, so exact-system stability conditions cannot be audited here. Hydrolysis provides
+    a resource basis, not proof that every inoculum converges to coexistence.
+  attaches_to:
+  - ecological_interactions#Fungal Cellulase Hydrolysis
+  - ecological_interactions#Bacterial Isobutanol Production From Soluble Saccharides
+  - ecological_interactions#Reported Cooperator-Cheater Population Equilibria
+  evidence:
+  - reference: PMID:23959872
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: cooperator-cheater dynamics within T. reesei/E. coli consortia
+    explanation: Abstract supports the reported cooperator-cheater framework, not universal commensalism or a full
+      audit of model assumptions.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T10:53:53Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain resource delivery as cross-feeding without assigning an unmeasured neutral fungal fitness effect.;
+    Represent E. coli product formation as a recipient outcome, not a second pairwise metabolite exchange.; Retain
+    experimentally validated model support and equilibria with condition-bounded community scope, not unconditional
+    stability. Issue#1901; reports/causal_graph_review/decisions/20261008-three-records-batch116.yaml
+  llm_assisted: true

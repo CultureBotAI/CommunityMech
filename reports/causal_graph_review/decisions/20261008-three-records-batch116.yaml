@@ -1,0 +1,581 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 3d04751542c939e8e4e238ce906509116ea8ec57
+baseline_commit: 3d04751542c939e8e4e238ce906509116ea8ec57
+base_tree: bba534e5fa47471840d82809c0310d8fde62af0f
+pre_source_baseline_sha256: f17cfde2b55c88f02425e4a4778fc5232a4ba1493fb913f5731dbcaffedb4e6d
+issues:
+- 1901
+- 1902
+- 1903
+unresolved_research_issues: []
+unresolved_non_graph_issues:
+- 1904
+- 1905
+source_access:
+  retrieval_manifest:
+    isobutanol:
+      pmid: '23959872'
+      doi: 10.1073/pnas.1218447110
+      pmcid: PMC3767521
+      title: Design and characterization of synthetic fungal-bacterial consortia for direct production of isobutanol
+        from cellulosic biomass.
+      metadata: /private/tmp/communitymech-batch116/isobutanol-metadata.json
+      metadata_sha256: 43a55234fa9b6809ef37a548013458fe35c644f2cd895818691f2c30e195484d
+      retrievals:
+      - url: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A23959872+AND+SRC%3AMED&format=json&resultType=core
+        status: retrieved
+      - url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3767521/fullTextXML
+        status: retrieval_failed
+        error: 'HTTP Error 500: '
+      abstract: /private/tmp/communitymech-batch116/isobutanol-abstract.txt
+      abstract_sha256: 4795983d411bb7bbd34b6639806931040dea5aa512b99c9c954bfcce38322bd9
+      crossref: /private/tmp/communitymech-batch116/isobutanol-crossref.json
+      crossref_sha256: 670df1bc3cdfd402b1b624e3f2fe84bd575677b622f90f5e62b9f0cc89dd7d63
+      crossref_license: []
+    lactate:
+      pmid: '32855308'
+      doi: 10.1126/science.abb1214
+      pmcid: null
+      title: A heterogeneous microbial consortium producing short-chain fatty acids from lignocellulose.
+      metadata: /private/tmp/communitymech-batch116/lactate-metadata.json
+      metadata_sha256: f1357b9e525fd3d459b02c7a2a5a7ee22f2c62fb835aea21c16b9960d90e0324
+      retrievals:
+      - url: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A32855308+AND+SRC%3AMED&format=json&resultType=core
+        status: retrieved
+      abstract: /private/tmp/communitymech-batch116/lactate-abstract.txt
+      abstract_sha256: 8ef2d78b67130d907dabeaca6c43469556441d4a2e9e40d6118b070fc5f8661d
+      crossref: /private/tmp/communitymech-batch116/lactate-crossref.json
+      crossref_sha256: 57f663e57608a2ff2f01a8ff67cb172eb9017cb00947b9948a505a5b708915ba
+      crossref_license: []
+    filamentous:
+      pmid: '36314761'
+      doi: 10.1002/mbo3.1324
+      pmcid: PMC9531331
+      title: Tunable population dynamics in a synthetic filamentous coculture.
+      metadata: /private/tmp/communitymech-batch116/filamentous-metadata.json
+      metadata_sha256: 89400777c0ccc16f6c530d58c9da9cd650763c237daef774d4a675ea47033a28
+      retrievals:
+      - url: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A36314761+AND+SRC%3AMED&format=json&resultType=core
+        status: retrieved
+      - url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9531331/fullTextXML
+        status: retrieved_not_yet_read
+      abstract: /private/tmp/communitymech-batch116/filamentous-abstract.txt
+      abstract_sha256: ad9cc682eef44d03f737db5ce15d38e2259bb7e2adf8f0a643e892be78f49785
+      xml: /private/tmp/communitymech-batch116/filamentous-primary.xml
+      xml_sha256: f07018dab58e6c207e6f62ae24200d10939002c3ed2575930c4dba233ccde425
+      primary_text: /private/tmp/communitymech-batch116/filamentous-primary.txt
+      primary_text_sha256: c0e6e32483b7495933e719acede733e5db43dcf5e3bb1f0c2edec451221088d7
+      license:
+      - This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License,
+        which permits use, distribution and reproduction in any medium, provided the original work is properly cited.
+      crossref: /private/tmp/communitymech-batch116/filamentous-crossref.json
+      crossref_sha256: 19419ee03a6229ad453bfa3cca95bf52d21782de9449903869dc968107aeb2ec
+      crossref_license:
+      - start:
+          date-parts:
+          - - 2022
+            - 10
+            - 4
+          date-time: '2022-10-04T00:00:00Z'
+          timestamp: 1664841600000
+        content-version: vor
+        delay-in-days: 3
+        URL: http://creativecommons.org/licenses/by/4.0/
+  actual_read_scope:
+  - Three whole canonical records and existing graph snippets read. Fresh primary abstracts and Crossref identities
+    retrieved. Isobutanol full text unavailable:EuropePMC500,PMC access challenge,publisher inaccessible,EuropePMC403;
+    public BioC OA subset had no result. OpenAlex and OSTI yielded no alternate body. Abstract explicitly reports
+    experimental model validation; exact conditions remain a focused knowledge gap.
+  - Lactate public Cambridge accepted manuscript read:main pages1-14,captions21/23-25,SI27-31/34-38/42-44,tables53-54.
+    Visually inspected figures20/22/25/34 and TableS2page54; one pretreated row label is clipped in the manuscript,so
+    benchmark attribution uses clear Fig4. Not all64pages,all references,all SI or raw data reviewed. Distinguish
+    membrane/fungal/LAB roles and acetate/glucose co-substrates; do not merge experimental arms.
+  - Filamentous fresh CC-BY4 XML main body,methods/results/discussion,captions and appendices read in full; no original
+    figure-pixel or raw-data review. Preserve initial glucose phase,conditional competition/commensalism,viability
+    control and relative-growth/proxy limits.
+  - Only one cache appended:19-word lactate main-text quotation with version/page provenance. Existing cache header
+    overstates completeness; provenance explicitly identifies abstract plus methods excerpt and legacy landing-page
+    furniture. No publication PDFs or full bodies imported; license not inferred for newly accessed version.
+primary_artifacts:
+  /private/tmp/communitymech-batch116/baseline.json: f17cfde2b55c88f02425e4a4778fc5232a4ba1493fb913f5731dbcaffedb4e6d
+  /private/tmp/communitymech-batch116/extra-sources.json: 7e058e1c9d6618216de16f53d76e8b8fa3392ff34450f09175b58f486c27cd28
+  /private/tmp/communitymech-batch116/filamentous-abstract.txt: ad9cc682eef44d03f737db5ce15d38e2259bb7e2adf8f0a643e892be78f49785
+  /private/tmp/communitymech-batch116/filamentous-crossref.json: 19419ee03a6229ad453bfa3cca95bf52d21782de9449903869dc968107aeb2ec
+  /private/tmp/communitymech-batch116/filamentous-metadata.json: 89400777c0ccc16f6c530d58c9da9cd650763c237daef774d4a675ea47033a28
+  /private/tmp/communitymech-batch116/filamentous-primary.txt: c0e6e32483b7495933e719acede733e5db43dcf5e3bb1f0c2edec451221088d7
+  /private/tmp/communitymech-batch116/filamentous-primary.xml: f07018dab58e6c207e6f62ae24200d10939002c3ed2575930c4dba233ccde425
+  /private/tmp/communitymech-batch116/isobutanol-abstract.txt: 4795983d411bb7bbd34b6639806931040dea5aa512b99c9c954bfcce38322bd9
+  /private/tmp/communitymech-batch116/isobutanol-bioc-receipt.json: a46d9a37f42e27b65b3cb37ed1d8b2a2ad580cbf6cd584369484c335d96fbe36
+  /private/tmp/communitymech-batch116/isobutanol-bioc.json: 478f38e0765ee9c406831bb2fc27e8019ac5227c20c6b28ca0de582d8449354a
+  /private/tmp/communitymech-batch116/isobutanol-crossref.json: 670df1bc3cdfd402b1b624e3f2fe84bd575677b622f90f5e62b9f0cc89dd7d63
+  /private/tmp/communitymech-batch116/isobutanol-metadata.json: 43a55234fa9b6809ef37a548013458fe35c644f2cd895818691f2c30e195484d
+  /private/tmp/communitymech-batch116/isobutanol-openalex.json: 96536488c221a14015eb5603764a9c8abd292848ad699d81cd0095e72e10a5a0
+  /private/tmp/communitymech-batch116/isobutanol-osti.json: b325f79fe7edeafeaddba21ae1e5ab7de4612fadb0f7c7f3a4588c95bd5c7357
+  /private/tmp/communitymech-batch116/issue-dedup-current.json: 6edb7b5d04eece491fd2b4e24bc9ade5d0cd64aff7bf1ba921d0717ef3171dab
+  /private/tmp/communitymech-batch116/lactate-abstract.txt: 8ef2d78b67130d907dabeaca6c43469556441d4a2e9e40d6118b070fc5f8661d
+  /private/tmp/communitymech-batch116/lactate-crossref.json: 57f663e57608a2ff2f01a8ff67cb172eb9017cb00947b9948a505a5b708915ba
+  /private/tmp/communitymech-batch116/lactate-metadata.json: f1357b9e525fd3d459b02c7a2a5a7ee22f2c62fb835aea21c16b9960d90e0324
+  /private/tmp/communitymech-batch116/lactate-page-20.png: c366446b8250edcb914ca3c8bb7022a30e706b5f02b7e78744794c749626afa9
+  /private/tmp/communitymech-batch116/lactate-page-22.png: 7ec09579df5ce1c1b39a775bd533d3ddce8d121ea27e77f342c895d2b344cd8c
+  /private/tmp/communitymech-batch116/lactate-page-25.png: 685d80eedd7e9fbc9d2ac23a2b259cc452deda0e87276220e5bb8117d0922c8d
+  /private/tmp/communitymech-batch116/lactate-page-34.png: ce7ee8c3f173e1444a0f4e2ea51f31b239368dd582623843146e62a77f3f9387
+  /private/tmp/communitymech-batch116/lactate-page-54.png: 0701a52aca0a9a943720f112d12593e897198a8c390683f008fc714b4f66a0b3
+  /private/tmp/communitymech-batch116/lactate-pdf.txt: 7cb4588a2415f42349b6b2988b9192b2672abf60b288f3d99f4c38f1d3db30ac
+  /private/tmp/communitymech-batch116/lactate-primary.pdf: d9b0dd3a0be984d88476385acea3dc8191dc0f0c89020d69f664bd68729229cf
+  /private/tmp/communitymech-batch116/local-matches.txt: 1e08528c01f2ba2779220762b55f635b6a5285ad08dbe6178e0c9d32e7a60e1c
+  /private/tmp/communitymech-batch116/pdf-extraction.json: 15d949c68e3c492d3eb7f0a50dfe6d40d0f46ba9c42be02fd249505f48e448bd
+  /private/tmp/communitymech-batch116/primary-manifest.json: 1985ec773f2593d20605a7214c1a679388f034c57a3b15b5e42ce78ad32fe2d3
+  references_cache/PMID_23959872.md: edb5a89657b6b4d86a5b7e77143686e44e8d034dfdff9bd98250237843a1a9fa
+  references_cache/PMID_32855308.md: 4815e572ca0c59229f608e8b3f40d427fdb7d04ce2fe642a4ccdf45ddc92c5cd
+  references_cache/PMID_36314761.md: 24b509b8ea6aa6c2dfadb18b34ef8caeb094d9ec5ea3cb1b2f708d914535d52b
+reviewed_counts:
+  original_nodes: 9
+  retained_nodes: 9
+  removed_nodes: 0
+  original_arrows: 6
+  retained_arrows: 5
+  removed_arrows: 1
+  renamed_nodes: 4
+  graph_quotations: 16
+  discussion_quotations: 3
+  new_discussions: 3
+primary_graph_snippet_count: 16
+snippet_checks:
+- record: Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture
+  node: Fungal Cellulase Hydrolysis
+  evidence_index: 0
+  reference: PMID:23959872
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/isobutanol-abstract.txt
+  cache_artifact: references_cache/PMID_23959872.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture
+  node: Bacterial Isobutanol Production From Soluble Saccharides
+  evidence_index: 0
+  reference: PMID:23959872
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/isobutanol-abstract.txt
+  cache_artifact: references_cache/PMID_23959872.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture
+  node: Bacterial Isobutanol Production From Soluble Saccharides
+  evidence_index: 1
+  reference: PMID:23959872
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/isobutanol-abstract.txt
+  cache_artifact: references_cache/PMID_23959872.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture
+  node: Reported Cooperator-Cheater Population Equilibria
+  evidence_index: 0
+  reference: PMID:23959872
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/isobutanol-abstract.txt
+  cache_artifact: references_cache/PMID_23959872.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture
+  node: Reported Cooperator-Cheater Population Equilibria
+  evidence_index: 1
+  reference: PMID:23959872
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/isobutanol-abstract.txt
+  cache_artifact: references_cache/PMID_23959872.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Lactate_Platform
+  node: Cellulose Hydrolysis to Soluble Sugars
+  evidence_index: 0
+  reference: PMID:32855308
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/lactate-abstract.txt
+  cache_artifact: references_cache/PMID_32855308.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Lactate_Platform
+  node: Lactate Supply and Redox Facilitation
+  evidence_index: 0
+  reference: PMID:32855308
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/lactate-pdf.txt
+  cache_artifact: references_cache/PMID_32855308.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Lactate_Platform
+  node: Butyrate Production by Lactate-Acetate Co-fermentation
+  evidence_index: 0
+  reference: PMID:32855308
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/lactate-abstract.txt
+  cache_artifact: references_cache/PMID_32855308.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Lactate_Platform
+  node: Butyrate Production by Lactate-Acetate Co-fermentation
+  evidence_index: 1
+  reference: PMID:32855308
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/lactate-pdf.txt
+  cache_artifact: references_cache/PMID_32855308.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture
+  node: Cellulase-Driven Hydrolysate Cross-Feeding
+  evidence_index: 0
+  reference: PMID:36314761
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/filamentous-primary.txt
+  cache_artifact: references_cache/PMID_36314761.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture
+  node: Cellulase-Driven Hydrolysate Cross-Feeding
+  evidence_index: 1
+  reference: PMID:36314761
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/filamentous-primary.txt
+  cache_artifact: references_cache/PMID_36314761.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture
+  node: Streptomyces Growth on Fungal Hydrolysate
+  evidence_index: 0
+  reference: PMID:36314761
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/filamentous-primary.txt
+  cache_artifact: references_cache/PMID_36314761.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture
+  node: Streptomyces Growth on Fungal Hydrolysate
+  evidence_index: 1
+  reference: PMID:36314761
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/filamentous-primary.txt
+  cache_artifact: references_cache/PMID_36314761.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture
+  node: Tunable Filamentous Population Dynamics
+  evidence_index: 0
+  reference: PMID:36314761
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/filamentous-primary.txt
+  cache_artifact: references_cache/PMID_36314761.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture
+  node: Tunable Filamentous Population Dynamics
+  evidence_index: 1
+  reference: PMID:36314761
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/filamentous-primary.txt
+  cache_artifact: references_cache/PMID_36314761.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture
+  node: Tunable Filamentous Population Dynamics
+  evidence_index: 2
+  reference: PMID:36314761
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/filamentous-primary.txt
+  cache_artifact: references_cache/PMID_36314761.md
+  scope: Normalized contiguous literal match, not entailment proof.
+discussion_snippet_checks:
+- record: Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture
+  node: isobutanol-conditions-and-mediation-batch116
+  evidence_index: 0
+  reference: PMID:23959872
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/isobutanol-abstract.txt
+  cache_artifact: references_cache/PMID_23959872.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Lactate_Platform
+  node: lactate-conditions-and-mediation-batch116
+  evidence_index: 0
+  reference: PMID:32855308
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/lactate-pdf.txt
+  cache_artifact: references_cache/PMID_32855308.md
+  scope: Normalized contiguous literal match, not entailment proof.
+- record: Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture
+  node: filamentous-conditions-and-mediation-batch116
+  evidence_index: 0
+  reference: PMID:36314761
+  cache_matched: true
+  independent_primary_match: true
+  matched_artifact: /private/tmp/communitymech-batch116/filamentous-primary.txt
+  cache_artifact: references_cache/PMID_36314761.md
+  scope: Normalized contiguous literal match, not entailment proof.
+cache_changes:
+- path: references_cache/PMID_32855308.md
+  before_sha256: 6f8894879c842b194b447b56e3aed49dbd2ab440f486b26205c96f0a05fe7724
+  after_sha256: 4815e572ca0c59229f608e8b3f40d427fdb7d04ce2fe642a4ccdf45ddc92c5cd
+  operation: Append bounded19-word main-text excerpt and explicit version/page/completeness provenance; preserve
+    prior bytes.
+  quote_words: 19
+  primary_artifact: /private/tmp/communitymech-batch116/lactate-pdf.txt
+  source_url: https://www.repository.cam.ac.uk/bitstreams/00d420f3-87c3-4da6-87a1-e93f8e9a2007/download
+edison:
+  required_for_this_repair: false
+  provider_submissions: 0
+  credits_spent: 0
+  new_nodes_or_directions: 0
+  prior_extension_blocker: Ruegeria issue1883:configuredkey unavailable in prior approved invocation; no retry without
+    state change.
+limitations:
+- Fresh both-root baseline before research:460records,923caches,57warnings,zero structural defects. Nine existing
+  nodes/six arrows reviewed; nine retained nodes/five arrows,one removed direction,four renames,no new topology.
+- Three whole canonical records and existing graph snippets read. Fresh primary abstracts and Crossref identities
+  retrieved. Isobutanol full text unavailable:EuropePMC500,PMC access challenge,publisher inaccessible,EuropePMC403;
+  public BioC OA subset had no result. OpenAlex and OSTI yielded no alternate body. Abstract explicitly reports
+  experimental model validation; exact conditions remain a focused knowledge gap.
+- Lactate public Cambridge accepted manuscript read:main pages1-14,captions21/23-25,SI27-31/34-38/42-44,tables53-54.
+  Visually inspected figures20/22/25/34 and TableS2page54; one pretreated row label is clipped in the manuscript,so
+  benchmark attribution uses clear Fig4. Not all64pages,all references,all SI or raw data reviewed. Distinguish
+  membrane/fungal/LAB roles and acetate/glucose co-substrates; do not merge experimental arms.
+- Filamentous fresh CC-BY4 XML main body,methods/results/discussion,captions and appendices read in full; no original
+  figure-pixel or raw-data review. Preserve initial glucose phase,conditional competition/commensalism,viability
+  control and relative-growth/proxy limits.
+- Only one cache appended:19-word lactate main-text quotation with version/page provenance. Existing cache header
+  overstates completeness; provenance explicitly identifies abstract plus methods excerpt and legacy landing-page
+  furniture. No publication PDFs or full bodies imported; license not inferred for newly accessed version.
+- Initial1142and fresh all-state issue title/body searches found only unrelated1216/1011. Ignored/hidden-inclusive
+  local path search found138files excluding.git,docs,site,references_cache,.env; not a historical PR-comment audit.
+  Canonical taxon identities retained,including strain1344414 distinct from species51453.
+- 457otherrecords,922othercaches and priorhistory/decisions preserved; non-graph raw blocks untouched. Metadata1904/1905remain
+  open. No schema/runtime/connectivity-rule changes. Isobutanol review is abstract-bounded,not full-paper certification.
+- Existing-graph repair requires no Edison extension:new nodes/directions0,submissions0,credits0. Prior Ruegeria
+  authorization remains blocked by configuredkey unavailability; no credentials inspected or retry attempted. Overallgoal
+  remains incomplete. Self-adversarial review is not independent approval; no merge or branch deletion without protected
+  gates.
+records:
+- path: kb/communities/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.yaml
+  id: CommunityMech:000205
+  original_sha256: 4ea126e913b09702e406501449cb83080bdfd4af1623651299737147b08b2e9a
+  record_sha256: 3fe13833fafecd516fd06ee844c2a33de7ce3b5e5e230654691a79fa21560461
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261008-three-records-batch116.yaml
+  scope: Whole record and every existing node/arrow reviewed; graph repair, not whole-record certification.
+  summary: Retain resource delivery as cross-feeding without assigning an unmeasured neutral fungal fitness effect.;
+    Represent E. coli product formation as a recipient outcome, not a second pairwise metabolite exchange.; Retain
+    experimentally validated model support and equilibria with condition-bounded community scope, not unconditional
+    stability.
+  node_decisions:
+  - node: Fungal Cellulase Hydrolysis
+    rationale: Retain resource delivery as cross-feeding without assigning an unmeasured neutral fungal fitness
+      effect.
+  - node: Bacterial Isobutanol Production From Soluble Saccharides
+    rationale: Represent E. coli product formation as a recipient outcome, not a second pairwise metabolite exchange.
+  - node: Reported Cooperator-Cheater Population Equilibria
+    rationale: Retain experimentally validated model support and equilibria with condition-bounded community scope,
+      not unconditional stability.
+  removed_node_decisions: []
+  renamed_nodes:
+    Cooperator-Cheater Population Stability: Reported Cooperator-Cheater Population Equilibria
+  edges_before:
+  - &id001
+    source: Fungal Cellulase Hydrolysis
+    target: Bacterial Isobutanol Production From Soluble Saccharides
+    description: 'T. reesei cellulase activity releases soluble saccharides that engineered E. coli consumes for
+      isobutanol production.
+
+      '
+  - &id003
+    source: Fungal Cellulase Hydrolysis
+    target: Cooperator-Cheater Population Stability
+    description: 'Fungal cellulase secretion creates the soluble-saccharide public good underlying the modeled cooperator-cheater
+      population dynamics.
+
+      '
+  edges_after:
+  - &id002
+    source: Fungal Cellulase Hydrolysis
+    target: Bacterial Isobutanol Production From Soluble Saccharides
+    description: 'T. reesei cellulase activity releases soluble saccharides that engineered E. coli consumes for
+      isobutanol production.
+
+      '
+  - &id004
+    source: Fungal Cellulase Hydrolysis
+    target: Reported Cooperator-Cheater Population Equilibria
+    description: 'PARTIAL: fungal saccharide release supplies the resource basis of the reported cooperator-cheater
+      dynamics. Stable equilibria depend on the study conditions and model assumptions; hydrolysis alone is not
+      sufficient evidence of coexistence. The abstract reports experimental model validation.'
+  retained_edge_decisions:
+  - before: *id001
+    after: *id002
+    rationale: 'T. reesei cellulase activity releases soluble saccharides that engineered E. coli consumes for isobutanol
+      production.
+
+      '
+  - before: *id003
+    after: *id004
+    rationale: 'PARTIAL: fungal saccharide release supplies the resource basis of the reported cooperator-cheater
+      dynamics. Stable equilibria depend on the study conditions and model assumptions; hydrolysis alone is not
+      sufficient evidence of coexistence. The abstract reports experimental model validation.'
+  removed_edge_decisions: []
+  references:
+  - PMID:23959872
+  issues:
+  - 1901
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture/2026-10-08T105358Z-codex-2ed9c5.yaml
+- path: kb/communities/Trichoderma_Lactate_Platform.yaml
+  id: CommunityMech:000075
+  original_sha256: e12191dd7b1c95d88b85136f635d1c33bcd7af642f105574fed48883dd2b1585
+  record_sha256: 06634a12fd704129ef6f5a5cccade1159308fc1f4e5725ff5dc4bd21ccf11636
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261008-three-records-batch116.yaml
+  scope: Whole record and every existing node/arrow reviewed; graph repair, not whole-record certification.
+  summary: Retain carbohydrate cross-feeding while separating cellulose hexoses from supplied pentoses and unsupported
+    commensalism.; Preserve LAB redox evidence alongside continuing fungal oxygen consumption, without reciprocal
+    syntrophy or LAB-alone anoxia.; Restore experimentally supported co-substrate dependence and distinguish recipient
+    production, alternative arms and pretreated three-member benchmark.
+  node_decisions:
+  - node: Cellulose Hydrolysis to Soluble Sugars
+    rationale: Retain carbohydrate cross-feeding while separating cellulose hexoses from supplied pentoses and unsupported
+      commensalism.
+  - node: Lactate Supply and Redox Facilitation
+    rationale: Preserve LAB redox evidence alongside continuing fungal oxygen consumption, without reciprocal syntrophy
+      or LAB-alone anoxia.
+  - node: Butyrate Production by Lactate-Acetate Co-fermentation
+    rationale: Restore experimentally supported co-substrate dependence and distinguish recipient production, alternative
+      arms and pretreated three-member benchmark.
+  removed_node_decisions: []
+  renamed_nodes:
+    Lactic Acid Fermentation and Oxygen Depletion: Lactate Supply and Redox Facilitation
+    Butyric Acid Production from Lactate: Butyrate Production by Lactate-Acetate Co-fermentation
+  edges_before:
+  - &id005
+    source: Cellulose Hydrolysis to Soluble Sugars
+    target: Lactic Acid Fermentation and Oxygen Depletion
+    description: Soluble carbohydrates released by T. reesei are funneled by lactic-acid bacteria to lactate, the
+      central intermediate of the short-chain-fatty-acid platform.
+  - &id007
+    source: Lactic Acid Fermentation and Oxygen Depletion
+    target: Butyric Acid Production from Lactate
+    description: Lactate produced by L. pentosus supplies the central fermentation intermediate that C. tyrobutyricum
+      converts to butyrate.
+  edges_after:
+  - &id006
+    source: Cellulose Hydrolysis to Soluble Sugars
+    target: Lactate Supply and Redox Facilitation
+    description: Fungal hydrolysis supplies fermentable carbohydrates that L. pentosus converts to lactate. This
+      substrate route enables LAB metabolism in the membrane reactor; it does not make fungal hydrolysis alone sufficient
+      for the observed redox state.
+  - &id008
+    source: Lactate Supply and Redox Facilitation
+    target: Butyrate Production by Lactate-Acetate Co-fermentation
+    description: L. pentosus supplies lactate and contributes to reducing conditions that enable C. tyrobutyricum
+      co-fermentation. Acetate or glucose must also be available; acetate depletion and feed-rescue experiments
+      support this requirement. Neither lactate alone nor LAB-alone oxygen removal is sufficient.
+  retained_edge_decisions:
+  - before: *id005
+    after: *id006
+    rationale: Fungal hydrolysis supplies fermentable carbohydrates that L. pentosus converts to lactate. This substrate
+      route enables LAB metabolism in the membrane reactor; it does not make fungal hydrolysis alone sufficient
+      for the observed redox state.
+  - before: *id007
+    after: *id008
+    rationale: L. pentosus supplies lactate and contributes to reducing conditions that enable C. tyrobutyricum
+      co-fermentation. Acetate or glucose must also be available; acetate depletion and feed-rescue experiments
+      support this requirement. Neither lactate alone nor LAB-alone oxygen removal is sufficient.
+  removed_edge_decisions: []
+  references:
+  - PMID:32855308
+  issues:
+  - 1902
+  - 1904
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Trichoderma_Lactate_Platform/2026-10-08T105359Z-codex-73ad0a.yaml
+- path: kb/communities/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.yaml
+  id: CommunityMech:000270
+  original_sha256: d1652308f8e0e4f2fcebf880a03b8d0e311063a176bcaed2094983b038f59cea
+  record_sha256: b79ba66a51ac69b81d45cc5555c89a8f6b38a5066ee8e90b47ffd3fe94c238d5
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261008-three-records-batch116.yaml
+  scope: Whole record and every existing node/arrow reviewed; graph repair, not whole-record certification.
+  summary: Retain phase-specific hydrolysate cross-feeding without erasing the initial glucose phase or overgeneralizing
+    cellulolytic incapacity.; Make recipient growth explicit, retain conditional commensalism interpretation, and
+    remove dependence-as-mediator of all treatment responses.; Retain observed competition with viability, relative-growth
+    and fluorescence-proxy limits; pigment mediation remains unresolved.
+  node_decisions:
+  - node: Cellulase-Driven Hydrolysate Cross-Feeding
+    rationale: Retain phase-specific hydrolysate cross-feeding without erasing the initial glucose phase or overgeneralizing
+      cellulolytic incapacity.
+  - node: Streptomyces Growth on Fungal Hydrolysate
+    rationale: Make recipient growth explicit, retain conditional commensalism interpretation, and remove dependence-as-mediator
+      of all treatment responses.
+  - node: Tunable Filamentous Population Dynamics
+    rationale: Retain observed competition with viability, relative-growth and fluorescence-proxy limits; pigment
+      mediation remains unresolved.
+  removed_node_decisions: []
+  renamed_nodes:
+    Noncellulolytic Partner Dependency: Streptomyces Growth on Fungal Hydrolysate
+  edges_before:
+  - &id009
+    source: Cellulase-Driven Hydrolysate Cross-Feeding
+    target: Noncellulolytic Partner Dependency
+    description: 'Cellulase-driven hydrolysis by T. reesei is the upstream source of the hydrolysate sugars that
+      noncellulolytic S. coelicolor depends on.
+
+      '
+  - &id011
+    source: Noncellulolytic Partner Dependency
+    target: Tunable Filamentous Population Dynamics
+    description: 'Streptomyces coelicolor dependency on Trichoderma reesei cellulase products makes the initial
+      two-member population balance determine later cellulose-supported growth, cellulase formation, and pigment
+      production.
+
+      '
+  edges_after:
+  - &id010
+    source: Cellulase-Driven Hydrolysate Cross-Feeding
+    target: Streptomyces Growth on Fungal Hydrolysate
+    description: After initial glucose-supported growth, fungal cellulase activity supplies hydrolysate sugars that
+      enable continued S. coelicolor growth on the cellulose-containing medium. This resource dependence is phase-specific,
+      not the sole cause of inoculum or abiotic treatment responses.
+  retained_edge_decisions:
+  - before: *id009
+    after: *id010
+    rationale: After initial glucose-supported growth, fungal cellulase activity supplies hydrolysate sugars that
+      enable continued S. coelicolor growth on the cellulose-containing medium. This resource dependence is phase-specific,
+      not the sole cause of inoculum or abiotic treatment responses.
+  removed_edge_decisions:
+  - before: *id011
+    rationale: Recipient dependence does not isolate mediation of inoculum/osmolality/shaking and pigment responses;
+      imposed conditions have other effects.
+  references:
+  - PMID:36314761
+  issues:
+  - 1903
+  - 1905
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture/2026-10-08T105400Z-codex-9b5c99.yaml

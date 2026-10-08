@@ -5,6 +5,39 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch116: Trichoderma Resource Chains And Conditions
+
+[Decisions](decisions/20261008-three-records-batch116.yaml),
+[provenance](cache-provenance-20261008-batch116.json),
+[validation](validation-20261008-batch116.json), and
+[self-adversarial review](adversarial-review-20261008-batch116.yaml) cover
+the isobutanol, lactate-platform and filamentous Trichoderma records.
+All nine nodes remain; five of six arrows are retained. Product formation
+is scoped to the recipient, and hydrolysate dependence is not treated as
+the demonstrated mediator of every imposed population-control response.
+
+The isobutanol abstract explicitly reports experimental model validation;
+that support survives qualification of stability conditions. Full text was
+unavailable. The lactate manuscript and selected source figures support
+joint fungal/LAB redox roles, a co-substrate requirement and separate assay
+arms. The beechwood benchmark used the three-member consortium after steam
+pretreatment. The filamentous main text and appendices distinguish initial
+glucose growth, later hydrolysate dependence, viability and relative-growth
+effects. Read scopes and access limits are recorded, not full-source certification.
+
+Nineteen graph/discussion quotations match fresh primary artifacts and
+caches. One cache gains a source-located 19-word main-text excerpt; no
+publication PDF or full body is imported. Three append-only histories
+preserve non-graph fields, 457 other records and 922 other caches.
+Three explicit participant-list users are added; the measured sole-credit
+census does not increase. Connectivity logic and the share guard are unchanged.
+
+Repairs #1901-#1903 await protected-main merge; metadata #1904/#1905 remain
+open. No new topology or Edison spend is introduced. The batch115 smoke-test
+fix was propagated through batches109-115 with exact-head self-review
+comments and lifecycle receipts; this does not substitute for required CI.
+Self-review is not independent approval, and the overall review is incomplete.
+
 ## Batch115: Mineral Roles And Reactor Predictions
 
 [Decisions](decisions/20261008-three-records-batch115.yaml),

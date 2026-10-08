@@ -583,7 +583,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Trichoderma-E. coli Cellulosic Isobutanol Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -596,8 +596,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -606,9 +606,9 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Fungal Cellulase Hydrolysis</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
+                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Trichoderma reesei secretes cellulase enzymes that hydrolyze lignocellulosic biomass into soluble saccharides available to the bacterial partner.</p>
+                <p class="prewrap interaction-description">T. reesei cellulases release soluble saccharides from cellulosic biomass for consumption by engineered E. coli. This resource delivery supports cross-feeding; it does not by itself establish a neutral effect on the fungus or unconditional commensalism.</p>
 
 
                 <p><strong>Source Taxon:</strong> Trichoderma reesei</p>
@@ -656,9 +656,8 @@
                     </div>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Cooperator-Cheater Population Stability
-                        <p class="prewrap causal-description">Fungal cellulase secretion creates the soluble-saccharide public good underlying the modeled cooperator-cheater population dynamics.
-</p>
+                        <span class="flow-arrow">→</span> Reported Cooperator-Cheater Population Equilibria
+                        <p class="prewrap causal-description">PARTIAL: fungal saccharide release supplies the resource basis of the reported cooperator-cheater dynamics. Stable equilibria depend on the study conditions and model assumptions; hydrolysis alone is not sufficient evidence of coexistence. The abstract reports experimental model validation.</p>
                     </div>
 
                 </div>
@@ -688,16 +687,17 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Bacterial Isobutanol Production From Soluble Saccharides</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Escherichia coli consumes the soluble saccharides released by fungal hydrolysis and converts them into isobutanol as the target biofuel product.</p>
-
-
-                <p><strong>Source Taxon:</strong> Trichoderma reesei</p>
+                <p class="prewrap interaction-description">Engineered E. coli converts soluble saccharides supplied by fungal hydrolysis into isobutanol. This is the recipient production outcome, not evidence that isobutanol itself is exchanged between the partners. The abstract reports maximum titers of 1.88 g/L and yields up to 62 percent of theoretical; these maxima are not assumed to describe the same assay.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Escherichia coli</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Escherichia coli
+
+                </p>
 
 
 
@@ -765,17 +765,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Cooperator-Cheater Population Stability</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
+                    <h3>Reported Cooperator-Cheater Population Equilibria</h3>
                 </div>
-                <p class="prewrap interaction-description">The consortium exhibits cooperator-cheater dynamics, with cellulase-producing T. reesei acting as the public-goods producer and E. coli benefiting from soluble saccharides; the study reported stable population equilibria and tunable composition.</p>
-
-
-                <p><strong>Source Taxon:</strong> Trichoderma reesei</p>
+                <p class="prewrap interaction-description">PARTIAL: the study reports cooperator-cheater dynamics and stable population equilibria using a comprehensive mathematical model that was experimentally validated. Fungal cellulase production and bacterial use of released sugars underlie the modeled interaction. The abstract supports this combined modeling/experimental framework, not stable coexistence under every starting ratio or environmental condition. Full-paper access was unavailable for checking the exact perturbations and model assumptions; experimental validation is not being reclassified as purely computational speculation.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Escherichia coli</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Trichoderma reesei,
+
+                    Escherichia coli
+
+                </p>
 
 
 
@@ -805,7 +808,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/23959872/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:23959872</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"cooperator-cheater dynamics within T. reesei/E. coli consortia"</div>
@@ -818,7 +821,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/23959872/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:23959872</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"stable population equilibria"</div>
@@ -834,6 +837,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which experimental perturbations and model assumptions bound the reported stable equilibria?
+                </h3>
+                <p class="prewrap">The primary abstract explicitly reports experimental model validation. Full text was unavailable after bounded public retrieval attempts, so exact-system stability conditions cannot be audited here. Hydrolysis provides a resource basis, not proof that every inoculum converges to coexistence.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Fungal Cellulase Hydrolysis</code>, <code>ecological_interactions#Bacterial Isobutanol Production From Soluble Saccharides</code>, <code>ecological_interactions#Reported Cooperator-Cheater Population Equilibria</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/23959872/" rel="nofollow noreferrer">PMID:23959872</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">cooperator-cheater dynamics within T. reesei/E. coli consortia</p>
+                        <p class="muted small prewrap">Abstract supports the reported cooperator-cheater framework, not universal commensalism or a full audit of model assumptions.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1171,7 +1213,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1184,7 +1225,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1238,7 +1278,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMMENSALISM";
+            var intType = "CROSS_FEEDING";
             var metabolites = [];
 
 
@@ -1282,7 +1322,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1310,23 +1350,24 @@
             });
 
 
-            var srcKey = "Trichoderma reesei";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Escherichia coli";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Escherichia coli"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1339,7 +1380,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Cooperator-Cheater Population Stability",
+                label: "Reported Cooperator-Cheater Population Equilibria",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1348,17 +1389,20 @@
             });
 
 
-            var srcKey = "Trichoderma reesei";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Escherichia coli";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Trichoderma reesei",
+
+                "Escherichia coli"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

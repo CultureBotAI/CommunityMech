@@ -103,9 +103,10 @@ taxonomy:
     explanation: Supports dependence of S. coelicolor on cellulase-derived sugars.
 ecological_interactions:
 - name: Cellulase-Driven Hydrolysate Cross-Feeding
-  description: >
-    T. reesei cellulases hydrolyze cellulose, releasing hydrolysate sugars that
-    enable growth of noncellulolytic S. coelicolor in the coculture.
+  description: T. reesei cellulases release cellulose hydrolysate sugars that support S. coelicolor growth after
+    the initially supplied glucose is consumed. Both partners can first grow on glucose. S. coelicolor does not
+    effectively grow on cellulose in the tested medium; this is not a claim that its genome lacks cellulase genes
+    or that it is incapable in every condition.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -133,37 +134,28 @@ ecological_interactions:
       id: GO:0005975
       label: carbohydrate metabolic process
   downstream:
-  - target: Noncellulolytic Partner Dependency
-    description: >
-      Cellulase-driven hydrolysis by T. reesei is the upstream source of the
-      hydrolysate sugars that noncellulolytic S. coelicolor depends on.
+  - target: Streptomyces Growth on Fungal Hydrolysate
+    description: After initial glucose-supported growth, fungal cellulase activity supplies hydrolysate sugars that
+      enable continued S. coelicolor growth on the cellulose-containing medium. This resource dependence is phase-specific,
+      not the sole cause of inoculum or abiotic treatment responses.
   evidence:
   - reference: PMID:36314761
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: cellulose as a carbon source
-    explanation: Supports cellulose as the shared substrate driving cross-feeding.
+    explanation: Cellulose is the later hydrolysate source; methods also include initial glucose, so it is not the
+      only carbon source from inoculation.
   - reference: PMID:36314761
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: hydrolysate sugars released by T. reesei cellulases
     explanation: Supports cellulase-mediated sugar release by T. reesei.
-- name: Noncellulolytic Partner Dependency
-  description: >
-    Because S. coelicolor is noncellulolytic in this system, its growth depends
-    on sugars released from cellulose by the T. reesei partner.
-  interaction_type: COMMENSALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Trichoderma reesei RUT-C30
-    term:
-      id: NCBITaxon:1344414
-      label: Trichoderma reesei RUT C-30
-  target_taxon:
-    preferred_term: Streptomyces coelicolor A3(2)
-    term:
-      id: NCBITaxon:100226
-      label: Streptomyces coelicolor A3(2)
+- name: Streptomyces Growth on Fungal Hydrolysate
+  description: S. coelicolor growth during the cellulose-fed phase depends on hydrolysate released by T. reesei.
+    This is a recipient growth outcome, distinct from the initial glucose-supported phase. The authors interpret
+    some later conditions as commensalism following early nutrient competition; the outcome does not imply a neutral
+    fungal fitness effect in every treatment.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cellulose
     term:
@@ -174,12 +166,6 @@ ecological_interactions:
     term:
       id: GO:0005975
       label: carbohydrate metabolic process
-  downstream:
-  - target: Tunable Filamentous Population Dynamics
-    description: >
-      Streptomyces coelicolor dependency on Trichoderma reesei cellulase products
-      makes the initial two-member population balance determine later
-      cellulose-supported growth, cellulase formation, and pigment production.
   evidence:
   - reference: PMID:36314761
     supports: SUPPORT
@@ -190,12 +176,20 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: noncellulolytic bacterium Streptomyces coelicolor A3(2)
-    explanation: Supports why S. coelicolor requires the cellulolytic partner on cellulose.
+    explanation: Noncellulolytic describes the tested growth phenotype, not absence of every cellulase gene or universal
+      incapacity.
+  participating_taxa:
+  - preferred_term: Streptomyces coelicolor A3(2)
+    term:
+      id: NCBITaxon:100226
+      label: Streptomyces coelicolor A3(2)
 - name: Tunable Filamentous Population Dynamics
-  description: >
-    Population balance, cellulase formation, and pigment production were tuned
-    by inoculation ratio, osmolality, and shaking frequency.
-  interaction_type: COMPETITION
+  description: Inoculation advantage, osmolality and shaking frequency alter relative growth and competition in
+    the filamentous coculture. Spore storage in water versus PBS changes viability and growth order; matched tagged
+    and wild-type controls do not attribute that reversal to the tag. Higher osmolality relatively favors S. coelicolor
+    through stronger fungal inhibition, not absolute bacterial growth stimulation. Fluorescence requires autofluorescence
+    correction and remains a growth proxy, not exact cell counts in every condition. Pigment and cellulase formation
+    vary with population balance, but their causal mediation by hydrolysate dependence is unresolved.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: secondary metabolite biosynthetic process
@@ -212,12 +206,23 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: simultaneous growth of both partners, cellulase, and pigment production could be determined
-    explanation: Supports tunable coexistence with cellulase and pigment production.
+    explanation: Combined growth and product observations support condition-dependent outcomes, not a resolved pigment-induction
+      mechanism.
   - reference: PMID:36314761
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: population dynamics were also tuned by modulating abiotic factors
     explanation: Supports abiotic tuning of the coculture.
+  participating_taxa:
+  - preferred_term: Trichoderma reesei RUT-C30
+    term:
+      id: NCBITaxon:1344414
+      label: Trichoderma reesei RUT C-30
+  - preferred_term: Streptomyces coelicolor A3(2)
+    term:
+      id: NCBITaxon:100226
+      label: Streptomyces coelicolor A3(2)
+  interaction_type: COMPETITION
 environmental_factors:
 - name: Cellulose carbon source
   value: cellulose
@@ -345,3 +350,34 @@ cultivation_setup:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: The coculture was set up to use α-cellulose as a carbon source
+discussions:
+- discussion_id: filamentous-conditions-and-mediation-batch116
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  prompt: Which mechanisms connect hydrolysate availability, viability and abiotic conditions to population and
+    pigment responses?
+  rationale: 'The imposed inoculum and abiotic perturbations change outcomes, but they do not isolate hydrolysate
+    dependence as the mediator. Early competition and conditional late commensalism are retained. Fluorescence unmixing
+    is validated in selected comparisons, not a universal cell-count calibration. Carbon-source and vessel metadata
+    remain issue #1905.'
+  attaches_to:
+  - ecological_interactions#Cellulase-Driven Hydrolysate Cross-Feeding
+  - ecological_interactions#Streptomyces Growth on Fungal Hydrolysate
+  - ecological_interactions#Tunable Filamentous Population Dynamics
+  evidence:
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: population dynamics were also tuned by modulating abiotic factors
+    explanation: Supports abiotic tuning of the coculture.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T10:53:56Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain phase-specific hydrolysate cross-feeding without erasing the initial glucose phase or overgeneralizing
+    cellulolytic incapacity.; Make recipient growth explicit, retain conditional commensalism interpretation, and
+    remove dependence-as-mediator of all treatment responses.; Retain observed competition with viability, relative-growth
+    and fluorescence-proxy limits; pigment mediation remains unresolved. Issue#1903; reports/causal_graph_review/decisions/20261008-three-records-batch116.yaml
+  llm_assisted: true
