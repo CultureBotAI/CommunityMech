@@ -5,6 +5,29 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch109: Strain And Assay Boundaries
+
+[Decisions](decisions/20261008-six-records-batch109.yaml),
+[provenance](cache-provenance-20261008-batch109.json),
+[validation](validation-20261008-batch109.json), and
+[self-adversarial review](adversarial-review-20261008-batch109.yaml) cover
+Sesame Fuqu, SynCom Y, Azotobacter photoproduction and the three SPC dyads.
+Sixteen of nineteen nodes and nine of twelve existing directions remain.
+Construction steps and unsupported Bacillus168 persistence are removed;
+positive flavor, biofilm, biocontrol, growth and production findings remain
+bounded to their strains, comparators and assays.
+
+Three primary main texts/captions and one primary abstract were read, together
+with SPC supplement captions S1-S12 and selected figure pixels S2/S4/S5/S8.
+Thirty-four graph/discussion quotations match fresh primary text and unchanged
+caches. Six append-only histories preserve the curation trail; four in-memory
+mutation probes reject claim inflation. All 923 caches and 454 other records
+are unchanged. The measured phenotype-scope census adds no taxa credited solely
+by the broad community-level rule. Repairs #1849-#1854 await protected-main
+merge; non-graph SPC follow-up #1855 remains open. No new topology, experimental
+protocol or Edison spend. Self-review is not independent approval or completion
+of the whole corpus review.
+
 ## Batch108: Process Outcomes And Molecular Responses
 
 [Decisions](decisions/20261008-four-records-batch108.yaml),

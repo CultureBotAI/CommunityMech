@@ -575,22 +575,28 @@
                              aria-hidden="true" data-symbol="symbolSquare"
                              data-color="#9f2ebb"></svg> Mutualism
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>CO2 Fixation and Sucrose Production</h3>
+                    <h3>Photosynthetic carbon supply to E. coli</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Synechococcus elongatus fixes atmospheric CO2 through photosynthesis and converts the fixed carbon into sucrose. The CscB transporter enables export of sucrose to the extracellular environment when induced with IPTG in the presence of osmotic pressure (NaCl).
-</p>
+                <p class="prewrap interaction-description">CscB+ S. elongatus fixes carbon and exports sucrose, but E. coli W and W delta-cscR grew during early batch coculture independently of induced sucrose export. The source infers substantial use of other photosynthates at that stage; their identities, including the proposed extracellular polymers, were not resolved. The earlier 85% carbon-export capability is not a concentration or a measurement of this dyad.</p>
 
 
                 <p><strong>Source Taxon:</strong> Synechococcus elongatus PCC 7942 cscB+</p>
 
 
+
+                <p><strong>Target Taxon:</strong> Escherichia coli W delta-cscR</p>
 
 
 
@@ -627,8 +633,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Sucrose Uptake and Heterotrophic Growth
-                        <p class="prewrap causal-description">Secreted sucrose supports E. coli growth</p>
+                        <span class="flow-arrow">→</span> E. coli growth on cyanobacterial photosynthate
+                        <p class="prewrap causal-description">Cyanobacterial photosynthate supports E. coli growth. PARTIAL for sucrose-specific mediation: early growth was insensitive to export induction, so that phase cannot be attributed solely to sucrose; later productive cocultures show a sucrose contribution.</p>
                     </div>
 
                 </div>
@@ -651,22 +657,37 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/28127397/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:28127397</a>
+
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"E. coli strains cannot utilize sucrose effectively and dominantly depend on other metabolites from S. elongatus"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Sucrose Uptake and Heterotrophic Growth</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>E. coli growth on cyanobacterial photosynthate</h3>
                 </div>
-                <p class="prewrap interaction-description">E. coli utilizes the sucrose secreted by Synechococcus elongatus as its carbon and energy source for heterotrophic growth. This establishes a stable syntrophic relationship where the phototroph provides fixed carbon and the heterotroph benefits without needing to fix CO2.
-</p>
+                <p class="prewrap interaction-description">E. coli W delta-cscR grew on cyanobacterial photosynthate and maintained viability in continuous coculture for more than two weeks. Early batch growth was not primarily attributable to sucrose export; improved sucrose utilization contributed to later PHB production in separately functionalized strains. No product-removal feedback mechanism establishing syntrophy is shown by carbon feeding alone.</p>
 
 
-                <p><strong>Source Taxon:</strong> Escherichia coli W delta-cscR</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Escherichia coli W delta-cscR
+
+                </p>
 
 
 
@@ -698,7 +719,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> E. coli Stimulation of Cyanobacterial Growth
-                        <p class="prewrap causal-description">E. coli W delta-cscR growth on Synechococcus-derived photosynthate establishes the reciprocal dyad in which the heterotroph increases cyanobacterial growth relative to axenic controls.</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED/PARTIAL: photosynthate-supported heterotroph activity could contribute to the observed cyanobacterial growth benefit through metabolite return or byproduct absorption. The study does not isolate sucrose uptake as its cause or identify a necessary exchanged compound; positive and negative effects depend on culture context.</p>
                     </div>
 
                 </div>
@@ -717,7 +738,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Stability and productivity of autotroph/heterotroph co-cultures was dependent on heterotroph sucrose utilization, as well as other species-independent interactions that we observed across all dyads"</div>
+                        <div class="snippet">"we determined that co-cultures maintain stable ratios for more than two weeks"</div>
 
                     </li>
 
@@ -730,7 +751,7 @@
                     <h3>E. coli Stimulation of Cyanobacterial Growth</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">E. coli W delta-cscR persists on cyanobacterial photosynthate and stimulates cscB+ Synechococcus elongatus growth relative to axenic cyanobacterial controls in the synthetic photosynthetic coculture platform.</p>
+                <p class="prewrap interaction-description">The tested heterotrophic partner increased cyanobacterial abundance relative to axenic controls in low-density cocultures. Together with photosynthate-supported heterotroph growth, this supports conditional reciprocal benefit. It is not universal stability: dense illuminated cyanobacteria could inhibit heterotroph viability. The source proposes metabolite return or byproduct absorption as possible explanations for stimulation, without resolving the mediator; respiratory CO2 alone was considered questionable.</p>
 
 
                 <p><strong>Source Taxon:</strong> Escherichia coli W delta-cscR</p>
@@ -797,6 +818,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which strain- and condition-specific interactions explain growth and persistence in this dyad?
+                </h3>
+                <p class="prewrap">The source combines batch, continuous, density-dependent and production assays. Keep their positive results without treating every partner or strain as persistent for weeks to months. Cyanobacterial growth stimulation is observed, but metabolite return and byproduct absorption remain hypotheses. Light-associated inhibition is supported without identifying oxygen as the exclusive cause. For Bacillus, the canonical168 production assay is distinct from 3610 perturbation experiments. For E. coli, the early non-sucrose inference differs from later sucrose-sensitive production; for yeast, W303Clump is not parental W303. No new causal node, direction, cultivation protocol or strain optimization is added.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Photosynthetic carbon supply to E. coli</code>, <code>ecological_interactions#E. coli growth on cyanobacterial photosynthate</code>, <code>ecological_interactions#E. coli Stimulation of Cyanobacterial Growth</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/28127397/" rel="nofollow noreferrer">PMID:28127397</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">we hypothesize that these benefits arise from emergent cross-feeding of metabolite(s) and/or absorption of byproducts</p>
+                        <p class="muted small prewrap">Source-explicit proposed mediator of cyanobacterial stimulation, not a measured transfer mechanism.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1082,11 +1142,11 @@
             processes.push("sucrose biosynthetic process");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "CO2 Fixation and Sucrose Production",
+                label: "Photosynthetic carbon supply to E. coli",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1102,11 +1162,16 @@
 
 
 
+            var tgtKey = "Escherichia coli W delta-cscR";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1123,7 +1188,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Sucrose Uptake and Heterotrophic Growth",
+                label: "E. coli growth on cyanobacterial photosynthate",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1132,12 +1197,18 @@
             });
 
 
-            var srcKey = "Escherichia coli W delta-cscR";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Escherichia coli W delta-cscR"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

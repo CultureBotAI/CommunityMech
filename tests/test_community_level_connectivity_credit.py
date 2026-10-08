@@ -106,7 +106,8 @@ def test_most_records_carry_a_community_level_interaction(survey):
     # Census: 399 -> 402; exactly named participants, no extra solely-credited taxa.
     # #1786 re-scopes Atacama's six-member subset as a community profile (402 -> 403).
     # #1799 separates the Shewanella current endpoint from reverse cross-feeding (403 -> 404).
-    assert 130 <= survey["with_community_level"] <= 404, survey
+    # #1851-#1854 separate four phenotype endpoints (403 -> 407); no new solely-credited taxa.
+    assert 130 <= survey["with_community_level"] <= 407, survey
 
 
 def test_the_mixed_records_are_where_the_coarseness_bites(survey):
@@ -122,7 +123,8 @@ def test_the_mixed_records_are_where_the_coarseness_bites(survey):
     coarse — there is no pairwise edge it could be masking.
     """
     # #1772-#1774 change the mixed-record census from 125 to 128.
-    assert 35 <= survey["mixed"] <= 128, survey
+    # #1851-#1854 add four mixed-scope records; batch109 pins the exact measured census.
+    assert 35 <= survey["mixed"] <= 132, survey
     assert survey["mixed"] + survey["community_level_only"] == survey["with_community_level"]
 
 

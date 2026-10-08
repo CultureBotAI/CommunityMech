@@ -76,9 +76,11 @@ taxonomy:
     explanation: Identifies B. velezensis WB as a member strain of the co-culture.
 ecological_interactions:
 - name: Synergistic biofilm and EPS formation in co-culture
-  description: Co-cultivation of the two strains synergistically enhances multispecies biofilm
-    formation, extracellular polysaccharide (EPS) production, and metabolic activity relative to
-    monocultures (measured, emergent).
+  description: Co-culture increased biofilm biomass, EPS and metabolic activity relative to monocultures. Species-specific
+    qPCR also supported increased cell-equivalent abundance of both strains in the biofilm fraction, supporting
+    reciprocal benefit in that assay. WB abundance did not increase in the planktonic fraction. This conditional
+    biofilm mutualism is not proof of reciprocal metabolite delivery or of the same interaction operating on watermelon
+    roots.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -98,56 +100,63 @@ ecological_interactions:
       label: biofilm formation
   downstream:
   - target: SynCom Y Fusaric Acid and Wilt Resistance
-    description: >
-      The EPS-rich dual-species biofilm tolerated more fusaric acid than either
-      monoculture and links the Agrobacterium-Bacillus biofilm synergy to pot-level
-      watermelon Fusarium wilt suppression.
+    description: 'HYPOTHESIZED/PARTIAL: enhanced EPS-rich biofilm formation could contribute to fusaric-acid tolerance
+      and the positive pot-level biocontrol outcome. Separate in-vitro and pot comparisons do not isolate biofilm
+      mediation or establish that the in-vitro partnership occurs in the rhizosphere.'
   evidence:
   - reference: PMID:42125264
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Compared with monocultures, co-cultivation also markedly increased extracellular
-      polysaccharide production and metabolic activity.
+    snippet: Compared with monocultures, co-cultivation also markedly increased extracellular polysaccharide production
+      and metabolic activity.
     explanation: Measured emergent synergy (biofilm, EPS, metabolic activity) in co-culture vs monocultures.
-    confidence_score: 0.9
+  - reference: PMID:42125264
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Quantitative PCR under co-culture conditions confirmed that mixed-species biofilm formation promotes
+      the growth of both strains
+    explanation: Supports reciprocal biofilm-associated growth, distinct from merely observing more total community
+      biomass.
 - name: SynCom Y Fusaric Acid and Wilt Resistance
-  description: SynCom Y biofilms showed higher resistance to fusaric acid than either monoculture
-    and the two-strain inoculum reduced watermelon Fusarium wilt incidence more effectively than
-    single-strain treatments in pots, connecting the cooperative biofilm to emergent biocontrol
-    performance.
-  interaction_type: MUTUALISM
+  description: The two-strain biofilm tolerated fusaric-acid exposure better than either monoculture in vitro. Separately,
+    SynCom Y reduced watermelon wilt in pots, with reported disease incidence 18.33% and control efficacy 79.13%.
+    Preserve both positive outcomes without equating biofilm tolerance with pathogen killing or asserting that EPS,
+    a specific exchanged metabolite or root colonization was experimentally isolated as the cause of disease suppression.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: fusaric acid
     term:
       id: CHEBI:5199
       label: Fusaric acid
-  biological_processes:
-  - preferred_term: symbiotic process
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
   evidence:
   - reference: PMID:42125264
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The two-strain biofilm showed a notable biomass decrease at 17 μg/mL FA, indicating
-      enhanced resistance to FA compared with single-species biofilms
-    explanation: SynCom Y tolerated higher fusaric acid before biofilm biomass decreased than either
-      single-species biofilm.
-    confidence_score: 0.85
+    snippet: The two-strain biofilm showed a notable biomass decrease at 17 μg/mL FA, indicating enhanced resistance
+      to FA compared with single-species biofilms
+    explanation: SynCom Y tolerated higher fusaric acid before biofilm biomass decreased than either single-species
+      biofilm.
   - reference: PMID:42125264
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: The SynCom Y, composed of A. deltaense LSQ16 and B. velezensis WB, exhibited a disease
-      incidence of 18.33% and a control efficacy of 79.13%
-    explanation: Watermelon pot trials showed stronger Fusarium wilt control by SynCom Y than by
-      single-strain treatments.
-    confidence_score: 0.85
+    snippet: The SynCom Y, composed of A. deltaense LSQ16 and B. velezensis WB, exhibited a disease incidence of
+      18.33% and a control efficacy of 79.13%
+    explanation: Watermelon pot trials showed stronger Fusarium wilt control by SynCom Y than by single-strain treatments.
+  participating_taxa:
+  - preferred_term: Agrobacterium deltaense LSQ16
+    term:
+      id: NCBITaxon:1183412
+      label: Agrobacterium deltae
+  - preferred_term: Bacillus velezensis WB
+    term:
+      id: NCBITaxon:492670
+      label: Bacillus velezensis
 - name: Predicted cross-feeding from A. deltaense LSQ16 to B. velezensis WB
-  description: Genome-scale metabolic modeling predicts LSQ16 donates metabolites to WB (including
-    L-ornithine, guanine, guanosine, malate, phosphate). Two predicted donations (L-ornithine,
-    guanine) were experimentally confirmed to enhance WB biofilm; the remainder are model-only.
+  description: 'HYPOTHESIZED/PARTIAL: genome-scale models predict LSQ16-to-WB exchange of several metabolites. Exogenous
+    L-ornithine and guanine increased WB biofilm biomass, and co-culture metabolite abundances were consistent with
+    the proposed direction. Supplementation demonstrates a physiological response, not direct donor-to-recipient
+    transfer. Malate and guanosine were also included in supplementation tests; the reported positive validation
+    centers on ornithine and guanine. Other predicted exchanges are not established measured fluxes.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -183,26 +192,23 @@ ecological_interactions:
       label: phosphate
   downstream:
   - target: Synergistic biofilm and EPS formation in co-culture
-    description: >
-      Experimentally validated L-ornithine and guanine additions connect the
-      predicted LSQ16-to-WB donation route to enhanced B. velezensis biofilm
-      formation in the measured co-culture synergy.
+    description: 'HYPOTHESIZED/PARTIAL: predicted LSQ16 provision of L-ornithine and guanine could contribute to
+      WB biofilm enhancement, consistent with the positive additions and metabolite profiles. These results do not
+      establish transfer, its necessity, or its quantitative contribution to the two-strain biofilm/EPS response.'
   evidence:
   - reference: PMID:42125264
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Moreover, exogenous supplementation of l-ornithine and guanine further enhanced the
-      biofilm-forming capacity of B. velezensis WB.
-    explanation: Experimental validation that two predicted LSQ16->WB donations (L-ornithine, guanine)
-      enhance WB biofilm formation.
-    confidence_score: 0.9
+    snippet: Moreover, exogenous supplementation of l-ornithine and guanine further enhanced the biofilm-forming
+      capacity of B. velezensis WB.
+    explanation: Positive exogenous additions support biofilm responsiveness, not experimentally confirmed donation
+      by LSQ16.
   - reference: PMID:42125264
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: Predictive results indicated metabolite exchange between the two strains involved amino
-      acids, purines, phosphates, and other compounds.
-    explanation: Model-predicted (not measured) donations; guanosine, malate and phosphate are model-only.
-    confidence_score: 0.4
+    snippet: A. deltaense LSQ16 may supply malate, O-acetylcarnitine, guanine, guanosine, l-ornithine, and phosphate
+      to B. velezensis WB
+    explanation: Explicit model-predicted forward direction; measured transfer is not established.
     computational_provenance:
       prediction_type: FLUX_BALANCE_ANALYSIS
       tools:
@@ -210,22 +216,22 @@ ecological_interactions:
         tool_reference: PMID:30192979
         role: draft genome-scale metabolic model reconstruction
       - tool_name: COBRA Toolbox
-        tool_version: '3.0'
         tool_reference: PMID:30787451
         role: model refinement and validation
       - tool_name: Flux Balance Analysis (FBA)
         tool_reference: PMID:20212490
         role: prediction of exchangeable metabolites
-      model_source: de-novo draft genome-scale metabolic models reconstructed from the two strain
-        genomes (no published model identifier)
-      input_accession: SRA:SRR33382738-SRR33382752
+      model_source: Draft strain-specific genome-scale models reconstructed with CarveMe; genome input accessions
+        are not specified in the reviewed main-text modeling section.
       simulated_medium: LBGM
-      parameters: FBA to identify all potentially exchangeable metabolites in the two-species consortium;
-        CarveMe version not reported in source.
+      parameters: FBA assessed potential exchanges in LBGM; software versions are not specified in the reviewed
+        methods. SRR33382738-SRR33382752 identifies RNA-seq, not verified genome inputs.
 - name: Predicted metabolite return from B. velezensis WB to A. deltaense LSQ16
-  description: Genome-scale metabolic modeling predicts WB returns metabolites to LSQ16 (including
-    L-serine, pyroglutamic acid, myristic acid, suberoylglycine). Model-only; no experimental
-    validation reported for this direction.
+  description: 'HYPOTHESIZED/PARTIAL: models predict WB-to-LSQ16 return of L-serine, pyroglutamic acid, myristic
+    acid and suberoylglycine. Metabolite abundance patterns are consistent with some predictions, but additions
+    of tested reverse-direction candidates did not significantly enhance LSQ16 monoculture biofilm biomass. This
+    negative endpoint does not prove that exchange is absent; it prevents describing a beneficial return flux as
+    experimentally validated.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -245,13 +251,11 @@ ecological_interactions:
       label: L-serine
   evidence:
   - reference: PMID:42125264
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: Predictive results indicated metabolite exchange between the two strains involved amino
-      acids, purines, phosphates, and other compounds.
-    explanation: Model-predicted WB->LSQ16 return fluxes (L-serine and others); no experimental
-      validation reported for this direction.
-    confidence_score: 0.3
+    snippet: which in turn provides suberoylglycine, myristic acid, l-serine, and pyroglutamic acid to A. deltaense
+      LSQ16
+    explanation: Explicit model-predicted reverse direction, not an observed beneficial return flux.
     computational_provenance:
       prediction_type: FLUX_BALANCE_ANALYSIS
       tools:
@@ -259,18 +263,23 @@ ecological_interactions:
         tool_reference: PMID:30192979
         role: draft genome-scale metabolic model reconstruction
       - tool_name: COBRA Toolbox
-        tool_version: '3.0'
         tool_reference: PMID:30787451
         role: model refinement and validation
       - tool_name: Flux Balance Analysis (FBA)
         tool_reference: PMID:20212490
         role: prediction of exchangeable metabolites
-      model_source: de-novo draft genome-scale metabolic models reconstructed from the two strain
-        genomes (no published model identifier)
-      input_accession: SRA:SRR33382738-SRR33382752
+      model_source: Draft strain-specific genome-scale models reconstructed with CarveMe; genome input accessions
+        are not specified in the reviewed main-text modeling section.
       simulated_medium: LBGM
-      parameters: FBA to identify all potentially exchangeable metabolites in the two-species consortium;
-        CarveMe version not reported in source.
+      parameters: FBA assessed potential exchanges in LBGM; software versions are not specified in the reviewed
+        methods. SRR33382738-SRR33382752 identifies RNA-seq, not verified genome inputs.
+  - reference: PMID:42125264
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: the addition of l-serine, pyroglutamic acid, and other compounds did not result in a significant enhancement
+      of the biofilm biomass in A. deltaense LSQ16 monocultures
+    explanation: Negative supplementation endpoint limits the proposed biofilm benefit without refuting all possible
+      exchange.
 growth_media:
 - name: LBGM
   temperature: '30'
@@ -325,3 +334,36 @@ cultivation_setup:
       strainer (Biologix) placed in each well. Each well was supplemented with 10 mL
       TSB medium and 100 μL bacterial suspension and incubated statically at 30 °C for
       24, 48, and 72 h to allow biofilm formation
+discussions:
+- discussion_id: syncom-y-growth-versus-transfer-and-biocontrol
+  prompt: Which predicted exchanges mediate biofilm synergy and the pot-level biocontrol outcome?
+  rationale: Preserve reciprocal biofilm-associated abundance, EPS, metabolic activity, FA tolerance and disease
+    suppression. Forward additions are positive; tested reverse additions did not significantly enhance LSQ16 biofilm.
+    Neither result directly measures interspecies transfer. The primary discussion explicitly leaves rhizosphere
+    synergy unverified. Modeling methods name CarveMe, Cobra toolbox and FBA but do not state versions or genome
+    input accessions; the cited SRA range belongs to RNA-seq. Main text and captions were read, not separate supplementary
+    data or raw datasets.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  attaches_to:
+  - ecological_interactions#Synergistic biofilm and EPS formation in co-culture
+  - ecological_interactions#SynCom Y Fusaric Acid and Wilt Resistance
+  - ecological_interactions#Predicted cross-feeding from A. deltaense LSQ16 to B. velezensis WB
+  - ecological_interactions#Predicted metabolite return from B. velezensis WB to A. deltaense LSQ16
+  evidence:
+  - reference: PMID:42125264
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Whether the two strains form a synergistic relationship in the rhizosphere still requires validation
+      via root colonization assays.
+    explanation: Explicit limitation separating in-vitro biofilm findings from rhizosphere mechanism.
+curation_history:
+- timestamp: '2026-10-08T04:59:40Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain assay-specific reciprocal biofilm growth and qualify its proposed downstream mediation.; Retain
+    measured FA tolerance and pot biocontrol as community outcomes, not a second mutualism.; Separate positive supplementation
+    from transfer and correct modeling input/version provenance.; Retain predicted return with the reported negative
+    supplementation endpoint and corrected provenance. Issue#1850; reports/causal_graph_review/decisions/20261008-six-records-batch109.yaml
+  llm_assisted: true
