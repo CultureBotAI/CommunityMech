@@ -112,7 +112,8 @@ def test_most_records_carry_a_community_level_interaction(survey):
     # #1889 scopes Thermotoga proximity/phenotype; both members retain pairwise credit.
     # #1893 makes pyrite roles/perturbations community-scoped; no invented exchange.
     # #1901 scopes the E. coli product and equilibria; both members retain pairwise credit.
-    assert 130 <= survey["with_community_level"] <= 415, survey
+    # #1910 narrows vitamin provision to the tested pair (415 -> 414).
+    assert 130 <= survey["with_community_level"] <= 414, survey
 
 
 def test_the_mixed_records_are_where_the_coarseness_bites(survey):
@@ -132,7 +133,8 @@ def test_the_mixed_records_are_where_the_coarseness_bites(survey):
     # #1865 adds one mixed-scope record (133 -> 134); the share guard is unchanged.
     # Batch112 adds two mixed-scope records and one community-only record.
     # Batch114 adds one mixed record; no additional solely-credited taxa.
-    assert 35 <= survey["mixed"] <= 137, survey
+    # Batch117 removes that record's community-wide claim (137 -> 136).
+    assert 35 <= survey["mixed"] <= 136, survey
     assert survey["mixed"] + survey["community_level_only"] == survey["with_community_level"]
 
 

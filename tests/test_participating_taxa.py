@@ -443,6 +443,7 @@ USERS = {
     "Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.yaml",
     "Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.yaml",
     "Tinto_River_Iron_Cycling_Community.yaml",
+    "Tribromophenol_Anaerobic_Bioremediation_SynCom.yaml",
     "Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.yaml",
     "Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.yaml",
     "Trichoderma_Lactate_Platform.yaml",

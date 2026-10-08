@@ -181,12 +181,11 @@ taxonomy:
       methanogenesis pathway, without being a major share. COMMON on this record's
       ordinal scale (#748).
 ecological_interactions:
-- name: Host hydrogen transfer to the magnetotactic sulfate reducer
-  description: >-
-    H2 produced by the host's hydrogenosomal Fe-hydrogenase is proposed to serve as
-    the electron donor for the intracellular sulfate-reducing partner. The source
-    words this as a possibility rather than a demonstration, and no hydrogen
-    measurement was made.
+- name: Proposed host hydrogen transfer to the magnetotactic sulfate reducer
+  description: 'HYPOTHESIZED: host hydrogenosomal Fe-hydrogenase expression and bacterial metabolic reconstruction
+    support possible delivery of host H2 or other fermentation products to the magnetotactic sulfate reducer. Retained
+    SYNTROPHY denotes the authors proposed relationship, not measured hydrogen transfer, reciprocal dependence or
+    a quantified host fitness benefit.'
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -210,28 +209,30 @@ ecological_interactions:
       id: GO:0006113
       label: fermentation
   downstream:
-  - target: Tripartite electron sink improving host energetics
-    description: >
-      Hydrogen transfer from the host to the sulfate reducer is one of the two
-      partner sinks that can improve host fermentation energetics.
+  - target: Proposed tripartite hydrogen sink and host energetic benefit
+    description: 'PARTIAL: proposed host-product consumption by the sulfate reducer could lower hydrogen availability
+      and thereby improve host fermentation energetics. This is the authors mechanistic model, not a measured transfer-to-fitness
+      causal effect.'
   evidence:
   - reference: PMID:42475569
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: The Magneto_SRB_bin syntrophic partner could potentially utilize H2 (and or other fermentation products) released from the ciliate MROs
-    explanation: >-
-      Sources the edge in the source's own hedged wording. PARTIAL because
-      "could potentially" is the strongest claim the paper makes for this pair.
+    snippet: The Magneto_SRB_bin syntrophic partner could potentially utilize H2 (and or other fermentation products)
+      released from the ciliate MROs
+    explanation: Molecular reconstruction or author interpretation supports the proposed metabolic relationship;
+      it does not measure interpartner hydrogen flux or host energetic benefit.
   - reference: PMID:42475569
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: The SRB and methanogen populations likely use the H2 produced by the MRO hydrogenosomal Fe-hydrogenase as an electron donor
-    explanation: Sources H2 from the host organelle as the donor for both partners.
-- name: Host hydrogen transfer to the endosymbiotic methanogen
-  description: >-
-    The Methanoregula endosymbiont consumes host-produced H2 through hydrogenotrophic
-    methanogenesis. This is the best supported of the metabolic edges, resting on an
-    expressed complete methanogenesis pathway.
+    snippet: The SRB and methanogen populations likely use the H2 produced by the MRO hydrogenosomal Fe-hydrogenase
+      as an electron donor
+    explanation: Molecular reconstruction or author interpretation supports the proposed metabolic relationship;
+      it does not measure interpartner hydrogen flux or host energetic benefit.
+- name: Proposed host hydrogen transfer to the endosymbiotic methanogen
+  description: 'HYPOTHESIZED: a complete methanogenesis pathway and expressed Methanoregula mcrA support the proposed
+    hydrogenotrophic partner, alongside host hydrogenosomal Fe-hydrogenase expression. This is stronger pathway
+    evidence than for the sulfate reducer but not direct measurement of host-to-methanogen H2 flux. SYNTROPHY remains
+    a proposed relationship.'
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -259,40 +260,30 @@ ecological_interactions:
       id: GO:0019386
       label: methanogenesis, from carbon dioxide
   downstream:
-  - target: Tripartite electron sink improving host energetics
-    description: >
-      Hydrogen transfer from the host to the methanogen is one of the two
-      partner sinks that can improve host fermentation energetics.
+  - target: Proposed tripartite hydrogen sink and host energetic benefit
+    description: 'PARTIAL: proposed host-product consumption by the methanogen could lower hydrogen availability
+      and thereby improve host fermentation energetics. This is the authors mechanistic model, not a measured transfer-to-fitness
+      causal effect.'
   evidence:
   - reference: PMID:42475569
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: endosymbiotic Methanoregula cells efficiently consume host-produced H2
-    explanation: Sources the direction and the consumer.
+    explanation: Molecular reconstruction or author interpretation supports the proposed metabolic relationship;
+      it does not measure interpartner hydrogen flux or host energetic benefit.
   - reference: PMID:42475569
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: encoded a complete methanogenesis pathway
-    explanation: Sources the methanogenic route that makes the partner an H2 sink.
+    explanation: Molecular reconstruction or author interpretation supports the proposed metabolic relationship;
+      it does not measure interpartner hydrogen flux or host energetic benefit.
 - name: Symbiont-conferred magnetotaxis
-  description: >-
-    The magnetosome gene cluster is encoded and expressed by the bacterial partner,
-    not by the ciliate, and the magnetite chains it builds give the host cell a
-    magnetic moment. The host's magnetotaxis is therefore a trait supplied by a
-    symbiont.
-
-    Two limits belong with this claim. The physical identity of the rod-shaped
-    bacteria seen by electron microscopy with the genome carrying the magnetosome
-    gene cluster is inferred from metagenomics, because every FISH attempt failed
-    on low cell numbers. And what the magnetotaxis is for in the field is
-    hypothesis: the source suggests it might guide the anaerobic host down into
-    anoxic sediment, and says outright that whether the observed south-seeking
-    orientation reflects native behaviour is unclear.
-
-    interaction_type is MUTUALISM because the source frames the whole association as
-    reciprocal, but note that InteractionTypeEnum has no value for a symbiont
-    supplying a behavioural capability rather than a metabolite. See issue 749.
-  interaction_type: MUTUALISM
+  description: 'Observed field-reversal responses establish active host magnetotaxis, and microscopy identifies
+    internal magnetite chains. The bacterial population encodes and expresses magnetosome genes, supporting the
+    authors attribution of the magnetic capability to internal bacteria. Genome-to-cell identity remains inferred
+    because FISH failed at low cell numbers. Native swimming polarity and adaptive benefit are unresolved: detection
+    followed six months of storage in Munich. Capability provision does not itself measure reciprocal fitness, so
+    no MUTUALISM type is assigned (consistent with issue #749).'
   scope: PAIRWISE
   source_taxon:
     preferred_term: magnetotactic sulfate-reducing bacterial endosymbiont
@@ -318,29 +309,27 @@ ecological_interactions:
   - reference: PMID:42475569
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: T. magnetotacticus exhibits magnetotaxis due to the magnetic moment of internal ferrimagnetic magnetite (Fe3O4) nanoparticles forming ellipsoidal
+    snippet: T. magnetotacticus exhibits magnetotaxis due to the magnetic moment of internal ferrimagnetic magnetite
+      (Fe3O4) nanoparticles forming ellipsoidal
     explanation: Sources the magnetite chains as the physical basis of the host's magnetotaxis.
   - reference: PMID:42475569
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: a genomic population of MTB (Thermodesulfobacteriota) in magnetically sorted T. magnetotacticus cells was found that encoded and expressed a magnetosome gene cluster responsible for magnetosome Fe3O4 biomineralization
+    snippet: a genomic population of MTB (Thermodesulfobacteriota) in magnetically sorted T. magnetotacticus cells
+      was found that encoded and expressed a magnetosome gene cluster responsible for magnetosome Fe3O4 biomineralization
     explanation: Sources the symbiont, not the host, as the genome that encodes and expresses the magnetosome cluster.
   - reference: PMID:42475569
     supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: All attempts at fluorescent in situ hybridization (FISH) to independently verify the identity of the internal MTB also failed because of the low cell numbers
-    explanation: >-
-      Records the limit on this edge. PARTIAL because the link between the observed
-      bacteria and the magnetosome-bearing genome is metagenomic inference that
-      independent verification could not confirm.
-- name: Tripartite electron sink improving host energetics
-  description: >-
-    Taken together the two internal partners act as sinks for H2 and other
-    fermentation products, which the source reads as improving the efficiency of the
-    host's own energy metabolism. This is the return leg that makes the association
-    syntrophy rather than one-way consumption, and it has no single source or target
-    because both partners contribute.
-  interaction_type: MUTUALISM
+    snippet: All attempts at fluorescent in situ hybridization (FISH) to independently verify the identity of the
+      internal MTB also failed because of the low cell numbers
+    explanation: Records the limit on this edge. PARTIAL because the link between the observed bacteria and the
+      magnetosome-bearing genome is metagenomic inference that independent verification could not confirm.
+- name: Proposed tripartite hydrogen sink and host energetic benefit
+  description: 'HYPOTHESIZED: internal sulfate reducers and methanogens could consume host-derived H2 or other fermentation
+    products, potentially improving host fermentation energetics. Molecular evidence supports this tripartite model,
+    but hydrogen removal, energetic improvement and mutual survival dependence were not experimentally established
+    for this association. It is not a measured reciprocal-benefit outcome.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Tropidoatractus magnetotacticus
@@ -362,15 +351,19 @@ ecological_interactions:
       label: dihydrogen
   evidence:
   - reference: PMID:42475569
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: likely act as sinks for H2 (and potentially other fermentation products), thereby improving the efficiency of the host
-    explanation: Sources the reciprocal benefit to the host from partner H2 consumption.
+    snippet: likely act as sinks for H2 (and potentially other fermentation products), thereby improving the efficiency
+      of the host
+    explanation: Molecular reconstruction or author interpretation supports the proposed metabolic relationship;
+      it does not measure interpartner hydrogen flux or host energetic benefit.
   - reference: PMID:42475569
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: 'a tripartite syntrophic network whereby anaerobic fermentation products from T. magnetotacticus are consumed by two syntrophic partners: MTB producing the magnetosome chains and hydrogenotrophic methanogens'
-    explanation: Sources the three-guild network as the paper's own summary of the association.
+    snippet: 'a tripartite syntrophic network whereby anaerobic fermentation products from T. magnetotacticus are
+      consumed by two syntrophic partners: MTB producing the magnetosome chains and hydrogenotrophic methanogens'
+    explanation: Molecular reconstruction or author interpretation supports the proposed metabolic relationship;
+      it does not measure interpartner hydrogen flux or host energetic benefit.
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: OTHER
@@ -472,3 +465,36 @@ metal_notes: >-
   Iron is central rather than incidental here: the community's defining trait is a
   magnetic one, produced by genetically controlled magnetite biomineralization in
   the bacterial partner.
+discussions:
+- discussion_id: tropidoatractus-evidence-boundaries-batch117
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  prompt: Do partner hydrogen uptake and magnetotaxis confer measurable host or symbiont fitness benefits?
+  rationale: 'The source proposes metabolic syntrophy from gene content and expression and reports magnetically
+    guided behavior. It also states that survival dependence could not be shown and FISH identity confirmation failed.
+    Native polarity after Munich storage remains unknown. These limitations do not erase observed magnetotaxis.
+    Environmental polarity metadata is tracked separately in issue #1911.'
+  attaches_to:
+  - ecological_interactions#Proposed host hydrogen transfer to the magnetotactic sulfate reducer
+  - ecological_interactions#Proposed host hydrogen transfer to the endosymbiotic methanogen
+  - ecological_interactions#Symbiont-conferred magnetotaxis
+  - ecological_interactions#Proposed tripartite hydrogen sink and host energetic benefit
+  evidence:
+  - reference: PMID:42475569
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: likely act as sinks for H2 (and potentially other fermentation products), thereby improving the efficiency
+      of the host
+    explanation: Molecular reconstruction or author interpretation supports the proposed metabolic relationship;
+      it does not measure interpartner hydrogen flux or host energetic benefit.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T11:33:17Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Keep proposed sulfate-reducer hydrogen transfer explicitly hypothetical in name, evidence and arrow.;
+    Preserve expressed methanogenesis evidence without treating it as measured hydrogen flux.; Preserve experimentally
+    observed magnetotaxis while leaving unmeasured mutual fitness untyped.; Make the inferred joint hydrogen-sink
+    benefit explicit without upgrading pathway expression to energetics. Issue#1908; reports/causal_graph_review/decisions/20261008-four-records-batch117.yaml
+  llm_assisted: true

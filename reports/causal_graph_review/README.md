@@ -5,6 +5,46 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch117: Sequential Treatment And Evidence Boundaries
+
+[Decisions](decisions/20261008-four-records-batch117.yaml),
+[provenance](cache-provenance-20261008-batch117.json),
+[validation](validation-20261008-batch117.json), and
+[self-adversarial review](adversarial-review-20261008-batch117.yaml) cover
+tribromophenol treatment, Tropidoatractus, urine nitrification and the
+Variovorax-Cryptococcus vitamin coculture. All 14 nodes and nine arrows
+remain, with five qualified or narrowed names and no new topology.
+
+Tribromophenol retains enriched-culture identity, sequential DS introduction
+and phenol radiotracing. Tropidoatractus preserves observed magnetotaxis
+while hydrogen flux and host energetic benefit remain proposed. Urine
+nitrification separates the two reactor experiments and batch activity tests.
+The vitamin pair retains experimentally supported mutualism without claiming
+all correlated auxotrophs as recipients or vitamin-only causal mediation.
+Inconsistent fold changes and spent-medium descriptions in that paper are
+recorded as unresolved, not silently corrected.
+
+Two complete primary main-body XML texts were read, including methods and
+captions; original figure pixels, supplementary files and raw data were not
+audited. Tribromophenol and urine changes are final-abstract-bounded. An
+earlier urine thesis chapter was identified but not read or substituted.
+All 28 graph/discussion quotations match fresh sources and existing caches.
+No caches or publication bodies were added. Four append-only histories
+preserve unrelated raw fields, 456 other records and all 923 caches.
+
+One participant-list user is added. Narrowing vitamin provision to the tested
+pair reduces the community-level census by one, without changing sole-credit
+counts, connectivity logic or the share guard. Repairs #1907-#1910 await
+protected-main merge; non-graph metadata #1911/#1912 remain open. Existing
+enum issue #749 is not duplicated. No Edison invocation or spend is required
+for these existing-graph repairs. Self-review is not independent approval;
+the overall review and protected merge remain incomplete.
+
+During verification, parent #1906 failed the separate palette rarity gate.
+Issue #1913 tracks that changed-corpus rendering regression and its required
+real correction; the selected graph suite does not certify full CI. Original
+publication records remain historical when the verified correction is propagated.
+
 ## Batch116: Trichoderma Resource Chains And Conditions
 
 [Decisions](decisions/20261008-three-records-batch116.yaml),

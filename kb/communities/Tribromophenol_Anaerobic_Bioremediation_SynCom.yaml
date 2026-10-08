@@ -123,9 +123,9 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Clostridial Hydrogen Supply for Reductive Debromination
-  description: Clostridium strain Ma13 ferments glucose to supply hydrogen for
-    the Dehalobacter FTH1 reductive debromination step in the anaerobic
-    2,4,6-tribromophenol consortium.
+  description: Clostridium strain Ma13 ferments glucose to supply hydrogen for reductive debromination by the highly
+    enriched Dehalobacter FTH1 culture. The abstract supports this functional cross-feeding, not purity of the FTH1
+    inoculum or a closed three-isolate community.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -149,15 +149,21 @@ ecological_interactions:
       label: dihydrogen
   downstream:
   - target: Dehalobacter Reductive Debromination of Tribromophenol
-    description: >
-      Hydrogen generated from Clostridium glucose fermentation supplies the
-      reductive Dehalobacter activity that converts 2,4,6-TBP toward phenol.
+    description: 'Hydrogen generated from Clostridium glucose fermentation supplies the reductive Dehalobacter activity
+      that converts 2,4,6-TBP toward phenol.
+
+      '
   evidence:
-  - *id001
+  - reference: PMID:25461007
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium sp. strain Ma13 acting as a hydrogen supplier via glucose fermentation
+    explanation: Anchors glucose as the electron-donor source fermented to hydrogen for debromination.
 - name: Dehalobacter Reductive Debromination of Tribromophenol
-  description: Dehalobacter phylotype FTH1 works with the Clostridium hydrogen
-    supplier to debrominate 2,4,6-tribromophenol to phenol.
-  interaction_type: SYNTROPHY
+  description: Combined Ma13 and enriched FTH1 activity converts 2,4,6-tribromophenol to phenol. Phenol supplies
+    the substrate for strain DS introduced subsequently. This sequential resource delivery does not demonstrate
+    a reciprocal benefit to FTH1 or obligate thermodynamic syntrophy.
+  interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
     preferred_term: Dehalobacter sp.
@@ -180,33 +186,25 @@ ecological_interactions:
       label: phenol
   downstream:
   - target: Desulfatiglans Phenol Degradation
-    description: >
-      Dehalobacter-mediated formation of phenol supplies the aromatic
-      intermediate consumed by D. parachlorophenolica before final
-      mineralization.
+    description: Phenol formed by combined Ma13/FTH1 debromination provides the substrate for DS after its sequential
+      introduction; this arrow describes the reported treatment sequence.
   evidence:
   - reference: PMID:25461007
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: 2,4,6-TBP was debrominated to phenol by the combined action of Ma13 and FTH1
-    explanation: Supports the Clostridium- and Dehalobacter-dependent conversion of tribromophenol
-      to phenol.
+    explanation: Supports the Clostridium- and Dehalobacter-dependent conversion of tribromophenol to phenol.
+  - reference: PMID:25461007
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2,4,6-TBP was debrominated to phenol by the combined action of Ma13 and FTH1, then mineralized into
+      CO2 by sequential introduction of DS
+    explanation: Identifies phenol as the debromination intermediate channeled through the community.
 - name: Desulfatiglans Phenol Degradation
-  description: Desulfatiglans parachlorophenolica strain DS consumes the
-    debromination product phenol, completing the downstream aromatic
-    degradation step needed for anaerobic mineralization.
-  interaction_type: SYNTROPHY
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Desulfatiglans parachlorophenolica
-    term:
-      id: NCBITaxon:1261393
-      label: Desulfatiglans parachlorophenolica
-  target_taxon:
-    preferred_term: Dehalobacter sp.
-    term:
-      id: NCBITaxon:56112
-      label: Dehalobacter
+  description: Desulfatiglans parachlorophenolica strain DS mineralizes the phenol intermediate after its sequential
+    introduction. This is a recipient degradation outcome, not an observed DS-to-FTH1 benefit. The radiotracer confirmation
+    used ring-labeled phenol, not labeled tribromophenol.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: phenol
     term:
@@ -214,15 +212,25 @@ ecological_interactions:
       label: phenol
   downstream:
   - target: Anaerobic Halophenol Mineralization
-    description: >
-      Phenol degradation by strain DS is the final member-specialized function
-      before the three-member consortium mineralizes 2,4,6-TBP to carbon
-      dioxide.
+    description: Sequential DS-mediated phenol degradation completes the aromatic mineralization route after debromination.
+      Phenol radiotracing supports this terminal step, not a measured reciprocal benefit to the upstream culture.
   evidence:
-  - *id001
+  - reference: PMID:25461007
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2,4,6-TBP was debrominated to phenol by the combined action of Ma13 and FTH1, then mineralized into
+      CO2 by sequential introduction of DS
+    explanation: Identifies phenol as the debromination intermediate channeled through the community.
+  participating_taxa:
+  - preferred_term: Desulfatiglans parachlorophenolica
+    term:
+      id: NCBITaxon:1261393
+      label: Desulfatiglans parachlorophenolica
 - name: Anaerobic Halophenol Mineralization
-  description: Debromination, hydrogen supply, and phenol degradation are partitioned among members.
-  interaction_type: SYNTROPHY
+  description: The abstract reports anaerobic tribromophenol mineralization through glucose-fed hydrogen supply,
+    debromination and subsequent DS-mediated phenol degradation. The three listed functional participants include
+    an enriched FTH1 culture; they are not a proven exhaustive three-isolate membership. Sequential assembly and
+    the phenol radiotracer assay must not be recast as simultaneous inoculation or direct tracing of labeled tribromophenol.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: 2,4,6-tribromophenol
@@ -238,13 +246,30 @@ ecological_interactions:
       id: CHEBI:17234
       label: glucose
   evidence:
-  - *id001
   - reference: PMID:25461007
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 2,4,6-TBP was debrominated to phenol by the combined action of Ma13 and FTH1
-    explanation: Supports phenol as the intermediate formed from the target
-      halophenol before mineralization by the sequentially assembled community.
+    snippet: Anaerobic mineralization of 2,4,6-tribromophenol (2,4,6-TBP) was achieved by a synthetic anaerobe community
+    explanation: Names 2,4,6-tribromophenol as the substrate mineralized by the synthetic community.
+  - reference: PMID:25461007
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2,4,6-TBP was debrominated to phenol by the combined action of Ma13 and FTH1, then mineralized into
+      CO2 by sequential introduction of DS
+    explanation: Identifies phenol as the debromination intermediate channeled through the community.
+  participating_taxa:
+  - preferred_term: Dehalobacter sp.
+    term:
+      id: NCBITaxon:56112
+      label: Dehalobacter
+  - preferred_term: Clostridium sp.
+    term:
+      id: NCBITaxon:1485
+      label: Clostridium
+  - preferred_term: Desulfatiglans parachlorophenolica
+    term:
+      id: NCBITaxon:1261393
+      label: Desulfatiglans parachlorophenolica
 environmental_factors:
 - name: defined synthetic community design
   value: Dehalobacter phylotype FTH1, Clostridium strain Ma13, and Desulfatiglans parachlorophenolica
@@ -314,3 +339,34 @@ growth_media:
       2.5mM, 1.0 or 2.5mM, and the densities equivalent to 10(4)copiesmL(-1) of the 16S rRNA genes,
       respectively. This resulted in the complete mineralization of 23μM 2,4,6-TBP within 35days'
     explanation: Reports the glucose/sulfate/inoculum optima and the 35-day anaerobic incubation.
+discussions:
+- discussion_id: tribromophenol-evidence-boundaries-batch117
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  prompt: Which organisms and reciprocal effects are resolved beyond the abstract-supported sequential treatment?
+  rationale: The final-publication abstract establishes the functional sequence and phenol radiotracer confirmation.
+    Full text was not read, so exact-system perturbations, enrichment membership and reciprocal fitness cannot be
+    audited here. The outcome remains experimentally supported within that access boundary.
+  attaches_to:
+  - ecological_interactions#Clostridial Hydrogen Supply for Reductive Debromination
+  - ecological_interactions#Dehalobacter Reductive Debromination of Tribromophenol
+  - ecological_interactions#Desulfatiglans Phenol Degradation
+  - ecological_interactions#Anaerobic Halophenol Mineralization
+  evidence:
+  - reference: PMID:25461007
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2,4,6-TBP was debrominated to phenol by the combined action of Ma13 and FTH1, then mineralized into
+      CO2 by sequential introduction of DS
+    explanation: Identifies phenol as the debromination intermediate channeled through the community.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T11:33:16Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain hydrogen cross-feeding with enriched-culture identity and purity limits.; Retain sequential phenol
+    delivery as cross-feeding, not demonstrated reciprocal syntrophy.; Represent DS degradation as a recipient outcome
+    and distinguish the phenol tracer from labeled TBP.; Preserve experimental mineralization with explicit functional
+    participants and sequential assembly. Issue#1907; reports/causal_graph_review/decisions/20261008-four-records-batch117.yaml
+  llm_assisted: true
