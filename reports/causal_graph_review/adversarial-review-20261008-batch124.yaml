@@ -1,0 +1,527 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 19010db53b3b5537d458727318921006e83e7ccb
+scope:
+- kb/communities/AM_AB_Chlorella_MLSS_Wastewater_Consortium.yaml
+- kb/communities/TCP_NonDehalogenimonas_Groundwater_Consortium.yaml
+- kb/communities/Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml
+- kb/communities/Yogurt_TwoSpecies_Starter_Culture.yaml
+- kb/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml
+- kb/communities/hCom2_Complex_Gut_Microbiome.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-six-records-batch124.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch124.json
+findings:
+- issue: 1963
+  severity: P2
+  finding: Qualify metagenome-inferred TCP coupling and retain amendment effects
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1964
+  severity: P2
+  finding: Separate Yarrowia lipid fraction from titer and hydrolysis from exclusive niches
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1965
+  severity: P2
+  finding: Preserve yogurt intervention results while separating strains and benefit recipients
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1966
+  severity: P2
+  finding: Re-evidence Zymomonas rescue controls without exclusive sulfur-mediator claims
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1967
+  severity: P2
+  finding: Re-evidence hCom2 resistance and remove colonization-facilitation misclassification
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1968
+  severity: P2
+  finding: Review AM-AB graph extension against algae-only controls
+  status: open_research_extension
+  disposition: Remain open until separately verified.
+- issue: 1969
+  severity: P2
+  finding: Curate available AM-AB wastewater and HRAP details without indoor-outdoor conflation
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1970
+  severity: P2
+  finding: Reconcile Yarrowia member labels and inoculum-dependent abundance metadata
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1971
+  severity: P2
+  finding: Align non-graph yogurt summary with strain-specific urease recipients
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+adversarial_checks:
+- All15nodes and8arrows retained, six coherent renames, no new topology. Six canonical diffs and cache changes read.
+  TCP graph-owned YAML anchors preserved so unrelated media/ingredient blocks remain byte-identical. No dangling
+  targets or discussion anchors.
+- 'Algae-only controls bound a future AM-AB graph: early nitrogen removal is slower, phosphate detection limits
+  occur in both conditions, and BOD performance is not uniformly improved. Full Methods metadata is available, not
+  an ongoing abstract-access gap. Extension1968 and metadata1969 stay open.'
+- TCP metagenomic reconstruction is COMPUTATIONAL/PARTIAL, without invented tools, genus-specific roles or measured
+  transfer. Positive substrate amendments and culture-wide removal remain. Prior1108/1109 repairs preserved; no
+  new coupling-to-removal arrow.
+- Yarrowia exact YBGL3/YBXT-XR pair, shared glucose use and substrate succession are distinct from exclusive niches.34%
+  versus26.3% is a lipid-fraction comparison; best titer is comparable and1:2 performs worse. No polymer GO or demonstrated
+  burden-relief claims. Version1 preprint and metadata1970 limits remain.
+- Yogurt nutritional modeling, Nox perturbation and urease strain panels stay distinct. Positive interventions retained
+  with early/final and Streptococcus/Lactobacillus recipients separated. Nitrogen sufficiency and universal return-flow
+  mediation are not asserted. Both community-scoped outcomes name both original participants; metadata1971 remains.
+- Zymomonas spent-medium and individual-metabolite rescue remain positive, not mere correlation. Cysteine and glutathione
+  are sufficient alternatives; exact natural sulfur compound and release route remain unresolved. Three pairs remain
+  separate, with species-resolved counts and no long-term stability assertion.
+- hCom2 stability and resistance have direct endpoint evidence, not an assembly-only citation or colonization-facilitation
+  labels. Donor dependence and dropout architecture confounding limit mechanism/individual-strain claims. Non-graph
+  debt765 remains and no restricted full body is restored.
+- Thirteen focused tests and twelve targeted in-memory control/mutation/restored-control probes pass. Probes reject
+  specified scientific regressions, not every possible equivalent wording. Early test development failures included
+  an incorrect test taxon identifier, corrected to unchanged canonical NCBITaxon1585.
+- All30graph and6discussion quotes match fresh primary artifacts and caches. Four short excerpt appendices and one
+  independently matched missingTCPabstract;919originalcaches unchanged. Exact read scopes, failed retrievals and
+  successful alternatives recorded; no original figure-pixel,external-supplement,raw-data or code audit.
+- Zymomonas reference validation initially failed because its .md cache takes precedence over .txt. Move our exact
+  appendix to .md and restore our text-cache change; preserve failed/recovered logs. No validator changes, fabricated
+  content or weakened checks. EarlierTCPbaseline failure and24recovered checks also remain recorded. Correct algae
+  copyright holder to Water Environment Federation. Staged whitespace gate found trailing spaces in the newTCPcopy;
+  normalize only that copy and rerun affected checks, preserving the original user file and failed-check log.
+- Six sets of schema,strict,terms,references,snippets,rank/history checks pass.1187selected tests,lint,mypy and
+  deterministic render pass.57existing network warnings remain;zero structural defects. Exact456page/1359node/522arrow
+  descriptions verified,not screenshots or full Linux CI certification.
+- 454otherrecords,unrelated raw fields and all prior histories/decision artifacts unchanged. Census415community-level,137mixed,278community-only,1570taxa,1281sole-credit.
+  Yogurt adds two counted taxa but no sole credit;300participant-list users. Exact measured count bounds updated;
+  connectivity code and share guard unchanged.
+- 1963-1967 addressed pending protected-main merge;1968 extension,1969-1971 metadata and765 remain open. One algae
+  Edison dryrun, no provider submission or spend; priorRuegeria1883 configured-authentication blocker not retried
+  unchanged. Self-review is not independent approval.
+- Corpus405reviewed,zero pending,55needs_research across460records. Zero pending does not mean complete graphs or
+  a completed objective. Protected-root1836,actual exact-headCI,merge andbranchdeletion remain separate; postcommit
+  docs-current/publication not preasserted.
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: Erase algae-only nitrogen comparison
+      test: test_algal_extension_remains_open_and_control_bounded
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 23
+      assertion: assert "early nitrogen removal is slower" in gap["rationale"]
+      restored_control: PASS
+      changed_values:
+      - path: records/0/discussions/1/rationale
+        before: The primary study compares the combined culture with activated algae alone. Retain improved late
+          total-nitrogen removal, but early nitrogen removal is slower, phosphate reaches the detection limit in
+          both conditions, and BOD removal is not uniformly better. Biomass correlations do not establish a transfer
+          mechanism. New nodes require a separately authorized Edison causal-graph review; none were added in this
+          repair pass.
+        after: The primary study compares the combined culture with activated algae alone. Retain improved late
+          total-nitrogen removal, but early nitrogen removal is faster, phosphate reaches the detection limit in
+          both conditions, and BOD removal is not uniformly better. Biomass correlations do not establish a transfer
+          mechanism. New nodes require a separately authorized Edison causal-graph review; none were added in this
+          repair pass.
+    - mutation: Promote metagenome inference
+      test: test_tcp_reconstruction_is_not_measured_transfer
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 34
+      assertion: assert e["supports"] == "PARTIAL" and e["evidence_source"] == "COMPUTATIONAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/0/evidence/0/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Erase observed TCP removal rate
+      test: test_tcp_keeps_amendment_effects_and_shared_descriptors
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 45
+      assertion: assert "19.06" in b["description"] and "3.5 days" in b["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/1/description
+        before: Sodium acetate and lactate amendments enhanced TCP degradation in the domesticated consortium. The
+          abstract reports an overall average degradation rate of 19.06 umol L-1 d-1 and complete removal within
+          3.5 days; those values are not separately assigned to each amendment or to an individual genus.
+        after: Sodium acetate and lactate amendments enhanced TCP degradation in the domesticated consortium. The
+          abstract reports an overall average degradation rate of 0 umol L-1 d-1 and complete removal within 3.5
+          days; those values are not separately assigned to each amendment or to an individual genus.
+    - mutation: Reassert exclusive Yarrowia niches
+      test: test_yarrowia_design_is_not_exclusive_niches_or_polymer_catalysis
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 54
+      assertion: assert "interaction_type" not in a and "biological_processes" not in a
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/0/interaction_type
+        before: null
+        after: NICHE_PARTITIONING
+    - mutation: Promote Yarrowia titer advantage
+      test: test_yarrowia_fraction_does_not_become_titer_advantage
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 64
+      assertion: assert "comparable lipid titers" in c["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/2/description
+        before: The nitrogen-limited 1:5 YBGL3:YBXT-XR consortium reached a lipid fraction of 34% versus 26.3% in
+          the multifunctional monoculture. The best consortium and monoculture reached comparable lipid titers,
+          while the 1:2 consortium performed worse. A higher lipid fraction is not a general increase in titer,
+          growth or productivity, nor evidence of lower metabolic burden.
+        after: The nitrogen-limited 1:5 YBGL3:YBXT-XR consortium reached a lipid fraction of 34% versus 26.3% in
+          the multifunctional monoculture. The best consortium and monoculture reached greater lipid titers, while
+          the 1:2 consortium performed worse. A higher lipid fraction is not a general increase in titer, growth
+          or productivity, nor evidence of lower metabolic burden.
+    - mutation: Promote yogurt return-flow mediation
+      test: test_yogurt_pairs_and_return_flow_remain_distinct
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 79
+      assertion: assert b["downstream"][0]["description"].startswith("HYPOTHESIZED mediation:")
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/1/downstream/0/description
+        before: 'HYPOTHESIZED mediation: nitrogen support can sustain S. thermophilus growth and hence potential
+          return metabolites. The cited strain-pair experiments do not selectively establish proteolysis as the
+          cause of formate/CO2 return flow; this is not a demonstrated universal feedback loop.'
+        after: Experimentally necessary universal return flow.
+    - mutation: Erase yogurt participant restriction
+      test: test_yogurt_urease_recipients_and_scopes_are_explicit
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 89
+      assertion: assert {t["term"]["id"] for t in node["participating_taxa"]} == {
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/2/participating_taxa
+        before:
+        - preferred_term: Streptococcus thermophilus
+          term:
+            id: NCBITaxon:1308
+            label: Streptococcus thermophilus
+        - preferred_term: Lactobacillus delbrueckii subsp. bulgaricus
+          term:
+            id: NCBITaxon:1585
+            label: Lactobacillus delbrueckii subsp. bulgaricus
+        after: []
+    - mutation: Erase Nox final-yield null
+      test: test_yogurt_nox_keeps_intervention_early_recipient_and_final_null
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 102
+      assertion: assert "final Streptococcus counts converged" in d["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/3/description
+        before: In the S. thermophilus 1131/L. bulgaricus 2038 pair, disrupting S. thermophilus nox reduced oxygen
+          removal and slowed skim-milk acidification. Pre-fermentation deoxygenation mainly accelerated early S.
+          thermophilus growth and formate/lactate accumulation, not L. bulgaricus growth; final Streptococcus counts
+          converged. This is a fermentation phenotype, not colonization facilitation. A direct Nox-to-Pfl mechanism
+          remains HYPOTHESIZED.
+        after: In the S. thermophilus 1131/L. bulgaricus 2038 pair, disrupting S. thermophilus nox reduced oxygen
+          removal and slowed skim-milk acidification. Pre-fermentation deoxygenation mainly accelerated early S.
+          thermophilus growth and formate/lactate accumulation, not L. bulgaricus growth; final Streptococcus counts
+          increased. This is a fermentation phenotype, not colonization facilitation. A direct Nox-to-Pfl mechanism
+          remains HYPOTHESIZED.
+    - mutation: Combine three separate mutualism pairs
+      test: test_zymomonas_rescue_is_positive_and_pairs_are_separate
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 112
+      assertion: assert "three separate pairs" in c["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/4/ecological_interactions/2/description
+        before: Each of three separate pairs containing the Z. mobilis ZMO0748 auxotroph and an E. coli proA, pheA
+          or ilvA auxotroph grew in unsupplemented ZMMG, where the individual auxotrophs did not. Optical density
+          and species-resolved flow cytometry support growth of both partners under those conditions. This does
+          not establish long-term community stability or the absence of additional beneficial or inhibitory exchanges.
+        after: Each of one four-member consortium containing the Z. mobilis ZMO0748 auxotroph and an E. coli proA,
+          pheA or ilvA auxotroph grew in unsupplemented ZMMG, where the individual auxotrophs did not. Optical density
+          and species-resolved flow cytometry support growth of both partners under those conditions. This does
+          not establish long-term community stability or the absence of additional beneficial or inhibitory exchanges.
+    - mutation: Erase alternative sulfur rescue
+      test: test_zymomonas_sulfur_rescue_is_not_exclusive_glutathione
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 121
+      assertion: '"Cysteine and glutathione supplementation independently supported rescue"'
+      restored_control: PASS
+      changed_values:
+      - path: records/4/ecological_interactions/1/description
+        before: E. coli spent medium rescued the Z. mobilis ZMO0748 cysteine-synthase-like mutant. Cysteine and
+          glutathione supplementation independently supported rescue. Glutathione-related compounds were detected
+          in spent medium, but free cysteine below detection was not excluded. Thus the phenotype is experimentally
+          supported while the exact naturally transferred sulfur compound and release/uptake route remain PARTIAL.
+        after: E. coli spent medium rescued the Z. mobilis ZMO0748 cysteine-synthase-like mutant. Only glutathione
+          could rescue growth. Glutathione-related compounds were detected in spent medium, but free cysteine below
+          detection was not excluded. Thus the phenotype is experimentally supported while the exact naturally transferred
+          sulfur compound and release/uptake route remain PARTIAL.
+    - mutation: Reclassify hCom resistance as facilitation
+      test: test_hcom_outcomes_have_direct_evidence_and_not_facilitation
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 133
+      assertion: assert all("interaction_type" not in n for n in [a, b, c])
+      restored_control: PASS
+      changed_values:
+      - path: records/5/ecological_interactions/2/interaction_type
+        before: null
+        after: COLONIZATION_FACILITATION
+    - mutation: Erase hCom donor dependence
+      test: test_hcom_donor_and_mediator_limits_remain
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 142
+      assertion: assert "weaker resilience to unrelated fecal donors" in b["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/5/ecological_interactions/1/description
+        before: In gnotobiotic mice, hCom2 was more resilient than hCom1 to fecal challenge. The primary study also
+          reports weaker resilience to unrelated fecal donors. Stability is therefore donor- and experiment-dependent,
+          not complete exclusion or universal human-microbiome equivalence.
+        after: In gnotobiotic mice, hCom2 was more resilient than hCom1 to fecal challenge. The primary study also
+          reports equal resilience to all fecal donors. Stability is therefore donor- and experiment-dependent,
+          not complete exclusion or universal human-microbiome equivalence.
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/AM_AB_Chlorella_MLSS_Wastewater_Consortium.yaml: f3a69684e81df00ca791bfc61832141ad9048270f4b3ed476328b772d07604d2
+      kb/communities/TCP_NonDehalogenimonas_Groundwater_Consortium.yaml: ab6b0b9201bc3d3ca9c7b2cbd5395404b1ed071c064d2efb36351e4d72d6d02b
+      kb/communities/Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml: 2dbf53129f98e8df7edc68f7d3f2bc6ca7c748ac563d0e31abd1274a15ca051a
+      kb/communities/Yogurt_TwoSpecies_Starter_Culture.yaml: 693b023e694475fd4eeeb0fde9af92e56db2084b885af8b7bd5d1febe6140dcc
+      kb/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml: efc6e7b31f9bc7ebe11fe5a26f9f45e2a7b845684fd3a15c8b10e0d1994e6be6
+      kb/communities/hCom2_Complex_Gut_Microbiome.yaml: 84318d052c19431be7204a13f577dd246640b4786a6e7c4b863f01886e8746a7
+      tests/test_causal_review_batch124.py: 3cca5027c47066c2e9f9a0be7314fa3aa4d818dd64ff3a31ad429496ff1f2770
+    probe_script_sha256: c437189e4358f7efdb41d09b11961117ded0d6c6d1132ec7ff3e1535b771f63b
+    scope: In-memory control/mutation/restored-control; no canonical writes and not additional pytest tests.
+  artifact: /private/tmp/communitymech-batch124/adversarial-regression-proof-targeted.json
+  sha256: 0d4e768d15d689cc8638808641d842bf9d789ca24507e46211e0524bb6be5522
+verification:
+  combined_regressions: 1187 passed in 353.41s (0:05:53)
+  new_regression_tests: 13
+  total_recorded_gate_outputs: 61
+  primary_graph_snippet_proof:
+    graph_quotations: 30
+    discussion_quotations: 6
+    fresh_primary_literal_matches: 36
+    all_cached_literal_matches: 36
+    retained_nodes: 15
+    removed_nodes: 0
+    renamed_nodes: 6
+    retained_arrows: 8
+    removed_arrows: 0
+    new_nodes_or_directions: 0
+  references: Full-record local passes are macOS, not Linux certification. Literal matching does not establish entailment.
+    Total checks in the reference CLI counts issues, not examined snippets.
+  snippet_counts_by_record:
+    kb/communities/AM_AB_Chlorella_MLSS_Wastewater_Consortium.yaml:
+      MATCH: 15
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/TCP_NonDehalogenimonas_Groundwater_Consortium.yaml:
+      MATCH: 18
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml:
+      MATCH: 18
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Yogurt_TwoSpecies_Starter_Culture.yaml:
+      MATCH: 27
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml:
+      MATCH: 27
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/hCom2_Complex_Gut_Microbiome.yaml:
+      MATCH: 7
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 9102
+      categories:
+        MATCH: 8971
+        RENDERING: 31
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 40
+        NOCONTENT: 59
+    caveat: Informational audit exit0 is not clean-corpus or entailment certification.
+  network:
+    existing_findings_preserved: 57
+    added_findings: {}
+    removed_findings: {}
+    structural_defects: 0
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-six-records-batch124.yaml: ac925b5b57d1e2d173d9e515d8b371b300b885f3fc06c473570ddce7e3a07c87
+    tests/test_causal_review_batch124.py: 3cca5027c47066c2e9f9a0be7314fa3aa4d818dd64ff3a31ad429496ff1f2770
+    tests/test_participating_taxa.py: db84a4aedbbc553907c6ad35737d3f0f3900aa3ce50eb0aad61ef65b3855a8e7
+    tests/test_community_level_connectivity_credit.py: 0f02b8c5d89eed7a6578075899bfe4fa481f929515b4fd5b2641a61eedd4c88e
+    tests/test_causal_review_batch109.py: 6667be62a86cc92577f88b772c90c12541893e23e97e120a2f58bd0a5185aeea
+    tests/test_datamodel.py: f8d4750ad64eb4156857a86a8c6adf16dedefb09ca3c3da908f697e609a35f25
+    reports/causal_graph_review/cache-provenance-20261008-batch124.json: 8875156f1920897cee5a7befb9ece8820ffa2e5d3c41b5f542bf577b53e2022c
+    kb/communities/AM_AB_Chlorella_MLSS_Wastewater_Consortium.yaml: f3a69684e81df00ca791bfc61832141ad9048270f4b3ed476328b772d07604d2
+    kb/communities/TCP_NonDehalogenimonas_Groundwater_Consortium.yaml: ab6b0b9201bc3d3ca9c7b2cbd5395404b1ed071c064d2efb36351e4d72d6d02b
+    kb/communities/Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml: 2dbf53129f98e8df7edc68f7d3f2bc6ca7c748ac563d0e31abd1274a15ca051a
+    kb/communities/Yogurt_TwoSpecies_Starter_Culture.yaml: 693b023e694475fd4eeeb0fde9af92e56db2084b885af8b7bd5d1febe6140dcc
+    kb/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml: efc6e7b31f9bc7ebe11fe5a26f9f45e2a7b845684fd3a15c8b10e0d1994e6be6
+    kb/communities/hCom2_Complex_Gut_Microbiome.yaml: 84318d052c19431be7204a13f577dd246640b4786a6e7c4b863f01886e8746a7
+  history_sha256:
+    history/records/AM_AB_Chlorella_MLSS_Wastewater_Consortium/2026-10-08T175132Z-codex-665b31.yaml: b38ec278e3b3a85d8ee7ca0d2b3f30dfe7cdf074fd2efad716e2fcf236bc7541
+    history/records/TCP_NonDehalogenimonas_Groundwater_Consortium/2026-10-08T175132Z-codex-e21077.yaml: 1a24a6a4a3e2c0f979ac91d4e87279e1ecb867b17030574faf36fa5f8a256741
+    history/records/Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium/2026-10-08T175133Z-codex-bf87bc.yaml: 2b6780dd15a88d5d85f82b056baa608351cac9cd72be7138b36eae8a5ab9a588
+    history/records/Yogurt_TwoSpecies_Starter_Culture/2026-10-08T175133Z-codex-114f8d.yaml: a824d884702042318db809aa93f7f93649975781485c2118b3db94b628ba604a
+    history/records/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism/2026-10-08T175133Z-codex-2cd46c.yaml: ad7f00548befd400cc92f2a7487553dbdbf22ba90f952cbd7b686590068ae1d1
+    history/records/hCom2_Complex_Gut_Microbiome/2026-10-08T175134Z-codex-9059ef.yaml: c0acefe72e4ba1514d96db7897cf949b08a7c91ee55a0dd579f52e03334bcb92
+  unchanged_records: 454
+  unchanged_caches: 919
+  immutable_prior_history_and_decision_files: 909
+  cache_changes:
+  - path: references_cache/PMID_41736479.txt
+    before_sha256: null
+    after_sha256: 0f4e3719902f55ce45dfde9383042337bfd85897a53660e1d434f89a777be27e
+    action: Restore missing abstract from the existing main-checkout user file, independently match EuropePMC, add
+      final newline and strip trailing ASCII spaces/tabs for the staged whitespace gate. Original user file unchanged;
+      source words unchanged.
+  - path: references_cache/PMID_42429207.txt
+    before_sha256: 2a50d54a82547f7ddb7d1536dce9dbc5b7553c8769f1eec4b936db41ec973e8b
+    after_sha256: eb80e76d862305f4031055915eb45a832b8f32de2d0bfe042eb9142c314f4c7a
+    action: Append short literal primary excerpts with URL, section, date and license; preserve original cache prefix.
+  - path: references_cache/doi_10.64898_2025.12.19.695487.md
+    before_sha256: b29827aa946f1564bd10177dfebab726689113664f122f4431bbfeb2ed7bfbd5
+    after_sha256: 561f7a1c054813f2b701c766fc4e69203400fe1ef88cd09dea41c522a1748e20
+    action: Append short literal primary excerpts with URL, section, date and license; preserve original cache prefix.
+  - path: references_cache/PMID_19114510.txt
+    before_sha256: 27f1a2c09f8768aafe25638ffb75f83ede4920a0e2f02d7ae915f419e966daac
+    after_sha256: 5620d2ac074263119962e98e17f1d705a764c3f0b972328370c07a171da697cf
+    action: Append short literal primary excerpts with URL, section, date and license; preserve original cache prefix.
+  - path: references_cache/PMID_26885935.md
+    before_sha256: 739cb68daf6d073e9057cfaa0a530869eb66b3c804241dcf9503e25153a080bc
+    after_sha256: 90b61b191addc52f9876cb1e93f1dfd729753ab5ffc2b22e9748c671198df777
+    action: Append the same short literal excerpts to the existing validator-preferred Markdown cache; original
+      bytes retained. Text-cache appendix moved here after a recorded precedence failure. Original abstract-only
+      frontmatter describes the retained base; the attributed appendix is not a full article.
+  edison:
+    required_for_existing_graph_repairs: false
+    required_for_algal_extension: true
+    dry_run_completed: true
+    dry_run_artifacts:
+    - /private/tmp/communitymech-batch124/edison-dry-run/AM_AB_Chlorella_MLSS_Wastewater_Consortium-edison-literature-causal-meta.yaml
+    provider_submissions: 0
+    credits_spent: 0
+    new_nodes_or_directions: 0
+    prior_extension_blocker: 'Ruegeria1883: configured authentication unavailable in prior authorized invocation;
+      no unchanged-state retry or broader spend.'
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  current:
+    records: 460
+    with_community_level: 415
+    mixed: 137
+    community_level_only: 278
+    taxa: 1570
+    credited_solely_by_the_rule: 1281
+  delta_from_batch123:
+    records: 0
+    with_community_level: 1
+    mixed: 1
+    community_level_only: 0
+    taxa: 2
+    credited_solely_by_the_rule: 0
+  explanation: Yogurt urease/Nox are explicitly community-level with both original members, who remain pairwise-connected
+    by the two nutritional nodes.300participant-list users; two taxa newly counted in community-scoped records but
+    no new sole credit. Connectivity logic and share guard unchanged; measured count bounds updated by one.
+corpus:
+  records: 460
+  nodes: 1373
+  edges: 530
+  review_status_counts:
+    needs_research: 55
+    reviewed: 405
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary established Python3.13 lint environment; project dependencies unchanged.
+limitations:
+- Pre-source baseline covers460records,923caches,57existing warnings and zero structural defects. Six whole records
+  and15nodes/eight arrows reviewed; all retained,six renames,no new topology. Five existing graphs repaired; algae-MLSS
+  remains an empty-graph extension gap.
+- 'Fresh EuropePMC metadata/abstracts for eight PubMed papers and Crossref identities checked. Yarrowia bioRxivAPI
+  and version1 XML retrieved; not certified peer-reviewed. XML failures for four PMC articles did not imply absent
+  full text: their PMC HTML bodies were retrieved and read. TCP publisher403; only its abstract supports this review.'
+- Algae primary Methods2.1-2.9,Results/Discussion3.1-3.4,Conclusion andTables1-4 read. Algae-only controls bound
+  faster or universally better remediation; phosphate reaches detection limits in both and early nitrogen removal
+  is slower in AM-AB. Correlations and theoretical methane yield are not transfer or production measurements. Available
+  HRAP metadata deferred to1969; outdoor conditions must not inherit indoor stock settings.
+- Yarrowia full Methods,Results3.3-3.6,Discussion4.1-4.2 andConclusions read. Exact pair is YBGL3/YBXT-XR; shared
+  glucose use and lack of simultaneous glucose/xylose consumption rule out exclusive niches. Higher fraction in1:5
+  is not higher titer or all-ratio benefit. Methods/Results ratio ambiguity and existing member metadata remain1970.
+  Earlier enzyme-characterization Results not fully read.
+- Yogurt19114510 strain Methods,growth/nitrogen Results andBCAA/purine Discussion;20889781 strain/compound/metabolite
+  Methods,addition andnitrogen/CO2 Results/Table1 andDiscussion;24936380 main mechanism Results/Discussion andMethods;30594386
+  abstract read. Distinct pairs and stage-specific recipients kept separate. Positive knockout/supplementation outcomes
+  retained without flux or universal mutualism. Non-graph19395564 dataset not researched; urease summary deferred1971.
+- Zymomonas accepted manuscript abstract/introduction,Results andrescue controls throughpage8 andstrain Methods
+  start read via UCweb PDF extraction. Direct curl/urllib PDF downloads were empty and not evidence. Positive spent-medium,individual
+  metabolite andspecies-resolved growth results retained. Glutathione is not the exclusive necessary mediator; three
+  pairs are separate andlong-term stability untested. Remaining protocol Methods not fully read.
+- hCom2 construction,augmentation,resilience,architecture,EHECchallenge Results,Discussion/limitations and relevant
+  strain-preparation/augmentation/challenge Methods read. Donor dependence anddropout architecture confounding bound
+  niche-filling causality. Three facilitation labels removed andoutcomes re-evidenced with existing abstract text;
+  non-graph debt765 remains. No restricted full body restored.
+- All graph anddiscussion quotes checked against caches and fresh primary artifacts by normalized contiguous matching,not
+  entailment proof. Four caches gain short provenance-labeled excerpts; missingTCPabstract restored from an unchanged
+  user file andindependently matched.919originalcaches unchanged;924total. No full-body import,figure-pixel inspection,external-supplement/raw-data/code
+  audit or whole-record certification.
+- Initial TCPbaseline reference check failed due missingcache andnetworkDNS; originalfailure/log retained. Afterverifiedcache
+  restoration,24recovered targetbaseline checks passed. Fresh source retrieval logs retain failures as well as successful
+  alternative access routes.
+- Expanded all-state1196issue titles/bodies and178matchinghidden/ignored localpaths searched; ninepriorissue bodies
+  read. Credentials,.git,generateddocs/site andreferencecaches excluded from issue-dedup search;caches separately
+  inspected. No historicalPRcomment audit. Engineered gutaminoacid neighbor read as convention only,not transferred
+  evidence; no reusable target taxon files found in ignored-inclusive search.
+- Six guarded writes preserve454otherrecords,unrelated rawYAMLblocks andallpriorhistory/decision artifacts. Six
+  append-onlyhistories/events. Yogurturease/Nox endpoints nowcommunity-scoped withbothcanonicalparticipants; other
+  scopes/taxonomy preserved. Connectivity logic unchanged; census measured separately.
+- One-community algae Edison dryrun completed without provider submission orcredits. New extension requires separately
+  scoped spend authorization; priorRuegeria1883 configured-authentication blocker not retried unchanged. No credentials
+  inspected. Source-based self-adversarial review is notindependent approval.55researchrecords andprotectedmerge/branchdeletion
+  remain incomplete.

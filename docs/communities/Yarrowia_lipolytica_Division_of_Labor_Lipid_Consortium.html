@@ -569,7 +569,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Yarrowia lipolytica Division-of-Labor Lipid Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for niche partitioning.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for niche partitioning. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -580,16 +580,20 @@
                              aria-hidden="true" data-symbol="symbolSquare2"
                              data-color="#1212ed"></svg> Niche partitioning
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Cellobiose-Xylooligosaccharide Division of Labor</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Oligosaccharide Hydrolysis Division of Labor</h3>
                 </div>
-                <p class="prewrap interaction-description">The two engineered Y. lipolytica members partition lignocellulose oligosaccharide use between a cellobiose-specialized YBGL3 or YBGL1 strain and a xylooligosaccharide-specialized YBXT-XR strain, creating a mixed-substrate consortium rather than burdening one strain with every hydrolysis and assimilation function.</p>
+                <p class="prewrap interaction-description">YBGL3 and YBXT-XR distribute cellobiose and xylooligosaccharide hydrolysis, respectively. Both can use glucose, and the experiments did not achieve simultaneous glucose/xylose consumption. The tested coculture uses YBGL3, not an interchangeable YBGL1 partner. Division of enzyme production is not proof of reduced competition, cross-feeding or relief of a demonstrated prohibitive metabolic burden.</p>
 
 
 
@@ -618,23 +622,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        cellulose catabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0030245"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0030245</a>)
-                    </li>
-
-                    <li>
-                        xylan catabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0045493"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0045493</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
@@ -642,12 +629,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Population Shift to YBXT-XR
-                        <p class="prewrap causal-description">Cellobiose depletion precedes enrichment of YBXT-XR and preferential use of the remaining xylooligosaccharides for lipid synthesis.</p>
+                        <p class="prewrap causal-description">PARTIAL: Differential substrate capacities are consistent with the population shift after cellobiose depletion. The time course supports temporal succession but does not isolate depletion from other changing culture conditions.</p>
                     </div>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Enhanced Lipid Accumulation
-                        <p class="prewrap causal-description">Distributed oligosaccharide hydrolysis and assimilation yielded higher lipid accumulation than the multifunctional monoculture benchmark.</p>
+                        <span class="flow-arrow">→</span> Higher Lipid Fraction in the 1:5 Consortium
+                        <p class="prewrap causal-description">PARTIAL: The tested division-of-labor design yielded the higher final lipid fraction in the nitrogen-limited 1:5 consortium. The comparison does not identify burden relief as mediator or establish superior titer or performance at every inoculum ratio.</p>
                     </div>
 
                 </div>
@@ -670,6 +657,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.64898/2025.12.19.695487"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2025.12.19.695487</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"the YBGL3 + YBXT-XR cocultures"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -679,7 +679,7 @@
                     <h3>Population Shift to YBXT-XR</h3>
                     <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">After the consortium depleted cellobiose, the YBXT-XR member became predominant and consumed the remaining xylooligosaccharides mostly for lipid synthesis.</p>
+                <p class="prewrap interaction-description">In the mixed-substrate cocultures, YBXT-XR became predominant after cellobiose depletion, while YBGL3 could not use the remaining xylose resource. This is observed temporal succession consistent with differential substrate use, not proof that engineered partners avoid early glucose competition or that depletion was selectively manipulated as the sole cause.</p>
 
 
 
@@ -745,10 +745,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Enhanced Lipid Accumulation</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Higher Lipid Fraction in the 1:5 Consortium</h3>
                 </div>
-                <p class="prewrap interaction-description">The distributed, two-strain consortium accumulated a greater lipid fraction than the single multifunctional YBXT-XR-BGL3 monoculture under comparable mixed-oligosaccharide conditions.</p>
+                <p class="prewrap interaction-description">The nitrogen-limited 1:5 YBGL3:YBXT-XR consortium reached a lipid fraction of 34% versus 26.3% in the multifunctional monoculture. The best consortium and monoculture reached comparable lipid titers, while the 1:2 consortium performed worse. A higher lipid fraction is not a general increase in titer, growth or productivity, nor evidence of lower metabolic burden.</p>
 
 
 
@@ -804,6 +803,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.64898/2025.12.19.695487"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2025.12.19.695487</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"the 1:5 consortium ultimately reached a comparable lipid titer at 168 h"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -813,6 +825,43 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which strain-level processes account for the lipid-fraction difference without a titer advantage?
+                </h3>
+                <p class="prewrap">The full-text Results and Discussion identify YBGL3/YBXT-XR, shared glucose use and an inoculum-dependent outcome. Distinguish lipid fraction from titer and rate, and substrate succession from true co-consumption. Resolve apparent Methods/Results inoculum-ratio wording inconsistencies before extending quantitative metadata. The source is bioRxiv version 1, not certified peer-reviewed evidence.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Oligosaccharide Hydrolysis Division of Labor</code>, <code>ecological_interactions#Population Shift to YBXT-XR</code>, <code>ecological_interactions#Higher Lipid Fraction in the 1:5 Consortium</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+                                <a href="https://doi.org/10.64898/2025.12.19.695487" rel="noreferrer">doi:10.64898/2025.12.19.695487</a>
+
+                        </div>
+                        <p class="snippet small prewrap">the 1:5 consortium ultimately reached a comparable lipid titer at 168 h</p>
+                        <p class="muted small prewrap">The primary comparison limits the performance claim.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1110,7 +1159,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1121,17 +1170,11 @@
 
             var processes = [];
 
-
-            processes.push("cellulose catabolic process");
-
-            processes.push("xylan catabolic process");
-
-
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Cellobiose-Xylooligosaccharide Division of Labor",
+                label: "Oligosaccharide Hydrolysis Division of Labor",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1206,7 +1249,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1219,11 +1262,11 @@
             processes.push("lipid biosynthetic process");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Enhanced Lipid Accumulation",
+                label: "Higher Lipid Fraction in the 1:5 Consortium",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
