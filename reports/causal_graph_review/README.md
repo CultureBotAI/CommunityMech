@@ -5,6 +5,40 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch115: Mineral Roles And Reactor Predictions
+
+[Decisions](decisions/20261008-three-records-batch115.yaml),
+[provenance](cache-provenance-20261008-batch115.json),
+[validation](validation-20261008-batch115.json), and
+[self-adversarial review](adversarial-review-20261008-batch115.yaml) cover
+the thermophilic pyrite, thiocyanate and Tinto River records. Of 14 existing
+nodes and seven arrows, 13 nodes and four arrows remain. Added QS compounds
+are distinguished from endogenous signaling, and Afipia genomic predictions
+from measured strain flux. The Tinto Acidiphilium role is ferric reduction;
+unsupported eukaryotic/fungal carbon-transfer arrows are removed.
+
+Four fresh primary XML main bodies, the 2003 Tinto institutional PDF and
+the 2013 eukaryote review were read. Two primary abstracts corroborate
+photosynthesis and fungal presence without establishing specific carbon transfer.
+The review remains REVIEW evidence. All 25 graph/discussion quotes match fresh
+sources and existing caches; two are review quotations, not primary evidence.
+No publication bodies or caches were added. Three append-only histories
+preserve unrelated fields, 457 other records and all 923 caches.
+
+Three explicit participant-list users are added. The removed fungal claim no
+longer gives Basidiomycota an unsupported interaction: its disconnected warning
+is retained for follow-up rather than hidden by an all-member participant list.
+Connectivity logic and the share guard are unchanged. Repairs #1893-#1895 await
+protected-main merge; metadata #1896-#1898 remain open. No Edison spend or new
+topology is introduced. Self-review is not independent approval or completion.
+
+[CI regression #1899](ci-regression-1899-20261008.json) records the failed
+batch114 strict run and the stale Synechococcus smoke-test expectations from
+batch109. The corrected contract passes 24 related tests and seven additional
+counterfactual probes; no canonical graph is changed for this fix. Propagation
+through the older affected PRs and fresh protected checks are still required.
+These focused results and the 1044 batch regressions are not a new full-suite pass.
+
 ## Batch114: Thermophilic Syntrophy And Mechanism Limits
 
 [Decisions](decisions/20261008-two-records-batch114.yaml),

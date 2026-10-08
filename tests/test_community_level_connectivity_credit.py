@@ -110,7 +110,8 @@ def test_most_records_carry_a_community_level_interaction(survey):
     # #1865 separates the scoped butanol endpoint (408 -> 409), with no new sole credit.
     # #1872/#1875/#1876 add three scoped outcomes; the ES5 triculture is community-only.
     # #1889 scopes Thermotoga proximity/phenotype; both members retain pairwise credit.
-    assert 130 <= survey["with_community_level"] <= 413, survey
+    # #1893 makes pyrite roles/perturbations community-scoped; no invented exchange.
+    assert 130 <= survey["with_community_level"] <= 414, survey
 
 
 def test_the_mixed_records_are_where_the_coarseness_bites(survey):
