@@ -128,10 +128,9 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Ureolytic Heterotroph Ammonium Release
-  description: Pseudomonas fluorescens, Acidovorax delafieldii, and Delftia
-    acidovorans provide the ureolytic heterotroph stage of the synthetic community,
-    hydrolyzing urine urea into ammonium for the nitrifiers.
-  interaction_type: CROSS_FEEDING
+  description: The three named ureolytic heterotrophs provide the urine-urea hydrolysis function that releases ammonium
+    for nitrification in the assembled community. The abstract identifies this guild but does not quantify each
+    member contribution or establish equal or individually essential ureolytic activity.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pseudomonas fluorescens
@@ -156,22 +155,21 @@ ecological_interactions:
       id: CHEBI:28938
       label: ammonium
   downstream:
-  - target: Ammonium-Fed Nitrifier Coculture
-    description: Ammonium released by the ureolytic heterotrophs feeds the
-      Nitrosomonas-Nitrobacter nitrifier stage that performs salt-adapted
-      nitrification.
+  - target: Ammonia and nitrite oxidation by the nitrifier pair
+    description: Ureolytic ammonium release supplies the substrate for ammonia oxidation within the urine-fed community,
+      followed by nitrite oxidation. This functional route does not connect urine hydrolysis as the cause of the
+      separate ammonium-fed reactor-1 salt-adaptation result.
   evidence:
   - reference: PMID:31623889
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: three ureolytic heterotrophs (Pseudomonas fluorescens, Acidovorax delafieldii,
-      and Delftia acidovorans)
-    explanation: Identifies the three ureolytic heterotrophs in the urine-fed
-      synthetic microbial community.
-- name: Ammonium-Fed Nitrifier Coculture
-  description: The Nitrosomonas europaea ammonia oxidizer and Nitrobacter
-    winogradskyi nitrite oxidizer form the inorganic nitrifier stage, removing
-    ammonium under urine-like salinity and generating nitrate fertilizer.
+    snippet: three ureolytic heterotrophs (Pseudomonas fluorescens, Acidovorax delafieldii, and Delftia acidovorans)
+    explanation: Identifies the three ureolytic heterotrophs in the urine-fed synthetic microbial community.
+- name: Ammonia and nitrite oxidation by the nitrifier pair
+  description: Nitrosomonas europaea and Nitrobacter winogradskyi supply the ammonia-oxidation and nitrite-oxidation
+    functions, respectively. Nitrite delivery links these complementary nitrifier roles. The ammonium-fed pair was
+    separately salt-adapted in reactor 1 up to 45 mS/cm while removing 44 +/- 10 mg ammonium-N/L/day; this is not
+    a measured salinity or removal rate for the five-member urine-fed reactor 2.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -193,28 +191,35 @@ ecological_interactions:
       id: CHEBI:17632
       label: nitrate
   biological_processes:
-  - preferred_term: nitrification
+  - preferred_term: ammonia oxidation
     term:
       id: GO:0019329
       label: ammonia oxidation
   downstream:
   - target: Nitrifier-Heterotroph Urine Conversion
-    description: Salt-adapted Nitrosomonas and Nitrobacter convert ammonium
-      supplied by urine hydrolysis into the nitrate output of the full
-      five-member community.
+    description: The complementary ammonia- and nitrite-oxidation functions enable nitrate output from hydrolyzed
+      urine nitrogen in the five-member reactor. The reactor-1 salt tolerance and removal benchmark are not transferred
+      to reactor 2.
   evidence:
   - reference: PMID:31623889
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: salt adaptation of the ammonium-fed AOB and NOB co-culture was possible up to
-      45mScm-1
-    explanation: Supports the ammonium-fed ammonia-oxidizer/nitrite-oxidizer
-      coculture as the nitrifying stage of the engineered urine community.
+    snippet: salt adaptation of the ammonium-fed AOB and NOB co-culture was possible up to 45mScm-1
+    explanation: Supports the separate reactor-1 ammonium-fed pair salt challenge, not the salinity or rate of reactor
+      2.
+  - reference: PMID:31623889
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this study, a synthetic microbial community containing an AOB (Nitrosomonas europaea), NOB (Nitrobacter
+      winogradskyi), and three ureolytic heterotrophs (Pseudomonas fluorescens, Acidovorax delafieldii, and Delftia
+      acidovorans) was compiled and evaluated for these challenges.
+    explanation: Supports the defined synthetic community design and represented community context.
 - name: Nitrifier-Heterotroph Urine Conversion
-  description: The complete five-member synthetic community links ureolysis with
-    nitrification to convert urine nitrogen into liquid nitrate fertilizer for
-    regenerative life-support applications.
-  interaction_type: CROSS_FEEDING
+  description: The five-member urine-fed community in reactor 2 produced nitrate at 15 +/- 6 mg nitrate-N/L/day
+    with 1 percent synthetic and 10 percent fresh real urine, respectively. Separate fresh-real-urine batch activity
+    tests reached 29 +/- 3 mg N/L/day. These are distinct assay outcomes, not rates to combine with the reactor-1
+    salt challenge. The reported organic removal still required optimization; nitrate production is not proof of
+    spaceflight performance or fertilizer readiness.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: urea
@@ -230,26 +235,45 @@ ecological_interactions:
       id: CHEBI:17632
       label: nitrate
   biological_processes:
-  - preferred_term: nitrification
+  - preferred_term: ammonia oxidation
     term:
       id: GO:0019329
       label: ammonia oxidation
   evidence:
-  - *id001
   - reference: PMID:31623889
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Astronauts' urine can, for instance, be nitrified by micro-organisms into a liquid nitrate
-      fertilizer for plant growth in space.
-    explanation: Supports nitrification of urine nitrogen to nitrate as the
-      terminal product of the synthetic microbial community.
+    snippet: In this study, a synthetic microbial community containing an AOB (Nitrosomonas europaea), NOB (Nitrobacter
+      winogradskyi), and three ureolytic heterotrophs (Pseudomonas fluorescens, Acidovorax delafieldii, and Delftia
+      acidovorans) was compiled and evaluated for these challenges.
+    explanation: Supports the five assembled members, not equal contribution or individual necessity.
   - reference: PMID:31623889
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the nitrifiers and ureolytic heterotrophs were fed with urine and achieved a
-      15±6mg NO3--NL-1d-1 production rate
-    explanation: Quantifies nitrate production by the full urine-fed nitrifier
-      and ureolytic heterotroph community.
+    snippet: the nitrifiers and ureolytic heterotrophs were fed with urine and achieved a 15±6mg NO3--NL-1d-1 production
+      rate
+    explanation: Quantifies nitrate production by the full urine-fed nitrifier and ureolytic heterotroph community.
+  participating_taxa:
+  - preferred_term: Nitrosomonas europaea
+    term:
+      id: NCBITaxon:915
+      label: Nitrosomonas europaea
+  - preferred_term: Nitrobacter winogradskyi
+    term:
+      id: NCBITaxon:913
+      label: Nitrobacter winogradskyi
+  - preferred_term: Pseudomonas fluorescens
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+  - preferred_term: Acidovorax delafieldii
+    term:
+      id: NCBITaxon:47920
+      label: Acidovorax delafieldii
+  - preferred_term: Delftia acidovorans
+    term:
+      id: NCBITaxon:80866
+      label: Delftia acidovorans
 environmental_factors:
 - name: defined synthetic community design
   value: Nitrosomonas europaea, Nitrobacter winogradskyi, Pseudomonas fluorescens, Acidovorax delafieldii,
@@ -338,3 +362,31 @@ cultivation_setup:
     evidence_source: IN_VITRO
     snippet: In reactor 2, the nitrifiers and ureolytic heterotrophs were fed with urine
     explanation: Describes the nitrification reactor cultivating the community.
+discussions:
+- discussion_id: urine-evidence-boundaries-batch117
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  prompt: How do individual heterotroph contributions and reactor conditions control urine nitrification?
+  rationale: This review uses the final-publication abstract, not the restricted full paper or the earlier thesis
+    chapter. It distinguishes reactor 1, reactor 2 and batch activity assays. Exact individual ureolysis contributions
+    and perturbation details remain unresolved; the space-fertilizer motivation is not an experimental endpoint.
+  attaches_to:
+  - ecological_interactions#Ureolytic Heterotroph Ammonium Release
+  - ecological_interactions#Ammonia and nitrite oxidation by the nitrifier pair
+  - ecological_interactions#Nitrifier-Heterotroph Urine Conversion
+  evidence:
+  - reference: PMID:31623889
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: three ureolytic heterotrophs (Pseudomonas fluorescens, Acidovorax delafieldii, and Delftia acidovorans)
+    explanation: Identifies the three ureolytic heterotrophs in the urine-fed synthetic microbial community.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T11:33:18Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain guild ureolysis without claiming equal member contributions or measured individual necessity.;
+    Separate nitrifier function from the distinct ammonium-fed salt-challenge benchmark.; Preserve reactor and batch
+    nitrate outcomes with all five participants, not space-fertilizer validation. Issue#1909; reports/causal_graph_review/decisions/20261008-four-records-batch117.yaml
+  llm_assisted: true

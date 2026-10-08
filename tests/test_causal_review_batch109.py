@@ -176,15 +176,15 @@ def test_hashes_histories_and_canonical_identity_only_scope_are_explicit():
 
 
 def test_current_scope_census_tracks_later_source_bounded_repairs():
-    # Batch116 scopes isobutanol outcomes; both members retain pairwise credit.
+    # Batch117 narrows vitamin provision to the tested pair; no sole credit changes.
     survey = runpy.run_path(str(ROOT / "tests/test_community_level_connectivity_credit.py"))[
         "_survey"
     ]()
     assert survey == {
         "records": 460,
-        "with_community_level": 415,
-        "mixed": 137,
+        "with_community_level": 414,
+        "mixed": 136,
         "community_level_only": 278,
-        "taxa": 1570,
+        "taxa": 1568,
         "credited_solely_by_the_rule": 1280,
     }
