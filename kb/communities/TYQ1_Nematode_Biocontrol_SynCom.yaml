@@ -252,12 +252,10 @@ taxonomy:
     explanation: Documents MA as recruited biomarker contributing to biofilm and metabolic network
 ecological_interactions:
 - name: Keystone-Mediated Community Recruitment
-  description: 'TYQ1 enrichment during root-knot nematode infection causes restructuring of the rhizobacterial
-    community, leading to enrichment of 7 biomarker species. RKN infection restructured the rhizosphere
-    bacterial community in RKN-susceptible cucumber plants regardless of soil type.
-
-    '
-  interaction_type: MUTUALISM
+  description: TYQ1 inoculation changes the cucumber rhizobacterial community relative to uninoculated controls
+    and enriches biomarker OTUs from which seven partner strains were selected. This intervention is distinct from
+    the initial nematode-induced enrichment of TYQ1. Relative-abundance enrichment alone does not establish mutual
+    fitness benefit, absolute growth of every partner, or a compound-specific recruitment mechanism.
   scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Rhizobium pusense TYQ1
@@ -270,28 +268,27 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
   downstream:
-  - target: Synergistic Biofilm Formation
-    description: TYQ1-mediated recruitment enriches the biomarker species that,
-      in collaboration with TYQ1, increase the community's biofilm-forming
-      ability.
-  - target: Metabolic Cross-Feeding Network
-    description: TYQ1-mediated recruitment enriches the biomarker species that
-      establish a tightly interconnected metabolic interaction network centered
-      on TYQ1.
+  - target: TYQ1-partner biofilm enhancement
+    description: 'PARTIAL: TYQ1 inoculation enriches the pool of partners whose reconstructed pairings enhance biofilm
+      in vitro. This supports a recruitment-to-biofilm hypothesis across the linked assays, not direct measurement
+      of biofilm mediation in the root community.'
+  - target: Condition-dependent TYQ1 spent-medium cross-feeding
+    description: 'PARTIAL: TYQ1-driven partner enrichment provides members with experimentally demonstrated spent-medium
+      utilization. The reconstructed laboratory network does not establish that the same directional fluxes occur
+      in situ after recruitment.'
   evidence:
   - reference: PMID:41660888
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: root-knot nematode (RKN) infection restructured the rhizosphere bacterial community in RKN-susceptible
-      cucumber plants, regardless of the soil type
-    explanation: Documents stress-induced community restructuring mediated by TYQ1
-- name: Synergistic Biofilm Formation
-  description: 'All 7 recruited biomarker species show mutual attraction to TYQ1 and enhance biofilm-forming
-    ability of the community. Biofilm formation is a key mechanism for community cohesion and nematode
-    suppression.
-
-    '
-  interaction_type: MUTUALISM
+    snippet: This strain not only directly inhibited RKNs but also caused the restructuring of the rhizobacterial
+      community, thereby leading to the enrichment of multiple biomarker species
+    explanation: Supports the TYQ1 inoculation effect, rather than substituting the separate nematode-infection
+      comparison.
+- name: TYQ1-partner biofilm enhancement
+  description: 'All seven TYQ1-partner pairings increased the measured biofilm phenotype in vitro. Colony attraction
+    is a separate assay: SX showed no obvious attraction or repulsion, while the other six partners induced colony
+    enlargement with TYQ1. These observations do not establish bilateral growth benefit for all pairs or prove that
+    biofilm enhancement mediates nematode suppression in roots.'
   scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Rhizobium pusense TYQ1
@@ -305,21 +302,28 @@ ecological_interactions:
       label: biofilm formation
   downstream:
   - target: Synergistic Nematode Suppression
-    description: The enhanced biofilm-forming ability of the recruited
-      eight-member consortium strengthens rhizosphere colonization of TYQ1 and
-      contributes to stable root-knot nematode inhibition.
+    description: 'PARTIAL: increased biofilm may support the observed transient increase in TYQ1 root colonization
+      and contribute to suppression. The study does not selectively disrupt biofilm while preserving other TYQ1
+      and partner functions, so mediation remains unresolved.'
   evidence:
   - reference: PMID:41660888
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: These enriched microorganisms, in collaboration with TYQ1, enhanced the biofilm-forming ability
-      of the community and established a tightly interconnected metabolic interaction network
-    explanation: Documents synergistic biofilm enhancement across the SynCom
-- name: Metabolic Cross-Feeding Network
-  description: 'TYQ1 serves as the central metabolic hub in a tightly interconnected metabolic interaction
-    network with the 7 biomarker species, enabling metabolic cross-feeding that supports community function.
-
-    '
+    evidence_source: IN_VITRO
+    snippet: all strains exhibited a synergistic effect with TYQ1 in biofilm formation
+    explanation: Supports the seven pairwise biofilm results, not a species-resolved mutualism claim.
+  - reference: PMID:41660888
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: With the exception of SX, which did not display obvious attraction or repulsion toward TYQ1
+    explanation: Records the explicit exception to the attraction claim.
+- name: Condition-dependent TYQ1 spent-medium cross-feeding
+  description: Metabolite-feeding assays support a cross-feeding network, with important medium and direction limits.
+    TYQ1 grows on filtrates of all seven partners in M9; six partners grow on TYQ1-derived metabolites, with AS
+    the reported exception. In TSB, adding TYQ1 supernatant generally increases partner growth rates without changing
+    carrying capacity, whereas partner supernatants do not enhance TYQ1 growth. Directed network weights summarize
+    fitted carrying capacities, not measured metabolite fluxes. Gephi node removal is an in-silico centrality analysis,
+    distinct from biological strain omission. No particular exchanged molecule or obligatory seven-way mutualism
+    is established.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -334,22 +338,40 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Synergistic Nematode Suppression
-    description: TYQ1-centered metabolic exchanges help organize the recruited
-      beneficial strains into the high-efficacy network required for stable
-      root-knot nematode suppression.
+    description: 'PARTIAL: assayed exchange capacity may support the community that improves nematode suppression.
+      Biological TYQ1 omission and diversity gradients support its community contribution, but neither isolate exchange
+      from direct nematicidal activity, biofilm effects or host responses. In-silico node removal is not that biological
+      test.'
   evidence:
   - reference: PMID:41660888
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: These enriched microorganisms, in collaboration with TYQ1, enhanced the biofilm-forming ability
-      of the community and established a tightly interconnected metabolic interaction network
-    explanation: Documents TYQ1 as central metabolic hub in cross-feeding network
+    evidence_source: IN_VITRO
+    snippet: TYQ1 could utilize the metabolites secreted by all seven enriched strains for growth
+    explanation: Supports partner-to-TYQ1 utilization in the metabolite-feeding assay.
+  - reference: PMID:41660888
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Except for AS, which exhibited a relatively slow background growth in M9 basic medium, the other six
+      strains could also grow using the metabolites of TYQ1
+    explanation: Bounds the reverse direction to six partners rather than seven.
+  - reference: PMID:41660888
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the supernatant of the enriched strains did not influence TYQ1growth
+    explanation: Preserves the rich-medium negative result; it does not negate the distinct M9 filtrate result.
+  - reference: PMID:41660888
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: directed edge weights defined as the carrying capacity (K) derived from logistic growth curve fitting
+    explanation: Network weights summarize the growth assay; they are not directly measured exchange fluxes.
 - name: Synergistic Nematode Suppression
-  description: 'The complete 8-member TYQ1-centered SynCom exhibits more efficient and stable root-knot
-    nematode inhibition than individual members alone, demonstrating emergent synergistic biocontrol activity.
-
-    '
-  interaction_type: MUTUALISM
+  description: 'The eight-member consortium enhances nematode suppression and cucumber performance compared with
+    TYQ1 alone in the tested pot assays. Actual leave-one-strain-out and diversity-gradient communities support
+    a major contribution of TYQ1: omitting it abolishes efficient suppression and can promote egg-mass formation.
+    The source reports validation in 12 soil types, not universal field performance. Root defense-expression and
+    metabolite changes accompany protection, but neither strain omission nor these profiles isolate biofilm, specific
+    cross-fed metabolites, or host defense as the sole mediator. Plant benefit is not evidence of mutual fitness
+    benefit among all microbes.'
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: defense response
@@ -360,8 +382,20 @@ ecological_interactions:
   - reference: PMID:41660888
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: the TYQ1-centered synthetic community exhibited more efficient and stable inhibition of RKNs
-    explanation: Documents synergistic nematode suppression by the complete SynCom
+    snippet: the TYQ1-centered SynCom is significantly more effective than the single inoculation of TYQ1
+    explanation: Supports the tested consortium-versus-TYQ1 outcome.
+  - reference: PMID:41660888
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The -TYQ1 not only lost its inhibitory function but even had the opposite effect, facilitating the
+      formation of egg masses on the roots.
+    explanation: Actual biological omission supports TYQ1 contribution, not isolation of an exchange pathway.
+  - reference: PMID:41660888
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: 535 commonly induced DEGs enriched in defense and abscisic acid response pathways
+    explanation: Supports the retained defense-response association without claiming a pathway-specific loss-of-function
+      experiment.
 associated_datasets:
 - title: 16S Amplicon Sequencing (Rhizosphere)
   dataset_type: AMPLICON_16S
@@ -464,3 +498,33 @@ growth_media:
     snippet: plated on TSA and R2A media. The plates were then incubated at 28°C for 3–5 days
     explanation: Reports the TSA/R2A media, 28°C temperature, and 3-5 day incubation used to
       culture the community's constituent strains.
+discussions:
+- discussion_id: tyq1_causal_graph_scope_batch119
+  prompt: How much of TYQ1-dependent nematode suppression is specifically mediated by biofilm or metabolite exchange?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Keystone-Mediated Community Recruitment
+  - ecological_interactions#TYQ1-partner biofilm enhancement
+  - ecological_interactions#Condition-dependent TYQ1 spent-medium cross-feeding
+  - ecological_interactions#Synergistic Nematode Suppression
+  rationale: Pairwise biofilm and filtrate assays support real functions, and biological strain omission supports
+    the contribution of TYQ1. Removing an organism also removes its direct nematicidal and host-modulating effects;
+    it is not a selective biofilm or exchange perturbation. The reported colonization increase is transient within
+    the first week. Medium-matched and mechanism-specific loss/rescue experiments are needed to resolve the two
+    downstream mediation arrows without erasing the positive consortium outcome.
+  evidence:
+  - reference: PMID:41660888
+    snippet: The -TYQ1 not only lost its inhibitory function but even had the opposite effect, facilitating the
+      formation of egg masses on the roots.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T13:32:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Separate TYQ1 inoculation from nematode-driven enrichment and avoid assigning mutualism from abundance.;
+    Retain all seven positive biofilm pairings with the SX attraction exception and in-vitro provenance.; Retain
+    measured spent-medium cross-feeding with AS, medium, direction and network-weight limits.; Retain biological
+    omission and host-outcome evidence without overclaiming the specific mediator. Issue#1923; reports/causal_graph_review/decisions/20261008-four-records-batch119.yaml
+  llm_assisted: true

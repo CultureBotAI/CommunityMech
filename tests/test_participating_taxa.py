@@ -437,6 +437,7 @@ USERS = {
     "Syntrophus_Benzoate_Degrader.yaml",
     "Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.yaml",
     "TCP_NonDehalogenimonas_Groundwater_Consortium.yaml",
+    "THOR_Rhizosphere_Model_Community.yaml",
     "Thalassiosira_Marinobacter_Marine_Snow_Coculture.yaml",
     "Thermophilic_ExSitu_Biomethanation_Mixed_Culture.yaml",
     "Thermophilic_Pyrite_QS_Consortium.yaml",
