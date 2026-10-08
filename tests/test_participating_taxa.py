@@ -409,6 +409,7 @@ USERS = {
     "Soil_Corrinoid_B12_Reservoir_Community.yaml",
     "South_Bay_Salt_Pond_Methane_Restoration_Community.yaml",
     "Soybean_Chlorophyll_Selected_Biofertilizer_SynCom.yaml",
+    "Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml",
     "Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml",
     "Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml",
     "SynComBac10_Chicken_Intestinal_SynCom.yaml",
