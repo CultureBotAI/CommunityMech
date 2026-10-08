@@ -5,6 +5,28 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch108: Process Outcomes And Molecular Responses
+
+[Decisions](decisions/20261008-four-records-batch108.yaml),
+[provenance](cache-provenance-20261008-batch108.json),
+[validation](validation-20261008-batch108.json), and
+[self-adversarial review](adversarial-review-20261008-batch108.yaml) account for
+14 original nodes and seven arrows. Twelve nodes and three qualified existing
+directions remain; two workflow nodes and four context/coincidence arrows are
+removed. Positive fermentation, algal, plant-transcript and pair-level trait
+observations remain distinct from demonstrated exchange, reciprocal fitness,
+metabolic flux and isolated causal mediation.
+
+Review is bounded to primary abstracts and indexed publisher previews, not
+complete papers. Twenty-two graph/discussion quotations match independently
+retrieved primary text and unchanged caches. Four append-only histories retain
+prior curation, and three in-memory mutation probes check that regressions
+reject inflated claims. All 923 caches and 456 other records are preserved.
+Repair issues #1843-#1846 await protected-main merge. MetG2 identity #1847
+remains unresolved and its record stays `needs_research`; existing Chlorella
+membership #183 stays open. No new topology or Edison credits were used.
+Self-review is not independent approval or whole-corpus completion.
+
 ## Batch94: Exchange And Plant Mechanism Boundaries
 
 Four records retain 14 nodes and 13 existing directions; experimental SynCom
