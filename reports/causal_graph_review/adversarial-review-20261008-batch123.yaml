@@ -1,0 +1,437 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: a8eb38f28e262f5a6f6c804f68d782a6a6eb1d64
+scope:
+- kb/communities/Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.yaml
+- kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml
+- kb/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml
+- kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-four-records-batch123.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch123.json
+findings:
+- issue: 1954
+  severity: P2
+  finding: Bound five-species wine competition and strain-output interpretation
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1955
+  severity: P2
+  finding: Qualify three-species wine suppression mechanism and preserve later amino-acid null
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1956
+  severity: P2
+  finding: Separate Mankai compartment associations and MAG potential from demonstrated interactions
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1957
+  severity: P2
+  finding: Bound wollastonite fungal cross-feeding and acid-to-leaching causal chain
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1958
+  severity: P2
+  finding: Curate available ten-strain identities and assay context for five-species wine panel
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1959
+  severity: P2
+  finding: Represent wine membrane-bioreactor recirculation separately from feed or dilution
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1960
+  severity: P2
+  finding: Qualify non-graph Mankai cross-feeder roles as genomic predictions
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1961
+  severity: P2
+  finding: Align non-graph wollastonite fungal role claims with inferred transfer evidence
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+adversarial_checks:
+- All11nodes and2arrows retained,three coherent renames,no new topology. All four canonical diffs and the narrow
+  cache append read after guarded writes. No dangling targets or anchors; unrelated fields and prior history artifacts
+  preserved.
+- Five-species drop-outs/substitutions retain positive treatment effects and completion. Competition remains qualified,not
+  an identified molecular cause or complete pairwise matrix. ARISA is not absolute viable abundance. Non-Saccharomyces
+  breadth is panel-specific and S.cerevisiae effects remain detectable. Available Table1/Methods metadata is separate1958,not
+  a renewed inaccessible-source claim.
+- Three-species contact-dependent growth retained,with hypothesized medium-mediated suppression PARTIAL. Early amino-acid
+  difference and9h null retained with supplied-medium amino acids distinguished. No toxin identity,necessary gene
+  or secretion/uptake direction inferred. Prior1111-1113 remain intact; recirculation metadata1959 separate.
+- Wolffia compartment differentiation retained without microbial niche partitioning or selectively tested host filtering.
+  Predicted guild retains seven participants and gene-complementarity provenance,not FBA or measured transfer. Operational
+  fractions,MAG gaps and non-strain-matched comparators constrain localization and adaptation. Prior839/840 and
+  direct-flux gap preserved; non-graph roles1960 separate.
+- Wollastonite bulk metabolites and positive day12Ca/Si leaching retained. Both existing arrows qualified; polymer
+  transfer not traced,medium sucrose contributes to carbohydrate loss,individual acids need not all rise. Residue
+  morphology does not isolate hyphal force; no measured net carbon sequestration inferred. Non-graph roles1961 separate.
+- Thirteen focused tests and twelve targeted in-memory control/mutation/restored-control probes pass. Earlier broader
+  probe receipt retained in scratch; targeted rerun improves isolation of completion,Saccharomyces-effect,acid-pattern
+  and leaching-value mutations. These guard specified assertions,not arbitrary semantic equivalence or every possible
+  textual regression.
+- All22graph and4discussion quotes match fresh primary artifacts and caches. One17-word CC BY4 excerpt appended;922othercaches
+  unchanged. Complete local primary main bodies plus publisher Results/Discussion/Methods/Table1 inspected; no figure-pixel,external
+  supplement,raw-data or code audit. Literal matches are not entailment proof.
+- Four focused schema/strict/terms/references/snippets/rank/history gates pass.1174selected tests,lint,mypy and
+  deterministic rendering pass.57existing network warnings remain and zero structural defects. Exact descriptions
+  on456pages,1359nodes,522arrows verified,not screenshot QA or full Linux CI certification.
+- 456otherrecords,unrelated raw fields and all prior history/decision files unchanged. Participant lists/scopes
+  unchanged;299participant-list users and census414community-level,136mixed,278community-only,1568taxa,1281sole-credit
+  preserved. Scope credit is not participant-coverage certification. No schema,connectivity or threshold changes.
+- 1954-1957 addressed pending protected-main merge;1958-1961 remain non-graph follow-ups. Source-based self-review
+  is not independent approval. No Edison invocation or spend; Ruegeria1883 unchanged authentication blocker not
+  retried. Protected-root1836,actual exact-head CI,merge and branch deletion remain separate requirements.
+- Corpus400reviewed,6pending,54needs_research across460records. Overall goal incomplete. Postcommit docs-current
+  and publication must be checked separately,not preasserted.
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: Erase fermentation completion
+      test: test_five_positive_perturbations_do_not_imply_failed_completion
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 22
+      assertion: assert "All tested consortia completed fermentation" in node["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/0/description
+        before: Species drop-out and strain substitution changed population succession, fermentation kinetics and
+          metabolic outputs in the defined five-species synthetic-must panel. These are positive composition-perturbation
+          effects, not identified molecular mechanisms. All tested consortia completed fermentation within the observation
+          period; changed kinetics should not be equated with failure to finish fermentation.
+        after: Species drop-out and strain substitution changed population succession, fermentation kinetics and
+          metabolic outputs in the defined five-species synthetic-must panel. These are positive composition-perturbation
+          effects, not identified molecular mechanisms. Some consortia failed fermentation within the observation
+          period; changed kinetics should not be equated with failure to finish fermentation.
+    - mutation: Promote competition certainty
+      test: test_five_competition_remains_a_qualified_inference
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 32
+      assertion: assert node["evidence"][0]["supports"] == "PARTIAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/1/evidence/0/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Erase detectable Saccharomyces effect
+      test: test_five_strain_effects_are_panel_specific_and_not_saccharomyces_silence
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 41
+      assertion: assert "still had detectable effects" in node["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/2/description
+        before: Among the particular strains tested, non-Saccharomyces substitutions affected a broader range of
+          final metabolites than switching the S. cerevisiae strain. The latter still had detectable effects and
+          was not metabolically silent. This result is panel- and synthetic-must-specific, not a universal ordering
+          of species importance or a demonstration that strain effects share one mechanism.
+        after: Among the particular strains tested, non-Saccharomyces substitutions affected a broader range of
+          final metabolites than switching the S. cerevisiae strain. The latter had no detectable effects and was
+          not metabolically silent. This result is panel- and synthetic-must-specific, not a universal ordering
+          of species importance or a demonstration that strain effects share one mechanism.
+    - mutation: Promote hypothetical inhibitor
+      test: test_three_keeps_growth_and_qualifies_suppression
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 51
+      assertion: assert b["evidence"][1]["supports"] == "PARTIAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/1/evidence/1/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Erase late amino-acid null
+      test: test_three_keeps_amino_acid_early_effect_late_null_and_source_limits
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 61
+      assertion: assert "after 9 h" in node["evidence"][-1]["snippet"]
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/2/evidence/2/snippet
+        before: No statistically significant differences between these conditions were observed after 9 h
+        after: All timepoints differed.
+    - mutation: Reassert demonstrated niche partitioning
+      test: test_wolffia_compartments_are_not_selectively_demonstrated_filtering
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 73
+      assertion: assert "interaction_type" not in node
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/0/interaction_type
+        before: null
+        after: NICHE_PARTITIONING
+    - mutation: Reassert demonstrated cobamide exchange
+      test: test_wolffia_potential_is_not_exchange_or_strain_matched_validation
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 82
+      assertion: assert "interaction_type" not in node and not node.get("downstream")
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/1/interaction_type
+        before: null
+        after: CROSS_FEEDING
+    - mutation: Misclassify gene complementarity as FBA
+      test: test_wolffia_provenance_is_gene_content_not_flux_simulation
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 95
+      assertion: assert provenance["prediction_type"] == "OTHER"
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/1/evidence/2/computational_provenance/prediction_type
+        before: OTHER
+        after: FLUX_BALANCE_ANALYSIS
+    - mutation: Promote fungal transfer certainty
+      test: test_woll_transfer_is_hypothesized_and_carbohydrate_loss_is_not_tracing
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 109
+      assertion: assert node["evidence"][0]["supports"] == "PARTIAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/0/evidence/0/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Erase nonuniform acid behavior
+      test: test_woll_metabolite_changes_are_bulk_and_not_uniform
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 117
+      assertion: assert "mixed-culture oxalic acid was much lower" in node["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/1/description
+        before: "The tested 20% CMS-1 plus 80% hzt-3\u2032 culture showed increased total organic acids and selected\
+          \ amino acids relative to pure cultures. Pure CMS-1 chiefly produced oxalic acid, while pure hzt-3\u2032\
+          \ chiefly produced gluconic acid. These are bulk concentrations, not gene-expression measurements or proof\
+          \ of recipient-specific synthesis after cross-feeding. Individual compounds did not all increase: mixed-culture\
+          \ oxalic acid was much lower."
+        after: "The tested 20% CMS-1 plus 80% hzt-3\u2032 culture showed increased total organic acids and selected\
+          \ amino acids relative to pure cultures. Pure CMS-1 chiefly produced oxalic acid, while pure hzt-3\u2032\
+          \ chiefly produced gluconic acid. These are bulk concentrations, not gene-expression measurements or proof\
+          \ of recipient-specific synthesis after cross-feeding. Individual compounds did not all increase: all\
+          \ mixed-culture acids were higher."
+    - mutation: Drop existing acid-to-leaching direction
+      test: test_woll_retains_both_qualified_directions
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 125
+      assertion: assert len(a["downstream"]) == len(b["downstream"]) == 1
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/1/downstream
+        before:
+        - target: Optimized Wollastonite Calcium and Silicon Leaching
+          description: 'PARTIAL: increased acidic metabolites and lower pH are consistent with enhanced acid dissolution
+            and complexation driving wollastonite leaching. The culture-ratio comparison supports this mechanism
+            but does not selectively establish which acid or amino acid is necessary, or partition chemical dissolution
+            from physical disruption.'
+        after: []
+    - mutation: Erase positive leaching endpoint
+      test: test_woll_positive_leaching_is_not_carbon_sequestration
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 136
+      assertion: assert all(s in node["description"] for s in ["79.95%", "18.59%", "day 12"])
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/2/description
+        before: "The 20% CMS-1 plus 80% hzt-3\u2032 input ratio gave the greatest wollastonite leaching among the\
+          \ tested ratios: 79.95% +/- 6.37% calcium and 18.59% +/- 0.11% silicon at day 12. Residue analyses support\
+          \ altered mineral structure. These positive outcomes do not demonstrate niche partitioning, quantify a\
+          \ separate hyphal-force contribution or measure net CO2 sequestration."
+        after: "The 20% CMS-1 plus 80% hzt-3\u2032 input ratio gave the greatest wollastonite leaching among the\
+          \ tested ratios: 0% +/- 6.37% calcium and 18.59% +/- 0.11% silicon at day 12. Residue analyses support\
+          \ altered mineral structure. These positive outcomes do not demonstrate niche partitioning, quantify a\
+          \ separate hyphal-force contribution or measure net CO2 sequestration."
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.yaml: 2df1d32db9dc666dbb93f9b7ae103d5c80f43c7e19e01450024dc416f31d3b2b
+      kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml: ba42e79fb1133d49ce6280562566ffedd6bcf37306ce42b97473e7cfdc1b017f
+      kb/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml: 829d29dcebcb9ba30483df9d1ec71eafb945a6a3bf966539ee6a16d9abd9077d
+      kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml: 06d15492c6e358b75deffe722b5299d7b5f86bf15090276db87fda690c6e639e
+      tests/test_causal_review_batch123.py: e319d885faf398047c0afb6f22ddf36723d30e5ffa375db0653d6eae3f9d6253
+    probe_script_sha256: 6c200fb6c9750e44bd80dc1b792ce830b21eba6a676846e1d8fac7a9bff6389d
+    scope: In-memory control/mutation/restored-control; no canonical writes and not additional pytest tests.
+  artifact: /private/tmp/communitymech-batch123/adversarial-regression-proof-targeted.json
+  sha256: b120061453e14621815c0881b26bc4c2da27b174be6cd9461f79d4524c7ad373
+verification:
+  combined_regressions: 1174 passed in 372.38s (0:06:12)
+  new_regression_tests: 13
+  total_recorded_gate_outputs: 41
+  primary_graph_snippet_proof:
+    graph_quotations: 22
+    discussion_quotations: 4
+    fresh_primary_literal_matches: 26
+    all_cached_literal_matches: 26
+    retained_nodes: 11
+    removed_nodes: 0
+    renamed_nodes: 3
+    retained_arrows: 2
+    removed_arrows: 0
+    new_nodes_or_directions: 0
+  references: Full-record local passes are macOS, not Linux certification. Literal matching does not establish entailment.
+    Total checks in the reference CLI counts issues, not examined snippets.
+  snippet_counts_by_record:
+    kb/communities/Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml:
+      MATCH: 24
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml:
+      MATCH: 20
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 9090
+      categories:
+        MATCH: 8942
+        RENDERING: 31
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 40
+        NOCONTENT: 76
+    caveat: Informational audit exit0 is not clean-corpus or entailment certification.
+  network:
+    existing_findings_preserved: 57
+    added_findings: {}
+    removed_findings: {}
+    structural_defects: 0
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-four-records-batch123.yaml: 67f38c6539251cd8960e66af9b998bb4c038a984b4a018c826226615673779f8
+    tests/test_causal_review_batch123.py: e319d885faf398047c0afb6f22ddf36723d30e5ffa375db0653d6eae3f9d6253
+    tests/test_participating_taxa.py: f438815b4a028c0f38a077df53c95f685f98b3c2b523593896a124b544269db1
+    tests/test_community_level_connectivity_credit.py: 996cc631423bfa7adc5d8e693d67d55b374a24379d119ab0fa8f1802f38f216a
+    tests/test_causal_review_batch109.py: ff8e9e26771545e1ace22b3c1d42076789c99cc4bc83e588b6a4b9ad698d3d73
+    tests/test_datamodel.py: f8d4750ad64eb4156857a86a8c6adf16dedefb09ca3c3da908f697e609a35f25
+    reports/causal_graph_review/cache-provenance-20261008-batch123.json: 88edcdd069da742f9b7a2318d960ae7133628d1d403966e8d3f16e0f082751a6
+    kb/communities/Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.yaml: 2df1d32db9dc666dbb93f9b7ae103d5c80f43c7e19e01450024dc416f31d3b2b
+    kb/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml: ba42e79fb1133d49ce6280562566ffedd6bcf37306ce42b97473e7cfdc1b017f
+    kb/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml: 829d29dcebcb9ba30483df9d1ec71eafb945a6a3bf966539ee6a16d9abd9077d
+    kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml: 06d15492c6e358b75deffe722b5299d7b5f86bf15090276db87fda690c6e639e
+  history_sha256:
+    history/records/Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium/2026-10-08T164943Z-codex-71bcd5.yaml: 123b54b5c732e2b51626fa158dcd3008bc1e42df90dafc47695824401dd0af8f
+    history/records/Wine_Yeast_ThreeSpecies_Contact_Consortium/2026-10-08T164944Z-codex-cf55bb.yaml: 662352e0473c72723c061b6543c56834e5b1e940848013f625281b37c5b31212
+    history/records/Wolffia_Mankai_Endosphere_Cobamide_Guild/2026-10-08T164944Z-codex-638dc2.yaml: 707d9c4ae34c750e4101294aed6111a7740a468b160895e8f7b3c5c7bd884f12
+    history/records/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium/2026-10-08T164944Z-codex-c1ca0f.yaml: bfc8c9abc9bacd9fad4a950cf4b9dcb6fe59eaa97136758244ca9d8f12336b77
+  unchanged_records: 456
+  unchanged_caches: 922
+  immutable_prior_history_and_decision_files: 904
+  cache_changes:
+  - path: references_cache/PMID_42784437.txt
+    before_sha256: 73c149edcbb34439981d8d5b8cb5a6f9f0003963f8f458149c62a8063fbc598d
+    after_sha256: 712ca54ab2fb5d865c15918a9283810912a0fb34c0d817fd229f4493c0e80036
+    action: Append a17-word literal primary Discussion limitation with URL,section,date and license; preserve original
+      cache prefix.
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    new_nodes_or_directions: 0
+    prior_extension_blocker: 'Ruegeria1883: configured authentication unavailable in prior approved invocation;
+      no unchanged-state retry.'
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  current:
+    records: 460
+    with_community_level: 414
+    mixed: 136
+    community_level_only: 278
+    taxa: 1568
+    credited_solely_by_the_rule: 1281
+  delta_from_batch122:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  explanation: All participant lists and scopes are unchanged;299participant-list users. Scope credit is not certification
+    of actual participant coverage. Connectivity logic and thresholds are unchanged.
+corpus:
+  records: 460
+  nodes: 1373
+  edges: 530
+  review_status_counts:
+    needs_research: 54
+    pending: 6
+    reviewed: 400
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary established Python3.13 lint environment; project dependencies unchanged.
+limitations:
+- Both-root pre-source baseline covers460records and923caches,57existing warnings and zero structural defects. Four
+  whole records and11nodes/two arrows reviewed; all retained,three renames,no new topology.
+- Fresh EuropePMC metadata/abstracts and Crossref identities checked for all four papers. Three complete OA main
+  bodies and five-species publisher Results/Discussion/Methods/Table1 plus captions inspected. Publisher web access
+  succeeded despite independent direct-HTTP403. Original figure pixels,external supplements,raw data and analysis
+  code not audited.
+- Five-species positive drop-out and strain-substitution effects retained. Competition is a phenotypic inference,not
+  resolved molecular or complete pairwise causality; ARISA is relative DNA-based succession. All consortia complete
+  fermentation and S.cerevisiae effects remain detectable. Table1/Methods information is available; separate metadata1958
+  remains.
+- Three-species direct-contact growth and indirect-contact Torulaspora shifts retained. Medium-mediated suppression
+  and toxin identity remain untested; expression differences are not necessary-gene perturbations. Preserve the5h
+  amino-acid effect,the9h null and supplied histidine/methionine/tryptophan. Recirculation-versus-feed metadata1959
+  remains.
+- Wolffia compartment associations do not establish selectively tested host filtering or microbial niche partitioning.
+  MAG gene-content complementarity and minimum-three-intermediate edges are potential,not flux/FBA/abundance correlation.
+  Operational endosphere fractions and non-strain-matched cultured comparators limit localization and adaptive-loss
+  claims; cross-feeder role metadata1960 remains.
+- Wollastonite positive day12Ca/Si leaching and bulk metabolite changes retained. CMS-1-to-hzt transfer is hypothesized;
+  medium sucrose also explains carbohydrate consumption. Selected metabolites increase,not every acid. Both existing
+  arrows remain qualified; no necessary individual mediator,isolated hyphal force or measured net CO2 sequestration
+  inferred. Non-graph role metadata1961 remains.
+- All22graph and4discussion quotes matched to fresh primary artifacts and caches. One17-word CC BY4 publisher Discussion
+  excerpt appended with provenance to the five-species cache;922othercaches unchanged. No full-body cache import.
+  Wolffia is CC BY-NC-ND4; no new verbatim excerpts added from that source.
+- Expanded all-state1188issue titles/bodies and hidden/ignored local paths searched;141matchinglocalpaths,sixpriorissue
+  bodies and onepriorfive-speciesreviewreport read. Credentials,.git,generateddocs/site and reference caches excluded
+  from local issue-dedup search; caches separately inspected for evidence. No historical PR-comment audit.
+- Four guarded writes preserve456otherrecords,unrelated raw YAML fields,all prior history/decision artifacts and
+  existing taxonomy/participant/scopes. Four append-only histories and curation events. Neighbor cobalamin-coculture
+  and mineral-SOM records inspected as conventions only,not transferred scientific evidence.
+- No Edison submission or spend,new nodes or directions. Prior authorized Ruegeria1883 configured-authentication
+  blocker not retried unchanged; no credentials inspected. Source-based self-adversarial review is not independent
+  approval. Overall objective,protected merge and branch deletion remain incomplete.
