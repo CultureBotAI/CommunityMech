@@ -426,6 +426,7 @@ USERS = {
     "Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml",
     "Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml",
     "Synechococcus_Saccharomyces_SPC.yaml",
+    "Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.yaml",
     "Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.yaml",
     "Syntrophobacter_Methanobacterium_Syntrophy.yaml",
     "Syntrophobacter_Methanospirillum_Syntrophy.yaml",
