@@ -1284,3 +1284,28 @@ full-text absence is asserted. No new topology, Edison spend or pathogen
 enhancement procedures are introduced. Repairs #1829-#1832 await protected-main
 merge; non-graph #1833 stays open. Self-review is not independent approval or
 corpus completion.
+
+## Batch107: Transfer, Prediction And Mediation
+
+[Decisions](decisions/20261008-four-records-batch107.yaml),
+[validation](validation-20261008-batch107.json),
+[cache provenance](cache-provenance-20261008-batch107.json) and
+[self-adversarial review](adversarial-review-20261008-batch107.yaml) cover the
+Suillus-Bacillus thiamine, sulfide-spring CPR, chicken SynComBac10 and peanut
+SynCom ARC records. All thirteen nodes remain; seven existing directions are
+qualified and two spatial arrows removed. Direct bacterial-to-fungal vitamin
+transfer and positive host/plant outcomes remain distinct from inferred
+exchange, encoded metabolic capacity and unisolated causal mediation.
+The spring record remains `needs_research`: legacy species groundings exceed
+the source evidence and require coordinated identity curation under #1841.
+The self-adversarial pass corrected HydDB attribution on sulfur-enzyme evidence;
+five append-only histories preserve both the initial edit and the correction.
+A control/mutation/restore probe confirms that the regression test rejects
+reintroducing that provenance error, without changing canonical files.
+All final gates were rerun after that correction; the interrupted preliminary
+verification is archived, not counted as a completed pass.
+Primary read spans and source limits are recorded. All caches and non-graph raw
+blocks remain unchanged, not recertified. No new topology, Edison spend,
+pathogen-enhancement or toxin-production procedures are introduced.
+Repairs #1837-#1840 await protected-main merge; identity #1841 stays open.
+Self-review is not independent approval or corpus completion.
