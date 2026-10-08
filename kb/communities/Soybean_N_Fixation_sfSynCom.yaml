@@ -136,133 +136,7 @@ taxonomy:
       SynCom (sfSynCom) by using elite helper strains that significantly improve the
       beneficial functions of the core symbiotic strain, here Bradyrhizobium elkanii
       BXYD3, to sustain the growth of soybean (Glycine max)
-ecological_interactions:
-- name: AHL Quorum Sensing Signal Production
-  description: Pantoea helper strain 1 produces acyl homoserine lactones that enhance
-    Bradyrhizobium elkanii BXYD3 colonization and infection of soybean roots.
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Pantoea sp. helper strain 1
-    term:
-      id: NCBITaxon:53335
-      label: Pantoea
-  target_taxon:
-    preferred_term: Bradyrhizobium elkanii BXYD3
-    term:
-      id: NCBITaxon:29448
-      label: Bradyrhizobium elkanii
-  metabolites:
-  - preferred_term: N-acyl-L-homoserine lactone
-    term:
-      id: CHEBI:55474
-      label: N-acyl-L-homoserine lactone
-  biological_processes:
-  - preferred_term: quorum sensing
-    term:
-      id: GO:0009372
-      label: quorum sensing
-  - preferred_term: cell-cell signaling
-    term:
-      id: GO:0007267
-      label: cell-cell signaling
-  downstream:
-  - target: Enhanced Root Colonization and Nodulation
-    description: Helper-derived AHL signaling feeds the enhanced Bradyrhizobium
-      colonization, soybean infection, and nodulation phenotype.
-  evidence:
-  - reference: PMID:40052412
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Two of these helper strains assigned to the Pantoea taxon produce acyl
-      homoserine lactones, which significantly enhanced the colonization and infection
-      of soybean by BXYD3
-- name: AHL Quorum Sensing Signal Production (strain 2)
-  description: Pantoea helper strain 2 also produces acyl homoserine lactones that
-    support B. elkanii BXYD3 root colonization and infection in the sfSynCom.
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Pantoea sp. helper strain 2
-    term:
-      id: NCBITaxon:53335
-      label: Pantoea
-  target_taxon:
-    preferred_term: Bradyrhizobium elkanii BXYD3
-    term:
-      id: NCBITaxon:29448
-      label: Bradyrhizobium elkanii
-  metabolites:
-  - preferred_term: N-acyl-L-homoserine lactone
-    term:
-      id: CHEBI:55474
-      label: N-acyl-L-homoserine lactone
-  biological_processes:
-  - preferred_term: quorum sensing
-    term:
-      id: GO:0009372
-      label: quorum sensing
-  - preferred_term: cell-cell signaling
-    term:
-      id: GO:0007267
-      label: cell-cell signaling
-  downstream:
-  - target: Enhanced Root Colonization and Nodulation
-    description: Helper-derived AHL signaling feeds the enhanced Bradyrhizobium
-      colonization, soybean infection, and nodulation phenotype.
-  evidence:
-  - reference: PMID:40052412
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Two of these helper strains assigned to the Pantoea taxon produce acyl
-      homoserine lactones, which significantly enhanced the colonization and infection
-      of soybean by BXYD3
-- name: Enhanced Root Colonization and Nodulation
-  description: Bradyrhizobium elkanii BXYD3 colonizes and infects soybean roots more
-    effectively in the Pantoea-helper sfSynCom, improving nodulation and nitrogen
-    fixation relative to BXYD3 alone.
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Bradyrhizobium elkanii BXYD3
-    term:
-      id: NCBITaxon:29448
-      label: Bradyrhizobium elkanii
-  target_taxon:
-    preferred_term: Glycine max
-    term:
-      id: NCBITaxon:3847
-      label: Glycine max
-  metabolites:
-  - preferred_term: dinitrogen
-    term:
-      id: CHEBI:17997
-      label: dinitrogen
-  - preferred_term: ammonia
-    term:
-      id: CHEBI:16134
-      label: ammonia
-  biological_processes:
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
-  - preferred_term: nodulation
-    term:
-      id: GO:0009877
-      label: nodulation
-  - preferred_term: symbiosis
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:40052412
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: This sfSynCom based on the core-helper strategy was more effective at
-      promoting nodulation than inoculation with BXYD3 alone and achieved effects
-      comparable to those of a complex elite SynCom previously constructed on the
-      basis of potential beneficial functions between microbes and plants alone
+ecological_interactions: []
 growth_media:
 - name: Yeast Mannitol Agar (YMA) for rhizobial culture
   ph: '6.8'
@@ -515,3 +389,42 @@ related_ingredients:
 metals_present: []
 metal_relevance: INCIDENTAL
 metal_notes: Metal/REE detected via environmental factor measurements
+discussions:
+- discussion_id: sf_causal_attribution_batch104
+  prompt: What exact sfSynCom membership and source strain identities do the two ordinal Pantoea helper entries
+    represent?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: 'The abstract reports two Pantoea helper strains among the helpers and positive outcomes for the final
+    sfSynCom, but does not establish that the final community contains only BXYD3 and those two helpers or map the
+    ordinal labels to published strain identifiers. Three strain/formulation-attributed nodes and two arrows are
+    withheld, not a rejection of the source''s positive observations. Consortium-level improvement also does not
+    establish reciprocal benefit for each encoded pair. EuropePMC supplied no PMCID; Wiley and journal-site full-text
+    requests returned HTTP403. This is a bounded access and identity gap, not proof that full text or exact membership
+    does not exist. Keep needs_research and resolve #1820 before restoring attribution. Identity/taxonomy and non-graph
+    protocol blocks are preserved, not certified; no enhancement procedures are added.'
+  posed_by: codex
+  posed_date: '2026-10-08'
+  evidence:
+  - reference: PMID:40052412
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: Two of these helper strains assigned to the Pantoea taxon produce acyl homoserine lactones, which significantly
+      enhanced the colonization and infection of soybean by BXYD3
+    explanation: Preserves the positive source observation but does not name the helper strains or establish the
+      complete final formulation.
+  - reference: PMID:40052412
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: This sfSynCom based on the core-helper strategy was more effective at promoting nodulation than inoculation
+      with BXYD3 alone and achieved effects comparable to those of a complex elite SynCom previously constructed
+      on the basis of potential beneficial functions between microbes and plants alone
+    explanation: Preserves the reported consortium-level comparison without assigning it to an unverified three-member
+      formulation or reciprocal pairwise benefit.
+curation_history:
+- timestamp: '2026-10-08T00:51:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Withhold three strain/formulation-attributed sfSynCom nodes pending exact membership; retain needs_research
+    and positive source observations in a bounded identity discussion. Issue#1818; reports/causal_graph_review/decisions/20261008-four-records-batch104.yaml
+  llm_assisted: true

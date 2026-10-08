@@ -1217,3 +1217,22 @@ Source access/read limits are recorded; no full SRC1 body or raw-data reanalysis
 is claimed. No new topology or Edison spend. Repairs #1809-#1812 await protected
 main merge; identity #1813 and non-graph #1814 stay open. Self-review is not
 independent approval or corpus completion.
+
+## Batch104: Soy Community Evidence Boundaries
+
+[Decisions](decisions/20261008-four-records-batch104.yaml),
+[validation](validation-20261008-batch104.json),
+[cache provenance](cache-provenance-20261008-batch104.json) and
+[self-adversarial review](adversarial-review-20261008-batch104.yaml) cover the
+soy-sauce, chlorophyll-selected soybean, soybean sfSynCom and soymilk records.
+Six of eleven nodes remain; five workflow or unverified-attribution nodes and
+all six directions are removed. Positive observed outcomes remain bounded to
+their source context. Chlorophyll Table 1 limits blanket significance claims;
+soymilk nutrient exchange remains an indirect, abstract-bounded interpretation.
+sfSynCom membership and ordinal helper mapping remain unverified under #1820;
+its positive published observations are preserved in the discussion, not rejected.
+All caches and non-graph raw blocks remain unchanged, not recertified.
+Primary read and access limits are recorded; no raw-data reanalysis, new topology
+or Edison spend. Repairs #1816-#1819 await protected-main merge; identity #1820
+and non-graph #1821 stay open. Self-review is not independent approval or
+corpus completion.
