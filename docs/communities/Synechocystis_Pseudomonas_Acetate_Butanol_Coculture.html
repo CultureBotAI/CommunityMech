@@ -592,6 +592,11 @@
                              aria-hidden="true" data-symbol="symbolDiamond"
                              data-color="#57c7ab"></svg> Cross-feeding
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
@@ -601,8 +606,7 @@
                     <h3>Photosynthetic Acetate Supply To Pseudomonas</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The engineered Synechocystis farmer fixes CO2 under illumination and secretes acetate into the CoBG11 medium; the P. taiwanensis_Pem7_ButOH partner was adapted to consume acetate in CoBG11 and grew in coculture with lower acetate accumulation than the matched axenic Synechocystis culture.
-</p>
+                <p class="prewrap interaction-description">The engineered Synechocystis partner supplies photosynthetic organic carbon to P. taiwanensis in the acetate-designed coculture. The heterotroph grows on acetate in separate assays, and coculture acetate levels are lower than in axenic Synechocystis. PARTIAL: these observations support acetate consumption but do not isotope-resolve its flux or exclude other cyanobacterial exudates as carbon sources. CO2 is the photosynthetic substrate, not the exchanged organic molecule.</p>
 
 
                 <p><strong>Source Taxon:</strong> Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs</p>
@@ -651,8 +655,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Acetate-Coupled 1-Butanol Production
-                        <p class="prewrap causal-description">Photosynthetically derived acetate was the intended extracellular carbon source routed from Synechocystis toward Pseudomonas 1-butanol production.
-</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED/PARTIAL: photosynthetically supplied acetate is a supported candidate carbon route to the observed Pseudomonas 1-butanol output. The experiment does not resolve the fraction of product carbon derived from acetate rather than other cyanobacterial exudates; production detection is not a quantified acetate-to-product flux.</p>
                     </div>
 
                 </div>
@@ -681,10 +684,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42726284/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42726284</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"acetate levels remained lower than in the axenic Synechocystis culture"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42726284/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42726284</a>
+
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"we cannot conclude that the heterotrophic bacteria used acetate as the only source of carbon"</div>
 
                     </li>
 
@@ -695,17 +711,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Acetate-Coupled 1-Butanol Production</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The engineered two-member consortium coupled Synechocystis-derived organic carbon to measurable 1-butanol formation by P. taiwanensis_Pem7_ButOH during the 42-day coculture.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs</p>
+                <p class="prewrap interaction-description">The engineered P. taiwanensis partner produced measurable 1-butanol during the 42-day, periodically replenished coculture. Titers fluctuated and reached a plateau; this does not establish uniformly high productivity. The earlier acetate-adaptation assays improved heterotroph growth without increasing 1-butanol production above pre-adaptation levels. This is a community production endpoint, not a second pairwise exchange. Product-carbon attribution to acetate remains unresolved.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Pseudomonas taiwanensis VLB120 Pem7_ButOH</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs,
+
+                    Pseudomonas taiwanensis VLB120 Pem7_ButOH
+
+                </p>
 
 
 
@@ -763,7 +781,20 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"P. taiwanensis_Pem7_ButOH showed high production"</div>
+                        <div class="snippet">"the production was not stable in the systems but it clearly reached a plateau"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42726284/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42726284</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"1-butanol production did not exceed the levels prior to adaptation"</div>
 
                     </li>
 
@@ -1236,7 +1267,7 @@
             processes.push("acetate metabolic process");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1265,7 +1296,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1280,7 +1311,7 @@
             processes.push("acetate metabolic process");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1293,17 +1324,20 @@
             });
 
 
-            var srcKey = "Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_\u0394acs";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Pseudomonas taiwanensis VLB120 Pem7_ButOH";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_\u0394acs",
+
+                "Pseudomonas taiwanensis VLB120 Pem7_ButOH"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
