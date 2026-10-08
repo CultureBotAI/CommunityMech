@@ -5,6 +5,40 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch119: Strain Identity And Inferred Networks
+
+[Decisions](decisions/20261008-four-records-batch119.yaml),
+[provenance](cache-provenance-20261008-batch119.json),
+[validation](validation-20261008-batch119.json), and
+[self-adversarial review](adversarial-review-20261008-batch119.yaml) cover
+THOR, TYQ1, teosinte biofertilization and mCAFEs RCC. Seventeen of twenty
+nodes and all ten existing arrows remain, with nine renames and no new topology.
+
+THOR separates the founding CI04 biofilm result from the UW101 population
+and transcription experiments. TYQ1 retains seven positive biofilm pairings,
+medium-specific spent-medium utilization and biological omission evidence,
+without treating them as selective tests of the mechanism of protection.
+Teosinte retains reported field-treatment effects but removes two preparation
+nodes. Its soil association network does not establish microbial mutualism.
+mCAFEs retains experimental enrichment selection and revival of five selected
+stocks; abundance classes and network hubs are not direct growth measurements
+or demonstrations of ecological necessity.
+
+Five complete primary main-body XML texts, including methods, tables and
+captions, were reviewed. Original figure pixels, supplements, raw data and
+analysis code were not audited. All 43 graph/discussion quotations match
+the primary texts and caches. Four missing, licensed excerpts were appended
+to one THOR cache without modifying its prefix; 922 caches are unchanged.
+Four guarded writes and append-only histories preserve unrelated raw fields
+and 456 other records. One participant-list user is added. Moving THOR protection
+to a three-member scope raises sole community-level credit by one, to 1281 taxa;
+record-scope counts, connectivity logic and thresholds are unchanged.
+
+Repairs #1922-#1925 await protected-main merge. Non-graph strain, composition,
+design and metadata follow-ups #1926-#1929 remain open. No Edison extension
+or spend was required. This is self-review, not independent approval or
+completion of the overall review.
+
 ## Batch118: Treatment Identity And Modeled Mechanisms
 
 [Decisions](decisions/20261008-four-records-batch118.yaml),

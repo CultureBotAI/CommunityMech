@@ -176,7 +176,7 @@ def test_hashes_histories_and_canonical_identity_only_scope_are_explicit():
 
 
 def test_current_scope_census_tracks_later_source_bounded_repairs():
-    # Batch117 narrows vitamin provision to the tested pair; no sole credit changes.
+    # Batch119 moves Bacillus protection to all three THOR members: one more sole credit.
     survey = runpy.run_path(str(ROOT / "tests/test_community_level_connectivity_credit.py"))[
         "_survey"
     ]()
@@ -186,5 +186,5 @@ def test_current_scope_census_tracks_later_source_bounded_repairs():
         "mixed": 136,
         "community_level_only": 278,
         "taxa": 1568,
-        "credited_solely_by_the_rule": 1280,
+        "credited_solely_by_the_rule": 1281,
     }

@@ -131,12 +131,12 @@ taxonomy:
     snippet: co-isolate from field-grown soybean roots
     explanation: Supports the natural coisolation context for the THOR members.
 ecological_interactions:
-- name: Koreenceine-Mediated Inhibition
-  description: Pseudomonas koreensis produces koreenceine, an alkaloid antibiotic that inhibits Flavobacterium
-    johnsoniae and strongly structures transcriptional responses within THOR. Removing koreenceine or
-    changing the starting abundance of P. koreensis increases F. johnsoniae populations, indicating that
-    the antibiotic is a major regulatory and competitive mechanism in this model community.
-  interaction_type: COMPETITION
+- name: Koreenceine production and UW101 growth inhibition
+  description: P. koreensis CI12 produces koreenceine and inhibits F. johnsoniae UW101 in the 2022 THOR study. Deleting
+    the koreenceine locus or reducing the initial P. koreensis inoculum increases UW101 populations. P. koreensis
+    and B. cereus growth are not impaired by coculture under the tested conditions, so this one-sided inhibition
+    does not establish mutual negative fitness effects. This UW101 assay must not be conflated with the founding
+    CI04 root-exudate experiment.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Pseudomonas koreensis CI12
@@ -153,8 +153,8 @@ ecological_interactions:
     term:
       id: CHEBI:22315
       label: alkaloid
-    notes: Koreenceine is represented at the chemical-class level because a specific CHEBI term was not
-      identified during curation.
+    notes: Koreenceine is represented at the chemical-class level because a specific CHEBI term was not identified
+      during curation.
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -162,26 +162,35 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Koreenceine-Driven Transcriptional Regulation
-    description: >
-      Pseudomonas koreensis koreenceine production drives most Flavobacterium
-      johnsoniae and part of the Bacillus cereus transcriptional response to
-      pairwise encounter with P. koreensis.
+    description: 'The wild-type versus koreenceine-locus-deletion comparison supports koreenceine-dependent gene
+      regulation in UW101 and B. cereus. PARTIAL for the direct molecular route: antibiotic exposure and indirect
+      physiological effects can both contribute. This arrow starts from koreenceine production, not an assumption
+      that reduced UW101 growth causes all transcriptional changes or that B. cereus growth is inhibited.'
   evidence:
-  - reference: PMID:30837345
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: P. koreensis produces a novel family of alkaloid antibiotics that inhibit growth of F. johnsoniae
-    explanation: Supports koreenceine-mediated inhibition by P. koreensis.
   - reference: PMID:35435700
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: mediated either directly or indirectly by its production of the antibiotic koreenceine
-    explanation: Supports koreenceine as a major driver of community transcriptional response.
+    snippet: both deletion of the koreenceine locus and reduction of P. koreensis inoculum size increase F. johnsoniae
+      populations
+    explanation: Two perturbations support population inhibition in the UW101 study; they are not equivalent transcriptional
+      perturbations.
+  - reference: PMID:35435700
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the growth of P. koreensis and B. cereus was not affected by coculture
+    explanation: Bounds the growth phenotype and prevents coding the interaction as demonstrated bilateral competition.
+  - reference: PMID:35435700
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacillus cereus UW85 (B), Flavobacterium johnsoniae UW101 (F), Pseudomonas koreensis CI12 (P)
+    explanation: The Methods explicitly identify the three strains in this study.
 - name: Koreenceine-Driven Transcriptional Regulation
-  description: Comparative metatranscriptomics showed that the P. koreensis koreenceine biosynthetic
-    locus accounts for much of the pairwise transcriptional response in THOR, including most
-    differentially regulated F. johnsoniae genes and a smaller B. cereus response.
-  interaction_type: COMPETITION
+  description: At the assayed early time point, the P. koreensis koreenceine locus accounts for 85% of the greater-than-twofold
+    pairwise response in UW101 and 22% in B. cereus. These are proportions of differentially regulated genes, not
+    of each whole genome or of all three-member responses. Locus deletion supports dependence, while direct sensing
+    and indirect effects of altered growth remain unresolved. B. cereus changes expression without a measured growth
+    defect. Reducing P. koreensis initial abundance, unlike deleting the locus alone, increases its own response
+    to UW101.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: koreenceine
@@ -198,27 +207,26 @@ ecological_interactions:
   - reference: PMID:35435700
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: In pairwise interactions, the koreenceine biosynthetic cluster is responsible for 85 and
-      22% of differentially regulated genes in F. johnsoniae and B. cereus, respectively.
-    explanation: Quantifies koreenceine-dependent gene-expression changes in the two strains responding
-      to P. koreensis in pairwise cocultures.
+    snippet: In pairwise interactions, the koreenceine biosynthetic cluster is responsible for 85 and 22% of differentially
+      regulated genes in F. johnsoniae and B. cereus, respectively.
+    explanation: Quantifies koreenceine-dependent gene-expression changes in the two strains responding to P. koreensis
+      in pairwise cocultures.
     confidence_score: 0.9
-- name: Bacillus Modulation of Pseudomonas Antibiotic Production
-  description: Bacillus cereus modulates the inhibitory interaction between P. koreensis and F. johnsoniae
-    by suppressing production of the P. koreensis alkaloid antibiotic family. This creates a higher-order
-    interaction where the effect of P. koreensis on F. johnsoniae changes in the presence of B. cereus.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Bacillus cereus UW85
-    term:
-      id: NCBITaxon:1396
-      label: Bacillus cereus
-  target_taxon:
-    preferred_term: Pseudomonas koreensis CI12
-    term:
-      id: NCBITaxon:198620
-      label: Pseudomonas koreensis
+  - reference: PMID:35435700
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: likely a combination of direct effects from koreenceine and indirect effects due to slower growth rate
+      of F. johnsoniae in the presence of an antibiotic
+    explanation: The authors explicitly retain direct and indirect explanations for the locus-dependent expression
+      response.
+- name: Bacillus protection in the UW101 THOR community
+  description: 'Adding B. cereus UW85 to P. koreensis CI12 and F. johnsoniae UW101 raises UW101 abundance relative
+    to the inhibited pair in the 2022 study. This is a three-member protective effect, not facilitation of P. koreensis
+    colonization. PARTIAL: the proposed chemical explanation draws on the earlier CI04 variant, where B. cereus
+    reduced accumulated koreenceines A and C and its spo0H mutant lost protection. Those CI04 measurements neither
+    quantify A/C changes in UW101 culture nor isolate reduced biosynthesis from other routes of reduced metabolite
+    accumulation.'
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: koreenceine
     term:
@@ -231,34 +239,36 @@ ecological_interactions:
       id: GO:0048519
       label: negative regulation of biological process
   downstream:
-  - target: Koreenceine-Mediated Inhibition
-    description: Bacillus suppression of Pseudomonas koreenceine production changes the
-      antibiotic-mediated inhibition that P. koreensis exerts on F. johnsoniae.
+  - target: Koreenceine production and UW101 growth inhibition
+    description: 'B. cereus addition reduces the population inhibition of UW101 in the three-member assay. PARTIAL
+      for mediation by altered koreenceine accumulation: the detailed metabolite and spo0H comparisons were performed
+      with CI04, not UW101, and do not uniquely demonstrate a biosynthesis-suppression mechanism in the UW101 community.'
   evidence:
-  - reference: PMID:30837345
+  - reference: PMID:35435700
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: production is inhibited by B. cereus
-    explanation: Supports B. cereus modulation of P. koreensis antibiotic production.
-- name: Emergent Three-Member Biofilm Formation
-  description: The complete THOR community produces a stronger biofilm phenotype than its individual
-    members, demonstrating an emergent community property that is not captured by monoculture behavior.
-    This makes THOR useful for studying how pairwise and higher-order interactions shape aggregate
-    community outputs.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
-  metabolites: []
-  biological_processes:
-  - preferred_term: biofilm formation
+    snippet: P. koreensis reduced growth of F. johnsoniae when they were grown as a pair, but F. johnsoniae abundance
+      was higher when B. cereus was also present
+    explanation: Directly supports protection in the UW101 experiment, not a uniquely resolved chemical mechanism.
+  - reference: PMID:30837345
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: The addition of B. cereus to cocultures of P. koreensis and F. johnsoniae severely reduced the accumulation
+      of koreenceine A and C, with a minor effect on the level of koreenceine B
+    explanation: Mechanistic context from the founding CI04 variant only; not direct measurement of UW101 cultures.
+  participating_taxa:
+  - preferred_term: Bacillus cereus UW85
     term:
-      id: GO:0042710
-      label: biofilm formation
-  evidence:
-  - reference: PMID:30837345
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: production of more robust biofilms by the three members together than individually
-    explanation: Supports biofilm formation as an emergent three-member community phenotype.
+      id: NCBITaxon:1396
+      label: Bacillus cereus
+  - preferred_term: Pseudomonas koreensis CI12
+    term:
+      id: NCBITaxon:198620
+      label: Pseudomonas koreensis
+  - preferred_term: Flavobacterium johnsoniae UW101
+    term:
+      id: NCBITaxon:986
+      label: Flavobacterium johnsoniae
 cultivation_setup:
 - cultivation_mode: BATCH
   operating_temperature: 28.0
@@ -393,3 +403,33 @@ growth_media:
       in liquid culture in 1/2-strength tryptic soy broth (TSB) at 28°C with vigorous shaking
     explanation: Reports the cultivation medium (1/2-strength TSB, 1/10 TSA), temperature (28°C),
       and shaking used to grow THOR members.
+discussions:
+- discussion_id: thor_causal_graph_scope_batch119
+  prompt: Which CI04-variant biofilm and metabolite mechanisms transfer experimentally to the UW101 THOR community?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Koreenceine production and UW101 growth inhibition
+  - ecological_interactions#Koreenceine-Driven Transcriptional Regulation
+  - ecological_interactions#Bacillus protection in the UW101 THOR community
+  rationale: The founding study used CI04; the 2022 Methods name UW101. In CI04 assays, both partners enhanced P.
+    koreensis biofilm and the triple culture sustained it longer, but this does not establish the corresponding
+    UW101 phenotype. Likewise, CI04 metabolite accumulation and spo0H tests do not resolve the UW101 protection
+    mechanism. Strain-matched biofilm and chemical perturbations are needed before restoring that node or asserting
+    a specific route. The UW101 locus-deletion, population and expression results remain experimental evidence.
+  evidence:
+  - reference: PMID:35435700
+    snippet: Bacillus cereus UW85 (B), Flavobacterium johnsoniae UW101 (F), Pseudomonas koreensis CI12 (P)
+  - reference: PMID:30837345
+    snippet: F. johnsoniae CI04 and B. cereus UW85 each increased the maximum biofilm formed by P. koreensis CI12
+      at 18 h
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T13:32:40Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain locus-dependent UW101 inhibition without asserting bilateral fitness harm.; Retain experimental
+    transcriptional dependence with correct denominators and direct/indirect limits.; Retain UW101 protection with
+    all three participants, while bounding the CI04 chemical mechanism. Issue#1922; reports/causal_graph_review/decisions/20261008-four-records-batch119.yaml
+  llm_assisted: true

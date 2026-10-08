@@ -1,0 +1,455 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 97c48512fb91a69598093e9d097e84341ffdfae0
+scope:
+- kb/communities/THOR_Rhizosphere_Model_Community.yaml
+- kb/communities/TYQ1_Nematode_Biocontrol_SynCom.yaml
+- kb/communities/Teosinte_Maize_Biofertilizer_SynCom7.yaml
+- kb/communities/mCAFEs_Brachypodium_RCC.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-four-records-batch119.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch119.json
+findings:
+- issue: 1922
+  severity: P2
+  finding: Separate THOR strain variants and antibiotic effects in causal graph
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1923
+  severity: P2
+  finding: Bound TYQ1 biofilm and cross-feeding mediation to the actual assays
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1924
+  severity: P2
+  finding: Separate teosinte formulation workflow and soil associations from ecological mechanisms
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1925
+  severity: P2
+  finding: Separate mCAFEs enrichment selection from inferred growth and network mechanisms
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1926
+  severity: P2
+  finding: Reconcile THOR non-graph strain origin and cultivation across the two studies
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1927
+  severity: P2
+  finding: Review TYQ1 non-graph strain evidence and AF functional-role assignment
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1928
+  severity: P2
+  finding: Resolve the seven teosinte inoculant strains and source-design ambiguities
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1929
+  severity: P2
+  finding: Reconcile mCAFEs collection metadata with condition-specific ASVs
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+adversarial_checks:
+- All20original nodes/10arrows accounted for:17nodes/10arrows retained,three nodes removed,nine renames,no new topology.
+  Targets and discussion anchors resolve; no shortcut edge invented.
+- THOR2022Methods explicitly identify UW101,not founding CI04. Keep UW101 inhibition,locus-dependent expression
+  and three-member protection. One-sided inhibition is not bilateral competition. Expression percentages describe
+  greater-than-twofold pairwise DEGs,not whole genomes. CI04 biofilm stays positive contextual evidence,not a UW101
+  node; chemical mediation remains PARTIAL.
+- TYQ1 retains all seven positive biofilm pairings with the SX attraction exception. Cross-feeding is medium- and
+  direction-specific,with the AS reverse-use exception and rich-medium negative result. Carrying-capacity weights
+  are not flux. Real strain omission remains positive experimental evidence,distinct from Gephi node removal; specific
+  biofilm/exchange mediation remains PARTIAL.
+- Teosinte formulation/preparation nodes removed while non-graph protocol remains. Reported field-treatment effects
+  and both treatment arrows retained; no field-statistics reproduction claimed. Soil relative abundance does not
+  track inoculant strains. Bacillus centrality is computational correlation,not microbial mutualism,measured nitrogen
+  fixation or necessary function.
+- mCAFEs is multiple enrichment communities. Carbon and transfer-interval interventions retain two selection arrows.
+  Fast/slow is an operational abundance comparison,not measured isolate growth rates. Hub membership is not growth-class
+  membership. Statistical hubs are not experimental keystones or validated PGP functions. Positive revival is bounded
+  to five selected stocks,not all initial enrichments.
+- Thirty-eight graph and five discussion quotes match five fresh primary texts and caches. Five complete main-body
+  XML texts read,including methods,tables and captions; no original pixels,supplements,raw data or analysis-code
+  audit. Matching is not entailment certification. One CC-BY4.0 cache receives four missing selected excerpts append-only,not
+  a full-body import.
+- Four guarded writes and append-only histories preserve456otherrecords,922caches,unrelated raw blocks and previous
+  histories/decisions. Canonical taxon identities/ranks unchanged; source-identity limitations remain separate issues1926-1929.
+  Shared evidence aliases detached before edits.
+- Fifteen focused tests and twelve control/mutation/restored-control probes pass. Mutations reject bilateral competition,unbounded
+  molecular mediation,CI04-to-UW101 transfer,erasure of positive biofilm/cross-feeding/omission evidence,unmeasured
+  nitrogen fixation,experimental hub necessity,loss of observed selection and universal stock revival. No canonical
+  writes during probes.
+- All four records pass schema,strict,terms,full-record references,snippets,rank and history.1116selected tests
+  including palette pass; not full Linux CI certification. Network57unchanged warnings,zero structural defects.456pages/1361nodes/523arrows
+  exactly match descriptions with deterministic rendering,not screenshot QA.
+- Participant-list users rise298to299 for THOR protection. Record-scope census remains414community-level,136mixed,278community-only,1568taxa;
+  sole credit rises1280to1281 because Bacillus leaves the incorrect pairwise node and is named in three-member protection.
+  Initial verifier expectation corrected after inspecting this delta; no graph or threshold changed to pass. Scope
+  credit is not actual participant coverage. Connectivity logic and all thresholds unchanged.
+- Issues1922-1925 addressed pending protected-main merge;1926-1929 remain open. No Edison extension or credits.
+  Prior Ruegeria1883 still needs configured authentication and was not retried unchanged. Self-adversarial review
+  is not independent approval; root1836 and real exact-head protected checks remain required.
+- Corpus384reviewed,22pending,54needs_research across460records. Overall goal,protected merge and branch deletion
+  incomplete. Postcommit docs-current and exact-head publication are separate gates,not preasserted here.
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: Turn one-sided inhibition into bilateral competition
+      test: test_thor_inhibition_is_locus_dependent_not_bilateral_competition
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 21
+      assertion: assert "UW101" in node["name"] and "interaction_type" not in node
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/0/interaction_type
+        before: null
+        after: COMPETITION
+    - mutation: Promote indirect expression route to demonstrated mechanism
+      test: test_thor_expression_retains_the_correct_denominator_and_indirect_limit
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 33
+      assertion: assert expression["evidence"][1]["supports"] == "PARTIAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/1/evidence/1/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Promote CI04 metabolite result to UW101 proof
+      test: test_thor_protection_has_three_participants_and_variant_bounded_chemistry
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 49
+      assertion: assert protection["evidence"][1]["supports"] == "PARTIAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/2/evidence/1/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Erase positive CI04 biofilm contextual evidence
+      test: test_thor_ci04_biofilm_is_context_not_a_uw101_node
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 64
+      assertion: assert "increased the maximum biofilm" in discussion["evidence"][1]["snippet"]
+      restored_control: PASS
+      changed_values:
+      - path: records/0/discussions/0/evidence/1/snippet
+        before: F. johnsoniae CI04 and B. cereus UW85 each increased the maximum biofilm formed by P. koreensis
+          CI12 at 18 h
+        after: No biofilm enhancement was observed.
+    - mutation: Type seven biofilm pairings as demonstrated mutualism
+      test: test_tyq1_seven_positive_biofilms_do_not_erase_the_sx_attraction_exception
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 70
+      assertion: assert "interaction_type" not in node
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/1/interaction_type
+        before: null
+        after: MUTUALISM
+    - mutation: Erase experimentally measured cross-feeding
+      test: test_tyq1_cross_feeding_keeps_medium_direction_and_as_limits
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 79
+      assertion: assert node["interaction_type"] == "CROSS_FEEDING"
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/2/interaction_type
+        before: CROSS_FEEDING
+        after: COMPETITION
+    - mutation: Erase biological omission evidence
+      test: test_tyq1_biological_omission_is_positive_but_not_specific_mediation
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 92
+      assertion: assert "lost its inhibitory function" in nodes[3]["evidence"][1]["snippet"]
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/3/evidence/1/snippet
+        before: The -TYQ1 not only lost its inhibitory function but even had the opposite effect, facilitating the
+          formation of egg masses on the roots.
+        after: Only computational node removal was performed.
+    - mutation: Add nitrogen fixation to field outcome as measured process
+      test: test_teosinte_field_effects_remain_without_claiming_nitrogen_flux
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 117
+      assertion: assert {p["term"]["id"] for p in outcome["biological_processes"]} == {"GO:0040007"}
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/1/biological_processes
+        before:
+        - preferred_term: growth
+          term:
+            id: GO:0040007
+            label: growth
+        after:
+        - preferred_term: growth
+          term:
+            id: GO:0040007
+            label: growth
+        - preferred_term: nitrogen fixation
+          term:
+            id: GO:0009399
+            label: nitrogen fixation
+    - mutation: Make soil network experimentally necessary
+      test: test_teosinte_soil_association_network_is_not_mutualism_or_necessity
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 127
+      assertion: assert all(e["evidence_source"] == "COMPUTATIONAL" for e in network["evidence"])
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/3/evidence/0/evidence_source
+        before: COMPUTATIONAL
+        after: IN_VIVO
+      - path: records/2/ecological_interactions/3/evidence/0/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Remove observed carbon selection arrow
+      test: test_mcafes_selection_keeps_both_experimental_directions
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 137
+      assertion: assert [e["target"] for e in nodes[0]["downstream"]] == [nodes[1]["name"], nodes[2]["name"]]
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/0/downstream
+        before:
+        - target: Carbon-Source ASV Sorting
+          description: Changing the supplied carbon condition alters the ASV composition of enrichment cultures,
+            with inoculum source accounted for in comparisons. This experimentally imposed selection does not demonstrate
+            reciprocal niche partitioning or consumption of distinct substrates by each named organism.
+        - target: Transfer-interval ASV abundance classification
+          description: Changing serial-transfer interval alters which ASVs are relatively enriched at later generations.
+            The resulting 3-day/7-day abundance classification is a response to the transfer regime, not a direct
+            per-ASV growth-rate measurement.
+        after:
+        - target: Transfer-interval ASV abundance classification
+          description: Changing serial-transfer interval alters which ASVs are relatively enriched at later generations.
+            The resulting 3-day/7-day abundance classification is a response to the transfer regime, not a direct
+            per-ASV growth-rate measurement.
+    - mutation: Treat hubs as experimentally validated functions
+      test: test_mcafes_hubs_are_computational_not_necessary_ecological_functions
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 154
+      assertion: assert all(e["evidence_source"] == "COMPUTATIONAL" for e in node["evidence"])
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/3/evidence/0/evidence_source
+        before: COMPUTATIONAL
+        after: IN_VITRO
+    - mutation: Generalize selected stock revival to all enrichments
+      test: test_mcafes_revival_is_positive_for_five_selected_stocks_only
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 164
+      assertion: assert "Five selected" in node["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/5/description
+        before: Five selected 1/10 R2A RCC stocks were revived and serially propagated, with broadly consistent
+          dominant genera and relative abundances in those tests. This does not establish universal revival of all
+          initial enrichments, exact strain-level identity, or retention of every rare taxon. Burkholderia and Mesorhizobium
+          were shared statistical hubs in the revived-stock networks, not demonstrated causes of revival. The original
+          broad 1/10 R2A enrichments were less stable than most other carbon arms; that result is distinct from
+          stability of these five selected stocks.
+        after: All initial enrichments reliably revive with identical strains.
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/THOR_Rhizosphere_Model_Community.yaml: 1d75a279b70b1ece18d4453f8576a849996e712bfb2f4a0ea9542db2f22f0dca
+      kb/communities/TYQ1_Nematode_Biocontrol_SynCom.yaml: a5c33db18b80a233099b80289b173c8c57e1420ced3a4f282ef99bb9100d0f11
+      kb/communities/Teosinte_Maize_Biofertilizer_SynCom7.yaml: d2b51e34f56530cb2992a40d195eae0f2395925e9d4f39b135d77a8822309320
+      kb/communities/mCAFEs_Brachypodium_RCC.yaml: 273500dc8bec3a1e35cea5c32a9ac77be1c36ed5f5d01cd5f7861dfe65e40ecb
+      tests/test_causal_review_batch119.py: f917f104f5b09dd7a98dcd9cf967a44962b410e6722443ec880e29c1d55cdc14
+    probe_script_sha256: fbc84b7f0fc2ef9204e3904a1fc979a7a6a321b28df216e584594c64cca10c82
+    scope: In-memory control/mutation/restored-control; no canonical writes and not additional pytest tests.
+  artifact: /private/tmp/communitymech-batch119/adversarial-regression-proof.json
+  sha256: cd359f8889bf6a33044eb920ecddf5b75c1d61344fa5c8fb1580667fb62ac60b
+verification:
+  combined_regressions: 1116 passed in 319.85s (0:05:19)
+  new_regression_tests: 15
+  total_recorded_gate_outputs: 41
+  primary_graph_snippet_proof:
+    graph_quotations: 38
+    discussion_quotations: 5
+    fresh_primary_literal_matches: 43
+    all_cached_literal_matches: 43
+    retained_nodes: 17
+    removed_nodes: 3
+    renamed_nodes: 9
+    retained_arrows: 10
+    removed_arrows: 0
+    new_nodes_or_directions: 0
+  references: Full-record local passes are macOS, not Linux certification. Literal matching does not establish entailment.
+    Total checks in the reference CLI counts issues, not examined snippets.
+  snippet_counts_by_record:
+    kb/communities/THOR_Rhizosphere_Model_Community.yaml:
+      MATCH: 22
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/TYQ1_Nematode_Biocontrol_SynCom.yaml:
+      MATCH: 27
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Teosinte_Maize_Biofertilizer_SynCom7.yaml:
+      MATCH: 18
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/mCAFEs_Brachypodium_RCC.yaml:
+      MATCH: 30
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 9046
+      categories:
+        MATCH: 8901
+        RENDERING: 28
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 40
+        NOCONTENT: 76
+    caveat: Informational audit exit0 is not clean-corpus or entailment certification.
+  network:
+    existing_findings_preserved: 57
+    added_findings: {}
+    removed_findings: {}
+    structural_defects: 0
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-four-records-batch119.yaml: f8bdcb0de3409627788a931ea8c49717dfd9aeba50fb061fde838f6d7b67b955
+    tests/test_causal_review_batch119.py: f917f104f5b09dd7a98dcd9cf967a44962b410e6722443ec880e29c1d55cdc14
+    tests/test_participating_taxa.py: f438815b4a028c0f38a077df53c95f685f98b3c2b523593896a124b544269db1
+    tests/test_community_level_connectivity_credit.py: 996cc631423bfa7adc5d8e693d67d55b374a24379d119ab0fa8f1802f38f216a
+    tests/test_causal_review_batch109.py: ff8e9e26771545e1ace22b3c1d42076789c99cc4bc83e588b6a4b9ad698d3d73
+    tests/test_datamodel.py: f8d4750ad64eb4156857a86a8c6adf16dedefb09ca3c3da908f697e609a35f25
+    reports/causal_graph_review/cache-provenance-20261008-batch119.json: c01b47ab2bb142eb1db61e7faaf5572da929325e7fae67b6a4a36477582b2a61
+    kb/communities/THOR_Rhizosphere_Model_Community.yaml: 1d75a279b70b1ece18d4453f8576a849996e712bfb2f4a0ea9542db2f22f0dca
+    kb/communities/TYQ1_Nematode_Biocontrol_SynCom.yaml: a5c33db18b80a233099b80289b173c8c57e1420ced3a4f282ef99bb9100d0f11
+    kb/communities/Teosinte_Maize_Biofertilizer_SynCom7.yaml: d2b51e34f56530cb2992a40d195eae0f2395925e9d4f39b135d77a8822309320
+    kb/communities/mCAFEs_Brachypodium_RCC.yaml: 273500dc8bec3a1e35cea5c32a9ac77be1c36ed5f5d01cd5f7861dfe65e40ecb
+  history_sha256:
+    history/records/THOR_Rhizosphere_Model_Community/2026-10-08T133242Z-codex-305b58.yaml: 2480f0818833def1bb635a521d667c088bf839e57bfcad1d39bb23fe02d02251
+    history/records/TYQ1_Nematode_Biocontrol_SynCom/2026-10-08T133242Z-codex-3eb620.yaml: 20e31ff610de2b9debc0b70dc8ee07cc7b080d0dbcda146cc8a667d7f8c61909
+    history/records/Teosinte_Maize_Biofertilizer_SynCom7/2026-10-08T133243Z-codex-d993e7.yaml: 20fe9cfb9998648207189fbbfd22179d0cb0fde878b2a1b687ba3118c9cdbc9f
+    history/records/mCAFEs_Brachypodium_RCC/2026-10-08T133243Z-codex-458ed6.yaml: 90c1165340e252e704af5065e62ae0260c27e74dc3bb66fcbb30e3acc0c4bacb
+  unchanged_records: 456
+  unchanged_caches: 922
+  immutable_prior_history_and_decision_files: 884
+  cache_changes:
+  - path: references_cache/PMID_35435700.md
+    before_sha256: 93e63a122d58bca129dd8bf1b30d76d8ff6ef8dfbd55c62022a646c4329b4015
+    after_sha256: 4c801186b23c80af1db7a38872e597f00d709a7406768fcece1dd640c1bbf7eb
+    original_bytes: 4401
+    added_bytes: 868
+    quotations:
+    - the growth of P. koreensis and B. cereus was not affected by coculture
+    - Bacillus cereus UW85 (B), Flavobacterium johnsoniae UW101 (F), Pseudomonas koreensis CI12 (P)
+    - likely a combination of direct effects from koreenceine and indirect effects due to slower growth rate of
+      F. johnsoniae in the presence of an antibiotic
+    - P. koreensis reduced growth of F. johnsoniae when they were grown as a pair, but F. johnsoniae abundance was
+      higher when B. cereus was also present
+    primary_artifact: /private/tmp/communitymech-batch119/thor_transcript-primary.txt
+    primary_sha256: b9a9f6c077c7d82c95f3f3fe393c68986aa2765d614c95361f3b1e036b7e4362
+    source_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9239112/
+    license: CC BY 4.0
+    license_url: https://creativecommons.org/licenses/by/4.0/
+    scope: Append-only selected literal excerpts; not full-paper import or entailment certification.
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    new_nodes_or_directions: 0
+    prior_extension_blocker: 'Ruegeria1883: configured authentication unavailable in prior approved invocation;
+      no unchanged-state retry.'
+  post_commit_docs_current: Separate publication gate,not preasserted.
+participant_census:
+  current:
+    records: 460
+    with_community_level: 414
+    mixed: 136
+    community_level_only: 278
+    taxa: 1568
+    credited_solely_by_the_rule: 1281
+  delta_from_batch118:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 1
+  explanation: One explicit participant-list user added for THOR three-member protection;299total. Bacillus cereus
+    UW85 leaves the incorrectly assigned pairwise protection node and is explicitly named in the three-member node.
+    Sole-credit rises1280to1281; record-scope counts remain unchanged. Sole-credit does not certify actual participant
+    coverage. Connectivity logic and thresholds are unchanged.
+corpus:
+  records: 460
+  nodes: 1375
+  edges: 531
+  review_status_counts:
+    needs_research: 54
+    pending: 22
+    reviewed: 384
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary established Python3.13 lint environment; project dependencies unchanged.
+limitations:
+- Both-root baseline precedes primary research:460records,923caches,57existing warnings,zero structural defects.
+  All20existing nodes/10arrows reviewed across four whole records. Retain17nodes/10arrows,remove three nodes,rename
+  nine,no new topology.
+- Five fresh EuropePMC abstracts and Crossref identities checked; all five complete main-body XML texts read including
+  methods/results/discussion,table text and captions. No original figure pixels,separate supplementary files,raw
+  data or analysis code audited. Literal matching is not entailment proof.
+- THOR founding study uses CI04,whereas2022Methods explicitly name UW101. Keep UW101 inhibition,expression and protection;
+  CI04 biofilm remains contextual discussion,not a UW101 node. CI04 accumulation and spo0H results only partially
+  support UW101 chemical mediation. Non-graph strain/cultivation reconciliation remains1926.
+- TYQ1 positive pairwise biofilm,medium-specific filtrate assays and actual biological omission retained. SX attraction
+  and AS reverse-use exceptions preserved. Fitted network weights and in-silico node removal are not measured flux
+  or biological omission. Root mechanism mediation remains PARTIAL; metadata/AF-role follow-up1927.
+- Teosinte field-treatment effects retained as reported,not independently reproduced statistics. Two formulation-workflow
+  nodes removed while preparation remains in non-graph fields. Relative abundance and correlation centrality do
+  not establish mutualism,nitrogen flux or necessary inoculant strains. Seven-strain roster and source-design ambiguities
+  remain1928.
+- mCAFEs is a collection of enrichments,not a fixed ten-member consortium. Keep carbon/transfer selection arrows,operational
+  abundance classes,computational hubs and revival of five selected stocks. No niche-partitioning or keystone-necessity
+  claim. Metadata/carbon-arm reconciliation remains1929.
+- Fresh all-state1160issue titles/bodies searched initially; pre-creation receipt records fresh count. Matching1288/615/497/258/25/14/12
+  bodies read and distinct. Hidden/ignored-inclusive local search found130paths excluding.git,docs,site,references_cache,.env;
+  not a historical PR-comment audit.
+- Four guarded writes preserve456otherrecords,922unchanged caches,unrelated raw YAML blocks,all prior histories/decisions.
+  One CC-BY4.0 cache gains four source-checked selected excerpts append-only; no whole-body import. Four append-only
+  record histories and curation events. Taxon identities unchanged; shared evidence aliases detached.
+- 'Existing-graph repair with no new nodes/directions: no Edison run,provider submission or credit spend. Prior
+  authorized Ruegeria1883 authentication blocker not retried without state change; no credential inspected. Self-adversarial
+  review is not independent approval. Overall review,protected merge and branch deletion remain incomplete.'
