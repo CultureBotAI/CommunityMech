@@ -106,67 +106,62 @@ taxonomy:
     snippet: Marinobacter adhaerens HP15 has been demonstrated to attach to the diatom Thalassiosira weissflogii
     explanation: Supports M. adhaerens HP15 as the bacterial member in the exact model.
 ecological_interactions:
-- name: Bacteria-Dependent Diatom Aggregation
-  description: >
-    Photosynthetically active T. weissflogii and specific diatom-attaching
-    bacteria, including M. adhaerens HP15, are required for strong aggregate
-    formation; axenic T. weissflogii did not aggregate in the same assay.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Marinobacter adhaerens HP15
-    term:
-      id: NCBITaxon:225937
-      label: Marinobacter adhaerens HP15
-  target_taxon:
-    preferred_term: Thalassiosira weissflogii
-    term:
-      id: NCBITaxon:1577725
-      label: Conticribra weissflogii
+- name: Condition-Dependent Diatom Aggregation
+  description: In the 2011 rolling-tank assay, active T. weissflogii cocultured with attaching bacteria including
+    HP15 formed substantially more aggregates than axenic controls. This is a community aggregation outcome, not
+    a universal bacterial requirement or a separate colonization interaction. The 2014 temperature/pCO2 experiment
+    found no effect of HP15 on total aggregate volume. Inactivated cells in the 2011 Results aggregated much less,
+    not uniformly zero; the inactivation treatment may also have altered exudates and surface properties, so it
+    does not isolate photosynthesis as the sole mediator.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  - preferred_term: biofilm formation
-    term:
-      id: GO:0042710
-      label: biofilm formation
   evidence:
   - reference: PMID:20827289
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: specific diatom-attaching bacteria were required for aggregation
-    explanation: Supports the requirement for attaching bacteria in T. weissflogii aggregation.
+    explanation: The 2011 abstract supports the assay-specific requirement, not universal HP15 dependence across
+      studies.
   - reference: PMID:20827289
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: T. weissflogii did not aggregate in axenic culture
-    explanation: Supports the contrast between axenic diatom controls and bacteria-containing treatments.
+    explanation: Axenic active-diatom controls in the 2011 assay lacked aggregation; this is not the result of every
+      later experiment.
   - reference: doi:10.4056/sigs.922139
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: it showed specific attachment to diatom cells. In vitro it led to exopolymer
-      formation and aggregation of these algal cells to form marine snow particles
-    explanation: HP15 type-strain genome paper directly describes HP15's diatom-cell
-      attachment and resulting exopolymer-mediated aggregation into marine snow particles,
-      supporting the bacteria-dependent aggregation phenotype.
-- name: Transparent Exopolymer Particle Enhancement
-  description: >
-    M. adhaerens HP15 is linked to transparent exopolymeric particle formation
-    and aggregate formation during interaction with T. weissflogii.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Thalassiosira weissflogii
+    snippet: it showed specific attachment to diatom cells. In vitro it led to exopolymer formation and aggregation
+      of these algal cells to form marine snow particles
+    explanation: The HP15 genome paper independently identifies the exact attaching strain and its reported aggregation
+      phenotype; it does not establish universal dependence.
+  - reference: PMID:25375640
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: total aggregate volume was independent of the presence of M. adhaerens HP15
+    explanation: The 2014 paper explicitly reports a null bacterial effect under that experiment; this bounds the
+      earlier phenotype.
+  participating_taxa:
+  - preferred_term: Thalassiosira weissflogii
     term:
       id: NCBITaxon:1577725
       label: Conticribra weissflogii
-  target_taxon:
-    preferred_term: Marinobacter adhaerens HP15
+  - preferred_term: Marinobacter adhaerens HP15
     term:
       id: NCBITaxon:225937
       label: Marinobacter adhaerens HP15
+- name: Condition-Dependent TEP Formation
+  description: TEP formation and aggregation were associated with the diatom-HP15 model in earlier work. TEP is
+    a measured community polymer outcome, not proof of directed feeding from the diatom to HP15. The 2014 study
+    found no bacterial effect on total TEP generated; warmer treatments generated more TEP but less aggregation.
+    The 2011 aggregate-free-water measurements and 2014 total-TEP measurements must not be treated as identical
+    endpoints. Chitin-containing fibres in a SEM caption document physical association, not the identity of all
+    TEP or a measured chitin-transfer flux.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: photosynthesis
     term:
@@ -177,38 +172,48 @@ ecological_interactions:
       id: GO:0030198
       label: extracellular matrix organization
   downstream:
-  - target: Bacteria-Dependent Diatom Aggregation
-    description: >
-      HP15-associated transparent exopolymer particle formation provides the
-      exopolymeric matrix that supports diatom aggregation and marine-snow
-      particle formation.
+  - target: Condition-Dependent Diatom Aggregation
+    description: 'PARTIAL: TEP can provide an adhesive matrix enabling diatom aggregation, but the amount-aggregation
+      relationship is condition dependent. The 2011 association is not a selective mediation test; the 2014 higher-TEP/lower-aggregation
+      result rules out a universal monotonic effect, and polymer stickiness was not directly resolved.'
   evidence:
   - reference: PMID:22820333
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: induce transparent exopolymeric particle and aggregate formation
-    explanation: Supports HP15-associated TEP and aggregate formation in the exact model.
+    explanation: The chemotaxis abstract recounts the model aggregation/TEP phenotype; it does not measure TEP uptake
+      as food.
   - reference: PMID:20827289
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: TEP formation and phytoplankton aggregation
-    explanation: Supports TEP formation and aggregation as measured outcomes in the interaction.
+    explanation: Supports the two measured outcomes, not a demonstration that TEP quantity alone causes aggregation.
   - reference: doi:10.3354/meps09894
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: a co-incubation sample containing the diatom Thalassiosira weissflogii (left)
-      and Marinobacter adhaerens HP15 embedded in a network of chitincontaining fibres
-      extruding from the diatom cell
-    explanation: SEM evidence of HP15 attaching to T. weissflogii within a chitin-containing
-      fibre network during co-incubation - direct visual documentation of the exopolymer
-      matrix this interaction is built around. Partial because the publicly available
-      excerpt is the figure caption rather than the methods/quantitative results.
+    snippet: a co-incubation sample containing the diatom Thalassiosira weissflogii (left) and Marinobacter adhaerens
+      HP15 embedded in a network of chitincontaining fibres extruding from the diatom cell
+    explanation: 'PARTIAL: retained caption documents HP15 in chitin-containing fibres. The full paper was not accessible;
+      this does not identify all TEP or establish polymer-feeding causality.'
+  - reference: PMID:25375640
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: had no effect on the amount of TEP generated
+    explanation: The later experiment bounds general claims of HP15 enhancement of TEP.
+  participating_taxa:
+  - preferred_term: Thalassiosira weissflogii
+    term:
+      id: NCBITaxon:1577725
+      label: Conticribra weissflogii
+  - preferred_term: Marinobacter adhaerens HP15
+    term:
+      id: NCBITaxon:225937
+      label: Marinobacter adhaerens HP15
 - name: Chemotaxis-Mediated Attachment
-  description: >
-    Chemotaxis and surface attachment functions in M. adhaerens contribute to
-    physical association with diatom cells and TEP aggregates, providing a
-    mechanistic basis for initiation of the two-member interaction.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Diatom homogenate or culture supernatant attracted HP15, and chemotaxis-associated mutants had a
+    smaller attached bacterial fraction in coculture than wild type. These perturbations support HP15 chemotaxis/motility
+    contributions to bacterial attachment to the diatom, not a demonstrated growth or colonization benefit to the
+    diatom. Mutant biofilm impairment was assayed on abiotic surfaces and is distinct from diatom aggregation.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Marinobacter adhaerens HP15
@@ -230,11 +235,11 @@ ecological_interactions:
       id: GO:0042710
       label: biofilm formation
   downstream:
-  - target: Bacteria-Dependent Diatom Aggregation
-    description: >
-      M. adhaerens chemotaxis and surface attachment support physical
-      association with diatom cells and TEP aggregates before aggregate
-      formation.
+  - target: Condition-Dependent Diatom Aggregation
+    description: 'HYPOTHESIZED: chemotaxis-dependent attachment may enable the close association underlying the
+      earlier HP15 aggregation phenotype. The reviewed chemotaxis abstract demonstrates reduced attachment, not
+      selective mediation of the aggregation endpoint; aggregation effects cannot be assumed in every environmental
+      treatment.'
   evidence:
   - reference: PMID:22820333
     supports: SUPPORT
@@ -246,18 +251,20 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: the fraction of bacteria attaching to the diatom decreased significantly for mutants
     explanation: Supports attachment impairment in chemotaxis mutants relative to wild-type HP15.
-- name: Marine Snow Carbon Flux Model
-  description: >
-    The coculture is used to model microbial control of diatom aggregation and
-    sinking particles, a process connected to export of particulate organic
-    carbon and the biological carbon pump.
-  interaction_type: NICHE_PARTITIONING
+- name: Aggregate Sinking and Carbon Export Interpretation
+  description: The existing marine-snow model interpretation concerns measured aggregate sinking and possible carbon
+    export, not ecological niche partitioning. In the 2011 assay, aggregate size predicted sinking velocity while
+    bacterial presence did not change the size-sinking relationship. Warmer 2014 treatments had depressed aggregation
+    and sinking, especially with acidification. A resulting reduction in ocean carbon sequestration is an extrapolation,
+    not a measured field flux or a demonstrated universal HP15 benefit.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: carbon dioxide
     term:
       id: CHEBI:16526
       label: carbon dioxide
+    notes: CO2/pCO2 is a photosynthetic substrate and imposed environmental condition, not a demonstrated exchanged
+      product of this outcome.
   biological_processes:
   - preferred_term: photosynthesis
     term:
@@ -269,15 +276,24 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:20827289
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: may enhance the efficiency of the biological pump
-    explanation: Supports the carbon-export relevance of bacteria-enhanced aggregation and sinking.
+    explanation: The abstract proposes biological-pump relevance; it does not report measured ocean carbon export.
   - reference: PMID:25375640
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: potentially reduced carbon sequestration after diatom blooms
-    explanation: Supports use of the exact system to test future-ocean effects on carbon sequestration.
+    explanation: Carbon sequestration is explicitly a conditional extrapolation of laboratory aggregate measurements.
+  participating_taxa:
+  - preferred_term: Thalassiosira weissflogii
+    term:
+      id: NCBITaxon:1577725
+      label: Conticribra weissflogii
+  - preferred_term: Marinobacter adhaerens HP15
+    term:
+      id: NCBITaxon:225937
+      label: Marinobacter adhaerens HP15
 environmental_factors:
 - name: Photosynthetic activity
   value: photosynthetically active versus inactivated diatom cells
@@ -399,3 +415,36 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth processing role is curated for this marine
   diatom-bacterium aggregation model.
+discussions:
+- discussion_id: hp15-aggregation-mediation-and-conditions
+  prompt: Which attachment and polymer properties causally control HP15-associated aggregation under each assay
+    condition?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: 'Mutant attachment, aggregate-free TEP, total TEP, aggregation and sinking are distinct measurements.
+    Polymer chemistry/stickiness and exact mediation remain unresolved; the 2014 null bacterial effects and inverse
+    temperature response constrain the earlier model. Full chemotaxis and MEPS bodies were not available for this
+    review. Non-graph overstatements are tracked in #1884.'
+  attaches_to:
+  - ecological_interactions#Condition-Dependent Diatom Aggregation
+  - ecological_interactions#Condition-Dependent TEP Formation
+  - ecological_interactions#Chemotaxis-Mediated Attachment
+  - ecological_interactions#Aggregate Sinking and Carbon Export Interpretation
+  evidence:
+  - reference: PMID:25375640
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: aggregation rates and sinking velocity of aggregates were depressed in warmer treatments
+    explanation: The abstract supplies a direct counterexample to universally increased aggregation with increased
+      TEP.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-08T08:31:37Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Preserve the positive 2011 aggregation phenotype and the 2014 null effect without universal dependence
+    or colonization typing.; Replace TEP cross-feeding with an assay-bounded polymer outcome and qualify the existing
+    aggregation direction.; Preserve mutant attachment evidence but distinguish bacterial attachment from diatom
+    benefit and downstream mediation.; Keep the existing sinking/export interpretation, remove niche-partitioning
+    typing and separate measurements from extrapolation. Issue#1880; reports/causal_graph_review/decisions/20261008-three-records-batch113.yaml
+  llm_assisted: true

@@ -598,7 +598,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Thalassiosira-Ruegeria Phycosphere Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -611,8 +611,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -620,10 +620,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Diatom Recognition of Ruegeria</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Putative Diatom Recognition Response to Ruegeria</h3>
                 </div>
-                <p class="prewrap interaction-description">T. pseudonana changes gene expression in response to R. pomeroyi DSS-3, indicating a recognition response in the two-member model system.</p>
+                <p class="prewrap interaction-description">In the 2017 B12-limited coculture experiment, T. pseudonana CCMP1335 differentially expressed genes with annotations consistent with recognition and signaling in response to R. pomeroyi DSS-3. The proposed plant-like cascade is inferred from homology and transcript patterns, not selectively demonstrated. Little attachment was observed during exponential growth. This is a directed diatom response to bacterial presence, not a measured colonization benefit or proof that recognition causes the separate chitin/lipid transcriptional response.</p>
 
 
                 <p><strong>Source Taxon:</strong> Ruegeria pomeroyi DSS-3</p>
@@ -655,17 +654,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Diatom Chitin and Lipid Response During Coculture
-                        <p class="prewrap causal-description">Ruegeria-triggered diatom recognition is reflected in the downstream T. pseudonana transcriptional response affecting chitin metabolism and lipid biosynthesis during coculture.
-</p>
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -693,7 +681,7 @@
                     <h3>Phytoplankton Metabolite Transfer to Ruegeria</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">T. pseudonana provides organic substrates that support R. pomeroyi growth, including sulfonates, sugar derivatives, and organic nitrogen compounds inferred from multi-omics measurements.</p>
+                <p class="prewrap interaction-description">Diatom-derived organic compounds support R. pomeroyi growth when the diatom is the only organic-carbon source. Individual substrate assignments have different evidence strengths: in the 2020 R. pomeroyi column of Table 1, DMSP and N-acetyl-D-glucosamine are supported by gene expression, whereas proline and guanosine have net exometabolite-drawdown evidence. These are three separate bacterial pair cultures, not a mixed three-bacterium competition experiment. Neither transcript induction nor net concentration changes alone trace a compound-specific transfer flux or demonstrate that bacterial consumption causes the diatom chitin response.</p>
 
 
                 <p><strong>Source Taxon:</strong> Thalassiosira pseudonana CCMP1335</p>
@@ -757,17 +745,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Diatom Chitin and Lipid Response During Coculture
-                        <p class="prewrap causal-description">Diatom-derived substrates consumed by Ruegeria include chitin-related sugar derivatives, linking the transfer node to the chitin-metabolism component of the diatom transcriptional response.
-</p>
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -779,7 +756,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/28631440/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:28631440</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"we hypothesize that nine diatom metabolites supported the majority of bacterial growth, among them sulfonates, sugar derivatives and organic nitrogen compounds"</div>
@@ -806,9 +783,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Diatom Chitin and Lipid Response During Coculture</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Coculture with R. pomeroyi is associated with T. pseudonana transcriptional shifts in lipid biosynthesis and chitin metabolism, linking the interaction to diatom cell-surface and carbon allocation processes.</p>
+                <p class="prewrap interaction-description">In the 2017 study, cocultured diatoms downregulated lipid biosynthesis and upregulated chitin metabolism genes relative to B12-replete axenic controls. These are measured transcriptional changes, not demonstrated Ruegeria-to-diatom substrate feeding, polymer production fluxes or selectively established outputs of a recognition cascade. The bacterium also supported B12-limited diatom growth, a distinct relationship missing from the present topology and tracked in #1883; it must not be inferred from this chitin/lipid node. The later L1 substrate-partitioning assay does not negate the earlier B12-limited benefit.</p>
 
 
                 <p><strong>Source Taxon:</strong> Ruegeria pomeroyi DSS-3</p>
@@ -950,6 +926,45 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which signaling steps mediate the transcript response, and how should B12-dependent growth support be represented separately?
+                </h3>
+                <p class="prewrap">The 2017 PDF Figure 1 and Results support rescue of B12-limited diatom growth; that reciprocal interaction is missing from the current graph. Edison dry run completed, but the authorized real invocation stopped before submission because the configured key loader returned no key. New topology remains #1883, not silently replaced by the chitin response. Two existing arrows were removed because co-occurring transcript changes and shared substrate names do not establish those directions. Receptor/cue identity and causal mediation require further evidence; assay-metadata reconciliation is #1885.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Putative Diatom Recognition Response to Ruegeria</code>, <code>ecological_interactions#Phytoplankton Metabolite Transfer to Ruegeria</code>, <code>ecological_interactions#Diatom Chitin and Lipid Response During Coculture</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/28631440/" rel="nofollow noreferrer">PMID:28631440</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">induced a potential recognition cascade</p>
+                        <p class="muted small prewrap">The abstract explicitly qualifies the recognition cascade; the full paper separately reports B12-limited growth support.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1197,7 +1212,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1212,7 +1227,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Diatom Recognition of Ruegeria",
+                label: "Putative Diatom Recognition Response to Ruegeria",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1291,7 +1306,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
