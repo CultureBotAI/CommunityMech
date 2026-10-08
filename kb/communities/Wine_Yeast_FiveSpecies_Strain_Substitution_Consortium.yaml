@@ -139,9 +139,10 @@ taxonomy:
     explanation: Names T. delbrueckii as one of the five defined consortium species.
 ecological_interactions:
 - name: Species drop-out and strain-substitution output shifts
-  description: Removing a species or substituting one of the two strains representing a species
-    significantly changed population dynamics, growth behavior, and metabolic output across the
-    five-species wine yeast consortium.
+  description: Species drop-out and strain substitution changed population succession, fermentation kinetics and
+    metabolic outputs in the defined five-species synthetic-must panel. These are positive composition-perturbation
+    effects, not identified molecular mechanisms. All tested consortia completed fermentation within the observation
+    period; changed kinetics should not be equated with failure to finish fermentation.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: fermentation
@@ -152,13 +153,22 @@ ecological_interactions:
   - reference: PMID:42784437
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Both species drop-out and strain substitution produced significant impacts on population
-      dynamics, growth behaviors, and metabolic outputs.
-    explanation: Supports both perturbation classes affecting consortium composition, growth, and
-      metabolite outputs.
-- name: Interspecies sugar-utilization competition
-  description: Fermentation sugar utilization and population measurements together supported
-    competitive interactions among the wine yeast species.
+    snippet: Both species drop-out and strain substitution produced significant impacts on population dynamics,
+      growth behaviors, and metabolic outputs.
+    explanation: Supports both perturbation classes affecting consortium composition, growth, and metabolite outputs.
+  - reference: PMID:42784437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the molecular mechanisms underlying the observed species- and strain-dependent effects were not addressed
+      in the present work.
+    explanation: The full-text Discussion explicitly limits mechanistic attribution.
+- name: Inferred interspecies sugar-utilization competition
+  description: 'PARTIAL: drop-out-associated sugar-preference shifts and compensatory relative-abundance changes
+    support the authors'' competition interpretation, principally among L. thermotolerans, S. bacillaris and T.
+    delbrueckii. These consortium-level observations do not resolve a direct inhibitory agent or establish every
+    pairwise relationship. ARISA measures relative DNA-based succession, not absolute viable population size; viable
+    plating provides complementary evidence. Contact, toxins and nitrogen preferences remain candidate mechanisms,
+    not demonstrated causes here.'
   interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
   biological_processes:
@@ -168,15 +178,16 @@ ecological_interactions:
       label: fermentation
   evidence:
   - reference: PMID:42784437
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: Sugar utilization and population data jointly revealed competitive interactions among species
-    explanation: Links measured sugar consumption and population dynamics to competitive
-      interspecies interactions in the five-species consortium.
+    explanation: Supports the authors' competition inference from phenotypic perturbations, not a resolved molecular
+      or complete pairwise mechanism.
 - name: Non-Saccharomyces strain-dependent metabolic tuning
-  description: Strain substitutions in the non-Saccharomyces members shifted metabolic output more
-    broadly than the S. cerevisiae strain, while chemical profiles tracked the species and strain
-    identities assembled into each consortium.
+  description: Among the particular strains tested, non-Saccharomyces substitutions affected a broader range of
+    final metabolites than switching the S. cerevisiae strain. The latter still had detectable effects and was not
+    metabolically silent. This result is panel- and synthetic-must-specific, not a universal ordering of species
+    importance or a demonstration that strain effects share one mechanism.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: fermentation
@@ -187,15 +198,14 @@ ecological_interactions:
   - reference: PMID:42784437
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Two-way analysis confirmed that the non-Saccharomyces substitutions affected the metabolic
-      output more broadly than the S. cerevisiae strain.
+    snippet: Two-way analysis confirmed that the non-Saccharomyces substitutions affected the metabolic output more
+      broadly than the S. cerevisiae strain.
     explanation: Supports a broader metabolite effect for non-Saccharomyces strain substitutions.
   - reference: PMID:42784437
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: chemical outputs tracked the identity of each consortium comprising different species and strains
-    explanation: Supports consortium-specific chemical outputs across the species and strain
-      perturbation panel.
+    explanation: Supports consortium-specific chemical outputs across the species and strain perturbation panel.
 environmental_factors:
 - name: five-species strain-substitution panel
   value: Two phenotypically diverging strains represented each of five spontaneous-wine-fermentation
@@ -237,10 +247,8 @@ external_resources:
       publication.
 discussions:
 - discussion_id: wine_yeast_five_species_strain_accessions
-  prompt: Which exact strain names or culture-collection accessions correspond to the two
-    Saccharomyces cerevisiae, Lachancea thermotolerans, Hanseniaspora uvarum, Starmerella
-    bacillaris, and Torulaspora delbrueckii isolates used in the five-species strain-substitution
-    panel, and which medium and incubation parameters were used for the fermentation assays?
+  prompt: How should the ten reported strains and synthetic-must assay context be represented in the canonical species-level
+    record?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
@@ -249,11 +257,29 @@ discussions:
   - taxonomy#Hanseniaspora uvarum
   - taxonomy#Starmerella bacillaris
   - taxonomy#Torulaspora delbrueckii
-  rationale: The PubMed abstract for PMID:42784437 identifies the five species and states that each
-    was represented by two phenotypically diverging strains, but it does not name the ten strains,
-    their accessions, the exact fermentation medium, temperature, or timing.
+  rationale: The primary article Table 1 names the ten strains, and Methods supplies the synthetic-must assay conditions.
+    The earlier abstract-only gap therefore concerns canonical strain and methods curation rather than missing source
+    information. These non-graph fields require a separate evidence-backed update; species identities and the existing
+    engineering-design block are preserved in this graph repair.
   posed_by: codex
   posed_date: '2026-09-28'
+- discussion_id: five_causal_scope_batch123
+  prompt: Which mechanisms account for the composition-dependent fermentation phenotypes?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Species drop-out and strain-substitution output shifts
+  - ecological_interactions#Inferred interspecies sugar-utilization competition
+  - ecological_interactions#Non-Saccharomyces strain-dependent metabolic tuning
+  rationale: Drop-outs and substitutions establish composition effects but not their molecular mediators. Relative
+    succession is not a complete pairwise interaction matrix, and non-significant statistical interactions are not
+    proof of absence. Do not transfer contact or toxin mechanisms from other systems to this panel.
+  posed_by: codex
+  posed_date: '2026-10-08'
+  evidence:
+  - reference: PMID:42784437
+    snippet: the molecular mechanisms underlying the observed species- and strain-dependent effects were not addressed
+      in the present work.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -263,16 +289,24 @@ curation_history:
 - timestamp: '2026-09-28T16:14:13Z'
   curator: codex
   action: CREATE_COMMUNITY
-  changes: Created CommunityMech:000465 for PMID:42784437 / doi:10.1128/spectrum.02819-26,
-    a defined five-species wine yeast consortium with two phenotypically diverging strains
-    representing each species, species drop-out and strain-substitution perturbations, competitive
-    sugar-utilization evidence, non-Saccharomyces strain-dependent metabolic-output tuning, PubMed
-    and DOI resources, and an open discussion for exact strain identities and cultivation details.
+  changes: Created CommunityMech:000465 for PMID:42784437 / doi:10.1128/spectrum.02819-26, a defined five-species
+    wine yeast consortium with two phenotypically diverging strains representing each species, species drop-out
+    and strain-substitution perturbations, competitive sugar-utilization evidence, non-Saccharomyces strain-dependent
+    metabolic-output tuning, PubMed and DOI resources, and an open discussion for exact strain identities and cultivation
+    details.
   llm_assisted: true
 - timestamp: '2026-09-28T16:28:21Z'
   curator: codex
   action: FIX_ADVERSARIAL_REVIEW_FINDINGS
-  changes: Addressed issue 1204 by rewriting the wine yeast abstract-backed knowledge-gap notes
-    to remove transient publisher-access wording while keeping exact strain identities, medium, and
-    incubation parameters explicitly unresolved.
+  changes: Addressed issue 1204 by rewriting the wine yeast abstract-backed knowledge-gap notes to remove transient
+    publisher-access wording while keeping exact strain identities, medium, and incubation parameters explicitly
+    unresolved.
+  llm_assisted: true
+- timestamp: '2026-10-08T16:49:42Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Preserve positive composition perturbations while distinguishing kinetics from completion and molecular
+    mechanism.; Retain competition as a qualified phenotypic inference without absolute viability or every-pair
+    causality.; Bound the broader non-Saccharomyces metabolic effect to the tested panel and retain detectable S.
+    cerevisiae effects. Issue#1954; reports/causal_graph_review/decisions/20261008-four-records-batch123.yaml
   llm_assisted: true

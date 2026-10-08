@@ -738,7 +738,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Wolffia Mankai Endosphere Cobamide Guild</title>
-                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding, niche partitioning.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -746,13 +746,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -760,10 +755,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Mankai Compartment Host Filtering</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Mankai Compartment-Associated Community Differentiation</h3>
                 </div>
-                <p class="prewrap interaction-description">Bacterial assemblages from cultivation medium, washed fronds, and surface-sterilized tissue clustered separately; the endosphere retained a lower-diversity, distinct subset of the broader plant-associated and medium-associated pool.</p>
+                <p class="prewrap interaction-description">Bacterial DNA profiles from cultivation medium, washed fronds and surface-sterilized tissue differed in composition and diversity. Environmental and host filtering is an interpretation of these compartment associations, not a selectively perturbed host mechanism or demonstrated microbial niche partitioning. Endosphere denotes the operational sterilized-tissue fraction; washed whole fronds are not a strictly epiphytic sample.</p>
 
 
 
@@ -785,7 +779,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42304541/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42304541</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
                         <div class="snippet">"The pronounced differences in richness and composition between the medium, phyllosphere and endosphere (Fig.  2 ) indicate strong environmental and host filtering along the plant-water interface"</div>
@@ -799,9 +793,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>MAG-Inferred Cobamide Producer-Salvager Guild</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Genome-resolved endosphere analysis predicted an uneven cobamide pathway architecture: Hyphomicrobium zavarzinii, Methylobacterium, Devosia, Labrys, Ferrovibrionaceae, and other Alphaproteobacteria encoded most biosynthetic steps, while many Gammaproteobacteria and Bacteroidota lineages had incomplete pathways and were inferred to salvage or remodel exogenous intermediates. The network edges represent MAG-derived metabolic compatibility, not direct metabolite-flux or abundance-correlation evidence.</p>
+                <p class="prewrap interaction-description">Genome-resolved endosphere analysis predicted an uneven cobamide pathway architecture: Hyphomicrobium zavarzinii, Methylobacterium, Devosia, Labrys, Ferrovibrionaceae, and other Alphaproteobacteria encoded most biosynthetic steps, while many Gammaproteobacteria and Bacteroidota lineages had incomplete pathways and were inferred to salvage or remodel exogenous intermediates. The network edges represent MAG-derived metabolic compatibility, not direct metabolite-flux or abundance-correlation evidence. HYPOTHESIZED cross-feeding is not established by gene presence or pathway gaps. Missing genes in individual MAGs can reflect reconstruction limitations. Cultured species-level comparators were not strain-matched endophytes, so their cobalamin production does not validate exchange in this guild or adaptive gene loss. The host is not established as a B12-dependent recipient.</p>
 
 
 
@@ -883,7 +876,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42304541/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42304541</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"many Gammaproteobacteria and Bacteroidota lineages harbored incomplete pathways, implying reliance on exogenous cobamide intermediates"</div>
@@ -948,7 +941,7 @@
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -992,6 +985,21 @@
                     </div>
 
                 </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Do compartment profiles and comparator genomes establish host-selected cobamide dependence?
+                </h3>
+                <p class="prewrap">Operational fractions and possible carryover limit localization claims. Only endosphere MAGs were reconstructed, so pathway architecture was not compared across all compartments. Non-strain-matched culture-collection representatives cannot establish endophyte-specific gene loss or validate metabolite exchange. The existing direct-flux knowledge gap remains open.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Mankai Compartment-Associated Community Differentiation</code>, <code>ecological_interactions#MAG-Inferred Cobamide Producer-Salvager Guild</code></p>
+
+
 
 
             </div>
@@ -1249,7 +1257,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1258,7 +1266,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Mankai Compartment Host Filtering",
+                label: "Mankai Compartment-Associated Community Differentiation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1273,7 +1281,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

@@ -5,6 +5,35 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch123: Phenotypes And Inferred Mechanisms
+
+[Decisions](decisions/20261008-four-records-batch123.yaml),
+[provenance](cache-provenance-20261008-batch123.json),
+[validation](validation-20261008-batch123.json), and
+[self-adversarial review](adversarial-review-20261008-batch123.yaml) cover
+the five- and three-species wine yeast consortia, Mankai cobamide guild and
+wollastonite fungal pair. All eleven nodes and both existing arrows remain,
+with three renames and no new topology.
+
+Wine perturbation outcomes remain positive, with competition and proposed
+suppression mechanisms qualified. The early amino-acid difference and later
+null remain distinct. Mankai compartment profiles and annotated pathway
+compatibility are not demonstrated host filtering or metabolite transfer;
+computational provenance records the gene-content method. Fungal bulk
+metabolite and leaching outcomes remain positive, while the proposed transfer
+and acid-to-leaching links are explicitly qualified.
+
+Fresh primary sources support all 26 graph/discussion quotations. Three open
+main bodies and the five-species publisher Results, Discussion, Methods and
+Table 1 were inspected. Original figure pixels, external supplements, raw
+data and analysis code were not audited. One 17-word CC BY 4.0 excerpt was
+appended with provenance; the other 922 caches and 456 records are unchanged.
+Four append-only histories record the repairs. No Edison submission or spend.
+
+Repairs #1954-#1957 await protected-main merge. Non-graph metadata follow-ups
+#1958-#1961 remain open. This is source-based self-review, not independent
+approval or completion of the overall review and protected merge.
+
 ## Batch122: Treatment Outcomes And Mechanism Limits
 
 [Decisions](decisions/20261008-four-records-batch122.yaml),
