@@ -5,6 +5,32 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch114: Thermophilic Syntrophy And Mechanism Limits
+
+[Decisions](decisions/20261008-two-records-batch114.yaml),
+[provenance](cache-provenance-20261008-batch114.json),
+[validation](validation-20261008-batch114.json), and
+[self-adversarial review](adversarial-review-20261008-batch114.yaml) cover
+the Thermacetogenium-Methanothermobacter and Thermotoga-Methanocaldococcus records.
+All six existing nodes and four directions remain. Formate involvement retains
+experimental support while its detailed energy-conservation mechanism remains
+qualified. Proximity and aggregation are scoped community observations, not
+directional colonization or another measured exchange. The 292-versus-24 gene
+counts retain their within-culture growth-phase meaning.
+
+Six primary abstracts and one fresh full main-body extraction were read, along
+with three existing cached primary main bodies. Fresh retrieval of those older
+full texts failed; original figure pixels, supplements and raw data were not
+reviewed. All 18 graph/discussion quotations match fresh primary text and existing
+caches. No publication bodies or cache files were added. Two append-only histories
+preserve non-graph blocks, 458 other records and all 923 caches.
+Thermotoga adds one explicitly scoped mixed record; both members already have
+pairwise connectivity credit. Connectivity logic and the share guard are unchanged.
+
+Repairs #1888-#1889 await protected-main merge. Separate metadata followups
+#1890-#1891 remain open. No new topology or Edison spend is introduced.
+Self-review is not independent approval or completion of the corpus review.
+
 ## Batch113: Marine Assay And Causal Boundaries
 
 [Decisions](decisions/20261008-three-records-batch113.yaml),

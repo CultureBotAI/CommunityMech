@@ -439,6 +439,7 @@ USERS = {
     "TCP_NonDehalogenimonas_Groundwater_Consortium.yaml",
     "Thalassiosira_Marinobacter_Marine_Snow_Coculture.yaml",
     "Thermophilic_ExSitu_Biomethanation_Mixed_Culture.yaml",
+    "Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.yaml",
     "Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.yaml",
     "Trichodesmium_Alteromonas_Marine_Consortium.yaml",
     "Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.yaml",
