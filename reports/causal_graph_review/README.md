@@ -5,6 +5,22 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch126: Halomonas Strain Evidence
+
+[Decisions](decisions/20261008-halomonas-identity-batch126.yaml),
+[validation](validation-20261008-batch126.json), and
+[self-adversarial review](adversarial-review-20261008-batch126.yaml) narrow
+the unresolved scope in #1860. The publisher-indexed primary Introduction
+identifies LC1 (DSM 15516) as the coculture heterotroph. Two existing graph
+descriptions now reflect this evidence; all three nodes and both arrows remain.
+
+Only five quoted words are appended to the preferred Markdown cache.
+Full Methods, Table 1, figures, supplements and raw data were not audited.
+Medium accounting and encapsulation mediation remain unresolved, so the record
+stays `needs_research` and #1860 stays open. The earlier ledger is preserved
+with a hash-linked successor. No taxonomy changes, new topology or Edison spend.
+The inventory remains 406 reviewed, zero pending and 54 requiring research.
+
 ## Batch125: Cable-Biofilm Identity
 
 [Decisions](decisions/20261008-cable-biofilm-batch125.yaml),
