@@ -170,10 +170,11 @@ related_ingredients:
     explanation: Attributes hydrogen cycling roles to the biofilm CPR bacteria.
 ecological_interactions:
 - name: Filamentous Sulfur Oxidation with Encapsulated S Granules
-  description: Filamentous bacteria, likely Thiothrix, contain
-    protein-encapsulated spherical elemental sulfur granules consistent with
-    sulfur-oxidizing chemolithotrophy.
-  interaction_type: COMMENSALISM
+  description: 'STXM and sulfur-edge spectroscopy show protein-associated elemental sulfur granules in filaments
+    from the MS4 and MS11 spring biofilms, consistent with sulfur oxidation. The authors infer Thiothrix-like and
+    Beggiatoa-related identities from the surrounding community evidence. HYPOTHESIZED/PARTIAL: the legacy canonical
+    participant links do not identify the imaged cells, and NCBITaxon:1031 is not established for the MS4 lineage.
+    These observations do not demonstrate commensalism or neutral effects on a host.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Thiothrix
@@ -184,11 +185,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:1021
       label: Beggiatoa
-  source_taxon:
-    preferred_term: Thiothrix
-    term:
-      id: NCBITaxon:1031
-      label: Thiothrix nivea
   metabolites:
   - preferred_term: sulfide
     term:
@@ -203,25 +199,20 @@ ecological_interactions:
     term:
       id: GO:0006790
       label: sulfur compound metabolic process
-  downstream:
-  - target: CPR Episymbiosis with Filamentous Hosts
-    description: The chemolithotrophic Thiothrix- and Beggiatoa-like filaments
-      are the sulfur-oxidizing biofilm structures near which ultra-small
-      CPR-like episymbionts were imaged.
   evidence:
   - reference: PMID:38273328
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: filamentous bacteria contain protein-encapsulated spherical
-      elemental sulfur granules, indicating that they are sulfur oxidizers,
-      likely Thiothrix
-    explanation: Supports the curated sulfur-oxidizing role of the filamentous
-      Thiothrix-like bacteria.
-- name: CPR Episymbiosis with Filamentous Hosts
-  description: STXM imaging reveals ultra-small cells near the surfaces of
-    filamentous bacteria, suggesting CPR bacterial episymbionts attached to the
-    sulfur-oxidizing hosts.
-  interaction_type: COMMENSALISM
+    snippet: filamentous bacteria contain protein-encapsulated spherical elemental sulfur granules, indicating that
+      they are sulfur oxidizers, likely Thiothrix
+    explanation: Supports sulfur-containing filaments and a likely taxonomic interpretation, not identification
+      as Thiothrix nivea or an organism-to-organism fitness relationship.
+- name: Putative CPR association with sulfur-oxidizing filaments
+  description: 'HYPOTHESIZED/PARTIAL: small cells occur near or on sulfur-bearing filaments, and the authors propose
+    that some are CPR episymbionts. Attempts to identify CPR cells by FISH were unsuccessful, so the observed cells,
+    their hosts and the fitness consequences remain unresolved. The source/target links retain legacy canonical
+    cross-references for this proposed association; they do not verify a CPR-Thiothrix nivea pair. A possible cryptic
+    sulfur-cycling symbiosis remains a source hypothesis, not demonstrated exchange.'
   scope: PAIRWISE
   source_taxon:
     preferred_term: Candidate Phyla Radiation (CPR) bacteria
@@ -238,24 +229,26 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: CPR Sulfur-Hydrogen Coupling
-    description: CPR attachment to sulfur-oxidizing filament surfaces places
-      the CPR bacteria in the same cryptic sulfur-cycling biofilm where
-      CPR hydrogenase and thiosulfate-conversion genes were predicted.
   evidence:
+  - reference: PMID:38273328
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: STXM imaging revealed ultra-small cells near the surfaces of filamentous bacteria that may be CPR bacterial
+      episymbionts
+    explanation: Supports a tentative identity/association inference from imaging, not confirmed CPR-host identities
+      or commensalism.
   - reference: PMID:38273328
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: STXM imaging revealed ultra-small cells near the surfaces of
-      filamentous bacteria that may be CPR bacterial episymbionts
-    explanation: Supports the proposed CPR episymbiotic association.
-- name: CPR Sulfur-Hydrogen Coupling
-  description: Genome-resolved metagenomics predicts that CPR bacteria in the
-    sulfide-spring biofilm contribute to cryptic sulfur and hydrogen cycling
-    through Berkelbacteria and Moranbacteria electron-bifurcating group 3b
-    [NiFe]-hydrogenases and Doudnabacteria thiosulfate-to-sulfite genes.
-  interaction_type: COMMENSALISM
+    snippet: our attempts to perform fluorescent in situ hybridization to determine CPR bacterial identity were
+      unsuccessful due to low amount of material, so this inference remains tentative.
+    explanation: States the unresolved identification boundary directly.
+- name: Predicted CPR sulfur and hydrogen metabolic capacity
+  description: 'HYPOTHESIZED/PARTIAL: metagenomic gene content, genomic context and structural models suggest a
+    potentially electron-bifurcating group 3b hydrogenase in Berkelbacteria/Moranbacteria and thiosulfate-conversion
+    capacity in Doudnabacteria. These are lineage-specific predictions, not demonstrated enzyme activity, sulfur/hydrogen
+    flux or a capacity shared by every CPR member. The authors suggest that such capacities could contribute to
+    cryptic sulfur symbioses; neither a particular host nor metabolite exchange was experimentally resolved.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Candidate Phyla Radiation (CPR) bacteria
@@ -282,18 +275,39 @@ ecological_interactions:
       label: sulfur compound metabolic process
   evidence:
   - reference: PMID:38273328
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: Berkelbacteria and Moranbacteria in the same biofilm sample are predicted
-      to have a novel electron bifurcating group 3b
+    snippet: Berkelbacteria and Moranbacteria in the same biofilm sample are predicted to have a novel electron
+      bifurcating group 3b
     explanation: Supports predicted CPR hydrogenases linked to sulfur metabolism.
+    computational_provenance:
+      prediction_type: OTHER
+      tools:
+      - tool_name: METABOLIC
+        role: Functional annotation of metagenomic bins
+      - tool_name: HydDB
+        role: Reference classification of hydrogenases with HMM and genomic-context evidence
+      - tool_name: AlphaFold2
+        role: Multimer structural modeling of putative complexes
+      model_source: Genome-resolved metagenomic bins from the Alum Rock springs
+      parameters: Gene content, genomic context, homology and structural predictions; no flux simulation or measured
+        exchange.
   - reference: PMID:38273328
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: One Doudnabacteria genome encodes adjacent sulfur dioxygenase and rhodanese genes that
-      may convert thiosulfate to sulfite.
-    explanation: Supports a predicted thiosulfate-to-sulfite conversion route in
-      the CPR sulfur cycle.
+    snippet: One Doudnabacteria genome encodes adjacent sulfur dioxygenase and rhodanese genes that may convert
+      thiosulfate to sulfite.
+    explanation: Supports a predicted thiosulfate-to-sulfite conversion route in the CPR sulfur cycle.
+    computational_provenance:
+      prediction_type: OTHER
+      tools:
+      - tool_name: METABOLIC
+        role: Functional annotation of metagenomic bins
+      - tool_name: AlphaFold2
+        role: Multimer structural modeling of putative complexes
+      model_source: Genome-resolved metagenomic bins from the Alum Rock springs
+      parameters: Gene content, genomic context, homology and structural predictions; no flux simulation or measured
+        exchange.
 environmental_factors:
 - name: Sulfide-rich groundwater
   value: deeply sourced sulfide-rich spring water
@@ -331,3 +345,47 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   sulfide-spring biofilm.
+discussions:
+- discussion_id: spring-unresolved-cell-identity-and-metabolic-coupling
+  prompt: Can the imaged cells and canonical participant groundings be resolved before asserting a specific CPR-host
+    metabolic interaction?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Filamentous Sulfur Oxidation with Encapsulated S Granules
+  - ecological_interactions#Putative CPR association with sulfur-oxidizing filaments
+  - ecological_interactions#Predicted CPR sulfur and hydrogen metabolic capacity
+  rationale: The dominant MS4 genome is reported as only 51% average amino-acid similarity to Thiothrix nivea, so
+    the current species identifier is not validated. FISH did not resolve CPR identity. Proximity does not cause
+    encoded metabolic potential; the two former spatial arrows are removed while preserving the observations and
+    source hypotheses. Canonical taxonomy and graph references need a coordinated identity repair; this record remains
+    needs_research.
+  evidence:
+  - reference: PMID:38273328
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: our attempts to perform fluorescent in situ hybridization to determine CPR bacterial identity were
+      unsuccessful due to low amount of material, so this inference remains tentative.
+    explanation: States the unresolved identification boundary directly.
+  - reference: PMID:38273328
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The most abundant species in MS4 shares genome-wide average 51% amino acid similarity with the sulfur-oxidizer
+      Thiothrix nivea
+    explanation: The source describes similarity to a reference species, not identity as that species.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-08T03:27:20Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Preserve sulfur-granule observations; remove commensalism and redundant source, explicitly leaving species
+    grounding unresolved.; Preserve the source episymbiosis hypothesis without confirmed cell identity or fitness
+    interpretation; remove the spatial causal arrow.; Preserve lineage-specific genomic/structural predictions with
+    provenance, not measured flux or host exchange. Issue#1838; reports/causal_graph_review/decisions/20261008-four-records-batch107.yaml
+  llm_assisted: true
+- timestamp: '2026-10-08T03:30:28Z'
+  curator: codex
+  action: CORRECT_EVIDENCE_PROVENANCE
+  changes: Narrow Doudnabacteria sulfur-enzyme provenance to METABOLIC and AlphaFold2; HydDB applies only to the
+    separate hydrogenase prediction. Adversarial follow-up to Issue1838; reports/causal_graph_review/decisions/20261008-four-records-batch107.yaml
+  llm_assisted: true

@@ -415,6 +415,7 @@ USERS = {
     "Stordalen_Mire_Methylotrophic_Methanogenesis_Community.yaml",
     "Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml",
     "SynComBac10_Chicken_Intestinal_SynCom.yaml",
+    "SynCom_ARC_Peanut_Aflatoxin_Nodulation.yaml",
     "SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation.yaml",
     "SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus.yaml",
     "Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml",
