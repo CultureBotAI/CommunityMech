@@ -176,15 +176,15 @@ def test_hashes_histories_and_canonical_identity_only_scope_are_explicit():
 
 
 def test_measured_scope_change_adds_no_solely_credited_taxa():
-    # Batch110 adds one mixed-scope record; the solely-credited count is unchanged.
+    # Batch111 adds one mixed-scope record; the solely-credited count is unchanged.
     survey = runpy.run_path(str(ROOT / "tests/test_community_level_connectivity_credit.py"))[
         "_survey"
     ]()
     assert survey == {
         "records": 460,
-        "with_community_level": 408,
-        "mixed": 133,
+        "with_community_level": 409,
+        "mixed": 134,
         "community_level_only": 275,
-        "taxa": 1554,
+        "taxa": 1556,
         "credited_solely_by_the_rule": 1270,
     }

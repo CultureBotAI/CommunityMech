@@ -1,0 +1,335 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 4f41c291ed0f8ceb6263c8c4038d31184905b704
+scope:
+- kb/communities/Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.yaml
+- kb/communities/Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.yaml
+- kb/communities/Synthetic_Periphyton_Freshwater_Biofilm.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-three-records-batch111.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch111.json
+findings:
+- issue: 1865
+  severity: P2
+  finding: Separate acetate-to-butanol output from exchange and bound carbon attribution
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1866
+  severity: P2
+  finding: Bound synthetic-lichen ROS protection and lipid-yield mediation by assay
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1867
+  severity: P2
+  finding: Separate periphyton assembly choices from attachment and stress phenotypes
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1868
+  severity: P2
+  finding: Reconcile synthetic-lichen culture metadata with experimental versus seed conditions
+  status: open_non_graph_follow_up
+  disposition: Remains open;graph review is not whole-record metadata certification.
+- issue: 1869
+  severity: P2
+  finding: Reconcile periphyton aggregate taxonomy with introduced and detected membership
+  status: open_non_graph_follow_up
+  disposition: Remains open;graph review is not whole-record metadata certification.
+adversarial_checks:
+- Whole original targets and complete graph/discussion diffs reviewed. All 11 original nodes and three directions
+  have dispositions. Ten nodes and all three directions remain; one assembly-only node is removed and three outcome
+  nodes are renamed. No new topology or Edison job/spend.
+- 'Challenge overcorrection: retain acetate-supported feeding and butanol production, sucrose feeding, conditional
+  lichen mutualism, measured peroxide relief, catalase rescue, whole-culture fatty-acid increase, periphyton attachment,
+  mature establishment and stress responses. Positive outcomes do not establish exclusive carbon attribution, obligate
+  dependence or isolated mediation.'
+- 'Butanol: lower extracellular acetate supports consumption, not isotope-resolved flux or sole-source attribution;
+  the source explicitly permits other exudates. Production is not duplicate exchange. Fluctuating plateaued production
+  in the 42-day replenished culture is not constant high productivity; earlier growth adaptation did not increase
+  production above prior levels. The existing acetate-to-product arrow stays HYPOTHESIZED/PARTIAL and the existing
+  carbon-specificity discussion is preserved verbatim.'
+- 'Lichen: sucrose supports R. glutinis but not all tested yeast pairings. Peroxide measurements, catalase rescue
+  and density controls support genuine context-dependent ROS protection, not universal partner dependence. Growth
+  benefit beyond catalase is unresolved. Total fatty acids 54 percent higher in batch is whole-culture, not yeast-specific.
+  Semi-continuous total includes removed culture, not only final biomass. ROS-to-lipid mediation remains hypothetical;
+  no additional factor is invented.'
+- 'Periphyton: preserve the source-attributed Sphingomonas EPS attachment role, qualified for the lack of an isolated
+  effect-size or persistence measurement in the reviewed main text. Remove growth-balanced grouping as a niche-partitioning
+  interaction. Early and AB outcomes name only the canonical diatom descriptor, not all phototrophs. Keep attachment/development
+  without intergroup facilitation claims. No workflow arrows are added.'
+- 'Periphyton maturity and stress: 26 introduced phototrophs are not a verified final 26-member roster; at least
+  22 were detected and three introduced species were no longer detected. Aggregate taxonomy and nonaxenic source
+  cultures remain a separate metadata follow-up. Preserve the explicit day-18 high-herbicide PSII exception. Functional
+  redundancy requires further study; stable aggregate PSII does not demonstrate it. Discussion anchors match all
+  retained names.'
+- Three fresh primary XML extracted main texts were read completely, including abstracts, Methods, embedded captions
+  and tables; displayed equation structure is omitted by extraction. No separate supplements, original image pixels
+  or raw data were certified. Crossref exact DOIs were checked. All 27 graph and three discussion quotations match
+  fresh primary text and unchanged caches under documented normalization. Two discussions are new and one preserved;
+  literal matching is separate from entailment. Cache headers and quote matching are not a whole-cache review.
+- Three guarded records and three append-only histories preserve prior history/decisions, 457 other records, 923
+  caches and raw non-graph blocks. Butanol adds one community-level/mixed record and two taxa to the census denominator,
+  with zero new solely-credited taxa. Two early periphyton nodes narrow to diatoms. Measured census tests were updated;
+  connectivity and share rules are unchanged.
+- Four isolated in-memory control/mutation/restored-control probes reject inflated acetate certainty, proven ROS-to-lipid
+  mediation, all-phototroph early attachment and proven functional redundancy. An initial attachment probe duplicated
+  a diatom; that local artifact is retained separately and the corrected probe actually includes diatoms, green
+  algae and cyanobacteria. Canonical hashes are unchanged; probes do not inflate the pytest count.
+- Nine focused tests and 1003 combined regressions pass. Three full-record schema/strict/term/reference/local-snippet
+  validations and three history validations pass. All 56 baseline network warnings remain identical, with zero structural
+  defects. Deterministic rendering and exact HTML-description parsing cover 456 pages, 1366 nodes and 536 arrows;
+  not screenshot QA. The informational full-corpus snippet audit includes unrelated preexisting discrepancies, including
+  ligature issue 1863; it is not clean-corpus certification.
+- Repairs 1865-1867 await protected-main merge. Non-graph culture issue 1868 and membership issue 1869 remain open.
+  No shared validator/cache changes; DOI-case 1091, bracket 622, ligature 1863, loader 1703 and cache-policy 949/1093
+  are not certified. macOS reference success is not Linux certification. Denied/unanswered Edison scopes are untouched.
+  Self-review is not independent approval; no artificial CI, protection bypass or premature branch deletion.
+- Corpus status is 355 reviewed, 52 pending and 53 needs_research across 460 records. The full goal remains incomplete.
+  Exact-head publication and postcommit docs-current are separate gates, not preasserted here.
+- Plain just-lint passed;explicit-runtime no-incremental mypy additionally checked.
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: Acetate carbon attribution promoted to exclusive SUPPORT
+      test: test_acetate_attribution_remains_partial_and_existing_gap_is_reused
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 22
+      assertion: assert carbon["evidence"][1]["supports"] == "PARTIAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/0/evidence/1/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: ROS protection promoted to demonstrated lipid mediation
+      test: test_lichen_lipid_endpoint_does_not_prove_ros_mediation
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 59
+      assertion: assert protection["downstream"][0]["description"].startswith("HYPOTHESIZED/PARTIAL:")
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/1/downstream/0/description
+        before: 'HYPOTHESIZED/PARTIAL: protection against oxidative stress could help maintain the phototrophic
+          partner that supports lipid-producing coculture. The ROS/catalase comparisons do not isolate the contribution
+          of that protection to the separately measured whole-culture fatty-acid yield advantage.'
+        after: ROS relief demonstrated to cause the measured lipid benefit.
+    - mutation: Early diatom attachment expanded to all phototrophs
+      test: test_early_periphyton_outcomes_are_diatom_scoped_not_facilitation_edges
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 86
+      assertion: assert len(node["participating_taxa"]) == 1
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/1/participating_taxa
+        before:
+        - preferred_term: diatoms
+          term:
+            id: NCBITaxon:2836
+            label: Bacillariophyta
+        after:
+        - preferred_term: diatoms
+          term:
+            id: NCBITaxon:2836
+            label: Bacillariophyta
+        - preferred_term: green algae
+          term:
+            id: NCBITaxon:3041
+            label: Chlorophyta
+        - preferred_term: cyanobacteria
+          term:
+            id: NCBITaxon:1117
+            label: Cyanobacteriota
+    - mutation: Periphyton functional redundancy promoted to demonstrated SUPPORT
+      test: test_mature_membership_and_psii_exception_do_not_prove_redundancy
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 100
+      assertion: assert stressor["evidence"][3]["supports"] == "PARTIAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/4/evidence/3/supports
+        before: PARTIAL
+        after: SUPPORT
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.yaml: 262578e4cc60f82a1134df47dfeea7300751a28479c7296232653fdf4355a972
+      kb/communities/Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.yaml: 2a795399a012c7aa4460ea337faa97665269f40c7c13e95002d8224693b425d3
+      kb/communities/Synthetic_Periphyton_Freshwater_Biofilm.yaml: f270c0f22655b5e8b0cb533b40353e4a549ab4eaf891e1cc14630ad4abd4a4e2
+      tests/test_causal_review_batch111.py: e8eee1718a65547c83dadedf44e1b5848f31fd90d2708ffc3c0cb7505f3c03e5
+    probe_script_sha256: c1c223c39738978453aa169d82c488fc8570c9efb88c6b09042fb2be443fd24d
+    scope: In-memory evidence mutations with control and restored-control; no canonical writes or inflated pytest
+      count.
+  artifact: /private/tmp/communitymech-batch111/adversarial-regression-proof.json
+  sha256: f8ecdfe9ce25b3c2b8e6aba0f464844b1c68138fa98f81344145a0abd16a331c
+  superseded_probe_artifact: /private/tmp/communitymech-batch111/adversarial-regression-proof-before-scope-correction.json
+  superseded_probe_sha256: 4fe0bdf67f32edc87ae3a0da65efcb6f276d40b539119a72be93c146ec93986f
+verification:
+  combined_regressions: 1003 passed in 467.34s (0:07:47)
+  new_regression_tests: 9
+  total_recorded_gate_outputs: 34
+  primary_graph_snippet_proof:
+    graph_quotations: 27
+    discussion_quotations: 3
+    new_discussion_quotations: 2
+    preserved_discussion_quotations: 1
+    fresh_primary_literal_matches: 30
+    all_cached_literal_matches: 30
+    retained_nodes: 10
+    removed_nodes: 1
+    renamed_nodes: 3
+    retained_arrows: 3
+    removed_arrows: 0
+    new_nodes_or_directions: 0
+    scope: All reviewed quotations match fresh primary text and unchanged caches;source entailment separately reviewed.
+      Three full extracted primary main bodies including abstracts,Methods and embedded captions/tables read. No
+      separate supplements,original image pixels or raw-data certification.
+  references: Three full-record CLI and local snippet checks on macOS,not Linux;DOI-cache case1091 and prior ligature1863
+    remain outside this batch. Literal matches do not establish entailment;per-source read limits recorded. CLI
+    Total checks counts issues,not checks. Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.yaml:
+      MATCH: 24
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Synthetic_Periphyton_Freshwater_Biofilm.yaml:
+      MATCH: 24
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 9008
+      categories:
+        MATCH: 8868
+        RENDERING: 23
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 40
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification;literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: Ten nodes and three existing directions retained;one assembly-only node removed;three outcome
+      nodes renamed. All56existing warnings unchanged;zero structural defects. Non-graph culture/membership followups1868-1869
+      remain open.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-three-records-batch111.yaml: 931a6cd707b0e3944f8cc593cfa341b331bab93b6616264cca5410b0343d6b19
+    tests/test_causal_review_batch111.py: e8eee1718a65547c83dadedf44e1b5848f31fd90d2708ffc3c0cb7505f3c03e5
+    tests/test_causal_review_batch109.py: 0a5d5ee9cd74ba09c588898b32b1b7ff28018dfea10701ad39c37c53e6987015
+    tests/test_participating_taxa.py: 053e65df328f35a997a4dc6ce1933ccd17932dad4380a2f82953e43bb9e025d8
+    tests/test_community_level_connectivity_credit.py: 781d6d380d5abee0006c4d261c22a229e63d6215dacff5a30b8ee6e775c11287
+    reports/causal_graph_review/cache-provenance-20261008-batch111.json: 15a6da3e6e2c8a67aaf22ab15d4ccb912eac6f00038e816bd97b6e2094af6669
+    kb/communities/Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.yaml: 262578e4cc60f82a1134df47dfeea7300751a28479c7296232653fdf4355a972
+    kb/communities/Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.yaml: 2a795399a012c7aa4460ea337faa97665269f40c7c13e95002d8224693b425d3
+    kb/communities/Synthetic_Periphyton_Freshwater_Biofilm.yaml: f270c0f22655b5e8b0cb533b40353e4a549ab4eaf891e1cc14630ad4abd4a4e2
+  history_sha256:
+    history/records/Synechocystis_Pseudomonas_Acetate_Butanol_Coculture/2026-10-08T061700Z-codex-dd5d8d.yaml: d4524715d43e27be56e298024dbf63353b91aeec0a241e828b381f46016681f7
+    history/records/Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture/2026-10-08T061700Z-codex-d07e9a.yaml: 3bc6fa3c5aaef6230ab5886b01a09a96ef2b25fe18e98c63fbd99e8844345f80
+    history/records/Synthetic_Periphyton_Freshwater_Biofilm/2026-10-08T061700Z-codex-a2d60a.yaml: 7e8d88e203c0c394c1fbb876dc6a79204389bdd1e5e6e2e823de001491891817
+  unchanged_records: 457
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 845
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Existing node/arrow evidence and scope repairs;one workflow node removed;no new biological direction
+      or interaction. Staged assembly alone does not justify new arrows.
+  post_commit_docs_current: Separate publication gate,not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 408
+      mixed: 133
+      community_level_only: 275
+      taxa: 1554
+      credited_solely_by_the_rule: 1270
+    current:
+      records: 460
+      with_community_level: 409
+      mixed: 134
+      community_level_only: 275
+      taxa: 1556
+      credited_solely_by_the_rule: 1270
+  delta:
+    records: 0
+    with_community_level: 1
+    mixed: 1
+    community_level_only: 0
+    taxa: 2
+    credited_solely_by_the_rule: 0
+  interpretation: Butanol production gains community-level identity-only scope;two early periphyton outcomes gain
+    diatom-only participants. One additional mixed-scope record and two denominator taxa;no additional solely-credited
+    taxa. Observational census bounds updated to measured scope;connectivity rules and share guard unchanged.
+corpus:
+  records: 460
+  nodes: 1380
+  edges: 544
+  review_status_counts:
+    needs_research: 53
+    pending: 52
+    reviewed: 355
+lint_limitation: Plain just-lint passed;explicit-runtime no-incremental mypy additionally checked.
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary Python3.13 lint environment reuses validation runtime and locked typing tools;project dependencies
+    unchanged. Not a complete embedding runtime.
+limitations:
+- Fresh pre-source both-root baseline:460 records,923 caches,56 existing warnings,zero structural defects. All11
+  original nodes and three arrows reviewed; retain10 nodes/three directions,remove one assembly-only node,rename
+  three outcome nodes. No new topology or Edison spend.
+- Three fresh primary XML main bodies, abstracts, Methods and embedded captions/tables read in full extracted text:butanol
+  lines1-199,lichen1-209,periphyton1-219. Crossref exact DOIs independently checked;all three CCBY. Extraction omits
+  displayed equation structure. No separate supplements,original figure pixels or raw data audited;no exact gene/protocol
+  claims imported.
+- All27 graph and three discussion quotations match fresh primary text and unchanged caches. Two discussions are
+  new and the existing butanol carbon-specificity discussion is preserved verbatim. Cache format/header inspection
+  and quotation matching are not whole-cache review;attempt to print lichen DOI cache was truncated and is not claimed
+  complete. Matching is separate from entailment.
+- 'Butanol: retain acetate-supported carbon feeding and measured production;nonexclusive/untraced acetate attribution
+  and fluctuating titers are explicit. Product output is not duplicate exchange. Growth adaptation did not increase
+  product yield in the earlier assays. Existing knowledge gap is reused,not duplicated.'
+- 'Lichen: preserve sucrose feeding and conditional mutualism. Peroxide reduction,catalase rescue and high-density
+  controls support context-dependent ROS relief,not obligate dependence or exclusive mediation. Whole-culture fatty-acid
+  yield and harvested semi-continuous material remain distinct from partner-specific output. Existing ROS-to-lipid
+  arrow stays hypothetical;unknown additional growth factor is not invented.'
+- 'Periphyton: retain source-attributed Sphingomonas attachment role without an isolated effect size or persistent
+  canonical donor. Remove inoculum grouping as niche partitioning. Preserve measured early and AB attachment/development,scoped
+  to canonical diatom descriptor;three outcome nodes renamed. Mature detection differs from26-member input. Stress-response
+  node keeps generally stable PSII with the reported day18 high-herbicide exception;functional redundancy remains
+  proposed. Staged order does not warrant new workflow arrows.'
+- Full canonical records and schema interaction/scope definitions read. Ignored/hidden-inclusive kb/taxa search
+  for Synechocystis,taiwanensis,Rhodotorula,elodea,periphyton found no matching reusable record;no whole-repository
+  absence claimed. Full local matching-path index,not all historical reports,read. Fresh all-state issue title/body
+  search matched850,622,1547;wholebodies plus related529/1091 read. PR comments not exhaustively searched.
+- Preserve457otherrecords,all923caches,rawnon-graph blocks and prior history/decision files. Only reviewed graph/discussions/curation_history
+  change. Participant census must be measured,not guessed;rules and share guard remain unchanged. No schema/validator/runtime
+  change;DOIcase1091,bracket622,ligature1863,loader1703 and cachepolicy949/1093 not certified. Full-record reference
+  checks on macOS are not Linux certification.
+- Repairs1865-1867 remain open until protected-main merge. Lichen culture metadata1868 and periphyton membership1869
+  remain open afterward. Self-review is not independent approval or full-corpus completion. Denied/unanswered Edison
+  scopes untouched;no artificial CI,protection bypass or premature branch deletion.

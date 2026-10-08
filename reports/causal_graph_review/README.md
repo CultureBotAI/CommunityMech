@@ -5,6 +5,30 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch111: Carbon, Lipid And Attachment Evidence
+
+[Decisions](decisions/20261008-three-records-batch111.yaml),
+[provenance](cache-provenance-20261008-batch111.json),
+[validation](validation-20261008-batch111.json), and
+[self-adversarial review](adversarial-review-20261008-batch111.yaml) cover
+the acetate-butanol coculture, synthetic lichen and freshwater periphyton.
+Ten of eleven nodes and all three existing directions remain. One assembly-only
+node is removed and three outcome nodes are renamed. Positive production,
+ROS protection, attachment and stress-response findings remain bounded to their
+assays; exclusive carbon attribution and untested mediation are not asserted.
+
+Three primary extracted main texts, including Methods and embedded captions
+and tables, were read completely. Thirty graph/discussion quotations match fresh
+primary text and unchanged caches. Two discussions are new; the existing butanol
+discussion is preserved. Three append-only histories and four in-memory mutation
+probes retain the audit trail. All 923 caches and 457 other records are unchanged.
+The measured scope census adds no taxa credited solely by the broad community
+rule. No new topology or Edison spend.
+
+Repairs #1865-#1867 await protected-main merge. Lichen culture metadata #1868
+and periphyton membership #1869 remain open. Self-review is not independent
+approval, whole-record metadata certification or completion of the corpus review.
+
 ## Batch110: Polymer And Electron-Recipient Boundaries
 
 [Decisions](decisions/20261008-three-records-batch110.yaml),

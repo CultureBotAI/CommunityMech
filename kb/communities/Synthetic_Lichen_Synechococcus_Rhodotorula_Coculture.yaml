@@ -90,8 +90,9 @@ taxonomy:
     explanation: Supports the yeast member used in the synthetic lichen coculture.
 ecological_interactions:
 - name: Photosynthetic Sucrose Provisioning
-  description: Engineered S. elongatus fixes carbon dioxide under illumination and secretes sucrose that
-    supports heterotrophic yeast growth.
+  description: 'Sucrose-secreting S. elongatus supplies carbon used by R. glutinis in the synthetic lichen coculture.
+    Yeast growth and lower residual sucrose support feeding. The result is strain-specific: the tested S. cerevisiae
+    pairing did not grow comparably. CO2 is fixed by the phototroph rather than donated as the organic carbon substrate.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -126,8 +127,9 @@ ecological_interactions:
       label: sucrose biosynthetic process
   downstream:
   - target: Lipid Production Enhancement
-    description: Cyanobacterial sucrose provisioning supplies the yeast carbon
-      source that is routed into coculture biomass and lipid production.
+    description: Cyanobacterial sucrose supports yeast growth within the consortium that exhibits greater total
+      biomass and fatty-acid yield. The whole-culture comparison does not resolve the partners' separate lipid contributions
+      or a sucrose-to-lipid carbon balance.
   evidence:
   - reference: doi:10.1186/s13068-017-0736-x
     supports: SUPPORT
@@ -135,8 +137,11 @@ ecological_interactions:
     snippet: R. glutinis and C. curvatus grew efficiently and utilized sucrose produced by the partner in co-culture
     explanation: Supports sucrose cross-feeding from S. elongatus to yeast partners, including R. glutinis.
 - name: Rhodotorula-Enhanced Cyanobacterial Survival
-  description: R. glutinis improves cyanobacterial growth and survival at low inoculum density by alleviating
-    accumulated reactive oxygen stress.
+  description: R. glutinis supports cyanobacterial growth while receiving sucrose, consistent with conditional mutualism.
+    In illuminated HEPES-buffered cultures, peroxide measurements and catalase-rescue comparisons support protection
+    against oxidative stress, especially for dilute cyanobacterial inocula. High-density axenic growth remains possible.
+    Yeast enhances growth beyond catalase alone, so peroxide removal is not the sole demonstrated explanation and
+    the additional benefit is unresolved.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -154,7 +159,7 @@ ecological_interactions:
     term:
       id: CHEBI:16240
       label: hydrogen peroxide
-    notes: Measured reactive oxygen species whose accumulation inhibited cyanobacterial axenic growth.
+    notes: Extracellular oxidant reduced in coculture, not a donated nutrient; accumulation is culture-context dependent.
   biological_processes:
   - preferred_term: response to oxidative stress
     term:
@@ -162,9 +167,9 @@ ecological_interactions:
       label: response to oxidative stress
   downstream:
   - target: Lipid Production Enhancement
-    description: Yeast relief of low-density cyanobacterial oxidative stress helps
-      stabilize the artificial lichen coculture that produces the increased biomass
-      and lipid yield.
+    description: 'HYPOTHESIZED/PARTIAL: protection against oxidative stress could help maintain the phototrophic
+      partner that supports lipid-producing coculture. The ROS/catalase comparisons do not isolate the contribution
+      of that protection to the separately measured whole-culture fatty-acid yield advantage.'
   evidence:
   - reference: doi:10.1186/s13068-017-0736-x
     supports: SUPPORT
@@ -174,12 +179,29 @@ ecological_interactions:
   - reference: doi:10.1186/s13068-017-0736-x
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Accumulated reactive oxygen species was observed to severely inhibit axenic growth of cyanobacteria
-    explanation: Supports oxidative stress as the mechanism relieved in coculture.
+    snippet: HOOH content was progressively reduced and efficiently minimized
+    explanation: Direct peroxide measurements support oxidant reduction with the yeast partner.
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. elongatus grew better in the cultures with catalase
+    explanation: The rescue comparison supports a role for oxidative stress in the tested culture context.
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the axenic growth of S. elongatus was robust
+    explanation: This applies to higher initial cyanobacterial cell densities, not obligatory partner dependence.
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: R. glutinis may be providing factors beyond HOOH reduction
+    explanation: An additional growth-promoting mechanism remains proposed, not identified.
 - name: Lipid Production Enhancement
-  description: Stable S. elongatus-R. glutinis cocultures increased biomass and overall lipid yield relative
-    to cyanobacterial monocultures.
-  interaction_type: CROSS_FEEDING
+  description: S. elongatus-R. glutinis cultures persisted for more than one month in batch and semi-continuous
+    formats. Batch total fatty-acid yield was 54% higher than in cyanobacterial monoculture, alongside increased
+    total biomass. These are whole-culture endpoints, not an additional exchange or a measurement of yeast-specific
+    lipid output. Semi-continuous total harvest includes withdrawn material and is not equivalent to final biomass
+    alone.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Synechococcus elongatus PCC 7942 cscB+
@@ -209,8 +231,18 @@ ecological_interactions:
   - reference: doi:10.1186/s13068-017-0736-x
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: final biomass and overall lipid yields in the batch co-culture 40 to 60% higher
-    explanation: Supports increased biomass and lipid production in the R. glutinis coculture.
+    snippet: The total fatty acids (TFA) in the batch co-culture was 54% higher than in mono-culture
+    explanation: Supports the whole-culture fatty-acid comparison, not strain-resolved lipid production.
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: With addition of the 50 mL of culture that was removed both at 10 and 21 days
+    explanation: The semi-continuous total includes withdrawn material rather than only the final harvest.
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: were sustained over 1 month in both batch and in semi-continuous culture
+    explanation: Supports persistence in both reported operating formats.
 environmental_factors:
 - name: modified BG-11 coculture medium
   value: BG-11[co] with YNB without amino acids, ammonium chloride, IPTG, HEPES, and NaCl
@@ -300,3 +332,29 @@ cultivation_setup:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: 50 mL of original culture was withdrawn and 50 mL of fresh BG-11
+discussions:
+- discussion_id: lichen-ros-versus-lipid-mediation
+  prompt: How much of the lipid-yield benefit is mediated by ROS relief rather than other partner effects?
+  rationale: Peroxide measurements and catalase rescue support ROS protection, but the primary growth benefit exceeds
+    catalase alone and the lipid assay measures the mixed culture. Do not infer an identified additional factor,
+    exclusive ROS mediation or yeast-specific lipid yield from these comparisons.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  attaches_to:
+  - ecological_interactions#Rhodotorula-Enhanced Cyanobacterial Survival
+  - ecological_interactions#Lipid Production Enhancement
+  evidence:
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: R. glutinis may be providing factors beyond HOOH reduction
+    explanation: The source identifies an unresolved contribution beyond peroxide reduction.
+curation_history:
+- timestamp: '2026-10-08T06:16:59Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain strain-bounded sucrose feeding and whole-culture production support.; Preserve demonstrated ROS
+    protection and conditional mutualism without exclusive mediation or obligacy.; Retain mixed-culture fatty-acid
+    and biomass outcomes without duplicate exchange typing. Issue#1866; reports/causal_graph_review/decisions/20261008-three-records-batch111.yaml
+  llm_assisted: true
