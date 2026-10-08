@@ -40,3 +40,14 @@ In co-culture experiments using a mixed substrate (glucose, cellobiose, and xylo
                   Overall, this study provides the first demonstration of a
                   Y. lipolytica
                   system capable of simultaneously utilizing cellulose- and hemicellulose-derived oligosaccharides. Moreover, benchmarking a division-of-labor consortium against a multifunctional monoculture highlights a robust strategy to enhance lipid biosynthesis and improve process resilience for LCB valorization.
+
+
+## Primary-source excerpts
+Source: https://www.biorxiv.org/content/early/2025/12/22/2025.12.19.695487.source.xml
+Section: Results, version 1 posted 2025-12-22. Retrieved 2026-10-08.
+License: All rights reserved; short literal excerpts only.
+No full article or supplement imported.
+
+the YBGL3 + YBXT-XR cocultures
+
+the 1:5 consortium ultimately reached a comparable lipid titer at 168 h

@@ -461,6 +461,7 @@ USERS = {
     "Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml",
     "Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml",
     "Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml",
+    "Yogurt_TwoSpecies_Starter_Culture.yaml",
     "mCAFEs_Brachypodium_RCC.yaml",
 }
 

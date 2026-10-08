@@ -5,6 +5,38 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch124: Final Pending Records
+
+[Decisions](decisions/20261008-six-records-batch124.yaml),
+[provenance](cache-provenance-20261008-batch124.json),
+[validation](validation-20261008-batch124.json), and
+[self-adversarial review](adversarial-review-20261008-batch124.yaml) cover
+algae-MLSS, TCP groundwater, Yarrowia, yogurt, Zymomonas-E. coli and hCom2.
+All fifteen existing nodes and eight arrows remain, with six coherent renames.
+
+TCP retains amendment effects while distinguishing metagenomic inference.
+Yarrowia's lipid-fraction benefit is not a titer advantage or exclusive niches.
+Yogurt retains intervention outcomes with strain, growth-stage and recipient
+boundaries. Zymomonas retains rescue controls without exclusive glutathione
+mediation. hCom2 retains stability and resistance with direct outcome evidence,
+not colonization-facilitation labels or an established protective mechanism.
+Algae-only controls constrain a future algae-MLSS graph; its extension stays open.
+
+All 36 graph/discussion quotations match fresh primary artifacts and caches.
+The ledger records exact reading scope and access limitations, including
+abstract-bounded TCP and urease evidence. Four caches receive short attributed
+excerpts, and a missing TCP abstract is restored from an independently verified
+copy. The other 919 caches, 454 records and unrelated raw fields are unchanged.
+Six append-only histories record the work. One algae Edison dry run completed;
+there was no provider submission or spend.
+
+The inventory now has 405 reviewed records, zero pending and 55 requiring
+research. Zero pending is not completion of those research extensions.
+Repairs #1963-#1967 await protected-main merge. Graph extension #1968 and
+non-graph follow-ups #1969-#1971 and #765 remain open. This is source-based
+self-review, not independent approval; protected merge and branch deletion
+are still separate requirements.
+
 ## Batch123: Phenotypes And Inferred Mechanisms
 
 [Decisions](decisions/20261008-four-records-batch123.yaml),

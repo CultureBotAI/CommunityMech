@@ -53,10 +53,10 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Fecal-Challenge Open Niche Filling
-  description: Species that engrafted after hCom1 fecal challenge were added to the defined gut consortium,
-    filling open ecological niches to yield hCom2.
-  interaction_type: COLONIZATION_FACILITATION
+- name: Fecal-Challenge-Guided Community Augmentation
+  description: Species identified after challenging hCom1-colonized mice with fecal communities informed the assembly
+    of hCom2. The intervention changes community membership; filling open niches is its ecological interpretation,
+    not a directly measured complete metabolic or spatial niche map.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: multi-organism process
@@ -65,17 +65,24 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: hCom2 Fecal-Challenge Stability
-    description: Filling hCom1's open niches with engrafting gut species produced hCom2's higher stability
-      when challenged again with human fecal microbiota.
+    description: 'Membership augmentation produced a community with greater fecal-challenge resilience in the tested
+      mice. PARTIAL mechanism: niche occupancy is a proposed explanation rather than a selectively measured mediator,
+      and unrelated donors expose residual invasibility.'
   - target: hCom2 Escherichia coli Colonization Resistance
-    description: Occupying the open gut niches left in hCom1 produced a more complete hCom2 consortium
-      that resisted pathogenic Escherichia coli colonization.
+    description: 'HYPOTHESIZED mediation: broader niche occupancy could contribute to hCom2 resistance, but observing
+      resistance in hCom2 does not establish that the augmentation step or any added species is necessary. The study
+      does not resolve the protective strains or molecular pathway.'
   evidence:
-  - *id001
+  - reference: PMID:36070752
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: We identified new species that engrafted following fecal challenge and added them to hCom1, yielding
+      hCom2.
+    explanation: Supports the defined synthetic community design and represented community context.
 - name: hCom2 Fecal-Challenge Stability
-  description: The augmented hCom2 community remains more stable than hCom1 when challenged with a human
-    fecal community in gnotobiotic mice.
-  interaction_type: COLONIZATION_FACILITATION
+  description: In gnotobiotic mice, hCom2 was more resilient than hCom1 to fecal challenge. The primary study also
+    reports weaker resilience to unrelated fecal donors. Stability is therefore donor- and experiment-dependent,
+    not complete exclusion or universal human-microbiome equivalence.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: multi-organism process
@@ -83,11 +90,15 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
   evidence:
-  - *id001
+  - reference: PMID:36070752
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: hCom2 exhibited increased stability to fecal challenge
+    explanation: Direct abstract evidence for the observed stability endpoint.
 - name: hCom2 Escherichia coli Colonization Resistance
-  description: The niche-filled hCom2 consortium provides robust colonization resistance against pathogenic
-    Escherichia coli in gnotobiotic mice.
-  interaction_type: COLONIZATION_FACILITATION
+  description: hCom2 conferred robust resistance to the tested pathogenic E. coli challenge in gnotobiotic mice.
+    The phenotype is community-level resistance, not facilitation of the invader and not proof that each bacterial
+    member is protective. The responsible strains and molecular mechanism remain unresolved.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: defense response to bacterium
@@ -95,7 +106,11 @@ ecological_interactions:
       id: GO:0042742
       label: defense response to bacterium
   evidence:
-  - *id001
+  - reference: PMID:36070752
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: robust colonization resistance against pathogenic Escherichia coli
+    explanation: Direct abstract evidence for the challenge phenotype; assembly alone is not outcome evidence.
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: OTHER
@@ -212,7 +227,35 @@ curation_history:
 - timestamp: '2026-09-13T00:56:50Z'
   curator: codex
   action: RECONCILE_PAYWALLED_EVIDENCE_REMOVAL
-  changes: "Reapplied PR #766's 17 unsupported evidence removals onto current main, preserving its newer
-    interaction curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in
-    #765."
+  changes: 'Reapplied PR #766''s 17 unsupported evidence removals onto current main, preserving its newer interaction
+    curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in #765.'
   llm_assisted: true
+- timestamp: '2026-10-08T17:51:31Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain augmentation while separating niche-filling interpretation from measurement.; Re-evidence the
+    stability endpoint and preserve unrelated-donor limits.; Re-evidence community resistance without facilitation
+    typing or strain-specific causality. Issue#1967; reports/causal_graph_review/decisions/20261008-six-records-batch124.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: hcom_augmentation_vs_protective_mechanism
+  prompt: Which membership changes and ecological mechanisms cause the challenge phenotypes?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Fecal-Challenge-Guided Community Augmentation
+  - ecological_interactions#hCom2 Fecal-Challenge Stability
+  - ecological_interactions#hCom2 Escherichia coli Colonization Resistance
+  rationale: Preserve the augmented-community and pathogenic-challenge outcomes without assigning colonization-facilitation
+    labels. Phylum-dropout results narrow candidate explanations but do not identify a necessary individual strain
+    or distinguish direct protection from altered community architecture. Unrelated-donor invasion limits universal
+    stability. Existing non-graph re-evidencing debt remains under issue 765; no restricted article body is reintroduced
+    into the repository.
+  evidence:
+  - reference: PMID:36070752
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: robust colonization resistance against pathogenic Escherichia coli
+    explanation: Direct abstract evidence for the challenge phenotype; assembly alone is not outcome evidence.
+  posed_by: codex
+  posed_date: '2026-10-08'
