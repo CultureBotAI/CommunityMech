@@ -1,0 +1,253 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: ca28c7936547a8bc32a7fef6f8b39bd232784d75
+scope:
+- kb/communities/Soil_Corrinoid_B12_Reservoir_Community.yaml
+- kb/communities/Sorghum_SRC1_Subset.yaml
+- kb/communities/Sorghum_SRC2v4_Root_Colonization_SynCom.yaml
+- kb/communities/South_Bay_Salt_Pond_Methane_Restoration_Community.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-four-records-batch103.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch103.json
+findings:
+- issue: 1809
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate predicted soil corrinoid supply, measured responses and reservoir hypotheses
+  disposition: Close only after protected-main merge.
+- issue: 1810
+  severity: P2
+  status: addressed_in_this_change
+  finding: Withhold SRC1 graph attribution to an unverified subset identity
+  disposition: Close only after protected-main merge.
+- issue: 1811
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound SRC2v4 stability and host responses without inferred interaction signs
+  disposition: Close only after protected-main merge.
+- issue: 1812
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate salt-pond methane associations from unmeasured interspecies mechanisms
+  disposition: Close only after protected-main merge.
+- issue: 1813
+  severity: P2
+  status: open_identity_follow_up
+  finding: Resolve the exact community represented by Sorghum_SRC1_Subset
+  disposition: Separate source-system identity decision required.
+- issue: 1814
+  severity: P2
+  status: open_non_graph_follow_up
+  finding: Audit non-graph evidence scope in corrinoid and salt-pond records
+  disposition: Separate non-graph curation required.
+adversarial_checks:
+- Whole original target records and every changed graph/discussion diff reviewed. Every original node/direction
+  has a disposition. Retain10of14nodes and both original directions asHYPOTHESIZED; withhold4unverified-subset nodes;8renames.
+  No new node/direction/provider spend.
+- 'Challenge removal versus lost evidence: corrinoid retains producer inference, measured pool and amendment responses;
+  SRC2v4 retains composition/host biomass/flavonoid responses; salt pond retains associations and methanogenesis
+  activity support. SRC1 parent observations are not rejected: attribution to an unverified subset is withheld pending
+  identity1813, not replaced by another formulation.'
+- 'Corrinoid: keep the full prediction qualifier, distinguish native predominantlycobalamin reservoir from diverse
+  amendments, and distinguish total abundance from bioavailability. Producer release/replenishment and reservoir
+  buffering are model hypotheses, not measured flux or isolated stability mechanisms. Both original directions are
+  retained with these explicit limits; no new graph extension.'
+- 'SRC1: the cached/fresh abstract does not identify the claimed16-20member subset. Indexed primary introduction
+  and independently retrievedSRC2paper identify57member parent. Do not silently rename the record, assert absence
+  of any subset globally, reintroduce removed assay-order arrows, assign reciprocal benefit, or interpret lignin
+  correlation as mediation. Identity remainsneeds_research; no subset formulation is invented.'
+- 'SRC2v4: relative compositional fidelity is not equivalence or universal stability. Source text/Fig2caption inconsistency
+  is disclosed; no raw-data adjudication claimed. Preserve host biomass response without microbial fitness signs
+  or field efficacy. Host flavonoid response does not establish recruitment/colonization or growth mediation; within-treatment
+  correlations were nonsignificant. Prior782-790fixes remain. No new growth, colonization, infection or genetic-design
+  procedures.'
+- 'Salt pond: cross-site association is not an isolated restoration effect or niche partitioning. Gene/flux correlation
+  is not syntrophic feedback or cross-feeding. Microcosm methylated-substrate responses support activity but do
+  not apportion field flux or identify partner feedback. The explicitly bacterial node does not claim exclusivity;
+  archaealphnJis acknowledged. Canonical participants use identity-only copies. Statistical tools are primary-method-supported,
+  with no guessed versions. Prior652treatment separation remains.'
+- Sixteen graph and four discussion quotations match fresh primary text and unchanged caches. SRC1 complete text
+  was not independently persisted/read; other source-read spans are explicitly bounded. No figure pixels, raw data
+  or supplementary files reviewed. Large caches not read exhaustively; literal matching is not entailment or whole-record
+  certification. No new cache imports or validator exceptions.
+- Four guarded writes/four append-only histories;456otherrecords/all923caches and all prior history/decision files
+  byte-identical. Taxonomy and non-graph raw blocks preserved, not recertified. WithholdingSRC1 removes oneCL-onlyrecord
+  and six broadly credited taxa from the census; salt-pond participant scopes are added. No census-threshold, schema,
+  runtime or audit-rule changes.
+- Eight focused tests and935combined regressions pass. Four full-record schema/strict/term/reference/snippet checks
+  and four histories validate. Network equals baseline56warnings/zero structural defects. Deterministic rendering
+  and HTML parser cover456pages/1378descriptions/557arrows, not screenshots. Plain just-lint passed; explicit-runtime
+  no-incremental mypy additionally checked.
+- Repairs1809-1812 addressed and remainopen until protected-main merge; identity1813/non-graph1814 remainopen. Licensegate949,
+  loader1703, DOIcache1091 and denied/unansweredEdison scopes not certified or resolved. Self-review is not independent
+  approval; no artificialCI, protection bypass or premature cleanup.
+- Corpus327reviewed/84pending/49needs_research is not completion. Postcommit docs-current and exact-head publication
+  require separate receipts and are not preasserted here.
+verification:
+  combined_regressions: 935 passed in 299.74s (0:04:59)
+  new_regression_tests: 8
+  total_recorded_gate_outputs: 41
+  primary_graph_snippet_proof:
+    graph_quotations: 16
+    new_discussion_quotations: 4
+    fresh_primary_literal_matches: 20
+    all_cached_literal_matches: 20
+    retained_nodes: 10
+    removed_nodes: 4
+    retained_arrows: 2
+    removed_arrows: 0
+    new_nodes_or_directions: 0
+    scope: All reviewed quotations match fresh primary text and unchanged existing caches literally after normalization;
+      entailment separately reviewed. SRC1 abstract only plus indexed primary identity leads; other sources have
+      bounded main-text coverage as recorded. No cache text or audit exception.
+  references: Four full-record CLI and local snippet checks executed on macOS,not Linux; DOI-cache casing issue1091
+    remains. Literal matches do not establish entailment; per-source read and access limits are recorded. CLI Total
+    checks counts issues,not executed checks. Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/Soil_Corrinoid_B12_Reservoir_Community.yaml:
+      MATCH: 13
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Sorghum_SRC1_Subset.yaml:
+      MATCH: 10
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Sorghum_SRC2v4_Root_Colonization_SynCom.yaml:
+      MATCH: 30
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/South_Bay_Salt_Pond_Methane_Restoration_Community.yaml:
+      MATCH: 44
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8955
+      categories:
+        MATCH: 8819
+        RENDERING: 20
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 39
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification; literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: Four unverified-subset nodes withheld, both corrinoid directions qualified; all56existing warnings
+      unchanged and zero structural defects. No audit rules changed.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-four-records-batch103.yaml: 78de0f93a4bd5849ac586d41cb4a5cf1fe5e5375988cf15f92eafdd5307d1e8b
+    tests/test_causal_review_batch103.py: e321c74c95cac03684a5b6f7636202453cc9cc5e07790347fbbacf2065588868
+    tests/test_participating_taxa.py: 66e35d7ae05908ac1e740b72b835538bd6b3fb98f6087d2515a26e5f6ba9622d
+    tests/test_community_level_connectivity_credit.py: 383a0f5904085a5cda800b5102923fc99301831f5769d8d4821e000773d2ea4c
+    reports/causal_graph_review/cache-provenance-20261008-batch103.json: 788de04bce3487b0893e4bf1363c99e074c79e729e550de3b3f60ed9b336acf6
+    kb/communities/Soil_Corrinoid_B12_Reservoir_Community.yaml: 96f97cb9bbf66be0d6795389f211db40640b04d000440ee35be308fda8384058
+    kb/communities/Sorghum_SRC1_Subset.yaml: 8815e8c2a4f9a2a8a563b9e3e1a1c52f20174807ccf833ab7f0d7808887efdba
+    kb/communities/Sorghum_SRC2v4_Root_Colonization_SynCom.yaml: e67c57dbf77a55bc484285c5d4fe879e83c556034452104ab61e2d188e29c91c
+    kb/communities/South_Bay_Salt_Pond_Methane_Restoration_Community.yaml: 55fa4ec84f7651ce53a9fb23c0ca6af99c5e7b1b34b8741045aee070adef6c43
+  unchanged_records: 456
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 802
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Qualify existing corrinoid directions; narrow observations and withhold unverified subset attribution.
+      No new mechanisms or directions; exact subset identity remains unresolved.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 404
+      mixed: 128
+      community_level_only: 276
+      taxa: 1550
+      credited_solely_by_the_rule: 1276
+    current:
+      records: 460
+      with_community_level: 403
+      mixed: 128
+      community_level_only: 275
+      taxa: 1544
+      credited_solely_by_the_rule: 1270
+  delta:
+    records: 0
+    with_community_level: -1
+    mixed: 0
+    community_level_only: -1
+    taxa: -6
+    credited_solely_by_the_rule: -6
+  interpretation: Salt pond gains identity-only participant scopes. Withholding the unverified SRC1 graph removes
+    one community-level-only record and six broadly credited taxa from this census; no census threshold or runtime
+    rule changes.
+corpus:
+  records: 460
+  nodes: 1392
+  edges: 565
+  review_status_counts:
+    needs_research: 49
+    pending: 84
+    reviewed: 327
+lint_limitation: Plain just-lint passed; explicit-runtime no-incremental mypy additionally checked.
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary Python3.13 lint environment reuses validation runtime and locked mypy1.19.1/stubs/scikit-learn1.8.0/pacmap0.9.1
+    for static checks; not a complete embedding runtime. Project dependencies unchanged.
+limitations:
+- Fresh both-root baseline before source reads:460records,923caches,56existing warnings,zero structural defects.
+  Four whole records/all14originalnodes/2directions reviewed;10nodes/2existingdirections retained,4unverified-subset
+  nodes withheld,8names corrected. No new topology or Edison submission/spend.
+- Fresh EuropePMC XML retrieved for corrinoid/SRC2v4/salt pond. Corrinoid introduction, annotation methods, results
+  and discussion reviewed (lines1-140,390-785); not every laboratory method. SRC2v4 results/discussion lines235-657
+  reviewed; not every protocol. Salt pond results/discussion lines287-667 and methods lines89-125,200-285 reviewed.
+  Source read scopes are bounded, not full-paper/supplement/raw-data or figure-pixel certification.
+- SRC1 primary abstract independently retrieved and read whole. EuropePMC fullTextXML returned HTTP500, including
+  a later retry; direct PMC web open returned a browser challenge. Indexed PMC/publisher primary text identifies57strains,
+  independently corroborated by SRC2v4 primary text. No full SRC1 body persisted or whole-paper review claimed,
+  no access bypass. The exact16-20member subset remains unverified, not globally disproven.
+- 'Large existing cache headers/abstracts and normalized claim passages checked, not every flattened duplicate full-text/reference
+  block. All16retained graph quotations and4new discussion quotations must match both fresh primary text and existing
+  caches. No cache changes; license gate949, loader1703 and DOI-case issue1091 remain uncertified. Fresh licenses:
+  corrinoid/salt pondCCBY4.0; SRC2v4CCBY-NC-ND4.0; SRC1 indexed primary identifies US-government public-domain text.'
+- 'Corrinoid retains measured responses and reservoir plus predicted suppliers. Both original directions becomeHYPOTHESIZED:
+  release/replenishment and reservoir buffering of amendment response. Native reservoir is predominantly cobalamin,
+  not a measured diverse pool; bioavailability and intracellular/extracellular fractions unresolved. No categorical
+  cross-feeding or niche partitioning. Reporter culture conditions are not imported; earlier529/543 scope preserved.'
+- SRC1 loses all4nodes because exact subset attribution is unverified; assembly is also workflow. Parent positive
+  observations are not rejected, and no replacement community is invented. Record remainsneeds_research; identity/membership/endpoint
+  issue1813 staysopen. Existing absence of assay/correlation arrows is preserved.
+- SRC2v4 retains3observations without facilitation or mutualism. Differential-abundance nonsignificance is not invariance;
+  source prose/Fig2caption diversity inconsistency recorded. Preserve host biomass effects without field/reciprocal-fitness
+  claims and flavonoid response without mediation. No pathogen growth/colonization/infection optimization or new
+  genetic designs/protocols. Prior782-790fixes preserved; original methods not certified.
+- Salt pond retains4bounded observations without syntrophy/cross-feeding/niche labels. Methanogenesis activity evidence
+  does not apportion field flux or identify feedback partners. Bacterial pathway is not exclusive to bacteria; scoped
+  canonical archaeal/bacterial participants are identity-only. Field covariation is not a controlled sulfate or
+  restoration effect. Prior652mutuallyexclusive treatments preserved.
+- Graph issues1809-1812 addressed here and remainopen until protected-main merge. Research identity1813 and non-graph1814
+  remainopen. Freshall-state title/body dedup matches529,543,650,652,782,783,784,785,786,788,790,1281; hidden/ignored
+  local searches exclude.git/docs/site/references_cache with relevant caches separately searched. PRs/comments not
+  exhaustively searched.
+- Four guarded writes and append-only histories;456otherrecords/all923caches unchanged. Non-graph raw blocks/taxonomy
+  preserved, not recertified; role/evidence and bottle-volume followup1814 is explicit. No schema/runtime/audit
+  rule changes. Self-adversarial review is not independent approval or corpus completion. DeniedAM_AB000444 and
+  unanswered Edison scopes untouched. Validation/publication not preasserted.
