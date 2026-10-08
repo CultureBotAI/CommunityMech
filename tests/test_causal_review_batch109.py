@@ -176,15 +176,15 @@ def test_hashes_histories_and_canonical_identity_only_scope_are_explicit():
 
 
 def test_current_scope_census_tracks_later_source_bounded_repairs():
-    # Batch112 adds seven denominator taxa; the three ES5 members become solely credited.
+    # Batch114 adds two denominator taxa, both already connected by hydrogen syntrophy.
     survey = runpy.run_path(str(ROOT / "tests/test_community_level_connectivity_credit.py"))[
         "_survey"
     ]()
     assert survey == {
         "records": 460,
-        "with_community_level": 412,
-        "mixed": 136,
+        "with_community_level": 413,
+        "mixed": 137,
         "community_level_only": 276,
-        "taxa": 1563,
+        "taxa": 1565,
         "credited_solely_by_the_rule": 1273,
     }

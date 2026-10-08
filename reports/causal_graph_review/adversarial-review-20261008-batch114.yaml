@@ -1,0 +1,288 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 553707b254ed6652b264bed8ab14101a1bcf9c8d
+scope:
+- kb/communities/Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.yaml
+- kb/communities/Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-two-records-batch114.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch114.json
+findings:
+- issue: 1888
+  severity: P2
+  finding: Qualify the Thermacetogenium formate energy-conservation mechanism
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1889
+  severity: P2
+  finding: Bound Thermotoga proximity and aggregation causal claims to tested contrasts
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1890
+  severity: P2
+  finding: Separate Thermacetogenium growth optimum from coculture assay conditions
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1891
+  severity: P2
+  finding: Separate 1997 and 2006 Thermotoga coculture media and gas conditions
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+adversarial_checks:
+- 'Every original node and direction has a disposition: six nodes and four directions retained, one node renamed.
+  No added topology; all targets and discussion anchors resolve.'
+- 'Overcorrection check: retain demonstrated acetate-linked methanogenesis, hydrogen-removal growth benefits and
+  formate involvement supported by the 2001 partner-comparison literature. Qualification of the detailed energy-conservation
+  model does not erase these results or imply universal obligacy.'
+- 'Acetate/formate: enzyme assays with artificial acceptors and proteomic abundance support component activities,
+  not the entire reverse-electron-transport pathway. Proton-gradient coupling and physiological acetate reduction
+  were not demonstrated in 2019. Both methanogenesis arrows distinguish overall coupling from carrier partition
+  and measured flux.'
+- 'Methanogenesis: preserve exact 2002 TM/PB hydrogen conditions and the mcr/MRI-versus-mrt/MRII result, not universal
+  activation of all genes. TM can use formate; hydrogenotrophic does not mean hydrogen-only. The separate DeltaH/butyrate
+  system is not silently imported.'
+- 'Thermotoga: the dialysis and size-fraction observations support proximity, not proven directional colonization,
+  mandatory contact or a specific adhesion mechanism. The original proximity-to-transfer direction remains PARTIAL.'
+- 'Phenotype: 292 versus 24 describes within-culture mid-log-to-early-stationary-phase contrasts, not 292 genes
+  in a coculture-versus-monoculture contrast. Aggregation declines in stationary phase. Hydrogen removal supports
+  physiology without isolating every EPS/transcript mediator; growth phase, density and gas handling remain relevant.'
+- 'Source scope: six fresh primary abstracts, 2019 full main-body XML, three complete existing cached primary main
+  bodies and the 2001 publisher abstract read. Fresh older full XML retrieval failed; no bypass. Original figure
+  pixels, supplements, raw data and incomplete cached table cells not audited. All 18 graph/discussion quotes match
+  fresh primary texts and existing caches; no new publication bodies or cache files.'
+- Two guarded records and append-only histories preserve 458 other records, 923 caches, all non-graph raw blocks
+  and prior history/decision artifacts. One explicit participant-list user added. Measured census is 413 community-level,
+  137 mixed, 276 community-only, 1565 taxa and 1273 solely credited; the added pair already has pairwise credit.
+  Connectivity logic and share guards unchanged.
+- Five real in-memory control/mutation/restored-control probes reject formate SUPPORT inflation, colonization typing,
+  the wrong 292 contrast, unqualified hydrogen mediation and exclusion of TM formate use. Actual mutations and rejecting
+  assertions recorded; canonical hashes unchanged; not additional pytest tests.
+- 'Nine focused tests and 1033 combined regressions pass. Both records pass schema, strict, terms, full-record references,
+  snippets, history and rank. The 56 network warnings are unchanged, with zero structural defects. Deterministic
+  rendering and exact HTML-description coverage: 456 pages, 1366 nodes, 531 arrows, not UI screenshots. Local reference
+  passes do not certify Linux; full-corpus snippets remain informational.'
+- 'Graph repairs #1888/#1889 await protected-main merge; non-graph #1890/#1891 remain open. No Edison invocation
+  or new topology. Prior Ruegeria extension #1883 and other needs_research records remain incomplete. Self-review
+  is not independent approval; exact-head publication and postcommit docs-current are separate gates. Root CI blocker
+  #1836 is not bypassed; dependent branches are not deleted.'
+- 'Corpus: 366 reviewed, 40 pending, 54 needs_research across 460 records. The overall goal remains incomplete.'
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: Formate transfer interpretation promoted to fully established coupling
+      test: test_formate_support_survives_without_proving_the_energy_coupling_model
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 52
+      assertion: assert node["evidence"][0]["supports"] == "PARTIAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/2/evidence/0/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Proximity retyped as directional colonization
+      test: test_proximity_is_not_colonization_or_obligatory_direct_contact
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 71
+      assertion: assert "interaction_type" not in node
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/1/interaction_type
+        before: null
+        after: COLONIZATION_FACILITATION
+    - mutation: 292 genes reassigned to the between-culture contrast
+      test: test_292_is_a_within_culture_growth_phase_contrast
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 82
+      assertion: assert "within coculture, versus 24" in node["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/2/description
+        before: T. maritima aggregation and transcription changed with growth phase in methanogenic coculture. In
+          the 2006 study, 292 genes changed at least twofold from mid-log to early stationary phase within coculture,
+          versus 24 for that transition within monoculture; these are not 292 genes in a direct coculture-versus-monoculture
+          contrast. EPS-based aggregates were prominent during mid-log growth and diminished during stationary phase.
+          Proposed sigma-factor, ppGpp and EPS-remodeling mechanisms are interpretations, not demonstrated regulatory
+          necessity. The phenotype is not an additional measured metabolite-transfer event from bacterium to archaeon.
+        after: 292 genes differ directly between coculture and monoculture.
+    - mutation: Hydrogen transfer promoted to selective mediation of every phenotype
+      test: test_hydrogen_to_phenotype_mediation_is_partial
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 91
+      assertion: assert edge["description"].startswith("PARTIAL:")
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/0/downstream/0/description
+        before: 'PARTIAL: hydrogen removal relieves growth inhibition and enables the higher-density coculture context
+          in which aggregation and altered growth-phase transcription were observed. Hydrogen-removal comparisons
+          support a contribution to physiology, but do not selectively demonstrate mediation of every EPS or transcript
+          response by hydrogen transfer alone. Growth phase, population density and culture/gas-handling conditions
+          remain part of this causal interpretation.'
+        after: Hydrogen transfer alone demonstrably causes every EPS and transcript response.
+    - mutation: TM formate use excluded from methanogenesis interpretation
+      test: test_tm_expression_is_not_all_genes_or_the_deltah_system
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 37
+      assertion: assert "does not exclude formate-supported electron transfer" in node["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/1/description
+        before: M. thermautotrophicus TM consumes hydrogen during acetate-fed coculture with T. phaeum PB, supporting
+          product removal and methane formation. The 2002 TM/PB experiment maintained 20 to 80 Pa hydrogen and detected
+          mcr/MRI rather than mrt/MRII expression in coculture; other assayed methanogenesis genes were expressed
+          in both culture modes. This is not a universal activation of all methanogenesis genes or evidence of obligate
+          dependence on PB. TM can also use formate; the hydrogenotrophic designation does not exclude formate-supported
+          electron transfer. The separate DeltaH/butyrate coculture is not the PB/TM system.
+        after: M. thermautotrophicus TM consumes hydrogen during acetate-fed coculture with T. phaeum PB, supporting
+          product removal and methane formation. The 2002 TM/PB experiment maintained 20 to 80 Pa hydrogen and detected
+          mcr/MRI rather than mrt/MRII expression in coculture; other assayed methanogenesis genes were expressed
+          in both culture modes. This is not a universal activation of all methanogenesis genes or evidence of obligate
+          dependence on PB. TM can also use formate; the hydrogenotrophic designation excludes formate-supported
+          electron transfer. The separate DeltaH/butyrate coculture is not the PB/TM system.
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.yaml: f45e52ffbf76a2c295b73efb10bf183a01ecc03056cc11f018afe3c6e3723992
+      kb/communities/Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.yaml: 05b09dc41d9f2e54eac83d1021d69d2ea733144e9e5386295dd99cc9cae6293c
+      tests/test_causal_review_batch114.py: 9c3fffeefa7091b002e1af8cc18d88b536f5d192e7511262364541ad13830522
+    probe_script_sha256: f819405f484f59de391a803046c8af7b5419d18cbef750a4e9a8eb3fc67d6a88
+    scope: In-memory control/mutation/restored-control; no canonical writes and not additional pytest tests.
+  artifact: /private/tmp/communitymech-batch114/adversarial-regression-proof.json
+  sha256: 003816ecccd77488eeb3f06dd4ceb941e753f7f36aab208d0a5a4b8dfbf437df
+verification:
+  combined_regressions: 1033 passed in 414.10s (0:06:54)
+  new_regression_tests: 9
+  total_recorded_gate_outputs: 27
+  primary_graph_snippet_proof:
+    graph_quotations: 16
+    discussion_quotations: 2
+    fresh_primary_literal_matches: 18
+    all_cached_literal_matches: 18
+    retained_nodes: 6
+    removed_nodes: 0
+    renamed_nodes: 1
+    retained_arrows: 4
+    removed_arrows: 0
+    new_nodes_or_directions: 0
+  references: Full-record local passes are macOS, not Linux certification. Literal matching does not establish entailment.
+    Total checks in the reference CLI counts issues, not examined snippets.
+  snippet_counts_by_record:
+    kb/communities/Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.yaml:
+      MATCH: 36
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.yaml:
+      MATCH: 27
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 9019
+      categories:
+        MATCH: 8874
+        RENDERING: 28
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 40
+        NOCONTENT: 76
+    caveat: Informational audit exit0 is not clean-corpus or entailment certification.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    structural_defects: 0
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-two-records-batch114.yaml: 80fde422c660d0b4cdee61623b5aaaa381fa28f6fb04082407ae5ee702979bdf
+    tests/test_causal_review_batch114.py: 9c3fffeefa7091b002e1af8cc18d88b536f5d192e7511262364541ad13830522
+    tests/test_participating_taxa.py: 2abb167c84b237eac4d24e15590fb27efa3c4845e169bd2a3de1936ed1fd8efc
+    tests/test_community_level_connectivity_credit.py: 1af00518c5e73a612339531474000886eec61e21c438337d272b0b9a1e4ed18e
+    tests/test_causal_review_batch109.py: b5b99af9d142cfac972a3e08c09c25fbcdec4a4a2f015d33758998acaa16d203
+    reports/causal_graph_review/cache-provenance-20261008-batch114.json: 0a5b861834ef55c1ed2b0c441a573a1e3482867aa315374b21b3e15eaccb12d1
+    kb/communities/Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.yaml: f45e52ffbf76a2c295b73efb10bf183a01ecc03056cc11f018afe3c6e3723992
+    kb/communities/Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.yaml: 05b09dc41d9f2e54eac83d1021d69d2ea733144e9e5386295dd99cc9cae6293c
+  history_sha256:
+    history/records/Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture/2026-10-08T090644Z-codex-512c88.yaml: 8948eac9627a3d629a8b8461f7f2c8336cef9825fb88880deebff82b9eba570c
+    history/records/Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy/2026-10-08T090644Z-codex-4fdbb0.yaml: a603723e87c68bd2fe5c54c4575e32a9932191db0ea9c626b68f2cec6aae5a35
+  unchanged_records: 458
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 862
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    new_nodes_or_directions: 0
+    prior_extension_blocker: 'Ruegeria issue1883: configuredkey unavailable in prior approved invocation; not retried
+      without state change.'
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  current:
+    records: 460
+    with_community_level: 413
+    mixed: 137
+    community_level_only: 276
+    taxa: 1565
+    credited_solely_by_the_rule: 1273
+  delta_from_batch113:
+    records: 0
+    with_community_level: 1
+    mixed: 1
+    community_level_only: 0
+    taxa: 2
+    credited_solely_by_the_rule: 0
+  explanation: Thermotoga adds one explicit participant-list user and mixed-scope record; both taxa already have
+    pairwise credit. No connectivity rule or share-guard changes.
+corpus:
+  records: 460
+  nodes: 1380
+  edges: 539
+  review_status_counts:
+    needs_research: 54
+    pending: 40
+    reviewed: 366
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary established Python3.13 lint environment; project dependencies unchanged.
+limitations:
+- Fresh baseline across both roots before source research:460 records,923 caches,56 unchanged warnings,zero structural
+  defects. Six existing nodes/four directions reviewed and retained;one node renamed,no new topology.
+- Both whole canonical records and all existing graph snippets read. Six fresh primary abstracts and Crossref identities
+  retrieved. Complete 2019 main-body XML extraction read (folded lines1-650), including figure captions and serialized
+  tables; original pixels, supplements and raw data not reviewed.
+- Complete existing cached main bodies of2002expression,2005pathway and2006phenotype read in folded chunks, including
+  methods/results/discussion/captions. Fresh fullTextXML returned500 after retries; PMC browser requests for2005/2006
+  showed access challenges. No bypass. Cached tables are incomplete; no numerical table-cell claims based on those
+  caches.1997transfer and2000strain are abstract-bounded.
+- 2001formate partner-comparison publisher abstract read at https://www.sciencedirect.com/science/article/pii/S1389172301801377
+  ; supports involvement by fasterPB/TM versusPB/DeltaH conversion and lowformate. No full-paper access or new repository
+  quotation/cache claimed. This evidence prevents erasing measured support while qualifying the2019detailed mechanism.
+- 2019formate enzyme activity and proteomic support retained;proton-gradient coupling,physiological acetate reduction
+  and completeATPbudget remain proposed. No all-substrate obligacy.2002TM/PBexpression not generalized to allgenes
+  or confused withDeltaH/butyrate.
+- Thermotoga proximity is a two-participant community observation,not directional colonization or mandatorycontact.
+  Hydrogen removal supports growth physiology but does not isolate everyEPS/transcript mediator.292versus24 are
+  within-culture growth-phase contrasts;1997and2006density effects remain separate.
+- All1131existing issue titles/bodies searched initially and repeated pre-creation;matching#800read and unrelated.
+  Ignored/hidden-inclusive local path search found132files,excluding.git,docs,site,references_cache,.env;not allhistorical
+  file bodies orPRcomments reviewed.
+- No Edison invocation for this existing-graph repair,no newnodes/directions. Prior authorized Ruegeria extension
+  remains blocked in configuredkey loader; no credential search or retry performed. Overallgoal andotherneeds_researchrecords
+  remain incomplete.
+- Non-graphblocks,458otherrecords,923caches and priorhistories/decisions preserved. Separate metadata followups1890/1891remainopen.
+  No runtime/schema/validator/connectivity-rule changes. Self-review is not independentapproval;requiredCI andprotectedmerge
+  mustbeverified independently.
