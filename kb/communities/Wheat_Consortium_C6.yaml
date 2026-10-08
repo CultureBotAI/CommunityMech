@@ -155,41 +155,10 @@ taxonomy:
       Pseudomonas sp. B12, Sphingomonas sp. B17
     explanation: Identifies Sphingomonas sp. B17 as a C6 member.
 ecological_interactions:
-- name: Equal-Ratio Mixed-Genus C6 Assembly
-  description: >
-    Streptomyces sp. B6, Chryseobacterium sp. B7, Pseudomonas sp. B12,
-    and Sphingomonas sp. B17 were combined at equal ratios as the random
-    mixed-genus C6 consortium within a broader ten-SynCom wheat-rhizosphere
-    design.
-  scope: COMMUNITY_LEVEL
-  interaction_type: COLONIZATION_FACILITATION
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:36118206
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      SynCom 6(C6) Streptomyces sp. B6, Chryseobacterium sp. B7,
-      Pseudomonas sp. B12, Sphingomonas sp. B17
-    explanation: Table 1 names the four bacterial isolates that make up SynCom 6.
-  - reference: PMID:36118206
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      SynComs were obtained by mixing the individuals in equal ratios
-    explanation: >
-      Supports the mixed inoculum construction used for C6 and the other
-      wheat-rhizosphere SynComs.
 - name: C6 Dual-Culture AG8 Radial Inhibition
-  description: >
-    C6 inhibited Rhizoctonia solani AG8 radial growth in the direct
-    dual-culture agar assay, placing it among the eight inhibitory SynComs in
-    the ten-consortium panel.
-  interaction_type: COMPETITION
+  description: The assembled C6 inhibited Rhizoctonia solani AG8 radial growth in dual culture, with reported inhibition
+    of 34.48% (SD 5.91) in Table 2. This is a positive fungal-growth outcome, not evidence that both bacterial and
+    fungal fitness declined. Plate inhibition does not establish the mediator or guarantee host protection.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Streptomyces sp. B6
@@ -217,22 +186,52 @@ ecological_interactions:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: In vitro dual-culture assay showed eight SynComs, including C1-C4, C6-C8,
-      and C10, inhibited the growth of R. solani AG8 to varying degrees
-    explanation: Places C6 among the SynComs with significant AG8 radial-growth
-      inhibition.
-- name: C6 Auxin Production
-  description: >
-    C6 culture supernatant contained indole-3-acetic acid in the whole-SynCom
-    auxin assay, one of the plant-growth-modulating phenotypes measured across
-    all ten consortia.
+    snippet: In vitro dual-culture assay showed eight SynComs, including C1-C4, C6-C8, and C10, inhibited the growth
+      of R. solani AG8 to varying degrees
+    explanation: Places C6 among the SynComs with significant AG8 radial-growth inhibition.
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom 6(C6)34.48 ± 5.91
+    explanation: Table 2 reports the whole-mixture plate inhibition estimate and standard deviation.
+- name: C6 Salkowski auxin-assay output
+  description: C6 culture supernatant gave an IAA-calibrated Salkowski estimate of 11.76 ug/mL (SD 2.83) in Table
+    3. This is a whole-mixture colorimetric output, not structural identification of every reactive compound, member-resolved
+    synthesis, delivery to plant roots or mutualism. No selective hormone perturbation links it to the separate
+    Arabidopsis root-length result.
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   metabolites:
   - preferred_term: indole-3-acetic acid
     term:
       id: CHEBI:16411
       label: indole-3-acetic acid
+    notes: IAA-calibrated Salkowski interpretation; not independently resolved molecular identity or plant delivery.
+  evidence:
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'including 10 single strains and all 10 SynComs, produced auxin at various concentrations
+
+      '
+    explanation: Reports the authors auxin interpretation; Methods specify colorimetry calibrated with IAA.
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom 6(C6)11.76 ± 2.83
+    explanation: Table 3 gives the C6 assay estimate and standard deviation.
+- name: C6-associated Arabidopsis primary-root shortening
+  description: C6 was among the nine mixtures that significantly shortened primary roots of plate-grown Arabidopsis
+    after cocultivation. Shorter primary roots are the measured endpoint, not demonstrated growth promotion or reciprocal
+    benefit. The across-treatment association with a separate auxin assay does not establish IAA as the necessary
+    mediator. This Arabidopsis phenotype is not a wheat disease-protection result; C6 was not among the mixtures
+    with significant greenhouse root-rot reduction or fresh-root-weight improvement.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+    notes: Candidate explanation from a separate assay correlation, not demonstrated hormone mediation.
   biological_processes:
   - preferred_term: growth
     term:
@@ -241,46 +240,18 @@ ecological_interactions:
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      including 10 single strains and all 10 SynComs, produced auxin at various
-      concentrations
-    explanation: >
-      Supports IAA production by C6 in the whole-SynCom auxin panel.
-- name: SynCom Arabidopsis Root-Length Response
-  description: >
-    The SynCom panel, including C6, altered primary root length in a controlled
-    Arabidopsis plate assay used to connect bacterial auxin production with
-    plant-root phenotypes.
-  scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
-  metabolites:
-  - preferred_term: indole-3-acetic acid
-    term:
-      id: CHEBI:16411
-      label: indole-3-acetic acid
-  biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
-  evidence:
-  - reference: PMID:36118206
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      Similar reductions in the primary root length of Arabidopsis seedlings
-      were observed in all SynComs except C5
-    explanation: >
-      Supports C6 as one of the SynComs with a measured Arabidopsis primary
-      root-length effect.
-- name: C6-Member Cell-Free AG8 Antagonism
-  description: >
-    Cell-free supernatants from Streptomyces B6, Chryseobacterium B7,
-    Pseudomonas B12, and Sphingomonas B17 all inhibited AG8 growth, implicating
-    secreted products from each C6 member in contact-independent pathogen
-    antagonism.
-  interaction_type: COMPETITION
+    evidence_source: IN_VIVO
+    snippet: 'Similar reductions in the primary root length of Arabidopsis seedlings were observed in all SynComs
+      except C5
+
+      '
+    explanation: Reports the primary-root reduction in the living Arabidopsis plate assay; not increased wheat growth.
+- name: C6 cell-free contrast with inhibitory member cultures
+  description: 'Cell-free cultures of each C6 member inhibited AG8 when the strains were tested separately, but
+    the assembled C6 was among all ten mixtures whose supernatants showed no reported antifungal activity. Keep
+    both observations: individual secretion-associated inhibition cannot be assigned to the mixed culture. This
+    contrast does not identify an inhibitor, prove degradation of a particular fungal wall component, or show why
+    the mixture lost the measured phenotype.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Streptomyces sp. B6
@@ -308,29 +279,34 @@ ecological_interactions:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      three Pseudomonas sp. strains (B5, B11, and B12), Streptomyces sp. B6,
-      Chryseobacterium sp. B7, and Sphingomonas sp. B17 became irregular shaped
-      and creamy colored
-    explanation: >
-      Identifies Pseudomonas B12, Streptomyces B6, Chryseobacterium B7, and
-      Sphingomonas B17 among the strains whose cell-free supernatants visibly
-      altered AG8 margins.
+    snippet: 'three Pseudomonas sp. strains (B5, B11, and B12), Streptomyces sp. B6, Chryseobacterium sp. B7, and
+      Sphingomonas sp. B17 became irregular shaped and creamy colored
+
+      '
+    explanation: 'Identifies Pseudomonas B12, Streptomyces B6, Chryseobacterium B7, and Sphingomonas B17 among the
+      strains whose cell-free supernatants visibly altered AG8 margins.
+
+      '
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      The growth of AG8 treated with these bacterial strains was significantly
-      inhibited
-    explanation: >
-      Supports significant AG8 inhibition by the C6-member cell-free
-      supernatants.
-- name: C6-Member Volatile AG8 Antagonism
-  description: >
-    Streptomyces B6, Chryseobacterium B7, Pseudomonas B12, and Sphingomonas B17
-    emitted volatile products that significantly inhibited AG8 in a physically
-    separated Petri-dish assay.
-  interaction_type: COMPETITION
+    snippet: 'The growth of AG8 treated with these bacterial strains was significantly inhibited
+
+      '
+    explanation: 'Supports significant AG8 inhibition by the C6-member cell-free supernatants.
+
+      '
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the cell-free supernatants from the rest of the eight bacteria and 10 SynComs did not show any antifungal
+      activities
+    explanation: Direct whole-mixture null result contrasted with the positive individual-member cultures.
+- name: C6 volatile contrast with inhibitory member cultures
+  description: Each of the four C6 member strains inhibited AG8 in the physically separated volatile assay, but
+    C6 was not one of the four significantly inhibitory mixtures, identified as C2-C4 and C7. Retain the individual
+    positives and mixture contrast without assigning a positive volatile mechanism to C6, identifying particular
+    emitted compounds, or claiming that volatile effects are absent under every possible condition.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Streptomyces sp. B6
@@ -358,20 +334,26 @@ ecological_interactions:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      the volatiles emitted by nine single strains and four SynComs
-      significantly inhibited the growth of AG8
-    explanation: >
-      Supports volatile-mediated AG8 growth inhibition in the assay panel.
+    snippet: 'the volatiles emitted by nine single strains and four SynComs significantly inhibited the growth of
+      AG8
+
+      '
+    explanation: Panel-level positive count; it does not identify C6 as an inhibitory mixture.
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      They included four Pseudomonas spp. B5, B11, B12, and P25,
-      Streptomyces sp. B6, Chryseobacterium sp. B7, Sphingomonas sp. B17
-    explanation: >
-      Identifies all four C6 member genera or strains in the volatile-producing
-      strain set.
+    snippet: 'They included four Pseudomonas spp. B5, B11, B12, and P25, Streptomyces sp. B6, Chryseobacterium sp.
+      B7, Sphingomonas sp. B17
+
+      '
+    explanation: 'Identifies all four C6 member genera or strains in the volatile-producing strain set.
+
+      '
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhodococcus erythropolis B43, and SynComs C2-4, C7
+    explanation: The end of the explicit positive list identifies the four mixtures and excludes C6 from that list.
 environmental_factors:
 - name: Host plant
   value: Triticum aestivum
@@ -432,7 +414,40 @@ curation_history:
 - timestamp: '2026-10-02T06:04:09Z'
   curator: codex
   action: REPAIR_CAUSAL_GRAPH
-  changes: Removed five Wheat C6 assay workflow edges linking consortium
-    assembly and aggregate auxin or AG8 antagonism phenotypes to later
-    dual-culture, cell-free, volatile, and Arabidopsis root-length assays.
+  changes: Removed five Wheat C6 assay workflow edges linking consortium assembly and aggregate auxin or AG8 antagonism
+    phenotypes to later dual-culture, cell-free, volatile, and Arabidopsis root-length assays.
   llm_assisted: true
+- timestamp: '2026-10-08T15:02:27Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain whole-C6 plate inhibition without bilateral competition or automatic greenhouse benefit.; Bound
+    auxin production to the calibrated colorimetric assay without assigning reciprocal benefit or plant delivery.;
+    Preserve measured Arabidopsis root shortening without turning a correlation into a hormone-mediated growth benefit.;
+    Keep positive member supernatants and the negative whole-C6 supernatant outcome together.; Keep positive member
+    volatile assays distinct from the non-significant whole-C6 mixture result. Issue#1941; reports/causal_graph_review/decisions/20261008-four-records-batch121.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: c6_causal_scope_batch121
+  prompt: Why do C6 individual-member phenotypes differ from the assembled mixture and host assays?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#C6 Dual-Culture AG8 Radial Inhibition
+  - ecological_interactions#C6 Salkowski auxin-assay output
+  - ecological_interactions#C6-associated Arabidopsis primary-root shortening
+  - ecological_interactions#C6 cell-free contrast with inhibitory member cultures
+  - ecological_interactions#C6 volatile contrast with inhibitory member cultures
+  rationale: All four members showed individual secretion-associated and volatile inhibition, but the corresponding
+    positive mixture results were absent under the tested conditions. C6 retained direct plate inhibition and a
+    measured Salkowski signal; it shortened Arabidopsis primary roots but was not among the significant wheat-protection
+    mixtures. These contrasts need mechanistic resolution, not erased nulls or invented assay-to-assay causal arrows.
+    The paper labels a negative correlation as r-squared; this notation is not copied as a valid variance-explained
+    statistic or silently repaired.
+  evidence:
+  - reference: PMID:36118206
+    snippet: SynComs (C1, C3, C4, C7, C8, C9, and C10) significantly reduced wheat root rot score
+  - reference: PMID:36118206
+    snippet: the cell-free supernatants from the rest of the eight bacteria and 10 SynComs did not show any antifungal
+      activities
+  posed_by: codex
+  posed_date: '2026-10-08'

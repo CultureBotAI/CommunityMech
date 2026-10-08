@@ -238,9 +238,11 @@ taxonomy:
     explanation: Identifies strain S8 as Bacillus halotolerans and lists its CCTCC deposit.
 ecological_interactions:
 - name: Six-strain SMC suppression of Fusarium crown rot
-  description: The complete six-strain SMC was soil-drenched into nonsterile wheat pots after Fusarium pseudograminearum challenge
-    and reduced the disease severity index relative to the pathogen-only treatment while sustaining plant growth.
-  interaction_type: COMPETITION
+  description: The six-strain T19-plus-Bacillus SMC reduced the reported crown-rot DSI from 86.45% in pathogen-only
+    pots to 25.93% with SMC, a 70.01% relative reduction, in nonsterile soil. Plant growth and thousand-kernel weight
+    also improved. Preserve these controlled-pot treatment benefits without equating lower disease with bilateral
+    competition or uniquely resolved immune, nutrient or microbial mediators. The design does not isolate the necessity
+    of each SMC strain, and it is not multilocation field validation.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: defense response to fungus
@@ -251,32 +253,33 @@ ecological_interactions:
   - reference: PMID:41504167
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: With SMC treatment, the DSI decreased to 25.93%, a 70.01% reduction relative to Fp, demonstrating marked control
-      efficacy.
+    snippet: With SMC treatment, the DSI decreased to 25.93%, a 70.01% reduction relative to Fp, demonstrating marked
+      control efficacy.
     explanation: Reports the Fusarium crown-rot disease-severity reduction in the SMC+Fp treatment.
+  - reference: PMID:41504167
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SMC+Fp increased TKW by 10.39% relative to Fp
+    explanation: Preserves the positive measured grain-development outcome in the challenged treatment.
 - name: SMC-associated wheat rhizosphere remodeling
-  description: The SMC shifted the resident wheat rhizosphere toward fungal and bacterial genera associated with antagonism,
-    plant growth promotion, and nutrient supply under Fusarium challenge.
-  interaction_type: COLONIZATION_FACILITATION
+  description: SMC treatment altered resident rhizosphere DNA-based composition, including higher relative abundances
+    of Chaetomium, Trichoderma and Mortierella. Relative abundance is not absolute viable abundance or strain-resolved
+    establishment of the inoculum. Functional assignments to enriched taxa and correlation-network associations
+    are not direct measurements of nutrient transfer, mutualism, ecological necessity or stability after perturbation.
+    These observations do not isolate remodeling as the causal mediator of the positive plant outcome.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: regulation of defense response
-    term:
-      id: GO:0031347
-      label: regulation of defense response
   evidence:
   - reference: PMID:41504167
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: SMC and SMC+Fp increased the relative abundances of growth-promoting and antagonistic genera, including Chaetomium,
-      Trichoderma, and Mortierella.
+    snippet: SMC and SMC+Fp increased the relative abundances of growth-promoting and antagonistic genera, including
+      Chaetomium, Trichoderma, and Mortierella.
     explanation: Supports SMC-associated remodeling of the resident fungal rhizosphere community.
   - reference: PMID:41504167
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Full-length ITS and 16S profiling revealed that SMC suppressed pathogenic Fusarium in favor of beneficial fungi
-      (Mortierella, Trichoderma, Chaetomium) and plant growth-promoting bacteria (Pseudomonas, Paenibacillus).
-    explanation: Supports SMC-associated enrichment of resident fungal and bacterial taxa with plant-beneficial trait annotations.
+    evidence_source: OTHER
+    snippet: Total DNA was extracted from soil using a commercial soil DNA extraction kit
+    explanation: Defines the DNA-based profiling context, not viable-cell or inoculum-strain tracking.
 growth_media:
 - name: nonsterile wheat soil pot assay
   temperature: 25
@@ -365,13 +368,45 @@ curation_history:
 - timestamp: '2026-09-22T00:20:14Z'
   curator: codex
   action: CREATE_RECORD
-  changes: Created CommunityMech:000414 for the six-strain Trichoderma/Bacillus cross-kingdom wheat Fusarium crown-rot SMC
-    from PMID:41504167, including strain membership, SynCom assembly design, nonsterile wheat-pot cultivation, Fusarium challenge,
-    and SMC disease-suppression and rhizosphere-remodeling outcomes.
+  changes: Created CommunityMech:000414 for the six-strain Trichoderma/Bacillus cross-kingdom wheat Fusarium crown-rot
+    SMC from PMID:41504167, including strain membership, SynCom assembly design, nonsterile wheat-pot cultivation,
+    Fusarium challenge, and SMC disease-suppression and rhizosphere-remodeling outcomes.
   llm_assisted: true
 - timestamp: '2026-09-22T00:33:44Z'
   curator: codex
   action: FIX_REVIEW_FINDING
-  changes: Fixed CommunityMech#1035 by removing redundant participating_taxa from the whole-community Fusarium crown-rot suppression
-    edge; omitted participating_taxa already credits every SMC member.
+  changes: Fixed CommunityMech#1035 by removing redundant participating_taxa from the whole-community Fusarium crown-rot
+    suppression edge; omitted participating_taxa already credits every SMC member.
   llm_assisted: true
+- timestamp: '2026-10-08T15:02:27Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Preserve the positive SMC disease and grain outcomes without an unsupported bilateral-competition mechanism.;
+    Keep relative community-profile observations distinct from colonization facilitation and inferred ecological
+    functions. Issue#1942; reports/causal_graph_review/decisions/20261008-four-records-batch121.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: crown_causal_scope_batch121
+  prompt: Which SMC-dependent routes cause protection beyond community and metabolite associations?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Six-strain SMC suppression of Fusarium crown rot
+  - ecological_interactions#SMC-associated wheat rhizosphere remodeling
+  rationale: Compatibility tests support nonantagonism, not demonstrated cross-feeding. The source reports positive
+    plant responses to added allantoin and dihydrodaidzein and no direct antifungal activity of those compounds
+    in the tested assay. This supports candidate host-mediated effects, not their necessity in the intact SMC or
+    proof of a specific immune pathway. Community correlations likewise do not isolate the responsible taxa. Fresh
+    primary text differs from existing cache wording; graph quotes use verified passages and the broader provenance
+    discrepancy is tracked separately.
+  evidence:
+  - reference: PMID:41504167
+    snippet: functional validation at the molecular and genetic levels remains limited
+  - reference: PMID:41504167
+    snippet: showed no direct antifungal activity of either compound
+  - reference: PMID:41504167
+    snippet: significantly reduced DSI
+  - reference: PMID:41504167
+    snippet: These data demonstrate that the Bacillus supernatants are nonantagonistic to T19
+  posed_by: codex
+  posed_date: '2026-10-08'

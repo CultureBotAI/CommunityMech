@@ -5,6 +5,43 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch121: Plant Outcomes And Mixture Contrasts
+
+[Decisions](decisions/20261008-four-records-batch121.yaml),
+[provenance](cache-provenance-20261008-batch121.json),
+[validation](validation-20261008-batch121.json), and
+[self-adversarial review](adversarial-review-20261008-batch121.yaml) cover
+tomato oxylipin SynCom3, wheat C1 and C6, and the six-strain wheat crown-rot SMC.
+Twelve of fourteen nodes and both existing arrows remain, with six renames.
+Two wheat inoculum-preparation nodes are removed; no new topology is introduced.
+
+Tomato retains positive biosynthesis-inhibition and overexpression evidence
+at host-pathway scope, without claiming reciprocal bacterial mutualism.
+C1 retains plate inhibition and greenhouse protection, not superiority over
+the best single strain. C6 keeps direct plate inhibition and Salkowski output,
+Arabidopsis root shortening, and the contrasts between positive individual
+strains and negative assembled-mixture cell-free/volatile assays.
+Crown-rot treatment benefits remain, while relative DNA profiles and correlation
+networks do not establish viable colonization or causal ecological necessity.
+Positive added-compound plant effects and negative direct fungal assays remain
+distinct from necessity in the intact SMC.
+
+Four whole records and three unique primary studies were reviewed. Wheat C1/C6
+and crown-rot complete main bodies, methods, tables and captions were read;
+tomato is abstract-bounded. Original figure pixels, external supplements, raw
+data and analysis code were not audited. All 34 graph/discussion quotations
+match primary text and local caches. Three short crown-rot excerpts, 21 words,
+are appended with attribution and its CC BY-NC-ND 4.0 license; earlier cache
+bytes are preserved for the provenance follow-up. The other 922 caches,
+456 records and unrelated raw fields are unchanged. Four append-only histories
+record the repairs. No Edison submission or spend was needed.
+
+Repairs #1939-#1942 await protected-main merge. Non-graph member/role,
+metal/abundance and source-provenance follow-ups #1943-#1945 remain open.
+This is source-based self-review, not independent approval or completion of
+the overall review and protected merge.
+
+
 ## Batch120: Measured Outcomes And Inferred Routes
 
 [Decisions](decisions/20261008-four-records-batch120.yaml),
