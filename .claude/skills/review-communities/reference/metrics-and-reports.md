@@ -92,6 +92,13 @@ def calculate_validation_score(validation_summary):
 
 ## Validation Reports
 
+The examples below illustrate native metrics and diagnostic summaries.
+New final reviews follow [docs/record-reviews.md](../../../../docs/record-reviews.md)
+and use the shared saver for YAML plus derived Markdown. Preserve both score
+definitions above in assessment metrics; keep findings and evidence per record
+and per interaction/causal edge. A high score or a clean network scan is not
+scientific approval.
+
 ### Text Report Format
 
 ```markdown
