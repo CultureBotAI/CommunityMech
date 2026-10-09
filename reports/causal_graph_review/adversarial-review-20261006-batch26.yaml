@@ -1,0 +1,54 @@
+reviewer: codex
+review_mode: code_based_self_adversarial_review
+independent_approval: false
+base_commit: e65a2deffbbcd6aa30fb5548c6866a59d426ee9c
+scope:
+- scripts/evidence_snippet_audit.py
+- tests/test_snippet_audit_artefact_classes.py
+validation_report: reports/causal_graph_review/cache-provenance-20261006-batch26.json
+findings:
+- issue: 1362
+  severity: P2
+  finding: The .txt fast path certifies curator-selected appendices as independent source coverage; Markdown
+    source files can also contain the same appended marker.
+  disposition: Addressed locally by excluding selected sections before format-specific trust handling,
+    with regression and corpus-effect checks.
+- issue: 1362
+  severity: P2
+  finding: Self-adversarial review of the first candidate exposed three malformed full-text headers that
+    incorrectly promoted a selected tail to trusted text.
+  disposition: Tightened the boundary to FULLTEXT_MARKER without broadening its case or anchoring; all
+    three adversarial cases and the full combined suite pass after remediation.
+adversarial_checks:
+- Both observed selected-excerpt markers are tested in .txt and .md, including preservation of the independent
+  abstract prefix.
+- A later actual OPEN-ACCESS FULL TEXT or NCBI BioC re-fetch section remains usable; a naive truncate-at-marker
+  fix would fail these cases.
+- Selected-only, empty, whitespace-only and marker-at-EOF cache bodies do not become trusted content.
+- Selected-section marker case, CRLF, indentation and multiple sections are tested; marker-like words
+  inside ordinary source prose do not remove it.
+- Existing Markdown selected_excerpts exclusions and ordinary retrieved-content controls are retained.
+- Both community and isolate roots participate in regression fixtures and the 460-record corpus inventory.
+- The original 14 failing and five passing cases are preserved as expected pre-fix evidence; subsequent
+  malformed-boundary failures and their complete rerun are retained separately when applicable.
+- 'Every cited reference cache view was compared: exactly two changed, and the other 641 are byte-equivalent
+  to the previous returned text.'
+- All 460 records and 920 cache files retain their original bytes. Rank output and the 25 network warnings
+  are unchanged.
+- The re-audit exposes 19 DCPP retrieval gaps plus one RAMC assembled quotation and one rendering difference;
+  these are not silently repaired or reported as literal matches.
+- No cache trust fix is substituted for biological source review. Corpus review coverage remains 123 reviewed,
+  334 pending and three needs_research.
+- All 22 newly added parameterized regression cases pass, including three malformed-boundary cases that
+  failed against the first candidate.
+verification:
+  focused: 60 passed in 131.45s (0:02:11)
+  combined_regressions: 324 passed in 188.25s (0:03:08)
+  black: passed
+  ruff: passed
+  diff_check: passed
+  source_coverage_followup: 596
+  protected_merge_status: not asserted; requires live exact-head CI and protected queue
+  tested_file_sha256:
+    scripts/evidence_snippet_audit.py: 2cf71ec63fce9f25dbb9f367af843aa00bb9bd8313153ba41a40545763a738ff
+    tests/test_snippet_audit_artefact_classes.py: d6cfa1dc6540876384387d3c400bf2e6427c854723563f2fda33f394ba2c187f
