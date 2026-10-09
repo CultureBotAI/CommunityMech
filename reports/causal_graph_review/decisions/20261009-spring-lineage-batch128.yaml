@@ -1,0 +1,72 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 57b17a7c3116feae7b6d7deefa9c54680c0ae816
+finding:
+  issue: 1978
+  severity: P2
+  scope: Active GTDB phylum-name inconsistency introduced in batch127.
+  ci_run: 37845443207
+  omitted_test: tests/test_gtdb_lineage_tree.py
+  disposition: Normalize active nomenclature; do not weaken the validator or rewrite source text.
+source_access:
+  manifest: reports/causal_graph_review/sources/20261008-spring-supplements-batch127.json
+  sha256: e95387a98bd9afe49b2c51830fa02f05002d8936985d739efda40f5e7ccd7505
+  rename_authorities:
+  - https://forum.gtdb.ecogenomic.org/t/announcing-gtdb-r08-rs214/456
+  - https://doi.org/10.1093/nar/gkaf1040
+  source_lineage: d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Thiotrichales;f__Thiotrichaceae;g__Thiothrix;s__
+  active_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Thiotrichales;f__Thiotrichaceae;g__Thiothrix
+  scope: GTDB release announcement and resource-paper nomenclature discussion; preserved Table S4 row, not a fresh
+    study-body or current-genome classification audit.
+preservation:
+  ecological_interactions_sha256: d207383e9d9ed4abf2ca34b895505eb7dc39e338088b7df2bc80775ad67b55e4
+  previous_ledger_sha256: 9166b3bb643162691aeee39ebb7b98b9ad22ef63505fa3e9cc5654be228519ef
+  all_caches_unchanged: true
+  all_source_manifests_unchanged: true
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+limitations:
+- No new biological identity, release-specific genome classification, taxonomic votes, nodes or edges are asserted.
+- Beggiatoa/CPR identity and metabolic coupling remain issue1841; the record remains needs_research.
+- This is self-review, not independent approval. Protected merge and branch cleanup remain separate gates.
+records:
+- path: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+  id: CommunityMech:000222
+  original_sha256: 94a4a5855730de3a7f9aea67e694040d9ae7337e6c0d8072438a2d46a8670c87
+  record_sha256: 4c55cbbcf80785d2ad004ad3eab44d533811b7418c5995e5ba1893cb66864e36
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261009-spring-lineage-batch128.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-spring-identity-batch127.yaml
+    record_sha256: 94a4a5855730de3a7f9aea67e694040d9ae7337e6c0d8072438a2d46a8670c87
+  summary: Normalize the active Thiothrix GTDB phylum name to Pseudomonadota while preserving original Proteobacteria
+    source quotes, genus attribution and unresolved graph boundaries.
+  scope: Whole record read; one active-lineage nomenclature repair, not new topology or whole-record scientific
+    certification.
+  node_decisions:
+  - node: Filamentous Sulfur Oxidation with Encapsulated S Granules
+    rationale: Unchanged; participant identity and mechanism limits retained.
+  - node: Putative CPR association with sulfur-oxidizing filaments
+    rationale: Unchanged; participant identity and mechanism limits retained.
+  - node: Predicted CPR sulfur and hydrogen metabolic capacity
+    rationale: Unchanged; participant identity and mechanism limits retained.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:38273328
+  issues:
+  - 1978
+  - 1841
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Sulfide_Spring_Autotrophic_CPR_Biofilm/2026-10-09T073735Z-codex-6e2f4b.yaml

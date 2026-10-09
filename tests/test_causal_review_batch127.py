@@ -82,12 +82,22 @@ def test_hash_linked_history_cache_and_no_extension():
         == parent["record_sha256"]
         == row["supersedes_review"]["record_sha256"]
     )
-    assert row["record_sha256"] == hashlib.sha256(RECORD.read_bytes()).hexdigest()
+    successor = yaml.safe_load(
+        (
+            ROOT / "reports/causal_graph_review/decisions/20261009-spring-lineage-batch128.yaml"
+        ).read_text()
+    )["records"][0]
+    assert successor["supersedes_review"] == {
+        "review_file": str(LEDGER.relative_to(ROOT)),
+        "record_sha256": row["record_sha256"],
+    }
+    assert successor["original_sha256"] == row["record_sha256"]
+    assert successor["record_sha256"] == hashlib.sha256(RECORD.read_bytes()).hexdigest()
     assert row["status"] == parent["status"] == "needs_research"
     assert row["edges_before"] == row["edges_after"] == []
     assert len(row["node_decisions"]) == 3 and len(row["history_files"]) == 1
     assert (ROOT / row["history_files"][0]).is_file()
-    assert len(yaml.safe_load(RECORD.read_text())["curation_history"]) == 3
+    assert len(yaml.safe_load(RECORD.read_text())["curation_history"]) == 4
     assert ledger["edison"] == {"required": False, "provider_submissions": 0, "credits_spent": 0}
     assert ledger["independent_approval"] is False
     change = ledger["cache_changes"][0]

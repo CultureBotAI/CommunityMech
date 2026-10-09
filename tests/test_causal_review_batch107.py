@@ -141,6 +141,18 @@ def test_review_hashes_histories_and_non_graph_boundaries_are_explicit():
             }
             assert successor["status"] == "needs_research"
             expected_hash = successor["record_sha256"]
+            normalized = yaml.safe_load(
+                (
+                    ROOT
+                    / "reports/causal_graph_review/decisions/20261009-spring-lineage-batch128.yaml"
+                ).read_text()
+            )["records"][0]
+            assert normalized["supersedes_review"] == {
+                "review_file": successor["review_file"],
+                "record_sha256": expected_hash,
+            }
+            assert normalized["original_sha256"] == expected_hash
+            expected_hash = normalized["record_sha256"]
         assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected_hash
         assert set(row["allowed_changed_fields"]) == {
             "ecological_interactions",

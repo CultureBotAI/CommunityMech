@@ -5,6 +5,24 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch128: Active Lineage Nomenclature
+
+[Decisions](decisions/20261009-spring-lineage-batch128.yaml) address #1978,
+the corpus hierarchy failure introduced in batch127. The active Thiothrix
+lineage now uses Pseudomonadota, with explicit GTDB nomenclature provenance.
+The original Proteobacteria spelling stays verbatim in all source rows,
+evidence snippets and caches. Genus identity, all three nodes and zero arrows
+remain unchanged. This is not a new genome classification or graph extension;
+#1841 remains open and the record stays `needs_research`.
+
+The [before-repair review](../../reviews/structured/20261009T074053Z-thiothrix-lineage-before/review.md)
+records the reproduced defect. The [validation output](validation-20261009-batch128.json)
+retains gate results; immutable before/after bundles live under
+`reviews/structured/`. These are scoped self-reviews, not independent approval.
+The [provenance receipt](provenance-20261009-batch128.json) addresses #1979:
+archival tag `review-provenance/20261009-batch128` retains the reviewed source
+commit through squash merge and later branch deletion, without rewriting reports.
+
 ## Batch127: Thiothrix Genus Identity
 
 [Decisions](decisions/20261008-spring-identity-batch127.yaml),

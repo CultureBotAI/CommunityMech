@@ -33,13 +33,17 @@ taxonomy:
     gtdb_classification:
       gtdb_id: GTDB:g__Thiothrix
       gtdb_taxon: Thiothrix
-      gtdb_lineage: d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Thiotrichales;f__Thiotrichaceae;g__Thiothrix
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Thiotrichales;f__Thiotrichaceae;g__Thiothrix
       ncbi_source_id: NCBITaxon:1030
       curated: true
       curation_note: Source-specific genus assignment from primary Table S4 row104; species is blank. Replaces the
         inherited Thiothrix nivea species mapping. No genome-count vote or identification of imaged cells is implied.
-      mapping_source: PMID:38273328 Table S4, S4- Genomes classification row104; study GTDB release unspecified;
-        publisher supplement retrieved 2026-10-08.
+        Active phylum spelling normalized from source Proteobacteria to Pseudomonadota following GTDB R08-RS214
+        nomenclature; original evidence and source row remain verbatim. This is not a release-specific reclassification
+        of the study genome.
+      mapping_source: 'PMID:38273328 Table S4, S4- Genomes classification row104; study GTDB release unspecified;
+        publisher supplement retrieved 2026-10-08. Phylum-name normalization: https://forum.gtdb.ecogenomic.org/t/announcing-gtdb-r08-rs214/456;
+        assessed 2026-10-09.'
     notes: The MS4 bin ALUMROCK_MS4_Thiothrix_nivea-related_50_537_curated is assigned to Thiothrix with no species
       in Table S4. NCBI genus1030 is verified; 51% amino-acid similarity does not establish T. nivea. The study
       classification does not identify individual imaged filaments or imply dominance in every sample.
@@ -443,4 +447,10 @@ curation_history:
   action: REVIEW_CAUSAL_GRAPH
   changes: Replace unsupported Thiothrix nivea attribution with supplement-supported Thiothrix genus in the roster
     and two graph links; retain the Beggiatoa and cell-identity gaps. Issue#1841; reports/causal_graph_review/decisions/20261008-spring-identity-batch127.yaml
+  llm_assisted: true
+- timestamp: '2026-10-09T07:37:34Z'
+  curator: codex
+  action: NORMALIZE_GTDB_NOMENCLATURE
+  changes: Normalize the active Thiothrix GTDB phylum name to Pseudomonadota while preserving original Proteobacteria
+    source quotes, genus attribution and unresolved graph boundaries. Issue#1978; reports/causal_graph_review/decisions/20261009-spring-lineage-batch128.yaml
   llm_assisted: true
