@@ -124,9 +124,9 @@ def test_pha_supporting_snippets_are_contiguous_in_the_primary_cache():
 
 def test_lytic_definition_does_not_claim_unique_density_dependence():
     schema = _record(ROOT / "src/communitymech/schema/communitymech.yaml")
-    definition = schema["enums"]["InteractionTypeEnum"]["permissible_values"][
-        "LYTIC_INFECTION"
-    ]["description"]
+    definition = schema["enums"]["InteractionTypeEnum"]["permissible_values"]["LYTIC_INFECTION"][
+        "description"
+    ]
     guide = (ROOT / "docs/PHAGE_BACTERIA_GUIDE.md").read_text()
     for text in (definition, guide):
         normalized = " ".join(text.split())
