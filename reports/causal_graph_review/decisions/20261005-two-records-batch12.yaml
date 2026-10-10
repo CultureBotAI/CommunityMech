@@ -1,0 +1,297 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: b53805f739c37b542076c463a8ed502346772112
+issues:
+- 1295
+non_graph_followup_issues:
+- 1296
+- 1297
+issue_deduplication:
+  count: 645
+  scope: All open/closed issue titles/bodies; ignored-inclusive local reports/history/tests. Comments not exhaustive.
+reference_cache_original_hashes:
+  references_cache/PMID_31953507.md: b489a47668b357ed56d153fddcdea3cd6688b50f49590877f1571bf534e2376c
+  references_cache/doi_10.1007_s00248-018-1282-1.md: e5dd25e85b7833da8ee1a4c8df58f924c89ddcc98896b52c1c0f12691050b001
+  references_cache/doi_10.1093_femsec_fiw077.md: 972e21a3abd0201d38bd67ac41da969c486d5ba7a09a64ab4f0980f953293302
+  references_cache/doi_10.1016_j.resmic.2016.02.005.md: fe965f8411f7d365d8340afbd92e78d1fb92aff4c3b231c0c291311d66625236
+limitations:
+- No new graph nodes/arrows or Edison job.
+- Source-specific figure-reading limits recorded; supplements and raw data not inspected.
+- Primary PDFs/body remain outside the repository. Existing FEMS excerpt provenance is corrected without adding
+  body text.
+- Structural checks and cache string matches do not certify causal inference or unread metadata.
+- Prepared in an isolated worktree atop reviewed batch11 while its protected merge waits for GitHub-hosted runners.
+records:
+- path: kb/communities/Avena_Rhizosphere_Detritusphere_Niche_Succession.yaml
+  id: CommunityMech:000245
+  original_sha256: bc2f2d3aca78c5a81616a62a5c5e3526386218391004384e9c8b7b059e9a1de3
+  record_sha256: ea5631e37d2dbf65e26ed28a09fca23168c4c79e26160cbcb31ea93aa1e3e9e9
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-two-records-batch12.yaml
+  scope: Whole record and every existing graph node/arrow reviewed to explicit source limits; unchanged non-graph
+    metadata is not certified.
+  summary: Bound Avena expression guilds and carbon hypotheses; remove two modeling-relevance arrows
+  node_decisions:
+  - node: Functional Succession Outpaces Compositional Change
+    rationale: Retain relative transcript/composition timing; remove its noncausal modeling-utility arrow.
+  - node: Four Decomposition-Gene Expression Response Groups
+    rationale: Correct the four expression groups and retain niche partitioning only as a partial interpretation.
+  - node: Rhizosphere Upregulates Carbohydrate Depolymerization Transcripts
+    rationale: Retain measured transcription; qualify its existing carbon-transformation arrow as hypothetical.
+  - node: Proposed Niche-Differentiated Guild Coexistence
+    rationale: Bound diversity contrasts and coexistence inference; remove the second modeling-utility arrow.
+  - node: Predicted Soil Carbon Cycling Consequences of Guild Succession
+    rationale: Retain a predicted carbon endpoint, not a measured carbon-fate result.
+  edges_before:
+  - source: Functional Succession Outpaces Compositional Change
+    target: Soil Carbon Cycling Consequences of Guild Succession
+    description: Faster functional turnover makes the metatranscriptome-defined guilds a framework for modeling
+      rhizosphere succession and its carbon cycling consequences.
+  - source: Four Guilds with Substrate-Specific Specialization
+    target: Rhizosphere Guild Coexistence by Niche Differentiation
+    description: Substrate-specialized guilds partition fresh-root, detrital, mixed-root, and aging-root resources,
+      allowing multiple decomposer guilds to coexist across the paired habitats.
+  - source: Rhizosphere Upregulates Carbohydrate Depolymerization
+    target: Soil Carbon Cycling Consequences of Guild Succession
+    description: Consistent rhizosphere carbohydrate depolymerization acts on plant polymer inputs that are precursors
+      of soil organic matter.
+  - source: Rhizosphere Guild Coexistence by Niche Differentiation
+    target: Soil Carbon Cycling Consequences of Guild Succession
+    description: Niche-differentiated coexistence connects habitat-specific decomposer guilds to rhizosphere succession
+      models.
+  edges_after:
+  - source: Four Decomposition-Gene Expression Response Groups
+    target: Proposed Niche-Differentiated Guild Coexistence
+    description: HYPOTHESIZED - differing expression responses to root resources could reduce resource overlap and
+      permit guild coexistence. Clustering and diversity patterns do not directly test resource partitioning or
+      its necessity for coexistence.
+  - source: Rhizosphere Upregulates Carbohydrate Depolymerization Transcripts
+    target: Predicted Soil Carbon Cycling Consequences of Guild Succession
+    description: HYPOTHESIZED - increased expression could increase enzyme-mediated processing of root polymers
+      and thereby alter soil-carbon transformations. Transcript abundance alone does not establish this flux or
+      its downstream persistence and mineral-association consequences.
+  references:
+  - PMID:31953507
+  source_review:
+    reference: PMID:31953507
+    doi: 10.1038/s41396-019-0582-x
+    published_pdf:
+      path: 'temporary source (not committed): communitymech-avena-published.pdf'
+      url: https://sydneyglassman.wordpress.com/wp-content/uploads/2020/02/nuccioetal_isme_2020.pdf
+      sha256: 8316bde2ce9eafd97f971c846d430f155b6e59394477803769fe49fe2a1b820f
+      pages: 16
+      provenance_warning: Earlier eScholarship download is a preprint with different counts; do not substitute it.
+      repository_policy: Do not add the publication PDF to the repository.
+    reading:
+      complete:
+      - current_record
+      - cached_abstract
+      - published_main_text_through_conclusions
+      figures_inspected:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      figure_method: Local pypdfium2 render, pages 6, 7, 8 and 10; web screenshots returned no visible image.
+      not_inspected:
+      - supplementary_figures
+      - supplementary_tables
+      - raw_data
+      failed_access_paths:
+      - EuropePMC_XML_HTTP_500
+      - publisher_redirect
+      - PMC_captcha
+      absence_inference: None; the published PDF was accessible.
+    source_findings:
+    - Four groups are Rhizosphere, Detritusphere, Aging Root and Low Response; the last has no discernible habitat
+      preference (Fig. 4).
+    - Transcript mapping at 80 percent identity yields aggregated populations, not strain-specific readouts; 24
+      of 282 references meet the response criterion.
+    - Functional change is transcriptomic; drying covaries with the final timepoint.
+    - Fig. 2 shows the highest numerical taxonomic diversity in combined treatment, with shared significance letters
+      for bulk plus detritus. Rhizosphere functional diversity does not significantly increase with detritus.
+    - Gene expression is not measured enzyme flux; gyrase transcription is an abundance proxy. Synergist is a transcription
+      category, not demonstrated partner facilitation.
+    - Coexistence through niche differentiation and cross-feeding are source interpretations. Soil-carbon persistence
+      and mineral-association consequences require experimental tests.
+  history_file: history/records/Avena_Rhizosphere_Detritusphere_Niche_Succession/2026-10-05T201241Z-codex-e8b93d.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1295
+  non_graph_followups:
+    issue: https://github.com/CultureBotAI/CommunityMech/issues/1296
+    scope: Summary, protocol and resource metadata remain outside graph certification.
+  renamed_nodes:
+    Four Guilds with Substrate-Specific Specialization: Four Decomposition-Gene Expression Response Groups
+    Rhizosphere Upregulates Carbohydrate Depolymerization: Rhizosphere Upregulates Carbohydrate Depolymerization
+      Transcripts
+    Rhizosphere Guild Coexistence by Niche Differentiation: Proposed Niche-Differentiated Guild Coexistence
+    Soil Carbon Cycling Consequences of Guild Succession: Predicted Soil Carbon Cycling Consequences of Guild Succession
+  removed_edge_decisions:
+  - source: Functional Succession Outpaces Compositional Change
+    target: Predicted Soil Carbon Cycling Consequences of Guild Succession
+    rationale: Modeling utility is not a biological causal step.
+  - source: Proposed Niche-Differentiated Guild Coexistence
+    target: Predicted Soil Carbon Cycling Consequences of Guild Succession
+    rationale: Modeling utility is not a biological causal step.
+  retained_edge_decisions:
+  - source: Four Decomposition-Gene Expression Response Groups
+    target: Proposed Niche-Differentiated Guild Coexistence
+    rationale: HYPOTHESIZED - differing expression responses to root resources could reduce resource overlap and
+      permit guild coexistence. Clustering and diversity patterns do not directly test resource partitioning or
+      its necessity for coexistence.
+  - source: Rhizosphere Upregulates Carbohydrate Depolymerization Transcripts
+    target: Predicted Soil Carbon Cycling Consequences of Guild Succession
+    rationale: HYPOTHESIZED - increased expression could increase enzyme-mediated processing of root polymers and
+      thereby alter soil-carbon transformations. Transcript abundance alone does not establish this flux or its
+      downstream persistence and mineral-association consequences.
+- path: kb/communities/Chlorella_Azospirillum_Synthetic_Mutualism.yaml
+  id: CommunityMech:000191
+  original_sha256: 16c7ab273dbb54c80ad6403abc07ae1244511f757950708068c7db11f7275f11
+  record_sha256: 8debe22be0e21c034886b7e6e616bd3cc2a940a8bcdb7276c4235435c499e381
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-two-records-batch12.yaml
+  scope: Whole record and every existing graph node/arrow reviewed to explicit source limits; unchanged non-graph
+    metadata is not certified.
+  summary: Separate Chlorella nutrient mutualism, inferred transfer, proximity and IAA-linked starch assays
+  node_decisions:
+  - node: Nutrient-Modulated Synthetic Mutualism
+    rationale: Retain supported mutualism with time/nutrient exceptions and illuminated assay context.
+  - node: Tryptophan, Thiamine, and IAA Exchange
+    rationale: Retain cross-feeding interpretation and existing starch arrow with exudate, cofactor and exact-strain
+      limits.
+  - node: Co-Immobilization and Cell Aggregation
+    rationale: Remove colonization-facilitation typing from engineered proximity; retain the source-proposed growth
+      arrow as hypothetical.
+  - node: IAA-Linked Starch Accumulation Response
+    rationale: Untype starch as mutualism; distinguish comparator lineage, growth tradeoffs and partial IAA mediation.
+  edges_before:
+  - source: Tryptophan, Thiamine, and IAA Exchange
+    target: IAA-Linked Starch Accumulation Response
+    description: 'Microalgal tryptophan and thiamine release supports bacterial IAA production, which the follow-up
+      exact-pair experiments linked to C. sorokiniana starch metabolism.
+
+      '
+  - source: Co-Immobilization and Cell Aggregation
+    target: Nutrient-Modulated Synthetic Mutualism
+    description: 'Co-immobilized alginate beads and algal-bacterial aggregation spatially organize the two partners,
+      supporting the population increases observed during nutrient-modulated synthetic mutualism.
+
+      '
+  edges_after:
+  - source: Tryptophan, Thiamine, and IAA Exchange
+    target: IAA-Linked Starch Accumulation Response
+    description: PARTIAL - bacterial IAA can promote algal starch/AGPase responses in the separate dark, glucose-fed
+      assay. Synthetic IAA and wild-type versus IAA-attenuated strain comparisons support mediation, but SpM7918
+      is an Sp6-derived comparator, not a Cd mutant; exact-strain IAA necessity and the contribution of local resource
+      transfer remain unresolved.
+  - source: Co-Immobilization and Cell Aggregation
+    target: Nutrient-Modulated Synthetic Mutualism
+    description: HYPOTHESIZED - close proximity could facilitate exchange of growth-supporting resources. The studies
+      propose this link, but aggregation was not selectively disrupted to demonstrate that it causes the nutrient-dependent
+      population benefits.
+  references:
+  - doi:10.1007/s00248-018-1282-1
+  - doi:10.1016/j.resmic.2016.02.005
+  - doi:10.1093/femsec/fiw077
+  source_review:
+    sources:
+    - doi: 10.1007/s00248-018-1282-1
+      pmid: '30397795'
+      pdf: 'temporary source (not committed): communitymech-chlorella-nutrients.pdf'
+      pdf_sha256: 842f2157f5286bed5fc7a468fe8ad6e2a8767b41e08ce66805e5bf44ca11f1b8
+      url: https://firebasestorage.googleapis.com/v0/b/bashan-foundation.appspot.com/o/pdfs%2F10.1007%40s00248-018-1282-1.pdf?alt=media&token=b0f2ca3e-b5d4-413d-bb9b-fdc28d1ec336
+      cache_sha256: e5dd25e85b7833da8ee1a4c8df58f924c89ddcc98896b52c1c0f12691050b001
+      read: Main text through conclusion, pages 1-11; cached abstract.
+      figures_inspected:
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      limits: Supplementary material and raw data not read; Fig. 1 caption read but image not inspected.
+      findings:
+      - First 12 hours compare diluted nutrient broth, N-free OAB and C-free SGM; all subsequently transfer to SGM
+        under illumination.
+      - Reciprocal population benefits depend on time and medium. Following nutrient broth, bacterial counts did
+        not differ significantly between single and paired cultures.
+      - IAA was undetected in N-free/C-free-start treatments. Short-distance transfer is proposed, not directly
+        quantified there.
+      - Aggregation varies independently of a universal growth response. N-free-start attachment weakens later;
+        C-free cultures form large clusters at 83 hours.
+      - Greatest starch concentration occurs in algae alone under continuous C-free conditions. Do not generalize
+        starch enhancement across assays.
+    - doi: 10.1093/femsec/fiw077
+      pmid: '27090758'
+      url: https://academic.oup.com/femsec/article/92/6/fiw077/2470072
+      accessible_primary_url: https://oup.silverchair-cdn.com/article-minimal/2470072
+      cache_sha256: 972e21a3abd0201d38bd67ac41da969c486d5ba7a09a64ab4f0980f953293302
+      read: Abstract, introduction, methods, results, discussion and all main figure captions via publisher HTML.
+      figures_inspected: []
+      limits: Images not inspected. DOI resolver and signed PDF search URL failed; publisher HTML succeeded.
+      rights: Page says Open Access but footer says all rights reserved; no explicit reuse license found in this
+        page. Do not publish the body based on access alone.
+      findings:
+      - Bacterial IAA appears in algal exudates or with tryptophan plus thiamine diphosphate supplementation, not
+        with tryptophan alone.
+      - Bulk co-immobilized medium has no detectable tryptophan or IAA; enzyme and gene-expression assays support
+        the proposed exchange. IAA detection limit is 195 ng/mL.
+      - IPDC activity is not uniquely bacterial or IAA-specific; algal activity and other substrates complicate
+        attribution.
+      - Current cache is marked abstract_only but concatenates abstract and methods excerpts. Its scope/provenance
+        needs correction or a separate issue.
+    - doi: 10.1016/j.resmic.2016.02.005
+      pmid: '26924113'
+      pdf: 'temporary source (not committed): communitymech-chlorella-starch.pdf'
+      pdf_sha256: 1eed1c4dda89c0d3e9d7f091dd166b75e47558498683c37095082e8b006c71fb
+      url: https://firebasestorage.googleapis.com/v0/b/bashan-foundation.appspot.com/o/pdfs%2F3310a2d9ff21e7cc1d24df64047b11ef680893ef.pdf?alt=media&token=cc7f75bb-e4b2-4946-9ed8-3623fdd15d05
+      cache_sha256: fe965f8411f7d365d8340afbd92e78d1fb92aff4c3b231c0c291311d66625236
+      read: Main text through conclusion, pages 1-11; cached abstract excerpt.
+      figures_inspected:
+      - 3
+      - 4
+      - 5
+      tables_inspected:
+      - 1
+      limits: Figures 1-2 captions/text read, images not inspected; supplements and raw data not read.
+      rights: All rights reserved; keep PDF/body outside repository.
+      findings:
+      - Dark, glucose-fed, nitrogen-replete/starved assays compare Cd, Sp6 and the Sp6-derived IAA-attenuated SpM7918,
+        not a Cd mutant.
+      - Wild-type pairs increase starch and AGPase relative to controls; synthetic IAA gives a transient response.
+        Mutant retains small starch effects.
+      - Most paired treatments reduce algal population growth. Starch accumulation is not reciprocal fitness benefit.
+      - Cd tryptophan/IAA correlation under N starvation is nonsignificant despite generalized discussion wording.
+      - Direct AGPase regulation versus glucose transport remains unresolved; do not elevate proposed molecular
+        details to proven mechanisms.
+  history_file: history/records/Chlorella_Azospirillum_Synthetic_Mutualism/2026-10-05T201241Z-codex-e557e4.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1295
+  non_graph_followups:
+    issue: https://github.com/CultureBotAI/CommunityMech/issues/1297
+    scope: Summary, protocol and resource metadata remain outside graph certification.
+  removed_edge_decisions: []
+  retained_edge_decisions:
+  - source: Tryptophan, Thiamine, and IAA Exchange
+    target: IAA-Linked Starch Accumulation Response
+    rationale: PARTIAL - bacterial IAA can promote algal starch/AGPase responses in the separate dark, glucose-fed
+      assay. Synthetic IAA and wild-type versus IAA-attenuated strain comparisons support mediation, but SpM7918
+      is an Sp6-derived comparator, not a Cd mutant; exact-strain IAA necessity and the contribution of local resource
+      transfer remain unresolved.
+  - source: Co-Immobilization and Cell Aggregation
+    target: Nutrient-Modulated Synthetic Mutualism
+    rationale: HYPOTHESIZED - close proximity could facilitate exchange of growth-supporting resources. The studies
+      propose this link, but aggregation was not selectively disrupted to demonstrate that it causes the nutrient-dependent
+      population benefits.
+reference_cache_current_hashes:
+  references_cache/PMID_31953507.md: b489a47668b357ed56d153fddcdea3cd6688b50f49590877f1571bf534e2376c
+  references_cache/doi_10.1007_s00248-018-1282-1.md: e5dd25e85b7833da8ee1a4c8df58f924c89ddcc98896b52c1c0f12691050b001
+  references_cache/doi_10.1093_femsec_fiw077.md: 6db40ae92f46a1263a2fd3845639a63a2ac8a2c1bacea41eee7ea3dc0be1d6ac
+  references_cache/doi_10.1016_j.resmic.2016.02.005.md: fe965f8411f7d365d8340afbd92e78d1fb92aff4c3b231c0c291311d66625236
+fems_cache_scope_correction:
+  article_excerpt_bytes_unchanged: true
+  new_body_text: false
+  explanation: Correct abstract_only to abstract_and_methods_excerpts; retain explicit source URL and normalized
+    excerpt scope, without claiming a redistribution license.

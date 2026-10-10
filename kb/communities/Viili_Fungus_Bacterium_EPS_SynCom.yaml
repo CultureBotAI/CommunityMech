@@ -104,8 +104,10 @@ taxonomy:
     explanation: Names the three Viili-derived strains assembled into the top-down synthetic microbial consortium.
 ecological_interactions:
 - name: Geotrichum nitrogen supply to lactic acid bacteria
-  description: Metabolomics and amino-acid perturbation assays linked G. candidum to nitrogen-source supply, including valine,
-    that enhanced lactic-acid-bacterial growth, biofilm formation, and EPS production.
+  description: G. candidum Y1 supplies nitrogen sources, including valine, to L. lactis V9 and L. paracasei V21.
+    Metabolomics and amino-acid depletion/supplementation support nutrient provision associated with increased bacterial
+    growth, biofilm formation and EPS production. These assays do not by themselves isolate a valine-specific signaling
+    mechanism independent of growth.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -131,27 +133,30 @@ ecological_interactions:
       id: CHEBI:33709
       label: amino acid
   downstream:
-  - target: G. candidum activation of AI-2-linked EPS production
-    description: The fungus-associated nitrogen supply was coupled with stronger lactic-acid-bacterial growth, quorum-sensing
-      activity, and EPS production.
+  - target: AI-2 regulation of Viili bacterial EPS production
+    description: 'PARTIAL: fungal nitrogen provision supports bacterial growth and is accompanied by stronger quorum-sensing
+      activity. It may contribute to activation of the AI-2 regulatory node, but the abstract does not isolate valine-specific
+      mediation from growth effects.'
   evidence:
   - reference: PMID:42372608
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Untargeted metabolomics combined with validation experiments revealed that G. candidum supplied lactic acid bacteria
-      with nitrogen sources, including valine.
-    explanation: Supports G. candidum as a nitrogen-source supplier to the lactic acid bacteria and names valine as one implicated
-      amino acid.
+    snippet: Untargeted metabolomics combined with validation experiments revealed that G. candidum supplied lactic
+      acid bacteria with nitrogen sources, including valine.
+    explanation: Supports G. candidum as a nitrogen-source supplier to the lactic acid bacteria and names valine
+      as one implicated amino acid.
   - reference: PMID:42372608
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Amino acid depletion and supplementation experiments indicated that valine, as a key amino acid, is closely associated
-      with enhanced growth, biofilm formation, and EPS production in lactic acid bacteria.
-    explanation: Connects valine availability to growth, biofilm formation, and EPS production in the bacterial partners.
-- name: G. candidum activation of AI-2-linked EPS production
-  description: Co-culture with G. candidum increased AI-2 production and luxS transcription in the lactic acid bacteria; AI-2
-    activation and inhibition assays linked this quorum-sensing response to EPS synthesis.
-  interaction_type: CROSS_FEEDING
+    snippet: Amino acid depletion and supplementation experiments indicated that valine, as a key amino acid, is
+      closely associated with enhanced growth, biofilm formation, and EPS production in lactic acid bacteria.
+    explanation: Connects valine availability to growth, biofilm formation, and EPS production in the bacterial
+      partners.
+- name: AI-2 regulation of Viili bacterial EPS production
+  description: Fungal co-culture increases bacterial AI-2 production and luxS transcription. AI-2 activation and
+    inhibition assays support positive regulation of EPS synthesis. This is signaling regulation, not evidence that
+    G. candidum supplies AI-2 as an exchanged nutrient; the abstract describes fungal-metabolite activation of signaling
+    as a possible contribution.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Geotrichum candidum Y1
@@ -182,23 +187,32 @@ ecological_interactions:
       label: quorum sensing
   downstream:
   - target: Three-species Viili EPS maximum
-    description: AI-2-mediated quorum sensing positively regulated EPS synthesis in the three-member Viili consortium.
+    description: AI-2 activation and inhibition support positive regulation of bacterial EPS synthesis and thus
+      a contribution to the three-member output. They do not establish AI-2 as the sole explanation of the tested
+      consortium maximum.
   evidence:
   - reference: PMID:42372608
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: co-culture with G. candidum significantly enhanced AI-2 production and luxS gene transcription in lactic acid
-      bacteria.
-    explanation: Supports stronger AI-2 production and luxS transcription when the fungal member was present with the lactic
+    snippet: co-culture with G. candidum significantly enhanced AI-2 production and luxS gene transcription in lactic
       acid bacteria.
+    explanation: Supports stronger AI-2 production and luxS transcription when the fungal member was present with
+      the lactic acid bacteria.
   - reference: PMID:42372608
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: AI-2 activation and inhibition assays confirmed that AI-2-mediated quorum sensing positively regulates EPS synthesis.
+    snippet: AI-2 activation and inhibition assays confirmed that AI-2-mediated quorum sensing positively regulates
+      EPS synthesis.
     explanation: Supports the causal link from AI-2-mediated quorum sensing to EPS synthesis.
+  - reference: PMID:42372608
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: fungal metabolites may contribute to the activation of AI-2 signaling
+    explanation: Qualifies the fungal-metabolite-to-signaling mechanism; the separate AI-2 perturbations support
+      downstream regulation.
 - name: Three-species Viili EPS maximum
-  description: Among the microbial combinations tested in the Viili model, the complete L. lactis V9 plus L. paracasei V21
-    plus G. candidum Y1 consortium had the highest measured exopolysaccharide concentration.
+  description: Among the microbial combinations tested in the Viili model, the complete L. lactis V9 plus L. paracasei
+    V21 plus G. candidum Y1 consortium had the highest measured exopolysaccharide concentration.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: exopolysaccharide
@@ -209,10 +223,23 @@ ecological_interactions:
   - reference: PMID:42372608
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the three-species consortium (L. lactis V9 + L. paracasei V21 + G. candidum Y1) exhibited the highest EPS concentration
-      among all tested microbial combinations, reaching 1.09 mg/mL.
-    explanation: Supports the highest-EPS output of the full three-strain Viili SynCom relative to the other tested microbial
-      combinations.
+    snippet: the three-species consortium (L. lactis V9 + L. paracasei V21 + G. candidum Y1) exhibited the highest
+      EPS concentration among all tested microbial combinations, reaching 1.09 mg/mL.
+    explanation: Supports the highest-EPS output of the full three-strain Viili SynCom relative to the other tested
+      microbial combinations.
+  participating_taxa:
+  - preferred_term: Lactococcus lactis V9
+    term:
+      id: NCBITaxon:1358
+      label: Lactococcus lactis
+  - preferred_term: Lacticaseibacillus paracasei V21
+    term:
+      id: NCBITaxon:1597
+      label: Lacticaseibacillus paracasei
+  - preferred_term: Geotrichum candidum Y1
+    term:
+      id: NCBITaxon:1173061
+      label: Geotrichum candidum
 related_ingredients:
 - preferred_term: valine
   chebi_term:
@@ -290,8 +317,8 @@ external_resources:
     explanation: Names the DOI assigned to the primary Viili SynCom publication.
 discussions:
 - discussion_id: viili_syncom_methods_paywalled
-  prompt: Which Viili media, incubation parameters, inoculation ratios, and original isolation details were used for strains
-    V9, V21, and Y1?
+  prompt: Which Viili media, incubation parameters, inoculation ratios, and original isolation details were used
+    for strains V9, V21, and Y1?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
@@ -302,6 +329,22 @@ discussions:
     and original isolate sources remain uncited.
   posed_by: codex
   posed_date: '2026-09-21'
+- discussion_id: viili_causal_graph_scope_batch118
+  prompt: Does fungal valine activate AI-2 signaling independently of its effect on bacterial growth?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Geotrichum nitrogen supply to lactic acid bacteria
+  - ecological_interactions#AI-2 regulation of Viili bacterial EPS production
+  - ecological_interactions#Three-species Viili EPS maximum
+  rationale: The abstract reports nutrient depletion/supplementation and AI-2 perturbation assays, but the inspected
+    source does not isolate the full nitrogen-to-signaling mediation chain. Full methods and growth-matched signaling
+    perturbations are needed to resolve this link. The measured nutrient, AI-2 and EPS responses remain supported.
+  evidence:
+  - reference: PMID:42372608
+    snippet: fungal metabolites may contribute to the activation of AI-2 signaling
+  posed_by: codex
+  posed_date: '2026-10-08'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -312,20 +355,25 @@ curation_history:
   curator: codex
   action: CREATE_VIILI_EPS_SYNCOM
   changes: Added the Viili fungus-bacterium EPS SynCom from PMID:42372608 with exact V9/V21/Y1 membership, fungus-to-lactic-acid-bacteria
-    nitrogen and AI-2 quorum-sensing interactions, EPS outcome evidence, PubMed and DOI resources, and a methods-access knowledge
-    gap.
+    nitrogen and AI-2 quorum-sensing interactions, EPS outcome evidence, PubMed and DOI resources, and a methods-access
+    knowledge gap.
   llm_assisted: true
 - timestamp: '2026-09-21T14:36:09Z'
   curator: codex
   action: ADDRESS_VIILI_EPS_REVIEW
-  changes: >-
-    Addressed adversarial review issues #1014 and #1015 by scoping the
-    top-level EPS maximum to the tested microbial combinations and removing
-    exopolysaccharide from the nitrogen-source metabolite list.
+  changes: 'Addressed adversarial review issues #1014 and #1015 by scoping the top-level EPS maximum to the tested
+    microbial combinations and removing exopolysaccharide from the nitrogen-source metabolite list.'
   llm_assisted: true
 - timestamp: '2026-10-01T04:54:40Z'
   curator: codex
   action: REMOVE_EMPTY_DOWNSTREAM
-  changes: Removed the empty downstream list from the terminal Three-species Viili EPS maximum interaction after a corpus
-    causal-graph audit found it was a non-informative stub.
+  changes: Removed the empty downstream list from the terminal Three-species Viili EPS maximum interaction after
+    a corpus causal-graph audit found it was a non-informative stub.
+  llm_assisted: true
+- timestamp: '2026-10-08T12:47:19Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain experimental nitrogen cross-feeding while bounding the signaling bridge.; Keep AI-2 perturbation
+    support without typing regulation as nutrient transfer.; Retain the three-member EPS maximum only among tested
+    combinations with explicit participants. Issue#1915; reports/causal_graph_review/decisions/20261008-four-records-batch118.yaml
   llm_assisted: true

@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        serially passaged laboratory SynCom
+                        serially passaged laboratory SynCom<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -453,7 +461,7 @@
 
                     <tr>
                         <td>
-                            <strong>Pseudomonas putida HAMBI 6</strong>
+                            <strong>Pseudomonas putida HAMBI 6<span class="ontology-label"> — ontology label: Pseudomonas putida</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=303"
@@ -489,7 +497,7 @@
 
                     <tr>
                         <td>
-                            <strong>Agrobacterium tumefaciens HAMBI 105</strong>
+                            <strong>Agrobacterium tumefaciens HAMBI 105<span class="ontology-label"> — ontology label: Agrobacterium tumefaciens</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=358"
@@ -525,7 +533,7 @@
 
                     <tr>
                         <td>
-                            <strong>Comamonas testosteroni HAMBI 403</strong>
+                            <strong>Comamonas testosteroni HAMBI 403<span class="ontology-label"> — ontology label: Comamonas testosteroni</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=285"
@@ -561,7 +569,7 @@
 
                     <tr>
                         <td>
-                            <strong>Citrobacter koseri HAMBI 1287</strong>
+                            <strong>Citrobacter koseri HAMBI 1287<span class="ontology-label"> — ontology label: Citrobacter koseri</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=545"
@@ -597,7 +605,7 @@
 
                     <tr>
                         <td>
-                            <strong>Morganella morganii HAMBI 1292</strong>
+                            <strong>Morganella morganii HAMBI 1292<span class="ontology-label"> — ontology label: Morganella morganii</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=582"
@@ -633,7 +641,7 @@
 
                     <tr>
                         <td>
-                            <strong>Kluyvera intermedia HAMBI 1299</strong>
+                            <strong>Kluyvera intermedia HAMBI 1299<span class="ontology-label"> — ontology label: Kluyvera intermedia</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=61648"
@@ -669,7 +677,7 @@
 
                     <tr>
                         <td>
-                            <strong>Sphingobium yanoikuyae HAMBI 1842</strong>
+                            <strong>Sphingobium yanoikuyae HAMBI 1842<span class="ontology-label"> — ontology label: Sphingobium yanoikuyae</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=13690"
@@ -705,7 +713,7 @@
 
                     <tr>
                         <td>
-                            <strong>Sphingobacterium spiritivorum HAMBI 1896</strong>
+                            <strong>Sphingobacterium spiritivorum HAMBI 1896<span class="ontology-label"> — ontology label: Sphingobacterium spiritivorum</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=258"
@@ -741,7 +749,7 @@
 
                     <tr>
                         <td>
-                            <strong>Aeromonas caviae HAMBI 1972</strong>
+                            <strong>Aeromonas caviae HAMBI 1972<span class="ontology-label"> — ontology label: Aeromonas caviae</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=648"
@@ -777,7 +785,7 @@
 
                     <tr>
                         <td>
-                            <strong>Pseudomonas chlororaphis HAMBI 1977</strong>
+                            <strong>Pseudomonas chlororaphis HAMBI 1977<span class="ontology-label"> — ontology label: Pseudomonas chlororaphis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=587753"
@@ -813,7 +821,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bordetella avium HAMBI 2160</strong>
+                            <strong>Bordetella avium HAMBI 2160<span class="ontology-label"> — ontology label: Bordetella avium</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=521"
@@ -849,7 +857,7 @@
 
                     <tr>
                         <td>
-                            <strong>Cupriavidus oxalaticus HAMBI 2164</strong>
+                            <strong>Cupriavidus oxalaticus HAMBI 2164<span class="ontology-label"> — ontology label: Cupriavidus oxalaticus</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=96344"
@@ -885,7 +893,7 @@
 
                     <tr>
                         <td>
-                            <strong>Paracoccus denitrificans HAMBI 2443</strong>
+                            <strong>Paracoccus denitrificans HAMBI 2443<span class="ontology-label"> — ontology label: Paracoccus denitrificans</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=266"
@@ -921,7 +929,7 @@
 
                     <tr>
                         <td>
-                            <strong>Stenotrophomonas maltophilia HAMBI 2659</strong>
+                            <strong>Stenotrophomonas maltophilia HAMBI 2659<span class="ontology-label"> — ontology label: Stenotrophomonas maltophilia</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=40324"
@@ -957,7 +965,7 @@
 
                     <tr>
                         <td>
-                            <strong>Niabella yanshanensis HAMBI 3031</strong>
+                            <strong>Niabella yanshanensis HAMBI 3031<span class="ontology-label"> — ontology label: Paraniabella yanshanensis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=577386"
@@ -993,7 +1001,7 @@
 
                     <tr>
                         <td>
-                            <strong>Microvirga lotononidis HAMBI 3237</strong>
+                            <strong>Microvirga lotononidis HAMBI 3237<span class="ontology-label"> — ontology label: Microvirga lotononidis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=864069"
@@ -1036,12 +1044,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for HAMBI Carbon-Gradient 16-species SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -1049,8 +1058,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -1059,11 +1068,47 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Total-carbon-driven community state shifts</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">Controlled glucose/R2A carbon gradients produced repeatable community-composition shifts: A. caviae dominated low carbon, P. chlororaphis co-dominated with A. caviae at intermediate carbon, and C. koseri dominated high carbon. R2A-derived complexity modulated this pattern within the tested media. Relative 16S profiles and the authors&#39; OD-scaled abundance analysis support the result, but are not direct viable-cell counts or proof of extinction. The authors interpret dominance as competitive sorting; ancestral monoculture lag and growth traits predict patterns but do not selectively establish competition, lag time or pH as the mediator. Clusters across different resource conditions do not demonstrate alternative stable states within one condition.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas putida HAMBI 6,
+
+                    Agrobacterium tumefaciens HAMBI 105,
+
+                    Comamonas testosteroni HAMBI 403,
+
+                    Citrobacter koseri HAMBI 1287,
+
+                    Morganella morganii HAMBI 1292,
+
+                    Kluyvera intermedia HAMBI 1299,
+
+                    Sphingobium yanoikuyae HAMBI 1842,
+
+                    Sphingobacterium spiritivorum HAMBI 1896,
+
+                    Aeromonas caviae HAMBI 1972,
+
+                    Pseudomonas chlororaphis HAMBI 1977,
+
+                    Bordetella avium HAMBI 2160,
+
+                    Cupriavidus oxalaticus HAMBI 2164,
+
+                    Paracoccus denitrificans HAMBI 2443,
+
+                    Stenotrophomonas maltophilia HAMBI 2659,
+
+                    Niabella yanshanensis HAMBI 3031,
+
+                    Microvirga lotononidis HAMBI 3237
+
+                </p>
 
 
 
@@ -1122,6 +1167,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which member interactions and traits mediate the carbon-dependent state shifts?
+                </h3>
+                <p class="prewrap">Preserve the positive controlled carbon response and the authors&#39; competitive-sorting interpretation. Monoculture trait prediction, endpoint pH associations and OD-scaled abundance are informative but not selective mediator perturbations or viable-cell enumeration. Partner removal, trait manipulation and pH control would test the proposed mechanisms. R2A is a proxy for resource complexity with uncertain effective availability, not an exhaustive complexity experiment; no within-condition hysteresis or alternative-attractor demonstration is established by clustering. All 16 canonical strains denote the input community, not proven persistence at every endpoint. Non-graph metadata is preserved, not recertified.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Total-carbon-driven community state shifts</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1451,12 +1515,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1469,7 +1536,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1621,7 +1687,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1645,6 +1711,47 @@
 
 
 
+            var participantKeys = [
+
+                "Pseudomonas putida HAMBI 6",
+
+                "Agrobacterium tumefaciens HAMBI 105",
+
+                "Comamonas testosteroni HAMBI 403",
+
+                "Citrobacter koseri HAMBI 1287",
+
+                "Morganella morganii HAMBI 1292",
+
+                "Kluyvera intermedia HAMBI 1299",
+
+                "Sphingobium yanoikuyae HAMBI 1842",
+
+                "Sphingobacterium spiritivorum HAMBI 1896",
+
+                "Aeromonas caviae HAMBI 1972",
+
+                "Pseudomonas chlororaphis HAMBI 1977",
+
+                "Bordetella avium HAMBI 2160",
+
+                "Cupriavidus oxalaticus HAMBI 2164",
+
+                "Paracoccus denitrificans HAMBI 2443",
+
+                "Stenotrophomonas maltophilia HAMBI 2659",
+
+                "Niabella yanshanensis HAMBI 3031",
+
+                "Microvirga lotononidis HAMBI 3237"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
 
@@ -1658,6 +1765,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

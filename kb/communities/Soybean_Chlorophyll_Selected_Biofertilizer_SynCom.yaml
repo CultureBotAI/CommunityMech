@@ -73,146 +73,17 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Plant-Guided Beneficial Rhizosphere Assembly
-  description: >
-    Recurrent host-mediated selection used soybean leaf chlorophyll content as
-    a rapid proxy for nitrogen-fixation performance, then propagated
-    rhizosphere and nodule bacteria from the best-performing plants across
-    eight gnotobiotic rounds.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: indole-3-acetic acid
-    term:
-      id: CHEBI:16411
-      label: indole-3-acetic acid
-  - preferred_term: siderophore
-    term:
-      id: CHEBI:26672
-      label: siderophore
-  biological_processes:
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
-  downstream:
-  - target: Bradyrhizobium Diazoefficiens Nodule Selection
-    description: Chlorophyll-guided recurrent passage selected Bradyrhizobium
-      diazoefficiens-like genotypes within the nodule population.
-  - target: Pseudomonadales-Enriched Rhizosphere Passage
-    description: Serial rhizosphere passage enriched Pseudomonadales,
-      Burkholderiales, and Sphingomonadales while the community moved toward a
-      less Bacillales-dominated, more stable composition.
-  evidence:
-  - *id001
-  - reference: PMID:42007760
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: chlorophyll content in leaves was used as the selection criterion since this
-      trait correlates well with N2-fixation parameters
-    explanation: Supports leaf chlorophyll as the plant-guided selection readout
-      for nitrogen-fixing performance.
-  - reference: PMID:42007760
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: IAA production was evaluated in G2MY broth supernatants by high-performance liquid
-      chromatography using purified IAA (Sigma-Aldrich, Buenos Aires, Argentina) as a standard
-    explanation: Names IAA as an HPLC-quantified plant-growth-promoting trait of
-      candidate SynCom members.
-  - reference: PMID:42007760
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Isolates were evaluated for known PGPR properties in plate assays for phosphate
-      solubilization in NBRIP agar ( 59 ) and siderophore production in CAS agar ( 60 )
-    explanation: Names siderophore production as one of the PGPR traits assayed
-      during plant-guided SynCom selection.
-- name: Bradyrhizobium Diazoefficiens Nodule Selection
-  description: >
-    Successive plant-selection rounds favored Bradyrhizobium diazoefficiens
-    genotypes in the recovered nodule population, enriching the
-    nitrogen-fixing symbiont component used to build the sixth-round SynCom.
-  interaction_type: MUTUALISM
+- name: Nodule-Associated Bradyrhizobium Genotype Pattern
+  description: Nodule-isolate fingerprints and marker evidence were consistent with B. diazoefficiens-like genotypes
+    during recurrent selection. The source interprets this pattern as selection but also notes an early pattern
+    before selection and unresolved pressures. This observation does not establish reciprocal fitness benefits,
+    quantify nitrogen-fixation flux or isolate the genotype pattern as the cause of later plant phenotypes.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bradyrhizobium
     term:
       id: NCBITaxon:374
       label: Bradyrhizobium
-  metabolites:
-  - preferred_term: dinitrogen
-    term:
-      id: CHEBI:17997
-      label: dinitrogen
-  biological_processes:
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
-  - preferred_term: nodulation
-    term:
-      id: GO:0009877
-      label: nodulation
-  downstream:
-  - target: HR6 Nonsterile-Soil Nodulation Promotion
-    description: The selected HR6+HN6 inoculum carried the favored nodulating
-      population into non-sterile soil, where soybean nodulation and shoot dry
-      weight increased.
-  evidence:
-  - reference: PMID:42007760
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: selective pressures during recurrent selection of plants with high leaf chlorophyll
-      contents favored B. diazoefficiens genotypes within the nodulating population
-    explanation: Supports B. diazoefficiens enrichment within the selected nodule
-      bacteria.
-- name: Pseudomonadales-Enriched Rhizosphere Passage
-  description: >
-    After the initial inoculant was dominated by Bacillus-like taxa, recurrent
-    passage enriched Pseudomonadales, Burkholderiales, and Sphingomonadales
-    while simplifying and stabilizing the rhizosphere community by HR6 and HR8.
-  interaction_type: NICHE_PARTITIONING
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: indole-3-acetic acid
-    term:
-      id: CHEBI:16411
-      label: indole-3-acetic acid
-  - preferred_term: siderophore
-    term:
-      id: CHEBI:26672
-      label: siderophore
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:42007760
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: the recurrent selection process appears to promote a community enriched in
-      taxa with potential plant-beneficial traits
-    explanation: Supports the enriched beneficial rhizosphere component produced
-      by serial plant-guided selection.
-  - reference: PMID:42007760
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: increased representation of Pseudomonadales, Burkholderiales, and
-      Sphingomonadales at the expense of Rhizobiales
-    explanation: Names the rhizosphere orders that increased over recurrent
-      passage.
-- name: HR6 Nonsterile-Soil Nodulation Promotion
-  description: >
-    The HR6+HN6 SynCom selected after six rounds promoted soybean nodule number,
-    nodule dry weight, and shoot dry weight in non-sterile field soil compared
-    with the uninoculated and B. japonicum E109 reference treatments.
-  interaction_type: MUTUALISM
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: dinitrogen
-    term:
-      id: CHEBI:17997
-      label: dinitrogen
   biological_processes:
   - preferred_term: nodulation
     term:
@@ -220,18 +91,51 @@ ecological_interactions:
       label: nodulation
   evidence:
   - reference: PMID:42007760
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: Taken together, these results suggest that selective pressures during recurrent selection of plants
+      with high leaf chlorophyll contents favored B. diazoefficiens genotypes within the nodulating population.
+    explanation: Preserves the authors' inference qualifier and the nodule-population scope; does not identify the
+      causal selection pressure.
+- name: Rhizosphere Community Composition Across Selection Rounds
+  description: Rhizosphere profiles shifted from initial Bacillus-related dominance toward greater relative representation
+    of Pseudomonadales, Burkholderiales and Sphingomonadales and reduced Rhizobiales representation. This is community-composition
+    evidence, not demonstrated niche partitioning, microbial cooperation or IAA/siderophore-mediated succession.
+    Co-occurrence and inferred functions do not establish those mechanisms.
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42007760
     supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: increased representation of Pseudomonadales, Burkholderiales, and Sphingomonadales at the expense of
+      Rhizobiales
+    explanation: Supports the relative-abundance pattern across selection rounds, not an isolated competition or
+      facilitation mechanism.
+- name: HR6 Nonsterile-Soil Plant Phenotypes
+  description: In non-sterile-soil pots, the Results report higher HR6+HN6 nodule number, total nodule dry weight
+    and shoot dry weight. Table 1 gives higher means but shared significance letters with both the uninoculated
+    and E109 controls for these three endpoints; this is not uniformly significant superiority over both controls.
+    Chlorophyll content did not differ among treatments. These are host phenotypes, not field deployment, direct
+    nitrogen-fixation flux, reciprocal microbial fitness benefits or proof that a selected genotype caused the response.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: nodulation
+    term:
+      id: GO:0009877
+      label: nodulation
+  evidence:
+  - reference: PMID:42007760
+    supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: HR6 promoted higher nodule number, nodule dry weight, and shoot dry weight
-    explanation: Supports the selected HR6+HN6 inoculum's improved symbiotic
-      performance in non-sterile soil.
+    explanation: Retains the Results wording; Table 1 shared significance groups limit any stronger comparator claim
+      for nodule number, total nodule dry weight and shoot dry weight.
   - reference: PMID:42007760
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: The SynComs HR6 and HR8 were evaluated in pots filled with non-sterile soil
-      from the UNLP experimental field at Los Hornos
-    explanation: Places the selected SynCom performance test in a non-sterile
-      soil context.
+    snippet: The SynComs HR6 and HR8 were evaluated in pots filled with non-sterile soil from the UNLP experimental
+      field at Los Hornos
+    explanation: Supports a pot experiment using field-derived non-sterile soil, not an in-field deployment.
 environmental_factors:
 - name: chlorophyll-guided recurrent selection
   value: Rhizosphere communities from superior soybean performers were pooled and propagated across selection
@@ -298,7 +202,39 @@ curation_history:
 - timestamp: '2026-10-02T06:10:22Z'
   curator: codex
   action: REVIEW_CAUSAL_GRAPH
-  changes: Removed the downstream edge from Pseudomonadales-enriched rhizosphere
-    passage to HR6 nonsterile-soil nodulation because it described inoculum
-    pairing rather than a tested causal mechanism.
+  changes: Removed the downstream edge from Pseudomonadales-enriched rhizosphere passage to HR6 nonsterile-soil
+    nodulation because it described inoculum pairing rather than a tested causal mechanism.
   llm_assisted: true
+- timestamp: '2026-10-08T00:51:40Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain the inferred genotype pattern without mutualism, nitrogen flux or a genotype-to-phenotype arrow.;
+    Preserve the observed composition shift while removing niche partitioning and unsupported mediator annotations.;
+    Retain plant phenotype observations with table-based significance limits, pot context and no reciprocal-benefit
+    attribution. Issue#1817; reports/causal_graph_review/decisions/20261008-four-records-batch104.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: chlorophyll_causal_attribution_batch104
+  prompt: Which mechanisms explain the genotype and composition patterns, and what comparator effects are supported
+    for HR6+HN6?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: 'Three assembly/formulation arrows are removed; the previously pruned rhizosphere-to-HR6 arrow remains
+    absent. The primary discussion leaves selection pressures unresolved, and co-occurrence/functional inference
+    do not identify a mediator. For nodule number, total nodule dry weight and shoot dry weight, Table 1 shares
+    significance letters between HR6+HN6 and both controls despite the narrative of higher values. Retain the reported
+    means without blanket significance or field efficacy claims. Raw data and supplementary figures were not reanalyzed;
+    candidate trait assays and non-graph roles are not recertified (#1821; related role queue #497).'
+  posed_by: codex
+  posed_date: '2026-10-08'
+  evidence:
+  - reference: PMID:42007760
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: unknown selection pressures seemed to shape the genotypic structure of the soybean-nodulating bradyrhizobial
+      population at a rate faster than previously estimated.
+    explanation: The source leaves the selection mechanism unresolved.
+  attaches_to:
+  - ecological_interactions#Nodule-Associated Bradyrhizobium Genotype Pattern
+  - ecological_interactions#Rhizosphere Community Composition Across Selection Rounds
+  - ecological_interactions#HR6 Nonsterile-Soil Plant Phenotypes

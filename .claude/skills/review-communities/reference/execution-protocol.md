@@ -99,6 +99,13 @@ for line in validation_output:
 
 ### Step 4: Report Issues to User
 
+Save the assessed observation using [docs/record-reviews.md](../../../../docs/record-reviews.md)
+and `uv run python scripts/record_review.py save --content /tmp/completed-review.yaml`
+after input inspection and validation. Use session-unique temporary paths.
+The template below is a diagnostic presentation example, not the final output
+contract. A review-only invocation ends after saving its structured bundle;
+the apply/history steps require separately authorized curation.
+
 ```markdown
 ## Validation Report: {community_name}
 

@@ -135,9 +135,11 @@ taxonomy:
     explanation: Supports M. jannaschii as the archaeal partner in the exact coculture.
 ecological_interactions:
 - name: Interspecies Hydrogen Transfer
-  description: T. maritima produces hydrogen during fermentative growth, and M. jannaschii
-    consumes transferred hydrogen as a hydrogenotrophic methanogen, allowing the
-    coculture to sustain higher T. maritima cell densities than monoculture.
+  description: T. maritima produces hydrogen during fermentation, and hydrogen consumption by M. jannaschii supports
+    methanogenesis while relieving bacterial product inhibition. The 1997 study reported a tenfold bacterial density
+    increase at 85 C and methanogen growth without external H2/CO2. The separate 2006 study reported a three- to
+    fivefold density increase under its own conditions. These are assay-specific effects, not a single universal
+    fold change or obligate mutual dependence under all conditions; T. maritima also grew in monoculture.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -174,8 +176,11 @@ ecological_interactions:
       label: methanogenesis
   downstream:
   - target: Coculture-Associated Aggregation and Transcriptome Shift
-    description: Sustained interspecies hydrogen transfer places T. maritima in the methanogenic
-      coculture state that changes its transcriptome and promotes EPS-based aggregation.
+    description: 'PARTIAL: hydrogen removal relieves growth inhibition and enables the higher-density coculture
+      context in which aggregation and altered growth-phase transcription were observed. Hydrogen-removal comparisons
+      support a contribution to physiology, but do not selectively demonstrate mediation of every EPS or transcript
+      response by hydrogen transfer alone. Growth phase, population density and culture/gas-handling conditions
+      remain part of this causal interpretation.'
   evidence:
   - reference: PMID:18636642
     supports: SUPPORT
@@ -193,21 +198,12 @@ ecological_interactions:
     snippet: Interspecies H2 transfer resulted in three- to fivefold-higher T. maritima cell densities
     explanation: Supports the syntrophic hydrogen-transfer mechanism and growth response.
 - name: Spatially Proximate Methanogenic Coculture
-  description: Physical separation prevented establishment of the coculture, indicating
-    that close spatial proximity is important for hydrogen transfer between the
-    fermentative bacterium and methanogenic archaeon.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Methanocaldococcus jannaschii DSM 2661
-    term:
-      id: NCBITaxon:243232
-      label: Methanocaldococcus jannaschii DSM 2661
-  target_taxon:
-    preferred_term: Thermotoga maritima MSB8
-    term:
-      id: NCBITaxon:243274
-      label: Thermotoga maritima MSB8
+  description: 'PARTIAL: the 1997 coculture failed to establish when partners were separated by a dialysis membrane,
+    and the methanogen occurred in larger cell sorts. These observations support the importance of spatial proximity
+    in that assay. They do not demonstrate direct cell contact as obligatory, a specific molecular adhesion mechanism,
+    or directional colonization facilitation by the archaeon. Hydrogen transport and metabolic-rate effects were
+    also modeled, rather than all directly measured.'
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: dihydrogen
     term:
@@ -220,8 +216,10 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Interspecies Hydrogen Transfer
-    description: Close spatial proximity allows transferred hydrogen to reach M. jannaschii and
-      establish the methanogenic coculture.
+    description: 'PARTIAL: proximity can reduce the transport distance for hydrogen from the fermenter to the methanogen,
+      helping establish hydrogen-transfer syntrophy. Failure across a dialysis membrane and size-fraction association
+      support this interpretation, but do not uniquely identify diffusion distance, direct contact or a specific
+      attachment mechanism as the cause.'
   evidence:
   - reference: PMID:18636642
     supports: SUPPORT
@@ -229,26 +227,28 @@ ecological_interactions:
     snippet: could not be established if the two organisms were physically separated
     explanation: Supports the importance of spatial proximity for establishing the coculture.
   - reference: PMID:18636642
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: suggesting the importance of spatial proximity
-    explanation: Supports close-range interaction as a curated mechanism.
-- name: Coculture-Associated Aggregation and Transcriptome Shift
-  description: Methanogenic coculture altered the T. maritima transcriptome and promoted
-    exopolysaccharide-based cell aggregates, linking syntrophic interaction to
-    community structure and bacterial physiology.
-  interaction_type: SYNTROPHY
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Thermotoga maritima MSB8
+    explanation: The source explicitly interprets the separation result as suggesting spatial proximity, not proof
+      of direct-contact dependence or directional colonization.
+  participating_taxa:
+  - preferred_term: Thermotoga maritima MSB8
     term:
       id: NCBITaxon:243274
       label: Thermotoga maritima MSB8
-  target_taxon:
-    preferred_term: Methanocaldococcus jannaschii DSM 2661
+  - preferred_term: Methanocaldococcus jannaschii DSM 2661
     term:
       id: NCBITaxon:243232
       label: Methanocaldococcus jannaschii DSM 2661
+- name: Coculture-Associated Aggregation and Transcriptome Shift
+  description: T. maritima aggregation and transcription changed with growth phase in methanogenic coculture. In
+    the 2006 study, 292 genes changed at least twofold from mid-log to early stationary phase within coculture,
+    versus 24 for that transition within monoculture; these are not 292 genes in a direct coculture-versus-monoculture
+    contrast. EPS-based aggregates were prominent during mid-log growth and diminished during stationary phase.
+    Proposed sigma-factor, ppGpp and EPS-remodeling mechanisms are interpretations, not demonstrated regulatory
+    necessity. The phenotype is not an additional measured metabolite-transfer event from bacterium to archaeon.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -259,17 +259,29 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: 292 genes differentially expressed in T. maritima
-    explanation: Supports broad transcriptomic response in the coculture.
+    explanation: The 292 count describes a within-coculture growth-phase contrast, not a direct comparison against
+      monoculture.
   - reference: PMID:16391122
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: concomitant formation of exopolysaccharide (EPS)-based cell aggregates
-    explanation: Supports EPS-based aggregation as an observed coculture phenotype.
+    explanation: Supports observed EPS-based aggregates accompanying the high-density coculture; specific mediation
+      is not isolated by this quote.
   - reference: PMID:16391122
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: syntrophic interactions can impact the transcriptome of heterotrophs
-    explanation: Supports syntrophic regulation of the T. maritima phenotype.
+    explanation: Supports a coculture-associated bacterial phenotype; it does not establish a second directional
+      metabolic exchange.
+  participating_taxa:
+  - preferred_term: Thermotoga maritima MSB8
+    term:
+      id: NCBITaxon:243274
+      label: Thermotoga maritima MSB8
+  - preferred_term: Methanocaldococcus jannaschii DSM 2661
+    term:
+      id: NCBITaxon:243232
+      label: Methanocaldococcus jannaschii DSM 2661
 environmental_factors:
 - name: Hyperthermophilic temperature
   value: 85
@@ -410,3 +422,36 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element transformation role is curated for this
   hyperthermophilic hydrogen-transfer coculture.
+discussions:
+- discussion_id: proximity-hydrogen-density-mediation-batch114
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  prompt: Which proximity and hydrogen-removal effects specifically mediate aggregation and the bacterial transcript
+    response?
+  rationale: 'Dialysis separation, hydrogen-removal comparisons and growth-phase observations support the existing
+    qualified links, but do not isolate every step. Density-matched and gas-handling-matched comparisons would help
+    distinguish hydrogen transfer from other coculture effects. The 1997 and 2006 assay conditions must remain separate;
+    non-graph metadata followup remains issue #1891.'
+  attaches_to:
+  - ecological_interactions#Interspecies Hydrogen Transfer
+  - ecological_interactions#Spatially Proximate Methanogenic Coculture
+  - ecological_interactions#Coculture-Associated Aggregation and Transcriptome Shift
+  evidence:
+  - reference: PMID:16391122
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: concomitant formation of exopolysaccharide (EPS)-based cell aggregates
+    explanation: Supports observed EPS-based aggregates accompanying the high-density coculture; specific mediation
+      is not isolated by this quote.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T09:06:43Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain supported hydrogen syntrophy and separate study-specific density effects; qualify the existing
+    arrow as partial mediation through the higher-density context.; Recast proximity as an explicit two-participant
+    community observation; retain a PARTIAL transport interpretation without colonization or mandatory-contact typing.;
+    Recast growth-phase aggregation/transcription as a community phenotype, with the exact within-culture 292-versus-24
+    contrast and no extra exchange claim. Issue#1889; reports/causal_graph_review/decisions/20261008-two-records-batch114.yaml
+  llm_assisted: true

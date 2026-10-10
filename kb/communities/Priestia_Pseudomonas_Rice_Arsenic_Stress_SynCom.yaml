@@ -114,12 +114,9 @@ taxonomy:
     explanation: Identifies Oryza sativa var. Sarju-52 as the host plant assayed with the SynCom.
 ecological_interactions:
 - name: SynCom restriction of rice arsenic accumulation
-  description: >-
-    Inoculation with the Priestia flexa and Pseudomonas putida SynCom
-    substantially reduced arsenic accumulation in rice roots, shoots and grains
-    by coordinating down-regulation of arsenic-transporter genes that drive
-    arsenic uptake and internal translocation.
-  interaction_type: MUTUALISM
+  description: 'The Priestia flexa and Pseudomonas putida SynCom reduced arsenic accumulation in rice roots, shoots
+    and grains. PARTIAL: the abstract attributes this effect to coordinated transporter-gene downregulation; accessible
+    evidence does not establish transporter necessity, individual-strain contribution or reciprocal microbial benefit.'
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: response to toxic substance
@@ -130,24 +127,32 @@ ecological_interactions:
   - reference: PMID:42691895
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      SynCom substantially reduced arsenic accumulation in roots, shoots and
-      grains by coordinate downregulation of arsenic transporter genes
-    explanation: >-
-      Links the whole SynCom to lowered arsenic accumulation and to suppression
-      of rice arsenic-transporter gene expression.
+    snippet: SynCom substantially reduced arsenic accumulation in roots, shoots and grains by coordinate downregulation
+      of arsenic transporter genes
+    explanation: Supports the reported whole-SynCom endpoint and proposed transporter explanation, not mediator-specific
+      intervention proof.
   - reference: PMID:42691895
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: Lsi1, Lsi2, Lsi3, OsNIP1;1, and OsNIP3;3
     explanation: Names the rice arsenic-transporter genes that were coordinately down-regulated by SynCom treatment.
+  participating_taxa:
+  - preferred_term: Priestia flexa
+    term:
+      id: NCBITaxon:86664
+      label: Priestia flexa
+  - preferred_term: Pseudomonas putida
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  - preferred_term: Oryza sativa var. Sarju-52
+    term:
+      id: NCBITaxon:4530
+      label: Oryza sativa
 - name: SynCom restoration of rice stress physiology
-  description: >-
-    The two-member SynCom restored host photosynthetic and metabolic function
-    under arsenic exposure, with improved photosynthesis, increased soluble
-    sugars, reduced proline accumulation, and suppression of overactive
-    antioxidant-enzyme responses.
-  interaction_type: MUTUALISM
+  description: SynCom inoculation improved photosynthesis and soluble sugars and reduced proline accumulation and
+    antioxidant-enzyme overactivation under arsenic stress. Preserve these positive rice responses without asserting
+    reciprocal mutualism or an untested causal direction between these composite outcome nodes.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: response to stress
@@ -158,13 +163,23 @@ ecological_interactions:
   - reference: PMID:42691895
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      Inoculation with SynCom restored physiological function and metabolic
-      balance, as evidenced by improved photosynthesis, increased soluble
-      sugars, and reduced proline accumulation.
-    explanation: >-
-      Supports improved host photosynthetic and metabolic performance under
-      arsenic stress after SynCom inoculation.
+    snippet: Inoculation with SynCom restored physiological function and metabolic balance, as evidenced by improved
+      photosynthesis, increased soluble sugars, and reduced proline accumulation.
+    explanation: Supports improved host photosynthetic and metabolic performance under arsenic stress after SynCom
+      inoculation.
+  participating_taxa:
+  - preferred_term: Priestia flexa
+    term:
+      id: NCBITaxon:86664
+      label: Priestia flexa
+  - preferred_term: Pseudomonas putida
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  - preferred_term: Oryza sativa var. Sarju-52
+    term:
+      id: NCBITaxon:4530
+      label: Oryza sativa
 environmental_factors:
 - name: Arsenite and arsenate stress
   value: As(III), 18 mg/kg; As(V), 50 mg/kg
@@ -202,3 +217,38 @@ metal_relevance: SIGNIFICANT
 metal_notes: >-
   Arsenic is the defining metalloid stressor in this SynCom assay but is not one
   of the MetalEnum values available in this schema.
+discussions:
+- discussion_id: rice-transporter-mediation-and-partner-benefit
+  prompt: Which bacterial activities and host transporters mediate the SynCom benefit?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  rationale: The accessible abstract supports two-member inoculation, arsenic restriction and host physiological
+    improvement. Full text was unavailable. It does not establish reciprocal benefit, strain necessity or a direction
+    between the two existing outcome nodes. Transporter downregulation remains the authors explanation, with causal
+    mediation qualified; no new structure is needed for this repair.
+  attaches_to:
+  - ecological_interactions#SynCom restriction of rice arsenic accumulation
+  - ecological_interactions#SynCom restoration of rice stress physiology
+  evidence:
+  - reference: PMID:42691895
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom substantially reduced arsenic accumulation in roots, shoots and grains by coordinate downregulation
+      of arsenic transporter genes
+    explanation: Supports the reported whole-SynCom endpoint and proposed transporter explanation, not mediator-specific
+      intervention proof.
+  - reference: PMID:42691895
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Inoculation with SynCom restored physiological function and metabolic balance, as evidenced by improved
+      photosynthesis, increased soluble sugars, and reduced proline accumulation.
+    explanation: Supports improved host photosynthetic and metabolic performance under arsenic stress after SynCom
+      inoculation.
+curation_history:
+- timestamp: '2026-10-07T11:17:02Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve reduced arsenic and qualify transporter mediation.; Preserve host physiology without unsupported
+    mutualism or new direction. Issue #1720; reports/causal_graph_review/decisions/20261007-four-records-batch87.yaml'
+  llm_assisted: true

@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -453,7 +461,7 @@
 
                     <tr>
                         <td>
-                            <strong>Agrobacterium deltaense LSQ16</strong>
+                            <strong>Agrobacterium deltaense LSQ16<span class="ontology-label"> — ontology label: Agrobacterium deltae</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1183412"
@@ -495,7 +503,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus velezensis WB</strong>
+                            <strong>Bacillus velezensis WB<span class="ontology-label"> — ontology label: Bacillus velezensis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=492670"
@@ -544,12 +552,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for SynCom Y Agrobacterium-Bacillus Biofilm Biocontrol Co-culture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding, mutualism. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -565,6 +574,11 @@
                              aria-hidden="true" data-symbol="symbolSquare"
                              data-color="#9f2ebb"></svg> Mutualism
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
@@ -574,6 +588,7 @@
                     <h3>Synergistic biofilm and EPS formation in co-culture</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">Co-culture increased biofilm biomass, EPS and metabolic activity relative to monocultures. Species-specific qPCR also supported increased cell-equivalent abundance of both strains in the biofilm fraction, supporting reciprocal benefit in that assay. WB abundance did not increase in the planktonic fraction. This conditional biofilm mutualism is not proof of reciprocal metabolite delivery or of the same interaction operating on watermelon roots.</p>
 
 
                 <p><strong>Source Taxon:</strong> Agrobacterium deltaense LSQ16</p>
@@ -604,6 +619,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> SynCom Y Fusaric Acid and Wilt Resistance
+                        <p class="prewrap causal-description">HYPOTHESIZED/PARTIAL: enhanced EPS-rich biofilm formation could contribute to fusaric-acid tolerance and the positive pot-level biocontrol outcome. Separate in-vitro and pot comparisons do not isolate biofilm mediation or establish that the in-vitro partnership occurs in the rhizosphere.</p>
                     </div>
 
                 </div>
@@ -626,6 +642,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42125264/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42125264</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Quantitative PCR under co-culture conditions confirmed that mixed-species biofilm formation promotes the growth of both strains"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -633,11 +662,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>SynCom Y Fusaric Acid and Wilt Resistance</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">The two-strain biofilm tolerated fusaric-acid exposure better than either monoculture in vitro. Separately, SynCom Y reduced watermelon wilt in pots, with reported disease incidence 18.33% and control efficacy 79.13%. Preserve both positive outcomes without equating biofilm tolerance with pathogen killing or asserting that EPS, a specific exchanged metabolite or root colonization was experimentally isolated as the cause of disease suppression.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Agrobacterium deltaense LSQ16,
+
+                    Bacillus velezensis WB
+
+                </p>
 
 
 
@@ -650,17 +687,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        symbiotic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044403"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044403</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -704,6 +730,7 @@
                     <h3>Predicted cross-feeding from A. deltaense LSQ16 to B. velezensis WB</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">HYPOTHESIZED/PARTIAL: genome-scale models predict LSQ16-to-WB exchange of several metabolites. Exogenous L-ornithine and guanine increased WB biofilm biomass, and co-culture metabolite abundances were consistent with the proposed direction. Supplementation demonstrates a physiological response, not direct donor-to-recipient transfer. Malate and guanosine were also included in supplementation tests; the reported positive validation centers on ornithine and guanine. Other predicted exchanges are not established measured fluxes.</p>
 
 
                 <p><strong>Source Taxon:</strong> Agrobacterium deltaense LSQ16</p>
@@ -747,6 +774,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Synergistic biofilm and EPS formation in co-culture
+                        <p class="prewrap causal-description">HYPOTHESIZED/PARTIAL: predicted LSQ16 provision of L-ornithine and guanine could contribute to WB biofilm enhancement, consistent with the positive additions and metabolite profiles. These results do not establish transfer, its necessity, or its quantitative contribution to the two-strain biofilm/EPS response.</p>
                     </div>
 
                 </div>
@@ -762,7 +790,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42125264/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42125264</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Moreover, exogenous supplementation of l-ornithine and guanine further enhanced the biofilm-forming capacity of B. velezensis WB."</div>
@@ -775,10 +803,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42125264/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42125264</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"Predictive results indicated metabolite exchange between the two strains involved amino acids, purines, phosphates, and other compounds."</div>
+                        <div class="snippet">"A. deltaense LSQ16 may supply malate, O-acetylcarnitine, guanine, guanosine, l-ornithine, and phosphate to B. velezensis WB"</div>
 
                     </li>
 
@@ -791,6 +819,7 @@
                     <h3>Predicted metabolite return from B. velezensis WB to A. deltaense LSQ16</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">HYPOTHESIZED/PARTIAL: models predict WB-to-LSQ16 return of L-serine, pyroglutamic acid, myristic acid and suberoylglycine. Metabolite abundance patterns are consistent with some predictions, but additions of tested reverse-direction candidates did not significantly enhance LSQ16 monoculture biofilm biomass. This negative endpoint does not prove that exchange is absent; it prevents describing a beneficial return flux as experimentally validated.</p>
 
 
                 <p><strong>Source Taxon:</strong> Bacillus velezensis WB</p>
@@ -824,10 +853,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42125264/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42125264</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"Predictive results indicated metabolite exchange between the two strains involved amino acids, purines, phosphates, and other compounds."</div>
+                        <div class="snippet">"which in turn provides suberoylglycine, myristic acid, l-serine, and pyroglutamic acid to A. deltaense LSQ16"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42125264/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42125264</a>
+
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"the addition of l-serine, pyroglutamic acid, and other compounds did not result in a significant enhancement of the biofilm biomass in A. deltaense LSQ16 monocultures"</div>
 
                     </li>
 
@@ -840,6 +882,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which predicted exchanges mediate biofilm synergy and the pot-level biocontrol outcome?
+                </h3>
+                <p class="prewrap">Preserve reciprocal biofilm-associated abundance, EPS, metabolic activity, FA tolerance and disease suppression. Forward additions are positive; tested reverse additions did not significantly enhance LSQ16 biofilm. Neither result directly measures interspecies transfer. The primary discussion explicitly leaves rhizosphere synergy unverified. Modeling methods name CarveMe, Cobra toolbox and FBA but do not state versions or genome input accessions; the cited SRA range belongs to RNA-seq. Main text and captions were read, not separate supplementary data or raw datasets.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Synergistic biofilm and EPS formation in co-culture</code>, <code>ecological_interactions#SynCom Y Fusaric Acid and Wilt Resistance</code>, <code>ecological_interactions#Predicted cross-feeding from A. deltaense LSQ16 to B. velezensis WB</code>, <code>ecological_interactions#Predicted metabolite return from B. velezensis WB to A. deltaense LSQ16</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42125264/" rel="nofollow noreferrer">PMID:42125264</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Whether the two strains form a synergistic relationship in the rhizosphere still requires validation via root colonization assays.</p>
+                        <p class="muted small prewrap">Explicit limitation separating in-vitro biofilm findings from rhizosphere mechanism.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -941,12 +1022,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -959,7 +1043,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1022,7 +1105,7 @@
             processes.push("biofilm formation");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1051,7 +1134,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1059,10 +1142,6 @@
 
 
             var processes = [];
-
-
-            processes.push("symbiotic process");
-
 
             var evidenceCount = 2;
 
@@ -1078,6 +1157,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Agrobacterium deltaense LSQ16",
+
+                "Bacillus velezensis WB"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1138,7 +1230,7 @@
 
             var processes = [];
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1176,6 +1268,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

@@ -1,0 +1,308 @@
+reviewer: codex
+review_mode: source_based
+issues:
+- 1240
+- 1241
+- 1242
+records:
+- path: data/isolates/Aspergillus_Indium_LED_Recovery.yaml
+  id: CommunityMech:000320
+  original_sha256: fc677a9e9d003e72234089e6282e7477978621ef2506fb468880baa44a171015
+  record_sha256: c9ebc23ad2748751ae6a42fbc2340c5f7524a7aa38185bcad4602b7e56734d9d
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+  outcome: changed
+  scope: Whole record read; every current causal node and edge checked against primary-source passages. Other metadata
+    is not certified by this graph review.
+  summary: Clarify inhibitory biomass causation and distinguish indium dissolution from cellular transport
+  node_decisions:
+  - node: Fermentation Component Optimization
+    rationale: Retain abstract-supported fermentation optimization and its component-supply arrow.
+  - node: Carboxy-Group Proton Release for Indium Leaching
+    rationale: Retain carboxyl-group proton donation; remove GO:0030001 because the process is extracellular leaching.
+  - node: Indium Oxide Dissolution and Mobilization
+    rationale: Retain the dissolution-to-recovery arrow with mechanism evidence rather than a problem statement;
+      remove the cellular-transport annotation.
+  - node: Biomass Inhibition of Indium Recovery
+    rationale: Make the negative effect explicit without asserting an unreported process-control intervention.
+  - node: Fermentation-Broth Indium Recovery
+    rationale: Retain the directly reported optimized recovery endpoint.
+  edges_before:
+  - source: Fermentation Component Optimization
+    target: Carboxy-Group Proton Release for Indium Leaching
+    description: Increased acid and carboxyl-group output supplies the proton-donating groups that leach indium.
+  - source: Carboxy-Group Proton Release for Indium Leaching
+    target: Indium Oxide Dissolution and Mobilization
+    description: H+ from carboxy groups attacks the indium-bearing oxide phase.
+  - source: Indium Oxide Dissolution and Mobilization
+    target: Fermentation-Broth Indium Recovery
+    description: Metal-oxide leaching releases indium into the optimized broth.
+  - source: Biomass Inhibition of Indium Recovery
+    target: Fermentation-Broth Indium Recovery
+    description: Biomass interference explains why broth-centered process control improves indium recovery.
+  edges_after:
+  - source: Fermentation Component Optimization
+    target: Carboxy-Group Proton Release for Indium Leaching
+    description: Increased acid and carboxyl-group output supplies the proton-donating groups that leach indium.
+  - source: Carboxy-Group Proton Release for Indium Leaching
+    target: Indium Oxide Dissolution and Mobilization
+    description: H+ from carboxy groups attacks the indium-bearing oxide phase.
+  - source: Indium Oxide Dissolution and Mobilization
+    target: Fermentation-Broth Indium Recovery
+    description: Metal-oxide leaching releases indium into the optimized broth.
+  - source: Biomass Inhibition of Indium Recovery
+    target: Fermentation-Broth Indium Recovery
+    description: Biomass suppresses indium recovery by blocking proton access to the oxide and adsorbing mobilized
+      indium.
+  references:
+  - PMID:34111782
+  source_review:
+  - reference: PMID:34111782
+    local_source: references_cache/PMID_34111782.txt
+    passages_read: Complete cached abstract, including optimization and inhibitory biomass mechanism.
+  - url: https://amigo.geneontology.org/amigo/term/GO:0030001
+    passages_read: Official definition concerns cellular metal-ion movement, not extracellular dissolution.
+  history_file: history/records/Aspergillus_Indium_LED_Recovery/2026-10-05T071439Z-codex-eb16f5.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1240
+- path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  id: CommunityMech:000321
+  original_sha256: 64776251dc75f7a479ac580b7eee5ab95a29249819725c448739c50162580563
+  record_sha256: b73ac6cd532c8fb20c7d1fa70979b2a220238069f0ce78c7b6c9d66af2524ab8
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+  outcome: changed
+  scope: Whole record read; every current causal node and edge checked against primary-source passages. Other metadata
+    is not certified by this graph review.
+  summary: Remove laboratory provenance arrows from the Rothia ecological graph
+  node_decisions:
+  - node: Rothia KRP Genome-Scale Amino-Acid Flux Model
+    rationale: Retain explicitly computational amino-acid potential with its existing model provenance; do not invent
+      a measured exchange.
+  edges_before:
+  - source: Rothia KRP GAM Agar Isolation
+    target: Rothia KRP Whole-Genome Assembly
+    description: The cultured KRP isolate supplied genomic DNA for draft genome sequencing.
+  - source: Rothia KRP Whole-Genome Assembly
+    target: Rothia KRP Genome-Scale Amino-Acid Flux Model
+    description: The deposited KRP genome supported strain-specific metabolic reconstruction.
+  edges_after: []
+  references:
+  - PMID:28963201
+  - PMID:33398099
+  source_review:
+  - reference: PMID:28963201
+    local_source: references_cache/PMID_28963201.txt
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC5624747/
+    passages_read: Entire short genome announcement; isolate ISC 156, GAM cultivation, sequencing, assembly, and
+      accession.
+  - reference: PMID:33398099
+    local_source: references_cache/PMID_33398099.md
+    passages_read: Complete abstract, relevant modeling results, and methods including CarveMe reconstruction and
+      FBA of amino-acid uptake/secretion.
+  - url: https://github.com/cdanielmachado/kefir_paper
+    passages_read: Author README, species_list.tsv, model directory, and parsed KRP SBML blob.
+    verified_identity: species_list.tsv maps 156_03182016 to Rothia kefirresidentii KRP, distinct from the two R.
+      dentocariosa models.
+    model_path: models/156_03182016.xml
+    model_git_blob_sha: 4b7ca24290259cc8d20e4ff415f26327c1f1b9e0
+    model_id: m_156_03182016
+    model_sbml_level: 3
+    model_sbml_version: 1
+    model_reaction_count: 1274
+    model_species_count: 893
+    model_annotation: Built with CarveMe version 1.6.1.
+    retrieval_note: Contents API omitted the large body; the Git blob endpoint returned parseable XML.
+  removed_node_decisions:
+  - node: Rothia KRP GAM Agar Isolation
+    rationale: Laboratory isolation provenance belongs in the existing growth-media metadata, not an ecological
+      causal chain.
+  - node: Rothia KRP Whole-Genome Assembly
+    rationale: Genome assembly is a data-production step, retained in dataset provenance rather than represented
+      as biological causation.
+  history_file: history/records/BioModels_MODEL2204300002_Kefir_Rothia_Model/2026-10-05T071439Z-codex-9feb28.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1240
+- path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  id: CommunityMech:000273
+  original_sha256: dc0d1aba8c55600cefff4bc8709abe8c621fb71bf0a594624623cd7873b191e2
+  record_sha256: 6f859fe8ba028743e55e8b77565c2ee747df5b436e7d3741728af6e037850fa2
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+  outcome: changed
+  scope: Whole record read; every current causal node and edge checked against primary-source passages. Other metadata
+    is not certified by this graph review.
+  summary: Bound the cyanogenic gold graph to tested PCB interventions and remove unsupported ecological classifications
+  node_decisions:
+  - node: Biogenic Cyanide Production in Glycine-Supplemented Culture
+    rationale: Retain reported cyanogenesis and medium composition without a traced glycine flux or unverified enzyme
+      and concentration details.
+  - node: Gold Cyanide Complexation and Dissolution
+    rationale: Retain PCB leaching and the combined-condition endpoint; remove ore, exact-complex, and purification
+      overclaims.
+  - node: Oxygen-Supported PCB Gold Leaching
+    rationale: Retain directly reported oxygen supplementation effects without a commensalism label or a new arrow.
+  - node: PCB Pretreatment and Particle Size Effects
+    rationale: Rename to the PCB system, separate prior biooxidation from the C. violaceum culture, and avoid an
+      unbounded finer-grinding claim.
+  edges_before:
+  - source: Biogenic Cyanide Production from Glycine
+    target: Gold Cyanide Complexation and Dissolution
+    description: Biogenic cyanide complexes metallic gold from ores and e-waste
+  - source: Ore Pretreatment and Particle Size Effects
+    target: Gold Cyanide Complexation and Dissolution
+    description: Grinding and particle-size reduction expose refractory gold surfaces to biogenic cyanide
+  edges_after:
+  - source: Biogenic Cyanide Production in Glycine-Supplemented Culture
+    target: Gold Cyanide Complexation and Dissolution
+    description: Biogenic cyanide supplies the gold-cyanide reaction that mobilizes gold from the tested waste PCBs.
+  - source: PCB Pretreatment and Particle Size Effects
+    target: Gold Cyanide Complexation and Dissolution
+    description: Base-metal removal by the separate pretreatment and particle-size optimization improved subsequent
+      PCB gold leaching; the abstract does not resolve their individual causal contributions.
+  references:
+  - doi:10.1007/s10163-014-0276-4
+  source_review:
+  - reference: doi:10.1007/s10163-014-0276-4
+    url: https://link.springer.com/article/10.1007/s10163-014-0276-4
+    local_source: references_cache/doi_10.1007_s10163-014-0276-4.md
+    passages_read: Complete publisher abstract about waste PCBs, oxygen, base-metal pretreatment, particle size,
+      and optimized gold recovery.
+    cache_caution: The local file contained ABSTRACT EXCERPTS mislabeled abstract_only, with abbreviated or paraphrased
+      source text. Reclassified as selected_excerpts under issue 1242; it is not an independently retrieved complete
+      abstract.
+  renamed_nodes:
+    Biogenic Cyanide Production from Glycine: Biogenic Cyanide Production in Glycine-Supplemented Culture
+    Ore Pretreatment and Particle Size Effects: PCB Pretreatment and Particle Size Effects
+  limitations:
+  - Non-graph metadata remains outside this causal-graph certification.
+  - Local cache contains selected excerpts; primary publisher abstract was read separately.
+  history_file: history/records/Chromobacterium_Gold_Biocyanidation/2026-10-05T071440Z-codex-ec73a1.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1240
+- path: data/isolates/Methylobacterium_REE_Ewaste_Platform.yaml
+  id: CommunityMech:000322
+  original_sha256: 9b02e72a5ccb0f1dca720f2a8ee4c4c4865242d55aea3d4149285d520e55990f
+  record_sha256: 70d9761a556a3e744eb81c26f1906bb0ce697b3d64be526ecaafddea7404f978
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+  outcome: changed
+  scope: Whole record read; every current causal node and edge checked against primary-source passages. Other metadata
+    is not certified by this graph review.
+  summary: Separate supplied citrate, engineered REE dependence, and distinct uptake-storage perturbations
+  node_decisions:
+  - node: Citrate-Supplemented REE Leaching
+    rationale: Retain citrate-associated supply while removing ineffective-acid and secretion claims; ground the
+      supplied citrate anion and avoid relabeling total REE as Nd.
+  - node: Lanthanophore-Mediated REE Bioaccumulation
+    rationale: Retain the direct mll accumulation effect, distinguish its tested background, and remove cross-condition
+      selectivity attribution.
+  - node: Polyphosphate Granule REE Sequestration
+    rationale: Retain the ppx accumulation result and storage context, not unmeasured irreversible retention or
+      bond chemistry.
+  - node: Methanol-Powered REE Acquisition Metabolism
+    rationale: Describe delta-mxaF REE-dependent growth rather than obligate wild-type physiology.
+  edges_before:
+  - source: Organic Acid-Mediated REE Bioleaching
+    target: Lanthanophore-Mediated REE Bioaccumulation
+    description: Leached REE become bioavailable for cellular uptake
+  - source: Lanthanophore-Mediated REE Bioaccumulation
+    target: Polyphosphate Granule REE Sequestration
+    description: Lanthanophore-delivered REE are stored in polyphosphate granules
+  edges_after:
+  - source: Citrate-Supplemented REE Leaching
+    target: Lanthanophore-Mediated REE Bioaccumulation
+    description: PARTIAL - citrate supplementation increased leaching and cellular REE accumulation, supplying more
+      accessible metal. The study did not isolate mll as the mediator of that citrate-associated increment.
+  - source: Lanthanophore-Mediated REE Bioaccumulation
+    target: Polyphosphate Granule REE Sequestration
+    description: PARTIAL - uptake supplies intracellular REE associated with polyphosphate storage. The separate
+      mll and ppx experiments do not directly trace mll-delivered metal into granules or establish a combined mediation
+      effect.
+  references:
+  - PMID:38150661
+  source_review:
+  - reference: PMID:38150661
+    doi: 10.1021/acs.est.3c06775
+    url: https://pubmed.ncbi.nlm.nih.gov/38150661/
+    local_source: references_cache/PMID_38150661.txt
+    passages_read: Abstract; introduction and strain methods; growth, leaching and uptake methods; results through
+      citrate, repeated recovery cycles, mll expression and ppx deletion; discussion.
+    lines_read: 1-52, 135-590
+    access_caution: PMC10785750 web response was a CAPTCHA; did not bypass. Existing full-text cache supplied primary
+      methods and results.
+  renamed_nodes:
+    Organic Acid-Mediated REE Bioleaching: Citrate-Supplemented REE Leaching
+  grounding_sources:
+  - https://www.ebi.ac.uk/chebi/CHEBI:16947
+  limitations:
+  - The ppx supplement was not retrieved; do not specify an unverified double-mutant genotype.
+  - Non-graph metadata is not certified by this review.
+  history_file: history/records/Methylobacterium_REE_Ewaste_Platform/2026-10-05T071441Z-codex-ba09e4.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1240
+- path: kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
+  id: CommunityMech:000374
+  original_sha256: eeef4a3c72f6660c2263fe91ec7858610797c19fa513bf641e2a6234ff4414d4
+  record_sha256: eeef4a3c72f6660c2263fe91ec7858610797c19fa513bf641e2a6234ff4414d4
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+  outcome: no_change
+  scope: Whole record read; every current causal node and edge checked against primary-source passages. Other metadata
+    is not certified by this graph review.
+  summary: Retain the source-bounded SL8-SL12 community endpoint and existing molecular-causality gap
+  node_decisions:
+  - node: SL8-SL12 cooperative cadmium immobilization
+    rationale: Measured coculture removal exceeds both monocultures at the specified high dose. Fractionation and
+      spectroscopy support the reported accumulation and CdS observations. EPS involvement is already qualified
+      as possible.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42307251
+  source_review:
+  - reference: PMID:42307251
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13340288/
+    local_source: references_cache/PMID_42307251.txt
+    passages_read: Complete abstract; Cd-removal and fractionation methods; results on removal, pH, microscopy,
+      spectroscopy, and molecular-causality limitations.
+    local_lines_read: 9-11, 31-48, 103-171
+  no_new_structure_rationale: The existing node summarizes the observed community phenotype. Do not convert correlated
+    transporter, antioxidant, and peptide changes into causal nodes or arrows; the authors explicitly acknowledge
+    missing causal perturbations.
+  existing_gap: sl8_sl12_omics_causality
+- path: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+  id: CommunityMech:000458
+  original_sha256: bc2a37286663cbf40d9b8d4d1d46c8a5d92f80a0537fea3437728de26f9c8a3c
+  record_sha256: ff5a241eec381f83352135c004e32f39407dc4d82fb4f2bbba2c2bbb299a71d9
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+  outcome: changed
+  scope: Whole record read; every current causal node and edge checked against primary-source passages. Other metadata
+    is not certified by this graph review.
+  summary: Bound alfalfa causal claims to phase-specific results and remove unestablished mutualism
+  node_decisions:
+  - node: Stress-adapted SynCom promotion of alfalfa root architecture
+    rationale: Preserve the reported stress-phase biomass response while qualifying the discussion's overbroad architectural
+      claim.
+  - node: Stress-adapted SynCom promotion of recovery root nodulation
+    rationale: Retain the recovery nodulation endpoint without mutualism, nitrogen-fixation, or an inter-node mediation
+      claim.
+  edges_before: []
+  edges_after: []
+  references:
+  - doi:10.21203/rs.3.rs-7812930/v1
+  source_review:
+  - reference: doi:10.21203/rs.3.rs-7812930/v1
+    url: https://www.researchgate.net/publication/396992881_Stress-adapted_bacterial_synthetic_community_enhances_drought_resilience_and_recovery_in_alfalfa
+    local_source: references_cache/doi_10.21203_rs.3.rs-7812930_v1.md
+    passages_read: Public primary preprint text; abstract, growth-chamber methods, belowground results, Table 1
+      extracted text, and discussion limitations.
+    pages_read: 1-2, 5-6, 9-10, 13-14, Table 1 on page 20
+    access_caution: Research Square landing page and PDF returned 403. ResearchGate primary-paper text was readable;
+      PDF figures and table layout were not visually inspected.
+    cache_caution: Local cache contains selected excerpts, not independent full text. Its label was normalized from
+      selected_full_text to selected_excerpts when the verified recovery result was added. cache_text still returns no
+      independent local source body. Ignored-inclusive repository filename search found no other corresponding source file.
+  limitations:
+  - The local selected-full-text cache does not supply independent snippet coverage. Primary preprint text was read
+    through its public ResearchGate copy.
+  - No PDF visual inspection of Table 1 was performed; the relevant results text was read directly.
+  history_file: history/records/Alfalfa_Stress_Adapted_Bacterial_SynCom/2026-10-05T071441Z-codex-39897d.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1241

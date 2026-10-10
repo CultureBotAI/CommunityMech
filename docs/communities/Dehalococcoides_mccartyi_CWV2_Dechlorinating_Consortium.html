@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        TCE-contaminated groundwater (biochar-amended enrichment)
+                        TCE-contaminated groundwater (biochar-amended enrichment)<span class="ontology-label"> — ontology label: groundwater</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001004"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -453,7 +461,7 @@
 
                     <tr>
                         <td>
-                            <strong>Dehalococcoides mccartyi strain CWV2</strong>
+                            <strong>Dehalococcoides mccartyi strain CWV2<span class="ontology-label"> — ontology label: Dehalococcoides mccartyi</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=61435"
@@ -504,21 +512,17 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Dehalococcoides mccartyi CWV2 Dechlorinating Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -533,6 +537,7 @@
                 <div class="interaction-header">
                     <h3>BC600 Biochar-Consortium Coupling</h3>
                 </div>
+                <p class="prewrap interaction-description">The strategy amends a native Dhc-containing groundwater consortium with Zizania latifolia husk biochar produced at 600 degrees C. The author-uploaded proof distinguishes consortium D345 from CWV2; the graph does not treat the isolate and the complete community as identical.</p>
 
 
 
@@ -556,6 +561,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> BC600 Colonization and Activity Enhancement
+                        <p class="prewrap causal-description">BC600 amendment supplies sorptive surfaces and is associated with enhanced microbial colonization and activity in the tested consortium. Amendment effects depend on dose and inoculum conditions; this does not establish that adsorption itself is biological dechlorination.</p>
                     </div>
 
                 </div>
@@ -586,6 +592,7 @@
                 <div class="interaction-header">
                     <h3>BC600 Colonization and Activity Enhancement</h3>
                 </div>
+                <p class="prewrap interaction-description">BC600 was selected for adsorption performance and practical cost considerations and was associated with enhanced microbial colonization and activity. The proof reports slightly greater sorption for BC700, so BC600 is not asserted to have the strongest adsorption. Sorption and biological transformation remain distinct processes.</p>
 
 
 
@@ -609,6 +616,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Biochar-Accelerated TCE Degradation
+                        <p class="prewrap causal-description">PARTIAL - biochar-associated microbial colonization and activity could contribute to faster TCE transformation, alongside sorption and bioavailability effects. The amendment comparison does not selectively isolate colonization as the causal mediator, and TCE disappearance through adsorption is not itself degradation.</p>
                     </div>
 
                 </div>
@@ -624,7 +632,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41442978/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41442978</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Biochar (BC600) demonstrated optimal adsorption while enhancing microbial colonization and activity"</div>
@@ -639,6 +647,7 @@
                 <div class="interaction-header">
                     <h3>Biochar-Accelerated TCE Degradation</h3>
                 </div>
+                <p class="prewrap interaction-description">BC600 amendment accelerated TCE transformation in the tested native-consortium experiments. Removal includes a sorption contribution and must not be equated wholesale with biological degradation. Dose and inoculum comparisons differ; faster TCE transformation alone does not imply lower vinyl-chloride accumulation.</p>
 
 
 
@@ -658,15 +667,6 @@
 
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Vinyl Chloride Accumulation Mitigation
-                    </div>
-
-                </div>
 
 
 
@@ -694,6 +694,7 @@
                 <div class="interaction-header">
                     <h3>Vinyl Chloride Accumulation Mitigation</h3>
                 </div>
+                <p class="prewrap interaction-description">A separate high-inoculum BC600 experiment reported lower peak vinyl-chloride accumulation, consistent with support for downstream dechlorination. In lower-inoculum comparisons, biochar could instead increase vinyl chloride while unamended controls retained TCE. CWV2 vinyl-chloride-to-ethene capability and the consortium amendment outcome are related but distinct observations.</p>
 
 
 
@@ -756,8 +757,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Hydrogen- and Electroactive-Guild Dechlorination Stability</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">Community profiling associated biochar with relative-abundance shifts among putative hydrogen-producing and electroactive guilds. HYPOTHESIZED - those guilds could support dechlorination through reducing-equivalent supply. Relative profiles do not demonstrate hydrogen or electron flux, direct interspecies electron transfer, selective guild necessity or long-term field stability.</p>
 
 
 
@@ -789,7 +790,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41442978/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41442978</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Microbial community analysis further indicated that biochar promoted syntrophic hydrogen producers and electroactive bacteria, ensuring long-term dechlorination stability."</div>
@@ -805,6 +806,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which biochar effects and community members causally mediate condition-specific dechlorination?
+                </h3>
+                <p class="prewrap">The published abstract and complete author-uploaded uncorrected-proof body were read, not the complete final published body. Colonization, sorption, bioavailability and putative guild activity were not selectively separated. Faster TCE transformation and lower peak VC are not a demonstrated directed causal sequence and differ by inoculum condition. Proof units and concentrations are inconsistent between methods, results and captions, so none are normalized here. Figure captions and Table 1 text were read, not figure images or supplements. Consortium D345/CWV2 identity, named-member and metadata claims remain open under #1391; no new taxa or compensating arrows are invented.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#BC600 Biochar-Consortium Coupling</code>, <code>ecological_interactions#BC600 Colonization and Activity Enhancement</code>, <code>ecological_interactions#Biochar-Accelerated TCE Degradation</code>, <code>ecological_interactions#Vinyl Chloride Accumulation Mitigation</code>, <code>ecological_interactions#Hydrogen- and Electroactive-Guild Dechlorination Stability</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -875,12 +895,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -893,7 +916,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1064,7 +1086,7 @@
 
         (function() {
             var intId = "interaction:4";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1106,6 +1128,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

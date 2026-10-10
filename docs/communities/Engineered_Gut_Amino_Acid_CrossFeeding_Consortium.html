@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        gnotobiotic mouse gut environment
+                        gnotobiotic mouse gut environment<span class="ontology-label"> — ontology label: intestine environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_2100002"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -496,7 +504,7 @@
 
                     <tr>
                         <td>
-                            <strong>Salmonella enterica serovar Typhimurium</strong>
+                            <strong>Salmonella enterica serovar Typhimurium<span class="ontology-label"> — ontology label: Salmonella enterica subsp. enterica serovar Typhimurium</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=90371"
@@ -633,12 +641,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Engineered Gut Amino Acid Cross-Feeding Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -651,8 +660,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -663,9 +672,22 @@
                     <h3>Engineered Amino Acid Cross-Feeding</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">Engineered auxotrophy and amino acid overproduction supported consortium growth without external addition of the designated cross-fed amino acids. LC-MS production measurements and supernatant-rescue assays show unequal capacities, not complete measured all-to-all transfer. B. fragilis was not rescued by the tested overproducer supernatants although it grew in coculture. These observations support community-level nutritional dependence without identifying a dedicated transporter or proving all partner-specific fluxes. Canonical participants describe the studied four-member consortium.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Escherichia coli,
+
+                    Salmonella enterica serovar Typhimurium,
+
+                    Bacteroides thetaiotaomicron,
+
+                    Bacteroides fragilis
+
+                </p>
 
 
 
@@ -688,12 +710,6 @@
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0008652</a>)
                     </li>
 
-                    <li>
-                        amino acid transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006865"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006865</a>)
-                    </li>
-
                 </ul>
 
 
@@ -703,6 +719,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Beneficial Interaction Shift
+                        <p class="prewrap causal-description">PARTIAL: The combined dependency/overproduction intervention introduced nutritional support and changed the in-vitro growth trajectories used to infer interaction structure. Unequal rescue and remaining negative-interaction uncertainty prevent interpreting this as a measured fully mutualistic all-to-all network.</p>
                     </div>
 
                 </div>
@@ -738,6 +755,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/31409662/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31409662</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"B. fragilis growth was not rescued by any of the strains"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -745,11 +775,23 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Beneficial Interaction Shift</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">A Bayesian dynamical model fitted to in-vitro strain-specific qPCR growth trajectories inferred two positive effects from B. fragilis toward E. coli and S. Typhimurium, with weaker evidence for several negative interactions than in the WT consortium. These are model-inferred net effects under inoculum perturbations, not direct molecular exchange measurements or proof that antagonism vanished. They do not establish reciprocal benefit among every member or identify the same interaction network in vivo.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Escherichia coli,
+
+                    Salmonella enterica serovar Typhimurium,
+
+                    Bacteroides thetaiotaomicron,
+
+                    Bacteroides fragilis
+
+                </p>
 
 
 
@@ -773,6 +815,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Cross-Feeding Increased Population Evenness
+                        <p class="prewrap causal-description">PARTIAL: Engineered nutritional dependencies and altered inferred net interactions are consistent with the greater evenness observed in separate in-vitro endpoint assays. The interaction-shift node was not selectively perturbed to establish mediation. Extension of this pathway to the day-10 mouse-gut endpoint is HYPOTHESIZED; in-vitro network inference does not measure in-vivo exchange.</p>
                     </div>
 
                 </div>
@@ -788,10 +831,23 @@
                             <a href="https://doi.org/10.1128/mSystems.00352-19"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1128/mSystems.00352-19</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"genetic modifications alleviated antagonistic interactions and resulted in beneficial interactions"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/31409662/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31409662</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"although some inferred negative interactions are still present"</div>
 
                     </li>
 
@@ -802,11 +858,23 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Cross-Feeding Increased Population Evenness</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">The engineered four-member consortium had higher Pielou evenness in anaerobic endpoint cultures, especially without supplemented cross-fed amino acids, despite lower overall growth in the unsupplemented in-vitro setting. In gnotobiotic mice, day-10 fecal strain-specific DNA-qPCR supported greater evenness for the engineered consortium on the low-protein diet; the standard-diet trend was not statistically significant. This is a composition endpoint, not longitudinal stability, a conventional microbiome or a host-health benefit. The assay does not directly measure amino-acid flux in the gut.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Escherichia coli,
+
+                    Salmonella enterica serovar Typhimurium,
+
+                    Bacteroides thetaiotaomicron,
+
+                    Bacteroides fragilis
+
+                </p>
 
 
 
@@ -850,6 +918,19 @@
                         </div>
 
                         <div class="snippet">"low-protein diet showed significantly greater population evenness"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/31409662/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31409662</a>
+
+                            - SUPPORT (IN_VIVO)
+                        </div>
+
+                        <div class="snippet">"although this trend was not statistically significant"</div>
 
                     </li>
 
@@ -897,6 +978,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which nutritional interactions mediate the diet-dependent mouse-gut evenness endpoint?
+                </h3>
+                <p class="prewrap">Keep unequal supernatant rescue distinct from community growth. The Bayesian model used in-vitro qPCR time series with inoculum perturbations; its net interaction edges do not identify molecular flux or prove an all-to-all mutualistic network. Higher-order effects were not supported by those data, not biologically excluded. Separate the 27-hour trajectory assays from 24-hour supplementation endpoints and day-10 fecal DNA-qPCR. Low-protein diet changes more than a single measured amino-acid flux, and the standard-diet evenness trend was nonsignificant. Do not extrapolate to longitudinal stability, conventional microbiota or clinical benefit. Canonical B. fragilis AMBIGUOUS grounding is preserved, not resolved. Non-graph cache-access wording remains #1457; cache pointer/casing issues remain #1094/#1091. No new genetic engineering procedures or pairwise mechanisms are added.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Engineered Amino Acid Cross-Feeding</code>, <code>ecological_interactions#Beneficial Interaction Shift</code>, <code>ecological_interactions#Cross-Feeding Increased Population Evenness</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1047,12 +1147,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1065,7 +1168,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1145,10 +1247,8 @@
 
             processes.push("cellular amino acid biosynthetic process");
 
-            processes.push("amino acid transport");
 
-
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1163,11 +1263,28 @@
 
 
 
+            var participantKeys = [
+
+                "Escherichia coli",
+
+                "Salmonella enterica serovar Typhimurium",
+
+                "Bacteroides thetaiotaomicron",
+
+                "Bacteroides fragilis"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1176,7 +1293,7 @@
             processes.push("interspecies interaction between organisms");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1191,11 +1308,28 @@
 
 
 
+            var participantKeys = [
+
+                "Escherichia coli",
+
+                "Salmonella enterica serovar Typhimurium",
+
+                "Bacteroides thetaiotaomicron",
+
+                "Bacteroides fragilis"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1204,7 +1338,7 @@
 
             var processes = [];
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1219,6 +1353,23 @@
 
 
 
+            var participantKeys = [
+
+                "Escherichia coli",
+
+                "Salmonella enterica serovar Typhimurium",
+
+                "Bacteroides thetaiotaomicron",
+
+                "Bacteroides fragilis"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
 
@@ -1232,6 +1383,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

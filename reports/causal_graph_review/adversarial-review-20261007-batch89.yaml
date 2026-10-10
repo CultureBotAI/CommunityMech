@@ -1,0 +1,214 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 8c3f238066d60d5a17db06a91dbd34e3f039f183
+scope:
+- kb/communities/Pseudomonas_Bacillus_Waxy_Oil_Biodegradation_Consortium.yaml
+- kb/communities/Pseudomonas_Klebsiella_Alcaligenes_FeII_Nitrogen_Removal_SynCom.yaml
+- kb/communities/Pseudomonas_Paracoccus_Bifenthrin_Degradation_Consortium.yaml
+- kb/communities/Pseudomonas_Pedobacter_Social_Spreading_Coculture.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch89.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch89.json
+findings:
+- issue: 1732
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate wax-removal performance from inferred cooperative mechanisms
+  disposition: Close only after protected-main merge.
+- issue: 1733
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound Fe2+ nitrate-removal graph to treatment endpoints and abundance evidence
+  disposition: Close only after protected-main merge.
+- issue: 1734
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate bifenthrin biotransformation from niche and fitness assertions
+  disposition: Close only after protected-main merge.
+- issue: 1735
+  severity: P2
+  status: addressed_in_this_change
+  finding: Repair the source attachment of the social-spreading initiation arrow
+  disposition: Close only after protected-main merge.
+- issue: 1736
+  severity: P2
+  status: unresolved_non_graph
+  finding: Reconcile social-spreading culture fields and unsupported cross-feeder roles
+  disposition: Keep OPEN after graph repairs.
+adversarial_checks:
+- Fresh both-root baseline preceded papers; all10originalnodes6arrows retained with dispositions. One existing source
+  endpoint corrected; its target and causal wording are unchanged. No new biological causal claim.
+- Waxy-oil removal measurements and both existing directions survive. Proposed transfer and cooperation are PARTIAL;
+  multi-omics and docking do not establish mediator necessity or reciprocal fitness. Unavailable methods are not
+  evidence that perturbations were absent.
+- Nitrogen preserves improved nitrate-N removal and reported abundance shifts. Metagenomic versus transcript wording
+  is unresolved, not silently converted into verified expression or flux. Nitrate disappearance does not certify
+  whole-system nitrogen loss or niche partitioning.
+- Bifenthrin sequential transformations and positive consortium comparison remain. Intermediate coupling does not
+  establish traced assimilation, growth dependence or reciprocal fitness. Hydrolase-specific mediation stays qualified.
+- Social spreading, comigration and association requirement remain distinct positive findings. The existing initiation
+  arrow text names contact, so its attachment changes from Comigration to the already-existing Contact-Dependent
+  Initiation node. This repairs a mechanical source mismatch rather than extending the graph with a new claim.
+- Primary membrane and adjacent-colony experiments support the association requirement; conditioned-medium and heat-killed-cell
+  results do not identify a molecular trigger or motor. Follow-up differences among other isolate pairs do not override
+  the canonical pair.
+- Explicit canonical participants replace unsupported one-way inducer and mutual-fitness typing in social nodes.
+  Non-graph temperature, timing and cross-feeder-role claims are preserved outside certification under1736.
+- One fresh primary main text and four fresh abstracts read. Follow-up XML500 after bounded retries. No separate
+  supplements, raw data or original figure pixels audited. No new growth-optimization details, strain combinations,
+  genetic designs or experimental procedures added.
+- All921caches456otherrecords and raw non-graph blocks preserved; four append-only histories and ten focused tests.
+  Four explicit-participant users added, measured census updated, all56oldwarnings retained, zero structural defects.
+  No taxonomy or auditor-rule change.
+- Executed gates and deterministic HTML-description checks are not browser screenshots or generated-model loader
+  certification. Loader1703remains open. Repairs1732-1735await protected-main merge;1736remains open. No paid Edison
+  job or inferred authorization. Self-review is not independent approval or corpus completion.
+verification:
+  combined_regressions: 806 passed in 278.00s (0:04:38)
+  new_regression_tests: 10
+  primary_graph_snippet_proof:
+    graph_quotations: 18
+    discussion_quotations: 8
+    fresh_primary_matches: 26
+    cached_only_matches: 0
+    retained_nodes: 10
+    removed_nodes: 0
+    retained_arrows: 6
+    removed_arrows: 0
+    mechanical_source_endpoint_corrections: 1
+    new_biological_causal_claims: 0
+    primary_main_texts_read: 1
+    other_primary_abstracts_read: 4
+    cache_changes: 0
+  references: Four full-record reference-validator runs passed. CLI Total checks counts issues, not executed checks.
+    Eighteen graph and eight discussion quotations match independent fresh-primary and cache text. Literal matching
+    is not entailment or full-text certification.
+  snippet_counts_by_record:
+    kb/communities/Pseudomonas_Bacillus_Waxy_Oil_Biodegradation_Consortium.yaml:
+      MATCH: 16
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Pseudomonas_Klebsiella_Alcaligenes_FeII_Nitrogen_Removal_SynCom.yaml:
+      MATCH: 15
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Pseudomonas_Paracoccus_Bifenthrin_Degradation_Consortium.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Pseudomonas_Pedobacter_Social_Spreading_Coculture.yaml:
+      MATCH: 21
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    caveat: Both-root recipe executed. Informational exit0 does not certify a clean corpus; four focused snippet
+      gates pass independently.
+    output: "# 8922 evidence snippets scanned across 460 files\n  MATCH      8787\n  RENDERING  20\n  ASSEMBLED\
+      \  1\n  WEAK       0\n  MISMATCH   38\n  NOCONTENT  76\n\n# Files with MISMATCH/WEAK (content present but\
+      \ snippet absent) \u2014 fabrication suspects\n  19 (19 hard)  kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml\n\
+      \  15 (15 hard)  kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml\n   3 (3 hard)  kb/communities/Coscinodiscus_Synthetic_Community.yaml\n\
+      \   1 (1 hard)  kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml\nuv run python scripts/evidence_snippet_audit.py\
+      \ \n"
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All56existing warnings preserved, zero structural defects. One mechanical edge-source correction,
+      no taxonomy or auditor-rule changes.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch89.yaml: b51f0eba09e676c943911efa627077808bc2bbf7719b9319ab07883c3c1f71a4
+    tests/test_causal_review_batch89.py: cfa6035ad3554716b7f1b58a5b6579cc2149bd526839d8e380b12a9e2f322af0
+    tests/test_participating_taxa.py: ed8c915fb392c44732ea69347fc1fa80e31b1e38df51c4179c29c033f803b63d
+    kb/communities/Pseudomonas_Bacillus_Waxy_Oil_Biodegradation_Consortium.yaml: 486ebf698059e286653f489e1db2b72ac917c61cfaf31bd9200e0ebb62ac7913
+    kb/communities/Pseudomonas_Klebsiella_Alcaligenes_FeII_Nitrogen_Removal_SynCom.yaml: 0e4ab9a02b384bc08912fba28e9873d6c98d408ebd7aa68187adbc423a7b4c38
+    kb/communities/Pseudomonas_Paracoccus_Bifenthrin_Degradation_Consortium.yaml: 84251088dd9fe5c30bdab428f7edf3bba20a00b5433b232ac867658eb189d9ce
+    kb/communities/Pseudomonas_Pedobacter_Social_Spreading_Coculture.yaml: 0b23d93e9c3dee9108cc63022eee2c241c9df15ea94840600a6d44d4a3f2f0f8
+    reports/causal_graph_review/README.md: e0b8dd50fd4b76f7a1d2fd196d7f39c6d798a3f3611955d666bac77ed64e1ba2
+  unchanged_records: 456
+  unchanged_caches: 921
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: One misattached existing arrow moved unchanged to its existing intended source; no new biological
+      causal claim or extension.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 395
+      mixed: 126
+      community_level_only: 269
+      taxa: 1521
+      credited_solely_by_the_rule: 1247
+    current:
+      records: 460
+      with_community_level: 396
+      mixed: 126
+      community_level_only: 270
+      taxa: 1523
+      credited_solely_by_the_rule: 1249
+  delta:
+    records: 0
+    with_community_level: 1
+    mixed: 0
+    community_level_only: 1
+    taxa: 2
+    credited_solely_by_the_rule: 2
+  interpretation: Social-spreading record changes from pairwise-only to community-level-only with explicit canonical
+    participants; four records gain explicit lists. No canonical taxon or auditor-rule change.
+corpus:
+  records: 460
+  nodes: 1422
+  edges: 584
+  review_status_counts:
+    needs_research: 48
+    pending: 136
+    reviewed: 276
+limitations:
+- Fresh both-root baseline before papers:460records921caches1422nodes584arrows56warnings0structural defects. All10originalnodes6arrows
+  retained; one existing arrow changes source endpoint with its target and causal wording unchanged.
+- Fresh social-spreading primary abstract/main methods/results/discussion and embedded tables/captions read from
+  EuropePMC XML. Four other fresh abstracts read. Follow-up XML500 after bounded retries. No separate supplements,
+  raw data or original figure pixels audited.
+- Waxy oil and bifenthrin retain positive treatment outcomes, proposed mechanisms and existing directions. Abstract-bounded
+  mediation is explicit; multi-omics/docking do not themselves establish necessity, traced assimilation or reciprocal
+  fitness. No new pathogenic-growth optimization or experimental designs were added.
+- Nitrogen retains measured nitrate-N improvement and source-reported abundance shifts, without niche-partitioning
+  or verified flux claims. The source mixes metagenomic analysis and transcript-abundance language; this ambiguity
+  is recorded rather than silently resolved. Nitrate disappearance is not certified as whole-system nitrogen loss.
+- Social spreading preserves joint movement, comigration and the experimentally supported association prerequisite.
+  The existing contact-initiation edge was attached to Comigration. Reattaching its unchanged wording and target
+  to the already-existing Contact-Dependent Initiation node repairs an endpoint, not a new biological mechanism
+  or graph-extension research task. No Edison spend was needed for this mechanical repair.
+- Social nodes use explicit canonical community participants rather than an untested one-way inducer or mutual-fitness
+  classification. Other isolate-pair findings from the follow-up abstract do not override the canonical pair. The
+  molecular trigger and motor remain unresolved.
+- 456otherrecords, all921caches and raw non-graph blocks preserved. Four explicit-participant users added; social
+  changes from pairwise-only to community-level-only. No taxonomy or auditor-rule changes. Non-graph social temperature/timing/cross-feeder
+  follow-up remains open.
+- Dedup1001all-state issue titles/bodies and17ignored/hidden local matches; .git/docs/site/references_cache excluded,
+  relevant caches separately inspected.353was a numeric-ID false positive. Explicitly read529general cultivation-source
+  scope and878Klebsiella grounding. Comments and PRs not exhaustively searched.
+- No new node or biological causal claim, Edison dry run or provider submission. Earlier pending and denied spend
+  scopes remain unchanged. Four repair issues close only after protected-main merge; the metadata follow-up remains
+  open.
+- Validation, rendering, publication and exact-head review are subsequent gates, not preasserted. Self-adversarial
+  review is not independent approval, generated-model loader certification or corpus completion. Loader1703 remains
+  open.

@@ -111,8 +111,11 @@ taxonomy:
     explanation: Supports the methanogenic cross-feeding role of M. barkeri in the coculture.
 ecological_interactions:
 - name: Cellulose Fermentation to Methanogenesis Precursors
-  description: C. cellulovorans degrades cellulose and releases H2, formate, acetate, and other
-    fermentation products that can feed methanogenesis by M. barkeri.
+  description: C. cellulovorans 743B ferments cellulose to hydrogen, formate and acetate that support M. barkeri
+    Fusaro methanogenesis in the tested coculture. Methane production, undetectable hydrogen and transient formate/acetate
+    accumulation followed by depletion support the supply model. Other fermentation products, including butyrate
+    and lactate, are not thereby established as substrates consumed by M. barkeri. Product pools reflect simultaneous
+    production and consumption, not directly resolved partner-specific fluxes.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -152,27 +155,31 @@ ecological_interactions:
       id: GO:0006113
       label: fermentation
   downstream:
-  - target: Multi-Substrate Methanogenesis by M. barkeri
-    description: >
-      Hydrogen, formate, and acetate released during C. cellulovorans cellulose
-      fermentation supply the substrates consumed by M. barkeri for
-      multi-substrate methanogenesis.
+  - target: Coculture-Associated Multi-Substrate Methanogenesis by M. barkeri
+    description: Cellulose fermentation supplies hydrogen, formate and acetate for coculture-associated methanogenesis
+      by M. barkeri. Exact-pair gas/product profiles and controls support this relationship, but do not resolve
+      each precursor contribution; formate use is condition-dependent rather than evidence that formate alone supports
+      the methanogen.
   evidence:
   - reference: PMID:28191038
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: produced by C. cellulovorans during cellulose degradation
-    explanation: Supports production of methanogenesis substrates by C. cellulovorans.
+    explanation: Supports the source of the methanogenesis precursors, not consumption of every VFA or quantitative
+      donor-resolved flux.
   - reference: PMID:28191038
-    supports: SUPPORT
+    snippet: no H2 was detected in the cocultures throughout the cultivation period
+    explanation: Supports the coculture gas profile in the primary Results; absence of accumulated hydrogen does
+      not quantify its production and consumption separately.
     evidence_source: IN_VITRO
-    snippet: Clostridium cellulovorans 743B
-    explanation: Supports cellulose degradation by C. cellulovorans as the primary source of cross-fed
-      metabolites.
-- name: Multi-Substrate Methanogenesis by M. barkeri
-  description: M. barkeri consumes hydrogen, formate, and acetate produced during cellulose
-    fermentation to generate methane through hydrogenotrophic/formate-linked and acetoclastic
-    methanogenic routes.
+    supports: SUPPORT
+- name: Coculture-Associated Multi-Substrate Methanogenesis by M. barkeri
+  description: PARTIAL - coculture methane production and hydrogen, formate and acetate depletion, together with
+    RT-qPCR, support the authors' acetoclastic and CO2-reduction model. M. barkeri did not grow with formate alone
+    after nine months. A mixed-substrate monoculture consumed only about 1.5 mM of 10 mM supplied formate and little
+    acetate, unlike the coculture. The specific formate-linked pathway and each electron contribution remain inferred
+    rather than directly traced. The M. barkeri-to-C. cellulovorans direction represents proposed product-removal
+    feedback to the fermenter, not donation of methanogenesis substrates in that direction.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -212,27 +219,37 @@ ecological_interactions:
       id: GO:0015948
       label: methanogenesis
   downstream:
-  - target: Methanogen-Enabled Cellulose Degradation and pH Stabilization
-    description: >
-      M. barkeri consumption of cellulose-fermentation products lowers hydrogen
-      and volatile fatty acid accumulation, stabilizing pH and improving
-      cellulose degradation by C. cellulovorans.
+  - target: Coculture-Associated Cellulose Degradation and pH Stabilization
+    description: HYPOTHESIZED - M. barkeri consumption of formate and acetate, together with hydrogen removal and
+      a changed C. cellulovorans fermentation pattern, reduces accumulated acid products and could help stabilize
+      pH and sustain cellulose degradation. The measured coculture outcomes support this model, but do not isolate
+      product removal or pH as the unique mediator. Lower butyrate/lactate pools are not evidence that the methanogen
+      consumed those acids.
   evidence:
   - reference: PMID:28191038
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: simultaneous utilization of hydrogen, formate, and acetate for methanogenesis
-    explanation: Supports M. barkeri consumption of the three C. cellulovorans products for methane
-      formation.
+    explanation: Supports the authors' coculture-specific multisubstrate interpretation; the full paper distinguishes
+      formate-only failure and limited mixed-substrate monoculture consumption from the coculture phenotype.
   - reference: PMID:28191038
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: methanogens in both cocultures were able to efficiently utilize
-    explanation: Supports consumption of C. cellulovorans fermentation products by the methanogen.
-- name: Methanogen-Enabled Cellulose Degradation and pH Stabilization
-  description: Product consumption by M. barkeri lowers H2 and VFA accumulation, stabilizes pH, and
-    improves cellulose degradation relative to C. cellulovorans monoculture.
-  interaction_type: MUTUALISM
+    explanation: Supports product utilization in the tested coculture, not unconditional formate growth, directly
+      measured pathway flux or exclusive causal mediation of the fermenter response.
+  - reference: PMID:28191038
+    snippet: monocultures of M. barkeri were unable to grow with formate alone
+    explanation: The negative control bounds formate use to the tested substrate and coculture context.
+    evidence_source: IN_VITRO
+    supports: SUPPORT
+- name: Coculture-Associated Cellulose Degradation and pH Stabilization
+  description: Coculturing with M. barkeri increased the extent of cellulose degradation by 13.8% relative to C.
+    cellulovorans monoculture, with a final pH around 6.7 rather than 6.1. These are measured outcomes. HYPOTHESIZED
+    - formate/acetate consumption and altered fermenter production jointly contribute to the smaller pH decline
+    and improved degradation. Butyrate and lactate accumulated to lower levels without net depletion, and C. cellulovorans
+    cell growth was not significantly improved; the reported growth yields were similar. This is not demonstrated
+    reciprocal fitness mutualism or uniquely established pH mediation.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Methanosarcina barkeri Fusaro
@@ -264,20 +281,23 @@ ecological_interactions:
       label: methanogenesis
   evidence:
   - reference: PMID:28191038
-    supports: SUPPORT
+    snippet: the presence of methanogens did not result in significant differences in cell growth
+    explanation: The primary Results distinguish enhanced cellulose degradation from unchanged fermenter cell growth;
+      do not turn the functional endpoint into reciprocal fitness.
     evidence_source: IN_VITRO
-    snippet: produced by C. cellulovorans during cellulose degradation
-    explanation: Supports methanogen consumption of cellulolytic fermentation products.
+    supports: SUPPORT
   - reference: PMID:28191038
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: degradation was observed in both cocultures
-    explanation: Supports improved cellulose degradation in coculture.
+    explanation: Supports enhanced cellulose degradation as an endpoint, not significant improvement of fermenter
+      cell growth or an isolated mediator.
   - reference: PMID:28191038
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: stabilized pH for C. cellulovorans
-    explanation: Supports pH stabilization as an interaction outcome.
+    explanation: Supports the more stable pH. The primary Results attribute it to both VFA consumption and a changed
+      production pattern; no matched-pH intervention isolates its necessity.
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: SERUM_BOTTLE
@@ -472,3 +492,30 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this cellulose-to-methane
   coculture.
+discussions:
+- discussion_id: cellulose_methane_formate_and_ph_mediation
+  prompt: Which pathways and partner changes mediate coculture-specific formate use and improved cellulose degradation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Cellulose Fermentation to Methanogenesis Precursors
+  - ecological_interactions#Coculture-Associated Multi-Substrate Methanogenesis by M. barkeri
+  - ecological_interactions#Coculture-Associated Cellulose Degradation and pH Stabilization
+  rationale: PMID:28191038 supports reproducible gas and VFA profiles, formate-only failure, limited mixed-substrate
+    monoculture formate use and altered gene expression. Its conceptual pathways do not directly measure partner
+    flux. Product removal and changed fermenter production can both affect pools and pH. Matched-pH interventions,
+    partner-resolved flux and selective formate-pathway perturbations would separate mediation from association.
+    Increased cellulose degradation did not significantly increase C. cellulovorans cell growth. The distinct M.
+    mazei comparison is not added as a member of this record.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T23:42:30Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain cellulose-derived precursor supply and methane link; distinguish measured pools from resolved
+    flux and exclude other VFAs from blanket uptake.; Preserve coculture-specific multisubstrate findings and negative
+    controls; qualify pathway/feedback inference without inventing reverse donation.; Preserve improved cellulose
+    degradation and pH, while qualifying mediation and retaining unchanged fermenter growth rather than categorical
+    mutualism. Issue #1326; reports/causal_graph_review/decisions/20261005-three-records-batch19.yaml'
+  llm_assisted: true

@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        anaerobic methanogenic laboratory coculture
+                        anaerobic methanogenic laboratory coculture<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -571,12 +579,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Pelotomaculum-Methanocella Propionate RNA-Seq Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding, mutualism, syntrophy.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -606,6 +615,8 @@
                     <h3>Propionate Oxidation Coupled to Methanogenesis</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">P. thermopropionicum and M. conradii form a thermodynamically constrained syntrophic pair in which propionate oxidation is coordinated with hydrogenotrophic methanogenesis.
+</p>
 
 
                 <p><strong>Source Taxon:</strong> Pelotomaculum thermopropionicum</p>
@@ -664,6 +675,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Catabolism and Methanogenesis Upregulation in Coculture
+                        <p class="prewrap causal-description">PARTIAL - the propionate-fed coculture showed increased catabolic and methanogenesis transcripts relative to the monocultures. The source warns that substrate, hydrogen availability and growth rate differ, so this comparison does not isolate the effect of the partner interaction alone.</p>
                     </div>
 
                 </div>
@@ -708,6 +720,8 @@
                     <h3>Catabolism and Methanogenesis Upregulation in Coculture</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">Coculture growth upregulated catabolic genes in both organisms, including methylmalonyl-CoA pathway genes in P. thermopropionicum and methanogenesis genes in M. conradii.
+</p>
 
 
                 <p><strong>Source Taxon:</strong> Pelotomaculum thermopropionicum</p>
@@ -738,19 +752,6 @@
                 </ul>
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Formate and Electron Bifurcation Strategy
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Signal Transduction and Amino Acid Exchange
-                    </div>
-
-                </div>
 
 
 
@@ -792,6 +793,7 @@
                     <h3>Formate and Electron Bifurcation Strategy</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">PARTIAL - increased formate-dehydrogenase and putative electron-bifurcation/confurcation transcripts, together with formate and 2-BES perturbations, support the authors&#39; inference that formate contributes to electron transfer and redox balance during syntrophy. These observations do not directly quantify interspecies formate flux or enzyme activity.</p>
 
 
                 <p><strong>Source Taxon:</strong> Pelotomaculum thermopropionicum</p>
@@ -830,10 +832,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Propionate Oxidation Coupled to Methanogenesis
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Propionate Oxidation Coupled to Methanogenesis
+                        <p class="prewrap causal-description">PARTIAL - formate turnover is inferred to support syntrophic electron transfer. Its effect depends on conditions: adding 20 mM formate immediately halted propionate oxidation, which resumed after formate consumption; adding 5 mM 2-BES abolished propionate oxidation and methane production. The source did not find comparable inhibition after H2/CO2 addition, so this edge does not assert a measured low-H2 requirement in that experiment.</p>
                     </div>
 
                 </div>
@@ -862,10 +861,36 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/30038609/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:30038609</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"formate was produced and utilized by P. thermopropionicum and M. conradii, respectively"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/30038609/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:30038609</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"The addition of formate halted propionate oxidation and CH4 production immediately"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/30038609/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:30038609</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Methane production and propionate oxidation were completely inhibited after the addition of 2-BES"</div>
 
                     </li>
 
@@ -878,13 +903,18 @@
                     <h3>Signal Transduction and Amino Acid Exchange</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">HYPOTHESIZED - RNA-seq changes suggest flagellum-related signaling and amino-acid exchange during syntrophy. The source specifically hypothesizes amino-acid transfer from M. conradii to P. thermopropionicum; transcript changes do not directly demonstrate transfer or a single direction for both signaling and nutrient exchange.</p>
 
 
-                <p><strong>Source Taxon:</strong> Pelotomaculum thermopropionicum</p>
 
 
+                <p><strong>Participating Taxa:</strong>
 
-                <p><strong>Target Taxon:</strong> Methanocella conradii</p>
+                    Pelotomaculum thermopropionicum,
+
+                    Methanocella conradii
+
+                </p>
 
 
 
@@ -914,7 +944,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/30038609/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:30038609</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"flagellum-induced signal transduction and amino acids exchange was upregulated"</div>
@@ -965,6 +995,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which transcript changes and exchange routes are causal drivers of the syntrophic phenotype?
+                </h3>
+                <p class="prewrap">PMID:30038609 compares pyruvate-grown bacterial and H2/CO2-grown archaeal monocultures with a propionate-fed coculture at a different growth rate. The authors caution that these differences affect transcription. Parallel catabolic, formate-handling and signaling responses do not establish an ordered causal chain. Amino-acid transfer from M. conradii to P. thermopropionicum is explicitly hypothesized and requires direct transfer or perturbation evidence.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Propionate Oxidation Coupled to Methanogenesis</code>, <code>ecological_interactions#Catabolism and Methanogenesis Upregulation in Coculture</code>, <code>ecological_interactions#Formate and Electron Bifurcation Strategy</code>, <code>ecological_interactions#Signal Transduction and Amino Acid Exchange</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1298,12 +1347,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1316,7 +1368,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1473,7 +1524,7 @@
             processes.push("interspecies interaction between organisms");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 4;
 
             nodes.push({
                 id: intId,
@@ -1524,17 +1575,20 @@
             });
 
 
-            var srcKey = "Pelotomaculum thermopropionicum";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Methanocella conradii";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Pelotomaculum thermopropionicum",
+
+                "Methanocella conradii"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1549,6 +1603,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

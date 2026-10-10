@@ -120,43 +120,28 @@ taxonomy:
     explanation: Identifies RW8 as an HT SynCom member.
 ecological_interactions:
 - name: HT SynCom Suppression of Fusarium oxysporum
-  description: >-
-    The two-member HT PGPR SynCom, composed of B. siamensis RW5 and
-    B. vallismortis RW8, suppresses Fusarium oxysporum more effectively than the
-    individual inhibitory isolates and links a T. koningiopsis-assembled Bacillus
-    pair to fungal damping-off biocontrol.
-  interaction_type: COMPETITION
+  description: The two-member HT SynCom, B. siamensis RW5 plus B. vallismortis RW8, was among four mixtures inhibiting
+    Fusarium oxysporum more strongly than individual isolates in vitro. This is measured inhibition, not demonstrated
+    reciprocal competitive harm or proof that plate inhibition mediates seedling protection. HT is distinct from
+    the five-member C2 mixture.
   scope: COMMUNITY_LEVEL
   target_taxon:
     preferred_term: Fusarium oxysporum
     term:
       id: NCBITaxon:5507
       label: Fusarium oxysporum
-  downstream:
-  - target: HT SynCom Masson Pine Damping-Off Protection
-    description: >-
-      In vitro suppression of F. oxysporum was carried into seedling challenge
-      assays, where HT reduced disease incidence and promoted Masson pine
-      growth.
   evidence:
   - reference: PMID:42144568
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Four synthetic communities (SynComs) (C1, C2, HT, and 2K) were further
-      constructed, exhibiting superior inhibitory effects against F. oxysporum
-      compared to individual strains.
-    explanation: >-
-      Supports HT as one of four constructed SynComs that inhibited the fungal
-      pathogen more strongly than individual isolates.
+    snippet: Four synthetic communities (SynComs) (C1, C2, HT, and 2K) were further constructed, exhibiting superior
+      inhibitory effects against F. oxysporum compared to individual strains.
+    explanation: Supports HT as one of four constructed SynComs that inhibited the fungal pathogen more strongly
+      than individual isolates.
 - name: HT SynCom Masson Pine Damping-Off Protection
-  description: >-
-    HT inoculation protects Fusarium-challenged Pinus massoniana seedlings by
-    reducing damping-off disease incidence by 36.67%, increasing seedling height
-    by 9.44%, enhancing protective enzyme activity, alleviating membrane damage,
-    and modulating plant hormone and MAPK signaling to activate PR1, FLS2, and
-    CAT1.
-  interaction_type: MUTUALISM
+  description: HT inoculation increased Fusarium-challenged Masson pine seedling height by 9.44% and reduced disease
+    incidence by 36.67% relative to the control. These are HT-specific plant outcomes, not demonstrated reciprocal
+    benefit to the bacteria or proof that defense expression is downstream of protection.
   scope: COMMUNITY_LEVEL
   target_taxon:
     preferred_term: Pinus massoniana
@@ -168,28 +153,18 @@ ecological_interactions:
     term:
       id: GO:0050832
       label: defense response to fungus
-  downstream:
-  - target: Protective Enzyme and Resistance-Gene Activation
-    description: >-
-      The disease-suppressive C2 and HT SynComs also enhanced protective enzyme
-      activity, reduced membrane injury, and activated plant defense genes.
   evidence:
   - reference: PMID:42144568
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      Compared to the control, the C2 and HT SynComs increased seedling height
-      by 10.18% and 9.44%, and reduced disease incidence by 50% and 36.67%,
-      respectively.
-    explanation: >-
-      Supports the HT in vivo outcome: 9.44% higher seedling height and 36.67%
-      lower disease incidence in Masson pine seedlings.
+    snippet: Compared to the control, the C2 and HT SynComs increased seedling height by 10.18% and 9.44%, and reduced
+      disease incidence by 50% and 36.67%, respectively.
+    explanation: 'Supports the HT in vivo outcome: 9.44% higher seedling height and 36.67% lower disease incidence
+      in Masson pine seedlings.'
 - name: Protective Enzyme and Resistance-Gene Activation
-  description: >-
-    C2 and HT treatment enhanced protective enzyme activity, alleviated membrane
-    damage, and upregulated key Masson pine resistance genes downstream of plant
-    hormone and MAPK signaling pathways.
-  interaction_type: MUTUALISM
+  description: C2 and HT treatments enhanced protective enzyme activity, reduced membrane injury and altered PR1,
+    FLS2 and CAT1 expression. PARTIAL - plant-hormone and MAPK signaling mediation is the source's interpretation;
+    expression and parallel physiological outcomes do not alone establish pathway necessity.
   scope: COMMUNITY_LEVEL
   target_taxon:
     preferred_term: Pinus massoniana
@@ -205,18 +180,35 @@ ecological_interactions:
   - reference: PMID:42144568
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      These treatments also enhanced protective enzyme activity and alleviated
-      membrane damage.
-    explanation: >-
-      Supports the host physiology arm of the HT and C2 protection response.
+    snippet: These treatments also enhanced protective enzyme activity and alleviated membrane damage.
+    explanation: Supports the host physiology arm of the HT and C2 protection response.
   - reference: PMID:42144568
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: >-
-      At the molecular level, the C2 and HT SynComs boost plant resistance by
-      modulating the plant hormone and mitogen-activated protein kinase (MAPK)
-      signaling pathways, thereby activating the expression of crucial
+    snippet: At the molecular level, the C2 and HT SynComs boost plant resistance by modulating the plant hormone
+      and mitogen-activated protein kinase (MAPK) signaling pathways, thereby activating the expression of crucial
       resistance genes such as PR1, FLS2, and CAT1.
-    explanation: >-
-      Supports the plant defense signaling response associated with C2 and HT.
+    explanation: Supports reported expression and the source's signaling interpretation; necessary pathway mediation
+      was not verified from the abstract and selected composition excerpts.
+discussions:
+- discussion_id: ht_inhibition_and_defense_mediation
+  prompt: Which bacterial and plant pathways mediate HT seedling protection?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#HT SynCom Suppression of Fusarium oxysporum
+  - ecological_interactions#HT SynCom Masson Pine Damping-Off Protection
+  - ecological_interactions#Protective Enzyme and Resistance-Gene Activation
+  rationale: Review covered the abstract and selected Figure 4 composition transcriptions, not full methods/results,
+    figure images or supplements. Plate inhibition, seedling protection and defense responses are distinct assays/endpoints;
+    the removed arrows encoded workflow or co-outcomes. HT and C2 compositions and quantitative effects must not
+    be conflated. Additional perturbations in unread material are not certified absent.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T11:29:49Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate HT plant endpoints from workflow and unverified defense mediation; decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1253'
+  llm_assisted: true

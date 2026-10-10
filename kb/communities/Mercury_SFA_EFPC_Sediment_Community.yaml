@@ -191,86 +191,100 @@ taxonomy:
     snippet: 12 Domain Archaea, phylum Thermoproteota, class Nitrososphaeria, order Nitrososphaerales
     explanation: Documents archaeal MAG reconstruction from EFPC sediment
 ecological_interactions:
-- name: Chronic Mercury Selection of the EFPC Community
-  description: 'Historical Hg release into East Fork Poplar Creek selected for a unique
-    sediment community that includes many Hg-methylating organisms. Genome reconstruction
-    from the same contaminated creek recovered MAGs with widespread metal-resistance
-    functions and selenium-assimilatory metabolism, linking the local contamination
-    regime to the community-scale functional repertoire.
-
-    '
-  interaction_type: NICHE_PARTITIONING
+- name: Chronic Mercury Contamination and EFPC Community Context
+  description: Two depth sections of one EFPC sediment core yielded 28 MAGs from a chronically Hg-contaminated creek.
+    The authors interpret the historical contamination as a selective context for the microbial community, drawing
+    on prior EFPC work. This dataset is not a controlled Hg-selection experiment or an uncontaminated comparison.
+    The seven canonical phylum-level entries are a subset of the sampled community, not seven isolates, all 28 MAGs
+    or a complete functional roster.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: mercury(2+)
     term:
       id: CHEBI:16793
       label: mercury(2+)
-    notes: Divalent inorganic mercury driving chronic selection in EFPC sediment.
+    notes: Inorganic Hg contamination context; the metagenomic dataset does not isolate divalent Hg as the sole
+      cause of community composition.
   biological_processes:
   - preferred_term: response to metal ion
     term:
       id: GO:0010038
       label: response to metal ion
   downstream:
-  - target: Mercury Methylation by hgcAB+ Organisms
-    description: The Hg-selected EFPC ecosystem includes many Hg methylators, making
-      hgcAB-mediated methylmercury production one inferred consequence of chronic
-      mercury selection.
-  - target: Heavy Metal Resistance
-    description: The same history of anthropogenic Hg contamination explains why nearly
-      every MAG encoded putative heavy-metal resistance or ATPase efflux functions.
+  - target: Putative Heavy Metal Resistance and Efflux Capacity
+    description: HYPOTHESIZED - chronic metal exposure could favor organisms carrying resistance or efflux functions.
+      The 27/28 MAG annotation result is consistent with that interpretation, but no matched uncontaminated community
+      or experimental Hg perturbation isolates selection of these genes.
   evidence:
   - reference: PMID:33927032
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: The release of Hg into the EFPC ecosystem has selected for a unique microbial community that includes many Hg methylators
-    explanation: Documents chronic Hg release as a selective force on the EFPC community
-- name: Mercury Methylation by hgcAB+ Organisms
-  description: 'Both bacterial and archaeal community members carry hgcA/hgcB genes enabling conversion
-    of inorganic mercury (Hg(II)) to methylmercury (MeHg). Methanogenic archaea have been shown to methylate
-    mercury at rates rivaling those of the better-known sulfate- and iron-reducing bacteria. This process
-    is of major environmental concern as methylmercury bioaccumulates through aquatic food webs.
-
-    '
-  interaction_type: NICHE_PARTITIONING
+    snippet: The release of Hg into the EFPC ecosystem has selected for a unique microbial community that includes
+      many Hg methylators
+    explanation: Author interpretation and prior-study background for EFPC, not a controlled selection test in the
+      two sampled metagenomes.
+  participating_taxa:
+  - preferred_term: Proteobacteria
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+  - preferred_term: Acidobacteriota
+    term:
+      id: NCBITaxon:57723
+      label: Acidobacteriota
+  - preferred_term: Actinobacteriota
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  - preferred_term: Gemmatimonadota
+    term:
+      id: NCBITaxon:142182
+      label: Gemmatimonadota
+  - preferred_term: Eisenbacteria
+    term:
+      id: NCBITaxon:1817801
+      label: Candidatus Eiseniibacteriota
+  - preferred_term: Myxococcota
+    term:
+      id: NCBITaxon:2818505
+      label: Myxococcota
+  - preferred_term: Thermoproteota
+    term:
+      id: NCBITaxon:28889
+      label: Thermoproteota
+- name: EFPC Mercury Methylation Potential
+  description: The EFPC announcement describes a creek community that includes Hg methylators, citing prior EFPC
+    research. This supports environmental methylation potential, not measured hgcAB carriage or methylmercury production
+    by the 28 reconstructed MAGs or the seven canonical phylum entries. The separate methanogen culture study demonstrates
+    positive methylation in eight of nine tested strains, but those cultures are not the sampled EFPC community.
+    Exact carriers and methylation flux in these sediment samples remain unresolved.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methylmercury
     term:
       id: CHEBI:49747
       label: methylmercury(1+)
-    notes: Toxic organomercury compound produced by hgcAB+ organisms from inorganic mercury
+    notes: Potential environmental product; not measured methylmercury flux or a phenotype assigned to the recorded
+      EFPC MAGs.
   biological_processes:
   - preferred_term: mercury methylation
     term:
       id: GO:0042192
       label: methylmercury biosynthetic process
+    notes: Environmental potential from prior-study background, not a measured process for the recorded MAGs.
   evidence:
-  - reference: PMID:29636434
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: 'Methanogenesis has been linked to Hg methylation in several natural habitats where methylmercury
-      production incurs risk to people and ecosystems
-
-      '
-    explanation: Documents the link between methanogenesis and mercury methylation
-  - reference: PMID:29636434
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: 'methylation rates vary inherently among hgcAB+ methanogens but that several species are
-      capable of MeHg production at rates that rival those of the better-know Hg-methylating sulfate-
-      and iron-reducing bacteria
-
-      '
-    explanation: Documents mercury methylation rates by methanogenic archaea
-- name: Heavy Metal Resistance
-  description: '27 of 28 MAGs from EFPC sediment contained either putative heavy metal resistance genes
-    or ATPase efflux pump genes, reflecting strong selective pressure from chronic mercury contamination
-    in the creek. This widespread resistance enables community persistence in a heavily contaminated environment.
-
-    '
-  interaction_type: NICHE_PARTITIONING
+  - reference: PMID:33927032
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: The release of Hg into the EFPC ecosystem has selected for a unique microbial community that includes
+      many Hg methylators
+    explanation: EFPC background supports potential methylation, not a demonstrated function in the reconstructed
+      MAGs. External methanogen culture evidence is kept in the discussion and must not be assigned to these taxa.
+- name: Putative Heavy Metal Resistance and Efflux Capacity
+  description: Annotation found putative heavy-metal resistance genes or ATPase efflux-pump genes in 27 of 28 EFPC
+    MAGs; MAG124 was the exception. This is genomic capacity consistent with a contaminated habitat, not measured
+    transcription, efflux, Hg-specific resistance, or a persistence advantage. The phylum-level participants identify
+    a sampled subset, not uniform resistance of every organism in each phylum.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: mercury(2+)
@@ -287,16 +301,45 @@ ecological_interactions:
   - reference: PMID:33927032
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: 27 of the 28 MAGs (all except MAG 124, a Saccharimonadales bacterium from the Pastescibacteria phylum) contained either putative heavy metal resistance genes or ATPase efflux pump genes
-    explanation: Documents near-universal heavy metal resistance in EFPC sediment community
-- name: Selenium Assimilatory Metabolism
-  description: '17 of 28 MAGs from EFPC sediment contained traits for selenium assimilatory metabolism,
-    including MAGs from the candidate phyla Eisenbacteria and Rokubacteria, making
-    this genome-resolved dataset the first report of selenium metabolism in those
-    bacterial candidate phyla.
-
-    '
-  interaction_type: NICHE_PARTITIONING
+    snippet: 27 of the 28 MAGs (all except MAG 124, a Saccharimonadales bacterium from the Pastescibacteria phylum)
+      contained either putative heavy metal resistance genes or ATPase efflux pump genes
+    explanation: Supports the reported 27/28 genomic annotation result, not measured resistance or causally isolated
+      selection.
+  participating_taxa:
+  - preferred_term: Proteobacteria
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+  - preferred_term: Acidobacteriota
+    term:
+      id: NCBITaxon:57723
+      label: Acidobacteriota
+  - preferred_term: Actinobacteriota
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  - preferred_term: Gemmatimonadota
+    term:
+      id: NCBITaxon:142182
+      label: Gemmatimonadota
+  - preferred_term: Eisenbacteria
+    term:
+      id: NCBITaxon:1817801
+      label: Candidatus Eiseniibacteriota
+  - preferred_term: Myxococcota
+    term:
+      id: NCBITaxon:2818505
+      label: Myxococcota
+  - preferred_term: Thermoproteota
+    term:
+      id: NCBITaxon:28889
+      label: Thermoproteota
+- name: Selenium Assimilatory Genomic Capacity
+  description: Se-assimilatory traits were annotated in 17 of 28 EFPC MAGs, including Eisenbacteria and Rokubacteria.
+    This preserves the reported genomic finding, not measured selenium uptake, expression, flux or niche partitioning.
+    The explicit Eisenbacteria participant is the corresponding canonical subset; Rokubacteria is named by the source
+    but is not a separately grounded taxon in this record. Selenium assimilation is not established as a cause of
+    Hg resistance or methylation.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: selenium atom
@@ -309,7 +352,12 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: 17 of the 28 MAGs contained traits for Se-assimilatory metabolism
-    explanation: Documents selenium metabolism traits across EFPC sediment MAGs
+    explanation: Supports annotated Se-assimilatory capacity, not an experimentally measured selenium transformation.
+  participating_taxa:
+  - preferred_term: Eisenbacteria
+    term:
+      id: NCBITaxon:1817801
+      label: Candidatus Eiseniibacteriota
 environmental_factors:
 - name: Mercury Contamination
   value: elevated
@@ -419,3 +467,31 @@ related_ingredients:
 metals_present: []
 metal_relevance: SIGNIFICANT
 metal_notes: Metal/REE detected via environmental factor measurements
+discussions:
+- discussion_id: efpc_exact_sample_methylation_and_genomic_capacity
+  prompt: Which EFPC organisms perform the predicted functions in the sampled sediments?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Chronic Mercury Contamination and EFPC Community Context
+  - ecological_interactions#EFPC Mercury Methylation Potential
+  - ecological_interactions#Putative Heavy Metal Resistance and Efflux Capacity
+  - ecological_interactions#Selenium Assimilatory Genomic Capacity
+  rationale: 'PMID:33927032 is a genome announcement, not a methylation or resistance assay. PMID:29636434 tested
+    separate methanogen cultures: eight of nine exceeded matched fresh/spent-medium controls, the fused-hgcAB M.
+    methylutens did not, and thiol/sulfide responses varied with growth and chemistry. Preserve those positive external
+    results without assigning them to EFPC MAGs. Full primary main texts and the EFPC MAG table were read; supplements,
+    raw genomes and original images were not audited. The selection-to-methylation arrow is removed; selection-to-resistance
+    remains hypothetical. #1596 repairs the graph; non-graph imported methylation/sulfide claims and incomplete
+    roster remain #1600. No new nodes or arrows.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-07T01:03:04Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain sampled-community and historical contamination context, not isolated selection.; Retain bounded
+    EFPC methylation potential; separate external positive methanogen culture evidence.; Retain 27/28 putative resistance/efflux
+    annotations, not measured phenotype or persistence.; Retain 17/28 selenium-capacity annotations with the canonical
+    subset explicit. Issue #1596; reports/causal_graph_review/decisions/20261006-four-records-batch70.yaml'
+  llm_assisted: true

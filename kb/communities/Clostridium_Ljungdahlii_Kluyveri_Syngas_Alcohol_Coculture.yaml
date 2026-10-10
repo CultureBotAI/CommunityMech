@@ -111,8 +111,10 @@ taxonomy:
     explanation: Supports the ethanol-consuming chain-elongation role.
 ecological_interactions:
 - name: Syngas Fermentation to Ethanol and Acetate
-  description: C. ljungdahlii converts syngas into ethanol and acetate, creating
-    reduced and oxidized C2 intermediates that support chain elongation by C. kluyveri.
+  description: C. ljungdahlii converts syngas to ethanol and acetate that support C. kluyveri chain elongation in
+    the tested continuous reactor. The gases are feed substrates and the C2 compounds are the proposed exchanged
+    products. Product balances support this division of labor; the estimate that roughly two-thirds of ethanol production
+    supported chain elongation is calculated from stoichiometry rather than directly traced partner flux.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -153,9 +155,10 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Ethanol-Driven Chain Elongation
-    description: >
-      C. ljungdahlii syngas fermentation produces ethanol and acetate that
-      C. kluyveri uses for reverse beta-oxidation chain elongation.
+    description: 'C. ljungdahlii syngas fermentation produces ethanol and acetate that C. kluyveri uses for reverse
+      beta-oxidation chain elongation.
+
+      '
   evidence:
   - reference: PMID:27877166
     supports: SUPPORT
@@ -163,13 +166,16 @@ ecological_interactions:
     snippet: syngas-fermentation process with Clostridium ljungdahlii and Clostridium kluyveri
     explanation: Supports the syngas-fed coculture context.
   - reference: PMID:27877166
-    supports: SUPPORT
+    snippet: These products were used as substrates by C. kluyveri to chain-elongate them into longer-chain carboxylates.
+    explanation: Supports the C2 supply model in the exact coculture. The primary Results distinguish measured net
+      products from calculated total intermediate production.
     evidence_source: IN_VITRO
-    snippet: ethanol and acetate
-    explanation: Supports the cross-fed C2 products of C. ljungdahlii fermentation.
+    supports: SUPPORT
 - name: Ethanol-Driven Chain Elongation
-  description: C. kluyveri uses ethanol from C. ljungdahlii to perform reverse
-    beta-oxidation chain elongation, producing butyrate and caproate.
+  description: C. kluyveri uses ethanol and acetate supplied by C. ljungdahlii to form butyrate and hexanoate by
+    chain elongation. PARTIAL - the C. kluyveri-to-C. ljungdahlii direction denotes proposed carboxylate supply
+    for subsequent reduction, not ethanol transfer in that direction. Bulk products and stoichiometric calculations
+    do not directly resolve all partner fluxes.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -193,22 +199,22 @@ ecological_interactions:
       label: acetate
   - preferred_term: butyrate
     term:
-      id: CHEBI:30772
-      label: butyric acid
+      id: CHEBI:17968
+      label: butyrate
   - preferred_term: hexanoate
     term:
-      id: CHEBI:30776
-      label: hexanoic acid
+      id: CHEBI:17120
+      label: hexanoate
   biological_processes:
   - preferred_term: fermentation
     term:
       id: GO:0006113
       label: fermentation
   downstream:
-  - target: Biological Reduction to Longer-Chain Alcohols
-    description: >
-      Chain elongation generates butyrate and hexanoate that C. ljungdahlii can
-      reduce to the longer-chain alcohols detected in the syngas coculture.
+  - target: Proposed Carboxylate Reduction and Observed Longer-Chain Alcohols
+    description: PARTIAL - chain elongation supplies the carboxylate precursors for the observed longer-chain alcohols.
+      The primary study proposes that C. ljungdahlii reduces them, but does not selectively establish the reducing
+      organism or quantify donor-resolved precursor flux.
   evidence:
   - reference: PMID:27877166
     supports: SUPPORT
@@ -220,31 +226,22 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: resulting in n-butyrate and n-caproate
     explanation: Supports butyrate and caproate as chain-elongation products.
-- name: Biological Reduction to Longer-Chain Alcohols
-  description: C. ljungdahlii likely reduces chain-elongated carboxylates to
-    longer-chain alcohols using reducing power from syngas, yielding butanol,
-    hexanol, and trace octanol.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Clostridium ljungdahlii
-    term:
-      id: NCBITaxon:1538
-      label: Clostridium ljungdahlii
-  target_taxon:
-    preferred_term: Clostridium kluyveri
-    term:
-      id: NCBITaxon:1534
-      label: Clostridium kluyveri
+- name: Proposed Carboxylate Reduction and Observed Longer-Chain Alcohols
+  description: PARTIAL - the coculture produced butanol, hexanol and trace octanol. The proposed mechanism is reduction
+    of chain-elongated carboxylates, most likely by C. ljungdahlii using syngas-derived reducing power. The reducing
+    partner was not selectively resolved, and the paper does not exclude a C. kluyveri contribution. These are community
+    products, not demonstrated alcohol donation from C. ljungdahlii to C. kluyveri. Named carboxylate pools coexist
+    with pH-dependent undissociated acids relevant to the proposed reduction.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: butyrate
     term:
-      id: CHEBI:30772
-      label: butyric acid
+      id: CHEBI:17968
+      label: butyrate
   - preferred_term: hexanoate
     term:
-      id: CHEBI:30776
-      label: hexanoic acid
+      id: CHEBI:17120
+      label: hexanoate
   - preferred_term: butanol
     term:
       id: CHEBI:28885
@@ -256,31 +253,33 @@ ecological_interactions:
       label: fermentation
   evidence:
   - reference: PMID:27877166
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: likely reduced the produced carboxylates to their corresponding alcohols
-    explanation: Supports carboxylate reduction by C. ljungdahlii as an inferred alcohol-production mechanism.
+    explanation: 'The source says likely: the reducing-organism assignment is a mechanistic inference, not a selective
+      organism/pathway assay or evidence of alcohol transfer to C. kluyveri.'
   - reference: PMID:27877166
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: longer-chain alcohols n-butanol, n-hexanol, and n-octanol
-    explanation: Supports the observed longer-chain alcohol product spectrum.
-- name: pH-Restricted Product Formation
-  description: Longer-chain alcohol production depended on a narrow pH range
-    because C. ljungdahlii and C. kluyveri have different pH optima, causing a
-    process-level tradeoff between acetogenesis, chain elongation, and biological reduction.
-  interaction_type: COMPETITION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Clostridium ljungdahlii
+    explanation: Supports measured community alcohol products; product detection alone does not establish the reducing
+      partner or a donor-recipient relationship.
+  participating_taxa:
+  - preferred_term: Clostridium ljungdahlii
     term:
       id: NCBITaxon:1538
       label: Clostridium ljungdahlii
-  target_taxon:
-    preferred_term: Clostridium kluyveri
+  - preferred_term: Clostridium kluyveri
     term:
       id: NCBITaxon:1534
       label: Clostridium kluyveri
+- name: pH-Dependent Process Performance
+  description: Longer-chain products were observed across the tested pH range of 5.7-6.4 in phases of one continuously
+    operated reactor. The phase comparisons, altered medium flow and operational disturbances support condition-dependent
+    process tradeoffs, not a universal optimum or independent replicated pH treatments. Competition between chain
+    elongation and reduction for carboxylate intermediates is a process-allocation model, not measured reciprocal
+    ecological harm to both organisms.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: acetate
     term:
@@ -300,12 +299,23 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: narrow pH spectrum of 5.7-6.4
-    explanation: Supports pH as a key environmental constraint on product formation.
+    explanation: Supports the tested operating range; primary Methods/Results report one reactor with multiple phases,
+      feed changes and disturbances.
   - reference: PMID:27877166
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: two bioprocesses compete for intermediates
-    explanation: Supports competition for carboxylate intermediates between chain elongation and biological reduction.
+    explanation: The competing entities are bioprocesses drawing on intermediates. This does not establish the local
+      COMPETITION (-/-) relation between the organisms.
+  participating_taxa:
+  - preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  - preferred_term: Clostridium kluyveri
+    term:
+      id: NCBITaxon:1534
+      label: Clostridium kluyveri
 cultivation_setup:
 - cultivation_mode: CONTINUOUS
   system_type: STIRRED_TANK_BIOREACTOR
@@ -607,3 +617,30 @@ metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this syngas fermentation coculture.
+discussions:
+- discussion_id: syngas_alcohol_partner_and_ph_partition
+  prompt: Which partner reduces each carboxylate, and how do pH and operating conditions partition flux between
+    elongation and reduction?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Syngas Fermentation to Ethanol and Acetate
+  - ecological_interactions#Ethanol-Driven Chain Elongation
+  - ecological_interactions#Proposed Carboxylate Reduction and Observed Longer-Chain Alcohols
+  - ecological_interactions#pH-Dependent Process Performance
+  rationale: PMID:27877166 reports products and condition responses from one reactor. Intermediate production and
+    ethanol utilization are reconstructed from stoichiometry; reducing-organism attribution and several pH mechanisms
+    remain proposed. Partner-selective or isotope-resolved experiments and replicated matched-flow pH comparisons
+    would separate these mechanisms. Do not equate competing process routes with reciprocal organismal fitness harm.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-06T00:23:38Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain the supported C2 supply link while distinguishing measured net products from inferred total flux.;
+    Clarify the carboxylate-supply direction and qualify its reduction arrow; correct named anion groundings.; Retain
+    alcohol products and proposed reduction without inventing reverse alcohol donation or a resolved reducing partner.;
+    Preserve tested pH/operating effects as community-level performance, not reciprocal ecological competition.
+    Issue #1332; reports/causal_graph_review/decisions/20261005-three-records-batch20.yaml'
+  llm_assisted: true

@@ -256,24 +256,13 @@ taxonomy:
       to Sulfobacillus thermosulfidooxidans, Acidithiobacillus caldus and Acidimicrobium ferrooxidans
     explanation: Establishes metal tolerance crucial for biomining
 ecological_interactions:
-- name: Ferrous Iron Oxidation in Early Heaps
-  description: 'Acidithiobacillus ferrooxidans oxidizes ferrous iron (Fe²⁺) to ferric iron (Fe³⁺) during
-    early heap stages (pH >2, <200 days). The bacterium uses Fe²⁺ as electron donor for chemolithoautotrophic
-    growth, fixing CO₂ and generating reducing equivalents. The Fe³⁺ produced serves as the primary oxidant
-    for copper sulfide mineral dissolution according to: CuFeS₂ + 4Fe³⁺ → Cu²⁺ + 5Fe²⁺ + 2S⁰. This reaction
-    releases copper ions and additional Fe²⁺ substrate, creating a closed iron redox cycle. At. ferrooxidans
-    thrives when pH >2 and Fe concentrations are moderate, reaching peak abundance (~10⁷ copies/ml) around
-    day 200. As heap aging produces more acidic conditions (pH <2) and elevates Fe³⁺ concentrations (>1.8
-    g/L), At. ferrooxidans is outcompeted by more acid-tolerant Leptospirillum and Ferroplasma.
-
-    '
-  interaction_type: SYNTROPHY
-  scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Acidithiobacillus ferrooxidans
-    term:
-      id: NCBITaxon:920
-      label: Acidithiobacillus ferrooxidans
+- name: Acidithiobacillus Iron Oxidation and Early-Heap Association
+  description: A. ferrooxidans has measured iron-oxidation capacity in separate laboratory assays and was abundant
+    during the early part of the 2009 industrial leaching cycle. Field DNA counts, rRNA and solution chemistry support
+    occurrence and activity, not taxon-resolved iron flux or demonstrated displacement by competitors. In the 2022
+    monoculture assay, 100-300 mg/L SX reagent allowed iron oxidation while copper extraction fell from about 15%
+    to the approximately 5% abiotic level; oxidation capacity alone did not ensure copper recovery.
+  scope: PAIRWISE
   metabolites:
   - preferred_term: Fe(II)
     term:
@@ -284,44 +273,43 @@ ecological_interactions:
     term:
       id: CHEBI:29034
       label: iron(3+)
-    concentration: Generated product; reaches 1.86-1.9 g/L in aged heaps
+    concentration: Ferric iron measured in heap solution is not assigned solely to this taxon
   biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
   - preferred_term: carbon fixation
     term:
       id: GO:0015977
       label: carbon fixation
   downstream:
   - target: Copper Sulfide Dissolution
-    description: Fe³⁺ oxidizes chalcopyrite to release Cu²⁺ and regenerate Fe²⁺
+    description: PARTIAL - A. ferrooxidans iron oxidation can replenish ferric oxidant for mineral attack. The chemical
+      cycle and laboratory oxidation support this direction, but the SX assay shows that retained iron oxidation
+      need not sustain copper recovery, and the field contribution is not taxon-resolved.
   evidence:
   - reference: doi:10.1111/j.1751-7915.2009.00112.x
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: At. ferrooxidans phylotypes were the most abundant microorganisms during the first
-      part of the leaching cycle (around 200 days of operation)
-    explanation: Anchors At. ferrooxidans as the dominant taxon during the early industrial heap stage
+    snippet: At. ferrooxidans phylotypes were the most abundant microorganisms during the first part of the leaching
+      cycle (around 200 days of operation)
+    explanation: Supports early field abundance, not direct taxon-resolved iron-oxidation flux or competition. Field
+      rRNA assays add activity evidence but do not quantify that reaction.
   - reference: doi:10.3389/fmicb.2022.820052
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: 100 and 300 mg/L SX reagent could hardly inhibit At. ferrooxidans from oxidizing Fe2+
-    explanation: Demonstrates ferrous-iron oxidation by At. ferrooxidans during chalcopyrite bioleaching
-      assays
-- name: Ferrous Iron Oxidation in Aged Heaps
-  description: 'In aged heaps (>250 days, pH 1.67-1.83), Leptospirillum ferriphilum and Ferroplasma acidiphilum
-    take over iron oxidation as conditions become too extreme for At. ferrooxidans. These organisms oxidize
-    Fe²⁺ at pH values approaching 1.67 and tolerate elevated Fe³⁺ concentrations (1.86-1.9 g/L). Leptospirillum
-    is particularly effective at colonizing mineral surfaces and maintaining Fe³⁺ supply for chalcopyrite
-    dissolution. Both organisms reach ~10⁵ copies/ml in aged heaps. The shift from At. ferrooxidans to
-    Leptospirillum/Ferroplasma reflects thermodynamic constraints - as pH drops and Fe³⁺/Fe²⁺ ratio increases,
-    specialists adapted to extreme acidity outcompete generalists. This succession ensures sustained iron
-    oxidation throughout the multi-year heap lifetime.
-
-    '
-  interaction_type: NICHE_PARTITIONING
+    explanation: Supports iron oxidation in a separate A. ferrooxidans monoculture. Primary Results also show reduced
+      copper extraction under SX reagent despite retained iron oxidation.
+  source_taxon:
+    preferred_term: Acidithiobacillus ferrooxidans
+    term:
+      id: NCBITaxon:920
+      label: Acidithiobacillus ferrooxidans
+- name: Aged-Heap Iron-Oxidizer Association
+  description: The 2009 field survey found increasing L. ferriphilum and F. acidiphilum representation as heap strips
+    aged. Late L. ferriphilum DNA reached about 10^5 copies/mL, whereas Ferroplasma was around 10^3 copies/mL; neither
+    count is a direct oxidation flux. Lower pH and changing iron redox chemistry were proposed drivers of succession,
+    not selectively demonstrated competitive exclusion or reduced competition through niche partitioning. L. ferriphilum
+    oxidation is experimentally supported in the separate 2018 cultures; the 2022 Leptospirillum strain is L. ferrooxidans,
+    not this canonical species.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Leptospirillum ferriphilum
@@ -341,59 +329,46 @@ ecological_interactions:
     term:
       id: CHEBI:29034
       label: iron(3+)
-    concentration: 1.86-1.9 g/L in aged heaps
-  biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
+    concentration: Selected 2009 heap solutions contained about 1.86-1.9 g/L ferric iron; not a species-resolved
+      production rate
   downstream:
   - target: Copper Sulfide Dissolution
-    description: Sustained Fe³⁺ generation maintains copper leaching in aged heaps
+    description: PARTIAL - iron oxidation by the aged-heap associated taxa could replenish ferric oxidant for dissolution.
+      Field succession and separate L. ferriphilum cultures support the proposed contribution without measuring
+      their individual heap fluxes or proving displacement-driven leaching.
   evidence:
   - reference: doi:10.1111/j.1751-7915.2009.00112.x
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Acidithiobacillus ferrooxidans was the most abundant during the first part of the leaching
-      cycle, while the abundance of Leptospirillum ferriphilum and Ferroplasma acidiphilum increased with
-      age of the heap
-    explanation: Documents succession from At. ferrooxidans toward Leptospirillum and Ferroplasma in
-      older industrial heap strips
+    snippet: Acidithiobacillus ferrooxidans was the most abundant during the first part of the leaching cycle, while
+      the abundance of Leptospirillum ferriphilum and Ferroplasma acidiphilum increased with age of the heap
+    explanation: Supports observed field succession. DNA abundance, rRNA activity and bulk solution chemistry do
+      not assign the oxidation flux to individual taxa.
   - reference: doi:10.1111/j.1751-7915.2009.00112.x
     supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: changes during the leaching cycle in chemical and physical conditions, such as pH and
-      Fe3+/Fe2+ ion rate, are primary factors shaping the microbial dynamic in the heap
-    explanation: Supports heap-age pH and iron-redox gradients as drivers of the iron-oxidizer shift
+    snippet: changes during the leaching cycle in chemical and physical conditions, such as pH and Fe3+/Fe2+ ion
+      rate, are primary factors shaping the microbial dynamic in the heap
+    explanation: The authors propose physical/chemical drivers from field associations; this is not a selective
+      competition or niche-partitioning experiment.
 - name: Sulfur Oxidation to Sulfuric Acid
-  description: 'Acidithiobacillus thiooxidans oxidizes elemental sulfur (S⁰) and reduced inorganic sulfur
-    compounds (RISCs) released from chalcopyrite dissolution to sulfuric acid (H₂SO₄). This process maintains
-    the acidic pH (1.5-2.5) essential for copper leaching by continuously generating protons. Sulfur oxidation
-    follows: S⁰ + 1.5O₂ + H₂O → H₂SO₄. The sulfuric acid protonates mineral surfaces, enhancing Fe³⁺ attack
-    and preventing precipitation of iron hydroxides. At. thiooxidans maintains constant abundance (10⁵
-    copies/ml) throughout the leaching cycle, providing stable acid generation regardless of heap age
-    or pH. This contrasts with iron oxidizers that undergo succession. The organism prevents accumulation
-    of passivating sulfur layers on mineral surfaces that would inhibit leaching.
-
-    '
-  interaction_type: SYNTROPHY
-  scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Acidithiobacillus thiooxidans
-    term:
-      id: NCBITaxon:930
-      label: Acidithiobacillus thiooxidans
+  description: A. thiooxidans is associated with sulfur oxidation and acid generation, and its approximately 10^5
+    DNA copies/mL remained relatively stable in the 2009 heap survey. rRNA measurements support activity across
+    strips, not constant sulfur flux. Oxidation of reduced inorganic sulfur can sustain acidity and limit sulfur
+    accumulation, but the field study does not selectively assign acid production or passivation removal to this
+    taxon. The 2018 mixed-culture sulfur oxidizer was A. caldus, not A. thiooxidans.
+  scope: PAIRWISE
   metabolites:
   - preferred_term: sulfur
     term:
       id: CHEBI:26833
       label: sulfur atom
-    notes: Elemental sulfur (S⁰) substrate
+    notes: Existing sulfur-atom annotation is elemental context, not a measured molecular allotrope or concentration
   - preferred_term: sulfuric acid
     term:
       id: CHEBI:26836
       label: sulfuric acid
-    concentration: Maintains pH 1.5-2.5
+    concentration: Candidate contribution to acidic leaching conditions; taxon-specific acid flux not measured
   biological_processes:
   - preferred_term: sulfur compound metabolic process
     term:
@@ -401,33 +376,36 @@ ecological_interactions:
       label: sulfur compound metabolic process
   downstream:
   - target: Copper Sulfide Dissolution
-    description: Sulfuric acid production sustains the low pH needed for ferric-iron attack on chalcopyrite
+    description: PARTIAL - sulfur oxidation can generate acidity and limit reduced-sulfur accumulation, helping
+      sustain mineral attack under suitable conditions. A. thiooxidans-specific acid flux and passivation removal
+      were not selectively established in the field survey.
   evidence:
   - reference: doi:10.1111/j.1751-7915.2009.00112.x
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: Acidithiobacillus thiooxidans kept constant throughout the leaching cycle, and Firmicutes
-      group showed a low and a patchy distribution in the heap
-    explanation: Documents stable sulfur oxidation activity
+    snippet: Acidithiobacillus thiooxidans kept constant throughout the leaching cycle, and Firmicutes group showed
+      a low and a patchy distribution in the heap
+    explanation: The quoted constancy concerns abundance, not stable sulfur oxidation. Primary rRNA results support
+      physiological activity without measuring sulfur flux.
   - reference: doi:10.3389/fmicb.2022.820052
-    supports: SUPPORT
-    evidence_source: IN_VITRO
+    supports: PARTIAL
+    evidence_source: OTHER
     snippet: sulfur-oxidizing microorganisms oxidize RISCs to sulfuric acid
-    explanation: Establishes sulfuric acid production from reduced inorganic sulfur compounds as a
-      bioleaching reaction
+    explanation: General bioleaching chemistry in the 2022 Introduction, not an A. thiooxidans experiment in that
+      study.
+  source_taxon:
+    preferred_term: Acidithiobacillus thiooxidans
+    term:
+      id: NCBITaxon:930
+      label: Acidithiobacillus thiooxidans
 - name: Copper Sulfide Dissolution
-  description: 'Ferric iron generated by the microbial consortium oxidizes chalcopyrite (CuFeS₂) and other
-    copper sulfide minerals, releasing copper ions into solution for recovery. The primary reaction is:
-    CuFeS₂ + 4Fe³⁺ → Cu²⁺ + 5Fe²⁺ + 2S⁰. This process is enhanced by the acidic pH (1.5-2.5) maintained
-    by sulfur oxidizers. The released Fe²⁺ is re-oxidized by iron-oxidizing bacteria/archaea, closing
-    the iron cycle. Elemental sulfur (S⁰) is oxidized by At. thiooxidans to sulfuric acid. This biohydrometallurgical
-    process extracts copper from low-grade ores uneconomical for conventional smelting. Industrial heaps
-    operate for 200-300+ days, with copper recovery continuing as long as Fe³⁺ generation and acid production
-    are sustained. The process produces pregnant leach solution (PLS) containing dissolved copper that
-    is processed by solvent extraction and electrowinning.
-
-    '
-  interaction_type: SYNTROPHY
+  description: Ferric iron attacks copper sulfide minerals and releases copper and reduced substrates that can support
+    microbial iron regeneration and sulfur oxidation. The 2009 field heap contained mixed copper sulfides, indigenous
+    organisms beyond the five canonical representatives, and a 400-day leaching cycle. Separate 2018 cultures measured
+    copper release from chalcopyrite and favored a lower-redox-potential A. caldus/S. thermosulfidooxidans combination;
+    the triple culture did not outperform the binaries. The 2022 SX-reagent monocultures further dissociated iron
+    oxidation from copper recovery. The feedback is conditional on mineral, redox and inhibition context, not proof
+    of a closed five-member syntrophic consortium or monotonically increasing recovery with ferric iron.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Acidithiobacillus ferrooxidans
@@ -472,48 +450,46 @@ ecological_interactions:
       label: iron(2+)
     notes: Regenerated substrate
   downstream:
-  - target: Ferrous Iron Oxidation in Early Heaps
-    description: Released Fe²⁺ is re-oxidized to regenerate Fe³⁺ oxidant
-  - target: Ferrous Iron Oxidation in Aged Heaps
-    description: Released Fe²⁺ also feeds the acid-tolerant iron oxidizers in aged heap strips
+  - target: Acidithiobacillus Iron Oxidation and Early-Heap Association
+    description: PARTIAL - mineral attack releases ferrous iron that can supply A. ferrooxidans oxidation, regenerating
+      ferric oxidant. This is a chemically grounded substrate feedback, not a measured taxon-resolved closed loop
+      in the industrial heap.
+  - target: Aged-Heap Iron-Oxidizer Association
+    description: PARTIAL - released ferrous iron can supply the iron-oxidizing taxa associated with older strips.
+      Their individual uptake and feedback fluxes were not traced by the field abundance and RNA assays.
   - target: Sulfur Oxidation to Sulfuric Acid
-    description: Released reduced inorganic sulfur compounds feed sulfur oxidation to sulfuric acid
-  - target: Thermophilic Iron and Sulfur Oxidation
-    description: Chalcopyrite-associated Fe²⁺ and sulfur substrates feed Sulfobacillus activity in hotter
-      bioleaching niches
+    description: PARTIAL - mineral dissolution generates reduced inorganic sulfur substrates that can feed A. thiooxidans
+      sulfur oxidation. The reaction-cycle context supports direction, not selective proof of its share of field
+      acid generation or passivation control.
+  - target: Sulfobacillus Iron and Sulfur Oxidation Capacity
+    description: PARTIAL - chalcopyrite-associated ferrous iron and reduced sulfur can feed Sulfobacillus oxidation
+      in the tested cultures. This substrate feedback does not demonstrate exact-species transfer or activity in
+      hotter industrial heap niches.
   evidence:
   - reference: doi:10.3389/fmicb.2022.820052
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Bioleaching, the microbial dissolution of metal sulfides, is caused by Fe3+ ions as
-      the crucial oxidizing reagent
-    explanation: Identifies ferric iron as the oxidant responsible for dissolving copper sulfides
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: Bioleaching, the microbial dissolution of metal sulfides, is caused by Fe3+ ions as the crucial oxidizing
+      reagent
+    explanation: General reaction-cycle context from the 2022 Introduction. Separate laboratory results and field
+      observations support conditional leaching, not an exact five-member in vivo perturbation or taxon-resolved
+      flux.
   - reference: doi:10.3389/fmicb.2022.820052
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Then iron-oxidizing microorganisms re-oxidize Fe2+ to Fe3+, and sulfur-oxidizing
-      microorganisms oxidize RISCs to sulfuric acid
-    explanation: Connects mineral dissolution products to microbial iron regeneration and sulfuric
-      acid production
-- name: Thermophilic Iron and Sulfur Oxidation
-  description: 'Sulfobacillus thermosulfidooxidans contributes to iron and sulfur oxidation in thermophilic
-    heap sections (50-60°C) where exothermic sulfide oxidation elevates temperatures. This moderately
-    thermophilic organism (optimum 50-55°C) oxidizes both Fe²⁺ and S⁰, performing roles analogous to At.
-    ferrooxidans and At. thiooxidans but at elevated temperatures. Sulfobacillus exhibits facultative
-    autotrophy, growing mixotrophically on organic compounds plus iron or sulfur. Its spore-forming capability
-    provides resilience to fluctuating heap conditions. Metal tolerance (copper, zinc, nickel, cobalt)
-    enables activity in polymetallic ores. Despite low abundance (10³-10⁴ copies/ml), microarray data
-    shows increased activity in aged heaps, suggesting specialized niches where thermophily and metal
-    tolerance provide competitive advantage.
-
-    '
-  interaction_type: NICHE_PARTITIONING
-  scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Sulfobacillus thermosulfidooxidans
-    term:
-      id: NCBITaxon:28034
-      label: Sulfobacillus thermosulfidooxidans
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: Then iron-oxidizing microorganisms re-oxidize Fe2+ to Fe3+, and sulfur-oxidizing microorganisms oxidize
+      RISCs to sulfuric acid
+    explanation: General reaction-cycle context from the 2022 Introduction. Separate laboratory results and field
+      observations support conditional leaching, not an exact five-member in vivo perturbation or taxon-resolved
+      flux.
+- name: Sulfobacillus Iron and Sulfur Oxidation Capacity
+  description: S. thermosulfidooxidans has measured iron/sulfur oxidation and leaching capacity in separate 2018
+    cultures at 38 +/- 2 C and 2022 monocultures at 45 C. In 2018, comparatively weak iron oxidation and lower redox
+    potential favored copper release, including the A. caldus binary. In 2022, 10 mg/L SX reagent delayed but did
+    not prevent recovery of iron oxidation and approximately 30% copper extraction; at 50 mg/L, sulfur oxidation
+    and growth persisted while iron oxidation and extraction were impaired. Genus-level Sulfobacillus RNA in older
+    field strips does not identify this exact species, measured 50-60 C heap niches, or competitive advantage.
+  scope: PAIRWISE
   metabolites:
   - preferred_term: Fe(II)
     term:
@@ -527,23 +503,31 @@ ecological_interactions:
     term:
       id: CHEBI:26833
       label: sulfur atom
+    notes: Elemental sulfur context, not a measured molecular allotrope or concentration
   downstream:
   - target: Copper Sulfide Dissolution
-    description: Sulfobacillus iron and sulfur oxidation can maintain copper extraction in thermophilic
-      chalcopyrite bioleaching
+    description: PARTIAL - Sulfobacillus iron/sulfur oxidation can support leaching in the tested laboratory systems,
+      subject to redox potential and SX inhibition. The lower-ORP advantage contradicts a universal more-iron-oxidation
+      benefit; exact field-species and hot-zone contributions remain unresolved.
   evidence:
   - reference: doi:10.1111/j.1751-7915.2009.00112.x
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: the prokaryotic acidophile microarray (PAM) analysis showed active members of Alphaproteobacteria
-      in all samples and of Sulfobacillus genus in older ones
-    explanation: Documents Sulfobacillus activity in industrial heaps
+    snippet: the prokaryotic acidophile microarray (PAM) analysis showed active members of Alphaproteobacteria in
+      all samples and of Sulfobacillus genus in older ones
+    explanation: Supports genus-level field RNA activity only; neither exact S. thermosulfidooxidans identification
+      nor a hot-zone flux measurement.
   - reference: doi:10.3389/fmicb.2018.03059
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: microbial iron oxidation by Sulfobacillus thermosulfidooxidans meets these specifications
-    explanation: Demonstrates iron oxidation by Sulfobacillus thermosulfidooxidans in chalcopyrite
-      bioleaching experiments
+    explanation: The specifications refer to comparatively weak iron oxidation and favorable lower redox potential,
+      not maximal ferric-iron production or a demonstrated 50-60 C field niche.
+  source_taxon:
+    preferred_term: Sulfobacillus thermosulfidooxidans
+    term:
+      id: NCBITaxon:28034
+      label: Sulfobacillus thermosulfidooxidans
 environmental_factors:
 - name: pH Gradient Across Heap Age
   value: 1.67-2.5
@@ -847,3 +831,34 @@ growth_media:
     explanation: Confirms use of standard acidophile cultivation methods for consortium members
   culturemech_id: CultureMech:003277
   culturemech_url: https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/CultureMech:003277
+discussions:
+- discussion_id: copper_heap_resolved_flux_and_context
+  prompt: Which taxa and mineral/redox conditions sustain the industrial leaching feedback?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Acidithiobacillus Iron Oxidation and Early-Heap Association
+  - ecological_interactions#Aged-Heap Iron-Oxidizer Association
+  - ecological_interactions#Sulfur Oxidation to Sulfuric Acid
+  - ecological_interactions#Copper Sulfide Dissolution
+  - ecological_interactions#Sulfobacillus Iron and Sulfur Oxidation Capacity
+  rationale: 'Field DNA/rRNA and solution measurements support an open indigenous community and succession, not
+    species-resolved iron/sulfur flux or competitive exclusion. Separate culture perturbations demonstrate oxidation
+    and copper release, including lower-ORP benefits and loss of recovery despite iron oxidation under SX reagent.
+    Taxon-resolved flux, selective perturbations and mineral/passivation measurements are needed to connect those
+    laboratory mechanisms to the heap. Preserve the real chemical feedback without asserting a closed five-member
+    syntrophy. Field-genus versus exact Sulfobacillus species, non-graph abundance/engineering metadata and culture-context
+    discrepancies remain in #1358.'
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-06T02:52:26Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate measured intrinsic iron oxidation from early-heap association and failed recovery under SX
+    reagent.; Retain observed succession with correct abundance scale and species boundaries, without competition
+    or resolved field flux.; Distinguish sulfur-oxidation capacity and RNA activity from stable DNA counts, constant
+    acid flux and selective passivation removal.; Retain conditional mineral/redox feedback and direct laboratory
+    outcomes without a closed five-member consortium claim.; Preserve laboratory Sulfobacillus oxidation/leaching
+    and low-ORP advantage; bound field genus-to-species and thermal inference. Issue #1356; reports/causal_graph_review/decisions/20261005-two-records-batch25.yaml'
+  llm_assisted: true

@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        coastal forested freshwater wetland soil
+                        coastal forested freshwater wetland soil<span class="ontology-label"> — ontology label: wetland area</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000043"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -454,7 +462,7 @@
 
                     <tr>
                         <td>
-                            <strong>coastal forested wetland soil microbial community</strong>
+                            <strong>coastal forested wetland soil microbial community<span class="ontology-label"> — ontology label: cellular organisms</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=131567"
@@ -511,7 +519,7 @@
 
                     <tr>
                         <td>
-                            <strong>coastal wetland sulfate-reducing bacteria</strong>
+                            <strong>coastal wetland sulfate-reducing bacteria<span class="ontology-label"> — ontology label: Bacteria</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2"
@@ -566,7 +574,7 @@
 
                     <tr>
                         <td>
-                            <strong>coastal wetland carbon nitrogen phosphorus cycling guilds</strong>
+                            <strong>coastal wetland carbon nitrogen phosphorus cycling guilds<span class="ontology-label"> — ontology label: cellular organisms</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=131567"
@@ -619,12 +627,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Coastal Forested Wetland Seawater-Ion Microcosm Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -632,13 +641,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -646,9 +650,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Non-Sulfate Seawater Ions Drive Community And Emission Responses</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Experimental Seawater-Ion Exposure</h3>
                 </div>
+                <p class="prewrap interaction-description">Soil-core microcosms from one acidic, restored freshwater wetland received deionized water, 5 ppt artificial seawater, artificial seawater without sulfate, or sulfate alone. The 12-week experiment separates sulfate and non-sulfate mixture effects. It does not isolate sodium chloride from all other ions or establish a universal coastal-field response.</p>
 
 
 
@@ -696,11 +700,13 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Artificial Seawater Alters Carbon Nitrogen And Phosphorus Gene Response
+                        <span class="flow-arrow">→</span> Relative Carbon Nitrogen And Phosphorus Gene Abundances
+                        <p class="prewrap causal-description">The controlled ion mixtures altered relative DNA gene abundances at week 12, supporting a treatment effect on measured functional potential. PARTIAL - the responsible ions and biological mediators remain unresolved; this is not evidence of gene expression or activity changes.</p>
                     </div>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Seawater-Ion Perturbation Of Greenhouse Gas Outputs
+                        <span class="flow-arrow">→</span> Week-12 Greenhouse-Gas Flux Response
+                        <p class="prewrap causal-description">Controlled seawater-ion exposure changed week-12 whole-core net gas fluxes in treatment-specific comparisons. PARTIAL - factorial mixture effects and individual pairwise contrasts differ, and community composition or gene correlations do not establish the mediators of each gas response.</p>
                     </div>
 
                 </div>
@@ -729,7 +735,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/38628812/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38628812</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"other ions present in seawater, not sulfate, drive ecological and biogeochemical responses"</div>
@@ -742,12 +748,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Sulfate Alone Does Not Enrich Sulfate-Reduction Features</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>Week-12 Sulfate-Reduction Feature Response</h3>
                 </div>
+                <p class="prewrap interaction-description">Sulfate addition increased porewater sulfate but did not enrich the measured relative sulfate-reducer abundance or sulfate-reduction gene features at week 12. Hydrogen sulfide was detected in sulfate-amended water at day 14. The bounded abundance result therefore does not establish inactive sulfate reduction, reciprocal competition, or absence of all sulfate-only gas effects.</p>
 
-
-                <p><strong>Source Taxon:</strong> coastal wetland sulfate-reducing bacteria</p>
 
 
 
@@ -787,7 +791,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/38628812/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38628812</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"sulfate alone did not alter emissions or communities"</div>
@@ -813,12 +817,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Artificial Seawater Alters Carbon Nitrogen And Phosphorus Gene Response</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Relative Carbon Nitrogen And Phosphorus Gene Abundances</h3>
                 </div>
+                <p class="prewrap interaction-description">Shotgun DNA metagenomes showed relative abundances of carbon-, nitrogen- and phosphorus-cycling genes responding more strongly to artificial-seawater mixtures than sulfate alone. These are community functional-potential measurements, not transcript abundance, pathway activity or proof that the correlated genes mediate gas flux.</p>
 
-
-                <p><strong>Source Taxon:</strong> coastal wetland carbon nitrogen phosphorus cycling guilds</p>
 
 
 
@@ -875,9 +877,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Seawater-Ion Perturbation Of Greenhouse Gas Outputs</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Week-12 Greenhouse-Gas Flux Response</h3>
                 </div>
+                <p class="prewrap interaction-description">Week-12 whole-core net CO2, CH4 and N2O fluxes were measured. CO2 had a significant overall treatment and non-sulfate-factor effect but no significant individual pairwise contrasts. CH4 was higher without sulfate than in the water control or sulfate-only treatment; complete artificial seawater was intermediate. N2O was lower in every amended arm, including sulfate-only, than in the control. These outcomes do not directly partition microbial production and consumption pathways.</p>
 
 
 
@@ -935,7 +937,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/38628812/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38628812</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"may be drivers of increased methane emissions in soils that received artificial seawater addition"</div>
@@ -951,6 +953,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which ions and microbial processes mediate the treatment-specific net gas responses?
+                </h3>
+                <p class="prewrap">Controlled ion-mixture exposure supports causal treatment effects, but not isolated sodium chloride action. Relative DNA gene counts and guild correlations do not measure activity or establish mediation. Selective ion and pathway interventions with production/consumption measurements would resolve mechanisms. Week-12 gene features and day-14 water chemistry must remain separate; the sulfate-only N2O contrast prevents an unqualified no-gas-effect claim.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Experimental Seawater-Ion Exposure</code>, <code>ecological_interactions#Week-12 Sulfate-Reduction Feature Response</code>, <code>ecological_interactions#Relative Carbon Nitrogen And Phosphorus Gene Abundances</code>, <code>ecological_interactions#Week-12 Greenhouse-Gas Flux Response</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1441,12 +1462,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1459,7 +1483,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1520,7 +1543,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1543,7 +1566,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Non-Sulfate Seawater Ions Drive Community And Emission Responses",
+                label: "Experimental Seawater-Ion Exposure",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1558,7 +1581,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1575,7 +1598,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Sulfate Alone Does Not Enrich Sulfate-Reduction Features",
+                label: "Week-12 Sulfate-Reduction Feature Response",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1584,18 +1607,13 @@
             });
 
 
-            var srcKey = "coastal wetland sulfate-reducing bacteria";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
 
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1614,7 +1632,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Artificial Seawater Alters Carbon Nitrogen And Phosphorus Gene Response",
+                label: "Relative Carbon Nitrogen And Phosphorus Gene Abundances",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1623,18 +1641,13 @@
             });
 
 
-            var srcKey = "coastal wetland carbon nitrogen phosphorus cycling guilds";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
 
 
         })();
 
         (function() {
             var intId = "interaction:3";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1653,7 +1666,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Seawater-Ion Perturbation Of Greenhouse Gas Outputs",
+                label: "Week-12 Greenhouse-Gas Flux Response",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1677,6 +1690,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

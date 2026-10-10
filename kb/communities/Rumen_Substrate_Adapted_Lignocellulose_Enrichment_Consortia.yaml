@@ -315,10 +315,11 @@ taxonomy:
     explanation: Supports Bifidobacterium as a genus sustained or increased during xylan enrichment.
 ecological_interactions:
 - name: Four-substrate rumen consortium specialization
-  description: Serial 72 h enrichment on alfalfa, barley straw, CMC, or xylan selected different late bacterial profiles from
-    the same pooled rumen-fluid inoculum, with the CMC and xylan enrichments producing the strongest Bray-Curtis separation
-    from the alfalfa and barley-straw lines.
-  interaction_type: NICHE_PARTITIONING
+  description: Serial 72 h enrichment on alfalfa, barley straw, CMC, or xylan selected different late bacterial
+    profiles from the same pooled rumen-fluid inoculum, with the CMC and xylan enrichments producing the strongest
+    Bray-Curtis separation from the alfalfa and barley-straw lines. Differences among separately enriched lines
+    demonstrate substrate-dependent selection, not reduced competition through niche separation among coexisting
+    members.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: fermentation
@@ -327,25 +328,27 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Xylan chain-elongation-associated phenotype
-    description: The xylan enrichment diverged toward a distinct late community that accumulated caproate.
+    description: 'PARTIAL: repeated xylan selection generated the late consortium with caproate accumulation. Genus
+      abundance and bulk end products are consistent with community mediation, but do not isolate the contribution
+      of the compositional shift from substrate effects or demonstrate the proposed member-to-member flux.'
   evidence:
   - reference: PMID:42197533
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Xylan- and CMC-enriched consortia exhibited the greatest compositional shifts, forming discrete clusters that
-      were distinct from BS and alfalfa communities.
+    snippet: Xylan- and CMC-enriched consortia exhibited the greatest compositional shifts, forming discrete clusters
+      that were distinct from BS and alfalfa communities.
     explanation: Supports substrate-dependent compositional divergence during enrichment.
   - reference: PMID:42197533
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Across generations, total VFA concentrations declined on all substrates, with the sharpest decreases observed
-      for xylan and BS.
+    snippet: Across generations, total VFA concentrations declined on all substrates, with the sharpest decreases
+      observed for xylan and BS.
     explanation: Supports substrate- and generation-dependent fermentation outcomes.
 - name: CMC Bacteroides core selection
   description: The carboxymethyl-cellulose line reproducibly selected a Bacteroides-dominated core with Sporanaerobacter,
-    Streptococcus, and Sphaerochaeta across G3, G6, and G10. The record treats this as substrate enrichment of a CMC-adapted
-    guild, not as a resolved pairwise lactate-propionate exchange.
-  interaction_type: NICHE_PARTITIONING
+    Streptococcus, and Sphaerochaeta across G3, G6, and G10. The record treats this as substrate enrichment of a
+    CMC-adapted guild, not as a resolved pairwise lactate-propionate exchange. Recurrent abundance does not itself
+    establish complementary niches or competitive release.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: fermentation
@@ -356,19 +359,20 @@ ecological_interactions:
   - reference: PMID:42197533
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: CMC enrichments showed strong selective pressure, leading to Bacteroides dominating at G3, G6, and G10.
+    snippet: CMC enrichments showed strong selective pressure, leading to Bacteroides dominating at G3, G6, and
+      G10.
     explanation: Supports strong CMC substrate selection for a Bacteroides-rich community.
   - reference: PMID:42197533
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Bacteroides, Sporanaerobacter, Streptococcus, and Sphaerochaeta were consistently classified as core genera with
-      CMC from G3 through G10.
+    snippet: Bacteroides, Sporanaerobacter, Streptococcus, and Sphaerochaeta were consistently classified as core
+      genera with CMC from G3 through G10.
     explanation: Identifies the recurrent CMC core genera.
 - name: Xylan chain-elongation-associated phenotype
-  description: The xylan line selected a Caproiciproducens-, Lactobacillus-, and Megasphaera-rich late community and developed
-    caproate production by G10, a profile the paper interprets as consistent with reverse beta-oxidation but not yet supported
-    by direct flux measurements.
-  interaction_type: NICHE_PARTITIONING
+  description: The xylan line selected a Caproiciproducens-, Lactobacillus-, and Megasphaera-rich late community
+    and developed caproate production by G10, a profile the paper interprets as consistent with reverse beta-oxidation
+    but not yet supported by direct flux measurements. These are culture-level endpoints and genus associations,
+    not demonstrated hydrogen diversion, methane suppression or reduced competition.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: fermentation
@@ -384,8 +388,8 @@ ecological_interactions:
   - reference: PMID:42197533
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Caproiciproducens, Lactobacillus and Megasphaera, increased substantially across generations and became major
-      genera by G6 and G10.
+    snippet: Caproiciproducens, Lactobacillus and Megasphaera, increased substantially across generations and became
+      major genera by G6 and G10.
     explanation: Identifies the genera that increased into the xylan G10 community.
 environmental_factors:
 - name: lignocellulosic enrichment substrates
@@ -563,14 +567,14 @@ metal_notes: The curated phenotype is anaerobic lignocellulose fermentation; no 
   reported.
 discussions:
 - discussion_id: hydrogen-flux-not-measured
-  prompt: Do the xylan-enriched genera directly redirect rumen fermentation electrons through reverse beta-oxidation and away
-    from methane?
+  prompt: Do the xylan-enriched genera directly redirect rumen fermentation electrons through reverse beta-oxidation
+    and away from methane?
   kind: INTERPRETATION
   status: OPEN
   attaches_to:
   - ecological_interactions#Xylan chain-elongation-associated phenotype
-  rationale: The VFA and 16S profiles support caproate production associated with Caproiciproducens and Megasphaera, but the
-    paper explicitly notes that hydrogen and methane fluxes were not directly measured.
+  rationale: The VFA and 16S profiles support caproate production associated with Caproiciproducens and Megasphaera,
+    but the paper explicitly notes that hydrogen and methane fluxes were not directly measured.
   proposed_experiments:
   - name: Isotopic flux assay for xylan G10 enrichments
     approach: stable-isotope tracing coupled to VFA and gas quantification
@@ -581,8 +585,8 @@ discussions:
     - label incorporation into caproate and butyrate
     - hydrogen concentration
     - methane production
-    decision_criterion: Demonstrate that carbon and reducing equivalents flow into medium-chain carboxylates under xylan enrichment
-      conditions.
+    decision_criterion: Demonstrate that carbon and reducing equivalents flow into medium-chain carboxylates under
+      xylan enrichment conditions.
   evidence:
   - reference: PMID:42197533
     supports: SUPPORT
@@ -591,26 +595,53 @@ discussions:
     explanation: Identifies the measurement gap that prevents a direct hydrogen-flux mechanism from being asserted.
   posed_by: claude
 - discussion_id: amplicon-bacterial-scope
-  prompt: Which rumen fungi, protozoa, or genome-resolved bacteria contribute to these substrate-adapted consortia beyond
-    the bacterial 16S genus-level profile?
+  prompt: Which rumen fungi, protozoa, or genome-resolved bacteria contribute to these substrate-adapted consortia
+    beyond the bacterial 16S genus-level profile?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - taxonomy
-  rationale: The record is intentionally bacterial and genus-level because the experiment used 16S V1-V2 amplicons; genome-resolved
-    or eukaryote-inclusive data would be needed to curate exact strains, MAGs, anaerobic fungi, or protozoa.
+  rationale: The record is intentionally bacterial and genus-level because the experiment used 16S V1-V2 amplicons;
+    genome-resolved or eukaryote-inclusive data would be needed to curate exact strains, MAGs, anaerobic fungi,
+    or protozoa.
   evidence:
   - reference: PMID:42197533
     supports: SUPPORT
     evidence_source: full_text
-    snippet: shorter incubation period of in vitro batch culture and soluble substrate used (CMC and Xylan) favour bacterial
-      over fungal or protozoal growth and thus contributions of these eukaryotes were not considered.
+    snippet: shorter incubation period of in vitro batch culture and soluble substrate used (CMC and Xylan) favour
+      bacterial over fungal or protozoal growth and thus contributions of these eukaryotes were not considered.
     explanation: Supports leaving non-bacterial rumen members unresolved.
   posed_by: claude
+- discussion_id: rumen_selection_not_resolved_niches
+  prompt: Does community composition mediate the substrate-specific endpoints?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Four-substrate rumen consortium specialization
+  - ecological_interactions#CMC Bacteroides core selection
+  - ecological_interactions#Xylan chain-elongation-associated phenotype
+  rationale: All three positive observations and the existing direction remain. The complete primary main text supports
+    substrate selection, CMC core composition and xylan caproate accumulation, while explicitly relying on inferred
+    metabolic functions. The study does not isolate necessary member contributions or directly measure interspecies
+    flux. Preserve the earlier hydrogen-flux and amplicon-scope discussions; no new pairwise mechanism or niche-partitioning
+    classification is added.
+  evidence:
+  - reference: PMID:42197533
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: relies on inferred metabolic functions
+    explanation: The primary limitations section bounds interpretation of metabolic networks.
 curation_history:
 - timestamp: '2026-09-20T05:56:42Z'
   curator: claude
   action: CREATE_COMMUNITY
-  changes: Created CommunityMech:000389 for the PMID:42197533 rumen substrate-adapted lignocellulose enrichment consortium
-    panel with substrate, 16S, VFA, cultivation, cryopreservation, BioProject, and DOI provenance.
+  changes: Created CommunityMech:000389 for the PMID:42197533 rumen substrate-adapted lignocellulose enrichment
+    consortium panel with substrate, 16S, VFA, cultivation, cryopreservation, BioProject, and DOI provenance.
+  llm_assisted: true
+- timestamp: '2026-10-07T17:54:05Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain substrate-driven composition and the existing PARTIAL phenotype direction, not within-community
+    niche partitioning.; Retain CMC core selection without asserting complementary resource use.; Retain measured
+    caproate and genus associations without demonstrated hydrogen flux or methane effects. Issue#1767; reports/causal_graph_review/decisions/20261007-four-records-batch96.yaml
   llm_assisted: true

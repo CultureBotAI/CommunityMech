@@ -213,13 +213,10 @@ taxonomy:
     explanation: Identifies A. radioresistens 50V1 as a consortium member and gives its spacecraft-associated source, genome accession and cultivation conditions.
 ecological_interactions:
 - name: Whole-consortium reduction of recoverable Bacillus subtilis after co-cultivation
-  description: >-
-    After 24 h co-cultivation, culturable B. subtilis CFU were significantly
-    lower in the whole seven-member consortium than in B. subtilis single culture
-    under the tested recovery conditions. The source discusses possible
-    antimicrobial competition but does not resolve which partner, metabolite or
-    mechanism drove this effect.
-  interaction_type: COMPETITION
+  description: After co-cultivation, culturable B. subtilis CFU were significantly lower in the whole seven-member
+    laboratory consortium than in single culture under the tested recovery conditions. This is decreased cultivability,
+    not definitive loss of viability or demonstrated reciprocal negative effects on a pair of partners. The source
+    discusses possible competition, but does not identify a causal partner or confirmed metabolite activity.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacillus subtilis W2-B1-K4
@@ -230,13 +227,17 @@ ecological_interactions:
   - reference: PMID:42577390
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Quantification of viable cells of B. subtilis revealed an increase of
-      CFU/mL when co-cultivated with A. radioresistens and M. luteus ,
-      respectively, and decrease of CFU/mL when co-cultivated with S. capitis
-      and P. antarctica , and a statistically significant decrease of CFU/mL when
-      co-cultivated with the whole consortium ( p = 0.008)
-    explanation: Supports the whole-consortium decrease in culturable B. subtilis recovery.
+    snippet: Quantification of viable cells of B. subtilis revealed an increase of CFU/mL when co-cultivated with
+      A. radioresistens and M. luteus , respectively, and decrease of CFU/mL when co-cultivated with S. capitis
+      and P. antarctica , and a statistically significant decrease of CFU/mL when co-cultivated with the whole consortium
+      ( p = 0.008)
+    explanation: Supports the whole-consortium decrease in recoverable B. subtilis CFU, not reciprocal negative
+      fitness effects or a resolved mechanism.
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: reduced CFU recovery corresponds to decreased cultivability rather than definitive loss of viability
+    explanation: The source explicitly limits interpretation of reduced colony recovery.
 environmental_factors:
 - name: Desiccation stress
   value: 1, 7, 14, 21 and 28 days
@@ -347,23 +348,46 @@ external_resources:
     explanation: Lists the exact primary publication for this synthetic space-habitat consortium.
 discussions:
 - discussion_id: stress_protection_mechanisms_unresolved
-  prompt: >-
-    Which consortium members or metabolites drive the stressor-specific changes
-    in B. subtilis and S. capitis survival inside the full consortium?
+  prompt: Which consortium members or metabolites drive the stressor-specific changes in B. subtilis and S. capitis
+    survival inside the full consortium?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#Whole-consortium reduction of recoverable Bacillus subtilis after co-cultivation
-  rationale: >-
-    The study showed stressor-specific differences between single-species and
-    consortium survival, and it discusses candidate explanations including
-    nutrient release, protective dead-cell material, catalase usage, antimicrobial
-    peptides and biosynthetic gene clusters. The experiments did not identify a
-    causal partner or measured metabolite, so no pairwise protective edge is
-    asserted here.
+  rationale: The study showed stressor-specific differences between single-species and consortium survival, and
+    it discusses candidate explanations including nutrient release, protective dead-cell material, catalase usage,
+    antimicrobial peptides and biosynthetic gene clusters. The experiments did not identify a causal partner or
+    measured metabolite, so no pairwise protective edge is asserted here.
   posed_by: codex
   posed_date: '2026-09-11'
+- discussion_id: space_cultivability_not_reciprocal_competition
+  prompt: Does the reported colony-recovery decrease establish reciprocal competition or loss of viability?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Whole-consortium reduction of recoverable Bacillus subtilis after co-cultivation
+  rationale: The measured decrease is retained. COMPETITION requires both partners to be negatively affected; this
+    result does not establish that relationship. Candidate genomic functions are not confirmed activity. This metadata
+    review adds no stress-survival procedures or new partner mechanisms.
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: reduced CFU recovery corresponds to decreased cultivability rather than definitive loss of viability
+    explanation: The source explicitly limits interpretation of reduced colony recovery.
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: these findings reflect genomic potential rather than confirmed metabolite activity.
+    explanation: Bounds the source interpretation; no metabolite-mediated causal edge is established.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this synthetic space-habitat stress-tolerance consortium.
+curation_history:
+- timestamp: '2026-10-08T01:27:44Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain reduced B. subtilis colony recovery and its canonical participant; remove categorical competition
+    and distinguish cultivability from definitive viability loss. Issue#1823; reports/causal_graph_review/decisions/20261008-four-records-batch105.yaml
+  llm_assisted: true

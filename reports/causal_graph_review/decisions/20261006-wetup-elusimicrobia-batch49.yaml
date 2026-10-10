@@ -1,0 +1,192 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: e3864bd9f75e621affb7f2e9705a62ce001321d5
+baseline_commit: e3864bd9f75e621affb7f2e9705a62ce001321d5
+base_tree: affd939b0a8cf19217bf113d7fb469a7413849d0
+pre_source_baseline_sha256: ce4eaac41e5777098565309689eb74aac32a51f889ea6e54cbce94ee54029339
+issues:
+- 1490
+- 1491
+issue_deduplication:
+  all_state_issue_titles_and_bodies: 801
+  ignored_hidden_local_search: true
+  matching_issues: []
+  matching_local_files: 13
+  disposition: No matching issue in inspected scope; local matches are inventory/validation and taxonomy checks.
+  limitations: Not all issue comments or PR reviews inspected.
+reference_cache_original_hashes:
+  references_cache/PMID_37730729.txt: f9bef84c96937671020d02d7d564a0a698f3b63df2bdddd053c67cfa8a5ee8b4
+  references_cache/PMID_37730729.md: 2aebb802f2aa2b9596101bdfa3a6ed40031cec7263d12289f3e9f36b7f7e0286
+  references_cache/PMID_32681159.txt: f015c9879c14e218e12c7884546fd50e28c1d9942e5b6cf21271768d039cd73b
+  references_cache/PMID_32681159.md: ad43461a5d40e6dcad2464dba664aad00efa2ceeabe6eecc089acf869f9d73aa
+limitations:
+- Whole 204-line wet-up and 304-line groundwater records and every original node/arrow reviewed. Wet-up complete
+  cached main body/Methods/captions and groundwater complete primary PMC main body/Methods/captions read. No figure
+  images, supplements, raw data or analysis code audited.
+- Existing-structure repairs only; no new causal nodes/arrows, no paid Edison job or provider spend. Positive observations
+  and genomic findings retained without claims that all possible mechanisms are represented.
+- Wet-up mortality is burst-size/model dependent; biomass is a viral-DNA proxy, host links are coarse and lifestyle
+  alternatives remain. Richness summaries cover different time windows and need not conflict; lower mortality bounds
+  differ slightly across source sections. No equation or code reimplementation claimed; CO2 mediation remains a
+  hypothesis.
+- Groundwater is a comparative multi-habitat genome survey, not one demonstrated coexisting community. Same-CURIE
+  habitat labels retained separately. Encoded loci are distinct from predicted function, and the nitrogenase paralog
+  is not demonstrated nitrogen fixation.
+- All non-graph raw blocks and 920 cache files preserved, not certified. This leaves non-graph broad functional
+  roles and evidence classifications outside the present repair. Reference CLI Total checks counts reported issues,
+  not executed checks; SupportingReference coverage (#476), Linux DOI-cache lookup (#1091) and selected-cache provenance
+  (#1362) remain limitations.
+- Dedup checked 801 all-state issue titles/bodies and ignored/hidden local review files, not every comment or PR
+  review. Source-based self-adversarial review is not independent approval. Protected-main merge and corpus completion
+  remain pending.
+records:
+- path: kb/communities/Grassland_Soil_WetUp_Virus_Host_Community.yaml
+  id: CommunityMech:000224
+  original_sha256: 8e64d4781390ec08a6fd3be1e1327c9a839e595ccbf94a774546b4b7bd639a52
+  record_sha256: 69f8f1177ae4ad7775872f98f55d3bcc9d184f0c4c45425fbc189128d1427d93
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-wetup-elusimicrobia-batch49.yaml
+  scope: Whole record and every original node/arrow; bounded current structure, not all possible mechanisms.
+  summary: Bound wet-up viral mortality and inferred carbon mediation.
+  renamed_nodes:
+    Lytic Virus Activity Dominates Wet-Up Response: Lytic-Dominated Viral Response Inferred After Wet-Up
+    Viral Lysis Drives Microbial Death: Estimated Viral Contribution to Microbial Death
+    Lysis-Coupled Biomass Turnover and CO2 Efflux: Inferred Lysis Contribution to Biomass Turnover and CO2 Efflux
+  node_decisions:
+  - node: Lytic-Dominated Viral Response Inferred After Wet-Up
+    rationale: Retain positive laboratory viral time-course and replication observations; distinguish biomass proxies
+      and lifestyle inference from resolved infection events.
+  - node: Estimated Viral Contribution to Microbial Death
+    rationale: Retain aggregate virus-to-bacterium predation as a model-bounded mortality estimate, not a directly
+      measured fixed 46% effect.
+  - node: Inferred Lysis Contribution to Biomass Turnover and CO2 Efflux
+    rationale: Retain the authors' ecosystem carbon interpretation as a community-level hypothesis, not pairwise
+      predation or isolated CO2 mediation.
+  removed_node_decisions: []
+  edges_before:
+  - source: Lytic Virus Activity Dominates Wet-Up Response
+    target: Viral Lysis Drives Microbial Death
+    description: Wet-up lytic viral activity produces measurable host-cell lysis by one week after rewetting.
+  - source: Viral Lysis Drives Microbial Death
+    target: Lysis-Coupled Biomass Turnover and CO2 Efflux
+    description: Virus-driven bacterial death contributes to microbial biomass turnover and the post-wet-up CO2
+      efflux from seasonally dry soil.
+  edges_after:
+  - source: Lytic-Dominated Viral Response Inferred After Wet-Up
+    target: Estimated Viral Contribution to Microbial Death
+    description: PARTIAL - productive lytic infection would cause host death. Viral replication, particle dynamics
+      and lifestyle markers support this contribution, but the magnitude is inferred using burst-size and recovery
+      assumptions rather than directly resolved infection-to-death events.
+  - source: Estimated Viral Contribution to Microbial Death
+    target: Inferred Lysis Contribution to Biomass Turnover and CO2 Efflux
+    description: HYPOTHESIZED - lysis-released cellular carbon could support turnover and community respiration.
+      The study does not isolate the viral share of CO2 efflux or selectively establish this carbon-transfer mediation.
+  retained_edge_decisions:
+  - source: Lytic-Dominated Viral Response Inferred After Wet-Up
+    target: Estimated Viral Contribution to Microbial Death
+    description: PARTIAL - productive lytic infection would cause host death. Viral replication, particle dynamics
+      and lifestyle markers support this contribution, but the magnitude is inferred using burst-size and recovery
+      assumptions rather than directly resolved infection-to-death events.
+    rationale: Retained with explicit PARTIAL model-dependent mortality inference.
+  - source: Estimated Viral Contribution to Microbial Death
+    target: Inferred Lysis Contribution to Biomass Turnover and CO2 Efflux
+    description: HYPOTHESIZED - lysis-released cellular carbon could support turnover and community respiration.
+      The study does not isolate the viral share of CO2 efflux or selectively establish this carbon-transfer mediation.
+    rationale: Retained with explicit HYPOTHESIZED carbon mediation; no virus-isolated CO2 flux.
+  removed_edge_decisions: []
+  references:
+  - PMID:37730729
+  issues:
+  - 1490
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Grassland_Soil_WetUp_Virus_Host_Community/2026-10-06T135836Z-codex-64198f.yaml
+  source_review:
+    PMID:37730729:
+      cache: references_cache/PMID_37730729.txt
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10511743/
+      scope: Complete cached main body, Methods and embedded Figures 1-5 captions; primary PubMed abstract corroborated.
+        No figure images, supplements, raw data or code inspected.
+      sha256: f9bef84c96937671020d02d7d564a0a698f3b63df2bdddd053c67cfa8a5ee8b4
+- path: kb/communities/Groundwater_Elusimicrobia_Diverse_Metabolisms.yaml
+  id: CommunityMech:000242
+  original_sha256: dd15456140df648778bf038e65ee93969dd4181a45aa85337c02d46af40d4748
+  record_sha256: 0f6adfa3d990e2d2d09e5680230095263aecd71f1ee1b00288ebe13e5a995089
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-wetup-elusimicrobia-batch49.yaml
+  scope: Whole record and every original node/arrow; bounded current structure, not all possible mechanisms.
+  summary: Separate genomic capacities from ecological labels and remove three overview inclusion arrows.
+  renamed_nodes:
+    Groundwater Elusimicrobia Metabolic Expansion: Comparative Elusimicrobia Genomic Metabolic Repertoires
+    Versatile Heterotrophic/Autotrophic Respiration: Predicted Lineage-Specific Respiratory Capacities
+    Rnf-Dependent Acetogenesis from H2 and CO2: Predicted Rnf-Associated Acetogenesis from H2 and CO2
+    Novel Nitrogenase Paralog and Radical SAM Cluster: Nitrogenase-Paralog Loci with Predicted Tetrapyrrole Function
+  node_decisions:
+  - node: Comparative Elusimicrobia Genomic Metabolic Repertoires
+    rationale: Retain multi-habitat genomic comparison without niche partitioning or assumed co-occurrence; remove
+      all three inclusion arrows.
+  - node: Predicted Lineage-Specific Respiratory Capacities
+    rationale: Retain conditional intrinsic respiratory potential without demonstrated cross-feeding or a universal
+      complete route.
+  - node: Predicted Rnf-Associated Acetogenesis from H2 and CO2
+    rationale: Retain predicted intrinsic acetogenesis without measured flux, Rnf necessity or partner exchange.
+  - node: Nitrogenase-Paralog Loci with Predicted Tetrapyrrole Function
+    rationale: Separate observed gene neighborhoods from predicted function; do not equate the paralog with nitrogen
+      fixation or commensalism.
+  removed_node_decisions: []
+  edges_before:
+  - source: Groundwater Elusimicrobia Metabolic Expansion
+    target: Versatile Heterotrophic/Autotrophic Respiration
+    description: Groundwater-associated clades contribute oxygen- or nitrate/nitrite-dependent respiration and use
+      a variety of organic compounds as respiratory substrates.
+  - source: Groundwater Elusimicrobia Metabolic Expansion
+    target: Rnf-Dependent Acetogenesis from H2 and CO2
+    description: The groundwater-associated repertoire includes Rnf-dependent acetogenesis using hydrogen and carbon
+      dioxide as substrates.
+  - source: Groundwater Elusimicrobia Metabolic Expansion
+    target: Novel Nitrogenase Paralog and Radical SAM Cluster
+    description: Two groundwater-associated clades encode the novel nitrogenase-paralog/radical-SAM gene clusters
+      predicted to reduce a tetrapyrrole cofactor precursor.
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions:
+  - source: Groundwater Elusimicrobia Metabolic Expansion
+    target: Versatile Heterotrophic/Autotrophic Respiration
+    description: Groundwater-associated clades contribute oxygen- or nitrate/nitrite-dependent respiration and use
+      a variety of organic compounds as respiratory substrates.
+    rationale: Overview-to-component membership is not a demonstrated causal direction.
+  - source: Groundwater Elusimicrobia Metabolic Expansion
+    target: Rnf-Dependent Acetogenesis from H2 and CO2
+    description: The groundwater-associated repertoire includes Rnf-dependent acetogenesis using hydrogen and carbon
+      dioxide as substrates.
+    rationale: Overview-to-component membership is not a demonstrated causal direction.
+  - source: Groundwater Elusimicrobia Metabolic Expansion
+    target: Novel Nitrogenase Paralog and Radical SAM Cluster
+    description: Two groundwater-associated clades encode the novel nitrogenase-paralog/radical-SAM gene clusters
+      predicted to reduce a tetrapyrrole cofactor precursor.
+    rationale: Overview-to-component membership is not a demonstrated causal direction.
+  references:
+  - PMID:32681159
+  issues:
+  - 1491
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Groundwater_Elusimicrobia_Diverse_Metabolisms/2026-10-06T135837Z-codex-b5b944.yaml
+  source_review:
+    PMID:32681159:
+      cache: references_cache/PMID_32681159.txt
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC7785019/
+      scope: Complete primary PMC main text, Methods and embedded captions, plus local abstract. No figure images,
+        supplementary datasets, raw data or analysis code inspected. Local caches remain abstract-only.
+      sha256: f015c9879c14e218e12c7884546fd50e28c1d9942e5b6cf21271768d039cd73b

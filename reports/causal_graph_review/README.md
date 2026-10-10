@@ -1,0 +1,1905 @@
+# Causal Graph Review Records
+
+Each batch retains a decision ledger, validation outputs and an explicitly
+source-based self-adversarial review. These records are not independent approval
+or proof that every graph is complete. The current inventory and summary distinguish
+`reviewed`, `pending` and `needs_research`.
+
+## Batch128: Active Lineage Nomenclature
+
+[Decisions](decisions/20261009-spring-lineage-batch128.yaml) address #1978,
+the corpus hierarchy failure introduced in batch127. The active Thiothrix
+lineage now uses Pseudomonadota, with explicit GTDB nomenclature provenance.
+The original Proteobacteria spelling stays verbatim in all source rows,
+evidence snippets and caches. Genus identity, all three nodes and zero arrows
+remain unchanged. This is not a new genome classification or graph extension;
+#1841 remains open and the record stays `needs_research`.
+
+The [before-repair review](../../reviews/structured/20261009T074053Z-thiothrix-lineage-before/review.md)
+records the reproduced defect. The [validation output](validation-20261009-batch128.json)
+retains gate results; immutable before/after bundles live under
+`reviews/structured/`. These are scoped self-reviews, not independent approval.
+The [provenance receipt](provenance-20261009-batch128.json) addresses #1979:
+archival tag `review-provenance/20261009-batch128` retains the reviewed source
+commit through squash merge and later branch deletion, without rewriting reports.
+
+## Batch127: Thiothrix Genus Identity
+
+[Decisions](decisions/20261008-spring-identity-batch127.yaml),
+[source rows](sources/20261008-spring-supplements-batch127.json),
+[validation](validation-20261008-batch127.json), and
+[self-adversarial review](adversarial-review-20261008-batch127.yaml) record
+a partial repair of #1841. Primary Table S4 assigns the named MS4 genome to
+Thiothrix but leaves species blank. The roster and two existing graph links
+now use the verified genus identifier, with a source-specific GTDB assignment.
+
+Both publisher supplement URLs returned the same six-sheet workbook; selected
+classification and coverage rows are preserved with its hash and access limits.
+The Beggiatoa-related classification remains unresolved, as do cell identity and
+metabolic coupling. No new nodes, arrows or Edison submissions were added.
+The record stays `needs_research`; #1841 stays open. Counts remain 406 reviewed,
+zero pending and 54 requiring research. This extends PR #1975 without changing
+the 100 existing native-stack heads or claiming merge/cleanup is complete.
+
+## Batch126: Halomonas Strain Evidence
+
+[Decisions](decisions/20261008-halomonas-identity-batch126.yaml),
+[validation](validation-20261008-batch126.json), and
+[self-adversarial review](adversarial-review-20261008-batch126.yaml) narrow
+the unresolved scope in #1860. The publisher-indexed primary Introduction
+identifies LC1 (DSM 15516) as the coculture heterotroph. Two existing graph
+descriptions now reflect this evidence; all three nodes and both arrows remain.
+
+Only five quoted words are appended to the preferred Markdown cache.
+Full Methods, Table 1, figures, supplements and raw data were not audited.
+Medium accounting and encapsulation mediation remain unresolved, so the record
+stays `needs_research` and #1860 stays open. The earlier ledger is preserved
+with a hash-linked successor. No taxonomy changes, new topology or Edison spend.
+The inventory remains 406 reviewed, zero pending and 54 requiring research.
+
+## Batch125: Cable-Biofilm Identity
+
+[Decisions](decisions/20261008-cable-biofilm-batch125.yaml),
+[validation](validation-20261008-batch125.json), and
+[self-adversarial review](adversarial-review-20261008-batch125.yaml) revisit
+the unresolved identity in #1267. The inherited biofilm member is now grounded
+to Bacillariophyta, and the related sulfide term matches the measured H2S species
+without treating calculated total sulfide as one molecule. Unsupported syntrophy
+is removed from the cable-bacteria role.
+
+All three nodes and both arrows remain. Mechanism, reciprocal-benefit and
+statistical qualifications remain, including the open mechanistic discussion.
+The earlier partial-review ledger is preserved through explicit hash-linked
+supersession. Whole-record certification, original figure inspection, and
+supplement or raw-data audits are not claimed.
+
+All eleven evidence instances match the primary source and cache; only eight
+new quoted words are appended with attribution. The other 459 records,
+923 caches and all earlier histories and decision ledgers remain unchanged.
+No Edison submission or new causal topology was needed. The inventory has
+406 reviewed records, zero pending and 54 requiring research. Issue #1267
+awaits protected-main merge; #1268 remains open for other records.
+
+## Batch124: Final Pending Records
+
+[Decisions](decisions/20261008-six-records-batch124.yaml),
+[provenance](cache-provenance-20261008-batch124.json),
+[validation](validation-20261008-batch124.json), and
+[self-adversarial review](adversarial-review-20261008-batch124.yaml) cover
+algae-MLSS, TCP groundwater, Yarrowia, yogurt, Zymomonas-E. coli and hCom2.
+All fifteen existing nodes and eight arrows remain, with six coherent renames.
+
+TCP retains amendment effects while distinguishing metagenomic inference.
+Yarrowia's lipid-fraction benefit is not a titer advantage or exclusive niches.
+Yogurt retains intervention outcomes with strain, growth-stage and recipient
+boundaries. Zymomonas retains rescue controls without exclusive glutathione
+mediation. hCom2 retains stability and resistance with direct outcome evidence,
+not colonization-facilitation labels or an established protective mechanism.
+Algae-only controls constrain a future algae-MLSS graph; its extension stays open.
+
+All 36 graph/discussion quotations match fresh primary artifacts and caches.
+The ledger records exact reading scope and access limitations, including
+abstract-bounded TCP and urease evidence. Four caches receive short attributed
+excerpts, and a missing TCP abstract is restored from an independently verified
+copy. The other 919 caches, 454 records and unrelated raw fields are unchanged.
+Six append-only histories record the work. One algae Edison dry run completed;
+there was no provider submission or spend.
+
+The inventory now has 405 reviewed records, zero pending and 55 requiring
+research. Zero pending is not completion of those research extensions.
+Repairs #1963-#1967 await protected-main merge. Graph extension #1968 and
+non-graph follow-ups #1969-#1971 and #765 remain open. This is source-based
+self-review, not independent approval; protected merge and branch deletion
+are still separate requirements.
+
+## Batch123: Phenotypes And Inferred Mechanisms
+
+[Decisions](decisions/20261008-four-records-batch123.yaml),
+[provenance](cache-provenance-20261008-batch123.json),
+[validation](validation-20261008-batch123.json), and
+[self-adversarial review](adversarial-review-20261008-batch123.yaml) cover
+the five- and three-species wine yeast consortia, Mankai cobamide guild and
+wollastonite fungal pair. All eleven nodes and both existing arrows remain,
+with three renames and no new topology.
+
+Wine perturbation outcomes remain positive, with competition and proposed
+suppression mechanisms qualified. The early amino-acid difference and later
+null remain distinct. Mankai compartment profiles and annotated pathway
+compatibility are not demonstrated host filtering or metabolite transfer;
+computational provenance records the gene-content method. Fungal bulk
+metabolite and leaching outcomes remain positive, while the proposed transfer
+and acid-to-leaching links are explicitly qualified.
+
+Fresh primary sources support all 26 graph/discussion quotations. Three open
+main bodies and the five-species publisher Results, Discussion, Methods and
+Table 1 were inspected. Original figure pixels, external supplements, raw
+data and analysis code were not audited. One 17-word CC BY 4.0 excerpt was
+appended with provenance; the other 922 caches and 456 records are unchanged.
+Four append-only histories record the repairs. No Edison submission or spend.
+
+Repairs #1954-#1957 await protected-main merge. Non-graph metadata follow-ups
+#1958-#1961 remain open. This is source-based self-review, not independent
+approval or completion of the overall review and protected merge.
+
+## Batch122: Treatment Outcomes And Mechanism Limits
+
+[Decisions](decisions/20261008-four-records-batch122.yaml),
+[provenance](cache-provenance-20261008-batch122.json),
+[validation](validation-20261008-batch122.json), and
+[self-adversarial review](adversarial-review-20261008-batch122.yaml) cover
+wheat crown-rot TB, wheat-origin DT-SynCom, straw enzyme pretreatment and SASW01.
+All nine nodes and both arrows remain, with one rename and no new topology.
+
+TB keeps positive pot efficacy while distinguishing relative DNA profiles and
+simulated network robustness from biological causality. DT keeps barley disease
+protection and selective pre-challenge RNA changes, not inoculant superiority or
+proven hormone-pathway dependence. Straw keeps enzyme-mediated pretreatment and
+improved downstream biogas, not reciprocal mutualism or methane-only yield.
+SASW01 retains combined biocoating outcomes with EPS mediation hypothesized and
+coating effects distinct from SynCom-only contributions.
+
+Three open main bodies and all four abstracts were read; straw is abstract-bounded.
+Original figure pixels, separate supplements, raw data and code were not audited.
+All 23 graph/discussion quotes match fresh primary sources and existing caches.
+All 923 caches and 456 other records remain unchanged. Four append-only histories
+record the repairs. No Edison submission or spend was needed.
+
+Repairs #1947-#1950 await protected-main merge. Source timing/figure and yield
+follow-ups #1951-#1952 remain open. This is source-based self-review, not
+independent approval or completion of the overall review and protected merge.
+
+## Batch121: Plant Outcomes And Mixture Contrasts
+
+[Decisions](decisions/20261008-four-records-batch121.yaml),
+[provenance](cache-provenance-20261008-batch121.json),
+[validation](validation-20261008-batch121.json), and
+[self-adversarial review](adversarial-review-20261008-batch121.yaml) cover
+tomato oxylipin SynCom3, wheat C1 and C6, and the six-strain wheat crown-rot SMC.
+Twelve of fourteen nodes and both existing arrows remain, with six renames.
+Two wheat inoculum-preparation nodes are removed; no new topology is introduced.
+
+Tomato retains positive biosynthesis-inhibition and overexpression evidence
+at host-pathway scope, without claiming reciprocal bacterial mutualism.
+C1 retains plate inhibition and greenhouse protection, not superiority over
+the best single strain. C6 keeps direct plate inhibition and Salkowski output,
+Arabidopsis root shortening, and the contrasts between positive individual
+strains and negative assembled-mixture cell-free/volatile assays.
+Crown-rot treatment benefits remain, while relative DNA profiles and correlation
+networks do not establish viable colonization or causal ecological necessity.
+Positive added-compound plant effects and negative direct fungal assays remain
+distinct from necessity in the intact SMC.
+
+Four whole records and three unique primary studies were reviewed. Wheat C1/C6
+and crown-rot complete main bodies, methods, tables and captions were read;
+tomato is abstract-bounded. Original figure pixels, external supplements, raw
+data and analysis code were not audited. All 34 graph/discussion quotations
+match primary text and local caches. Three short crown-rot excerpts, 21 words,
+are appended with attribution and its CC BY-NC-ND 4.0 license; earlier cache
+bytes are preserved for the provenance follow-up. The other 922 caches,
+456 records and unrelated raw fields are unchanged. Four append-only histories
+record the repairs. No Edison submission or spend was needed.
+
+Repairs #1939-#1942 await protected-main merge. Non-graph member/role,
+metal/abundance and source-provenance follow-ups #1943-#1945 remain open.
+This is source-based self-review, not independent approval or completion of
+the overall review and protected merge.
+
+
+## Batch120: Measured Outcomes And Inferred Routes
+
+[Decisions](decisions/20261008-four-records-batch120.yaml),
+[provenance](cache-provenance-20261008-batch120.json),
+[validation](validation-20261008-batch120.json), and
+[self-adversarial review](adversarial-review-20261008-batch120.yaml) cover
+the Thermoleptolyngbya-Chelatococcus arsenic pair, thermophilic ex-situ
+biomethanation, lignocellulose-composting SynCom and tobacco chemotaxis SynCom.
+All ten nodes remain, with six renames. Three existing arrows remain qualified;
+one compost arrow that confounded parallel responses to inoculation is removed.
+
+Arsenic carbon tracing and reciprocal growth remain direct positive evidence;
+genomic complementarity does not establish traced oxygen or nitrogen transfer.
+Biomethanation retains measured gas and VFA outcomes, without calling external
+gas supply cross-feeding or group-level inference demonstrated syntrophy.
+Compost retains the transient ARG rebound and later attenuation; KEGG and
+host-gene networks describe potential, not measured gene-transfer frequency.
+Tobacco retains strain-specific broth and combined field-treatment benefits,
+including the Y878 null enhancement, without equating cheA PCR with measured
+chemotaxis or isolating that mechanism from fertilizer co-treatment.
+
+Four whole records and four fresh primary abstracts were reviewed. Biomethanation
+and tobacco main-body XML, methods, results, discussion, tables and captions were
+read; original figure pixels, supplements, raw data and analysis code were not.
+Arsenic and compost repairs are abstract-bounded, not an exhaustive claim that
+full text is absent. All 33 graph/discussion quotations match primary text and
+existing caches. All 923 caches, 456 other records and unrelated raw fields are
+unchanged. Four append-only histories record the edits. No new topology,
+experimental protocol, Edison invocation or provider spend is introduced.
+
+Repairs #1931-#1934 await protected-main merge; non-graph follow-ups #1935-#1937
+remain open. Source-based self-review is not independent approval, and the
+overall review and protected merge are still incomplete.
+
+## Batch119: Strain Identity And Inferred Networks
+
+[Decisions](decisions/20261008-four-records-batch119.yaml),
+[provenance](cache-provenance-20261008-batch119.json),
+[validation](validation-20261008-batch119.json), and
+[self-adversarial review](adversarial-review-20261008-batch119.yaml) cover
+THOR, TYQ1, teosinte biofertilization and mCAFEs RCC. Seventeen of twenty
+nodes and all ten existing arrows remain, with nine renames and no new topology.
+
+THOR separates the founding CI04 biofilm result from the UW101 population
+and transcription experiments. TYQ1 retains seven positive biofilm pairings,
+medium-specific spent-medium utilization and biological omission evidence,
+without treating them as selective tests of the mechanism of protection.
+Teosinte retains reported field-treatment effects but removes two preparation
+nodes. Its soil association network does not establish microbial mutualism.
+mCAFEs retains experimental enrichment selection and revival of five selected
+stocks; abundance classes and network hubs are not direct growth measurements
+or demonstrations of ecological necessity.
+
+Five complete primary main-body XML texts, including methods, tables and
+captions, were reviewed. Original figure pixels, supplements, raw data and
+analysis code were not audited. All 43 graph/discussion quotations match
+the primary texts and caches. Four missing, licensed excerpts were appended
+to one THOR cache without modifying its prefix; 922 caches are unchanged.
+Four guarded writes and append-only histories preserve unrelated raw fields
+and 456 other records. One participant-list user is added. Moving THOR protection
+to a three-member scope raises sole community-level credit by one, to 1281 taxa;
+record-scope counts, connectivity logic and thresholds are unchanged.
+
+Repairs #1922-#1925 await protected-main merge. Non-graph strain, composition,
+design and metadata follow-ups #1926-#1929 remain open. No Edison extension
+or spend was required. This is self-review, not independent approval or
+completion of the overall review.
+
+## Batch118: Treatment Identity And Modeled Mechanisms
+
+[Decisions](decisions/20261008-four-records-batch118.yaml),
+[provenance](cache-provenance-20261008-batch118.json),
+[validation](validation-20261008-batch118.json), and
+[self-adversarial review](adversarial-review-20261008-batch118.yaml) cover
+Viili, waste-sludge electrofermentation, watermelon SSC8, and wetland
+oxygen-sulfate microcosms. Twelve of 13 nodes and four of eight arrows
+remain, with four renames and no new topology.
+
+Viili retains experimental nitrogen provision and AI-2 regulation of EPS,
+while the nutrient-to-signaling mediation remains partial. Sludge roles
+are limited to the representative genera in each spatial fraction; its
+EET arrows remain explicitly model-based, not intervention-proven.
+
+Watermelon SSC8 retains positive growth results from its no-added-pathogen
+experiment. The parent 16-member SynCom's disease-challenge result and
+biofilm-pathway node are not assigned to SSC8. Seven helper strains promote
+Q6, but only three pairs show bilateral benefit. Metabolomic candidates
+remain potential exchange, not a validated compound-specific mechanism.
+The wetland graph retains measured gas responses and its fitted subnetwork
+without arrows that confuse shared exposure with causal succession.
+
+All four whole records were read. Watermelon and wetland primary main-body
+XML, methods, results, discussion, tables and captions were reviewed; original
+figure pixels, supplements, raw data and model code were not. Viili and
+sludge repairs are abstract-bounded. All 29 graph/discussion quotations
+match fresh primary sources and existing caches. No caches were changed.
+
+Four guarded writes and append-only histories preserve unrelated raw fields
+and 456 other records. Two participant-list users are added without changing
+the scope census, connectivity logic or thresholds. Repairs #1915-#1918
+await protected-main merge; metadata and composition follow-ups #1919/#1920
+remain open. No Edison extension or spend was required. Self-review is not
+independent approval, and the overall review remains incomplete.
+
+## Batch117: Sequential Treatment And Evidence Boundaries
+
+[Decisions](decisions/20261008-four-records-batch117.yaml),
+[provenance](cache-provenance-20261008-batch117.json),
+[validation](validation-20261008-batch117.json), and
+[self-adversarial review](adversarial-review-20261008-batch117.yaml) cover
+tribromophenol treatment, Tropidoatractus, urine nitrification and the
+Variovorax-Cryptococcus vitamin coculture. All 14 nodes and nine arrows
+remain, with five qualified or narrowed names and no new topology.
+
+Tribromophenol retains enriched-culture identity, sequential DS introduction
+and phenol radiotracing. Tropidoatractus preserves observed magnetotaxis
+while hydrogen flux and host energetic benefit remain proposed. Urine
+nitrification separates the two reactor experiments and batch activity tests.
+The vitamin pair retains experimentally supported mutualism without claiming
+all correlated auxotrophs as recipients or vitamin-only causal mediation.
+Inconsistent fold changes and spent-medium descriptions in that paper are
+recorded as unresolved, not silently corrected.
+
+Two complete primary main-body XML texts were read, including methods and
+captions; original figure pixels, supplementary files and raw data were not
+audited. Tribromophenol and urine changes are final-abstract-bounded. An
+earlier urine thesis chapter was identified but not read or substituted.
+All 28 graph/discussion quotations match fresh sources and existing caches.
+No caches or publication bodies were added. Four append-only histories
+preserve unrelated raw fields, 456 other records and all 923 caches.
+
+One participant-list user is added. Narrowing vitamin provision to the tested
+pair reduces the community-level census by one, without changing sole-credit
+counts, connectivity logic or the share guard. Repairs #1907-#1910 await
+protected-main merge; non-graph metadata #1911/#1912 remain open. Existing
+enum issue #749 is not duplicated. No Edison invocation or spend is required
+for these existing-graph repairs. Self-review is not independent approval;
+the overall review and protected merge remain incomplete.
+
+During verification, parent #1906 failed the separate palette rarity gate.
+Issue #1913 tracks that changed-corpus rendering regression and its required
+real correction; the selected graph suite does not certify full CI. Original
+publication records remain historical when the verified correction is propagated.
+
+## Batch116: Trichoderma Resource Chains And Conditions
+
+[Decisions](decisions/20261008-three-records-batch116.yaml),
+[provenance](cache-provenance-20261008-batch116.json),
+[validation](validation-20261008-batch116.json), and
+[self-adversarial review](adversarial-review-20261008-batch116.yaml) cover
+the isobutanol, lactate-platform and filamentous Trichoderma records.
+All nine nodes remain; five of six arrows are retained. Product formation
+is scoped to the recipient, and hydrolysate dependence is not treated as
+the demonstrated mediator of every imposed population-control response.
+
+The isobutanol abstract explicitly reports experimental model validation;
+that support survives qualification of stability conditions. Full text was
+unavailable. The lactate manuscript and selected source figures support
+joint fungal/LAB redox roles, a co-substrate requirement and separate assay
+arms. The beechwood benchmark used the three-member consortium after steam
+pretreatment. The filamentous main text and appendices distinguish initial
+glucose growth, later hydrolysate dependence, viability and relative-growth
+effects. Read scopes and access limits are recorded, not full-source certification.
+
+Nineteen graph/discussion quotations match fresh primary artifacts and
+caches. One cache gains a source-located 19-word main-text excerpt; no
+publication PDF or full body is imported. Three append-only histories
+preserve non-graph fields, 457 other records and 922 other caches.
+Three explicit participant-list users are added; the measured sole-credit
+census does not increase. Connectivity logic and the share guard are unchanged.
+
+Repairs #1901-#1903 await protected-main merge; metadata #1904/#1905 remain
+open. No new topology or Edison spend is introduced. The batch115 smoke-test
+fix was propagated through batches109-115 with exact-head self-review
+comments and lifecycle receipts; this does not substitute for required CI.
+Self-review is not independent approval, and the overall review is incomplete.
+
+## Batch115: Mineral Roles And Reactor Predictions
+
+[Decisions](decisions/20261008-three-records-batch115.yaml),
+[provenance](cache-provenance-20261008-batch115.json),
+[validation](validation-20261008-batch115.json), and
+[self-adversarial review](adversarial-review-20261008-batch115.yaml) cover
+the thermophilic pyrite, thiocyanate and Tinto River records. Of 14 existing
+nodes and seven arrows, 13 nodes and four arrows remain. Added QS compounds
+are distinguished from endogenous signaling, and Afipia genomic predictions
+from measured strain flux. The Tinto Acidiphilium role is ferric reduction;
+unsupported eukaryotic/fungal carbon-transfer arrows are removed.
+
+Four fresh primary XML main bodies, the 2003 Tinto institutional PDF and
+the 2013 eukaryote review were read. Two primary abstracts corroborate
+photosynthesis and fungal presence without establishing specific carbon transfer.
+The review remains REVIEW evidence. All 25 graph/discussion quotes match fresh
+sources and existing caches; two are review quotations, not primary evidence.
+No publication bodies or caches were added. Three append-only histories
+preserve unrelated fields, 457 other records and all 923 caches.
+
+Three explicit participant-list users are added. The removed fungal claim no
+longer gives Basidiomycota an unsupported interaction: its disconnected warning
+is retained for follow-up rather than hidden by an all-member participant list.
+Connectivity logic and the share guard are unchanged. Repairs #1893-#1895 await
+protected-main merge; metadata #1896-#1898 remain open. No Edison spend or new
+topology is introduced. Self-review is not independent approval or completion.
+
+[CI regression #1899](ci-regression-1899-20261008.json) records the failed
+batch114 strict run and the stale Synechococcus smoke-test expectations from
+batch109. The corrected contract passes 24 related tests and seven additional
+counterfactual probes; no canonical graph is changed for this fix. Propagation
+through the older affected PRs and fresh protected checks are still required.
+These focused results and the 1044 batch regressions are not a new full-suite pass.
+
+## Batch114: Thermophilic Syntrophy And Mechanism Limits
+
+[Decisions](decisions/20261008-two-records-batch114.yaml),
+[provenance](cache-provenance-20261008-batch114.json),
+[validation](validation-20261008-batch114.json), and
+[self-adversarial review](adversarial-review-20261008-batch114.yaml) cover
+the Thermacetogenium-Methanothermobacter and Thermotoga-Methanocaldococcus records.
+All six existing nodes and four directions remain. Formate involvement retains
+experimental support while its detailed energy-conservation mechanism remains
+qualified. Proximity and aggregation are scoped community observations, not
+directional colonization or another measured exchange. The 292-versus-24 gene
+counts retain their within-culture growth-phase meaning.
+
+Six primary abstracts and one fresh full main-body extraction were read, along
+with three existing cached primary main bodies. Fresh retrieval of those older
+full texts failed; original figure pixels, supplements and raw data were not
+reviewed. All 18 graph/discussion quotations match fresh primary text and existing
+caches. No publication bodies or cache files were added. Two append-only histories
+preserve non-graph blocks, 458 other records and all 923 caches.
+Thermotoga adds one explicitly scoped mixed record; both members already have
+pairwise connectivity credit. Connectivity logic and the share guard are unchanged.
+
+Repairs #1888-#1889 await protected-main merge. Separate metadata followups
+#1890-#1891 remain open. No new topology or Edison spend is introduced.
+Self-review is not independent approval or completion of the corpus review.
+
+## Batch113: Marine Assay And Causal Boundaries
+
+[Decisions](decisions/20261008-three-records-batch113.yaml),
+[provenance](cache-provenance-20261008-batch113.json),
+[validation](validation-20261008-batch113.json), and
+[self-adversarial review](adversarial-review-20261008-batch113.yaml) cover
+the diatom-HP15, diatom-Ruegeria and Trichodesmium-Alteromonas records.
+All ten existing nodes remain; four unsupported arrows are removed and two
+condition-bounded HP15 directions remain. Positive growth and attachment
+findings are preserved without promoting transcript correlations or genomic
+candidates to demonstrated mechanisms.
+
+Three fresh extracted primary main bodies and three complete primary PDF
+text extractions were read, with selected PDF figures visually inspected.
+The 2018 diel main body was read from existing curator text; chemotaxis is
+abstract-bounded and the MEPS fibre evidence remains caption-only. Of 24
+graph/discussion quotations, 23 match fresh primary text and one matches
+the existing MEPS caption. No publication bodies or PDFs were added.
+Three append-only histories preserve all non-graph blocks, 457 other records
+and 923 caches. Explicit participant lists change in two records while the
+measured connectivity census and connectivity rules remain unchanged.
+
+Repairs #1880-#1882 await protected-main merge. Ruegeria remains
+`needs_research`: its distinct B12 growth-support extension (#1883) needs
+the skill-required Edison step. The one-community dry run completed; the
+authorized real invocation stopped before submission because its configured
+key loader found no key. No provider credits were spent. Non-graph metadata
+follow-ups #1884-#1886 remain open. Self-review is not independent approval
+or completion of the corpus review.
+
+## Batch112: Syntrophic Feedback And Assay Boundaries
+
+[Decisions](decisions/20261008-seven-records-batch112.yaml),
+[provenance](cache-provenance-20261008-batch112.json),
+[validation](validation-20261008-batch112.json), and
+[self-adversarial review](adversarial-review-20261008-batch112.yaml) cover
+seven propionate, butyrate and benzoate records. All 21 nodes remain; 16 of
+17 existing arrows remain. The misplaced population-ratio reverse arrow is
+removed, and benzoate mineralization is renamed as conversion. Supported
+metabolic feedback remains; carrier partitioning, enzyme assignments and
+aggregation/protein mediation retain their evidence limits.
+
+Four fresh extracted primary main bodies and five older primary abstracts
+support this review. Of 53 graph/discussion quotations, 51 match fresh primary
+artifacts and two match only existing curator-supplied publisher text, whose
+fresh retrieval was unavailable. No original figure pixels, separate supplements
+or raw data were audited. Eight append-only histories preserve the trail,
+including a shorter contiguous benzoate quote after a bracket-stripping failure;
+the original failed output and pre-correction evidence remain recorded.
+All 923 caches and 453 other records are unchanged. The measured scope census
+adds three solely-credited taxa from the community-scoped ES5 triculture;
+connectivity rules and the share guard are unchanged. No new topology or Edison spend.
+The exact participant-user test now includes the three newly explicit records;
+the initial failed regression output is retained alongside the corrected rerun.
+
+Graph repairs #1871-#1876 await protected-main merge. Non-graph culture metadata
+and residual claim follow-ups #1877-#1878 remain open. Self-review is not
+independent approval or whole-record certification.
+The unchanged coordination cultivation quote still triggers bracket-stripping
+validator issue #622. Its failure is reproduced on the parent and its text matches
+the primary source; it is recorded as an exception, not a reference-validation pass.
+
+## Batch111: Carbon, Lipid And Attachment Evidence
+
+[Decisions](decisions/20261008-three-records-batch111.yaml),
+[provenance](cache-provenance-20261008-batch111.json),
+[validation](validation-20261008-batch111.json), and
+[self-adversarial review](adversarial-review-20261008-batch111.yaml) cover
+the acetate-butanol coculture, synthetic lichen and freshwater periphyton.
+Ten of eleven nodes and all three existing directions remain. One assembly-only
+node is removed and three outcome nodes are renamed. Positive production,
+ROS protection, attachment and stress-response findings remain bounded to their
+assays; exclusive carbon attribution and untested mediation are not asserted.
+
+Three primary extracted main texts, including Methods and embedded captions
+and tables, were read completely. Thirty graph/discussion quotations match fresh
+primary text and unchanged caches. Two discussions are new; the existing butanol
+discussion is preserved. Three append-only histories and four in-memory mutation
+probes retain the audit trail. All 923 caches and 457 other records are unchanged.
+The measured scope census adds no taxa credited solely by the broad community
+rule. No new topology or Edison spend.
+
+Repairs #1865-#1867 await protected-main merge. Lichen culture metadata #1868
+and periphyton membership #1869 remain open. Self-review is not independent
+approval, whole-record metadata certification or completion of the corpus review.
+
+## Batch110: Polymer And Electron-Recipient Boundaries
+
+[Decisions](decisions/20261008-three-records-batch110.yaml),
+[provenance](cache-provenance-20261008-batch110.json),
+[validation](validation-20261008-batch110.json), and
+[self-adversarial review](adversarial-review-20261008-batch110.yaml) cover
+the Synechococcus-Halomonas, -Pseudomonas and -Shewanella records.
+All ten nodes and six directions remain. PHA is distinguished from PHB,
+DNT transformation from complete mineralization, and the abiotic anode
+from a cyanobacterial recipient. Positive production and growth findings
+remain; unmeasured mediation stays explicitly hypothetical.
+
+Five primary main texts were read in bounded spans and one primary abstract
+in full. Twenty-seven graph/discussion quotations match fresh primary text
+and unchanged caches. Four append-only histories include a quotation
+correction; its initial failed check is retained. A separate PDF fi-ligature
+false positive remains explicitly recorded under validator issue #1863,
+not silently counted as a clean snippet audit. Four in-memory mutation
+probes reject claim inflation. All 923 caches and 457 other records remain
+unchanged. No new topology or Edison spend.
+
+Repairs #1857-#1859 await protected-main merge. Halomonas remains
+`needs_research` for primary-methods access and exact-system scope (#1860).
+Non-graph follow-ups #1861-#1862 and validator #1863 remain open. Self-review
+is not independent approval or completion of the whole corpus review.
+
+## Batch109: Strain And Assay Boundaries
+
+[Decisions](decisions/20261008-six-records-batch109.yaml),
+[provenance](cache-provenance-20261008-batch109.json),
+[validation](validation-20261008-batch109.json), and
+[self-adversarial review](adversarial-review-20261008-batch109.yaml) cover
+Sesame Fuqu, SynCom Y, Azotobacter photoproduction and the three SPC dyads.
+Sixteen of nineteen nodes and nine of twelve existing directions remain.
+Construction steps and unsupported Bacillus168 persistence are removed;
+positive flavor, biofilm, biocontrol, growth and production findings remain
+bounded to their strains, comparators and assays.
+
+Three primary main texts/captions and one primary abstract were read, together
+with SPC supplement captions S1-S12 and selected figure pixels S2/S4/S5/S8.
+Thirty-four graph/discussion quotations match fresh primary text and unchanged
+caches. Six append-only histories preserve the curation trail; four in-memory
+mutation probes reject claim inflation. All 923 caches and 454 other records
+are unchanged. The measured phenotype-scope census adds no taxa credited solely
+by the broad community-level rule. Repairs #1849-#1854 await protected-main
+merge; non-graph SPC follow-up #1855 remains open. No new topology, experimental
+protocol or Edison spend. Self-review is not independent approval or completion
+of the whole corpus review.
+
+## Batch108: Process Outcomes And Molecular Responses
+
+[Decisions](decisions/20261008-four-records-batch108.yaml),
+[provenance](cache-provenance-20261008-batch108.json),
+[validation](validation-20261008-batch108.json), and
+[self-adversarial review](adversarial-review-20261008-batch108.yaml) account for
+14 original nodes and seven arrows. Twelve nodes and three qualified existing
+directions remain; two workflow nodes and four context/coincidence arrows are
+removed. Positive fermentation, algal, plant-transcript and pair-level trait
+observations remain distinct from demonstrated exchange, reciprocal fitness,
+metabolic flux and isolated causal mediation.
+
+Review is bounded to primary abstracts and indexed publisher previews, not
+complete papers. Twenty-two graph/discussion quotations match independently
+retrieved primary text and unchanged caches. Four append-only histories retain
+prior curation, and three in-memory mutation probes check that regressions
+reject inflated claims. All 923 caches and 456 other records are preserved.
+Repair issues #1843-#1846 await protected-main merge. MetG2 identity #1847
+remains unresolved and its record stays `needs_research`; existing Chlorella
+membership #183 stays open. No new topology or Edison credits were used.
+Self-review is not independent approval or whole-corpus completion.
+
+## Batch94: Exchange And Plant Mechanism Boundaries
+
+Four records retain 14 nodes and 13 existing directions; experimental SynCom
+assembly and its arrow are removed. Reciprocal nutrient exchange remains
+strain-bounded, and the real magnetite cycle remains with reduction charging
+and oxidation discharging. Acid-soil phosphorus mediation and rice-duckweed
+chemical mediation remain hypotheses, while measured plant benefits remain
+positive. Complete E. coli and magnetite primary main texts and fresh duckweed
+PMC text were read; acid-soil review is abstract/limited-preview bounded.
+All 923 baseline caches and non-graph record blocks are preserved. Issues
+#1755-#1758 track graph repairs; #1759 requires separate non-graph curation.
+[Decisions](decisions/20261007-four-records-batch94.yaml),
+[provenance](cache-provenance-20261007-batch94.json),
+[validation](validation-20261007-batch94.json), and
+[self-adversarial review](adversarial-review-20261007-batch94.yaml) state
+the source and execution limits; self-review is not independent approval.
+No new topology or paid Edison submission was used.
+
+## Batch91: Interaction Semantics Re-Review
+
+[Decisions](decisions/20261007-five-records-batch91.yaml),
+[validation](validation-20261007-batch91.json) and
+[self-adversarial review](adversarial-review-20261007-batch91.yaml) recheck five
+earlier records after the batch90 schema correction. Three records are edited;
+the MFC and Crystal Geyser records remain unchanged. All 14 nodes, seven arrows
+and participant assignments are retained. UFMP's existing transfer hypothesis
+is typed CROSS_FEEDING with PARTIAL evidence. Digestion and pleuromutilin remain
+untyped for unresolved product-removal feedback or outcome scope, not because
+obligacy is unproven.
+
+Earlier ledgers and history artifacts are preserved. Explicit hash-linked
+supersession selects the current review without accepting unlinked duplicates,
+forks or cycles. Coverage remains 280 reviewed, 132 pending and 48 needing
+research; re-review does not increase the completed count. Two complete main
+bodies and four primary abstracts were read. An unrelated reference lookup is
+excluded explicitly. Repair #1744 awaits protected-main merge; research #1715
+and non-graph follow-ups remain open. No new topology, protocol or Edison job.
+
+## Batch90: Degradation, Competition And Diatom Signaling
+
+[Decisions](decisions/20261007-four-records-batch90.yaml),
+[validation](validation-20261007-batch90.json) and
+[self-adversarial review](adversarial-review-20261007-batch90.yaml) account for
+14 original nodes and seven arrows. Twelve biological nodes and all seven
+directions remain. A diatom workflow and a broad environmental-prevalence node
+are removed from the pair-specific graph; the environmental evidence remains.
+Reported degradation, competition and signaling findings are preserved while
+reverse-feeding implications, categorical interaction types and mediation
+claims are bounded to the available evidence.
+
+Adversarial review caught an incorrect obligacy requirement after the initial
+816-test run. The actual schema explicitly does not assert obligacy for
+SYNTROPHY. The two naphthalene mechanism nodes retain that qualified type;
+the measurement endpoint remains distinct. Six append-only history artifacts
+preserve both the initial edits and correction. The initial validation and
+inputs are archived as superseded; the current report is a fresh full rerun,
+including an additional schema-contract regression.
+
+Four exact-system primary abstracts and two attribution abstracts were read.
+No complete primary main text was retrieved; access failures and the public
+publisher-preview limits are recorded. All 921 caches, 456 other records and
+raw non-graph blocks are preserved. Repairs #1738-#1741 await protected-main
+merge; diatom metadata #1742 remains open. No new causal direction, paid Edison
+job, genetic design, harmful-algal optimization or experimental protocol was
+added. Self-review is not independent approval or whole-corpus completion.
+
+## Batch89: Removal Assays And Social Spreading
+
+[Decisions](decisions/20261007-four-records-batch89.yaml),
+[validation](validation-20261007-batch89.json) and
+[self-adversarial review](adversarial-review-20261007-batch89.yaml) cover
+ten nodes and six arrows, all retained. One existing contact-initiation arrow
+is reattached to its intended existing source node, with target and wording
+unchanged. Positive removal and joint-movement observations remain separate
+from inferred mediation, assimilation, partitioning and reciprocal fitness.
+
+One fresh primary main text and four other abstracts were read. Source limits
+and the nitrogen paper's measurement terminology ambiguity remain explicit.
+All 921 caches, 456 other records and raw non-graph blocks are preserved.
+Repairs #1732-#1735 await protected-main merge; metadata #1736 remains open.
+No new biological causal claim, paid Edison job or experimental design was
+added. Self-review is not independent approval or whole-corpus completion.
+
+## Batch88: Enrichments, B12, Aniline And Factorial Panel
+
+[Decisions](decisions/20261007-four-records-batch88.yaml),
+[validation](validation-20261007-batch88.json) and
+[self-adversarial review](adversarial-review-20261007-batch88.yaml) cover
+11 original nodes and six arrows. Ten nodes and four qualified directions remain;
+one experimental-method node and two correlation-like arrows are removed.
+Positive removal, community outcomes and statistical observations are preserved.
+Gene content, transcription and optical density retain their measurement limits.
+
+Two fresh main texts, two other abstracts and relevant cached factorial-paper
+passages were read. The latter are not independent fresh full-text verification.
+All 921 caches, 456 other records and raw non-graph blocks are preserved.
+Five panel-member disconnection warnings remain visible after method-node removal.
+Repairs #1724-#1727 await protected-main merge; source/panel follow-ups
+#1728/#1729 and existing re-evidencing #765 remain open.
+No new topology, paid Edison job or experimental design was added.
+Self-review is not independent approval or whole-corpus completion.
+
+## Batch87: Wetland, Infant Gut, Rice And Helper Coculture
+
+[Decisions](decisions/20261007-four-records-batch87.yaml),
+[validation](validation-20261007-batch87.json) and
+[self-adversarial review](adversarial-review-20261007-batch87.yaml) cover
+12 original nodes and four arrows. Ten nodes and all four directions remain;
+two infant-analysis method nodes are removed. Positive genomic findings,
+transcript-ratio associations, rice benefits and helper protection remain.
+Viral effects and niche mechanisms are hypotheses; transporter and catalase
+mediation are qualified separately from measured treatment outcomes.
+
+Two primary main texts and three other abstracts were read. Helper full-text
+retrieval failed after a partial publisher extraction, so full methods and
+supplements are not certified. All 921 caches, 456 other records and raw
+non-graph blocks are preserved. Repairs #1718-#1721 await protected-main merge;
+non-graph #1722 stays open. No new graph topology or paid Edison job was added.
+Self-review is not independent approval or completion of the corpus.
+
+## Batch85: Denitrification, Beverage, Refinery And Pine
+
+[Decisions](decisions/20261007-four-records-batch85.yaml),
+[validation](validation-20261007-batch85.json) and
+[self-adversarial review](adversarial-review-20261007-batch85.yaml) cover nine
+existing nodes, six arrows and two empty graphs. Seven biological nodes remain;
+two workflow nodes and six unsupported causal directions are removed. Positive
+denitrification, stability, isolate compatibility/inhibition, pot growth and
+defense-enzyme findings remain. Pine supplements separate Phomopsis plate assays
+from cell-free urediniospore inhibition; neither proves SynCom disease control.
+The beverage and refinery records receive discussion-only updates that preserve
+positive endpoints and treatment-specific limits without inventing exchange.
+Missing structures remain `needs_research` under #1706-#1708; non-graph claims
+remain #1709. Three one-community Edison dry runs are not completed paid reports.
+All existing caches and non-graph blocks are preserved, not recertified.
+Repair issues #1704/#1705 close only after protected-main merge. Self-review is
+not independent approval or whole-corpus completion.
+
+## Batch84: Diatom, Phenol, Phormidium And Phosphite
+
+[Decisions](decisions/20261007-four-records-batch84.yaml),
+[validation](validation-20261007-batch84.json) and
+[self-adversarial review](adversarial-review-20261007-batch84.yaml) cover
+15 original nodes and eight arrows. Twelve nodes and six positive arrows remain;
+three unsupported Phormidium service nodes and two arrows are removed.
+Measured attachment, carbon flow and syntrophic conversion survive, separately
+from proposed amino-acid competition, genomic niches and intracellular models.
+
+Three fresh primary main texts and one cached phenol primary were read; fresh
+phenol full-text retrieval failed. Phormidium PDF Figures 3/4 were visually
+checked. Eighteen graph quotations match their primary/cache sources, with
+phenol explicitly not counted as independent fresh full-text verification.
+All 921 caches, 456 other records and raw non-graph blocks are preserved.
+
+Repairs #1694-#1697 await protected-main merge. Extension issues #1698-#1700
+and metadata #1701 remain open afterward. Three separate Edison dry runs
+spent no credits; scoped paid questions are unanswered. This is self-review,
+not independent approval or completion of the corpus review.
+
+## Batch83: Pyrene, Syntrophy And Pepper SynComs
+
+[Decisions](decisions/20261007-four-records-batch83.yaml),
+[validation](validation-20261007-batch83.json) and
+[self-adversarial review](adversarial-review-20261007-batch83.yaml) cover
+13 original nodes and nine arrows. Twelve biological nodes and eight bounded
+arrows remain; one inoculum-preparation node and its workflow arrow are removed.
+Measured pyrene removal, emulsification, syntrophic growth and plant responses
+remain distinct from candidate enzymes, modeled diffusion and proposed mediation.
+
+Three primary main texts and the PES correction were reviewed; the two older
+syntrophy papers remain abstract/caption limited. Selected pepper PDF pages were
+visually checked. Eighteen graph quotations match primary content and caches.
+The new coaggregation cache contains only 20 quoted words, not the full paper.
+All 920 original caches, 456 other records and non-graph blocks are preserved.
+
+Repairs #1685-#1688 await protected-main merge. Research #1689/#1690 and metadata
+#1691 remain open afterward. One syntrophy Edison dry run used no credits;
+its scoped paid question is unanswered. This is self-review, not independent
+approval or completion of the corpus review.
+
+## Batch82: Tailings, Algal Coculture, Milk And Seed Biocontrol
+
+[Decisions](decisions/20261007-four-records-batch82.yaml),
+[validation](validation-20261007-batch82.json) and
+[self-adversarial review](adversarial-review-20261007-batch82.yaml) account for
+20 original nodes and 11 arrows. Fifteen biological nodes and three qualified
+arrows remain. Five unsupported or workflow nodes and eight arrows are removed.
+Positive plant/isolate, culture-productivity, fermentation and biocontrol results
+remain; the valid soil-carbon result is preserved with evidence in discussion
+pending repair of the composite tailings community identity.
+
+Four fresh primary main texts and seven further abstracts were inspected; one
+abstract is a review used only as context. All 25 graph quotations match fresh
+primary content and unchanged caches. Separate supplements and original figure
+pixels were not audited. New tailings disconnection warnings expose unresolved
+canonical membership rather than hiding it through all-member graph credit.
+
+Repairs #1676-#1679 await protected-main merge. Research #1680-#1682 and metadata
+#1683 remain open afterward, coordinated with #497. All 920 caches, 456 other
+records and raw non-graph blocks are preserved. Four append-only histories are
+included. One algae Edison dry run spent no credits; paid authorization is
+unanswered. This is self-review, not independent approval or corpus completion.
+
+The final reread narrowed an ambiguous IAA/siderophore overlap claim, removed
+gas annotations from the bulk-productivity node and qualified toxin-mechanism
+evidence. The 31 earlier passing outputs remain recorded as superseded; all
+affected checks were rerun and seven unchanged milk checks reused by hash.
+
+## Batch81: Removal, PHB Production, Methane And Disease Suppression
+
+[Decisions](decisions/20261007-four-records-batch81.yaml),
+[validation](validation-20261007-batch81.json) and
+[self-adversarial review](adversarial-review-20261007-batch81.yaml) account for
+all 13 existing nodes and four arrows, retained with explicit assay and causal
+bounds. Positive pollutant removal, PHB production and stress resilience,
+rice methane and exudate responses, and Panax disease protection remain.
+
+Three primary main texts and their captions were read; PPCP is abstract-only.
+All 28 graph quotations match fresh primary text and unchanged caches. Separate
+supplements, raw data and original figure pixels were not audited. Graph claims
+distinguish measured phenotypes from proposed metabolite exchange, hydrogen
+mediation, oxygen scavenging, systemic resistance and network resilience.
+
+All 920 caches, 456 other records and raw non-graph blocks are preserved. Four
+append-only histories accompany repairs #1668-#1671, which await protected-main
+merge. Research #1672/#1673 and metadata #1674 stay open afterward. One PSY rice
+Edison dry run used no credits; scoped paid authorization is unanswered.
+Self-review is not independent approval or completion of the corpus.
+
+The first regression run passed, but lint caught an unbound loop variable in
+the new test helper. The helper was fixed and the combined suite, Black and Ruff
+rerun; all three earlier outputs, including the failure, remain recorded.
+
+## Batch80: Vitamins, PET, Catalyst Leaching And Plant Protection
+
+[Decisions](decisions/20261007-four-records-batch80.yaml),
+[validation](validation-20261007-batch80.json) and
+[self-adversarial review](adversarial-review-20261007-batch80.yaml) account for
+17 existing nodes and ten arrows. Four repairs preserve 14 biological-result
+nodes and six arrows; three protocol nodes and four unsupported arrows are removed.
+Reciprocal vitamin rescue, PET inhibition relief and degradation, separate metal
+extraction results, and individual Variovorax plant benefits remain positive findings.
+
+PET Results timing supersedes its conflicting abstract. Synthetic Pd leaching
+is not the refinery column; solid depletion is not dissolved recovery. Live-cell
+plant protection does not isolate a physical-contact requirement. Three fresh
+primary main bodies, the cached vitamin manuscript and the column abstract were
+read. All 25 graph quotations match source content and caches; 22 also match fresh
+primary retrievals. No original figure pixels, supplements or raw data were audited.
+
+The final adversarial fix explicitly assigns both CF313 follow-ups to that strain,
+despite all six strains sharing a genus CURIE. The 17 affected checks were rerun;
+their earlier outputs remain recorded as superseded, not silently discarded.
+
+All 920 caches, 456 other records and raw non-graph blocks are preserved. Four
+append-only histories accompany repairs #1660-#1663, which await protected-main
+merge. Research #1664/#1665 and metadata #1666 stay open afterward. One vitamin
+Edison dry run used no credits; scoped authorization is unanswered. Self-review
+is not independent approval or corpus completion.
+
+## Batch79: Field Selection, Nutrient Rescue And Hydrolysis
+
+[Decisions](decisions/20261007-four-records-batch79.yaml),
+[validation](validation-20261007-batch79.json) and
+[self-adversarial review](adversarial-review-20261007-batch79.yaml) account for
+12 existing nodes and four arrows across four records. Three bounded arrows
+remain: experimentally supported field selection and two proposed hydrolase
+contributions. The cross-study tolerance-to-redox arrow is removed.
+
+Positive isolate tolerance, yeast complementation and ratio effects, individual
+hydrolase activities, optimized rumen NDFD and cattle fermentation responses
+remain. Transfer measurements, quantitative consortium synergy and genomic
+mediation are distinguished from the measured outcomes. Uranyl grounding is
+corrected without changing canonical membership or non-graph metadata.
+
+All 21 graph quotations match fresh primary text and existing caches. Three
+complete main bodies were read; three further references remain abstract
+bounded. Subscription/access restrictions were respected. Separate supplements,
+raw datasets and original figure pixels were not audited. All 920 caches and
+456 other records are unchanged; four append-only histories are included.
+
+Research #1656/#1657 remains open for yeast topology and authorized Okeke
+full-text review. One Ogataea Edison dry run spent no credits; scoped paid
+authorization remains unanswered. Repairs #1652-#1655 stay open until protected
+main merge, and metadata #1658 remains open afterward. This is self-review,
+not independent approval or completion of the corpus.
+
+## Batch78: Redox, Engraftment And Model Evidence
+
+[Decisions](decisions/20261007-four-records-batch78.yaml),
+[validation](validation-20261007-batch78.json) and
+[self-adversarial review](adversarial-review-20261007-batch78.yaml) account for
+13 existing nodes and seven arrows. Four records are repaired, one context-only
+arrow removed, and six bounded trophic, protocol, selection or proposed-support
+arrows retained.
+
+Nitrifier redox-dependent performance, OMM12 resistance and repeat-dose gains,
+the ORNL trophic community and PD10 medium-dependent assembly remain positive
+findings. Model allocations, agar phenotypes, qPCR units and protein evidence
+are distinguished from resolved causal mechanisms. Incorrect PD10 chemical
+groundings are removed while their generic predicted classes remain in prose;
+graph fumarate uses the correct anion grounding.
+
+All 22 graph quotations match fresh primary text and existing caches. Six
+complete primary main bodies and embedded tables were read; the OMM design
+paper remains abstract-bounded. Separate supplements, original figure pixels,
+raw datasets and live KBase model execution were not audited. All 920 caches,
+456 other records, canonical taxa and raw non-graph blocks are preserved.
+
+Missing nitrifier endpoints and PD10 MOPS exchange structure remain
+`needs_research` in #1648/#1649. Two separate Edison dry runs spent no credits;
+scoped paid questions remain unanswered. Repairs #1644-#1647 stay open until
+protected-main merge. Research and metadata #1650 remain open afterward.
+Four append-only histories are included. Self-review is not independent
+approval or corpus completion.
+
+## Batch77: Xylan Mediation, Mercury Evidence And Missing Outcomes
+
+[Decisions](decisions/20261007-four-records-batch77.yaml),
+[validation](validation-20261007-batch77.json) and
+[self-adversarial review](adversarial-review-20261007-batch77.yaml) cover nine
+existing nodes and three arrows. Three records are repaired, one environmental
+context arrow removed, and two qualified xylan mediation links retained.
+
+Xylan utilization and protein-normalized enzyme gains remain positive findings.
+Ngawha retains measured gaseous mercury, diverse microbiomes and gene evidence,
+without assigning all mercury emission to microbes or unbinned methylators to
+resolved genomes. Z123 retains genomic/proteomic inference and measured polymer
+and recombinant-enzyme outcomes without claiming resolved niche partitioning.
+
+All 12 graph quotations match primary text. One cache adds 22 quoted words from
+Ngawha Results with manuscript provenance; its abstract and 919 other caches
+remain intact. Xylan indexed main text and Ngawha author manuscript were read;
+Ngawha Table2 was visually checked. Nasal full-text review uses an existing cache,
+and LDPE is abstract-bounded. Access barriers were respected.
+
+Nasal is unchanged but explicitly `needs_research`; its empty graph is not
+complete. Nasal and Z123 missing outcome nodes are tracked in #1640/#1641.
+Separate one-record Edison dry runs spent no credits; scoped paid questions
+remain unanswered. Repairs #1637-#1639 await protected-main merge. Metadata
+#1642 and both research issues stay open afterward. Three histories are appended;
+non-graph blocks and canonical taxa are preserved. Self-review is not independent
+approval or corpus completion.
+
+## Batch76: Mat Transcripts, Floc Assembly And Inferred Metabolism
+
+[Decisions](decisions/20261007-four-records-batch76.yaml),
+[validation](validation-20261007-batch76.json) and
+[self-adversarial review](adversarial-review-20261007-batch76.yaml) cover all
+11 original nodes and six arrows. Three records are repaired, four context or
+model-utility arrows removed, and the valid NDC6 graph reviewed unchanged.
+
+Measured mat transcripts, uneven overlapping populations, stable nitrifier
+microcolonies and actual mixed macroclusters remain. Polymer flux and Naica
+metabolic activity are qualified as inferred; calcium-rich resuspension and
+centrifugation conditions are explicit. Negative PCR does not establish absence.
+Naica ammonia oxidation now uses the correct GO term, not ammonia assimilation.
+
+All 18 graph quotations match fresh primary text and existing caches. Three
+complete main bodies were read; diel and NDC6 review remains abstract-bounded,
+with only a partial indexed view of the diel Methods. No separate supplements,
+raw data or original figure pixels were audited. All caches and non-graph blocks
+are preserved. No Edison submission or new topology is involved in these repairs.
+Three append-only histories accompany repairs #1632-#1634, which stay open until
+protected-main merge; separate metadata #1635 remains open afterward.
+Self-adversarial review is not independent approval.
+
+## Batch75: Fermentation, Fraction Conversion And Probiotic Growth
+
+[Decisions](decisions/20261007-four-records-batch75.yaml),
+[validation](validation-20261007-batch75.json) and
+[self-adversarial review](adversarial-review-20261007-batch75.yaml) account for
+all ten existing nodes and five arrows. Three records are repaired; the sparse
+mulberry feed graph is reviewed unchanged, preserving its earlier scope fixes.
+
+Methane gains, corn-straw fraction conversion and partner-supernatant growth
+effects remain. Digestion mediation is qualified, metagenomic potential is not
+treated as expression, and component-to-decomposition links are retained without
+unsupported mutualism. Probiotic growth does not identify the exchanged molecule
+or establish absence of antagonism toward every member.
+
+All 19 graph quotations match fresh primary text and existing caches. Three
+papers are supported by abstracts; the probiotic main body and embedded tables
+were read, but not separate supplements or original figure pixels. All caches
+and raw non-graph blocks are preserved. Three append-only histories are added.
+Repairs #1626-#1628 await protected-main merge. Missing vesicle outcome #1629
+remains `needs_research`: one-record Edison dry run completed without spending
+credits; scoped paid authorization and report inspection remain pending.
+Non-graph #1630 stays open. Self-review is not independent approval.
+
+## Batch74: Enrichment, Conditional Rescue And Mucin Responses
+
+[Decisions](decisions/20261007-four-records-batch74.yaml),
+[validation](validation-20261007-batch74.json) and
+[self-adversarial review](adversarial-review-20261007-batch74.yaml) cover all
+13 existing nodes and seven original arrows. Four records are repaired;
+four analysis-workflow, engineering-workflow or shared-outcome links are removed.
+
+Positive core enrichment, formaldehyde lowering, conditional methionine rescue,
+moss treatment gains and mucin-substrate responses remain. Core membership is
+operational, not universal; gene content is not measured exchange. Methionine
+rescue has the corrected donor direction and producer-substrate requirement.
+Moss and mucin mediation remain explicitly bounded, with no new graph topology.
+
+All 21 graph quotations match existing caches: 17 also match fresh primary XML,
+and four moss quotations were visually matched to the publisher-indexed abstract.
+Moss full-text access returned 403; separate supplements and original figure
+pixels were not audited. All caches and non-graph blocks are preserved.
+Repairs #1620-#1623 await protected-main merge; metadata #1624 stays open.
+Four histories are appended. Self-review is not independent approval.
+
+## Batch73: Nitrogen Mediation And Bioleaching Evidence
+
+[Decisions](decisions/20261007-four-records-batch73.yaml),
+[validation](validation-20261007-batch73.json) and
+[self-adversarial review](adversarial-review-20261007-batch73.yaml) account for
+all eleven existing nodes and seven arrows. Three records are repaired;
+the mineral-litter graph is reviewed unchanged, preserving earlier fixes.
+
+Positive nutrient exchange, signal-induced cyanobacterial motility, plant biomass
+gains and gallium recovery remain. Urea donor attribution and nitrogen-to-growth
+mediation are bounded; the responding organism in the signaling arrow is corrected.
+Single-strain gallium results no longer support the three-member consortium.
+Joint lixiviant production is not equated with synergy or reciprocal fitness.
+
+All 17 graph excerpts match selected caches. Thirteen match fresh primary text;
+one gallium abstract sentence was visually matched to publisher-indexed text.
+Three selected gallium full-text excerpts retain explicit provenance limits.
+Gallium remains `needs_research`: adsorption extension and primary-source
+reconciliation are #1617. Its one-record Edison dry run spent no credits;
+scoped paid approval remains pending. Repairs #1614-#1616 await protected-main
+merge; non-graph #1618 stays open. Three histories are appended, with no
+gratuitous edit/history for the unchanged record. All caches and raw non-graph
+blocks are preserved, not recertified. Self-review is not independent approval.
+One unchanged non-graph gallium reference-validator error reproduces on the parent
+record and is tracked in #1618; that full-record reference gate is not green.
+
+## Batch72: Gas Rates, Peptide Panels And Isotope Evidence
+
+[Decisions](decisions/20261007-four-records-batch72.yaml),
+[validation](validation-20261007-batch72.json) and
+[self-adversarial review](adversarial-review-20261007-batch72.yaml) account for
+all nine retained nodes and six arrows, plus a justified empty peptide graph.
+
+Positive mutual growth, photosynthetic oxygen support, biomass carbon and
+sulfadiazine cross-feeding remain. Whole-culture carbon is not partner flux;
+individual gas rates are stoichiometric estimates. Raman supports carbon
+incorporation, not independent nitrogen assimilation or activity of every cell.
+The two peptide biomasses and their processing assays do not establish a living
+ecological chain. Their empty graph is reviewed, not overlooked.
+
+Two exact-pair studies remain abstract-supported after full-text access failures.
+The quantitative follow-up manuscript, peptide and sulfadiazine main texts, and
+both cross-system modeling papers were read. Follow-up equation pages 10-11 were
+visually inspected; other figure pixels and separate supplements were not audited.
+All 17 retained graph excerpts match fresh primary text. All 920 caches and raw
+non-graph blocks remain unchanged, not recertified. Tasks #1608-#1611 await
+protected-main merge; metadata #1612 stays open afterward. No new structure or
+paid provider call. Self-review is not independent approval or corpus completion.
+
+## Batch71: Methane Coculture Assay Boundaries
+
+[Decisions](decisions/20261007-four-records-batch71.yaml),
+[validation](validation-20261007-batch71.json) and
+[self-adversarial review](adversarial-review-20261007-batch71.yaml) account for
+all 14 original nodes and ten arrows. Ten nodes and five arrows remain;
+four cross-system, procedural or duplicate nodes and five arrows are removed.
+
+Positive oxygen support and competition, bacterial growth and PHBV contents remain.
+Net gas-based carbon fixation is a system endpoint. Acetate transfer is bounded;
+methanol nondetection does not exclude rapid flux. PHBV gas contrasts also change
+oxygen, and supplied VFAs do not establish partner exchange or mutualism.
+
+Three complete primary main texts/captions and embedded tables were read;
+Cupriavidus is abstract-only. Separate supplements, original images and raw data
+were not audited. All 20 retained graph excerpts match fresh primary text. All
+920 caches and non-graph raw blocks remain unchanged, not recertified. Repairs
+#1602-#1605 await protected-main merge; metadata #1606 stays open afterward.
+No new structure or paid provider call. Self-review is not independent approval.
+
+## Batch70: Mercury Potential, B12 Rescue And Methane Pathways
+
+[Decisions](decisions/20261006-four-records-batch70.yaml),
+[validation](validation-20261006-batch70.json) and
+[self-adversarial review](adversarial-review-20261006-batch70.yaml) account for
+all 18 retained nodes and 12 original arrows. Eight pathway arrows are qualified;
+four cross-study or assembly/analysis-order arrows are removed.
+
+EFPC methylation remains background potential, not a measured function of its
+reconstructed MAGs. External methanogen culture results remain positive comparative
+evidence in the discussion. B12-limited growth rescue, isotope-confirmed nitrogen
+fixation, cytochrome/current results and methane-dependent Cr(VI) reduction remain
+positive findings without unresolved taxon or mediation claims being asserted.
+
+Three complete public primary main texts/captions and the EFPC MAG table were
+read. The two methane papers were available only as primary abstracts; separate
+supplements, original images, raw data and executable analyses were not audited.
+All 920 caches and non-graph raw blocks remain unchanged, not recertified. All 23
+retained graph excerpts match fresh primary text. Non-graph follow-up #1600 stays
+open; repairs #1596-#1599 await protected-main merge. No new graph structure or paid
+provider call. Self-review is not independent approval or corpus completion.
+
+## Batch69: Medicago, Soil Activity And Metal Depletion
+
+[Decisions](decisions/20261006-four-records-batch69.yaml),
+[validation](validation-20261006-batch69.json) and
+[self-adversarial review](adversarial-review-20261006-batch69.yaml) account for
+all ten original nodes and two arrows. Nine observations remain; one redundant
+qSIP workflow node is removed and both Medicago mediation arrows are hypotheses.
+
+Positive strain traits, host benefits, fungal trajectories, isotope-inferred
+growth and metal depletion remain. These do not establish reciprocal benefit,
+equal fungal persistence, observed motility, carbon flux or exclusive biosorption.
+Prior fungal evidence fixes and A22ED9 single-metal labels are preserved.
+
+Three complete public primary main texts/captions and available main tables were
+read; the fungal source is abstract/subscription-preview only. Separate supplements,
+figure pixels, raw data and executable analyses were not audited. All 920 caches
+are unchanged and 19 graph excerpts match fresh primary text. Non-graph metadata
+remains under #1594, not recertified by this graph-only review.
+
+qSIP and A22ED9 remain `needs_research` under #1592/#1593 for missing phage-host
+and filtrate-stimulation structure. Two one-record Edison dry runs passed with
+zero submissions or credits; they are not research reports. Repairs #1588-#1591
+await protected-main merge. This is self-review, not independent approval.
+
+## Batch65: Soil And Mucin Assay Boundaries
+
+[Decisions](decisions/20261006-soil-mucin-batch65.yaml),
+[validation](validation-20261006-batch65.json) and
+[self-adversarial review](adversarial-review-20261006-batch65.yaml) account for
+all eight retained observations and three original arrows. MSC2's two biological
+arrows remain as hypotheses; MUC2's common-treatment mediation arrow is removed.
+
+MSC1 storage persistence, early NAG total-OD benefits and computational soil
+co-abundance are distinct observations, not demonstrated metabolic dependency.
+MSC2 pellet metabolomics is not extracellular transfer, temporal community
+transcripts are not matched induction assays, and mixed-bag modeling removes
+species boundaries. MUC2 group-qPCR estimates and net extracellular acid
+concentrations do not establish partner flux or composition-mediated effects.
+
+Three complete fresh primary bodies and main text tables were read. Original
+figure pixels, separate supplements, raw data and executable models were not
+audited. All 920 caches remain unchanged; 12 graph excerpts match fresh primary
+text. Canonical taxonomy and non-graph blocks are preserved, not recertified.
+Metadata and source inconsistencies remain under #1569 and existing related
+issues. Repairs #1566-#1568 await protected-main merge. No new causal structure
+or Edison submission; this is self-review, not independent approval.
+
+## Batch64: Regolith, Lupin And MAMC Assay Boundaries
+
+[Decisions](decisions/20261006-assay-boundaries-batch64.yaml),
+[validation](validation-20261006-batch64.json) and
+[self-adversarial review](adversarial-review-20261006-batch64.yaml) account for
+all nine original nodes and two arrows. Seven observations remain; two MAMC
+procedure nodes and two Nicotiana mediation arrows are removed.
+
+Nicotiana retains phosphorus mobilization and time-dependent plant responses,
+including the adverse early response without pretreatment. Biofilms, named acids
+and exclusive phosphorus mediation remain untested. Lupin growth, FlowPot RNA-seq
+and CAS-soil relative profiles are kept distinct. MAMC's 50.6% mean of three
+FTIR-derived fraction estimates is not loss of 50.6% of each fraction or dry mass.
+
+Three complete fresh primary bodies, embedded tables and the complete 2026
+Nicotiana figure-label correction were read. MAMC's image-only Table 1 cells,
+original figure pixels, separate supplements and raw data were not audited.
+All 920 caches remain unchanged; nine graph excerpts match fresh primary text.
+Canonical taxonomy and non-graph blocks remain unchanged, not recertified.
+Metadata, missing hosts, strain identities and source inconsistencies stay open
+under #1564. Repairs #1561-#1563 await protected-main merge. No new causal
+structure or Edison submission; this is self-review, not independent approval.
+
+## Batch63: Coculture And Living-Host Assay Boundaries
+
+[Decisions](decisions/20261006-coculture-hosts-batch63.yaml),
+[validation](validation-20261006-batch63.json) and
+[self-adversarial review](adversarial-review-20261006-batch63.yaml) account for
+eight retained observations and four removed arrows. Correlation, experimental
+context, screening and co-measured gene copies do not establish causal mediation.
+
+Mangrove biomass maxima were reached on different days; the abstract does not
+resolve partner biomass, metabolite transfer or contact necessity. Lotus SC3
+preference, arrival-order effects and root invasion remain positive living-host
+observations. Lettuce retains compatibility screening, conditional gene-copy
+enrichment and plant benefits without strain-tracking, flux or IAA claims.
+
+Complete Lotus and lettuce primary main bodies and embedded captions were read;
+mangrove access was abstract-only. Figure pixels, linked lettuce table cells,
+separate supplements and raw data were not audited. The public Lotus supplement
+download timed out with an incomplete archive. Its canonical microbial roster is
+unverified, so only the securely grounded Lotus host is explicitly credited;
+the exposed connectivity warnings are tracked under #1559, not hidden.
+
+All 920 caches remain unchanged and 12 graph excerpts match fresh primary text.
+Non-graph roster, protocol and mechanism metadata remain open under #1559 and
+existing related issues. Repairs #1556-#1558 await protected-main merge. No new
+causal structure or Edison submission; this is self-review, not independent approval.
+
+## Batch62: Lake Potential, Modeled Transfer And Host Reporters
+
+[Decisions](decisions/20261006-lakes-mars-batch62.yaml),
+[validation](validation-20261006-batch62.json) and
+[self-adversarial review](adversarial-review-20261006-batch62.yaml) account for
+nine retained nodes and six original arrows. Five common-driver, cross-study or
+anatomical/conclusion arrows are removed; oxygen-regime selection of Lake
+Washington guild composition remains explicitly bounded.
+
+Lac Pavin records genomic potential, not measured flux. Lake Washington's
+conditional model transfer runs from Methylomonas to Methylobacter; the imposed
+ratios are not predictions. Mars-simulant nodulation, S. meliloti-only nifH
+promoter activity and plant phenotypes remain distinct living-host results.
+
+All four fresh primary main bodies and embedded captions/table text were read,
+not original figures, separate supplements, raw data or executable models.
+The public supplemental download failed HTTP500; conflicting model wording stays
+open under #1554. Non-graph taxonomy and metadata #1553 remain unresolved,
+including the explicitly omitted misgrounded Methylosarcina species. All 920
+caches are unchanged and all 16 retained graph excerpts match fresh primary text.
+Repairs #1550-#1552 await protected-main merge. No new graph structure or paid
+Edison run is claimed; this is self-review, not independent approval.
+
+## Batch61: LBNL Plant, Gut And Soil Models
+
+[Decisions](decisions/20261006-lbnl-batch61.yaml),
+[validation](validation-20261006-batch61.json) and
+[self-adversarial review](adversarial-review-20261006-batch61.yaml) cover all
+15 original nodes and two arrows across three LBNL records. Four procedure nodes
+and one inference-workflow arrow are removed; the gut model's negative-feedback
+coexistence mechanism is retained with explicit model and parameter limits.
+
+Brachypodium liquid-culture persistence differs from host-associated persistence;
+the positive plant outcome follows rewatering, not sustained drought. Genomic and
+isolate-level traits do not establish host metabolite delivery. Soil experiments
+using 18 or 17/18 strains are distinguished from the final 16-member model.
+
+All three fresh open-access primary bodies, Methods, Results, Discussion and
+embedded captions/table text were read. Original figure pixels, separate
+supplements, raw data and executable models were not audited. All retained graph
+snippets match fresh primary text; all 920 caches remain unchanged. The canonical
+Bacteria entries remain explicit aggregate placeholders, not resolved strain
+rosters. Non-graph metadata #1548 stays open. Repairs #1545-#1547 await protected
+main merge. No new graph structure or paid Edison submission is claimed.
+
+## Batch60: KZ, KMC And Co-inducible Biosynthesis
+
+[Decisions](decisions/20261006-kz-kmc-komagataella-batch60.yaml),
+[validation](validation-20261006-batch60.json) and
+[self-adversarial review](adversarial-review-20261006-batch60.yaml) account for
+four original nodes and two arrows, plus the empty Komagataella-E. coli graph.
+KZ retains positive outcomes and assay-inferred complementary roles without
+asserting directed strain transfer. Its unread corrigendum and complete mechanism
+verification remain `needs_research` under #1541.
+
+KMC retains all three nodes and one source-explicit pellicle/cooperation arrow as
+`HYPOTHESIZED`; accessory composition is not established reciprocal benefit.
+Its full primary main text and captions were read, not original images, numerical
+Table 1 cells or supplementary PDF. Non-graph metadata #1543 remains open.
+
+Komagataella remains `needs_research` under #1542. Its reviewed one-community
+Edison dry run contains 7,457 characters, with no paid submission or credits.
+The public primary preview is not complete Methods or verified strain/pathway
+assignment. All 920 reference caches are unchanged. Repairs #1539 and #1540 await
+protected-main merge; the research and metadata issues stay open until resolved.
+
+## Batch59: Kefir Flavor And Dairy-Panel Gap
+
+[Decisions](decisions/20261006-kefir-dairy-batch59.yaml),
+[validation](validation-20261006-batch59.json) and
+[self-adversarial review](adversarial-review-20261006-batch59.yaml) cover kefir's
+six original nodes and the dairy panel's empty graph. Two procedural kefir nodes
+are removed; four bounded biological/potential nodes remain without arrows.
+Compound-specific interaction statistics, positive growth responses and conflicting
+ester-comparison wording remain distinct from demonstrated metabolite transfer.
+
+The dairy panel remains `needs_research`, not a certified absence of interactions.
+Its one-community Edison dry-run metadata is retained with zero provider calls or
+credits. Related primary research is limited to abstract/highlights; the data-article
+main text was read. Kefir review includes public indexed body sections with gaps,
+not complete full text or original figures. One cache appendix adds 21 verified
+excerpt words with its original prefix unchanged; 919 other caches are unchanged.
+Repair #1535 awaits protected-main merge. Metadata #1536 and research #1537 remain
+open until separately resolved.
+
+## Batch58: R2A Model And Agar Antagonism
+
+[Decisions](decisions/20261006-r2a-batch58.yaml),
+[validation](validation-20261006-batch58.json) and
+[self-adversarial review](adversarial-review-20261006-batch58.yaml) cover all three
+original nodes and both arrows. The misplaced MOPS/CF313 cross-feeding node and
+both unsupported arrows are removed. Conditional R2A FBA exchange predictions
+and measured GM17-to-CF313 agar inhibition remain, with explicit assay boundaries.
+Enzyme detection does not establish transferred flux; liquid-versus-agar conditions
+remain an alternative to metabolic rescue.
+
+The extracted primary main text, Methods, Tables1-2 and main captions were read;
+original figure pixels, supplements, raw data and KBase execution were not audited.
+All 920 cache files remain unchanged. Repair #1532 awaits protected-main merge;
+canonical membership and assembly metadata remain unresolved under #1533. The
+pre-source baseline is bound to the later tree-identical restack by its receipt.
+Dairy and kefir research is not credited as reviewed in this R2A-only batch.
+
+## Batch57: DVM Tri-culture
+
+[Decisions](decisions/20261006-dvm-batch57.yaml),
+[validation](validation-20261006-batch57.json) and
+[self-adversarial review](adversarial-review-20261006-batch57.yaml) cover all four
+existing nodes and two arrows. Positive lactate conversion, methane production and
+sulfate-treatment responses remain. Both substrate-supply arrows are qualified for
+unresolved flux allocation; separate monoculture perturbations and pair mass balances
+are not presented as measured tri-culture pathway shares.
+
+The full 2019 primary main text, Methods, Tables1-2 and main captions were read;
+the 1981 source was limited to its cached abstract. Original images, supplements,
+raw data and independent mass-balance replication were not audited. All 920 caches
+remain unchanged. Repair #1530 awaits protected-main merge; existing non-graph
+metadata issue #1364 remains open. No new graph structure or paid provider call.
+
+## Batch55: REE, Maize And Jiangshui
+
+[Decisions](decisions/20261006-three-records-batch55.yaml),
+[validation](validation-20261006-batch55.json) and
+[self-adversarial review](adversarial-review-20261006-batch55.yaml) retain eleven
+biological nodes and six arrows. Two screening/assembly nodes and four workflow
+arrows are removed. Positive cell-wall adsorption, maize inoculation effects and
+fermentation endpoints remain; proposed weathering and trait/defense mediation
+are explicitly qualified.
+
+Complete cached primary main texts and Methods were read for REE and Jala, with
+main captions and Jala tables. Jiangshui review is limited to its abstract and
+indexed publisher fragments; direct full-text access failed. No original figures,
+external supplements, raw data or code were audited. All 920 caches are unchanged.
+Non-graph REE claims (#1520), the exact Jala roster/strain discrepancy (#1521),
+and the existing Jiangshui taxonomy/protocol gap remain unresolved. No new graph
+structure or paid provider call. Linked validation records report actual gates,
+not independent approval or a claim that these follow-ups are resolved.
+
+## Batch54: Infant Gut Persistence And Prebiotic Responses
+
+[Decisions](decisions/20261006-infant-gut-batch54.yaml),
+[validation](validation-20261006-batch54.json) and
+[self-adversarial review](adversarial-review-20261006-batch54.yaml) retain all
+ten nodes, remove two unsupported arrows and qualify five proposed mechanisms.
+Maternal sharing, phage recoding and bacterial gene-content associations remain
+distinct from selective causal perturbations. The SynCom omission and acid-challenge
+results remain positive findings, with higher E. coli activity when P. vulgatus is
+present under GOS, not a proved direct metabolite transfer.
+
+Primary main texts, Methods and main captions/tables were read for all three
+studies. External supplements, original images, raw data and code were not audited;
+the prebiotic study is a version-1 preprint. Two short excerpts (16 source words)
+extend one abstract cache with verified XML provenance and an unchanged original
+prefix. Exact SynCom membership/new structure and E. coli-specific persistence
+traits remain unresolved under #1514 and #1515. Two Edison dry runs completed,
+without provider submission or credit spend. Non-graph fields are preserved,
+not recertified; validation links describe separately recorded publication gates.
+
+## Batch53: Pit Lakes, Bioleaching And Model Biofilm
+
+[Decisions](decisions/20261006-pitlakes-bioleach-biofilm-batch53.yaml),
+[validation](validation-20261006-batch53.json) and
+[self-adversarial review](adversarial-review-20261006-batch53.yaml) retain all
+17 nodes, remove six unsupported cross-study or misassigned arrows, and retain
+both positive milk-biofilm genetic-intervention arrows. Pit-lake geochemistry,
+mineral observations and functional predictions remain distinct from partner flux.
+The industrial graph preserves population, genome and copper-yield findings;
+its composite roster and missing valid regeneration structure remain unresolved
+under #1509. The milk endpoint is condition-specific biofilm establishment,
+not universal robustness or a mature-biofilm recovery trajectory.
+
+Three cached primary main texts and a freshly retrieved 2023 primary main text
+were read, including Methods and embedded tables/captions. The 2022 pit-lake and
+2014 chalcopyrite papers were available only at abstract scope. No original
+images, external supplements, raw data or code were audited. Four short excerpts
+(24 source words) are added to one existing abstract cache with primary XML hash,
+context and CC BY attribution; its original content is preserved as an exact
+prefix. Non-graph metadata is preserved, not recertified. Validation links are
+publication outputs, not a claim of completion before their recorded gates run.
+
+## Batch52: URLs, Hualgayoc And Gut Proteomes
+
+[Decisions](decisions/20261006-urls-amd-proteome-batch52.yaml),
+[validation](validation-20261006-batch52.json) and
+[self-adversarial review](adversarial-review-20261006-batch52.yaml) retain
+nine nodes, remove two contextual URL arrows and qualify three proposed links.
+Genomic potential remains distinct from measured flux; MAG assignments remain
+distinct from bulk remediation chemistry. Controlled proteome responses and
+annotated overlap remain distinct from demonstrated niche partitioning or yield
+mediation. Both URL habitat labels remain explicit despite their shared CURIE.
+Hualgayoc remains `needs_research` under #1504 for its missing positive outcome
+structure: an Edison dry run succeeded, but no paid report has been obtained.
+Complete cached primary main texts, Methods and embedded captions were read,
+not original images, supplementary files, raw data or code. Non-graph metadata
+is preserved, not recertified.
+
+## Batch51: Enrichments And Core-20
+
+[Decisions](decisions/20261006-enrichments-core20-batch51.yaml),
+[validation](validation-20261006-batch51.json) and
+[self-adversarial review](adversarial-review-20261006-batch51.yaml) retain
+nine nodes and six explicitly qualified arrows. Positive 0B conversion remains
+distinct from MAG-resolved syntrophy; switchgrass protein profiles and gas
+production remain distinct from selective enzyme mediation and methane-route
+flux. Core-20 immune transcripts and pathogen-load reduction remain positive
+results without asserting immune mediation. Complete cached main texts, Methods
+and embedded captions were read, not original figure images or supplements.
+Unrepresented proposed carrier, AA6/Fenton and PTS pathways remain acknowledged
+gaps; this is an existing-structure review, not an exhaustive mechanism expansion.
+Non-graph metadata and canonical taxonomy are preserved, not recertified.
+
+## Batch50: HAMBI, Hanford And C6
+
+[Decisions](decisions/20261006-hambi-hanford-c6-batch50.yaml),
+[validation](validation-20261006-batch50.json) and
+[self-adversarial review](adversarial-review-20261006-batch50.yaml) preserve
+all six community outcomes while removing two unsupported Hanford arrows.
+HAMBI's controlled carbon response remains distinct from competitive-sorting
+and trait/pH mediation. Hanford guild assignments remain inference, not measured
+flux or niche partitioning. C6 bulk removal and recovery do not establish
+mineralization, statistical equivalence or every-strain survival.
+All canonical input labels remain explicit, including distinct strains sharing
+one taxon ID. Hanford was reviewed at abstract/selected-excerpt scope only;
+HAMBI/C6 main texts and embedded captions were read, not original figure images
+or supplements. The C6 irradiation-feed discrepancy remains an explicit gap.
+Self-review removed an unverified precise spatial attribution from Hanford's
+excerpted guild result. Earlier actual checks are retained as superseded, with
+every verification command rerun against the final wording. Non-graph metadata
+is preserved, not recertified.
+
+## Batch49: Wet-Up Viruses And Groundwater Elusimicrobia
+
+[Decisions](decisions/20261006-wetup-elusimicrobia-batch49.yaml),
+[validation](validation-20261006-batch49.json) and
+[self-adversarial review](adversarial-review-20261006-batch49.yaml) distinguish
+wet-up viral observations from model-dependent mortality and proposed carbon
+mediation. Both viral arrows remain explicitly qualified. All four groundwater
+findings remain as genomic observations or predictions; three overview inclusion
+arrows and unsupported ecological labels are removed. Both habitat labels sharing
+one taxon ID remain distinct. The measured connectivity census change is recorded.
+The review corrects an overstatement about different richness time-window summaries;
+earlier check receipts are retained, with final-text verification recorded separately.
+Main texts and embedded captions were inspected, not figure images or supplements.
+Non-graph metadata remains outside this repair and is not recertified.
+
+## Batch48: Ginseng CL95 And Glutamicibacter S11
+
+[Decisions](decisions/20261006-ginseng-s11-batch48.yaml),
+[validation](validation-20261006-batch48.json) and
+[self-adversarial review](adversarial-review-20261006-batch48.yaml) preserve
+measured consortium outcomes without asserting reciprocal mutualism or resolved
+causal mediation. All four nodes remain; the CL95 correlation-only growth arrow
+is removed. Marker recovery does not track every CL95 member independently.
+S11 is reviewed at primary-abstract scope; its nitrogen routes remain unresolved.
+Canonical participants, shared non-graph evidence and previous fixes are preserved.
+
+## Batch47: Geobacter-Pseudomonas
+
+[Decisions](decisions/20261006-geobacter-pseudomonas-batch47.yaml),
+[validation](validation-20261006-batch47.json) and
+[self-adversarial review](adversarial-review-20261006-batch47.yaml) correct the
+electron donor direction and distinguish positive cytochrome/growth evidence,
+observed adaptation and added-compound inhibition from unresolved mechanisms.
+All four nodes are retained; the serial-transfer chronology arrow is removed.
+The 2018 full text was unavailable. Later transfer-route and competition
+mechanisms remain knowledge gaps, not new demonstrated causal links.
+Explicit community participants add one mixed-scope record; the validation
+records the measured census delta and the corresponding one-record test update.
+
+## Batch46: Methanogen DIET Pairs
+
+[Decisions](decisions/20261006-methanogens-batch46.yaml),
+[validation](validation-20261006-batch46.json) and
+[self-adversarial review](adversarial-review-20261006-batch46.yaml) distinguish
+defined-coculture DIET evidence from environmental inference, bulk methane from
+its CO2 route, and the hcp mutant phenotype from T6SS-specific antagonism.
+Both records remain `needs_research`: the source-supported acetate branches
+are still missing under #1482 and #1483. Separate Edison dry runs spent no
+credits; paid research and report inspection remain pending.
+
+## Batch45: Geobacter-Clostridium
+
+[Decisions](decisions/20261006-clostridium-batch45.yaml),
+[validation](validation-20261006-batch45.json) and
+[self-adversarial review](adversarial-review-20261006-batch45.yaml) separate
+conditional measured fermentation yields from an inferred electron balance.
+The upstream arrow remains explicitly hypothetical; the duplicate outcome node
+and its restatement arrow are removed. The 2022 follow-up was reviewed at
+abstract scope only. Non-graph text is preserved, not certified.
+
+## Batch44: UFMP, GOM and Garlic
+
+[Decisions](decisions/20261006-three-records-batch44.yaml),
+[validation](validation-20261006-batch44.json) and
+[self-adversarial review](adversarial-review-20261006-batch44.yaml) distinguish
+genome-based UFMP flux hypotheses, GOM gross removal versus abiotic-referenced
+hydrocarbon depletion, and the garlic-derived SynCom's radish seedling endpoint.
+Two UFMP model arrows remain explicitly hypothetical; two GOM mediation arrows
+and two Garlic design-workflow nodes are removed. SPH2's uncovered proposed
+ethanol role is reported rather than hidden by an invented interaction.
+
+## Connectivity Census Correction (2026-10-06)
+
+The historical test survey unioned names, labels and CURIEs for pairwise endpoints.
+This could credit every strain sharing a genus ID even when an endpoint named only
+one strain. Batch43 reuses the already strain-aware readiness resolver; production
+auditor behavior is unchanged. Historical raw survey outputs remain unchanged, but
+their `credited_solely_by_the_rule` counts must not be interpreted as exact
+strain-resolved counts. [Batch43 validation](validation-20261006-batch43.json)
+records both algorithms on both the pre-edit and post-edit corpus, separating this
+measurement correction from the CF313 scope change. See [issue 1472](https://github.com/CultureBotAI/CommunityMech/issues/1472).
+
+## Reference-Validator Correction (2026-10-06)
+
+Some historical batch reports incorrectly interpret `Total checks: 0` as zero
+executed checks or a no-op. **That interpretation is withdrawn.** In installed
+`linkml-reference-validator` 0.1.7, this CLI counter is the number of reported
+validation issues. A zero means no issues reported, not that no snippets were checked.
+
+[Correction receipt](reference-validator-correction-20261006-batch42.json) preserves
+the installed-code evidence, passing positive/negative canaries, baseline failure
+comparison and an ignored/hidden-inclusive inventory of candidate historical
+statements. Historical raw outputs remain unchanged. Candidate text matches include
+correct negations and are not all errors. See [issue 1469](https://github.com/CultureBotAI/CommunityMech/issues/1469).
+
+The validator still has coverage limits: `SupportingReference` discovery is tracked
+in [issue 476](https://github.com/CultureBotAI/CommunityMech/issues/476). The installed
+fetcher does not combine supplement sidecars with the article cache. Batch42's
+Fucoidan record therefore has 14 unchanged taxonomy-snippet findings, reproduced at
+the pre-edit head; those snippets match its separate supplement sidecar. This is
+an actual reference-CLI failure, not a pass or independent verification of the
+original spreadsheet. No supplemental text was copied into the article cache.
+The separate snippet auditor reports 35 matches and 15 mismatches for Fucoidan:
+the same 14 taxonomy excerpts plus one discussion excerpt. Its output also matches
+the baseline exactly; its exit code of zero does not mean an all-match result.
+
+Textual matching also does not establish scientific support or independent source
+provenance. In particular, selected `.txt` excerpts have a separate trust limitation
+tracked in [issue 1362](https://github.com/CultureBotAI/CommunityMech/issues/1362).
+
+## Batch56: KB1 And KBase Models
+
+[Decisions](decisions/20261006-three-records-batch56.yaml),
+[validation](validation-20261006-batch56.json) and
+[self-adversarial review](adversarial-review-20261006-batch56.yaml) distinguish
+KB-1 community/field outcomes from external-recipient coculture rescue, preserve
+RFMIA outputs without workflow causality or imposed-constraint rescue claims,
+and expose ORT's gapfilled nitrogen-gas reaction. Nine existing nodes and three
+qualified arrows remain; no new graph structure or provider spend.
+Non-graph identity/model metadata and cached-abstract provenance remain open
+under #1526-#1528. Exact cache matching is not independent provenance approval.
+
+## Batch66: Wetlands, MWF001 And Magnetite
+
+[Decisions](decisions/20261006-wetland-crossfeeding-batch66.yaml),
+[validation](validation-20261006-batch66.json) and
+[self-adversarial review](adversarial-review-20261006-batch66.yaml) qualify nine
+existing nodes without adding arrows. MUCC associations and genomic potential
+are not demonstrated exchange; magnetite bulk outcomes and constrained model
+fluxes are distinct. MWF001 cross-feeding remains supported with assay limits,
+but its candidate coexistence link remains `needs_research` under #1575 pending
+the paid Edison workflow. A free dry run is not a completed research report.
+Non-graph metadata/source ambiguities remain #1574. Canonical taxonomy and all
+caches are preserved, not independently recertified. No independent approval
+or corpus completion is claimed.
+
+## Batch67: Maize SynComs
+
+[Decisions](decisions/20261006-maize-batch67.yaml),
+[validation](validation-20261006-batch67.json) and
+[self-adversarial review](adversarial-review-20261006-batch67.yaml) retain all 13
+nodes and qualify eight of 11 arrows. MBOA conversion and growth remain positive
+results without untested composition mediation; maize drought assays retain
+genotype-specific benefits and proposed mechanisms without linking separate
+recovery and yield experiments. The root keystone effect is a host-dependent
+community perturbation, not demonstrated pairwise competition; fungal biocontrol
+remains supported with unresolved molecular mechanism. No new causal structure
+or provider spend. Non-graph metadata remains #1580, coordinated with #615.
+Canonical taxonomy and caches are preserved, not recertified. Exact-head
+self-review is not independent approval or corpus completion.
+
+## Batch68: SC2, MFC And Mars Panels
+
+[Decisions](decisions/20261006-four-records-batch68.yaml),
+[validation](validation-20261006-batch68.json) and
+[self-adversarial review](adversarial-review-20261006-batch68.yaml) retain 11
+nodes, qualify four arrows and remove two assay-order arrows. SC2 inhibition,
+plant benefit and biochemical assays remain distinct; MFC removal and power
+remain whole-biofilm observations with proposed compositional mediation.
+Both Mars studies tested separate organisms, not cocultures. Their shared
+abiotic and assay observations remain explicitly bounded within the current
+record model; #573 is still open. Processed-culture Lemna benefits do not imply
+live commensalism or that stronger phototroph growth improves biofertilization.
+No new causal structure or provider spend. Non-graph metadata remains #1586,
+coordinated with #1580 and #573. Canonical taxonomy and caches are preserved,
+not recertified; self-review is not independent approval or corpus completion.
+
+## Batch86: Enrichment And Host-Response Boundaries
+
+[Decisions](decisions/20261007-four-records-batch86.yaml),
+[validation](validation-20261007-batch86.json) and
+[self-adversarial review](adversarial-review-20261007-batch86.yaml) review all
+18 original nodes and 11 arrows in four records. Ten nodes and five qualified
+directions remain. Positive pleuromutilin degradation, vanadium reduction and
+precipitation, Populus host responses and poultry MFC power are preserved.
+Workflow, parent-community scope leakage and unsupported partner mechanisms
+are removed. Populus mediation stays PARTIAL; poultry complementarity stays
+HYPOTHESIZED, with an explicit primary-source COD arithmetic discrepancy.
+The vanadium cache gains a source-labeled public Figure S2 caption, not a
+claim of main-text access. Canonical taxonomy and other non-graph fields are
+preserved, not certified; missing participant support is exposed rather than
+silently credited. Repairs #1711-#1714 await protected-main merge; research
+#1715 and metadata #1716 remain open. One Edison dry run, no paid submission.
+
+## Batch92: Hypotheses And Outcome Boundaries
+
+[Decisions](decisions/20261007-four-records-batch92.yaml),
+[validation](validation-20261007-batch92.json) and
+[self-adversarial review](adversarial-review-20261007-batch92.yaml) cover Pu'er,
+QY2-S1, SCDY1 and RH1. Five nodes remain; one unsupported RH1 carbon-fate
+arrow is removed. Pu'er's association-only record is unchanged. QY2 support
+is an explicit hypothesis, SCDY1 plant benefit is not reciprocal fitness,
+and RH1's processed-sample TOC endpoint is not a closed carbon balance.
+Two fresh primary main bodies, one existing primary full-text extraction
+and two SCDY1 abstract versions were read. A selected cache excerpt is not
+independent source verification. No new topology or Edison spend; repairs
+#1746-#1748 await protected-main merge. Self-review is not independent approval.
+
+## Batch93: Exact Sources And Metabolic Relay
+
+[Decisions](decisions/20261007-four-records-batch93.yaml),
+[validation](validation-20261007-batch93.json),
+[cache provenance](cache-provenance-20261007-batch93.json) and
+[self-adversarial review](adversarial-review-20261007-batch93.yaml) cover
+Rammelsberg, BDE-47, RAMC and PPOW. Eight of nine nodes and three of six
+directions remain. Rammelsberg uses its correct primary study and community
+scope; BDE-47 intermediate cross-feeding is distinct from parent disappearance
+and donor feedback. RAMC is unchanged. PPOW member roles remain hypothetical,
+with the source's contradictory control reporting explicit. Positive outcomes
+are preserved. Three fresh main bodies and a public Rammelsberg pre-proof were
+read; the retained BDE bromide quote matches only an existing supplement
+caption, not a fresh supplement or pixel review. No new direction or provider
+spend. Two independent full-text caches were added; PPOW's initial cache-access
+failure and RAMC's existing snippet-classification exception remain recorded.
+Repairs #1750-#1752 await protected-main merge; non-graph metadata #1753
+remains open. Self-review is not independent approval or corpus completion.
+
+Reference CLI passes were measured on macOS, not Linux. Existing #1091 tracks
+the pinned validator's DOI-cache casing mismatch on case-sensitive filesystems;
+the new DOI cache follows repository convention, without claiming that issue is
+fixed. The initial participant-census regression failure is retained alongside
+the corrected expected-record list and rerun.
+
+## Batch95: Observations And Genomic Candidates
+
+[Decisions](decisions/20261007-four-records-batch95.yaml),
+[validation](validation-20261007-batch95.json),
+[cache provenance](cache-provenance-20261007-batch95.json) and
+[self-adversarial review](adversarial-review-20261007-batch95.yaml) cover
+FSQN, rice phosphorus, Richmond Mine and Rifle bioanodes. All 18 original
+nodes and nine arrows have dispositions: 12 nodes and six existing directions
+remain. FSQN is unchanged. The positive rice pot response is distinguished
+from field intercropping and unresolved mediation. Richmond's real iron/mineral
+cycle remains, without pairwise fitness or unsupported contact identities.
+Rifle enrichment and dominance remain; genomic inventories are not ecological
+interactions. Three records change, with no new topology or provider spend.
+Two fresh primary main texts, selected Richmond geochemical sections and
+primary abstracts were read; no figure-pixel or supplement certification.
+All caches and non-graph blocks are preserved. Repairs #1761-#1763 await
+protected-main merge; non-graph #1764 stays open. Self-review is not independent
+approval or corpus completion.
+
+## Batch96: Field Outcomes And Model Boundaries
+
+[Decisions](decisions/20261007-four-records-batch96.yaml),
+[validation](validation-20261007-batch96.json),
+[cache provenance](cache-provenance-20261007-batch96.json) and
+[self-adversarial review](adversarial-review-20261007-batch96.yaml) cover
+Rifle uranium, rumen enrichment, SF356 and SIHUMIx. Four records change:
+14 of 16 nodes and six of ten existing directions remain. Rifle's early
+removal is distinguished from later sulfate-associated uranium increases;
+wrong-system mechanisms are removed. Rumen selection is not resolved niche
+partitioning. SF356's positive feedback and negative effects remain, without
+reciprocal-harm overclassification. SIHUMIx expression, predicted exchange and
+measured output remain distinct. Primary access limits, positive CR2 assay
+evidence and cultivation confounding are recorded. Caches and non-graph raw
+blocks are unchanged, not globally certified. No new topology or provider
+spend. Repairs #1766-#1769 await protected-main merge; non-graph #1770 stays
+open. Self-review is not independent approval or corpus completion.
+
+## Batch97: Evidence Modality And Host Outcomes
+
+[Decisions](decisions/20261007-four-records-batch97.yaml),
+[validation](validation-20261007-batch97.json),
+[cache provenance](cache-provenance-20261007-batch97.json) and
+[self-adversarial review](adversarial-review-20261007-batch97.yaml) cover
+three oral-biofilm records and the SO3-BS3 battery-bioleaching consortium.
+All 11 nodes and seven directions remain. In-vitro observations, composite
+community phenotypes and rodent disease outcomes are distinguished; supported
+facilitation remains, with unisolated mediation marked PARTIAL. The battery
+graph retains detoxification and EET without asserting neutral partner fitness.
+Direct-result citations were added after adversarial diff review, with separate
+append-only correction histories. Caches and non-graph blocks are unchanged.
+No new topology, experimental instructions or provider spend. Repairs
+#1772-#1775 await protected-main merge; non-graph #1776 remains open.
+Self-review is not independent approval or corpus completion.
+
+## Batch98: Profiles, Predictions And Process Outcomes
+
+[Decisions](decisions/20261007-four-records-batch98.yaml),
+[validation](validation-20261007-batch98.json),
+[cache provenance](cache-provenance-20261007-batch98.json) and
+[self-adversarial review](adversarial-review-20261007-batch98.yaml) cover
+both SPRUCE graphs, Saanich Inlet and the yeast-Acinetobacter detoxification
+coculture. All 13 nodes and eight directions remain. Metabolic potential,
+root-trait associations, predicted viral hosts and calibrated model transfers
+are distinguished from directly measured mechanisms. The positive coculture
+productivity result remains, with wax-ester quantification limited to one
+replicate. Caches and non-graph blocks remain unchanged, not recertified.
+No new topology or provider spend. Repairs #1778-#1781 await protected-main
+merge; non-graph #1782 and ontology #463 remain open. Self-review is not
+independent approval or corpus completion.
+
+## Batch99: Resource Loops And Claim Scope
+
+[Decisions](decisions/20261007-four-records-batch99.yaml),
+[validation](validation-20261007-batch99.json),
+[cache provenance](cache-provenance-20261007-batch99.json) and
+[self-adversarial review](adversarial-review-20261007-batch99.yaml) cover the
+yeast-alga mutualism, resveratrol yeast coculture, Atacama brine and sclerotia
+biocontrol community. Nine of fourteen nodes and four of six directions remain.
+Reciprocal resource dependence and measured treatment outcomes remain, with
+unisolated mediation distinguished from direct causal evidence. Unsupported
+oxygen-benefit and brine metabolic claims are removed. Spatial timing does not
+establish niche partitioning; dropout contribution is not universal necessity.
+Two accepted-manuscript quotations have explicit final-version wording checks.
+Caches and non-graph blocks are unchanged, not recertified. No new topology,
+experimental instructions or provider spend. Repairs #1784-#1787 await protected
+main merge; non-graph #1788, cache provenance #1789 and re-evidencing #765 stay
+open. Self-review is not independent approval or corpus completion.
+
+## Batch100: Process Outcomes And Mechanism Bounds
+
+[Decisions](decisions/20261007-four-records-batch100.yaml),
+[validation](validation-20261007-batch100.json),
+[cache provenance](cache-provenance-20261007-batch100.json) and
+[self-adversarial review](adversarial-review-20261007-batch100.yaml) cover the
+sedimenting yeast coculture and three Shewanella community records.
+Twelve of fourteen nodes and four of five directions remain. Measured
+conversion, nitrogen-removal and current outcomes are preserved; workflow,
+statistical complementarity and transcript associations are distinguished
+from isolated ecological mechanisms. One 15-word primary quotation is added
+as a selected excerpt, not independent full-text coverage. The independent
+snippet audit continues to exclude it and reports one cache mismatch.
+Non-graph blocks and all other caches remain unchanged, not recertified.
+No new topology or Edison spend. Repairs #1791-#1794 await protected-main
+merge; non-graph #1795 and provenance #1796 stay open. Self-review is not
+independent approval or corpus completion.
+
+## Batch101: Transfer Direction And Outcome Attribution
+
+[Decisions](decisions/20261007-four-records-batch101.yaml),
+[validation](validation-20261007-batch101.json),
+[cache provenance](cache-provenance-20261007-batch101.json) and
+[self-adversarial review](adversarial-review-20261007-batch101.yaml) cover
+three Shewanella electrochemical records and the unchanged shrimp SynCom panel.
+Nine of ten nodes and five of six existing directions remain. The starch graph
+distinguishes sequential broth use from simultaneous coculture and no longer
+assigns reverse cross-feeding to the electrical endpoint. Electron-transfer
+claims retain reported outcomes without unverified syntrophic feedback or
+equating a methane indicator with calibrated total electron flux.
+All source caches and non-graph raw blocks remain unchanged. Complete main
+texts were not independently verified; repairs are bounded to primary abstracts.
+No new topology or Edison spend. Repairs #1798-#1800 await protected-main
+merge; non-graph #1801 stays open. Self-review is not independent approval or
+corpus completion.
+
+## Batch102: Observations, Predictions And Workflow Boundaries
+
+[Decisions](decisions/20261007-four-records-batch102.yaml),
+[validation](validation-20261007-batch102.json),
+[cache provenance](cache-provenance-20261007-batch102.json) and
+[self-adversarial review](adversarial-review-20261007-batch102.yaml) cover the
+vinegar yeast panel, SkinCom, and the soil BGC and CPR/DPANN surveys.
+Fourteen of twenty nodes and one of four existing directions remain. Six
+workflow nodes and three membership/context arrows are removed. Production
+roles and genomic differences are not automatically niche partitioning;
+inferred resource dependence is not a demonstrated commensal relationship.
+SkinCom's reported concordance retains its statistical and external-validity
+limits. The soil LAP name and CPR participant scopes are corrected.
+All caches and non-graph raw blocks remain unchanged, not recertified.
+Vinegar is abstract-bounded; primary main-text coverage and supplementary
+access limits for the other studies are recorded in the decision ledger.
+No new topology or Edison spend. Repairs #1803-#1806 await protected-main
+merge; non-graph #1807 stays open. Self-review is not independent approval or
+corpus completion.
+
+## Batch103: Source Identity And Qualified Mechanisms
+
+[Decisions](decisions/20261008-four-records-batch103.yaml),
+[validation](validation-20261008-batch103.json),
+[cache provenance](cache-provenance-20261008-batch103.json) and
+[self-adversarial review](adversarial-review-20261008-batch103.yaml) cover the
+soil corrinoid reservoir, two sorghum records and South Bay salt-pond methane.
+Ten of fourteen nodes remain; both original corrinoid directions are retained
+only as hypotheses. Four SRC1 nodes are withheld because the claimed subset
+identity is unverified, not because the parent study's observations are rejected.
+That record remains `needs_research` under #1813. SRC2v4 and salt-pond findings
+retain positive observations without unmeasured fitness signs or mediation.
+All caches and non-graph raw blocks remain unchanged, not recertified.
+Source access/read limits are recorded; no full SRC1 body or raw-data reanalysis
+is claimed. No new topology or Edison spend. Repairs #1809-#1812 await protected
+main merge; identity #1813 and non-graph #1814 stay open. Self-review is not
+independent approval or corpus completion.
+
+## Batch104: Soy Community Evidence Boundaries
+
+[Decisions](decisions/20261008-four-records-batch104.yaml),
+[validation](validation-20261008-batch104.json),
+[cache provenance](cache-provenance-20261008-batch104.json) and
+[self-adversarial review](adversarial-review-20261008-batch104.yaml) cover the
+soy-sauce, chlorophyll-selected soybean, soybean sfSynCom and soymilk records.
+Six of eleven nodes remain; five workflow or unverified-attribution nodes and
+all six directions are removed. Positive observed outcomes remain bounded to
+their source context. Chlorophyll Table 1 limits blanket significance claims;
+soymilk nutrient exchange remains an indirect, abstract-bounded interpretation.
+sfSynCom membership and ordinal helper mapping remain unverified under #1820;
+its positive published observations are preserved in the discussion, not rejected.
+All caches and non-graph raw blocks remain unchanged, not recertified.
+Primary read and access limits are recorded; no raw-data reanalysis, new topology
+or Edison spend. Repairs #1816-#1819 await protected-main merge; identity #1820
+and non-graph #1821 stay open. Self-review is not independent approval or
+corpus completion.
+
+## Batch105: Endpoints And Mechanism Boundaries
+
+[Decisions](decisions/20261008-four-records-batch105.yaml),
+[validation](validation-20261008-batch105.json),
+[cache provenance](cache-provenance-20261008-batch105.json) and
+[self-adversarial review](adversarial-review-20261008-batch105.yaml) cover the
+space-habitat, phenanthrene-carbon, lignin-dimer and staged cattle-manure records.
+All nine nodes remain; one existing direction is explicitly hypothetical and
+one substrate-range restatement arrow is removed. Reduced colony recovery does
+not establish reciprocal competition or definitive viability loss. Soil carbon
+stocks are distinct from fixation flux, muconate conversion from gallate
+potential, and Ensifer-specific transcript abundance from proven mediation.
+Positive observed outcomes and their comparison groups are retained.
+The whole lignin abstract supports six linkage classes; the three retained
+class snippets are representative, not exhaustive quotations.
+All caches and non-graph raw blocks remain unchanged, not recertified.
+Space-habitat primary body coverage is bounded; the other three reviews are
+abstract-limited. No new topology, provider spend or biological optimization
+procedures are introduced. Repairs #1823-#1826 await protected-main merge;
+non-graph #1827 stays open. Prior #847 concerns interaction typing, not
+environmental grounding; the new issue and review metadata were corrected
+without changing old histories. Self-review is not independent approval or
+corpus completion.
+
+## Batch106: Study Boundaries And Omics Interpretation
+
+[Decisions](decisions/20261008-four-records-batch106.yaml),
+[validation](validation-20261008-batch106.json),
+[cache provenance](cache-provenance-20261008-batch106.json) and
+[self-adversarial review](adversarial-review-20261008-batch106.yaml) cover
+Staphylococcus-Candida, Stordalen Mire, the four-member Streptomyces pesticide
+consortium and the subsurface Carboxydocella aquifer record.
+Eighteen of nineteen nodes and five qualified existing directions remain.
+One analysis-workflow node and five cross-study, wrong-route or restatement
+arrows are removed. Study-specific observations and source hypotheses remain
+distinct from reciprocal fitness effects, traced exchange and measured flux.
+The mire fen niche proposal and both pesticide directions remain explicitly
+hypothetical; gene detection is not demonstrated expression or causal mediation.
+The prior aquifer analysis-edge repair and existing cache repairs are preserved.
+All caches and non-graph raw blocks remain unchanged, not recertified.
+Source review includes nine whole primary abstracts and bounded mire2023 and
+pesticide2013 main-text spans, not whole-paper or raw-data certification.
+Available Staphylococcus-Candida full-text leads were not reviewed; no global
+full-text absence is asserted. No new topology, Edison spend or pathogen
+enhancement procedures are introduced. Repairs #1829-#1832 await protected-main
+merge; non-graph #1833 stays open. Self-review is not independent approval or
+corpus completion.
+
+## Batch107: Transfer, Prediction And Mediation
+
+[Decisions](decisions/20261008-four-records-batch107.yaml),
+[validation](validation-20261008-batch107.json),
+[cache provenance](cache-provenance-20261008-batch107.json) and
+[self-adversarial review](adversarial-review-20261008-batch107.yaml) cover the
+Suillus-Bacillus thiamine, sulfide-spring CPR, chicken SynComBac10 and peanut
+SynCom ARC records. All thirteen nodes remain; seven existing directions are
+qualified and two spatial arrows removed. Direct bacterial-to-fungal vitamin
+transfer and positive host/plant outcomes remain distinct from inferred
+exchange, encoded metabolic capacity and unisolated causal mediation.
+The spring record remains `needs_research`: legacy species groundings exceed
+the source evidence and require coordinated identity curation under #1841.
+The self-adversarial pass corrected HydDB attribution on sulfur-enzyme evidence;
+five append-only histories preserve both the initial edit and the correction.
+A control/mutation/restore probe confirms that the regression test rejects
+reintroducing that provenance error, without changing canonical files.
+All final gates were rerun after that correction; the interrupted preliminary
+verification is archived, not counted as a completed pass.
+Primary read spans and source limits are recorded. All caches and non-graph raw
+blocks remain unchanged, not recertified. No new topology, Edison spend,
+pathogen-enhancement or toxin-production procedures are introduced.
+Repairs #1837-#1840 await protected-main merge; identity #1841 stays open.
+Self-review is not independent approval or corpus completion.

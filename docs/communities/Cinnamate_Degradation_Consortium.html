@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        anaerobic environment
+                        anaerobic environment<span class="ontology-label"> — ontology label: active anaerobic enrichment culturing unit</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001825"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -496,7 +504,7 @@
 
                     <tr>
                         <td>
-                            <strong>Syntrophus sp.</strong>
+                            <strong>Syntrophus sp.<span class="ontology-label"> — ontology label: Syntrophus &lt;bacteria&gt;</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=43773"
@@ -587,12 +595,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Cinnamate β-Oxidation Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for syntrophy. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -605,8 +614,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -615,8 +624,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Cinnamate β-Oxidation to Benzoate</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
                 </div>
+                <p class="prewrap interaction-description">Papillibacter cinnamivorans converts cinnamate to benzoate, providing the intermediate for subsequent syntrophic degradation. Conversion still occurred with the methanogenesis inhibitor BESA. The authors propose beta-oxidation; the accessible abstract does not resolve its enzyme steps or establish a commensal fitness relationship.</p>
 
 
                 <p><strong>Source Taxon:</strong> Papillibacter cinnamivorans</p>
@@ -639,17 +648,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        fatty acid beta-oxidation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006635"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006635</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
@@ -657,6 +655,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Syntrophic Benzoate Degradation
+                        <p class="prewrap causal-description">Benzoate formed by P. cinnamivorans supplies substrate for the Syntrophus-methanogen association. The reported stepwise conversion and BESA-associated arrest at benzoate support this substrate connection without resolving every enzyme step.</p>
                     </div>
 
                 </div>
@@ -688,6 +687,7 @@
                     <h3>Syntrophic Benzoate Degradation</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">Syntrophus sp. and the methanogen form the association reported to degrade benzoate to acetate, methane and carbon dioxide. Syntrophic interdependence is reported during growth on cinnamate. HYPOTHESIZED - H2 transfer is a candidate coupling mechanism, not an experimentally identified electron carrier in the accessible abstract.</p>
 
 
                 <p><strong>Source Taxon:</strong> Syntrophus sp.</p>
@@ -707,10 +707,6 @@
                     acetate
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
                         class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30089</a>),
-
-                    hydrogen
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18276"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>),
 
                     carbon dioxide
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16526"
@@ -738,6 +734,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Methanogenesis
+                        <p class="prewrap causal-description">HYPOTHESIZED - benzoate oxidation could supply H2 as reducing equivalents for CO2-reducing methanogenesis. The observed association and methane product support metabolic coupling, but the accessible abstract does not discriminate electron carriers or trace carbon and electron flux between partners.</p>
                     </div>
 
                 </div>
@@ -769,6 +766,7 @@
                     <h3>Methanogenesis</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">PARTIAL - Methanobacterium formicicum replaced the original Methanobacterium isolate in the reconstituted consortium, and methane was reported among its degradation products. HYPOTHESIZED - consumption of partner-derived H2 with CO2 reduction explains a possible methanogenic route, but the accessible abstract does not resolve that transfer. Acetate remains among the reported products; complete mineralization of all cinnamate carbon is not established.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methanobacterium formicicum</p>
@@ -778,10 +776,6 @@
 
 
                 <p><strong>Metabolites:</strong>
-
-                    hydrogen
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18276"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>),
 
                     carbon dioxide
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16526"
@@ -819,7 +813,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/12432464/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:12432464</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"In the presence of bromoethanesulfonic acid (BESA), cinnamate was transformed to benzoate, whereas under methanogenic conditions without BESA, cinnamate was first transformed to benzoate via beta-oxidation and subsequently completely degraded into acetate, CH(4), and CO(2)"</div>
@@ -835,6 +829,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which interspecies electron carrier and carbon balance support methanogenesis during cinnamate degradation?
+                </h3>
+                <p class="prewrap">The primary abstract establishes benzoate formation, syntrophic benzoate degradation and acetate/methane/CO2 products, but not an experimentally resolved H2-versus-alternative carrier or full carbon mineralization. The subscription body was unavailable; exact-system gas/carrier measurements, partner perturbations and carbon balance are needed before promoting the proposed H2 route to demonstrated transfer. The supported benzoate substrate link remains intact.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Cinnamate β-Oxidation to Benzoate</code>, <code>ecological_interactions#Syntrophic Benzoate Degradation</code>, <code>ecological_interactions#Methanogenesis</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -962,12 +975,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -980,7 +996,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1041,7 +1056,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1051,10 +1066,6 @@
 
 
             var processes = [];
-
-
-            processes.push("fatty acid beta-oxidation");
-
 
             var evidenceCount = 1;
 
@@ -1087,8 +1098,6 @@
             metabolites.push("benzoate");
 
             metabolites.push("acetate");
-
-            metabolites.push("hydrogen");
 
             metabolites.push("carbon dioxide");
 
@@ -1131,8 +1140,6 @@
             var intType = "SYNTROPHY";
             var metabolites = [];
 
-
-            metabolites.push("hydrogen");
 
             metabolites.push("carbon dioxide");
 
@@ -1178,6 +1185,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

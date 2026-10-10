@@ -8,7 +8,13 @@ authors:
 journal: Journal of Material Cycles and Waste Management
 year: '2015'
 doi: 10.1007/s10163-014-0276-4
-content_type: abstract_only
+content_type: selected_excerpts
+source_review_url: https://link.springer.com/article/10.1007/s10163-014-0276-4
+source_review_note: >-
+  This body contains selected, abbreviated or reworded abstract passages,
+  not an independently retrieved complete abstract. The publisher abstract
+  was read separately during causal review; do not use this cache to certify
+  verbatim snippet coverage (#1242).
 ---
 
 # Bioleaching of gold from waste printed circuit boards by Chromobacterium violaceum

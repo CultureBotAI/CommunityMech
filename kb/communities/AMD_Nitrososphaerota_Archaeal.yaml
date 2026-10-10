@@ -235,13 +235,9 @@ taxonomy:
       ammonia-oxidizing archaea (AOA), ammonia-oxidizing bacteria (AOB), and nitrite-oxidizing bacteria (NOB)'
 ecological_interactions:
 - name: Archaeal Ammonia Oxidation to Nitrite
-  description: >
-    Acidophilic ammonia-oxidizing archaea related to Candidatus Nitrosotalea
-    oxidize ammonia to nitrite at low pH, and AMD-impacted sediments contain
-    AOA genes together with Nitrospira-related nitrite-oxidizer genes. This
-    makes AOA nitrite production the upstream nitrogen-oxidation step that can
-    feed nitrite-oxidizing community members.
-  interaction_type: CROSS_FEEDING
+  description: PARTIAL - Nitrosotalea devanaterra oxidizes ammonia in acidic-soil cultures, while the AMD survey detected
+    related archaeal amoA genes alongside Nitrospira nxrB genes. The isolate supplies physiological context; neither its exact
+    presence nor nitrite transfer to Nitrospira was demonstrated in the surveyed AMD community.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Candidatus Nitrosotalea devanaterra
@@ -265,11 +261,6 @@ ecological_interactions:
     term:
       id: CHEBI:16301
       label: nitrite
-  - preferred_term: urea
-    term:
-      id: CHEBI:16199
-      label: urea
-    notes: Alternative ammonia source via urease hydrolysis
   biological_processes:
   - preferred_term: nitrification
     term:
@@ -281,38 +272,31 @@ ecological_interactions:
       label: carbon fixation
   downstream:
   - target: Nitrite Oxidation to Nitrate by Nitrospira
-    description: Nitrite produced by AOA can be consumed by nitrite-oxidizing bacteria.
+    description: HYPOTHESIZED - ammonia oxidation could supply nitrite to Nitrospira-related NOB. The AMD gene survey supports
+      the potential sequence, but did not measure nitrite flux between these populations.
   evidence:
   - reference: PMID:21896746
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Here we report the discovery and cultivation of a chemolithotrophic, obligately acidophilic
-      thaumarchaeal ammonia oxidizer, "Candidatus Nitrosotalea devanaterra," from an acidic agricultural
-      soil
+    snippet: Here we report the discovery and cultivation of a chemolithotrophic, obligately acidophilic thaumarchaeal ammonia
+      oxidizer, "Candidatus Nitrosotalea devanaterra," from an acidic agricultural soil
     explanation: Establishes archaeal ammonia oxidation at low pH
-  - reference: PMID:22592820
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The results strongly suggest that archaeal ammonia oxidation is supported by hydrolysis of
-      urea and that AOA, from the marine Group 1.1a-associated lineage, dominate nitrification in two
-      acidic soils tested.
-    explanation: Documents urea hydrolysis pathway supporting ammonia oxidation
   - reference: PMID:26896134
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Analysis of the sequenced genome, transcriptional activity, and lipid content of "Ca Nitrosotalea
-      devanaterra" reveals that previously proposed mechanisms used by AOB for growth at low pH are not
-      essential for archaeal ammonia oxidation in acidic environments
-    explanation: Supports genome and transcriptome analysis of acidophilic archaeal
-      ammonia oxidation mechanisms.
+    snippet: Analysis of the sequenced genome, transcriptional activity, and lipid content of "Ca Nitrosotalea devanaterra"
+      reveals that previously proposed mechanisms used by AOB for growth at low pH are not essential for archaeal ammonia
+      oxidation in acidic environments
+    explanation: Supports genome and transcriptome analysis of acidophilic archaeal ammonia oxidation mechanisms.
+  - reference: PMID:29209281
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: Sequence analyses revealed AOA genes related to Nitrososphaera, Nitrosotalea, and Nitrosoarchaeum; AOB genes
+      related to Nitrosomonas and Nitrosospira; and NOB genes related to Nitrospira
+    explanation: Gene affiliation supports nitrification potential, not measured activity or an exact isolate pairing.
 - name: Nitrite Oxidation to Nitrate by Nitrospira
-  description: >
-    AMD-impacted sediments harbor nitrite-oxidizing bacteria, including
-    Nitrospira-related nxrB genes, alongside archaeal and bacterial ammonia
-    oxidizers. These NOB can consume nitrite downstream of AOA ammonia
-    oxidation, completing a community nitrification sequence from reduced
-    nitrogen to nitrate.
-  interaction_type: CROSS_FEEDING
+  description: PARTIAL - Nitrospira-related nxrB genes were detected in AMD-impacted sediments. This supports nitrite-oxidation
+    potential, not measured nitrate production or a demonstrated detoxification benefit to ammonia-oxidizing archaea.
   scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Nitrospira-like nitrite oxidizer
@@ -329,34 +313,21 @@ ecological_interactions:
       id: CHEBI:17632
       label: nitrate
   biological_processes:
-  - preferred_term: nitrification
-    term:
-      id: GO:0019329
-      label: ammonia oxidation
   - preferred_term: nitrite oxidation
     term:
       id: GO:0019332
       label: aerobic respiration, using nitrite as electron donor
-  downstream:
-  - target: Archaeal Ammonia Oxidation to Nitrite
-    description: Prevention of nitrite toxicity enables continued AOA activity
   evidence:
   - reference: PMID:29209281
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: 'We evaluated the gene abundance and diversity of nitrifying microbes in AMD-impacted sediments:
-      ammonia-oxidizing archaea (AOA), ammonia-oxidizing bacteria (AOB), and nitrite-oxidizing bacteria
-      (NOB)'
-    explanation: Documents the AMD-impacted sediment survey of AOA, AOB, and
-      NOB gene diversity.
-- name: Organic Matter Detoxification by Ferroplasma
-  description: >
-    Thermoplasmata and Nitrososphaeria dominated one acidic archaeal community,
-    and Ferroplasma acidiphilum has been characterized as a chemomixotrophic
-    AMD archaeon in pure and mixed culture. The record keeps this as an
-    organic-matter turnover support process rather than a demonstrated
-    Ferroplasma-to-AOA mutualism.
-  interaction_type: COMMENSALISM
+    snippet: Sequence analyses revealed AOA genes related to Nitrososphaera, Nitrosotalea, and Nitrosoarchaeum; AOB genes
+      related to Nitrosomonas and Nitrosospira; and NOB genes related to Nitrospira
+    explanation: Gene affiliation supports nitrification potential, not measured activity or an exact isolate pairing.
+- name: Putative Ferroplasma Organic Matter Turnover
+  description: HYPOTHESIZED - Ferroplasma organic-matter turnover could support an archaeal AMD guild. The cited AMD survey
+    establishes broad archaeal co-occurrence; the separate culture study tested Ferroplasma with Leptospirillum, not with
+    ammonia-oxidizing archaea. Neither demonstrates Ferroplasma-mediated detoxification for AOA in this assemblage.
   scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Ferroplasma acidiphilum
@@ -369,35 +340,23 @@ ecological_interactions:
       id: CHEBI:50860
       label: organic molecular entity
     notes: Organic matter consumed during Ferroplasma chemomixotrophic growth.
-  - preferred_term: Fe(II)
-    term:
-      id: CHEBI:29033
-      label: iron(2+)
-    notes: Also oxidized by Ferroplasma for energy
   evidence:
   - reference: PMID:33388792
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: Archaea specific V6-16S rRNA gene amplicon data showed a predominance of Thermoplasmata (BSLdp215,
-      uncultured Thermoplasmata, and Thermoplasmataceae) and Nitrososphaeria (Nitrosotaleaceae) members
-      constituting ~ 95% of the archaeal community
-    explanation: Documents co-occurrence of Thermoplasmata and Nitrososphaeria
-      in an acidic archaeal community.
+    snippet: Archaea specific V6-16S rRNA gene amplicon data showed a predominance of Thermoplasmata (BSLdp215, uncultured
+      Thermoplasmata, and Thermoplasmataceae) and Nitrososphaeria (Nitrosotaleaceae) members constituting ~ 95% of the archaeal
+      community
+    explanation: Documents co-occurrence of Thermoplasmata and Nitrososphaeria in an acidic archaeal community.
   - reference: PMID:27535541
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: ferriphilum for growth, maintaining low levels of organic compounds in the culture medium,
-      preventing their toxic effects on L
-    explanation: Demonstrates organic matter detoxification function
-- name: Complementary Archaeal Nitrification Across pH Gradient
-  description: >
-    AMD-impacted sediments contained AOA genes related to Nitrososphaera,
-    Nitrosotalea, and Nitrosoarchaeum, and acidophilic Nitrosotalea strains
-    from a separate characterization differed in growth rate, temperature
-    preference, and response to organic compounds. The evidence supports
-    co-occurring ammonia-oxidizer diversity, not a reciprocal pairwise benefit
-    between Nitrososphaera-like and Nitrosotalea-like archaea.
-  interaction_type: NICHE_PARTITIONING
+    snippet: F. acidiphilum, strain BRL-115 is a chemomixotrophic organism
+    explanation: Isolate physiology motivates organic turnover; the tested partner was Leptospirillum, not AOA.
+- name: Archaeal Ammonia-Oxidizer Diversity
+  description: PARTIAL - AMD gene surveys detected Nitrososphaera-, Nitrosotalea-, and Nitrosoarchaeum-related AOA. A separate
+    soil-isolate study found physiological differences between two Nitrosotalea strains. These observations establish diversity,
+    not complementary pH niches or reciprocal benefits among the AMD populations.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Nitrososphaera-like archaeon
@@ -428,70 +387,18 @@ ecological_interactions:
       label: ammonia oxidation
   evidence:
   - reference: PMID:29209281
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: Sequence analyses revealed AOA genes related to Nitrososphaera, Nitrosotalea, and Nitrosoarchaeum;
-      AOB genes related to Nitrosomonas and Nitrosospira; and NOB genes related to Nitrospira
+    snippet: Sequence analyses revealed AOA genes related to Nitrososphaera, Nitrosotalea, and Nitrosoarchaeum; AOB genes
+      related to Nitrosomonas and Nitrosospira; and NOB genes related to Nitrospira
     explanation: Documents co-occurrence of Nitrososphaera and Nitrosotalea in AMD.
   - reference: PMID:24909965
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Interestingly, despite their close phylogenetic relatedness, the two Nitrosotalea strains
-      exhibited differences in physiological features, including specific growth rate, temperature preference
-      and to an extent, response to organic compounds
+    snippet: Interestingly, despite their close phylogenetic relatedness, the two Nitrosotalea strains exhibited differences
+      in physiological features, including specific growth rate, temperature preference and to an extent, response to organic
+      compounds
     explanation: Supports physiological differentiation among acidophilic Nitrosotalea strains.
-- name: Urea-Mediated Ammonia Provision
-  description: >
-    Urea fertilization significantly stimulated nitrification and tracked with
-    archaeal amoA abundance changes in acidic soils, supporting urea hydrolysis
-    as an ammonia source for acidic archaeal nitrification.
-  interaction_type: CROSS_FEEDING
-  scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Candidatus Nitrosotalea devanaterra
-    term:
-      id: NCBITaxon:1078905
-      label: Nitrosotalea devaniterrae
-  metabolites:
-  - preferred_term: urea
-    term:
-      id: CHEBI:16199
-      label: urea
-  - preferred_term: ammonia
-    term:
-      id: CHEBI:16134
-      label: ammonia
-    notes: Generated by urea hydrolysis.
-  - preferred_term: carbon dioxide
-    term:
-      id: CHEBI:16526
-      label: carbon dioxide
-  biological_processes:
-  - preferred_term: urea catabolism
-    term:
-      id: GO:0043419
-      label: urea catabolic process
-  - preferred_term: nitrification
-    term:
-      id: GO:0019329
-      label: ammonia oxidation
-  downstream:
-  - target: Archaeal Ammonia Oxidation to Nitrite
-    description: Urea hydrolysis can supply ammonia for downstream archaeal
-      ammonia oxidation.
-  evidence:
-  - reference: PMID:22592820
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Nitrification activity was significantly stimulated by urea fertilization and coupled well
-      with abundance changes in archaeal amoA genes in acidic soils
-    explanation: Demonstrates urea stimulation of acidic archaeal nitrification.
-  - reference: PMID:22592820
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Nitrification activity was significantly stimulated by urea fertilization and coupled well
-      with abundance changes in archaeal amoA genes
-    explanation: Confirms that the urea response tracked archaeal amoA abundance.
 environmental_factors:
 - name: Acidic pH
   value: 2.5-4.5
@@ -709,3 +616,33 @@ metals_present:
 metal_relevance: PRIMARY
 metal_notes: Metal/REE detected via CHEBI terms in metabolites; Metal/REE detected via environmental factor
   measurements; Metal/REE detected via keyword matching in description (context-validated)
+discussions:
+- discussion_id: amd_nitrifier_transfer_validation
+  prompt: Do AMD nitrifiers exchange nitrite, and which populations can supply ammonia from urea?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Archaeal Ammonia Oxidation to Nitrite
+  - ecological_interactions#Nitrite Oxidation to Nitrate by Nitrospira
+  rationale: PMID:29209281 surveys genes rather than nitrification rates or partner-rescue effects. PMID:22592820 concerns
+    urea-amended acidic soils and group-level AOA, not this AMD assemblage. PMID:26896134 reports that the Nitrosotalea devanaterra
+    genome lacks the proposed urease-based nitrogen adaptation. The unsupported urea node and Nitrospira-to-AOA rescue edge
+    are removed; same-system substrate tracing and partner perturbations are needed.
+- discussion_id: amd_archaeal_support_scope
+  prompt: Which organic-carbon and niche interactions occur among the named AMD archaea?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Putative Ferroplasma Organic Matter Turnover
+  - ecological_interactions#Archaeal Ammonia-Oxidizer Diversity
+  rationale: Broad archaeal co-occurrence in PMID:33388792 does not identify an exact Ferroplasma-AOA pair. PMID:27535541
+    tests Ferroplasma with Leptospirillum, and PMID:24909965 compares soil Nitrosotalea isolates. Transfer of those findings
+    to this guild remains hypothetical. The record's non-graph taxon notes and environmental numbers also require a separate
+    evidence audit; they are not validated by this causal-graph review.
+curation_history:
+- timestamp: '2026-10-05T05:51:57Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate AMD nitrifier potential from unmeasured transfers and cross-system attribution; complete node/edge decisions
+    under reports/causal_graph_review; issue #1236.'
+  llm_assisted: true

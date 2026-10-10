@@ -93,84 +93,103 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Complementary PGPR Trait Pool
-  description: The five-member pepper SynCom combines phosphate solubilization, indole-3-acetic-acid
-    production, siderophore synthesis, ammonia production, and biofilm formation to provide complementary
-    plant growth-promoting functions.
-  interaction_type: MUTUALISM
+- name: Individual-Isolate PGPR Trait Measurements
+  description: The five selected isolates showed distinct in-vitro PGPR trait profiles, including phosphate solubilization,
+    IAA, siderophore and ammonia production and biofilm-associated assays. Preserve the positive screens without
+    assigning every activity equally to every member. Table1 and narrative trait rankings differ, so the selection
+    rationale does not establish a unique highest producer. These traits were assayed individually before assembly,
+    not re-quantified in rhizosphere soil, and compatibility screens do not establish reciprocal fitness or synergistic
+    trait expression.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: phosphate
     term:
       id: CHEBI:26020
       label: phosphate
-    notes: Plant-accessible phosphorus pool mobilized by SynCom phosphate-solubilizing activity
+    notes: Trait measured in individual isolate screens; not a measured plant delivery flux or proof of equal activity
+      by every member.
   - preferred_term: indole-3-acetic acid
     term:
       id: CHEBI:16411
       label: indole-3-acetic acid
-    notes: Auxin produced by SynCom members during plant-growth promotion assays
+    notes: Trait measured in individual isolate screens; not a measured plant delivery flux or proof of equal activity
+      by every member.
   - preferred_term: siderophore
     term:
       id: CHEBI:26672
       label: siderophore
-    notes: Iron-mobilizing chelator produced by SynCom members
-  biological_processes:
-  - preferred_term: plant growth
-    term:
-      id: GO:0040007
-      label: growth
+    notes: Trait measured in individual isolate screens; not a measured plant delivery flux or proof of equal activity
+      by every member.
   downstream:
-  - target: Pepper Growth Under Phytophthora Challenge
-    description: The complementary PGPR trait set contributes nutrient-mobilization and phytohormone
-      functions to the growth improvement observed in P. capsici-challenged pepper plants.
+  - target: Pepper Growth and Visible Symptoms Under Pathogen Challenge
+    description: HYPOTHESIZED - Nutrient-mobilization and phytohormone traits of the selected isolates could contribute
+      to challenged-host growth. The traits were not re-quantified in soil and were not selectively perturbed, so
+      the host comparison does not isolate their mediation.
   evidence:
-  - *id001
-- name: Direct Phytophthora capsici Antagonism
-  description: SynCom members show strong direct antagonism against Phytophthora capsici and secrete
-    biocontrol-associated enzymes and siderophores, led by Streptomyces roseicoloratus T14 and Pseudomonas
-    frederiksbergensis A6 inhibition activity.
-  interaction_type: COMPETITION
+  - reference: PMID:40508300
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The SynCom members exhibited phosphate solubilization, indole-3-acetic acid production, catalase activity,
+      siderophore synthesis, and strong antagonism against P. capsici
+    explanation: Abstract summary of isolate screens; full Table1 shows heterogeneous traits rather than uniformly
+      strong activity.
+- name: Isolate Antagonism Against Phytophthora capsici
+  description: Individual dual-culture assays showed substantially stronger P. capsici inhibition by S. roseicoloratus
+    T14 and, secondarily, P. frederiksbergensis A6 than by the other three isolates. Table1 reports 58.4% and 17.6%
+    inhibition for T14 and A6, respectively; it does not show uniformly strong antagonism by all five members. Co-occurring
+    enzyme or siderophore phenotypes do not identify the inhibition mechanism. P. capsici is an oomycete; chitinase
+    activity does not demonstrate degradation of its wall or a host antifungal defense response.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: siderophore
     term:
       id: CHEBI:26672
       label: siderophore
-    notes: Iron-chelating antagonist trait screened across the pepper SynCom members
-  biological_processes:
-  - preferred_term: defense response to fungus
-    term:
-      id: GO:0050832
-      label: defense response to fungus
+    notes: Siderophore is a separately screened trait, not an established mediator of pathogen inhibition; strong
+      siderophore production is not demonstrated for A6.
   downstream:
-  - target: Pepper Growth Under Phytophthora Challenge
-    description: Direct Phytophthora antagonism supplies the disease-suppression component of the SynCom's
-      pepper-protection phenotype under pathogen pressure.
+  - target: Pepper Growth and Visible Symptoms Under Pathogen Challenge
+    description: HYPOTHESIZED - The measured isolate antagonism may contribute to improved host performance under
+      pathogen challenge. The pot study lacked a SynCom-only control and direct disease scoring or pathogen-load
+      measurements, so it cannot isolate pathogen suppression from growth promotion or attribute the host response
+      to these two strains alone.
   evidence:
-  - *id001
-- name: Pepper Growth Under Phytophthora Challenge
-  description: The complete five-member SynCom reduces Phytophthora capsici disease severity while improving
-    pepper root length, plant height, biomass, stem diameter, and chlorophyll content.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: indole-3-acetic acid
+  - reference: PMID:40508300
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The SynCom members exhibited phosphate solubilization, indole-3-acetic acid production, catalase activity,
+      siderophore synthesis, and strong antagonism against P. capsici
+    explanation: Preserves measured isolate antagonism; primary Table1 resolves T14/A6 dominance. Does not identify
+      enzyme-mediated killing or competition for a particular resource.
+  participating_taxa:
+  - preferred_term: Streptomyces sp.
     term:
-      id: CHEBI:16411
-      label: indole-3-acetic acid
-    notes: Plant-growth-promoting auxin from the full SynCom trait suite
+      id: NCBITaxon:1931
+      label: Streptomyces sp.
+  - preferred_term: Pseudomonas sp.
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+- name: Pepper Growth and Visible Symptoms Under Pathogen Challenge
+  description: In the controlled pot experiment, the full five-member SynCom plus pathogen treatment improved root
+    length, height, biomass, stem diameter and chlorophyll compared with the pathogen-only control. The authors
+    also report reduced visible wilting and necrosis. Section3.5 explicitly states that direct disease-severity
+    scoring and pathogen-load measurements were not performed, and that there was no SynCom-only control. Preserve
+    measured growth and visible protection without converting them into quantified pathogen suppression, strain-resolved
+    colonization or an IAA-mediated host mechanism.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: plant growth
     term:
       id: GO:0040007
       label: growth
-  - preferred_term: defense response to fungus
-    term:
-      id: GO:0050832
-      label: defense response to fungus
   evidence:
-  - *id001
+  - reference: PMID:40508300
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The SynCom reduced disease severity and enhanced the growth of pepper plants.
+    explanation: The abstract summarizes a positive result; the full paper clarifies that disease protection used
+      visual/physiological proxies rather than direct disease scores or pathogen load.
 environmental_factors:
 - name: defined synthetic community design
   value: Bacillus, Flavobacterium, Cytobacillus, Streptomyces, and Pseudomonas isolates from healthy pepper
@@ -217,3 +236,34 @@ growth_media:
     snippet: The experiment was conducted in a controlled growth chamber at Kyungpook National University
       under day/night temperatures of 18–23 °C and 12–16 °C
     explanation: Reports the growth-chamber temperature regime for the pepper plant experiment.
+discussions:
+- discussion_id: pepper-syncom5-assay-and-mediator-boundaries
+  prompt: Which isolate traits and community changes mediate the positive host response?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Individual-Isolate PGPR Trait Measurements
+  - ecological_interactions#Isolate Antagonism Against Phytophthora capsici
+  - ecological_interactions#Pepper Growth and Visible Symptoms Under Pathogen Challenge
+  rationale: Individual screens, host growth and visible symptom improvement are distinct. Section3.5 rules out
+    direct disease scoring/pathogen load and a SynCom-only comparison. Community composition and nitrate/K/Ca responses
+    are additional positive findings not yet independently represented as graph nodes; ammonium/nitrite differences
+    are not significant in Results despite stronger Discussion claims. PICRUSt/FUNGuild outputs are predictions,
+    not measured metabolic flux or pathogen load. New structure requires scoped Edison review; no new topology is
+    added here. Source protocol and identity inconsistencies remain a separate metadata issue.
+  evidence:
+  - reference: PMID:40508300
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The SynCom reduced disease severity and enhanced the growth of pepper plants.
+    explanation: The abstract summarizes a positive result; the full paper clarifies that disease protection used
+      visual/physiological proxies rather than direct disease scores or pathogen load.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-07T07:41:31Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve heterogeneous isolate traits without asserting mutualism or in-soil delivery.; Preserve T14/A6
+    inhibition and distinguish it from a demonstrated host-protection mechanism.; Preserve measured growth and visible
+    symptoms without inventing direct disease-severity quantification. Issue #1688; reports/causal_graph_review/decisions/20261007-four-records-batch83.yaml'
+  llm_assisted: true

@@ -123,12 +123,10 @@ taxonomy:
       suppressed by Fe(III) reduction during anaerobic thaw.
 ecological_interactions:
 - name: Fe(III) Reduction Coupled to Organic Acid Oxidation
-  description: Heterotrophic Fe(III)-reducing Rhodoferax sp. oxidizes pyruvate-derived
-    acetate and benzoate to CO2, with electrons accepted by Fe(III); this coupling
-    is supported by concurrent increases in Fe(III)-reduction, benzoate-degradation,
-    and pyruvate-metabolism gene abundance during extended thaw.
+  description: HYPOTHESIZED - concurrent increases in iron-redox, benzoate-degradation and pyruvate-metabolism gene
+    abundance support Rhodoferax-associated potential for organic-acid oxidation coupled to Fe(III) reduction during
+    thaw. Gene copies do not establish pathway flux or the organism-resolved electron flow.
   scope: COMMUNITY_LEVEL
-  interaction_type: SYNTROPHY
   participating_taxa:
   - preferred_term: heterotrophic Fe(III)-reducing Rhodoferax sp.
     term:
@@ -155,36 +153,26 @@ ecological_interactions:
     term:
       id: CHEBI:16526
       label: carbon dioxide
-  biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
   downstream:
   - target: Fe(II) Oxidation by Chemoautotrophic Gallionella
-    description: Fe(III) reduction generates Fe(II), the substrate that
-      Gallionella-linked chemoautotrophy oxidizes back toward Fe(III) in the
-      inferred thaw-associated iron cycle.
-  - target: Fe(III) Reduction Suppresses Acetoclastic Methanogenesis
-    description: Rhodoferax-associated Fe(III) reduction oxidizes acetate and
-      therefore competes for the same acetate pool needed by acetoclastic
-      methanogens under reducing thaw conditions.
+    description: HYPOTHESIZED - Fe(III) reduction could supply Fe(II) to Gallionella-associated oxidation; the proposed
+      substrate connection was inferred from genomic patterns, not traced between partners.
+  - target: Candidate Iron-Reduction Suppression of Acetoclastic Methanogenesis
+    description: HYPOTHESIZED - acetate use by iron reducers could limit substrate for acetoclastic methanogenesis;
+      the study did not isolate acetate competition or measure its effect on methane flux.
   evidence:
   - reference: PMID:37996661
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: the abundance of genes for Fe(III) reduction (e.g., MtrE) and Fe(II)
-      oxidation (e.g., Cyc1) increased concurrently with genes for benzoate degradation
-      and pyruvate metabolism, in which pyruvate is used to generate acetate that
-      can be oxidized, along with benzoate, to CO2 when coupled with Fe(III) reduction
-    explanation: Directly supports Fe(III) reduction coupled to acetate and benzoate
-      oxidation as the dominant carbon-cycling pathway.
-- name: Fe(III) Reduction Suppresses Acetoclastic Methanogenesis
-  description: Dissimilatory Fe(III) reduction by Rhodoferax sp. competes for
-    acetate with acetoclastic methanogens; under the reducing thaw conditions
-    examined, the iron-cycling guild outcompetes methanogens, reducing CH4
-    metabolism gene abundance.
-  interaction_type: COMPETITION
+    snippet: the abundance of genes for Fe(III) reduction (e.g., MtrE) and Fe(II) oxidation (e.g., Cyc1) increased
+      concurrently with genes for benzoate degradation and pyruvate metabolism, in which pyruvate is used to generate
+      acetate that can be oxidized, along with benzoate, to CO2 when coupled with Fe(III) reduction
+    explanation: Concurrent gene-abundance changes support the proposed coupling, not directly measured carbon or
+      electron flux.
+- name: Candidate Iron-Reduction Suppression of Acetoclastic Methanogenesis
+  description: HYPOTHESIZED - declining methane-metabolism gene abundance during thaw was interpreted as consistent
+    with iron reducers competing for acetate. This is not direct evidence that Rhodoferax suppressed methane production
+    or caused the methanogen genomic changes.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: heterotrophic Fe(III)-reducing Rhodoferax sp.
@@ -211,18 +199,16 @@ ecological_interactions:
       label: methanogenesis
   evidence:
   - reference: PMID:37996661
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: dissimilatory Fe(III) reduction suppresses acetoclastic methanogenesis
-      under reducing conditions
-    explanation: Directly states the competitive-suppression mechanism between
-      Fe(III) reduction and acetoclastic methanogenesis in post-thaw permafrost.
+    snippet: dissimilatory Fe(III) reduction suppresses acetoclastic methanogenesis under reducing conditions
+    explanation: The abstract introduces this mechanism as a suggestion from genomic changes; the excerpt is not
+      a direct suppression experiment.
 - name: Fe(II) Oxidation by Chemoautotrophic Gallionella
-  description: Chemoautotrophic Fe(II)-oxidizing Gallionella sp. regenerates
-    Fe(III) from Fe(II), closing the iron redox cycle that supports the
-    heterotrophic Fe(III)-reducer's carbon-oxidation activity.
+  description: HYPOTHESIZED - Gallionella abundance and iron-oxidation gene patterns suggest Fe(II) oxidation could
+    regenerate Fe(III) for heterotrophic iron reduction. The authors infer suboxic conditions; oxygen availability
+    and reciprocal iron transfer were not directly resolved by these genomic observations.
   scope: COMMUNITY_LEVEL
-  interaction_type: SYNTROPHY
   participating_taxa:
   - preferred_term: chemoautotrophic Fe(II)-oxidizing Gallionella sp.
     term:
@@ -241,26 +227,18 @@ ecological_interactions:
     term:
       id: CHEBI:29034
       label: iron(3+)
-  biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
   downstream:
   - target: Fe(III) Reduction Coupled to Organic Acid Oxidation
-    description: Gallionella-linked Fe(II) oxidation can regenerate the Fe(III)
-      pool used by Rhodoferax-associated organic acid oxidation in the inferred
-      thaw-associated iron cycle.
+    description: HYPOTHESIZED - Gallionella-associated Fe(II) oxidation could regenerate the Fe(III) acceptor for
+      organic-acid oxidation; this proposed feedback lacks direct flux or partner-removal validation.
   evidence:
   - reference: PMID:37996661
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: the abundance of genes for Fe(III) reduction (e.g., MtrE) and Fe(II)
-      oxidation (e.g., Cyc1) increased concurrently
-    explanation: Supports the simultaneous activation of Fe(III)-reduction and
-      Fe(II)-oxidation gene abundance, consistent with an iron redox cycle linking
-      the two dominant taxa. Partial because the abstract does not explicitly trace
-      the Fe(II)/Fe(III) exchange between specific cells.
+    snippet: the abundance of genes for Fe(III) reduction (e.g., MtrE) and Fe(II) oxidation (e.g., Cyc1) increased
+      concurrently
+    explanation: Supports concurrent gene-abundance changes, not gene activation, measured iron flux or partner-specific
+      exchange.
 environmental_factors:
 - name: Anaerobic thaw incubation
   value: 30 days at 4 deg C under reducing conditions
@@ -377,3 +355,25 @@ growth_media:
       °C for 30 days to mimic an extended thaw duration
     explanation: States the incubation temperature (4 °C), anaerobic reducing conditions,
       and 30-day duration used to cultivate the community.
+discussions:
+- discussion_id: alaska_iron_carbon_flux
+  prompt: Do direct redox and carbon-flux measurements confirm iron cycling and methane suppression?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Fe(III) Reduction Coupled to Organic Acid Oxidation
+  - ecological_interactions#Candidate Iron-Reduction Suppression of Acetoclastic Methanogenesis
+  - ecological_interactions#Fe(II) Oxidation by Chemoautotrophic Gallionella
+  rationale: PMID:37996661 reports genomic abundance changes from thaw incubations, not resolved iron/carbon flux.
+    Oxygen conditions were inferred despite nitrogen purging. Acetate perturbations, methane production measurements
+    and partner-specific iron transfer are needed to distinguish the proposed mechanisms. GO:0006826 describes ion
+    transport rather than the redox reactions curated here.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T08:42:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Qualify thaw-associated iron cycling and methane suppression as genomic hypotheses; complete decisions:
+    reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml; https://github.com/CultureBotAI/CommunityMech/issues/1245'
+  llm_assisted: true

@@ -1,0 +1,344 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 5c3a89285dc4911f035a5aca26ac8d23fb0e14b8
+scope:
+- kb/communities/SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus.yaml
+- kb/communities/SynCom_Y_Agrobacterium_Bacillus_Biofilm_Biocontrol_Coculture.yaml
+- kb/communities/Synechococcus_Azotobacter_Photoproduction_Mutualism.yaml
+- kb/communities/Synechococcus_Bacillus_SPC.yaml
+- kb/communities/Synechococcus_Ecoli_SPC.yaml
+- kb/communities/Synechococcus_Saccharomyces_SPC.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-six-records-batch109.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch109.json
+findings:
+- issue: 1849
+  severity: P2
+  finding: Separate Fuqu SC3 flavor outcomes from construction order and unsupported exchange
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1850
+  severity: P2
+  finding: Bound SynCom Y predicted exchange and biocontrol mediation while retaining reciprocal biofilm growth
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1851
+  severity: P2
+  finding: Separate Azotobacter mutualistic growth from PHB mediation and potential alginate production
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1852
+  severity: P2
+  finding: Remove Bacillus168 long-term persistence inferred from other SPC partners and strains
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1853
+  severity: P2
+  finding: Distinguish early non-sucrose growth from later sucrose contribution in E. coli SPC
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1854
+  severity: P2
+  finding: Keep W303Clump persistence and reciprocal growth within their SPC assay boundaries
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1855
+  severity: P2
+  finding: Reconcile SPC summaries and growth metadata with strain-specific graph evidence
+  status: open_non_graph_follow_up
+  disposition: Coordinate summaries,ingredient wording and assay metadata without importing protocols.
+adversarial_checks:
+- Whole original targets and all changed graph/discussion diffs reviewed. All19 original nodes/12 arrows have dispositions:retain16
+  nodes/nine existing directions,remove three nodes/three arrows,rename three. No new topology or Edison spend.
+- 'Challenge overcorrection: retain measured flavor outcomes, reciprocal biofilm-associated abundance, FA tolerance/pot
+  biocontrol, omission-context mutualism/PHB, photosynthate-supported growth and conditional cyanobacterial benefits.
+  Qualification does not erase source-supported positive effects.'
+- 'Fuqu: construction rationale is not measured niche separation or metabolite exchange. SC2 did not monotonically
+  increase the flavor diversity metric; large-scale ethanol was not significantly different. Preserve SC3 comparator
+  outcomes and source-proposed bacterial-fungal synergy without adding an organism-specific mechanism or any cultivation
+  optimization.'
+- 'SynComY: reciprocal biofilm growth has species-specific qPCR support and stays MUTUALISM, whereas the FA/pot
+  endpoint is untyped. Forward additions support response,not direct transfer. Reverse additions were tested and
+  did not significantly enhance LSQ16 biofilm; this does not refute all possible exchange. Keep both existing mediation
+  arrows hypothetical. The SRA range belongs to RNA-seq,not verified genome input;source-named tools stay but unsupported
+  versions are removed. Root-colonization synergy remains unverified.'
+- 'Azotobacter: exporter dependence and failure of either partner alone under carbon/nitrogen omission support the
+  growth-context mutualism. They do not quantify PHB mediation,identify a nitrogen transfer product or establish
+  PHB assay conditions. Keep initial glutamate experiments separate. PHB is demonstrated;alginate is potential.
+  Abstract-limited review is explicit,not a claim that full text does not exist.'
+- 'Bacillus: main Figure4 plus supplementS2/S5/S9 identify3610 in growth/perturbation assays. Strain168 production
+  and supplementS4 inhibition do not establish months-long persistence. Remove the unsupported stabilization node/arrow
+  without adding a new alpha-amylase node;positive168 evidence remains as bounded context. The two remaining nodes
+  retain PARTIAL strain-specific support.'
+- 'Ecoli: early W and W delta-cscR growth is insensitive to induced sucrose export,so retain carbon support without
+  sucrose exclusivity. Other photosynthates are inferred,not chemically identified.85% background carbon-export
+  capability is not a concentration. Preserve more-than-two-week continuous persistence and conditional reciprocal
+  benefit;carbon feeding alone is not product-removal syntrophy.'
+- 'Yeast: preserve #605 corrected W303Clump identity,parentalW303 negative result,no yeast bioproduct,and batch
+  decline. The two-month constant-light persistence is distinct from diurnal experiments;source supplementS8 confirmed
+  this distinction. Uptake is an organism phenotype,not a reverse donor arrow. Metabolite return/byproduct absorption
+  remains a proposed mediator of cyanobacterial stimulation.'
+- All28 graph plus six discussion quotations match independently retrieved primary text and unchanged caches. Three
+  primary main bodies/captions and one abstract read;SPC supplement captionsS1-S12 and pixelsS2/S4/S5/S8 additionally
+  inspected. Other supplements/images,mathematical framework and raw data were not certified. Large cache headers
+  and literal quotations checked,not a whole-cache audit;literal matching remains separate from entailment.
+- Six guarded writes produce six append-only histories. Other454 records,all923 caches,non-graph raw blocks and
+  prior history/decision files are unchanged. Four phenotype-scope changes add eight taxa to the community-level
+  survey denominator but no additional solely-credited taxa. Observational census bounds update to the measured407/132
+  counts with an exact regression;connectivity rules and the share guard are unchanged.
+- Four in-memory control/mutation/restored-control probes reject transfer SUPPORT inflation,RNA-seq input misattribution,Bacillus168
+  persistence-arrow restoration and diurnal duration inflation. Mutation application and rejection were explicitly
+  checked at scientific assertions. Canonical files are unchanged and probes do not inflate the pytest count.
+- Twelve focused tests and987 combined regressions pass. Six full-record schema/strict/term/reference/snippet checks
+  and six histories validate. Network retains56 baseline warnings with zero structural defects. Deterministic rendering
+  and exact HTML parsing cover456 pages,1367 node descriptions and536 arrows;this is not screenshot QA.
+- Repair issues1849-1854 are addressed but remain open until protected-main merge;non-graph follow-up1855 remains
+  open. Existing loader1703,DOI-case1091,stub1093 and license949 are not certified. Denied/unanswered Edison scopes
+  remain untouched. Self-review is not independent approval;no artificial CI,protection bypass or premature branch
+  deletion.
+- Corpus status:350 reviewed,58 pending,52 needs_research. The whole goal is not complete. Postcommit docs-current
+  and exact-head publication require separate receipts and are not preasserted here.
+- Plain just-lint passed;explicit-runtime no-incremental mypy additionally checked.
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: Forward supplementation promoted to direct-transfer SUPPORT
+      test: test_syncom_y_positive_additions_are_not_direct_transfer
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 48
+      assertion: assert all(e["supports"] == "PARTIAL" for e in forward["evidence"])
+      restored_control: PASS
+    - mutation: RNA-seq range restored as genome-model input
+      test: test_syncom_y_model_inputs_and_versions_are_not_invented
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 69
+      assertion: assert "input_accession" not in p
+      restored_control: PASS
+    - mutation: Bacillus168 unsupported persistence arrow restored
+      test: test_bacillus168_does_not_inherit_3610_or_other_partner_persistence
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 102
+      assertion: assert not growth.get("downstream") and "interaction_type" not in growth
+      restored_control: PASS
+    - mutation: Two-month yeast persistence reassigned to diurnal assay
+      test: test_yeast_parental_control_persistence_and_product_boundaries_remain
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 127
+      assertion: assert "two-month duration is not assigned to that diurnal assay" in growth["description"]
+      restored_control: PASS
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus.yaml: f9ac5f1e3098ee43744bd8749fbba47f46eb27abace9e1a82b69d4bb64cc2c42
+      kb/communities/SynCom_Y_Agrobacterium_Bacillus_Biofilm_Biocontrol_Coculture.yaml: 5e1cbb5518d3e85f87662c378056e9b1dc8ff338fa7bc2a55f3c3e9a61941b02
+      kb/communities/Synechococcus_Azotobacter_Photoproduction_Mutualism.yaml: a96409b502da3b96811a68db9d999ca493fd4ff455ae3e303ceb39a04538238a
+      kb/communities/Synechococcus_Bacillus_SPC.yaml: a04fd02a2219aa3518ab4e4ac9bd35503d606b3b19d5332c0df65961f939fc4c
+      kb/communities/Synechococcus_Ecoli_SPC.yaml: 529766861de184236d78198a26eba1c964d999973a1230db145330bd875c3556
+      kb/communities/Synechococcus_Saccharomyces_SPC.yaml: 9c021f5bf08a2596743a140a3b14ca90e781d294234a09257a021324e8a20ac6
+      tests/test_causal_review_batch109.py: 712d4012d107506936ed7ec95afefc92aa33bc83fdc935d5388866cffa97451e
+    scope: In-memory evidence mutations with control and restored-control; no canonical writes or inflated pytest
+      count.
+  artifact: /private/tmp/communitymech-batch109/adversarial-regression-proof.json
+  sha256: cd6824619526efdaf090890e35849bd887139ae3d58f5475a87cba713e06900b
+verification:
+  combined_regressions: 987 passed in 328.40s (0:05:28)
+  new_regression_tests: 12
+  total_recorded_gate_outputs: 55
+  primary_graph_snippet_proof:
+    graph_quotations: 28
+    new_discussion_quotations: 6
+    fresh_primary_literal_matches: 34
+    all_cached_literal_matches: 34
+    retained_nodes: 16
+    removed_nodes: 3
+    retained_arrows: 9
+    removed_arrows: 3
+    new_nodes_or_directions: 0
+    scope: All reviewed quotations match fresh primary text and unchanged caches;source entailment separately reviewed.
+      Three full primary bodies/captions,one primary abstract,SPC supplement captionsS1-S12 and selected pixelsS2/S4/S5/S8
+      read;not raw-data certification.
+  references: Six full-record CLI and local snippet checks on macOS,not Linux;DOI-cache case1091 remains. Literal
+    matches do not establish entailment;per-source read limits recorded. CLI Total checks counts issues,not checks.
+    Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus.yaml:
+      MATCH: 21
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/SynCom_Y_Agrobacterium_Bacillus_Biofilm_Biocontrol_Coculture.yaml:
+      MATCH: 15
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Synechococcus_Azotobacter_Photoproduction_Mutualism.yaml:
+      MATCH: 24
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Synechococcus_Bacillus_SPC.yaml:
+      MATCH: 12
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Synechococcus_Ecoli_SPC.yaml:
+      MATCH: 18
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Synechococcus_Saccharomyces_SPC.yaml:
+      MATCH: 13
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8991
+      categories:
+        MATCH: 8854
+        RENDERING: 21
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 39
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification;literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: Sixteen nodes and nine existing directions retained;three nodes and three arrows removed. All56existing
+      warnings unchanged;zero structural defects. Non-graph SPC narratives/metadata remain1855.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-six-records-batch109.yaml: 578f8105c6b3ed5eee6e8b6dfc762f6a781a885a4f85a3bf91971a54a5f348ec
+    tests/test_causal_review_batch109.py: 712d4012d107506936ed7ec95afefc92aa33bc83fdc935d5388866cffa97451e
+    tests/test_participating_taxa.py: 985ce17be93928b77e83365042d2129c394c4c1f0474e029f9fdd5f12ea8e844
+    tests/test_community_level_connectivity_credit.py: 3e370c6f0f5087f2c6b0b6d45f7a4a6d66c71171973535485d608a6cf2ad98af
+    reports/causal_graph_review/cache-provenance-20261008-batch109.json: d818cfaf49c796823dbd361139d124571001e8445eb523422ac092f922ff0b9e
+    kb/communities/SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus.yaml: f9ac5f1e3098ee43744bd8749fbba47f46eb27abace9e1a82b69d4bb64cc2c42
+    kb/communities/SynCom_Y_Agrobacterium_Bacillus_Biofilm_Biocontrol_Coculture.yaml: 5e1cbb5518d3e85f87662c378056e9b1dc8ff338fa7bc2a55f3c3e9a61941b02
+    kb/communities/Synechococcus_Azotobacter_Photoproduction_Mutualism.yaml: a96409b502da3b96811a68db9d999ca493fd4ff455ae3e303ceb39a04538238a
+    kb/communities/Synechococcus_Bacillus_SPC.yaml: a04fd02a2219aa3518ab4e4ac9bd35503d606b3b19d5332c0df65961f939fc4c
+    kb/communities/Synechococcus_Ecoli_SPC.yaml: 529766861de184236d78198a26eba1c964d999973a1230db145330bd875c3556
+    kb/communities/Synechococcus_Saccharomyces_SPC.yaml: 9c021f5bf08a2596743a140a3b14ca90e781d294234a09257a021324e8a20ac6
+  history_sha256:
+    history/records/SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus/2026-10-08T045942Z-codex-f64ce1.yaml: bfef38f62692f500414ef5d2559bedbdf047a1bb7199ec517fbc5ab36e8952f4
+    history/records/SynCom_Y_Agrobacterium_Bacillus_Biofilm_Biocontrol_Coculture/2026-10-08T045943Z-codex-deec92.yaml: ecad74fa1284bafc2bfa0315d26e2e9239fe8cad2dbad6c46fe25ce2f8569123
+    history/records/Synechococcus_Azotobacter_Photoproduction_Mutualism/2026-10-08T045943Z-codex-31bb19.yaml: 6fc9dd88dd8b7c70e49fae69235deb308a18719a9cdf2dd3a360b5db9d54c1aa
+    history/records/Synechococcus_Bacillus_SPC/2026-10-08T045943Z-codex-9d0c0c.yaml: c1578773dad56df3e8bea4e9c3e7322641de1c61f8e9e3935158a4a53514b1ba
+    history/records/Synechococcus_Ecoli_SPC/2026-10-08T045944Z-codex-9a70f9.yaml: f13d4cf272949f19ffbd6b0b83c744db1224dde85a1016a9a88b9a7542eedd4c
+    history/records/Synechococcus_Saccharomyces_SPC/2026-10-08T045944Z-codex-a56048.yaml: 4c2b5e623422acab8f59287c107b5fe6d45ad751dfe9921d1a2ad2e8545c8cd3
+  unchanged_records: 454
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 833
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Existing-node scope/evidence repair and retention/qualification of existing directions. No new
+      topology; unrelated denied/unanswered scopes untouched.
+  post_commit_docs_current: Separate publication gate,not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 403
+      mixed: 128
+      community_level_only: 275
+      taxa: 1544
+      credited_solely_by_the_rule: 1270
+    current:
+      records: 460
+      with_community_level: 407
+      mixed: 132
+      community_level_only: 275
+      taxa: 1552
+      credited_solely_by_the_rule: 1270
+  delta:
+    records: 0
+    with_community_level: 4
+    mixed: 4
+    community_level_only: 0
+    taxa: 8
+    credited_solely_by_the_rule: 0
+  interpretation: PHB and three heterotroph-use phenotypes gain community-level identity-only scope;SynComY outcome
+    and Sesame endpoint also gain canonical participants. Four additional mixed-scope records;no additional solely-credited
+    taxa. Observational census bounds updated to this measured scope with an exact regression;connectivity rules
+    and share guard unchanged.
+corpus:
+  records: 460
+  nodes: 1381
+  edges: 544
+  review_status_counts:
+    needs_research: 52
+    pending: 58
+    reviewed: 350
+lint_limitation: Plain just-lint passed;explicit-runtime no-incremental mypy additionally checked.
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary Python3.13 lint environment reuses validation runtime and locked typing tools;project dependencies
+    unchanged. Not a complete embedding runtime.
+limitations:
+- Fresh both-root baseline precedes source reads:460 records,923 caches,56 existing warnings,zero structural defects.
+  Whole six records and all19 original nodes/12 arrows reviewed;retain16 nodes/nine existing directions,remove three
+  nodes/three arrows,rename three. No new topology or Edison spend.
+- Whole independently retrieved primary Sesame,SynComY and SPC abstract/main text/methods/results/discussion/captions
+  read from EuropePMC XML;Azotobacter primary abstract read independently and checked against publisher index. Exact
+  DOI metadata cross-checked. Azotobacter full article and supplements were not retrieved;bounded publisher/repository
+  search is not proof of absence. No access bypass or author contact.
+- Public SPC supplement retrieved through EuropePMC after CDN DNS failure. CaptionsS1-S12 read and pixelsS2/S4/S5/S8
+  inspected. S2/S5 confirm3610 growth/stimulation scope;S4 identifies168 inhibition;S8 long-duration yeast cultures
+  used constant light,not the separate diurnal assay. Remaining images,mathematical framework and raw datasets were
+  not reviewed. No separate Sesame/SynComY supplements or main-figure pixels inspected.
+- Cache headers inspected and all graph quotations literal-checked against the three large caches;contextual reading
+  used fresh primary text. Azotobacter cache read whole. Not a whole-cache audit. Every retained/new graph and discussion
+  quotation matches fresh primary text and unchanged committed cache. Sesame/SynComY headers still say abstract_only
+  despite additional text;metadata policy949/1093 is not repaired here.
+- Sesame preserves comparator-specific flavor outcomes and source-proposed bacterial-fungal synergy,not exchange/niche
+  partitioning/reciprocal growth. Remove two assembly nodes/arrows. No cultivation,optimization,organism identity
+  or experimental design changes.
+- SynComY retains positive reciprocal biofilm-associated qPCR abundance,EPS/activity,FA tolerance and pot outcomes.
+  Positive forward supplementation is not direct transfer;negative reverse supplementation is not proof of no exchange.
+  Correct RNA-seq-as-genome-input and unsupported COBRA version;do not invent model identifiers or genome accessions.
+  Rhizosphere mediation remains explicitly unresolved.
+- Azotobacter preserves abstract-supported exporter dependence and omission-context mutualism. PHB is a community
+  endpoint;carbon/nitrogen-to-PHB mediation stays hypothetical. Dinitrogen is substrate,not a specified transfer
+  product. Initial glutamate model and potential alginate are not promoted to omission-assay or demonstrated-production
+  claims.
+- SPC records retain positive partner-specific growth and conditional mutualism without universal stability. Bacillus168
+  production evidence cannot inherit3610 trajectories or other-partner weeks/months persistence. Ecoli early growth
+  is not sucrose-exclusive and85% background export is not a concentration. W303Clump remains distinct from parentalW303
+  and no yeast bioproduct is invented. Reverse-benefit mechanism is source-proposed,not identified transfer.
+- Repair issues[1849, 1850, 1851, 1852, 1853, 1854] stay open until protected-main merge;non-graph follow-up1855
+  stays open. Fresh all-state title/body dedup matched757,714,605,310;all read plus related529. Ignored/hidden local
+  index inspected,not every matching report read;PRs/comments not exhaustively searched. No reusable taxon match
+  in ignored/hidden kb/taxa name/identifier search. Whole reviewed B12 Syn7002 neighbor read for modeling patterns,not
+  used as evidence for these targets.
+- Only graph/discussions/events change. Other454 records,923 caches,non-graph raw blocks and prior histories/decisions
+  preserved. Canonical identities reused as preferred_term+term only;no GTDB copies into graph. General growth metadata
+  and narrative claims are not recertified. No schema,validator,configuration or runtime change. Participant census
+  must be measured;any census test update must reflect actual scoped changes,not a relaxed connectivity rule. Loader1703,DOI-case1091,stub1093
+  and license949 remain separate. Self-review is not independent approval or corpus completion. Denied/unanswered
+  Edison scopes remain untouched.

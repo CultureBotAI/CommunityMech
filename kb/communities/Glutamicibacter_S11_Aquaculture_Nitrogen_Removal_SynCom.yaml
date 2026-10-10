@@ -76,9 +76,15 @@ taxonomy:
   - *strain_evidence
 ecological_interactions:
 - name: Synergistic S11 ammonium and nitrite removal
-  description: The two-strain S11 consortium removed ammonium and nitrite nitrogen more efficiently than the corresponding
-    single-strain cultures under the reported pH and C/N ranges.
-  interaction_type: MUTUALISM
+  description: The two-strain S11 consortium removed ammonium and nitrite more efficiently than the corresponding
+    single-strain cultures. The primary abstract reports 95% ammonium-N and 97% nitrite-N removal within 24 h at
+    initial concentrations of 30 mg/L each, pH 6-9 and C/N at least 15, described as a 15%-25% improvement over
+    monocultures. This positive whole-consortium removal phenotype does not by itself establish reciprocal microbial
+    fitness, exchanged intermediates or a formal interaction mechanism. The authors characterize the isolates as
+    heterotrophic nitrification-aerobic denitrification strains, but the accessible abstract does not partition
+    consortium removal among oxidation, denitrification, assimilation and other sinks or provide a nitrogen mass
+    balance. Sponge-immobilized recirculation and industrial trials are separate assay contexts, not steps in a
+    demonstrated causal chain; reported industrial residual nitrite fractions are not removal percentages.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Glutamicibacter arilaitensis NFB2-4
@@ -98,22 +104,19 @@ ecological_interactions:
     term:
       id: CHEBI:16301
       label: nitrite
-  biological_processes:
-  - preferred_term: ammonia oxidation
-    term:
-      id: GO:0019329
-      label: ammonia oxidation
-  - preferred_term: denitrification
-    term:
-      id: GO:0019333
-      label: denitrification pathway
   evidence:
-  - *s11_synergy_evidence
+  - reference: PMID:41260371
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A synthetic consortium S11, composed of these two strains, exhibited marked synergistic nitrogen removal
+    explanation: Supports the authors' reported consortium-level nitrogen-removal synergy, not reciprocal fitness
+      or a resolved cross-feeding mechanism. The engineering-design evidence is preserved separately.
   - reference: PMID:41260371
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: This represents a 15 %-25 % improvement over single-strain cultures.
-    explanation: Quantifies the S11 consortium's ammonium/nitrite nitrogen-removal improvement over monocultures.
+    explanation: Supports the reported 15%-25% improvement relative to single-strain cultures; the abstract does
+      not define it here as percentage points or establish mutualism.
 environmental_factors:
 - name: S11 assay pH and C/N range
   value: pH 6-9 and C/N >= 15
@@ -204,30 +207,50 @@ external_resources:
     explanation: PubMed metadata gives the DOI for the article.
 discussions:
 - discussion_id: glutamicibacter_s11_methods_details
-  prompt: Resolve S11 inoculation ratios, full wastewater or medium chemistry, sponge immobilization protocol, reactor geometry,
-    operating temperature, and field-trial deployment details from the full article.
+  prompt: Resolve S11 inoculation ratios, full wastewater or medium chemistry, sponge immobilization protocol, reactor
+    geometry, operating temperature, and field-trial deployment details from the full article.
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - engineering_design
   - growth_media
   - cultivation_setup
-  rationale: The accessible PubMed abstract identifies the two member strains, S11 consortium identity, inorganic nitrogen
-    endpoints, pH/C:N assay envelope, and headline sponge and industrial recirculating-aquaculture results, but Europe PMC
-    reports the full article as subscription-only and not in PMC. Exact method details should be filled only after inspecting
-    the version of record or author-accepted text.
+  rationale: The accessible PubMed abstract identifies the two member strains, S11 consortium identity, inorganic
+    nitrogen endpoints, pH/C:N assay envelope, and headline sponge and industrial recirculating-aquaculture results,
+    but Europe PMC reports the full article as subscription-only and not in PMC. Exact method details should be
+    filled only after inspecting the version of record or author-accepted text.
   posed_by: codex
   posed_date: '2026-09-21'
+- discussion_id: glutamicibacter_s11_flux_and_reciprocity
+  prompt: Which nitrogen routes and partner effects explain S11 removal performance?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Synergistic S11 ammonium and nitrite removal
+  rationale: The accessible primary abstract identifies both strains as HNAD organisms and reports a positive consortium
+    removal contrast, but does not resolve partner-specific viable growth, isotope flux, nitrogen mass balance,
+    exchanged intermediates or pathway perturbations. Retain that positive HNAD characterization without assigning
+    resolved graph-level ammonia-oxidation or denitrification flux. Full Methods and controls are unavailable for
+    this review. Separate batch, sponge and industrial endpoints and do not equate residual concentration percentages
+    with removal. Resolve these gaps before adding a reciprocal-benefit, route-specific or cross-feeding edge.
+  posed_by: codex
+  posed_date: '2026-10-06'
 curation_history:
 - timestamp: '2026-09-21T19:14:24Z'
   curator: codex
   action: CREATE_COMMUNITY_RECORD
-  changes: Created CommunityMech:000411 for the two-member Glutamicibacter arilaitensis NFB2-4 / Glutamicibacter nicotianae
-    CYN-C5 S11 ammonium- and nitrite-removal SynCom from PMID:41260371.
+  changes: Created CommunityMech:000411 for the two-member Glutamicibacter arilaitensis NFB2-4 / Glutamicibacter
+    nicotianae CYN-C5 S11 ammonium- and nitrite-removal SynCom from PMID:41260371.
   llm_assisted: true
 - timestamp: '2026-09-21T19:26:54Z'
   curator: codex
   action: ADD_MODELED_ENVIRONMENT
-  changes: 'Added an aquaculture wastewater modeled_environment to address adversarial-review issue #1027 while preserving
-    ENVO:01001405 laboratory environment as the controlled-assay setting.'
+  changes: 'Added an aquaculture wastewater modeled_environment to address adversarial-review issue #1027 while
+    preserving ENVO:01001405 laboratory environment as the controlled-assay setting.'
+  llm_assisted: true
+- timestamp: '2026-10-06T13:33:04Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain S11 nitrogen-removal performance without unmeasured mutualism or resolved consortium flux routes.
+    Issue #1488; reports/causal_graph_review/decisions/20261006-ginseng-s11-batch48.yaml'
   llm_assisted: true

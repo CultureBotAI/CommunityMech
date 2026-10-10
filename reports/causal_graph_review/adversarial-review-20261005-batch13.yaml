@@ -1,0 +1,144 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 0b997a697616b084dd191b54910a9af0355b042e
+decision_ledger: reports/causal_graph_review/decisions/20261005-two-records-batch13.yaml
+validation_report: reports/causal_graph_review/validation-20261005-batch13.json
+scope:
+  records_assessed: 2
+  records_changed: 2
+  nodes_before: 6
+  nodes_after: 5
+  arrows_before: 4
+  arrows_after: 3
+  new_nodes: 0
+  new_arrows: 0
+findings:
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1299
+  severity: P2
+  disposition: addressed_and_locally_verified
+  finding: Bulk carbon uptake, productivity, harvesting and inferred mediation exceed the cited assay support.
+  resolution: Retain partial reciprocal benefit, remove directed cross-feeding and endpoint mutualism, distinguish
+    bacterial CFU from biomass, qualify antibiotic-confounded product arrows, correct harvesting, and remove unsupported
+    photosynthate supply and polymer-specific claims.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1300
+  disposition: separate_non_graph_followup
+  finding: UTEX 2341 legacy identity, bacterial role, abundance and protocol metadata need dedicated verification.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1301
+  disposition: separate_non_graph_followup
+  finding: Rhizobium summary repeats the harvesting error; environment, metal and backfilled design fields require
+    separate curation.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/561
+  disposition: existing_non_graph_followup_not_duplicated
+  finding: F2 PRIMARY_DEGRADER is not established by its bioflocculant-producing role.
+adversarial_checks:
+- challenge: Does the newly explicit participant list silently alter corpus connectivity or weaken its tests?
+  resolution: The first cumulative run caught a missing exact-set registry entry (212 passed, one failed). The fix
+    adds only this intentional user. Full network findings are unchanged, affected-record connectivity contributions
+    are compared with the base, and the unchanged connectivity-credit bounds are rerun with the full regression
+    set. The initial failure is retained in the validation report.
+- challenge: Is Ecoli neutral, or does the study support reciprocal benefit?
+  resolution: Primary bacterial viable counts support partial mutualism with enhanced algal productivity. Total
+    bacterial dry biomass is not uniformly enhanced, and low-substrate effects differ. The record does not assert
+    identical benefits across endpoints or doses.
+- challenge: Does bulk substrate disappearance establish a directed algal-to-bacterial transfer?
+  resolution: No. The consumption node is community-level and untyped, with canonical participants retained and
+    no donor-recipient direction. Its existing product arrow is hypothetical rather than traced carbon flux.
+- challenge: Does all increased starch follow from bacterial stimulation?
+  resolution: No. Separate glucose controls reveal antibiotic suppression of starch in axenic algae. The graph records
+    this confound without discarding supported biomass/lipid benefits or extrapolating the antibiotic factorial
+    to untested substrates.
+- challenge: Are product assays exclusively algal or reciprocal-fitness outcomes?
+  resolution: No. They assay combined biomass; small bacterial lipid/glycogen contributions and productivity versus
+    content are distinguished. The product node is not typed as mutualism.
+- challenge: Could dropping the photosynthesis node wrongly imply that the alga cannot photosynthesize?
+  resolution: No. Removal rejects an unsupported exact-system carbon-transfer claim, not the organism's general
+    capability. The lipid/harvesting snippet did not establish bacterial substrate supply; the gap retains the unresolved
+    mechanism.
+- challenge: Is the Rhizobium harvesting endpoint over 90 percent, or a demonstrated energy-saving intervention?
+  resolution: Neither follows from the accessible source. The graph uses the primary abstract range, retains the
+    axenic baseline and leaves comparative costs and full assay methods unresolved. The contradictory top-level
+    summary is explicitly tracked in issue 1301, not silently certified.
+- challenge: Does F2 identity establish polysaccharide chemistry, bridging, biofilm formation or mutualism?
+  resolution: No. Only source-reported bioflocculant association and a partial harvesting link remain. Specific
+    chemical and fitness assertions were removed; the source-reported F2 name is retained without re-grounding taxonomy.
+- challenge: Does the review certify UTEX 2341 taxonomy or all unchanged metadata?
+  resolution: No. Existing canonical IDs are reused under the graph skill, with legacy identity uncertainty and
+    a dedicated verification issue. All unrelated raw top-level blocks are preservation-checked, not scientifically
+    approved.
+- challenge: Do cache matches or passing structural checks prove causality or permission?
+  resolution: No. Primary assay review supports the decisions. Ecoli's existing open-access body is unchanged and
+    its explicit Attribution permission is recorded without guessing a version. Rhizobium receives only a short
+    quantitative excerpt, not paywalled body text.
+- challenge: Is this an independent review, a full-figure review, or corpus completion?
+  resolution: No. This is self-adversarial source review. Ecoli main text and all six tables were read, not figure
+    images or supplements; Rhizobium access is abstract/Significance only. Remaining records and metadata followups
+    are not certified.
+verification:
+  status: local_validation_complete
+  checks: 23
+  records: 460
+  nodes: 1475
+  edges: 720
+  review_status_counts:
+    needs_research: 3
+    pending: 365
+    reviewed: 92
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  unchanged_raw_blocks: 29
+  snippet_counts:
+    MATCH: 37
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1461
+    edge_descriptions: 712
+  render_determinism: passed
+  regressions: 219 passed in 279.12s (0:04:39)
+  rights: 3 passed in 1.98s
+  rights_import_root_verified: true
+  ecoli_original_body_unchanged: true
+  primary_xml_hash_rechecked: true
+  participant_registry_remediation:
+    initial_failure: Exact-set registry omitted newly explicit Ecoli community-level participants; 1 failed, 212
+      passed.
+    change: Add only the Ecoli record to USERS; retain exact-set equality and all connectivity bounds.
+    connectivity_test_bytes_unchanged: true
+    affected_record_connectivity_contributions_unchanged: true
+    connectivity_survey:
+      records: 460
+      with_community_level: 384
+      mixed: 117
+      community_level_only: 267
+      taxa: 1489
+      credited_solely_by_the_rule: 1218
+    cumulative_rerun_includes_connectivity_credit_tests: true
+  rhizobium_only_new_excerpt: harvesting efficiency reached 45·0–50·0%
+ci_followup:
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1329
+  failed_run: https://github.com/CultureBotAI/CommunityMech/actions/runs/37391484568/job/112037379919
+  disposition: addressed_pending_protected_merge
+  validation_report: reports/causal_graph_review/ci-followup-20261005-batch13-history-base.json
+  finding: A queued event retained the deleted batch12 base branch name, causing the advisory history comparison
+    to fail after the parent had merged and the PR was retargeted.
+  resolution: Compare with the event's immutable base SHA. Reuse the checked-out commit when available and fetch
+    that exact SHA only when absent. An unavailable commit still fails; missing history remains advisory.
+  review_mode: source_based_self_adversarial_review
+  independent_approval: false
+  adversarial_checks:
+  - challenge: Does the change hide schema failures or certify history presence without a usable base?
+    resolution: No. The blocking schema step and all other workflow fields are unchanged. An unavailable base fails,
+      and the executable shell tests distinguish changed records with and without added history.
+  - challenge: Can branch deletion, reuse, advancement or PR retargeting change the recorded comparison?
+    resolution: No mutable branch name is read by the advisory step. Tests reproduce the former failure, then exercise
+      a deleted parent with the remote offline, an advanced branch, and an exact-SHA fallback fetch.
+  - challenge: Does this follow-up change the reviewed biological graph or claim independent approval?
+    resolution: No record, source cache, history artifact, generated page or decision ledger is changed. The follow-up
+      is a self-adversarial CI repair, not independent approval or completion of the full corpus.

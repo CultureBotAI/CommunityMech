@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        anaerobic serum-bottle cellulose conversion assay
+                        anaerobic serum-bottle cellulose conversion assay<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -454,7 +462,7 @@
 
                     <tr>
                         <td>
-                            <strong>Ruminiclostridium cellulolyticum H10</strong>
+                            <strong>Ruminiclostridium cellulolyticum H10<span class="ontology-label"> — ontology label: Ruminiclostridium cellulolyticum</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1521"
@@ -541,7 +549,7 @@
 
                     <tr>
                         <td>
-                            <strong>Methanosaeta concilii GP6</strong>
+                            <strong>Methanosaeta concilii GP6<span class="ontology-label"> — ontology label: Methanothrix soehngenii</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2223"
@@ -583,7 +591,7 @@
 
                     <tr>
                         <td>
-                            <strong>Desulfovibrio vulgaris Hildenborough</strong>
+                            <strong>Desulfovibrio vulgaris Hildenborough<span class="ontology-label"> — ontology label: Nitratidesulfovibrio vulgaris str. Hildenborough</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=882"
@@ -634,12 +642,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Cellulose-to-Methane Combinatorial SynCom Panel</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding, syntrophy. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -668,6 +677,7 @@
                 <div class="interaction-header">
                     <h3>Combinatorial cellulose-fed interaction rewiring</h3>
                 </div>
+                <p class="prewrap interaction-description">COMPUTATIONAL - composition changes altered SMETANA MIP/MRO scores in this bounded cellulose-fed panel. These are exchange-potential and shared-import proxies, not measured reciprocal fitness. Resource overlap includes auxiliary imports; one four-member configuration cannot establish a general richness rule.</p>
 
 
 
@@ -730,6 +740,7 @@
                     <h3>Acetoclastic methanogenesis as dominant methane route</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">COMPUTATIONAL - the fitted stoichiometric model attributes acetate transfer from R. cellulolyticum to M. concilii and identifies acetoclastic methanogenesis as an important methane route in assemblies containing that methanogen. This is not directly traced transfer or a route available in every panel member.</p>
 
 
                 <p><strong>Source Taxon:</strong> Ruminiclostridium cellulolyticum H10</p>
@@ -805,6 +816,7 @@
                     <h3>D. vulgaris hydrogen turnover supports methanogenesis</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">PARTIAL - the source proposes D. vulgaris lactate oxidation and hydrogen supply coupled to methanogen consumption under sulfate limitation. H2 accumulation and fitted fluxes do not directly resolve turnover or partner dependence. Low H2 can favor donor lactate oxidation; it is not itself evidence that hydrogenotrophic methanogenesis is more energetically favorable.</p>
 
 
                 <p><strong>Source Taxon:</strong> Desulfovibrio vulgaris Hildenborough</p>
@@ -853,7 +865,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/40937471/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40937471</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"Desulfovibrio vulgaris likely promotes hydrogen turnover, maintaining low partial pressures that favor this pathway
@@ -867,7 +879,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/40937471/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40937471</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"Desulfovibrio vulgaris oxidizes lactate to acetate, CO2, and H2 in the absence of sulfate"</div>
@@ -883,6 +895,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which isotope- or perturbation-resolved exchanges validate the modeled composition-specific mechanisms?
+                </h3>
+                <p class="prewrap">PMID:40937471 combines CarveMe/SMETANA predictions with a separate stoichiometric fit using protein and ATP assumptions. Results report reduced acetate exchange in the Rc/Mc/Dv tri-culture, limiting the discussion claim of consistent Dv enhancement. Narrative and table thermodynamic values differ; no new numerical energy claims are asserted. Prior acetate/lactate evidence and the removal of summary arrows are preserved.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Combinatorial cellulose-fed interaction rewiring</code>, <code>ecological_interactions#Acetoclastic methanogenesis as dominant methane route</code>, <code>ecological_interactions#D. vulgaris hydrogen turnover supports methanogenesis</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1129,12 +1160,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1147,7 +1181,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1338,6 +1371,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

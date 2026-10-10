@@ -109,10 +109,11 @@ taxonomy:
     explanation: Identifies PM16 as Bacillus rugosus.
 ecological_interactions:
 - name: Fusarium pseudograminearum WCR suppression by TB
-  description: Soil drenching with the T. harzianum T19 / B. rugosus PM16 TB SynCom suppressed Fusarium-pseudograminearum-driven
-    wheat crown rot in the controlled pot experiment, alongside improved wheat biomass, chlorophyll content, and yield-related
-    traits.
-  interaction_type: COMPETITION
+  description: The two-member T19/PM16 TB inoculum suppressed Fusarium pseudograminearum crown rot in controlled
+    wheat pots, with reported biocontrol efficacy of 70.97% and improved biomass, chlorophyll and yield-related
+    traits. The listed fungus is the challenge organism, not a TB member. These positive whole-inoculum outcomes
+    do not establish bilateral competition, reciprocal microbial benefit or a unique immune mechanism. The plant
+    experiment has no single-member treatment that isolates each member contribution.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Trichoderma harzianum T19
@@ -136,27 +137,36 @@ ecological_interactions:
   - reference: PMID:41821943
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: The SynCom significantly suppressed WCR and promoted wheat growth under pathogen pressure, improving biomass,
-      chlorophyll content, and yield-related traits.
-    explanation: Reports the WCR suppression and growth promotion measured in the TB SynCom treatment under Fusarium pathogen
-      pressure.
+    snippet: The SynCom significantly suppressed WCR and promoted wheat growth under pathogen pressure, improving
+      biomass, chlorophyll content, and yield-related traits.
+    explanation: Reports the WCR suppression and growth promotion measured in the TB SynCom treatment under Fusarium
+      pathogen pressure.
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: with a biocontrol efficacy of 70.97%
+    explanation: Direct positive disease-control estimate for the TB treatment.
 - name: TB-associated rhizosphere remodeling
-  description: TB SynCom inoculation remodeled the resident wheat rhizosphere community, including enrichment of beneficial
-    taxa and reduction of pathogen-associated fungi, during the 45-day Fusarium challenge assay.
-  interaction_type: COLONIZATION_FACILITATION
+  description: TB treatment changed rhizosphere DNA-based community profiles, including relative enrichment of Mortierella
+    and reduced pathogen-associated fungi. Relative sequence abundance does not establish absolute viable abundance
+    or strain-resolved persistence of T19/PM16. Genus annotations and correlation networks do not establish beneficial
+    function, nutrient exchange or microbial necessity. Network robustness was assessed by simulated node removal,
+    not biological removal experiments. Remodeling is not isolated as the cause of the positive disease-control
+    outcome.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: regulation of defense response
-    term:
-      id: GO:0031347
-      label: regulation of defense response
   evidence:
   - reference: PMID:41821943
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: SynCom inoculation remodeled the rhizosphere microbiome by enriching beneficial taxa (e.g., Mortierella) and
-      reducing pathogen-associated fungi
-    explanation: Supports TB-driven restructuring of the wheat rhizosphere microbiome.
+    snippet: SynCom inoculation remodeled the rhizosphere microbiome by enriching beneficial taxa (e.g., Mortierella)
+      and reducing pathogen-associated fungi
+    explanation: Supports community-profile shifts; beneficial labels are author interpretations, not taxon-specific
+      functional assays.
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Hub-targeted simulations showed a similar trend
+    explanation: The network robustness result comes from simulated removal.
 growth_media:
 - name: wheat non-sterile topsoil pot assay
   temperature: 25
@@ -275,7 +285,33 @@ curation_history:
 - timestamp: '2026-09-20T08:58:45Z'
   curator: codex
   action: CREATE_RECORD
-  changes: Created CommunityMech:000391 for the Trichoderma harzianum T19 / Bacillus rugosus PM16 TB cross-kingdom wheat crown-rot
-    SynCom from PMID:41821943, including exact strain membership, pot-assay cultivation, Fusarium challenge design, biocontrol
-    and rhizosphere-remodeling outcomes, and linked BioProject/MetaboLights datasets.
+  changes: Created CommunityMech:000391 for the Trichoderma harzianum T19 / Bacillus rugosus PM16 TB cross-kingdom
+    wheat crown-rot SynCom from PMID:41821943, including exact strain membership, pot-assay cultivation, Fusarium
+    challenge design, biocontrol and rhizosphere-remodeling outcomes, and linked BioProject/MetaboLights datasets.
   llm_assisted: true
+- timestamp: '2026-10-08T16:00:02Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Preserve positive TB pot disease control without bilateral competition or individual-member necessity.;
+    Keep relative community profiles and simulated robustness distinct from colonization facilitation and demonstrated
+    immune mediation. Issue#1947; reports/causal_graph_review/decisions/20261008-four-records-batch122.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: tb_causal_scope_batch122
+  prompt: Which TB-dependent mechanisms explain protection beyond correlated community and soil-metabolite changes?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Fusarium pseudograminearum WCR suppression by TB
+  - ecological_interactions#TB-associated rhizosphere remodeling
+  rationale: T19 plate inhibition and PM16 growth-promoting screens support separate traits; compatibility is not
+    reciprocal fitness or proof of synergy in the host. Soil metabolites were measured, not directly collected root
+    exudates. The paper explicitly limits daidzein origin and recruitment claims; quorum sensing and volatile effects
+    remain working hypotheses. Structural-equation paths and simulated network attacks are not selective biological
+    perturbations. Do not transfer exogenous-metabolite validation from the distinct six-strain SMC study.
+  evidence:
+  - reference: PMID:41821943
+    snippet: these QS- and volatile-mediated effects are proposed as working hypotheses and were not directly tested
+      in the present study.
+  posed_by: codex
+  posed_date: '2026-10-08'

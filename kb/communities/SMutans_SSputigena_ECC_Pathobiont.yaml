@@ -96,9 +96,9 @@ taxonomy:
     explanation: Establishes Selenomonas sputigena as the pathobiont evaluated in the model.
 ecological_interactions:
 - name: Streptococcal Exoglucan Entrapment of Selenomonas sputigena
-  description: >-
-    Streptococcus mutans exoglucans trap Selenomonas sputigena, suppress its
-    motility, and create a structured mixed-species biofilm.
+  description: Streptococcus mutans exoglucans trap Selenomonas sputigena, suppress its motility, and create a structured
+    mixed-species biofilm. The primary in-vitro surface-colonization comparison supports S. mutans-to-S. sputigena
+    facilitation; it does not establish the reverse direction from acid output alone.
   interaction_type: COLONIZATION_FACILITATION
   scope: PAIRWISE
   source_taxon:
@@ -123,38 +123,22 @@ ecological_interactions:
       label: biofilm formation
   downstream:
   - target: Honeycomb Biofilm Acidogenesis
-    description: Exoglucan entrapment immobilizes and supports S. sputigena in
-      the mixed biofilm, leading to a honeycomb-like superstructure around S.
-      mutans that enhances acidogenesis.
+    description: Exoglucan entrapment immobilizes and supports S. sputigena in the mixed biofilm, leading to a honeycomb-like
+      superstructure around S. mutans that enhances acidogenesis.
   evidence:
   - reference: PMID:37217495
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >-
-      We show that S. sputigena, a flagellated anaerobe with previously unknown
-      role in supragingival biofilm, becomes trapped in streptococcal
-      exoglucans, loses motility but actively proliferates to build a
-      honeycomb-like multicellular-superstructure encapsulating S. mutans,
-      enhancing acidogenesis.
+    evidence_source: IN_VITRO
+    snippet: We show that S. sputigena, a flagellated anaerobe with previously unknown role in supragingival biofilm,
+      becomes trapped in streptococcal exoglucans, loses motility but actively proliferates to build a honeycomb-like
+      multicellular-superstructure encapsulating S. mutans, enhancing acidogenesis.
     explanation: Documents matrix-mediated trapping and structured coassembly with S. mutans.
 - name: Honeycomb Biofilm Acidogenesis
-  description: >-
-    Entrapped Selenomonas sputigena actively proliferates into a
-    honeycomb-like multicellular superstructure that encapsulates
-    Streptococcus mutans and enhances acidogenesis in the mixed-species
-    biofilm.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Selenomonas sputigena
-    term:
-      id: NCBITaxon:69823
-      label: Selenomonas sputigena
-  target_taxon:
-    preferred_term: Streptococcus mutans
-    term:
-      id: NCBITaxon:1309
-      label: Streptococcus mutans
+  description: Entrapped Selenomonas sputigena actively proliferates into a honeycomb-like multicellular superstructure
+    that encapsulates Streptococcus mutans and enhances acidogenesis in the mixed-species biofilm. This is a mixed-biofilm
+    structure and metabolic outcome, not a measurement of S. mutans establishment. Primary matrix-disruption results
+    support the structural contribution to localized acidity.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: glucan
     term:
@@ -166,38 +150,39 @@ ecological_interactions:
       id: GO:0042710
       label: biofilm formation
   downstream:
-  - target: Pathobiont-Enhanced Cariogenicity
-    description: The structured S. mutans-S. sputigena biofilm intensifies
-      acidogenesis, providing the local virulence context for the extensive
-      enamel lesions observed during coinfection.
+  - target: Rodent Coinfection Caries Outcome
+    description: 'PARTIAL: the structured acidic biofilm is the proposed mediator of the rodent lesion outcome.
+      The primary in-vitro disruption and ex-vivo enamel results support the structure-to-damage interpretation,
+      while the rodent coinfection comparison does not independently isolate that mediator in vivo.'
   evidence:
   - reference: PMID:37217495
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >-
-      We show that S. sputigena, a flagellated anaerobe with previously unknown
-      role in supragingival biofilm, becomes trapped in streptococcal
-      exoglucans, loses motility but actively proliferates to build a
-      honeycomb-like multicellular-superstructure encapsulating S. mutans,
-      enhancing acidogenesis.
-    explanation: Documents S. sputigena proliferation and S. mutans encapsulation
-      as the mixed-biofilm architecture that heightens acidogenesis.
-- name: Pathobiont-Enhanced Cariogenicity
-  description: >-
-    Selenomonas sputigena is non-cariogenic alone but markedly worsens enamel
-    lesion formation when coinfected with Streptococcus mutans.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Selenomonas sputigena
-    term:
-      id: NCBITaxon:69823
-      label: Selenomonas sputigena
-  target_taxon:
-    preferred_term: Streptococcus mutans
+    evidence_source: IN_VITRO
+    snippet: We show that S. sputigena, a flagellated anaerobe with previously unknown role in supragingival biofilm,
+      becomes trapped in streptococcal exoglucans, loses motility but actively proliferates to build a honeycomb-like
+      multicellular-superstructure encapsulating S. mutans, enhancing acidogenesis.
+    explanation: Documents S. sputigena proliferation and S. mutans encapsulation as the mixed-biofilm architecture
+      that heightens acidogenesis.
+  - reference: PMID:37217495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The data suggest that the interspecies spatial structuring between S. sputigena and S. mutans is required
+      to create a virulent acidic microenvironment.
+    explanation: Direct primary result supporting the retained structural interpretation; not isolated in-vivo mediation.
+  participating_taxa:
+  - preferred_term: Streptococcus mutans
     term:
       id: NCBITaxon:1309
       label: Streptococcus mutans
+  - preferred_term: Selenomonas sputigena
+    term:
+      id: NCBITaxon:69823
+      label: Selenomonas sputigena
+- name: Rodent Coinfection Caries Outcome
+  description: In the reported rodent model, S. sputigena alone did not cause more caries than the control, whereas
+    dual-species coinfection increased lesion severity. This community-associated host outcome does not itself demonstrate
+    a colonization benefit to S. mutans or establish human causal direction.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
@@ -207,11 +192,18 @@ ecological_interactions:
   - reference: PMID:37217495
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      While incapable of causing caries on its own, when co-infected with S.
-      mutans, S. sputigena causes extensive tooth enamel lesions and
-      exacerbates disease severity in vivo.
+    snippet: While incapable of causing caries on its own, when co-infected with S. mutans, S. sputigena causes
+      extensive tooth enamel lesions and exacerbates disease severity in vivo.
     explanation: Supports S. sputigena as a pathobiont that heightens S. mutans virulence.
+  participating_taxa:
+  - preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  - preferred_term: Selenomonas sputigena
+    term:
+      id: NCBITaxon:69823
+      label: Selenomonas sputigena
 related_ingredients:
 - preferred_term: glucan
   chebi_term:
@@ -286,3 +278,38 @@ cultivation_setup:
     snippet: a saliva-coated hydroxyapatite disc (2.7 ± 0.2 cm2; Clarkson Chromatography
       Products) was placed in a vertical position to mimic the tooth-enamel surfaces
       of human teeth
+discussions:
+- discussion_id: selenomonas_graph_evidence_and_model_scope
+  prompt: How directly does the model establish mediation of disease in humans?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: Primary results support S. mutans-assisted S. sputigena colonization, matrix-dependent structure and
+    local acidity, ex-vivo enamel damage, and greater rodent disease under coinfection. Retain this experimental
+    evidence and both directions; only the in-vivo mediation bridge is PARTIAL. Do not turn the reverse acidogenesis
+    effect into a colonization-facilitation label. Human discovery data are cross-sectional. Exact molecular details
+    remain unresolved; no new mechanisms or experimental procedures are added.
+  evidence:
+  - reference: PMID:37217495
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the cross-sectional nature of our human observational data, which limits the samples’ inferential potential
+      regarding temporality and causality
+    explanation: The primary discussion explicitly limits human causal inference.
+  attaches_to:
+  - ecological_interactions#Streptococcal Exoglucan Entrapment of Selenomonas sputigena
+  - ecological_interactions#Honeycomb Biofilm Acidogenesis
+  - ecological_interactions#Rodent Coinfection Caries Outcome
+curation_history:
+- timestamp: '2026-10-07T18:45:53Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain supported directional colonization facilitation and the existing structural link, correcting modality.;
+    Retain community structure and acidogenesis, with positive perturbation evidence and PARTIAL in-vivo mediation.;
+    Retain the rodent disease comparison at two-member community scope. Issue#1773; reports/causal_graph_review/decisions/20261007-four-records-batch97.yaml
+  llm_assisted: true
+- timestamp: '2026-10-07T18:50:15Z'
+  curator: codex
+  action: FIX_ADVERSARIAL_REVIEW_FINDINGS
+  changes: Attach direct primary-result evidence to the retained Honeycomb Biofilm Acidogenesis interpretation after
+    adversarial diff review; no new node, direction, mechanism or protocol. Issue#1773.
+  llm_assisted: true

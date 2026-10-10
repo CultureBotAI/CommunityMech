@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        anoxic freshwater rainforest stream sediment
+                        anoxic freshwater rainforest stream sediment<span class="ontology-label"> — ontology label: stream sediment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00002127"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -456,7 +464,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
                     <tr>
                         <td>
-                            <strong>Tropidoatractus magnetotacticus</strong>
+                            <strong>Tropidoatractus magnetotacticus<span class="ontology-label"> — ontology label: Tropidoatractus sp. MC-2025a</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3469242"
@@ -522,7 +530,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
                     <tr>
                         <td>
-                            <strong>magnetotactic sulfate-reducing bacterial endosymbiont</strong>
+                            <strong>magnetotactic sulfate-reducing bacterial endosymbiont<span class="ontology-label"> — ontology label: Thermodesulfobacteriota</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=200940"
@@ -599,7 +607,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
                     <tr>
                         <td>
-                            <strong>endosymbiotic hydrogenotrophic methanogen</strong>
+                            <strong>endosymbiotic hydrogenotrophic methanogen<span class="ontology-label"> — ontology label: Methanoregula</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=395331"
@@ -672,12 +680,13 @@ The whole syntrophic network is built from gene presence and transcript expressi
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Tropidoatractus magnetotacticus Magnetotactic Ciliate Tripartite Syntrophy</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for syntrophy. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -685,13 +694,13 @@ The whole syntrophic network is built from gene presence and transcript expressi
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolTriangle"
+                             data-color="#7f30cf"></svg> Syntrophy
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -699,9 +708,10 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Host hydrogen transfer to the magnetotactic sulfate reducer</h3>
+                    <h3>Proposed host hydrogen transfer to the magnetotactic sulfate reducer</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">HYPOTHESIZED: host hydrogenosomal Fe-hydrogenase expression and bacterial metabolic reconstruction support possible delivery of host H2 or other fermentation products to the magnetotactic sulfate reducer. Retained SYNTROPHY denotes the authors proposed relationship, not measured hydrogen transfer, reciprocal dependence or a quantified host fitness benefit.</p>
 
 
                 <p><strong>Source Taxon:</strong> Tropidoatractus magnetotacticus</p>
@@ -739,7 +749,8 @@ The whole syntrophic network is built from gene presence and transcript expressi
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Tripartite electron sink improving host energetics
+                        <span class="flow-arrow">→</span> Proposed tripartite hydrogen sink and host energetic benefit
+                        <p class="prewrap causal-description">PARTIAL: proposed host-product consumption by the sulfate reducer could lower hydrogen availability and thereby improve host fermentation energetics. This is the authors mechanistic model, not a measured transfer-to-fitness causal effect.</p>
                     </div>
 
                 </div>
@@ -768,7 +779,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42475569/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42475569</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"The SRB and methanogen populations likely use the H2 produced by the MRO hydrogenosomal Fe-hydrogenase as an electron donor"</div>
@@ -781,9 +792,10 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Host hydrogen transfer to the endosymbiotic methanogen</h3>
+                    <h3>Proposed host hydrogen transfer to the endosymbiotic methanogen</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">HYPOTHESIZED: a complete methanogenesis pathway and expressed Methanoregula mcrA support the proposed hydrogenotrophic partner, alongside host hydrogenosomal Fe-hydrogenase expression. This is stronger pathway evidence than for the sulfate reducer but not direct measurement of host-to-methanogen H2 flux. SYNTROPHY remains a proposed relationship.</p>
 
 
                 <p><strong>Source Taxon:</strong> Tropidoatractus magnetotacticus</p>
@@ -825,7 +837,8 @@ The whole syntrophic network is built from gene presence and transcript expressi
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Tripartite electron sink improving host energetics
+                        <span class="flow-arrow">→</span> Proposed tripartite hydrogen sink and host energetic benefit
+                        <p class="prewrap causal-description">PARTIAL: proposed host-product consumption by the methanogen could lower hydrogen availability and thereby improve host fermentation energetics. This is the authors mechanistic model, not a measured transfer-to-fitness causal effect.</p>
                     </div>
 
                 </div>
@@ -841,7 +854,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42475569/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42475569</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"endosymbiotic Methanoregula cells efficiently consume host-produced H2"</div>
@@ -854,7 +867,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42475569/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42475569</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"encoded a complete methanogenesis pathway"</div>
@@ -868,8 +881,8 @@ The whole syntrophic network is built from gene presence and transcript expressi
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Symbiont-conferred magnetotaxis</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">Observed field-reversal responses establish active host magnetotaxis, and microscopy identifies internal magnetite chains. The bacterial population encodes and expresses magnetosome genes, supporting the authors attribution of the magnetic capability to internal bacteria. Genome-to-cell identity remains inferred because FISH failed at low cell numbers. Native swimming polarity and adaptive benefit are unresolved: detection followed six months of storage in Munich. Capability provision does not itself measure reciprocal fitness, so no MUTUALISM type is assigned (consistent with issue #749).</p>
 
 
                 <p><strong>Source Taxon:</strong> magnetotactic sulfate-reducing bacterial endosymbiont</p>
@@ -953,9 +966,9 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Tripartite electron sink improving host energetics</h3>
-                    <span class="interaction-type">MUTUALISM</span>
+                    <h3>Proposed tripartite hydrogen sink and host energetic benefit</h3>
                 </div>
+                <p class="prewrap interaction-description">HYPOTHESIZED: internal sulfate reducers and methanogens could consume host-derived H2 or other fermentation products, potentially improving host fermentation energetics. Molecular evidence supports this tripartite model, but hydrogen removal, energetic improvement and mutual survival dependence were not experimentally established for this association. It is not a measured reciprocal-benefit outcome.</p>
 
 
 
@@ -995,7 +1008,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42475569/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42475569</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"likely act as sinks for H2 (and potentially other fermentation products), thereby improving the efficiency of the host"</div>
@@ -1008,7 +1021,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42475569/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42475569</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"a tripartite syntrophic network whereby anaerobic fermentation products from T. magnetotacticus are consumed by two syntrophic partners: MTB producing the magnetosome chains and hydrogenotrophic methanogens"</div>
@@ -1059,6 +1072,45 @@ The whole syntrophic network is built from gene presence and transcript expressi
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Do partner hydrogen uptake and magnetotaxis confer measurable host or symbiont fitness benefits?
+                </h3>
+                <p class="prewrap">The source proposes metabolic syntrophy from gene content and expression and reports magnetically guided behavior. It also states that survival dependence could not be shown and FISH identity confirmation failed. Native polarity after Munich storage remains unknown. These limitations do not erase observed magnetotaxis. Environmental polarity metadata is tracked separately in issue #1911.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Proposed host hydrogen transfer to the magnetotactic sulfate reducer</code>, <code>ecological_interactions#Proposed host hydrogen transfer to the endosymbiotic methanogen</code>, <code>ecological_interactions#Symbiont-conferred magnetotaxis</code>, <code>ecological_interactions#Proposed tripartite hydrogen sink and host energetic benefit</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">COMPUTATIONAL</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42475569/" rel="nofollow noreferrer">PMID:42475569</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">likely act as sinks for H2 (and potentially other fermentation products), thereby improving the efficiency of the host</p>
+                        <p class="muted small prewrap">Molecular reconstruction or author interpretation supports the proposed metabolic relationship; it does not measure interpartner hydrogen flux or host energetic benefit.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1224,12 +1276,15 @@ The whole syntrophic network is built from gene presence and transcript expressi
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1242,7 +1297,6 @@ The whole syntrophic network is built from gene presence and transcript expressi
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1320,7 +1374,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
             nodes.push({
                 id: intId,
-                label: "Host hydrogen transfer to the magnetotactic sulfate reducer",
+                label: "Proposed host hydrogen transfer to the magnetotactic sulfate reducer",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1364,7 +1418,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
             nodes.push({
                 id: intId,
-                label: "Host hydrogen transfer to the endosymbiotic methanogen",
+                label: "Proposed host hydrogen transfer to the endosymbiotic methanogen",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1389,7 +1443,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1431,7 +1485,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
         (function() {
             var intId = "interaction:3";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1444,7 +1498,7 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
             nodes.push({
                 id: intId,
-                label: "Tripartite electron sink improving host energetics",
+                label: "Proposed tripartite hydrogen sink and host energetic benefit",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1483,6 +1537,9 @@ The whole syntrophic network is built from gene presence and transcript expressi
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

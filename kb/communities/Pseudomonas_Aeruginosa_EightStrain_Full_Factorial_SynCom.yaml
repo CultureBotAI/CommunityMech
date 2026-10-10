@@ -256,58 +256,12 @@ taxonomy:
       OrfN, NfxB- CAZ, and MDR6- CAZ
     explanation: Maps the source's strain numbers to the eight P. aeruginosa mutant labels.
 ecological_interactions:
-- name: Full-factorial Pseudomonas strain assembly
-  description: All 256 possible combinations of the eight P. aeruginosa mutants were assembled, diluted into LB medium, and
-    grown in 96-well plates to quantify strain-context effects on the Abs600 community-function landscape.
-  scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Pseudomonas aeruginosa pAOV
-    term:
-      id: NCBITaxon:287
-      label: Pseudomonas aeruginosa
-  - preferred_term: Pseudomonas aeruginosa PA14
-    term:
-      id: NCBITaxon:287
-      label: Pseudomonas aeruginosa
-  - preferred_term: Pseudomonas aeruginosa NfxB
-    term:
-      id: NCBITaxon:287
-      label: Pseudomonas aeruginosa
-  - preferred_term: Pseudomonas aeruginosa ParR-CAZ
-    term:
-      id: NCBITaxon:287
-      label: Pseudomonas aeruginosa
-  - preferred_term: Pseudomonas aeruginosa mexZ
-    term:
-      id: NCBITaxon:287
-      label: Pseudomonas aeruginosa
-  - preferred_term: Pseudomonas aeruginosa OrfN
-    term:
-      id: NCBITaxon:287
-      label: Pseudomonas aeruginosa
-  - preferred_term: Pseudomonas aeruginosa NfxB-CAZ
-    term:
-      id: NCBITaxon:287
-      label: Pseudomonas aeruginosa
-  - preferred_term: Pseudomonas aeruginosa MDR6-CAZ
-    term:
-      id: NCBITaxon:287
-      label: Pseudomonas aeruginosa
-  evidence:
-  - reference: PMID:42153623
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: them to assemble all 2 8 strain combinations as described in the main text
-    explanation: Supports full-factorial assembly of every eight-mutant combination.
-  - reference: PMID:42153623
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Samples were incubated still at 37 °C for 40 hr, after which the absorbance spectrum of each sample was quantified
-    explanation: Supports the incubation endpoint for absorbance-based community-function measurement.
 - name: Highest-Abs600 00001101 trio
-  description: The highest Abs600 value in the demonstrator experiment came from consortium 00001101, the three-mutant Pseudomonas
-    aeruginosa combination containing pAOV, NfxB, and ParR-CAZ; its positive third-order functional interaction is statistical
-    under the source's additive Abs600 baseline, not a resolved molecular competition mechanism.
+  description: The highest Abs600 value in the demonstrator experiment came from consortium 00001101, the three-mutant
+    Pseudomonas aeruginosa combination containing pAOV, NfxB, and ParR-CAZ; its positive third-order functional
+    interaction is statistical under the source's additive Abs600 baseline, not a resolved molecular competition
+    mechanism. The ranking is illustrative, with similarly high values in other consortia; absorbance is not a linear
+    biomass measure across its full range.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pseudomonas aeruginosa pAOV
@@ -326,21 +280,22 @@ ecological_interactions:
   - reference: PMID:42153623
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the consortium with the highest function contains only three strains (consortium 00001101, containing strains
-      1, 3, and 4)
+    snippet: the consortium with the highest function contains only three strains (consortium 00001101, containing
+      strains 1, 3, and 4)
     explanation: Identifies the highest-Abs600 strain-number trio in the panel.
   - reference: PMID:42153623
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the three strains engage in a positive third- order functional interaction (see inset in Figure 5E) which rescues
-      the function of the trio
+    snippet: the three strains engage in a positive third- order functional interaction (see inset in Figure 5E)
+      which rescues the function of the trio
     explanation: Supports a community-level third-order functional interaction in the 1/3/4 high-Abs600 trio.
   - reference: PMID:42153623
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Under this definition, the term interaction should be interpreted in a statistical, rather than biological sense
-    explanation: Clarifies that the high-Abs600 trio's interaction coefficient is a statistical deviation from an additive
-      function baseline, not a resolved biological competition mechanism.
+    snippet: Under this definition, the term interaction should be interpreted in a statistical, rather than biological
+      sense
+    explanation: Clarifies that the high-Abs600 trio's interaction coefficient is a statistical deviation from an
+      additive function baseline, not a resolved biological competition mechanism.
 growth_media:
 - name: LB medium
   temperature: '37'
@@ -393,27 +348,52 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare-earth transformation role is reported for this P. aeruginosa full-factorial panel.
 discussions:
 - discussion_id: pseudomonas-full-factorial-mechanism-unresolved
-  prompt: Which secreted metabolites or contact-dependent mechanisms cause the 00001101 trio's positive third-order functional
-    interaction?
+  prompt: What evidence, if any, resolves a biological mechanism behind the statistical phenotype?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#Highest-Abs600 00001101 trio
-  rationale: The eLife study quantified functional effects and interaction coefficients from Abs600 phenotypes, but did not
-    identify the molecular mechanism behind the positive third-order interaction in the high-Abs600 trio.
+  rationale: The eLife study quantified functional effects and interaction coefficients from Abs600 phenotypes,
+    but did not identify the molecular mechanism behind the positive third-order interaction in the high-Abs600
+    trio.
   evidence:
   - reference: PMID:42153623
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: This observation highlights the potential of full factorial design to interrogate and generate hypotheses with
-      respect to the mechanisms that govern the emergence of community- level functions
-    explanation: The source frames mechanism generation as downstream of the functional factorial measurement rather than
-      resolved by it.
+    snippet: This observation highlights the potential of full factorial design to interrogate and generate hypotheses
+      with respect to the mechanisms that govern the emergence of community- level functions
+    explanation: The source frames mechanism generation as downstream of the functional factorial measurement rather
+      than resolved by it.
   posed_by: codex
+- discussion_id: factorial-panel-versus-biological-interaction
+  prompt: How should an assay panel be distinguished from an individual-community interaction?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  rationale: 'Experimental assembly is a method, not a biological interaction, and was removed from the graph. The
+    existing statistical phenotype remains, without new biological mechanisms or experimental designs. Five canonical
+    panel members lose the artificial connectivity supplied by the method node; their membership representation
+    remains #1729. Relevant cached primary results and discussion were read, but fresh full-text retrieval failed.
+    This review does not independently certify the entire cached paper, raw data or figure pixels.'
+  attaches_to:
+  - ecological_interactions#Highest-Abs600 00001101 trio
+  evidence:
+  - reference: PMID:42153623
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Under this definition, the term interaction should be interpreted in a statistical, rather than biological
+      sense
+    explanation: Clarifies that the high-Abs600 trio's interaction coefficient is a statistical deviation from an
+      additive function baseline, not a resolved biological competition mechanism.
 curation_history:
 - timestamp: '2026-09-20T22:37:57Z'
   curator: codex
   action: CREATE_COMMUNITY_RECORD
-  changes: Created PMID-backed Pseudomonas aeruginosa eight-mutant full-factorial SynCom record with strain mapping, LB microplate
-    cultivation, highest-trio interaction, and an unresolved mechanism discussion.
+  changes: Created PMID-backed Pseudomonas aeruginosa eight-mutant full-factorial SynCom record with strain mapping,
+    LB microplate cultivation, highest-trio interaction, and an unresolved mechanism discussion.
+  llm_assisted: true
+- timestamp: '2026-10-07T11:49:22Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve the statistical phenotype with illustrative-ranking and absorbance limits. Issue #1727; reports/causal_graph_review/decisions/20261007-four-records-batch88.yaml'
   llm_assisted: true

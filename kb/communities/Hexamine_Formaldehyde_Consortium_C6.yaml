@@ -170,8 +170,11 @@ taxonomy:
     explanation: Names SRCHD02 as the Micrococcus luteus isolate in consortium C6.
 ecological_interactions:
 - name: C6 hexamine and formaldehyde removal
-  description: Consortium C6 removed hexamine, formaldehyde, and chemical oxygen demand from AS broth, with the biofilm format
-    reaching 94.41% hexamine removal, 85.56% formaldehyde removal, and 37.64% COD removal within 24 h.
+  description: The study reports C6 biofilm removal of 94.41% hexamine, 85.56% formaldehyde and 37.64% chemical
+    oxygen demand within 24 h. These positive bulk-chemistry outcomes in nutrient-containing AS broth do not establish
+    complete mineralization, member-resolved conversion or reciprocal benefit among all six strains. The separate
+    suspended-C6 Table 2 reports ammonia production, not consortium ammonia removal. The six canonical strain labels
+    describe the assembled consortium, not measured persistence of every strain.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: hexamine
@@ -186,6 +189,8 @@ ecological_interactions:
     term:
       id: CHEBI:16134
       label: ammonia
+    notes: Ammonia was produced in the suspended-C6 assay; a consortium ammonia sink is not established by an individual-isolate
+      result.
   biological_processes:
   - preferred_term: xenobiotic metabolic process
     term:
@@ -199,19 +204,49 @@ ecological_interactions:
   - reference: PMID:41743136
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: In the biofilm system reported in this study, the consortium C6 could remove 94.41% hexamine 85.56% formaldehyde
-      within 24 h of incubation, associated with 37.64% COD removal efficiency.
-    explanation: Quantifies rapid hexamine, formaldehyde, and COD removal by immobilized C6 biofilms.
+    snippet: In the biofilm system reported in this study, the consortium C6 could remove 94.41% hexamine 85.56%
+      formaldehyde within 24 h of incubation, associated with 37.64% COD removal efficiency.
+    explanation: Supports the reported biofilm benchmark for bulk chemical removal, not a complete carbon/nitrogen
+      mass balance or assigned partner flux.
   - reference: PMID:41743136
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The consortium C6 was the most efficient in terms of bioremediation, achieving hexamine, formaldehyde, and COD
-      removal in 24, 48, and 96 h, respectively.
-    explanation: Supports C6 as the strongest assayed consortium and distinguishes endpoint timing by analyte.
+    snippet: The consortium C6 was the most efficient in terms of bioremediation, achieving hexamine, formaldehyde,
+      and COD removal in 24, 48, and 96 h, respectively.
+    explanation: Preserves the authors' comparison and analyte-dependent endpoint timing; it is not evidence that
+      every member has a resolved biochemical role.
+  participating_taxa:
+  - preferred_term: Brevundimonas diminuta SRCHD03
+    term:
+      id: NCBITaxon:293
+      label: Brevundimonas diminuta
+  - preferred_term: Brevundimonas diminuta SRCHD04
+    term:
+      id: NCBITaxon:293
+      label: Brevundimonas diminuta
+  - preferred_term: Brucella pseudintermedia SRCHD05
+    term:
+      id: NCBITaxon:370111
+      label: Brucella pseudintermedia
+  - preferred_term: Brucella pseudintermedia SRCHD07
+    term:
+      id: NCBITaxon:370111
+      label: Brucella pseudintermedia
+  - preferred_term: Ochrobactrum sp. SRCHD06
+    term:
+      id: NCBITaxon:528
+      label: Ochrobactrum
+  - preferred_term: Micrococcus luteus SRCHD02
+    term:
+      id: NCBITaxon:1270
+      label: Micrococcus luteus
 - name: Immobilized C6 post-irradiation recovery
-  description: Polypropylene-Raschig-ring C6 biofilms retained stronger removal after 3.75 Gy and 5.25 Gy cobalt-60 gamma
-    irradiation than suspended C6 cultures, with hexamine removal not significantly changed at 24 h and formaldehyde/COD performance
-    reviving within 96 h.
+  description: Polypropylene-Raschig-ring C6 biofilms showed stronger post-irradiation removal performance than
+    suspended cultures after 3.75 Gy and 5.25 Gy cobalt-60 exposure. At 24 h, no statistically detected difference
+    in biofilm hexamine removal was reported versus the unirradiated control (p = 0.29-0.5); this is not a formal
+    equivalence test. Biofilm formaldehyde/COD removal was reported to recover within 96 h during repeated fresh-medium
+    renewal. Bulk functional recovery does not establish survival of every original strain, unchanged community
+    composition or a selectively demonstrated EPS/quorum-sensing protection mechanism.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: hexamine
@@ -231,15 +266,42 @@ ecological_interactions:
   - reference: PMID:41743136
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: In the case of the biofilm-based system, there was no change in performance in terms of hexamine removal following
-      irradiation (p-value between 0.29 and 0.5) even at 24th h of incubation.
-    explanation: Supports retained hexamine removal by irradiated C6 biofilms.
+    snippet: In the case of the biofilm-based system, there was no change in performance in terms of hexamine removal
+      following irradiation (p-value between 0.29 and 0.5) even at 24th h of incubation.
+    explanation: Supports the reported nonsignificant difference in hexamine removal, not statistical equivalence
+      or proof of no irradiation effect.
   - reference: PMID:41743136
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The formaldehyde- and COD-removing abilities were much higher in the biofilm-based system, with revival within
-      96 h of incubation.
-    explanation: Supports 96 h recovery of formaldehyde and COD removal in the irradiated C6 biofilm system.
+    snippet: The formaldehyde- and COD-removing abilities were much higher in the biofilm-based system, with revival
+      within 96 h of incubation.
+    explanation: Supports biofilm community functional recovery under the repeated-medium protocol, not every-strain
+      survival or an isolated protective mechanism.
+  participating_taxa:
+  - preferred_term: Brevundimonas diminuta SRCHD03
+    term:
+      id: NCBITaxon:293
+      label: Brevundimonas diminuta
+  - preferred_term: Brevundimonas diminuta SRCHD04
+    term:
+      id: NCBITaxon:293
+      label: Brevundimonas diminuta
+  - preferred_term: Brucella pseudintermedia SRCHD05
+    term:
+      id: NCBITaxon:370111
+      label: Brucella pseudintermedia
+  - preferred_term: Brucella pseudintermedia SRCHD07
+    term:
+      id: NCBITaxon:370111
+      label: Brucella pseudintermedia
+  - preferred_term: Ochrobactrum sp. SRCHD06
+    term:
+      id: NCBITaxon:528
+      label: Ochrobactrum
+  - preferred_term: Micrococcus luteus SRCHD02
+    term:
+      id: NCBITaxon:1270
+      label: Micrococcus luteus
 environmental_factors:
 - name: C6 suspended-culture hexamine feed
   value: '50'
@@ -341,24 +403,30 @@ external_resources:
     explanation: Identifies the primary publication for consortium C6.
 discussions:
 - discussion_id: c6-molecular-division-of-labor
-  prompt: The source quantified community-level C6 removal of hexamine, formaldehyde, and COD but did not resolve which isolate
-    genes or exchange steps perform hexamine hydrolysis, formaldehyde assimilation or oxidation, ammonia handling, or post-irradiation
-    biofilm recovery.
+  prompt: The source quantified community-level C6 removal of hexamine, formaldehyde, and COD but did not resolve
+    which isolate genes or exchange steps perform hexamine hydrolysis, formaldehyde assimilation or oxidation, ammonia
+    handling, or post-irradiation biofilm recovery.
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#C6 hexamine and formaldehyde removal
-  rationale: The article explicitly leaves Ochrobactrum/Brevundimonas functional interactions for a future molecular study,
-    so this record should not assert a pairwise metabolic edge inside C6.
+  - ecological_interactions#Immobilized C6 post-irradiation recovery
+  rationale: The article explicitly leaves Ochrobactrum/Brevundimonas functional interactions for a future molecular
+    study, so this record should not assert a pairwise metabolic edge inside C6. Bulk removal and COD are not complete
+    mineralization or strain-resolved flux. Table 2 ammonia production must not become a consortium removal claim.
+    Repeated medium renewal and nonsignificant comparisons do not prove equivalence, every-strain survival or a
+    specific protection mechanism. Resolve the irradiation-feed discrepancy between the main-text 50 mg/L description
+    and Figure 4's 100 mg/L caption before assigning one common concentration; existing non-graph assay fields are
+    preserved, not recertified. Original figure images, supplements, raw data and code were not audited.
   evidence:
   - reference: PMID:41743136
-    reference_title: Bioremediation of hexamine and formaldehyde using a radio-tolerant bacterial consortium for efficient
-      pollutant and COD removal
+    reference_title: Bioremediation of hexamine and formaldehyde using a radio-tolerant bacterial consortium for
+      efficient pollutant and COD removal
     supports: SUPPORT
     evidence_source: full_text
-    snippet: Ochrobactrum sp. and Brevundimonas diminuta have been shown to harbor genes with functional interactions, which
-      could be further detailed in a future study to understand the underlying molecular mechanism of bioremediation in the
-      current context.
+    snippet: Ochrobactrum sp. and Brevundimonas diminuta have been shown to harbor genes with functional interactions,
+      which could be further detailed in a future study to understand the underlying molecular mechanism of bioremediation
+      in the current context.
     explanation: Documents the authors' stated need for a future mechanistic study of the C6 molecular mechanism.
   posed_by: claude
   posed_date: '2026-09-21'
@@ -369,18 +437,24 @@ curation_history:
 - timestamp: '2026-09-21T09:16:07Z'
   curator: claude
   action: CREATE_COMMUNITY_RECORD
-  changes: Created CommunityMech:000405 for the C6 hexamine/formaldehyde bioremediation consortium from PMID:41743136, including
-    six isolate members, AS-broth and biofilm irradiation conditions, exact evidence snippets, and the primary source cache.
+  changes: Created CommunityMech:000405 for the C6 hexamine/formaldehyde bioremediation consortium from PMID:41743136,
+    including six isolate members, AS-broth and biofilm irradiation conditions, exact evidence snippets, and the
+    primary source cache.
   llm_assisted: true
 - timestamp: '2026-09-21T09:22:39Z'
   curator: claude
   action: ADD_ASSEMBLY_EVIDENCE
-  changes: Added direct Table 1 evidence for the equal-ratio SRCHD02-SRCHD07 C6 assembly and narrowed the Table 2 evidence
-    explanation to suspended-culture endpoint quantification.
+  changes: Added direct Table 1 evidence for the equal-ratio SRCHD02-SRCHD07 C6 assembly and narrowed the Table
+    2 evidence explanation to suspended-culture endpoint quantification.
   llm_assisted: true
 - timestamp: '2026-09-21T09:29:16Z'
   curator: claude
   action: REMOVE_UNSUPPORTED_VESSEL
-  changes: Removed unsupported Hexamine AS broth vessel_type after adversarial review; the source names AS broth conditions
-    but not a vessel for C1-C6 consortium development.
+  changes: Removed unsupported Hexamine AS broth vessel_type after adversarial review; the source names AS broth
+    conditions but not a vessel for C1-C6 consortium development.
+  llm_assisted: true
+- timestamp: '2026-10-06T14:36:24Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound bulk chemical removal and post-irradiation community recovery. Issue #1495; reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml'
   llm_assisted: true

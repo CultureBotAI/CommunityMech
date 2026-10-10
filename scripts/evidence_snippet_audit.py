@@ -64,6 +64,15 @@ SNIPPET_SECTION = re.compile(
 FRONTMATTER = re.compile(r"\A---\n.*?\n---\n", re.DOTALL)
 HEADER_LINES = re.compile(r"^(#+\s|Title:|Source:|URL:|DOI:|\*\*|reference_id:).*$", re.MULTILINE)
 UNAVAILABLE = re.compile(r"content_type:\s*unavailable", re.IGNORECASE)
+SELECTED_EXCERPTS = re.compile(r"content_type:\s*[\"']?selected_excerpts\b", re.IGNORECASE)
+# Selected appendices can occur in otherwise genuine PubMed dumps. A later
+# independently retrieved full-text section remains usable (#1362). Only the
+# existing, case-sensitive retrieval markers can end a selected section.
+SELECTED_EXCERPT_SECTION = re.compile(
+    r"^[ \t]*={3,}[ \t]*SELECTED[^\r\n]*\bEXCERPTS\b[^\r\n]*(?:\r?\n|\Z).*?"
+    rf"(?=(?-i:{FULLTEXT_MARKER.pattern})|\Z)",
+    re.MULTILINE | re.DOTALL | re.IGNORECASE,
+)
 # A .md cache is treated as a REAL abstract only with an explicit signal:
 REAL_CT = re.compile(r"content_type:\s*(abstract_only|abstract|full|fulltext)", re.IGNORECASE)
 CONTENT_HEADING = re.compile(r"^##\s+(Content|Abstract)\b", re.MULTILINE | re.IGNORECASE)
@@ -203,12 +212,16 @@ def cache_text(reference: str) -> tuple[str, bool]:
         except OSError:
             # An unreadable cache entry is not evidence of anything; skip it.
             continue
+        t = SELECTED_EXCERPT_SECTION.sub("", t)
         if p.suffix == ".txt":
-            # PubMed full dump — always real content
-            real_bodies.append(t)
+            # Retain the retrieved dump, not its curated selected-excerpt appendices.
+            if t.strip():
+                real_bodies.append(t)
             continue
         if UNAVAILABLE.search(t):
             continue  # explicitly no abstract body
+        if SELECTED_EXCERPTS.search(t):
+            continue  # headings cannot promote curated excerpts to source text (#1237)
         # Only trust a .md as a real abstract with an explicit signal. A cached
         # full text counts: several were fetched without YAML frontmatter or a
         # `## Content` heading and were being discarded as stubs.

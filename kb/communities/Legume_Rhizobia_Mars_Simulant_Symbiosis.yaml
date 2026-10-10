@@ -117,11 +117,11 @@ taxonomy:
     explanation: Names Sinorhizobium medicae as a rhizobial symbiont in the study.
 ecological_interactions:
 - name: Mars Simulant Root Nodulation
-  description: >
-    Sinorhizobium meliloti and Sinorhizobium medicae nodulate Medicago
-    truncatula roots grown on MMS-1 and MMS-2 Mars soil simulants at average
-    numbers mostly comparable to sand-grown controls.
-  interaction_type: MUTUALISM
+  description: In separate Medicago truncatula A17 inoculations with S. meliloti 2011 or S. medicae WSM419, nodules
+    formed on every tested MMS simulant after 14 days. Counts were mostly comparable to sand, with significant decreases
+    for S. meliloti on MMS-1 Unsorted and S. medicae on MMS-1 Fine. These living-host greenhouse results do not
+    establish fixed-nitrogen delivery or reciprocal benefit; the two bacterial species were alternative inoculants,
+    not a coculture.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Sinorhizobium meliloti
@@ -137,63 +137,47 @@ ecological_interactions:
     term:
       id: GO:0009877
       label: nodulation
-  downstream:
-  - target: Mars Simulant Nodule nifH Expression
-    description: Nodules formed on Mars soil simulants express the rhizobial
-      nifH reporter, linking physical nodule development to nitrogen-fixation
-      activity.
   evidence:
   - reference: PMID:34879082
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: root nodules could develop on M. truncatula roots when grown on these Mars soil simulants
-    explanation: Supports functional nodulation of the host legume on Mars soil simulants.
-- name: Mars Simulant Nodule nifH Expression
-  description: Sinorhizobium meliloti 1021 carrying a PnifH::uidA reporter
-    expressed nifH inside Medicago truncatula root nodules on each tested Mars
-    soil simulant, indicating nitrogenase-gene activity inside the nodules.
-  interaction_type: MUTUALISM
+    explanation: Supports living-host nodulation on simulants; Results includes two reduced-count exceptions and
+      no direct nitrogen-fixation flux assay.
+- name: Mars Simulant Nodule nifH Promoter Activity
+  description: S. meliloti 1021 carrying PnifH::uidA showed nodule-localized promoter activity by GUS staining at
+    14 days on all tested substrates. This reporter assay used S. meliloti only, not S. medicae. PARTIAL - promoter
+    activity is evidence of nitrogenase-associated gene regulation, not direct N2-fixation flux, ammonia delivery
+    to the host or a selective test that nodulation itself induces nifH.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Sinorhizobium meliloti
     term:
       id: NCBITaxon:382
       label: Sinorhizobium meliloti
-  - preferred_term: Sinorhizobium medicae
-    term:
-      id: NCBITaxon:110321
-      label: Sinorhizobium medicae
-  metabolites:
-  - preferred_term: dinitrogen
-    term:
-      id: CHEBI:17997
-      label: dinitrogen
-  - preferred_term: ammonia
-    term:
-      id: CHEBI:16134
-      label: ammonia
   biological_processes:
   - preferred_term: nitrogen fixation
     term:
       id: GO:0009399
       label: nitrogen fixation
-  downstream:
-  - target: Mars Simulant Legume-Rhizobia Support
-    description: Nitrogen-fixation gene expression in nodules shows that Mars
-      simulant substrates can support the Medicago-rhizobia mutualism through
-      the reporter-assayed nitrogen-fixation stage.
+    notes: Nitrogen-fixation pathway context for a promoter reporter, not directly measured fixation.
   evidence:
   - reference: PMID:34879082
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: detected nifH (a reporter gene for nitrogen fixation) expression inside these nodules
-    explanation: Supports active nitrogen fixation (nifH expression) inside the nodules.
-- name: Mars Simulant Legume-Rhizobia Support
-  description: MMS-1 and MMS-2 Mars soil simulants support the Medicago
-    truncatula symbiosis with Sinorhizobium meliloti and Sinorhizobium medicae;
-    the study identified simulant chemistry, rather than grain size, as the
-    stronger control on plant mass.
-  interaction_type: MUTUALISM
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: M. truncatula plants were inoculated with S. meliloti 1021 carrying the PnifH::uidA fusion
+    explanation: Identifies the reporter-specific bacterial participant and living-host context.
+  - reference: PMID:34879082
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: Our results show that the nifH promoter was active in the nodules
+    explanation: Supports promoter activity only; nitrogen fixation and ammonia transfer were not directly assayed.
+- name: Mars Simulant Dependent Plant Phenotypes
+  description: At 14 days after separate rhizobial inoculations, Medicago plant mass was lower on MMS-1 variants
+    than sand and comparable between MMS-2 Superfine and sand. Lateral-root numbers were reduced on every simulant
+    relative to sand. HYPOTHESIZED - chemical composition may explain substrate differences, but individual chemical
+    mediation was not selectively tested. These Earth-greenhouse, living-host endpoints do not show that nifH activity
+    caused plant mass, prove mutual benefit or demonstrate growth under a Martian atmosphere or perchlorate exposure.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Sinorhizobium meliloti
@@ -205,29 +189,23 @@ ecological_interactions:
       id: NCBITaxon:110321
       label: Sinorhizobium medicae
   biological_processes:
-  - preferred_term: nodulation
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
-      id: GO:0009877
-      label: nodulation
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:34879082
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Mars simulant soils used in this study can support the symbiotic association
-      between M. truncatula and its rhizobial partners
-    explanation: Supports the paper's conclusion that the tested Mars simulants
-      can support the legume-rhizobia association.
+    evidence_source: IN_VIVO
+    snippet: total mass of plants grown on MMS-2 Superfine soil was comparable to the total mass of plants grown
+      on sand
+    explanation: Positive substrate comparison in living hosts, not nitrogen-fixation mediation.
   - reference: PMID:34879082
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: the chemical composition of the simulants is more critical than their grain size
-      for plant mass
-    explanation: Links the supported symbiosis to the observed plant-mass
-      difference between MMS-2 and MMS-1 simulants.
+    evidence_source: IN_VIVO
+    snippet: average lateral root number was significantly reduced on plants grown on these soils if compared to
+      plants grown on sand
+    explanation: 'Results qualification of the abstract: all simulants reduced lateral roots relative to sand.'
 environmental_factors:
 - name: Mojave Mars Simulant grades (MMS-1) and MMS-2 substrate
   value: MMS-1 (Coarse/Fine/Unsorted/Superfine) and MMS-2
@@ -379,3 +357,28 @@ cultivation_setup:
     snippet: The different plant phenotypes (total plant mass, lateral root number, average nodule number)
       were recorded 14 days post-inoculation.
     explanation: Gives the post-inoculation duration.
+discussions:
+- discussion_id: mars_reporter_flux_and_host_benefit
+  prompt: Does the observed nodule promoter activity yield fixed nitrogen and host benefit on each simulant?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Mars Simulant Root Nodulation
+  - ecological_interactions#Mars Simulant Nodule nifH Promoter Activity
+  - ecological_interactions#Mars Simulant Dependent Plant Phenotypes
+  rationale: Retain nodules, nifH promoter activity and substrate-dependent plant phenotypes; drop the anatomical-context
+    and conclusion arrows rather than asserting causal mediation. No direct N2-fixation rate, ammonia delivery,
+    plant nitrogen measurement or uninoculated host-benefit comparison establishes the proposed chain. The reporter
+    used S. meliloti 1021 only; phenotype inoculations used S. meliloti 2011 or S. medicae WSM419 separately. The
+    host is absent from the canonical roster (#1553), so listed bacteria are a partial participant set, not a complete
+    microbial coculture. Earth greenhouse conditions and simulants without perchlorates are not Mars conditions.
+    Chemistry is a proposed explanation, not an isolated additive perturbation. Main body and captions read, not
+    original image pixels, separate supplements or raw measurements.
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T21:32:00Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate living-host nodulation, nifH promoter activity and substrate phenotypes. Issue #1552; reports/causal_graph_review/decisions/20261006-lakes-mars-batch62.yaml'
+  llm_assisted: true

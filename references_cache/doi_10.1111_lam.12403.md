@@ -13,7 +13,11 @@ authors:
 journal: Letters in Applied Microbiology
 year: '2015'
 doi: 10.1111/lam.12403
-content_type: abstract_only
+content_type: abstract_and_significance_excerpts
+source_url: https://academic.oup.com/lambio/article-abstract/60/5/497/6699742
+source_verified_date: '2026-10-05'
+excerpt_scope: Selected abstract and Significance and Impact excerpts, not a complete abstract or full article body.
+text_normalization: Existing excerpts retained; one short quantitative abstract excerpt added verbatim.
 ---
 
 # Optimization of Chlorella vulgaris and bioflocculant-producing bacteria co-culture: enhancing microalgae harvesting and lipid content
@@ -23,6 +27,8 @@ content_type: abstract_only
 Title: Optimization of Chlorella vulgaris and bioflocculant-producing bacteria co-culture: enhancing microalgae harvesting and lipid content
 
 Axenic Chlorella vulgaris microalgae exhibit poor harvesting, as expressed by a flocculation efficiency of 0·2%.
+
+harvesting efficiency reached 45·0–50·0%
 
 This work optimized the co-culture conditions of C. vulgaris and bioflocculant-producing bacteria in synthetic wastewater using response surface methodology.
 

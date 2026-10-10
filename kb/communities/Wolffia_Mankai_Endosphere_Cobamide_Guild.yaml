@@ -187,25 +187,29 @@ taxonomy:
       cobamide intermediates
     explanation: Supports Bacteroidota cobamide salvagers as a member of the Mankai endosphere cobamide network.
 ecological_interactions:
-- name: Mankai Compartment Host Filtering
-  description: Bacterial assemblages from cultivation medium, washed fronds, and surface-sterilized tissue clustered separately;
-    the endosphere retained a lower-diversity, distinct subset of the broader plant-associated and medium-associated pool.
-  interaction_type: NICHE_PARTITIONING
+- name: Mankai Compartment-Associated Community Differentiation
+  description: Bacterial DNA profiles from cultivation medium, washed fronds and surface-sterilized tissue differed
+    in composition and diversity. Environmental and host filtering is an interpretation of these compartment associations,
+    not a selectively perturbed host mechanism or demonstrated microbial niche partitioning. Endosphere denotes
+    the operational sterilized-tissue fraction; washed whole fronds are not a strictly epiphytic sample.
   scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:42304541
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: The pronounced differences in richness and composition between the medium, phyllosphere and endosphere (Fig. 
-      2 ) indicate strong environmental and host filtering along the plant-water interface
-    explanation: Supports compartment filtering across medium, phyllosphere, and endosphere fractions.
+    snippet: The pronounced differences in richness and composition between the medium, phyllosphere and endosphere
+      (Fig.  2 ) indicate strong environmental and host filtering along the plant-water interface
+    explanation: Supports compartment differentiation and the authors' filtering interpretation, not an isolated
+      host-filtering mechanism.
 - name: MAG-Inferred Cobamide Producer-Salvager Guild
-  description: 'Genome-resolved endosphere analysis predicted an uneven cobamide pathway architecture: Hyphomicrobium zavarzinii,
-    Methylobacterium, Devosia, Labrys, Ferrovibrionaceae, and other Alphaproteobacteria encoded most biosynthetic steps, while
-    many Gammaproteobacteria and Bacteroidota lineages had incomplete pathways and were inferred to salvage or remodel exogenous
-    intermediates. The network edges represent MAG-derived metabolic compatibility, not direct metabolite-flux or abundance-correlation
-    evidence.'
-  interaction_type: CROSS_FEEDING
+  description: 'Genome-resolved endosphere analysis predicted an uneven cobamide pathway architecture: Hyphomicrobium
+    zavarzinii, Methylobacterium, Devosia, Labrys, Ferrovibrionaceae, and other Alphaproteobacteria encoded most
+    biosynthetic steps, while many Gammaproteobacteria and Bacteroidota lineages had incomplete pathways and were
+    inferred to salvage or remodel exogenous intermediates. The network edges represent MAG-derived metabolic compatibility,
+    not direct metabolite-flux or abundance-correlation evidence. HYPOTHESIZED cross-feeding is not established
+    by gene presence or pathway gaps. Missing genes in individual MAGs can reflect reconstruction limitations. Cultured
+    species-level comparators were not strain-matched endophytes, so their cobalamin production does not validate
+    exchange in this guild or adaptive gene loss. The host is not established as a B12-dependent recipient.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Hyphomicrobium zavarzinii
@@ -264,19 +268,33 @@ ecological_interactions:
       capacity as highly connected hub nodes
     explanation: Supports the MAG-inferred hub structure of the cobamide network.
   - reference: PMID:42304541
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: many Gammaproteobacteria and Bacteroidota lineages harbored incomplete pathways, implying reliance on exogenous
-      cobamide intermediates
-    explanation: Supports the broad salvager clades in the inferred network.
+    snippet: many Gammaproteobacteria and Bacteroidota lineages harbored incomplete pathways, implying reliance
+      on exogenous cobamide intermediates
+    explanation: Pathway incompleteness supports predicted salvage potential, not demonstrated dependence or metabolite
+      uptake.
   - reference: PMID:42304541
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: edges represent the number of cobamide pathway intermediates that could be supplied by one taxon and utilized by
-      another based on complementary gene content, thereby capturing putative exchange relationships inferred from pathway annotation
-      rather than abundance correlations
-    explanation: Documents that the network edges are inferred from MAG-derived pathway complementarity rather than direct
-      exchange or abundance-correlation evidence.
+    snippet: edges represent the number of cobamide pathway intermediates that could be supplied by one taxon and
+      utilized by another based on complementary gene content, thereby capturing putative exchange relationships
+      inferred from pathway annotation rather than abundance correlations
+    explanation: Documents that the network edges are inferred from MAG-derived pathway complementarity rather than
+      direct exchange or abundance-correlation evidence.
+    computational_provenance:
+      prediction_type: OTHER
+      tools:
+      - tool_name: MetaBat2
+        role: MAG reconstruction
+      - tool_name: MetaErg
+        role: MAG annotation
+      - tool_name: igraph
+        role: Functional complementarity network construction in R
+      model_source: Cobamide biosynthesis, salvage and remodeling functions annotated in endosphere MAGs.
+      input_accession: PRJNA1356720; SRP645794
+      parameters: At least three compatible cobamide intermediates per edge; gene-content complementarity, not FBA,
+        direct flux or abundance correlation.
 environmental_factors:
 - name: industrial rotating greenhouse raceway
   value: Mankai from Hinoman rotating raceway basins
@@ -351,14 +369,14 @@ external_resources:
     explanation: Identifies the seed paper curated into this record.
 discussions:
 - discussion_id: direct_cobamide_exchange_not_measured
-  prompt: The cobamide producer-salvager structure is inferred from MAG annotations and network complementarity; direct exchange
-    of cobamide intermediates among endosphere members remains unmeasured.
+  prompt: The cobamide producer-salvager structure is inferred from MAG annotations and network complementarity;
+    direct exchange of cobamide intermediates among endosphere members remains unmeasured.
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#MAG-Inferred Cobamide Producer-Salvager Guild
-  rationale: Resolving this would distinguish true metabolite handoff from shared niche preference or correlated cobamide
-    pathway potential.
+  rationale: Resolving this would distinguish true metabolite handoff from shared niche preference or correlated
+    cobamide pathway potential.
   proposed_experiments:
   - experiment_id: mankai_cobamide_flux
     name: Trace cobamide exchange in controlled Mankai endosphere microcosms
@@ -377,17 +395,30 @@ discussions:
   - reference: PMID:42304541
     supports: SUPPORT
     evidence_source: OTHER
-    snippet: Future work integrating transcriptomics, metabolite flux measurements, and controlled manipulation of key producer
-      and salvager taxa will be essential to move from genomic potential and inferred interactions to directly measured cobamide
-      exchange
+    snippet: Future work integrating transcriptomics, metabolite flux measurements, and controlled manipulation
+      of key producer and salvager taxa will be essential to move from genomic potential and inferred interactions
+      to directly measured cobamide exchange
     explanation: The primary source explicitly frames direct cobamide exchange as a future measurement need.
+- discussion_id: wolffia_causal_scope_batch123
+  prompt: Do compartment profiles and comparator genomes establish host-selected cobamide dependence?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Mankai Compartment-Associated Community Differentiation
+  - ecological_interactions#MAG-Inferred Cobamide Producer-Salvager Guild
+  rationale: Operational fractions and possible carryover limit localization claims. Only endosphere MAGs were reconstructed,
+    so pathway architecture was not compared across all compartments. Non-strain-matched culture-collection representatives
+    cannot establish endophyte-specific gene loss or validate metabolite exchange. The existing direct-flux knowledge
+    gap remains open.
+  posed_by: codex
+  posed_date: '2026-10-08'
 curation_history:
 - timestamp: '2026-09-13T10:27:13Z'
   curator: claude
   action: ADD_MANKAI_ENDOSPHERE_RECORD
-  changes: Added a new Mankai endosphere cobamide-guild community from PMID:42304541, including seven evidence-backed taxa
-    and clades, MAG-inferred cobamide interactions, the BioProject accession, industrial raceway context, and an open discussion
-    for unmeasured direct cobamide exchange.
+  changes: Added a new Mankai endosphere cobamide-guild community from PMID:42304541, including seven evidence-backed
+    taxa and clades, MAG-inferred cobamide interactions, the BioProject accession, industrial raceway context, and
+    an open discussion for unmeasured direct cobamide exchange.
   llm_assisted: true
 - timestamp: '2026-09-13T11:09:33Z'
   curator: gtdb_ground.py
@@ -397,3 +428,10 @@ curation_history:
   curator: gtdb_ground.py
   action: GTDB_SET_STATUS
   changes: 'Wrote gtdb_grounding_status on 7 taxonomy entries (#294, #395).'
+- timestamp: '2026-10-08T16:49:43Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Keep observed compartment differences separate from selectively demonstrated host filtering and niche
+    partitioning.; Retain annotated producer-salvager potential with computational provenance, not observed cross-feeding
+    or strain-matched validation. Issue#1956; reports/causal_graph_review/decisions/20261008-four-records-batch123.yaml
+  llm_assisted: true

@@ -237,10 +237,9 @@ taxonomy:
     explanation: Names Roseburia intestinalis DSM 14610 as a member of the ten-species gut SynCom.
 ecological_interactions:
 - name: Negative Conditioned-Medium Interactions
-  description: Cell-free stationary-phase spent YCFA medium from each species was mixed with fresh YCFA and used to grow every
-    other species. Final-density effects were mostly negative, consistent with soluble resource depletion or inhibitory products
-    dominating the tested donor-acceptor interaction matrix.
-  interaction_type: COMPETITION
+  description: Cell-free stationary-phase spent YCFA medium from each species was mixed with fresh YCFA and used
+    to grow every other species. Final-density effects were mostly negative, consistent with soluble resource depletion
+    or inhibitory products dominating the tested donor-acceptor interaction matrix.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction
@@ -251,8 +250,8 @@ ecological_interactions:
   - reference: PMID:41960919
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: negative interactions, which could be caused by e.g., resource competition or toxin production, dominate between
-      the tested species
+    snippet: negative interactions, which could be caused by e.g., resource competition or toxin production, dominate
+      between the tested species
     explanation: Supports mostly negative soluble interactions among the tested strains.
   - reference: PMID:41960919
     supports: SUPPORT
@@ -351,15 +350,33 @@ curation_history:
 - timestamp: '2026-09-15T06:45:53Z'
   curator: codex
   action: ADDRESS_ADVERSARIAL_REVIEW
-  changes: >
-    Removed gLV prediction and invasion-outcome summaries from
-    ecological_interactions where they were over-typed as niche partitioning and
-    colonization facilitation, and added DOI/GitHub resource metadata for the
-    article and its paper-linked data/code repository.
+  changes: 'Removed gLV prediction and invasion-outcome summaries from ecological_interactions where they were over-typed
+    as niche partitioning and colonization facilitation, and added DOI/GitHub resource metadata for the article
+    and its paper-linked data/code repository.
+
+    '
   llm_assisted: true
 - timestamp: '2026-09-15T06:34:11Z'
   curator: codex
   action: ADD_COMMUNITY_RECORD
-  changes: Created CommunityMech:000382 for the PMID:41960919 ten-species DSMZ human gut SynCom, including verified members,
-    conditioned-medium and invasion interactions, anaerobic YCFA cultivation, and exact evidence.
+  changes: Created CommunityMech:000382 for the PMID:41960919 ten-species DSMZ human gut SynCom, including verified
+    members, conditioned-medium and invasion interactions, anaerobic YCFA cultivation, and exact evidence.
   llm_assisted: true
+- timestamp: '2026-10-05T08:42:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain conditioned-medium inhibition without assigning unresolved competition; complete decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1244'
+  llm_assisted: true
+discussions:
+- discussion_id: amsterdam_conditioned_medium_mechanisms
+  prompt: Which depleted nutrients or inhibitory compounds explain the negative conditioned-medium effects?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Negative Conditioned-Medium Interactions
+  rationale: PMID:41960919 measures recipient final density in fresh/spent YCFA mixtures. The source explicitly
+    states that conditioned media do not reveal molecular mechanisms. Reciprocal negative responses were not enriched;
+    competition, inhibitory products and their combinations remain unresolved.
+  posed_by: codex
+  posed_date: '2026-10-05'

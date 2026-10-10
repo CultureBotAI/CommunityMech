@@ -93,10 +93,9 @@ taxonomy:
     explanation: Supports the interfacial-remodeling role of G1.
 ecological_interactions:
 - name: Interfacial Remodeling and Precursor Cross-feeding
-  description: >
-    B. subtilis G1 uses lipopeptides and small molecules to remodel the oil-water
-    interface, improve substrate accessibility, and supply precursors assimilated
-    by P. aeruginosa PA12.
+  description: 'PARTIAL: the authors propose that Bacillus-mediated interface remodeling and precursor supply facilitate
+    the partner contribution to waxy-oil conversion. Preserve this reported directed interpretation; the accessible
+    abstract does not establish a measured transfer flux or isolate each mediator experimentally.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -121,21 +120,20 @@ ecological_interactions:
       label: alkane catabolic process
   downstream:
   - target: Multilayer Cooperative Hydrocarbon Degradation
-    description: >
-      Bacillus-mediated oil-water interface remodeling and precursor transfer
-      form one layer of the cooperative network that lets the two-member
-      consortium outperform either monoculture.
+    description: 'PARTIAL: interface remodeling and precursor transfer are proposed contributors to the reported
+      cooperative degradation model. The abstract supports this interpretation but does not establish their necessity
+      or relative contributions.'
   evidence:
   - reference: PMID:41905048
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: enhancing substrate accessibility and supplying precursors to PA12
-    explanation: Supports substrate-access facilitation and precursor transfer from G1 to PA12.
+    explanation: Supports the authors proposed substrate-access and precursor-transfer contribution, not independently
+      verified transfer flux.
 - name: Multilayer Cooperative Hydrocarbon Degradation
-  description: >
-    The consortium combines interface remodeling, metabolic cross-feeding,
-    signal exchange, and redox-energy homeostasis to outperform either monoculture.
-  interaction_type: MUTUALISM
+  description: 'PARTIAL: multi-omics and molecular docking support the authors multilayer cooperation model. These
+    analyses do not by themselves prove functional mediation by each proposed process or reciprocal fitness benefits;
+    the measured consortium-versus-monoculture degradation advantage remains a separate positive result.'
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: quorum sensing
@@ -144,33 +142,39 @@ ecological_interactions:
       label: quorum sensing
   downstream:
   - target: High-Efficiency Waxy Oil Removal
-    description: >
-      Interface remodeling, precursor cross-feeding, signal exchange, and
-      redox-energy homeostasis drive high-efficiency wax removal by the
-      two-member consortium.
+    description: 'PARTIAL: the proposed cooperative processes are offered as an explanation for the observed wax-removal
+      advantage. The abstract does not resolve which processes are necessary or sufficient for that endpoint.'
   evidence:
   - reference: PMID:41905048
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: a multilayer cooperative mechanism integrating interfacial remodeling, metabolic cross-feeding, signal exchange, and redox-energy homeostasis
-    explanation: Supports the reported community-level cooperative mechanism.
+    snippet: a multilayer cooperative mechanism integrating interfacial remodeling, metabolic cross-feeding, signal
+      exchange, and redox-energy homeostasis
+    explanation: Supports the reported explanatory model, not experimental necessity of every proposed component.
   - reference: PMID:41905048
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: via aromatic intermediates, fatty acids, and quorum-sensing signals
-    explanation: Supports quorum-sensing signals as one layer of the reported
-      cooperative network between the two strains.
+    explanation: Supports quorum-sensing signals as one layer of the reported cooperative network between the two
+      strains.
   - reference: PMID:41905048
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: monocultures showed lower degradation efficiencies, reaching 52.5% for PA12 and 42.0% for G1
     explanation: Supports performance beyond either monoculture.
+  participating_taxa:
+  - preferred_term: Pseudomonas aeruginosa PA12
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  - preferred_term: Bacillus subtilis G1
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
 - name: High-Efficiency Waxy Oil Removal
-  description: >
-    The PA12-G1 cooperative network improved waxy crude oil conversion, producing
-    85.5% wax removal within 12 days compared with lower PA12 and G1 monoculture
-    degradation efficiencies.
-  interaction_type: MUTUALISM
+  description: The source reports 85.5% wax removal within 12 days, compared with lower monoculture degradation
+    efficiencies of 52.5% and 42.0%. Preserve this positive treatment comparison without equating pollutant removal
+    with reciprocal growth benefits or complete mineralization.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: alkane
@@ -188,6 +192,15 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: achieving 85.5% wax removal within 12 d
     explanation: Supports the endpoint of high-efficiency wax removal by the two-member consortium.
+  participating_taxa:
+  - preferred_term: Pseudomonas aeruginosa PA12
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  - preferred_term: Bacillus subtilis G1
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
 environmental_factors:
 - name: Waxy crude oil loading
   value: '2'
@@ -239,3 +252,38 @@ external_resources:
     explanation: Links the resource to the exact community.
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare-earth processing role is reported for this waxy-oil biodegradation consortium.
+discussions:
+- discussion_id: waxy-removal-versus-mechanistic-mediation
+  prompt: Which reported cooperative processes actually mediate the removal advantage?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  rationale: All three nodes and both existing directions remain. Positive removal measurements are distinct from
+    multi-omics and docking interpretations. Only the fresh abstract was accessible; absence of full methods is
+    not evidence that perturbations were absent. No new biological mechanisms, strain combinations, optimization
+    parameters or experimental designs were added.
+  attaches_to:
+  - ecological_interactions#Interfacial Remodeling and Precursor Cross-feeding
+  - ecological_interactions#Multilayer Cooperative Hydrocarbon Degradation
+  - ecological_interactions#High-Efficiency Waxy Oil Removal
+  evidence:
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: enhancing substrate accessibility and supplying precursors to PA12
+    explanation: Supports the authors proposed substrate-access and precursor-transfer contribution, not independently
+      verified transfer flux.
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Molecular docking validated the aforementioned mechanism of action
+    explanation: This is the authors wording; docking is computational support, not independent biological validation
+      of the whole causal mechanism.
+curation_history:
+- timestamp: '2026-10-07T12:23:49Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve reported interface and precursor facilitation with explicit evidence bounds.; Preserve the
+    multilayer model without asserting mediator necessity or mutual fitness.; Preserve measured wax removal without
+    mineralization or fitness inference. Issue #1732; reports/causal_graph_review/decisions/20261007-four-records-batch89.yaml'
+  llm_assisted: true

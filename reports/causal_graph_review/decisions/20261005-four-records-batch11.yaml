@@ -1,0 +1,265 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 42261c6808d6bffba59380b922156fc5c3805871
+issues:
+- 1290
+non_graph_followup_issues:
+- 1291
+- 1292
+- 1293
+issue_deduplication:
+  count: 641
+  scope: All paginated open/closed titles and bodies; ignored-inclusive local reports/history/tests. Comments not
+    exhaustive.
+limitations:
+- No new nodes/arrows or Edison job.
+- Uncertainty is retained explicitly, not upgraded by structural validation.
+- Publication images, supplements and deposited data were not inspected; source-specific reading scope is recorded.
+- The rights-restricted 2018 paper remains outside the repository; only licensed 2024 excerpts are added.
+records:
+- path: kb/communities/Chicken_BL6_AntiSalmonella_SynCom.yaml
+  id: CommunityMech:000346
+  original_sha256: c49ff766c2754aa15bdb19c28ccda4bc75819e1aa6c9aba1610e156a3209b57a
+  record_sha256: c45342937de0702f02ed9029b7580823f25e2a59f9cdb75f83c4de6e9177ff1c
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-four-records-batch11.yaml
+  scope: Whole record and every existing graph node/arrow reviewed to explicit source-reading limits; preserved
+    non-graph metadata is not certified.
+  summary: Bound BL6 protection to measured host outcomes and relative microbiota changes
+  node_decisions:
+  - node: BL6 Anti-Salmonella Protection
+    rationale: Retain the challenge phenotype without competition, eradication or mediated protection claims.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42351244
+  source_review:
+    source:
+      reference: PMID:42351244
+      path: references_cache/PMID_42351244.txt
+      sha256: c423fe3294e328c8f7b06affbc394b606249e5cf63ba8a5350f433d949b344e3
+      scope: Complete abstract and cached main text from Background through Methods, Results, Discussion and Conclusion;
+        Table 1 and figure captions read. No images or supplementary files inspected.
+  non_graph_followups:
+    issue: https://github.com/CultureBotAI/CommunityMech/issues/1293
+    scope:
+    - OD-based CFU estimates use an E. coli calibration; do not certify strain-resolved viable counts from OD normalization.
+    - Genus enrichment is not long-term persistence or all-six-member dominance.
+  history_file: history/records/Chicken_BL6_AntiSalmonella_SynCom/2026-10-05T184624Z-codex-beb2ba.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1290
+  removed_edge_decisions: []
+  retained_edge_decisions: []
+- path: kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+  id: CommunityMech:000421
+  original_sha256: 2cdaa7159f5956934e398bcd62116b615f25e0e46a5e6ca13c700185a21f7f75
+  record_sha256: bac337f785a683f7440bed49d1ec00fa8d4284eb0113978a702efdaad52b6ea6
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-four-records-batch11.yaml
+  scope: Whole record and every existing graph node/arrow reviewed to explicit source-reading limits; preserved
+    non-graph metadata is not certified.
+  summary: Distinguish CDG temporal-function interpretation from bulk degradation endpoints
+  node_decisions:
+  - node: Temporal Dual-Fungal Lignin Conversion
+    rationale: Retain a partial source-proposed niche interpretation without resolving flux or population abundance.
+  - node: CDG Lignin Degradation by Dual-Fungal Fermentation
+    rationale: Retain measured degradation and enzyme timing without unsupported ecological typing.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42660361
+  source_review:
+    source:
+      reference: PMID:42660361
+      path: references_cache/PMID_42660361.txt
+      sha256: cb3e47c3e6ecd5205eabaa1df3cf692320e3dc3aee3090e5a5b997e3ed8b828c
+      url: https://www.sciencedirect.com/science/article/pii/S096085242601816X
+      scope: Complete cached abstract and search-exposed primary preview (highlights, introduction, partial conclusion).
+        Full methods/results, images and supplements unavailable and unread.
+    prior_issues:
+    - number: 1053
+      state: closed
+      preservation: Keep outcomes out of environmental factors.
+    - number: 1054
+      state: closed
+      preservation: Keep observed temporal division separate from design intent.
+  non_graph_followups:
+    issue: https://github.com/CultureBotAI/CommunityMech/issues/1293
+    scope: Protocol, abundance or summary claims remain outside this graph review.
+  history_file: history/records/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium/2026-10-05T184624Z-codex-879dd3.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1290
+  removed_edge_decisions: []
+  retained_edge_decisions: []
+- path: kb/communities/Chlamydomonas_Bacterial_H2_Consortium.yaml
+  id: CommunityMech:000014
+  original_sha256: e1a1d03a1b0350a12b604bba60f1dc334c3bba8fa492df3bdbd27e5935bb214b
+  record_sha256: 5abfc7e315eabcec04b7d57d557f6935e0f6fb9ba9f944dcc80628477fef5bb3
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-four-records-batch11.yaml
+  scope: Whole record and every existing graph node/arrow reviewed to explicit source-reading limits; preserved
+    non-graph metadata is not certified.
+  summary: Separate Chlamydomonas hydrogen output from condition-specific nutrient mutualism
+  node_decisions:
+  - node: Photosynthetic Hydrogen Production
+    rationale: Retain photohydrogen output without commensalism or unsupported oxygen transfer.
+  - node: Bacterial Enhancement of Algal H2 Production
+    rationale: Retain reciprocal pairwise benefit and qualify nutrient mediation of hydrogen output.
+  - node: Multispecies Bacterial Consortium Supporting H2 Production
+    rationale: Retain whole-inoculum support without per-member necessity or consortium-wide mutualism.
+  edges_before:
+  - source: Bacterial Enhancement of Algal H2 Production
+    target: Photosynthetic Hydrogen Production
+    description: Microbacterium-driven ammonium and acetic-acid release improves and helps sustain algal hydrogen
+      production.
+  - source: Multispecies Bacterial Consortium Supporting H2 Production
+    target: Photosynthetic Hydrogen Production
+    description: The full Bacillus-Microbacterium-Stenotrophomonas community sustains Chlamydomonas H2 production
+      in mannitol- and yeast-extract-containing medium.
+  edges_after:
+  - source: Bacterial Enhancement of Algal H2 Production
+    target: Photosynthetic Hydrogen Production
+    description: HYPOTHESIZED - ammonium and acetic-acid provision could support the M. forte-dependent hydrogen
+      improvement. The abstract reports release and output, but does not establish either metabolite as a necessary
+      mediator.
+  - source: Multispecies Bacterial Consortium Supporting H2 Production
+    target: Photosynthetic Hydrogen Production
+    description: The full bacterial inoculum enables sustained algal hydrogen production in the tested mannitol/yeast-extract
+      cultures; this whole-inoculum comparison does not establish the necessity of every member.
+  references:
+  - PMID:38159768
+  source_review:
+    source:
+      reference: PMID:38159768
+      path: references_cache/PMID_38159768.md
+      sha256: b65f40824d93e4f62c8b44b873a179874ac11c34c3205954b7310728200037a7
+      url: https://www.sciencedirect.com/science/article/pii/S0048969723081895
+      scope: Complete cached abstract and primary indexed preview only. Direct publisher fetch failed; full methods/results,
+        images and supplements unread.
+  non_graph_followups:
+    issue: https://github.com/CultureBotAI/CommunityMech/issues/1291
+    scope: Protocol, abundance or summary claims remain outside this graph review.
+  history_file: history/records/Chlamydomonas_Bacterial_H2_Consortium/2026-10-05T184624Z-codex-d53fd1.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1290
+  removed_edge_decisions: []
+  retained_edge_decisions:
+  - source: Bacterial Enhancement of Algal H2 Production
+    target: Photosynthetic Hydrogen Production
+    rationale: HYPOTHESIZED - ammonium and acetic-acid provision could support the M. forte-dependent hydrogen improvement.
+      The abstract reports release and output, but does not establish either metabolite as a necessary mediator.
+  - source: Multispecies Bacterial Consortium Supporting H2 Production
+    target: Photosynthetic Hydrogen Production
+    rationale: The full bacterial inoculum enables sustained algal hydrogen production in the tested mannitol/yeast-extract
+      cultures; this whole-inoculum comparison does not establish the necessity of every member.
+- path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+  id: CommunityMech:000015
+  original_sha256: a83ebbce5327be00d163cd40d3313446dad50eb903153362f72ca9090a6d929d
+  record_sha256: dd3b4dcd34d3fd452e895b325226ee0528fbde269d1e2e53af5666631849b295
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-four-records-batch11.yaml
+  scope: Whole record and every existing graph node/arrow reviewed to explicit source-reading limits; preserved
+    non-graph metadata is not certified.
+  summary: Re-evidence Chlamydomonas-Methylobacterium IAA cooperation without conflating the proline assay
+  node_decisions:
+  - node: Algal Glycerol Provision in Proline-Dependent Mutualism
+    rationale: Retain 2018 reciprocal glycerol/ammonium exchange, not oxygen benefit or demonstrated IAA mediation.
+  - node: Cooperative IAA Degradation
+    rationale: Correct IAA roles with the later primary source; retain demonstrated reciprocal growth and cooperative
+      depletion.
+  - node: IAA-Associated Algal Cell Division and Chlorophyll Responses
+    rationale: Retain measured cell-division/chlorophyll responses without broad stress or bacterial-production
+      claims.
+  edges_before:
+  - source: Photosynthetic Carbon Fixation and Oxygen Production
+    target: IAA Production and Degradation
+    description: Algal photosynthate supports bacterial growth and IAA metabolism
+  - source: IAA Production and Degradation
+    target: Nitrogen Stress Response Modulation
+    description: IAA signaling influences algal stress physiology
+  edges_after:
+  - source: Algal Glycerol Provision in Proline-Dependent Mutualism
+    target: Cooperative IAA Degradation
+    description: HYPOTHESIZED - algal photosynthates could support the bacterial carbon/nitrogen balance needed
+      for cooperative IAA removal, as proposed in the 2024 study. Its mediator is unresolved; the 2018 glycerol
+      result in CYB/proline does not prove this connection in acetate-containing T-N medium.
+  - source: Cooperative IAA Degradation
+    target: IAA-Associated Algal Cell Division and Chlorophyll Responses
+    description: PARTIAL - cooperative IAA removal can relieve the inhibition of algal cell multiplication and chlorophyll
+      degradation. IAA addition and coculture comparisons support this connection, while the exact catabolic pathway,
+      necessity of particular metabolites and assay specificity remain unresolved.
+  references:
+  - PMID:29385570
+  - PMID:38269098
+  source_review:
+    sources:
+    - reference: PMID:29385570
+      cache:
+        path: references_cache/PMID_29385570.md
+        sha256: e3d8bd5fa24730abb5ec84ca4694c1d0964d122a676e3b2b83031ed5cbce8952
+      pdf:
+        temporary_filename_not_committed: communitymech-provisional-calatrava18.pdf
+        sha256: 4cddfcf7f5a4768cb6f9d5ad9047e7af73e943aac6c9933a2623c95a0592ef06
+      url: https://www.darwinsdaemon.com/Pubs/Calatrava18_FEMSMicrobioLett.pdf
+      scope: Complete abstract and PDF text pages 1-7 through main Discussion and funding, methods, Table 1 and
+        figure captions. Images, supplements and references not certified. Poppler unavailable; pypdf extraction
+        issued fontTools warnings but main prose readable.
+      rights: FEMS all rights reserved; downloaded outside repository, do not add publication body or PDF to repo.
+      findings:
+      - Cited paper establishes condition-dependent glycerol/ammonium exchange and reciprocal growth, not the graph's
+        IAA mechanism.
+      - M. aquaticum GR16T and algal CC-1690 grow together on proline when neither monoculture grows; preserve supported
+        mutualism. Glycerol rescue and supernatant measurements support carbon provision, not an experimentally
+        established oxygen benefit.
+      - Abstract overgeneralizes hydroxyproline use; main results found no assayed methylobacterium rescued growth
+        on free hydroxyproline. Do not repeat the abstract as universal substrate rescue.
+      - CYB test medium differs from TAP preculture; natural freshwater origin of this constructed pair is not demonstrated.
+    - reference: PMID:38269098
+      doi: 10.1016/j.isci.2023.108762
+      xml:
+        temporary_filename_not_committed: communitymech-provisional-auxin2024.xml
+        sha256: 4fc9862bf561f624bc10f62481e89349c81eda5a0983e6e44cf443ed2afec46b
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10805672/
+      scope: XML Introduction, Results, complete Discussion/Conclusions/Limitations and STAR Methods including resource
+        table and captions read. Images, supplementary files and deposited raw data not inspected.
+      rights: CC BY 4.0 per primary XML.
+      findings:
+      - Exact later study supports algal LAO1-dependent IAA production and cooperative IAA degradation with M. aquaticum;
+        current bacterial-production direction and old citation are wrong.
+      - High IAA inhibits cell multiplication and chlorophyll breakdown under nitrogen limitation. Coculture relieves
+        these effects and increases both populations, supporting mutualism.
+      - IAA degradation requires both organisms; enzyme pathway and algal contribution remain unknown. Photosynthate
+        support is explicitly hypothetical, with alternative metabolites/proteins possible.
+      - Degradation assays use Salkowski indole signal, not the production assay's HPLC/MS specificity. No detected
+        bacterial-monoculture ammonium is not proof of zero coculture mineralization.
+      - Auxin assays use TAP-derived acetate-containing medium and CC-5325; do not collapse with 2018 CYB/proline/CC-1690
+        experiments.
+  non_graph_followups:
+    issue: https://github.com/CultureBotAI/CommunityMech/issues/1292
+    scope: Top-level description, origin, environmental notes, taxonomy-role prose, medium and ingredient hydroxyproline
+      claims require separate scoped curation; preserve raw fields during graph-only work and file explicit debt.
+  history_file: history/records/Chlamydomonas_Methylobacterium_Mutualism/2026-10-05T184625Z-codex-c1baea.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1290
+  renamed_nodes:
+    Photosynthetic Carbon Fixation and Oxygen Production: Algal Glycerol Provision in Proline-Dependent Mutualism
+    IAA Production and Degradation: Cooperative IAA Degradation
+    Nitrogen Stress Response Modulation: IAA-Associated Algal Cell Division and Chlorophyll Responses
+  removed_edge_decisions: []
+  retained_edge_decisions:
+  - source: Algal Glycerol Provision in Proline-Dependent Mutualism
+    target: Cooperative IAA Degradation
+    rationale: HYPOTHESIZED - algal photosynthates could support the bacterial carbon/nitrogen balance needed for
+      cooperative IAA removal, as proposed in the 2024 study. Its mediator is unresolved; the 2018 glycerol result
+      in CYB/proline does not prove this connection in acetate-containing T-N medium.
+  - source: Cooperative IAA Degradation
+    target: IAA-Associated Algal Cell Division and Chlorophyll Responses
+    rationale: PARTIAL - cooperative IAA removal can relieve the inhibition of algal cell multiplication and chlorophyll
+      degradation. IAA addition and coculture comparisons support this connection, while the exact catabolic pathway,
+      necessity of particular metabolites and assay specificity remain unresolved.
+  added_reference_cache:
+    path: references_cache/PMID_38269098.md
+    sha256: 8a522515a221026cb066cb78f1e364cdd7be51047f9f063d3750b06defd8da65
+    license: CC BY 4.0
+    scope: Abstract and three selected primary paragraphs/captions, not complete text.

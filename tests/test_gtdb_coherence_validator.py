@@ -535,16 +535,14 @@ def test_the_status_distribution_is_what_was_measured():
     # S. marcescens strain, the Microbacterium-Terrabacter sulfadiazine
     # coculture adds two sp.-level strains, the NDC-6 psychrotolerant SynCom
     # adds six strain-level members, and the FOS gut-liver SynCom adds three
-    # strain/species members. The two phage-bacteria records add nine between
-    # them -- four species in the four-species DMS3vir community and five
-    # genera in the PHA mixed culture -- all for the same reason the FOS
-    # SynCom's three are here: gtdb_ground.py could not find NCBI2GTDB.tsv.gz
-    # under any default kg-microbe path during curation, so the lookup was
-    # never made rather than made and missed. Their phage members are
-    # NO_GTDB_EQUIVALENT, which is final. So tolerate the measured 488 without
-    # tolerating a domain-lookup collapse -- that failure mode moves ~96
-    # eukaryotes at once and still trips this ceiling.
-    assert counts["UNRESOLVED"] < 489, (
+    # strain/species members. #1305 corrects FT92W from grounded Duganella to
+    # Pseudoduganella rivuli without borrowing the unrelated genus grounding,
+    # moving exactly one row to UNRESOLVED (479 -> 480). The phage records add
+    # four bacterial species and five genera whose mapping lookup was unavailable
+    # during curation (480 -> 489), not nine claims of absence from GTDB.
+    # Their two viral members remain NO_GTDB_EQUIVALENT. The exact added
+    # population is checked in test_phage_review_regressions.py.
+    assert counts["UNRESOLVED"] < 490, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )

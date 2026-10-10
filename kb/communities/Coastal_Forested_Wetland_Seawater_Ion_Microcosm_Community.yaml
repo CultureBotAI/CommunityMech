@@ -102,12 +102,11 @@ taxonomy:
     snippet: genes involved in carbon, nitrogen, and phosphorus cycling responded more strongly to artificial seawater than to sulfate
     explanation: Supports carbon, nitrogen, and phosphorus cycling guild responses to artificial seawater.
 ecological_interactions:
-- name: Non-Sulfate Seawater Ions Drive Community And Emission Responses
-  description: Artificial seawater changed greenhouse gas emissions and microbial
-    richness and composition regardless of sulfate presence, indicating that
-    non-sulfate seawater ions can dominate the microbial response to seawater
-    intrusion.
-  interaction_type: NICHE_PARTITIONING
+- name: Experimental Seawater-Ion Exposure
+  description: Soil-core microcosms from one acidic, restored freshwater wetland received deionized water, 5 ppt
+    artificial seawater, artificial seawater without sulfate, or sulfate alone. The 12-week experiment separates
+    sulfate and non-sulfate mixture effects. It does not isolate sodium chloride from all other ions or establish
+    a universal coastal-field response.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: sulfate
@@ -132,38 +131,34 @@ ecological_interactions:
       id: GO:0009056
       label: catabolic process
   downstream:
-  - target: Artificial Seawater Alters Carbon Nitrogen And Phosphorus Gene Response
-    description: >
-      The non-sulfate seawater-ion treatment, rather than sulfate alone, drove
-      the broader response of carbon, nitrogen, and phosphorus cycling genes.
-  - target: Seawater-Ion Perturbation Of Greenhouse Gas Outputs
-    description: >
-      Artificial seawater changed carbon dioxide, methane, and nitrous oxide
-      emissions even when sulfate was omitted, linking non-sulfate ions to the
-      greenhouse-gas response.
+  - target: Relative Carbon Nitrogen And Phosphorus Gene Abundances
+    description: The controlled ion mixtures altered relative DNA gene abundances at week 12, supporting a treatment
+      effect on measured functional potential. PARTIAL - the responsible ions and biological mediators remain unresolved;
+      this is not evidence of gene expression or activity changes.
+  - target: Week-12 Greenhouse-Gas Flux Response
+    description: Controlled seawater-ion exposure changed week-12 whole-core net gas fluxes in treatment-specific
+      comparisons. PARTIAL - factorial mixture effects and individual pairwise contrasts differ, and community composition
+      or gene correlations do not establish the mediators of each gas response.
   evidence:
   - reference: PMID:38628812
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Greenhouse gas emissions and microbial richness and composition were altered by artificial seawater regardless of whether sulfate was present
-    explanation: Supports non-sulfate seawater ion effects on community structure and emissions.
+    snippet: Greenhouse gas emissions and microbial richness and composition were altered by artificial seawater
+      regardless of whether sulfate was present
+    explanation: Supports the experimental community and gas response; primary Results qualify the individual gas
+      and diversity comparisons.
   - reference: PMID:38628812
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: other ions present in seawater, not sulfate, drive ecological and biogeochemical responses
-    explanation: Supports the inferred importance of non-sulfate seawater ions.
-- name: Sulfate Alone Does Not Enrich Sulfate-Reduction Features
-  description: In contrast to the common hypothesis that sulfate controls
-    saltwater-intrusion responses, sulfate-only addition did not alter emissions
-    or communities and did not increase sulfate-reducing bacteria or sulfur
-    cycling genes.
-  interaction_type: COMPETITION
+    explanation: Supports a non-sulfate mixture effect, not isolation of sodium chloride or exclusion of every sulfate
+      response.
+- name: Week-12 Sulfate-Reduction Feature Response
+  description: Sulfate addition increased porewater sulfate but did not enrich the measured relative sulfate-reducer
+    abundance or sulfate-reduction gene features at week 12. Hydrogen sulfide was detected in sulfate-amended water
+    at day 14. The bounded abundance result therefore does not establish inactive sulfate reduction, reciprocal
+    competition, or absence of all sulfate-only gas effects.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: coastal wetland sulfate-reducing bacteria
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
   metabolites:
   - preferred_term: sulfate
     term:
@@ -176,26 +171,23 @@ ecological_interactions:
       label: dissimilatory sulfate reduction
   evidence:
   - reference: PMID:38628812
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: sulfate alone did not alter emissions or communities
-    explanation: Supports sulfate-only treatment as a weak driver in this microcosm.
+    explanation: 'The abstract generalization is bounded by the primary comparisons: sulfate-only N2O differed from
+      the control, while the factorial sulfate effect was not significant.'
   - reference: PMID:38628812
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: addition of sulfate alone did not lead to increases in the abundance of sulfate reducing bacteria or sulfur cycling genes
-    explanation: Supports the lack of sulfate-reducer enrichment under sulfate-only addition.
-- name: Artificial Seawater Alters Carbon Nitrogen And Phosphorus Gene Response
-  description: Genes associated with carbon, nitrogen, and phosphorus cycling
-    responded more strongly to artificial seawater than to sulfate alone,
-    indicating a broader ionic control on microbial functional potential.
-  interaction_type: NICHE_PARTITIONING
+    snippet: addition of sulfate alone did not lead to increases in the abundance of sulfate reducing bacteria or
+      sulfur cycling genes
+    explanation: Supports the week-12 relative-abundance result, not absence of activity; primary day-14 hydrogen
+      sulfide measurements provide a distinct functional observation.
+- name: Relative Carbon Nitrogen And Phosphorus Gene Abundances
+  description: Shotgun DNA metagenomes showed relative abundances of carbon-, nitrogen- and phosphorus-cycling genes
+    responding more strongly to artificial-seawater mixtures than sulfate alone. These are community functional-potential
+    measurements, not transcript abundance, pathway activity or proof that the correlated genes mediate gas flux.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: coastal wetland carbon nitrogen phosphorus cycling guilds
-    term:
-      id: NCBITaxon:131567
-      label: cellular organisms
   metabolites:
   - preferred_term: methane
     term:
@@ -214,13 +206,16 @@ ecological_interactions:
   - reference: PMID:38628812
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: genes involved in carbon, nitrogen, and phosphorus cycling responded more strongly to artificial seawater than to sulfate
-    explanation: Supports artificial-seawater effects on functional cycling genes.
-- name: Seawater-Ion Perturbation Of Greenhouse Gas Outputs
-  description: The microcosm measured carbon dioxide, methane, and nitrous oxide
-    emissions in response to ion treatments, linking microbial community shifts
-    to greenhouse gas feedbacks from coastal wetland salinization.
-  interaction_type: NICHE_PARTITIONING
+    snippet: genes involved in carbon, nitrogen, and phosphorus cycling responded more strongly to artificial seawater
+      than to sulfate
+    explanation: Supports relative DNA gene-abundance differences and functional potential, not expression or selective
+      causal mediation.
+- name: Week-12 Greenhouse-Gas Flux Response
+  description: Week-12 whole-core net CO2, CH4 and N2O fluxes were measured. CO2 had a significant overall treatment
+    and non-sulfate-factor effect but no significant individual pairwise contrasts. CH4 was higher without sulfate
+    than in the water control or sulfate-only treatment; complete artificial seawater was intermediate. N2O was
+    lower in every amended arm, including sulfate-only, than in the control. These outcomes do not directly partition
+    microbial production and consumption pathways.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methane
@@ -241,12 +236,14 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: emissions of carbon dioxide, methane, and nitrous oxide
-    explanation: Supports greenhouse gas emission endpoints for the perturbation.
+    explanation: Supports measured gas endpoints; primary Results and Table 1 distinguish factorial effects from
+      individual treatment contrasts.
   - reference: PMID:38628812
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: may be drivers of increased methane emissions in soils that received artificial seawater addition
-    explanation: Supports artificial seawater as a potential methane-emission driver.
+    explanation: Supports proposed microbial contributors to net methane emission, not direct pathway flux or selectively
+      demonstrated gene mediation.
 environmental_factors:
 - name: Seawater intrusion simulation
   value: artificial seawater, artificial seawater without sulfate, sulfate only,
@@ -475,3 +472,30 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   coastal forested wetland seawater-ion microcosm community.
+discussions:
+- discussion_id: wetland_ion_and_gas_mediation
+  prompt: Which ions and microbial processes mediate the treatment-specific net gas responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Experimental Seawater-Ion Exposure
+  - ecological_interactions#Week-12 Sulfate-Reduction Feature Response
+  - ecological_interactions#Relative Carbon Nitrogen And Phosphorus Gene Abundances
+  - ecological_interactions#Week-12 Greenhouse-Gas Flux Response
+  rationale: Controlled ion-mixture exposure supports causal treatment effects, but not isolated sodium chloride
+    action. Relative DNA gene counts and guild correlations do not measure activity or establish mediation. Selective
+    ion and pathway interventions with production/consumption measurements would resolve mechanisms. Week-12 gene
+    features and day-14 water chemistry must remain separate; the sulfate-only N2O contrast prevents an unqualified
+    no-gas-effect claim.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-06T01:29:00Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain the controlled four-arm perturbation without unsupported niche-partitioning or single-ion attribution.;
+    Bound the sulfate feature null to the measured relative abundances and week; preserve sulfate exposure and hydrogen-sulfide
+    observations.; Keep relative DNA functional-potential measurements distinct from transcription, activity and
+    causal mediation.; Preserve gas-specific factorial and pairwise outcomes without converting net emissions into
+    individual pathway flux. Issue #1342; reports/causal_graph_review/decisions/20261005-three-records-batch22.yaml'
+  llm_assisted: true

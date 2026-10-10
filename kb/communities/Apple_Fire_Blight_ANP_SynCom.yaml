@@ -290,10 +290,10 @@ taxonomy:
     snippet: "Pseudomonas lundensis\n Bee gut 99.93 AB23"
     explanation: Identifies Pseudomonas lundensis AB23 as one of the nine strains in the A+N+P fire-blight-suppressive SynCom.
 ecological_interactions:
-- name: A+N+P Erwinia amylovora suppression in Rosaceae tissue
-  description: The full A+N+P nine-member SynCom suppressed Erwinia amylovora in Fuji apple fruit wounds and rose flower ovaries,
-    achieving 0% apple-fruit severity and 1.67% rose-flower severity.
-  interaction_type: COMPETITION
+- name: A+N+P Fire-Blight Severity Reduction in Rosaceae Tissue
+  description: The nine-member A+N+P treatment reduced measured fire-blight severity to 0% in Fuji apple-fruit wounds
+    and 1.67% in rose-flower ovaries. These are tissue-disease endpoints, not measurements of pathogen density or
+    proof of a particular antagonistic mechanism.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Streptomyces recifensis SN1E1
@@ -346,19 +346,19 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: EA+A+P at 9.33%, EA+N+P at 2.67%, EA+A+N+P at 0% severity, and control at 0%, in descending order.
-    explanation: Reports that the full A+N+P SynCom eliminated measured fire-blight severity in the Fuji apple-fruit wound
-      assay.
+    explanation: Reports that the full A+N+P SynCom eliminated measured fire-blight severity in the Fuji apple-fruit
+      wound assay.
   - reference: PMID:40223277
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: EA+P at 6.67%, EA+A+P at 6.67%, EA+N at 3.33%, EA+A+N+P at 1.67%, EA+oxytetracycline at 1.67%, and control at
-      0%, in descending order.
-    explanation: Reports that the full A+N+P SynCom reduced rose-flower fire-blight severity to the same 1.67% value as the
-      oxytetracycline positive control.
-- name: A+N+P nutrient competition with Erwinia amylovora
-  description: In apple flower exudate, the A+N+P community was mixed with rifampicin-resistant E. amylovora TS3128 and reduced
-    the pathogen density over 72 h, supporting nutrient competition in the flower-exudate niche.
-  interaction_type: COMPETITION
+    snippet: EA+P at 6.67%, EA+A+P at 6.67%, EA+N at 3.33%, EA+A+N+P at 1.67%, EA+oxytetracycline at 1.67%, and
+      control at 0%, in descending order.
+    explanation: Reports that the full A+N+P SynCom reduced rose-flower fire-blight severity to the same 1.67% value
+      as the oxytetracycline positive control.
+- name: A+N+P Erwinia Density Suppression in Flower Exudate
+  description: PARTIAL - the A+N+P treatment reduced E. amylovora TS3128 density over 72 hours in apple-flower exudate.
+    Substrate-use overlap supports nutrient competition as a candidate explanation, but does not distinguish it
+    from antibiosis or establish reciprocal harm to the SynCom.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Streptomyces recifensis SN1E1
@@ -410,20 +410,21 @@ ecological_interactions:
   - reference: PMID:40468884
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'A linear regression analysis indicated that the concentration of E. amylovora decreased over time in groups treated
-      with antibacterial agents: antibacterial (A), pathway (P), antibacterial+pathway (AP), and antibacterial+network+pathway
-      (ANP). For the control, the slope change over time was not statistically significant, with an R2 of 0.0227 (P > 0.05).
-      The R2 values of the linear regression equations over time for each treatment are as follows: A was 0.7639 (P < 0.001),
-      N was 0.52 (P < 0.001), ANP was 0.506 (P < 0.001), P was 0.354 (P < 0.01), AP was 0.2563 (P < 0.05), NP was 0.0141
-      (P > 0.05), A+N was 0.0326 (P > 0.05).'
-    explanation: Shows that the full ANP treatment produced a significant negative Erwinia density trajectory in apple flower
-      exudate.
+    snippet: 'A linear regression analysis indicated that the concentration of E. amylovora decreased over time
+      in groups treated with antibacterial agents: antibacterial (A), pathway (P), antibacterial+pathway (AP), and
+      antibacterial+network+pathway (ANP). For the control, the slope change over time was not statistically significant,
+      with an R2 of 0.0227 (P > 0.05). The R2 values of the linear regression equations over time for each treatment
+      are as follows: A was 0.7639 (P < 0.001), N was 0.52 (P < 0.001), ANP was 0.506 (P < 0.001), P was 0.354 (P
+      < 0.01), AP was 0.2563 (P < 0.05), NP was 0.0141 (P > 0.05), A+N was 0.0326 (P > 0.05).'
+    explanation: Shows that the full ANP treatment produced a significant negative Erwinia density trajectory in
+      apple flower exudate.
   - reference: PMID:40468884
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: When SynCom was co-cultivated with E. amylovora in extracts of apple flowers, a decrease in E. amylovora density
-      was observed compared to its monoculture.
-    explanation: Interprets the apple-flower-exudate co-culture as a nutrient-limited pathogen-density suppression assay.
+    snippet: When SynCom was co-cultivated with E. amylovora in extracts of apple flowers, a decrease in E. amylovora
+      density was observed compared to its monoculture.
+    explanation: Supports lower pathogen density in co-culture; the comparison does not isolate nutrient depletion
+      from inhibitory products.
 environmental_factors:
 - name: Fuji apple flower exudate nutrient limitation
   description: The nutrient-competition assay used disinfected Fuji apple flowers sonicated in water and filtered to produce
@@ -536,29 +537,41 @@ external_resources:
     explanation: Gives the stable BioProject identifier associated with the source paper.
 discussions:
 - discussion_id: apple_fire_blight_03suj4_tah1_alias
-  prompt: Does Terriglobus aquaticus TAH1 in the follow-up genome paper represent the same strain as Terriglobus aquaticus
-    03SUJ4 in the SynCom construction paper?
+  prompt: Does Terriglobus aquaticus TAH1 in the follow-up genome paper represent the same strain as Terriglobus
+    aquaticus 03SUJ4 in the SynCom construction paper?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - taxonomy#Terriglobus aquaticus 03SUJ4
-  rationale: The construction paper's membership table names Terriglobus aquaticus strain 03SUJ4, but the genome table in
-    the follow-up paper names the analyzed Terriglobus aquaticus strain TAH1.
+  rationale: The construction paper's membership table names Terriglobus aquaticus strain 03SUJ4, but the genome
+    table in the follow-up paper names the analyzed Terriglobus aquaticus strain TAH1.
   posed_by: codex
   posed_date: '2026-09-14'
 - discussion_id: apple_fire_blight_secondary_metabolite_agents
-  prompt: Which predicted secondary-metabolite clusters are experimentally responsible for Erwinia amylovora suppression by
-    the non-A network and pathway SynCom members?
+  prompt: Which predicted secondary-metabolite clusters are experimentally responsible for Erwinia amylovora suppression
+    by the non-A network and pathway SynCom members?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
-  - ecological_interactions#A+N+P Erwinia amylovora suppression in Rosaceae tissue
-  - ecological_interactions#A+N+P nutrient competition with Erwinia amylovora
-  rationale: The follow-up paper predicted secondary-metabolite clusters from the network and pathway strain genomes, but
-    Supplementary Table 1 was available only as a PDF/image supplement during curation and the publication does not chemically
-    validate member-level effectors for the full A+N+P community.
+  - ecological_interactions#A+N+P Fire-Blight Severity Reduction in Rosaceae Tissue
+  - ecological_interactions#A+N+P Erwinia Density Suppression in Flower Exudate
+  rationale: The follow-up paper predicted secondary-metabolite clusters from the network and pathway strain genomes,
+    but Supplementary Table 1 was available only as a PDF/image supplement during curation and the publication does
+    not chemically validate member-level effectors for the full A+N+P community.
   posed_by: codex
   posed_date: '2026-09-14'
+- discussion_id: apple_exudate_mechanism_discrimination
+  prompt: How much of exudate pathogen suppression is caused by resource competition rather than antibiosis?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#A+N+P Fire-Blight Severity Reduction in Rosaceae Tissue
+  - ecological_interactions#A+N+P Erwinia Density Suppression in Flower Exudate
+  rationale: PMIDs:40223277 and 40468884 distinguish tissue disease scores from exudate pathogen counts. Biolog
+    overlap and co-culture responses do not identify the active mechanism; predicted biosynthetic clusters are not
+    chemically validated effectors. Preserve the separate strain-alias and effector gaps.
+  posed_by: codex
+  posed_date: '2026-10-05'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -569,20 +582,26 @@ curation_history:
 - timestamp: '2026-09-14T21:45:00Z'
   curator: codex
   action: CURATE_APPLE_FIRE_BLIGHT_ANP_SYNCOM
-  changes: Added the nine-member apple fire blight A+N+P SynCom from PMID:40223277 and PMID:40468884 with exact strain membership,
-    apple/rose host-tissue suppression, apple flower exudate nutrient competition, growth medium, BioProject linkage, and
-    open knowledge gaps for the Terriglobus alias and unresolved secondary-metabolite effectors.
+  changes: Added the nine-member apple fire blight A+N+P SynCom from PMID:40223277 and PMID:40468884 with exact
+    strain membership, apple/rose host-tissue suppression, apple flower exudate nutrient competition, growth medium,
+    BioProject linkage, and open knowledge gaps for the Terriglobus alias and unresolved secondary-metabolite effectors.
   llm_assisted: true
 - timestamp: '2026-09-14T21:58:00Z'
   curator: codex
   action: ADDRESS_APPLE_FIRE_BLIGHT_REVIEW_FINDINGS
   changes: 'Addressed adversarial-review issues #896 and #897 on PR #895 by adding exact evidence for apple-flower-exudate
-    filtration, 1/5 TSA rifampicin enumeration, fruit/flower/plant challenge inoculation details, and exudate-assay SynCom
-    OD600 normalization and equal group mixing.'
+    filtration, 1/5 TSA rifampicin enumeration, fruit/flower/plant challenge inoculation details, and exudate-assay
+    SynCom OD600 normalization and equal group mixing.'
   llm_assisted: true
 - timestamp: '2026-10-02T05:55:33Z'
   curator: codex
   action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
   changes: Removed the downstream edge from Rosaceae fire-blight suppression to the apple-flower-exudate nutrient-competition
     assay because it described a follow-up mechanistic test rather than a causal transition.
+  llm_assisted: true
+- timestamp: '2026-10-05T08:42:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Distinguish apple tissue disease scores from exudate inhibition and inferred competition; complete decisions:
+    reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml; https://github.com/CultureBotAI/CommunityMech/issues/1244'
   llm_assisted: true

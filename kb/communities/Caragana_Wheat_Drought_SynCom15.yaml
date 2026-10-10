@@ -560,31 +560,36 @@ taxonomy:
     explanation: Maps CM-15 to WST6 and genus Kocuria in Supplementary Table S7, where the ASV column reports '-'.
 ecological_interactions:
 - name: SynCom15 wheat drought growth promotion
-  description: The full fifteen-member SynCom significantly enhanced wheat growth under drought stress relative to uninoculated
-    controls and any single member in potted plant assays.
+  description: The fifteen-member SynCom improved wheat growth under drought relative to uninoculated and single-member
+    controls in non-sterile pot assays. This is not evidence of long-term field performance or the mechanism established
+    for the separate five-member derivative.
   scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:41634815
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: inoculation with the complete SynCom15 consortium significantly enhanced wheat growth under drought stress compared
-      to any single member
+    snippet: inoculation with the complete SynCom15 consortium significantly enhanced wheat growth under drought
+      stress compared to any single member
     explanation: Supports a community-level drought-growth phenotype for SynCom15.
-- name: Pseudomonas-associated biofilm and quorum-sensing enrichment
-  description: SynCom inoculation enriched biofilm-formation and quorum-sensing pathways in the wheat rhizosphere, with enriched
-    genes traced predominantly to Pseudomonas.
+- name: Pseudomonas-Associated Metagenomic Biofilm and Quorum-Sensing Gene Enrichment
+  description: Rhizosphere metagenomic gene abundance assigned largely to Pseudomonas was associated with biofilm/quorum
+    pathways and plant fresh weight. DNA abundance is not expression, pathway activity or strain-resolved transfer.
+    SynCom5 AI-2, EPS, root-biofilm and host-response experiments cannot be assigned to SynCom15.
   scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:41634815
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: biofilm formation and quorum sensing pathways were significantly positively correlated with plant fresh weight
-    explanation: Supports the rhizosphere functional signal linked to SynCom inoculation.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: biofilm formation and quorum sensing pathways were significantly positively correlated with plant fresh
+      weight
+    explanation: Supports metagenomic functional association and genus-level assignment, not expression or causal
+      mediation by inoculated strains.
   - reference: PMID:41634815
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: enriched genes were predominantly of Pseudomonas origin
-    explanation: Links the enriched biofilm and quorum-sensing functions to Pseudomonas in the SynCom-treated rhizosphere.
+    explanation: Supports metagenomic functional association and genus-level assignment, not expression or causal
+      mediation by inoculated strains.
 environmental_factors:
 - name: Drought treatment
   value: drought stress
@@ -643,18 +648,30 @@ discussions:
   status: OPEN
   attaches_to:
   - engineering_design
-  rationale: The article functionally validates SynCom5 and Fig. 6 labels its five CM codes, but the cached text does not
-    enumerate those codes together. A separate record should wait for a text/OCR cache of the figure or an independent table
-    that lists the SynCom5 members.
+  rationale: The article functionally validates SynCom5 and Fig. 6 labels its five CM codes, but the cached text
+    does not enumerate those codes together. A separate record should wait for a text/OCR cache of the figure or
+    an independent table that lists the SynCom5 members.
   evidence:
   - reference: PMID:41634815
     supports: SUPPORT
     evidence_source: OTHER
-    snippet: we subsequently designed a simplified five-strain SynCom (SynCom5) that synergistically enhances wheat drought
-      tolerance via community biofilms
+    snippet: we subsequently designed a simplified five-strain SynCom (SynCom5) that synergistically enhances wheat
+      drought tolerance via community biofilms
     explanation: Supports the existence of a streamlined SynCom5 derived from SynCom15.
   posed_by: codex
   posed_date: '2026-09-27'
+- discussion_id: caragana_syncom15_functional_mediation
+  prompt: Which functions of the fifteen-member inoculum mediate its drought-growth phenotype?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#SynCom15 wheat drought growth promotion
+  - ecological_interactions#Pseudomonas-Associated Metagenomic Biofilm and Quorum-Sensing Gene Enrichment
+  rationale: PMID:41634815 separates original-community metagenomics from follow-up SynCom5 perturbations. Preserve
+    the existing SynCom5 membership gap and the table-backed fifteen strain codes; no mechanistic arrow is justified
+    by correlation alone.
+  posed_by: codex
+  posed_date: '2026-10-05'
 metal_relevance: NOT_APPLICABLE
 metal_notes: PMID:41634815 studies drought tolerance in wheat conferred by a Caragana-derived bacterial SynCom, not metal
   or rare-earth transformation.
@@ -662,7 +679,13 @@ curation_history:
 - timestamp: '2026-09-27T23:51:38Z'
   curator: codex
   action: CREATE_RECORD
-  changes: Created a PMID:41634815-backed Caragana-derived SynCom15 record with 15 genus-level strain-code members from Supplementary
-    Table S7, wheat drought assay context, biofilm/quorum-sensing functional evidence, the GSA PRJCA045628 dataset, and primary
-    DOI/GitHub external resources.
+  changes: Created a PMID:41634815-backed Caragana-derived SynCom15 record with 15 genus-level strain-code members
+    from Supplementary Table S7, wheat drought assay context, biofilm/quorum-sensing functional evidence, the GSA
+    PRJCA045628 dataset, and primary DOI/GitHub external resources.
+  llm_assisted: true
+- timestamp: '2026-10-05T17:31:06Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Separate SynCom15 pot outcomes and metagenomic associations from SynCom5 mechanisms; reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1272
   llm_assisted: true

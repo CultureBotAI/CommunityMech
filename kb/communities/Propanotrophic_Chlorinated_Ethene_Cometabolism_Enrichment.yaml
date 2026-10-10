@@ -266,15 +266,10 @@ taxonomy:
   - CROSS_FEEDER
   abundance_level: RARE
 ecological_interactions:
-- name: Propane-Cometabolic TCE Degradation by Rhodococcus
-  description: Rhodococcus opacus and R. wratislaviensis populations dominate
-    TCE-amended enrichments and degrade TCE while propane is supplied as the
-    growth substrate. The Rhodococcus MAGs carry the group-5 propane
-    monooxygenase operon (prmABCD); functional gene analysis identified both
-    group 5 and putative group 6 propane monooxygenases in the community
-    but expression was not examined, so the specific enzyme responsible for
-    TCE oxidation in vivo is not directly demonstrated.
-  interaction_type: CROSS_FEEDING
+- name: TCE Removal in Rhodococcus-Dominated Enrichments
+  description: 'Propane-enriched mixed cultures sustained TCE degradation and were dominated by Rhodococcus; recovered
+    MAGs were classified as R. opacus or R. wratislaviensis. PARTIAL: abundance and monooxygenase genes do not assign
+    the measured community transformation to a particular taxon or enzyme. Gene expression was not examined.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Rhodococcus opacus
@@ -285,11 +280,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:44752
       label: Rhodococcus wratislaviensis
-  source_taxon:
-    preferred_term: Rhodococcus opacus
-    term:
-      id: NCBITaxon:37919
-      label: Rhodococcus opacus
   metabolites:
   - preferred_term: trichloroethene
     term:
@@ -309,21 +299,17 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: TCE-degrading cultures were dominated by Rhodococcus
-    explanation: Establishes Rhodococcus dominance under TCE selection in the
-      propane-amended enrichments.
+    explanation: Establishes Rhodococcus dominance under TCE selection in the propane-amended enrichments.
   - reference: doi:10.1016/j.jenvman.2026.129957
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: "Functional gene analysis identified both group 5 (prmABCD) and putative group 6 propane monooxygenases"
-    explanation: Supports group-5 propane monooxygenase as the operon present
-      in the Rhodococcus MAGs driving propane-cometabolic TCE oxidation.
-- name: Propane-Cometabolic cDCE Degradation by Mycolicibacterium and Mycobacterium
-  description: Mycolicibacterium dominates and Mycobacterium follows in all
-    four cDCE-amended enrichments; both genera carry propane monooxygenase
-    operons (with prmACDB ordering for the Mycobacterium MAGs, suggestive of
-    group-6 SDIMOs) that drive cometabolic cDCE oxidation while propane is
-    the growth substrate.
-  interaction_type: CROSS_FEEDING
+    snippet: Functional gene analysis identified both group 5 (prmABCD) and putative group 6 propane monooxygenases
+    explanation: Supports community monooxygenase gene content, not taxon-specific enzyme expression, activity or
+      cross-feeding.
+- name: cDCE Removal in Mycobacterium and Mycolicibacterium Enrichments
+  description: 'Propane-enriched mixed cultures sustained cDCE degradation and were dominated by Mycobacterium and
+    Mycolicibacterium. PARTIAL: genus abundance does not establish which organisms or enzymes performed the community
+    transformation. The accessible abstract does not establish an interspecies transfer route.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Mycolicibacterium
@@ -334,11 +320,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:1763
       label: Mycobacterium
-  source_taxon:
-    preferred_term: Mycolicibacterium
-    term:
-      id: NCBITaxon:1866885
-      label: Mycolicibacterium
   metabolites:
   - preferred_term: cis-1,2-dichloroethene
     term:
@@ -358,17 +339,11 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: cDCE-degrading cultures being dominated by Mycobacterium and Mycolicibacterium
-    explanation: Establishes the two-genus Mycolicibacterium/Mycobacterium
-      dominance pattern under cDCE selection.
+    explanation: Establishes the two-genus Mycolicibacterium/Mycobacterium dominance pattern under cDCE selection.
 - name: Substrate-Specific Selection Across Chlorinated Ethenes
-  description: >
-    cDCE, TCE, and 1,1-DCE select for taxonomically distinct propanotrophic
-    guilds within the same starting inocula: cDCE selects for
-    Mycolicibacterium/Mycobacterium, TCE selects for Rhodococcus, and
-    1,1-DCE re-selects for Pseudonocardia. This is competition mediated by
-    differential tolerance/transformation of each chlorinated substrate
-    rather than direct interaction between the guilds.
-  interaction_type: COMPETITION
+  description: Different chlorinated substrates were associated with distinct enrichment compositions and degradation
+    behavior. Preserve the reported substrate-dependent selection without equating environmental filtering with
+    demonstrated competition among guilds. This record combines separate enrichment treatments, not one fixed community.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: trichloroethene
@@ -389,40 +364,30 @@ ecological_interactions:
       id: GO:0009410
       label: response to xenobiotic stimulus
   downstream:
-  - target: Propane-Cometabolic TCE Degradation by Rhodococcus
-    description: >
-      TCE-specific pressure selected Rhodococcus-dominated enrichments that
-      carried group-5 propane monooxygenase operons and sustained
-      propane-driven TCE cometabolism.
-  - target: Propane-Cometabolic cDCE Degradation by Mycolicibacterium and Mycobacterium
-    description: >
-      cDCE-specific pressure selected Mycolicibacterium/Mycobacterium
-      enrichments that dominated the cDCE-amended transfers and carried
-      propane monooxygenase operons.
+  - target: TCE Removal in Rhodococcus-Dominated Enrichments
+    description: 'PARTIAL: substrate-specific selection is the authors explanation for Rhodococcus-dominated communities
+      sustaining TCE transformation. The abstract supports the treatment-linked structure/function pattern, not
+      isolated taxon or enzyme mediation.'
+  - target: cDCE Removal in Mycobacterium and Mycolicibacterium Enrichments
+    description: 'PARTIAL: substrate-specific selection is the authors explanation for Mycobacterium/Mycolicibacterium-dominated
+      communities sustaining cDCE transformation. Dominance does not identify the active organism or monooxygenase.'
   evidence:
   - reference: doi:10.1016/j.jenvman.2026.129957
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Whole genome sequencing analyses revealed pronounced substrate-dependent
-      selection of microbial communities
-    explanation: Directly supports substrate-driven community selection as the
-      central finding of the study.
+    snippet: Whole genome sequencing analyses revealed pronounced substrate-dependent selection of microbial communities
+    explanation: Directly supports substrate-driven community selection as the central finding of the study.
   - reference: doi:10.1016/j.jenvman.2026.129957
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: substrate-specific pressures govern propanotrophic community structure
-      and function, and highlight distinct roles of key actinobacterial genera
-      in chlorinated ethene cometabolism
-    explanation: Supports interpretation that substrate-specific selection drives
-      distinct actinobacterial guild membership.
+    snippet: substrate-specific pressures govern propanotrophic community structure and function, and highlight
+      distinct roles of key actinobacterial genera in chlorinated ethene cometabolism
+    explanation: Supports interpretation that substrate-specific selection drives distinct actinobacterial guild
+      membership.
 - name: 1,1-DCE-Driven Inhibition of Propanotrophs
-  description: 1,1-DCE biodegradation is restricted to a subset of cultures
-    and stalls at elevated concentrations; propane biodegradation slowed
-    during 1,1-DCE exposure and resumed when TCE was substituted, consistent
-    with inhibitory or toxic effects on propanotrophs at the elevated
-    concentrations tested. The paper does not separate inhibition by the
-    parent 1,1-DCE from inhibition by its transformation products.
-  interaction_type: COMPETITION
+  description: '1,1-DCE removal occurred in only some enrichments, took longer over transfers and was absent at
+    elevated concentrations. PARTIAL: these observations are consistent with inhibitory or toxic effects, not demonstrated
+    interspecies competition or an identified toxic agent.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: 1,1-dichloroethene
@@ -440,17 +405,16 @@ ecological_interactions:
       label: response to xenobiotic stimulus
   downstream:
   - target: Substrate-Specific Selection Across Chlorinated Ethenes
-    description: 1,1-DCE toxicity restricted which propanotrophic cultures
-      persisted, contributing to the broader chlorinated-ethene-specific
-      selection of distinct actinobacterial genera.
+    description: 'HYPOTHESIZED: inhibition could contribute to substrate-dependent selection by restricting community
+      function. The abstract does not isolate toxicity as the cause of taxonomic replacement.'
   evidence:
   - reference: doi:10.1016/j.jenvman.2026.129957
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 1,1-DCE removal was absent at elevated concentrations, both trends
-      consistent with inhibitory or toxic effects
-    explanation: Supports 1,1-DCE-driven inhibition of the propanotrophic
-      community as the mechanism for the restricted degradation range.
+    snippet: 1,1-DCE removal was absent at elevated concentrations, both trends consistent with inhibitory or toxic
+      effects
+    explanation: Supports restricted removal consistent with inhibition, not proof of the toxic agent or selection
+      mechanism.
 environmental_factors:
 - name: Propane as growth substrate
   value: 0.8-1.2 mg/L per amendment
@@ -570,7 +534,43 @@ curation_history:
 - timestamp: '2026-09-13T00:56:50Z'
   curator: codex
   action: RECONCILE_PAYWALLED_EVIDENCE_REMOVAL
-  changes: "Reapplied PR #766's 13 unsupported evidence removals onto current main, preserving its newer
-    interaction curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in
-    #765."
+  changes: 'Reapplied PR #766''s 13 unsupported evidence removals onto current main, preserving its newer interaction
+    curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in #765.'
   llm_assisted: true
+- timestamp: '2026-10-07T11:49:18Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve TCE removal and Rhodococcus dominance without assigning active enzymes.; Preserve cDCE removal
+    and genus dominance without invented exchange.; Preserve substrate selection and qualify its mediation of function.;
+    Preserve restricted DCE removal and qualify toxicity and selection. Issue #1724; reports/causal_graph_review/decisions/20261007-four-records-batch88.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: propanotroph-selection-versus-active-transformation
+  prompt: Which activities connect substrate selection to measured mixed-culture transformation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  rationale: 'Retain all four findings and three existing directions with explicit inference bounds. Only the fresh
+    primary abstract was accessible. Monooxygenase expression was not examined; taxon dominance is not enzyme activity
+    or partner exchange. Detailed kinetic and operon assertions outside this graph remain part of #765 after paywalled-body
+    removal under #754. Missing access is not evidence that experiments were absent. No new nodes or directions
+    were added.'
+  attaches_to:
+  - ecological_interactions#TCE Removal in Rhodococcus-Dominated Enrichments
+  - ecological_interactions#cDCE Removal in Mycobacterium and Mycolicibacterium Enrichments
+  - ecological_interactions#Substrate-Specific Selection Across Chlorinated Ethenes
+  - ecological_interactions#1,1-DCE-Driven Inhibition of Propanotrophs
+  evidence:
+  - reference: doi:10.1016/j.jenvman.2026.129957
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Functional gene analysis identified both group 5 (prmABCD) and putative group 6 propane monooxygenases
+    explanation: Supports community monooxygenase gene content, not taxon-specific enzyme expression, activity or
+      cross-feeding.
+  - reference: doi:10.1016/j.jenvman.2026.129957
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 1,1-DCE removal was absent at elevated concentrations, both trends consistent with inhibitory or toxic
+      effects
+    explanation: Supports restricted removal consistent with inhibition, not proof of the toxic agent or selection
+      mechanism.

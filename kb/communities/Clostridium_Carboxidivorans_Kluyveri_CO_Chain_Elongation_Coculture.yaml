@@ -206,10 +206,10 @@ related_ingredients:
     explanation: Names sulfide as a supplement improving autotrophic growth and ethanol formation.
 ecological_interactions:
 - name: Acetogen-Chain Elongator Product Coupling
-  description: >
-    C. carboxidivorans provides acetate and ethanol from CO/CO2 gas
-    fermentation, while C. kluyveri uses these C2 products for chain elongation
-    to organic acids.
+  description: C. carboxidivorans produces acetate and ethanol from CO/CO2 gas fermentation, supplying C. kluyveri
+    chain elongation to butyrate and hexanoate. Exact-pair batch product profiles and the continuous cascade support
+    this cross-feeding model. Restricted C. kluyveri growth at high CO does not mean absence of chain-elongation
+    activity, and C. carboxidivorans can also form C4/C6 products under appropriate conditions.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -246,26 +246,28 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Organic Acid Reduction to Longer-Chain Alcohols
-    description: >
-      C. carboxidivorans C2-product fermentation feeds C. kluyveri chain
-      elongation, whose organic acid products are then reduced back by
-      C. carboxidivorans to longer-chain alcohols.
+    description: 'C. carboxidivorans C2-product fermentation feeds C. kluyveri chain elongation, whose organic acid
+      products are then reduced back by C. carboxidivorans to longer-chain alcohols.
+
+      '
   evidence:
   - reference: PMID:34669248
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Syngas fermentation with acetogens is known to produce mainly acetate and ethanol efficiently
-    explanation: Supports C2 product formation by the acetogenic side of the coculture.
+    explanation: The snippet states the general acetogen product pattern; the exact-pair primary Results and matched
+      monoculture profiles support the curated supply relationship.
   - reference: PMID:37110426
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: growth and chain elongation in the first bioreactor
     explanation: Supports chain elongation as a reactor-stage process in the C. carboxidivorans/C. kluyveri system.
 - name: Organic Acid Reduction to Longer-Chain Alcohols
-  description: >
-    Organic acids formed by C. kluyveri are reduced by C. carboxidivorans to
-    alcohols, increasing butanol and enabling hexanol production relative to
-    C. carboxidivorans monoculture.
+  description: 'C. kluyveri-derived organic acids supply C. carboxidivorans for reduction to butanol and hexanol.
+    At pH 6.0 and 800 mbar inlet CO, the 144-hour batch coculture had about three times the final butanol and detectable
+    hexanol relative to its matched acetogen-only control. This is a condition-specific comparison, not universal
+    monoculture incapacity: the cascade study also measured alcohol production with C. carboxidivorans alone. Acid
+    reduction contributes to output alongside de novo alcohol synthesis by the acetogen.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -285,8 +287,10 @@ ecological_interactions:
       label: butyrate
   - preferred_term: hexanoate
     term:
-      id: CHEBI:30776
-      label: hexanoic acid
+      id: CHEBI:17120
+      label: hexanoate
+    notes: Corrected to the anion named in the primary product measurements; CHEBI:30776 is the distinct conjugate
+      acid. This annotation does not claim a direct speciation assay.
   - preferred_term: 1-butanol
     term:
       id: CHEBI:28885
@@ -304,20 +308,21 @@ ecological_interactions:
   - reference: PMID:34669248
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Organic acids produced by C. kluyveri were reduced by C. carboxidivorans to the corresponding alcohols butanol and hexanol
+    snippet: Organic acids produced by C. kluyveri were reduced by C. carboxidivorans to the corresponding alcohols
+      butanol and hexanol
     explanation: Supports the central cross-feeding mechanism from chain-elongated acids to alcohols.
   - reference: PMID:34669248
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: threefold increase in final butanol concentration and enabled hexanol production
-    explanation: Supports increased longer-chain alcohol production in coculture.
-- name: Two-Stage CO Partial Pressure Division of Labor
-  description: >
-    In the continuous reactor cascade, lower CO and sulfide supply supported
-    growth and chain elongation in the first reactor, while higher CO in the
-    second reactor supported organic-acid reduction and de novo C2-C6 alcohol
-    synthesis.
-  interaction_type: NICHE_PARTITIONING
+    explanation: Supports the 800-mbar, pH-6.0 batch comparison after 144 hours, not a universal inability of the
+      acetogen to produce hexanol.
+- name: Engineered CO and pH staging of chain elongation and alcohol formation
+  description: The engineered continuous cascade used a first reactor at pH 6.0, 100 mbar inlet CO and added sulfide,
+    followed by a second reactor at pH 5.0 and 800 mbar inlet CO. Gas flow and dilution rate also differed. The
+    first stage supported growth and chain elongation; the second supported organic-acid reduction and de novo alcohol
+    synthesis, while C. kluyveri growth was negligible. This is a measured process configuration, not evidence of
+    ecological niche partitioning or an isolated CO-only effect.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: carbon monoxide
@@ -338,21 +343,23 @@ ecological_interactions:
       label: hexan-1-ol
   downstream:
   - target: Organic Acid Reduction to Longer-Chain Alcohols
-    description: >
-      Partitioning the cascade into lower-CO chain elongation and higher-CO
-      acid-reduction stages favors the C. carboxidivorans reduction of
-      chain-elongated acids into C2-C6 alcohols.
+    description: The first stage supplies chain-elongated organic acids to the second, whose combined pH-5.0/high-CO
+      conditions support C. carboxidivorans reduction to alcohols. Product balances also indicate de novo alcohol
+      synthesis, so downstream alcohol output is not all explained by reduction of incoming acids; the design does
+      not isolate the contribution of CO from the other changed operating conditions.
   evidence:
   - reference: PMID:37110426
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: 100 mbar CO and additional sulfide supply enabled growth and chain elongation in the first bioreactor
-    explanation: Supports low-CO, sulfide-supported chain elongation in the first reactor.
+    explanation: Supports the first-stage outcome. Primary Methods additionally specify pH 6.0, gas flow and dilution
+      rate; low CO is not the only condition.
   - reference: PMID:37110426
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: 800 mbar CO resulted in an efficient reduction of organic acids and de-novo synthesis of C2-C6 alcohols
-    explanation: Supports the high-CO second reactor role in organic-acid reduction and alcohol synthesis.
+    explanation: Supports the second-stage outcome with pH 5.0 and changed flow/residence conditions. Product balances
+      distinguish incoming-acid reduction from additional de novo alcohol synthesis.
 environmental_factors:
 - name: CO partial pressure
   value: 100 mbar and 800 mbar CO process zones
@@ -477,3 +484,29 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element processing role is curated for this CO-fed
   clostridial chain-elongation coculture.
+discussions:
+- discussion_id: carboxidivorans_kluyveri_stage_controls_and_flux
+  prompt: How do CO, pH and residence time separately control cross-feeding and de novo alcohol synthesis?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Acetogen-Chain Elongator Product Coupling
+  - ecological_interactions#Organic Acid Reduction to Longer-Chain Alcohols
+  - ecological_interactions#Engineered CO and pH staging of chain elongation and alcohol formation
+  rationale: PMID:37110426 changes several operating conditions between cascade stages. Matched monoculture and
+    coculture products support the process outcomes, but do not isolate each control variable or trace every carbon
+    flux. Its abstract states complete C. kluyveri growth inhibition at 100 mbar CO; Results instead report an 86%
+    maximum-biomass reduction there and complete inhibition at 800 mbar, while chain elongation continues. Keep
+    this source discrepancy and growth/activity distinction explicit. Partner-resolved flux and factorial controls
+    would separate these contributions.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T23:24:12Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain exact-system supported C2 supply and downstream chain-elongated acid conversion; distinguish
+    growth from ongoing activity.; Bound batch emergence and retain monoculture alcohol capacity; correct the existing
+    hexanoate chemical identity using official ChEBI.; Describe measured engineered staging with covarying pH/CO/flow/residence
+    time; retain causal substrate supply without ecological niche typing. Issue #1321; reports/causal_graph_review/decisions/20261005-three-records-batch18.yaml'
+  llm_assisted: true

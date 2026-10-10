@@ -106,10 +106,9 @@ taxonomy:
     explanation: Supports M. maripaludis as the hydrogenotrophic methanogenic partner.
 ecological_interactions:
 - name: Syntrophic Butyrate Oxidation and Methanogenesis
-  description: >
-    S. wolfei and M. maripaludis form a thermodynamically required syntrophic
-    partnership in which fatty acid oxidation is coupled to methanogenesis under
-    anoxic conditions.
+  description: S. wolfei and M. maripaludis grow syntrophically on butyrate, coupling bacterial oxidation to hydrogenotrophic
+    methanogenesis. The dependence is for the tested butyrate medium; S. wolfei was separately maintained in pure
+    culture on crotonate.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -142,78 +141,54 @@ ecological_interactions:
       label: methanogenesis
   downstream:
   - target: Population Ratio Convergence During Growth
-    description: >
-      The thermodynamically required syntrophic coupling of butyrate oxidation to
-      hydrogenotrophic methanogenesis drives coordinated partner growth — cultures
-      inoculated at different initial cell ratios converge to a relatively constant
-      Syntrophomonas:Methanococcus ratio over time.
+    description: 'DIRECTLY IMPLIED/PARTIAL: syntrophic metabolism supports growth of both partners during the observed
+      convergence of their population ratio. Different starting ratios alter relative growth and lag, but the study
+      does not isolate a molecular feedback controller that enforces the endpoint ratio.'
   evidence:
   - reference: PMID:34603271
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: thermodynamically required mutualistic cooperation between fatty acid-oxidizing bacteria and methanogens
-    explanation: Supports the syntrophic mechanism linking fatty acid oxidation and methanogenesis.
+    snippet: mesophilic coculture consisting of Syntrophomonas wolfei and Methanococcus maripaludis
+    explanation: Identifies the exact mesophilic partners.
   - reference: PMID:34603271
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: butyrate-oxidizing bacteria and methanogens
-    explanation: Supports the butyrate-oxidizing and methanogenic partners in the coculture.
+    snippet: S. wolfei could not grow on butyrate alone in the media
+    explanation: Bounds dependence to the tested substrate and medium.
 - name: Population Ratio Convergence During Growth
-  description: >
-    When the two members were inoculated at different initial ratios, the
-    initially lower-abundance organism grew faster and the population ratio
-    converged, indicating growth synchronization between partners.
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Syntrophomonas wolfei
-    term:
-      id: NCBITaxon:863
-      label: Syntrophomonas wolfei
-  target_taxon:
-    preferred_term: Methanococcus maripaludis
-    term:
-      id: NCBITaxon:39152
-      label: Methanococcus maripaludis
+  description: In the mesophilic S. wolfei-M. maripaludis cultures, different starting population ratios converged
+    to around one during growth. This is a community population outcome, not a second directional mutualism interaction
+    or proof that the converged ratio itself accelerates metabolism.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Syntrophic Butyrate Oxidation and Methanogenesis
-    description: >
-      Cell aggregation and attraction keep butyrate-oxidizing and
-      hydrogenotrophic partners close enough for efficient H2 transfer during
-      syntrophic methanogenesis.
   evidence:
   - reference: PMID:34603271
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: syntrophs and methanogens were inoculated at different initial cell ratios
-    explanation: Supports the initial-ratio perturbation used to measure growth coordination.
-  - reference: PMID:34603271
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: the cell ratio converged over time to relative constant values
-    explanation: Supports population ratio convergence as a growth coordination outcome.
+    snippet: the cell ratio of the WM cocultures varied in the early stage but converged at around 1 from day 15
+      forward for all the three treatments.
+    explanation: Exact mesophilic outcome; do not substitute the thermophilic final ratio or treat convergence as
+      the manipulated initial ratio.
+  participating_taxa:
+  - preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  - preferred_term: Methanococcus maripaludis
+    term:
+      id: NCBITaxon:39152
+      label: Methanococcus maripaludis
 - name: Syntrophic Aggregation and Cell-to-Cell Attraction
-  description: >
-    FISH, SEM, and microfluidic experiments showed aggregate formation and
-    directional attraction between Syntrophomonas and Methanococcus cells,
-    supporting spatial organization as part of syntrophic cooperation.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Syntrophomonas wolfei
-    term:
-      id: NCBITaxon:863
-      label: Syntrophomonas wolfei
-  target_taxon:
-    preferred_term: Methanococcus maripaludis
-    term:
-      id: NCBITaxon:39152
-      label: Methanococcus maripaludis
+  description: FISH and SEM showed development of mixed aggregates, while microfluidic loading in either order showed
+    preferential movement toward the other partner. A same-organism control lacked that preference. This supports
+    reciprocal spatial association, not a uniquely directed colonization effect. Ultrasound and shaking reduced
+    methane-production activity without a detectable change in aggregation tendency; causal mediation by aggregation
+    remains unresolved.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -223,13 +198,23 @@ ecological_interactions:
   - reference: PMID:34603271
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: tendency of syntrophic aggregation was not affected by the physical disturbances
-    explanation: Supports syntrophic aggregation as a measured property of the mesophilic coculture.
+    snippet: the second organism preferred moving to the well where the first organism was already located
+    explanation: Reciprocal loading supports spatial attraction, not a one-way established benefit.
   - reference: PMID:34603271
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: suggesting the cell-to-cell attraction between Syntrophomonas and Methanococcus
-    explanation: Supports direct cell-to-cell attraction between the two partners.
+    snippet: although the activity of the coculture was influenced by two disturbance treatments, the tendency of
+      microbial aggregation was not.
+    explanation: The disturbance comparison does not isolate aggregation as the mediator of metabolic activity.
+  participating_taxa:
+  - preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  - preferred_term: Methanococcus maripaludis
+    term:
+      id: NCBITaxon:39152
+      label: Methanococcus maripaludis
 environmental_factors:
 - name: Anoxic methanogenic context
   value: anoxic environments
@@ -386,30 +371,30 @@ metal_notes: >
   methanogenic butyrate-oxidizing coculture.
 discussions:
 - discussion_id: kg-aggregation-and-diet-unverified
-  prompt: >
-    Does syntrophic aggregation / cell-to-cell attraction causally enhance
-    butyrate oxidation or methanogenesis in this coculture, and is direct
-    interspecies electron transfer (e.g. the reported carbon-nanotube methane
-    stimulation) involved rather than only H2/formate transfer?
+  prompt: Does spatial association or the converged population ratio causally enhance syntrophic metabolism?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
+  - ecological_interactions#Population Ratio Convergence During Growth
   - ecological_interactions#Syntrophic Aggregation and Cell-to-Cell Attraction
-  rationale: >
-    Aggregation and disturbance-resistant cell-to-cell attraction are observed,
-    but no experiment demonstrates that aggregation increases butyrate oxidation or
-    methane production in this exact coculture, so no aggregation→enhancement
-    `downstream` edge was added. Likewise, carbon-nanotube acceleration of methane
-    production is reported, but DIET "does not always explain the enhancement of
-    methane production" and was not directly proven here, so a DIET mechanism is
-    not asserted.
+  rationale: The former population-ratio-to-metabolism arrow described aggregation rather than its source node and
+    is removed. Initial ratios were experimentally varied; the converged endpoint is not an independently manipulated
+    cause. Reciprocal attraction is supported, but ultrasound and shaking change activity without changing aggregation
+    tendency. The separate nanomaterial study reports acceleration and proposes DIET without a decisive demonstration.
+    No new aggregation-to-metabolism direction is added.
   evidence:
   - reference: PMID:34603271
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: suggesting the cell-to-cell attraction between Syntrophomonas and Methanococcus
-    explanation: Attraction/aggregation is observed, but its causal contribution to metabolic
-      performance is untested — the basis for the knowledge gap.
+    snippet: the tendency of microbial aggregation was not
+    explanation: Aggregation tendency was unchanged despite the disturbance-associated activity change.
+  - reference: doi:10.1038/s41598-018-30745-7
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Though decisive conclusion can not be made, our study tends to support the possibility of DIET in syntrophic
+      oxidation of butyrate.
+    explanation: The nanomaterial study explicitly qualifies DIET; it is not proof of the carrier mechanism in the
+      unamended coordination assay.
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: SERUM_BOTTLE
@@ -437,3 +422,11 @@ cultivation_setup:
     evidence_source: IN_VITRO
     snippet: The headspace of 250-ml incubation bottles was flushed with N2 for 5 min
       and then adjusted with N2:CO2 (80:20 [v/v]) to a final pressure of 172 kPa
+curation_history:
+- timestamp: '2026-10-08T07:10:55Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain substrate-bounded syntrophic growth and qualify the existing growth-to-ratio inference.; Retain
+    population convergence as an outcome and remove misplaced reverse causality.; Retain reciprocal attraction and
+    aggregation without one-way colonization or proven metabolic mediation. Issue#1872; reports/causal_graph_review/decisions/20261008-seven-records-batch112.yaml
+  llm_assisted: true

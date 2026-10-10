@@ -74,10 +74,10 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: EPS-Conditioned Colonization Surface
-  description: >
-    Sphingomonas elodea was used to coat the glass growth chambers with an
-    extracellular-polymeric-substance layer that enabled subsequently inoculated
-    phototrophs to attach during staged periphyton assembly.
+  description: 'Sphingomonas elodea was used to condition the colonization surface with an EPS-rich attachment layer
+    before phototroph assembly. The source attributes a sticky attachment function to that layer. PARTIAL: the reviewed
+    main text does not isolate its effect size in an EPS-free comparison or establish persistence of the conditioning
+    bacterium. Sphingomonas is not an added canonical member of this record''s aggregate phototroph taxonomy.'
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
   biological_processes:
@@ -89,58 +89,27 @@ ecological_interactions:
   - reference: PMID:35869094
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      Groups were added sequentially onto growth chambers covered with the
-      EPS-producing bacteria Sphingomonas elodea
-    explanation: >
-      Supports using Sphingomonas-conditioned growth chambers as the surface for
-      sequential periphyton assembly.
+    snippet: 'Groups were added sequentially onto growth chambers covered with the EPS-producing bacteria Sphingomonas
+      elodea
+
+      '
+    explanation: 'Supports using Sphingomonas-conditioned growth chambers as the surface for sequential periphyton
+      assembly.
+
+      '
   - reference: PMID:35869094
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: >
-      This bacterium provided a solid and sticky attachment layer for the
-      subsequently introduced phototrophic species
-    explanation: >
-      Supports the EPS matrix as a colonization aid for later phototrophic
-      members.
-- name: Growth-Balanced Phototroph Grouping
-  description: >
-    Twenty-six freshwater phototrophs were divided into successional groups and
-    given cell densities that compensated for each species' suspension growth
-    rate and final biomass, limiting dominance by fast high-biomass members.
-  interaction_type: NICHE_PARTITIONING
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biofilm formation
-    term:
-      id: GO:0042710
-      label: biofilm formation
-  evidence:
-  - *id001
-  - reference: PMID:35869094
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      The selected species were then assigned to three groups
-    explanation: >
-      Supports the division of the phototrophic SynCom members into staged
-      groups.
-  - reference: PMID:35869094
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      we added the least number of cells for species that grew fast and reached
-      high biomasses
-    explanation: >
-      Supports balancing the starting inoculum against single-species growth
-      behavior.
-- name: Four-Day Pioneer-Diatom Colonization
-  description: >
-    Group A low-profile pioneer diatoms colonized the EPS-covered substrate for
-    four days, attaching to the glass surface while leaving most of the chamber
-    area available for subsequent high-profile and motile phototrophs.
-  interaction_type: COLONIZATION_FACILITATION
+    snippet: 'This bacterium provided a solid and sticky attachment layer for the subsequently introduced phototrophic
+      species
+
+      '
+    explanation: Source-attributed attachment function; not an isolated effect-size or persistence measurement.
+- name: Pioneer Diatom Surface Attachment
+  description: The two group-A diatoms showed predominantly surface-attached growth at the selected early time point,
+    covering only part of the conditioned surface. This is a diatom-subset attachment outcome; leaving unoccupied
+    area is not evidence that these diatoms facilitated later phototrophs. The canonical diatom descriptor represents
+    this selected subset.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
@@ -151,17 +120,19 @@ ecological_interactions:
   - reference: PMID:35869094
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      we selected 4 days as the optimal colonization duration for group A
-    explanation: >
-      Supports four days as the experimentally selected group A colonization
-      duration.
-- name: Fourteen-Day High-Profile Diatom Colonization
-  description: >
-    Group B high-profile diatoms were layered onto the four-day group A biofilm
-    for another fourteen days, expanding surface coverage and structural
-    maturity before the final group was introduced.
-  interaction_type: COLONIZATION_FACILITATION
+    snippet: the large majority of cells (approximately 6 to 7 times more cells than in the supernatant) were attached
+      to the substrate surface
+    explanation: Supports the measured group-A attachment phenotype, not a facilitated recipient species.
+  participating_taxa:
+  - preferred_term: diatoms
+    term:
+      id: NCBITaxon:2836
+      label: Bacillariophyta
+- name: AB Diatom Biofilm Development
+  description: After group B joined group A, the combined diatom biofilm showed predominantly attached cells, greater
+    surface coverage and a more heterogeneous architecture at the selected AB observation point. Later incubation
+    increased detached cells and reduced PSII yield. These are combined-group time-course observations, not an isolated
+    demonstration of facilitation by one diatom group or niche partitioning.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
@@ -172,17 +143,23 @@ ecological_interactions:
   - reference: PMID:35869094
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      14 days is the optimal colonization duration for group B, when added on
-      top of group A
-    explanation: >
-      Supports the experimentally chosen group B colonization interval.
-- name: Thirty-Day ABC Periphyton Maturity
-  description: >
-    After group C was added to the eighteen-day AB biofilm, a final twelve-day
-    colonization interval generated a stable thirty-day benthic periphyton with
-    broad surface attachment and high photosystem II quantum yield.
-  interaction_type: COLONIZATION_FACILITATION
+    snippet: 14 days after group B was added to group A, most of the cells were attached
+    explanation: The group-AB Results describe attachment at the selected observation point.
+  - reference: PMID:35869094
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Longer incubation, on the other hand, led to an increase of detached cells
+    explanation: The time course does not imply monotonically improving attachment or function.
+  participating_taxa:
+  - preferred_term: diatoms
+    term:
+      id: NCBITaxon:2836
+      label: Bacillariophyta
+- name: Mature Periphyton Establishment
+  description: The mature ABC periphyton showed broad surface attachment, high density and relatively high PSII
+    yield at the measured endpoint. Although 26 phototrophic species were introduced, the mature community contained
+    at least 22 detected species and three introduced species were no longer detected. This is a community establishment
+    outcome, not proof that all input members persisted or that assembly order caused ecological facilitation.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
@@ -197,27 +174,28 @@ ecological_interactions:
   - reference: PMID:35869094
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      Twelve days after group C was added, most of the cells were attached to
-      the colonization surface
-    explanation: >
-      Supports group C as the final colonization stage after the eighteen-day
-      AB biofilm.
+    snippet: 'we obtained a stable benthic community after a total colonization duration of 30 days
+
+      '
+    explanation: 'Supports the thirty-day endpoint as mature synthetic periphyton.
+
+      '
   - reference: PMID:35869094
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      we obtained a stable benthic community after a total colonization
-      duration of 30 days
-    explanation: >
-      Supports the thirty-day endpoint as mature synthetic periphyton.
+    snippet: a diverse and complex mature periphyton composed of at least 22 different phototrophic species
+    explanation: Distinguishes detected mature membership from the input pool.
+  - reference: PMID:35869094
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: three species were no longer detected in the mature periphyton
+    explanation: Detection loss is not assigned a proven competitive cause or equated with demonstrated extinction.
 - name: Reproducible 3D Biofilm Stressor Response
-  description: >
-    The mature synthetic periphyton produced reproducible microbial
-    composition, photosystem-II activity, and three-dimensional biofilm
-    structure, allowing species-resolved responses to terbuthylazine and
-    warming to be measured across the whole consortium.
-  interaction_type: NICHE_PARTITIONING
+  description: Independent assemblies reproduced community composition and physical structure. Warming and terbuthylazine
+    altered taxon abundances and reduced biofilm structure and biomass in the reported comparisons. PSII quantum
+    yield was generally similar across treatments, with the reported highest-herbicide exception at the AB stage.
+    Preserved PSII is consistent with, but does not demonstrate, functional redundancy. Neither reproducibility
+    nor these stress phenotypes establishes NICHE_PARTITIONING.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
@@ -232,22 +210,33 @@ ecological_interactions:
   - reference: PMID:35869094
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      we were able to obtain a reproducible and diverse synthetic community
-    explanation: >
-      Supports the reproducibility and diversity of the assembled synthetic
-      periphyton.
+    snippet: 'we were able to obtain a reproducible and diverse synthetic community
+
+      '
+    explanation: 'Supports the reproducibility and diversity of the assembled synthetic periphyton.
+
+      '
   - reference: PMID:35869094
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      increased temperature and exposure to the herbicide terbuthylazine
-      affected negatively the 3D-structure and biomass but not the PSII quantum
-      yield
-    explanation: >
-      Supports the use of the mature community to resolve whole-biofilm
-      structural and photosystem-II responses to warming and herbicide
-      perturbations.
+    snippet: 'increased temperature and exposure to the herbicide terbuthylazine affected negatively the 3D-structure
+      and biomass but not the PSII quantum yield
+
+      '
+    explanation: 'Supports the use of the mature community to resolve whole-biofilm structural and photosystem-II
+      responses to warming and herbicide perturbations.
+
+      '
+  - reference: PMID:35869094
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: except for periphyton exposed to 100 nM terbuthylazine at 18 days
+    explanation: Retains the explicit exception to generally similar PSII quantum yield.
+  - reference: PMID:35869094
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: further specifically designed studies are needed to clearly demonstrate functional redundancy
+    explanation: The proposed buffering mechanism is unresolved.
 environmental_factors:
 - name: successional inoculation on glass slides
   value: Phototrophic species were inoculated sequentially to construct a synthetic periphytic biofilm.
@@ -328,7 +317,38 @@ curation_history:
 - timestamp: '2026-10-02T06:10:22Z'
   curator: codex
   action: REVIEW_CAUSAL_GRAPH
-  changes: Removed five downstream edges that represented the staged periphyton
-    construction workflow from EPS coating through stressor testing rather than
-    evidence-backed causal edges among phototrophic interactions.
+  changes: Removed five downstream edges that represented the staged periphyton construction workflow from EPS coating
+    through stressor testing rather than evidence-backed causal edges among phototrophic interactions.
   llm_assisted: true
+- timestamp: '2026-10-08T06:16:59Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain source-attributed EPS attachment role without an isolated effect size or persistent donor claim.;
+    Retain early diatom attachment as an untyped, participant-bounded phenotype.; Retain combined AB diatom development
+    without intergroup facilitation typing.; Retain mature community establishment with observed-versus-introduced
+    membership boundaries.; Retain reproducibility and stress phenotypes without niche-partitioning or proven redundancy.
+    Issue#1867; reports/causal_graph_review/decisions/20261008-three-records-batch111.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: periphyton-succession-and-function-mediators
+  prompt: Which interspecies mechanisms cause the observed attachment, succession and functional responses?
+  rationale: 'The primary study measures staged attachment, structure, composition and stress responses but does
+    not isolate pairwise facilitation or competition. Its EPS role is source-attributed; functional redundancy and
+    competitive explanations require further tests. The existing workflow arrows remain absent. Canonical membership
+    is aggregate and non-axenic source cultures are not converted into a fully defined final roster; metadata follow-up
+    #1869 remains open.'
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  attaches_to:
+  - ecological_interactions#EPS-Conditioned Colonization Surface
+  - ecological_interactions#Pioneer Diatom Surface Attachment
+  - ecological_interactions#AB Diatom Biofilm Development
+  - ecological_interactions#Mature Periphyton Establishment
+  - ecological_interactions#Reproducible 3D Biofilm Stressor Response
+  evidence:
+  - reference: PMID:35869094
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: further specifically designed studies are needed to clearly demonstrate functional redundancy
+    explanation: Stable aggregate PSII does not identify the causal mechanism.

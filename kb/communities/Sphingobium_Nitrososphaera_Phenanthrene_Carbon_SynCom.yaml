@@ -116,9 +116,9 @@ taxonomy:
     explanation: Identifies Nitrososphaera viennensis EN76 as the carbon-sequestering archaeal SynCom member.
 ecological_interactions:
 - name: SynCom phenanthrene removal in lettuce pots
-  description: As a two-member synthetic community, Sphingobium sp. RS2 and Nitrososphaera viennensis EN76 were associated
-    with 90.02% PHE removal from soil and an 81.07% reduction of PHE transfer to lettuce. Pairwise exchange metabolites were
-    not resolved in the accessible abstract.
+  description: In lettuce-soil pots, SynCom addition was associated with 90.02% PHE removal from soil and an 81.07%
+    reduction of PHE transfer to lettuce. These are pot-level outcomes, not isolated contributions of each inoculant
+    or a traced interspecies exchange in the accessible abstract.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: phenanthrene
@@ -133,38 +133,29 @@ ecological_interactions:
   evidence:
   - reference: PMID:41967346
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The results of the pot experiment indicated that 90.02% of the PHE was effectively removed from the soil and
-      81.07% of the PHE transferred to the lettuce was reduced by the addition of SynCom.
+    evidence_source: IN_VIVO
+    snippet: The results of the pot experiment indicated that 90.02% of the PHE was effectively removed from the
+      soil and 81.07% of the PHE transferred to the lettuce was reduced by the addition of SynCom.
     explanation: Supports consortium-linked phenanthrene removal from soil and reduced transfer to lettuce.
-- name: SynCom soil carbon restoration
-  description: SynCom addition increased soil organic carbon, microbial carbon, and total carbon, and random-forest/PLS-PM
-    modeling linked those effects to a sustained increase in the absolute abundance of soil carbon-fixing and PHE-degrading
-    microorganisms.
+- name: SynCom soil carbon endpoints and modeled guild associations
+  description: 'SynCom addition significantly increased soil organic carbon, microbial carbon and total carbon content
+    in the pot experiment. PARTIAL: random-forest/PLS-PM analysis links these outcomes to increased absolute abundances
+    of carbon-fixing and PHE-degrading soil microorganisms. Carbon stocks and modeled associations do not themselves
+    quantify carbon-fixation flux, establish exchanged carbon, or isolate each inoculant contribution.'
   scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: carbon dioxide
-    term:
-      id: CHEBI:16526
-      label: carbon dioxide
-  biological_processes:
-  - preferred_term: carbon fixation
-    term:
-      id: GO:0015977
-      label: carbon fixation
   evidence:
   - reference: PMID:41967346
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: Soil organic carbon, microbial carbon, and total carbon content were also significantly increased.
     explanation: Supports increased soil organic, microbial, and total carbon after SynCom addition.
   - reference: PMID:41967346
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: demonstrated that these effects were primarily driven by a continuous increase in the absolute abundance of soil
-      carbon-fixing microorganisms and PHE-degrading microorganisms after SynCom addition.
-    explanation: Supports the modeled association between SynCom addition and increased absolute abundances of carbon-fixing
-      and PHE-degrading microorganisms.
+    snippet: demonstrated that these effects were primarily driven by a continuous increase in the absolute abundance
+      of soil carbon-fixing microorganisms and PHE-degrading microorganisms after SynCom addition.
+    explanation: Supports the authors statistical driver interpretation, not direct carbon-fixation flux or experimentally
+      isolated mediation.
     computational_provenance:
       prediction_type: STATISTICAL_INFERENCE
       tools:
@@ -172,8 +163,9 @@ ecological_interactions:
         role: ranked inferred drivers of SynCom-associated phenanthrene and carbon outcomes
       - tool_name: partial least-squares path modeling
         role: modeled paths linking SynCom addition, microbial absolute abundances, and carbon/PHE outcomes
-      parameters: Combined random forest and PLS-PM over the pot experiment to infer that carbon-fixing and PHE-degrading
-        microorganism abundances primarily drove the reported SynCom effects.
+      parameters: Abstract-reported random forest and PLS-PM over pot-experiment outcomes and soil microbial guild
+        abundances; software versions and full model specification were not verified. This is statistical inference,
+        not a direct flux measurement.
 environmental_factors:
 - name: Phenanthrene contamination
   value: phenanthrene-contaminated soil
@@ -263,22 +255,41 @@ metal_notes: The accessible abstract reports organic-pollutant bioremediation of
   or rare-earth processing.
 discussions:
 - discussion_id: phenanthrene_carbon_syncom_cultivation_details
-  prompt: What phenanthrene soil dose, SynCom inoculation amounts, strain ratio, pot conditions, and carbon-assay timing were
-    used for the Sphingobium-Nitrososphaera SynCom?
+  prompt: What phenanthrene soil dose, SynCom inoculation amounts, strain ratio, pot conditions, and carbon-assay
+    timing were used for the Sphingobium-Nitrososphaera SynCom?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - engineering_design
   - growth_media#Phenanthrene-contaminated lettuce pot soil
-  rationale: The PubMed abstract names the exact members and reports PHE, lettuce-transfer, and carbon endpoints, but Elsevier
-    full text was not open-access through Europe PMC during curation, leaving exact cultivation parameters unresolved.
+  rationale: The PubMed abstract names the exact members and reports PHE, lettuce-transfer, and carbon endpoints,
+    but Elsevier full text was not open-access through Europe PMC during curation, leaving exact cultivation parameters
+    unresolved.
   evidence:
   - reference: PMID:41967346
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The results of the pot experiment indicated that 90.02% of the PHE was effectively removed from the soil and
-      81.07% of the PHE transferred to the lettuce was reduced by the addition of SynCom.
-    explanation: Shows that the abstract reports pot-level outcomes without exposing the pot setup or inoculation details.
+    snippet: The results of the pot experiment indicated that 90.02% of the PHE was effectively removed from the
+      soil and 81.07% of the PHE transferred to the lettuce was reduced by the addition of SynCom.
+    explanation: Shows that the abstract reports pot-level outcomes without exposing the pot setup or inoculation
+      details.
+- discussion_id: phenanthrene_carbon_stocks_and_inferred_drivers
+  prompt: What source evidence separates the observed soil carbon increase from carbon-fixation flux and causal
+    contributions of the two inoculants?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#SynCom phenanthrene removal in lettuce pots
+  - ecological_interactions#SynCom soil carbon endpoints and modeled guild associations
+  rationale: The accessible abstract supports positive pot endpoints and the authors modeled guild-abundance interpretation.
+    It does not resolve member-specific exchange or direct flux; full methods and model specification were not read.
+    Prior environmental grounding and computational provenance fixes are preserved.
+  evidence:
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Soil organic carbon, microbial carbon, and total carbon content were also significantly increased.
+    explanation: Supports increased soil organic, microbial, and total carbon after SynCom addition.
 curation_history:
 - timestamp: '2026-09-13T13:42:30Z'
   curator: claude
@@ -288,6 +299,13 @@ curation_history:
 - timestamp: '2026-09-13T14:31:47Z'
   curator: codex
   action: ADDRESS_ADVERSARIAL_REVIEW
-  changes: Narrowed abstract-supported community-level effects to untyped interactions and marked RF/PLS-PM driver evidence
-    as COMPUTATIONAL with provenance for issues 847 and 848.
+  changes: Narrowed abstract-supported community-level effects to untyped interactions and marked RF/PLS-PM driver
+    evidence as COMPUTATIONAL with provenance for issues 847 and 848.
+  llm_assisted: true
+- timestamp: '2026-10-08T01:27:45Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain positive lettuce-pot PHE outcomes with IN_VIVO provenance and no inferred exchange.; Retain carbon-content
+    measurements and qualify modeled drivers; remove carbon-dioxide/fixation annotations not established by stock
+    endpoints. Issue#1824; reports/causal_graph_review/decisions/20261008-four-records-batch105.yaml
   llm_assisted: true

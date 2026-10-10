@@ -280,36 +280,12 @@ taxonomy:
       work.
     explanation: Names the moromi-isolated strains used in the soy-sauce SynCom work.
 ecological_interactions:
-- name: Four-phase temporal soy sauce inoculation
-  description: The final seven-species community was assembled by separating dominant LAB, other LAB, and yeasts across the
-    immediate-early, early/middle, and late moromi phases while A. oryzae made the koji substrate.
-  interaction_type: NICHE_PARTITIONING
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: fermentation
-    term:
-      id: GO:0006113
-      label: fermentation
-  downstream:
-  - target: W->L->P+T->Z+C soy-sauce flavor output
-    description: The four-stage ordering led to the W->L->P+T->Z+C group that outperformed other temporal LAB orderings in
-      the 40-day assay.
-  evidence:
-  - reference: PMID:42195939
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Based on the identified core microbes, soy sauce fermentation conducted with different synthetic communities
-      was performed to optimize the assembly of SynCom.
-    explanation: Supports testing multiple temporal SynComs to optimize assembly.
-  - reference: PMID:42195939
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: W → L → P+T → Z+C +W. paramesenteroides +L. plantarum +P. pentosaceus +T. halophilus
-    explanation: Names the best temporal LAB order from Table 1.
-- name: W->L->P+T->Z+C soy-sauce flavor output
-  description: The W->L->P+T->Z+C SynCom increased 40-day glutamic acid, 4-ethylguaiacol, and total volatile output relative
-    to the traditional fermentation control and had higher alcohol, ester, and phenolic compound levels than the other tested
-    SynComs.
+- name: Laboratory Soy-Sauce Flavor Outcomes
+  description: The selected seven-species treatment had higher reported glutamic acid, 4-ethylguaiacol and total
+    volatile endpoints than the traditional control in the laboratory comparison, with higher alcohol, ester and
+    phenolic levels than the other tested SynCom treatments. These are measured fermentation outcomes, not proof
+    of reduced competition, a universally optimal community or industrial efficacy. The source's ambiguous fold-change
+    wording is not reinterpreted here.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: fermentation
@@ -329,22 +305,25 @@ ecological_interactions:
   - reference: PMID:42195939
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: After 40 days of fermentation, glutamic acid content in SynCom group W→L→P+T→Z+C reached 8.5 g/L, which was 1.06
-      times higher than that of the control group.
-    explanation: Supports elevated glutamic acid after 40 days in the best temporal SynCom.
+    snippet: After 40 days of fermentation, glutamic acid content in SynCom group W→L→P+T→Z+C reached 8.5 g/L, which
+      was 1.06 times higher than that of the control group.
+    explanation: Supports the reported endpoint for the tested laboratory treatment and its stated comparator, not
+      a general optimum or an ecological interaction mechanism.
   - reference: PMID:42195939
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Concurrently, the 4-EG content and total volatiles reached 71.32 μg/L ( Figure 6 b) and 2855.44 μg/L ( Figure
-      6 c) in SynCom group W→L→P+T→Z+C, respectively, representing increases of 1.11 times and 1.25 times compared to the
-      control group.
-    explanation: Supports elevated 4-ethylguaiacol and total volatiles after 40 days in the best temporal SynCom.
+    snippet: Concurrently, the 4-EG content and total volatiles reached 71.32 μg/L ( Figure 6 b) and 2855.44 μg/L
+      ( Figure 6 c) in SynCom group W→L→P+T→Z+C, respectively, representing increases of 1.11 times and 1.25 times
+      compared to the control group.
+    explanation: Supports the reported endpoint for the tested laboratory treatment and its stated comparator, not
+      a general optimum or an ecological interaction mechanism.
   - reference: PMID:42195939
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: In terms of volatiles, SynCom group W→L→P+T→Z+C exhibited significantly higher levels of alcohols, esters, and
-      phenolic compounds than those in other SynCom groups
-    explanation: Supports the volatile-class improvement of the best temporal SynCom relative to other SynCom orderings.
+    snippet: In terms of volatiles, SynCom group W→L→P+T→Z+C exhibited significantly higher levels of alcohols,
+      esters, and phenolic compounds than those in other SynCom groups
+    explanation: Supports the reported endpoint for the tested laboratory treatment and its stated comparator, not
+      a general optimum or an ecological interaction mechanism.
 environmental_factors:
 - name: moromi salt concentration
   value: '18'
@@ -469,25 +448,46 @@ external_resources:
     explanation: Names the DOI assigned to the primary soy-sauce SynCom publication.
 discussions:
 - discussion_id: soy_sauce_temporal_syncom_industrial_transfer
-  prompt: Which temporal inoculation times, ratios, and process controls make the seven-species soy-sauce SynCom robust in
-    industrial moromi systems?
+  prompt: Which temporal inoculation times, ratios, and process controls make the seven-species soy-sauce SynCom
+    robust in industrial moromi systems?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - engineering_design#Soy Sauce Temporal Seven-Species SynCom
   - cultivation_setup#soy sauce moromi mash with temporal SynCom inoculation
-  rationale: The source reports homogeneous laboratory fermentations and explicitly states that oxygen gradients, uneven salt
-    distribution, and differing aeration regimes in industrial moromi could alter SynCom behavior.
+  rationale: The source reports homogeneous laboratory fermentations and explicitly states that oxygen gradients,
+    uneven salt distribution, and differing aeration regimes in industrial moromi could alter SynCom behavior.
   posed_by: codex
   posed_date: '2026-09-14'
   evidence:
   - reference: PMID:42195939
     supports: SUPPORT
     evidence_source: full_text
-    snippet: Moreover, soy sauce fermentations in this work were performed under homogeneous lab conditions. Industrial production
-      of soy sauce moromi systems features oxygen gradients, uneven salt distribution, and different aeration regimes, which
-      likely alter SynCom behaviors.
-    explanation: Names the laboratory-scale limitation and the industrial gradients that could alter temporal SynCom behavior.
+    snippet: Moreover, soy sauce fermentations in this work were performed under homogeneous lab conditions. Industrial
+      production of soy sauce moromi systems features oxygen gradients, uneven salt distribution, and different
+      aeration regimes, which likely alter SynCom behaviors.
+    explanation: Names the laboratory-scale limitation and the industrial gradients that could alter temporal SynCom
+      behavior.
+- discussion_id: sauce_causal_attribution_batch104
+  prompt: Which ecological mechanisms account for the laboratory flavor differences, and do they transfer beyond
+    the tested setting?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: 'Temporal scheduling and endpoint differences do not by themselves demonstrate niche partitioning or
+    identify a donor-recipient mechanism. The original workflow node and its arrow are removed; measured outcomes
+    remain. The primary conclusion explicitly limits the study to laboratory proof-of-concept. No cultivation or
+    optimization instructions are added. Non-graph abundance/timing metadata remains outside this repair under #1821.'
+  posed_by: codex
+  posed_date: '2026-10-08'
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Thus, our results should be considered a laboratory-scale proof-of-concept, and pilot-scale validation
+      is required before practical application.
+    explanation: The authors explicitly limit practical transfer of the measured outcomes.
+  attaches_to:
+  - ecological_interactions#Laboratory Soy-Sauce Flavor Outcomes
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -497,7 +497,13 @@ curation_history:
 - timestamp: '2026-09-14T23:24:09Z'
   curator: codex
   action: CREATE_SOY_SAUCE_TEMPORAL_SYNCOM
-  changes: Added the seven-species temporal soy-sauce SynCom from PMID:42195939 with species-level membership, strain designations,
-    staged W->L->P+T->Z+C inoculation, 40-day moromi growth conditions, glutamate and 4-ethylguaiacol flavor endpoints, DOI/PubMed
-    resources, and an open pilot-scale transfer gap.
+  changes: Added the seven-species temporal soy-sauce SynCom from PMID:42195939 with species-level membership, strain
+    designations, staged W->L->P+T->Z+C inoculation, 40-day moromi growth conditions, glutamate and 4-ethylguaiacol
+    flavor endpoints, DOI/PubMed resources, and an open pilot-scale transfer gap.
+  llm_assisted: true
+- timestamp: '2026-10-08T00:51:38Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Preserve positive flavor measurements with exact experimental and comparator scope; remove the assembly
+    node and unsupported niche-partitioning arrow. Issue#1816; reports/causal_graph_review/decisions/20261008-four-records-batch104.yaml
   llm_assisted: true

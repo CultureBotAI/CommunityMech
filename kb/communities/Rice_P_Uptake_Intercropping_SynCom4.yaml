@@ -108,10 +108,9 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Soil Available Phosphorus Activation
-  description: Intercropping-derived SynCom members directly activate the
-    plant-accessible soil phosphorus pool, increasing the phosphate available
-    for rice roots in pot experiments.
-  interaction_type: MUTUALISM
+  description: SynCom inoculation increased available soil phosphorus in the rice pot experiment, alongside lower
+    rhizosphere pH and changes in phosphorus fractions. This is a measured inoculation response; contributions of
+    particular strains or acids are not separately resolved.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: phosphate
@@ -120,21 +119,20 @@ ecological_interactions:
       label: phosphate
   downstream:
   - target: Phosphorus Acquisition Promotion
-    description: SynCom-driven phosphate activation contributes to the
-      belowground phosphorus-acquisition program that also changes root
-      morphology and up-regulates rice Pi transporter genes.
+    description: 'PARTIAL: greater soil phosphorus availability is a proposed contributor to improved rice phosphorus
+      acquisition. The comparisons do not isolate this contribution from root architectural and transport-associated
+      responses.'
   evidence:
   - reference: PMID:39684532
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: including the direct activation of soil available P, increased root surface area
-      and root tip number
-    explanation: Supports the SynCom activation of soil available phosphorus as
-      an upstream route to improved rice phosphorus uptake.
+    snippet: including the direct activation of soil available P, increased root surface area and root tip number
+    explanation: Supports the SynCom activation of soil available phosphorus as an upstream route to improved rice
+      phosphorus uptake.
 - name: Phosphorus Acquisition Promotion
-  description: SynCom members increase soil available phosphorus and support root-to-shoot phosphorus
-    transport.
-  interaction_type: MUTUALISM
+  description: 'SynCom-treated rice showed altered root architecture, phosphorus allocation and expression of phosphate-transporter
+    genes. PARTIAL: these observations support the proposed acquisition/translocation pathway, but expression and
+    endpoint concentrations do not independently establish transporter-mediated flux or necessity.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: phosphate ion
@@ -148,35 +146,36 @@ ecological_interactions:
       label: phosphate ion transport
   downstream:
   - target: Rice Biomass and Phosphorus Uptake Increase
-    description: Better available-phosphorus access, larger root absorptive
-      surface, and higher root-to-shoot Pi transporter expression drive the
-      measured increases in potted rice biomass and phosphorus uptake.
+    description: 'PARTIAL: improved phosphorus access, root architecture and transport-associated responses are
+      proposed contributors to the positive pot biomass/phosphorus outcome. Their separate contributions and necessity
+      for that outcome remain unresolved.'
   evidence:
-  - *id001
   - reference: PMID:39684532
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: promotion of root-to-shoot P translocation through up-regulation of Pi transporter
-      genes (OsPht1;1, OsPht1;2, OsPht1;4, OsPht1;6)
-    explanation: Links the SynCom response to inorganic-phosphate transport into and
-      through rice.
+    snippet: promotion of root-to-shoot P translocation through up-regulation of Pi transporter genes (OsPht1;1,
+      OsPht1;2, OsPht1;4, OsPht1;6)
+    explanation: Primary abstract proposes a transport route; full-text expression and allocation comparisons do
+      not isolate its causal mediation.
 - name: Rice Biomass and Phosphorus Uptake Increase
-  description: The synthetic community significantly enhances rice biomass and
-    phosphorus uptake in the pot assays, tying the soil-phosphorus and
-    root-translocation effects to the plant-growth endpoint.
-  interaction_type: MUTUALISM
+  description: The four-strain SynCom significantly increased rice dry biomass and phosphorus uptake in the pot
+    comparison. This positive inoculation outcome is distinct from the field rice/soybean intercropping comparison,
+    where rice yield and phosphorus uptake decreased. Benefit to rice is not evidence of reciprocal bacterial fitness.
   scope: COMMUNITY_LEVEL
   metabolites:
-  - preferred_term: phosphorus
-    term:
-      id: CHEBI:28659
-      label: phosphorus atom
   - preferred_term: phosphate ion
     term:
       id: CHEBI:35780
       label: phosphate ion
   evidence:
-  - *id001
+  - reference: PMID:39684532
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: A bacterial synthetic community (SynCom) composed of four bacterial strains (Variovorax paradoxus,
+      Novosphingobium subterraneum, Hydrogenophaga pseudoflava, Acidovorax sp.) significantly enhanced the biomass
+      and P uptake of potted rice plants.
+    explanation: Directly supports the positive plant outcome in pots, not reciprocal microbial benefit or mediation
+      by a specific pathway.
 environmental_factors:
 - name: defined synthetic community design
   value: Variovorax paradoxus, Novosphingobium subterraneum, Hydrogenophaga pseudoflava, and Acidovorax
@@ -247,3 +246,32 @@ growth_media:
     snippet: bacteria were cultured in their respective liquid media on a shaker (180 rpm, 28 °C) for
       two days and harvested by centrifugation
     explanation: SynCom strains grown in liquid media at 28 °C, 180 rpm for 2 days before inoculation.
+discussions:
+- discussion_id: rice_phosphorus_mediation_and_context
+  prompt: Which pathways mediate the positive pot response?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Soil Available Phosphorus Activation
+  - ecological_interactions#Phosphorus Acquisition Promotion
+  - ecological_interactions#Rice Biomass and Phosphorus Uptake Increase
+  rationale: The complete primary main text distinguishes negative field intercropping effects on rice from positive
+    SynCom pot effects. Soil-P fractions, root traits, root IAA and transporter expression support proposed pathways
+    but do not establish each mediator as necessary. Preserve both existing directions as PARTIAL. MUTUALISM requires
+    reciprocal benefit, not a plant response alone. Non-graph CROSS_FEEDER labels and aliased evidence are unchanged
+    pending issue1764.
+  evidence:
+  - reference: PMID:39684532
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the yield and P uptake of intercropped rice were lower than those of rice grown in monoculture
+    explanation: The field comparison must not be conflated with SynCom inoculation of potted rice.
+curation_history:
+- timestamp: '2026-10-07T16:54:29Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain measured available-P response without MUTUALISM and qualify existing acquisition arrow.; Retain
+    transport-associated root observations as PARTIAL, not measured transporter flux or necessary mediation.; Retain
+    positive pot biomass/P outcome, distinguish the adverse field comparison and remove elemental-phosphorus grounding.
+    Issue#1761; reports/causal_graph_review/decisions/20261007-four-records-batch95.yaml
+  llm_assisted: true

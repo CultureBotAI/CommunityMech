@@ -155,8 +155,10 @@ related_ingredients:
     explanation: Names oxygen as the mediator removed by the yeast in the symbiosis.
 ecological_interactions:
 - name: Cellulose Hydrolysis Feeds Yeast Fermentation
-  description: C. phytofermentans hydrolyzes alpha-cellulose and releases soluble sugars
-    that can be fermented by S. cerevisiae cdt-1.
+  description: C. phytofermentans hydrolysis supplies soluble sugars, including cellodextrins and glucose, that
+    support S. cerevisiae cdt-1. Cellulose is the upstream feedstock. The approximately 22 g/L ethanol result used
+    added endoglucanase; unsupplemented coculture did not show the same productivity improvement. Under the low-oxygen
+    ethanol-production regime, ethanol is an output rather than the proposed sugar-transfer currency.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -192,11 +194,10 @@ ecological_interactions:
       id: GO:0006113
       label: fermentation
   downstream:
-  - target: Long-Term Symbiotic Population Maintenance
-    description: >
-      C. phytofermentans cellulose hydrolysis supplies soluble sugars that
-      support yeast fermentation during the maintained bacterium-yeast
-      population pairing.
+  - target: Oxygen-Dependent Long-Term Population Maintenance
+    description: Bacterial cellulose hydrolysis provides soluble carbon that can sustain yeast in the oxygen-controlled
+      culture. PARTIAL - the long-term viable-count comparison supports this cooperation but does not directly partition
+      carbon transfer or isolate every stabilizing mechanism.
   evidence:
   - reference: PMID:23628342
     supports: SUPPORT
@@ -207,11 +208,13 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: produced approximately 22 g/L ethanol
-    explanation: Supports the ethanol-producing outcome of the bacterium-yeast coculture.
+    explanation: Supports the approximately 22 g/L coculture endpoint with added endoglucanase, not an unsupplemented
+      productivity gain or a partner-resolved sugar flux.
 - name: Oxygen Protection of Anaerobic Cellulolytic Partner
-  description: S. cerevisiae cdt-1 removes introduced oxygen, protecting oxygen-sensitive
-    C. phytofermentans and allowing the coculture to persist under controlled oxygen
-    delivery.
+  description: The oxygen-removal arm of a condition-dependent mutualism protects oxygen-sensitive C. phytofermentans,
+    while bacterial sugar supply benefits the yeast. Semi-aerobic mono-/coculture comparisons support respiratory
+    protection, and controlled low oxygen delivery supports yeast persistence. This is not a claim that either organism
+    universally requires its partner under other culture conditions.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -235,11 +238,10 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
   downstream:
-  - target: Long-Term Symbiotic Population Maintenance
-    description: >
-      Yeast oxygen removal protects the anaerobic cellulolytic partner under
-      controlled oxygen transfer, allowing both populations to persist in the
-      long-term symbiosis.
+  - target: Oxygen-Dependent Long-Term Population Maintenance
+    description: PARTIAL - yeast respiratory protection together with oxygen-supported yeast growth and bacterial
+      sugar supply can stabilize the pairing. Oxygen-positive versus oxygen-negative viable-count controls support
+      the conditional cooperation, without selectively measuring every mediator.
   evidence:
   - reference: PMID:23628342
     supports: SUPPORT
@@ -251,21 +253,12 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: maintained by controlled oxygen transport
     explanation: Supports controlled oxygen delivery as the stabilizing environmental mechanism.
-- name: Long-Term Symbiotic Population Maintenance
-  description: Controlled diffusive oxygen transfer supported maintenance of both
-    C. phytofermentans and S. cerevisiae cdt-1 populations for 50 days.
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Saccharomyces cerevisiae cdt-1
-    term:
-      id: NCBITaxon:4932
-      label: Saccharomyces cerevisiae
-  target_taxon:
-    preferred_term: Clostridium phytofermentans ISDg
-    term:
-      id: NCBITaxon:357809
-      label: Lachnoclostridium phytofermentans ISDg
+- name: Oxygen-Dependent Long-Term Population Maintenance
+  description: With controlled oxygen delivery, both partners remained culturable at the reported 30-, 40- and 50-day
+    samples; without oxygen the yeast fell below detection before day 30. This long-term arm used 25 mL medium and
+    150 g/L alpha-cellulose. Population maintenance is a community outcome, distinct from the enzyme-assisted ethanol
+    experiment and from an unconditional mutualism claim.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -276,7 +269,17 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: maintenance of populations of 105 to 106 CFU/mL for 50 days
-    explanation: Supports long-term maintenance of both members under controlled oxygen transfer.
+    explanation: Supports reported long-term maintenance. The primary Results specify separate long-term culture
+      conditions and sampled viable counts; the abstract population range is not a continuous time-resolved measurement.
+  participating_taxa:
+  - preferred_term: Clostridium phytofermentans ISDg
+    term:
+      id: NCBITaxon:357809
+      label: Lachnoclostridium phytofermentans ISDg
+  - preferred_term: Saccharomyces cerevisiae cdt-1
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: SERUM_BOTTLE
@@ -465,3 +468,27 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this cellulose-to-ethanol
   coculture.
+discussions:
+- discussion_id: yeast_cellulose_stability_and_productivity
+  prompt: How do oxygen delivery and hydrolytic capacity separately control persistence and ethanol productivity?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Cellulose Hydrolysis Feeds Yeast Fermentation
+  - ecological_interactions#Oxygen Protection of Anaerobic Cellulolytic Partner
+  - ecological_interactions#Oxygen-Dependent Long-Term Population Maintenance
+  rationale: The oxygen controls support conditional cooperation and viable population maintenance, while additional
+    endoglucanase improves conversion. These are different experimental arms. Mediator-specific or partner-resolved
+    measurements would separate respiratory protection, sugar supply and enzyme effects without inferring universal
+    obligacy or unsupplemented productivity gains.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-06T00:56:04Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain soluble-sugar cross-feeding with enzyme-assisted output context, distinguishing feedstock, exchange
+    and product.; Retain the positive respiratory-protection and conditional mutualism evidence, not universal partner
+    dependence.; Represent oxygen-dependent viable population maintenance as a two-member outcome and keep the separate
+    long-term assay conditions. Issue #1336; reports/causal_graph_review/decisions/20261005-three-records-batch21.yaml'
+  llm_assisted: true

@@ -185,12 +185,9 @@ taxonomy:
       29579 strain designation.
 ecological_interactions:
 - name: Combinatorial cellulose-fed interaction rewiring
-  description: >
-    Species composition altered the modeled balance between cooperative
-    metabolite exchange and competition across the R. cellulolyticum-centered
-    bi-, tri-, and quad-species communities, with tri-cultures showing enhanced
-    cooperation and reduced competition compared with their corresponding
-    bi-cultures.
+  description: COMPUTATIONAL - composition changes altered SMETANA MIP/MRO scores in this bounded cellulose-fed
+    panel. These are exchange-potential and shared-import proxies, not measured reciprocal fitness. Resource overlap
+    includes auxiliary imports; one four-member configuration cannot establish a general richness rule.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
@@ -198,18 +195,26 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
   evidence:
-  - *design_evidence
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Different combinations of R. cellulolyticum, M. hungatei, M. concilii, and D. vulgaris, including
+      one mono-culture, three bi-cultures, three tri-cultures, and one quad-culture, were co-cultured in a medium
+      with cellulose as the sole carbon source
+
+      '
+    explanation: Supports the bounded mono-, bi-, tri-, and quad-species combinatorial panel and its cellulose-fed
+      anaerobic growth context.
   - reference: PMID:40937471
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: These results suggest that tri-cultures enhance cooperation and reduce competition
-    explanation: Summarizes the modeled tri-culture shift in SMETANA MIP/MRO
-      scores across the panel.
+    explanation: Supports the source interpretation of modeled MIP/MRO changes, not directly measured cooperative
+      or competitive fitness effects.
 - name: Acetoclastic methanogenesis as dominant methane route
-  description: >
-    In the multi-species panel, acetate cross-feeding to the acetoclastic
-    methanogen M. concilii was inferred as the primary route from cellulose
-    fermentation products to methane and carbon dioxide.
+  description: COMPUTATIONAL - the fitted stoichiometric model attributes acetate transfer from R. cellulolyticum
+    to M. concilii and identifies acetoclastic methanogenesis as an important methane route in assemblies containing
+    that methanogen. This is not directly traced transfer or a route available in every panel member.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -236,24 +241,25 @@ ecological_interactions:
   - reference: PMID:40937471
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: >
-      Flux analysis identified acetoclastic methanogenesis as the primary CH₄
-      and CO₂ source, especially in multi-species cultures
-    explanation: Supports M. concilii acetoclastic methanogenesis as the
-      dominant modeled methane route in the richer panel members.
+    snippet: 'Flux analysis identified acetoclastic methanogenesis as the primary CH₄ and CO₂ source, especially
+      in multi-species cultures
+
+      '
+    explanation: Supports a modeled dominant route in relevant M. concilii-containing configurations, not a panel-wide
+      route independent of membership.
   - reference: PMID:40937471
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: >
-      This was followed by the acetate exchange flux between R. cellulolyticum
-      and M. concilii
-    explanation: Directly supports acetate exchange between R. cellulolyticum
-      and M. concilii in the stoichiometric flux model.
+    snippet: 'This was followed by the acetate exchange flux between R. cellulolyticum and M. concilii
+
+      '
+    explanation: Directly supports acetate exchange between R. cellulolyticum and M. concilii in the stoichiometric
+      flux model.
 - name: D. vulgaris hydrogen turnover supports methanogenesis
-  description: >
-    D. vulgaris acted as a context-dependent syntrophic lactate oxidizer: its
-    redox and hydrogen turnover tightened interspecies hydrogen transfer and
-    improved methanogenic fluxes in the more complex cellulose-fed assemblies.
+  description: PARTIAL - the source proposes D. vulgaris lactate oxidation and hydrogen supply coupled to methanogen
+    consumption under sulfate limitation. H2 accumulation and fitted fluxes do not directly resolve turnover or
+    partner dependence. Low H2 can favor donor lactate oxidation; it is not itself evidence that hydrogenotrophic
+    methanogenesis is more energetically favorable.
   interaction_type: SYNTROPHY
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -282,19 +288,20 @@ ecological_interactions:
       label: methanogenesis, from carbon dioxide
   evidence:
   - reference: PMID:40937471
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: >
-      Desulfovibrio vulgaris likely promotes hydrogen turnover, maintaining
-      low partial pressures that favor this pathway
-    explanation: Supports the inferred D. vulgaris hydrogen-turnover effect on
-      hydrogenotrophic methanogenesis in the modeled panel.
+    snippet: 'Desulfovibrio vulgaris likely promotes hydrogen turnover, maintaining low partial pressures that favor
+      this pathway
+
+      '
+    explanation: Records the source-proposed turnover interpretation, not a measured H2-pressure mechanism. The
+      quoted thermodynamic wording must not reverse the donor-oxidation and recipient-consumption roles.
   - reference: PMID:40937471
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: Desulfovibrio vulgaris oxidizes lactate to acetate, CO2, and H2 in the absence of sulfate
-    explanation: Directly supports lactate oxidation to acetate and H2 as the
-      D. vulgaris pathway coupled to the hydrogen-turnover interaction.
+    explanation: Supports the proposed sulfate-limited pathway, not a directly measured organism-resolved flux or
+      demonstration of obligate syntrophy in every assembly.
 environmental_factors:
 - name: fully combinatorial species composition
   value: one R. cellulolyticum mono-culture, three bi-cultures, three tri-cultures,
@@ -432,31 +439,50 @@ curation_history:
 - timestamp: '2026-09-20T14:03:43Z'
   curator: codex
   action: CREATE_RECORD
-  changes: >
-    Created CommunityMech:000394 for the 2025 R. cellulolyticum-centered
-    cellulose-to-methane combinatorial SynCom panel from PMID:40937471,
-    including exact member strains, the mono-/bi-/tri-/quad-culture panel
-    design, modified VM cellulose medium, core acetate/lactate/hydrogen
-    cross-feeding interpretations, and a DOI-backed primary-publication
-    resource.
+  changes: 'Created CommunityMech:000394 for the 2025 R. cellulolyticum-centered cellulose-to-methane combinatorial
+    SynCom panel from PMID:40937471, including exact member strains, the mono-/bi-/tri-/quad-culture panel design,
+    modified VM cellulose medium, core acetate/lactate/hydrogen cross-feeding interpretations, and a DOI-backed
+    primary-publication resource.
+
+    '
   llm_assisted: true
 - timestamp: '2026-09-20T14:13:34Z'
   curator: codex
   action: UPDATE_RECORD
-  changes: >
-    Addressed PR review issues #965, #966, and #967 by adding direct
-    acetate-exchange evidence to the R. cellulolyticum-to-M. concilii edge,
-    replacing the methane ingredient's generic carbon-flow snippet with direct
-    gas-chromatography support, and adding direct D. vulgaris lactate-to-H2
-    evidence to the hydrogen-turnover edge.
+  changes: 'Addressed PR review issues #965, #966, and #967 by adding direct acetate-exchange evidence to the R.
+    cellulolyticum-to-M. concilii edge, replacing the methane ingredient''s generic carbon-flow snippet with direct
+    gas-chromatography support, and adding direct D. vulgaris lactate-to-H2 evidence to the hydrogen-turnover edge.
+
+    '
   llm_assisted: true
 - timestamp: '2026-10-02T05:41:05Z'
   curator: codex
   action: PRUNE_UNEVIDENCED_CAUSAL_EDGES
-  changes: >
-    Removed the reciprocal downstream edges between the combinatorial
-    interaction-rewiring summary node and the modeled acetoclastic-methanogenesis
-    route. Those nodes summarize complementary computational interpretations of
-    the same cellulose-fed panel, and the stoichiometric-modeling source did not
-    demonstrate a direct two-way ecological transition between them.
+  changes: 'Removed the reciprocal downstream edges between the combinatorial interaction-rewiring summary node
+    and the modeled acetoclastic-methanogenesis route. Those nodes summarize complementary computational interpretations
+    of the same cellulose-fed panel, and the stoichiometric-modeling source did not demonstrate a direct two-way
+    ecological transition between them.
+
+    '
   llm_assisted: true
+- timestamp: '2026-10-05T17:31:06Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Bound cellulose-panel proxy scores, assembly-specific acetate transfer and proposed hydrogen syntrophy;
+    reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml; https://github.com/CultureBotAI/CommunityMech/issues/1272
+  llm_assisted: true
+discussions:
+- discussion_id: cellulose_panel_flux_identifiability
+  prompt: Which isotope- or perturbation-resolved exchanges validate the modeled composition-specific mechanisms?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Combinatorial cellulose-fed interaction rewiring
+  - ecological_interactions#Acetoclastic methanogenesis as dominant methane route
+  - ecological_interactions#D. vulgaris hydrogen turnover supports methanogenesis
+  rationale: PMID:40937471 combines CarveMe/SMETANA predictions with a separate stoichiometric fit using protein
+    and ATP assumptions. Results report reduced acetate exchange in the Rc/Mc/Dv tri-culture, limiting the discussion
+    claim of consistent Dv enhancement. Narrative and table thermodynamic values differ; no new numerical energy
+    claims are asserted. Prior acetate/lactate evidence and the removal of summary arrows are preserved.
+  posed_by: codex
+  posed_date: '2026-10-05'

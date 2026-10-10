@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        freshwater wetland soil
+                        freshwater wetland soil<span class="ontology-label"> — ontology label: wetland area</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000043"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -454,7 +462,7 @@
 
                     <tr>
                         <td>
-                            <strong>wetland soil microbial community</strong>
+                            <strong>wetland soil microbial community<span class="ontology-label"> — ontology label: cellular organisms</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=131567"
@@ -511,7 +519,7 @@
 
                     <tr>
                         <td>
-                            <strong>wetland soil methanogenic archaea</strong>
+                            <strong>wetland soil methanogenic archaea<span class="ontology-label"> — ontology label: Archaea</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2157"
@@ -566,7 +574,7 @@
 
                     <tr>
                         <td>
-                            <strong>wetland soil bacterial guilds</strong>
+                            <strong>wetland soil bacterial guilds<span class="ontology-label"> — ontology label: Bacteria</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2"
@@ -630,21 +638,17 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Wetland Oxygen-Sulfate Greenhouse Gas Microcosm Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, competition, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for competition. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -653,8 +657,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -665,6 +669,7 @@
                     <h3>Sulfate Suppression Of Methanogenesis</h3>
                     <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">Sulfate addition reduced methane accumulation in the wetland microcosms. PARTIAL: metaproteomic markers and fitted fluxes support stronger suppression of hydrogenotrophic than acetoclastic methanogenesis and competition between sulfate-reducing bacterial and methanogenic guilds. This does not measure a universal Bacteria-to-Archaea antagonism or establish direct acetate competition with acetoclastic methanogens.</p>
 
 
                 <p><strong>Source Taxon:</strong> wetland soil bacterial guilds</p>
@@ -672,6 +677,14 @@
 
 
                 <p><strong>Target Taxon:</strong> wetland soil methanogenic archaea</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    wetland soil methanogenic archaea,
+
+                    wetland soil bacterial guilds
+
+                </p>
 
 
 
@@ -708,15 +721,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Lactate-Sulfate Carbon And Sulfur Subnetwork
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -741,10 +745,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/38961111/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38961111</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"hydrogenotrophic methanogenesis more suppressed than acetoclastic"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/38961111/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38961111</a>
+
+                            - PARTIAL (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"SRB outcompeting hydrogenotrophic methanogens"</div>
 
                     </li>
 
@@ -755,8 +772,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Oxygen Shift From Methane To Carbon Dioxide</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
+                <p class="prewrap interaction-description">Oxygen-treated soil microcosms accumulated less methane and more carbon dioxide than the anoxic baseline. The combined oxygen-plus-sulfate treatment showed a similar overall gas pattern to oxygen alone, not identity of all microbial responses. This abiotic treatment effect is not an organism-to-organism niche-partitioning interaction; residual methane in the measurements must not be equated with zero production.</p>
 
 
 
@@ -793,15 +810,6 @@
                 </ul>
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Lactate-Sulfate Carbon And Sulfur Subnetwork
-                    </div>
-
-                </div>
 
 
 
@@ -840,14 +848,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Lactate-Sulfate Carbon And Sulfur Subnetwork</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Modeled lactate-sulfate carbon and sulfur subnetwork</h3>
                 </div>
+                <p class="prewrap interaction-description">PARTIAL: a nine-reaction stoichiometric model fitted to measured metabolite amounts supports sulfidogenic lactate oxidation producing acetate, H2S and CO2 in the oxic sulfate treatment. Fitted fluxes and concordant protein abundances are not directly measured interspecies transfer or unique donor-recipient cross-feeding. Oxygen also suppressed sulfate-reduction activity relative to anoxic sulfate treatment, so this subnetwork is not evidence of universally enhanced sulfate reduction under oxygen.</p>
 
 
                 <p><strong>Source Taxon:</strong> wetland soil bacterial guilds</p>
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    wetland soil bacterial guilds
+
+                </p>
 
 
 
@@ -887,7 +901,7 @@
                     </li>
 
                     <li>
-                        organic substance catabolic process
+                        catabolic process
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0009056"
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0009056</a>)
                     </li>
@@ -907,7 +921,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/38961111/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38961111</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"Metaproteomics and stoichiometric modeling revealed a unique subnetwork involving carbon metabolism"</div>
@@ -920,10 +934,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/38961111/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38961111</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"converts lactate and SO42- to produce acetate, H2S, and CO2"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/38961111/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38961111</a>
+
+                            - PARTIAL (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"The fluxes of these reactions were fitted to the cumulative amounts of acetate, lactate, butyrate, H2, CO2, CH4, and H2S produced or consumed over the 30 days of incubation."</div>
 
                     </li>
 
@@ -987,6 +1014,45 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which guild-resolved transfers and causal dependencies are uniquely established beyond the fitted wetland model?
+                </h3>
+                <p class="prewrap">Measured standing metabolites and endpoint metaproteomes constrain a nine-reaction model but do not isolate donor-recipient fluxes or establish the two removed response-to-model arrows. Source results/discussion also differ in statements about additivity and some oxygen-linked routes, so no stronger route-specific or universal-zero conclusion is added. Model-code, raw-data and perturbation review would be needed to resolve those dependencies.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Sulfate Suppression Of Methanogenesis</code>, <code>ecological_interactions#Oxygen Shift From Methane To Carbon Dioxide</code>, <code>ecological_interactions#Modeled lactate-sulfate carbon and sulfur subnetwork</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+
+
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/38961111/" rel="nofollow noreferrer">PMID:38961111</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">The fluxes of these reactions were fitted to the cumulative amounts of acetate, lactate, butyrate, H2, CO2, CH4, and H2S produced or consumed over the 30 days of incubation.</p>
+
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1348,12 +1414,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1366,7 +1435,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1444,7 +1512,7 @@
             processes.push("methanogenesis");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1473,7 +1541,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1509,7 +1577,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1529,14 +1597,14 @@
 
             processes.push("sulfate reduction");
 
-            processes.push("organic substance catabolic process");
+            processes.push("catabolic process");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "Lactate-Sulfate Carbon And Sulfur Subnetwork",
+                label: "Modeled lactate-sulfate carbon and sulfur subnetwork",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1565,6 +1633,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

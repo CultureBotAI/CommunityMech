@@ -1,0 +1,308 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 17b5c3da1722987a42a9d0c26d2f6ec4b3a834f2
+issues:
+- 1375
+- 1376
+- 1377
+open_nongraph_followups:
+- 1378
+- 1379
+- 1380
+issue_deduplication:
+  all_state_issue_titles_bodies: 706
+  ignored_hidden_local_files_included: true
+  comments_exhaustive: false
+  relevant_issues_read:
+  - 401
+  - 754
+  finding: No duplicate exact graph defect in searched titles/bodies and local scoped review/history records. Legacy
+    snippet scripts, whole-corpus output listings, enamel cultivation source coverage and Colwellia withholding
+    are distinct and preserved.
+reference_cache_original_hashes:
+  references_cache/PMID_20736401.md: b3d90a098b1146e0c93bf8dcbeae8351d71a84381cd680361533fd8d7cc49cf0
+  references_cache/PMID_22616650.md: 919a63869ad5e55fa8327cb0336c5ec836e2c749fd419bfc4677d3b318990fbf
+  references_cache/PMID_23446436.txt: c3bd06dfad668238c55075e60ba96e9baecfc5c7cbfc4615506224326f5dda2a
+  references_cache/PMID_24865772.md: 7c80bb2977b19583a7bfcc904d707d97e0648120ef9439bb54eb91898af22230
+  references_cache/PMID_25071745.md: f32f82c3ce15db7598be5d9081aaa7e0871f7a017131a003fe79da5b43285317
+  references_cache/PMID_27572965.md: 225e74d8a007994ef20698c15a5ef8f961b962924818159751ebdfc834f2064c
+  references_cache/PMID_33879573.txt: 8e9a737c19f0295881f838aa908d7db935e86b4bca610554a720556d938ec26a
+  references_cache/doi_10.1073_pnas.2100678118.json: 5d541c1d565a0cfb8f30d7a07ef3462864d7f6dd7b83db8159c0c0d4ad3540d8
+  references_cache/doi_10.1073_pnas.2100678118.md: c7509632de060d3081807e1649cae4edec25e8adc2255a73ced6bea14cbbaa0c
+limitations:
+- Three graph reviews; fourteen original nodes become ten and seven arrows become four. No new graph structure or
+  Edison job/spend.
+- Primary-source access differs by study and is recorded per reference. Snippet MATCH is textual verification, not
+  scientific endorsement; WRKY detail was checked in the full body rather than its broad abstract snippet.
+- No new full article/PDF is committed. Existing reference caches and all non-graph record blocks are preserved.
+- Three separate non-graph metadata follow-ups remain open. This is a self-adversarial review, not independent approval,
+  protected CI success or full-corpus completion.
+records:
+- path: kb/communities/Dangl_SynComm_35.yaml
+  id: CommunityMech:000022
+  original_sha256: 1308bd7106e991df960bd18afdc8bad9df6da33c9dd124cfb0f1e1a1e60e398b
+  record_sha256: 9a828b5a59f88ca41699338a0187ebbe4d59da5b05fcc4ef40cf788b2ee9a277
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch29.yaml
+  scope: Whole record and every original node/arrow inspected against cited primary evidence at the documented access
+    scope. Non-graph fields are preserved, not certified.
+  summary: Retain positive root immune suppression at community scope; do not assign community readouts exclusively
+    to MF79.; Retain the primary-body WRKY observation without converting proposed regulatory/homeostasis roles
+    into proven causality; abstract snippet support is explicitly partial.; Retain the tested MF79 secretion-system
+    mechanism and existing arrow with strain-specific scope and unresolved effector identity.; Retain experimentally
+    supported colonization facilitation, distinguish assay contexts and incomplete canonical participants, and remove
+    reciprocal-fitness attribution.
+  renamed_nodes:
+    MAMP-Triggered Immunity Suppression: Root flg22 Immune Suppression
+    WRKY Transcription Factor Suppression: Community-Associated WRKY Transcript Suppression
+    Type II Secretion-Mediated Immune Modulation: MF79 Type II Secretion-Dependent Immune Modulation
+    Enhanced Colonization Through Community Cooperation: Suppression-Associated Root Colonization Facilitation
+  node_decisions:
+  - node: Root flg22 Immune Suppression
+    rationale: Retain positive root immune suppression at community scope; do not assign community readouts exclusively
+      to MF79.
+  - node: Community-Associated WRKY Transcript Suppression
+    rationale: Retain the primary-body WRKY observation without converting proposed regulatory/homeostasis roles
+      into proven causality; abstract snippet support is explicitly partial.
+  - node: MF79 Type II Secretion-Dependent Immune Modulation
+    rationale: Retain the tested MF79 secretion-system mechanism and existing arrow with strain-specific scope and
+      unresolved effector identity.
+  - node: Suppression-Associated Root Colonization Facilitation
+    rationale: Retain experimentally supported colonization facilitation, distinguish assay contexts and incomplete
+      canonical participants, and remove reciprocal-fitness attribution.
+  removed_node_decisions:
+  - node: Taxonomic Diversity Enabling Functional Complementarity
+    rationale: Taxonomic breadth does not establish the asserted genus-specific metabolic functions, mutualism or
+      resilience mechanism; positive community immune modulation remains retained.
+  - node: Community Member Metabolic Cooperation
+    rationale: The cited colonization snippet does not measure Microbacterium/Stenotrophomonas nutrient exchange,
+      amino-acid supply or siderophore public goods.
+  - node: Negative Control Strain Baseline Response
+    rationale: The cited background snippet and reviewed primary main body do not establish the asserted E. coli
+      control phenotype or E. coli/Dyella competition; supplements were not inspected.
+  edges_before:
+  - source: MAMP-Triggered Immunity Suppression
+    target: Enhanced Colonization Through Community Cooperation
+    description: Suppression of MAMP-triggered immunity gates microbial access to Arabidopsis roots, allowing robust
+      suppressors to improve the root colonization capacity of otherwise nonsuppressive commensals.
+  - source: Type II Secretion-Mediated Immune Modulation
+    target: MAMP-Triggered Immunity Suppression
+    description: Type II secretion provides an extracellular suppressor mechanism that prevents full activation
+      of Arabidopsis MAMP-triggered immunity.
+  edges_after:
+  - source: Root flg22 Immune Suppression
+    target: Suppression-Associated Root Colonization Facilitation
+    description: Suppression can facilitate nonsuppressor root colonization under the tested conditions. MF79 wild-type
+      retentate, unlike T2SS-mutant material, countered the flg22-associated reduction in Ochrobactrum MF370 colonization.
+      This does not establish universal facilitation by every suppressor or reciprocal benefit.
+  - source: MF79 Type II Secretion-Dependent Immune Modulation
+    target: Root flg22 Immune Suppression
+    description: MF79 T2SS function enables its extracellular suppressive activity in the root reporter assay. This
+      arrow applies to the MF79 component of the suppression node, not necessity of T2SS for the entire SynCom35
+      phenotype.
+  retained_edge_decisions:
+  - source: Root flg22 Immune Suppression
+    target: Suppression-Associated Root Colonization Facilitation
+    rationale: Suppression can facilitate nonsuppressor root colonization under the tested conditions. MF79 wild-type
+      retentate, unlike T2SS-mutant material, countered the flg22-associated reduction in Ochrobactrum MF370 colonization.
+      This does not establish universal facilitation by every suppressor or reciprocal benefit.
+  - source: MF79 Type II Secretion-Dependent Immune Modulation
+    target: Root flg22 Immune Suppression
+    rationale: MF79 T2SS function enables its extracellular suppressive activity in the root reporter assay. This
+      arrow applies to the MF79 component of the suppression node, not necessity of T2SS for the entire SynCom35
+      phenotype.
+  removed_edge_decisions: []
+  references:
+  - PMID:33879573
+  issues:
+  - 1375
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Dangl_SynComm_35/2026-10-06T052450Z-codex-4c42b0.yaml
+  source_review:
+    PMID:33879573:
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8072228/
+      scope: Complete primary main body and five main figure captions via PMC; independent cached abstract and DOI
+        significance text. No figure images or supplements inspected. PMC supplement access returned a browser challenge
+        and PNAS alternate failed. GEO GSE156425 protocol read separately. WRKY-specific detail is primary-body
+        verified, not validated by the abstract snippet.
+- path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+  id: CommunityMech:000166
+  original_sha256: de4e7abef8320819a7fb648bef5b6b77bf9c7e9addc1d47eb8b7221fd9f97e94
+  record_sha256: 7cc349b1d2309b6d071aeaea72234305922c0c76458baab1469ce258142083f7
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch29.yaml
+  scope: Whole record and every original node/arrow inspected against cited primary evidence at the documented access
+    scope. Non-graph fields are preserved, not certified.
+  summary: Retain measured cold biodegradation and qualified bioremediation potential; consolidate duplicate oxygen
+    context without asserting syntrophy or oxygen conservation.; Retain positive Colwellia-dominated flocs while
+    qualifying their proposed contribution to degradation and removing unsupported facilitation.; Retain positive
+    SIP/genome evidence and the complementary-pathway hypothesis, distinguish surface/deep and laboratory/field
+    contexts, and retain alternative explanations.
+  renamed_nodes:
+    Intrinsic Hydrocarbon Bioremediation: Cold Hydrocarbon Biodegradation and Bioremediation Potential
+    Colwellia Oil Droplet Floc Formation: Colwellia-Dominated Oil-Associated Flocs
+    Complex Hydrocarbon Substrate Partitioning: Proposed Community Hydrocarbon Pathway Complementarity
+  node_decisions:
+  - node: Cold Hydrocarbon Biodegradation and Bioremediation Potential
+    rationale: Retain measured cold biodegradation and qualified bioremediation potential; consolidate duplicate
+      oxygen context without asserting syntrophy or oxygen conservation.
+  - node: Colwellia-Dominated Oil-Associated Flocs
+    rationale: Retain positive Colwellia-dominated flocs while qualifying their proposed contribution to degradation
+      and removing unsupported facilitation.
+  - node: Proposed Community Hydrocarbon Pathway Complementarity
+    rationale: Retain positive SIP/genome evidence and the complementary-pathway hypothesis, distinguish surface/deep
+      and laboratory/field contexts, and retain alternative explanations.
+  removed_node_decisions:
+  - node: Oxygen-Conserving Deep-Plume Hydrocarbon Attenuation
+    rationale: The target repeats the same biodegradation/oxygen conclusion and snippets, not a separate downstream
+      mechanism; bounded oxygen context is retained in the source node.
+  edges_before:
+  - source: Intrinsic Hydrocarbon Bioremediation
+    target: Oxygen-Conserving Deep-Plume Hydrocarbon Attenuation
+    description: Fast cold-water hydrocarbon biodegradation by indigenous Gammaproteobacteria supports natural plume
+      attenuation without a substantial loss of dissolved oxygen.
+  - source: Colwellia Oil Droplet Floc Formation
+    target: Intrinsic Hydrocarbon Bioremediation
+    description: Oil-associated Colwellia biomass flocs contribute a particle-associated route into cold deep-water
+      oil degradation.
+  - source: Complex Hydrocarbon Substrate Partitioning
+    target: Intrinsic Hydrocarbon Bioremediation
+    description: Partitioning alkane and PAH metabolism among non-redundant plume guilds lets the community degrade
+      complex petroleum mixtures.
+  edges_after:
+  - source: Colwellia-Dominated Oil-Associated Flocs
+    target: Cold Hydrocarbon Biodegradation and Bioremediation Potential
+    description: HYPOTHESIZED - aggregation with oil droplets could support Colwellia-associated hydrocarbon access
+      and degradation. The enrichment observations and separate isolate assay do not selectively test this route
+      or establish its contribution to in situ plume attenuation.
+  - source: Proposed Community Hydrocarbon Pathway Complementarity
+    target: Cold Hydrocarbon Biodegradation and Bioremediation Potential
+    description: HYPOTHESIZED - complementary pathways could expand community hydrocarbon transformation and contribute
+      to bioremediation. SIP and annotated repertoires support this model but do not establish intertaxon flux,
+      necessity or the contribution of this room-temperature enrichment mechanism in the cold field plume.
+  retained_edge_decisions:
+  - source: Colwellia-Dominated Oil-Associated Flocs
+    target: Cold Hydrocarbon Biodegradation and Bioremediation Potential
+    rationale: HYPOTHESIZED - aggregation with oil droplets could support Colwellia-associated hydrocarbon access
+      and degradation. The enrichment observations and separate isolate assay do not selectively test this route
+      or establish its contribution to in situ plume attenuation.
+  - source: Proposed Community Hydrocarbon Pathway Complementarity
+    target: Cold Hydrocarbon Biodegradation and Bioremediation Potential
+    rationale: HYPOTHESIZED - complementary pathways could expand community hydrocarbon transformation and contribute
+      to bioremediation. SIP and annotated repertoires support this model but do not establish intertaxon flux,
+      necessity or the contribution of this room-temperature enrichment mechanism in the cold field plume.
+  removed_edge_decisions:
+  - source: Intrinsic Hydrocarbon Bioremediation
+    target: Oxygen-Conserving Deep-Plume Hydrocarbon Attenuation
+    rationale: The target repeats the same biodegradation/oxygen conclusion and snippets, not a separate downstream
+      mechanism; bounded oxygen context is retained in the source node.
+  references:
+  - PMID:20736401
+  - PMID:22616650
+  - PMID:27572965
+  - PMID:24865772
+  - PMID:25071745
+  issues:
+  - 1376
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession/2026-10-06T052450Z-codex-df845f.yaml
+  source_review:
+    PMID:20736401:
+      url: https://pubmed.ncbi.nlm.nih.gov/20736401/
+      scope: Complete cached primary abstract and fresh official PubMed search; primary full body unavailable in
+        this review. Science open failed; no figures or supplements inspected.
+    PMID:22616650:
+      url: https://pubmed.ncbi.nlm.nih.gov/22616650/
+      scope: Complete cached primary abstract. Author-repository source identified but access returned a browser
+        challenge. No full body, figures or supplements inspected.
+    PMID:27572965:
+      url: https://pure.hw.ac.uk/ws/portalfiles/portal/10579894/NMICROBIOL.2016.57_auproof.pdf
+      scope: Complete primary author-proof main body, Methods and three captions read; Figure 3 inspected visually
+        from a local rendering. Publisher abstract independently confirmed. Author proof is not asserted to be the
+        final typeset version. No supplements inspected; no full text added to git.
+      local_pdf_sha256: 48907413a0d13634a6ae28f7d2be7b36b1d9f27a5ac4f773310bbd6112fa391e
+    PMID:24865772:
+      url: https://www.nature.com/articles/ismej201488
+      scope: Complete cached abstract and fresh publisher search. This is a short communication discussing primary
+        findings, used for a non-graph qualification follow-up; no full body or figure images inspected.
+    PMID:25071745:
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4085564/
+      scope: Complete primary main body and two main figure captions read in the existing independent full-text
+        cache; no figure images or supplements inspected. Genomic predictions used to constrain interpretation,
+        not extend the graph.
+- path: kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+  id: CommunityMech:000082
+  original_sha256: 44c660bcd4b7ee0cc6b7dc9f6512a6215ebdf6e96251826169a5124441166009
+  record_sha256: 320691301cf3e2d94ca9bf69873471e12309ce32271eecc02c3b222a08e6b9d6
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch29.yaml
+  scope: Whole record and every original node/arrow inspected against cited primary evidence at the documented access
+    scope. Non-graph fields are preserved, not certified.
+  summary: Retain the inoculated biofilm platform without interspecies facilitation or universal persistence claims.;
+    Retain treatment- and species-specific viable-count outcomes without cross-feeding or a uniform calcium effect.;
+    Retain endpoint-specific enamel mineral outcomes without microbial competition or an untested mediation mechanism.
+  renamed_nodes:
+    Sucrose-Responsive Viable Biofilm Shift: Treatment-Dependent Viable Biofilm Counts
+  node_decisions:
+  - node: Four-Species Enamel Biofilm Formation
+    rationale: Retain the inoculated biofilm platform without interspecies facilitation or universal persistence
+      claims.
+  - node: Treatment-Dependent Viable Biofilm Counts
+    rationale: Retain treatment- and species-specific viable-count outcomes without cross-feeding or a uniform calcium
+      effect.
+  - node: Mineral-Dependent Demineralization Restraint
+    rationale: Retain endpoint-specific enamel mineral outcomes without microbial competition or an untested mediation
+      mechanism.
+  removed_node_decisions: []
+  edges_before:
+  - source: Four-Species Enamel Biofilm Formation
+    target: Sucrose-Responsive Viable Biofilm Shift
+    description: The established four-species enamel biofilm provided the viable biomass whose cell counts shifted
+      across the sucrose, fluoride, and calcium arms.
+  - source: Four-Species Enamel Biofilm Formation
+    target: Mineral-Dependent Demineralization Restraint
+    description: Four days of multispecies biofilm growth on enamel slabs created the demineralization readout modulated
+      by fluoride and calcium.
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions:
+  - source: Four-Species Enamel Biofilm Formation
+    target: Sucrose-Responsive Viable Biofilm Shift
+    rationale: The assay provides the biomass whose counts are measured; assay context alone does not establish
+      a causal transition between interactions.
+  - source: Four-Species Enamel Biofilm Formation
+    target: Mineral-Dependent Demineralization Restraint
+    rationale: The biofilm/enamel platform provides the mineral-loss readout, not a demonstrated causal effect of
+      community assembly on mineral-dependent restraint.
+  references:
+  - PMID:23446436
+  issues:
+  - 1377
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Defined_Multispecies_Enamel_Caries_Model/2026-10-06T052450Z-codex-bf5211.yaml
+  source_review:
+    PMID:23446436:
+      url: https://www.adm.org.mx/backup/biblioteca/caries-research/2013/A%20DEFINED%20MULTISPECIES7.pdf
+      scope: Complete primary body, independent cached abstract and Tables 1-2 read; both tables visually inspected
+        in the local page-4 rendering. Karger publisher body was subscription-restricted; a publicly available copy
+        was read without bypassing access controls. No full text added to git.
+      local_pdf_sha256: 5eb573e0d081a382fb35a21ef7c90c6e245d6de22f711ee5cd81fd8d80af2d76

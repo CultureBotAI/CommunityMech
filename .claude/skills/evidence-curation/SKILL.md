@@ -10,6 +10,37 @@ tags: [evidence, snippets, literature, pmid, doi, references, repair, curation]
 
 # Evidence Curation Skill
 
+## Assessed Review Handoff
+
+For an evidence review or audit, delegate the final assessment to
+[review-communities](../review-communities/SKILL.md), following
+[docs/record-reviews.md](../../../docs/record-reviews.md) and
+[the local profile](../../../docs/record-review-profile.md).
+Use the registered review-communities route as the saved `skill`; preserve
+per-record P1-P4 findings, both native scores, and assertion-level evidence.
+For each interaction or causal edge keep participants, direction, mechanism,
+experimental context, exact source locator and inspected verbatim snippet.
+Distinguish abstract, full text and supplementary evidence.
+
+Extraction, network checks and repair suggestions are diagnostic inputs, not
+completed scientific review or snippet approval. A deterministic-only
+assessment uses `scientific_review: false`. No producer draft may be promoted
+without actual source assessment. Missing evidence remains a scoped gap.
+Save final assessed YAML plus derived Markdown under
+`reviews/structured/<timestamp>-<slug>/` and link both:
+
+```bash
+uv run python scripts/record_review.py inspect --targets /tmp/evidence-targets.yaml
+uv run python scripts/record_review.py validate /tmp/completed-evidence-review.yaml
+uv run python scripts/record_review.py save --content /tmp/completed-evidence-review.yaml
+```
+
+Use session-unique temporary paths. Audit-only requests run no repair/apply
+commands and change no scientific records, status or history. The repair
+workflows below require explicit curation intent and the native guarded writer.
+Paid/LLM research or repair additionally requires explicit authorization;
+the assessment handoff does not invoke or recreate a research producer.
+
 ## Overview
 
 CommunityMech community records require evidence-backed claims: each interaction,
@@ -22,7 +53,7 @@ This skill covers the full evidence lifecycle:
 - **Review** — manual literature review and snippet approval
 - **Validate** — confirm evidence passes schema and reference checks
 
-**Run from `CommunityMech/CommunityMech/` directory.**
+**Run from the repository root.**
 
 ---
 
@@ -65,7 +96,7 @@ python scripts/apply_pmc_conversions.py
 # 5. Normalize reference formats (PMID: prefix, DOI capitalization)
 python scripts/fix_reference_formats.py
 
-# 6. Run review-communities to check remaining issues
+# 6. Network diagnostics only; then hand off to review-communities above
 communitymech audit-network
 ```
 
@@ -77,13 +108,8 @@ communitymech audit-network
 # Extract snippets from a PDF
 python scripts/curate_evidence_with_pdfs.py --pdf path/to/paper.pdf
 
-# Quick literature review for a specific community
-python scripts/quick_literature_review.py --community CommunityMech:000042
-
-# Full literature review with scoring
-python scripts/review_literature.py --community CommunityMech:000042
-
-# Apply suggested fixes after review
+# Assess extracted evidence through review-communities and the common saver.
+# Apply suggested fixes only after separately authorized curation review.
 python scripts/apply_suggested_snippets.py
 python scripts/apply_suggested_fixes.py
 ```
@@ -102,8 +128,6 @@ python scripts/apply_suggested_fixes.py
 | `scripts/apply_pmc_conversions.py` | PMC ID → PMID conversion |
 | `scripts/handle_special_references.py` | Edge cases (preprints, books, datasets) |
 | `scripts/curate_evidence_with_pdfs.py` | PDF-backed snippet extraction |
-| `scripts/quick_literature_review.py` | Fast per-community literature scan |
-| `scripts/review_literature.py` | Full literature review with scoring |
 | `scripts/analyze_literature_report.py` | Analyze review results |
 | `scripts/analyze_review_cases.py` | Categorize review case types |
 | `scripts/apply_suggested_snippets.py` | Apply auto-suggested snippet text |
@@ -141,11 +165,13 @@ All API calls respect rate limits; no API key required for PubMed.
 Always run validation after evidence changes:
 
 ```bash
-# Full schema + reference validation
+# Network diagnostics; this is not full schema + reference validation
 communitymech audit-network
 
-# Or use review-communities skill
-# (checks evidence references as part of full QA)
+# Separate schema and reference checks for the actual reviewed record:
+just validate-strict <record-path>
+just validate-references-explained <record-path>
+# Then use review-communities for the assessed review and shared persistence.
 ```
 
 ---
@@ -163,8 +189,9 @@ communitymech audit-network
 - May be preprint DOI — use `handle_special_references.py`
 
 **"Missing evidence entirely":**
-- Run `quick_literature_review.py` to find candidate papers
-- Or use LLM: `communitymech repair-network --community CommunityMech:XXXXXX`
+- Hand off to `review-communities` to assess inspected sources or record a gap.
+- Do not run paid/LLM producers without explicit authorization. Suggestions
+  remain unassessed leads until the source and exact assertion are checked.
 
 ---
 

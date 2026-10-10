@@ -63,20 +63,21 @@ taxonomy:
       sequencing and qSIP.
 ecological_interactions:
 - name: Necromass Recycling at High Community Growth Efficiency
-  description: At high community growth efficiency, microbes consumed more
-    energetically favorable N-rich necromass released through high microbial
-    turnover, supporting amino acid and peptidoglycan biosynthesis and aromatic
-    compound degradation.
+  description: HYPOTHESIZED - higher source-defined community growth efficiency was associated with amino-acid/peptidoglycan
+    biosynthesis and aromatic-degradation transcripts, interpreted as greater necromass recycling. Formula-class
+    and transcript patterns do not identify transferred molecules or measure those pathway fluxes.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: amino acid
     term:
       id: CHEBI:33709
       label: amino acid
+    notes: Pathway-associated chemical class, not an identified interpartner transfer or quantified pool.
   - preferred_term: peptidoglycan
     term:
       id: CHEBI:8005
       label: peptidoglycan
+    notes: Pathway-associated chemical class, not an identified interpartner transfer or quantified pool.
   biological_processes:
   - preferred_term: amino acid biosynthetic process
     term:
@@ -88,22 +89,21 @@ ecological_interactions:
       label: peptidoglycan biosynthetic process
   evidence:
   - reference: PMID:41964077
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: microbes appeared to consume more energetically favorable N-rich
-      necromass
-    explanation: Supports necromass-based cross-feeding at high CGE.
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: microbes appeared to consume more energetically favorable N-rich necromass
+    explanation: Supports the source interpretation of associated laboratory measurements, not direct substrate
+      transfer or pathway flux.
   - reference: PMID:41964077
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: increased amino acids and peptidoglycan biosynthesis and greater
-      aromatic compound degradation
-    explanation: Supports the high-CGE metabolic strategy.
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: increased amino acids and peptidoglycan biosynthesis and greater aromatic compound degradation
+    explanation: Supports the source interpretation of associated laboratory measurements, not direct substrate
+      transfer or pathway flux.
 - name: Plant Detritus Degradation at Low Community Growth Efficiency
-  description: At low community growth efficiency, communities exhibited elevated
-    carbohydrate metabolism and lipid turnover consistent with increased
-    investment in plant detritus degradation and membrane repair and maintenance
-    rather than growth.
+  description: HYPOTHESIZED - carbohydrate/lipid-associated transcription at lower relative community growth efficiency
+    was interpreted as allocation toward plant detritus use and maintenance. These associations are not measured
+    substrate-specific degradation or membrane-repair fluxes.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: carbohydrate metabolic process
@@ -116,52 +116,49 @@ ecological_interactions:
       label: lipid metabolic process
   evidence:
   - reference: PMID:41964077
-    supports: SUPPORT
-    evidence_source: IN_VIVO
+    supports: PARTIAL
+    evidence_source: IN_VITRO
     snippet: communities had elevated carbohydrate metabolism and lipid turnover
-    explanation: Supports the low-CGE metabolic shift toward plant detritus and
-      membrane maintenance.
+    explanation: Supports the source interpretation of associated laboratory measurements, not direct substrate
+      transfer or pathway flux.
   - reference: PMID:41964077
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: increased investment in plant detritus degradation and membrane
-      repair and maintenance rather than growth
-    explanation: Supports the resource-allocation interpretation at low CGE.
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: increased investment in plant detritus degradation and membrane repair and maintenance rather than
+      growth
+    explanation: Supports the source interpretation of associated laboratory measurements, not direct substrate
+      transfer or pathway flux.
 - name: Precipitation-Legacy Turnover Suppression
-  description: Reduced winter precipitation imposed a strong legacy effect on
-    microbial turnover. Respiration rates remained similar, but microbial growth
-    dropped by about one order of magnitude and mortality dropped by about two
-    orders of magnitude, lowering community growth efficiency.
+  description: After one winter rainfall-treatment season, laboratory-rewetted soil showed lower bacterial/archaeal
+    qSIP growth and mortality estimates under reduced-precipitation history. CO2 differences were nonsignificant,
+    not equivalent. CGE is cumulative new biomass divided by cumulative CO2 and scaled to the observed maximum,
+    not absolute carbon-use efficiency or measured long-term soil-carbon loss.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: water
     term:
       id: CHEBI:15377
       label: water
-    notes: Field rainfall and laboratory H2-18O wet-up water imposed the moisture
-      history and rewetting response measured in the grassland soil.
+    notes: Field rainfall and laboratory H2-18O wet-up water imposed the moisture history and rewetting response
+      measured in the grassland soil.
   downstream:
   - target: Necromass Recycling at High Community Growth Efficiency
-    description: Reduced winter precipitation suppresses microbial mortality,
-      limiting the high-turnover, N-rich necromass pool that otherwise supports
-      high-CGE biosynthesis after rewetting.
+    description: HYPOTHESIZED - lower mortality could reduce necromass supply and recycling after rewetting. This
+      source interpretation is not traced transfer or experimentally isolated mediation.
   - target: Plant Detritus Degradation at Low Community Growth Efficiency
-    description: The lower-growth, lower-mortality legacy shifts the community
-      toward low-CGE plant-detritus degradation and lipid repair or maintenance
-      instead of new biomass production.
+    description: HYPOTHESIZED - reduced turnover and associated transcription could shift resource allocation toward
+      detritus use and maintenance. Shared treatment responses do not establish this pathway as the cause.
   evidence:
   - reference: PMID:41964077
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: microbial growth declined by ~1 order of magnitude, yielding
-      decreased community growth efficiency
+    evidence_source: IN_VITRO
+    snippet: microbial growth declined by ~1 order of magnitude, yielding decreased community growth efficiency
     explanation: Supports the precipitation-legacy effect on growth efficiency.
   - reference: PMID:41964077
     supports: SUPPORT
-    evidence_source: IN_VIVO
+    evidence_source: IN_VITRO
     snippet: microbial mortality declined by ~2 orders of magnitude
-    explanation: Supports the parallel decline in microbial mortality under
-      reduced legacy precipitation.
+    explanation: Supports the parallel decline in microbial mortality under reduced legacy precipitation.
 environmental_factors:
 - name: Imposed precipitation regime
   value: 100 percent vs 50 percent mean annual precipitation
@@ -328,3 +325,25 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   grassland soil precipitation-legacy community.
+discussions:
+- discussion_id: california_turnover_substrate_and_efficiency
+  prompt: Do direct substrate tracing and resolved turnover measurements validate the proposed recycling and allocation
+    mechanisms?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Necromass Recycling at High Community Growth Efficiency
+  - ecological_interactions#Plant Detritus Degradation at Low Community Growth Efficiency
+  - ecological_interactions#Precipitation-Legacy Turnover Suppression
+  rationale: PMID:41964077 uses interval-average 16S qSIP estimates and relative CGE after laboratory wet-up. Fungal
+    turnover, identified metabolites, equivalence of CO2 output and multiyear carbon-stock change are not established.
+    Preserve both source-proposed arrows as hypotheses; non-graph protocol wording remains outside this draft.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T17:31:05Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Separate California precipitation-legacy observations from proposed carbon-allocation mechanisms; reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1272
+  llm_assisted: true

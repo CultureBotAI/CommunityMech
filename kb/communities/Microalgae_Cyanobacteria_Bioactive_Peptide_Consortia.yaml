@@ -206,7 +206,36 @@ curation_history:
 - timestamp: '2026-09-20T07:03:46Z'
   curator: claude
   action: CREATE_MICROALGAE_CYANOBACTERIA_BIOACTIVE_PEPTIDE_CONSORTIA
-  changes: Created the Microalgae-Cyanobacteria Bioactive Peptide Consortia record from PMID:42188319 with C1/C2 biomass membership,
-    controlled photobioreactor cultivation, Alcalase hydrolysis endpoints, and ProteomeXchange/PRIDE dataset accessions PXD077201
-    and PXD077149.
+  changes: Created the Microalgae-Cyanobacteria Bioactive Peptide Consortia record from PMID:42188319 with C1/C2
+    biomass membership, controlled photobioreactor cultivation, Alcalase hydrolysis endpoints, and ProteomeXchange/PRIDE
+    dataset accessions PXD077201 and PXD077149.
   llm_assisted: true
+- timestamp: '2026-10-07T01:54:29Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain a justified empty ecological graph for two processed biomass panels; document the unresolved
+    living-community mechanisms. Issue #1610; reports/causal_graph_review/decisions/20261007-four-records-batch72.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: peptide_panel_live_interactions_unresolved
+  prompt: Which living-community interactions, if any, affect biomass production in C1 or C2?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to: []
+  rationale: 'The primary paper PMID:42188319 studies two separately produced, lyophilized biomasses: C1 is Chlorella/Arthrospira;
+    C2 is Kamptonema/Nannochloropsis/Tetraselmis/Chlorella. Preserve this panel, not a five-member coculture. Protein
+    extraction, commercial Alcalase hydrolysis and antioxidant assays are processing steps, not demonstrated ecological
+    cross-feeding. In silico peptides are predictions, not measured exchanged products. Positive hydrolysate activity
+    remains, including assay-dependent effects; phenolic compounds also contribute, and C1 ABTS activity decreases
+    after hydrolysis despite increased ORAC. The empty graph is justified by this source, not evidence that no interaction
+    exists. Complete main text, captions and embedded tables read; supplements, raw proteomics and cultivation patent
+    not audited. #1610 documents this review without adding unsupported nodes or arrows; prior #952/#953 fixes remain
+    intact.'
+  posed_by: codex
+  posed_date: '2026-10-07'
+  evidence:
+  - reference: PMID:42188319
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: were further hydrolyzed with Alcalase
+    explanation: Supports post-extraction enzymatic treatment rather than a living microbial transfer mechanism.

@@ -39,6 +39,8 @@ from pathlib import Path
 import pytest
 import yaml
 
+from communitymech.render import CommunityRenderer
+
 TEMPLATE = Path(__file__).parent.parent / "src/communitymech/templates/community.html"
 SCHEMA = Path(__file__).parent.parent / "src/communitymech/schema/communitymech.yaml"
 
@@ -57,27 +59,23 @@ INTERACTION_ENUM = "InteractionTypeEnum"
 # can: dropping these two frees the magenta region, which is where MUTUALISM had
 # to move to stop colliding with CROSS_FEEDING under tritanopia.
 #
+# #1913 also folds commensalism after source-based curation reduced it to two
+# occurrences, equal to predation. Common-category colours are unchanged.
 # Chosen on usage, not aesthetics, and the counts are re-checked by
 # `test_folded_types_are_still_the_rare_ones` so this cannot quietly become
 # wrong as the KB grows.
 FOLDED = {
-    "STRAIN_COMPETITION": "1 occurrence in the KB",
-    "PREDATION": "17 occurrences; the next-rarest coloured type has 61",
-    # The phage-bacteria values. They fold for the same reason PREDATION does,
-    # and they also belong to its visual class: all four are predation-shaped,
-    # so sharing the grey "Other" swatch groups them rather than losing them.
-    # Giving any of them a hue would mean separating nine or more colours under
-    # protan and deutan, which is the exact problem #532 folded PREDATION to
-    # solve.
-    "LYTIC_INFECTION": "6 occurrences across the two phage records",
-    "LYSOGENIC_INFECTION": "0 occurrences; the value exists for the lytic/lysogenic contrast",
+    "STRAIN_COMPETITION": "0 occurrences at #1913",
+    "PREDATION": "2 occurrences at #1913; the next-rarest coloured type has 29",
+    "COMMENSALISM": "2 occurrences at #1913; retain exact type in text and table",
+    "LYTIC_INFECTION": "2 occurrences in the Alseth phage experiment",
+    "LYSOGENIC_INFECTION": "0 occurrences; retained for the lytic/lysogenic contrast",
     "COMPETITIVE_RELEASE": "1 occurrence",
-    "KILL_THE_WINNER": "1 occurrence",
+    "KILL_THE_WINNER": "1 occurrence; PHA mechanism explicitly model-inferred",
 }
 
-# No coloured type may be rarer than a folded one by more than this factor —
-# the justification is "these two are far rarer than everything else", and that
-# claim has to keep holding.
+# Every coloured type must be at least this many times as common as each folded
+# type. Keep the rarity claim true as curation changes the corpus.
 FOLD_HEADROOM = 2
 
 
@@ -197,6 +195,7 @@ def test_palette_covers_the_interaction_enum_exactly():
     than failing, so only this comparison catches a newly added enum value.
     """
     palette, enum = set(_palette()), _enum_values()
+    assert not (palette & set(FOLDED)), "a folded type must not also retain a dedicated hue"
     uncoloured = enum - palette - set(FOLDED)
     assert not uncoloured, (
         f"{INTERACTION_ENUM} values with no colour in {TEMPLATE.name}: "
@@ -330,9 +329,9 @@ def test_hues_are_spread_around_the_wheel():
 def test_folded_types_are_still_the_rare_ones():
     """The fold is justified by usage, so the usage claim must keep holding (#532).
 
-    `FOLDED` drops two interaction types to the grey "Other" swatch because they
-    are far rarer than everything else — 1 and 11 occurrences against a
-    next-rarest coloured type of 67. That is a fact about today's KB, not a
+    `FOLDED` drops rare interaction types to the grey "Other" swatch. At #1913
+    their counts are 0, 2 and 2 against a next-rarest coloured type of 29.
+    That is a fact about the curated KB, not a
     property of the enum, and curation moves. If a folded type becomes common,
     the reasoning has inverted and somebody should look rather than discover it
     in a figure.
@@ -355,6 +354,60 @@ def test_folded_types_are_still_the_rare_ones():
             f"a colour and re-run the separation tests, or widen FOLD_HEADROOM "
             f"deliberately."
         )
+
+
+@pytest.mark.parametrize("interaction_type", [*sorted(FOLDED), None])
+def test_folded_and_untyped_nodes_keep_matching_legend_and_exact_text(tmp_path, interaction_type):
+    node = {"name": "Palette fixture"}
+    if interaction_type is not None:
+        node["interaction_type"] = interaction_type
+    path = tmp_path / "palette.yaml"
+    path.write_text(
+        yaml.safe_dump(
+            {
+                "id": "CommunityMech:999999",
+                "name": "Palette fixture",
+                "taxonomy": [],
+                "ecological_interactions": [node],
+            }
+        )
+    )
+    html = CommunityRenderer().render_community(path)
+    legend = html.split('<div class="network-legend">', 1)[1].split(
+        '<div class="interaction-card">', 1
+    )[0]
+    assert "</svg> Other" in legend
+    assert f'data-color="{_neutrals()["_unmapped"]}"' in legend
+    symbol = ast.literal_eval(_jinja_set("unmapped_symbol"))
+    assert f'data-symbol="{symbol}"' in legend
+    assert f'var unmappedSymbol = "{symbol}";' in html
+    if interaction_type is not None:
+        assert f'<span class="interaction-type">{interaction_type}</span>' in html
+        assert f'"{interaction_type}":' not in html
+    assert "Rare or untyped interactions share the Other symbol" in html
+
+
+def test_common_type_keeps_its_dedicated_legend(tmp_path):
+    path = tmp_path / "palette.yaml"
+    path.write_text(
+        yaml.safe_dump(
+            {
+                "id": "CommunityMech:999999",
+                "name": "Palette fixture",
+                "taxonomy": [],
+                "ecological_interactions": [
+                    {"name": "Cross-feeding", "interaction_type": "CROSS_FEEDING"}
+                ],
+            }
+        )
+    )
+    html = CommunityRenderer().render_community(path)
+    legend = html.split('<div class="network-legend">', 1)[1].split(
+        '<div class="interaction-card">', 1
+    )[0]
+    assert "</svg> Cross-feeding" in legend and "</svg> Other" not in legend
+    assert f'data-color="{_palette()["CROSS_FEEDING"]}"' in legend
+    assert "Rare or untyped interactions share the Other symbol" not in html
 
 
 # --------------------------------------------------------------------------

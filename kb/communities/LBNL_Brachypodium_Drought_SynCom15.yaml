@@ -52,54 +52,23 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Network-Cultivation Fifteen-Member Design
-  description: >
-    The Brachypodium SynCom workflow combined rhizobiome network analysis with
-    cultivation-guided methods to choose a reproducible 15-member community that
-    retained ecological connections from the root microbiome.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - *id001
-- name: Five-Phylum Rhizobiome SynCom Assembly
-  description: >
-    The final 15-member SynCom incorporated diverse Brachypodium rhizobiome
-    strains from five bacterial phyla, creating a tractable synthetic community
-    for drought and stability assays.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:40862137
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: This SynCom incorporates diverse strains from five bacterial phyla
-    explanation: >
-      Supports the five-phyla breadth of the assembled 15-member Brachypodium
-      rhizobiome SynCom.
 - name: Genomic Osmoprotectant and Ion-Transport Prediction
-  description: >
-    Whole-genome analysis of individual SynCom strains predicted multiple
-    plant-growth-promoting traits, including biosynthesis of the osmoprotectants
-    trehalose and betaine and sodium/potassium transporter genes relevant to
-    drought and salinity stress.
+  description: Genome annotations of individual members predict osmoprotectant and ion-transport potential, including
+    trehalose/betaine-related genes. PARTIAL - gene presence does not establish expression, synthesis, secretion,
+    transfer to Brachypodium or necessary mediation of drought recovery. This is member functional potential, not
+    demonstrated interstrain cross-feeding.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: trehalose
     term:
       id: CHEBI:27082
       label: trehalose
+    notes: Contextual genome-predicted osmoprotectant potential, not measured transfer or host delivery.
   - preferred_term: glycine betaine
     term:
       id: CHEBI:17750
       label: glycine betaine
+    notes: Contextual genome-predicted osmoprotectant potential, not measured transfer or host delivery.
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -107,25 +76,27 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:40862137
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: Genomic analysis of the individual strains was performed to reveal encoded plant
-      growth-promoting traits
-    explanation: >
-      Supports genome-resolved prediction of plant-growth-promoting functions in
-      the SynCom members.
+    snippet: Genomic analysis of the individual strains was performed to reveal encoded plant growth-promoting traits
+    explanation: Supports encoded functional potential; no expression, flux or necessary host-protection mechanism
+      is established.
   - reference: PMID:40862137
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: genes for the synthesis of osmoprotectants (trehalose and betaine) and Na+/K+
-      transporters
-    explanation: Identifies trehalose and glycine betaine as encoded osmoprotectant
-      traits of the drought-resilience SynCom members.
-- name: Laboratory PGP Trait Validation
-  description: >
-    Laboratory phenotypic assays validated a subset of the predicted
-    plant-growth-promoting traits, connecting the SynCom genome annotations to
-    experimentally observed member functions before plant stress testing.
+    snippet: genes for the synthesis of osmoprotectants (trehalose and betaine) and Na+/K+ transporters
+    explanation: Supports encoded functional potential; no expression, flux or necessary host-protection mechanism
+      is established.
+  participating_taxa:
+  - preferred_term: Brachypodium rhizobiome bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+- name: Member-Level PGP Phenotypes
+  description: Individual SynCom isolates showed positive results in selected plant-growth-promoting trait assays,
+    including colorimetric and substrate-depletion readouts. These are member-level phenotypes, not direct community
+    flux measurements. PARTIAL - their contribution to plant recovery, and the roles of specific metabolites or
+    enzymes in planta, were not selectively established.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
@@ -137,14 +108,19 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: some predicted traits were validated by laboratory phenotypic assays
-    explanation: >
-      Supports phenotypic validation of selected genome-predicted
-      plant-growth-promoting traits.
-- name: In Vitro and In Planta SynCom Stability
-  description: >
-    The 15-member bacterial SynCom persisted as a stable consortium in both the
-    in vitro serial culture and in planta Brachypodium experiments, supporting
-    downstream interpretation of the defined community under plant stress.
+    explanation: Supports positive isolate-level phenotypic assays, not validation of every genomic prediction or
+      a necessary plant-benefit mediator.
+  participating_taxa:
+  - preferred_term: Brachypodium rhizobiome bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+- name: Host-Associated Persistence Compared With Liquid Culture
+  description: The 15-member inoculum showed more balanced 16S relative profiles with Brachypodium than in liquid
+    culture. In the three-week weekly-transfer 0.2X MS experiment, six strains were undetectable or below 0.1% relative
+    abundance; three taxa dominated. Plant experiments reported persistence of members, with unequal abundances.
+    These sequencing observations do not establish equal stability of all 15 strains in vitro, absolute viable counts
+    or reciprocal mutualism.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
@@ -154,16 +130,26 @@ ecological_interactions:
   evidence:
   - reference: PMID:40862137
     supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: After 3 weeks of growth in planta, the relative abundance of strains was more evenly distributed
+    explanation: Direct in-planta Results supporting host-associated relative persistence; paired with a separate
+      in-vitro excerpt showing loss or low detection of six strains.
+  - reference: PMID:40862137
+    supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The SynCom demonstrates strong stability both in vitro and in planta
-    explanation: >
-      Supports the in vitro and plant-associated stability of the assembled
-      15-member SynCom.
+    snippet: six of the 15 strains were undetectable or had a relative abundance below 0.1% after 3 weeks
+    explanation: 'Direct Results qualification of the broad stability abstract: six strains were undetectable or
+      below 0.1% after three weeks in vitro.'
+  participating_taxa:
+  - preferred_term: Brachypodium rhizobiome bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
 - name: Brachypodium Drought Recovery Promotion
-  description: >
-    Brachypodium plants amended with the 15-member SynCom recovered better from
-    drought stress than unamended plants, with osmoprotectant and ion-transporter
-    genes identified as likely contributors to the observed resilience.
+  description: SynCom-amended Brachypodium showed better shoot weight, shoot height, root length and leaf-number
+    outcomes after drought followed by rewatering than unamended plants. The Results report no significant differences
+    in these endpoints during sustained drought. PARTIAL - osmoprotectant and ion-transporter genes are proposed
+    contributors, not selectively demonstrated causes of recovery.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: growth
@@ -173,16 +159,21 @@ ecological_interactions:
   evidence:
   - reference: PMID:40862137
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: plants amended with the SynCom recovered better than those without
-    explanation: >
-      Supports improved drought recovery in Brachypodium receiving the
-      15-member SynCom.
-- name: Stress Root-Tip Preferential Colonization
-  description: >
-    Under stress, SynCom strains preferentially colonized Brachypodium root tips,
-    a spatial pattern interpreted as localized plant-microbe signaling mediated
-    by interactions between bacterial strains and root metabolites.
+    explanation: Supports positive whole-plant recovery after rewatering, not significant improvement during sustained
+      drought or demonstrated gene/metabolite mediation.
+  participating_taxa:
+  - preferred_term: Brachypodium rhizobiome bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+- name: Strain-Dependent Root Spatial Distribution
+  description: After 21 days, 16S profiles differed between root tips and bases in a strain- and condition-dependent
+    manner. MA-N2 sp. RCC-150 showed root-tip enrichment under drought and salt stress; some other strains were
+    instead enriched at the base. HYPOTHESIZED - exudate-guided recruitment and metabolite return could contribute,
+    but isolate carbon-use assays and spatial relative abundance do not trace migration, exchange or selective mediation
+    of recovery.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
@@ -191,19 +182,22 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:40862137
-    supports: SUPPORT
-    evidence_source: IN_VITRO
+    supports: PARTIAL
+    evidence_source: IN_VIVO
     snippet: preferential colonization of SynCom strains around root tips under stress
-    explanation: >
-      Supports stress-associated enrichment of SynCom strains around the root
-      tip.
+    explanation: Supports the observed spatial pattern and the source-proposed root-metabolite explanation; does
+      not establish uniform tip preference, traced migration or metabolic exchange.
   - reference: PMID:40862137
-    supports: SUPPORT
-    evidence_source: IN_VITRO
+    supports: PARTIAL
+    evidence_source: IN_VIVO
     snippet: likely due to active interactions between plant root metabolites and bacteria
-    explanation: >
-      Supports plant root metabolites as the proposed basis for the localized
-      bacterial colonization response.
+    explanation: Supports the observed spatial pattern and the source-proposed root-metabolite explanation; does
+      not establish uniform tip preference, traced migration or metabolic exchange.
+  participating_taxa:
+  - preferred_term: Brachypodium rhizobiome bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
 environmental_factors:
 - name: defined synthetic community design
   value: Network analysis and cultivation-guided selection of 15 rhizobiome strains spanning five bacterial
@@ -297,10 +291,35 @@ curation_history:
 - timestamp: '2026-10-02T05:57:41Z'
   curator: codex
   action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
-  changes: >
-    Removed seven downstream edges that followed the Brachypodium SynCom
-    workflow from network-guided design to assembly, genome prediction,
-    laboratory trait validation, stability tests, and in planta stress
-    observations rather than source-backed causal transitions between
-    interaction phenotypes.
+  changes: 'Removed seven downstream edges that followed the Brachypodium SynCom workflow from network-guided design
+    to assembly, genome prediction, laboratory trait validation, stability tests, and in planta stress observations
+    rather than source-backed causal transitions between interaction phenotypes.
+
+    '
   llm_assisted: true
+- timestamp: '2026-10-06T20:44:03Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound Brachypodium persistence, recovery and member-function claims to primary assays. Issue #1545;
+    reports/causal_graph_review/decisions/20261006-lbnl-batch61.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: lbnl_brachypodium_persistence_and_mediation
+  prompt: Which members and functions mediate the post-drought recovery benefit?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Genomic Osmoprotectant and Ion-Transport Prediction
+  - ecological_interactions#Member-Level PGP Phenotypes
+  - ecological_interactions#Host-Associated Persistence Compared With Liquid Culture
+  - ecological_interactions#Brachypodium Drought Recovery Promotion
+  - ecological_interactions#Strain-Dependent Root Spatial Distribution
+  rationale: 'Remove two assembly/design-only graph nodes; those methodological facts remain in the unchanged design
+    metadata. Preserve positive genomic potential, member assays, host-associated persistence, rewatering benefit
+    and spatial observations. The broad abstract stability statement is qualified by the main Results: six strains
+    were undetectable or below 0.1% after three weeks in vitro. Drought recovery and sustained drought are distinct.
+    Root-exudate recruitment, osmoprotectant transfer and gene mediation remain hypotheses, without invented arrows.
+    The canonical Bacteria entry is an aggregate placeholder, not a resolved 15-strain roster; #1548 tracks non-graph
+    taxonomy/ingredient/protocol gaps. Original figure pixels, separate supplements and raw data were not audited.'
+  posed_by: codex
+  posed_date: '2026-10-06'

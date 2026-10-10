@@ -141,13 +141,12 @@ taxonomy:
       nodule SynCom.
 ecological_interactions:
 - name: Four-Strain Nodule PGP Trait Retention
-  description: >
-    Pseudomonas sp. N4, Pseudomonas sp. N8, Ensifer sp. N10, and Ensifer sp.
-    N12 retained a stress-tolerant PGP trait set, including phosphate
-    solubilization, IAA production, ACC deaminase activity, biofilm formation,
-    pectinase activity, salt and PEG tolerance, and growth at at least 40
-    degrees Celsius.
-  interaction_type: MUTUALISM
+  description: 'The four strains were assayed individually for PGP-associated traits and stress tolerance, not for
+    reciprocal benefit in mixed culture. All showed phosphate solubilization, Salkowski-estimated IAA, ACC deaminase,
+    biofilm and pectinase activity under the tested metal mixture. This was not universal trait retention: biofilm
+    signal decreased and N10/N12 did not grow in nitrogen-free medium with metals. Nitrogen-free growth was only
+    a first approximation of fixation. NaCl/PEG tolerance and maximum temperatures differed by strain. These positive
+    culture traits do not establish their delivery, necessity or sufficiency in Medicago sativa.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pseudomonas sp. N4
@@ -171,42 +170,44 @@ ecological_interactions:
     term:
       id: CHEBI:16411
       label: indole-3-acetic acid
-  biological_processes:
-  - preferred_term: nodulation
-    term:
-      id: GO:0009877
-      label: nodulation
+    notes: IAA interpretation of a Salkowski assay with a calibration curve, not measured bacterial-to-plant hormone
+      transfer.
   downstream:
-  - target: Abiotic-Stress Antioxidant Protection
-    description: The stress-tolerant PGP endophyte SynCom induced antioxidant
-      enzyme activities that protected M. sativa during abiotic stress.
+  - target: Abiotic-Stress Antioxidant Enzyme Response
+    description: HYPOTHESIZED - stress-tolerant PGP traits could help the inoculum function in the host and induce
+      antioxidant responses. Individual-strain trait assays and whole-SynCom plant enzyme responses support this
+      proposed connection, but no specific PGP trait was selectively perturbed to establish mediation.
   evidence:
   - reference: PMID:37299063
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      The SynCom was made up of four strains: Pseudomonas sp. N4,
-      Pseudomonas sp. N8, Ensifer sp. N10 and Ensifer sp. N12
-    explanation: Names the four strains whose stress-tolerant PGP traits were
-      assayed.
+    snippet: 'The SynCom was made up of four strains: Pseudomonas sp. N4, Pseudomonas sp. N8, Ensifer sp. N10 and
+      Ensifer sp. N12
+
+      '
+    explanation: Names the four strains whose stress-tolerant PGP traits were assayed.
   - reference: PMID:37299063
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: All strains maintained the PGP properties in absence of metals
-    explanation: Supports retention of plant-growth-promoting traits by the
-      selected nodule endophytes.
-- name: Abiotic-Stress Antioxidant Protection
-  description: >
-    The Pseudomonas-Ensifer SynCom increased M. sativa antioxidant enzymatic
-    activities across metal, salt, drought, and heat treatments, providing a
-    common plant-protection mechanism under abiotic stress.
-  interaction_type: MUTUALISM
+    explanation: 'This excerpt is incomplete as a universal retention claim: the following text and Table 1 specify
+      N10/N12 nitrogen-free-growth exceptions and reduced biofilm signal. Other PGP assays remain positive; these
+      are individual-strain measurements.'
+- name: Abiotic-Stress Antioxidant Enzyme Response
+  description: SynCom inoculation increased measured catalase, superoxide dismutase, guaiacol peroxidase and ascorbate
+    peroxidase activities in M. sativa tissues under the tested metal, salt, drought and heat conditions. Responses
+    varied by tissue and treatment. These positive host enzyme responses support the proposed protective interpretation
+    but do not directly quantify ROS clearance or establish antioxidant necessity for improved growth. Plant benefit
+    is not a test of reciprocal bacterial benefit; M. sativa is the external host, not a fifth bacterial inoculum
+    member.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: reactive oxygen species
     term:
       id: CHEBI:26523
       label: reactive oxygen species
+    notes: ROS are the proposed substrate/context for antioxidant protection, not a directly quantified ROS pool
+      in this experiment.
   biological_processes:
   - preferred_term: response to oxidative stress
     term:
@@ -214,23 +215,41 @@ ecological_interactions:
       label: response to oxidative stress
   downstream:
   - target: Legume Nodule Biofertilization
-    description: Antioxidant enzyme activation is the shared protective
-      mechanism associated with improved M. sativa growth and nodulation under
-      each abiotic stress.
+    description: HYPOTHESIZED - induced antioxidant activities could limit oxidative injury and thereby support
+      plant growth and nodulation under stress. Enzyme and plant phenotypes co-occur with inoculation; selective
+      antioxidant inhibition or rescue was not used to establish this causal step.
   evidence:
   - reference: PMID:37299063
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: The increase in plant antioxidant enzymatic activities seems to be a common and
-      important mechanism of plant protection induced by the SynCom
-    explanation: Supports antioxidant enzyme activation as a shared mechanism of
-      SynCom-induced plant protection under abiotic stress.
+    snippet: The increase in plant antioxidant enzymatic activities seems to be a common and important mechanism
+      of plant protection induced by the SynCom
+    explanation: The authors propose a protective mechanism; measured enzyme activities support the response, but
+      mediation of growth and nodulation was not selectively isolated.
+  participating_taxa:
+  - preferred_term: Pseudomonas sp. N4
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Pseudomonas sp. N8
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Ensifer sp. N10
+    term:
+      id: NCBITaxon:106591
+      label: Ensifer
+  - preferred_term: Ensifer sp. N12
+    term:
+      id: NCBITaxon:106591
+      label: Ensifer
 - name: Legume Nodule Biofertilization
-  description: >
-    The four-strain Pseudomonas-Ensifer SynCom increased M. sativa biomass,
-    nodulation, photosynthesis, and nitrogen content in stressed estuarine
-    soils.
-  interaction_type: MUTUALISM
+  description: 'In controlled pot experiments, the four-strain SynCom improved M. sativa dry biomass, nodule number,
+    photosynthetic parameters and plant nitrogen content relative to comparison inoculation treatments, including
+    Ensifer N10 alone. Benefits were endpoint- and stress-dependent: salinity-treated SynCom plants had shorter
+    but thicker roots, and heat-stressed photosynthesis remained low despite improvement. Nodules and nitrogen content
+    are positive outcomes, not direct N2-fixation flux or proof that all four members are required. These plant
+    measurements do not establish field efficacy or reciprocal microbial benefit.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pseudomonas sp. N4
@@ -254,24 +273,26 @@ ecological_interactions:
     term:
       id: CHEBI:17997
       label: dinitrogen
+    notes: Candidate nitrogen source in the rhizobial symbiosis; tissue nitrogen and nodule counts do not directly
+      measure atmospheric N2 fixation.
   biological_processes:
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
   - preferred_term: nodulation
     term:
       id: GO:0009877
       label: nodulation
   evidence:
-  - *id001
   - reference: PMID:37299063
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: nodulation (from 1.5- to 3-fold increase in nodules number), photosynthesis and
-      nitrogen content (up to 4-fold under metal stress)
-    explanation: Links the Ensifer-containing SynCom to increased nodulation and plant
-      nitrogen content in pot assays.
+    snippet: Inoculation with the SynCom in pots containing soil enhanced plant growth parameters
+    explanation: An observed plant outcome, not the study aim. Supports pot-level growth improvement; other endpoints
+      and limits are stated separately.
+  - reference: PMID:37299063
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: nodulation (from 1.5- to 3-fold increase in nodules number), photosynthesis and nitrogen content (up
+      to 4-fold under metal stress)
+    explanation: Links the Ensifer-containing SynCom to increased nodulation and plant nitrogen content in pot assays.
 environmental_factors:
 - name: defined synthetic community design
   value: Two Ensifer and two Pseudomonas strains isolated from Medicago nodules were assembled as a SynCom.
@@ -321,3 +342,28 @@ growth_media:
     evidence_source: IN_VIVO
     snippet: plants were subjected to 40 °C during 5 consecutive days in a growth chamber
     explanation: Names the growth-chamber heat-stress temperature applied during the plant assay.
+discussions:
+- discussion_id: medicago_trait_antioxidant_mediation
+  prompt: Which bacterial traits and host antioxidant processes mediate the observed plant benefits?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Four-Strain Nodule PGP Trait Retention
+  - ecological_interactions#Abiotic-Stress Antioxidant Enzyme Response
+  - ecological_interactions#Legume Nodule Biofertilization
+  rationale: 'Retain positive culture traits, plant enzyme responses and plant benefits, but qualify both proposed
+    mediation arrows. No selective trait or antioxidant perturbation resolves their necessity; tissue nitrogen is
+    not traced N2 fixation. Preserve strain names despite shared genus IDs. The host is external and no new taxon
+    mapping is made. #1588 repairs this graph; #1594 retains role, ingredient and non-graph evidence follow-up.
+    Complete primary main text and Tables 1-2 read; separate supplements, figure pixels and raw measurements not
+    audited.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-07T00:40:40Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain individual-strain PGP observations with exceptions, not mutualism or in-host trait necessity.;
+    Retain measured host enzyme responses and qualified protective hypothesis.; Retain positive endpoint-specific
+    plant benefits and nodulation, not directly measured fixation flux. Issue #1588; reports/causal_graph_review/decisions/20261006-four-records-batch69.yaml'
+  llm_assisted: true

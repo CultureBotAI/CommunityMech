@@ -107,8 +107,10 @@ taxonomy:
     explanation: Supports the E. coli auxotroph variants used as coculture partners.
 ecological_interactions:
 - name: Zymomonas Amino Acid Rescue of E. coli Auxotrophs
-  description: Z. mobilis releases amino acid exometabolites in spent medium, and those exometabolites
-    were used to select E. coli proA, pheA, and ilvA auxotrophs as coculture partners.
+  description: Wild-type Z. mobilis ZM4 spent medium and individual amino-acid supplementation rescued the selected
+    E. coli proA, pheA and ilvA auxotrophs. This supports nutritional rescue, beyond candidate selection alone.
+    The reciprocal experiments paired each E. coli mutant separately with the Z. mobilis ZMO0748 mutant; they do
+    not describe a four-member consortium or establish a dedicated export mechanism.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -126,8 +128,8 @@ ecological_interactions:
     term:
       id: CHEBI:33709
       label: amino acid
-    notes: The source abstract identifies amino acid exometabolites but does not enumerate the exact
-      amino acid identities in the curated snippet.
+    notes: The manuscript identifies proline, phenylalanine and isoleucine as the selected rescue amino acids; the
+      existing generic amino-acid grounding is retained.
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -135,9 +137,8 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Reciprocal Auxotroph Coculture Growth
-    description: >
-      Z. mobilis amino acid exometabolites rescue E. coli amino acid auxotrophs
-      selected for the validated reciprocal cocultures.
+    description: Partner spent-medium and amino-acid rescue support the nutritional contribution to the three separately
+      tested reciprocal pairs. The molecular release route and all additional interactions are not resolved.
   evidence:
   - reference: PMID:26885935
     supports: SUPPORT
@@ -149,9 +150,17 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: used to select three corresponding E. coli auxotrophs
     explanation: Supports selection of E. coli auxotrophs based on Z. mobilis exometabolites.
-- name: E. coli Glutathione-Related Rescue of Zymomonas Auxotroph
-  description: E. coli spent medium contained glutathione-related metabolites that were identified as
-    potential rescue compounds for the Z. mobilis ZMO0748 cysteine synthase-like auxotroph.
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: they all successfully grew in 50% spent medium and metabolite supplemented medium
+    explanation: Rescue was tested using partner spent medium and metabolite-supplemented medium, with no growth
+      in unsupplemented ZMMG.
+- name: E. coli Sulfur-Metabolite Rescue of Zymomonas Auxotroph
+  description: E. coli spent medium rescued the Z. mobilis ZMO0748 cysteine-synthase-like mutant. Cysteine and glutathione
+    supplementation independently supported rescue. Glutathione-related compounds were detected in spent medium,
+    but free cysteine below detection was not excluded. Thus the phenotype is experimentally supported while the
+    exact naturally transferred sulfur compound and release/uptake route remain PARTIAL.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -169,8 +178,8 @@ ecological_interactions:
     term:
       id: CHEBI:16856
       label: glutathione
-    notes: Curated as glutathione-related metabolites because the source does not narrow the exact
-      transferred molecule in the abstract.
+    notes: Glutathione supplementation supports rescue; it is not established as the sole necessary transferred
+      molecule in coculture.
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -178,23 +187,31 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Reciprocal Auxotroph Coculture Growth
-    description: >
-      E. coli glutathione-related metabolites are candidate rescue compounds
-      for the Z. mobilis ZMO0748 auxotroph used in the reciprocal cocultures.
+    description: 'PARTIAL molecular assignment: sulfur-metabolite rescue supports the ZMO0748 contribution to reciprocal
+      growth, and glutathione is sufficient in supplementation. Its exclusive necessity in coculture and the exact
+      exchanged sulfur species were not established.'
   evidence:
   - reference: PMID:26885935
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: identified glutathione related metabolites as potentially available for rescue
     explanation: Supports E. coli metabolite availability for rescue of the Z. mobilis auxotroph.
   - reference: PMID:26885935
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: rescue of the Z. mobilis cysteine synthase mutant
     explanation: Supports the target Z. mobilis auxotroph rescue mechanism.
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: both cysteine and glutathione are capable of rescuing Z. mobilis
+    explanation: Preserves the positive metabolite-supplementation result without claiming exclusive glutathione
+      mediation.
 - name: Reciprocal Auxotroph Coculture Growth
-  description: The selected Z. mobilis auxotroph was tested in coculture with each of the three E. coli
-    auxotrophs, and growth of both species was confirmed by optical density and flow cytometry.
+  description: Each of three separate pairs containing the Z. mobilis ZMO0748 auxotroph and an E. coli proA, pheA
+    or ilvA auxotroph grew in unsupplemented ZMMG, where the individual auxotrophs did not. Optical density and
+    species-resolved flow cytometry support growth of both partners under those conditions. This does not establish
+    long-term community stability or the absence of additional beneficial or inhibitory exchanges.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -223,6 +240,11 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: monitored by optical density for growth
     explanation: Supports growth monitoring of the cocultures.
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: analyzed by flow cytometry to confirm high cell counts for each species
+    explanation: Species-resolved cell counts supplement bulk optical density.
 environmental_factors:
 - name: Auxotrophic mutant selection
   value: Z. mobilis ZMO0748 auxotroph with E. coli proA, pheA, or ilvA auxotrophs
@@ -337,3 +359,32 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth extraction, cycling, or stress role was curated for this synthetic
   obligate mutualism.
+discussions:
+- discussion_id: zymomonas_sulfur_identity_and_release_routes
+  prompt: Which sulfur species and cellular release/uptake routes mediate rescue in the live pairs?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Zymomonas Amino Acid Rescue of E. coli Auxotrophs
+  - ecological_interactions#E. coli Sulfur-Metabolite Rescue of Zymomonas Auxotroph
+  - ecological_interactions#Reciprocal Auxotroph Coculture Growth
+  rationale: 'Do not downgrade the positive spent-medium, supplementation and reciprocal-growth controls to mere
+    correlation. Distinguish those controls from exclusive glutathione necessity and active secretion: alternative
+    sulfur compounds and release by extracellular processing or lysis remain possible. The three pairs were tested
+    separately; longitudinal stability was outside the reported experiment.'
+  evidence:
+  - reference: PMID:26885935
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: identified glutathione related metabolites as potentially available for rescue
+    explanation: The abstract itself distinguishes candidate sulfur metabolites from the demonstrated growth phenotype.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T17:51:30Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain experimental amino-acid rescue and distinguish three alternative pairs.; Retain sulfur-rescue
+    controls while qualifying the exact transferred compound.; Retain condition-specific obligate growth and species-resolved
+    counts without long-term stability claims. Issue#1966; reports/causal_graph_review/decisions/20261008-six-records-batch124.yaml
+  llm_assisted: true

@@ -1,0 +1,979 @@
+{
+  "reviewed_at": "2026-10-10T01:22:08Z",
+  "purpose": "Bounded cumulative integration review; not a fresh scientific certification of 460 records.",
+  "prior_head": "253544137c655443aaf270672f6c724db8d5b6c5",
+  "upstream_main": "cee912595fdc8eb1784111786f18361432b0ba1f",
+  "integration_base": {
+    "head": "dcb31fb1ad68bbf653c79f6b6d84b696dc89e543",
+    "tree": "9aca31bbbc0112346848dafe05889816c0aab332",
+    "tag": "review-provenance/20261010-causal-integration",
+    "tag_object": "ed0e5000cd41192b83aabcbb0f677d9ca42fad2b"
+  },
+  "superseded_native_prs": [
+    {
+      "batch": 27,
+      "pr": 1367,
+      "branch": "causal-graph-review-20261005-batch27",
+      "new_head": "f89ced919014bf0ab6ca9df10e5ccbcdee6741ea",
+      "new_parent": "ae197198aebf9d365cc6e5b15c164fffe112fd3e",
+      "own_patch_sha256": "fb0e833e8f7feaf9bbe3c4c10721741ad712abb8ceff2749234b60cb8a8cdeb7",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1367#pullrequestreview-5461561462"
+    },
+    {
+      "batch": 28,
+      "pr": 1374,
+      "branch": "causal-graph-review-20261005-batch28",
+      "new_head": "44593064c0e3615bd5e0f45ef5854fd0aba41725",
+      "new_parent": "f89ced919014bf0ab6ca9df10e5ccbcdee6741ea",
+      "own_patch_sha256": "7a5af73807b297ece8ff76deab02560424825f005783bbdeea58ed30b590e8b9",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1374#pullrequestreview-5461561875"
+    },
+    {
+      "batch": 29,
+      "pr": 1381,
+      "branch": "causal-graph-review-20261005-batch29",
+      "new_head": "649f80fe6bf86da88a7a2acfc5e8114a27f610b8",
+      "new_parent": "44593064c0e3615bd5e0f45ef5854fd0aba41725",
+      "own_patch_sha256": "5df1f68d8e79c10a74425997ca256a943cfc32d6d15b42fb55df735f27ef51c5",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1381#pullrequestreview-5461562300"
+    },
+    {
+      "batch": 30,
+      "pr": 1387,
+      "branch": "causal-graph-review-20261005-batch30",
+      "new_head": "df0fe6289f22075eabf0abc139d7672ad78a11f8",
+      "new_parent": "649f80fe6bf86da88a7a2acfc5e8114a27f610b8",
+      "own_patch_sha256": "4ea591fb96bd6c6a83000c118387a9cef73a4af48e73b12faaf37f71118d7d47",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1387#pullrequestreview-5461562696"
+    },
+    {
+      "batch": 31,
+      "pr": 1393,
+      "branch": "causal-graph-review-20261005-batch31",
+      "new_head": "a7219155bdfd0f53f3b9d9069b47d6a2b57253bd",
+      "new_parent": "df0fe6289f22075eabf0abc139d7672ad78a11f8",
+      "own_patch_sha256": "4cadb305f15e304789622c4e848d315153827f1c6a3abb9463fa4febc77cabce",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1393#pullrequestreview-5461563076"
+    },
+    {
+      "batch": 32,
+      "pr": 1401,
+      "branch": "causal-graph-review-20261005-batch32",
+      "new_head": "3501adc7ae4a33e01633b370a2e734cd5ce35051",
+      "new_parent": "a7219155bdfd0f53f3b9d9069b47d6a2b57253bd",
+      "own_patch_sha256": "f5b2bfb653081996ee17262f1bcd8ec32444dea2df95e56099d33540ad9f8db0",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1401#pullrequestreview-5461563475"
+    },
+    {
+      "batch": 33,
+      "pr": 1409,
+      "branch": "causal-graph-review-20261005-batch33",
+      "new_head": "bcebf2bc2da40062d3cf777cf1a2a9d508adee43",
+      "new_parent": "3501adc7ae4a33e01633b370a2e734cd5ce35051",
+      "own_patch_sha256": "7cd073cfd5f440feaf71c4987c9163fd57eabf945361ffdadbddf891b8518dbb",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1409#pullrequestreview-5461563876"
+    },
+    {
+      "batch": 34,
+      "pr": 1416,
+      "branch": "causal-graph-review-20261005-batch34",
+      "new_head": "2805b964449340ac12a9e578e6b3d45134539bcf",
+      "new_parent": "bcebf2bc2da40062d3cf777cf1a2a9d508adee43",
+      "own_patch_sha256": "6488e9c21e74f30855b7167ca69d84821d2cf46ba4d0d3d6294ae4d833011c18",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1416#pullrequestreview-5461564313"
+    },
+    {
+      "batch": 35,
+      "pr": 1423,
+      "branch": "causal-graph-review-20261005-batch35",
+      "new_head": "a02b315efa4bd40644f8aebf98bcfda5344d7530",
+      "new_parent": "2805b964449340ac12a9e578e6b3d45134539bcf",
+      "own_patch_sha256": "e194f5aec4f210418241841fedbe9a7ca3ef36917a9646cbeb9932b746380ed9",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1423#pullrequestreview-5461564719"
+    },
+    {
+      "batch": 36,
+      "pr": 1430,
+      "branch": "causal-graph-review-20261005-batch36",
+      "new_head": "5287486fb3a2247b524b083900297088a0b84216",
+      "new_parent": "a02b315efa4bd40644f8aebf98bcfda5344d7530",
+      "own_patch_sha256": "609c412592075a60f9e861d17e6a611ec2f9982a1f197a9b77f691f485507f6c",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1430#pullrequestreview-5461565111"
+    },
+    {
+      "batch": 37,
+      "pr": 1437,
+      "branch": "causal-graph-review-20261005-batch37",
+      "new_head": "1f92737a30ec2f1efbbec3c379efe36d1d1edf2d",
+      "new_parent": "5287486fb3a2247b524b083900297088a0b84216",
+      "own_patch_sha256": "aba1c0e0d3188c645a28f8708ead1e3708757bbe76529a8337a198a41c1074f8",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1437#pullrequestreview-5461565477"
+    },
+    {
+      "batch": 38,
+      "pr": 1444,
+      "branch": "causal-graph-review-20261005-batch38",
+      "new_head": "40055a1198cab10ef0c848d1588f56de2624902f",
+      "new_parent": "1f92737a30ec2f1efbbec3c379efe36d1d1edf2d",
+      "own_patch_sha256": "2ce1e1e8af974e23fb4867904be047770ae54382869a111a960d3ad3b35d58ca",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1444#pullrequestreview-5461565875"
+    },
+    {
+      "batch": 39,
+      "pr": 1451,
+      "branch": "causal-graph-review-20261005-batch39",
+      "new_head": "d45a7fdbfa63580b3ff59abd40d6656d376b79f8",
+      "new_parent": "40055a1198cab10ef0c848d1588f56de2624902f",
+      "own_patch_sha256": "9091176fe29205c10009cb13ee882fb2582b2d21ac8a381b93e0546e5292e861",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1451#pullrequestreview-5461566271"
+    },
+    {
+      "batch": 40,
+      "pr": 1458,
+      "branch": "causal-graph-review-20261005-batch40",
+      "new_head": "9abb5182671999ba7e176c5960ff17292487518a",
+      "new_parent": "d45a7fdbfa63580b3ff59abd40d6656d376b79f8",
+      "own_patch_sha256": "904b08cf9b6f51a9316c58f9e0646828b48be52e1e3e1500022e79a245b50433",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1458#pullrequestreview-5461566681"
+    },
+    {
+      "batch": 41,
+      "pr": 1464,
+      "branch": "causal-graph-review-20261005-batch41",
+      "new_head": "5a3e7ec6251a997c33a76371cd6ca7f9fd7a62ec",
+      "new_parent": "9abb5182671999ba7e176c5960ff17292487518a",
+      "own_patch_sha256": "21835bd9151b04bbad68693c5bd79e665745eb66c4ec997523d40286a94c66c7",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1464#pullrequestreview-5461567094"
+    },
+    {
+      "batch": 42,
+      "pr": 1470,
+      "branch": "causal-graph-review-20261005-batch42",
+      "new_head": "19f27f1cc4f7c1fa4cd8c1ef0a10c28d0dc23a8f",
+      "new_parent": "5a3e7ec6251a997c33a76371cd6ca7f9fd7a62ec",
+      "own_patch_sha256": "34b1cc9b340ba39687800f1cf6766763e569acb9a24ab69017fb134c59113310",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1470#pullrequestreview-5461567519"
+    },
+    {
+      "batch": 43,
+      "pr": 1473,
+      "branch": "causal-graph-review-20261005-batch43",
+      "new_head": "bcd937cb7cd7121fce4af64a776ccadd850f48a4",
+      "new_parent": "19f27f1cc4f7c1fa4cd8c1ef0a10c28d0dc23a8f",
+      "own_patch_sha256": "853d59289d52b14547905d16ea264a31580ae3d0f95017246c5df69a6fa09f4d",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1473#pullrequestreview-5461567938"
+    },
+    {
+      "batch": 44,
+      "pr": 1477,
+      "branch": "causal-graph-review-20261005-batch44",
+      "new_head": "d9addec6dd45c2db48c857483cd885534aa9d0bf",
+      "new_parent": "bcd937cb7cd7121fce4af64a776ccadd850f48a4",
+      "own_patch_sha256": "b44387c4cbb8eb4d2bca0de7aff2e2f8ec48de522920ef63591996a34f649c62",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1477#pullrequestreview-5461568371"
+    },
+    {
+      "batch": 45,
+      "pr": 1479,
+      "branch": "causal-graph-review-20261005-batch45",
+      "new_head": "76b4e6b26bc8e309fde1d48c2cff69808dc15439",
+      "new_parent": "d9addec6dd45c2db48c857483cd885534aa9d0bf",
+      "own_patch_sha256": "48bd9115135c4c40d5d15816c88fc41cdb12d53a75f76d12a8a7237ee05a3bc3",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1479#pullrequestreview-5461568778"
+    },
+    {
+      "batch": 46,
+      "pr": 1484,
+      "branch": "causal-graph-review-20261005-batch46",
+      "new_head": "ce58502a3cd54c1950a761be5c3ca91c5765f06a",
+      "new_parent": "76b4e6b26bc8e309fde1d48c2cff69808dc15439",
+      "own_patch_sha256": "d0bc5b3ffdb8319a5909636ef14c752b916d6231c0d3b7041b66188de3182ec4",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1484#pullrequestreview-5461569156"
+    },
+    {
+      "batch": 47,
+      "pr": 1486,
+      "branch": "causal-graph-review-20261005-batch47",
+      "new_head": "821c847305111c4bad0ecaf78dec1d77549e9e7b",
+      "new_parent": "ce58502a3cd54c1950a761be5c3ca91c5765f06a",
+      "own_patch_sha256": "253fff8565acd0445226fe14092547e6b44f354f3cc59019209f7ab0eae6186d",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1486#pullrequestreview-5461569539"
+    },
+    {
+      "batch": 48,
+      "pr": 1489,
+      "branch": "causal-graph-review-20261005-batch48",
+      "new_head": "0bdaecccda3f6e0823c852c3fd445896e8a7714c",
+      "new_parent": "821c847305111c4bad0ecaf78dec1d77549e9e7b",
+      "own_patch_sha256": "dca742e09aa8148bed35de4b558cd9fe3f80d315412532fd4d9a8666d6bffe74",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1489#pullrequestreview-5461569987"
+    },
+    {
+      "batch": 49,
+      "pr": 1492,
+      "branch": "causal-graph-review-20261005-batch49",
+      "new_head": "9f7476752bffbbce8b956e37d5c922fea7bfb787",
+      "new_parent": "0bdaecccda3f6e0823c852c3fd445896e8a7714c",
+      "own_patch_sha256": "750d3c4e62a8da6070a3adff5733b4ddbd898d8f053f70b4e1fafb39b07559c4",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1492#pullrequestreview-5461570411"
+    },
+    {
+      "batch": 50,
+      "pr": 1496,
+      "branch": "causal-graph-review-20261005-batch50",
+      "new_head": "d8f14f8a3ab384b74797613e0d85b04f7d8b5dec",
+      "new_parent": "9f7476752bffbbce8b956e37d5c922fea7bfb787",
+      "own_patch_sha256": "8e88fabb749ba3a13aa38deab69b40064ec436db0d1cfb33039b72049a8d3ffb",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1496#pullrequestreview-5461570769"
+    },
+    {
+      "batch": 51,
+      "pr": 1500,
+      "branch": "causal-graph-review-20261005-batch51",
+      "new_head": "59dcd99fbce7b49095f51ac3fc6d91a3c2c65a17",
+      "new_parent": "d8f14f8a3ab384b74797613e0d85b04f7d8b5dec",
+      "own_patch_sha256": "adbccc9a2a624089f8c4e1d9c7db4a8bdb92dc130ed0812671342234743a4e2a",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1500#pullrequestreview-5461571187"
+    },
+    {
+      "batch": 52,
+      "pr": 1505,
+      "branch": "causal-graph-review-20261005-batch52",
+      "new_head": "7f498543797c88ae337d934ba2a1e13edd70db80",
+      "new_parent": "59dcd99fbce7b49095f51ac3fc6d91a3c2c65a17",
+      "own_patch_sha256": "9b5026c033383e48e349e5a6fbbec3b48f15074ba324585ec74be8c35e3df4c3",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1505#pullrequestreview-5461571567"
+    },
+    {
+      "batch": 53,
+      "pr": 1510,
+      "branch": "causal-graph-review-20261005-batch53",
+      "new_head": "76dd8c0d9dced4f9941719411ff5acd626476594",
+      "new_parent": "7f498543797c88ae337d934ba2a1e13edd70db80",
+      "own_patch_sha256": "f9fb85d489ff584c5c676b04f84f29e8e4f093b981c2f1b6ac0f853ecec11397",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1510#pullrequestreview-5461571975"
+    },
+    {
+      "batch": 54,
+      "pr": 1516,
+      "branch": "causal-graph-review-20261005-batch54",
+      "new_head": "501c99ee194c48b26fb71afad541c12cd6efa04e",
+      "new_parent": "76dd8c0d9dced4f9941719411ff5acd626476594",
+      "own_patch_sha256": "9aacaf4e78b7da4f2e1a13078691167aa72cf651f2546b1eed44f80c7821bba1",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1516#pullrequestreview-5461572343"
+    },
+    {
+      "batch": 55,
+      "pr": 1522,
+      "branch": "causal-graph-review-20261005-batch55",
+      "new_head": "646c22291bfbdcf2be85a4fa4542c1b4e6b457b8",
+      "new_parent": "501c99ee194c48b26fb71afad541c12cd6efa04e",
+      "own_patch_sha256": "ffeef0f83964a4d6ae2c633648fc976780d1f456678a57fd18ec3f9af08dca41",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1522#pullrequestreview-5461572738"
+    },
+    {
+      "batch": 56,
+      "pr": 1529,
+      "branch": "causal-graph-review-20261005-batch56",
+      "new_head": "1abfe827e59fccff78bdb5c57cffd4be3e64ab91",
+      "new_parent": "646c22291bfbdcf2be85a4fa4542c1b4e6b457b8",
+      "own_patch_sha256": "36d828dd8bf090e211608853823a97cf6b9f30b1637874af20f51acaabb8042c",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1529#pullrequestreview-5461573222"
+    },
+    {
+      "batch": 57,
+      "pr": 1531,
+      "branch": "causal-graph-review-20261005-batch57",
+      "new_head": "f1b30a3bbe5bafdbf95747b1dded5f41a920289d",
+      "new_parent": "1abfe827e59fccff78bdb5c57cffd4be3e64ab91",
+      "own_patch_sha256": "03d54f9c0a66c3452b8b25f662d4f556e547bd39c98b72c6d6ce2c70e8d81aab",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1531#pullrequestreview-5461573692"
+    },
+    {
+      "batch": 58,
+      "pr": 1534,
+      "branch": "causal-graph-review-20261005-batch58",
+      "new_head": "92649d534afe864cfd9c307d59915ea000a94f97",
+      "new_parent": "f1b30a3bbe5bafdbf95747b1dded5f41a920289d",
+      "own_patch_sha256": "9593fda22b9870dae379ee47397f14bc94646ee3241e44d38a04cb80a5b4d046",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1534#pullrequestreview-5461574067"
+    },
+    {
+      "batch": 59,
+      "pr": 1538,
+      "branch": "causal-graph-review-20261005-batch59",
+      "new_head": "26a6d44cad0c895be24eebe2a6747c497f0a774b",
+      "new_parent": "92649d534afe864cfd9c307d59915ea000a94f97",
+      "own_patch_sha256": "45a03a2de8f4c3ce59c347bcd1b1631a457ab4dc98aa600d263cec36ad38a861",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1538#pullrequestreview-5461574476"
+    },
+    {
+      "batch": 60,
+      "pr": 1544,
+      "branch": "causal-graph-review-20261005-batch60",
+      "new_head": "16941a966808a5102a775ce8e2c00f0c92050f22",
+      "new_parent": "26a6d44cad0c895be24eebe2a6747c497f0a774b",
+      "own_patch_sha256": "1937584099740edb20c88887c08057d2b6c28d26be8b3d8870d1a9791b3ebf8b",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1544#pullrequestreview-5461574877"
+    },
+    {
+      "batch": 61,
+      "pr": 1549,
+      "branch": "causal-graph-review-20261005-batch61",
+      "new_head": "5a5773cff332103dfed4ded7669e94baf7ed71c0",
+      "new_parent": "16941a966808a5102a775ce8e2c00f0c92050f22",
+      "own_patch_sha256": "fb38821c6bdae6ef43123d9706a1ae2f0f3770464a624658da6a8a72771904e8",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1549#pullrequestreview-5461575281"
+    },
+    {
+      "batch": 62,
+      "pr": 1555,
+      "branch": "causal-graph-review-20261005-batch62",
+      "new_head": "95ff3b5d234642b117297584baf30700e137958b",
+      "new_parent": "5a5773cff332103dfed4ded7669e94baf7ed71c0",
+      "own_patch_sha256": "7b52721705316e2866a515b3817bfdb105567525abdddcd8042c836178a719df",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1555#pullrequestreview-5461575680"
+    },
+    {
+      "batch": 63,
+      "pr": 1560,
+      "branch": "causal-graph-review-20261005-batch63",
+      "new_head": "f134a41dacb7ca9920785087885913f61c387ffc",
+      "new_parent": "95ff3b5d234642b117297584baf30700e137958b",
+      "own_patch_sha256": "56628353d3e70b18578634ddfd3923ba93d2c410f2f0ea78dccb66dadbcdf9b8",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1560#pullrequestreview-5461576058"
+    },
+    {
+      "batch": 64,
+      "pr": 1565,
+      "branch": "causal-graph-review-20261005-batch64",
+      "new_head": "d080a43935e14fd680da6271a65b3398fcd99f52",
+      "new_parent": "f134a41dacb7ca9920785087885913f61c387ffc",
+      "own_patch_sha256": "08cc1f76a101e897ee1ccb1040a875de62d2db0d4085b9e7b3c81709b6850c91",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1565#pullrequestreview-5461576447"
+    },
+    {
+      "batch": 65,
+      "pr": 1570,
+      "branch": "causal-graph-review-20261005-batch65",
+      "new_head": "cc6c0479d608241b72748bbd7435426efe89cb5f",
+      "new_parent": "d080a43935e14fd680da6271a65b3398fcd99f52",
+      "own_patch_sha256": "4bfbd2986b4b136dbb20071f33b8035e9a0831fa4a564d94b5cf1c43fc60a424",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1570#pullrequestreview-5461576831"
+    },
+    {
+      "batch": 66,
+      "pr": 1576,
+      "branch": "causal-graph-review-20261005-batch66",
+      "new_head": "07d941feb1c26bfaa89f925a2994ed4bcb639b4b",
+      "new_parent": "cc6c0479d608241b72748bbd7435426efe89cb5f",
+      "own_patch_sha256": "4a2f7adc48919591cdba85221317fc5189e82e7f0cf6385adfc60a007d53be72",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1576#pullrequestreview-5461577200"
+    },
+    {
+      "batch": 67,
+      "pr": 1581,
+      "branch": "causal-graph-review-20261005-batch67",
+      "new_head": "bbf280ecf748d2484af4c579f37e3b2797ed87d0",
+      "new_parent": "07d941feb1c26bfaa89f925a2994ed4bcb639b4b",
+      "own_patch_sha256": "b8417d4bb3ad5c30bfe9554c50d4d04aee37a7733dd5ba2347e1d34c2b6f0306",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1581#pullrequestreview-5461577613"
+    },
+    {
+      "batch": 68,
+      "pr": 1587,
+      "branch": "causal-graph-review-20261005-batch68",
+      "new_head": "d53c42c5e8fd0f3635b455809d6a82b97d03a4a5",
+      "new_parent": "bbf280ecf748d2484af4c579f37e3b2797ed87d0",
+      "own_patch_sha256": "3ba5b3384cf01da513bd6e29b79d313bbcaa36d99da86b58beced57ff01ec266",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1587#pullrequestreview-5461577978"
+    },
+    {
+      "batch": 69,
+      "pr": 1595,
+      "branch": "causal-graph-review-20261005-batch69",
+      "new_head": "4e55aee42b39702fc696f049690eb43d14f769d3",
+      "new_parent": "d53c42c5e8fd0f3635b455809d6a82b97d03a4a5",
+      "own_patch_sha256": "5799b33b6b0b10e3eccbb028e653ac5d6df105e542972321d8354c85b2bb4051",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1595#pullrequestreview-5461578358"
+    },
+    {
+      "batch": 70,
+      "pr": 1601,
+      "branch": "causal-graph-review-20261005-batch70",
+      "new_head": "ab810860db6003f7bac1f7094d2f2b529c00198f",
+      "new_parent": "4e55aee42b39702fc696f049690eb43d14f769d3",
+      "own_patch_sha256": "d90ff05040b75614147371616c14b7818515344c2454d9f3588323994337af25",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1601#pullrequestreview-5461578736"
+    },
+    {
+      "batch": 71,
+      "pr": 1607,
+      "branch": "causal-graph-review-20261005-batch71",
+      "new_head": "733500f12c8730de68b7b73422de72f9c73c02ed",
+      "new_parent": "ab810860db6003f7bac1f7094d2f2b529c00198f",
+      "own_patch_sha256": "05d507cc16edaa2e8fdbf8791e9fcbc0cbd081fdd5e5a9b8bb8d6c8fb903c3ea",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1607#pullrequestreview-5461579114"
+    },
+    {
+      "batch": 72,
+      "pr": 1613,
+      "branch": "causal-graph-review-20261005-batch72",
+      "new_head": "830c36d7056399d75b78534c96db236ccfa93a83",
+      "new_parent": "733500f12c8730de68b7b73422de72f9c73c02ed",
+      "own_patch_sha256": "cc6180edf41f5c297c112ac1774fe4ad80d6259714c3d654158ce314a8f06e10",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1613#pullrequestreview-5461579531"
+    },
+    {
+      "batch": 73,
+      "pr": 1619,
+      "branch": "causal-graph-review-20261005-batch73",
+      "new_head": "8afb66c357834d8cd98e769d46b6d10d3d9789d5",
+      "new_parent": "830c36d7056399d75b78534c96db236ccfa93a83",
+      "own_patch_sha256": "7e49f46dc03b220ddc820a7cfe55fa1473d60839cf75cb8a0ad4a993e52f3405",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1619#pullrequestreview-5461579930"
+    },
+    {
+      "batch": 74,
+      "pr": 1625,
+      "branch": "causal-graph-review-20261005-batch74",
+      "new_head": "8598b26c3f686111fdacbeedf8383276d1e5474e",
+      "new_parent": "8afb66c357834d8cd98e769d46b6d10d3d9789d5",
+      "own_patch_sha256": "0bd559834348aad4641ed3bdca92916a751821b3a25c1afe895cf0506be72457",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1625#pullrequestreview-5461580373"
+    },
+    {
+      "batch": 75,
+      "pr": 1631,
+      "branch": "causal-graph-review-20261005-batch75",
+      "new_head": "3a2c0adee316b59dbf0eb7f27b42f6797be53dac",
+      "new_parent": "8598b26c3f686111fdacbeedf8383276d1e5474e",
+      "own_patch_sha256": "702c46c443b970ad40641b8695a2ce0441c1aef36e8d63cec51a14090f425dde",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1631#pullrequestreview-5461580844"
+    },
+    {
+      "batch": 76,
+      "pr": 1636,
+      "branch": "causal-graph-review-20261005-batch76",
+      "new_head": "d6016b3de911cca9a2ce3751c1917d9ad0961990",
+      "new_parent": "3a2c0adee316b59dbf0eb7f27b42f6797be53dac",
+      "own_patch_sha256": "ddc201330bd56eef86f378fc07322be51883e4fb15222e7e1dda4ccd901557a7",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1636#pullrequestreview-5461581243"
+    },
+    {
+      "batch": 77,
+      "pr": 1643,
+      "branch": "causal-graph-review-20261005-batch77",
+      "new_head": "c59fafd367af9c4c5d6f17c7f63779a9c496c35f",
+      "new_parent": "d6016b3de911cca9a2ce3751c1917d9ad0961990",
+      "own_patch_sha256": "8779cf00cf966c0767135148d7f83c09cfba2b7b8ca617ee560fefe24439054d",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1643#pullrequestreview-5461581641"
+    },
+    {
+      "batch": 78,
+      "pr": 1651,
+      "branch": "causal-graph-review-20261005-batch78",
+      "new_head": "1194b274dbff27be3c7506e0b1786da22a6d8abe",
+      "new_parent": "c59fafd367af9c4c5d6f17c7f63779a9c496c35f",
+      "own_patch_sha256": "08a576b925e58607ec4e038f558bf0a88fb8963706f27276ca53681573d298fb",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1651#pullrequestreview-5461582038"
+    },
+    {
+      "batch": 79,
+      "pr": 1659,
+      "branch": "causal-graph-review-20261005-batch79",
+      "new_head": "913296cf68f560203c08ebde42909fc4777ccab6",
+      "new_parent": "1194b274dbff27be3c7506e0b1786da22a6d8abe",
+      "own_patch_sha256": "12156d5a425c0d62157e15f5b2974693e0f229f09e48034e11acf3a2f955c5c7",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1659#pullrequestreview-5461582473"
+    },
+    {
+      "batch": 80,
+      "pr": 1667,
+      "branch": "causal-graph-review-20261005-batch80",
+      "new_head": "ff03de75237a80f09cd900b1c3f878ba645ab57f",
+      "new_parent": "913296cf68f560203c08ebde42909fc4777ccab6",
+      "own_patch_sha256": "150c3db9f209525503a30c49974ea6dd51b098b8bc548c22be6b34bf702c8a32",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1667#pullrequestreview-5461582908"
+    },
+    {
+      "batch": 81,
+      "pr": 1675,
+      "branch": "causal-graph-review-20261005-batch81",
+      "new_head": "8a5cc5774dfc4e14339dbdf4249047ba8a1b9389",
+      "new_parent": "ff03de75237a80f09cd900b1c3f878ba645ab57f",
+      "own_patch_sha256": "aedc9741c1beda0c9ec670221a643b91aed76f0d57979dfdbb9728c38f2aea36",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1675#pullrequestreview-5461583331"
+    },
+    {
+      "batch": 82,
+      "pr": 1684,
+      "branch": "causal-graph-review-20261005-batch82",
+      "new_head": "f3f0ef29fda53ce767c22d098af5a16033bed414",
+      "new_parent": "8a5cc5774dfc4e14339dbdf4249047ba8a1b9389",
+      "own_patch_sha256": "fd909ff675fe5404997728ff1e76894fdfcb7dce61fa5f24c513d7fe98c0aaa6",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1684#pullrequestreview-5461583748"
+    },
+    {
+      "batch": 83,
+      "pr": 1693,
+      "branch": "causal-graph-review-20261005-batch83",
+      "new_head": "69ef4cd9ad54f0e7a9ac4a8836952c531d96b671",
+      "new_parent": "f3f0ef29fda53ce767c22d098af5a16033bed414",
+      "own_patch_sha256": "7a1593e0d7b420ed74a2585f541b455396c2dbaddf113e8341da75e94d2a671c",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1693#pullrequestreview-5461584126"
+    },
+    {
+      "batch": 84,
+      "pr": 1702,
+      "branch": "causal-graph-review-20261005-batch84",
+      "new_head": "4cafb5d44cb72c2a3ac75c624a6f65662cce6df7",
+      "new_parent": "69ef4cd9ad54f0e7a9ac4a8836952c531d96b671",
+      "own_patch_sha256": "27abfa92a59f403e7e6c94fc1fc485f7a13b71661e4a8d93701f0f943bdc46dc",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1702#pullrequestreview-5461584545"
+    },
+    {
+      "batch": 85,
+      "pr": 1710,
+      "branch": "causal-graph-review-20261005-batch85",
+      "new_head": "a33dc6a2003b032e4ab71b0930b8a0a7fa66e12e",
+      "new_parent": "4cafb5d44cb72c2a3ac75c624a6f65662cce6df7",
+      "own_patch_sha256": "0e37a9ac1c8e9379a930012f28531e9ac554d64368bdce22c26a0cfb6fce2493",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1710#pullrequestreview-5461584954"
+    },
+    {
+      "batch": 86,
+      "pr": 1717,
+      "branch": "causal-graph-review-20261005-batch86",
+      "new_head": "923cf79cb7511f18108fd7cbc45d71856d56b2b6",
+      "new_parent": "a33dc6a2003b032e4ab71b0930b8a0a7fa66e12e",
+      "own_patch_sha256": "35cbbb6e97e1e5d6658272a177d0eed79a5c142a971325b86c8d8f5e831ecf43",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1717#pullrequestreview-5461585346"
+    },
+    {
+      "batch": 87,
+      "pr": 1723,
+      "branch": "causal-graph-review-20261005-batch87",
+      "new_head": "8cf08a2e2bcd833dd716ade4a1e4f63699adacc9",
+      "new_parent": "923cf79cb7511f18108fd7cbc45d71856d56b2b6",
+      "own_patch_sha256": "c35ec11b930c4eab56af43e0b7c53de418cf49eb7e78f0e3feb5f83b0acc470a",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1723#pullrequestreview-5461585792"
+    },
+    {
+      "batch": 88,
+      "pr": 1731,
+      "branch": "causal-graph-review-20261005-batch88",
+      "new_head": "02e853ea2aad8a9716dba9b1c2f08982fc60f2cb",
+      "new_parent": "8cf08a2e2bcd833dd716ade4a1e4f63699adacc9",
+      "own_patch_sha256": "12404504b060549fe66a9a3e951ce41a2f9ff216acc344c55602d555296e001d",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1731#pullrequestreview-5461586208"
+    },
+    {
+      "batch": 89,
+      "pr": 1737,
+      "branch": "causal-graph-review-20261005-batch89",
+      "new_head": "08c92eaaa8a4bba01df187b76acfcf38f326c577",
+      "new_parent": "02e853ea2aad8a9716dba9b1c2f08982fc60f2cb",
+      "own_patch_sha256": "e660550aea97adae52d37ea02e42587361d7415318a3313de0cfc70ad806d927",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1737#pullrequestreview-5461586644"
+    },
+    {
+      "batch": 90,
+      "pr": 1743,
+      "branch": "causal-graph-review-20261005-batch90",
+      "new_head": "393b6da1b24f5ce70e567630f5a82bbb260a72dc",
+      "new_parent": "08c92eaaa8a4bba01df187b76acfcf38f326c577",
+      "own_patch_sha256": "8da1e259325e83807db8908b56ecbde4a11dd0287621c2c32fb24f7e03859205",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1743#pullrequestreview-5461587070"
+    },
+    {
+      "batch": 91,
+      "pr": 1745,
+      "branch": "causal-graph-review-20261005-batch91",
+      "new_head": "c6ec05455339700f69c19702fd492537edef22c1",
+      "new_parent": "393b6da1b24f5ce70e567630f5a82bbb260a72dc",
+      "own_patch_sha256": "e0b80bf0599aef056110e6266eef18c52d092fa507f39cd994659563c1485f34",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1745#pullrequestreview-5461587529"
+    },
+    {
+      "batch": 92,
+      "pr": 1749,
+      "branch": "causal-graph-review-20261005-batch92",
+      "new_head": "72e0ccac43044c78e5d4034c6ae6364bbcd9c6f1",
+      "new_parent": "c6ec05455339700f69c19702fd492537edef22c1",
+      "own_patch_sha256": "1132ae78f5a28819eba8293b9097a0c11e86d4bb802ab06c456d31a820217cf1",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1749#pullrequestreview-5461587973"
+    },
+    {
+      "batch": 93,
+      "pr": 1754,
+      "branch": "causal-graph-review-20261005-batch93",
+      "new_head": "9404a41700332c3a8e248cb62aee7bd968139a01",
+      "new_parent": "72e0ccac43044c78e5d4034c6ae6364bbcd9c6f1",
+      "own_patch_sha256": "45f1b32b9908468aa727eb27c7974b2619abd7377f5f3b91180a7650bef35ef7",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1754#pullrequestreview-5461588368"
+    },
+    {
+      "batch": 94,
+      "pr": 1760,
+      "branch": "causal-graph-review-20261005-batch94",
+      "new_head": "d29ee2829ce97e7a800086bda2061aff83a78286",
+      "new_parent": "9404a41700332c3a8e248cb62aee7bd968139a01",
+      "own_patch_sha256": "055446d6053c1ae68ace9d9f5a7572897773023ce0491d2f4365ddf2e055386c",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1760#pullrequestreview-5461588762"
+    },
+    {
+      "batch": 95,
+      "pr": 1765,
+      "branch": "causal-graph-review-20261005-batch95",
+      "new_head": "48c84bab9cbb860905d31daab1f552e72ac4e1ab",
+      "new_parent": "d29ee2829ce97e7a800086bda2061aff83a78286",
+      "own_patch_sha256": "0dd545d74e53fe6f97d8dee80239d3a6cbd65177160811b65aa66cd66f99b087",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1765#pullrequestreview-5461589135"
+    },
+    {
+      "batch": 96,
+      "pr": 1771,
+      "branch": "causal-graph-review-20261005-batch96",
+      "new_head": "ef43f8355128d4cc79bfc1ea1ff73b77a000e8ab",
+      "new_parent": "48c84bab9cbb860905d31daab1f552e72ac4e1ab",
+      "own_patch_sha256": "3aa7010fe2a0fe2a2ff0af80fcb050a4a34042525b6699c06bf46642500e33e1",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1771#pullrequestreview-5461589518"
+    },
+    {
+      "batch": 97,
+      "pr": 1777,
+      "branch": "causal-graph-review-20261005-batch97",
+      "new_head": "8fe975858fe7d85208a94b12b3fc4f9e3422f96c",
+      "new_parent": "ef43f8355128d4cc79bfc1ea1ff73b77a000e8ab",
+      "own_patch_sha256": "fb415b9a93055634d3876b22697fddc4a257e519a197a1af124e29574bb3c6d3",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1777#pullrequestreview-5461589906"
+    },
+    {
+      "batch": 98,
+      "pr": 1783,
+      "branch": "causal-graph-review-20261005-batch98",
+      "new_head": "593feeb470e6cb81d5c35334fdfc6b30cb8da0ce",
+      "new_parent": "8fe975858fe7d85208a94b12b3fc4f9e3422f96c",
+      "own_patch_sha256": "13ca8d070b5fce47ff321608301be8e1bcbf102ea2ee992417f8fbe6b98efdba",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1783#pullrequestreview-5461590338"
+    },
+    {
+      "batch": 99,
+      "pr": 1790,
+      "branch": "causal-graph-review-20261005-batch99",
+      "new_head": "896e26ec700cc3d1db849ab3192c98ebd3422b6f",
+      "new_parent": "593feeb470e6cb81d5c35334fdfc6b30cb8da0ce",
+      "own_patch_sha256": "f54e93a1ed73f073a0294debd93242be87fbd935f952279276dbecb0d745978f",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1790#pullrequestreview-5461590721"
+    },
+    {
+      "batch": 100,
+      "pr": 1797,
+      "branch": "causal-graph-review-20261005-batch100",
+      "new_head": "3d72939bafc690d23233ad1b4c7f232a5c7f5996",
+      "new_parent": "896e26ec700cc3d1db849ab3192c98ebd3422b6f",
+      "own_patch_sha256": "a7d837958530796038900633a3ccd36af0512006c080e2d262a63168b5f35be3",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1797#pullrequestreview-5461591121"
+    },
+    {
+      "batch": 101,
+      "pr": 1802,
+      "branch": "causal-graph-review-20261005-batch101",
+      "new_head": "5566e758055e27df283c26b71dbe7d36fcaabd39",
+      "new_parent": "3d72939bafc690d23233ad1b4c7f232a5c7f5996",
+      "own_patch_sha256": "66f6492e37c11ddf199538da0c01c8d03537b40770e4c5da38cf49b95324190e",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1802#pullrequestreview-5461591459"
+    },
+    {
+      "batch": 102,
+      "pr": 1808,
+      "branch": "causal-graph-review-20261005-batch102",
+      "new_head": "1cd64ce17a8bb96aeaa6297f873932ab76adfe97",
+      "new_parent": "5566e758055e27df283c26b71dbe7d36fcaabd39",
+      "own_patch_sha256": "7d10885afc66c9370b48df92c9bc1b7be6604fe41649ef1bcce500972296519a",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1808#pullrequestreview-5461591833"
+    },
+    {
+      "batch": 103,
+      "pr": 1815,
+      "branch": "causal-graph-review-20261005-batch103",
+      "new_head": "5533fc1abfbb3350a9c66f2d0912376c8942af14",
+      "new_parent": "1cd64ce17a8bb96aeaa6297f873932ab76adfe97",
+      "own_patch_sha256": "9d5a49cd928ec5144ffe7a06947444fcf535fa9f15c24852e75998951c655995",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1815#pullrequestreview-5461592216"
+    },
+    {
+      "batch": 104,
+      "pr": 1822,
+      "branch": "causal-graph-review-20261005-batch104",
+      "new_head": "cdea09485ae9b5eab80e741052e85c10fa69c3e5",
+      "new_parent": "5533fc1abfbb3350a9c66f2d0912376c8942af14",
+      "own_patch_sha256": "edaf85b744fe46e6530d692673279587b4cd8c65c09a4b525645a8b2b529706b",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1822#pullrequestreview-5461592620"
+    },
+    {
+      "batch": 105,
+      "pr": 1828,
+      "branch": "causal-graph-review-20261005-batch105",
+      "new_head": "33a84d2f6e03c46604f770895c92d3aa8d7b8a04",
+      "new_parent": "cdea09485ae9b5eab80e741052e85c10fa69c3e5",
+      "own_patch_sha256": "468474a9a60edb449d84c6e242bc6a547d4278328dff1a61f49a3c07c52432fa",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1828#pullrequestreview-5461593011"
+    },
+    {
+      "batch": 106,
+      "pr": 1835,
+      "branch": "causal-graph-review-20261005-batch106",
+      "new_head": "02611f4d2b8b4a867327091304300a591aff7452",
+      "new_parent": "33a84d2f6e03c46604f770895c92d3aa8d7b8a04",
+      "own_patch_sha256": "2004a60a5da3db6e19f7659ab984fe3e49c622afc0e8d9b09348e4d13ce46604",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1835#pullrequestreview-5461593404"
+    },
+    {
+      "batch": 107,
+      "pr": 1842,
+      "branch": "causal-graph-review-20261005-batch107",
+      "new_head": "08d44b9bdfd649007ef715601f08c5f0a3f44061",
+      "new_parent": "02611f4d2b8b4a867327091304300a591aff7452",
+      "own_patch_sha256": "30dbdefc5c0c4e16da21cedc89dbfb918d06f16db09e444da4b0880f4ee95c47",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1842#pullrequestreview-5461593844"
+    },
+    {
+      "batch": 108,
+      "pr": 1848,
+      "branch": "causal-graph-review-20261005-batch108",
+      "new_head": "6a6e6344fd601c2f963bca28d5460599cb8794c8",
+      "new_parent": "08d44b9bdfd649007ef715601f08c5f0a3f44061",
+      "own_patch_sha256": "5776a3db3d0f3925063e212dd8fcc1260820717aa33e615570e6542c5eeb8ad3",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1848#pullrequestreview-5461594291"
+    },
+    {
+      "batch": 109,
+      "pr": 1856,
+      "branch": "causal-graph-review-20261005-batch109",
+      "new_head": "bb21ea2b0fbd9f26c7098288cc0cb3e50edb47c0",
+      "new_parent": "6a6e6344fd601c2f963bca28d5460599cb8794c8",
+      "own_patch_sha256": "39ca02efdc5f14a44fb4706e906f2d05ae62b92629c28022a1cdefbadd1dab3e",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1856#pullrequestreview-5461594690"
+    },
+    {
+      "batch": 110,
+      "pr": 1864,
+      "branch": "causal-graph-review-20261005-batch110",
+      "new_head": "d61cbc4a4c9ed96b407b70ae12347b6dcafd7852",
+      "new_parent": "bb21ea2b0fbd9f26c7098288cc0cb3e50edb47c0",
+      "own_patch_sha256": "9ecb0ed8656b2a28010d56e20f55a55809670143b3150d0c20ad087c5392e79a",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1864#pullrequestreview-5461595052"
+    },
+    {
+      "batch": 111,
+      "pr": 1870,
+      "branch": "causal-graph-review-20261005-batch111",
+      "new_head": "10ddc0d351c462236f4e4d76e2649791eae345d5",
+      "new_parent": "d61cbc4a4c9ed96b407b70ae12347b6dcafd7852",
+      "own_patch_sha256": "b374ba6e9d2b6f03de55b056d09a77054e651ad794f6561a51b78a01230c6023",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1870#pullrequestreview-5461595539"
+    },
+    {
+      "batch": 112,
+      "pr": 1879,
+      "branch": "causal-graph-review-20261005-batch112",
+      "new_head": "885b8ef16a9cb609d09c3adbf71ee804f27a8248",
+      "new_parent": "10ddc0d351c462236f4e4d76e2649791eae345d5",
+      "own_patch_sha256": "17a50bce447b3dc891394011cf9d086283ee514223cc1c6df58e745aa5ca5ee1",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1879#pullrequestreview-5461595940"
+    },
+    {
+      "batch": 113,
+      "pr": 1887,
+      "branch": "causal-graph-review-20261005-batch113",
+      "new_head": "5520158bb3d4665fb34b86817135ab8add7f26ed",
+      "new_parent": "885b8ef16a9cb609d09c3adbf71ee804f27a8248",
+      "own_patch_sha256": "a440684fe9686d9f56d9d4f92e393e18fe9deea019871989c370395988623ec9",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1887#pullrequestreview-5461596335"
+    },
+    {
+      "batch": 114,
+      "pr": 1892,
+      "branch": "causal-graph-review-20261005-batch114",
+      "new_head": "c727c0587e7bd5f75ea758f852a5ca9676a30f28",
+      "new_parent": "5520158bb3d4665fb34b86817135ab8add7f26ed",
+      "own_patch_sha256": "153b28aa2ba3d8d04fdf4ac285e413cd1558e3d63ecae82cd896d3b6e3405264",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1892#pullrequestreview-5461596737"
+    },
+    {
+      "batch": 115,
+      "pr": 1900,
+      "branch": "causal-graph-review-20261005-batch115",
+      "new_head": "01f1ea386b4edbc222aa58e3691b4cc65ca98e7c",
+      "new_parent": "c727c0587e7bd5f75ea758f852a5ca9676a30f28",
+      "own_patch_sha256": "4fe7c86da3bc8db207dae3b10e8aa07c03b031885444603ee34db7fd6ee2db2d",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1900#pullrequestreview-5461597156"
+    },
+    {
+      "batch": 116,
+      "pr": 1906,
+      "branch": "causal-graph-review-20261005-batch116",
+      "new_head": "11583018ed79cf782588aba2dec9420b27257439",
+      "new_parent": "01f1ea386b4edbc222aa58e3691b4cc65ca98e7c",
+      "own_patch_sha256": "5e9fc064bd0b61d1b83cce831aac47d9e5845c485dce2b64fabe60577769d296",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1906#pullrequestreview-5461597570"
+    },
+    {
+      "batch": 117,
+      "pr": 1914,
+      "branch": "causal-graph-review-20261005-batch117",
+      "new_head": "7c76eac39e934c14b14bc55ed167cd595aaab0c6",
+      "new_parent": "11583018ed79cf782588aba2dec9420b27257439",
+      "own_patch_sha256": "f8c62dd651b03ca65bf51d969bab24b0409784d9b8456e0cdcfa06659473c78c",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1914#pullrequestreview-5461598029"
+    },
+    {
+      "batch": 118,
+      "pr": 1921,
+      "branch": "causal-graph-review-20261005-batch118",
+      "new_head": "4c90d8647bc6fd06fa6f532a11e4e68ba6976df0",
+      "new_parent": "7c76eac39e934c14b14bc55ed167cd595aaab0c6",
+      "own_patch_sha256": "5cc70feab38bdc46689aad98535af2638669dc2c095b8a9b6e7eac8d87a7057e",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1921#pullrequestreview-5461598458"
+    },
+    {
+      "batch": 119,
+      "pr": 1930,
+      "branch": "causal-graph-review-20261005-batch119",
+      "new_head": "5fab4c7c90572d6c8a5b999cc7fe6cd6703d996c",
+      "new_parent": "4c90d8647bc6fd06fa6f532a11e4e68ba6976df0",
+      "own_patch_sha256": "54340a1a97848163b466ec4cd1f9253ab37c7dab8419e61951bc2d85c26148c5",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1930#pullrequestreview-5461598858"
+    },
+    {
+      "batch": 120,
+      "pr": 1938,
+      "branch": "causal-graph-review-20261005-batch120",
+      "new_head": "f0be274b36be67f5416ec8cc88a8dcb76c940459",
+      "new_parent": "5fab4c7c90572d6c8a5b999cc7fe6cd6703d996c",
+      "own_patch_sha256": "2149e15fc53d47c3a7dfdd9d3d0c366a8f6d5fa49fef3e49bf807cc921599038",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1938#pullrequestreview-5461599225"
+    },
+    {
+      "batch": 121,
+      "pr": 1946,
+      "branch": "causal-graph-review-20261005-batch121",
+      "new_head": "1142516cda3a9a61e23f9db131ab6477c84172d4",
+      "new_parent": "f0be274b36be67f5416ec8cc88a8dcb76c940459",
+      "own_patch_sha256": "5c728c88d9f4a55d7bede5106e9e77fc1d412edb53aea7d717c6b5b924aba707",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1946#pullrequestreview-5461599586"
+    },
+    {
+      "batch": 122,
+      "pr": 1953,
+      "branch": "causal-graph-review-20261005-batch122",
+      "new_head": "cdcbdecdb63092a0a9d46ef2f317e8645c5052b3",
+      "new_parent": "1142516cda3a9a61e23f9db131ab6477c84172d4",
+      "own_patch_sha256": "487273517a45efb6043fc042b4d36f53f718ab87411444b5c17aaefb39bebb19",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1953#pullrequestreview-5461599957"
+    },
+    {
+      "batch": 123,
+      "pr": 1962,
+      "branch": "causal-graph-review-20261005-batch123",
+      "new_head": "d23f1e0ffe93c509833557ee2eb2335f20285644",
+      "new_parent": "cdcbdecdb63092a0a9d46ef2f317e8645c5052b3",
+      "own_patch_sha256": "8dc57c11451b4a36e7d919246744e3d2cfde8d3d4f3941c5ed2fff439753e977",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1962#pullrequestreview-5461600327"
+    },
+    {
+      "batch": 124,
+      "pr": 1972,
+      "branch": "causal-graph-review-20261005-batch124",
+      "new_head": "7494cadc09be23b5e9fdc4907784ae6bd31c87cb",
+      "new_parent": "d23f1e0ffe93c509833557ee2eb2335f20285644",
+      "own_patch_sha256": "05f6cedabec2b2eab496e71a58e815a736cdc7c1ada8fbbceff902d444705304",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1972#pullrequestreview-5461600640"
+    },
+    {
+      "batch": 125,
+      "pr": 1974,
+      "branch": "causal-graph-review-20261008-batch125",
+      "new_head": "015fce4d2653160cf1128cd3894aa0babe048d04",
+      "new_parent": "7494cadc09be23b5e9fdc4907784ae6bd31c87cb",
+      "own_patch_sha256": "5883eb08d025aa38ddf298c18e8ecf1e14cd950dd106b016e891bb322838ea1e",
+      "review_url": "https://github.com/CultureBotAI/CommunityMech/pull/1974#pullrequestreview-5462209164"
+    }
+  ],
+  "all_99_patches_match_prior_reviews": true,
+  "prior_exact_head_checks": [
+    {
+      "name": "label-correspondence / label-correspondence",
+      "conclusion": "success",
+      "url": "https://github.com/CultureBotAI/CommunityMech/actions/runs/37903575221/job/113731551141",
+      "head_sha": "253544137c655443aaf270672f6c724db8d5b6c5"
+    },
+    {
+      "name": "vendored-sync",
+      "conclusion": "success",
+      "url": "https://github.com/CultureBotAI/CommunityMech/actions/runs/37903574415/job/113731549698",
+      "head_sha": "253544137c655443aaf270672f6c724db8d5b6c5"
+    },
+    {
+      "name": "Audit Network Integrity",
+      "conclusion": "success",
+      "url": "https://github.com/CultureBotAI/CommunityMech/actions/runs/37903574420/job/113731549250",
+      "head_sha": "253544137c655443aaf270672f6c724db8d5b6c5"
+    },
+    {
+      "name": "lint",
+      "conclusion": "success",
+      "url": "https://github.com/CultureBotAI/CommunityMech/actions/runs/37903574632/job/113731549215",
+      "head_sha": "253544137c655443aaf270672f6c724db8d5b6c5"
+    },
+    {
+      "name": "history",
+      "conclusion": "success",
+      "url": "https://github.com/CultureBotAI/CommunityMech/actions/runs/37903574418/job/113731549182",
+      "head_sha": "253544137c655443aaf270672f6c724db8d5b6c5"
+    },
+    {
+      "name": "docs-current",
+      "conclusion": "success",
+      "url": "https://github.com/CultureBotAI/CommunityMech/actions/runs/37903574481/job/113731548944",
+      "head_sha": "253544137c655443aaf270672f6c724db8d5b6c5"
+    },
+    {
+      "name": "validate-strict",
+      "conclusion": "success",
+      "url": "https://github.com/CultureBotAI/CommunityMech/actions/runs/37903574419/job/113731548697",
+      "head_sha": "253544137c655443aaf270672f6c724db8d5b6c5"
+    }
+  ],
+  "prior_exact_head_test_summaries": [
+    "2026-10-09T08:16:57.5930135Z 4 passed, 12 warnings in 1.47s",
+    "2026-10-09T08:37:26.8034701Z 4684 passed, 86 skipped, 8 deselected, 16 warnings in 1227.87s (0:20:27)"
+  ],
+  "prior_exact_head_strict_log_sha256": "e0df8cf04af0213f7b0b53ba0d3b22ee83e4f15687985c04ad7b0250278a323d",
+  "preserved_artifact_count": 2312,
+  "preserved_artifact_manifest_sha256": "d79eb62192ef8537c6fa8f41be4a505c16962fa28061d254665da1da43a43551",
+  "preservation_scope": "All canonical records, reference caches, history, decision ledgers and existing structured bundles discovered directly from the filesystem, including ignored/hidden entries. Only the upstream authority pin changed during main integration.",
+  "corpus": {
+    "records": 460,
+    "nodes": 1373,
+    "edges": 530,
+    "review_status_counts": {
+      "needs_research": 54,
+      "reviewed": 406
+    },
+    "structural_defects": []
+  },
+  "network_warnings": 57,
+  "merge_policy": "Fresh exact-head pull_request checks and protected main merge_queue required. No admin or rule bypass. Close superseded PRs only after merged-tree proof; retain source tags and worktree files.",
+  "addressed_issues": [
+    1978,
+    1979
+  ],
+  "unresolved_research_examples": [
+    1841,
+    1860
+  ],
+  "integration_incident": 1980
+}

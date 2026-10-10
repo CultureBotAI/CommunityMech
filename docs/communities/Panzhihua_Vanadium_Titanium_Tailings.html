@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        mine tailings
+                        mine tailings<span class="ontology-label"> — ontology label: mine tailing</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000003"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -511,7 +519,7 @@
 
                     <tr>
                         <td>
-                            <strong>Rhizobium selenitireducens</strong>
+                            <strong>Rhizobium selenitireducens<span class="ontology-label"> — ontology label: Paenirhizobium selenitireducens ATCC BAA-1503</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1336235"
@@ -612,7 +620,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus species</strong>
+                            <strong>Bacillus species<span class="ontology-label"> — ontology label: Bacillus &lt;firmicutes&gt;</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1386"
@@ -667,7 +675,7 @@
 
                     <tr>
                         <td>
-                            <strong>Ochrobactrum intermedium</strong>
+                            <strong>Ochrobactrum intermedium<span class="ontology-label"> — ontology label: Brucella intermedia</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=94625"
@@ -722,7 +730,7 @@
 
                     <tr>
                         <td>
-                            <strong>Polaromonas species</strong>
+                            <strong>Polaromonas species<span class="ontology-label"> — ontology label: Polaromonas</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=52972"
@@ -773,12 +781,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Panzhihua Vanadium Titanium Tailings Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -786,18 +795,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -805,9 +804,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Nitrogen Fixation and Plant Growth Promotion</h3>
-                    <span class="interaction-type">MUTUALISM</span>
+                    <h3>Pongamia Nodulation and Nitrogen-Enrichment Phenotypes</h3>
                 </div>
+                <p class="prewrap interaction-description">Bradyrhizobium isolates from Pongamia pinnata nodules in Panzhihua tailings formed nodules and increased plant nitrogen and growth in separate nitrogen-free vermiculite pot assays. Results identify PP76 and other Bradyrhizobium isolates, while PP1 belongs to Rhizobium in the Results and must not be assigned to B. pachyrhizi. The abstract assigns twelve isolates to B. pachyrhizi, but species-level trees and labels are inconsistent. The canonical species endpoint therefore represents the authors provisional group assignment, not a verified PP1 identity. These are positive inoculation phenotypes with nifH evidence, not a measured ammonium-transfer flux, V-Fe nitrogenase demonstration, or mutualism between bacterial species. The same study also reports separate metal-tolerance phenotypes for PP76 and other isolates; internal Cd/Zn inconsistencies preclude unqualified metal-specific numerical assignments here.</p>
 
 
                 <p><strong>Source Taxon:</strong> Bradyrhizobium pachyrhizi</p>
@@ -816,57 +815,9 @@
 
 
 
-                <p><strong>Metabolites:</strong>
-
-                    nitrogen
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17997"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17997</a>),
-
-                    ammonia
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16134"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16134</a>),
-
-                    indole-3-acetic acid
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16411"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16411</a>)
-
-                </p>
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        nitrogen fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009399"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009399</a>)
-                    </li>
-
-                    <li>
-                        symbiotic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044403"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044403</a>)
-                    </li>
-
-                    <li>
-                        root nodulation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009877"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009877</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Soil Organic Carbon Transformation
-                    </div>
-
-                </div>
 
 
 
@@ -882,7 +833,33 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"Based on the phylogenetic analysis of 16S rRNA and four house-keeping genes (atpD, recA, rpoB, glnII), twelve isolates were identified as Bradyrhizobium pachyrhizi, four as Ochrobactrum anthropic, three as Rhizobium selenitireducens and one as Rhizobium pisi"</div>
+                        <div class="snippet">"only 11 strains built symbiotic relationships with P. pinnata."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.3389/fmicb.2023.1078333"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2023.1078333</a>
+
+                            - PARTIAL (IN_VIVO)
+                        </div>
+
+                        <div class="snippet">"the nitrogen content of the plants’ aboveground parts and roots was 2.4–1.8 times that of the non-inoculation control."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.3389/fmicb.2023.1078333"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2023.1078333</a>
+
+                            - PARTIAL (OTHER)
+                        </div>
+
+                        <div class="snippet">"twelve isolates were identified as Bradyrhizobium pachyrhizi"</div>
 
                     </li>
 
@@ -895,7 +872,7 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"Based on the phylogenetic analysis of 16S rRNA and four house-keeping genes (atpD, recA, rpoB, glnII), twelve isolates were identified as Bradyrhizobium pachyrhizi, four as Ochrobactrum anthropic, three as Rhizobium selenitireducens and one as Rhizobium pisi"</div>
+                        <div class="snippet">"the biomass of the inoculated P. pinnata plants was significantly (p &lt; 0.05) higher than that of the control plants."</div>
 
                     </li>
 
@@ -905,419 +882,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Metal Phytoextraction and Plant-Microbe Metal Tolerance</h3>
-                    <span class="interaction-type">MUTUALISM</span>
+                    <h3>Metal Tolerance of Cultured Tailings Bacillus</h3>
                 </div>
-
-
-                <p><strong>Source Taxon:</strong> Bradyrhizobium pachyrhizi</p>
-
-
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    copper(2+)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29036"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29036</a>),
-
-                    nickel(2+)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=49786"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:49786</a>),
-
-                    manganese(2+)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29035"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29035</a>),
-
-                    zinc(2+)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29105"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29105</a>),
-
-                    1-aminocyclopropane-1-carboxylate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18053"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18053</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        response to metal ion
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0010038"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0010038</a>)
-                    </li>
-
-                    <li>
-                        cellular detoxification
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1990748"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:1990748</a>)
-                    </li>
-
-                    <li>
-                        metal ion transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0030001"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0030001</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.3389/fmicb.2018.01853"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2018.01853</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"leucocephala by reducing metal uptake by plants grown in heavy metal-polluted soils"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.3389/fmicb.2023.1078333"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2023.1078333</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"high tolerance against these four heavy metals"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Dissimilatory Vanadium Reduction and Immobilization</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
-                </div>
-
-
-                <p><strong>Source Taxon:</strong> Polaromonas species</p>
-
-
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    vanadate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=46442"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:46442</a>),
-
-                    vanadyl cation
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30046"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30046</a>),
-
-                    lactate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=24996"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:24996</a>),
-
-                    acetate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30089</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        dissimilatory reduction
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019645"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019645</a>)
-                    </li>
-
-                    <li>
-                        cellular detoxification
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1990748"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:1990748</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.1021/acs.est.3c04508"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1021/acs.est.3c04508</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"Microbially mediated V transformation is evaluated to shed light on the primary mechanisms underlying microbial V(V) reduction, namely electron transfer and enzymatic catalysis"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33125214</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"Vanadium (V) is an important metal with critical industrial and medical applications"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Soil Organic Carbon Transformation</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
-                </div>
+                <p class="prewrap interaction-description">The 2014 Panzhihua bulk-soil isolate screen found multiple-metal tolerance among Bacillus isolates, including five strains tolerant to all six tested metals. These were isolate growth assays, not a demonstration that Bacillus transfers metabolites to rhizobia or enhances plant metal uptake. Keep this result separate from the 2023 nodule-isolate screen and the 2018 S. saheli YH1/Leucaena system, which reduced plant metal uptake. The previously assigned B. liaoningense phytoextraction percentages do not belong to B. pachyrhizi or to the cited YH1 experiment. Efflux, sequestration, ACC degradation and metal-redox mechanisms were not isolated by the tolerance assay.</p>
 
 
                 <p><strong>Source Taxon:</strong> Bacillus species</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Bradyrhizobium pachyrhizi</p>
 
 
 
-                <p><strong>Metabolites:</strong>
-
-                    dissolved organic carbon
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16526"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16526</a>),
-
-                    cellulose
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18246"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18246</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        carbon utilization
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015976"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015976</a>)
-                    </li>
-
-                    <li>
-                        cellular carbohydrate metabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0005975"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0005975</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Nitrogen Fixation and Plant Growth Promotion
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/38744211/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38744211</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"The abundance of carbon transformation functional genes such as carbon degradation, carbon fixation, and methane oxidation were also significantly (P &lt; 0.05) enriched"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/38744211/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38744211</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"four soil active organic carbon components (ROC, POC, DOC, and MBC) and three carbon transformation related enzymes (S-CL, S-SC, and S-PPO) in vanadium titanium magnetite tailings significantly (P &lt; 0.05) increased with P. pinnata remediation"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/38744211/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38744211</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"phytoremediation to drive soil carbon transformation for carbon sequestration enhancement through the remediation of degraded ecosystems in mining areas"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Rhizobial Functional Redundancy in Nitrogen Fixation</h3>
-                    <span class="interaction-type">MUTUALISM</span>
-                </div>
-
-
-                <p><strong>Source Taxon:</strong> Rhizobium selenitireducens</p>
-
-
-
-                <p><strong>Target Taxon:</strong> Rhizobium pisi</p>
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    nitrogen
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17997"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17997</a>),
-
-                    ammonia
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16134"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16134</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        nitrogen fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009399"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009399</a>)
-                    </li>
-
-                    <li>
-                        symbiotic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044403"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044403</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.3389/fmicb.2023.1078333"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2023.1078333</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"Based on the phylogenetic analysis of 16S rRNA and four house-keeping genes (atpD, recA, rpoB, glnII), twelve isolates were identified as Bradyrhizobium pachyrhizi, four as Ochrobactrum anthropic, three as Rhizobium selenitireducens and one as Rhizobium pisi"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.3389/fmicb.2023.1078333"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2023.1078333</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"effective rhizobia strains for bioremediation of VTM tailings or other contaminated soils"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Ochrobactrum Metal Tolerance and Metabolic Flexibility</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
-                </div>
-
-
-                <p><strong>Source Taxon:</strong> Ochrobactrum intermedium</p>
-
-
-
-                <p><strong>Target Taxon:</strong> Bradyrhizobium pachyrhizi</p>
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    indole-3-acetic acid
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16411"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16411</a>),
-
-                    copper(2+)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29036"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29036</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        cellular response to metal ion
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0071248"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0071248</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -1332,23 +908,75 @@
                             <a href="https://doi.org/10.1371/journal.pone.0106618"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1371/journal.pone.0106618</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"pumilus, followed by Rhizobium sp. (29 isolates) and Ochrobactrum intermedium (13 isolates)"</div>
+                        <div class="snippet">"Five strains, the B. licheniformis KT-87 and KT-88 and the Bacillus sp. KT-72, KT-74 and KT-76 were tolerant against all the tested heavy metals."</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Ochrobactrum Isolate Growth-Promoter Production</h3>
+                </div>
+                <p class="prewrap interaction-description">The 2014 bulk-soil collection included thirteen isolates identified as Ochrobactrum intermedium. In that collection, six Ochrobactrum isolates produced more than 60 micrograms/mL IAA, and KT80 had the highest reported IAA concentration, 83.05 micrograms/mL; two Ochrobactrum isolates were among the siderophore producers. The main-text wording does not unambiguously allocate IAA/siderophore co-production to both isolates. These are in-vitro production phenotypes, not demonstrated metabolite delivery to Bradyrhizobium, ACC deaminase activity, metal reduction or a community-resilience mechanism. The 2023 Ochrobactrum nodule isolates are a different collection with different species assignments; they cannot establish O. intermedium symbiotic nitrogen fixation.</p>
+
+
+                <p><strong>Source Taxon:</strong> Ochrobactrum intermedium</p>
+
+
+
+
+
+
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.1371/journal.pone.0106618"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1371/journal.pone.0106618</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Ochrobactrum intermedium (13 isolates)"</div>
 
                     </li>
 
                     <li class="evidence-item">
                         <div>
 
-                            <a href="https://doi.org/10.3389/fmicb.2023.1078333"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2023.1078333</a>
+                            <a href="https://doi.org/10.1371/journal.pone.0106618"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1371/journal.pone.0106618</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Based on the phylogenetic analysis of 16S rRNA and four house-keeping genes (atpD, recA, rpoB, glnII), twelve isolates were identified as Bradyrhizobium pachyrhizi, four as Ochrobactrum anthropic, three as Rhizobium selenitireducens and one as Rhizobium pisi"</div>
+                        <div class="snippet">"Ochrobactrum sp. KT80 produced highest concentration"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.1371/journal.pone.0106618"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1371/journal.pone.0106618</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"two Ochrobactrum sp. siderophore producers"</div>
 
                     </li>
 
@@ -1361,6 +989,108 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which sampled community and verified isolates support each Panzhihua graph claim?
+                </h3>
+                <p class="prewrap">The record combines bulk-soil isolates, individually tested nodule isolates and separate plant-remediation communities. Positive nodulation, nitrogen enrichment, isolate tolerance and IAA production remain. Co-isolation does not establish functional redundancy, mutualism or compensatory resilience. Polaromonas occurrence in this exact Panzhihua system is unverified; PMID33125214 concerns its own vanadium-tailings system, already represented separately as CommunityMech:000055. Removing that node exposes an unresolved canonical-membership problem rather than concealing it through all-member community-level credit. The 2023 paper also conflicts internally on PP1 identity and Cd/Zn assays. Canonical identity, top-level environment and trophic roles require separate review.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Pongamia Nodulation and Nitrogen-Enrichment Phenotypes</code>, <code>ecological_interactions#Metal Tolerance of Cultured Tailings Bacillus</code>, <code>ecological_interactions#Ochrobactrum Isolate Growth-Promoter Production</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">OTHER</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+                                <a href="https://doi.org/10.3389/fmicb.2023.1078333" rel="noreferrer">doi:10.3389/fmicb.2023.1078333</a>
+
+                        </div>
+                        <p class="snippet small prewrap">twelve isolates were identified as Bradyrhizobium pachyrhizi</p>
+                        <p class="muted small prewrap">Abstract species assignment; Results tree comparisons and strain names are inconsistent, so exact strain-to-species mapping remains unresolved.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">OTHER</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/" rel="nofollow noreferrer">PMID:33125214</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">V V -reducing enrichments indicated that bacteria associated with Polaromonas</p>
+                        <p class="muted small prewrap">External-system context only; no evidence of occurrence or vanadium reduction at this record’s Panzhihua sampling site.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How should the positive Pongamia soil-carbon response be represented with the correct community identity?
+                </h3>
+                <p class="prewrap">PMID38744211 reports significant increases in ROC, POC, DOC and MBC, three carbon-transformation enzyme measures, and carbon degradation/fixation/methane-oxidation gene abundance after long-term Pongamia remediation. This positive aggregate result is retained here, not discarded as merely hypothetical. SEM supports an inferred community-level pathway, not Bacillus-to-Bradyrhizobium commensalism or a reciprocal nitrogen/carbon feedback connecting different studies. The former DOC metabolite was incorrectly grounded as carbon dioxide. A graph node needs a correctly scoped community and source-resolved participants; converting this composite record to implicit all-member activity would falsely include Polaromonas. Authorized full text and identity repair precede new topology.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Pongamia Nodulation and Nitrogen-Enrichment Phenotypes</code>, <code>ecological_interactions#Metal Tolerance of Cultured Tailings Bacillus</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VIVO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/38744211/" rel="nofollow noreferrer">PMID:38744211</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">four soil active organic carbon components (ROC, POC, DOC, and MBC)</p>
+                        <p class="muted small prewrap">Positive aggregate carbon result in a separate remediation study; does not resolve the proposed bacterial pair.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">COMPUTATIONAL</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/38744211/" rel="nofollow noreferrer">PMID:38744211</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">The abundance of carbon transformation functional genes such as carbon degradation, carbon fixation, and methane oxidation were also significantly</p>
+                        <p class="muted small prewrap">Gene-abundance changes are not measured pathway flux or a demonstrated nitrogen-to-carbon feedback.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1706,12 +1436,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1724,7 +1457,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1806,32 +1538,16 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
-
-
-            metabolites.push("nitrogen");
-
-            metabolites.push("ammonia");
-
-            metabolites.push("indole-3-acetic acid");
-
 
             var processes = [];
 
-
-            processes.push("nitrogen fixation");
-
-            processes.push("symbiotic process");
-
-            processes.push("root nodulation");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 4;
 
             nodes.push({
                 id: intId,
-                label: "Nitrogen Fixation and Plant Growth Promotion",
+                label: "Pongamia Nodulation and Nitrogen-Enrichment Phenotypes",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1851,122 +1567,16 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
-
-
-            metabolites.push("copper(2+)");
-
-            metabolites.push("nickel(2+)");
-
-            metabolites.push("manganese(2+)");
-
-            metabolites.push("zinc(2+)");
-
-            metabolites.push("1-aminocyclopropane-1-carboxylate");
-
 
             var processes = [];
 
-
-            processes.push("response to metal ion");
-
-            processes.push("cellular detoxification");
-
-            processes.push("metal ion transport");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Metal Phytoextraction and Plant-Microbe Metal Tolerance",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-            var srcKey = "Bradyrhizobium pachyrhizi";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
-            var metabolites = [];
-
-
-            metabolites.push("vanadate");
-
-            metabolites.push("vanadyl cation");
-
-            metabolites.push("lactate");
-
-            metabolites.push("acetate");
-
-
-            var processes = [];
-
-
-            processes.push("dissimilatory reduction");
-
-            processes.push("cellular detoxification");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Dissimilatory Vanadium Reduction and Immobilization",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-            var srcKey = "Polaromonas species";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:3";
-            var intType = "COMMENSALISM";
-            var metabolites = [];
-
-
-            metabolites.push("dissolved organic carbon");
-
-            metabolites.push("cellulose");
-
-
-            var processes = [];
-
-
-            processes.push("carbon utilization");
-
-            processes.push("cellular carbohydrate metabolic process");
-
-
-            var evidenceCount = 3;
-
-            nodes.push({
-                id: intId,
-                label: "Soil Organic Carbon Transformation",
+                label: "Metal Tolerance of Cultured Tailings Bacillus",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1982,81 +1592,20 @@
 
 
 
-            var tgtKey = "Bradyrhizobium pachyrhizi";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
         })();
 
         (function() {
-            var intId = "interaction:4";
-            var intType = "MUTUALISM";
+            var intId = "interaction:2";
+            var intType = "UNKNOWN";
             var metabolites = [];
-
-
-            metabolites.push("nitrogen");
-
-            metabolites.push("ammonia");
-
 
             var processes = [];
 
-
-            processes.push("nitrogen fixation");
-
-            processes.push("symbiotic process");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "Rhizobial Functional Redundancy in Nitrogen Fixation",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-            var srcKey = "Rhizobium selenitireducens";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-            var tgtKey = "Rhizobium pisi";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
-        })();
-
-        (function() {
-            var intId = "interaction:5";
-            var intType = "CROSS_FEEDING";
-            var metabolites = [];
-
-
-            metabolites.push("indole-3-acetic acid");
-
-            metabolites.push("copper(2+)");
-
-
-            var processes = [];
-
-
-            processes.push("cellular response to metal ion");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Ochrobactrum Metal Tolerance and Metabolic Flexibility",
+                label: "Ochrobactrum Isolate Growth-Promoter Production",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -2072,11 +1621,6 @@
 
 
 
-            var tgtKey = "Bradyrhizobium pachyrhizi";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
         })();
 
 
@@ -2090,12 +1634,15 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 12;
+        var nodeCount = 9;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

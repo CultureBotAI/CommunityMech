@@ -91,66 +91,45 @@ taxonomy:
     evidence_source: IN_VITRO
     snippet: 'The mesophilic methylotrophic bacterium Methylobacterium extorquens AM1 was previously shown to grow using electronic waste by naturally acquiring REEs'
 ecological_interactions:
-- name: Organic Acid-Mediated REE Bioleaching
-  description: 'Methylobacterium extorquens mobilizes rare earth elements from electronic waste substrates (magnet swarf,
-    phosphors) through supplementation with organic acids including citrate (5-15 mM trisodium citrate dihydrate), gluconate
-    (55 mM sodium gluconate), and oxalic acid (5 mM). Citrate is the most effective chelator, with 15 mM citrate leaching
-    58.7 ± 0.6 ppm REE from e-waste after 28 hours, compared to 8.2 ± 0.1 ppm at 5 mM citrate. The organic acids complex REE
-    cations bound in Nd-Fe-B permanent magnets and phosphor matrices, solubilizing them into aqueous phase where they become
-    bioavailable for cellular uptake. This non-acidic leaching (pH 6.9) contrasts sharply with conventional acid digestion
-    (concentrated HCl, H₂SO₄) used in industrial REE recovery, offering significant environmental benefits through reduced
-    corrosivity, energy consumption, and hazardous waste generation. The citrate-mediated bioleaching represents the first
-    step in the consolidated bioprocessing platform, generating a REE-rich leachate that feeds the bioaccumulation stage.
-
-    '
+- name: Citrate-Supplemented REE Leaching
+  description: Externally supplied citrate increased chemical REE leaching from magnet swarf and subsequent cellular accumulation.
+    Gluconate and oxalate at the tested concentrations did not increase REE leaching relative to the control. Citrate was
+    a supplied reagent, not a demonstrated AM1 secretion; its growth and uptake effects depended on concentration and culture
+    scale.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Methylobacterium extorquens
-    term:
-      id: NCBITaxon:408
-      label: Methylorubrum extorquens
   metabolites:
-  - preferred_term: citric acid
+  - preferred_term: citrate(3-)
     term:
-      id: CHEBI:30769
-      label: citric acid
-    concentration: 5-15 mM (15 mM optimal for 58.7 ppm REE leaching)
-  - preferred_term: gluconic acid
-    term:
-      id: CHEBI:24266
-      label: gluconic acid
-    concentration: 55 mM sodium gluconate
-  - preferred_term: oxalic acid
-    term:
-      id: CHEBI:16995
-      label: oxalic acid
-    concentration: 5 mM
+      id: CHEBI:16947
+      label: citrate(3-)
+    concentration: 5 or 15 mM citrate supplementation
+    notes: Supplied as trisodium citrate dihydrate; effects depend on assay conditions.
   - preferred_term: neodymium(3+)
     term:
       id: CHEBI:229785
       label: neodymium(3+)
-    concentration: Up to 58.7 ppm leached from magnet swarf
+    notes: Nd is one component of the leached REE mixture; 58.7 ppm was total REE, not an Nd-specific concentration.
   downstream:
   - target: Lanthanophore-Mediated REE Bioaccumulation
-    description: Leached REE become bioavailable for cellular uptake
+    description: PARTIAL - citrate supplementation increased leaching and cellular REE accumulation, supplying more accessible
+      metal. The study did not isolate mll as the mediator of that citrate-associated increment.
   evidence:
   - reference: PMID:38150661
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The addition of organic acids increases REE leaching in a nonspecific manner
-    explanation: Quantifies citrate-mediated REE leaching efficiency
+    snippet: addition of citrate greatly improved REE leaching
+    explanation: Identifies the supplied-citrate intervention and its measured leaching effect.
+  - reference: PMID:38150661
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: did not increase REE leaching as compared to the negative control condition
+    explanation: The source identifies 55 mM gluconate and 5 mM oxalate, not citrate, as the ineffective tested
+      additions.
 - name: Lanthanophore-Mediated REE Bioaccumulation
-  description: 'M. extorquens produces lanthanophores—siderophore-like low-molecular-weight chelators encoded by the mll operon—that
-    scavenge and transport REE cations into the cell. The mll genes were placed under control of the lac promoter to enable
-    inducible overexpression, enhancing lanthanophore production and REE uptake capacity. Lanthanophores bind REE with high
-    affinity and selectivity, discriminating against non-REE metals and achieving 98% REE purity in accumulated metal fraction.
-    After cellular uptake, REE are sequestered in intracellular polyphosphate granules where they form stable REE-phosphate
-    complexes. Baseline wild-type accumulation is 3.2 ± 0.1 mg Nd/g dry weight, which increases to 11.5 ± 0.3 mg Nd/g
-    DW under optimized conditions and 80 mg Nd/g DW with mll overexpression. The lanthanophore system demonstrates remarkable
-    specificity, with 96.8% of accumulated REE being neodymium—the critical element for permanent magnets. This selectivity
-    enables targeted recovery of Nd from complex e-waste matrices containing multiple metals (Fe, Co, Ni, Cu).
-
-    '
+  description: Expression of the methylolanthanin biosynthetic mll cluster increased REE accumulation from magnet swarf in
+    the tested delta-mxaF/pAZ1 background. Nd, Pr, and Dy accumulation increased more than threefold, reaching 80, 15, and
+    8 mg/g dry biomass, respectively. Bioreactor selectivity percentages measured under other conditions are not attributed
+    to this mll perturbation.
   scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Methylobacterium extorquens
@@ -162,7 +141,7 @@ ecological_interactions:
     term:
       id: CHEBI:229785
       label: neodymium(3+)
-    concentration: Baseline 3.2 mg/g DW; optimized 11.5 mg/g; mll-overexpression 80 mg/g
+    concentration: 80 mg Nd/g dry biomass with mll expression in the tested background
   - preferred_term: praseodymium(3+)
     term:
       id: CHEBI:229784
@@ -173,61 +152,34 @@ ecological_interactions:
       id: CHEBI:33377
       label: dysprosium atom
     concentration: Up to 8 mg/g DW from magnet swarf
-    notes: >-
-      Grounded to the atom, not the trivalent cation: CHEBI has no
-      dysprosium(3+) term, carrying only dysprosium atom and dysprosium
-      molecular entity. Its neighbours here are exact cations (CHEBI:229785
-      neodymium(3+), CHEBI:229784 praseodymium(3+)), so this one is coarser
-      than the block around it, and preferred_term keeps the species the paper
-      reports. Two CHEBI terms could have taken it - CHEBI:37295 dysprosium
-      molecular entity does subsume the cation by is_a, which dysprosium atom
-      does not - and CHEBI:33377 is chosen because it is what the rest of the
-      repo means by DYSPROSIUM: the schema enum, kgx_export, the reverse map in
-      metal_extraction.py, and the identical triple in
-      Ion_Adsorption_REE_Indigenous_Community.yaml. Grounding this record to
-      37295 alone would drop its dysprosium out of every enum-driven analysis.
-      The id this replaced, CHEBI:49782, exists in no CHEBI release - it was
-      part of the rare-earth mis-grounding block in NEXT_TASKS.md and the
-      correction was already recorded in scripts/chebi_fix_apply.py, which only
-      ever swept kb/communities (#471).
+    notes: 'Grounded to the atom, not the trivalent cation: CHEBI has no dysprosium(3+) term, carrying only dysprosium atom
+      and dysprosium molecular entity. Its neighbours here are exact cations (CHEBI:229785 neodymium(3+), CHEBI:229784 praseodymium(3+)),
+      so this one is coarser than the block around it, and preferred_term keeps the species the paper reports. Two CHEBI terms
+      could have taken it - CHEBI:37295 dysprosium molecular entity does subsume the cation by is_a, which dysprosium atom
+      does not - and CHEBI:33377 is chosen because it is what the rest of the repo means by DYSPROSIUM: the schema enum, kgx_export,
+      the reverse map in metal_extraction.py, and the identical triple in Ion_Adsorption_REE_Indigenous_Community.yaml. Grounding
+      this record to 37295 alone would drop its dysprosium out of every enum-driven analysis. The id this replaced, CHEBI:49782,
+      exists in no CHEBI release - it was part of the rare-earth mis-grounding block in NEXT_TASKS.md and the correction was
+      already recorded in scripts/chebi_fix_apply.py, which only ever swept kb/communities (#471).'
   biological_processes:
   - preferred_term: metal ion transport
     term:
       id: GO:0030001
       label: metal ion transport
-  - preferred_term: cellular response to metal ion
-    term:
-      id: GO:0071248
-      label: cellular response to metal ion
   downstream:
   - target: Polyphosphate Granule REE Sequestration
-    description: Lanthanophore-delivered REE are stored in polyphosphate granules
+    description: PARTIAL - uptake supplies intracellular REE associated with polyphosphate storage. The separate mll and ppx
+      experiments do not directly trace mll-delivered metal into granules or establish a combined mediation effect.
   evidence:
   - reference: PMID:38150661
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: REEs are stored intracellularly in polyphosphate granules, and genetic engineering to eliminate exopolyphosphatase
-      activity increases metal accumulation, confirming the link between phosphate metabolism and biological REE use
-    explanation: Documents lanthanophore-enhanced bioaccumulation
-  - reference: PMID:38150661
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: In cell samples, 98.0% of the accumulated metal was REE, 96.8% of which was Nd
-    explanation: Quantifies REE selectivity and Nd specificity
+    snippet: Nd, Pr, and Dy accumulation increased by more than 3-fold with mll expression
+    explanation: Directly supports increased accumulation after mll expression in the magnet-swarf experiment.
 - name: Polyphosphate Granule REE Sequestration
-  description: 'REE transported into M. extorquens cells are sequestered in intracellular polyphosphate granules, forming
-    stable REE-phosphate complexes that immobilize the metals and protect cellular machinery from REE toxicity. Polyphosphate
-    granules are polyanionic polymers (chains of phosphate residues linked by high-energy bonds) that serve as phosphate and
-    energy reserves in bacteria. The phosphate groups coordinate REE cations through electrostatic and covalent bonding, creating
-    insoluble precipitates within the granules. Genetic deletion of exopolyphosphatase (ppx) prevents degradation of these
-    polyphosphate-REE complexes, stabilizing REE accumulation and achieving the highest reported bioaccumulation: 202 mg Nd/g
-    DW. The ppx knockout eliminates the enzyme that cleaves polyphosphate chains, preventing
-    REE release back into cytoplasm and enabling sustained accumulation over multiple growth cycles. This genetic strategy
-    transformed a transient biosorption process into stable long-term bioaccumulation, making M. extorquens a practical platform
-    for industrial-scale REE recovery. The polyphosphate granules can be visualized by TEM and provide a concentrated REE
-    reservoir amenable to downstream recovery through biomass ashing or acid digestion.
-
-    '
+  description: The paper relates intracellular REE storage to polyphosphate granules and tests reduced exopolyphosphatase
+    activity. The ppx deletion strain accumulated 202 mg Nd/g dry biomass, about 5.5-fold above its experimental comparison.
+    This supports a phosphate-metabolism link, not measured irreversible retention, covalent bonding, or detoxification rescue.
   scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Methylobacterium extorquens
@@ -250,35 +202,26 @@ ecological_interactions:
     term:
       id: GO:0006798
       label: polyphosphate catabolic process
-    notes: ppx deletion blocks this pathway, stabilizing REE-polyphosphate complexes
+    notes: ppx deletion reduces capacity for exopolyphosphatase-mediated polyphosphate breakdown; retention kinetics were
+      not measured by the reported endpoint.
   evidence:
   - reference: PMID:38150661
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: REEs are stored intracellularly in polyphosphate granules, and genetic engineering to eliminate exopolyphosphatase
       activity increases metal accumulation, confirming the link between phosphate metabolism and biological REE use
-    explanation: Describes polyphosphate storage mechanism
+    explanation: Provides storage context and the phosphate-metabolism link; does not establish bond chemistry or retention
+      duration.
   - reference: PMID:38150661
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: A ppx (encoding exopolyphosphatase) deletion strain was generated and
-      assessed for REE bioaccumulation, showing a ∼5.5-fold increase in Nd
-      levels reaching 202 mg Nd/g DW
+    snippet: A ppx (encoding exopolyphosphatase) deletion strain was generated and assessed for REE bioaccumulation, showing
+      a ∼5.5-fold increase in Nd levels reaching 202 mg Nd/g DW
     explanation: Quantifies ppx knockout enhancement of bioaccumulation.
 - name: Methanol-Powered REE Acquisition Metabolism
-  description: 'M. extorquens couples REE bioaccumulation to its native methylotrophic metabolism, using methanol as carbon
-    and energy source while simultaneously acquiring REE to support growth. The bacterium naturally requires REE as cofactors
-    for methanol dehydrogenase (MDH), the key enzyme catalyzing methanol oxidation (CH₃OH → formaldehyde). MDH contains a
-    pyrroloquinoline quinone (PQQ) cofactor and a REE cation (La³⁺ or other light REE) at its active site, where the REE serves
-    as a Lewis acid to activate the alcohol substrate. This metabolic dependency on REE makes M. extorquens naturally competent
-    at scavenging trace REE from environments and explains its evolution of lanthanophore biosynthesis systems. By growing
-    on electronic waste supplemented with methanol, the organism directly couples critical materials recovery (REE bioaccumulation)
-    to energy metabolism, creating a self-sustaining bioprocessing cycle. The system operates in HyphoMOD minimal medium with
-    reduced phosphate (to prevent phosphate-mediated REE precipitation outside cells), achieving sustained growth and REE
-    accumulation. This metabolic integration distinguishes the platform from passive biosorption systems, enabling active,
-    energy-dependent REE uptake and concentration against gradients.
-
-    '
+  description: The study's growth experiments used M. extorquens AM1 delta-mxaF, lacking the large subunit of the calcium-dependent
+    methanol dehydrogenase. This engineered background requires REE for methanol-supported growth through alternative dehydrogenases.
+    It does not establish obligate REE dependence of wild-type AM1 or quantify an uptake energy gradient.
   scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Methylobacterium extorquens
@@ -295,12 +238,7 @@ ecological_interactions:
     term:
       id: CHEBI:229785
       label: neodymium(3+)
-    notes: Cofactor for methanol dehydrogenase enzyme
-  - preferred_term: formaldehyde
-    term:
-      id: CHEBI:16842
-      label: formaldehyde
-    notes: Product of methanol oxidation by REE-dependent MDH
+    notes: Nd is present in the magnet-swarf REE source; the growth experiment uses a REE-dependent engineered background.
   biological_processes:
   - preferred_term: methanol metabolic process
     term:
@@ -311,9 +249,9 @@ ecological_interactions:
   - reference: PMID:38150661
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The mesophilic methylotrophic bacterium Methylobacterium extorquens AM1 was previously shown to grow using electronic
-      waste by naturally acquiring REEs to power methanol metabolism
-    explanation: Establishes coupling of REE acquisition to methylotrophic metabolism
+    snippet: Deletion of this gene ensures REE dependency for growth with methanol
+    explanation: The strain-methods paragraph identifies the deleted gene as mxaF, distinguishing the engineered growth dependency
+      from wild-type physiology.
 environmental_factors:
 - name: pH
   value: '6.9'
@@ -466,7 +404,27 @@ curation_history:
   curator: codex
   action: REPAIR_OBSOLETE_GO_PROCESS
   llm_assisted: true
-  changes: Removed the optional obsolete GO:0006082 descriptor. Its only explicit GO replacement is GO:0008152
-    (metabolic process), which the existing no-vacuous-annotations policy rejects. Retained the specific
-    biological meaning in the unchanged interaction prose, metabolites, downstream links, and evidence
-    without inventing a narrower ontology mapping.
+  changes: Removed the optional obsolete GO:0006082 descriptor. Its only explicit GO replacement is GO:0008152 (metabolic
+    process), which the existing no-vacuous-annotations policy rejects. Retained the specific biological meaning in the unchanged
+    interaction prose, metabolites, downstream links, and evidence without inventing a narrower ontology mapping.
+- timestamp: '2026-10-05T07:14:40Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate supplied citrate, engineered REE dependence, and distinct uptake-storage perturbations; complete node/edge
+    decisions: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml; https://github.com/CultureBotAI/CommunityMech/issues/1240'
+  llm_assisted: true
+discussions:
+- discussion_id: ree_intervention_integration
+  prompt: How do citrate supply, mll expression, and phosphate storage jointly control REE recovery?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Citrate-Supplemented REE Leaching
+  - ecological_interactions#Lanthanophore-Mediated REE Bioaccumulation
+  - ecological_interactions#Polyphosphate Granule REE Sequestration
+  - ecological_interactions#Methanol-Powered REE Acquisition Metabolism
+  rationale: PMID:38150661 reports separate chemical and genetic interventions. Their gains and baseline values cannot be
+    multiplied or read as one strain-condition series. Uptake-to-storage mediation, retention kinetics, and a combined mll/ppx
+    phenotype were not established by the reviewed experiments. Reusing swarf across recovery runs is not evidence of retention
+    in the same biomass. Exact ppx genotype details require the unread supplement; non-graph environmental and commercial-purity
+    claims remain outside this review.

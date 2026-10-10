@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        gnotobiotic mouse gut environment
+                        gnotobiotic mouse gut environment<span class="ontology-label"> — ontology label: intestine environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_2100002"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -509,7 +517,7 @@
 
                     <tr>
                         <td>
-                            <strong>Eubacterium rectale ATCC 33656</strong>
+                            <strong>Eubacterium rectale ATCC 33656<span class="ontology-label"> — ontology label: Agathobacter rectalis ATCC 33656</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=515619"
@@ -571,12 +579,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Bacteroides-Eubacterium Gnotobiotic Gut Model</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding, niche partitioning. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -592,6 +601,11 @@
                              aria-hidden="true" data-symbol="symbolSquare2"
                              data-color="#1212ed"></svg> Niche partitioning
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
@@ -601,6 +615,7 @@
                     <h3>Bacteroides Polysaccharide Niche Expansion</h3>
                     <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
+                <p class="prewrap interaction-description">B. thetaiotaomicron responds to E. rectale by increasing expression of polysaccharide utilization loci and broadening glycan foraging, including host-derived mucin glycans that E. rectale cannot use.</p>
 
 
                 <p><strong>Source Taxon:</strong> Eubacterium rectale ATCC 33656</p>
@@ -637,6 +652,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Cecal Short-Chain Fatty Acid Remodeling
+                        <p class="prewrap causal-description">PARTIAL - the source proposes that Bacteroides dietary-glycan processing supplies substrates for E. rectale metabolism, contributing to the measured SCFA pools. Increased host-mucin foraging is a distinct niche response, not direct evidence that host glycans feed E. rectale; donor-specific transfer was not traced in the inspected main paper.</p>
                     </div>
 
                 </div>
@@ -668,6 +684,7 @@
                     <h3>Eubacterium Transport and Butyrate Shift</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">E. rectale decreases glycan-degrading enzyme expression and increases selected transport functions during biassociation. PARTIAL - combined acetate, redox, enzyme-expression and host Mct1 observations support the source&#39;s proposed acetate-to-butyrate cross-feeding model; they do not directly measure donor-resolved flux or increased production/uptake rates.</p>
 
 
                 <p><strong>Source Taxon:</strong> Bacteroides thetaiotaomicron VPI-5482</p>
@@ -696,7 +713,7 @@
                 <ul>
 
                     <li>
-                        butyrate biosynthetic process
+                        butyrate metabolic process
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0019605"
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0019605</a>)
                     </li>
@@ -716,6 +733,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Cecal Short-Chain Fatty Acid Remodeling
+                        <p class="prewrap causal-description">PARTIAL - inferred acetate use in E. rectale butyrate metabolism could contribute to lower acetate and maintained standing butyrate concentrations. Similar butyrate pools plus higher host Mct1 expression do not directly quantify increased production or epithelial uptake.</p>
                     </div>
 
                 </div>
@@ -744,7 +762,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/19321416/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:19321416</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
                         <div class="snippet">"generation of butyrate from acetate"</div>
@@ -758,8 +776,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Cecal Short-Chain Fatty Acid Remodeling</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">Biassociation lowered cecal acetate relative to B. thetaiotaomicron monoassociation, while cecal butyrate concentration was similar to E. rectale monoassociation. These comparator-specific standing pools are not production or uptake rates. Both organisms had similar colonization levels under mono- and biassociation on polysaccharide-rich chow.</p>
 
 
 
@@ -908,6 +926,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    What donor-specific carbon flux and epithelial uptake mediate the biassociation SCFA response?
+                </h3>
+                <p class="prewrap">Main-paper expression, pools and diet perturbation support a metabolic model but do not isolate acetate transfer, host uptake rates or pathway necessity. Diet restriction tests substrate dependence, not molecule-specific exchange. SI Methods/Results, supplementary figures/tables and underlying data were not inspected. Non-graph ingredient flux wording remains a separate follow-up.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Bacteroides Polysaccharide Niche Expansion</code>, <code>ecological_interactions#Eubacterium Transport and Butyrate Shift</code>, <code>ecological_interactions#Cecal Short-Chain Fatty Acid Remodeling</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1048,12 +1085,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1066,7 +1106,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1172,7 +1211,7 @@
             var processes = [];
 
 
-            processes.push("butyrate biosynthetic process");
+            processes.push("butyrate metabolic process");
 
             processes.push("biological process involved in interspecies interaction between organisms");
 
@@ -1206,7 +1245,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1262,6 +1301,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

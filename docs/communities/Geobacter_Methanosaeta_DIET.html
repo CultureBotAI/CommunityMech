@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -498,7 +506,7 @@
 
                     <tr>
                         <td>
-                            <strong>Methanosaeta harundinacea</strong>
+                            <strong>Methanosaeta harundinacea<span class="ontology-label"> — ontology label: Methanothrix harundinacea</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=301375"
@@ -547,12 +555,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Geobacter-Methanosaeta DIET Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for syntrophy. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -560,13 +569,13 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolTriangle"
+                             data-color="#7f30cf"></svg> Syntrophy
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -574,9 +583,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Ethanol Oxidation and Direct Electron Transfer</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Geobacter Ethanol Oxidation</h3>
                 </div>
+                <p class="prewrap interaction-description">In the defined Geobacter metallireducens-Methanosaeta harundinacea coculture, Geobacter oxidizes ethanol to acetate and releases electrons for DIET. This is the donor reaction, not a claim that ethanol carbon is directly oxidized to CO2 at this step. The acetate coproduct also contributes to bulk methane through a separate route, not yet represented as its own graph branch.</p>
 
 
                 <p><strong>Source Taxon:</strong> Geobacter metallireducens</p>
@@ -616,7 +625,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Conductive Aggregate-Mediated DIET
+                        <span class="flow-arrow">→</span> DIET in Defined Coculture Aggregates
+                        <p class="prewrap causal-description">Ethanol oxidation releases reducing equivalents that Geobacter supplies to the defined partner through DIET. This arrow routes electron supply, not acetate carbon, and does not assert that ethanol oxidation selectively causes aggregate formation.</p>
                     </div>
 
                 </div>
@@ -635,7 +645,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Furthermore, Geobacter species, the most abundant bacteria in the aggregates, highly expressed genes for ethanol metabolism and for extracellular electron transfer via electrically conductive pili, suggesting that Geobacter and Methanosaeta species were exchanging electrons via direct interspecies electron transfer (DIET)"</div>
+                        <div class="snippet">"stoichiometrically converted ethanol to methane"</div>
 
                     </li>
 
@@ -645,9 +655,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Conductive Aggregate-Mediated DIET</h3>
+                    <h3>DIET in Defined Coculture Aggregates</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">Defined G. metallireducens-M. harundinacea cocultures form mixed aggregates and support DIET; the pilA-deficient Geobacter comparison supports a requirement for its pili-associated machinery under these conditions. This evidence is distinct from Geobacter-species and Methanosaeta concilii expression in brewery-digester aggregates. Aggregate formation itself was not selectively perturbed, and the methanogen electron-entry components remain unresolved. Do not transfer measured conductivity of environmental aggregates to these defined aggregates as a separately measured property.</p>
 
 
                 <p><strong>Source Taxon:</strong> Geobacter metallireducens</p>
@@ -677,7 +688,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Direct Electron Acceptance and Methanogenesis
+                        <span class="flow-arrow">→</span> DIET-Linked Carbon Dioxide Reduction to Methane
+                        <p class="prewrap causal-description">DIET supplies electrons for M. harundinacea CO2 reduction to methane, supported by the defined-coculture radiotracer and pilA comparison. This direction does not allocate acetate-derived methane to the CO2 branch or establish a particular methanogen entry protein.</p>
                     </div>
 
                 </div>
@@ -696,7 +708,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Furthermore, Geobacter species, the most abundant bacteria in the aggregates, highly expressed genes for ethanol metabolism and for extracellular electron transfer via electrically conductive pili, suggesting that Geobacter and Methanosaeta species were exchanging electrons via direct interspecies electron transfer (DIET)"</div>
+                        <div class="snippet">"Transcriptomic, radiotracer, and genetic analysis demonstrated that M. harundinacea accepted electrons via DIET"</div>
 
                     </li>
 
@@ -706,9 +718,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Direct Electron Acceptance and Methanogenesis</h3>
-                    <span class="interaction-type">MUTUALISM</span>
+                    <h3>DIET-Linked Carbon Dioxide Reduction to Methane</h3>
                 </div>
+                <p class="prewrap interaction-description">M. harundinacea accepts DIET electrons for CO2 reduction to methane in the defined coculture, supported by transcript, radiotracer and genetic analyses. Bulk methane also includes acetate conversion. The reported stoichiometry and bicarbonate radiolabel are consistent with roughly one-third of methane arising through CO2 reduction, not all methane. This node represents that CO2 route; it does not replace the missing acetate branch or identify the methanogen surface electron receptor.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methanosaeta harundinacea</p>
@@ -758,7 +770,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Furthermore, Geobacter species, the most abundant bacteria in the aggregates, highly expressed genes for ethanol metabolism and for extracellular electron transfer via electrically conductive pili, suggesting that Geobacter and Methanosaeta species were exchanging electrons via direct interspecies electron transfer (DIET)"</div>
+                        <div class="snippet">"reduction of carbon dioxide to methane"</div>
 
                     </li>
 
@@ -772,19 +784,18 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(3)</span></h2>
 
             <div class="discussion">
                 <h3>
                     <span class="role-badge">KNOWLEDGE_GAP</span>
-                    <span class="role-badge">OPEN</span>
+                    <span class="role-badge">RESOLVED</span>
                     Alongside DIET-driven CO2 reduction, does M. harundinacea also cross-feed on the acetate generated by G. metallireducens ethanol oxidation, and what fraction of methane comes from each route in this defined coculture?
 
                 </h3>
-                <p class="prewrap">A causal-graph pass on this record proposed an additional acetate cross-feeding node and an acetate -&gt; methanogenesis edge, on the reasoning that Methanosaeta is classically an acetoclastic genus and that ethanol oxidation by G. metallireducens yields acetate, giving an overall stoichiometry near 1.5 mol CH4 per mol ethanol. That claim is NOT curated here as an interaction: the primary source (doi:10.1039/C3EE42189A) is cached abstract-only and its full text was not retrievable, and the abstract states only that M. harundinacea &#34;accepted electrons via DIET for the reduction of carbon dioxide to methane&#34; - it does not report acetate cross-feeding, the acetate/DIET split, or the per-route methane stoichiometry. The supporting quotations offered for the acetate route came from secondary reviews attributing findings to this study, which per this repo&#39;s conservative-curation rule (see CommunityMech:000176) is not a sufficient basis for an exact-system causal edge. Resolving this needs the primary full text or a radiotracer/isotope partition experiment in this exact coculture.
-</p>
+                <p class="prewrap">The earlier discussion deferred an acetate branch because only the abstract was accessible and secondary attributions were insufficient. The primary full paper is now available and has been read; its defined-coculture evidence resolves the biological/source-access question, while graph implementation remains a separate open curation task.</p>
 
-                <p class="muted small">Attaches to: <code>ecological_interactions#Ethanol Oxidation and Direct Electron Transfer</code>, <code>ecological_interactions#Direct Electron Acceptance and Methanogenesis</code></p>
+                <p class="muted small">Attaches to: <code>ecological_interactions#Geobacter Ethanol Oxidation</code>, <code>ecological_interactions#DIET-Linked Carbon Dioxide Reduction to Methane</code></p>
 
 
 
@@ -794,17 +805,47 @@
                     <div class="evidence">
                         <div class="evidence-head">
                             <span class="badge small">IN_VITRO</span>
-                            <span class="badge small">PARTIAL</span>
+                            <span class="badge small">SUPPORT</span>
 
 
-                                doi:10.1039/C3EE42189A
+                                <a href="https://doi.org/10.1039/C3EE42189A" rel="noreferrer">doi:10.1039/C3EE42189A</a>
 
                         </div>
-                        <p class="snippet small prewrap">Transcriptomic, radiotracer, and genetic analysis demonstrated that M. harundinacea accepted electrons via DIET for the reduction of carbon dioxide to methane</p>
-                        <p class="muted small prewrap">The abstract demonstrates only the DIET/CO2-reduction route; it is silent on an acetate cross-feeding route, which is why that edge is filed as a gap rather than curated.</p>
+
+                        <p class="muted small prewrap">Primary defined-coculture Results and Figures 4c/5, reviewed directly rather than inferred from the environmental expression excerpt or secondary reviews.</p>
                     </div>
 
                 </details>
+
+                <p class="small"><em>Resolution:</em> Primary Figure 4c separates acetate conversion from DIET-dependent CO2 reduction, and Figure 5 supports the route distinction by bicarbonate radiolabel. See the source hash and inspection scope in the batch46 decision ledger. The missing branch remains open under #1482; resolving this discussion does not mark the graph complete.</p>
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which methanogen surface components receive DIET electrons?
+                </h3>
+                <p class="prewrap">The positive DIET result does not identify the receiver proteins or selectively establish aggregate formation itself as necessary. Targeted perturbations would distinguish these mechanisms. Canonical Methanosaeta/Methanothrix naming is preserved; stronger non-graph aggregate and uniqueness wording is not certified by this graph-only review.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Geobacter Ethanol Oxidation</code>, <code>ecological_interactions#DIET in Defined Coculture Aggregates</code>, <code>ecological_interactions#DIET-Linked Carbon Dioxide Reduction to Methane</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">CURATION_TODO</span>
+                    <span class="role-badge">OPEN</span>
+                    Complete the separately supported acetate branch after Edison review.
+                </h3>
+                <p class="prewrap">The primary evidence is now available, but an acetate-transfer/conversion branch is new causal structure. A one-community Edison dry run completed without API calls or cost; specific credit authorization and report inspection remain pending under #1482. Do not count the bounded CO2 route as completion of the whole graph.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Geobacter Ethanol Oxidation</code>, <code>ecological_interactions#DIET in Defined Coculture Aggregates</code>, <code>ecological_interactions#DIET-Linked Carbon Dioxide Reduction to Methane</code></p>
+
+
 
 
             </div>
@@ -929,7 +970,7 @@
 
 
                 <p style="margin: 0.5rem 0;">
-                    <a href="https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/CultureMech:015435" class="term-link" target="_blank" rel="noopener">
+                    <a href="https://culturebotai.github.io/CultureMech/pages/normalized/015435.html" class="term-link" target="_blank" rel="noopener">
                         View in CultureMech →
                     </a>
                 </p>
@@ -1055,12 +1096,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1073,7 +1117,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1127,7 +1170,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1146,7 +1189,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Ethanol Oxidation and Direct Electron Transfer",
+                label: "Geobacter Ethanol Oxidation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1179,7 +1222,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Conductive Aggregate-Mediated DIET",
+                label: "DIET in Defined Coculture Aggregates",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1204,7 +1247,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1223,7 +1266,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Direct Electron Acceptance and Methanogenesis",
+                label: "DIET-Linked Carbon Dioxide Reduction to Methane",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1252,6 +1295,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

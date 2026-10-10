@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        Pinus armandii endosphere (endophytic host tissues)
+                        Pinus armandii endosphere (endophytic host tissues)<span class="ontology-label"> — ontology label: plant-associated environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001001"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -453,7 +461,7 @@
 
                     <tr>
                         <td>
-                            <strong>Pseudomonas koreensis RC1</strong>
+                            <strong>Pseudomonas koreensis RC1<span class="ontology-label"> — ontology label: Pseudomonas koreensis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=198620"
@@ -489,7 +497,7 @@
 
                     <tr>
                         <td>
-                            <strong>Paenibacillus terrae RE7</strong>
+                            <strong>Paenibacillus terrae RE7<span class="ontology-label"> — ontology label: Paenibacillus terrae</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=159743"
@@ -525,7 +533,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus velezensis OB3</strong>
+                            <strong>Bacillus velezensis OB3<span class="ontology-label"> — ontology label: Bacillus velezensis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=492670"
@@ -561,7 +569,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus velezensis NA3</strong>
+                            <strong>Bacillus velezensis NA3<span class="ontology-label"> — ontology label: Bacillus velezensis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=492670"
@@ -597,7 +605,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus subtilis NA11</strong>
+                            <strong>Bacillus subtilis NA11<span class="ontology-label"> — ontology label: Bacillus subtilis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1423"
@@ -640,12 +648,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Pinus armandii Endophytic Biocontrol SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, competition, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -653,18 +662,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -672,50 +671,32 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Functionally complementary biocontrol SynCom assembly</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Compatibility of Selected Endophytic Isolates</h3>
                 </div>
+                <p class="prewrap interaction-description">The five constituent strains were selected using pairwise compatibility tests. Public Supplement Figure S3 shows an agar/filter-disc assay with no inhibition zones among the tested strains. Preserve assay-specific compatibility, not demonstrated long-term stable coexistence, resource partitioning or a causal contribution of complementarity to seedling growth. Screened nitrogen-fixing/IAA traits do not establish ammonia or IAA exchange within this SynCom.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
 
+                    Pseudomonas koreensis RC1,
 
-                <p><strong>Metabolites:</strong>
+                    Paenibacillus terrae RE7,
 
-                    indole-3-acetic acid
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16411"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16411</a>),
+                    Bacillus velezensis OB3,
 
-                    ammonia
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16134"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16134</a>)
+                    Bacillus velezensis NA3,
+
+                    Bacillus subtilis NA11
 
                 </p>
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        nitrogen fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009399"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009399</a>)
-                    </li>
-
-                </ul>
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Pinus Seedling Growth Promotion
-                    </div>
-
-                </div>
 
 
 
@@ -731,7 +712,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"this study screened endophytic bacteria with superior plant growth-promoting (PGP) and antagonistic functions to construct a functionally complementary and stable synthetic microbial community (SynCom)."</div>
+                        <div class="snippet">"Based on pairwise compatibility tests, a SynCom was constructed"</div>
 
                     </li>
 
@@ -741,38 +722,28 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Community antagonism of the blister rust pathogen</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>Antagonistic Activity of Selected Endophytic Isolates</h3>
                 </div>
+                <p class="prewrap interaction-description">Selected isolates showed antagonistic activity in vitro. Public Supplement Table S2 and Figure S1 identify Phomopsis sp. as the plate-inhibition target, distinct from the separate urediniospore-germination assay with cell-free fermentation supernatants (Figure S2). NA11, NA3 and RE7 occur among the tested inhibitory isolates and in the final SynCom; RC1 and OB3 are not among the nine spore-assay treatments. Preserve isolate inhibition without assigning every result to the complete five-strain community or asserting that direct pathogen inhibition caused host defense-enzyme induction.</p>
+
+
+
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Paenibacillus terrae RE7,
+
+                    Bacillus velezensis NA3,
+
+                    Bacillus subtilis NA11
+
+                </p>
 
 
 
 
 
 
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        defense response
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006952"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006952</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Blister Rust-Associated Defense Enzyme Induction
-                    </div>
-
-                </div>
 
 
 
@@ -788,7 +759,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"antagonistic potential using dual-culture assays and inhibition of urediniospore germination."</div>
+                        <div class="snippet">"nine strains with significant antagonistic activity"</div>
 
                     </li>
 
@@ -799,34 +770,29 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Pinus Seedling Growth Promotion</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">The optimized five-strain SynCom significantly increased Pinus armandii seedling height and biomass accumulation in pot experiments. Preserve this positive host-growth response. The accessible evidence does not isolate IAA production or nitrogen fixation as its mediator, demonstrate individual-strain necessity, or show reciprocal microbial fitness benefits.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
 
+                    Pseudomonas koreensis RC1,
 
-                <p><strong>Metabolites:</strong>
+                    Paenibacillus terrae RE7,
 
-                    indole-3-acetic acid
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16411"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16411</a>)
+                    Bacillus velezensis OB3,
+
+                    Bacillus velezensis NA3,
+
+                    Bacillus subtilis NA11
 
                 </p>
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
 
-                    <li>
-                        nitrogen fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009399"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009399</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -841,7 +807,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42322490/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42322490</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
                         <div class="snippet">"significantly increased seedling height and biomass accumulation."</div>
@@ -855,11 +821,25 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Blister Rust-Associated Defense Enzyme Induction</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">SynCom treatment increased host polyphenol oxidase (PPO) and peroxidase (POD) activities by 19.1% and 157.3% relative to controls in the pot experiment. Preserve these positive defense-associated enzyme endpoints. They do not alone demonstrate priming, resistance to infection or disease control; the abstract explicitly calls for subsequent in planta biocontrol evaluation.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas koreensis RC1,
+
+                    Paenibacillus terrae RE7,
+
+                    Bacillus velezensis OB3,
+
+                    Bacillus velezensis NA3,
+
+                    Bacillus subtilis NA11
+
+                </p>
 
 
 
@@ -889,7 +869,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42322490/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42322490</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
                         <div class="snippet">"SynCom treatment enhanced defense-related enzyme activities, increasing polyphenol oxidase (PPO) and peroxidase (POD) activities by 19.1% and 157.3% relative to the control"</div>
@@ -905,6 +885,60 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which strain functions mediate the observed seedling responses and actual blister-rust protection?
+                </h3>
+                <p class="prewrap">Preserve compatibility, isolate antagonism, growth and enzyme responses as separate positive findings. Public Supplement Figures S1-S3 and Table S2 separate Phomopsis inhibition, cell-free urediniospore inhibition and compatibility; these assays do not demonstrate stable community coexistence or direct inhibition by the complete SynCom. Both removed arrows conflated isolate selection/screening with causal mediation of host outcomes. No untested IAA/nitrogen exchange or reciprocal mutualism is assigned. Disease-challenge, strain-removal and mediator perturbations would resolve mechanisms. Main text remains inaccessible, while both public supplements were read and all six PDF pages visually inspected. Non-graph priming/stability and assay-scope claims remain #1709.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Compatibility of Selected Endophytic Isolates</code>, <code>ecological_interactions#Antagonistic Activity of Selected Endophytic Isolates</code>, <code>ecological_interactions#Pinus Seedling Growth Promotion</code>, <code>ecological_interactions#Blister Rust-Associated Defense Enzyme Induction</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42322490/" rel="nofollow noreferrer">PMID:42322490</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">nine strains with significant antagonistic activity</p>
+                        <p class="muted small prewrap">Supports the positive isolate-screen result. Public supplements distinguish Phomopsis plates from the cell-free urediniospore assay and delimit which isolates overlap the final SynCom; not a whole-SynCom inhibition experiment.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VIVO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42322490/" rel="nofollow noreferrer">PMID:42322490</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">SynCom treatment enhanced defense-related enzyme activities, increasing polyphenol oxidase (PPO) and peroxidase (POD) activities by 19.1% and 157.3% relative to the control</p>
+                        <p class="muted small prewrap">Supports the measured host enzyme increases, not demonstrated infection resistance or a specific isolate-mediated mechanism.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -925,12 +959,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -943,7 +980,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1018,26 +1054,16 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
-
-            metabolites.push("indole-3-acetic acid");
-
-            metabolites.push("ammonia");
-
-
             var processes = [];
-
-
-            processes.push("nitrogen fixation");
-
 
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Functionally complementary biocontrol SynCom assembly",
+                label: "Compatibility of Selected Endophytic Isolates",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1047,25 +1073,40 @@
 
 
 
+
+            var participantKeys = [
+
+                "Pseudomonas koreensis RC1",
+
+                "Paenibacillus terrae RE7",
+
+                "Bacillus velezensis OB3",
+
+                "Bacillus velezensis NA3",
+
+                "Bacillus subtilis NA11"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("defense response");
-
 
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Community antagonism of the blister rust pathogen",
+                label: "Antagonistic Activity of Selected Endophytic Isolates",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1076,22 +1117,29 @@
 
 
 
+            var participantKeys = [
+
+                "Paenibacillus terrae RE7",
+
+                "Bacillus velezensis NA3",
+
+                "Bacillus subtilis NA11"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
-
-            metabolites.push("indole-3-acetic acid");
-
-
             var processes = [];
-
-
-            processes.push("nitrogen fixation");
-
 
             var evidenceCount = 1;
 
@@ -1108,11 +1156,30 @@
 
 
 
+            var participantKeys = [
+
+                "Pseudomonas koreensis RC1",
+
+                "Paenibacillus terrae RE7",
+
+                "Bacillus velezensis OB3",
+
+                "Bacillus velezensis NA3",
+
+                "Bacillus subtilis NA11"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:3";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1136,6 +1203,25 @@
 
 
 
+            var participantKeys = [
+
+                "Pseudomonas koreensis RC1",
+
+                "Paenibacillus terrae RE7",
+
+                "Bacillus velezensis OB3",
+
+                "Bacillus velezensis NA3",
+
+                "Bacillus subtilis NA11"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
 
@@ -1149,6 +1235,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

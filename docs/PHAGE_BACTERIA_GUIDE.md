@@ -59,8 +59,9 @@ suppressed pathogen out of `taxonomy`.
 Two traps worth naming:
 
 **`PREDATION` is not a synonym for `LYTIC_INFECTION`.** A grazer removes biomass;
-a lytic phage converts it into more phage, so the predator's population is a
-function of host density in a way a grazer's is not. Existing records that used
+a lytic phage replicates within the host before lysis releases progeny viruses
+and cellular contents. Host- or prey-density dependence alone does not
+distinguish viral infection from grazing. Existing records that used
 `PREDATION` for phage infection predate these values and have not been migrated.
 
 **`COMPETITIVE_RELEASE` is weaker than `KILL_THE_WINNER`, and the gap is
@@ -119,7 +120,12 @@ model can fail informatively, and that failure is often the paper's result:
 pairwise coefficients do *not* predict the assembled community. Where a causal
 direction rests on a fitted correlational model rather than a manipulation, mark
 the evidence `PARTIAL` and say so in the `explanation`, as
-`CommunityMech:000468` does for its SEM edge.
+`CommunityMech:000468` does for its SEM-inferred mechanism. Correlated turnover,
+predicted defense genes, and AMG transcription are not themselves lytic
+infections. Preserve these observations without an `interaction_type` when no
+existing relation describes them, and retain computational provenance for the
+prediction or statistical inference. Do not link a modeled mechanism to its
+own supporting association as though two independent causal steps were measured.
 
 ## Evidence
 

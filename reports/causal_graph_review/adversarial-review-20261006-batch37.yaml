@@ -1,0 +1,154 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: a691e1d3b93d8eb91b24f0b0cfad5072f7b7d0f8
+scope:
+- kb/communities/Ecoli_K12_MG1655_Arg_Met_CrossFeeding_Coculture.yaml
+- kb/communities/Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium.yaml
+- kb/communities/Electrostimulated_Toluene_Methanogenic_Microbiota.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch37.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch37.json
+findings:
+- issue: 1431
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Arg-Met graph: scope obligate exchange and fluorescence noise to the tested reporter conditions'
+  disposition: Existing graph corrected; close only after protected main merge.
+- issue: 1432
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Electrostimulated VFA graph: separate observed outputs from predicted carbon-fixation mechanisms'
+  disposition: Existing graph corrected; close only after protected main merge.
+- issue: 1433
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Toluene graph: keep MAG exchange routes hypothetical and preserve alternate partners'
+  disposition: Existing graph corrected; close only after protected main merge.
+- issue: 1434
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'Electrostimulated VFA metadata: reconcile reactor protocol and inferred functional roles'
+  disposition: Non-graph fields preserved, not certified. Remains open.
+- issue: 1435
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'Toluene metadata: qualify inferred MAG roles and obtain primary reactor methods'
+  disposition: Non-graph fields preserved, not certified. Remains open.
+- issue: 1436
+  severity: P2
+  status: open_graph_research
+  finding: 'Arg-Met causal expansion: resolve heterogeneity and reporter-sensitivity mechanisms'
+  disposition: Expansion remains needs_research; no provider job submitted.
+- issue: 373
+  severity: P2
+  status: reopened_existing_nongraph_followup
+  finding: Live Enterococcus_B genus-grounding recurrence verified.
+  disposition: Existing issue reused and reopened, not duplicated or claimed fixed. Taxonomy block preserved.
+adversarial_checks:
+- Whole-record and complete graph diffs checked against primary sources at the recorded access scope.
+  Eleven existing nodes retained, three arrows removed and two qualified; every original node and arrow
+  has a disposition. No new connectivity.
+- Arg/Met reciprocal genotypes retain distinct preferred labels despite NCBITaxon:511145. Growth dependence
+  is conditional on nutrient limitation; fluorescence CV is not intrinsic transcriptional noise or a universal
+  reporter effect. Same-species interaction loses interspecies GO annotation.
+- 'Arg/Met expansion is not silently omitted: source-backed heterogeneity and reporter-sensitivity structure
+  remains under #1436. Dry-run provenance recorded, no new provider job or spend; status remains needs_research.
+  Different Arg-Trp and BL21/environmental-isolate systems are excluded.'
+- VFA evidence does not justify a prediction-as-cause chain. Remove annotation-workflow and bulk-endpoint
+  mediation arrows. Retain operational selection as PARTIAL and proposed architecture contribution as
+  HYPOTHESIZED; do not imply selective proof of member exchange or autotrophic product fraction.
+- 'Three canonical VFA participants identify a representative subset, not a complete roster or required
+  contributors. Remove categorical interaction/process annotations. Non-graph protocol and role claims
+  remain #1434; existing live grounding issue #373 reopened.'
+- 'Toluene is abstract-only: preserve alternative methanogens and e-pili/acetate routes, MAG-specific
+  evidence and zero arrows. Do not import unstated transfer direction or equate gene content and electrode
+  enrichment with measured flux. All three mechanisms HYPOTHESIZED/PARTIAL, not categorical syntrophy.'
+- 'Preserve #1120 recruitment and #1121 alternate evidence, distinct MAG116/MAG60 labels despite shared
+  NCBITaxon:2, and corrected Desulfoprunum ID/label. No inaccessible full-text Methods/Results claimed;
+  #1435 remains open.'
+- VFA body was read from a public primary-preprint mirror; canonical retrieval failed. No visual figures,
+  separate supplements or raw data reviewed. No source cache changed and no publisher body restored.
+- Guarded writes, append-only history and llm-assisted events; old history/discussions semantically preserved,
+  all non-graph raw blocks, 457 other records and 920 cache files byte-preserved. Seven new tests cover
+  endpoint scope, identity, hypotheses, pending expansion, anchors and full disposition accounting.
+- 'Participant registry changes only by the VFA record: 183 to 184 users. Connectivity census and numeric
+  bounds unchanged. Exact baseline network comparison retains 33 warnings with zero errors, without invented
+  links.'
+- Repeat renders deterministic and all published descriptions checked by parser. Reference-validator 0.1.7
+  exits 0 but performs zero checks; no-op disclosed. Independent textual MATCH is not scientific validation.
+  Actual validation output tails and digests, including pre-research baseline, are committed.
+- Deduplication searched 754 all-state issue titles/bodies and ignored/hidden-inclusive local files, not
+  every comment. No independent reviewer, protected merge or full-corpus completion claimed.
+verification:
+  combined_regressions: 399 passed in 179.40s (0:02:59)
+  new_regression_tests: 7
+  schema_strict_terms_history: passed; actual output tails and digests retained
+  snippet_counts_by_record:
+    kb/communities/Ecoli_K12_MG1655_Arg_Met_CrossFeeding_Coculture.yaml:
+      MATCH: 25
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium.yaml:
+      MATCH: 14
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Electrostimulated_Toluene_Methanogenic_Microbiota.yaml:
+      MATCH: 20
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero errors; 33 baseline warnings exactly preserved, none added.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch37.yaml: 363b8d16d8cedae28dbbc6a5699ae9dd2de614364c305e68631891531a32e74e
+    tests/test_causal_review_batch37.py: cfd0ecaf6335ea5b2ec9df7b75dcf3cb97e026b766b20a32d20aef07afe4af80
+    tests/test_participating_taxa.py: f6d46148b7a533783a6a23bfe835b3bf906ecb08d78579fe1b8d71b649160d33
+    kb/communities/Ecoli_K12_MG1655_Arg_Met_CrossFeeding_Coculture.yaml: 2a72a54518f0a8635f1d599a91b7f750f94349c2f1c7a002159170a8f5be9c4c
+    kb/communities/Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium.yaml: 39dd44074408cc2e990576c6b8c40c18e2faf74c862881e9643865b69da8e0e1
+    kb/communities/Electrostimulated_Toluene_Methanogenic_Microbiota.yaml: 6d55992d0ce9ba8a4398c071862cc167ca334085174ed5c7f04aed80829588c2
+  post_commit_docs_current: Separate publication gate; not asserted in pre-commit record.
+  protected_ci_and_merge: Eligible exact-head protected checks and queue still required.
+participant_census:
+  connectivity_before:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1221
+    mixed: 123
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  connectivity_after:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1221
+    mixed: 123
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  exact_change: VFA representative participants added to the registry, 183 to 184 users. Arg/Met and toluene
+    already registered. Canonical terms, scopes and connectivity census unchanged; no numeric-bound changes.
+  numeric_bounds_changed: false
+corpus:
+  records: 460
+  nodes: 1469
+  edges: 692
+  review_status_counts:
+    needs_research: 8
+    pending: 300
+    reviewed: 152
+limitations:
+- Eleven existing nodes retained; three unsupported arrows removed; two qualified VFA arrows retained.
+  No added connectivity.
+- Two completed existing-graph reviews; Arg/Met remains needs_research for source-backed mechanism expansion,
+  not omitted for convenience.
+- Primary main-body access for Arg/Met and mirrored VFA preprint; toluene abstract only. No visual figures,
+  separate supplements or raw data reviewed. All source caches unchanged.
+- 'Non-graph raw blocks and canonical terms preserved, not certified. #373, #1434 and #1435 remain open.'
+- Self-adversarial review is not independent approval, protected main merge or full-corpus completion.
+  Textual snippet matching is not scientific validation.

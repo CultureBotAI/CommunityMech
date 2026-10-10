@@ -97,11 +97,11 @@ taxonomy:
       similar to Pseudoxanthomonas byssovorax (99%), Microbacterium oxydans (99%), Bacillus sp. (99%),
       Ochrobactrum anthropi (98%), and Klebsiella trevisanii (99%)
 ecological_interactions:
-- name: Cellulose Degradation
-  description: The defined consortium expressed filter-paper cellulase and beta-glucosidase
-    activities, led by DB1 and DB2 filter-paper cellulases and DB1 beta-glucosidase,
-    to support cellulose hydrolysis.
-  interaction_type: SYNTROPHY
+- name: Cellulose-Hydrolyzing Isolate Enzyme Activities
+  description: 'Selected members of the five-isolate consortium had measured cellulolytic activity in individual
+    isolate cultures: DB1 and DB2 filter-paper cellulase activities were 27.83 and 31.22 U per mg, and DB1 beta-glucosidase
+    was 18.07 U per mg. These positive isolate results support the consortium design, not a directly measured combined-culture
+    rate or obligate syntrophy in the accessible abstract.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cellulose
@@ -118,21 +118,23 @@ ecological_interactions:
       id: GO:0030245
       label: cellulose catabolic process
   downstream:
-  - target: Synergistic Lignocellulose Degradation
-    description: Cellulase and beta-glucosidase activities provide the cellulose-hydrolysis
-      branch of the combined cellulolytic-xylanolytic consortium.
+  - target: Proposed Complementary Lignocellulose Hydrolysis
+    description: HYPOTHESIZED - Measured isolate hydrolases provide the cellulose-hydrolysis branch proposed to
+      complement the other enzyme activities in the assembled consortium. The causal contribution is biochemical
+      potential inferred from isolate assays and consortium construction, not a measured increase in combined-culture
+      degradation or demonstrated synergistic flux.
   evidence:
   - reference: PMID:20859703
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Use of microbial consortium in bioprocessing of lignocelluloses could reduce problems such
-      as incomplete synergistic enzymes, end-product inhibition, adsorption, and requirement for high
-      amounts of enzymes in direct use of enzymes.
-- name: Hemicellulose Degradation
-  description: The defined consortium expressed xylanase and beta-xylosidase activities,
-    with DB2 producing the strongest xylanase activity and DB13 producing the strongest
-    beta-xylosidase activity, to support hemicellulose hydrolysis.
-  interaction_type: SYNTROPHY
+    snippet: 'Isolates DB1 and DB2 displayed the highest filter paper cellulase: 27.83 and 31.22 U mg⁻¹, respectively.'
+    explanation: Directly supports individual DB1/DB2 cellulase activities rather than a proposed future processing
+      benefit.
+- name: Xylan-Hydrolyzing Isolate Enzyme Activities
+  description: Isolate DB2 produced the highest xylanase activity, 103.05 U per mg, and DB13 the highest beta-xylosidase
+    activity, 7.72 U per mg, in the tested isolate panel. These observed activities support a hemicellulose-hydrolysis
+    contribution to the defined five-isolate design; the accessible abstract does not supply a combined-culture
+    activity or demonstrate obligate metabolic exchange.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: xylan
@@ -149,20 +151,24 @@ ecological_interactions:
       id: GO:0045493
       label: xylan catabolic process
   downstream:
-  - target: Synergistic Lignocellulose Degradation
-    description: Xylanase and beta-xylosidase activities provide the hemicellulose-hydrolysis
-      branch of the combined cellulolytic-xylanolytic consortium.
+  - target: Proposed Complementary Lignocellulose Hydrolysis
+    description: HYPOTHESIZED - Measured isolate hydrolases provide the hemicellulose-hydrolysis branch proposed
+      to complement the other enzyme activities in the assembled consortium. The causal contribution is biochemical
+      potential inferred from isolate assays and consortium construction, not a measured increase in combined-culture
+      degradation or demonstrated synergistic flux.
   evidence:
   - reference: PMID:20859703
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Isolate DB2 produced the highest xylanase activity (103.05 U mg⁻¹), while the highest β-xylosidase
       activity (7.72 U mg⁻¹) was observed with DB13
-- name: Synergistic Lignocellulose Degradation
-  description: The five-isolate consortium combines cellulolytic and xylanolytic enzymes
-    to process cellulose and hemicellulose together, reducing the incomplete-enzyme
-    limitation of enzyme-only lignocellulose bioprocessing.
-  interaction_type: SYNTROPHY
+    explanation: Directly reports DB2/DB13 isolate enzyme activities, not the activity of the assembled community.
+- name: Proposed Complementary Lignocellulose Hydrolysis
+  description: HYPOTHESIZED - Five selected isolates were assembled into a defined consortium with cellulolytic
+    and xylanolytic capabilities. Their complementary enzyme activities could broaden cellulose/hemicellulose processing
+    and reduce incomplete-enzyme limitations. The accessible primary abstract proposes this benefit; it does not
+    quantify synergy above additive monoculture activities, relief of product inhibition, lower enzyme demand or
+    lignin breakdown. Full-text experiments remain uninspected behind subscription access, not demonstrated absent.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lignocellulose
@@ -182,16 +188,17 @@ ecological_interactions:
   - reference: PMID:20859703
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Five selected isolates (DB1, DB2, DB7, DB8, and DB13) were used to compose a defined
-      consortium and characterized by 16S ribosomal RNA gene sequence analysis.
-    explanation: Supports the five-isolate defined consortium assembled from the
-      cellulolytic-xylanolytic enrichment.
+    snippet: Five selected isolates (DB1, DB2, DB7, DB8, and DB13) were used to compose a defined consortium and
+      characterized by 16S ribosomal RNA gene sequence analysis.
+    explanation: Supports the five-isolate defined consortium assembled from the cellulolytic-xylanolytic enrichment.
   - reference: PMID:20859703
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Use of microbial consortium in bioprocessing of lignocelluloses could reduce problems such
-      as incomplete synergistic enzymes, end-product inhibition, adsorption, and requirement for high
-      amounts of enzymes in direct use of enzymes.
+    snippet: Use of microbial consortium in bioprocessing of lignocelluloses could reduce problems such as incomplete
+      synergistic enzymes, end-product inhibition, adsorption, and requirement for high amounts of enzymes in direct
+      use of enzymes.
+    explanation: The authors propose potential processing benefits; this is not a quantitative combined-consortium
+      superiority result.
 environmental_factors:
 - name: Source environment
   value: Alabama soil
@@ -385,3 +392,36 @@ metals_present:
 - IRON
 metal_relevance: INCIDENTAL
 metal_notes: Metal/REE detected via environmental factor measurements
+discussions:
+- discussion_id: combined-consortium-versus-isolate-assays
+  prompt: Does the assembled five-isolate consortium outperform its component hydrolases or relieve end-product
+    inhibition?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Cellulose-Hydrolyzing Isolate Enzyme Activities
+  - ecological_interactions#Xylan-Hydrolyzing Isolate Enzyme Activities
+  - ecological_interactions#Proposed Complementary Lignocellulose Hydrolysis
+  rationale: The accessible primary abstract and existing cache establish isolate activities and consortium construction.
+    Normal publisher access is a subscription preview, so the combined-culture controls and any quantitative synergy
+    remain uninspected. Both proposed hydrolytic-contribution arrows are retained explicitly as hypotheses; obtain
+    authorized full text before strengthening them or adding topology.
+  evidence:
+  - reference: PMID:20859703
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Use of microbial consortium in bioprocessing of lignocelluloses could reduce problems such as incomplete
+      synergistic enzymes, end-product inhibition, adsorption, and requirement for high amounts of enzymes in direct
+      use of enzymes.
+    explanation: The authors propose potential processing benefits; this is not a quantitative combined-consortium
+      superiority result.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-07T05:06:34Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve quantified DB1/DB2 cellulase and DB1 beta-glucosidase activities at isolate-assay scope.; Preserve
+    positive DB2/DB13 xylan-hydrolase results and qualify their proposed contribution.; Retain assembled-consortium
+    potential and both hypothesis arrows without promoting prospective benefits to measured synergy. Issue #1654;
+    reports/causal_graph_review/decisions/20261007-four-records-batch79.yaml'
+  llm_assisted: true

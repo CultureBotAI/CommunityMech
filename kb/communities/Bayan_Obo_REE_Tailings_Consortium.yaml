@@ -143,240 +143,21 @@ taxonomy:
   abundance_level: COMMON
   abundance_value: Actinobacterial component producing organic acids and siderophores
 ecological_interactions:
-- name: Sulfuric Acid Generation and pH Reduction
-  description: 'Acidithiobacillus ferrooxidans oxidizes ferrous iron and reduced sulfur compounds to generate
-    sulfuric acid, lowering the pH of the tailings slurry to acidic conditions (pH 1.5-2.5) that facilitate
-    REE dissolution from bastnaesite (REE(CO₃)F) and monazite minerals. The acidification reaction involves
-    iron oxidation (4Fe²⁺ + O₂ + 4H⁺ → 4Fe³⁺ + 2H₂O) coupled to proton production, and sulfur oxidation
-    (S²⁻ + 2H₂O + 2O₂ → SO₄²⁻ + 4H⁺) producing sulfuric acid. Low pH is critical for protonating carbonate
-    groups in bastnaesite, destabilizing the mineral structure and releasing REE cations. The autotrophic
-    acid generation by At. ferrooxidans provides the primary acidolysis mechanism, while the organism''s
-    ability to grow chemolithotrophically on inorganic substrates eliminates the need for organic carbon
-    supplements, reducing operational costs.
-
-    '
-  interaction_type: SYNTROPHY
+- name: Bayan Obo Consortium REE Leaching
   scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Acidithiobacillus ferrooxidans
-    term:
-      id: NCBITaxon:920
-      label: Acidithiobacillus ferrooxidans
-  metabolites:
-  - preferred_term: sulfuric acid
-    term:
-      id: CHEBI:26836
-      label: sulfuric acid
-    notes: Primary acid for pH reduction and mineral dissolution
-  - preferred_term: Fe(II)
-    term:
-      id: CHEBI:29033
-      label: iron(2+)
-    notes: Substrate for iron oxidation
-  - preferred_term: Fe(III)
-    term:
-      id: CHEBI:29034
-      label: iron(3+)
-    notes: Product of iron oxidation
-  biological_processes:
-  - preferred_term: sulfur compound metabolic process
-    term:
-      id: GO:0006790
-      label: sulfur compound metabolic process
-  downstream:
-  - target: REE Dissolution from Bastnaesite and Monazite
-    description: Low pH facilitates acid attack on REE carbonate-fluoride minerals
+  description: 'An enriched acid-bioleaching consortium was reported to recover five main rare-earth elements from
+    Bayan Obo tailings after 18 days: 82.78% for one-step and 83.51% for two-step processing. The primary source
+    describes similar process efficiencies, not demonstrated synergy. The exact three-member roster, member-specific
+    acids, sequential-inoculation mechanism and ionic speciation asserted elsewhere in this record are not verified
+    by the accessed primary preview. This node does not assign those roles or causal feedback.'
   evidence:
-  - reference: PMID:38310848
-    supports: PARTIAL
-    evidence_source: IN_VIVO
-    snippet: leaching of higher concentrations of PTE and REE due to the production
-      of organic acids and siderophores by indigenous microorganisms
-    explanation: Cebekhulu et al. 2024 attribute REE leaching to microbial organic-acid
-      production, establishing the acidolysis (organic-acid) mechanism in general.
-      However, that study concerns an indigenous community in alkaline South African
-      mine tailings, not low-pH acidolysis of bastnaesite and monazite at Bayan Obo;
-      given the site and mineralogy/pH mismatch this is downgraded to PARTIAL for
-      consistency with how the same reference is treated elsewhere in this file.
-- name: Organic Acid Production and REE Complexation
-  description: 'Acidiphilium cryptum and Streptomyces sp. produce high concentrations of organic acids
-    including citric acid, oxalic acid, lactic acid, and pyruvic acid that chelate and solubilize REE
-    ions from bastnaesite and monazite. Acidiphilium achieves maximum organic acid production (13.8 mM)
-    when cultured in advance in a two-step process, providing both pH reduction and REE complexation.
-    Citric acid and oxalic acid are particularly effective at selectively releasing REE from monazite
-    through formation of stable REE-organic acid complexes. The organic acids act as dominant agents for
-    REE extraction via complexation, with siderophores also contributing to metal mobilization. The two-step
-    process (heterotroph first, then autotroph) achieves 83.51% REE recovery versus 82.78% for one-step
-    simultaneous inoculation, demonstrating synergistic enhancement through controlled organic acid accumulation
-    and sequential pH manipulation.
-
-    '
-  interaction_type: CROSS_FEEDING
-  scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Acidiphilium cryptum
-    term:
-      id: NCBITaxon:524
-      label: Acidiphilium cryptum
-  - preferred_term: Streptomyces
-    term:
-      id: NCBITaxon:1883
-      label: Streptomyces
-  metabolites:
-  - preferred_term: citric acid
-    term:
-      id: CHEBI:30769
-      label: citric acid
-    concentration: Up to 13.8 mM total organic acids produced
-    notes: Key chelator for REE complexation
-  - preferred_term: oxalic acid
-    term:
-      id: CHEBI:16995
-      label: oxalic acid
-    notes: Selective REE releaser from monazite
-  - preferred_term: lactic acid
-    term:
-      id: CHEBI:28358
-      label: rac-lactic acid
-    notes: Organic acid produced by Streptomyces
-  - preferred_term: pyruvic acid
-    term:
-      id: CHEBI:32816
-      label: pyruvic acid
-    notes: Organic acid produced by Streptomyces
-  biological_processes:
-  - preferred_term: carboxylic acid biosynthetic process
-    term:
-      id: GO:0046394
-      label: carboxylic acid biosynthetic process
-  downstream:
-  - target: REE Dissolution from Bastnaesite and Monazite
-    description: Organic acids chelate and solubilize REE ions from minerals
-  evidence:
-  - reference: PMID:38310848
-    supports: PARTIAL
+  - reference: doi:10.1016/j.cej.2024.153492
+    snippet: Bioleaching efficiencies of REMs are similar between one-step and two-step processes.
+    explanation: The public primary-source highlight supports similar efficiencies; its abstract supplies the reported
+      yield/time context. The local DOI cache is metadata-only, so independent local snippet validation remains
+      unavailable.
     evidence_source: IN_VITRO
-    snippet: production of organic acids and siderophores by indigenous microorganisms
-    explanation: Supports organic-acid and siderophore production as a general
-      microbial REE-leaching mechanism; the source is not the Bayan Obo SynCom.
-- name: REE Dissolution from Bastnaesite and Monazite
-  description: 'Combined acidolysis (sulfuric acid from At. ferrooxidans) and complexation (organic acids
-    from Acidiphilium and Streptomyces) mobilize the five main light rare earth elements (La, Ce, Pr,
-    Nd, Sm) from bastnaesite (REE(CO₃)F) and monazite (REE-phosphate) minerals in Bayan Obo tailings.
-    The consortium achieves 82-83% total REE recovery after 18 days through synergistic mineral attack.
-    Bastnaesite dissolution occurs via protonation of carbonate groups at low pH, releasing REE³⁺ cations
-    that are stabilized in solution by organic acid chelators. Monazite dissolution is enhanced by organic
-    acids that complex phosphate and REE simultaneously. The two-step process (heterotroph pre-culture
-    followed by autotroph addition) achieves 83.51% recovery versus 82.78% for one-step, demonstrating
-    that controlled organic acid accumulation and pH modulation enhance REE mobilization efficiency. This
-    high-efficiency bioleaching represents a sustainable alternative to harsh chemical extraction (concentrated
-    acids, high-temperature roasting) for recovering critical REE materials from millions of tons of Bayan
-    Obo tailings.
-
-    '
-  interaction_type: SYNTROPHY
-  scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Acidithiobacillus ferrooxidans
-    term:
-      id: NCBITaxon:920
-      label: Acidithiobacillus ferrooxidans
-  - preferred_term: Acidiphilium cryptum
-    term:
-      id: NCBITaxon:524
-      label: Acidiphilium cryptum
-  - preferred_term: Streptomyces
-    term:
-      id: NCBITaxon:1883
-      label: Streptomyces
-  metabolites:
-  - preferred_term: lanthanum(3+)
-    term:
-      id: CHEBI:49701
-      label: lanthanum(3+)
-    concentration: 82-83% recovery from tailings (one of five main REE)
-  - preferred_term: cerium(3+)
-    term:
-      id: CHEBI:48782
-      label: cerium(3+)
-    concentration: 82-83% recovery from tailings (one of five main REE)
-  - preferred_term: praseodymium(3+)
-    term:
-      id: CHEBI:229784
-      label: praseodymium(3+)
-    concentration: 82-83% recovery from tailings (one of five main REE)
-  - preferred_term: neodymium(3+)
-    term:
-      id: CHEBI:229785
-      label: neodymium(3+)
-    concentration: 82-83% recovery from tailings (one of five main REE)
-  - preferred_term: samarium(3+)
-    term:
-      id: CHEBI:49890
-      label: samarium(3+)
-    concentration: 82-83% recovery from tailings (one of five main REE)
-  biological_processes:
-  - preferred_term: metal ion transport
-    term:
-      id: GO:0030001
-      label: metal ion transport
-  downstream:
-  - target: Sulfuric Acid Generation and pH Reduction
-    description: Continued pH control maintains REE solubility
-  - target: Organic Acid Production and REE Complexation
-    description: Organic acids prevent REE re-precipitation
-  evidence:
-  - reference: PMID:38702568
-    supports: PARTIAL
-    evidence_source: REVIEW
-    snippet: The review outlines the principles and distinctions of bioleaching,
-      biosorption, and bioaccumulation, offering a comparative analysis of their
-      potential and limitations
-    explanation: Vítová & Mezricky 2024 compare bioleaching/biosorption/bioaccumulation
-      process configurations for REE recovery — abstract doesn't quote specific Bayan
-      Obo efficiencies (PARTIAL).
-- name: Synergistic Two-Step Process Enhancement
-  description: 'The two-step bioleaching process (Acidiphilium pre-culture followed by At. ferrooxidans
-    addition) achieves 83.51% REE recovery versus 82.78% for one-step simultaneous inoculation, demonstrating
-    synergistic cooperation between heterotrophic and autotrophic acidophiles. In the two-step process,
-    Acidiphilium cryptum is cultured first to accumulate organic acids (13.8 mM maximum) and establish
-    initial pH reduction, creating optimal conditions for subsequent At. ferrooxidans growth and sulfuric
-    acid production. This sequential approach prevents competition for resources, maximizes organic acid
-    accumulation before strong acidification, and allows controlled pH manipulation that enhances REE
-    solubilization. The synergistic action combines pH decrease, organic acid complexation, and mineral
-    acidolysis in a coordinated sequence that outperforms simultaneous inoculation. Though the difference
-    (0.73 percentage points) is modest, the two-step process demonstrates the importance of metabolic
-    coordination in optimizing bioleaching efficiency.
-
-    '
-  interaction_type: MUTUALISM
-  scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Acidiphilium cryptum
-    term:
-      id: NCBITaxon:524
-      label: Acidiphilium cryptum
-  - preferred_term: Acidithiobacillus ferrooxidans
-    term:
-      id: NCBITaxon:920
-      label: Acidithiobacillus ferrooxidans
-  biological_processes:
-  - preferred_term: mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:38310848
-    supports: PARTIAL
-    evidence_source: IN_VIVO
-    snippet: the influence of the bioavailability of carbon sources that might boost
-      microbial leaching
-    explanation: Cebekhulu et al. 2024 note that carbon-source bioavailability can
-      boost microbial REE leaching, which is consistent with a general synergistic
-      enhancement. The snippet does not address the specific two-step (heterotroph-then-autotroph)
-      sequential-inoculation synergy claimed here, nor the quantitative recovery
-      figures; combined with the site/taxa mismatch (alkaline South African tailings,
-      not Bayan Obo) this is downgraded to PARTIAL.
+    supports: SUPPORT
 environmental_factors:
 - name: pH
   value: 1.5-2.5
@@ -535,7 +316,28 @@ curation_history:
   curator: codex
   action: REPAIR_OBSOLETE_GO_PROCESS
   llm_assisted: true
-  changes: Removed the optional obsolete GO:0006082 descriptor. Its only explicit GO replacement is GO:0008152
-    (metabolic process), which the existing no-vacuous-annotations policy rejects. Retained the specific
-    biological meaning in the unchanged interaction prose, metabolites, downstream links, and evidence
-    without inventing a narrower ontology mapping.
+  changes: Removed the optional obsolete GO:0006082 descriptor. Its only explicit GO replacement is GO:0008152 (metabolic
+    process), which the existing no-vacuous-annotations policy rejects. Retained the specific biological meaning
+    in the unchanged interaction prose, metabolites, downstream links, and evidence without inventing a narrower
+    ontology mapping.
+- timestamp: '2026-10-05T12:49:56Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Remove unsupported Bayan Obo mechanisms and retain a bounded primary leaching outcome; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1261'
+  llm_assisted: true
+discussions:
+- discussion_id: bayan_obo_primary_identity_and_mechanisms
+  prompt: Which organisms and mechanisms were actually tested in the Bayan Obo consortium?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Bayan Obo Consortium REE Leaching
+  rationale: 'PMID:38310848 studies a different alkaline South African community; PMID:38702568 is a generic review.
+    They do not establish the specific three-member mechanisms, organic-acid concentrations, backwards feedback
+    or synergy removed here. The matching primary DOI is 10.1016/j.cej.2024.153492; only its public preview was
+    reviewed, not full methods/results. No curator-created excerpt cache is used to make a validator pass. Description,
+    taxonomy notes and conditions outside the graph remain unverified under #1261. This record stays needs_research,
+    not fully reviewed.'
+  posed_by: codex
+  posed_date: '2026-10-05'

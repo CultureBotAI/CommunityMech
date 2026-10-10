@@ -69,22 +69,13 @@ taxonomy:
     explanation: Identifies Proteobacteria as the microbial group with up-regulated motility/colonization
       genes.
 ecological_interactions:
-- name: Microbial colonization of sugarcane roots
-  description: Following MetG2 inoculation, genes for flagellar assembly, chemotaxis, quorum sensing,
-    and biofilm formation were up-regulated (particularly within Proteobacteria), indicating active
-    microbial movement toward and colonization of sugarcane root surfaces.
-  interaction_type: COLONIZATION_FACILITATION
+- name: Rhizosphere colonization-associated gene expression
+  description: After MetG2 inoculation, the rhizosphere showed increased expression of flagellar assembly, chemotaxis,
+    quorum-sensing and biofilm-associated genes, particularly within Proteobacteria. The authors interpret this
+    as movement toward roots; the reviewed evidence is molecular, not direct tracking of cells or proof that one
+    organism facilitates another's colonization. Responding native rhizosphere taxa must not be equated with the
+    defined MetG2 inoculant.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Proteobacteria (rhizosphere community members)
-    term:
-      id: NCBITaxon:1224
-      label: Pseudomonadota
-  target_taxon:
-    preferred_term: sugarcane (Saccharum officinarum)
-    term:
-      id: NCBITaxon:4547
-      label: Saccharum officinarum
   biological_processes:
   - preferred_term: bacterial-type flagellum assembly
     term:
@@ -102,37 +93,21 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
-  downstream:
-  - target: SynCom-stimulated enhancement of sugarcane stress resilience
-    description: Root-surface movement and biofilm formation provide the
-      colonization context for MetG2-associated nutrient, hormone, siderophore,
-      and VOC functions that stimulate sugarcane stress-resistance responses.
   evidence:
   - reference: doi:10.1016/j.rhisph.2025.101142
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: an up-regulation of genes related to flagellar assembly, chemotaxis, quorum sensing, and
-      biofilm formation, particularly within Proteobacteria, indicating active microbial movement toward
-      root surfaces
-    explanation: Motility, chemotaxis and biofilm genes up-regulated in Proteobacteria drive colonization
-      of root surfaces.
-- name: SynCom-stimulated enhancement of sugarcane stress resilience
-  description: Enrichment of microbial genes for nutrient acquisition, hormone synthesis, siderophore
-    production, and VOC synthesis accompanies sugarcane up-regulation of hormone (auxin, cytokinin,
-    salicylic acid) and nutrient-transporter genes and induction of stress-resistance genes, a mutualistic
-    modulation of plant-microbe interactions that enhances stress resilience.
-  interaction_type: MUTUALISM
+    snippet: an up-regulation of genes related to flagellar assembly, chemotaxis, quorum sensing, and biofilm formation,
+      particularly within Proteobacteria, indicating active microbial movement toward root surfaces
+    explanation: Supports gene upregulation and the authors colonization interpretation; it does not directly observe
+      root movement or establish facilitation.
+- name: Rhizosphere enrichment of plant-associated functional genes
+  description: Rhizosphere genes associated with nutrient acquisition, hormone synthesis, siderophore production
+    and VOC synthesis were enriched after MetG2 inoculation. The source interprets these changes as potentially
+    beneficial microbial activities. Gene enrichment is not direct measurement of secreted products, transfer to
+    the host or reciprocal fitness, and is not assigned exclusively to the inoculated strains or to one responding
+    phylum.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Proteobacteria (rhizosphere community members)
-    term:
-      id: NCBITaxon:1224
-      label: Pseudomonadota
-  target_taxon:
-    preferred_term: sugarcane (Saccharum officinarum)
-    term:
-      id: NCBITaxon:4547
-      label: Saccharum officinarum
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
@@ -140,41 +115,25 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Sugarcane hormone and nutrient-transporter response
-    description: Enriched rhizosphere nutrient-acquisition, hormone, siderophore, and VOC functions
-      precede the host response in which sugarcane up-regulates hormone-related and nutrient-transporter
-      genes.
+    description: 'HYPOTHESIZED/PARTIAL: the enriched microbial functions are proposed to contribute to the host
+      transcriptional response in the MetG2-associated plant-microbe system. The reviewed omics evidence does not
+      identify a transferred causal signal, establish that gene enrichment precedes the host response, or isolate
+      mediation by the inoculant from the native rhizosphere community.'
   evidence:
   - reference: doi:10.1016/j.rhisph.2025.101142
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: genes associated with nutrient acquisition, hormone synthesis, siderophore production, and
-      volatile organic compound (VOC) synthesis were enriched, suggesting stimulated beneficial microbial
-      activities
-    explanation: Beneficial microbial activities (nutrient acquisition, hormones, siderophores, VOCs)
-      stimulated by the SynCom underpin the mutualistic support of the plant.
-  - reference: doi:10.1016/j.rhisph.2025.101142
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Sugarcane plants also exhibited dynamic responses, including the up-regulation of
-      hormone-related genes (auxin, cytokinin, salicylic acid) and nutrient transporter genes
-    explanation: Plant-side response (hormone and nutrient-transporter genes) to the SynCom completes the
-      mutualistic modulation.
+    snippet: genes associated with nutrient acquisition, hormone synthesis, siderophore production, and volatile
+      organic compound (VOC) synthesis were enriched, suggesting stimulated beneficial microbial activities
+    explanation: Supports functional gene enrichment and its proposed beneficial interpretation, not demonstrated
+      mutualism or metabolite transfer.
 - name: Sugarcane hormone and nutrient-transporter response
-  description: After MetG2 inoculation, sugarcane up-regulates genes for auxin, cytokinin, and
-    salicylic-acid signaling as well as nitrate, phosphate, potassium, and sulfur transport, linking the
-    stimulated rhizosphere functions to a host transcriptional response.
-  interaction_type: MUTUALISM
+  description: Sugarcane showed increased expression of hormone-related and nutrient-transporter genes after MetG2
+    inoculation, together with stress-response transcription. These are positive molecular responses, not by themselves
+    a quantified stress-tolerance phenotype or reciprocal microbial benefit. The canonical Saccharum officinarum
+    grounding and inoculant membership require separate identity resolution; this observation is stated at the source's
+    sugarcane level.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Proteobacteria (rhizosphere community members)
-    term:
-      id: NCBITaxon:1224
-      label: Pseudomonadota
-  target_taxon:
-    preferred_term: sugarcane (Saccharum officinarum)
-    term:
-      id: NCBITaxon:4547
-      label: Saccharum officinarum
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
@@ -184,7 +143,53 @@ ecological_interactions:
   - reference: doi:10.1016/j.rhisph.2025.101142
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Sugarcane plants also exhibited dynamic responses, including the up-regulation of
-      hormone-related genes (auxin, cytokinin, salicylic acid) and nutrient transporter genes
-    explanation: Supports the sugarcane hormone and nutrient-transporter gene response after MetG2
-      inoculation.
+    snippet: Sugarcane plants also exhibited dynamic responses, including the up-regulation of hormone-related genes
+      (auxin, cytokinin, salicylic acid) and nutrient transporter genes
+    explanation: Supports the sugarcane hormone and nutrient-transporter gene response after MetG2 inoculation.
+  - reference: doi:10.1016/j.rhisph.2025.101142
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Stress resistance genes such as trehalose 6-phosphate phosphatase, phenylalanine ammonia-lyase, expansin,
+      and antioxidant-related genes were also induced.
+    explanation: Supports host stress-response transcription, not a direct stress-challenge performance measurement.
+discussions:
+- discussion_id: metg2-identity-and-omics-mediation
+  prompt: Which MetG2 members and host identity underlie the observed native-rhizosphere and sugarcane transcriptional
+    responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Rhizosphere colonization-associated gene expression
+  - ecological_interactions#Rhizosphere enrichment of plant-associated functional genes
+  - ecological_interactions#Sugarcane hormone and nutrient-transporter response
+  rationale: The indexed publisher Introduction and experimental-design preview name four MetG2 strains, unlike
+    the record's broad responding-phylum wrapper. They differ in the spelling of one strain designation. The reviewed
+    source also does not verify the current species-level sugarcane grounding. Resolve canonical identities and
+    graph attribution together under issue1847; the record remains needs_research. Preserve the proposed functional
+    contribution without treating co-occurring expression, gene enrichment and host response as a demonstrated causal
+    sequence.
+  evidence:
+  - reference: doi:10.1016/j.rhisph.2025.101142
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: genes associated with nutrient acquisition, hormone synthesis, siderophore production, and volatile
+      organic compound (VOC) synthesis were enriched, suggesting stimulated beneficial microbial activities
+    explanation: Supports functional gene enrichment and its proposed beneficial interpretation, not demonstrated
+      mutualism or metabolite transfer.
+  - reference: doi:10.1016/j.rhisph.2025.101142
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Sugarcane plants also exhibited dynamic responses, including the up-regulation of hormone-related genes
+      (auxin, cytokinin, salicylic acid) and nutrient transporter genes
+    explanation: Supports the sugarcane hormone and nutrient-transporter gene response after MetG2 inoculation.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-08T04:10:39Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Preserve colonization-associated expression but distinguish inferred movement from direct colonization/facilitation;
+    remove the context-only arrow.; Preserve functional gene enrichment and its qualified existing contribution
+    to host responses; remove mutualism and exclusive inoculant attribution.; Preserve hormone, nutrient and stress
+    transcription without asserting measured stress tolerance; keep the unresolved host/member identity boundary
+    explicit. Issue#1845; reports/causal_graph_review/decisions/20261008-four-records-batch108.yaml
+  llm_assisted: true

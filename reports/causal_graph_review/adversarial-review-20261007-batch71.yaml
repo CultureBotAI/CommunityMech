@@ -1,0 +1,228 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 7c62dbeb49b807960bfe3bc82765e91e98125d4c
+scope:
+- kb/communities/Methylacidiphilum_Galdieria_Thermoacidophilic_Coculture.yaml
+- kb/communities/Methylocaldum_Cupriavidus_Methane_Acetate_Crossfeeding_Coculture.yaml
+- kb/communities/Methylocaldum_Methyloceanibacter_Methane_Crossfeeding_Coculture.yaml
+- kb/communities/Methylocystis_Rhodococcus_Methane_VFA_PHBV_Coculture.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch71.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch71.json
+findings:
+- issue: 1602
+  severity: P2
+  status: addressed_in_this_change
+  finding: Galdieria whole-system carbon and intervention scope.
+  disposition: Close only after protected-main merge.
+- issue: 1603
+  severity: P2
+  status: addressed_in_this_change
+  finding: Cupriavidus cross-system acetate and oxygen attribution.
+  disposition: Close only after protected-main merge.
+- issue: 1604
+  severity: P2
+  status: addressed_in_this_change
+  finding: Gela4 methanol exclusion and transcript mediation.
+  disposition: Close only after protected-main merge.
+- issue: 1605
+  severity: P2
+  status: addressed_in_this_change
+  finding: PHBV workflow, duplicate outcome and mutualism claims.
+  disposition: Close only after protected-main merge.
+- issue: 1606
+  severity: P2
+  status: unresolved_non_graph
+  finding: Non-graph substrate, cultivation, role and grounding claims remain unverified.
+  disposition: Keep OPEN after graph repair merge.
+adversarial_checks:
+- Read all four whole records and every original node/arrow; three complete primary main texts, captions
+  and embedded tables, plus the Cupriavidus primary abstract. Supplements, original images, raw RNA-seq/data
+  and earlier exact-pair publications were not audited. The fetched formate paper was not reread and is
+  not graph support.
+- Galdieria oxygen supply is a positive directed benefit, not reciprocal carbon transfer or obligatory
+  mutualism. Preserve both physiological arrows and the ratio-dependent suppression evidence rather than
+  demoting controlled physiological observations to wholly unsupported hypotheses.
+- Galdieria daily CH4/CO2/O2 replenishment prevents chlorosis; a separate day4 methane-withdrawal recovery
+  allows oxygen to accumulate without adding oxygen. Pigment recovery precedes resumed growth. HemF inhibition
+  and porphyrin uptake are molecular interpretations, not enzyme/transport measurements.
+- Net carbon fixation derives from system gas balances, not partner-resolved carbon assimilation. Preserve17-28%
+  enhancement,66-100% growth suppression,44-62% carbon suppression and0.124+/-0.001mmol/L/h methane consumption.
+  Methane depletion at0.15:1 prevents treating that rate as an unconstrained optimum; do not universalize
+  the ratio threshold.
+- Cupriavidus grew with S8, supporting nonmethanol carbon supply. The possibly-uses-acetate clause belongs
+  to Gela4, not Cupriavidus. Remove the cross-system oxygen-window node and arrow while retaining S8 acetate
+  excretion ranges and production-gene candidates as discussion context.
+- Cupriavidus acetate identity, flux, recipient utilization and carryover controls remain unresolved at
+  abstract scope. Retain a single explicitly hypothetical transfer-to-growth arrow and positive growth,
+  without claiming the recipient itself was tested at both oxygen ranges or that absent full text proves
+  no controls exist.
+- Gela4 positive growth and source-supported acetate interpretation remain. RNA-seq compares methanol
+  monoculture with methane coculture, so partner/substrate change together. Reference acetate-grown qRT-PCR
+  supports but does not isolate the cross-fed substrate.
+- Gela4 methanol below310nM does not exclude low-concentration/high-turnover transfer, explicitly acknowledged
+  in the paper. Retain acetate concentrations and acsA log2FC3.57. Distinguish significant late-phase
+  acsA/hpr from nonsignificant early-phase contrast.0.02/h coculture versus0.03/h methanol monoculture
+  is not growth enhancement or reciprocal fitness.
+- PHBV experimental assembly and starvation transfer are protocol, not cross-feeding or niche partitioning.
+  Remove those two nodes/three arrows. Merge peak content into the mixed-VFA node and remove its duplicate
+  arrow without deleting the quantitative positive result.
+- Retain valerate PHBV maxima35.9+/-8.6% under air and68+/-7% with methane/oxygen. The separately tested
+  mixed community produced PHV alone under air/valerate; it is not part of the defined pair. No matched
+  pure-M.parvus removal/addback test for every PHBV condition is established by this paper.
+- PHBV mixed-VFA contrast changes methane and oxygen together. Preserve73.7+/-2.5% by mass,94:6 PHB:PHV
+  and the distinct49.6+/-13% mixed-community comparator without methane-only causality, biomass-yield
+  or mutualism claims. VFAs were synthetic externally supplied substrates, not measured exchange or actual
+  waste feed.
+- Remove erroneous PHB-as-PHBV graph term. Schema requires grounded metabolite terms, so copolymer identity
+  is retained in descriptions, without inventing an ID or introducing unsupported schema fields. The non-graph
+  ingredient already names PHBV correctly without an ID; an erroneous follow-up-issue statement was corrected,
+  not that preserved field. Canonical taxa, AMBIGUOUS Rhodococcus status and all non-graph blocks remain
+  unchanged.
+- Guarded dry run caught an existing ASCII-versus-primary dash mismatch; final snippet uses exact shared
+  wording with quantitative result retained in description. A trial ungrounded-metabolite field failed
+  schema validation and was removed before any record write. No failed trial is reported as a passing
+  gate.
+- Verify456 untouched records,920 untouched caches and one append-only event/history per changed record.
+  Exact renamed targets and discussion anchors resolve. Both-root census adds one mixed/community-scope
+  Galdieria record. Its two existing members enter the community-scope-only denominator (1507 to1509),
+  not new taxonomy;1240 solely-rule count remains. An initially incorrect zero-denominator-change expectation
+  was corrected after reading the survey. No auditor-rule change.
+- Record actual schema/strict/terms/references/snippets/history, inventory/rank/network, deterministic
+  repeat rendering, combined regressions and lint results. All44 baseline warnings preserved with zero
+  structural defects. HTML description parsing covers456 pages, not browser screenshots; post-commit docs-current
+  is separate.
+- All891 all-state issue titles/bodies and ignored/hidden local search used for dedup; matching issue
+  bodies1093,529,306 read. Four repairs remain OPEN until protected-main merge; metadata1606 remains OPEN
+  afterward. Self-review is explicitly COMMENT, not independent approval or complete corpus review.
+verification:
+  combined_regressions: 641 passed in 187.42s (0:03:07)
+  new_regression_tests: 7
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: 'CLI Total checks counts reported issues, not executed checks. Cache MATCH is not scientific
+    entailment or provenance certification. All920 caches unchanged;20 retained graph excerpts independently
+    match fresh primary text after whitespace normalization. Cupriavidus full Methods unavailable; metadata
+    #1606 remains OPEN. Broader source-cache limitations persist.'
+  snippet_counts_by_record:
+    kb/communities/Methylacidiphilum_Galdieria_Thermoacidophilic_Coculture.yaml:
+      MATCH: 33
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Methylocaldum_Cupriavidus_Methane_Acetate_Crossfeeding_Coculture.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Methylocaldum_Methyloceanibacter_Methane_Crossfeeding_Coculture.yaml:
+      MATCH: 24
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Methylocystis_Rhodococcus_Methane_VFA_PHBV_Coculture.yaml:
+      MATCH: 23
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    primary_matched_graph_snippets: 20
+    whitespace_only_matches: 20
+    complete_primary_main_texts: 3
+    abstract_only_sources: 1
+    main_tables_read: 4
+    paid_submissions: 0
+    new_nodes_or_arrows: 0
+    separate_supplements_inspected: false
+    original_figure_pixels_inspected: false
+  network:
+    existing_findings_preserved: 44
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All44 baseline warnings preserved exactly. Explicit whole-coculture participants do
+      not assert member-specific causal contributions. No taxonomy or auditor-rule changes.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch71.yaml: 5f2dcc15508077db9fe3b45a624f058325157eb36c807411892d5c4eaf2026e1
+    tests/test_causal_review_batch71.py: a1a5106d2f967bf0407854655413bba0d18ff41462ae2dd5f50cfb96f24aa45c
+    tests/test_participating_taxa.py: 8d3856be5771754b2859f0d1791ff6a3eaf2126954c41628fb5efd1744bdfea1
+    kb/communities/Methylacidiphilum_Galdieria_Thermoacidophilic_Coculture.yaml: 28ab69eb0a5c33ae226cdadc93a773d5f5801acbcefaca7448dd3fbcc56d167a
+    kb/communities/Methylocaldum_Cupriavidus_Methane_Acetate_Crossfeeding_Coculture.yaml: d32433fda917a6b1dc25fb2788762957fe2945f7b2813586c02a9fdae7728c56
+    kb/communities/Methylocaldum_Methyloceanibacter_Methane_Crossfeeding_Coculture.yaml: 895b7a07d1fe190d25d9867e6314c8a1d81e4ba8d22abcdcddee2b38cff62e00
+    kb/communities/Methylocystis_Rhodococcus_Methane_VFA_PHBV_Coculture.yaml: a543b6b7f3df788f7119e74006d7eeec8d75727d68a98dff4a485f992145b0d4
+    reports/causal_graph_review/README.md: db4a779a876f9149b2db61f730e7a63c253d7d67d9ebecd7c2cb8923d1a98a31
+  unchanged_caches: 920
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    rationale: Existing structure repair only; earlier deferred extension approvals unchanged.
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 391
+      mixed: 123
+      community_level_only: 268
+      taxa: 1507
+      credited_solely_by_the_rule: 1240
+    current:
+      records: 460
+      with_community_level: 392
+      mixed: 124
+      community_level_only: 268
+      taxa: 1509
+      credited_solely_by_the_rule: 1240
+  delta:
+    records: 0
+    with_community_level: 1
+    mixed: 1
+    community_level_only: 0
+    taxa: 2
+    credited_solely_by_the_rule: 0
+  interpretation: 'Galdieria carbon endpoint now community-level alongside two pairwise mechanisms, adding
+    one mixed-scope record. The survey taxa denominator counts only records with community-level nodes:
+    its two existing members enter that denominator, not the taxonomy. Both retain pairwise links, so
+    solely-rule count is unchanged. PHBV remains community-level. No taxonomy or auditor-rule change.
+    Initial expectation of zero denominator change was corrected after inspecting the survey; successful
+    measured output is reused.'
+corpus:
+  records: 460
+  nodes: 1447
+  edges: 624
+  review_status_counts:
+    needs_research: 24
+    pending: 208
+    reviewed: 228
+limitations:
+- 'All14 original nodes and10 arrows reviewed: retain10 nodes/5 arrows; remove4 cross-system, procedural
+  or duplicate nodes and5 arrows. No new structure or paid provider submission.'
+- Galdieria, Gela4 and PHBV complete primary main texts/captions and embedded tables read. Cupriavidus
+  source is primary-abstract-only; publisher search confirms the abstract, not accessible full Methods.
+  Separate supplements, figure pixels and raw data not audited.
+- Galdieria physiological oxygen support/competition and positive carbon effects remain. Methane withdrawal
+  without added oxygen is distinct from daily gas replenishment; molecular inhibition/reuptake and partner-specific
+  carbon flux remain unresolved.
+- Cupriavidus positive growth remains; acetate and exact delivery are candidates. The oxygen series and
+  possibly-uses-acetate phrase belong to S8/Gela4, not a demonstrated Cupriavidus substrate pathway.
+- Gela4 growth, acetate concentrations, RNA-seq and acetate-reference qRT-PCR remain positive. Transcript
+  comparisons change partner/substrate; methanol nondetection does not exclude rapid flux, and early-phase
+  qRT-PCR contrast was not significant.
+- PHBV supplied-feed/gas outcomes and peak contents remain. Air versus methane/oxygen changes oxygen too;
+  polymer content is not biomass yield or reciprocal benefit. Mixed consortium is separate; air/valerate
+  gave it PHV alone. PHBV is not represented as PHB.
+- 'All920 caches and non-graph raw blocks unchanged, not recertified. Canonical taxonomy unchanged. Formate
+  primary text was fetched but not independently reread; earlier exact-pair papers were not inspected.
+  These are follow-up context, not graph support. #1606 remains OPEN after graph repairs.'
+- 'Dedup used all891 issue titles/bodies and ignored/hidden-inclusive local search (38 matches); matching
+  bodies #1093,#529,#306 read. No exhaustive PR-comment or historical local-file audit claimed.'
+- 'Self-review is not independent approval. Repair issues #1602-#1605 remain OPEN until protected-main
+  merge; reviewed status is bounded existing-graph review.'

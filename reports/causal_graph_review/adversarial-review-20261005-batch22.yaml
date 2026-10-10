@@ -1,0 +1,130 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: b4fd7d01144bf9815c3c5b5ce8c1c7b628a0a018
+decision_ledger: reports/causal_graph_review/decisions/20261005-three-records-batch22.yaml
+validation_report: reports/causal_graph_review/validation-20261005-batch22.json
+scope:
+- kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+- kb/communities/Clostridium_Thermocellum_Saccharoperbutylacetonicum_Cellulosic_Butanol_Coculture.yaml
+- kb/communities/Coastal_Forested_Wetland_Seawater_Ion_Microcosm_Community.yaml
+findings:
+- issue: 1340
+  severity: P2
+  finding: Product phenotype encoded as transfer; resource competition overtyped as reciprocal harm; estimated biomass
+    and extra-carbon interventions overstated causal partition.
+  disposition: addressed_and_locally_verified
+- issue: 1341
+  severity: P2
+  finding: Butanol endpoint and hydrogen association encoded as donor-recipient cross-feeding; staged-process controls
+    did not selectively resolve carbon or redox mediation.
+  disposition: addressed_and_locally_verified
+- issue: 1342
+  severity: P2
+  finding: Controlled ion responses misclassified as niche partitioning or competition; DNA abundance, sulfate null
+    and gas comparisons exceeded their measurement scope.
+  disposition: addressed_and_locally_verified
+- issue: 1344
+  severity: P2
+  finding: Two justified mixed-scope records exceed the old census ceiling of 120.
+  disposition: addressed_and_locally_verified
+  resolution: 'Recompute both-root census before and after: mixed 120 -> 122, solely credited taxa remain 1218;
+    change only this bound and comment.'
+open_nongraph_followups:
+- issue: 1343
+  disposition: intentionally_not_closed_by_graph_only_patch
+- issue: 746
+  disposition: intentionally_not_closed_by_graph_only_patch
+- issue: 524
+  disposition: intentionally_not_closed_by_graph_only_patch
+adversarial_checks:
+- Account for all ten original nodes and six arrows, with six exact renames; no additions, deletions, new structure
+  or Edison spend.
+- Preserve increased JN4-GD17 fermentation products while retaining the negative overall cellulose-utilization result.
+  The feedstock is not the exchanged soluble sugar or output.
+- Challenge COMPETITION against its actual (-/-) enum. Faster GD17 monoculture rates and JN4 suppression support
+  resource competition but do not establish both partners are harmed.
+- Keep low coculture sugars, transcription and glucose-addition controls as positive mechanistic support without
+  directly traced partner flux.
+- JN4 biomass is estimated using protein and genomic proportions, not direct viable counts. Stimulants add carbon
+  and sample different times; reduced cellulose use does not prove reduced total fermentation output.
+- Preserve the positive staged-butanol comparison. Coupled temperature and glucose-containing inoculum prevent selective
+  carbon-flux or solvent-selectivity attribution.
+- Retain the acetone-addition control and crude-extract activities; these constrain removal and pathway-shutdown
+  explanations without directly identifying the redox mediator.
+- The 2013 abstract reports an inverse hydrogen/butanol association and proposes future hydrogenase selection. The
+  2011 Discussion supplies the redox hypothesis; its cited separate mutant experiment is not an exact-coculture
+  perturbation.
+- Community products and hydrogen output name the existing two canonical participants, not inferred donation. The
+  wetland whole-community assays do not invent discrete membership among overlapping guild placeholders (#524).
+- Four wetland treatments support controlled mixture effects, not isolated sodium chloride causality, niche partitioning
+  or universal coastal-field behavior.
+- Week-12 relative sulfate-reducer and gene abundance nulls do not imply inactivity; verified sulfate exposure and
+  day-14 hydrogen sulfide are distinct positive observations.
+- DNA metagenomic relative abundance is functional potential, not expression, activity or selective mediation of
+  net gas flux.
+- Preserve the distinction between significant overall/factorial CO2 effects and nonsignificant individual contrasts;
+  distinguish intermediate complete-seawater CH4 and the sulfate-only N2O difference from the nonsignificant factorial
+  sulfate effect.
+- 'Three graph records, three append-only histories and focused regressions only; unrelated YAML blocks, seven tracked
+  cache artifacts and GTDB census bounds remain byte-identical. Nongraph #1343 and existing #746/#524 remain open.'
+- Before/after both-root census proves exactly two new mixed records and no increase in taxa credited solely by
+  community scope. Only the explained 120 -> 122 bound changes; no graph scope chosen to satisfy an old ceiling.
+- Source-based self-adversarial review is not independent approval. Three primary main bodies and three additional
+  abstracts reviewed; no images or supplementary files inspected, and no copyrighted full body added.
+verification:
+  status: local_validation_complete
+  checks: 30
+  records: 460
+  nodes: 1474
+  edges: 710
+  review_status_counts:
+    needs_research: 3
+    pending: 342
+    reviewed: 115
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  unchanged_raw_blocks: 55
+  snippet_counts:
+    MATCH: 87
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1460
+    edge_descriptions: 702
+  render_determinism: passed
+  regressions: 270 passed in 237.82s (0:03:57)
+  rights: 3 passed in 2.14s
+  rights_import_root_verified: true
+  caches_unchanged: true
+  primary_artifact_hashes_rechecked: true
+  participant_registry_change: Add only the intentional JN4-GD17 and staged-butanol users; preserve exact-set equality.
+  connectivity_test_change: Only mixed upper bound 120 -> 122 and its explanatory comment (#1344); all other bounds
+    unchanged.
+  connectivity_survey_before:
+    records: 460
+    with_community_level: 387
+    mixed: 120
+    community_level_only: 267
+    taxa: 1495
+    credited_solely_by_the_rule: 1218
+  connectivity_survey:
+    records: 460
+    with_community_level: 389
+    mixed: 122
+    community_level_only: 267
+    taxa: 1499
+    credited_solely_by_the_rule: 1218
+  connectivity_delta:
+    records: 0
+    with_community_level: 2
+    mixed: 2
+    community_level_only: 0
+    taxa: 4
+    credited_solely_by_the_rule: 0

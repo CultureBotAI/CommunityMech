@@ -1,0 +1,371 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: f98c2fec808fffa43e66965a291a00c0cf43df9a
+scope:
+- kb/communities/Sedimenting_Arabinose_Glucose_Saccharomyces_Coculture.yaml
+- kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml
+- kb/communities/Shewanella_Denitrifying_Richness_SynComs.yaml
+- kb/communities/Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch100.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch100.json
+findings:
+- issue: 1791
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate yeast biomass-retention outcomes from niche-partitioning mechanisms
+  disposition: Close only after protected-main merge.
+- issue: 1792
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound Shewanella-anammox flux attribution and proposed dosage competition
+  disposition: Close only after protected-main merge.
+- issue: 1793
+  severity: P2
+  status: addressed_in_this_change
+  finding: Remove richness-panel workflow nodes and distinguish measured nitrate reduction from inferred mechanisms
+  disposition: Close only after protected-main merge.
+- issue: 1794
+  severity: P2
+  status: addressed_in_this_change
+  finding: Preserve biofilm current gains without asserting pairwise mutualism or syntrophy
+  disposition: Close only after protected-main merge.
+- issue: 1795
+  severity: P2
+  status: open_non_graph_follow_up
+  finding: Review yeast strain notes and Shewanella non-graph scope and role claims
+  disposition: Separate non-graph/provenance curation required.
+- issue: 1796
+  severity: P2
+  status: open_non_graph_follow_up
+  finding: Audit anammox selected-support cache provenance and redistribution labeling
+  disposition: Separate non-graph/provenance curation required.
+adversarial_checks:
+- Fresh both-root baseline preceded sources. Four whole records and all14originalnodes/5directions reviewed;12nodes/4arrows
+  retained,2workflow nodes/1arrow removed,5renames. No new topology or provider submission.
+- 'Yeast: preserve substrate specialization,29%shorter batch time and near-simultaneous depletion; retention and
+  timing outcomes are not additional niche-partitioning interactions or intrinsic-growth benefits. The specialization-to-retention
+  direction is PARTIAL.'
+- 'Anammox: preserve conditional nitrite supply and measured treatment performance. Metagenomic abundance is not
+  expression or pathway-resolved flux; dosage-associated competition is HYPOTHESIZED. Culture-volume ratios are
+  not cell-number ratios or universal optima.'
+- 'Richness: remove construction/serial-transfer workflow nodes. Keep initial-richness associations with endpoint-specific
+  time bounds, larger lower-richness gains, statistical complementarity and relative yields. Nitrate disappearance
+  does not establish complete denitrification; complementarity does not identify exchanged substrates or beneficial
+  mutations.'
+- 'Biofilm: retain real higher current than each solitary culture and both existing uncertain directions. Do not
+  upgrade that result to superadditivity, reciprocal fitness or demonstrated product-removal feedback. Transcript
+  comparison is scoped within the three-member community, not a binary-pair perturbation.'
+- All23graph and4new-discussion quotations match fresh primary text and maintained cache bytes. Exactly one15word
+  selected excerpt was appended with provenance and rights limits. It remains excluded by the independent cache
+  audit, which correctly reports one MISMATCH for that quote. This is not a clean-cache claim or a changed audit
+  rule.
+- Four records and one selected-excerpt cache appendix changed;456otherrecords and922othercaches preserved. All
+  non-graph raw blocks, taxonomy, prior histories and earlier decisions preserved. Four append-only histories; exact
+  participant-list census adds one stem. Connectivity bounds and runtime/schema/audit code unchanged.
+- Focused checks,912broad regressions, source/cache digest checks and full-record schema/strict/terms/reference
+  validation are recorded with actual outputs. Ruff then detected stdlib import order in the new test; that formatting-only
+  fix has before/after hashes, preserved failure output and final focused/full Black/Ruff reruns. Final mypy explicitly
+  selects the Python3.13 package environment because plain just-lint autodetects a separate system Python3.10 and
+  fails four imports; failed attempts remain recorded. Type target/rules unchanged. The broad run preceded the import-formatting
+  fix. Network retains56existingwarnings and zero structural defects. HTML parser checks/deterministic rendering
+  are not screenshots; postcommit docs-current remains separate.
+- Issues1791-1794 addressed locally, close only after protected-main merge. Non-graph1795 and provenance1796 remain
+  open. Source section and access limits, including rights-reserved primary pages, are recorded. No full-cache-body,
+  figure-pixel, supplement or raw-data certification; loader1703 and DOI-cache1091 not certified.
+- Source-based self-adversarial review is not independent approval. No protection bypass, artificial CI, premature
+  issue closure or branch deletion. Corpus316reviewed/96pending/48needs_research is not complete.
+verification:
+  combined_regressions: 912 passed in 314.50s (0:05:14)
+  new_regression_tests: 8
+  total_recorded_gate_outputs: 43
+  primary_graph_snippet_proof:
+    graph_quotations: 23
+    new_discussion_quotations: 4
+    fresh_primary_literal_matches: 27
+    all_cached_literal_matches: 27
+    selected_excerpt_not_independent_cache_coverage: 1
+    retained_nodes: 12
+    removed_nodes: 2
+    retained_arrows: 4
+    removed_arrows: 1
+    new_nodes_or_directions: 0
+    scope: All reviewed quotations match fresh primary text literally after normalization; entailment is separately
+      reviewed. One15word selected biofilm excerpt is correctly excluded from independent cache coverage and reports
+      MISMATCH there. No audit exception or rule change.
+  references: Four full-record CLI and local snippet checks executed on macOS,not Linux; DOI-cache casing issue1091
+    remains. Literal matches do not establish entailment; primary access and section limits are recorded in the
+    ledger. CLI Total checks counts issues,not executed checks. Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/Sedimenting_Arabinose_Glucose_Saccharomyces_Coculture.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml:
+      MATCH: 39
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Shewanella_Denitrifying_Richness_SynComs.yaml:
+      MATCH: 13
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 1
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8951
+      categories:
+        MATCH: 8815
+        RENDERING: 20
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 39
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification; literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: Two workflow nodes/one arrow removed; all56pre-existing warnings unchanged,zero structural defects.
+      No audit rules changed.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch100.yaml: a8939e5ecd0eff990eca4faf2142630f03b97454b83b8062aa33a96003de39b0
+    tests/test_causal_review_batch100.py: 743595751afc805f7669aeab73e92c00187314b5246721e2f0337446a4ec9110
+    tests/test_participating_taxa.py: eee27ee5addbb99788676ad3a26318742d3a3c33243e1b5c8cad06f6794c0d72
+    tests/test_community_level_connectivity_credit.py: b758fe7bfd3428e33fbc9c6ac1cf363747bcad39cac1a28dc659bfbbd6532512
+    reports/causal_graph_review/cache-provenance-20261007-batch100.json: 2e56548bbf7e8e31b129e5d8f79444dea54c573781abc1dc9beea932e426f4c1
+    kb/communities/Sedimenting_Arabinose_Glucose_Saccharomyces_Coculture.yaml: 2cb61412fd3d352ef2d3d3e95fce0f5057b0d0074ef26ba4c7c76d03a4d9a80e
+    kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml: f300a08a92756ce174019800b7a50cec74b8d9a6be17a56accd8e2daa8aa6cf3
+    kb/communities/Shewanella_Denitrifying_Richness_SynComs.yaml: 05411e4ca408a2b94816dd54d7fddacd79d31a3b8a979cf896781440f350054a
+    kb/communities/Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml: dc6f365d6db2c42544bf4a99266535d87da7c68216deb081fe0d8c8eaa86b68e
+  unchanged_records: 456
+  unchanged_caches: 922
+  immutable_prior_history_and_decision_files: 788
+  cache_changes:
+  - path: references_cache/PMID_28087529.md
+    before_sha256: eafbad52d22c837b1b99b86167f85be6e264fa4fd66689b3a638e95bc491a4a5
+    after_sha256: bf47fb94c0acbd59f19e99e78dda267a2b44f2100b1b9fe57cb10b818e2908bc
+    original_bytes_preserved: true
+    appended_quote_words: 15
+    selected_excerpt_excluded_from_independent_audit: true
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Bound existing graph claims and remove workflow-only topology; no new mechanisms or directions.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 403
+      mixed: 128
+      community_level_only: 275
+      taxa: 1548
+      credited_solely_by_the_rule: 1274
+    current:
+      records: 460
+      with_community_level: 403
+      mixed: 127
+      community_level_only: 276
+      taxa: 1548
+      credited_solely_by_the_rule: 1276
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: -1
+    community_level_only: 1
+    taxa: 0
+    credited_solely_by_the_rule: 2
+  interpretation: Biofilm transcript response moves from pairwise to scoped community-level with two canonical existing
+    members. Exact participant allowlist adds one stem. No connectivity bounds or runtime rules change.
+corpus:
+  records: 460
+  nodes: 1403
+  edges: 569
+  review_status_counts:
+    needs_research: 48
+    pending: 96
+    reviewed: 316
+limitations:
+- Fresh both-root baseline before sources:460records,923caches,56existingwarnings,zero structural defects. Four
+  whole records/all14originalnodes/5directions reviewed. Retain12nodes/4directions; remove2workflownodes/1arrow;
+  rename5nodes. No new topology or Edison submission/spend.
+- 'Yeast: fresh primary XML abstract/introduction1-92 and results/discussion183-383 read. Retention-dependent conversion
+  benefits retained, distinct from niche partitioning, intrinsic growth and mutualism. Exact strains/industrial
+  transfer and non-graph abstract-only notes are not newly curated.'
+- 'Anammox: EuropePMC XML500 after three bounded attempts; normal public PMC page succeeded. Abstract1-62 and results/discussion/conclusion/perspective260-536
+  read. Retain conditional nitrite supply and measured treatment gradient; pathway flux, catalytic expression, ecological
+  competition and long-term stability are not isolated. Existing broad taxonomy and prior discussion remain.'
+- 'Richness: fresh primary XML1-428 read, including results, discussion, measurement definition and additive partitioning.
+  Initial richness differs from realized membership; nitrate disappearance does not prove complete denitrification.
+  Productivity and nitrate associations differ at day60. Complementarity and relative yields are analytical, not
+  resolved transfers or genetic mechanisms. Do not restore earlier removed workflow arrows.'
+- 'Biofilm: EuropePMC XML500 after three bounded attempts; normal public PMC page succeeded. Abstract1-52 and results/discussion117-428
+  read. Higher coculture current than each solitary culture is a measured positive result; preserve it without reciprocal-fitness
+  or product-removal-feedback certainty. Transcript comparison is three-species, not an isolated binary interaction.
+  Proposed hydrogen/flavin/propionate mechanisms remain unresolved; experimental media differed among controls.
+  No new mechanistic nodes or directions.'
+- 'No figure-pixel, supplementary-file or raw-data review. Five primary cache files inspected: whole yeast TXT/biofilm
+  TXT+MD; bounded wrapped headers/body of flattened anammox/richness TXT. Do not claim full-cache body review. Fresh
+  complete sources stay in private research artifacts, not in the repository.'
+- Only PMID_28087529.md changes, preserving all existing bytes and appending one15word selected quotation plus provenance.
+  It is not independently cached full text and must remain excluded from the independent snippet audit; expected
+  unmatched-cache classification must be reported, not relabeled MATCH. All quotations separately match fresh primary
+  text. The rights-reserved article body is not added. The922othercaches and456otherrecords remain unchanged.
+- Graph1791-1794 await protected-main merge. Non-graph1795 and anammox cache-provenance1796 stay open. Four matched
+  all-state issue bodies read;1706 concerns another record000113. Ignored/hidden-inclusive local search excludes.git/docs/site/references_cache
+  with relevant caches separately inspected; PRs/comments not exhaustive.
+- Identity-only participants use exact existing taxon labels/IDs. Canonical taxonomy and all non-graph raw blocks
+  stay unchanged. Four append-only histories; no runtime/schema/audit-rule changes or baseline relaxation.
+- Source-based self-adversarial review is not independent approval or corpus completion. Loader1703 and DOI-cache1091
+  not certified. Existing denied/unanswered Edison scopes unchanged. Validation and publication are not preasserted.
+failed_prepublication_checks:
+- check: ruff
+  command:
+  - /Users/marcin/.cache/uv/archive-v0/wCcxEYRM4HeHgwYPZemHX/bin/ruff
+  - check
+  - tests/test_causal_review_batch100.py
+  - tests/test_participating_taxa.py
+  - tests/test_community_level_connectivity_credit.py
+  exit_code: 1
+  expected_exit_codes:
+  - 0
+  log: /private/tmp/communitymech-batch100/verification-final/ruff.log
+  log_sha256: ebea5786ef2b733137bc3ed60e44179b27b69ddbe3a14542742346922396cf9d
+  output_tail: "I001 [*] Import block is un-sorted or un-formatted\n --> tests/test_causal_review_batch100.py:3:1\n\
+    \  |\n1 |   \"\"\"Keep measured process outcomes distinct from unisolated ecological mechanisms.\"\"\"\n2 |\n\
+    3 | / import hashlib\n4 | | from pathlib import Path\n5 | | import runpy\n6 | |\n7 | | import yaml\n  | |___________^\n\
+    8 |\n9 |   ROOT = Path(__file__).resolve().parents[1]\n  |\nhelp: Organize imports\n  |\n3 | import hashlib\n\
+    4 + import runpy\n5 | from pathlib import Path\n  - import runpy\n6 |\n  |\n\nFound 1 error.\n[*] 1 fixable\
+    \ with the `--fix` option.\n"
+- check: just-lint
+  command:
+  - just
+  - lint
+  exit_code: 1
+  expected_exit_codes:
+  - 0
+  log: /private/tmp/communitymech-batch100/just-lint.log
+  log_sha256: 45ed610b7b0341b8bb73445d719df32de411e9c46d18cc5cba55c323dba7521d
+  output_tail: "All checks passed!\nsrc/communitymech/embedding/graph_layout.py:11: error: Cannot find implementation\
+    \ or library stub for module named \"sklearn.neighbors\"  [import-not-found]\nsrc/communitymech/embedding/graph_layout.py:11:\
+    \ note: Error code \"import-not-found\" not covered by \"type: ignore\" comment\nsrc/communitymech/embedding/graph_layout.py:12:\
+    \ error: Cannot find implementation or library stub for module named \"sklearn.preprocessing\"  [import-not-found]\n\
+    src/communitymech/embedding/graph_layout.py:12: note: Error code \"import-not-found\" not covered by \"type:\
+    \ ignore\" comment\nsrc/communitymech/embedding/dimensionality.py:6: error: Cannot find implementation or library\
+    \ stub for module named \"sklearn.preprocessing\"  [import-not-found]\nsrc/communitymech/embedding/dimensionality.py:6:\
+    \ note: Error code \"import-not-found\" not covered by \"type: ignore\" comment\nsrc/communitymech/embedding/dimensionality.py:6:\
+    \ note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports\nsrc/communitymech/embedding/dimensionality.py:70:\
+    \ error: Cannot find implementation or library stub for module named \"pacmap\"  [import-not-found]\nsrc/communitymech/embedding/dimensionality.py:70:\
+    \ note: Error code \"import-not-found\" not covered by \"type: ignore\" comment\nFound 4 errors in 2 files (checked\
+    \ 49 source files)\nuv run black --check src/ tests/ scripts/\nAll done! \u2728 \U0001F370 \u2728\n353 files\
+    \ would be left unchanged.\nuv run ruff check src/ tests/ scripts/\nwarning: Invalid `# noqa` directive on scripts/gtdb_ground.py:74:\
+    \ expected code to consist of uppercase letters followed by digits only (e.g. `F401`)\nuv run mypy src/\nerror:\
+    \ recipe `lint` failed on line 519 with exit code 1\n"
+- check: just-lint
+  command:
+  - just
+  - lint
+  exit_code: 1
+  expected_exit_codes:
+  - 0
+  log: /private/tmp/communitymech-batch100/just-lint-complete-environment.log
+  log_sha256: feb52a2fb17529f2658a9d3f1267d50c23a009bda631160999e1ff0f58163818
+  output_tail: "All checks passed!\nsrc/communitymech/embedding/graph_layout.py:11: error: Cannot find implementation\
+    \ or library stub for module named \"sklearn.neighbors\"  [import-not-found]\nsrc/communitymech/embedding/graph_layout.py:11:\
+    \ note: Error code \"import-not-found\" not covered by \"type: ignore\" comment\nsrc/communitymech/embedding/graph_layout.py:12:\
+    \ error: Cannot find implementation or library stub for module named \"sklearn.preprocessing\"  [import-not-found]\n\
+    src/communitymech/embedding/graph_layout.py:12: note: Error code \"import-not-found\" not covered by \"type:\
+    \ ignore\" comment\nsrc/communitymech/embedding/dimensionality.py:6: error: Cannot find implementation or library\
+    \ stub for module named \"sklearn.preprocessing\"  [import-not-found]\nsrc/communitymech/embedding/dimensionality.py:6:\
+    \ note: Error code \"import-not-found\" not covered by \"type: ignore\" comment\nsrc/communitymech/embedding/dimensionality.py:6:\
+    \ note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports\nsrc/communitymech/embedding/dimensionality.py:70:\
+    \ error: Cannot find implementation or library stub for module named \"pacmap\"  [import-not-found]\nsrc/communitymech/embedding/dimensionality.py:70:\
+    \ note: Error code \"import-not-found\" not covered by \"type: ignore\" comment\nFound 4 errors in 2 files (checked\
+    \ 49 source files)\nuv run black --check src/ tests/ scripts/\nAll done! \u2728 \U0001F370 \u2728\n353 files\
+    \ would be left unchanged.\nuv run ruff check src/ tests/ scripts/\nuv run mypy src/\nerror: recipe `lint` failed\
+    \ on line 519 with exit code 1\n"
+- check: mypy-explicit-runtime
+  command:
+  - /private/tmp/communitymech-batch100/lint-env/bin/mypy
+  - --python-executable
+  - /private/tmp/communitymech-batch100/lint-env/bin/python
+  - src/
+  exit_code: 1
+  expected_exit_codes:
+  - 0
+  log: /private/tmp/communitymech-batch100/mypy-explicit-runtime.log
+  log_sha256: 1403f4e0fd44e2ee1479599d91e0cd2e384b2622b002ced96a3e1d0e7a99ac4f
+  output_tail: 'src/communitymech/embedding/graph_layout.py:11: error: Cannot find implementation or library stub
+    for module named "sklearn.neighbors"  [import-not-found]
+
+    src/communitymech/embedding/graph_layout.py:11: note: Error code "import-not-found" not covered by "type: ignore"
+    comment
+
+    src/communitymech/embedding/graph_layout.py:12: error: Cannot find implementation or library stub for module
+    named "sklearn.preprocessing"  [import-not-found]
+
+    src/communitymech/embedding/graph_layout.py:12: note: Error code "import-not-found" not covered by "type: ignore"
+    comment
+
+    src/communitymech/embedding/dimensionality.py:6: error: Cannot find implementation or library stub for module
+    named "sklearn.preprocessing"  [import-not-found]
+
+    src/communitymech/embedding/dimensionality.py:6: note: Error code "import-not-found" not covered by "type: ignore"
+    comment
+
+    src/communitymech/embedding/dimensionality.py:6: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+
+    src/communitymech/embedding/dimensionality.py:70: error: Cannot find implementation or library stub for module
+    named "pacmap"  [import-not-found]
+
+    src/communitymech/embedding/dimensionality.py:70: note: Error code "import-not-found" not covered by "type:
+    ignore" comment
+
+    Found 4 errors in 2 files (checked 49 source files)
+
+    '
+import_order_correction:
+  before_sha256: f6dedfd41bafe9d88d6b74906f57f0d7449ab358c6ce9f21137b56126f6dcc27
+  after_sha256: 743595751afc805f7669aeab73e92c00187314b5246721e2f0337446a4ec9110
+  scope: Only stdlib import order changed after912passing broad regressions. Final focused tests and full lint are
+    rerun; the broad test output is not represented as testing this formatting change.
+lint_environment:
+  python: 3.13.12 | packaged by conda-forge | (main, Feb  5 2026, 05:58:33) [Clang 19.1.7 ]
+  packages:
+    mypy: 1.19.1
+    types-PyYAML: 6.0.12.20260518
+    types-requests: 2.33.0.20260518
+    types-tqdm: 4.67.3.20260518
+    pandas-stubs: 3.0.0.260204
+    numpy: 2.4.2
+    scikit-learn: 1.8.0
+    pacmap: 0.9.1
+  scope: Temporary Python3.13 lint-only environment with locked mypy1.19.1,NumPy and typing stubs, reusing existing
+    validation runtime via .pth; cached Black/Ruff on PATH. Two plain just-lint attempts passed full Black/Ruff
+    but failed four import checks. Inspection of mypy inference proved that the configured Python3.10 type target
+    selects /usr/local/opt/python@3.10/bin/python3.10 for packages. Locked scikit-learn1.8.0/pacmap0.9.1 wheels
+    were added without dependency expansion for static analysis. Explicit-runtime incremental mypy also reported
+    the same four errors; a fresh non-incremental explicit-runtime diagnostic passed all49sourcefiles. Final recorded
+    mypy uses that no-incremental command and the Python3.13 package environment without changing the Python3.10
+    type target or source rules. This is not a complete embedding runtime or a plain-just-lint pass. No project
+    dependency changes. Initial venv setup hit default uv-cache sandbox denial; temporary-cache retry succeeded.
+    Legacy global mypy1.9.0 inspected but not used.

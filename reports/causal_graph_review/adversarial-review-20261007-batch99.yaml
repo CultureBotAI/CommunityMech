@@ -1,0 +1,254 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: af0cc46dc2b6438010297cea796110a22ed78771
+scope:
+- kb/communities/Saccharomyces_Chlamydomonas_Fungal_Algal_Mutualism.yaml
+- kb/communities/Saccharomyces_Met14_Trp4_FLO1_Resveratrol_Coculture.yaml
+- kb/communities/Salar_Atacama_Lithium_Brine_Community.yaml
+- kb/communities/Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch99.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch99.json
+findings:
+- issue: 1784
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound yeast-alga causal loop and remove unmeasured oxygen benefit
+  disposition: Close only after protected-main merge.
+- issue: 1785
+  severity: P2
+  status: addressed_in_this_change
+  finding: Distinguish resveratrol production enhancement from mutualistic fitness
+  disposition: Close only after protected-main merge.
+- issue: 1786
+  severity: P2
+  status: addressed_in_this_change
+  finding: Remove unsupported Atacama brine exchange and nutrient-cycle graph claims
+  disposition: Close only after protected-main merge.
+- issue: 1787
+  severity: P2
+  status: addressed_in_this_change
+  finding: Correct sclerotia biocontrol interaction labels and contributor scope
+  disposition: Close only after protected-main merge.
+- issue: 1788
+  severity: P2
+  status: open_non_graph_follow_up
+  finding: Review non-graph brine scope and sclerotia manuscript-version discrepancies
+  disposition: Separate non-graph curation required.
+- issue: 1789
+  severity: P2
+  status: open_non_graph_follow_up
+  finding: Reconcile yeast-alga cache body with its abstract-only and license notice
+  disposition: Separate non-graph curation required.
+adversarial_checks:
+- Fresh both-root baseline preceded source reads. Four whole records/all14nodes/6directions reviewed. Nine nodes/four
+  existing directions remain; five unsupported nodes/two arrows removed, one rename. No new topology/provider spend.
+- 'Yeast-alga: retain reciprocal carbon/nitrogen dependence and both directions with PARTIAL mediation bounds. Oxygen
+  release alone does not establish a yeast benefit. Do not infer fermentation as the sole carbon-dioxide source.'
+- 'Resveratrol: coauxotrophy remains MUTUALISM, pathway handoff remains CROSS_FEEDING, but aggregate titer is not
+  mutualistic fitness. Retain controls, precursor accumulation and biomass tradeoff; the existing pathway-to-production
+  direction is PARTIAL, not an isolated explanation of the FLO1 increment.'
+- 'Atacama: retain the community composition comparison without lithium-only causation. Taxon presence is not demonstrated
+  exchange, nutrient recycling, phototrophy or functional redundancy. Four functional nodes and both arrows removed;
+  no claim that these processes are biologically impossible.'
+- 'Sclerotia: retain laboratory treatment effects and the MC dropout contribution, but not resource competition,
+  defense-process ontology, niche-partitioning or colonization-only causation. Preserve nonadditivity and time dependence.
+  The fungal challenge remains external to the twelve-member consortium.'
+- Adversarial preflight identified an UNKNOWN_TARGET error after initially assigning MC pairwise scope. Corrected
+  to a one-participant community-contribution node; appended a fifth history, preserving the original four. Failed
+  preflight exit3/output digest is recorded. Audit rules were not weakened.
+- All12graph and4new-discussion quotations match maintained caches. Fourteen match fresh primary text after normalization.
+  Two spatial excerpts have explicit accepted-manuscript/final-article wording equivalences, with final text separately
+  checked; they are not mislabeled literal matches. No full-cache, figure-pixel, supplement or raw-data certification.
+- Four records changed;456otherrecords,923caches and all non-graph raw blocks preserved. Exactly one participant-list
+  user added. Community-level census402->403 reflects Atacama, with exactly six existing members; mixed128unchanged,
+  community-only274->275, taxa1542->1548 and solely community-credited1268->1274. Only the community-level bound
+  increases by one; no runtime connectivity rule changes.
+- Eight focused tests and904combined regressions passed.43finalgate records/digests include five history validations.
+  Network retains56pre-existing warnings and zero structural defects. HTML-description parsing/deterministic rendering
+  is not screenshots; postcommit docs-current is separate.
+- Six matching all-state issue bodies read after ignored/hidden-inclusive dedup with recorded exclusions. Graph1784-1787
+  await protected-main merge; non-graph1788/provenance1789 and broader765 stay open. Access limits include XML500
+  and direct403; normal public pages were used without bypass. Loader1703/Linux DOI-cache1091 not certified.
+- Self-adversarial COMMENT is not independent approval. No protection bypass, fabricated CI or premature closure.
+  Corpus312reviewed/100pending/48needs_research is not complete.
+adversarial_prepublication_fix:
+  findings:
+  - issue: 1787
+    finding: Pairwise scope incorrectly applied consortium-member validation to an external fungal challenge.
+    disposition: Keep the MC dropout result at community-contribution scope with only MC as participant and the
+      fungal challenge as external context; do not assert a pairwise consortium-membership relation.
+    preserved_initial_histories:
+      history/records/Saccharomyces_Chlamydomonas_Fungal_Algal_Mutualism/2026-10-07T203744Z-codex-e34e15.yaml: e66b28def57972ffacf422722d2ad0ed50bb01b0b59326b8fc9d25ae53ccf755
+      history/records/Saccharomyces_Met14_Trp4_FLO1_Resveratrol_Coculture/2026-10-07T203744Z-codex-d0f5ea.yaml: ee532658b263d5c3d448f8c0fa3f45d313fd9994c609131a7724067c756cf514
+      history/records/Salar_Atacama_Lithium_Brine_Community/2026-10-07T203744Z-codex-599245.yaml: 0bbbb168df42120949b0ff42f876ec87516d8f854947d7449463930a5d294a03
+      history/records/Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom/2026-10-07T203745Z-codex-dc367a.yaml: 5b2a6839c615e4dd3bdf58871236580ef7dee4eeff93cc61a95d52c49bb0cac4
+    correction_history: history/records/Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom/2026-10-07T204135Z-codex-cb916b.yaml
+  preflight:
+    command:
+    - /Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3
+    - -m
+    - communitymech.cli
+    - audit-network
+    - --json
+    exit_code: 3
+    log: /private/tmp/communitymech-batch99/preflight-network.json
+    log_sha256: ae22e472a4cdd0a7ab551479ebaa0be0b5cbd0228e91e51872d638ea217856a3
+    status: Corrected before final full verification; no audit severity rule changed.
+verification:
+  combined_regressions: 904 passed in 453.95s (0:07:33)
+  new_regression_tests: 8
+  total_recorded_gate_outputs: 43
+  primary_graph_snippet_proof:
+    graph_quotations: 12
+    new_discussion_quotations: 4
+    fresh_primary_literal_matches: 14
+    documented_manuscript_version_equivalents: 2
+    all_cached_literal_matches: 16
+    retained_nodes: 9
+    removed_nodes: 5
+    retained_arrows: 4
+    removed_arrows: 2
+    new_nodes_or_directions: 0
+    scope: Two sclerotia spatial excerpts differ between accepted manuscript and final article, with exact final
+      wording separately matched. All other reviewed quotations match fresh primary text literally after normalization;
+      entailment is a separate review.
+  references: Four full-record CLI and local snippet checks executed on macOS,not Linux; DOI-cache casing issue1091
+    remains. Literal matches do not establish entailment; primary access and section limits are recorded in the
+    ledger. CLI Total checks counts issues,not executed checks. Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/Saccharomyces_Chlamydomonas_Fungal_Algal_Mutualism.yaml:
+      MATCH: 6
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Saccharomyces_Met14_Trp4_FLO1_Resveratrol_Coculture.yaml:
+      MATCH: 17
+      RENDERING: 1
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Salar_Atacama_Lithium_Brine_Community.yaml:
+      MATCH: 23
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml:
+      MATCH: 34
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8947
+      categories:
+        MATCH: 8812
+        RENDERING: 20
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 38
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification; literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: Five unsupported nodes/two arrows removed; all56pre-existing warnings unchanged,zero structural
+      defects. Initial external-target scope error corrected without changing audit rules.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch99.yaml: d074d1dd6b8e027bb5c8174d73c1d3c9493e80fe254a5326386369fb6ebd4167
+    tests/test_causal_review_batch99.py: bbf33fc0ee37a4dcf83afbb4bbceada82f22d68db28ffb0e7df2c5c9dc388470
+    tests/test_participating_taxa.py: 66913594c22331ac6cb551eef0a2ca8cf6c468875ae38e1dc98c1a1af21af9f3
+    tests/test_community_level_connectivity_credit.py: b758fe7bfd3428e33fbc9c6ac1cf363747bcad39cac1a28dc659bfbbd6532512
+    reports/causal_graph_review/README.md: 87d16c9a996950f759d8b0a2fe8560f3f00daa895f01fbd5b0fbfa6e97223685
+    reports/causal_graph_review/cache-provenance-20261007-batch99.json: a1739bef0423fe4536237e3bbd3828e3b60acbd3e18fae08f8e33819a7348cac
+    kb/communities/Saccharomyces_Chlamydomonas_Fungal_Algal_Mutualism.yaml: fec7e6a58cc17fca35752ff7a4d5c8bbd012cde000682fabef435f0f0e55f80d
+    kb/communities/Saccharomyces_Met14_Trp4_FLO1_Resveratrol_Coculture.yaml: d7f617d83df5d01dc2dafc8d7944fe482f4c9046d78337fd6c19040c95ec6baa
+    kb/communities/Salar_Atacama_Lithium_Brine_Community.yaml: 4e9934084bc572a4f98d5f209c5b21d853e5e3405d5ba5059be0f05cd18f00dd
+    kb/communities/Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml: b76f915e08d08faf1516698a67c53bb6e25f912bd8d4803dfe55412f1a100a3e
+  unchanged_records: 456
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 782
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Remove unsupported existing claims and bound retained directions; no new mechanisms or topology.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 402
+      mixed: 128
+      community_level_only: 274
+      taxa: 1542
+      credited_solely_by_the_rule: 1268
+    current:
+      records: 460
+      with_community_level: 403
+      mixed: 128
+      community_level_only: 275
+      taxa: 1548
+      credited_solely_by_the_rule: 1274
+  delta:
+    records: 0
+    with_community_level: 1
+    mixed: 0
+    community_level_only: 1
+    taxa: 6
+    credited_solely_by_the_rule: 6
+  interpretation: Atacama becomes a community-profile node with six named existing taxa. MC remains a one-participant
+    community contribution, with external fungal challenge not made a consortium member. Community-level count402->403
+    and solely community-credited taxa1268->1274 reflect this scope correction, not a runtime-rule change. Exact
+    participant allowlist adds one stem; only the community-level census ceiling increases by one.
+corpus:
+  records: 460
+  nodes: 1405
+  edges: 570
+  review_status_counts:
+    needs_research: 48
+    pending: 100
+    reviewed: 312
+limitations:
+- Four whole records and all14originalnodes/6arrows reviewed. Retain9nodes/4arrows, remove5unsupportednodes/2arrows,
+  rename1node. Four changed records; no new topology or Edison submission/spend.
+- 'Yeast-alga: fresh abstract and public PMC author-manuscript main text1-155, including Figure1 caption, read.
+  Reciprocal carbon/nitrogen support retained; oxygen release is not an isolated yeast benefit. EuropePMC XML returnedHTTP500;
+  normal public PMC HTML succeeded. Existing body quotations remain, no new body text cached; issue1789 tracks inconsistent
+  cache provenance and765 broader re-evidencing.'
+- 'Resveratrol: fresh primary results227-277/309-389 and discussion391-455 read. Condition-dependent coauxotrophy
+  and titer comparisons retained; no direct transfer-flux claim or inference that increased product titer establishes
+  mutualistic fitness. Precursor accumulation and biomass tradeoff retained.'
+- 'Brine: publisher web-rendered abstract163-168, main text190-310 including methods and results read. EuropePMC
+  DOI search returned no record; direct publisher fetch403 stopped, normal public web text was available. Two-brine
+  composition comparison is not a lithium-only perturbation or demonstrated functional exchange. Four unsupported
+  functional nodes removed, not asserted biologically impossible.'
+- 'Sclerotia: fresh final primary results385-466 and discussion480-540 read. Three nodes and dropout-supported direction
+  retained; spatial order is not causation or competition relief. Only graph claims changed; no new wet-lab/genetic
+  instructions. Cached accepted-manuscript quotations match directly; two spatial excerpts differ slightly from
+  final article (range rendering and added that of), with both versions recorded and exact normalized final-text
+  checks. Non-graph version differences remain in1788.'
+- Relevant cache content and graph snippets checked. Flattened resveratrol cache search output was truncated, so
+  complete cache-body review is not claimed. No figure-pixel/supplement/raw-data review. All923caches unchanged;
+  fresh complete papers remain private local artifacts, not published.
+- All456otherrecords, canonical taxonomy and non-graph raw blocks preserved; four initial histories plus one append-only
+  scope-correction history. Identity-only participant lists use exact existing members. Brine participant list denotes
+  a curated subset across samples; full biocontrol inoculum does not imply equal contribution. No runtime connectivity
+  semantics changed.
+- Six matching all-state issue bodies read; fresh ignored/hidden-inclusive local dedup excluded .git/docs/site/references_cache,
+  with relevant caches separately inspected. Comments/PRs not exhaustive. Graph1784-1787 await protected-main merge.
+  Non-graph1788, provenance1789 and broader765 remain open.
+- Self-adversarial review is not independent approval or corpus completion. Loader1703 and DOI-cache1091 not certified.
+  Denied/unanswered Edison scopes unchanged. Validation and publication not preasserted.

@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        artificial mineral-litter microcosm
+                        artificial mineral-litter microcosm<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -429,7 +437,7 @@
                     <span class="metadata-label">Modeled Environment</span>
                     <span class="metadata-value">
 
-                        agricultural soil
+                        agricultural soil<span class="ontology-label"> — ontology label: soil</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00001998"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -468,7 +476,7 @@
 
                     <tr>
                         <td>
-                            <strong>Curtobacterium sp. PTCC 1316</strong>
+                            <strong>Curtobacterium sp. PTCC 1316<span class="ontology-label"> — ontology label: Curtobacterium</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2034"
@@ -504,7 +512,7 @@
 
                     <tr>
                         <td>
-                            <strong>Trichoderma harzianum IBRC-M30059</strong>
+                            <strong>Trichoderma harzianum IBRC-M30059<span class="ontology-label"> — ontology label: Trichoderma harzianum</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=5544"
@@ -546,7 +554,7 @@
 
                     <tr>
                         <td>
-                            <strong>Phanerochaete chrysosporium IBRC-M30144</strong>
+                            <strong>Phanerochaete chrysosporium IBRC-M30144<span class="ontology-label"> — ontology label: Phanerodontia chrysosporium</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2822231"
@@ -588,7 +596,7 @@
 
                     <tr>
                         <td>
-                            <strong>Pseudomonas fluorescens IBRC-M10752</strong>
+                            <strong>Pseudomonas fluorescens IBRC-M10752<span class="ontology-label"> — ontology label: Pseudomonas fluorescens</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=294"
@@ -631,12 +639,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Microhabitat Mineral Fungal-Bacterial SOM SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -655,6 +664,7 @@
                 <div class="interaction-header">
                     <h3>Mineral-litter SOM turnover by the fungal-bacterial inoculum</h3>
                 </div>
+                <p class="prewrap interaction-description">The synthetic Curtobacterium / Trichoderma / Phanerochaete / Pseudomonas inoculum was assayed for net wheat- and alfalfa-litter turnover in clay-CaCO3-quartz microcosms, where total CO2 efflux and microbial biomass carbon were shaped by clay mineralogy, calcium carbonate level, litter chemistry, and comparison to native-soil inoculum.</p>
 
 
 
@@ -1084,12 +1094,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1102,7 +1115,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1220,6 +1232,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

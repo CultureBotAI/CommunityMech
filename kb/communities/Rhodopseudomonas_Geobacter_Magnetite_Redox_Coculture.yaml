@@ -113,22 +113,11 @@ taxonomy:
     explanation: Supports the role of G. sulfurreducens in reversing TIE-1-driven magnetite oxidation in coculture.
 ecological_interactions:
 - name: Magnetite-Mediated Electron Sharing
-  description: >
-    Rhodopseudomonas palustris TIE-1 withdraws electrons from magnetite during
-    phototrophic Fe(II) oxidation, while Geobacter sulfurreducens returns
-    electrons to magnetite through anaerobic Fe(III) reduction.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Rhodopseudomonas palustris TIE-1
-    term:
-      id: NCBITaxon:395960
-      label: Rhodopseudomonas palustris TIE-1
-  target_taxon:
-    preferred_term: Geobacter sulfurreducens
-    term:
-      id: NCBITaxon:35554
-      label: Geobacter sulfurreducens
+  description: 'The two recorded bacteria exchange electrons with a shared mixed-valence magnetite reservoir: R.
+    palustris TIE-1 withdraws electrons during phototrophic Fe(II) oxidation, whereas G. sulfurreducens supplies
+    electrons during Fe(III) reduction. This is mineral-mediated redox cycling, not a direct nutrient transfer from
+    TIE-1 to Geobacter.'
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: magnetite
     term:
@@ -143,17 +132,10 @@ ecological_interactions:
     term:
       id: CHEBI:29034
       label: iron(3+)
-  biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
   downstream:
   - target: Biogeochemical Battery Function
-    description: >
-      Magnetite-mediated electron sharing between the phototrophic Fe(II)
-      oxidizer and the anaerobic Fe(III) reducer manifests as the emergent,
-      reusable mineral electron-storage system (the "battery").
+    description: Opposed microbial electron withdrawal and supply allow magnetite to function as the shared redox
+      reservoir under the tested externally controlled conditions.
   evidence:
   - reference: PMID:25814583
     supports: SUPPORT
@@ -165,22 +147,20 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: bioavailable as electron sinks and electron sources
     explanation: Supports magnetite acting as a shared electron sink and source in the coculture.
-- name: Phototrophic Magnetite Fe(II) Oxidation
-  description: >
-    Under light, R. palustris TIE-1 oxidizes Fe(II) in magnetite nanoparticles,
-    decreasing the reduced fraction of the mixed-valence mineral.
-  interaction_type: NICHE_PARTITIONING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Rhodopseudomonas palustris TIE-1
+  participating_taxa:
+  - preferred_term: Rhodopseudomonas palustris TIE-1
     term:
       id: NCBITaxon:395960
       label: Rhodopseudomonas palustris TIE-1
-  target_taxon:
-    preferred_term: Geobacter sulfurreducens
+  - preferred_term: Geobacter sulfurreducens
     term:
       id: NCBITaxon:35554
       label: Geobacter sulfurreducens
+- name: Phototrophic Magnetite Fe(II) Oxidation
+  description: Under light, R. palustris TIE-1 oxidizes magnetite Fe(II), withdrawing stored electrons and discharging
+    the mineral. In the coculture cycle this is one community redox step, not a demonstrated pairwise fitness benefit
+    or resource-partitioning experiment.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: magnetite
     term:
@@ -197,37 +177,31 @@ ecological_interactions:
       label: photosynthesis
   downstream:
   - target: Anaerobic Magnetite Fe(III) Reduction
-    description: >
-      Light-driven oxidation of magnetite Fe(II) to Fe(III) supplies the
-      oxidized Fe(III) that G. sulfurreducens subsequently uses as its anaerobic
-      electron acceptor.
+    description: Oxidation regenerates magnetite Fe(III) that Geobacter can subsequently reduce when electron donor
+      is supplied under the tested reducing conditions; the observed cycle depends on external conditions.
   - target: Biogeochemical Battery Function
-    description: >
-      TIE-1 phototrophic Fe(II) oxidation is one half of the reversible redox
-      cycling that charges magnetite toward its oxidized state.
+    description: Phototrophic Fe(II) oxidation withdraws electrons from magnetite and discharges the mineral reservoir;
+      it does not charge an oxidized electron store.
   evidence:
   - reference: PMID:25814583
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Rhodopseudomonas palustris TIE-1 oxidizes magnetite (Fe3O4) nanoparticles using light energy
     explanation: Supports light-driven magnetite oxidation by TIE-1.
-- name: Anaerobic Magnetite Fe(III) Reduction
-  description: >
-    Geobacter sulfurreducens reduces Fe(III) in magnetite, reversing the
-    TIE-1-driven oxidation and restoring the mineral's reduced electron-storage
-    capacity.
-  interaction_type: NICHE_PARTITIONING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Geobacter sulfurreducens
-    term:
-      id: NCBITaxon:35554
-      label: Geobacter sulfurreducens
-  target_taxon:
-    preferred_term: Rhodopseudomonas palustris TIE-1
+  participating_taxa:
+  - preferred_term: Rhodopseudomonas palustris TIE-1
     term:
       id: NCBITaxon:395960
       label: Rhodopseudomonas palustris TIE-1
+  - preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+- name: Anaerobic Magnetite Fe(III) Reduction
+  description: G. sulfurreducens reduces magnetite Fe(III), storing supplied electrons as reduced Fe(II) and charging
+    the mineral. The demonstrated reversal requires suitable electron-donor and environmental conditions; it is
+    not evidence of direct reciprocal nutrient exchange.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: magnetite
     term:
@@ -241,33 +215,32 @@ ecological_interactions:
     term:
       id: CHEBI:29033
       label: iron(2+)
-  biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
   downstream:
   - target: Phototrophic Magnetite Fe(II) Oxidation
-    description: >
-      G. sulfurreducens reduction of magnetite Fe(III) regenerates the reduced
-      Fe(II) electron donor for TIE-1, closing the reversible redox loop (the
-      process is reversible in co-cultures).
+    description: Reduction regenerates magnetite Fe(II) that TIE-1 can oxidize during a subsequent illuminated phase,
+      closing the experimentally demonstrated conditional redox cycle.
   - target: Biogeochemical Battery Function
-    description: >
-      Fe(III) reduction is the complementary half-reaction that restores the
-      mineral's reduced electron-storage capacity, making the magnetite store
-      reusable.
+    description: Fe(III) reduction charges magnetite with electrons and restores the reduced electron reservoir
+      for later phototrophic discharge.
   evidence:
   - reference: PMID:25814583
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: reversible in co-cultures by the anaerobic Fe(III)-reducing bacterium Geobacter sulfurreducens
     explanation: Supports G. sulfurreducens-mediated reversal of magnetite oxidation in coculture.
+  participating_taxa:
+  - preferred_term: Rhodopseudomonas palustris TIE-1
+    term:
+      id: NCBITaxon:395960
+      label: Rhodopseudomonas palustris TIE-1
+  - preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
 - name: Biogeochemical Battery Function
-  description: >
-    The paired Fe(II)-oxidizing and Fe(III)-reducing activities make magnetite
-    function as a reusable mineral electron-storage system for the coculture.
-  interaction_type: SYNTROPHY
+  description: 'Repeated microbial reduction and oxidation make magnetite a reusable electron reservoir in the tested
+    cocultures: reduction charges it and oxidation discharges it. External light and electron-donor supply drive
+    the cycle; this is not a self-sustaining loop or a demonstrated syntrophic fitness relationship.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: magnetite
@@ -280,11 +253,15 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: effectively rendering magnetite a naturally occurring battery
     explanation: Supports the emergent biogeochemical battery function.
-  - reference: doi:10.1126/science.aaa4834
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: magnetite, which contains both Fe(II) and Fe(III), can serve as both an electron acceptor and donor
-    explanation: Supports the community-level mineral electron-storage mechanism.
+  participating_taxa:
+  - preferred_term: Rhodopseudomonas palustris TIE-1
+    term:
+      id: NCBITaxon:395960
+      label: Rhodopseudomonas palustris TIE-1
+  - preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
 environmental_factors:
 - name: Magnetite nanoparticles
   value: mixed-valence Fe3O4 mineral substrate
@@ -425,3 +402,36 @@ metal_notes: >
   Iron is the central mineral redox element in this coculture. Magnetite-bound
   Fe(II) and Fe(III) serve as electron-source and electron-sink pools for the
   paired Fe-metabolizing bacteria.
+discussions:
+- discussion_id: magnetite_redox_not_direct_crossfeeding
+  prompt: Which ecological benefits follow from the demonstrated mineral redox cycle?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Magnetite-Mediated Electron Sharing
+  - ecological_interactions#Phototrophic Magnetite Fe(II) Oxidation
+  - ecological_interactions#Anaerobic Magnetite Fe(III) Reduction
+  - ecological_interactions#Biogeochemical Battery Function
+  rationale: The full primary paper supports repeated coculture redox reversals with externally controlled light
+    and electron-donor conditions. Preserve the real feedback directions, but distinguish mineral electron storage
+    from direct nutrient cross-feeding, competition-based niche partitioning and product-removal syntrophy. Current
+    SYNTROPHY does not require obligacy; the missing evidence is the relevant metabolic/fitness feedback. Redox
+    chemistry is not iron-ion transport. The DOI cache contains an editorial summary, so graph evidence now uses
+    the primary PMID abstract. Non-graph functional roles remain for issue1759.
+  evidence:
+  - reference: PMID:25814583
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This process is reversible in co-cultures
+    explanation: Primary abstract supports reversal, not direct nutrient exchange or self-sustaining reciprocal
+      fitness.
+curation_history:
+- timestamp: '2026-10-07T16:17:08Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain mineral-mediated electron storage without direct donor-recipient nutrient CROSS_FEEDING.; Retain
+    light-driven oxidation and both existing directions, correcting discharge terminology.; Retain reduction and
+    both existing directions, correcting charge terminology and removing transport misannotation.; Retain the observed
+    reusable reservoir without SYNTROPHY or perpetual-cycle claims; remove secondary editorial evidence. Issue#1756;
+    reports/causal_graph_review/decisions/20261007-four-records-batch94.yaml
+  llm_assisted: true

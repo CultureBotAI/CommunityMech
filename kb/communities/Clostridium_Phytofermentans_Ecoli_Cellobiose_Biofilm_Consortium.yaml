@@ -133,9 +133,11 @@ taxonomy:
     explanation: Supports the exact E. coli strain used.
 ecological_interactions:
 - name: Cellobiose Hydrolysis And Glucose Scavenging Feedback
-  description: C. phytofermentans releases cellobiase activity that hydrolyzes cellobiose to glucose;
-    E. coli consumes the released glucose, reducing product inhibition and creating a positive feedback
-    loop that enhances cellulose-derived sugar catabolism.
+  description: C. phytofermentans extracellular cellobiase hydrolyzes cellobiose to glucose, supporting E. coli
+    cross-feeding. Glucose-addition and spent-medium enzyme assays support inhibitory feedback. PARTIAL - relief
+    through E. coli glucose consumption is the proposed consortium mechanism; its regulation and contribution to
+    each outcome are not selectively resolved. These consortium experiments use cellobiose, not direct polymer-cellulose
+    conversion.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -158,78 +160,73 @@ ecological_interactions:
       id: CHEBI:17234
       label: glucose
   biological_processes:
-  - preferred_term: cellulose catabolic process
-    term:
-      id: GO:0030245
-      label: cellulose catabolic process
   - preferred_term: fermentation
     term:
       id: GO:0006113
       label: fermentation
   downstream:
-  - target: Enhanced Cellulosic-Sugar Conversion and Biofilm Productivity
-    description: Glucose scavenging by E. coli relieves feedback inhibition
-      of C. phytofermentans cellulolytic-enzyme synthesis and increases
-      cellulose-derived sugar flux through the consortium.
+  - target: Measured Planktonic Conversion and Biofilm Biomass Outcomes
+    description: PARTIAL - glucose scavenging can relieve inhibition and sustain cellobiose conversion, consistent
+      with glucose-addition, extracellular-enzyme and coculture comparisons. This supports the planktonic conversion
+      model, not a direct measurement of biofilm ethanol output.
   evidence:
   - reference: PMID:33268782
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: E. coli consumed inhibitory byproducts from cellobiose catabolism
-    explanation: Supports glucose/byproduct scavenging by E. coli as a positive interaction.
+    explanation: Supports the proposed feedback mechanism; primary glucose-addition and extracellular-cellobiase
+      experiments provide complementary support without resolving every consortium flux.
   - reference: PMID:33268782
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: released cellobiase enzyme which hydrolyzed cellobiose into glucose extracellularly
     explanation: Supports the extracellular cellobiose-to-glucose mechanism.
-- name: Reciprocal Necromass Catabolism
-  description: >
-    The two members exchange nutrients through biomass turnover: C. phytofermentans necromass
-    supports E. coli growth, while E. coli necromass provides peptides or biomass-derived nutrients that
-    promote C. phytofermentans growth and viability.
+- name: Reciprocal Necromass-Supported Partner Growth
+  description: Added C. phytofermentans necromass supports aerobic E. coli growth, while filtered sonicated E. coli
+    necromass enhances anaerobic C. phytofermentans growth. CFU measurements separately support better C. phytofermentans
+    viability in coculture. PARTIAL - peptide mediation and the contribution of endogenous biomass turnover within
+    intact consortia remain proposed; the reciprocal effects were tested in distinct assays.
   interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Clostridium phytofermentans ISDg
-    term:
-      id: NCBITaxon:357809
-      label: Lachnoclostridium phytofermentans ISDg
-  target_taxon:
-    preferred_term: Escherichia coli K-12 MG1655
-    term:
-      id: NCBITaxon:511145
-      label: Escherichia coli str. K-12 substr. MG1655
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: peptide
     term:
       id: CHEBI:16670
       label: peptide
-  biological_processes:
-  - preferred_term: fermentation
-    term:
-      id: GO:0006113
-      label: fermentation
+    notes: Proposed growth-supporting component of E. coli necromass; the lysate and yeast-extract assays do not
+      isolate a specific peptide mediator.
   downstream:
-  - target: Enhanced Cellulosic-Sugar Conversion and Biofilm Productivity
-    description: Reciprocal necromass catabolism transfers nutrients and energy
-      between the two trophic levels, increasing C. phytofermentans and E. coli
-      biomass accumulation.
+  - target: Measured Planktonic Conversion and Biofilm Biomass Outcomes
+    description: PARTIAL - necromass-addition controls support resource recovery as a contributor to partner growth
+      and consortium biomass. They do not isolate its contribution to all planktonic products or establish biofilm
+      ethanol production.
   evidence:
   - reference: PMID:33268782
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: E. coli necromass enhanced C. phytofermentans growth
-    explanation: Supports necromass-mediated support from E. coli to C. phytofermentans.
+    explanation: Supports the named partner-growth response to necromass; the precise exchanged compounds and intact-consortium
+      contribution remain incompletely resolved.
   - reference: PMID:33268782
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: C. phytofermentans necromass aided E. coli growth
-    explanation: Supports the reciprocal necromass contribution to E. coli.
+    explanation: Supports the named partner-growth response to necromass; the precise exchanged compounds and intact-consortium
+      contribution remain incompletely resolved.
+  participating_taxa:
+  - preferred_term: Clostridium phytofermentans ISDg
+    term:
+      id: NCBITaxon:357809
+      label: Lachnoclostridium phytofermentans ISDg
+  - preferred_term: Escherichia coli K-12 MG1655
+    term:
+      id: NCBITaxon:511145
+      label: Escherichia coli str. K-12 substr. MG1655
 - name: Biofilm Oxygen Partitioning
-  description: In colony biofilms, E. coli consumes oxygen and helps maintain an anoxic zone that allows
-    the obligate anaerobe C. phytofermentans to persist during oxic perturbation, while E. coli occupies
-    the more oxic upper biofilm region.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Oxygen microprofiles and species distributions support E. coli respiration maintaining an anoxic
+    region after biofilms first grow anoxically. Fully oxic inoculation did not yield the enhanced consortium phenotype.
+    PARTIAL - qPCR-based cell equivalents and spatial persistence do not alone measure viability or establish a
+    colonization-facilitation effect.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Escherichia coli K-12 MG1655
@@ -252,28 +249,28 @@ ecological_interactions:
       id: GO:0042710
       label: biofilm formation
   downstream:
-  - target: Enhanced Cellulosic-Sugar Conversion and Biofilm Productivity
-    description: E. coli oxygen consumption maintains an anoxic biofilm zone
-      that lets the obligate anaerobe C. phytofermentans persist during oxic
-      perturbation.
+  - target: Measured Planktonic Conversion and Biofilm Biomass Outcomes
+    description: PARTIAL - biological oxygen consumption helps preserve an anoxic region after the anoxic-to-oxic
+      transition and supports the biofilm biomass response. It is not a demonstrated driver of biofilm ethanol output,
+      which was not directly measured.
   evidence:
   - reference: PMID:33268782
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: E. coli consuming O2, creating an anoxic environment for C. phytofermentans
-    explanation: Supports oxygen consumption by E. coli as a facilitative biofilm mechanism.
+    explanation: Supports respiratory oxygen removal, complemented by measured oxygen profiles; the protective regime
+      follows anoxic biofilm establishment.
   - reference: PMID:33268782
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: C. phytofermentans resided primarily in the anoxic bottom of the biofilm
-    explanation: Supports spatial oxygen niche partitioning in the consortium biofilm.
-- name: Enhanced Cellulosic-Sugar Conversion and Biofilm Productivity
-  description: >-
-    Cross-feeding, positive feedback, necromass catabolism, and oxygen partitioning
-    let the C. phytofermentans-E. coli consortium deplete more cellobiose, produce
-    more ethanol, and accumulate more planktonic and biofilm biomass than the summed
-    monocultures.
-  interaction_type: SYNTROPHY
+    explanation: Supports the spatial distribution measured by laser microdissection and genomic qPCR, not a direct
+      viable-cell count.
+- name: Measured Planktonic Conversion and Biofilm Biomass Outcomes
+  description: Anoxic planktonic coculture depleted more cellobiose and glycerol and produced more ethanol and biomass
+    than the summed monocultures. Anoxic-to-oxic biofilms accumulated more total biomass plus extracellular material;
+    their cellobiose use and ethanol output were not directly measured. These condition-specific outcomes do not
+    by themselves establish each mechanism or constitute a separate syntrophy process.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Clostridium phytofermentans ISDg
@@ -298,10 +295,6 @@ ecological_interactions:
       id: CHEBI:16236
       label: ethanol
   biological_processes:
-  - preferred_term: cellulose catabolic process
-    term:
-      id: GO:0030245
-      label: cellulose catabolic process
   - preferred_term: biofilm formation
     term:
       id: GO:0042710
@@ -310,9 +303,10 @@ ecological_interactions:
   - reference: PMID:33268782
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: enhanced substrate depletion, enhanced ethanol secretion, and enhanced biomass
-      production as compared to monocultures
-    explanation: Supports the emergent cellobiose, ethanol, and biomass endpoint.
+    snippet: enhanced substrate depletion, enhanced ethanol secretion, and enhanced biomass production as compared
+      to monocultures
+    explanation: Supports directly measured planktonic endpoints. Biofilm gravimetric productivity includes extracellular
+      material; substrate and ethanol improvements in biofilms are proposed, not measured.
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: SERUM_BOTTLE
@@ -630,3 +624,30 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: Trace metals are components of the modified GS-2 medium, but the curated community is not
   reported as a metal or rare earth element processing system.
+discussions:
+- discussion_id: cellobiose_biofilm_mechanism_partition
+  prompt: How much does each exchange mechanism contribute to viable biofilm biomass and product formation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Cellobiose Hydrolysis And Glucose Scavenging Feedback
+  - ecological_interactions#Reciprocal Necromass-Supported Partner Growth
+  - ecological_interactions#Biofilm Oxygen Partitioning
+  - ecological_interactions#Measured Planktonic Conversion and Biofilm Biomass Outcomes
+  rationale: Glucose and necromass interventions support specific mechanisms, while oxygen profiles show a protected
+    region after anoxic establishment. Partner-resolved transfer and viability assays would separate contributions.
+    Direct biofilm substrate/product measurements are needed before assigning its inferred ethanol and cellobiose
+    outcomes to these arrows.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-06T00:56:03Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve glucose cross-feeding and positive inhibition/enzyme controls while bounding feedback and cellobiose-versus-polymer
+    scope.; Represent reciprocal necromass assays with both existing participants; retain growth and CFU support
+    without isolating peptides or asserting anaerobic metabolism in the aerobic assay.; Preserve oxygen consumption
+    and spatial partitioning after anoxic establishment; remove unsupported colonization typing and bound qPCR interpretation.;
+    Separate directly measured planktonic products from biofilm mass and unmeasured biofilm product flux; remove
+    aggregate endpoint syntrophy. Issue #1335; reports/causal_graph_review/decisions/20261005-three-records-batch21.yaml'
+  llm_assisted: true

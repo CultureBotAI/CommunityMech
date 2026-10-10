@@ -117,8 +117,10 @@ taxonomy:
     explanation: Identifies the T. delbrueckii LO544 member, its CRBO accession, and its fluorescent marker.
 ecological_interactions:
 - name: Direct-contact S. cerevisiae growth advantage
-  description: When all three yeasts shared the same YNB vessel, direct contact favored S. cerevisiae growth and S. cerevisiae
-    established numerical dominance by the end of the 12 h observation period.
+  description: In the direct-contact treatment, the three yeast strains shared each YNB vessel while the membrane
+    and recirculation system was retained. S. cerevisiae growth was favored and it established numerical dominance
+    by the end of the 12 h observation period. This positive treatment effect does not identify a necessary contact-sensing
+    gene or demonstrate that the same mechanism operates in every strain.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: growth
@@ -137,8 +139,10 @@ ecological_interactions:
     snippet: In direct contact, S. cerevisiae established rapid dominance
     explanation: Explicitly reports S. cerevisiae dominance in the direct-contact condition.
 - name: Indirect-contact Torulaspora growth shift
-  description: When the three yeasts were physically separated but shared filtered medium, T. delbrueckii dominated early
-    biomass growth while L. thermotolerans growth was lower than in the direct-contact mixed culture.
+  description: 'Physical separation with shared filtered medium favored early T. delbrueckii growth while L. thermotolerans
+    declined more than in direct contact. HYPOTHESIZED: medium-mediated suppression of L. thermotolerans by T. delbrueckii
+    could explain the pattern. Neither a killer toxin nor a specific inhibitory metabolite was established as its
+    cause, and indirect pairwise confirmation was still needed. No pairwise causal arrow is inferred from this comparison.'
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: growth
@@ -152,26 +156,35 @@ ecological_interactions:
     snippet: indirect (metabolic) contact favored T. delbrueckii growth at the expense of L. theromotolerans
     explanation: Supports the indirect-contact growth shift toward T. delbrueckii.
   - reference: PMID:42176030
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: T. delbrueckii likely suppresses growth of L. thermotolerans through a medium-mediated mechanism.
-    explanation: Captures the authors' mechanistic interpretation for the no-contact L. thermotolerans decline.
+    explanation: 'The source says likely: this is a mechanistic interpretation of growth patterns, not a tested
+      inhibitory agent.'
 - name: Contact-dependent amino acid profile shift
-  description: Extracellular amino acid concentrations differed between direct and indirect contact fermentations after 5 h;
-    the measured serine, glycine, valine, aspartic acid, and arginine concentrations were higher in the indirect-contact
-    condition, with no significant difference after 9 h.
+  description: Extracellular amino acid concentrations differed between direct and indirect contact fermentations
+    after 5 h; the measured serine, glycine, valine, aspartic acid, and arginine concentrations were higher in the
+    indirect-contact condition, with no significant difference after 9 h. The difference does not by itself demonstrate
+    increased secretion, reduced uptake or cross-feeding; secretion, cell death and partial lysis remain possible
+    contributors. YNB already supplied histidine, methionine and tryptophan.
   scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:42176030
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Direct cell contact favored S. cerevisiae growth and resulted in significantly different amino acid profiles
+    snippet: Direct cell contact favored S. cerevisiae growth and resulted in significantly different amino acid
+      profiles
     explanation: Supports direct contact changing the amino-acid profile.
   - reference: PMID:42176030
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: serine, glycine, valine, aspartic acid, and arginine
     explanation: Names the amino acids that differed significantly between contact treatments at the 5 h time point.
+  - reference: PMID:42176030
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: No statistically significant differences between these conditions were observed after 9 h
+    explanation: Retains the later null result instead of generalizing the early amino-acid difference.
 growth_media:
 - name: YNB with amino acids, ammonium sulfate, and glucose
   composition:
@@ -302,19 +315,37 @@ external_resources:
     explanation: Lists the DOI for the wine yeast membrane-bioreactor publication.
 discussions:
 - discussion_id: wine_yeast_indirect_contact_amino_acid_source
-  prompt: Which yeasts, export processes, or lysis processes produced the non-supplemented amino acids and the higher 5 h
-    extracellular amino-acid concentrations in the indirect-contact three-species wine yeast membrane-bioreactor setup?
+  prompt: Which yeasts, export processes, or lysis processes produced the non-supplemented amino acids and the higher
+    5 h extracellular amino-acid concentrations in the indirect-contact three-species wine yeast membrane-bioreactor
+    setup?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#Contact-dependent amino acid profile shift
   - growth_media#YNB with amino acids, ammonium sulfate, and glucose
-  rationale: YNB with amino acids supplied histidine, methionine, and tryptophan, but other amino acids appeared in
-    fermentation supernatants and several were significantly higher in the indirect-contact treatment after 5 h. The article
-    lists active secretion, species-specific cell death, and partial cell lysis as possible sources and states that further
-    experiments are required to explain the concentration differences.
+  rationale: YNB with amino acids supplied histidine, methionine, and tryptophan, but other amino acids appeared
+    in fermentation supernatants and several were significantly higher in the indirect-contact treatment after 5
+    h. The article lists active secretion, species-specific cell death, and partial cell lysis as possible sources
+    and states that further experiments are required to explain the concentration differences.
   posed_by: codex
   posed_date: '2026-09-26'
+- discussion_id: three_causal_scope_batch123
+  prompt: Which medium-mediated process explains the indirect-contact growth shift?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Direct-contact S. cerevisiae growth advantage
+  - ecological_interactions#Indirect-contact Torulaspora growth shift
+  - ecological_interactions#Contact-dependent amino acid profile shift
+  rationale: The three-species treatment comparison supports contrasting growth patterns. It does not isolate a
+    T. delbrueckii inhibitor, and the paper explicitly requires indirect pairwise confirmation. Transcriptional
+    differences, including HXT and HPF1 responses, are not selective genetic perturbations proving the contact mechanism.
+    The separate amino-acid-origin discussion remains open.
+  posed_by: codex
+  posed_date: '2026-10-08'
+  evidence:
+  - reference: PMID:42176030
+    snippet: T. delbrueckii likely suppresses growth of L. thermotolerans through a medium-mediated mechanism.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -324,14 +355,23 @@ curation_history:
 - timestamp: '2026-09-26T15:23:43Z'
   curator: codex
   action: CREATE_COMMUNITY
-  changes: Created CommunityMech:000438 for PMID:42176030 / doi:10.1007/s00253-026-13856-4, a defined three-species wine
-    yeast consortium with strain-level membership, direct-versus-indirect cell-contact growth effects, YNB membrane-bioreactor
-    cultivation details, an S. cerevisiae RNA-seq BioProject, and an open amino-acid-source discussion.
+  changes: Created CommunityMech:000438 for PMID:42176030 / doi:10.1007/s00253-026-13856-4, a defined three-species
+    wine yeast consortium with strain-level membership, direct-versus-indirect cell-contact growth effects, YNB
+    membrane-bioreactor cultivation details, an S. cerevisiae RNA-seq BioProject, and an open amino-acid-source
+    discussion.
   llm_assisted: true
 - timestamp: '2026-09-26T15:30:38Z'
   curator: codex
   action: UPDATE_COMMUNITY
-  changes: Addressed adversarial review issues 1111, 1112, and 1113 by narrowing the amino-acid-source knowledge gap,
-    dropping an unsupported aerobic atmosphere assignment, and replacing weak direct-contact dominance evidence with an
-    explicit source quote.
+  changes: Addressed adversarial review issues 1111, 1112, and 1113 by narrowing the amino-acid-source knowledge
+    gap, dropping an unsupported aerobic atmosphere assignment, and replacing weak direct-contact dominance evidence
+    with an explicit source quote.
+  llm_assisted: true
+- timestamp: '2026-10-08T16:49:42Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain the positive contact-treatment growth phenotype without necessary-gene attribution.; Mark proposed
+    Torulaspora-mediated suppression as partial and hypothetical, not a demonstrated toxin mechanism.; Preserve
+    the 5 h amino-acid difference and 9 h null without inferring transfer, secretion or uptake direction. Issue#1955;
+    reports/causal_graph_review/decisions/20261008-four-records-batch123.yaml
   llm_assisted: true

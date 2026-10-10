@@ -109,11 +109,11 @@ taxonomy:
     explanation: Supports the engineered 1-butanol producer role.
 ecological_interactions:
 - name: Photosynthetic Acetate Supply To Pseudomonas
-  description: >
-    The engineered Synechocystis farmer fixes CO2 under illumination and
-    secretes acetate into the CoBG11 medium; the P. taiwanensis_Pem7_ButOH
-    partner was adapted to consume acetate in CoBG11 and grew in coculture with
-    lower acetate accumulation than the matched axenic Synechocystis culture.
+  description: 'The engineered Synechocystis partner supplies photosynthetic organic carbon to P. taiwanensis in
+    the acetate-designed coculture. The heterotroph grows on acetate in separate assays, and coculture acetate levels
+    are lower than in axenic Synechocystis. PARTIAL: these observations support acetate consumption but do not isotope-resolve
+    its flux or exclude other cyanobacterial exudates as carbon sources. CO2 is the photosynthetic substrate, not
+    the exchanged organic molecule.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -131,6 +131,7 @@ ecological_interactions:
     term:
       id: CHEBI:16526
       label: carbon dioxide
+    notes: Photosynthetic substrate, not the exchanged organic carbon.
   - preferred_term: acetate
     term:
       id: CHEBI:30089
@@ -146,9 +147,10 @@ ecological_interactions:
       label: acetate metabolic process
   downstream:
   - target: Acetate-Coupled 1-Butanol Production
-    description: >
-      Photosynthetically derived acetate was the intended extracellular carbon
-      source routed from Synechocystis toward Pseudomonas 1-butanol production.
+    description: 'HYPOTHESIZED/PARTIAL: photosynthetically supplied acetate is a supported candidate carbon route
+      to the observed Pseudomonas 1-butanol output. The experiment does not resolve the fraction of product carbon
+      derived from acetate rather than other cyanobacterial exudates; production detection is not a quantified acetate-to-product
+      flux.'
   evidence:
   - reference: PMID:42726284
     supports: SUPPORT
@@ -156,27 +158,22 @@ ecological_interactions:
     snippet: where no additional carbon source was used
     explanation: Supports Synechocystis-derived carbon as the designed carbon input in coculture.
   - reference: PMID:42726284
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: acetate levels remained lower than in the axenic Synechocystis culture
-    explanation: Supports acetate consumption in the Pseudomonas coculture.
+    explanation: Lower extracellular acetate supports consumption but does not resolve transfer flux or carbon exclusivity.
+  - reference: PMID:42726284
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: we cannot conclude that the heterotrophic bacteria used acetate as the only source of carbon
+    explanation: The authors explicitly retain other cyanobacterial carbon pools as possible contributors.
 - name: Acetate-Coupled 1-Butanol Production
-  description: >
-    The engineered two-member consortium coupled Synechocystis-derived organic
-    carbon to measurable 1-butanol formation by P. taiwanensis_Pem7_ButOH during
-    the 42-day coculture.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs
-    term:
-      id: NCBITaxon:1148
-      label: Synechocystis sp. PCC 6803
-  target_taxon:
-    preferred_term: Pseudomonas taiwanensis VLB120 Pem7_ButOH
-    term:
-      id: NCBITaxon:470150
-      label: Pseudomonas taiwanensis
+  description: The engineered P. taiwanensis partner produced measurable 1-butanol during the 42-day, periodically
+    replenished coculture. Titers fluctuated and reached a plateau; this does not establish uniformly high productivity.
+    The earlier acetate-adaptation assays improved heterotroph growth without increasing 1-butanol production above
+    pre-adaptation levels. This is a community production endpoint, not a second pairwise exchange. Product-carbon
+    attribution to acetate remains unresolved.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: acetate
     term:
@@ -200,8 +197,22 @@ ecological_interactions:
   - reference: PMID:42726284
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: P. taiwanensis_Pem7_ButOH showed high production
-    explanation: Supports the Pseudomonas member as the engineered 1-butanol-producing heterotroph.
+    snippet: the production was not stable in the systems but it clearly reached a plateau
+    explanation: Bounds the coculture production time course rather than claiming constant high output.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 1-butanol production did not exceed the levels prior to adaptation
+    explanation: Separates the earlier growth-adaptation finding from increased product formation.
+  participating_taxa:
+  - preferred_term: Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs
+    term:
+      id: NCBITaxon:1148
+      label: Synechocystis sp. PCC 6803
+  - preferred_term: Pseudomonas taiwanensis VLB120 Pem7_ButOH
+    term:
+      id: NCBITaxon:470150
+      label: Pseudomonas taiwanensis
 environmental_factors:
 - name: Illumination
   value: 65 umol photons m^-2 s^-1
@@ -411,15 +422,22 @@ curation_history:
 - timestamp: '2026-09-13T15:23:26Z'
   curator: codex
   action: CREATE_SYNECHOCYSTIS_PSEUDOMONAS_BUTANOL_COCULTURE
-  changes: >
-    Created the Synechocystis-Pseudomonas Acetate-Butanol Coculture record from
-    PMID:42726284 / doi:10.1007/s00253-026-14029-z.
+  changes: 'Created the Synechocystis-Pseudomonas Acetate-Butanol Coculture record from PMID:42726284 / doi:10.1007/s00253-026-14029-z.
+
+    '
   llm_assisted: true
 - timestamp: '2026-09-13T15:36:04Z'
   curator: codex
   action: FIX_GROWTH_MEDIA_EVIDENCE
-  changes: >
-    Addressed #850 by replacing a growth-media evidence snippet that named the
-    Pseudomonas triplicate but did not directly support medium composition with
-    an exact CoBG11 bicarbonate and kanamycin refresh snippet from PMID:42726284.
+  changes: 'Addressed #850 by replacing a growth-media evidence snippet that named the Pseudomonas triplicate but
+    did not directly support medium composition with an exact CoBG11 bicarbonate and kanamycin refresh snippet from
+    PMID:42726284.
+
+    '
+  llm_assisted: true
+- timestamp: '2026-10-08T06:16:59Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Preserve acetate-supported carbon feeding with explicit nonexclusive, untraced attribution.; Retain measurable
+    butanol as a community endpoint with time-course and adaptation bounds. Issue#1865; reports/causal_graph_review/decisions/20261008-three-records-batch111.yaml
   llm_assisted: true

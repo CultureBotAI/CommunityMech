@@ -239,10 +239,10 @@ taxonomy:
       Beta-proteobacteria
     explanation: Documents Betaproteobacteria detection
 ecological_interactions:
-- name: Thermophilic Archaeal and OP3 Selection
-  description: The Naica hydrothermal aquifer selected archaeal and OP3 lineages with elevated 16S rRNA
-    GC content, indicating thermophily in the low-diversity prokaryotic community.
-  interaction_type: NICHE_PARTITIONING
+- name: Inferred Thermophily of Naica Archaeal and OP3 Lineages
+  description: PARTIAL - Elevated 16S rRNA GC content suggests thermophily of detected archaeal lineages and some
+    OP3 OTUs in Naica hydrothermal waters. This sequence-based inference is not a measured growth-temperature response
+    or demonstrated ecological selection; it does not apply uniformly to all OP3 lineages.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Thaumarchaeota
@@ -262,21 +262,17 @@ ecological_interactions:
     term:
       id: GO:0009408
       label: response to heat
-  downstream:
-  - target: Thermophilic Ammonia Oxidation
-    description: The thermophilic environmental filter defines the hot, energy-limited niche in which
-      Thaumarchaeota amoA genes support archaeal ammonia oxidation.
   evidence:
   - reference: doi:10.3389/fmicb.2013.00037
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: The high GC content of 16S rRNA gene sequences belonging to the archaea and to some OP3 OTUs
-      suggests that at least these lineages are thermophilic
-    explanation: Supports thermophilic selection of archaeal and OP3 lineages in the Naica community.
-- name: Thermophilic Ammonia Oxidation
-  description: Archaeal ammonia monooxygenase genes were amplified from Naica samples, supporting thermophilic
-    ammonia oxidation by Thaumarchaeota in an extremely energy-limited aquifer.
-  interaction_type: NICHE_PARTITIONING
+    snippet: high GC content of 16S rRNA gene sequences belonging to the archaea and to some OP3 OTUs suggests that
+      at least these lineages are thermophilic
+    explanation: Supports inferred thermophily of specified lineages, not a growth assay or selection mechanism.
+- name: Putative Thermophilic Archaeal Ammonia Oxidation
+  description: PARTIAL - Archaeal AamoA genes amplified from Naica water support putative ammonia-oxidizing capacity
+    and the authors chemolithoautotrophic interpretation. Gene detection does not measure ammonia oxidation or carbon-fixation
+    flux, assign activity to every detected archaeal lineage, or quantify ammonia and nitrite concentrations.
   scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Thaumarchaeota
@@ -288,41 +284,44 @@ ecological_interactions:
     term:
       id: CHEBI:16134
       label: ammonia
-    concentration: Trace (oligotrophic)
+    notes: Putative substrate or product of the inferred oxidation pathway; concentration was not measured by the
+      cited gene-detection evidence.
   - preferred_term: nitrite
     term:
       id: CHEBI:16301
       label: nitrite
-    concentration: Product of ammonia oxidation
+    notes: Putative substrate or product of the inferred oxidation pathway; concentration was not measured by the
+      cited gene-detection evidence.
   biological_processes:
-  - preferred_term: nitrification
+  - preferred_term: ammonia oxidation
     term:
-      id: GO:0019676
-      label: ammonia assimilation cycle
+      id: GO:0019329
+      label: ammonia oxidation
   - preferred_term: carbon fixation
     term:
       id: GO:0015977
       label: carbon fixation
   evidence:
   - reference: doi:10.3389/fmicb.2013.00037
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: Genes encoding archaeal ammonium monooxygenase (AamoA) were amplified, suggesting that Naica
-      Thaumarchaeota are involved in nitrification
-    explanation: Supports ammonia oxidation by Naica Thaumarchaeota.
+    snippet: genes encoding archaeal ammonium monooxygenase (AamoA) were amplified, suggesting that Naica Thaumarchaeota
+      are involved in nitrification
+    explanation: Supports the authors gene-based metabolic inference, not measured oxidation, carbon fixation or
+      substrate concentration.
   - reference: doi:10.3389/fmicb.2013.00037
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: these organisms are likely thermophilic chemolithoautotrophs adapted to thrive in an extremely
-      energy-limited environment
-    explanation: Documents extreme oligotrophic adaptation
-- name: Electron Donor Limitation Filters Sulfate Reduction
-  description: The sulfate-rich Naica aquifer lacks evidence that sulfate
-    reduction is a dominant terminal metabolism; dsrAB marker amplification was
-    unsuccessful, appreciable hydrogen sulfide was not detected, and the paper
-    argues that both organic matter and hydrogen are extremely low. This electron-donor limitation constrains
-    sulfate reduction despite the aquifer's sulfate abundance.
-  interaction_type: COMPETITION
+    snippet: These organisms are likely thermophilic chemolithoautotrophs adapted to thrive in an extremely energy-limited
+      environment
+    explanation: Supports the authors gene-based metabolic inference, not measured oxidation, carbon fixation or
+      substrate concentration.
+- name: Putative Electron-Donor Limitation of Sulfate Reduction
+  description: PARTIAL - Failed dsrA amplification and reported lack of appreciable hydrogen sulfide led the authors
+    to infer that sulfate reduction, if present, was not dominant in the sulfate-rich aquifer. They proposed low
+    organic matter and hydrogen as an electron-donor constraint. Negative PCR is not pathway absence, and this explanation
+    was not a donor-rescue experiment or demonstration of competition. Co-occurring AamoA detection does not establish
+    a causal link to ammonia oxidation.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: organic molecular entity
@@ -342,26 +341,20 @@ ecological_interactions:
     term:
       id: GO:0019420
       label: dissimilatory sulfate reduction
-  downstream:
-  - target: Thermophilic Ammonia Oxidation
-    description: Electron-donor scarcity constrained sulfate reduction in the same energy-limited aquifer
-      where archaeal AamoA genes supported ammonia oxidation by Thaumarchaeota.
   evidence:
   - reference: doi:10.3389/fmicb.2013.00037
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: We failed to amplify dsrA genes encoding the dissimilatory sulfite reductase, which further
-      reinforces the idea that Naica-associated microbial communities do not
-    explanation: Supports the lack of a dominant sulfate-reduction signal in the
-      assayed Naica water samples.
+    snippet: We failed to amplify dsrA genes encoding the dissimilatory sulfite reductase
+    explanation: Directly supports failed marker amplification, not absence of sulfate reducers or dominant-metabolism
+      certainty.
   - reference: doi:10.3389/fmicb.2013.00037
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: At any rate, for sulfate reduction to occur, either organic matter or inorganic electron
-      donors, typically H2, must be present to fuel the redox reaction. However, both appear
-      to be extremely low in the aquifer
-    explanation: Supports electron-donor limitation as the reason sulfate
-      reduction is not a dominant terminal metabolism.
+    snippet: At any rate, for sulfate reduction to occur, either organic matter or inorganic electron donors, typically
+      H2, must be present to fuel the redox reaction. However, both appear to be extremely low in the aquifer
+    explanation: Supports proposed donor scarcity; no isolated donor-limitation perturbation or competitive fitness
+      effect is demonstrated.
 environmental_factors:
 - name: Temperature
   value: 54-60
@@ -440,3 +433,27 @@ metals_present:
 metal_relevance: SIGNIFICANT
 metal_notes: Metal/REE detected via environmental factor measurements; Metal/REE detected via keyword
   matching in description (context-validated)
+discussions:
+- discussion_id: naica_gene_detection_and_donor_limitation
+  prompt: Which observations distinguish activity and causal mediation from inferred potential?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: Distinguish high-GC thermophily inference and AamoA capacity from measured growth and metabolic rates.
+    Low-biomass sampling, primer detection limits and contamination considerations bound negative and positive detections.
+    The source presents sulfate reduction as not dominant if present; hydrogen-sulfide absence includes unpublished
+    observations. Test donor rescue and oxidation rates before adding causal arrows among co-occurring environmental
+    explanations. Canonical taxonomic groundings are retained; non-graph physiological metadata needs separate reconciliation.
+  attaches_to:
+  - ecological_interactions#Inferred Thermophily of Naica Archaeal and OP3 Lineages
+  - ecological_interactions#Putative Thermophilic Archaeal Ammonia Oxidation
+  - ecological_interactions#Putative Electron-Donor Limitation of Sulfate Reduction
+curation_history:
+- timestamp: '2026-10-07T03:38:47Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain lineage-specific inferred thermophily; remove environmental-context arrow.; Retain putative oxidation;
+    correct GO grounding and remove unmeasured graph concentrations.; Retain proposed donor constraint with negative-PCR
+    limits; remove co-occurrence arrow and unsupported competition. Issue #1634; reports/causal_graph_review/decisions/20261007-four-records-batch76.yaml'
+  llm_assisted: true

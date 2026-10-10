@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        cellulose-fed laboratory coculture
+                        cellulose-fed laboratory coculture<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -454,7 +462,7 @@
 
                     <tr>
                         <td>
-                            <strong>Clostridium thermocellum ATCC 27405</strong>
+                            <strong>Clostridium thermocellum ATCC 27405<span class="ontology-label"> — ontology label: Acetivibrio thermocellus ATCC 27405</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=203119"
@@ -571,12 +579,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Clostridium Thermocellum-Saccharoperbutylacetonicum Cellulosic Butanol Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -587,6 +596,11 @@
                              aria-hidden="true" data-symbol="symbolDiamond"
                              data-color="#57c7ab"></svg> Cross-feeding
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
@@ -596,6 +610,7 @@
                     <h3>Staged Cellulose Hydrolysis Feeding Solventogenesis</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">C. thermocellum preincubation on crystalline cellulose before N1-4 addition supports later butanol production, consistent with soluble-carbon cross-feeding. Cellulose is the feedstock and butanol the output, not the transfer currencies. PARTIAL - timing and temperature are coupled, and the N1-4 inoculum medium contains glucose; the intervention does not selectively quantify cellulose-derived transfer or explain solvent selectivity.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium thermocellum ATCC 27405</p>
@@ -644,6 +659,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Selective Butanol Production With Low Acetone
+                        <p class="prewrap causal-description">PARTIAL - preincubation supplies hydrolysis products that can support N1-4 solventogenesis. The staged-versus-simultaneous comparison supports this process contribution, while coupled temperature changes and glucose carried in with the inoculum prevent selective flux attribution or a complete explanation of low acetone.</p>
                     </div>
 
                 </div>
@@ -686,15 +702,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Selective Butanol Production With Low Acetone</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">Butanol was the favored solvent in the reported coculture, with acetone undetectable in the 2011 experiment and very low in the 2013 abstract. The 2011 acetone-addition control argues against removal by C. thermocellum, while crude-extract assays retain acetone-pathway enzyme activities. These are community product and assay outcomes, not butanol donation or proof of pathway shutdown.</p>
 
 
-                <p><strong>Source Taxon:</strong> Clostridium saccharoperbutylacetonicum N1-4</p>
 
 
+                <p><strong>Participating Taxa:</strong>
 
-                <p><strong>Target Taxon:</strong> Clostridium thermocellum ATCC 27405</p>
+                    Clostridium thermocellum ATCC 27405,
+
+                    Clostridium saccharoperbutylacetonicum N1-4
+
+                </p>
 
 
 
@@ -758,16 +778,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Reduced Hydrogen Associated With Butanol Selectivity</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Reduced Hydrogen Output and Proposed Redox Allocation</h3>
                 </div>
+                <p class="prewrap interaction-description">The 2013 abstract associates lower hydrogen output with higher butanol production and proposes future hydrogenase selection. The 2011 Discussion proposes redox allocation. PARTIAL - neither the available abstract nor the 2011 coculture assays establish selective hydrogenase causality or interspecies hydrogen donation.</p>
 
 
-                <p><strong>Source Taxon:</strong> Clostridium thermocellum ATCC 27405</p>
 
 
+                <p><strong>Participating Taxa:</strong>
 
-                <p><strong>Target Taxon:</strong> Clostridium saccharoperbutylacetonicum N1-4</p>
+                    Clostridium thermocellum ATCC 27405,
+
+                    Clostridium saccharoperbutylacetonicum N1-4
+
+                </p>
 
 
 
@@ -803,6 +827,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Selective Butanol Production With Low Acetone
+                        <p class="prewrap causal-description">HYPOTHESIZED - reduced electron allocation to hydrogen could favor the butanol branch and contribute to solvent selectivity. The observed inverse association supports this redox proposal, not a selectively demonstrated causal effect or transfer of hydrogen between partners.</p>
                     </div>
 
                 </div>
@@ -818,7 +843,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/22999358/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:22999358</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"hydrogen production decreased and butanol was selectively produced"</div>
@@ -831,7 +856,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/22999358/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:22999358</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"high butanol production correlates with low hydrogen production"</div>
@@ -847,6 +872,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which carbon-transfer and redox mechanisms determine the staged coculture solvent profile?
+                </h3>
+                <p class="prewrap">Staging, temperature and partner comparisons support the process; acetone-addition and crude-enzyme controls constrain alternative explanations. Carbon tracing with inoculum carryover controls and selective redox perturbations would resolve causal contributions. The 2013 follow-up was available only as an abstract, so its correlation must not be promoted to demonstrated hydrogen transfer or hydrogenase causality.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Staged Cellulose Hydrolysis Feeding Solventogenesis</code>, <code>ecological_interactions#Selective Butanol Production With Low Acetone</code>, <code>ecological_interactions#Reduced Hydrogen Output and Proposed Redox Allocation</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1267,12 +1311,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1285,7 +1332,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1385,7 +1431,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1411,23 +1457,26 @@
             });
 
 
-            var srcKey = "Clostridium saccharoperbutylacetonicum N1-4";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Clostridium thermocellum ATCC 27405";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Clostridium thermocellum ATCC 27405",
+
+                "Clostridium saccharoperbutylacetonicum N1-4"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1446,7 +1495,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Reduced Hydrogen Associated With Butanol Selectivity",
+                label: "Reduced Hydrogen Output and Proposed Redox Allocation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1455,17 +1504,20 @@
             });
 
 
-            var srcKey = "Clostridium thermocellum ATCC 27405";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Clostridium saccharoperbutylacetonicum N1-4";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Clostridium thermocellum ATCC 27405",
+
+                "Clostridium saccharoperbutylacetonicum N1-4"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1480,6 +1532,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

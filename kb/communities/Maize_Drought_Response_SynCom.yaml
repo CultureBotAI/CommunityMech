@@ -55,197 +55,221 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Commercial Maize SynCom Inoculation
-  description: >
-    A synthetic community harboring plant-beneficial bacteria was applied to
-    three commercial maize hybrids so SynCom effects on drought physiology and
-    crop performance could be tracked across host genotypes.
+  description: Seeds of DKB177 PRO3, SX7341 VIP3 and P3707VYH maize hybrids received a SynCom assembled from 17
+    community-based isolates from sugarcane roots/stalks, corresponding to 23 tracked OTUs. The one canonical Bacteria
+    entry does not resolve these inoculum members or include the maize host. Separate greenhouse assays measured
+    severe-drought bending/recovery and drought sensor/yield responses; treatment contrasts support inoculation
+    effects, not a single experimentally resolved mechanism shared by all hybrids.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Mature-Root SynCom Colonization
-    description: >
-      SynCom inoculation established members that were later detected as robust
-      colonizers of mature maize roots.
+    description: PARTIAL - inoculation supplied bacteria whose assigned OTUs were enriched in roots sampled at 53
+      days after sowing. Relative 16S detection supports establishment of multiple members but does not demonstrate
+      viable persistence of all 17 inoculum isolates in every hybrid or at harvest.
   - target: Drought Physiology Modulation
-    description: >
-      SynCom inoculation modulated maize leaf temperature, turgor, and sap flow
-      during drought across the commercial-hybrid treatment groups.
+    description: Inoculation changed measured maize physiology relative to uninoculated controls, with effects depending
+      on hybrid, watering regime and time. These treatment contrasts support a microbial amendment effect without
+      isolating colonization, osmolyte exchange or resident recruitment as its mediator.
   evidence:
-  - *id001
-- name: Mature-Root SynCom Colonization
-  description: >
-    16S profiling showed that SynCom bacterial members robustly colonized mature
-    maize roots and recruited beneficial soil- and seed-borne microbes under the
-    greenhouse drought assay.
-  scope: COMMUNITY_LEVEL
+  - reference: PMID:34745050
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a synthetic community (SynCom) harboring plant-beneficial bacteria on the physiology and response of
+      three commercial maize hybrids to drought stress (DS).
+    explanation: Supports inoculation of the three commercial hybrids in a plant experiment; source IN_VIVO is scoped
+      to this graph, leaving the shared non-graph evidence unchanged. A contiguous excerpt avoids the cache/primary
+      hyphen rendering difference in plant-sensors.
+  participating_taxa:
+  - preferred_term: plant-beneficial maize bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+- name: Mature-Root SynCom Colonization
+  description: Relative 16S profiles from four plants per treatment at 53 days after sowing (V11-V12) identified
+    SynCom-associated OTUs in maize roots. Fourteen of 23 OTUs met the authors robust-colonizer criterion in at
+    least one hybrid under well-watered conditions and 16 under drought; not every member did so in every condition.
+    SynCom-assigned reads comprised about 9-12% of the communities. These DNA-based relative abundances are not
+    absolute viable strain counts or persistence to the 117-day harvest. No significant drought-versus-well-watered
+    community separation was detected at this early sampling point.
+  scope: COMMUNITY_LEVEL
   downstream:
   - target: Beneficial Resident Microbiota Recruitment
-    description: >
-      Robust root colonization by the inoculated SynCom recruited and enriched
-      beneficial microbes already present in the soil or on seed.
-  - target: ABC Osmolyte Transporter Enrichment
-    description: >
-      Robust root colonization positioned SynCom members with enriched osmolyte
-      transporters in the root-associated community during drought.
+    description: HYPOTHESIZED - established SynCom members could alter the root habitat or host response and thereby
+      recruit resident groups. Inoculated roots had compositional shifts, but colonization was not independently
+      varied to isolate this mediation, and family-level beneficial roles were inferred from prior literature.
   evidence:
   - reference: PMID:34745050
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: Microbiome profiling revealed that SynCom bacterial members were able to robustly
-      colonize mature plants and recruit soil/seed-borne beneficial microbes
-    explanation: >
-      Supports mature-plant root colonization by the inoculated SynCom and
-      associated recruitment of resident beneficial microbes.
-- name: Beneficial Resident Microbiota Recruitment
-  description: >
-    SynCom inoculation reshaped the maize root microbiota by enriching beneficial
-    resident soil and seed groups, a community change proposed to help sustain
-    plant homeostasis under drought stress.
-  scope: COMMUNITY_LEVEL
+    snippet: Microbiome profiling revealed that SynCom bacterial members were able to robustly colonize mature plants
+      and recruit soil/seed-borne beneficial microbes
+    explanation: Supports root enrichment in mature plants in the authors terminology; the actual sampling is 53
+      days, relative OTUs rather than viable strain counts, and robust colonization is condition dependent.
+  participating_taxa:
+  - preferred_term: plant-beneficial maize bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+- name: Beneficial Resident Microbiota Recruitment
+  description: SynCom-inoculated roots differed in relative abundance for 632 of 17437 resident OTUs; some enriched
+    families have plant-beneficial representatives in prior literature. This supports resident compositional restructuring,
+    not measured benefit from each recruited taxon, absolute expansion or a tested resident-to-host functional pathway.
+    The canonical inoculum placeholder does not enumerate the resident community or host. The proposed contribution
+    to drought homeostasis remains HYPOTHESIZED.
+  scope: COMMUNITY_LEVEL
   downstream:
   - target: Drought Physiology Modulation
-    description: >
-      HYPOTHESIZED: recruitment of beneficial root-associated microbes supplied
-      a candidate community-level route by which SynCom inoculation modulated
-      drought physiology.
+    description: HYPOTHESIZED - recruited resident microbes could help maintain plant homeostasis during drought,
+      as proposed in the Discussion. Relative community shifts and literature-assigned benefits do not establish
+      that these residents mediate the measured physiology.
   evidence:
   - reference: PMID:34745050
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: SynCom inoculation recruits and enriches such beneficial microbial groups naturally
-      found in low abundance in the plant/soil microbiota
-    explanation: >
-      Supports SynCom-associated enrichment of resident beneficial microbial
-      groups in the maize root microbiota.
+    snippet: SynCom inoculation recruits and enriches such beneficial microbial groups naturally found in low abundance
+      in the plant/soil microbiota
+    explanation: Supports the authors resident-recruitment interpretation of relative OTUs; beneficial function
+      was inferred from family-level literature, not tested for the recruited members.
+  participating_taxa:
+  - preferred_term: plant-beneficial maize bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
 - name: ABC Osmolyte Transporter Enrichment
-  description: >
-    Plant-beneficial SynCom members were enriched in ABC-type transporters for
-    L-proline, glycine betaine, sugars, and amino acids, supporting a proposed
-    osmolyte exchange route that could influence maize water-use traits.
+  description: Prior genomic work cited in the drought paper reported enriched ABC-type transporter capacity for
+    proline, glycine betaine, sugars and amino acids among the SynCom members. This is potential substrate uptake,
+    not drought-induced expression, measured osmolyte pools or demonstrated plant-to-bacterium exchange in this
+    experiment. The authors propose that SynCom members might stimulate plant osmolyte production for microbial
+    benefit, possibly affecting plant water-use traits. Neither exact transport activity nor a reciprocal benefit
+    mechanism was selectively tested.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: L-proline
     term:
       id: CHEBI:17203
       label: L-proline
+    notes: Candidate substrate of prior genomic transporter annotations; not measured production, concentration
+      or exchange in this drought assay.
   - preferred_term: glycine betaine
     term:
       id: CHEBI:17750
       label: glycine betaine
+    notes: Candidate substrate of prior genomic transporter annotations; not measured production, concentration
+      or exchange in this drought assay.
+  downstream:
+  - target: Drought Physiology Modulation
+    description: HYPOTHESIZED - genomic osmolyte-uptake potential could promote microbial stimulation of plant osmolyte
+      production and thereby influence water-use traits. This author-proposed route lacks measured pools, transporter
+      activity, transfer or selective perturbation; enrichment is not a consequence of root colonization.
+  evidence:
+  - reference: PMID:34745050
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: they are enriched in ABC-type transporters for proline, glycine betaine, sugars, and amino acids, among
+      other compounds
+    explanation: The Discussion attributes transporter enrichment to prior genomic work, not an in-vivo osmolyte
+      transfer or gene-expression assay in the current drought experiment.
+  participating_taxa:
+  - preferred_term: plant-beneficial maize bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Drought Physiology Modulation
-    description: >
-      HYPOTHESIZED: enriched transporters for plant osmolytes supplied a
-      candidate metabolite-exchange route for SynCom-associated water-usage and
-      turgor effects.
-  evidence:
-  - reference: PMID:34745050
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: they are enriched in ABC-type transporters for proline, glycine betaine, sugars, and amino
-      acids, among other compounds
-    explanation: Names proline and glycine betaine as osmolyte substrates tied to
-      the SynCom drought-response hypothesis.
 - name: Drought Physiology Modulation
-  description: >
-    SynCom-inoculated maize displayed altered water-use physiology during drought,
-    including lower leaf temperature, less turgor loss under severe drought
-    stress, and changes consistent with sap-flow modulation and better water
-    usage.
+  description: SynCom inoculation altered sensor-recorded leaf temperature, turgor and sap flow in genotype-, watering-
+    and time-dependent ways. Lower temperature was observed in some contexts, but inoculated plants had higher leaf
+    temperature across all three hybrids in late drought (72-79 days after sowing), so the response is not uniformly
+    cooling. Sap-flow direction also varied. Separate severe-drought imaging showed reduced or delayed leaf bending,
+    most clearly in DKB. Sensors do not by themselves establish stomatal aperture, osmolyte-mediated protection
+    or uniformly improved water-use efficiency.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
   downstream:
   - target: Faster Rehydration Recovery
-    description: >
-      Better water-usage physiology during drought supported faster recovery of
-      inoculated plants after rehydration.
+    description: HYPOTHESIZED - changes in water use could preserve turgor and aid recovery after rewatering. The
+      sensor experiment and severe-drought bending/recovery experiment used different watering schedules (rewatering
+      at 80 versus 84 days), so this is a proposed physiological link, not measured within-plant mediation across
+      those endpoints.
   - target: Reduced Maize Yield Loss
-    description: >
-      Reduced turgor loss and improved water usage contributed to the lower
-      yield loss measured in SynCom-inoculated maize under drought.
+    description: HYPOTHESIZED - altered water-use physiology could contribute to lower drought-associated yield
+      loss, as proposed by the authors. Treatment-associated sensor and yield outcomes do not selectively establish
+      the mediator; DKB and P3707 benefited, whereas SX had no significant yield benefit.
   evidence:
   - reference: PMID:34745050
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: SynCom-inoculated plants displayed lower leaf temperature, reduced turgor loss
-      under severe DS and a faster recovery upon rehydration
-    explanation: >
-      Supports SynCom-associated modulation of temperature, turgor, and
-      recovery phenotypes under drought stress.
+    snippet: SynCom-inoculated plants displayed lower leaf temperature, reduced turgor loss under severe DS and
+      a faster recovery upon rehydration
+    explanation: The abstract compresses different conditions; primary Results report higher late-drought leaf temperature
+      and genotype/time-dependent responses, not uniformly lower temperature under drought.
   - reference: PMID:34745050
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: likely as a result of sap flow modulation and better water usage
-    explanation: >
-      Supports sap-flow and water-use modulation as the likely physiological
-      basis for the drought-response changes.
-- name: Faster Rehydration Recovery
-  description: >
-    After drought stress, SynCom-inoculated maize recovered faster upon
-    rehydration, linking the altered water-use phenotype to improved
-    post-stress plant performance.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: growth
+    explanation: Supports the authors physiological mediation hypothesis, not selective mechanistic proof or direct
+      water-use efficiency measurement.
+  participating_taxa:
+  - preferred_term: plant-beneficial maize bacteria
     term:
-      id: GO:0040007
-      label: growth
-  downstream:
-  - target: Reduced Maize Yield Loss
-    description: >
-      Faster physiological recovery after water reintroduction preceded the
-      drought-stressed crop-productivity endpoint.
+      id: NCBITaxon:2
+      label: Bacteria
+- name: Faster Rehydration Recovery
+  description: In the severe-drought imaging assay, complete water withdrawal ran from 50 to 84 days after sowing.
+    On rewatering, inoculated SX recovered immediately compared with a one-day control delay, and inoculated P3707
+    recovered fully after two days while controls recovered only partly. Inoculated DKB had not visibly bent before
+    rewatering, so it does not supply an equivalent recovery-time comparison. These qualitative bending observations
+    are distinct from the sensor/yield experiment, which used reduced irrigation and rewatering at 80 days.
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:34745050
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: a faster recovery upon rehydration
-    explanation: >
-      Supports faster drought recovery by SynCom-inoculated maize after
-      rehydration.
-- name: Reduced Maize Yield Loss
-  description: >
-    The greenhouse SynCom treatment significantly reduced drought-associated
-    yield loss in the three-hybrid experiment, tying the microbial amendment and
-    water-physiology changes to crop productivity.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: growth
+    explanation: Supports the abstract recovery result, bounded by hybrid-specific qualitative bending observations
+      and a separate severe-drought assay.
+  participating_taxa:
+  - preferred_term: plant-beneficial maize bacteria
     term:
-      id: GO:0040007
-      label: growth
+      id: NCBITaxon:2
+      label: Bacteria
+- name: Reduced Maize Yield Loss
+  description: In the drought sensor/yield experiment harvested at 117 days after sowing, inoculated DKB and P3707
+    had significantly greater grain yield under drought than controls (38.7 versus 9.8 g and 42.7 versus 12.4 g,
+    respectively). SX showed no significant drought yield benefit. The benefit is conditional on hybrid and watering
+    regime, not universal across three genotypes; mature aerial biomass did not show a general increase. These inoculation
+    outcomes do not independently prove mediation by the separate severe-drought recovery assay, resident taxa or
+    osmolyte exchange.
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:34745050
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: SynCom inoculation significantly reduced yield loss and modulated vital physiological
-      traits
-    explanation: >
-      Supports reduced yield loss as a SynCom-associated endpoint under the
-      drought-stress assay.
+    snippet: SynCom inoculation significantly reduced yield loss and modulated vital physiological traits
+    explanation: Supports reduced yield loss in the study, but Results restrict significant drought grain-yield
+      benefit to DKB and P3707, not SX.
+  participating_taxa:
+  - preferred_term: plant-beneficial maize bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
 environmental_factors:
 - name: defined synthetic community design
   value: Synthetic community of plant-beneficial bacteria applied to three commercial maize hybrids.
@@ -305,10 +329,37 @@ curation_history:
 - timestamp: '2026-10-02T05:57:41Z'
   curator: codex
   action: CLARIFY_CAUSAL_GRAPH_DESCRIPTIONS
-  changes: >
-    Rewrote six downstream descriptions so the maize drought graph states
-    SynCom-driven colonization, beneficial-resident recruitment, hypothesized
-    osmolyte or resident-microbiota routes to drought physiology, and the
-    physiology-to-recovery/yield causal links directly instead of describing
-    treatment bookkeeping or coincident endpoints.
+  changes: 'Rewrote six downstream descriptions so the maize drought graph states SynCom-driven colonization, beneficial-resident
+    recruitment, hypothesized osmolyte or resident-microbiota routes to drought physiology, and the physiology-to-recovery/yield
+    causal links directly instead of describing treatment bookkeeping or coincident endpoints.
+
+    '
   llm_assisted: true
+- timestamp: '2026-10-06T23:34:14Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate maize drought experiments and qualify genotype-specific outcomes and proposed mediators. Issue
+    #1578; reports/causal_graph_review/decisions/20261006-maize-batch67.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: maize_drought_mediators_and_assay_boundaries
+  prompt: Which microbial and host processes mediate genotype-specific drought benefits?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Commercial Maize SynCom Inoculation
+  - ecological_interactions#Mature-Root SynCom Colonization
+  - ecological_interactions#Beneficial Resident Microbiota Recruitment
+  - ecological_interactions#ABC Osmolyte Transporter Enrichment
+  - ecological_interactions#Drought Physiology Modulation
+  - ecological_interactions#Faster Rehydration Recovery
+  - ecological_interactions#Reduced Maize Yield Loss
+  rationale: 'Retain positive inoculation, colonization, physiological and yield results while qualifying proposed
+    resident and osmolyte mechanisms. Prior genomic transporter enrichment is not caused by current root colonization.
+    Do not connect separate SDS recovery and DS yield endpoints by chronological precedence: SX recovery improved
+    without significant yield benefit. Temperature and sap flow vary by hybrid/time. Existing seven nodes and seven
+    of nine arrows retained; no new structure. #1580 tracks unresolved inoculum/host roster, roles and cultivation
+    metadata, coordinated with #615. Complete primary text/captions read, not prior genomic source independently,
+    separate supplements, figure pixels or raw data.'
+  posed_by: codex
+  posed_date: '2026-10-06'

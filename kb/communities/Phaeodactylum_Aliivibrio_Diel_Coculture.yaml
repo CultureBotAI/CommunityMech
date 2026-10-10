@@ -145,10 +145,10 @@ taxonomy:
     explanation: Supports the initial A. fischeri inoculum density.
 ecological_interactions:
 - name: Aliivibrio Surface Colonization of Phaeodactylum
-  description: >-
-    SEM imaging showed A. fischeri colonizing P. tricornutum cell surfaces in
-    the 30% marine broth co-culture, with filamentous structures likely
-    corresponding to EPS from one or both partners.
+  description: SEM showed A. fischeri attached to P. tricornutum surfaces in the 30% marine-broth coculture. Filamentous
+    structures were interpreted as likely EPS from one or both partners; neither their chemical identity nor their
+    producer was established by microscopy. Preserve the physical association without treating it as proof of nutrient
+    transfer or the cause of photosynthetic decline.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Aliivibrio fischeri MCCC 1H00019
@@ -164,17 +164,15 @@ ecological_interactions:
   - reference: PMID:42668638
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Scanning electron microscopy (SEM) analysis demonstrated significant
-      colonization of P. tricornutum cell surfaces by A. fischeri
-    explanation: >-
-      Supports bacterial attachment to the diatom cell surface in co-culture.
-- name: Amino Acid Resource Competition
-  description: >-
-    Rather than supporting a direct growth-promotion effect of A. fischeri on
-    P. tricornutum, the EASW/30% marine broth co-culture showed nutrient
-    depletion and pigment dynamics consistent with early competition for
-    amino-acid resources.
+    snippet: Scanning electron microscopy (SEM) analysis demonstrated significant colonization of P. tricornutum
+      cell surfaces by A. fischeri
+    explanation: Supports bacterial attachment to the diatom cell surface in co-culture.
+- name: Proposed Amino Acid Resource Competition
+  description: HYPOTHESIZED - Nutrient and pigment profiles led the authors to propose early amino-acid competition.
+    Nitrate-N and orthophosphate were measured, but amino-acid depletion and partner-resolved exchange were not.
+    Medium-matched axenic HAC controls support a negative coculture effect on late photosynthetic performance; moderate
+    broth enrichment itself supported axenic growth. These observations do not isolate amino-acid competition as
+    the mechanism or show bacterial growth promotion by bioluminescence.
   interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -188,24 +186,19 @@ ecological_interactions:
       label: Aliivibrio fischeri
   evidence:
   - reference: PMID:42668638
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: >-
-      These results are more consistent with a competitive effect in co-culture
-      than with a growth-promoting role of A. fischeri.
-    explanation: >-
-      Supports the authors' interpretation that the bacterium imposed
-      competitive rather than positive dynamics.
+    snippet: These results are more consistent with a competitive effect in co-culture than with a growth-promoting
+      role of A. fischeri.
+    explanation: Supports the authors' competition interpretation; nutrient/pigment observations do not directly
+      identify exchanged or limiting amino acids.
   - reference: PMID:42668638
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: >-
-      The observed nutrient depletion patterns and pigment dynamics suggest
-      early-phase competition for amino acid resources between P. tricornutum
-      and A. fischeri
-    explanation: >-
-      Supports amino-acid competition as an inferred constraint in the early
-      algae-bacteria co-culture.
+    snippet: The observed nutrient depletion patterns and pigment dynamics suggest early-phase competition for amino
+      acid resources between P. tricornutum and A. fischeri
+    explanation: Supports the authors' competition interpretation; nutrient/pigment observations do not directly
+      identify exchanged or limiting amino acids.
 environmental_factors:
 - name: EPS depletion during prolonged co-culture
   value: peak at day 6 followed by day-8 reduction
@@ -345,11 +338,44 @@ curation_history:
 - timestamp: '2026-09-27T05:25:38Z'
   curator: codex
   action: CREATE_PHAEODACTYLUM_ALIIVIBRIO_DIEL_COCULTURE
-  changes: >-
-    Created CommunityMech:000446 from PMID:42668638 and DOI
-    10.1016/j.isci.2026.117307 with evidence-backed P. tricornutum CCAP 1055/1
-    and A. fischeri MCCC 1H00019 membership, EASW plus 30% marine broth
-    co-culture conditions, A. fischeri surface colonization, amino-acid
-    competition, EPS depletion, and transcriptomic and model-inferred flux
-    effects across day-4 and day-8 diel co-cultures.
+  changes: Created CommunityMech:000446 from PMID:42668638 and DOI 10.1016/j.isci.2026.117307 with evidence-backed
+    P. tricornutum CCAP 1055/1 and A. fischeri MCCC 1H00019 membership, EASW plus 30% marine broth co-culture conditions,
+    A. fischeri surface colonization, amino-acid competition, EPS depletion, and transcriptomic and model-inferred
+    flux effects across day-4 and day-8 diel co-cultures.
   llm_assisted: true
+- timestamp: '2026-10-07T08:42:05Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve surface attachment while bounding EPS identity and mediation.; Retain amino-acid competition
+    as a hypothesis while preserving controlled negative physiology. Issue #1694; reports/causal_graph_review/decisions/20261007-four-records-batch84.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: diatom-association-response-and-model-boundaries
+  prompt: Which processes connect bacterial association to diatom physiological and diel responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Aliivibrio Surface Colonization of Phaeodactylum
+  - ecological_interactions#Proposed Amino Acid Resource Competition
+  rationale: 'Keep SEM attachment and medium-controlled late physiological decline as positive findings. Matched
+    late physiological controls exist, but no day-8 axenic transcriptome was collected; age, nutrients and growth
+    phase confound attribution of Co8d transcription to bacteria alone. Light-dark rhythmic gene counts do not establish
+    endogenous clock disruption. Biomass-flux changes (+81%/-87%) are transcript-constrained model predictions,
+    not measured intracellular or interspecies flux. EPS decline admits synthesis, dilution and catabolism explanations.
+    Dedicated physiological/diel/model response structure remains issue #1698, with a one-community Edison dry run
+    and no paid report; no new arrow is inferred from the two existing nodes.'
+  evidence:
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Scanning electron microscopy (SEM) analysis demonstrated significant colonization of P. tricornutum
+      cell surfaces by A. fischeri
+    explanation: Supports bacterial attachment to the diatom cell surface in co-culture.
+  - reference: PMID:42668638
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: The observed nutrient depletion patterns and pigment dynamics suggest early-phase competition for amino
+      acid resources between P. tricornutum and A. fischeri
+    explanation: Supports the authors' competition interpretation; nutrient/pigment observations do not directly
+      identify exchanged or limiting amino acids.
+  posed_by: codex

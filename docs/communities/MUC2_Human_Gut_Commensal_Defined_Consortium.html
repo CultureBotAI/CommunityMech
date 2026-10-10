@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        anaerobic laboratory bioreactor
+                        anaerobic laboratory bioreactor<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -429,7 +437,7 @@
                     <span class="metadata-label">Modeled Environment</span>
                     <span class="metadata-value">
 
-                        human gut
+                        human gut<span class="ontology-label"> — ontology label: intestine environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_2100002"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -468,7 +476,7 @@
 
                     <tr>
                         <td>
-                            <strong>Lactobacillus acidophilus ATCC 4796</strong>
+                            <strong>Lactobacillus acidophilus ATCC 4796<span class="ontology-label"> — ontology label: Lactobacillus acidophilus</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1579"
@@ -504,7 +512,7 @@
 
                     <tr>
                         <td>
-                            <strong>Lactococcus lactis CB1</strong>
+                            <strong>Lactococcus lactis CB1<span class="ontology-label"> — ontology label: Lactococcus lactis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1358"
@@ -540,7 +548,7 @@
 
                     <tr>
                         <td>
-                            <strong>Clostridium symbiosum DSZM 14940</strong>
+                            <strong>Clostridium symbiosum DSZM 14940<span class="ontology-label"> — ontology label: [Clostridium] symbiosum</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1512"
@@ -576,7 +584,7 @@
 
                     <tr>
                         <td>
-                            <strong>Streptococcus thermophilus ATCC 491</strong>
+                            <strong>Streptococcus thermophilus ATCC 491<span class="ontology-label"> — ontology label: Streptococcus thermophilus</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1308"
@@ -612,7 +620,7 @@
 
                     <tr>
                         <td>
-                            <strong>Escherichia coli Nissle 1917</strong>
+                            <strong>Escherichia coli Nissle 1917<span class="ontology-label"> — ontology label: Escherichia coli</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=562"
@@ -648,7 +656,7 @@
 
                     <tr>
                         <td>
-                            <strong>Enterococcus faecalis Symbioflor DSM 16431</strong>
+                            <strong>Enterococcus faecalis Symbioflor DSM 16431<span class="ontology-label"> — ontology label: Enterococcus faecalis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1351"
@@ -684,7 +692,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bifidobacterium longum ATCC 55813</strong>
+                            <strong>Bifidobacterium longum ATCC 55813<span class="ontology-label"> — ontology label: Bifidobacterium longum</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=216816"
@@ -720,7 +728,7 @@
 
                     <tr>
                         <td>
-                            <strong>Blautia coccoides ATCC 29236</strong>
+                            <strong>Blautia coccoides ATCC 29236<span class="ontology-label"> — ontology label: Blautia</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=572511"
@@ -756,7 +764,7 @@
 
                     <tr>
                         <td>
-                            <strong>Blautia producta ATCC 27340D</strong>
+                            <strong>Blautia producta ATCC 27340D<span class="ontology-label"> — ontology label: Blautia producta</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=33035"
@@ -792,7 +800,7 @@
 
                     <tr>
                         <td>
-                            <strong>Prevotella copri DSM 18205</strong>
+                            <strong>Prevotella copri DSM 18205<span class="ontology-label"> — ontology label: Segatella copri</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=165179"
@@ -828,7 +836,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacteroides thetaiotaomicron ATCC 29148</strong>
+                            <strong>Bacteroides thetaiotaomicron ATCC 29148<span class="ontology-label"> — ontology label: Bacteroides thetaiotaomicron</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=818"
@@ -870,7 +878,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacteroides fragilis ATCC 23745</strong>
+                            <strong>Bacteroides fragilis ATCC 23745<span class="ontology-label"> — ontology label: Bacteroides fragilis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=817"
@@ -912,7 +920,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacteroides ovatus ATCC 8483</strong>
+                            <strong>Bacteroides ovatus ATCC 8483<span class="ontology-label"> — ontology label: Bacteroides ovatus</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=28116"
@@ -954,7 +962,7 @@
 
                     <tr>
                         <td>
-                            <strong>Akkermansia muciniphila ATCC BAA-83</strong>
+                            <strong>Akkermansia muciniphila ATCC BAA-83<span class="ontology-label"> — ontology label: Akkermansia muciniphila</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=239935"
@@ -1003,12 +1011,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for MUC2 Human Gut Commensal Defined Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -1016,13 +1025,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -1030,38 +1034,50 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>MUC2 Glycan Niche Restructuring</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>MUC2-Associated qPCR Community Profile</h3>
                 </div>
+                <p class="prewrap interaction-description">After 72 hours, the porcine-MUC2 treatment increased the Akkermansia qPCR estimate and decreased the Prevotella estimate relative to vehicle controls. Six qPCR groups produced calculated CFU equivalents from DNA standard curves, not direct viable counts or resolution of all fourteen inoculated strains. Total OD did not significantly differ between treatments. The fourteen canonical participants identify the input roster, not confirmed equal survival or endpoint abundance. CAZy glycosyl-hydrolase capacity classes summarize species-level genome sets, not measured mucin-degrading enzymes in these exact inoculants; niche partitioning and antagonism are not established by these endpoints.</p>
+
+
+
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Lactobacillus acidophilus ATCC 4796,
+
+                    Lactococcus lactis CB1,
+
+                    Clostridium symbiosum DSZM 14940,
+
+                    Streptococcus thermophilus ATCC 491,
+
+                    Escherichia coli Nissle 1917,
+
+                    Enterococcus faecalis Symbioflor DSM 16431,
+
+                    Bifidobacterium longum ATCC 55813,
+
+                    Blautia coccoides ATCC 29236,
+
+                    Blautia producta ATCC 27340D,
+
+                    Prevotella copri DSM 18205,
+
+                    Bacteroides thetaiotaomicron ATCC 29148,
+
+                    Bacteroides fragilis ATCC 23745,
+
+                    Bacteroides ovatus ATCC 8483,
+
+                    Akkermansia muciniphila ATCC BAA-83
+
+                </p>
 
 
 
 
 
 
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> MUC2-Shifted Short-Chain Fatty Acid Output
-                    </div>
-
-                </div>
 
 
 
@@ -1087,12 +1103,44 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>MUC2-Shifted Short-Chain Fatty Acid Output</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>MUC2-Associated Extracellular Acid Concentrations</h3>
                 </div>
+                <p class="prewrap interaction-description">At 72 hours, MUC2-supplemented bioreactors had lower acetate and higher propionate, butyrate and formate concentrations in filtered cell-free supernatants than vehicle controls, measured by targeted LC-MS/MS. These are net extracellular concentration endpoints, not production rates, traced mucin-carbon flux or donor-recipient exchange. The experiment used three bioreactors per treatment, 0.5 mg/mL porcine MUC2 and daily 10% medium replacement; pH was neither controlled nor measured. HYPOTHESIZED - mucin-derived substrates and cross-feeding may contribute, but specific producers, consumers and composition-mediated effects were not established. The fourteen listed participants are input members, not assigned acid producers, and no host response was tested.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Lactobacillus acidophilus ATCC 4796,
+
+                    Lactococcus lactis CB1,
+
+                    Clostridium symbiosum DSZM 14940,
+
+                    Streptococcus thermophilus ATCC 491,
+
+                    Escherichia coli Nissle 1917,
+
+                    Enterococcus faecalis Symbioflor DSM 16431,
+
+                    Bifidobacterium longum ATCC 55813,
+
+                    Blautia coccoides ATCC 29236,
+
+                    Blautia producta ATCC 27340D,
+
+                    Prevotella copri DSM 18205,
+
+                    Bacteroides thetaiotaomicron ATCC 29148,
+
+                    Bacteroides fragilis ATCC 23745,
+
+                    Bacteroides ovatus ATCC 8483,
+
+                    Akkermansia muciniphila ATCC BAA-83
+
+                </p>
 
 
 
@@ -1148,7 +1196,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -1158,7 +1206,7 @@
                 </h3>
                 <p class="prewrap">The qPCR assay reported Bacteroides, Lactobacillus/Enterococcus, Bifidobacterium, Escherichia, Prevotella, and Akkermansia groups rather than final strain-level abundances for all 14 source strains, and the metabolomics data were extracellular community readouts. These data support community-level MUC2 responses but not exact pairwise donor-recipient cross-feeding edges.</p>
 
-                <p class="muted small">Attaches to: <code>ecological_interactions#MUC2 Glycan Niche Restructuring</code>, <code>ecological_interactions#MUC2-Shifted Short-Chain Fatty Acid Output</code></p>
+                <p class="muted small">Attaches to: <code>ecological_interactions#MUC2-Associated qPCR Community Profile</code>, <code>ecological_interactions#MUC2-Associated Extracellular Acid Concentrations</code></p>
 
 
 
@@ -1181,6 +1229,21 @@
                     </div>
 
                 </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which processes explain the MUC2-associated extracellular acid shifts?
+                </h3>
+                <p class="prewrap">Both graph observations respond to the same MUC2 treatment; their co-measurement does not establish composition-to-metabolite mediation, so remove that arrow while retaining positive outcomes. Preserve and retarget the existing group-qPCR knowledge gap. Whole primary body and main statistical table read; no figure-pixel, separate-supplement or raw-data audit. Selective removal, isotope tracing or genetic perturbations are needed to assign partner flux. Unmeasured pH and nutrient replacement further limit mechanistic interpretation; porcine mucin and a host-free reactor do not establish human-host outcomes. Canonical source strain text and prior culture-accession safeguards stay intact; unresolved metadata belongs to #1569.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#MUC2-Associated qPCR Community Profile</code>, <code>ecological_interactions#MUC2-Associated Extracellular Acid Concentrations</code></p>
+
+
 
 
             </div>
@@ -1363,12 +1426,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1381,7 +1447,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1519,20 +1584,16 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction");
-
 
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "MUC2 Glycan Niche Restructuring",
+                label: "MUC2-Associated qPCR Community Profile",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1543,11 +1604,48 @@
 
 
 
+            var participantKeys = [
+
+                "Lactobacillus acidophilus ATCC 4796",
+
+                "Lactococcus lactis CB1",
+
+                "Clostridium symbiosum DSZM 14940",
+
+                "Streptococcus thermophilus ATCC 491",
+
+                "Escherichia coli Nissle 1917",
+
+                "Enterococcus faecalis Symbioflor DSM 16431",
+
+                "Bifidobacterium longum ATCC 55813",
+
+                "Blautia coccoides ATCC 29236",
+
+                "Blautia producta ATCC 27340D",
+
+                "Prevotella copri DSM 18205",
+
+                "Bacteroides thetaiotaomicron ATCC 29148",
+
+                "Bacteroides fragilis ATCC 23745",
+
+                "Bacteroides ovatus ATCC 8483",
+
+                "Akkermansia muciniphila ATCC BAA-83"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1566,7 +1664,7 @@
 
             nodes.push({
                 id: intId,
-                label: "MUC2-Shifted Short-Chain Fatty Acid Output",
+                label: "MUC2-Associated Extracellular Acid Concentrations",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1576,6 +1674,43 @@
 
 
 
+
+            var participantKeys = [
+
+                "Lactobacillus acidophilus ATCC 4796",
+
+                "Lactococcus lactis CB1",
+
+                "Clostridium symbiosum DSZM 14940",
+
+                "Streptococcus thermophilus ATCC 491",
+
+                "Escherichia coli Nissle 1917",
+
+                "Enterococcus faecalis Symbioflor DSM 16431",
+
+                "Bifidobacterium longum ATCC 55813",
+
+                "Blautia coccoides ATCC 29236",
+
+                "Blautia producta ATCC 27340D",
+
+                "Prevotella copri DSM 18205",
+
+                "Bacteroides thetaiotaomicron ATCC 29148",
+
+                "Bacteroides fragilis ATCC 23745",
+
+                "Bacteroides ovatus ATCC 8483",
+
+                "Akkermansia muciniphila ATCC BAA-83"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1590,6 +1725,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

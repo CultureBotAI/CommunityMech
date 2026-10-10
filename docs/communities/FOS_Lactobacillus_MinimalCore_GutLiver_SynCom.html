@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        anaerobic FOS-supplemented gut-bacterium batch culture
+                        anaerobic FOS-supplemented gut-bacterium batch culture<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -429,7 +437,7 @@
                     <span class="metadata-label">Modeled Environment</span>
                     <span class="metadata-value">
 
-                        human intestine environment
+                        human intestine environment<span class="ontology-label"> — ontology label: intestine environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_2100002"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -468,7 +476,7 @@
 
                     <tr>
                         <td>
-                            <strong>Lactiplantibacillus plantarum PBS067</strong>
+                            <strong>Lactiplantibacillus plantarum PBS067<span class="ontology-label"> — ontology label: Lactiplantibacillus plantarum</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1590"
@@ -504,7 +512,7 @@
 
                     <tr>
                         <td>
-                            <strong>Lactobacillus acidophilus PBS066</strong>
+                            <strong>Lactobacillus acidophilus PBS066<span class="ontology-label"> — ontology label: Lactobacillus acidophilus</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1579"
@@ -540,7 +548,7 @@
 
                     <tr>
                         <td>
-                            <strong>Limosilactobacillus reuteri PBS072</strong>
+                            <strong>Limosilactobacillus reuteri PBS072<span class="ontology-label"> — ontology label: Limosilactobacillus reuteri</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1598"
@@ -576,7 +584,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacteroides cellulosilyticus CL02T12C19</strong>
+                            <strong>Bacteroides cellulosilyticus CL02T12C19<span class="ontology-label"> — ontology label: Bacteroides cellulosilyticus</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=246787"
@@ -612,7 +620,7 @@
 
                     <tr>
                         <td>
-                            <strong>Clostridium symbiosum WAL-14673</strong>
+                            <strong>Clostridium symbiosum WAL-14673<span class="ontology-label"> — ontology label: [Clostridium] symbiosum</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1512"
@@ -648,7 +656,7 @@
 
                     <tr>
                         <td>
-                            <strong>Flavonifractor plautii 1_3_50AFAA</strong>
+                            <strong>Flavonifractor plautii 1_3_50AFAA<span class="ontology-label"> — ontology label: Flavonifractor plautii</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=292800"
@@ -684,7 +692,7 @@
 
                     <tr>
                         <td>
-                            <strong>Escherichia coli ATCC 25922</strong>
+                            <strong>Escherichia coli ATCC 25922<span class="ontology-label"> — ontology label: Escherichia coli</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=562"
@@ -727,12 +735,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for FOS Lactobacillus-Minimal Core Gut-Liver SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -751,24 +760,32 @@
                 <div class="interaction-header">
                     <h3>FOS-driven whole-community strain modulation</h3>
                 </div>
+                <p class="prewrap interaction-description">After 48 h in the seven-strain community with 2% FOS, species-specific DNA-qPCR estimated about 10^8 bacterial counts/mL for L. plantarum, L. reuteri and E. coli and about 10^7 for B. cellulosilyticus and F. plautii. Calibration used strain-specific genomic-DNA standards, not CFU viability or direct cell counting. Low L. acidophilus abundance and absent scrB expression are associated observations, not selective gene causality. The 1% glucose reference is not carbon-mass matched to 2% FOS.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Lactiplantibacillus plantarum PBS067,
+
+                    Lactobacillus acidophilus PBS066,
+
+                    Limosilactobacillus reuteri PBS072,
+
+                    Bacteroides cellulosilyticus CL02T12C19,
+
+                    Clostridium symbiosum WAL-14673,
+
+                    Flavonifractor plautii 1_3_50AFAA,
+
+                    Escherichia coli ATCC 25922
+
+                </p>
 
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        carbohydrate metabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0005975"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0005975</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -803,6 +820,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42781020/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42781020</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"calibration curves from serial dilutions of strain-specific genomic DNA"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -811,6 +841,7 @@
                 <div class="interaction-header">
                     <h3>Community-context Lactobacillus FOS-pathway expression</h3>
                 </div>
+                <p class="prewrap interaction-description">Homology identified putative FOS-utilization genes in the three probiotic strains. RNA/cDNA-qPCR showed community- and time-associated expression differences, including L. plantarum sacA/sacK1 and L. reuteri fructokinase; whole-community 48-h expression excluded L. acidophilus scrB. Expression normalized to species 16S and glucose reference does not establish necessary enzyme activity, inability to use FOS or partner-resolved cross-feeding. Participants name the assayed probiotic members, not every member of the seven-strain culture.</p>
 
 
 
@@ -853,7 +884,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42781020/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42781020</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"the differential expression of LP genes (sacA and sacK1) between the monoculture and the probiotic consortium at 48 h suggests that interspecies interactions modulate the transcriptional regulation of FOS utilization pathways"</div>
@@ -881,9 +912,28 @@
                 <div class="interaction-header">
                     <h3>Whole-community organic-acid profile broadening</h3>
                 </div>
+                <p class="prewrap interaction-description">Qualitative GC-MS of derivatized culture extracts showed a broader carboxylic-acid profile for the reconstructed whole community. Figure 7C labels acetic acid, lactic acid and butanoic acid among other peaks; the propanoic-acid marker appears in minimal-core panel B, not separately in panel C. This does not establish physiological absence of propionate from the whole community. Profiles do not measure absolute production, donor-resolved flux or the host-active compound, and glucose-grown profiles were similar. Canonical acetate/butyrate terms represent the reported acid identities, not measured ionic speciation.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Lactiplantibacillus plantarum PBS067,
+
+                    Lactobacillus acidophilus PBS066,
+
+                    Limosilactobacillus reuteri PBS072,
+
+                    Bacteroides cellulosilyticus CL02T12C19,
+
+                    Clostridium symbiosum WAL-14673,
+
+                    Flavonifractor plautii 1_3_50AFAA,
+
+                    Escherichia coli ATCC 25922
+
+                </p>
 
 
 
@@ -896,10 +946,6 @@
                     lactic acid
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=28358"
                         class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:28358</a>),
-
-                    propionic acid
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30768"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30768</a>),
 
                     butyrate
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17968"
@@ -953,6 +999,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42781020/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42781020</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"were qualitatively analyzed using a gas chromatograph"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -963,7 +1022,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -1007,6 +1066,21 @@
                     </div>
 
                 </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How should the extract pretreatment response be represented without inventing its active mediator?
+                </h3>
+                <p class="prewrap">The existing nodes report DNA-qPCR abundance, relative transcript levels and qualitative chemical profiles, not partner-resolved cross-feeding. Actual Figure 7 does not separately label propionate in whole-community panel C; do not infer its biological absence. The source also reports 0.1 mg/mL extract pretreatment of HepG2 for 24 h, removal, then 0.25 mM palmitate for 24 h, with lipid and Cd36 mRNA responses. This missing graph endpoint remains #1450 pending a separately authorized Edison expansion and source review; do not claim graph completeness. Active compounds and Cd36 mediation are unresolved. Preserve the earlier active-metabolite discussion and #1206 role correction. Non-graph pretreatment and readout wording remain #1449.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#FOS-driven whole-community strain modulation</code>, <code>ecological_interactions#Community-context Lactobacillus FOS-pathway expression</code>, <code>ecological_interactions#Whole-community organic-acid profile broadening</code></p>
+
+
 
 
             </div>
@@ -1453,12 +1527,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1471,7 +1548,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1565,11 +1641,7 @@
 
             var processes = [];
 
-
-            processes.push("carbohydrate metabolic process");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1583,6 +1655,29 @@
 
 
 
+
+            var participantKeys = [
+
+                "Lactiplantibacillus plantarum PBS067",
+
+                "Lactobacillus acidophilus PBS066",
+
+                "Limosilactobacillus reuteri PBS072",
+
+                "Bacteroides cellulosilyticus CL02T12C19",
+
+                "Clostridium symbiosum WAL-14673",
+
+                "Flavonifractor plautii 1_3_50AFAA",
+
+                "Escherichia coli ATCC 25922"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1639,8 +1734,6 @@
 
             metabolites.push("lactic acid");
 
-            metabolites.push("propionic acid");
-
             metabolites.push("butyrate");
 
 
@@ -1650,7 +1743,7 @@
             processes.push("fermentation");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1665,6 +1758,29 @@
 
 
 
+            var participantKeys = [
+
+                "Lactiplantibacillus plantarum PBS067",
+
+                "Lactobacillus acidophilus PBS066",
+
+                "Limosilactobacillus reuteri PBS072",
+
+                "Bacteroides cellulosilyticus CL02T12C19",
+
+                "Clostridium symbiosum WAL-14673",
+
+                "Flavonifractor plautii 1_3_50AFAA",
+
+                "Escherichia coli ATCC 25922"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
 
@@ -1678,6 +1794,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

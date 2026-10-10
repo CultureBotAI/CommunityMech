@@ -125,12 +125,12 @@ taxonomy:
       Supports Legionella-affiliated lower-abundance bins as monitored
       biosafety-relevant members of the consortium.
 ecological_interactions:
-- name: Nitrifier Guild Metabolic Handoff
-  description: >
-    The consortium contains ammonia-oxidizing and nitrite-oxidizing guilds
-    whose sequential nitrogen transformations were monitored under aerobic and
-    anoxic redox conditions; Nitrosospira represented the dominant AOB MAG and
-    Nitrobacter represented an NOB MAG in the starting material.
+- name: Putative Nitrifier Guild Metabolic Handoff
+  description: PARTIAL - Starting-material Nitrosospira and Nitrobacter MAGs support ammonia- and nitrite-oxidizing
+    guild potential, but do not resolve an active, exclusive donor-recipient flux. Aerobic cultures showed consistent
+    net ammonia removal and nitrate accumulation only after about day 30; anoxic cultures accumulated ammonia. These
+    measured consortium outcomes do not demonstrate nitrification under anoxia or assign the aerobic flux solely
+    to the two starting dominant guilds.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -157,14 +157,20 @@ ecological_interactions:
       label: nitrate
   evidence:
   - reference: PMID:41457319
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: 'ammonia-oxidizing bacteria (AOB) and nitrite-oxidizing bacteria (NOB) that rely on metabolic handoffs
+      to carry out nitrification
+
+      '
+    explanation: This introductory account of nitrifier guild handoffs supplies biological background, not a direct
+      transfer assay for the two MAGs in this consortium.
+  - reference: PMID:41457319
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      ammonia-oxidizing bacteria (AOB) and nitrite-oxidizing bacteria (NOB)
-      that rely on metabolic handoffs to carry out nitrification
-    explanation: >
-      Supports the curated community-level nitrifier guild interaction in the
-      wastewater consortium.
+    snippet: All cultures accumulated ammonia over 4 weeks, with only aerobic cultures reducing ammonia levels thereafter.
+    explanation: Supports the redox-dependent consortium performance boundary; it does not identify a taxon-resolved
+      handoff.
 growth_media:
 - name: synthetic pond water aerobic nitrifying culture
   atmosphere: AEROBIC
@@ -265,3 +271,27 @@ external_resources:
     evidence_source: COMPUTATIONAL
     snippet: "DOI: 10.1128/aem.01984-25"
     explanation: Supports the DOI assigned to the source article.
+discussions:
+- discussion_id: nitrifier_redox_performance_and_member_attribution
+  prompt: Which exact-system measurements distinguish the observed outcome from the proposed mechanism?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: Retain the observed aerobic ammonia-removal outcome after the lag, anoxic ammonia accumulation, and
+    positive nitrogen-cycling gene potential. An initial aerobic ammonia decrease was followed by rebound before
+    consistent net removal after day 30. Nitrosospira and Nitrobacter declined in aerobic abundance and mapped RNA;
+    Nitrobacter nitrogen-gene RNA was not detected, and other populations could contribute. Gene presence and amoC
+    transcription alone do not establish complete ammonia-monooxygenase activity. Periodic oxygen supply, pH change
+    and alternative nitrogen sources are proposed contributors, not isolated mediators. The bulk ammonia assay does
+    not distinguish NH3 from NH4+. Missing redox-dependent endpoint nodes require separate source-backed causal
+    research; the existing one-node graph remains needs_research.
+  attaches_to:
+  - ecological_interactions#Putative Nitrifier Guild Metabolic Handoff
+curation_history:
+- timestamp: '2026-10-07T04:42:12Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Qualify the guild handoff and introductory evidence; preserve measured redox-dependent performance while
+    missing outcome nodes remain research work. Issue #1644; reports/causal_graph_review/decisions/20261007-four-records-batch78.yaml'
+  llm_assisted: true

@@ -1,0 +1,349 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 3d04751542c939e8e4e238ce906509116ea8ec57
+scope:
+- kb/communities/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.yaml
+- kb/communities/Trichoderma_Lactate_Platform.yaml
+- kb/communities/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-three-records-batch116.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch116.json
+findings:
+- issue: 1901
+  severity: P2
+  finding: Bound Trichoderma-Ecoli isobutanol production and stability graph claims
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1902
+  severity: P2
+  finding: Restore co-substrate and joint redox conditions in the Trichoderma lactate graph
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1903
+  severity: P2
+  finding: Separate filamentous hydrolysate dependence from population-control mediation
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1904
+  severity: P2
+  finding: Correct pretreatment and oxygen-gradient metadata for the lactate platform
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1905
+  severity: P2
+  finding: Correct glucose and microtiter cultivation metadata for filamentous coculture
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+adversarial_checks:
+- 'Accounted for every original node and direction: 9 nodes retained, 5 of 6 arrows retained, 4 renames. Removed
+  only the unisolated dependence-to-population-control mediation. No new topology; all target names and discussion
+  anchors resolve.'
+- 'Isobutanol overcorrection check: experimental model validation is explicitly preserved from the abstract. Hydrolysis
+  provides a resource basis, not sufficient proof of unconditional coexistence. E. coli product formation is a recipient
+  outcome, not another metabolite exchange. Full-paper assumptions remain an open knowledge gap.'
+- 'Lactate overcorrection check: LAB-associated redox lowering is preserved alongside continued fungal oxygen consumption
+  and membrane geometry. Neither LAB-alone anoxia nor reciprocal thermodynamic syntrophy is asserted. Cellulose
+  hexoses are separated from pentose feedstock.'
+- 'Co-substrate controls: acetate depletion/feed rescue and glucose alternatives prevent lactate-alone production
+  claims. The 19-word quotation is from accepted-manuscript main p6, not SI. Acetate-feed, low-OTR and L. brevis
+  arms remain distinct. Clear Fig4 supports the three-member steam-pretreated beechwood benchmark; not an untreated/four-member
+  claim.'
+- 'Filamentous controls: initial supplied glucose precedes hydrolysate dependence. The source conditional early
+  competition/late commensalism interpretation is retained without universal neutral fungal fitness. Spore storage/viability
+  is not fluorescence-tag causality. Relative osmolality advantage is not absolute bacterial stimulation; corrected
+  fluorescence is not universal exact cell counting. Pigment mediation remains unresolved.'
+- 'Source matching: all 16 graph and 3 discussion quotations have fresh primary and cache literal matches, not entailment
+  certification. Abstract and accepted-manuscript wording are bound to their actual matching versions. Only one
+  bounded 19-word main-text cache excerpt added with provenance; 922 other caches unchanged, no publication PDF/body
+  imports.'
+- 'Preservation: three guarded records and append-only histories; 457 other records, non-graph raw blocks and prior
+  history/decisions unchanged. Canonical strain 1344414 is not replaced by species 51453. Three explicit participant-list
+  users added. Measured census: 415 community-level, 137 mixed, 278 community-only, 1570 taxa, 1280 solely credited.
+  Sole-credit survey is not actual coverage proof; logic and share guard unchanged.'
+- Seven real in-memory control/mutation/restored-control probes reject loss of experimental validation, unconditional
+  stability, loss of joint redox, lactate-only conversion, assay conflation, unisolated mediation and absolute/proxy
+  overclaims. Changed values and rejecting assertions recorded; canonical hashes unchanged. These are not extra
+  pytest tests.
+- Eleven focused and 1056 combined tests pass, including tests/test_datamodel.py after issue1899. All 3 records
+  pass schema, strict, terms, full-record references, snippets, rank and history. 57 network warnings preserved,
+  zero structural defects. 456 rendered pages, 1365 nodes and 527 arrows match exact source descriptions; deterministic
+  rendering, not UI screenshot certification. Local reference passes do not certify Linux and corpus snippet audit
+  remains informational.
+- Graph repairs1901-1903 await protected-main merge; metadata1904/1905 remain open. No Edison extension/spend. Prior
+  Ruegeria research1883 still needs a configured authenticated provider. Self-review is not independent approval.
+  Postcommit docs-current and exact-head publication are separate gates. No protection bypass, artificial CI or
+  premature branch deletion.
+- 'Corpus: 372 reviewed, 34 pending, 54 needs_research across 460 records. Overall goal remains incomplete.'
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: Erase experimentally validated model evidence
+      test: test_experimental_model_validation_survives_conditional_stability
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 32
+      assertion: assert "mathematical model that was experimentally validated" in c["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/2/description
+        before: 'PARTIAL: the study reports cooperator-cheater dynamics and stable population equilibria using a
+          comprehensive mathematical model that was experimentally validated. Fungal cellulase production and bacterial
+          use of released sugars underlie the modeled interaction. The abstract supports this combined modeling/experimental
+          framework, not stable coexistence under every starting ratio or environmental condition. Full-paper access
+          was unavailable for checking the exact perturbations and model assumptions; experimental validation is
+          not being reclassified as purely computational speculation.'
+        after: Purely computational speculation without experimental validation.
+    - mutation: Promote hydrolysis to sufficient coexistence mechanism
+      test: test_experimental_model_validation_survives_conditional_stability
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 37
+      assertion: assert edge["target"] == c["name"] and edge["description"].startswith("PARTIAL:")
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/0/downstream/1/description
+        before: 'PARTIAL: fungal saccharide release supplies the resource basis of the reported cooperator-cheater
+          dynamics. Stable equilibria depend on the study conditions and model assumptions; hydrolysis alone is
+          not sufficient evidence of coexistence. The abstract reports experimental model validation.'
+        after: Hydrolysis guarantees stable coexistence in all conditions.
+    - mutation: Erase LAB redox contribution
+      test: test_lactate_link_keeps_fungal_and_lab_redox_contributions
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 45
+      assertion: assert "Fungal oxygen consumption first lowers dissolved oxygen" in b["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/1/description
+        before: 'L. pentosus funnels carbohydrates to lactate and supplies acetate when metabolizing pentoses. Fungal
+          oxygen consumption first lowers dissolved oxygen; subsequent LAB inoculation lowers redox potential further,
+          enabling the obligate anaerobe. The membrane configuration, continuing fungal activity and LAB contribution
+          work jointly: LAB alone cannot maintain anoxia. This supports resource and redox facilitation, not demonstrated
+          reciprocal thermodynamic syntrophy.'
+        after: Only fungal oxygen uptake matters; LAB has no demonstrated redox contribution.
+    - mutation: Allow lactate-only butyrate production
+      test: test_butyrate_requires_co_substrate_and_preserves_rescue_evidence
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 57
+      assertion: assert "Lactate alone is insufficient" in c["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/2/description
+        before: 'C. tyrobutyricum converts lactate with a co-substrate to butyrate. Lactate alone is insufficient:
+          acetate depletion stops utilization, and acetate addition restores it; glucose can also serve as co-substrate.
+          These experiments support the recipient conversion, not an exclusive source of every acetate molecule.
+          Acetate feed, lower oxygen transfer and addition of L. brevis are separate experimental arms. The three-member
+          consortium produced the reported beechwood yield after steam pretreatment; the four-member arm is not
+          that benchmark.'
+        after: Lactate alone supports butyrate production without another substrate.
+    - mutation: Conflate untreated four-member and pretreated three-member arms
+      test: test_lactate_arms_and_pretreated_benchmark_are_not_conflated
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 69
+      assertion: assert "L. brevis are separate experimental arms" in c["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/2/description
+        before: 'C. tyrobutyricum converts lactate with a co-substrate to butyrate. Lactate alone is insufficient:
+          acetate depletion stops utilization, and acetate addition restores it; glucose can also serve as co-substrate.
+          These experiments support the recipient conversion, not an exclusive source of every acetate molecule.
+          Acetate feed, lower oxygen transfer and addition of L. brevis are separate experimental arms. The three-member
+          consortium produced the reported beechwood yield after steam pretreatment; the four-member arm is not
+          that benchmark.'
+        after: The four-member consortium produced the benchmark on untreated beechwood.
+    - mutation: Restore unisolated dependence-to-population mediation
+      test: test_dependence_does_not_mediate_all_treatment_responses
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 89
+      assertion: assert "downstream" not in b
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/1/downstream
+        before: null
+        after:
+        - target: Tunable Filamentous Population Dynamics
+          description: Dependence causes every treatment response.
+    - mutation: Replace relative growth and corrected fluorescence with absolute claims
+      test: test_viability_relative_advantage_and_fluorescence_limits_are_explicit
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 98
+      assertion: assert "do not attribute that reversal to the tag" in c["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/2/description
+        before: Inoculation advantage, osmolality and shaking frequency alter relative growth and competition in
+          the filamentous coculture. Spore storage in water versus PBS changes viability and growth order; matched
+          tagged and wild-type controls do not attribute that reversal to the tag. Higher osmolality relatively
+          favors S. coelicolor through stronger fungal inhibition, not absolute bacterial growth stimulation. Fluorescence
+          requires autofluorescence correction and remains a growth proxy, not exact cell counts in every condition.
+          Pigment and cellulase formation vary with population balance, but their causal mediation by hydrolysate
+          dependence is unresolved.
+        after: Osmolality stimulates bacterial growth and fluorescence counts cells exactly.
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.yaml: 3fe13833fafecd516fd06ee844c2a33de7ce3b5e5e230654691a79fa21560461
+      kb/communities/Trichoderma_Lactate_Platform.yaml: 06634a12fd704129ef6f5a5cccade1159308fc1f4e5725ff5dc4bd21ccf11636
+      kb/communities/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.yaml: b79ba66a51ac69b81d45cc5555c89a8f6b38a5066ee8e90b47ffd3fe94c238d5
+      tests/test_causal_review_batch116.py: 246822d795f82e854db9bdc7930ff7ab2d46daf00f71fac515a04484a73b0018
+    probe_script_sha256: 3f4c4759d3842a63f50452f53d6977bdf80c5854cf6ed112dbdcec15a81bf091
+    scope: In-memory control/mutation/restored-control; no canonical writes and not additional pytest tests.
+  artifact: /private/tmp/communitymech-batch116/adversarial-regression-proof.json
+  sha256: 15568d5114b8a6735a87e5fb329c95458a1c3645b3cc4ae725e9fda251d5d214
+verification:
+  combined_regressions: 1056 passed in 441.55s (0:07:21)
+  new_regression_tests: 11
+  total_recorded_gate_outputs: 34
+  primary_graph_snippet_proof:
+    graph_quotations: 16
+    discussion_quotations: 3
+    fresh_primary_literal_matches: 19
+    all_cached_literal_matches: 19
+    retained_nodes: 9
+    removed_nodes: 0
+    renamed_nodes: 4
+    retained_arrows: 5
+    removed_arrows: 1
+    new_nodes_or_directions: 0
+  references: Full-record local passes are macOS, not Linux certification. Literal matching does not establish entailment.
+    Total checks in the reference CLI counts issues, not examined snippets.
+  snippet_counts_by_record:
+    kb/communities/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Trichoderma_Lactate_Platform.yaml:
+      MATCH: 15
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.yaml:
+      MATCH: 24
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 9025
+      categories:
+        MATCH: 8880
+        RENDERING: 28
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 40
+        NOCONTENT: 76
+    caveat: Informational audit exit0 is not clean-corpus or entailment certification.
+  network:
+    existing_findings_preserved: 57
+    added_findings: {}
+    removed_findings: {}
+    structural_defects: 0
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-three-records-batch116.yaml: 629bc42d7ba207fa0b8dce528dc163cae6ad82993f6c316ac1b67f0dd1229e53
+    tests/test_causal_review_batch116.py: 246822d795f82e854db9bdc7930ff7ab2d46daf00f71fac515a04484a73b0018
+    tests/test_participating_taxa.py: 39b5cc748e4723973b10b79d7be8b07fc3857fd5f0af7b143f0c8fd6f7d0a02a
+    tests/test_community_level_connectivity_credit.py: c16bd6433a6d35580c88089f2ebad41aec42932132447f0b126605f9d1c15aae
+    tests/test_causal_review_batch109.py: 4b4b0e3ea307a5a4bb5bf0ca2186812b40a0f867019a907e95f36d1046b95dcc
+    tests/test_datamodel.py: f8d4750ad64eb4156857a86a8c6adf16dedefb09ca3c3da908f697e609a35f25
+    references_cache/PMID_32855308.md: 4815e572ca0c59229f608e8b3f40d427fdb7d04ce2fe642a4ccdf45ddc92c5cd
+    reports/causal_graph_review/cache-provenance-20261008-batch116.json: 3cb256d29c9541650fef4db55fbe31b8dc4173f3b43ac293340e38db96364530
+    kb/communities/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.yaml: 3fe13833fafecd516fd06ee844c2a33de7ce3b5e5e230654691a79fa21560461
+    kb/communities/Trichoderma_Lactate_Platform.yaml: 06634a12fd704129ef6f5a5cccade1159308fc1f4e5725ff5dc4bd21ccf11636
+    kb/communities/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.yaml: b79ba66a51ac69b81d45cc5555c89a8f6b38a5066ee8e90b47ffd3fe94c238d5
+  history_sha256:
+    history/records/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture/2026-10-08T105358Z-codex-2ed9c5.yaml: 2298d24754906a4160fbbc01f5def4d90ae2045322ae364365f80e21e370d2a6
+    history/records/Trichoderma_Lactate_Platform/2026-10-08T105359Z-codex-73ad0a.yaml: a113cd4a8314611844897322c1f975c5d86da0a44be36df1a3a31b2da6cdd6c3
+    history/records/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture/2026-10-08T105400Z-codex-9b5c99.yaml: f8b5fe01ccff029c11db845fdb70fcfcf853e67664ff88f5e6977ea364a8b316
+  unchanged_records: 457
+  unchanged_caches: 922
+  immutable_prior_history_and_decision_files: 869
+  cache_changes:
+  - path: references_cache/PMID_32855308.md
+    before_sha256: 6f8894879c842b194b447b56e3aed49dbd2ab440f486b26205c96f0a05fe7724
+    after_sha256: 4815e572ca0c59229f608e8b3f40d427fdb7d04ce2fe642a4ccdf45ddc92c5cd
+    operation: Append bounded19-word main-text excerpt and explicit version/page/completeness provenance; preserve
+      prior bytes.
+    quote_words: 19
+    primary_artifact: /private/tmp/communitymech-batch116/lactate-pdf.txt
+    source_url: https://www.repository.cam.ac.uk/bitstreams/00d420f3-87c3-4da6-87a1-e93f8e9a2007/download
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    new_nodes_or_directions: 0
+    prior_extension_blocker: Ruegeria issue1883:configuredkey unavailable in prior approved invocation; no retry
+      without state change.
+  post_commit_docs_current: Separate publication gate,not preasserted.
+participant_census:
+  current:
+    records: 460
+    with_community_level: 415
+    mixed: 137
+    community_level_only: 278
+    taxa: 1570
+    credited_solely_by_the_rule: 1280
+  delta_from_batch115:
+    records: 0
+    with_community_level: 1
+    mixed: 1
+    community_level_only: 0
+    taxa: 2
+    credited_solely_by_the_rule: 0
+  explanation: Three explicit participant-list users added. Isobutanol adds one mixed-scope record; both taxa already
+    have pairwise credit. The survey sole-credit number does not certify actual participant coverage. No connectivity
+    rule or share-guard changes.
+corpus:
+  records: 460
+  nodes: 1379
+  edges: 535
+  review_status_counts:
+    needs_research: 54
+    pending: 34
+    reviewed: 372
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary established Python3.13 lint environment; project dependencies unchanged.
+limitations:
+- Fresh both-root baseline before research:460records,923caches,57warnings,zero structural defects. Nine existing
+  nodes/six arrows reviewed; nine retained nodes/five arrows,one removed direction,four renames,no new topology.
+- Three whole canonical records and existing graph snippets read. Fresh primary abstracts and Crossref identities
+  retrieved. Isobutanol full text unavailable:EuropePMC500,PMC access challenge,publisher inaccessible,EuropePMC403;
+  public BioC OA subset had no result. OpenAlex and OSTI yielded no alternate body. Abstract explicitly reports
+  experimental model validation; exact conditions remain a focused knowledge gap.
+- Lactate public Cambridge accepted manuscript read:main pages1-14,captions21/23-25,SI27-31/34-38/42-44,tables53-54.
+  Visually inspected figures20/22/25/34 and TableS2page54; one pretreated row label is clipped in the manuscript,so
+  benchmark attribution uses clear Fig4. Not all64pages,all references,all SI or raw data reviewed. Distinguish
+  membrane/fungal/LAB roles and acetate/glucose co-substrates; do not merge experimental arms.
+- Filamentous fresh CC-BY4 XML main body,methods/results/discussion,captions and appendices read in full; no original
+  figure-pixel or raw-data review. Preserve initial glucose phase,conditional competition/commensalism,viability
+  control and relative-growth/proxy limits.
+- Only one cache appended:19-word lactate main-text quotation with version/page provenance. Existing cache header
+  overstates completeness; provenance explicitly identifies abstract plus methods excerpt and legacy landing-page
+  furniture. No publication PDFs or full bodies imported; license not inferred for newly accessed version.
+- Initial1142and fresh all-state issue title/body searches found only unrelated1216/1011. Ignored/hidden-inclusive
+  local path search found138files excluding.git,docs,site,references_cache,.env; not a historical PR-comment audit.
+  Canonical taxon identities retained,including strain1344414 distinct from species51453.
+- 457otherrecords,922othercaches and priorhistory/decisions preserved; non-graph raw blocks untouched. Metadata1904/1905remain
+  open. No schema/runtime/connectivity-rule changes. Isobutanol review is abstract-bounded,not full-paper certification.
+- Existing-graph repair requires no Edison extension:new nodes/directions0,submissions0,credits0. Prior Ruegeria
+  authorization remains blocked by configuredkey unavailability; no credentials inspected or retry attempted. Overallgoal
+  remains incomplete. Self-adversarial review is not independent approval; no merge or branch deletion without protected
+  gates.

@@ -132,11 +132,14 @@ taxonomy:
     snippet: A Cryptococcus yeast produces the B-vitamin pantothenate
     explanation: Supports the pantothenate-producing role of the Cryptococcus partner.
 ecological_interactions:
-- name: Variovorax Thiamine Provision to Auxotrophs
-  description: A Variovorax species produces thiamine at high levels and supports
-    growth of correlated thiamine auxotrophs in the laboratory consortium.
+- name: Variovorax thiamine provision to Cryptococcus
+  description: The isolated Variovorax produces extracellular thiamine, and the tested Cryptococcus grows better
+    with thiamine supplementation and in coculture. Together these experiments support thiamine cross-feeding to
+    this yeast. They do not validate every correlated auxotroph as a recipient. Cryptococcus was not included in
+    the correlation network. The up-to-100 mg/L measurement belongs to a separate spent-medium-supplemented assay,
+    not a measured concentration in the two-member coculture.
   interaction_type: CROSS_FEEDING
-  scope: COMMUNITY_LEVEL
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Variovorax species
     term:
@@ -158,20 +161,26 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Bidirectional Vitamin Mutualism in Coculture
-    description: Variovorax thiamine production supplies one half of the
-      reciprocal vitamin exchange that increases fitness when Variovorax and
-      Cryptococcus are grown together.
+    description: Thiamine production and yeast thiamine responsiveness support one resource route contributing to
+      the observed coculture benefit. This does not establish all correlated recipients or vitamin exchange as the
+      only cause of that benefit.
   evidence:
   - reference: PMID:37553333
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Quantification of thiamine during the growth of Variovorax in minimal
-      media show high levels of thiamine production
-    explanation: Supports the thiamine-production capacity of Variovorax that
-      underpins the cross-feeding.
+    snippet: Quantification of thiamine during the growth of Variovorax in minimal media show high levels of thiamine
+      production
+    explanation: Supports the thiamine-production capacity of Variovorax that underpins the cross-feeding.
+  target_taxon:
+    preferred_term: Cryptococcus yeast
+    term:
+      id: NCBITaxon:5206
+      label: Cryptococcus <basidiomycete fungi>
 - name: Cryptococcus Pantothenate Provision to Variovorax
-  description: A Cryptococcus yeast produces pantothenate that is required for
-    growth of Variovorax, making the vitamin exchange bidirectional.
+  description: Cryptococcus spent medium contains pantothenate, Variovorax requires pantothenate for substantial
+    growth, and supplementation supports its growth. These controls and coculture benefit support reciprocal vitamin
+    provisioning. They do not isolate pantothenate as the sole growth-promoting component of spent medium or resolve
+    every in-coculture flux.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -200,26 +209,26 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Bidirectional Vitamin Mutualism in Coculture
-    description: Cryptococcus pantothenate production supplies the reciprocal
-      vitamin needed by Variovorax, completing the experimentally validated
-      bidirectional cross-feeding system.
+    description: Yeast pantothenate production and bacterial supplementation response support the reciprocal resource
+      route contributing to coculture benefit. The controls do not exclude other spent-medium components or establish
+      exclusive mediation.
   evidence:
   - reference: PMID:37553333
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: A Cryptococcus yeast produces the B-vitamin pantothenate
-    explanation: Supports Cryptococcus pantothenate production as the basis for
-      cross-feeding to Variovorax.
+    explanation: Supports Cryptococcus pantothenate production as the basis for cross-feeding to Variovorax.
   - reference: PMID:37553333
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: pantothenate, which we show is required for growth of Variovorax
-    explanation: Supports the Variovorax requirement for the Cryptococcus-supplied
-      pantothenate.
+    explanation: Supports the Variovorax requirement for the Cryptococcus-supplied pantothenate.
 - name: Bidirectional Vitamin Mutualism in Coculture
-  description: Co-culturing Variovorax and Cryptococcus yields large fitness gains
-    for both organisms, demonstrating an experimentally validated mutualistic
-    vitamin exchange.
+  description: Both isolates achieve higher viable cell densities in coculture than in monoculture over the reported
+    serial-passage assay, supporting MUTUALISM under those conditions. Auxotrophy, supplementation and extracellular
+    vitamin measurements support a vitamin-exchange mechanism, without proving vitamin-only mediation or direct
+    interaction in the original mixed bioreactors. Quantitative fold-change statements differ within the paper,
+    so no reconciled fold increase is assigned here.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -250,9 +259,10 @@ ecological_interactions:
   - reference: PMID:37553333
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: co-culturing with Variovorax leads to a 90-130-fold fitness increase
-      for both organisms
-    explanation: Supports the bidirectional mutualism with quantified fitness gains.
+    snippet: co-culturing with Variovorax leads to a 90-130-fold fitness increase for both organisms
+    explanation: The abstract supports positive effects on both partners. Its 90-130-fold figure differs from the
+      Fig.6 caption and from the ratio implied by the Results bacterial densities; retain qualitative benefit, not
+      a corrected numerical claim.
 environmental_factors:
 - name: Minimal vitamin-defined media
   value: minimal medium with controlled vitamin availability
@@ -313,3 +323,36 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   vitamin-mutualism microcosm; the system is derived from mine tailings but the
   reported interaction is vitamin-mediated.
+discussions:
+- discussion_id: variovorax-evidence-boundaries-batch117
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  prompt: How much of the coculture benefit is mediated by each vitamin, and which quantitative values are reconciled?
+  rationale: 'The abstract/discussion report 90-130-fold increases; the Fig.6 caption gives about 50-fold for yeast,
+    while the bacterial Results densities imply a different ratio. Results describe Cryptococcus monoculture spent
+    medium, whereas Methods describe final-passage coculture spent medium for quantification. No corrected value
+    or uniquely resolved medium source is invented. Raw data and supplementary files were not audited. The controls
+    support vitamin-dependent mutualism without establishing vitamin-only mediation or native bioreactor pairing.
+    Supplementation/network metadata remains issue #1912.'
+  attaches_to:
+  - ecological_interactions#Variovorax thiamine provision to Cryptococcus
+  - ecological_interactions#Cryptococcus Pantothenate Provision to Variovorax
+  - ecological_interactions#Bidirectional Vitamin Mutualism in Coculture
+  evidence:
+  - reference: PMID:37553333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culturing with Variovorax leads to a 90-130-fold fitness increase for both organisms
+    explanation: The abstract supports positive effects on both partners. Its 90-130-fold figure differs from the
+      Fig.6 caption and from the ratio implied by the Results bacterial densities; retain qualitative benefit, not
+      a corrected numerical claim.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T11:33:18Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Scope thiamine cross-feeding to the tested yeast and separate production assay from network inference.;
+    Preserve reciprocal vitamin evidence with spent-medium and exclusive-mediation limits.; Retain experimental
+    mutual benefit while documenting inconsistent reported fold changes. Issue#1910; reports/causal_graph_review/decisions/20261008-four-records-batch117.yaml
+  llm_assisted: true

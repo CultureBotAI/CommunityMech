@@ -178,10 +178,10 @@ taxonomy:
       Supports PX736765 as the GenBank accession for the PH 16S rRNA sequence.
 ecological_interactions:
 - name: RF-PH enhanced aniline degradation
-  description: >-
-    The optimized 3:1 RF-PH consortium degraded 500 mg/L aniline more rapidly
-    within 12 h than either single-strain culture, and also improved 12 h
-    removal at 1000 mg/L aniline.
+  description: The optimized 3:1 RF-PH consortium degraded 500 mg/L aniline more rapidly within 12 h than either
+    single-strain culture, and also improved 12 h removal at 1000 mg/L aniline. These analytical removal outcomes
+    do not by themselves establish complete mineralization, a catechol pathway or a directional metabolite exchange
+    between strains.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pseudomonas sp. RF
@@ -196,23 +196,15 @@ ecological_interactions:
   - reference: PMID:41900437
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      For 500 mg·L−1 aniline, the degradation rate reached 91.28% within 12 h,
-      representing an increase of 11.33% and 17.02% compared to the degradation
-      rates achieved by strain RF or strain PH alone, respectively.
-    explanation: >-
-      Supports the community-level enhancement of aniline degradation by RF-PH
-      relative to either monoculture.
+    snippet: For 500 mg·L−1 aniline, the degradation rate reached 91.28% within 12 h, representing an increase of
+      11.33% and 17.02% compared to the degradation rates achieved by strain RF or strain PH alone, respectively.
+    explanation: Supports the community-level enhancement of aniline degradation by RF-PH relative to either monoculture.
   - reference: PMID:41900437
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      For 1000 mg·L−1 aniline, the degradation rate reached 73.06% within 12 h,
-      representing an increase of 18.25% and 28.04% compared to the degradation
-      by strain RF or strain PH alone, respectively.
-    explanation: >-
-      Supports the RF-PH consortium's enhanced 1000 mg/L aniline degradation
-      relative to either monoculture.
+    snippet: For 1000 mg·L−1 aniline, the degradation rate reached 73.06% within 12 h, representing an increase
+      of 18.25% and 28.04% compared to the degradation by strain RF or strain PH alone, respectively.
+    explanation: Supports the RF-PH consortium's enhanced 1000 mg/L aniline degradation relative to either monoculture.
 environmental_factors:
 - name: RF-PH inoculation ratio
   value: RF:PH = 3:1
@@ -320,20 +312,42 @@ external_resources:
     explanation: Identifies the exact primary publication for RF-PH.
 discussions:
 - discussion_id: rf_ph_aniline_pairwise_mechanism
-  prompt: >-
-    Which molecular mechanisms, if any, connect Pseudomonas sp. RF and
-    Acidovorax sp. PH to enhanced RF-PH aniline degradation?
+  prompt: Which molecular mechanisms, if any, connect Pseudomonas sp. RF and Acidovorax sp. PH to enhanced RF-PH
+    aniline degradation?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#RF-PH enhanced aniline degradation
-  rationale: >-
-    Pan et al. 2026 reported that RF-PH outperformed either monoculture and
-    proposed cooperative and complementary characteristics of the two strains,
-    but did not experimentally identify a transferred intermediate or other
+  rationale: Pan et al. 2026 reported that RF-PH outperformed either monoculture and proposed cooperative and complementary
+    characteristics of the two strains, but did not experimentally identify a transferred intermediate or other
     directional pairwise mechanism.
   posed_by: codex
   posed_date: '2026-09-28'
+- discussion_id: rf-ph-removal-versus-mineralization
+  prompt: Does the analytical removal endpoint establish the asserted mineralization pathway?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  rationale: The positive consortium-versus-monoculture comparisons remain supported. Main methods quantify residual
+    aniline, while the conclusion asserts catechol-pathway mineralization without corresponding mechanistic results
+    in the main text reviewed. Supplements were not inspected, so this is an evidence boundary rather than proof
+    that no additional data exist. No transferred intermediate, competition or new arrow is inferred; the existing
+    open-ended mechanism discussion is preserved.
+  attaches_to:
+  - ecological_interactions#RF-PH enhanced aniline degradation
+  evidence:
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For 500 mg·L−1 aniline, the degradation rate reached 91.28% within 12 h, representing an increase of
+      11.33% and 17.02% compared to the degradation rates achieved by strain RF or strain PH alone, respectively.
+    explanation: Supports the community-level enhancement of aniline degradation by RF-PH relative to either monoculture.
+  - reference: PMID:41900437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For 1000 mg·L−1 aniline, the degradation rate reached 73.06% within 12 h, representing an increase
+      of 18.25% and 28.04% compared to the degradation by strain RF or strain PH alone, respectively.
+    explanation: Supports the RF-PH consortium's enhanced 1000 mg/L aniline degradation relative to either monoculture.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -344,16 +358,17 @@ curation_history:
 - timestamp: '2026-09-28T08:14:01Z'
   curator: codex
   action: ADD_COMMUNITY_RECORD
-  changes: >-
-    Added a two-member Pseudomonas sp. RF and Acidovorax sp. PH RF-PH
-    aniline-degradation SynCom from PMID:41900437.
+  changes: Added a two-member Pseudomonas sp. RF and Acidovorax sp. PH RF-PH aniline-degradation SynCom from PMID:41900437.
   llm_assisted: true
 - timestamp: '2026-09-28T08:21:04Z'
   curator: codex
   action: FIX_ADVERSARIAL_REVIEW_FINDINGS
-  changes: >-
-    Removed unsupported RF-PH temperature and aerobic-atmosphere fields, added
-    exact support for the 1000 mg/L enhancement and RF/PH GenBank accession
-    claims, and reworded the open pairwise-mechanism discussion flagged in
-    GitHub issues #1189, #1190, #1191, and #1192.
+  changes: 'Removed unsupported RF-PH temperature and aerobic-atmosphere fields, added exact support for the 1000
+    mg/L enhancement and RF/PH GenBank accession claims, and reworded the open pairwise-mechanism discussion flagged
+    in GitHub issues #1189, #1190, #1191, and #1192.'
+  llm_assisted: true
+- timestamp: '2026-10-07T11:49:21Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve enhanced aniline removal without certifying mineralization or exchange. Issue #1726; reports/causal_graph_review/decisions/20261007-four-records-batch88.yaml'
   llm_assisted: true

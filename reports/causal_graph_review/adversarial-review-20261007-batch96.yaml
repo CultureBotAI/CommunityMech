@@ -1,0 +1,242 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 69727bed5e54f9de9d60323de0fb5879ae18c509
+scope:
+- kb/communities/Rifle_Uranium_Reducing_Community.yaml
+- kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml
+- kb/communities/SF356_Cellulose_Degrader.yaml
+- kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch96.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch96.json
+findings:
+- issue: 1766
+  severity: P2
+  status: addressed_in_this_change
+  finding: Correct Rifle uranium graph source scope and late-phase outcome
+  disposition: Close only after protected-main merge.
+- issue: 1767
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound rumen enrichment graph to selection and measured phenotype
+  disposition: Close only after protected-main merge.
+- issue: 1768
+  severity: P2
+  status: addressed_in_this_change
+  finding: Retain SF356 feedback without reciprocal-harm overclassification
+  disposition: Close only after protected-main merge.
+- issue: 1769
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate SIHUMIx BP5 hypothesis from measured community output
+  disposition: Close only after protected-main merge.
+- issue: 1770
+  severity: P2
+  status: open_non_graph_follow_up
+  finding: Review batch96 non-graph membership and evidence-scope claims
+  disposition: Separate non-graph curation remains required.
+adversarial_checks:
+- Fresh both-root baseline preceded paper reads. All four whole records,16originalnodes and10arrows accounted for;14nodes6existingdirections
+  retained,2nodes4arrows removed,4nodes renamed. No new topology.
+- Rifle early uranium loss and Geobacter association are retained separately from later sulfate/sulfide observations
+  and increasing groundwater uranium. The prior sulfide-to-continued-immobilization arrow is contradicted. No nanoparticle
+  size/product, pairwise mutualism or species-resolved enzymatic flux survives in graph attributes.
+- Rifle Anaeromyxobacter evidence points to a Geobacter uraniireducens transcriptome and another field site; two
+  Oak Ridge sources, high-salinity enrichment and a D. hippei isolate are not exact Rifle membership or exchange
+  evidence. Two unsupported nodes are removed without asserting these organisms/reactions can never occur. Succession
+  is measured; Fe(III)/acetate mediation remains hypothetical. Unspecified participants do not certify all canonical
+  taxa.
+- Rumen composition, CMC core selection and xylan caproate remain positive evidence. Separate enrichment lines do
+  not resolve within-community niche partitioning, reduced competition or hydrogen/methane flux. The existing direction
+  remains PARTIAL. Earlier discussions and non-graph evidence are preserved.
+- SF356 positive metabolite/oxygen feedback and its existing directions remain, as do FG4 acid-associated inhibition
+  and Brevibacillus suppression. Reciprocal harm is not established by suppression alone, so COMPETITION is removed.
+  Current SYNTROPHY requires product-removal metabolic feedback, not obligacy; oxygen facilitation is not automatically
+  syntrophy. Aerotolerance prevents an absolute zero-oxygen assertion.
+- Adversarial diff review caught the FG4 node retaining a CSK1 pairwise target despite a community-level endpoint.
+  It is now COMMUNITY_LEVEL with FG4 source and no target. A second curation/history event records the fix, preserving
+  the initial history. The initial validation was interrupted after23completed outputs; all final gates rerun. A
+  focused regression protects the corrected scope.
+- SIHUMIx small-protein expression, computational exchange and transit-study SCFA output remain separate observations.
+  rxn15467 is a neighboring-enzyme perturbation, not a BP5 knockout. Genomic proximity does not establish BP5 mediation;
+  remove both causal bridges. Exchange remains explicitly COMPUTATIONAL/PARTIAL, bulk SCFA is not measured cross-feeding,
+  and community-only detection is confounded by cultivation conditions.
+- The positive synthetic-CR2 lag/cell-size finding is acknowledged without claiming native-community action or colonization
+  facilitation. No new CR2 graph node is added. Transit Results/abstract support the output direction; inconsistent
+  discussion BCFA wording is explicitly recorded, not silently combined.
+- Rumen complete fresh main text and captions, selected SIHUMIx/transit primary sections, cached Rifle main text
+  and fresh primary abstracts read with explicit access limits. No figure-pixel, supplement or raw-data certification.28graph/new-discussion
+  quotes match fresh primary text and unchanged caches; literal matches are not entailment. Rifle cached body is
+  not fresh independent full-text verification; XML failures and PMC challenge were not bypassed.
+- Four records changed;456unchangedrecords,923unchangedcaches and all non-graph raw blocks preserved. Five append-only
+  histories including the scope correction. Canonical taxonomy not recertified. No participant-slot fixture change
+  is needed. Actual connectivity census is recorded, not treated as ecological evidence.
+- Eight focused tests and880combined regressions passed, all four whole-record gates and five history gates executed.56network
+  warnings unchanged and zero structural defects. Deterministic rendering and exact HTML description checks are
+  not screenshots; postcommit docs-current is a separate gate. macOS passes do not certify Linux DOI-cache casing1091
+  or loader1703.
+- Fresh all-state issue title/body and ignored/hidden-inclusive local dedup have stated exclusions; matching prior
+  issues read, PRs/comments not exhaustive.1766-1769 stay open until protected-main merge;1770 remains separate
+  non-graph work. No provider spend, new wet-lab protocol or protection bypass. Self-review COMMENT is not independent
+  approval; corpus remains incomplete.
+adversarial_prepublication_fix:
+  issue: 1768
+  details: Make the FG4 excess-acid inhibition node community-scoped and remove its unsupported CSK1 pairwise target.
+    Retain FG4 as source and the existing arrow to community cellulose degradation; no new node, direction or canonical
+    taxon.
+  initial_verification: Interrupted with SIGINT before completion; all final gates rerun from scratch.
+verification:
+  combined_regressions: 880 passed in 285.17s (0:04:45)
+  new_regression_tests: 8
+  total_recorded_gate_outputs: 43
+  preliminary_attempt:
+    status: deliberately_interrupted_for_adversarial_fix
+    recorded_outputs: 23
+    not_final_verification: true
+  primary_graph_snippet_proof:
+    graph_quotations: 20
+    new_discussion_quotations: 8
+    fresh_primary_matches: 28
+    retained_nodes: 14
+    removed_nodes: 2
+    retained_arrows: 6
+    removed_arrows: 4
+    new_nodes_or_directions: 0
+    scope: Complete rumen main text, selected SIHUMIx/transit sections, cached Rifle main text and fresh primary
+      abstracts read. All quotations matched; not automatic entailment or figure-pixel certification.
+  references: Four full-record CLI and local snippet checks executed on macOS,not Linux; DOI-cache casing issue1091
+    remains. Literal matches do not establish entailment; SF356 and Rifle-context fresh sources are abstract bounded;
+    the Rifle main text was read from the maintained cache. CLI Total checks counts issues,not executed checks.
+    Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/Rifle_Uranium_Reducing_Community.yaml:
+      MATCH: 30
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml:
+      MATCH: 42
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/SF356_Cellulose_Degrader.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml:
+      MATCH: 29
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8934
+      categories:
+        MATCH: 8799
+        RENDERING: 20
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 38
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification; literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: Two unsupported nodes and four wrong-system/contradicted/model bridges removed;14nodes6directions
+      retained. All56warnings unchanged,zero structural defects.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch96.yaml: 22afc9eecf18964ffd4346e5f36b77dc7e3596af19113a4db7ba7dcff8cb67b2
+    tests/test_causal_review_batch96.py: 0d44ab0734e36cddaee7d2034e0f72148cba578b5a2215383ee3916ee9bac4c9
+    tests/test_participating_taxa.py: 38d4a7d8cfb31468d07611a053ab6df0c427b52fc57c08e7883e4420af04adfb
+    reports/causal_graph_review/README.md: e8c3b8ecd5f95a8cdf6c77d0ea14ed8b9abbd35c48a7afd3062d01c008f29952
+    reports/causal_graph_review/cache-provenance-20261007-batch96.json: 302437ac65a8988df9cfbefb0dee604b09631a191ebf8806fd01c6ac0164a364
+    kb/communities/Rifle_Uranium_Reducing_Community.yaml: 5232c86c135db06616a847e0d21d7ab88bf15028fc91986af38447c9e7ec5307
+    kb/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml: 410363912e73521cefc995b7bbc58bd97e0390cf4c3197215346dde0aa2bcf80
+    kb/communities/SF356_Cellulose_Degrader.yaml: 0d056f8e6b611f25f39e521ad50507e2c5ef40a4a68a4a6da983d36dd45b5733
+    kb/communities/SIHUMIx_Human_Intestinal_Model_Community.yaml: c2acfe799a9cf91799a1238d5ca2c5b23b7020e6182055aa0cefea75799bfef0
+  unchanged_records: 456
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 762
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Bound existing nodes/directions and remove unsupported/contradicted links. New CR2 or other mechanisms
+      remain outside this repair; no new topology.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 398
+      mixed: 125
+      community_level_only: 273
+      taxa: 1531
+      credited_solely_by_the_rule: 1259
+    current:
+      records: 460
+      with_community_level: 399
+      mixed: 125
+      community_level_only: 274
+      taxa: 1536
+      credited_solely_by_the_rule: 1266
+  delta:
+    records: 0
+    with_community_level: 1
+    mixed: 0
+    community_level_only: 1
+    taxa: 5
+    credited_solely_by_the_rule: 7
+  interpretation: Rifle field processes are now community-scoped with unspecified participants because the canonical
+    taxonomy is not exact source-level membership. Legacy connectivity is not evidence that every canonical member
+    participated.
+corpus:
+  records: 460
+  nodes: 1410
+  edges: 572
+  review_status_counts:
+    needs_research: 48
+    pending: 112
+    reviewed: 300
+limitations:
+- Four whole records and all16originalnodes/10arrows reviewed.14nodes and6existingdirections remain,2nodes and4arrows
+  removed;4nodes renamed.4records changed. No new topology, Edison dryrun/submission or credits.
+- Rifle primary abstract freshly read plus cached main text (all main sections, with the initially truncated Results
+  reread). EuropePMC full-text HTTP500 and PMC challenge left unresolved; cached main text is not fresh independent
+  full-text verification. New graph and discussion quotations nevertheless all match fresh primary abstracts and
+  unchanged caches.
+- Rumen complete fresh main text through Conclusions and embedded captions read. No supplement, raw-data or figure-pixel
+  review; retrieved back matter not a claim of full reference review. Keep separate enrichment/endpoint observations
+  and a PARTIAL mediator direction, not resolved niches or hydrogen transfer.
+- SF356 and CSK1 fresh primary abstracts read; SF356 full-text XML retrieval failed. Positive member-removal-based
+  relationships and the existing metabolite/oxygen feedback remain. Negative effects do not establish reciprocal
+  harm. SYNTROPHY does not require obligacy but is not a synonym for any positive relationship.
+- SIHUMIx fresh abstract/background/cultivation lines1-132, model methods286-329 and expression/results/discussion/conclusions542-736
+  read. Transit study abstract/introduction1-80, results241-268 and369-422, discussion/conclusions484-551 read.
+  Remaining main text, supplements, raw data and figure pixels not reviewed. Positive synthetic-CR2 assay acknowledged
+  in a gap, not expanded into a new graph mechanism.
+- 'Five additional Rifle-context primary abstracts read: wrong-organism transcriptome, two Oak Ridge studies, high-salinity
+  enrichment and D. hippei isolate. These are scope checks, not new Rifle membership evidence. Retrieved source
+  bodies remain local; no new cache or full text published.'
+- All923baselinecaches and456unchangedrecords preserved.5append-only histories. All non-graph raw blocks and canonical
+  taxonomy remain unchanged, not recertified. Unspecified Rifle COMMUNITY_LEVEL participants do not prove every
+  canonical member participated; legacy connectivity remains coarse.
+- Fresh all-state issue title/body dedup and ignored/hidden-inclusive local search performed with .git/docs/site/references_cache
+  excluded; relevant caches separately inspected. Matching1246/939/765/592/529 read and distinct. No exhaustive
+  PR/comment claim. Repair1766-1769 close only after protected-main merge; non-graph1770 stays open.
+- Source-based self-adversarial review is not independent approval or corpus completion. Existing loader1703 and
+  DOI-cache casing1091 remain. Denied/pending Edison scopes unchanged. Validation and publication are not preasserted.

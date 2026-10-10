@@ -55,47 +55,56 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Low-Competition Commensal SynCom Colonization
-  description: A seven-species commensal SynCom was designed by metabolic network reconstruction for low
-    competitive interrelationships and then shown to colonize in vivo.
-  interaction_type: NICHE_PARTITIONING
+  description: A seven-species SynCom selected using metabolic-network criteria was tested for colonization in an
+    AOM-DSS mouse CRC model. Low modeled competition is a design criterion, not demonstrated niche partitioning
+    or isolated evidence that colonization causes F. nucleatum suppression. F. nucleatum and SynCom were mixed before
+    gavage in the combination arm.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Fusobacterium nucleatum Ecological Suppression
-    description: Low-competition commensal colonization lets the designed SynCom occupy the gut model
-      while suppressing Fusobacterium nucleatum growth.
   evidence:
-  - *id001
+  - reference: PMID:40433987
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: A synthetic microbial community (SynCom) is then designed by metabolic network reconstruction, and
+      its performance is validated using coculture experiments and an AOM-DSS induced mouse CRC model.
+    explanation: Supports the defined synthetic community design and represented community context.
 - name: Fusobacterium nucleatum Ecological Suppression
-  description: The colonizing designed SynCom inhibits Fusobacterium nucleatum growth in vitro and promotes
-    F. nucleatum decolonization in the AOM-DSS colorectal cancer model.
-  interaction_type: COMPETITION
+  description: The SynCom inhibited F. nucleatum in vitro and lowered its abundance in the mouse experiment. The
+    paper classifies many pair interactions as exploitation, not reciprocal-negative competition under this schema.
+    Amino-acid supplementation reduced acidity and slowed F. nucleatum decline, supporting context-dependent inhibition
+    rather than tryptophan-enhanced suppression. Co-gavage does not cleanly establish eradication of a previously
+    established infection.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: L-tryptophan
     term:
       id: CHEBI:16828
       label: L-tryptophan
-  downstream:
-  - target: Tryptophan and Secondary Bile Acid Restoration
-    description: Fusobacterium nucleatum decolonization is accompanied by recovery of tryptophan metabolism
-      and secondary bile acid conversion in SynCom-treated mice.
+    notes: Supplementation slowed pathogen decline while reducing acidity; do not infer tryptophan itself enhanced
+      suppression.
   evidence:
-  - *id001
   - reference: PMID:40433987
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: it promotes F. nucleatum decolonization, and enhances tryptophan metabolism and secondary
-      bile acid conversion
-    explanation: Supports the tryptophan metabolic axis associated with SynCom-driven F.
-      nucleatum decolonization and tumor suppression in the mouse CRC model.
+    snippet: A synthetic microbial community (SynCom) is then designed by metabolic network reconstruction, and
+      its performance is validated using coculture experiments and an AOM-DSS induced mouse CRC model.
+    explanation: Supports the defined synthetic community design and represented community context.
+  - reference: PMID:40433987
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: it promotes F. nucleatum decolonization, and enhances tryptophan metabolism and secondary bile acid
+      conversion
+    explanation: Reports pathogen and metabolic outcomes under the same intervention; concurrence does not establish
+      suppression-to-metabolism mediation.
 - name: Tryptophan and Secondary Bile Acid Restoration
-  description: SynCom treatment enhances tryptophan metabolism and secondary bile acid conversion, producing
-    downstream reductions in lipid accumulation and inflammatory reaction.
+  description: SynCom treatment was associated with altered tryptophan metabolism and secondary bile-acid profiles
+    in the mouse model. PARTIAL - the authors propose that these changes contribute to disease outcomes, but metabolite
+    correlations and expression do not establish necessary mediation. The main-text versus figure definitions of
+    the LCA conversion ratio differ, so no numerical conversion direction is inferred here.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: L-tryptophan
@@ -108,19 +117,22 @@ ecological_interactions:
       label: bile acid
   downstream:
   - target: Reduced Inflammation and Tumor Burden
-    description: Restored tryptophan and bile-acid metabolism contributes to lower inflammation and
-      enhanced tumor inhibition in the F. nucleatum-positive colorectal cancer model.
+    description: PARTIAL - altered tryptophan and bile-acid metabolism could contribute to reduced tissue lipid
+      accumulation, inflammation and tumor burden, as proposed by the source. The experiments do not isolate these
+      metabolites as necessary mediators of SynCom benefit or establish clinical efficacy.
   evidence:
   - reference: PMID:40433987
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: enhances tryptophan metabolism and secondary bile acid conversion, leading to reduced
-      lipid accumulation, decreased inflammatory reaction, and enhanced tumor inhibition effect
-    explanation: Supports restored tryptophan and bile-acid metabolism as an upstream metabolic axis
-      for inflammation reduction and tumor inhibition.
+    snippet: enhances tryptophan metabolism and secondary bile acid conversion, leading to reduced lipid accumulation,
+      decreased inflammatory reaction, and enhanced tumor inhibition effect
+    explanation: Supports the authors' mechanistic interpretation; concurrent metabolite and disease changes do
+      not isolate mediation.
 - name: Reduced Inflammation and Tumor Burden
-  description: The bottom-up designed SynCom reduces lipid accumulation, decreases inflammatory reaction,
-    and enhances tumor inhibition in Fusobacterium nucleatum-positive colorectal cancer.
+  description: The SynCom combination arm reduced measured tumor and inflammatory endpoints and tissue lipid accumulation
+    in the F. nucleatum-treated AOM-DSS mouse model. Blood triglyceride reduction was nonsignificant. There was
+    no disease-model SynCom-only arm without F. nucleatum, and these results do not establish efficacy in human
+    colorectal cancer.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
@@ -131,8 +143,8 @@ ecological_interactions:
   - reference: PMID:40433987
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: leading to reduced lipid accumulation, decreased inflammatory reaction, and enhanced
-      tumor inhibition effect
+    snippet: leading to reduced lipid accumulation, decreased inflammatory reaction, and enhanced tumor inhibition
+      effect
     explanation: Supports the disease-model endpoint improved by the designed SynCom.
 environmental_factors:
 - name: metabolic network reconstruction design
@@ -180,7 +192,30 @@ curation_history:
   curator: codex
   action: REPAIR_OBSOLETE_GO_PROCESS
   llm_assisted: true
-  changes: Removed two optional obsolete GO:0006568 links. GO supplies only consider alternatives GO:0000162
-    (L-tryptophan biosynthetic process) and GO:0006569 (L-tryptophan catabolic process); the cited record
-    evidence does not distinguish these directions. Retained all interaction prose, metabolites, downstream
-    links, and evidence without choosing a replacement.
+  changes: Removed two optional obsolete GO:0006568 links. GO supplies only consider alternatives GO:0000162 (L-tryptophan
+    biosynthetic process) and GO:0006569 (L-tryptophan catabolic process); the cited record evidence does not distinguish
+    these directions. Retained all interaction prose, metabolites, downstream links, and evidence without choosing
+    a replacement.
+- timestamp: '2026-10-05T14:25:59Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate CRC intervention outcomes from colonization and metabolic mediation; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1266'
+  llm_assisted: true
+discussions:
+- discussion_id: crc_cogavage_and_metabolite_mediation
+  prompt: Do separated colonization, infection and metabolite interventions establish the proposed causal chain?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Low-Competition Commensal SynCom Colonization
+  - ecological_interactions#Fusobacterium nucleatum Ecological Suppression
+  - ecological_interactions#Tryptophan and Secondary Bile Acid Restoration
+  - ecological_interactions#Reduced Inflammation and Tumor Burden
+  rationale: 'Remove colonization-to-suppression and suppression-to-metabolism arrows: design and concurrent intervention
+    outcomes do not isolate those mechanisms. Retain metabolism-to-disease only as PARTIAL source interpretation.
+    Co-gavage, missing SynCom-only disease-model arm, inconsistent pH correlation wording and LCA ratio definitions
+    limit attribution; model feature importance is not causal mediation. Full main text/captions read, not images
+    or supplements. Seven-species roster recovery remains #1268; obsolete GO:0006568 stays absent (#1213).'
+  posed_by: codex
+  posed_date: '2026-10-05'

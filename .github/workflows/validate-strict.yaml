@@ -12,6 +12,10 @@ on:
     - kb/communities/**
     - prompts/**
     - conf/deep_research_provider.yaml
+    - conf/record_review.yaml
+    - schema/record_review.yaml
+    - reviews/structured/**
+    - docs/record-review*.md
     - data/isolates/**
     - kb/taxa/**
     - .claude/skills/**
@@ -33,12 +37,15 @@ permissions:
 # Keep uv commands on the fleet runtime, including --no-project invocations.
 env:
   UV_PYTHON: "3.13"
+  RECORD_REVIEW_BASE: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha || github.event.before || (github.event_name == 'workflow_dispatch' && 'HEAD') || 'INVALID-REVIEW-BASE' }}
 
 jobs:
   validate-strict:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: extractions/setup-just@v3
 
@@ -94,6 +101,9 @@ jobs:
 
       - name: Run audit-writers
         run: just audit-writers
+
+      - name: Validate structured record reviews
+        run: just test-record-reviews
 
       - name: Run tests
         run: uv run pytest tests/ -q --no-cov

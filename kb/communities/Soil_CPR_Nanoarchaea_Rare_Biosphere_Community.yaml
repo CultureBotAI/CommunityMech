@@ -57,120 +57,73 @@ taxonomy:
       Nanoarchaeota, and Nanohaloarchaeota (DPANN)
     explanation: Supports the soil DPANN archaeal membership.
 ecological_interactions:
-- name: Sub-0.2-Micrometer Soil Concentrate Metagenomics
-  description: >
-    Grassland soil particles small enough to pass a 0.2-micrometer filter were
-    concentrated before metagenomic sequencing to target ultra-small CPR and
-    DPANN cells that standard soil metagenomes rarely recover.
+- name: Rare Soil CPR and DPANN Sequence Detection
+  description: CPR and DPANN sequences were recovered from small-particle concentrates, while paired bulk samples
+    gave low or undetectable coverage and no recovered CPR/DPANN draft genomes. The reported 100- to 1,000-fold
+    enrichment is a sample-processing comparison, not natural population growth. Abundances of roughly 1 to 100
+    cells per gram are coverage-based estimates, not direct counts; nondetection does not establish ecological absence.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: biological process involved in symbiotic interaction
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:34402646
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >
-      size fractionating small particles from soil, an approach typically used
-      for the recovery of viral metagenomes
-    explanation: >
-      Supports small-particle soil fractionation as the targeted recovery
-      strategy.
-- name: Rare CPR-DPANN Draft Genome Recovery
-  description: >
-    Concentrated soil metagenomes yielded 26 low-contamination draft genomes
-    from CPR bacteria or DPANN archaea and recovered no CPR or DPANN genomes
-    from the paired bulk metagenomes.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: biological process involved in symbiotic interaction
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:34402646
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >
-      From these data, we resolved 26 draft genomes that were >70% complete
-    explanation: >
-      Supports recovery of CPR and DPANN draft genomes from the concentrated
-      soil metagenomes.
-- name: Bulk-Soil Rare-Biosphere Enrichment
-  description: >
-    CPR and DPANN genomes were absent or near the detection limit in bulk soil
-    metagenomes, while small-particle concentrates enriched them 100- to
-    1,000-fold and exposed lineages estimated at 1 to 100 cells per gram of
-    soil.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: biological process involved in symbiotic interaction
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
   evidence:
   - reference: PMID:34402646
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: enriched 100- to 1,000-fold compared to that in bulk soil
-    explanation: >
-      Supports the rare-biosphere enrichment factor of the size-fractionated
-      concentrates.
-- name: Reduced Symbiont Metabolic Profiles
-  description: >
-    Most recovered CPR and DPANN genomes lacked extensive lipid, nucleotide,
-    TCA-cycle, and electron-transport pathways, supporting anaerobic symbiotic
-    lifestyles that depend on resources from nearby soil organisms.
+    explanation: Supports technical relative enrichment in the recovered fraction, not biological population expansion.
+  - reference: PMID:34402646
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: we estimate each of these organisms comprises approximately 1 to 100 cells per gram of soil
+    explanation: The source explicitly reports an estimate, not a direct cell count.
+- name: Reduced Genomic Inventories and Hypothesized Resource Dependence
+  description: 'HYPOTHESIZED: reduced metabolic inventories in most recovered CPR and DPANN draft genomes suggest
+    dependence on resources from other organisms. Incomplete genomes and uncharacterized functions limit absence-based
+    inference. No partner, transfer route or neutral effect on a host was demonstrated, so this is not assigned
+    a commensal fitness relationship.'
   scope: COMMUNITY_LEVEL
-  interaction_type: COMMENSALISM
-  biological_processes:
-  - preferred_term: biological process involved in symbiotic interaction
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
   evidence:
   - reference: PMID:34402646
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >
-      suggesting they live anaerobic lifestyles and depend on resources from
-      other organisms
-    explanation: >
-      Supports symbiont-like metabolic dependence in the recovered CPR and
-      DPANN genomes.
-- name: Soil CPR Ubiquinol-Oxidase Capacity
-  description: >
-    Doudnabacteria, Saccharibacteria, Parcubacteria, and unbinned CPR
-    sequences carried cytochrome bo3 ubiquinol terminal oxidase operons that
-    appear to have been acquired laterally during adaptation to oxic soil.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: 'suggesting they live anaerobic lifestyles and depend on resources from other organisms
+
+      '
+    explanation: Supports a genome-based resource-dependence hypothesis, not measured transfer or an unaffected
+      host.
+    computational_provenance:
+      prediction_type: OTHER
+      model_source: Comparative metabolic inventories of the recovered CPR and DPANN draft genomes in the primary
+        study.
+- name: Predicted Respiratory Components in Soil CPR
+  description: 'Specific soil CPR lineages carried predicted respiratory components; the claim is not extended to
+    DPANN or every CPR lineage. HYPOTHESIZED: these components may support some aerobic respiratory activity. Missing
+    quinone-biosynthesis genes and incomplete assemblies limit that inference. Phylogenetic analysis suggests lateral
+    acquisition, but neither realized respiration nor an adaptive benefit in soil was measured.'
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: aerobic respiration
-    term:
-      id: GO:0009060
-      label: aerobic respiration
   evidence:
   - reference: PMID:34402646
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >
-      acquired aerobic capacity via lateral transfer that may enable adaptation
-      to oxic soil environments
-    explanation: >
-      Supports laterally acquired aerobic capacity as an adaptation of soil
-      CPR bacteria.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: suggests the possibility of some aerobic respiratory capacity
+    explanation: Supports a qualified genome-based functional hypothesis rather than demonstrated respiration.
+    computational_provenance:
+      prediction_type: PHYLOGENETIC_INFERENCE
+      model_source: Comparative genomic inventories and the primary study maximum-likelihood phylogeny; supplementary
+        software details were not independently reviewed.
   - reference: PMID:34402646
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Soil Candidate Phyla Radiation Bacteria Encode Components of
-      Aerobic Metabolism
-    explanation: Supports the aerobic-metabolism component finding.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: This analysis suggests that this gene cluster has been laterally transferred from other bacteria
+    explanation: Supports phylogenetic inference of lateral transfer rather than observed historical acquisition
+      or measured fitness.
+    computational_provenance:
+      prediction_type: PHYLOGENETIC_INFERENCE
+      model_source: Comparative genomic inventories and the primary study maximum-likelihood phylogeny; supplementary
+        software details were not independently reviewed.
+  participating_taxa:
+  - preferred_term: soil Candidate Phyla Radiation (CPR) bacteria
+    term:
+      id: NCBITaxon:1783273
+      label: Patescibacteria group
 environmental_factors:
 - name: Particle size filtration
   value: < 0.2 micrometer fraction
@@ -213,7 +166,36 @@ curation_history:
 - timestamp: '2026-10-02T06:04:09Z'
   curator: codex
   action: REPAIR_CAUSAL_GRAPH
-  changes: Removed four soil CPR/DPANN metagenomic workflow edges from
-    size-fractionation, draft-genome recovery, and reduced-metabolism profile
-    nodes to later rare-biosphere or cytochrome bo3 findings.
+  changes: Removed four soil CPR/DPANN metagenomic workflow edges from size-fractionation, draft-genome recovery,
+    and reduced-metabolism profile nodes to later rare-biosphere or cytochrome bo3 findings.
   llm_assisted: true
+- timestamp: '2026-10-07T23:24:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain sequence detection and estimated rarity; distinguish technical enrichment from growth and nondetection
+    from absence.; Retain inferred resource dependence without an unmeasured commensal fitness sign.; Scope predicted
+    respiratory components to CPR and separate genomic/phylogenetic inference from realized function and adaptation.
+    Issue#1806; reports/causal_graph_review/decisions/20261007-four-records-batch102.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: cpr_causal_attribution_batch102
+  prompt: Which ecological partners and realized functions correspond to the reduced soil CPR/DPANN genomic inventories?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Rare Soil CPR and DPANN Sequence Detection
+  - ecological_interactions#Reduced Genomic Inventories and Hypothesized Resource Dependence
+  - ecological_interactions#Predicted Respiratory Components in Soil CPR
+  rationale: The complete primary main text was read. It presents metabolic and phylogenetic inferences, while explicitly
+    leaving ecological roles unclear. Co-occurrence does not establish a CPR-DPANN partnership, and detection of
+    respiratory components does not demonstrate activity or adaptive benefit. Evidence resolving actual partners,
+    resource use and function in the sampled lineages remains necessary. Supplementary methods and raw data were
+    not inspected.
+  posed_by: codex
+  posed_date: '2026-10-07'
+  evidence:
+  - reference: PMID:34402646
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: While the precise ecological roles of these organisms remain unclear
+    explanation: The primary discussion explicitly leaves ecological roles unresolved.

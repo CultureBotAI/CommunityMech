@@ -118,13 +118,13 @@ taxonomy:
       Collection
     explanation: Identifies the E. coli ATCC 25922 bacterial member.
 ecological_interactions:
-- name: E. coli glucose competition imposes F. betulina carbon stress
-  description: >-
-    When E. coli ATCC 25922 was added to 3-day F. betulina liquid MEB cultures,
-    glucose fell to zero within 1 day after bacterial addition, F. betulina dry
-    biomass dropped from about 60 mg in monoculture to 34 mg in coculture, and
-    RNA-seq after 3 days of coculture showed broad F. betulina differential
-    expression consistent with carbon depletion and metabolic stress.
+- name: E. coli-Associated Glucose Depletion and F. betulina Stress
+  description: 'PARTIAL: E. coli addition to established F. betulina liquid MEB cultures was followed by glucose
+    depletion within one day, fungal biomass of 34 mg (reported as 44% lower), and stress-related fungal transcription
+    after three days of coculture. These observations support nutrient competition as an interpretation, but the
+    inspected selected primary excerpts do not describe selective glucose rescue establishing mediation. BGC expression
+    indicates transcriptional response, not production or identification of an active secreted metabolite. Endpoint
+    bacterial counts were not reduced in this liquid assay.'
   interaction_type: COMPETITION
   scope: PAIRWISE
   source_taxon:
@@ -146,24 +146,28 @@ ecological_interactions:
   - reference: doi:10.64898/2026.09.14.751415
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      the glucose concentration was reduced to zero within 1 day
-    explanation: Supports rapid E. coli-associated glucose depletion in liquid coculture.
+    snippet: the glucose concentration was reduced to zero within 1 day
+    explanation: Measured glucose depletion after bacterial addition; the causal explanation remains PARTIAL without
+      a selective rescue described in the inspected excerpts.
   - reference: doi:10.64898/2026.09.14.751415
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      the growth of F. betulina was reduced to 34 mg dry weight
-    explanation: Supports the reduced F. betulina biomass in liquid coculture.
+    snippet: the growth of F. betulina was reduced to 34 mg dry weight
+    explanation: Measured fungal dry-biomass reduction, not a uniquely isolated glucose-mediated mechanism.
+  - reference: doi:10.64898/2026.09.14.751415
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The bacterial count on agar medium at the end of the experiment did not reveal any impact of the coculture
+      on the bacterial growth.
+    explanation: Counts from the liquid experiment distinguish its bacterial endpoint from the separate agar inhibition
+      phenotype.
 - name: F. betulina distal inhibition of E. coli on malt extract agar
-  description: >-
-    In malt extract agar confrontation plates, F. betulina CIRM-BRFM 860 formed
-    a visible zone that inhibited E. coli ATCC 25922 growth at a distance from
-    the fungal mycelium. LC-MS metabolomics of media plugs from the inhibition
-    zone detected enriched Sumiki's-acid-derivative, calcium-diformate, and
-    sulfuric-acid features, and the authors linked the zone to local medium
-    acidification rather than to detectable piptamine production.
-  interaction_type: COMPETITION
+  description: 'F. betulina inhibited distal E. coli growth on malt extract agar. Inhibition-zone UHPLC-HRMS features
+    were putatively identified as a Sumiki''s acid derivative, calcium diformate and sulfuric acid; these are not
+    confirmed active compounds. HYPOTHESIZED: acid-associated local pH changes mediate inhibition. The inspected
+    selected excerpts describe a pH gradient but no selective neutralization or defined-compound rescue establishing
+    necessity. Piptamine was not detected under these conditions, not shown to be universally absent. This agar
+    phenotype is distinct from liquid-culture stress transcription and unchanged endpoint bacterial counts.'
   scope: PAIRWISE
   source_taxon:
     preferred_term: Fomitopsis betulina CIRM-BRFM 860
@@ -179,10 +183,15 @@ ecological_interactions:
   - reference: doi:10.64898/2026.09.14.751415
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      We observed a clear inhibition of the bacterial growth at distance from
-      the mycelium
+    snippet: We observed a clear inhibition of the bacterial growth at distance from the mycelium
     explanation: Supports distal inhibition of E. coli in the agar confrontation assay.
+  - reference: doi:10.64898/2026.09.14.751415
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: The features detected in the inhibition zone were putatively identified as a Sumiki's acid derivative,
+      calcium diformate, and sulfuric acid.
+    explanation: Preserves tentative metabolite identification; feature association does not establish the active
+      inhibitory molecule.
 growth_media:
 - name: malt extract broth liquid coculture
   temperature: '30'
@@ -248,8 +257,31 @@ curation_history:
 - timestamp: '2026-09-28T01:39:09Z'
   curator: codex
   action: CREATE_RECORD
-  changes: >-
-    Created a doi:10.64898/2026.09.14.751415-backed Fomitopsis betulina CIRM-BRFM
-    860 and Escherichia coli ATCC 25922 coculture record with agar inhibition
-    and liquid glucose-competition evidence from the accessible bioRxiv PDF.
+  changes: Created a doi:10.64898/2026.09.14.751415-backed Fomitopsis betulina CIRM-BRFM 860 and Escherichia coli
+    ATCC 25922 coculture record with agar inhibition and liquid glucose-competition evidence from the accessible
+    bioRxiv PDF.
   llm_assisted: true
+- timestamp: '2026-10-06T10:43:40Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain liquid glucose depletion and fungal stress with PARTIAL nutrient-competition mediation.; Retain
+    observed distal agar inhibition with putative identities and HYPOTHESIZED acid mediation; no cross-regime arrow.
+    Issue #1460; reports/causal_graph_review/decisions/20261006-three-records-batch41.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: fomitopsis_regime_specific_mediators
+  prompt: Which mediators cause liquid fungal stress and separate agar bacterial inhibition?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#E. coli-Associated Glucose Depletion and F. betulina Stress
+  - ecological_interactions#F. betulina distal inhibition of E. coli on malt extract agar
+  rationale: 'Selected primary preprint excerpts support measured glucose depletion, fungal biomass loss and transcription
+    in liquid, versus distal bacterial inhibition and putative acid features on agar. No selective glucose rescue
+    or pH neutralization is described in those excerpts; the full paper was not re-read because the public PDF request
+    returned HTTP 429, so this is not a claim of universal experimental absence. Piptamine nondetection is condition-specific;
+    BGC induction is not active-product identification. Preserve two nodes and zero arrows rather than connect different
+    assay regimes. Prior cache-support fixes #1169/#1170/#1171 and the natural-partner caveat removal #1173 remain
+    intact.'
+  posed_by: codex
+  posed_date: '2026-10-06'

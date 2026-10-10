@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        laboratory PET degradation culture
+                        laboratory PET degradation culture<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -454,7 +462,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus subtilis 168 Bs_PETase</strong>
+                            <strong>Bacillus subtilis 168 Bs_PETase<span class="ontology-label"> — ontology label: Bacillus subtilis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1423"
@@ -507,7 +515,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus subtilis 168 Bs_MHETase</strong>
+                            <strong>Bacillus subtilis 168 Bs_MHETase<span class="ontology-label"> — ontology label: Bacillus subtilis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1423"
@@ -677,12 +685,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for PET Artificial Four-Species Degradation Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, competition, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding, competition. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -700,8 +709,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -710,8 +719,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>PETase-MHETase Depolymerization Module</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">Two engineered B. subtilis strains secrete complementary extracellular PETase and MHETase, converting PET through MHET to TPA and EG. The paired module degrades BHET faster than Bs_PETase alone, and the two-member consortium degraded 13.6% of PET film after 7 days in LB. This enzyme division of labor does not establish nutrient uptake by the MHETase-producing Bacillus itself.</p>
 
 
                 <p><strong>Source Taxon:</strong> Bacillus subtilis 168 Bs_PETase</p>
@@ -739,10 +748,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Rhodococcus TPA Detoxification Module
+                        <p class="prewrap causal-description">MHETase releases terephthalic acid from MHET, creating the inhibitory PET hydrolysis product consumed by Rhodococcus jostii RHA1.</p>
                     </div>
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Pseudomonas EG Detoxification Module
+                        <p class="prewrap causal-description">MHETase also releases ethylene glycol from MHET, creating the inhibitory PET hydrolysis product consumed by Pseudomonas putida KT2440.</p>
                     </div>
 
                 </div>
@@ -787,6 +798,7 @@
                     <h3>Rhodococcus TPA Detoxification Module</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">R. jostii RHA1 completely degraded 2 g/L TPA within 28 h in the standalone assay. Exogenous TPA inhibited degradation and bacterial growth; adding RHA1 lowered TPA during BHET hydrolysis and improved three-member PET-film weight loss to 31.2% after 7 days in Results, not the 3 days stated in the abstract. These assays support product-inhibition relief, without directly isolating enzyme secretion as its only mediator.</p>
 
 
                 <p><strong>Source Taxon:</strong> Bacillus subtilis 168 Bs_MHETase</p>
@@ -824,7 +836,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Four-Species PET Film Degradation
+                        <span class="flow-arrow">→</span> Four-Member PET Film Degradation
+                        <p class="prewrap causal-description">PARTIAL - RHA1 utilization removes inhibitory TPA produced by the Bacillus module, supporting the four-member degradation design. Standalone consumption, exogenous-product inhibition and consortium comparisons support this mechanism, but do not isolate its quantitative contribution to the optimized Wn-film endpoint or directly measure enzyme-secretion mediation.</p>
                     </div>
 
                 </div>
@@ -843,7 +856,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"adding R. jostii to reduce the inhibition caused by terephthalic acid (TPA), a breakdown product of PET"</div>
+                        <div class="snippet">"R. jostii RHA1 was verified to degrade TPA efficiently, with 2 g/L TPA being completely degraded within 28 h"</div>
 
                     </li>
 
@@ -856,7 +869,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"The weight of PET film was reduced by 31.2% within 3 days"</div>
+                        <div class="snippet">"After 7 days, 31.2 ± 2.2% of PET was degraded by the three-species microbial consortium"</div>
 
                     </li>
 
@@ -869,6 +882,7 @@
                     <h3>Pseudomonas EG Detoxification Module</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">P. putida KT2440 was reported to degrade 2 g/L EG within 20 h before addition to the four-member consortium. Exogenous EG inhibited PET hydrolysis but had little effect on bacterial growth. TPA and EG did not accumulate during the reported 2 g/L BHET assay; this is not a PET-film mass balance or proof of complete mineralization, and PET-film TPA transiently increased on day 3.</p>
 
 
                 <p><strong>Source Taxon:</strong> Bacillus subtilis 168 Bs_MHETase</p>
@@ -906,7 +920,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Four-Species PET Film Degradation
+                        <span class="flow-arrow">→</span> Four-Member PET Film Degradation
+                        <p class="prewrap causal-description">PARTIAL - KT2440 provides EG utilization for the four-member design and can remove an inhibitory hydrolysis product. The study supports EG consumption and product inhibition separately, but changed medium and inoculum prevent assigning the film-weight-loss difference solely to EG removal; four-member film loss was below the three-member LB result.</p>
                     </div>
 
                 </div>
@@ -925,7 +940,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"P. putida was introduced to reduce the inhibition caused by ethylene glycol"</div>
+                        <div class="snippet">"After preliminarily verifying the ability of P. putida KT2440 to completely degrade 2 g/L of EG within 20 h"</div>
 
                     </li>
 
@@ -951,6 +966,7 @@
                     <h3>Nutrient-Mediated Competition Control</h3>
                     <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">P. putida dominated recoverable growth after 24 h in rich-media cocultures, motivating a nutrient-poor W-derived medium and inoculum optimization. Wn supplementation and a strongly reduced P. putida inoculum allowed four-member PET degradation; these manipulations do not demonstrate durable coexistence, a unique resource-competition mechanism or species-resolved abundance throughout the 7 day assay.</p>
 
 
 
@@ -976,7 +992,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Four-Species PET Film Degradation
+                        <span class="flow-arrow">→</span> Four-Member PET Film Degradation
+                        <p class="prewrap causal-description">PARTIAL - Medium and inoculum changes constrain the observed P. putida overgrowth and enable measurable four-member PET degradation. The optimized consortium response is experimentally supported, but durable population stability and the separate mediation of each nutrient adjustment were not demonstrated.</p>
                     </div>
 
                 </div>
@@ -1008,7 +1025,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"obtaining a four-species microbial consortium"</div>
+                        <div class="snippet">"only P. putida was found."</div>
 
                     </li>
 
@@ -1018,9 +1035,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Four-Species PET Film Degradation</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Four-Member PET Film Degradation</h3>
                 </div>
+                <p class="prewrap interaction-description">The four-member consortium contains two engineered B. subtilis strains, R. jostii RHA1 and P. putida KT2440: three species, not four. Optimized Wn conditions at 37 C and starting ratio 3:1:10:10^-5 produced 23.2% PET-film weight loss in 7 days. The same-medium comparison supports improved degradation over the two-member module, while the three-member LB consortium achieved 31.2%. Weight loss and metabolite assays do not establish complete carbon mineralization or absence of every intermediate.</p>
 
 
 
@@ -1084,7 +1101,20 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"With the four-species consortium, the weight loss of PET film reached 23.2% under ambient temperature."</div>
+                        <div class="snippet">"The most suitable temperature was 37°C"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/35003008/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:35003008</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"a degradation rate of 23.2 ± 2.3%."</div>
 
                     </li>
 
@@ -1148,6 +1178,45 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How much of four-member PET degradation is mediated by each product-utilization module under matched medium and inoculum conditions?
+                </h3>
+                <p class="prewrap">Five existing arrows remain as supported biochemical links or bounded contribution inferences. Preserve inhibition perturbations, standalone consumption and film degradation; distinguish BHET from PET, the abstract timing error, rich versus Wn media and transient TPA. Mineralization, durable coexistence and isolated EG-mediated improvement need additional evidence.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#PETase-MHETase Depolymerization Module</code>, <code>ecological_interactions#Rhodococcus TPA Detoxification Module</code>, <code>ecological_interactions#Pseudomonas EG Detoxification Module</code>, <code>ecological_interactions#Nutrient-Mediated Competition Control</code>, <code>ecological_interactions#Four-Member PET Film Degradation</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/35003008/" rel="nofollow noreferrer">PMID:35003008</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">After 7 days, 31.2 ± 2.2% of PET was degraded by the three-species microbial consortium</p>
+                        <p class="muted small prewrap">Results timing and endpoint supersede the conflicting three-day abstract wording.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1392,12 +1461,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1410,7 +1482,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1478,7 +1549,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1628,7 +1699,7 @@
 
         (function() {
             var intId = "interaction:4";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1645,11 +1716,11 @@
             processes.push("biological process involved in interspecies interaction between organisms");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Four-Species PET Film Degradation",
+                label: "Four-Member PET Film Degradation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1690,6 +1761,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

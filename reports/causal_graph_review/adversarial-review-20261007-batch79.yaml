@@ -1,0 +1,244 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: d9da91dd8003dc1958f1d13a30cd3b957e3bf5a4
+scope:
+- kb/communities/Oak_Ridge_FRC_Uranium_Nitrate_Groundwater_Community.yaml
+- kb/communities/Ogataea_Met10_Str3_Sulfur_CrossFeeding_Coculture.yaml
+- kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+- kb/communities/Optimized_Rumen_Fiber_Degrading_SynCom3.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch79.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch79.json
+findings:
+- issue: 1652
+  severity: P2
+  status: addressed_in_this_change
+  finding: Oak Ridge species/chemistry and cross-study redox overclaims.
+  disposition: Close only after protected-main merge.
+- issue: 1653
+  severity: P2
+  status: addressed_in_this_change
+  finding: Ogataea nutrient rescue versus inferred exchange and endpoint bias.
+  disposition: Close only after protected-main merge.
+- issue: 1654
+  severity: P2
+  status: addressed_in_this_change
+  finding: Okeke isolate hydrolases versus proposed consortium synergy.
+  disposition: Close only after protected-main merge.
+- issue: 1655
+  severity: P2
+  status: addressed_in_this_change
+  finding: Rumen formulation, genome inference and animal-level assay boundaries.
+  disposition: Close only after protected-main merge.
+- issue: 1656
+  severity: P2
+  status: unresolved_research
+  finding: Missing Ogataea input-to-outcome and proposed exchange topology.
+  disposition: Keep OPEN after repair merge; source access and scoped causal-research workflow remain incomplete.
+- issue: 1657
+  severity: P2
+  status: unresolved_research
+  finding: Okeke authorized full-text comparison and mechanism detail.
+  disposition: Keep OPEN after repair merge; source access and scoped causal-research workflow remain incomplete.
+- issue: 1658
+  severity: P2
+  status: unresolved_non_graph
+  finding: Identity, origin, medium and provenance metadata.
+  disposition: Keep OPEN after graph-repair merge.
+adversarial_checks:
+- Fresh baseline across kb/communities and data/isolates preceded papers. Whole records and every12existing node/4arrow
+  were read. One cross-study arrow removed and three bounded arrows retained. Sparse graphs remain in scope; topology
+  is not invented to satisfy density.
+- Oak Ridge has real isolate perturbation evidence for field selection, not merely a correlation. Preserve eight
+  resistant contaminated-well Rhodanobacter isolates and186uncontaminated-well comparator isolates, recognizing
+  provenance confounding. Neutral-pH resistance of some Pseudomonas strains prevents a universal genus-susceptibility
+  claim.
+- Low pH plus seven metal ions is eight selective ions including protons. Nitrate is correlated/toxic but not selectively
+  inhibitory in the assayed pair; it may be an electron acceptor. Organic carbon and speciation alter thresholds,
+  and no direct in situ perturbation was done. Preserve the selection arrow with these limits.
+- Correct uranyl to official ChEBI43515, not free uranium6+. Remove the unproved species-specific source annotation
+  from genus enrichment while preserving canonical taxonomy. Field clone-library redox potential is not flux or
+  cross-feeding; remove tolerance-to-redox-guild coupling between different studies. Do not transfer isolate R2A
+  culture conditions to the field community.
+- Ogataea growth complementation is a positive result on glucose and methanol. The27.3-28.5range covers two pairs
+  and does not establish significant superiority over FY00; methanol remains below FY00. Distinguish fluorescent
+  tracking derivatives FY31/FY34 from all screening strains, preserving canonical labels and OD600medium evidence.
+- Retain the directed sulfur-exchange model as hypothesized. Single-strain supplement rescue proves differential
+  use of the tested compounds, not secretion or transfer. No rescue by sodium sulfide is not proof of a particular
+  toxicity mechanism. Figure1/5schematics do not override the explicit isotope/metabolomics research gap.
+- 'Controlled initial ratios affect growth: low initial met10fraction gives higher biomass, high met10ratios grow
+  weakly while remaining biased. Endpoint met10bias is not necessarily increasing fraction in every culture, identical
+  final ratio, equal establishment or long-term stability. Keep ratio biology without an unisolated mutualism annotation.'
+- Okeke isolate filter-paper cellulase, beta-glucosidase, xylanase and beta-xylosidase are positive measured results,
+  and five-isolate consortium construction is retained. Accessible abstract proposes broad processing benefit rather
+  than quantifying synergy. Keep both contribution arrows as hypotheses; no obligate syntrophy, lignin degradation
+  or demonstrated product-inhibition relief inferred.
+- Okeke normal publisher subscription preview and field publisher403 are respected. Inaccessible full text does
+  not prove experiments absent. Three full primary main bodies, captions and three further abstracts read; no separate
+  supplements, original figure pixels or raw datasets inspected. Whitespace-only primary/cache matching verifies21quotations
+  but does not replace entailment review.
+- Rumen Group41 preserves significant66.84%48hNDFD and20.56%reported relative improvement. Null DMD/gas in optimized
+  five-member group must not inherit initial seven-member gas improvement. Concentrations are added-suspension descriptors,
+  not final-bottle doses. Filtration-sterilized rumen fluid is not silently recast as a native living microbiota
+  inoculum.
+- Rumen CAZy/COG/KEGG annotations,47GH/19CBMfamily breadth and existing Fig7evidence survive. These predict function
+  without measuring expression, metabolic exchange or pathway mediation. The in vitro-to-cattle workflow arrow stays
+  removed.
+- Cattle DM/NDF/ADF72htrends are nonsignificant despite broader source conclusions. Preserve early negative and
+  later positive VFA effects, null propionate and lower NH3-N. Six cattle means three animals per treatment, not
+  nine independent animals from three bags each. No durable engraftment or gene-to-outcome causality asserted.
+- All456other records,920caches, canonical membership and raw non-graph blocks preserved; four new append-only histories.
+  Prior258/650/981/1149/1150/1151repairs maintained. Metadata1658 remains open, including documented provenance-vocabulary
+  inconsistency despite passing baseline gates; no nonexistent validation failure claimed.
+- Ogataea missing topology remains1656with one11815character Edison LITERATURE dry run, zero provider submissions/credits
+  and unanswered scoped approval. Okeke authorized full-text review remains1657. Repair1652-1655issues stay OPEN
+  until protected-main merge; research/metadata remain afterward. Self-review is COMMENT, not independent approval
+  or corpus completion.
+- All focused gates, both-root inventory/network/rank, related regressions and deterministic rendering have actual
+  logs/digests. Exact descriptions parsed across456pages are not browser screenshots. Postcommit docs-current and
+  remote exact-head COMMENT are separate publication gates; protected lifecycle must preserve dependent branches.
+verification:
+  combined_regressions: 706 passed in 206.85s (0:03:26)
+  new_regression_tests: 10
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: All four full-record reference validators exit0. CLI Total checks counts issues, not executed checks.
+    All21 graph quotations independently match fresh primary text and unchanged cache. Literal matching is not entailment.
+    Three main bodies and three further primary abstracts were read; no recertification of every cache or non-graph
+    field.
+  snippet_counts_by_record:
+    kb/communities/Oak_Ridge_FRC_Uranium_Nitrate_Groundwater_Community.yaml:
+      MATCH: 18
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Ogataea_Met10_Str3_Sulfur_CrossFeeding_Coculture.yaml:
+      MATCH: 28
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml:
+      MATCH: 16
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Optimized_Rumen_Fiber_Degrading_SynCom3.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    primary_matched: 21
+    new_nodes_or_arrows: 0
+    complete_main_bodies_read: 3
+    other_primary_abstracts_read: 3
+    separate_supplements_raw_datasets_original_figure_pixels_audited: false
+  network:
+    existing_findings_preserved: 44
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All44 baseline warnings preserved exactly. Community scope remains aggregate, not resolved member-specific
+      activity. No taxonomy or auditor-rule changes.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch79.yaml: 9dd19980fd51ff6885a8be6faf1aa5245931b8fb7b0adf4723fbdfa74ae3bb30
+    tests/test_causal_review_batch79.py: 6d0b452c6d10a5e31e0676a53a68bbcb070aa8a732e9c54d4ac037ca7e779bde
+    kb/communities/Oak_Ridge_FRC_Uranium_Nitrate_Groundwater_Community.yaml: fd8891c4ada299a06c57062e47f8598fc7f5a1755fc2e1241255c44cff6211d4
+    kb/communities/Ogataea_Met10_Str3_Sulfur_CrossFeeding_Coculture.yaml: 5feb6042f2cf7da47745ea846cab0dba57cd50b9fef9aa20a8ab60eb849e805e
+    kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml: 1992cf47e5fd154a6684b025a6117d7f10398c65beb8d8e5f65e8e2115ab8f42
+    kb/communities/Optimized_Rumen_Fiber_Degrading_SynCom3.yaml: ee1333388f5d7353daf7713abf744220accf40a855bdbe8b66389f9b7c5031c6
+    reports/causal_graph_review/README.md: faa44482b4add8042bc2009a0ad83e019900845dab2dcb48eb729d124336096a
+  unchanged_caches: 920
+  cache_changes: []
+  unchanged_records: 456
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: true
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs:
+    - community_id: CommunityMech:000450
+      job: LITERATURE
+      query_chars: 11815
+      query_sha256: a1e91a88b4aaed8fe5fc8395f825150219e6441e7fc25119475e865b6ebe0cc7
+      meta_path: /private/tmp/communitymech-batch79/edison-ogataea/Ogataea_Met10_Str3_Sulfur_CrossFeeding_Coculture-edison-literature-causal-meta.yaml
+      authorization: Scoped asynchronous question unanswered; preselection is not approval.
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+    current:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: No scope-count change, taxonomy edit, or auditor-rule change. Aggregate outcomes do not establish
+    member-resolved activity.
+corpus:
+  records: 460
+  nodes: 1447
+  edges: 613
+  review_status_counts:
+    needs_research: 32
+    pending: 176
+    reviewed: 252
+limitations:
+- Fresh pre-paper baseline covers460 records and920 caches across both roots, including ignored/hidden files. Every12
+  existing node and4arrow was reviewed;12nodes3arrows remain. Four guarded repairs/history events;456 other records
+  and all920 caches unchanged.
+- 'Three complete primary main bodies read from fresh Europe PMC XML: metal-tolerance, Ogataea and rumen papers.
+  Captions read; no embedded main-text tables in these XML files. Field clone-library, Rhodanobacter taxonomy and
+  Okeke sources read at primary-abstract scope. No separate supplements, raw datasets or original figure pixels
+  audited.'
+- Normal Okeke publisher access confirms subscription preview; field publisher403 and Microbiology Society full-text
+  delivery failure respected. No access restriction bypass. Existing Okeke cache is abstract-only; inaccessible
+  full text does not establish absence of experiments.
+- All21 graph quotations independently match primary text and unchanged cache with whitespace-only comparison. Literal
+  matching is not entailment. Early oversized combined/cache reads were truncated; fresh main texts were read in
+  bounded chunks, and no absence finding relies on truncated output.
+- Oak Ridge retains experimentally supported selection, not mere unqualified correlation. Isolate provenance, pH,
+  mixture effects, organic matter and ion speciation bound transfer to field conditions. Nitrate toxicity was not
+  selective in the strain comparison; genus enrichment is not species identity or redox flux. Official ChEBI confirms
+  uranyl is43515, not free uranium6+.
+- Ogataea retains cooperative growth, actual nutrient rescue and controlled ratio effects. Directed metabolite exchange
+  is hypothesized, not measured. Two-pair OD range, methanol shortfall, distinct labeled tracking strains and weak-growth
+  high-met10 ratios are explicit; endpoint bias is not identical convergence or long-term stability.
+- Okeke positive isolate hydrolases and five-member construction remain. Both proposed hydrolytic-contribution arrows
+  are retained as hypotheses; accessible abstract does not quantify synergy, product-inhibition relief or lignin
+  degradation. Full-text acquisition remains needs_research, not a declaration of no experiments.
+- Rumen significant optimized in vitro NDFD, predicted gene complement and time-dependent cattle fermentation are
+  preserved. Initial seven-member gas effects differ from final five-member null gas result. Inoculum is not final
+  bottle concentration; bags are subsamples of three cattle per group. Nonsignificant72h fiber trends are not proven
+  improvement. No genome-to-outcome or workflow arrow added.
+- One Ogataea Edison LITERATURE dry run used zero provider submissions/credits. Scoped paid question unanswered.
+  Missing input/outcome and exchange-to-rescue structure stays1656; Okeke full-text follow-up1657 requires its own
+  workflow if new topology becomes justified. Earlier denied/pending scopes unchanged.
+- Dedup searched933 all-state issue titles/bodies and25 ignored/hidden-inclusive local matched files, excluding
+  git/docs/site/cache. Matching258/650/981/1149/1150/1151 read; no exhaustive PR-comment audit. Prior field-community,
+  medium, canonical-strain, Figure7 evidence and dangling/workflow-arrow fixes preserved.
+- 'Repair issues1652-1655 remain OPEN until protected-main merge; research1656/1657 and metadata1658 remain OPEN
+  afterward. Canonical membership and raw non-graph blocks are preserved, not certified. Rumen documented vocabulary
+  inconsistency is not a claimed gate failure: baseline schema and strict checks passed. Self-adversarial review
+  is not independent approval or corpus completion.'

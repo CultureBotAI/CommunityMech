@@ -1,0 +1,478 @@
+# PR 1228: relevance and adversarial review
+
+- Review: 20261010T074346Z-pr1228-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-10T07:43:46Z
+- Finished UTC: 2026-10-10T07:43:46Z
+- Reviewer: codex (unknown)
+- Completion: partial
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Still relevant, not merge-ready: both new communities are absent from current main; two confirmed PHA evidence/context findings and four conflict paths require attention.
+
+## Scope And Provenance
+
+Risk-focused review of PR 1228 against current main 01013cc1776136f2fc4a36a761b0d8c338e3a706.
+
+Selection: Maintained implementation, generated-artifact provenance, and source-backed record assertions implicated by the PR.
+Coverage: partial; 5 reviewed / 20 in the declared population.
+Source: git_commit at Git base 3d5c4da574530392b63d0d3a852426878af1dc95.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| pha | kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml | maintained | pha |
+| alseth | kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml | maintained | alseth |
+| schema | src/communitymech/schema/communitymech.yaml | maintained | schema |
+| guide | docs/PHAGE_BACTERIA_GUIDE.md | maintained | guide |
+| corpus-tests | tests/test_network_palette.py | maintained | corpus-tests |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| strict-records | passed | True | pha, alseth, schema | Both new records pass local strict schema/cross-field validation with zero error rows. NCBITaxon-backed checks were unavailable and are not included in this pass. |
+| network-records | passed | True | pha, alseth | NetworkIntegrityAuditor.audit_community returns no findings for either new record. Five nodes each; three Alseth edges and one PHA edge; no dangling/self edges. |
+| primary-source-assessment | failed | True | pha | Two confirmed semantic/context defects in the PHA record remain open. |
+| ontology-and-complete-reference-gates | unavailable | True | pha, alseth | Full ontology-backed labels/GTDB and the complete reference-validator command were not run. Cached full text plus live primary sources were inspected for the reported findings. |
+| main-integration | failed | True | schema, corpus-tests | Four merge-conflict paths: browser HTML, generated datamodel, GTDB coherence baseline, network palette baseline. |
+
+## Scientific And Domain Assessments
+
+### Evidence modality and experimental scope
+
+evidence: concern. Targets: pha.
+
+The new record is relevant but needs the two source-backed corrections in this review.
+
+### Distinct engineered phage perturbation community
+
+scope: supported. Targets: alseth.
+
+Relevant additional record; core phage perturbation and competitive-release scope matches the inspected source. This is not a full taxonomy or all-assertion certification.
+
+### New vocabulary and integration
+
+consistency: concern. Targets: schema, guide, corpus-tests.
+
+Vocabulary remains useful and absent from current main, but new records must obey its own infection definition and corpus baselines/generated model need integration.
+
+## Findings
+
+### pr1228-evidence-modality: Do not encode genomic predictions as demonstrated lytic infection
+
+major / open / confirmed; issue key: pr1228-evidence-modality.
+
+PHA ecological_interactions[4] asserts LYTIC_INFECTION with SUPPORT/IN_VITRO from a DefenseFinder survey of encoded defense systems, which does not demonstrate infection, replication, or host lysis. Interaction[3] similarly uses this type for AMG identification/transcription. Interaction[0] drops the SEM qualifier from its first supporting snippet and represents a modeled succession mechanism as SUPPORT/IN_VITRO. Preserve computational provenance and uncertainty, and represent the actual observation instead of using an infection relation as a catch-all phage category.
+
+### pr1228-assay-context: Keep the fed-batch assay oxygen setting out of the 2 L cultivation setup
+
+major / open / confirmed; issue key: pr1228-assay-context.
+
+cultivation_setup[0] describes the five 2 L sequencing batch enrichment reactors but sets do_controlled=true using oxygen control from separate 400 mL fed-batch PHA-accumulation assays. controls_notes acknowledges the assay, but structured consumers still receive the setting on the wrong setup. Split the assay into a separately evidenced setup or omit the unsupported enrichment control flag.
+
+## Recommended Actions And Acceptance Checks
+
+### pr1228-evidence-modality-repair
+
+Do not encode genomic predictions as demonstrated lytic infection
+
+- Correct the specific defect without weakening provenance or scientific evidence requirements.
+- Add a regression or source-linked assertion check demonstrating the failure and correction.
+- Rebase onto current main and pass required exact-head and merge-group checks.
+
+### pr1228-assay-context-repair
+
+Keep the fed-batch assay oxygen setting out of the 2 L cultivation setup
+
+- Correct the specific defect without weakening provenance or scientific evidence requirements.
+- Add a regression or source-linked assertion check demonstrating the failure and correction.
+- Rebase onto current main and pass required exact-head and merge-group checks.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| pha-source | https://journals.asm.org/doi/10.1128/msystems.00200-25; Results: phage-host interactions and AMGs; Methods: PHA-MMC enrichment/accumulation, bacterial MAG analyses, APC identification, statistical analysis. | supports | The publisher full text and committed PMID_40152616 cache distinguish DefenseFinder genome predictions, transcript measurements, SEM inference, 2 L enrichments, and separate 400 mL accumulation assays. |
+| enum-contract | src/communitymech/schema/communitymech.yaml; InteractionTypeEnum.LYTIC_INFECTION and ComputationalPredictionTypeEnum | supports | The new infection relation asserts viral infection, replication, and lysis; it is not a generic label for any viral-associated genomic or ecological observation. The guide also requires modeled-direction provenance. |
+| alseth-source | https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3002346; Abstract and experimental design; committed PMID_38648198 full-text cache | supports | The primary experiment supports phage-mediated competitive release and separates wild-type/CRISPR-KO treatments and failed pairwise gLV predictions. No additional confirmed defect was found in the scoped Alseth inspection. |
+| validation | scripts/validate_strict.py | supports | Local two-record strict run passed; direct network audits returned empty findings. These diagnostics do not establish biological truth. |
+| integration | https://github.com/CultureBotAI/CommunityMech/commit/01013cc1776136f2fc4a36a761b0d8c338e3a706 | supports | git merge-tree --write-tree --name-only origin/main origin/feat/phage-bacteria-communities reported four conflict paths. An ignored-file-inclusive search of current main canonical records/schema found neither new source PMID/record ID nor PHAGE_PREDATION. |
+
+## Limits And Additional Notes
+
+- No new literature research or paid provider calls. No assertion that every taxon label or every numerical result was independently validated.
+- The initial focused corpus-test run had 73 passes, one mapping skip, and seven environment failures; the latter are being rechecked separately and are not counted as biological/code defects here.
+- Review-only: no curated source changes, GitHub review submission, issue creation, merge, or branch deletion.
+- Review bundles are local and uncommitted in isolated detached worktrees.
+- No full integrated-suite or protected merge-group run; both branches have merge conflicts with current main.
+- This is a bounded PR review, not a completed per-record scientific certification or a full native P1-P4 completeness scoring exercise.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261010T074346Z-pr1228-review
+kind: repository
+repository: CultureBotAI/CommunityMech
+title: 'PR 1228: relevance and adversarial review'
+started_at: '2026-10-10T07:43:46Z'
+finished_at: '2026-10-10T07:43:46Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Read-only agent review of an existing PR. No independent human
+    approval or separation from all historical authorship is claimed.
+skill: pr-adversarial-review
+completion: partial
+verdict: needs_curation
+scientific_review: true
+summary: 'Still relevant, not merge-ready: both new communities are absent from current
+  main; two confirmed PHA evidence/context findings and four conflict paths require
+  attention.'
+source:
+  git_revision: 3d5c4da574530392b63d0d3a852426878af1dc95
+  state: git_commit
+  inputs:
+  - path: docs/PHAGE_BACTERIA_GUIDE.md
+    sha256: 3eec8fc80282c42a5dfa2ed436b3bd18abff557a924c99d0c4144d476a714883
+    role: target
+  - path: kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml
+    sha256: 8980255bd37deba9af78f32382d4035cd32ce9de32c7c08472cce54f21750b80
+    role: target
+  - path: kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml
+    sha256: c6d0bffc928809b0135696c894346483e9d57a3fe18e6f6c27e3bc3092e7644b
+    role: target
+  - path: references_cache/PMID_38648198.txt
+    sha256: babc54ddb60c3ed882e817d1970ff9c7ba24069b0b06d67730e12eb974b58df3
+    role: context
+  - path: references_cache/PMID_40152616.txt
+    sha256: 65e30e4f8aed4b1c7cde1fb173376207bbf90d92306c7f59997fd41bfeddbe8b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: 61c178f8f846d19a347d3e79ae8180e518687e8d8724095159af569c0d807201
+    role: target
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: 1a5e21eb2ee9f3584ff6af3a6906b1d442e18c41de405b1bf907c20f44eafa2a
+    role: context
+  - path: tests/test_gtdb_coherence_validator.py
+    sha256: c51b3673bcc4b97de713c62d4f3e3d4dca0be32618b38ae3808401498378434f
+    role: context
+  - path: tests/test_network_palette.py
+    sha256: 0cea2afc03da8e7087c55e16f356db9f6e3f4e4fad980c7c5d9ba7d262a2701b
+    role: target
+  - path: tests/test_participating_taxa.py
+    sha256: e63396b1fd3a04998427c0c938a9b0eff36bdd6f50eaa7a8308db4866098f501
+    role: context
+targets:
+- target_id: pha
+  path: kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml
+  kind: maintained
+  label: pha
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml
+    role: maintained source owner
+- target_id: alseth
+  path: kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml
+  kind: maintained
+  label: alseth
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml
+    role: maintained source owner
+- target_id: schema
+  path: src/communitymech/schema/communitymech.yaml
+  kind: maintained
+  label: schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: src/communitymech/schema/communitymech.yaml
+    role: maintained source owner
+- target_id: guide
+  path: docs/PHAGE_BACTERIA_GUIDE.md
+  kind: maintained
+  label: guide
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: docs/PHAGE_BACTERIA_GUIDE.md
+    role: maintained source owner
+- target_id: corpus-tests
+  path: tests/test_network_palette.py
+  kind: maintained
+  label: corpus-tests
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_network_palette.py
+    role: maintained source owner
+scope:
+  description: Risk-focused review of PR 1228 against current main 01013cc1776136f2fc4a36a761b0d8c338e3a706.
+  selection: Maintained implementation, generated-artifact provenance, and source-backed
+    record assertions implicated by the PR.
+  coverage: partial
+  population_size: 20
+  reviewed_target_ids:
+  - pha
+  - alseth
+  - schema
+  - guide
+  - corpus-tests
+checks:
+- check_id: strict-records
+  name: strict-records
+  status: passed
+  required: true
+  summary: Both new records pass local strict schema/cross-field validation with zero
+    error rows. NCBITaxon-backed checks were unavailable and are not included in this
+    pass.
+  target_ids:
+  - pha
+  - alseth
+  - schema
+  evidence_ids:
+  - validation
+- check_id: network-records
+  name: network-records
+  status: passed
+  required: true
+  summary: NetworkIntegrityAuditor.audit_community returns no findings for either
+    new record. Five nodes each; three Alseth edges and one PHA edge; no dangling/self
+    edges.
+  target_ids:
+  - pha
+  - alseth
+  evidence_ids:
+  - validation
+- check_id: primary-source-assessment
+  name: primary-source-assessment
+  status: failed
+  required: true
+  summary: Two confirmed semantic/context defects in the PHA record remain open.
+  target_ids:
+  - pha
+  evidence_ids:
+  - pha-source
+  - enum-contract
+- check_id: ontology-and-complete-reference-gates
+  name: ontology-and-complete-reference-gates
+  status: unavailable
+  required: true
+  summary: Full ontology-backed labels/GTDB and the complete reference-validator command
+    were not run. Cached full text plus live primary sources were inspected for the
+    reported findings.
+  target_ids:
+  - pha
+  - alseth
+  evidence_ids: []
+- check_id: main-integration
+  name: main-integration
+  status: failed
+  required: true
+  summary: 'Four merge-conflict paths: browser HTML, generated datamodel, GTDB coherence
+    baseline, network palette baseline.'
+  target_ids:
+  - schema
+  - corpus-tests
+  evidence_ids:
+  - integration
+evidence:
+- evidence_id: pha-source
+  kind: primary_source
+  reference: https://journals.asm.org/doi/10.1128/msystems.00200-25
+  support: supports
+  locator: 'Results: phage-host interactions and AMGs; Methods: PHA-MMC enrichment/accumulation,
+    bacterial MAG analyses, APC identification, statistical analysis.'
+  summary: The publisher full text and committed PMID_40152616 cache distinguish DefenseFinder
+    genome predictions, transcript measurements, SEM inference, 2 L enrichments, and
+    separate 400 mL accumulation assays.
+  accessed_at: '2026-10-10T07:43:46Z'
+- evidence_id: enum-contract
+  kind: record_content
+  reference: src/communitymech/schema/communitymech.yaml
+  support: supports
+  locator: InteractionTypeEnum.LYTIC_INFECTION and ComputationalPredictionTypeEnum
+  summary: The new infection relation asserts viral infection, replication, and lysis;
+    it is not a generic label for any viral-associated genomic or ecological observation.
+    The guide also requires modeled-direction provenance.
+  accessed_at: '2026-10-10T07:43:46Z'
+- evidence_id: alseth-source
+  kind: primary_source
+  reference: https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3002346
+  support: supports
+  locator: Abstract and experimental design; committed PMID_38648198 full-text cache
+  summary: The primary experiment supports phage-mediated competitive release and
+    separates wild-type/CRISPR-KO treatments and failed pairwise gLV predictions.
+    No additional confirmed defect was found in the scoped Alseth inspection.
+  accessed_at: '2026-10-10T07:43:46Z'
+- evidence_id: validation
+  kind: validation
+  reference: scripts/validate_strict.py
+  support: supports
+  summary: Local two-record strict run passed; direct network audits returned empty
+    findings. These diagnostics do not establish biological truth.
+  accessed_at: '2026-10-10T07:43:46Z'
+- evidence_id: integration
+  kind: validation
+  reference: https://github.com/CultureBotAI/CommunityMech/commit/01013cc1776136f2fc4a36a761b0d8c338e3a706
+  support: supports
+  summary: git merge-tree --write-tree --name-only origin/main origin/feat/phage-bacteria-communities
+    reported four conflict paths. An ignored-file-inclusive search of current main
+    canonical records/schema found neither new source PMID/record ID nor PHAGE_PREDATION.
+  accessed_at: '2026-10-10T07:43:46Z'
+assessments:
+- assessment_id: pha-evidence
+  area: evidence
+  topic: Evidence modality and experimental scope
+  outcome: concern
+  target_ids:
+  - pha
+  evidence_ids:
+  - pha-source
+  - enum-contract
+  summary: The new record is relevant but needs the two source-backed corrections
+    in this review.
+- assessment_id: alseth-scope
+  area: scope
+  topic: Distinct engineered phage perturbation community
+  outcome: supported
+  target_ids:
+  - alseth
+  evidence_ids:
+  - alseth-source
+  - validation
+  summary: Relevant additional record; core phage perturbation and competitive-release
+    scope matches the inspected source. This is not a full taxonomy or all-assertion
+    certification.
+- assessment_id: schema-guide-tests
+  area: consistency
+  topic: New vocabulary and integration
+  outcome: concern
+  target_ids:
+  - schema
+  - guide
+  - corpus-tests
+  evidence_ids:
+  - enum-contract
+  - integration
+  summary: Vocabulary remains useful and absent from current main, but new records
+    must obey its own infection definition and corpus baselines/generated model need
+    integration.
+findings:
+- finding_id: pr1228-evidence-modality
+  issue_key: pr1228-evidence-modality
+  title: Do not encode genomic predictions as demonstrated lytic infection
+  description: PHA ecological_interactions[4] asserts LYTIC_INFECTION with SUPPORT/IN_VITRO
+    from a DefenseFinder survey of encoded defense systems, which does not demonstrate
+    infection, replication, or host lysis. Interaction[3] similarly uses this type
+    for AMG identification/transcription. Interaction[0] drops the SEM qualifier from
+    its first supporting snippet and represents a modeled succession mechanism as
+    SUPPORT/IN_VITRO. Preserve computational provenance and uncertainty, and represent
+    the actual observation instead of using an infection relation as a catch-all phage
+    category.
+  category: consistency
+  severity: major
+  status: open
+  certainty: confirmed
+  target_ids:
+  - pha
+  field_paths:
+  - ecological_interactions[4].interaction_type (line 326)
+  - ecological_interactions[4].evidence[0] (lines 329-334)
+  - ecological_interactions[3].interaction_type (line 292)
+  - ecological_interactions[0].evidence[0] (lines 207-216)
+  evidence_ids:
+  - pha-source
+  - enum-contract
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml
+    role: maintained source owner
+  native_severity: P2
+  normalization_reason: Misrepresents structured evidence or permits a post-merge
+    publication failure.
+- finding_id: pr1228-assay-context
+  issue_key: pr1228-assay-context
+  title: Keep the fed-batch assay oxygen setting out of the 2 L cultivation setup
+  description: cultivation_setup[0] describes the five 2 L sequencing batch enrichment
+    reactors but sets do_controlled=true using oxygen control from separate 400 mL
+    fed-batch PHA-accumulation assays. controls_notes acknowledges the assay, but
+    structured consumers still receive the setting on the wrong setup. Split the assay
+    into a separately evidenced setup or omit the unsupported enrichment control flag.
+  category: consistency
+  severity: major
+  status: open
+  certainty: confirmed
+  target_ids:
+  - pha
+  field_paths:
+  - cultivation_setup[0].do_controlled (line 420)
+  - cultivation_setup[0].controls_notes (lines 421-423)
+  evidence_ids:
+  - pha-source
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml
+    role: maintained source owner
+  native_severity: P2
+  normalization_reason: Misrepresents structured evidence or permits a post-merge
+    publication failure.
+actions:
+- action_id: pr1228-evidence-modality-repair
+  description: Do not encode genomic predictions as demonstrated lytic infection
+  target_ids:
+  - pha
+  finding_ids:
+  - pr1228-evidence-modality
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml
+    role: maintained source owner
+  acceptance_checks:
+  - Correct the specific defect without weakening provenance or scientific evidence
+    requirements.
+  - Add a regression or source-linked assertion check demonstrating the failure and
+    correction.
+  - Rebase onto current main and pass required exact-head and merge-group checks.
+- action_id: pr1228-assay-context-repair
+  description: Keep the fed-batch assay oxygen setting out of the 2 L cultivation
+    setup
+  target_ids:
+  - pha
+  finding_ids:
+  - pr1228-assay-context
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml
+    role: maintained source owner
+  acceptance_checks:
+  - Correct the specific defect without weakening provenance or scientific evidence
+    requirements.
+  - Add a regression or source-linked assertion check demonstrating the failure and
+    correction.
+  - Rebase onto current main and pass required exact-head and merge-group checks.
+limitations:
+- No new literature research or paid provider calls. No assertion that every taxon
+  label or every numerical result was independently validated.
+- The initial focused corpus-test run had 73 passes, one mapping skip, and seven environment
+  failures; the latter are being rechecked separately and are not counted as biological/code
+  defects here.
+- 'Review-only: no curated source changes, GitHub review submission, issue creation,
+  merge, or branch deletion.'
+- Review bundles are local and uncommitted in isolated detached worktrees.
+- No full integrated-suite or protected merge-group run; both branches have merge
+  conflicts with current main.
+- This is a bounded PR review, not a completed per-record scientific certification
+  or a full native P1-P4 completeness scoring exercise.
+links:
+- https://github.com/CultureBotAI/CommunityMech/pull/1228
+- https://github.com/CultureBotAI/CommunityMech/commit/01013cc1776136f2fc4a36a761b0d8c338e3a706
+```

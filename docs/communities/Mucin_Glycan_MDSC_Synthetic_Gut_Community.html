@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        anaerobic laboratory serum-bottle culture
+                        anaerobic laboratory serum-bottle culture<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -429,7 +437,7 @@
                     <span class="metadata-label">Modeled Environment</span>
                     <span class="metadata-value">
 
-                        human colonic mucus layer
+                        human colonic mucus layer<span class="ontology-label"> — ontology label: intestine environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_2100002"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -468,7 +476,7 @@
 
                     <tr>
                         <td>
-                            <strong>Akkermansia muciniphila DSM 22959T</strong>
+                            <strong>Akkermansia muciniphila DSM 22959T<span class="ontology-label"> — ontology label: Akkermansia muciniphila</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=239935"
@@ -504,7 +512,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacteroides caccae DSM 19024T</strong>
+                            <strong>Bacteroides caccae DSM 19024T<span class="ontology-label"> — ontology label: Bacteroides caccae</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=47678"
@@ -540,7 +548,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacteroides fragilis DSM 2151T</strong>
+                            <strong>Bacteroides fragilis DSM 2151T<span class="ontology-label"> — ontology label: Bacteroides fragilis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=817"
@@ -576,7 +584,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacteroides thetaiotaomicron DSM 2079T</strong>
+                            <strong>Bacteroides thetaiotaomicron DSM 2079T<span class="ontology-label"> — ontology label: Bacteroides thetaiotaomicron</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=818"
@@ -612,7 +620,7 @@
 
                     <tr>
                         <td>
-                            <strong>Phocaeicola vulgatus ATCC 8482T</strong>
+                            <strong>Phocaeicola vulgatus ATCC 8482T<span class="ontology-label"> — ontology label: Phocaeicola vulgatus</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=821"
@@ -648,7 +656,7 @@
 
                     <tr>
                         <td>
-                            <strong>Ruminococcus gnavus ATCC 29149T</strong>
+                            <strong>Ruminococcus gnavus ATCC 29149T<span class="ontology-label"> — ontology label: Mediterraneibacter gnavus</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=33038"
@@ -684,7 +692,7 @@
 
                     <tr>
                         <td>
-                            <strong>Ruminococcus torques ATCC 27756T</strong>
+                            <strong>Ruminococcus torques ATCC 27756T<span class="ontology-label"> — ontology label: Mediterraneibacter torques</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=33039"
@@ -720,7 +728,7 @@
 
                     <tr>
                         <td>
-                            <strong>Anaerostipes caccae DSM 14662T</strong>
+                            <strong>Anaerostipes caccae DSM 14662T<span class="ontology-label"> — ontology label: Anaerostipes caccae</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=105841"
@@ -756,7 +764,7 @@
 
                     <tr>
                         <td>
-                            <strong>Anaerobutyricum hallii DSM 3353T</strong>
+                            <strong>Anaerobutyricum hallii DSM 3353T<span class="ontology-label"> — ontology label: Anaerobutyricum hallii</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=39488"
@@ -792,7 +800,7 @@
 
                     <tr>
                         <td>
-                            <strong>Agathobacter rectalis ATCC 33656T</strong>
+                            <strong>Agathobacter rectalis ATCC 33656T<span class="ontology-label"> — ontology label: Agathobacter rectalis ATCC 33656</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=515619"
@@ -828,7 +836,7 @@
 
                     <tr>
                         <td>
-                            <strong>Faecalibacterium duncaniae DSM 17677T</strong>
+                            <strong>Faecalibacterium duncaniae DSM 17677T<span class="ontology-label"> — ontology label: Faecalibacterium duncaniae</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=411483"
@@ -864,7 +872,7 @@
 
                     <tr>
                         <td>
-                            <strong>Roseburia intestinalis DSM 14610T</strong>
+                            <strong>Roseburia intestinalis DSM 14610T<span class="ontology-label"> — ontology label: Roseburia intestinalis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=166486"
@@ -900,7 +908,7 @@
 
                     <tr>
                         <td>
-                            <strong>Blautia hydrogenotrophica DSM 10507T</strong>
+                            <strong>Blautia hydrogenotrophica DSM 10507T<span class="ontology-label"> — ontology label: Blautia hydrogenotrophica</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=53443"
@@ -936,7 +944,7 @@
 
                     <tr>
                         <td>
-                            <strong>Desulfovibrio piger DSM 749T</strong>
+                            <strong>Desulfovibrio piger DSM 749T<span class="ontology-label"> — ontology label: Desulfovibrio piger</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=901"
@@ -979,12 +987,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Mucin Glycan-Degrading MDSC Synthetic Gut Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -992,13 +1001,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -1007,8 +1011,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Mucin-Type-Dependent MDSC Restructuring</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
+                <p class="prewrap interaction-description">After four sequential transfers, the MDSC stabilized into distinct species-level compositions on PGM, PGM plus BSM, and PGM plus added sialylated glycans, with BSM alone supporting limited growth. Substrate-regime interventions establish composition responses, but taxon-specific niche partitioning or competition is an interpretation, not selectively isolated by these abundance data.</p>
 
 
 
@@ -1035,6 +1039,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Substrate-Dependent Mucin Glycan Degradation
+                        <p class="prewrap causal-description">PARTIAL - Substrate-selected community composition can change the available glycan-degrading enzyme repertoire and thereby influence degradation. The paper reports coordinated composition and glycan changes, including convergence of added-glycan degradation rates, but changes mucin substrate rather than holding substrate fixed while selectively changing composition. Direct substrate accessibility and composition-mediated effects are therefore not separated.</p>
                     </div>
 
                 </div>
@@ -1064,8 +1069,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Substrate-Dependent Mucin Glycan Degradation</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">The MDSC rapidly degrades PGM and mixed PGM/BSM O-glycans and degrades added sialylated glycans. BSM alone supports little growth and only minimal O-glycan degradation, while its low-abundance identified N-glycans are completely degraded. Added sialylated structures show different early rates and some remain detectable at120 h. These community substrate-processing outcomes do not identify the donor-recipient fluxes implied by a pairwise cross-feeding mechanism.</p>
 
 
 
@@ -1112,8 +1117,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Mucin-Type-Dependent Fermentation Profile</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">HPLC measurements showed that PGM, BSM, PGM/BSM, and PGM plus sialylated glycans yielded distinct extracellular metabolite profiles, including condition-dependent changes in acetate, propionate, formate, and ethanol after community stabilization. These are extracellular pool profiles, not measured transfer between particular members. Low metabolite output on BSM may include yeast-extract fermentation; an increase in metabolite concentration is not proof of production exclusively from mucin.</p>
 
 
 
@@ -1234,7 +1239,7 @@
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -1245,6 +1250,21 @@
                 <p class="prewrap">The 2026 MDSC paper states that the community design included primary mucin degraders, secondary degraders, and hydrogen consumers and measured condition-level community composition, glycan degradation, and metabolite production. Pairwise member-to-member carbon or gas fluxes in the exact 14-strain MDSC were not resolved from this paper alone, so this record captures only community-level mucin responses.</p>
 
                 <p class="muted small">Attaches to: <code>ecological_interactions</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which selective mechanisms explain the measured community responses?
+                </h3>
+                <p class="prewrap">Preserve the experimentally altered mucin regimes and positive composition, glycan and metabolite responses. The retained composition-to-degradation mechanism is PARTIAL because composition and substrate accessibility change together. Do not confuse failure to degrade most BSM O-glycans with failure to degrade its N-glycans, or A.muciniphila abundance with demonstrated sialic-acid utilization. Monoculture BSM plus threonine did not restore A.muciniphila growth. Existing unresolved pairwise-flux discussion and prior957/958/959 repairs remain intact.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Mucin-Type-Dependent MDSC Restructuring</code>, <code>ecological_interactions#Substrate-Dependent Mucin Glycan Degradation</code>, <code>ecological_interactions#Mucin-Type-Dependent Fermentation Profile</code></p>
 
 
 
@@ -1594,12 +1614,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1612,7 +1635,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1750,7 +1772,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1778,7 +1800,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1806,7 +1828,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1853,6 +1875,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

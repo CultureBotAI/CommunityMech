@@ -114,9 +114,8 @@ taxonomy:
     explanation: Supports the methanogenic function of the coculture that includes M. hungatei.
 ecological_interactions:
 - name: Methanogenic Benzoate Degradation
-  description: Syntrophus gentianae degrades benzoate in coculture with
-    Methanospirillum hungatei, yielding acetate and methane under methanogenic
-    conditions.
+  description: Syntrophus gentianae degrades benzoate in coculture with Methanospirillum hungatei, yielding acetate
+    and methane under methanogenic conditions.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -132,8 +131,8 @@ ecological_interactions:
   metabolites:
   - preferred_term: benzoate
     term:
-      id: CHEBI:30746
-      label: benzoic acid
+      id: CHEBI:16150
+      label: benzoate
   - preferred_term: acetate
     term:
       id: CHEBI:30089
@@ -163,27 +162,21 @@ ecological_interactions:
     snippet: degraded benzoate to CH4 and acetate
     explanation: Supports methane and acetate as products of methanogenic benzoate degradation.
 - name: Minimum Energy Threshold for Syntrophic Growth
-  description: During growth on benzoate, the free energy available to S.
-    gentianae was near the lower limit for energy conservation, showing why
-    syntrophic partner activity and product concentrations constrain the
-    community.
-  interaction_type: SYNTROPHY
+  description: During growth of the methanogenic coculture, calculated free energy available to S. gentianae was
+    -50 to -55 kJ per mol benzoate. The authors inferred an approximate -45 kJ/mol requirement for growth and energy
+    conservation. This is a condition-dependent energetic constraint of the fermenter, not a second partner-directed
+    syntrophy event or an invariant value for every suspension or perturbation.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Syntrophus gentianae
     term:
       id: NCBITaxon:43775
       label: Syntrophus gentianae
-  target_taxon:
-    preferred_term: Methanospirillum hungatei
-    term:
-      id: NCBITaxon:2203
-      label: Methanospirillum hungatei
   metabolites:
   - preferred_term: benzoate
     term:
-      id: CHEBI:30746
-      label: benzoic acid
+      id: CHEBI:16150
+      label: benzoate
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -195,36 +188,29 @@ ecological_interactions:
       label: benzoate metabolic process
   downstream:
   - target: Methanogenic Benzoate Degradation
-    description: Accumulated acetate and hydrogen thermodynamically inhibit the
-      syntrophic reaction, lowering benzoate-degradation rates when products
-      build up.
+    description: 'DIRECTLY IMPLIED: the fermenter must conserve sufficient energy to sustain growth-associated benzoate
+      conversion. The observed endpoint correlates with residual substrate and calculated free energy; the inferred
+      approximate growth threshold is not an independently manipulated universal constant.'
   evidence:
   - reference: PMID:33657722
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: change of free energy available for Syntrophus gentianae ranged between -50 and -55 kJ mol-1
-    explanation: Supports the quantified energy window during coculture growth.
+    explanation: Calculated energy availability during growth is assigned to the fermenting bacterium.
   - reference: PMID:33657722
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: minimum energy required for growth and energy conservation
-    explanation: Supports the curated energy-threshold mechanism for syntrophic growth.
+    snippet: minimum energy required for growth and energy conservation of the benzoate-fermenting bacterium S.
+      gentianae is approximately -45 kJ (mol benzoate)-1
+    explanation: The authors infer an approximate growth requirement; dense suspensions and inhibited cultures are
+      distinct conditions.
 - name: Product Inhibition of Benzoate Degradation
-  description: Acetate and hydrogen inhibited benzoate degradation
-    thermodynamically, while acetate and propionate additions lowered the
-    degradation rate, linking product accumulation to community performance.
-  interaction_type: COMPETITION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Syntrophus gentianae
-    term:
-      id: NCBITaxon:43775
-      label: Syntrophus gentianae
-  target_taxon:
-    preferred_term: Methanospirillum hungatei
-    term:
-      id: NCBITaxon:2203
-      label: Methanospirillum hungatei
+  description: Accumulated hydrogen and acetate constrain methanogenic benzoate degradation thermodynamically. Acetate
+    and separately added propionate also lower degradation rate; propionate is not identified as a benzoate product
+    here. These are metabolite and energetic constraints on the coculture, not competition between S. gentianae
+    and M. hungatei. Rescue with added sulfate reducers or Methanosaeta changes community composition and is not
+    an unmodified two-member outcome.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: acetate
     term:
@@ -241,8 +227,9 @@ ecological_interactions:
       label: benzoate metabolic process
   downstream:
   - target: Minimum Energy Threshold for Syntrophic Growth
-    description: Hydrogen and acetate product accumulation constrain the free
-      energy remaining to the benzoate-fermenting Syntrophus partner.
+    description: Product accumulation changes the free energy available to the fermenter, bringing growth-associated
+      benzoate conversion toward its energetic limit. Acetate also partly uncouples substrate degradation from energy
+      conservation, so this does not assert that product addition changes a fixed intrinsic threshold.
   evidence:
   - reference: PMID:33657722
     supports: SUPPORT
@@ -253,12 +240,22 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Addition of acetate or propionate to benzoate-degrading cocultures also lowered the rate
-    explanation: Supports product/addition effects on the rate of benzoate degradation.
+    explanation: Distinguishes acetate/product inhibition from the separate propionate-addition treatment; no reciprocal
+      intertaxon harm is established.
   - reference: PMID:33657722
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Both hydrogen and acetate inhibit benzoate degradation thermodynamically
     explanation: Supports hydrogen and acetate inhibition of methanogenic benzoate degradation.
+  participating_taxa:
+  - preferred_term: Syntrophus gentianae
+    term:
+      id: NCBITaxon:43775
+      label: Syntrophus gentianae
+  - preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
 environmental_factors:
 - name: Methanogenic anaerobic condition
   value: methanogenic coculture
@@ -419,3 +416,30 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element transformation role is curated for this
   methanogenic benzoate-degrading coculture.
+discussions:
+- discussion_id: gentianae-energy-context
+  prompt: How do energetic limits vary with growth, dense suspensions and added partners?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The primary abstract distinguishes growing cocultures from cell suspensions and inhibitor or added-partner
+    treatments. Its approximate -45 kJ/mol growth requirement is not a universal endpoint. The graph preserves product-inhibition
+    constraints without encoding interspecies competition or treating expanded-community rescue as the original
+    pair.
+  attaches_to:
+  - ecological_interactions#Minimum Energy Threshold for Syntrophic Growth
+  - ecological_interactions#Product Inhibition of Benzoate Degradation
+  evidence:
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acetate also partly uncouples substrate degradation from energy conservation
+    explanation: This is an energetic constraint rather than a competition phenotype.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-08T07:10:56Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain exact-pair benzoate conversion and correct benzoate grounding.; Assign inferred energy availability
+    to the fermenter without a spurious recipient.; Retain product inhibition without competition typing or treatment-system
+    conflation. Issue#1875; reports/causal_graph_review/decisions/20261008-seven-records-batch112.yaml
+  llm_assisted: true

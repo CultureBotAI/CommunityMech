@@ -156,24 +156,13 @@ taxonomy:
       in oxidized Pb-Zn tailings zones.
 ecological_interactions:
 - name: Surface Iron and Sulfur Oxidation Potential
-  description: >-
-    Acidifying Pb-Zn tailings contain Acidithiobacillus, Leptospirillum, and
-    Ferroplasma acidophiles associated with sulfur oxidation, heavy-metal
-    detoxification, carbon fixation, nitrogen fixation, and low-pH tolerance.
-    These data support a community-level Fe/S oxidation module that regenerates
-    ferric iron and acidity without requiring a direct mutualism between named
-    strains.
-  interaction_type: SYNTROPHY
+  description: PARTIAL - Fankou Pb-Zn metagenomes from China support community sulfur-oxidation and carbon/nitrogen-metabolism
+    potential; separate Chinese surveys associate iron-oxidizing acidophiles and Ferroplasma with oxidized zones.
+    These are not measured Fe/S fluxes in the Australian record site. The listed Ferroplasma entry represents the
+    2011 survey association, not a demonstrated partner carrying every pathway. Leptospirillum sulfur-assimilation
+    genes must not be treated as dissimilatory sulfur oxidation.
   scope: COMMUNITY_LEVEL
   participating_taxa:
-  - preferred_term: Acidithiobacillus ferrooxidans
-    term:
-      id: NCBITaxon:920
-      label: Acidithiobacillus ferrooxidans
-  - preferred_term: Leptospirillum ferriphilum
-    term:
-      id: NCBITaxon:178606
-      label: Leptospirillum ferriphilum
   - preferred_term: Ferroplasma acidiphilum
     term:
       id: NCBITaxon:74969
@@ -199,52 +188,38 @@ ecological_interactions:
     term:
       id: GO:0006790
       label: sulfur compound metabolic process
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
   downstream:
   - target: Pb-Zn Tailings Acidification and Metal Mobilization
-    description: Fe/S oxidation acidifies sulfidic tailings and maintains ferric
-      iron that can oxidize sulfide minerals.
+    description: HYPOTHESIZED - realized microbial Fe/S oxidation could regenerate ferric iron and acidity that
+      promote sulfide weathering. The linked studies propose this biogeochemical mechanism but do not resolve its
+      flux across the composite Australian and Chinese systems.
   evidence:
   - reference: PMID:23574280
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Furthermore, metagenomic analysis of the microbial communities of T2 and T6 indicated that
-      the genes encoding key enzymes for microbial carbon fixation, nitrogen fixation and sulfur oxidation
-      in T2 were largely from Thiobacillus and Acidithiobacillus, Methylococcus capsulatus, and Thiobacillus
-      denitrificans respectively; while those in T6 were mostly identified in Acidithiobacillus and Leptospirillum,
-      Acidithiobacillus and Leptospirillum, and Acidithiobacillus respectively
-    explanation: Links Acidithiobacillus and Leptospirillum populations with Fe/S
-      oxidation and carbon- and nitrogen-fixation potential in Pb-Zn tailings.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Furthermore, metagenomic analysis of the microbial communities of T2 and T6 indicated that the genes
+      encoding key enzymes for microbial carbon fixation, nitrogen fixation and sulfur oxidation in T2 were largely
+      from Thiobacillus and Acidithiobacillus, Methylococcus capsulatus, and Thiobacillus denitrificans respectively;
+      while those in T6 were mostly identified in Acidithiobacillus and Leptospirillum, Acidithiobacillus and Leptospirillum,
+      and Acidithiobacillus respectively
+    explanation: Supports Fankou taxonomic-bin metabolic potential, not species-resolved flux or an Australian same-site
+      mechanism.
   - reference: doi:10.1128/aem.02458-10
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: were consistently present in the acidic tailings, acidophilic archaea, mostly Ferroplasma
-      acidiphilum , were predominant in the oxidized zones and the oxidation front, indicating their importance
-      to generation of acid mine drainage.
-    explanation: Supports the involvement of Ferroplasma acidiphilum in oxidized
-      Pb-Zn tailings and the oxidation front.
+    snippet: were consistently present in the acidic tailings, acidophilic archaea, mostly Ferroplasma acidiphilum
+      , were predominant in the oxidized zones and the oxidation front, indicating their importance to generation
+      of acid mine drainage.
+    explanation: Supports Ferroplasma occurrence across Chinese oxidation zones and the authors' proposed role,
+      not a measured causal flux.
 - name: Pb-Zn Tailings Acidification and Metal Mobilization
-  description: >-
-    Oxidation of sulfidic waste rock in arid Western Australia and in Pb-Zn
-    impoundments disperses sulfur, iron, zinc, and lead and creates acidic
-    tailings stages. The process is represented as an abiotic-biotic
-    community-level metal-mobilization node because the cached evidence tracks
-    bulk weathering and acidophile guilds, not a measured pairwise benefit
-    between A. ferrooxidans and Leptospirillum.
-  interaction_type: SYNTROPHY
+  description: PARTIAL - weathered S/Fe-rich waste rock at Teutonic Bore, Western Australia, showed elemental dispersal
+    and mobile ionic S, Zn, Cl and Al. Chinese Pb-Zn studies separately describe communities across oxidation stages.
+    These observations support a proposed abiotic-biotic weathering process, not measured lead-mobilization flux
+    or syntrophic coupling among the representative species. The Pb-Zn designation identifies the site material,
+    not a flux assay.
   scope: COMMUNITY_LEVEL
   participating_taxa:
-  - preferred_term: Acidithiobacillus ferrooxidans
-    term:
-      id: NCBITaxon:920
-      label: Acidithiobacillus ferrooxidans
-  - preferred_term: Leptospirillum ferriphilum
-    term:
-      id: NCBITaxon:178606
-      label: Leptospirillum ferriphilum
   - preferred_term: Ferroplasma acidiphilum
     term:
       id: NCBITaxon:74969
@@ -265,11 +240,6 @@ ecological_interactions:
       id: CHEBI:29034
       label: iron(3+)
     notes: oxidant linked to sulfide mineral weathering
-  - preferred_term: lead(2+)
-    term:
-      id: CHEBI:49807
-      label: lead(2+)
-    notes: mobile metal in Pb-Zn tailings
   - preferred_term: zinc(2+)
     term:
       id: CHEBI:29105
@@ -291,40 +261,28 @@ ecological_interactions:
       label: response to metal ion
   evidence:
   - reference: doi:10.1128/aem.02458-10
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: Analysis of spatial and temporal variations in the microbial community in the abandoned tailings
-      impoundment of a Pb-Zn mine revealed distinct microbial populations associated with the different
-      oxidation stages of the tailings
-    explanation: Documents microbial-community shifts across Pb-Zn tailings oxidation
-      stages that generate acidic drainage.
+    snippet: Analysis of spatial and temporal variations in the microbial community in the abandoned tailings impoundment
+      of a Pb-Zn mine revealed distinct microbial populations associated with the different oxidation stages of
+      the tailings
+    explanation: Supports Chinese oxidation-stage community associations, not experimental microbial control of
+      metal release.
   - reference: PMID:22092956
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Weathering of waste rock, high in S and Fe, had resulted in a varying elemental dispersal
-      down a face of the tailings hill
-    explanation: Anchors the Australian sulfidic tailings as a weathered S- and Fe-rich
-      system with element dispersal along the tailings hillslope.
+    snippet: Weathering of waste rock, high in S and Fe, had resulted in a varying elemental dispersal down a face
+      of the tailings hill
+    explanation: Supports Australian bulk-element dispersal; the reviewed abstract does not establish lead-mobilization
+      flux.
 - name: pH-Structured Acidophile Succession
-  description: >-
-    Pb-Zn and copper tailing surveys show community shifts along acidification
-    and pH gradients: Proteobacteria-rich early Pb-Zn stages give way to
-    Ferroplasma-dominated later stages, A. ferrooxidans and Leptospirillum spp.
-    persist in acidic Pb-Zn samples, and whole copper-tailing communities are
-    primarily structured by pH. This node captures geochemical filtering of
-    acidophile guilds rather than a commensal Ferroplasma-to-Acidithiobacillus
-    edge.
-  interaction_type: NICHE_PARTITIONING
+  description: PARTIAL - Chinese Pb-Zn and copper-tailings surveys associate pH/oxidation gradients with changes
+    in acidophile composition. The six-zone Fankou and spatial copper surveys infer succession using space-for-time
+    comparisons. The earlier Pb-Zn study also sampled seasons, with little seasonal change; this is not controlled
+    tracking of one community through acidification. These observations concern community filtering, not demonstrated
+    resource partitioning or cellular pH homeostasis.
   scope: COMMUNITY_LEVEL
   participating_taxa:
-  - preferred_term: Acidithiobacillus ferrooxidans
-    term:
-      id: NCBITaxon:920
-      label: Acidithiobacillus ferrooxidans
-  - preferred_term: Leptospirillum ferriphilum
-    term:
-      id: NCBITaxon:178606
-      label: Leptospirillum ferriphilum
   - preferred_term: Ferroplasma acidiphilum
     term:
       id: NCBITaxon:74969
@@ -340,35 +298,30 @@ ecological_interactions:
     term:
       id: GO:0009268
       label: response to pH
-  - preferred_term: cellular pH homeostasis
-    term:
-      id: GO:0051453
-      label: regulation of intracellular pH
   - preferred_term: response to metal ion
     term:
       id: GO:0010038
       label: response to metal ion
   downstream:
   - target: Surface Iron and Sulfur Oxidation Potential
-    description: pH-driven filtering changes which acidophiles carry the Fe/S
-      oxidation module at a given tailings acidification stage.
+    description: HYPOTHESIZED - pH-associated selection could change the abundance of organisms encoding Fe/S metabolism.
+      Spatial and statistical associations do not independently establish pH causality or realized metabolic flux.
   evidence:
   - reference: PMID:23574280
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: '16S rRNA pyrosequencing revealed a contrasting microbial composition between the six tailings:
-      Proteobacteria-related sequences dominated T1-T3 with relative abundance ranging from 56 to 93%,
-      whereas Ferroplasma-related sequences dominated T4-T6 with relative abundance ranging from 28 to
-      58%'
-    explanation: Shows a Ferroplasma-rich community shift across Pb-Zn tailings
-      acidification stages.
+    snippet: '16S rRNA pyrosequencing revealed a contrasting microbial composition between the six tailings: Proteobacteria-related
+      sequences dominated T1-T3 with relative abundance ranging from 56 to 93%, whereas Ferroplasma-related sequences
+      dominated T4-T6 with relative abundance ranging from 28 to 58%'
+    explanation: Supports composition differences among Fankou zones, not longitudinal replacement in Australia.
   - reference: doi:10.1128/aem.00294-14
-    supports: SUPPORT
-    evidence_source: IN_VIVO
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
     snippet: Together, these results suggest that pH is primarily responsible for structuring whole communities
-      in the extreme and heterogeneous mine tailings, although the diverse microbial taxa may respond
-      differently to various environmental conditions.
-    explanation: Supports pH-driven structuring of acid mine-tailings communities.
+      in the extreme and heterogeneous mine tailings, although the diverse microbial taxa may respond differently
+      to various environmental conditions.
+    explanation: Supports the source's statistical pH-structuring inference from spatial copper-tailings samples,
+      not a pH intervention.
 environmental_factors:
 - name: Acidic pH Filtering
   value: 2.7 to 5.7
@@ -574,3 +527,26 @@ metals_present:
 metal_relevance: SIGNIFICANT
 metal_notes: Metal/REE detected via CHEBI terms in metabolites; Metal/REE detected via environmental factor
   measurements; Metal/REE detected via keyword matching in description (context-validated)
+discussions:
+- discussion_id: tailings_same_site_flux_and_filtering
+  prompt: Do same-site flux measurements and pH perturbations confirm the proposed oxidation-weathering-filtering
+    links?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Surface Iron and Sulfur Oxidation Potential
+  - ecological_interactions#Pb-Zn Tailings Acidification and Metal Mobilization
+  - ecological_interactions#pH-Structured Acidophile Succession
+  rationale: This record combines an Australian weathering study with Chinese Pb-Zn and copper surveys. Species-resolved
+    Fe/S flux, thermodynamic coupling through partner product removal and resource partitioning are not established
+    by the reviewed passages. Australian results/discussion remain incompletely accessed, so their unreviewed experiments
+    are not certified absent. Broader record identity and non-graph metadata may need a separate split review.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T10:11:48Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Qualify cross-site tailings mechanisms and remove unsupported syntrophy; complete decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1249'
+  llm_assisted: true

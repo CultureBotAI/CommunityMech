@@ -62,74 +62,12 @@ taxonomy:
   functional_role:
   - CROSS_FEEDER
 ecological_interactions:
-- name: Curated Two-Species Nasal GEM Assembly
-  description: >
-    The NCMW workflow combined curated genome-scale metabolic models for
-    Dolosigranulum pigrum and Staphylococcus aureus into a compartmentalized
-    two-species community model for a nasal-like shared environment.
-  scope: COMMUNITY_LEVEL
-  interaction_type: CROSS_FEEDING
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: doi:10.3389/fcimb.2022.925215
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: The resulting community model combines the latest available curated GEMs of D. pigrum and
-      S. aureus.
-    explanation: >
-      Supports the two-member genome-scale community model assembled from the curated
-      D. pigrum and S. aureus GEMs.
-- name: SNM3 Nasal Medium Exchange Constraints
-  description: >
-    The D. pigrum and S. aureus community model used SNM3 as its primary nasal
-    medium, allowing uptake only through exchange reactions representing SNM3
-    metabolites, with distinct lower bounds for oxygen and iron.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: doi:10.3389/fcimb.2022.925215
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: The main medium applied herein is SNM3
-    explanation: >
-      Names the synthetic nasal medium used as the primary environmental constraint
-      in the D. pigrum and S. aureus community model.
-- name: COMPM and COOPM Nutrient Perturbations
-  description: >
-    Rich COMPM and poor COOPM media were derived as SNM3 subsets for the
-    multi-species model so the workflow could compare D. pigrum and S. aureus
-    interaction predictions across nasal-nutrient abundance regimes.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: doi:10.3389/fcimb.2022.925215
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: one medium as rich in the nutrients of the human nose and the other one as poor in the nutrients
-    explanation: >
-      Supports the rich and poor SNM3-derived media used to probe two-species
-      interaction behavior in the model.
 - name: D. pigrum-S. aureus Exchange-Factor Prediction
-  description: >
-    Constraint-based community simulations identified in silico candidate metabolic
-    exchange factors for the pairwise D. pigrum and S. aureus interaction in the
-    nasal-like model.
+  description: COMPUTATIONAL - compartmentalized community FBA predicts medium- and objective-dependent exchanges
+    for D. pigrum and S. aureus. Cysteine uptake and D-serine secretion are candidate outputs, not demonstrated
+    antimicrobial production. Figure 4 states that S. aureus growth does not depend on the highlighted cysteine/D-serine
+    fluxes, so they are not established mediators of inhibition.
   scope: PAIRWISE
-  interaction_type: COMPETITION
   source_taxon:
     preferred_term: Dolosigranulum pigrum
     term:
@@ -145,27 +83,21 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: In Silico S. aureus Growth-Inhibition Hypothesis
-    description: >
-      The exchange-factor candidates gave a model-based explanation for negative
-      D. pigrum interactions with S. aureus.
   evidence:
   - reference: doi:10.3389/fcimb.2022.925215
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: By this, we identify and characterize metabolic exchange factors involved in a specific interaction
-      between D. pigrum and S. aureus as an in silico candidate factor for a deep insight into the associated
-      species.
-    explanation: >
-      Supports the computational exchange-factor predictions for the pairwise nasal
-      model.
+      between D. pigrum and S. aureus as an in silico candidate factor for a deep insight into the associated species.
+    explanation: 'Supports the computational exchange-factor predictions for the pairwise nasal model.
+
+      '
 - name: In Silico S. aureus Growth-Inhibition Hypothesis
-  description: >
-    The two-member nasal community model prioritized negative D. pigrum to S. aureus
-    microbe-microbe interactions as candidate mechanisms for inhibiting pathogenic
-    S. aureus growth.
-  interaction_type: COMPETITION
+  description: COMPUTATIONAL - S. aureus growth varies with model formulation, medium and imposed objective weights.
+    Equal weights generally favor S. aureus, while sufficiently high D. pigrum weight can suppress modeled S. aureus
+    growth. These weights are not measured inoculation dynamics. The paper's competition index is not automatically
+    reciprocal negative fitness under the local schema; poor-medium forced-growth scenarios can instead require
+    S. aureus-to-D. pigrum support. No clinical efficacy is established.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Dolosigranulum pigrum
@@ -184,21 +116,24 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: doi:10.3389/fcimb.2022.925215
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: Multiple epidemiological studies identify Dolosigranulum pigrum as a likely beneficial bacterium
-      based on its positive association with health, including negative associations with S. aureus.
-    explanation: >
-      Provides the nasal-microbiome association motivating computational searches
-      for D. pigrum factors that inhibit S. aureus.
+    snippet: Multiple epidemiological studies identify Dolosigranulum pigrum as a likely beneficial bacterium based
+      on its positive association with health, including negative associations with S. aureus.
+    explanation: Background epidemiological associations motivate this modeling study but do not validate its inhibitory
+      mechanism.
   - reference: doi:10.3389/fcimb.2022.925215
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: Its direct application suggests new ways to prevent disease-causing infections by inhibiting
-      the growth of pathogens such as S. aureus through microbe–microbe interactions.
-    explanation: >
-      Supports the downstream in silico hypothesis that D. pigrum-associated
-      microbe-microbe interactions can inhibit S. aureus growth.
+    snippet: Its direct application suggests new ways to prevent disease-causing infections by inhibiting the growth
+      of pathogens such as S. aureus through microbe–microbe interactions.
+    explanation: An application proposed by the authors, not measured pathogen inhibition or clinical prevention.
+  - reference: doi:10.3389/fcimb.2022.925215
+    snippet: S. aureus failed to grow
+    explanation: This occurs in the pooled model at a 10:1 objective weight favoring D. pigrum; it is a conditional
+      computational outcome.
+    evidence_source: COMPUTATIONAL
+    supports: SUPPORT
 associated_datasets:
 - title: BioModels model file
   dataset_type: OTHER
@@ -275,7 +210,27 @@ curation_history:
 - timestamp: '2026-10-02T05:21:08Z'
   curator: codex
   action: PRUNE_NONCAUSAL_WORKFLOW_EDGES
-  changes: Removed three downstream edges that linked GEM assembly, SNM3 exchange constraints,
-    and rich/poor-medium perturbation setup rather than source-backed ecological causal
-    interactions in the D. pigrum-S. aureus BioModels record.
+  changes: Removed three downstream edges that linked GEM assembly, SNM3 exchange constraints, and rich/poor-medium
+    perturbation setup rather than source-backed ecological causal interactions in the D. pigrum-S. aureus BioModels
+    record.
   llm_assisted: true
+- timestamp: '2026-10-05T12:49:56Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Remove nasal modeling workflow and unverified exchange-to-inhibition mediation; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1258'
+  llm_assisted: true
+discussions:
+- discussion_id: nasal_model_medium_weights_and_mediation
+  prompt: Which measured exchanges cause inhibition independently of imposed model objectives?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#D. pigrum-S. aureus Exchange-Factor Prediction
+  - ecological_interactions#In Silico S. aureus Growth-Inhibition Hypothesis
+  rationale: 'Assembly, SNM3 constraints and COMPM/COOPM construction are workflow context, not ecological nodes.
+    Model growth depends on weights, media and formulation; D-serine/cysteine predictions do not prove lanthipeptide
+    synthesis. Whole cached main paper/tables/captions read, not figures, supplemental files, source wet-lab papers
+    or rerun models. Non-graph medium additions and generic endpoints remain in #1262.'
+  posed_by: codex
+  posed_date: '2026-10-05'

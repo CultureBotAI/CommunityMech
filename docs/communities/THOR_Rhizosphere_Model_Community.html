@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -454,7 +462,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus cereus UW85</strong>
+                            <strong>Bacillus cereus UW85<span class="ontology-label"> — ontology label: Bacillus cereus</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1396"
@@ -496,7 +504,7 @@
 
                     <tr>
                         <td>
-                            <strong>Pseudomonas koreensis CI12</strong>
+                            <strong>Pseudomonas koreensis CI12<span class="ontology-label"> — ontology label: Pseudomonas koreensis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=198620"
@@ -538,7 +546,7 @@
 
                     <tr>
                         <td>
-                            <strong>Flavobacterium johnsoniae UW101</strong>
+                            <strong>Flavobacterium johnsoniae UW101<span class="ontology-label"> — ontology label: Flavobacterium johnsoniae</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=986"
@@ -587,12 +595,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for THOR Rhizosphere Model Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -600,13 +609,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -614,9 +618,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Koreenceine-Mediated Inhibition</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>Koreenceine production and UW101 growth inhibition</h3>
                 </div>
+                <p class="prewrap interaction-description">P. koreensis CI12 produces koreenceine and inhibits F. johnsoniae UW101 in the 2022 THOR study. Deleting the koreenceine locus or reducing the initial P. koreensis inoculum increases UW101 populations. P. koreensis and B. cereus growth are not impaired by coculture under the tested conditions, so this one-sided inhibition does not establish mutual negative fitness effects. This UW101 assay must not be conflated with the founding CI04 root-exudate experiment.</p>
 
 
                 <p><strong>Source Taxon:</strong> Pseudomonas koreensis CI12</p>
@@ -655,6 +659,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Koreenceine-Driven Transcriptional Regulation
+                        <p class="prewrap causal-description">The wild-type versus koreenceine-locus-deletion comparison supports koreenceine-dependent gene regulation in UW101 and B. cereus. PARTIAL for the direct molecular route: antibiotic exposure and indirect physiological effects can both contribute. This arrow starts from koreenceine production, not an assumption that reduced UW101 growth causes all transcriptional changes or that B. cereus growth is inhibited.</p>
                     </div>
 
                 </div>
@@ -667,13 +672,13 @@
                     <li class="evidence-item">
                         <div>
 
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/30837345/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:30837345</a>
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/35435700/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:35435700</a>
 
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"P. koreensis produces a novel family of alkaloid antibiotics that inhibit growth of F. johnsoniae"</div>
+                        <div class="snippet">"both deletion of the koreenceine locus and reduction of P. koreensis inoculum size increase F. johnsoniae populations"</div>
 
                     </li>
 
@@ -686,7 +691,20 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"mediated either directly or indirectly by its production of the antibiotic koreenceine"</div>
+                        <div class="snippet">"the growth of P. koreensis and B. cereus was not affected by coculture"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/35435700/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:35435700</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Bacillus cereus UW85 (B), Flavobacterium johnsoniae UW101 (F), Pseudomonas koreensis CI12 (P)"</div>
 
                     </li>
 
@@ -697,8 +715,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Koreenceine-Driven Transcriptional Regulation</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">At the assayed early time point, the P. koreensis koreenceine locus accounts for 85% of the greater-than-twofold pairwise response in UW101 and 22% in B. cereus. These are proportions of differentially regulated genes, not of each whole genome or of all three-member responses. Locus deletion supports dependence, while direct sensing and indirect effects of altered growth remain unresolved. B. cereus changes expression without a measured growth defect. Reducing P. koreensis initial abundance, unlike deleting the locus alone, increases its own response to UW101.</p>
 
 
 
@@ -746,22 +764,41 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/35435700/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:35435700</a>
+
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"likely a combination of direct effects from koreenceine and indirect effects due to slower growth rate of F. johnsoniae in the presence of an antibiotic"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Bacillus Modulation of Pseudomonas Antibiotic Production</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Bacillus protection in the UW101 THOR community</h3>
                 </div>
+                <p class="prewrap interaction-description">Adding B. cereus UW85 to P. koreensis CI12 and F. johnsoniae UW101 raises UW101 abundance relative to the inhibited pair in the 2022 study. This is a three-member protective effect, not facilitation of P. koreensis colonization. PARTIAL: the proposed chemical explanation draws on the earlier CI04 variant, where B. cereus reduced accumulated koreenceines A and C and its spo0H mutant lost protection. Those CI04 measurements neither quantify A/C changes in UW101 culture nor isolate reduced biosynthesis from other routes of reduced metabolite accumulation.</p>
 
 
-                <p><strong>Source Taxon:</strong> Bacillus cereus UW85</p>
 
 
+                <p><strong>Participating Taxa:</strong>
 
-                <p><strong>Target Taxon:</strong> Pseudomonas koreensis CI12</p>
+                    Bacillus cereus UW85,
+
+                    Pseudomonas koreensis CI12,
+
+                    Flavobacterium johnsoniae UW101
+
+                </p>
 
 
 
@@ -792,7 +829,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Koreenceine-Mediated Inhibition
+                        <span class="flow-arrow">→</span> Koreenceine production and UW101 growth inhibition
+                        <p class="prewrap causal-description">B. cereus addition reduces the population inhibition of UW101 in the three-member assay. PARTIAL for mediation by altered koreenceine accumulation: the detailed metabolite and spo0H comparisons were performed with CI04, not UW101, and do not uniquely demonstrate a biosynthesis-suppression mechanism in the UW101 community.</p>
                     </div>
 
                 </div>
@@ -805,50 +843,15 @@
                     <li class="evidence-item">
                         <div>
 
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/30837345/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:30837345</a>
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/35435700/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:35435700</a>
 
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"production is inhibited by B. cereus"</div>
+                        <div class="snippet">"P. koreensis reduced growth of F. johnsoniae when they were grown as a pair, but F. johnsoniae abundance was higher when B. cereus was also present"</div>
 
                     </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Emergent Three-Member Biofilm Formation</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
-                </div>
-
-
-
-
-
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biofilm formation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0042710"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0042710</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
 
                     <li class="evidence-item">
                         <div>
@@ -856,10 +859,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/30837345/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:30837345</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"production of more robust biofilms by the three members together than individually"</div>
+                        <div class="snippet">"The addition of B. cereus to cocultures of P. koreensis and F. johnsoniae severely reduced the accumulation of koreenceine A and C, with a minor effect on the level of koreenceine B"</div>
 
                     </li>
 
@@ -907,6 +910,60 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which CI04-variant biofilm and metabolite mechanisms transfer experimentally to the UW101 THOR community?
+                </h3>
+                <p class="prewrap">The founding study used CI04; the 2022 Methods name UW101. In CI04 assays, both partners enhanced P. koreensis biofilm and the triple culture sustained it longer, but this does not establish the corresponding UW101 phenotype. Likewise, CI04 metabolite accumulation and spo0H tests do not resolve the UW101 protection mechanism. Strain-matched biofilm and chemical perturbations are needed before restoring that node or asserting a specific route. The UW101 locus-deletion, population and expression results remain experimental evidence.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Koreenceine production and UW101 growth inhibition</code>, <code>ecological_interactions#Koreenceine-Driven Transcriptional Regulation</code>, <code>ecological_interactions#Bacillus protection in the UW101 THOR community</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+
+
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/35435700/" rel="nofollow noreferrer">PMID:35435700</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Bacillus cereus UW85 (B), Flavobacterium johnsoniae UW101 (F), Pseudomonas koreensis CI12 (P)</p>
+
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+
+
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/30837345/" rel="nofollow noreferrer">PMID:30837345</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">F. johnsoniae CI04 and B. cereus UW85 each increased the maximum biofilm formed by P. koreensis CI12 at 18 h</p>
+
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1052,12 +1109,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1070,7 +1130,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1131,7 +1190,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1144,11 +1203,11 @@
             processes.push("interspecies interaction between organisms");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "Koreenceine-Mediated Inhibition",
+                label: "Koreenceine production and UW101 growth inhibition",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1173,7 +1232,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1186,7 +1245,7 @@
             processes.push("regulation of gene expression");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1205,7 +1264,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1218,49 +1277,11 @@
             processes.push("negative regulation of biological process");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Bacillus Modulation of Pseudomonas Antibiotic Production",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-            var srcKey = "Bacillus cereus UW85";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-            var tgtKey = "Pseudomonas koreensis CI12";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
-        })();
-
-        (function() {
-            var intId = "interaction:3";
-            var intType = "COLONIZATION_FACILITATION";
-            var metabolites = [];
-
-            var processes = [];
-
-
-            processes.push("biofilm formation");
-
-
-            var evidenceCount = 1;
-
-            nodes.push({
-                id: intId,
-                label: "Emergent Three-Member Biofilm Formation",
+                label: "Bacillus protection in the UW101 THOR community",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1270,6 +1291,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Bacillus cereus UW85",
+
+                "Pseudomonas koreensis CI12",
+
+                "Flavobacterium johnsoniae UW101"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1284,12 +1320,15 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 7;
+        var nodeCount = 6;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

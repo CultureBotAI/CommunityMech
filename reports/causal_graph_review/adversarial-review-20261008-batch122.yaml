@@ -1,0 +1,420 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: ec8ee08b153173a5ad77ae95aad9f38d34468d85
+scope:
+- kb/communities/Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml
+- kb/communities/Wheat_DT_Rhizosphere_SynCom.yaml
+- kb/communities/Wheat_Straw_Biogas_Pretreatment_SynCom.yaml
+- kb/communities/Wheat_SynCom_SASW01_Drought_Inoculant.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-four-records-batch122.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch122.json
+findings:
+- issue: 1947
+  severity: P2
+  finding: Bound TB wheat crown-rot protection and rhizosphere mechanism claims
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1948
+  severity: P2
+  finding: Bound wheat DT-SynCom pre-challenge RNA findings and disease-protection interpretation
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1949
+  severity: P2
+  finding: Separate wheat-straw enzyme pretreatment and biogas endpoint from mutualism and methane claims
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1950
+  severity: P2
+  finding: Separate SASW01 biocoating outcomes from EPS, colonization and predicted mechanism claims
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1951
+  severity: P2
+  finding: Reconcile TB wheat crown-rot sampling clocks and figure references
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1952
+  severity: P2
+  finding: Reconcile SASW01 field-yield discrepancy and treatment scope outside the graph
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+adversarial_checks:
+- All nine nodes and both process directions retained,one rename,no new topology. No empty downstream lists,dangling
+  targets or anchors. All four canonical diffs read after mutation; prior history entries and unrelated fields preserved.
+- TB retains positive70.97%pot efficacy,growth and grain-related outcomes without bilateral competition or unique
+  immune mediation. Challenge fungus is not a TB member. No single-member plant arms demonstrate individual necessity.
+  Simulated network attacks are not biological removal; genus assignments do not prove functions. Soil metabolites
+  are not root-exudate collections; no compound-intervention evidence transferred from the different six-member
+  study.
+- DT retains43.3%barley disease fluorescence reduction and no significant differences between inoculants. Specific
+  JA/ET/SA dependence is not assigned. PEG-tolerant isolates are not whole-plant drought validation. Pre-challenge
+  measured RNA changes retain the prior selective/not-broad evidence; contig similarity does not identify inoculant
+  strain transcription.99%OTU matches do not establish unique viable strains.
+- Straw retains crude enzyme production,enzyme transfer and subsequent substrate digestion,both arrows and39.85/36.99/19.21%polymer
+  degradation.801.16mL/gTS is positive total biogas,not methane-only yield. Removing the methane annotation does
+  not claim methane absence. Four enzyme producers are not assumed to be the downstream methanogenic community;
+  no reciprocal fitness inferred.
+- SASW retains combined BCC water and profile outcomes. EPS mediation remains HYPOTHESIZED with PARTIAL support;
+  separate positive water evidence stays SUPPORT. BCC-versus-NC cannot isolate SynCom from coating. Relative profiles
+  and ASV matching do not prove unique viable strains or priority effects; PICRUSt2 and correlations do not establish
+  BCAA transfer or keystone necessity. Prior assembly/PICRUSt-node removals and uninspected-S1/S2 discussion preserved.
+- All17graph and6discussion quotes match fresh sources and unchanged caches. Three open main bodies read; straw
+  abstract-bounded. Original figure pixels,external supplements,raw data and code not audited. No new cache content
+  or protocol optimization. Source timing/figure and yield inconsistencies remain separate1951/1952.
+- Fifteen focused tests and12actual control/mutation/restored-control probes pass. Mutations reject restored competition/mutualism,erased
+  TB efficacy,simulation-to-biological promotion,DT superiority and erased nulls,dropped straw arrow/degradation,methane
+  annotation,erased coating confounding,EPS promotion and profile-to-colonization promotion. Canonical files unchanged
+  by probes.
+- Four records pass schema,strict,terms,full-record references,snippets,rank and history.1161selected tests pass,not
+  full Linux CI certification.57unchanged network warnings and zero structural defects. Exact descriptions on456pages,1359nodes,522arrows
+  and deterministic rendering verified,not screenshot QA.
+- All456otherrecords,923caches and prior history/decision files unchanged. Participant lists and scopes unchanged:299list
+  users,414community-level,136mixed,278community-only,1568taxa,1281solely credited. Scope credit is not actual-participant
+  certification. No connectivity logic,threshold or schema changes.
+- Repairs1947-1950 addressed pending protected-main merge;1951/1952 remain non-graph follow-ups. Self-review is
+  not independent approval. No Edison invocation or spend; Ruegeria1883 authentication blocker not retried unchanged.
+  Root1836 and actual protected exact-head checks remain required.
+- Corpus396reviewed,10pending,54needs_research across460records. Overall objective,protected merge and branch deletion
+  incomplete. Postcommit docs-current and exact-head publication are separate checks,not preasserted here.
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: Restore TB competition
+      test: test_tb_retains_positive_disease_control_without_competition
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 21
+      assertion: assert "interaction_type" not in node
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/0/interaction_type
+        before: null
+        after: COMPETITION
+    - mutation: Erase TB positive efficacy
+      test: test_tb_retains_positive_disease_control_without_competition
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 23
+      assertion: assert "70.97%" in node["evidence"][1]["snippet"]
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/0/evidence/1/snippet
+        before: with a biocontrol efficacy of 70.97%
+        after: No efficacy occurred.
+    - mutation: Promote simulation to biological removal
+      test: test_tb_network_robustness_is_simulated_not_biological_removal
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 32
+      assertion: assert "not biological removal experiments" in node["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/1/description
+        before: TB treatment changed rhizosphere DNA-based community profiles, including relative enrichment of
+          Mortierella and reduced pathogen-associated fungi. Relative sequence abundance does not establish absolute
+          viable abundance or strain-resolved persistence of T19/PM16. Genus annotations and correlation networks
+          do not establish beneficial function, nutrient exchange or microbial necessity. Network robustness was
+          assessed by simulated node removal, not biological removal experiments. Remodeling is not isolated as
+          the cause of the positive disease-control outcome.
+        after: Biological removal proved robustness.
+    - mutation: Assert DT superiority
+      test: test_dt_protection_is_not_inoculant_superiority_or_drought_validation
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 50
+      assertion: assert "pairwise differences were not significant" in node["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/0/description
+        before: The wheat-origin, 16-member DT-SynCom reduced barley leaf powdery-mildew DAF fluorescence by 43.3%
+          relative to mock treatment after Blumeria graminis f. sp. hordei challenge. All three inoculants protected
+          plants; their pairwise differences were not significant. This supports ISR-like protection but does not
+          assign necessity to JA, ethylene or SA signaling. PEG-tolerant isolate selection is not a test of whole-plant
+          drought protection.
+        after: 43.3% reduction establishes superior drought protection.
+    - mutation: Erase DT broad-profile null
+      test: test_dt_rna_changes_precede_challenge_and_keep_broad_null
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 61
+      assertion: assert "not broad community changes" in node["evidence"][1]["snippet"]
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/1/evidence/1/snippet
+        before: 'Overall, bioinoculants induced selective, function-specific shifts in rhizosphere microbial gene
+          expression, not broad community changes.
+
+          '
+        after: Broad community changes were significant.
+    - mutation: Restore straw mutualism
+      test: test_straw_process_outputs_are_not_reciprocal_mutualism
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 77
+      assertion: assert len(nodes) == 3 and all("interaction_type" not in n for n in nodes)
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/0/interaction_type
+        before: null
+        after: MUTUALISM
+    - mutation: Erase enzyme-transfer arrow
+      test: test_straw_retains_both_material_transfer_directions
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 85
+      assertion: assert len(a["downstream"]) == len(b["downstream"]) == 1
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/0/downstream
+        before:
+        - target: Lignocellulose Enzyme Pretreatment
+          description: Fermentation supplies the crude enzyme solution applied to wheat straw, enabling the measured
+            polymer-degradation pretreatment. This is an enzyme-mediated material-transfer step, not proof that
+            the living four-member inoculum colonizes every subsequent process stage.
+        after: []
+    - mutation: Erase positive polymer degradation
+      test: test_straw_preserves_positive_polymer_degradation_values
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 95
+      assertion: assert all(v in node["description"] for v in ["39.85%", "36.99%", "19.21%"])
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/1/description
+        before: Crude enzyme solution from the synthetic community was applied to wheat straw before anaerobic digestion.
+          Reported cellulose, hemicellulose and lignin degradation rates were 39.85%, 36.99% and 19.21%, respectively.
+          The treatment acts through the enzyme preparation; these values do not establish reciprocal microbial
+          benefit or living producer growth on the pretreated substrate.
+        after: No degradation occurred.
+    - mutation: Reannotate total biogas as methane
+      test: test_straw_total_biogas_is_not_methane_only_or_isolate_methanogenesis
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 105
+      assertion: assert "metabolites" not in node
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/2/metabolites
+        before: null
+        after:
+        - preferred_term: methane
+    - mutation: Erase SASW coating confounding
+      test: test_sasw_water_outcome_is_combined_biocoating_not_syncom_alone
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 113
+      assertion: assert "coating-only CC and SynCom-only BC" in node["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/0/description
+        before: 'In drought-stressed wheat pots, the combined SynCom-SASW01 plus coating-matrix treatment (BCC)
+          increased rhizosphere relative water content versus untreated NC. EPS-mediated water retention is HYPOTHESIZED,
+          not selectively demonstrated: the matrix includes biochar and other additives. The design also includes
+          coating-only CC and SynCom-only BC, but a BCC-versus-NC contrast does not isolate the microbial or EPS
+          contribution. This water outcome is not itself evidence of colonization facilitation.'
+        after: SynCom alone caused the water benefit.
+    - mutation: Promote EPS hypothesis to support
+      test: test_sasw_eps_mediation_remains_hypothesized
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 123
+      assertion: assert node["evidence"][0]["supports"] == "PARTIAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/0/evidence/0/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Promote SASW profiles to colonization facilitation
+      test: test_sasw_profiles_do_not_establish_viable_strains_or_causal_cascade
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 130
+      assertion: assert "interaction_type" not in node
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/1/interaction_type
+        before: null
+        after: COLONIZATION_FACILITATION
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml: d355a605023b423a1b2d61dc1f49177d9f90f4c0a0510abef0f074b085216002
+      kb/communities/Wheat_DT_Rhizosphere_SynCom.yaml: ee5b482655aeb0d187e29cfe8b18016b247b355f3d63dbba2db3b591c84f05ef
+      kb/communities/Wheat_Straw_Biogas_Pretreatment_SynCom.yaml: f7eb74b6868f91109757655407c0934a7e1971e9692283f52c51ecbf329c9df4
+      kb/communities/Wheat_SynCom_SASW01_Drought_Inoculant.yaml: 613f8b97efa732c213fae320935a4f8cafa8cb899718e6c18a7c1f47f9ba0420
+      tests/test_causal_review_batch122.py: 00bfbda6721badbc73893b0dbdaea5ec146f84d33e581b86f75df8cfa8ab189e
+    probe_script_sha256: 611a8d0a56a617ee06ec9540ba151757ecddea057e4c688c2d7d43fec33a52e1
+    scope: In-memory control/mutation/restored-control; no canonical writes and not additional pytest tests.
+  artifact: /private/tmp/communitymech-batch122/adversarial-regression-proof.json
+  sha256: 6463b5db5ebe7657a6f25dd3789714bff35431566a81de7d8b6335c15cd011bb
+verification:
+  combined_regressions: 1161 passed in 600.56s (0:10:00)
+  new_regression_tests: 15
+  total_recorded_gate_outputs: 41
+  primary_graph_snippet_proof:
+    graph_quotations: 17
+    discussion_quotations: 6
+    fresh_primary_literal_matches: 23
+    all_cached_literal_matches: 23
+    retained_nodes: 9
+    removed_nodes: 0
+    renamed_nodes: 1
+    retained_arrows: 2
+    removed_arrows: 0
+    new_nodes_or_directions: 0
+  references: Full-record local passes are macOS, not Linux certification. Literal matching does not establish entailment.
+    Total checks in the reference CLI counts issues, not examined snippets.
+  snippet_counts_by_record:
+    kb/communities/Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml:
+      MATCH: 20
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Wheat_DT_Rhizosphere_SynCom.yaml:
+      MATCH: 33
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Wheat_Straw_Biogas_Pretreatment_SynCom.yaml:
+      MATCH: 14
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Wheat_SynCom_SASW01_Drought_Inoculant.yaml:
+      MATCH: 22
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 9084
+      categories:
+        MATCH: 8936
+        RENDERING: 31
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 40
+        NOCONTENT: 76
+    caveat: Informational audit exit0 is not clean-corpus or entailment certification.
+  network:
+    existing_findings_preserved: 57
+    added_findings: {}
+    removed_findings: {}
+    structural_defects: 0
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-four-records-batch122.yaml: c77c5eb2fb20969b2f3b50aa34646df937cfb86c2f96c308ea2350f016cf080e
+    tests/test_causal_review_batch122.py: 00bfbda6721badbc73893b0dbdaea5ec146f84d33e581b86f75df8cfa8ab189e
+    tests/test_participating_taxa.py: f438815b4a028c0f38a077df53c95f685f98b3c2b523593896a124b544269db1
+    tests/test_community_level_connectivity_credit.py: 996cc631423bfa7adc5d8e693d67d55b374a24379d119ab0fa8f1802f38f216a
+    tests/test_causal_review_batch109.py: ff8e9e26771545e1ace22b3c1d42076789c99cc4bc83e588b6a4b9ad698d3d73
+    tests/test_datamodel.py: f8d4750ad64eb4156857a86a8c6adf16dedefb09ca3c3da908f697e609a35f25
+    reports/causal_graph_review/cache-provenance-20261008-batch122.json: 10c911cdfc0852678c5ea2e3a5ffab604750c835a6455f723ca69a6d85a4e03b
+    kb/communities/Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml: d355a605023b423a1b2d61dc1f49177d9f90f4c0a0510abef0f074b085216002
+    kb/communities/Wheat_DT_Rhizosphere_SynCom.yaml: ee5b482655aeb0d187e29cfe8b18016b247b355f3d63dbba2db3b591c84f05ef
+    kb/communities/Wheat_Straw_Biogas_Pretreatment_SynCom.yaml: f7eb74b6868f91109757655407c0934a7e1971e9692283f52c51ecbf329c9df4
+    kb/communities/Wheat_SynCom_SASW01_Drought_Inoculant.yaml: 613f8b97efa732c213fae320935a4f8cafa8cb899718e6c18a7c1f47f9ba0420
+  history_sha256:
+    history/records/Wheat_CrownRot_TB_CrossKingdom_SynCom/2026-10-08T160003Z-codex-e66225.yaml: ee4848501ada32eae957eb80150b29b9306836a8293ae32e0a4b0e338684d2f9
+    history/records/Wheat_DT_Rhizosphere_SynCom/2026-10-08T160004Z-codex-72b999.yaml: e8e555d4fcba8287a1fb0b7b87be34ddeecced4d404d287b7b73dd165573322b
+    history/records/Wheat_Straw_Biogas_Pretreatment_SynCom/2026-10-08T160004Z-codex-49a7c7.yaml: 0da445e681c09a225c84ad433230c504a57056a06eefad0493a5fa1b9c260b57
+    history/records/Wheat_SynCom_SASW01_Drought_Inoculant/2026-10-08T160004Z-codex-53385b.yaml: 1d58e45ffb16360ac90bed8e48c2f6a00b42ab0f2f6ace1fb23eaeba7a39fbc8
+  unchanged_records: 456
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 899
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    new_nodes_or_directions: 0
+    prior_extension_blocker: 'Ruegeria1883: configured authentication unavailable in prior approved invocation;
+      no unchanged-state retry.'
+  post_commit_docs_current: Separate publication gate,not preasserted.
+participant_census:
+  current:
+    records: 460
+    with_community_level: 414
+    mixed: 136
+    community_level_only: 278
+    taxa: 1568
+    credited_solely_by_the_rule: 1281
+  delta_from_batch121:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  explanation: All participant lists and scopes are unchanged;299participant-list users. Scope credit is not certification
+    of actual participant coverage. Connectivity logic and thresholds are unchanged.
+corpus:
+  records: 460
+  nodes: 1373
+  edges: 530
+  review_status_counts:
+    needs_research: 54
+    pending: 10
+    reviewed: 396
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary established Python3.13 lint environment; project dependencies unchanged.
+limitations:
+- Both-root pre-source baseline covers460records and923caches,57existing warnings and zero structural defects. Four
+  whole target records and nine nodes/two arrows reviewed; all retained,one rename,no new topology.
+- Four fresh EuropePMC metadata/abstract and Crossref identities checked. Complete open TB,DT and SASW main-body
+  text,methods,results,discussion and available table/caption text read. SASW Figure4 caption additionally checked
+  via PubMed. No original figure pixels,separate supplementary files,raw data or analysis code audit.
+- Straw repairs are abstract-bounded. EuropePMC lists no PMCID; ACS primary search result gives abstract and supporting-information
+  listing,but publisher article access returned403 and the attempted SI endpoint was inaccessible. No full text
+  or supplement inspected,no access bypass or exhaustive absence claim.
+- TB retains positive pot disease control,70.97%biocontrol efficacy and growth traits. No in-vivo single-member
+  arms identify necessity or synergy. Relative DNA profiles are not viable-strain persistence; network robustness
+  used simulated removal. Soil metabolites are not directly sampled root exudates,QS/volatiles remain hypotheses,and
+  metabolite validation from the separate six-strain paper is not transferred.
+- DT retains43.3%barley disease-assay fluorescence reduction,selective pre-challenge measured RNA changes and broad-profile
+  nulls. No significant inoculant pairwise differences or assigned JA/ET/SA pathway dependence. Similarity-based
+  annotations do not identify inoculant transcripts;99%OTU matching does not establish unique viable strains. Prior1070and
+  dated BioProject discussion preserved; access status not rechecked.
+- Straw retains both process directions and39.85/36.99/19.21%polymer degradation and801.16mL/gTS total biogas. Crude
+  enzymes rather than living producers mediate pretreatment; no reciprocal-fitness evidence or four-isolate methanogenesis
+  inferred. Removed methane annotation does not assert that methane was absent.
+- SASW retains positive combined BCC outcomes with coating matrix distinct from SynCom-only effects. EPS mediation
+  remains HYPOTHESIZED/PARTIAL; relative16S profiles,100%ASV matching,PICRUSt2 and Mantel/RDA do not establish viable-strain
+  identity,priority-effect causality,BCAA transfer or keystone necessity. Prior1016/1017 removals and S1/S2 knowledge
+  gap preserved.
+- All17graph and6discussion quotations independently matched to fresh primary and existing local caches. Relevant
+  cache excerpts and complete short straw cache read; no claim of manual whole-cache reading for long flattened
+  bodies. Literal matches are not entailment proof. No cache changes or full-body imports. Three retrieved open
+  papers carry CC BY4.0; ACS does not.
+- Fresh1182all-state issue titles/bodies searched with expanded DOIs and aliases;five matching bodies and two prior
+  YAML review reports read.150matching local paths found with hidden/ignored inclusion,excluding.git,docs,site,references_cache
+  and credentials. Closed1072label drift,1070selective RNA evidence,1069Barley typo,1016assembly and1017PICRUSt
+  removals are distinct and preserved. Not a historical PR-comment audit.
+- Four guarded writes preserve456otherrecords,all923caches,unrelated raw YAML fields and all prior history/decision
+  artifacts. Four append-only histories and curation events. Taxa,participant lists and scopes unchanged; evidence
+  aliases detached. TB external challenge participant remains explicitly distinguished from inoculum membership.
+- No Edison submission or credits,new nodes or directions. Prior authorized Ruegeria1883 configured-authentication
+  blocker not retried unchanged; no credentials inspected. Source-based self-adversarial review is not independent
+  approval. Overall goal,protected merge and branch deletion remain incomplete.

@@ -1,0 +1,182 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 05ad7290763bfa44f26706bc0d5edb2a17118219
+decision_ledger: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+validation_report: reports/causal_graph_review/validation-20261005-batch8.json
+scope:
+  records_assessed: 12
+  records_reviewed: 11
+  records_needing_research: 1
+  records_changed: 11
+  records_unchanged: 1
+  nodes_before: 38
+  nodes_after: 36
+  arrows_before: 18
+  arrows_after: 12
+  new_nodes: 0
+  new_arrows: 0
+findings:
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1264
+  severity: P2
+  disposition: addressed_and_locally_verified
+  finding: Sponge, aphid and rhizosphere graphs overstate model or genomic inference as measured flux, mutualism,
+    stability or selection; Bothnian wording confuses poor detection with absence.
+  resolution: Preserve conditional modeled exchange, experimental GAC-dependent syntrophy and source-proposed hypotheses.
+    Remove two sponge summary arrows, qualify molecular/host attribution and correct the residual methanogen observation.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1264#issuecomment-5996516775
+  severity: P2
+  disposition: addressed_and_locally_verified
+  finding: The editing agent's initial draft described the sponge stability ratio as population-size bounds.
+  resolution: The primary Results define a final/initial AOA:NOB population-ratio criterion, not absolute abundance.
+    Corrected before commit; all focused gates and a regression verify the final definition.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1265
+  severity: P2
+  disposition: addressed_and_locally_verified
+  finding: BioRock percentages use the wrong denominator; independent cultures, PET mass loss and rumen enzyme synergy
+    are mislabeled as ecological interaction types.
+  resolution: Correct percent OF control and statistical/speciation scope; retain YB2 potential complementarity
+    as PARTIAL. Remove two rumen workflow nodes and unsupported niche-partitioning/mutualism assignments.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1266
+  severity: P2
+  disposition: addressed_and_locally_verified
+  finding: Bosea, calcium and CRC graphs connect separate assays or concurrent outcomes without demonstrated mediation
+    and use unsupported interaction types.
+  resolution: Remove four arrows while preserving qualified substrate/compound/metabolism hypotheses. Bound soil
+    removal, zebrafish toxicity, qPCR abundance and mouse/pot disease endpoints to their actual assays.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1267
+  severity: P2
+  disposition: partially_addressed_keep_open
+  finding: Cable-bacteria Chlorophyta assignments conflict with the primary diatom-based biofilm; community-level
+    expansion inherits the unchanged roster.
+  resolution: Remove explicit wrong graph participants and inappropriate conduction/response cross-feeding types.
+    Preserve supported oxygen coupling and both arrows. Record remains needs_research; whole-record taxonomy and
+    connectivity must be reconciled before certification.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1268
+  severity: P3
+  disposition: deferred_outside_graph_scope
+  finding: Non-graph taxonomy, roles, ingredient prescriptions, protocol details, percentages and assay framing
+    require separate whole-record curation.
+  resolution: Preserve non-graph raw blocks and keep this follow-up issue open. Those fields are not certified by
+    this graph review.
+adversarial_checks:
+- challenge: Did conservative pruning erase supported experimental syntrophy or source-proposed hypotheses?
+  resolution: Bothnian core SYNTROPHY remains experimental. The two Brachypodium and two Buchnera arrows remain
+    HYPOTHESIZED with partial evidence. Lack of intervention alone is not grounds to delete an explicitly proposed
+    mechanism.
+- challenge: Are the twelve retained directions causal rather than merely sequential?
+  resolution: Two sponge input/substrate mechanisms, Bosea handoff, two Brachypodium selection hypotheses, two Buchnera
+    co-preservation hypotheses, YB2 complementarity, CRC metabolic interpretation, two cable oxygen/conduction mechanisms
+    and calcium compound mediation remain bounded. Six part-whole/common-input/cross-assay arrows were removed.
+- challenge: Does the word synergy establish reciprocal partner fitness or a formal factorial interaction?
+  resolution: No. Rumen enzyme synergy, YB2 mass loss and calcium disease protection retain measured endpoints without
+    MUTUALISM, NICHE_PARTITIONING or claims of a tested interaction term.
+- challenge: Does a lower pathogen endpoint establish reciprocal-negative competition or eradication?
+  resolution: No. CRC and calcium types were removed; co-gavage, qPCR-versus-viability and disease-incidence limits
+    are explicit. No clinical efficacy is claimed.
+- challenge: Can the Bosea toxicity method be silently classified or omitted?
+  resolution: Preflight showed evidence_source is required. OTHER explicitly records unresolved context rather than
+    inventing organism stage, assigning IN_VITRO or weakening the schema. Full methods remain under 1268.
+- challenge: Does removing explicit cable participants resolve the taxonomy conflict?
+  resolution: No. The unchanged roster still affects graph expansion; prose, discussion, ledger status and follow-up
+    all retain this blocker. The participating_taxa sentinel changes only to match actual slot usage, not to waive
+    connectivity invariants.
+- challenge: Are prior canonical groundings and source fixes preserved?
+  resolution: Preserve Allobosea/GTDB Bosea, Bothnian domain-level Geosyntrophus, Brocadia model-source gap, Pseudoselenomonas
+    and Hominimerdicola, CRC obsolete-GO removal and calcium 961-963 fixes.
+- challenge: Is the unchanged record actually assessed?
+  resolution: Brocadia whole record and complete abstract were read; its existing bounded computational node and
+    source gaps are appropriate. Byte identity and absence of a new event/history are checked.
+- challenge: Can snippet matches certify causal validity or unread material?
+  resolution: No. Full source scopes and hashes are recorded. Abstract-only records remain bounded; no unread figures,
+    supplements, raw data or model reruns are certified.
+limits:
+- This is self-adversarial review by the editing agent, not independent approval.
+- Corpus-wide semantic review remains incomplete; cable bacteria and Bayan Obo are not certified.
+- No new nodes/arrows or paid Edison job. Earlier spending authorization remains separate from unavailable provider
+  credentials.
+- No source-cache edits, PDFs or unrelated untracked research files are part of this patch.
+- Isolated local runtimes avoid the pre-existing project dependency build failure; normal project-environment CI
+  remains required.
+- Rendering is checked deterministically with exact HTML description comparison, not screenshot QA, for this data-only
+  batch.
+- Workspace PDF rights failure is retained; the publishable tracked-plus-batch snapshot is checked separately. A
+  stale rumen label cache is reproduced against the baseline and current no-cache validation passes.
+verification:
+  status: local_checks_complete_with_explicit_label_cache_and_workspace_limits
+  corpus_records: 460
+  review_status_counts:
+    needs_research: 2
+    pending: 385
+    reviewed: 73
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  focused_regressions_output: '........................................................................ [ 55%]
+
+    ..........................................................               [100%]
+
+    130 passed in 63.25s (0:01:03)
+
+    '
+  additional_isolated_regressions_output: '.....................s..........................................s.......
+    [  7%]
+
+    ........................................................................ [ 14%]
+
+    ........................................................................ [ 21%]
+
+    ........................................................................ [ 28%]
+
+    ........................................................................ [ 35%]
+
+    ........................................................................ [ 43%]
+
+    ........................................................................ [ 50%]
+
+    ........................................................................ [ 57%]
+
+    ........................................................................ [ 64%]
+
+    ........................................................................ [ 71%]
+
+    ........................................................................ [ 78%]
+
+    ........................................................................ [ 86%]
+
+    ........................................................................ [ 93%]
+
+    ....................................................................     [100%]
+
+    1002 passed, 2 skipped in 121.21s (0:02:01)
+
+    '
+  cache_and_snippet_suite_passed: 50
+  cache_and_snippet_suite_workspace_pdf_failures: 1
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1463
+    edge_descriptions: 718
+  render_determinism: passed
+  snippet_counts:
+    MATCH: 187
+    RENDERING: 1
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  batch_graph_counts:
+    changed_records: 11
+    nodes_before: 38
+    nodes_after: 36
+    edges_before: 18
+    edges_after: 12
+    unchanged_raw_blocks: 170
+    unchanged_records: 1
+  reference_default_passed: 12
+  default_term_passed: 11
+  default_term_stale_cache_failure: 1
+  rumen_no_cache_terms_passed: true
+  cable_review_completed: false
+  publishable_snapshot_rights_tests_passed: 3

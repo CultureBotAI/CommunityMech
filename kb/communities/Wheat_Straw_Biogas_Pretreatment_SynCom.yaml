@@ -99,11 +99,11 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Synthetic Community Fermentation-Enzyme Production
-  description: The four Bacillus, Acinetobacter, Trichoderma, and Aspergillus
-    degraders are assembled as synthetic microbial communities for
-    fermentation-enzyme production, yielding the crude enzyme solution used for
-    wheat-straw pretreatment.
-  interaction_type: MUTUALISM
+  description: The four reported bacterial/fungal degraders form an enzyme-producing inoculum that yields the crude
+    enzyme solution used for wheat-straw pretreatment. This positive process output does not measure reciprocal
+    fitness, member-specific enzyme contributions or metabolite cross-feeding. The accessible abstract does not
+    resolve strain identities or establish that the four isolates constitute the downstream anaerobic-digestion
+    community.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lignocellulose
@@ -125,21 +125,20 @@ ecological_interactions:
       label: lignin catabolic process
   downstream:
   - target: Lignocellulose Enzyme Pretreatment
-    description: Crude enzyme from the fermentation-production community was
-      applied to wheat straw for the enzyme pretreatment that depolymerizes
-      cellulose, hemicellulose, and lignin.
+    description: Fermentation supplies the crude enzyme solution applied to wheat straw, enabling the measured polymer-degradation
+      pretreatment. This is an enzyme-mediated material-transfer step, not proof that the living four-member inoculum
+      colonizes every subsequent process stage.
   evidence:
   - reference: PMID:38748977
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: synthetic microbial communities were constructed for fermentation-enzyme
-      production
-    explanation: Supports the fermentation-enzyme production step driven by
-      the constructed degrader community.
+    snippet: synthetic microbial communities were constructed for fermentation-enzyme production
+    explanation: Supports the fermentation-enzyme production step driven by the constructed degrader community.
 - name: Lignocellulose Enzyme Pretreatment
-  description: Bacterial and fungal enzyme producers jointly degrade wheat straw polymers before anaerobic
-    digestion.
-  interaction_type: MUTUALISM
+  description: Crude enzyme solution from the synthetic community was applied to wheat straw before anaerobic digestion.
+    Reported cellulose, hemicellulose and lignin degradation rates were 39.85%, 36.99% and 19.21%, respectively.
+    The treatment acts through the enzyme preparation; these values do not establish reciprocal microbial benefit
+    or living producer growth on the pretreated substrate.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cellulose
@@ -169,36 +168,37 @@ ecological_interactions:
       label: lignin catabolic process
   downstream:
   - target: Enhanced Biogas Production after Anaerobic Digestion
-    description: Improved wheat-straw enzymatic digestion feeds downstream
-      anaerobic digestion and increases the cumulative biogas yield.
+    description: The enzyme-pretreated straw supplies substrate to subsequent anaerobic digestion, where cumulative
+      biogas was higher than with untreated straw or either commercial-enzyme pretreatment. Retain this process-level
+      treatment effect without assigning gas production to the four enzyme producers or to one uniquely necessary
+      polymer-degradation route.
   evidence:
-  - *id001
   - reference: PMID:38748977
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: yielding cellulose, hemicellulose, and lignin degradation rates of 39.85, 36.99,
-      and 19.21%, respectively.
-    explanation: Quantifies degradation of the three major wheat-straw
-      polymers by the synthetic microbial community enzyme pretreatment.
+    snippet: 'Herein, a metagenomic approach was used to screen core microorganisms (Bacillus subtilis, Acinetobacter
+      johnsonii, Trichoderma viride, and Aspergillus niger) possessing lignocellulose-degrading abilities among
+      samples from three environments: pile retting wheat straw (WS), WS returned to soil, and forest soil.'
+    explanation: Supports the defined synthetic community design and represented community context.
+  - reference: PMID:38748977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: yielding cellulose, hemicellulose, and lignin degradation rates of 39.85, 36.99, and 19.21%, respectively.
+    explanation: Quantifies degradation of the three major wheat-straw polymers by the synthetic microbial community
+      enzyme pretreatment.
 - name: Enhanced Biogas Production after Anaerobic Digestion
-  description: Wheat straw pretreated with the synthetic-community crude enzyme
-    solution produced the highest cumulative biogas in the subsequent anaerobic
-    digestion stage, outperforming untreated straw and both commercial enzyme
-    pretreatments.
-  interaction_type: MUTUALISM
+  description: Subsequent anaerobic digestion of synthetic-community enzyme-pretreated straw yielded 801.16 mL/g
+    TS cumulative biogas, higher than untreated straw and both commercial-enzyme pretreatments. Biogas volume is
+    not a methane-only yield. The abstract does not identify the digestion community or demonstrate methanogenesis
+    by the four enzyme-producing isolates.
   scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: methane
-    term:
-      id: CHEBI:16183
-      label: methane
   evidence:
   - reference: PMID:38748977
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: SMCEP displayed the highest cumulative biogas production at 801.16 mL/g TS
-    explanation: Supports the anaerobic-digestion endpoint after synthetic
-      microbial community enzyme-producing pretreatment.
+    explanation: Supports the anaerobic-digestion endpoint after synthetic microbial community enzyme-producing
+      pretreatment.
 environmental_factors:
 - name: defined synthetic community design
   value: Core microorganisms with lignocellulose-degrading abilities were screened from straw and forest
@@ -246,3 +246,31 @@ related_ingredients:
     snippet: yielding cellulose, hemicellulose, and lignin degradation rates of 39.85, 36.99,
     explanation: Reports a measured hemicellulose degradation rate, anchoring hemicellulose as a central
       substrate of the pretreatment.
+discussions:
+- discussion_id: straw_causal_scope_batch122
+  prompt: How do enzyme producers and the downstream digestion community contribute to the biogas benefit?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Synthetic Community Fermentation-Enzyme Production
+  - ecological_interactions#Lignocellulose Enzyme Pretreatment
+  - ecological_interactions#Enhanced Biogas Production after Anaerobic Digestion
+  rationale: The accessible abstract supports the existing enzyme-production to pretreatment to digestion sequence
+    and positive polymer and total-biogas outcomes. It does not resolve individual-strain contributions, reciprocal
+    benefit, digestor membership, methane fraction or a uniquely necessary enzyme. Primary full methods and supplementary
+    information were not inspected; publisher access attempts failed. This is a bounded access limitation, not a
+    claim that full text or supplements do not exist.
+  evidence:
+  - reference: PMID:38748977
+    snippet: SMCEP displayed the highest cumulative biogas production at 801.16 mL/g TS
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T16:00:03Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain enzyme-production output without reciprocal mutualism or attribution of downstream digestion to
+    the inoculum.; Preserve polymer-degradation values and enzyme transfer rather than living-cell mutualism.; Keep
+    positive downstream biogas yield distinct from methane-only yield or four-isolate methanogenesis. Issue#1949;
+    reports/causal_graph_review/decisions/20261008-four-records-batch122.yaml
+  llm_assisted: true

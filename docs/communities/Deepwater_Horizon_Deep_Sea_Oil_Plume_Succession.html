@@ -203,6 +203,10 @@
             margin: 0.5rem 0;
         }
 
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
         .flow-arrow {
             color: var(--primary);
             margin: 0 0.5rem;
@@ -324,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -335,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -415,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        deep marine hydrocarbon plume
+                        deep marine hydrocarbon plume<span class="ontology-label"> — ontology label: marine environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01000320"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -454,7 +462,7 @@
 
                     <tr>
                         <td>
-                            <strong>DWH Oceanospirillales-like bacteria</strong>
+                            <strong>DWH Oceanospirillales-like bacteria<span class="ontology-label"> — ontology label: Oceanospirillales</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=135619"
@@ -693,12 +701,13 @@
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Deepwater Horizon Deep-Sea Oil Plume Succession</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, niche partitioning, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -706,18 +715,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -725,14 +724,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Intrinsic Hydrocarbon Bioremediation</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Cold Hydrocarbon Biodegradation and Bioremediation Potential</h3>
                 </div>
+                <p class="prewrap interaction-description">Field hydrocarbon patterns and environmental-isolate incubations at 5 C support cold-water biodegradation and the potential for intrinsic plume bioremediation without substantial oxygen drawdown. This is not a distinct oxygen-conservation mechanism or established syntrophy. The named Oceanospirillales group represents a canonical subset, not every degrader or all spill phases.</p>
 
 
-                <p><strong>Source Taxon:</strong> DWH Oceanospirillales-like bacteria</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    DWH Oceanospirillales-like bacteria
+
+                </p>
 
 
 
@@ -763,15 +766,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Oxygen-Conserving Deep-Plume Hydrocarbon Attenuation
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -783,7 +777,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/20736401/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:20736401</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (OTHER)
                         </div>
 
                         <div class="snippet">"faster-than-expected hydrocarbon biodegradation rates at 5°C"</div>
@@ -796,7 +790,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/20736401/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:20736401</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (OTHER)
                         </div>
 
                         <div class="snippet">"intrinsic bioremediation of the oil plume in the deep-water column without substantial oxygen drawdown"</div>
@@ -809,14 +803,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Colwellia Oil Droplet Floc Formation</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Colwellia-Dominated Oil-Associated Flocs</h3>
                 </div>
+                <p class="prewrap interaction-description">In cold oil/COREXIT enrichments from uncontaminated deep Gulf water without added FeCl2, oil-, carbohydrate- and biomass-containing flocs were dominated by Colwellia. Oil degradation by an isolated Colwellia strain is a separate positive result. Aggregation does not by itself demonstrate facilitation of another taxon or quantify a floc-specific contribution to field attenuation.</p>
 
 
-                <p><strong>Source Taxon:</strong> Colwellia</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Colwellia
+
+                </p>
 
 
 
@@ -836,7 +834,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Intrinsic Hydrocarbon Bioremediation
+                        <span class="flow-arrow">→</span> Cold Hydrocarbon Biodegradation and Bioremediation Potential
+                        <p class="prewrap causal-description">HYPOTHESIZED - aggregation with oil droplets could support Colwellia-associated hydrocarbon access and degradation. The enrichment observations and separate isolate assay do not selectively test this route or establish its contribution to in situ plume attenuation.</p>
                     </div>
 
                 </div>
@@ -878,12 +877,24 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Complex Hydrocarbon Substrate Partitioning</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Proposed Community Hydrocarbon Pathway Complementarity</h3>
                 </div>
+                <p class="prewrap interaction-description">HYPOTHESIZED - SIP enrichment and genome reconstruction suggest complementary hydrocarbon pathways. The study separates deep-water hexadecane from surface-water PAH enrichments, incubated at room temperature without added dispersant. Named taxa are a subset across those enrichments, not a proven five-member deep-plume consortium. Coordinated metabolism is an alternative to unknown enzymes or incomplete assemblies, not resolved metabolite exchange.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    DWH Oceanospirillales-like bacteria,
+
+                    Colwellia,
+
+                    Cycloclasticus,
+
+                    Marinobacter
+
+                </p>
 
 
 
@@ -918,7 +929,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Intrinsic Hydrocarbon Bioremediation
+                        <span class="flow-arrow">→</span> Cold Hydrocarbon Biodegradation and Bioremediation Potential
+                        <p class="prewrap causal-description">HYPOTHESIZED - complementary pathways could expand community hydrocarbon transformation and contribute to bioremediation. SIP and annotated repertoires support this model but do not establish intertaxon flux, necessity or the contribution of this room-temperature enrichment mechanism in the cold field plume.</p>
                     </div>
 
                 </div>
@@ -934,7 +946,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/27572965/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:27572965</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"combined capabilities of the microbial community exceeded those of its individual components"</div>
@@ -947,83 +959,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/27572965/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:27572965</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"degradation of complex hydrocarbon mixtures requires the non-redundant capabilities of a complex oil-degrading community"</div>
 
                     </li>
 
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Oxygen-Conserving Deep-Plume Hydrocarbon Attenuation</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
-                </div>
-
-
-
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    hydrocarbon
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=24632"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:24632</a>),
-
-                    dioxygen
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15379"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:15379</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        alkane catabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0043448"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0043448</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
                     <li class="evidence-item">
                         <div>
 
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/20736401/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:20736401</a>
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/27572965/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:27572965</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"faster-than-expected hydrocarbon biodegradation rates at 5°C"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/20736401/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:20736401</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"intrinsic bioremediation of the oil plume in the deep-water column without substantial oxygen drawdown"</div>
+                        <div class="snippet">"assimilate alkane and polycyclic aromatic hydrocarbons during stable-isotope probing experiments"</div>
 
                     </li>
 
@@ -1071,6 +1023,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How much do floc formation and proposed pathway complementarity contribute to field hydrocarbon attenuation?
+                </h3>
+                <p class="prewrap">Selective aggregation and member/pathway perturbations, direct intermediate tracing and field-resolved measurements would test the two retained hypotheses. Surface and plume enrichments cannot be collapsed into one co-occurring consortium. The duplicate oxygen-conservation node was consolidated without discarding the bounded bioremediation potential. Hazen and Baelum claims remain abstract-bounded; the Dombrowski author proof and Figure 3 were inspected. The partial Colwellia SAG supports predictions, not demonstrated missing enzymes or siderophore exchange. Non-graph follow-up: #1379.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Cold Hydrocarbon Biodegradation and Bioremediation Potential</code>, <code>ecological_interactions#Colwellia-Dominated Oil-Associated Flocs</code>, <code>ecological_interactions#Proposed Community Hydrocarbon Pathway Complementarity</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1424,12 +1395,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1442,7 +1416,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1517,7 +1490,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1536,7 +1509,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Intrinsic Hydrocarbon Bioremediation",
+                label: "Cold Hydrocarbon Biodegradation and Bioremediation Potential",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1545,18 +1518,24 @@
             });
 
 
-            var srcKey = "DWH Oceanospirillales-like bacteria";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "DWH Oceanospirillales-like bacteria"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1569,7 +1548,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Colwellia Oil Droplet Floc Formation",
+                label: "Colwellia-Dominated Oil-Associated Flocs",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1578,18 +1557,24 @@
             });
 
 
-            var srcKey = "Colwellia";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Colwellia"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1604,11 +1589,11 @@
             processes.push("alkane catabolic process");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "Complex Hydrocarbon Substrate Partitioning",
+                label: "Proposed Community Hydrocarbon Pathway Complementarity",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1619,39 +1604,22 @@
 
 
 
-        })();
+            var participantKeys = [
 
-        (function() {
-            var intId = "interaction:3";
-            var intType = "NICHE_PARTITIONING";
-            var metabolites = [];
+                "DWH Oceanospirillales-like bacteria",
 
+                "Colwellia",
 
-            metabolites.push("hydrocarbon");
+                "Cycloclasticus",
 
-            metabolites.push("dioxygen");
+                "Marinobacter"
 
-
-            var processes = [];
-
-
-            processes.push("alkane catabolic process");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Oxygen-Conserving Deep-Plume Hydrocarbon Attenuation",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
             });
-
-
-
 
         })();
 
@@ -1666,12 +1634,15 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 9;
+        var nodeCount = 8;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

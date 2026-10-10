@@ -1,0 +1,673 @@
+reviewer: codex
+review_mode: source_based_self_review
+base_commit: 0801c2ba0dce8d828664d17c8733f3d85e9f9e06
+issues:
+- 1272
+non_graph_followup_issues:
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1273
+  scope: Caragana forage source values, statistical comparisons and outdated access scope.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1274
+  scope: California treatment season and vessel capacity versus working volume.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1275
+  scope: Cellulose-methane sampling, replenishment, pH and gas-context metadata.
+issue_deduplication:
+  count: 624
+  scope: All paginated open/closed titles and bodies; ignored-inclusive local reports/history/tests. Comments not
+    exhaustive.
+limitations:
+- No new nodes/arrows or Edison job.
+- Cheese remains needs_research and issue 765 stays open.
+- Source reading and graph review do not certify unread images, supplementary files or non-graph metadata.
+records:
+- path: kb/communities/California_Grassland_Precipitation_Legacy_Soil_Community.yaml
+  id: CommunityMech:000215
+  original_sha256: 6b7185782ea052fa8f455cb20b63b99335197e2d30a9b245599fb61f7912c007
+  record_sha256: 7d75f820906ff9d78b5b0af28c3f11f89399f0f7b80c28df6438d9f19b3b368d
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+  scope: Whole record and every graph node/arrow reviewed to the explicit source-reading limits; non-graph metadata
+    is preserved, not certified.
+  summary: Separate California precipitation-legacy observations from proposed carbon-allocation mechanisms
+  node_decisions:
+  - node: Necromass Recycling at High Community Growth Efficiency
+    rationale: Retain partial necromass interpretation and explicitly bounded pathway annotations.
+  - node: Plant Detritus Degradation at Low Community Growth Efficiency
+    rationale: Retain partial allocation hypothesis, not measured detritus or repair flux.
+  - node: Precipitation-Legacy Turnover Suppression
+    rationale: Retain treatment-associated turnover and two qualified mechanisms with the source metric defined.
+  edges_before:
+  - source: Precipitation-Legacy Turnover Suppression
+    target: Necromass Recycling at High Community Growth Efficiency
+    description: Reduced winter precipitation suppresses microbial mortality, limiting the high-turnover, N-rich
+      necromass pool that otherwise supports high-CGE biosynthesis after rewetting.
+  - source: Precipitation-Legacy Turnover Suppression
+    target: Plant Detritus Degradation at Low Community Growth Efficiency
+    description: The lower-growth, lower-mortality legacy shifts the community toward low-CGE plant-detritus degradation
+      and lipid repair or maintenance instead of new biomass production.
+  edges_after:
+  - source: Precipitation-Legacy Turnover Suppression
+    target: Necromass Recycling at High Community Growth Efficiency
+    description: HYPOTHESIZED - lower mortality could reduce necromass supply and recycling after rewetting. This
+      source interpretation is not traced transfer or experimentally isolated mediation.
+  - source: Precipitation-Legacy Turnover Suppression
+    target: Plant Detritus Degradation at Low Community Growth Efficiency
+    description: HYPOTHESIZED - reduced turnover and associated transcription could shift resource allocation toward
+      detritus use and maintenance. Shared treatment responses do not establish this pathway as the cause.
+  references:
+  - PMID:41964077
+  source_review:
+    source:
+      reference: PMID:41964077
+      url: https://doi.org/10.1186/s40168-026-02395-9
+      full_text_url: https://europepmc.org/articles/PMC13188737
+      cache: references_cache/PMID_41964077.md
+      sha256: 3e02992e16bdbcf65e7ca6bb8afbd49af326525f3a8710fc4c63003a71042b0e
+      scope: Complete abstract, cached full-text Introduction through Conclusions, Table 1 linearized text, main
+        and supplementary captions; no figure images, supplementary files, raw data or referenced secondary articles
+        inspected.
+      note: Cache header incorrectly says abstract_only although an appended Europe PMC full text is present; do
+        not infer absence from header.
+    abstract_cache:
+      path: references_cache/PMID_41964077.txt
+      sha256: 4786227083311c7398a05b9beacf68ae58fb65b40543d7daf4f6ceccd4129a66
+      scope: complete
+    essential_scope:
+    - One October 2017-May 2018 rainfall-treatment season, not multiple experimental winters. August 2018 collection;
+      assays use equal wet-up moisture after dry-down.
+    - Growth/mortality are interval-average qSIP estimates from bacterial/archaeal 16S copies; linear growth assumption,
+      DNA-water fraction 0.60, copy-number/extraction/amplicon biases. Fungal turnover and sub-three-hour transients
+      not directly measured.
+    - CGE is cumulative new biomass divided by cumulative CO2, scaled to the maximum observed ratio. It is not conventional
+      absolute CUE or a carbon tracer-flux balance; fungi may contribute respiration.
+    - CO2 comparison p=0.4 is nonsignificant, not an equivalence test or increased measured total CO2. Reduced turnover
+      does not establish observed multiyear SOC stock loss.
+    - FTICR-MS formula classes are semiquantitative presence/absence estimates, not identified chemicals or absolute
+      pool sizes. Distinguish treatment-unique formula composition from all SOC.
+    - PLSR-selected and correlated gene transcripts do not demonstrate expression-driven mediation, enzyme activity
+      or metabolite flux. Full text explicitly separates community composition and physiological legacy.
+  non_graph_followups:
+    outside_scope_followups:
+    - Preserved description/environmental wording about multiple winters, taxonomy breadth and cultivation working_volume=15
+      mL (vessel capacity rather than soil-slurry volume) need whole-record review.
+    - Existing cultivation comments cite issues 622 and 646; inspect them before any follow-up to avoid reverting
+      earlier fixes.
+  history_file: history/records/California_Grassland_Precipitation_Legacy_Soil_Community/2026-10-05T173107Z-codex-e7e0fd.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1272
+  removed_edge_decisions: []
+  retained_edge_decisions:
+  - source: Precipitation-Legacy Turnover Suppression
+    target: Necromass Recycling at High Community Growth Efficiency
+    rationale: HYPOTHESIZED - lower mortality could reduce necromass supply and recycling after rewetting. This
+      source interpretation is not traced transfer or experimentally isolated mediation.
+  - source: Precipitation-Legacy Turnover Suppression
+    target: Plant Detritus Degradation at Low Community Growth Efficiency
+    rationale: HYPOTHESIZED - reduced turnover and associated transcription could shift resource allocation toward
+      detritus use and maintenance. Shared treatment responses do not establish this pathway as the cause.
+- path: kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+  id: CommunityMech:000248
+  original_sha256: a85884eef1a325fb6690477f31d6af3549ca5b5fafff82f5d81a2af314774319
+  record_sha256: ef0e6ee9fda6f4499e4c6169fda621c21125e2651f7663a7a02961859ead9620
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+  scope: Whole record and every graph node/arrow reviewed to the explicit source-reading limits; non-graph metadata
+    is preserved, not certified.
+  summary: Bound Candida succession and transcript associations without workflow or fitness inference
+  node_decisions:
+  - node: Repeated Candida-Enterococcus Co-Detection
+    rationale: Retain cohort co-detection without species-specific or facilitation overreach.
+  - node: Relative Candida-Enterococcus Succession
+    rationale: Retain relative succession without reciprocal-negative effects or eradication.
+  - node: Candida-Positive Enterococcus Mannitol-PTS Response
+    rationale: Retain the explicit source-proposed cross-feeding hypothesis with partial evidence.
+  - node: In Situ Candida Biofilm- and Respiration-Associated Transcripts
+    rationale: Retain transcript differences, not directly measured phenotypes or partitioning.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:34154658
+  source_review:
+    source:
+      reference: PMID:34154658
+      url: https://doi.org/10.1186/s40168-021-01085-y
+      full_text_url: https://europepmc.org/articles/PMC8215838
+      cache: references_cache/PMID_34154658.md
+      sha256: 22ec8ae3b96152bbe0df909fbeaf1ac4f17db66e00d031f98e9cd3d9182f5683
+      scope: Complete abstract and appended full-text Background, Results, Discussion, Conclusions and Methods,
+        with linearized Table 1 and figure captions. Images, supplementary files, raw data and referenced secondary
+        studies not inspected.
+      note: Cache header says abstract_only despite appended full text; no cache edit made.
+    critical_limits:
+    - In situ Candida omics are one strain in one infant, with hospital antifungal treatment and host changes; comparison
+      samples are different infants and include variable strains/conditions.
+    - Source specifically allows E. faecalis transcript differences to reflect between-infant variance; S. epidermidis
+      separation is clearer. Do not generalize the latter strength to Enterococcus.
+    - Ribosomal transcripts are not direct growth-rate measurements; discussion includes ribosomal heterogeneity/homeostasis
+      and nontranslation alternatives.
+    - Mannitol-1-phosphate dehydrogenase reaction is phosphorylated mannitol to phosphorylated fructose; avoid repeating
+      free-mannitol-to-free-fructose shorthand as precise biochemistry.
+    - Biofilm comparison uses orthologs of characterized C. albicans genes; distinguish C. parapsilosis expression
+      associations from demonstrated virulence changes or cross-species mechanisms.
+    preserve:
+    - Current canonical Lodderomyces parapsilosis NCBITaxon:5480, notwithstanding the old history text that had
+      normalized labels in the other direction.
+    - All non-graph blocks; existing taxonomy roster has only two members despite other infant-06 organisms in prose,
+      so consider whole-record follow-up rather than scope expansion.
+  non_graph_followups: {}
+  history_file: history/records/Candida_Parapsilosis_Hospitalized_Infant_Microbiome/2026-10-05T173107Z-codex-a51a97.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1272
+  renamed_nodes:
+    Enterococcus Replacement of Early Candida Dominance: Relative Candida-Enterococcus Succession
+    In Situ Candida Biofilm Downshift and Aerobic Enrichment: In Situ Candida Biofilm- and Respiration-Associated
+      Transcripts
+  removed_node_rationales:
+    Infant 06 Candida-Bacterial Genome Recovery: Genome reconstruction defines the analysis set; it is not an ecological
+      interaction.
+  removed_edge_decisions: []
+  retained_edge_decisions: []
+- path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  id: CommunityMech:000338
+  original_sha256: 065a9f2c4a055d6dd3039a97b606c590d7eeb6371fc867fa897f1d2a391c6936
+  record_sha256: c25facb4d904532aae4c45fe2b63c08a48983c4ce86cb46b4298a30e4847ab06
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+  scope: Whole record and every graph node/arrow reviewed to the explicit source-reading limits; non-graph metadata
+    is preserved, not certified.
+  summary: Bound Caragana forage functional predictions and suppression mechanisms
+  node_decisions:
+  - node: Complementary lignocellulose attack by the two degraders
+    rationale: Retain complementary-function hypothesis, not proven partitioning.
+  - node: Silage Community Shift and Spoilage-Genus Suppression
+    rationale: Retain relative outcome without reciprocal competition, eradication or false participant claims.
+  - node: Acidification-driven preservation
+    rationale: Retain preservation outcome and partial metabolic interpretation, with both source-proposed arrows
+      qualified.
+  edges_before:
+  - source: Complementary lignocellulose attack by the two degraders
+    target: Acidification-driven preservation
+    description: 'The Bacillus and Aspergillus degraders attack the recalcitrant forage substrate that the consortium
+      then redirects toward acidifying preservation chemistry.
+
+      '
+  - source: Acidification-driven preservation
+    target: Competitive exclusion of spoilage genera
+    description: 'The SynCom-driven acidifying state coincides with the microbiome shift that suppresses spoilage
+      genera in the treated Caragana silage.
+
+      '
+  edges_after:
+  - source: Complementary lignocellulose attack by the two degraders
+    target: Acidification-driven preservation
+    description: HYPOTHESIZED - substrate release by the degraders could support acidifying fermentation. The source
+      proposes this connection without isolating the necessary enzymes or organism-resolved carbon transfer.
+  - source: Acidification-driven preservation
+    target: Silage Community Shift and Spoilage-Genus Suppression
+    description: HYPOTHESIZED - acidification could constrain spoilage-associated growth and contribute to the relative
+      community shift. The study does not isolate acidity as the necessary mediator or prove eradication.
+  references:
+  - PMID:42432469
+  source_review:
+    source:
+      reference: PMID:42432469
+      abstract_cache: references_cache/PMID_42432469.md
+      abstract_sha256: 855812c270361aa0f5416bcd417a99be37e2c1a0dc7955aed9c7d26f06bda1b6
+      publisher: https://link.springer.com/article/10.1186/s12866-026-05353-5
+      pdf_url: https://link.springer.com/content/pdf/10.1186/s12866-026-05353-5_reference.pdf
+      pdf_sha256: 3e1f3cb52cbf26203119e297a4dc9b9ac26e1977539358bdf19fd8c781353dff
+      scope: Complete abstract and PDF main text through conclusion/data availability; table text and all figure
+        captions. Table 2 visually inspected on zero-index page 24. No figure images, supplement XLS, sequence records
+        or secondary papers inspected.
+      version: Unedited accepted manuscript; source inconsistencies must remain explicit.
+      rights: CC-BY-4.0; temporary PDF only, no repository cache edits.
+      temporary_pdf_not_committed: communitymech-batch9-caragana-forage.pdf
+  non_graph_followups: {}
+  history_file: history/records/Caragana_Korshinskii_CrossKingdom_Forage_SynCom/2026-10-05T173107Z-codex-e5832c.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1272
+  renamed_nodes:
+    Competitive exclusion of spoilage genera: Silage Community Shift and Spoilage-Genus Suppression
+  removed_edge_decisions: []
+  retained_edge_decisions:
+  - source: Complementary lignocellulose attack by the two degraders
+    target: Acidification-driven preservation
+    rationale: HYPOTHESIZED - substrate release by the degraders could support acidifying fermentation. The source
+      proposes this connection without isolating the necessary enzymes or organism-resolved carbon transfer.
+  - source: Acidification-driven preservation
+    target: Silage Community Shift and Spoilage-Genus Suppression
+    rationale: HYPOTHESIZED - acidification could constrain spoilage-associated growth and contribute to the relative
+      community shift. The study does not isolate acidity as the necessary mediator or prove eradication.
+- path: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+  id: CommunityMech:000456
+  original_sha256: bbf9940be9eef4f88913bf90cd4f30d157f6d87e231048893789ab9be97389c0
+  record_sha256: 5fe2262acd9eb4de81a2f454ac2954ab5d347a1ce7915d1cdcaf73fc584ff678
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+  scope: Whole record and every graph node/arrow reviewed to the explicit source-reading limits; non-graph metadata
+    is preserved, not certified.
+  summary: Separate SynCom15 pot outcomes and metagenomic associations from SynCom5 mechanisms
+  node_decisions:
+  - node: SynCom15 wheat drought growth promotion
+    rationale: Retain the experimental whole-inoculum outcome within its assay scope.
+  - node: Pseudomonas-Associated Metagenomic Biofilm and Quorum-Sensing Gene Enrichment
+    rationale: Retain partial metagenomic association without borrowing mechanisms from the derivative consortium.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:41634815
+  source_review:
+    source:
+      reference: PMID:41634815
+      cache: references_cache/PMID_41634815.txt
+      sha256: e0d6273fc07f1ae3ff6c8378978592949d5764e1c830735a3a7bacc9ba3f277f
+      scope: Complete abstract and main full-text Background through Conclusion, methods/results, main captions
+        and supplementary availability text read. Reference list only partially inspected; no figure images, sequence
+        data or code inspected.
+      supplement: references_cache/PMID_41634815.supplement.md
+      supplement_sha256: 99cbaf310c20323f40cf7005ad997da21098e7ef867c86336a2f0affd8e929a9
+      supplement_scope: Read extracted supplementary methods for metagenomics, strain compatibility, biofilm/EPS,
+        AI-2 reporter and SynCom5 quantification; all Figure S1-S24 captions and complete Table S7 strain/genus
+        text. Other table bodies, encoded EndNote references and original DOCX/XLSX layout not inspected.
+  non_graph_followups: {}
+  history_file: history/records/Caragana_Wheat_Drought_SynCom15/2026-10-05T173107Z-codex-171563.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1272
+  renamed_nodes:
+    Pseudomonas-associated biofilm and quorum-sensing enrichment: Pseudomonas-Associated Metagenomic Biofilm and
+      Quorum-Sensing Gene Enrichment
+  removed_edge_decisions: []
+  retained_edge_decisions: []
+- path: kb/communities/Carbon_Substrate_PMSX_Biofilm_SynCom.yaml
+  id: CommunityMech:000400
+  original_sha256: b472990d72138b35d40304afab7a814c0dda6dca49c0627078d8dc79814b7c01
+  record_sha256: 8dc5ea53ef9ad6dc4469c8e9b4897a77fd9a0c1c6addb73881891884fb4a6e65
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+  scope: Whole record and every graph node/arrow reviewed to the explicit source-reading limits; non-graph metadata
+    is preserved, not certified.
+  summary: Separate PMSX spatial outcomes from niche and exchange mechanisms; resolve the CMC annotation
+  node_decisions:
+  - node: Polymeric carbon-driven spatial self-organization
+    rationale: Retain measured architecture without assigning an untested competition-reducing niche mechanism.
+  - node: Predicted Exchange and Conditioned-Supernatant Biofilm Support
+    rationale: Retain partial predicted cross-feeding and the supernatant assay without reciprocal-benefit or spatial-mediation
+      inference.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42658845
+  source_review:
+    source:
+      reference: PMID:42658845
+      cache: references_cache/PMID_42658845.txt
+      sha256: bbeb251c85e04bf548bb5aaee483fe5e41c729cb367baad090bac942524312ed
+      local_scope: Complete abstract and appended supplementary excerpts (Tables S1-S3, growth/supernatant methods,
+        Figure S1/S9/S10 captions).
+      primary_url: https://academic.oup.com/ismej/article/20/1/wrag223/8772001
+      web_scope: Search-exposed primary Introduction and Discussion passages only; direct article fetch failed.
+        Not a complete full-text review; no figures inspected.
+      version: Typeset 2026-09-28, later than original record; distinguish from March preprint.
+    prior_review:
+      pr: https://github.com/CultureBotAI/CommunityMech/pull/987
+      read: body, comments and empty reviews list
+    grounding_source: https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI%3A85146
+    additional_primary_scope: Search-exposed Results on carbon screening, CMC substitution, filter-paper assay limitations,
+      and Figure 1/2/3/4 caption portions read. This is still selected indexed content, not a complete methods or
+      main-text review.
+    additional_limits:
+    - Crystalline cellulose hydrolysis has partial negative experimental evidence; CAZyme counts and predicted degrader
+      identity are not fully validated enzyme activity.
+    - Spatial/viability results are a single developmental time point, not a time-resolved self-organization mechanism.
+  non_graph_followups: {}
+  history_file: history/records/Carbon_Substrate_PMSX_Biofilm_SynCom/2026-10-05T173107Z-codex-00abd5.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1272
+  renamed_nodes:
+    Bidirectional conditioned-supernatant support: Predicted Exchange and Conditioned-Supernatant Biofilm Support
+  review_limits: Abstract, supplement excerpts and selected primary indexed text only; no complete full-text or
+    image certification.
+  removed_edge_decisions: []
+  retained_edge_decisions: []
+- path: kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+  id: CommunityMech:000159
+  original_sha256: 479241ba1caabc32900a69fc01d713b43ea76017b6c4d5ecf9d72b64117e528e
+  record_sha256: e7630a669bdba05d4c780740bd67ddde69d00fd72bfb8598979fb8dc54174792
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+  scope: Whole record and every graph node/arrow reviewed to the explicit source-reading limits; non-graph metadata
+    is preserved, not certified.
+  summary: Separate CeMbio colonization, development, metabolic hypotheses and individual-member odor assays
+  node_decisions:
+  - node: Multi-Strain C. elegans Gut Colonization
+    rationale: Retain gut association untyped and remove unsupported development mediation.
+  - node: Community Effects on Nematode Development
+    rationale: Retain host developmental timing, not reciprocal fitness or biomass growth.
+  - node: Strain-Resolved Metabolic Diversity
+    rationale: Retain the source-proposed niche hypothesis and explicitly hypothetical assembly direction.
+  - node: CeMbio Odor Preference and Food-Seeking
+    rationale: Retain individual-member behavior without importing mixed-community or colonization outcomes.
+  edges_before:
+  - source: Multi-Strain C. elegans Gut Colonization
+    target: Community Effects on Nematode Development
+    description: 'Defined gut colonization establishes the host-microbiome condition under which the CeMbio community
+      measurably changes C. elegans developmental timing relative to E. coli OP50 food.
+
+      '
+  - source: Strain-Resolved Metabolic Diversity
+    target: Multi-Strain C. elegans Gut Colonization
+    description: 'Diverse strain-level biosynthetic, degradative, and carbon-use capacities provide the metabolic
+      basis for community assembly and competition in the worm gut.
+
+      '
+  edges_after:
+  - source: Strain-Resolved Metabolic Diversity
+    target: Multi-Strain C. elegans Gut Colonization
+    description: HYPOTHESIZED - differentiated nutrient-use capacities could favor community assembly. The source
+      proposes this explanation but does not demonstrate that these capacities cause gut colonization patterns.
+  references:
+  - PMID:32669368
+  - PMID:38228683
+  source_review:
+    sources:
+    - reference: PMID:32669368
+      cache: references_cache/PMID_32669368.md
+      sha256: 99084ef11fde4b7e18e0e82ca214f5e11cf3f434cd24b1d6db757edb5c7765b7
+      scope: Full cached main text from abstract through conclusions, all main methods/results, Table 1/2 linearized
+        and main figure captions. No images or supplementary files inspected.
+    - reference: PMID:38228683
+      cache: references_cache/PMID_38228683.txt
+      sha256: 8072144e89e2df4e79f3688096253cc0d49fa68a9ba53baba30e5addc287eff9
+      scope: Complete abstract and cached full main body through methods/data availability, table text and captions.
+        No figure images or secondary references inspected.
+  non_graph_followups:
+    non_graph_followups:
+    - Existing taxonomy collapses twelve source-enumerated strains to Bacteria; enrich only in separate roster work.
+      Existing issues 183 and 615 found in all-state CeMbio issue search; inspect bodies before linking or creating
+      findings.
+    - Associated dataset accession PRJEB37154 conflicts with source Data availability PRJEB37035 for experiment
+      3; verify external accession before changing.
+    - Preserve non-graph claims and raw blocks; no new graph structure or paid Edison job.
+  history_file: history/records/CeMbio_Caenorhabditis_Elegans_Microbiome/2026-10-05T173108Z-codex-3845b5.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1272
+  removed_edge_decisions:
+  - source: Multi-Strain C. elegans Gut Colonization
+    target: Community Effects on Nematode Development
+    rationale: Separate colonization and development assays do not distinguish gut-mediated effects from diet quality.
+  retained_edge_decisions:
+  - source: Strain-Resolved Metabolic Diversity
+    target: Multi-Strain C. elegans Gut Colonization
+    rationale: HYPOTHESIZED - differentiated nutrient-use capacities could favor community assembly. The source
+      proposes this explanation but does not demonstrate that these capacities cause gut colonization patterns.
+- path: kb/communities/Cellulomonas_Rhodobacter_Cellulose_Photohydrogen_Coculture.yaml
+  id: CommunityMech:000265
+  original_sha256: 04c2a2fbd7742f0a4647a7e0d1c5ad73300401ba228fe72eeaef9ada9c8e224d
+  record_sha256: 6a353c1aed235ba74ee26819e94c20454ced4900fb7e5ae85d46f353b81593d9
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+  scope: Whole record and every graph node/arrow reviewed to the explicit source-reading limits; non-graph metadata
+    is preserved, not certified.
+  summary: Bound Cellulomonas organic-acid transfer and net photohydrogen yield
+  node_decisions:
+  - node: Cellulose Fermentation to Organic Acid Cross-Feeding
+    rationale: Retain organic-acid cross-feeding without invented acetate or sugar transfer.
+  - node: Nitrogenase-Dependent Net Photohydrogen Yield
+    rationale: Rename the endpoint as net yield; remove unsupported ecological type and fixation processes.
+  - node: Uptake Hydrogenase Loss Increases Hydrogen Yield
+    rationale: Retain genotype-to-net-yield direction without gross-flux or niche inference.
+  edges_before:
+  - source: Cellulose Fermentation to Organic Acid Cross-Feeding
+    target: Nitrogenase-Driven Photohydrogen Evolution
+    description: 'Cellulomonas fermentation of cellulose supplies organic acids or sugars that R. capsulata can
+      consume photoheterotrophically for nitrogenase-driven hydrogen evolution.
+
+      '
+  - source: Uptake Hydrogenase Loss Increases Hydrogen Yield
+    target: Nitrogenase-Driven Photohydrogen Evolution
+    description: 'Loss of R. capsulata uptake hydrogenase increases net hydrogen accumulation from cellulose-derived
+      glucose equivalents compared with the wild-type phototrophic partner.
+
+      '
+  edges_after:
+  - source: Cellulose Fermentation to Organic Acid Cross-Feeding
+    target: Nitrogenase-Dependent Net Photohydrogen Yield
+    description: Organic-acid provision supplies the phototrophic partner with substrates for nitrogenase-dependent
+      hydrogen production. This substrate connection does not establish reciprocal product-removal dependence.
+  - source: Uptake Hydrogenase Loss Increases Hydrogen Yield
+    target: Nitrogenase-Dependent Net Photohydrogen Yield
+    description: Loss of hydrogen uptake reduces a consumption route and increases net hydrogen yield; the mutant
+      comparison does not show that gross nitrogenase production increased.
+  references:
+  - PMID:16346269
+  source_review:
+    source:
+      reference: PMID:16346269
+      cache: references_cache/PMID_16346269.md
+      sha256: c13e2fecc37f23cd12096de99fe667f118b44740166e2ce951ecceef94c76e12
+      scope: Complete abstract only. Ignored-inclusive cache filename search found only this file; PMC and PubMed
+        returned captcha and publisher returned 403. Full text not inspected.
+      doi: 10.1128/aem.45.4.1300-1305.1983
+      pmcid: PMC242454
+    grounding_sources:
+    - https://amigo.geneontology.org/amigo/term/GO%3A0015979
+    - https://www.ebi.ac.uk/chebi/CHEBI:64709
+  non_graph_followups: {}
+  history_file: history/records/Cellulomonas_Rhodobacter_Cellulose_Photohydrogen_Coculture/2026-10-05T173108Z-codex-ca6ddf.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1272
+  renamed_nodes:
+    Nitrogenase-Driven Photohydrogen Evolution: Nitrogenase-Dependent Net Photohydrogen Yield
+  removed_edge_decisions: []
+  retained_edge_decisions:
+  - source: Cellulose Fermentation to Organic Acid Cross-Feeding
+    target: Nitrogenase-Dependent Net Photohydrogen Yield
+    rationale: Organic-acid provision supplies the phototrophic partner with substrates for nitrogenase-dependent
+      hydrogen production. This substrate connection does not establish reciprocal product-removal dependence.
+  - source: Uptake Hydrogenase Loss Increases Hydrogen Yield
+    target: Nitrogenase-Dependent Net Photohydrogen Yield
+    rationale: Loss of hydrogen uptake reduces a consumption route and increases net hydrogen yield; the mutant
+      comparison does not show that gross nitrogenase production increased.
+- path: kb/communities/Cellulose_Methane_Combinatorial_SynCom_Panel.yaml
+  id: CommunityMech:000394
+  original_sha256: 8913f7bea4dba39a6fb1a88f2c12e78c4e651afee5f00cea7c6e4d9a8aef4cad
+  record_sha256: dccc01105a6b4a1cf964e5815a24d437b6e4d5fa3ad45b78efd62164ef25a1d3
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+  scope: Whole record and every graph node/arrow reviewed to the explicit source-reading limits; non-graph metadata
+    is preserved, not certified.
+  summary: Bound cellulose-panel proxy scores, assembly-specific acetate transfer and proposed hydrogen syntrophy
+  node_decisions:
+  - node: Combinatorial cellulose-fed interaction rewiring
+    rationale: Retain computational rewiring without reciprocal-fitness or general richness inference.
+  - node: Acetoclastic methanogenesis as dominant methane route
+    rationale: Retain modeled acetate cross-feeding within assemblies that contain its recipient.
+  - node: D. vulgaris hydrogen turnover supports methanogenesis
+    rationale: Retain the explicitly partial source-proposed syntrophy without reversing H2 donor and sink roles.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:40937471
+  source_review:
+    source:
+      reference: PMID:40937471
+      cache: references_cache/PMID_40937471.txt
+      sha256: c092b0c3616470841025fae303e88f00b95483b5932d068d578113887099eba3
+      scope: Complete abstract and cached full body through Discussion and data availability, all main methods/results
+        and captions; Tables 1-3 linearized only. No original table layout, figure images, supplements, model code
+        or datasets inspected.
+    prior_review:
+    - Read closed issues 965 and 967. Preserve added direct acetate-flux and lactate-oxidation snippets while qualifying
+      their inferential scope.
+    - Preserve 2026-10-02 removal of reciprocal summary arrows.
+    source_inconsistencies:
+    - Discussion claims D. vulgaris consistently improves acetoclastic methanogenesis, while Results report decreased
+      acetoclastic flux in the Rc/Mc/Dv tri-culture; do not generalize across configurations.
+    - Table 3 values and narrative Gibbs-energy examples disagree. Do not introduce quantitative thermodynamic assertions
+      without original table/code verification.
+    - Increased methane or decreased accumulated H2 does not alone identify turnover rate or net energy conservation.
+  non_graph_followups:
+    non_graph_followups:
+    - Methods include daily sampling, medium replenishment and pH reset omitted by simple BATCH metadata; resolve
+      alongside existing cultivation work.
+  history_file: history/records/Cellulose_Methane_Combinatorial_SynCom_Panel/2026-10-05T173108Z-codex-88a64b.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1272
+  removed_edge_decisions: []
+  retained_edge_decisions: []
+- path: kb/communities/Cellulose_Methane_Quad_Culture_SynCom.yaml
+  id: CommunityMech:000089
+  original_sha256: 9eb397a6380dd245a79958a9758502934c75123b6b12e8a63d459d421c187255
+  record_sha256: f6daf89ddcb52d344ccb2169c618bde2b7334e706c1143a2262bf95d54d9f645
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+  scope: Whole record and every graph node/arrow reviewed to the explicit source-reading limits; non-graph metadata
+    is preserved, not certified.
+  summary: Separate cellulose-quad culture outcomes from nonunique modeled transfers and feedback
+  node_decisions:
+  - node: Cellulose Cross-Feeding to Methane
+    rationale: Retain community conversion with direct outcome evidence instead of membership alone.
+  - node: R. cellulolyticum acetate cross-feeding to M. concilii
+    rationale: Retain acetate transfer and its methane contribution; qualify sulfate enhancement as fitted.
+  - node: R. cellulolyticum lactate cross-feeding to D. vulgaris
+    rationale: Retain a partial lactate-transfer hypothesis and its uncertain contribution to H2 supply.
+  - node: Proposed D. vulgaris H2 syntrophy to M. hungatei
+    rationale: Retain explicitly proposed syntrophy, not an established substrate-specific dependency.
+  - node: M. hungatei H2 removal relieves R. cellulolyticum product inhibition
+    rationale: Retain inferred feedback but remove unsupported acetate-specific mediation.
+  - node: D. vulgaris–M. hungatei competition for H2
+    rationale: Retain partial competition and qualified suppressive directions, not proven shutdown.
+  edges_before:
+  - source: R. cellulolyticum acetate cross-feeding to M. concilii
+    target: Cellulose Cross-Feeding to Methane
+    description: Acetate cross-fed to M. concilii drives acetoclastic methanogenesis, one of the two routes to community
+      methane output.
+  - source: R. cellulolyticum lactate cross-feeding to D. vulgaris
+    target: D. vulgaris H2 syntrophy to M. hungatei
+    description: Lactate cross-fed to D. vulgaris is fermented to H2, which is transferred to the hydrogenotrophic
+      methanogen M. hungatei.
+  - source: D. vulgaris H2 syntrophy to M. hungatei
+    target: Cellulose Cross-Feeding to Methane
+    description: H2 transferred to M. hungatei drives hydrogenotrophic methanogenesis, the second route to community
+      methane output.
+  - source: M. hungatei H2 removal relieves R. cellulolyticum product inhibition
+    target: R. cellulolyticum acetate cross-feeding to M. concilii
+    description: Relieving H2 product inhibition sustains R. cellulolyticum fermentation, maintaining the acetate
+      and lactate hand-offs to the downstream community.
+  - source: D. vulgaris–M. hungatei competition for H2
+    target: D. vulgaris H2 syntrophy to M. hungatei
+    description: With sulfate present, D. vulgaris out-competes M. hungatei for H2, halting hydrogenotrophic methanogenesis.
+  - source: D. vulgaris–M. hungatei competition for H2
+    target: Cellulose Cross-Feeding to Methane
+    description: Loss of the hydrogenotrophic route is the main cause of the lower community methane yield in the
+      sulfate-amended quad-culture.
+  edges_after:
+  - source: R. cellulolyticum acetate cross-feeding to M. concilii
+    target: Cellulose Cross-Feeding to Methane
+    description: Acetate cross-fed to M. concilii drives acetoclastic methanogenesis, one of the two routes to community
+      methane output.
+  - source: R. cellulolyticum lactate cross-feeding to D. vulgaris
+    target: Proposed D. vulgaris H2 syntrophy to M. hungatei
+    description: HYPOTHESIZED - transferred lactate or another oxidizable intermediate could support D. vulgaris
+      H2 provision. The specific lactate-to-H2 handoff is not identified uniquely by the data.
+  - source: Proposed D. vulgaris H2 syntrophy to M. hungatei
+    target: Cellulose Cross-Feeding to Methane
+    description: HYPOTHESIZED - D. vulgaris-derived H2 could contribute to the hydrogenotrophic part of methane
+      output. The D. vulgaris-specific contribution remains unresolved among alternative fitted routes.
+  - source: D. vulgaris–M. hungatei competition for H2
+    target: Proposed D. vulgaris H2 syntrophy to M. hungatei
+    description: HYPOTHESIZED - sulfate-supported D. vulgaris H2 consumption could limit the proposed transfer to
+      M. hungatei. Zero hydrogenotrophic flux is model-inferred, not proven cessation of methanogen activity.
+  - source: D. vulgaris–M. hungatei competition for H2
+    target: Cellulose Cross-Feeding to Methane
+    description: PARTIAL - the model attributes lower methane output to reduced H2 availability for hydrogenotrophic
+      methanogenesis; the attribution is not an independently isolated mediator.
+  references:
+  - PMID:36847519
+  source_review:
+    source:
+      reference: PMID:36847519
+      cache: references_cache/PMID_36847519.txt
+      sha256: 43968d3cc3801f1454458bad7e2b535aa97ced19763a724103e6ceb5ce0da448
+      scope: Complete abstract and cached main body through Discussion, Methods and data availability, all main
+        captions, Table 1 linearized and embedded supplementary captions. No actual images, supplementary tables,
+        code or datasets inspected.
+  non_graph_followups:
+    non_graph_followups:
+    - Control includes approximately 0.14 micromol sulfate; say no added sulfate rather than chemically sulfate-free.
+    - Source describes chamber gas, daily sampling/replenishment, pH reset and venting; headspace and BATCH metadata
+      may overcompress protocol. Preserve raw metadata for separate scoped issue.
+  history_file: history/records/Cellulose_Methane_Quad_Culture_SynCom/2026-10-05T173108Z-codex-e5c53b.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1272
+  renamed_nodes:
+    D. vulgaris H2 syntrophy to M. hungatei: Proposed D. vulgaris H2 syntrophy to M. hungatei
+  removed_edge_decisions:
+  - source: M. hungatei H2 removal relieves R. cellulolyticum product inhibition
+    target: R. cellulolyticum acetate cross-feeding to M. concilii
+    rationale: The product-inhibition calculation concerns H2 production; it does not establish acetate-specific
+      mediation.
+  retained_edge_decisions:
+  - source: R. cellulolyticum acetate cross-feeding to M. concilii
+    target: Cellulose Cross-Feeding to Methane
+    rationale: Acetate cross-fed to M. concilii drives acetoclastic methanogenesis, one of the two routes to community
+      methane output.
+  - source: R. cellulolyticum lactate cross-feeding to D. vulgaris
+    target: Proposed D. vulgaris H2 syntrophy to M. hungatei
+    rationale: HYPOTHESIZED - transferred lactate or another oxidizable intermediate could support D. vulgaris H2
+      provision. The specific lactate-to-H2 handoff is not identified uniquely by the data.
+  - source: Proposed D. vulgaris H2 syntrophy to M. hungatei
+    target: Cellulose Cross-Feeding to Methane
+    rationale: HYPOTHESIZED - D. vulgaris-derived H2 could contribute to the hydrogenotrophic part of methane output.
+      The D. vulgaris-specific contribution remains unresolved among alternative fitted routes.
+  - source: D. vulgaris–M. hungatei competition for H2
+    target: Proposed D. vulgaris H2 syntrophy to M. hungatei
+    rationale: HYPOTHESIZED - sulfate-supported D. vulgaris H2 consumption could limit the proposed transfer to
+      M. hungatei. Zero hydrogenotrophic flux is model-inferred, not proven cessation of methanogen activity.
+  - source: D. vulgaris–M. hungatei competition for H2
+    target: Cellulose Cross-Feeding to Methane
+    rationale: PARTIAL - the model attributes lower methane output to reduced H2 availability for hydrogenotrophic
+      methanogenesis; the attribution is not an independently isolated mediator.
+- path: kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml
+  id: CommunityMech:000153
+  original_sha256: 26c448070d00be8242aa1aa204c458a4f4ffc5dfa30769247749aff07792efb9
+  record_sha256: 70f98b384879211c2cb7141b419e33e144b90be0dbe11b950c0d4e8e97662135
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+  scope: Whole record and every graph node/arrow reviewed to the explicit source-reading limits; non-graph metadata
+    is preserved, not certified.
+  summary: Qualify cheese-rind assay summaries without certifying unresolved evidence and membership
+  node_decisions:
+  - node: Moisture-Structured Rind Community Assembly
+    rationale: Retain environmental assembly as a bounded observation, not proven niche partitioning.
+  - node: Proposed Fungal Deacidification and Bacterial Growth Responses
+    rationale: Retain proposed deacidification with explicit evidence and participant gaps, not roster-wide facilitation.
+  - node: Reproducible Natural-Rind Succession
+    rationale: Retain abstract-supported succession without sequential-facilitation inference.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:25036636
+  source_review:
+    source:
+      reference: PMID:25036636
+      caches:
+      - path: references_cache/PMID_25036636.md
+        sha256: d26f0ccc376961a44db427ddc2e4c0bbabbcdc518453b017c40dde11c1e34850
+      - path: references_cache/PMID_25036636.txt
+        sha256: ee66a8799e742652d72094e1d62b07dcf5f399bc6fb15b71738bd7320ee729b3
+      scope: Both complete abstract caches read. Ignored-inclusive filename search includes these two files. Primary
+        PMC main Results and Discussion through the quantitative-comparison caveat read online on 2026-10-05; subsequent
+        requests were CAPTCHA-blocked. Main methods, complete introduction, images and supplements remain unread.
+        No publication body copied into the repository.
+      primary_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4222527/
+      rights: Author manuscript with Elsevier all-rights-reserved notice; online reading does not authorize repository
+        redistribution.
+  non_graph_followups: {}
+  history_file: history/records/Cheese_Rind_InSitu_InVitro_Model_Community/2026-10-05T173108Z-codex-907812.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1272
+  renamed_nodes:
+    Fungal Deacidification Facilitates Bacterial Growth: Proposed Fungal Deacidification and Bacterial Growth Responses
+  open_issue: 765
+  removed_edge_decisions: []
+  retained_edge_decisions: []

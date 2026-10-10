@@ -1,0 +1,120 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: eabaa6b3bccc20c8eea91cce9849c6e64ea945da
+decision_ledger: reports/causal_graph_review/decisions/20261005-three-records-batch23.yaml
+validation_report: reports/causal_graph_review/validation-20261005-batch23.json
+scope:
+- kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml
+- kb/communities/Composting_SynCom_Lignocellulose_Degradation_Humus.yaml
+- kb/communities/Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium.yaml
+findings:
+- issue: 1347
+  severity: P2
+  finding: Relative taxonomic restructuring encoded as reciprocal competition and absolute expansion/extinction;
+    degrader identities inferred beyond chemical and sequence assays.
+  disposition: addressed_and_locally_verified
+- issue: 1348
+  severity: P2
+  finding: Native abundance, metagenomic potential and compost outputs encoded as establishment with unqualified
+    enzyme mediation.
+  disposition: addressed_and_locally_verified
+- issue: 1349
+  severity: P2
+  finding: Transcript-based roles encoded as niche partitioning and directed bacterial transfer; bacterial-pair
+    effect assigned to w15 alone and reciprocal competition.
+  disposition: addressed_and_locally_verified
+open_nongraph_followups:
+- issue: 746
+  disposition: not_closed_by_graph_only_patch
+- issue: 524
+  disposition: not_closed_by_graph_only_patch
+adversarial_checks:
+- Account for all eight original nodes and four original arrows. Six exact renames and matching discussion anchors;
+  no additions, removals or Edison spend.
+- Challenge COMPETITION against the actual reciprocal-harm enum. GenX relative profiles and the wheat-straw bacterial-pair
+  effect do not demonstrate harm to both partners.
+- Preserve Community G chemical loss and fluoride release as positive community observations without assigning member
+  functions, absolute viability or full carbon mineralization.
+- 'GenX homology, docking and functional-guild interpretations are not catalytic validation. Keep the six canonical
+  participants as a subset and preserve the existing full-roster gap and exact IDs from #946.'
+- 'Do not restore the invalid GenX endpoint arrow removed by #947. Community G sterile-soil assays must not inherit
+  GENIA indigenous-microbiome ecological-safety claims.'
+- Keep native Thermobifida/Actinomadura separate from the five-member compost inoculant. Abstract-only access does
+  not establish exact member identity, gene ownership or establishment.
+- Metagenomic CAZyme families represent gene potential, not enzyme expression/activity. Retain both proposed causal
+  arrows as HYPOTHESIZED rather than erase plausible mechanisms or assert selective mediation.
+- Preserve positive compost degradation, humus and maturation outcomes without replacing treatment effects with
+  a generic absence-of-evidence claim.
+- Fungal transcript-based intrinsic capacity is source-only PAIRWISE with no target; bacterial roles are a canonical
+  subset, and pair-response/output nodes identify all three tested members.
+- Keep the historical w15 preferred label and canonical paramultivorum ID. No taxonomy or grounding changes are
+  part of this patch.
+- '2023 wheat-straw Methods supply riboflavin. All three members encode ribE and so4 late-60-rpm expression rises:
+  no exclusive w15 donation, extracellular exchange or rescue asserted.'
+- 2023 direct mass-loss and growth measurements support condition effects; they do not directly establish the enzyme,
+  detoxification or partner-flux mediators. Both retained output arrows are PARTIAL.
+- 2020 complete abstract supports lower consortium degradation and a bacterial-pair comparison, not w15-only causation
+  or universal inhibition across conditions. Author PDF access failed after partial reading; full Methods/Results
+  not claimed.
+- Two complete primary main bodies, four complete additional abstracts and displayed primary tables/captions were
+  reviewed. No visual images or supplementary files inspected; no copyrighted full body added to git.
+- 'Six tracked cache artifacts and unrelated YAML blocks are byte-preserved. Unrelated metadata is not scientifically
+  certified, and broader #746/#524 remain open.'
+- Both-root census confirms unchanged connected taxa and mixed-scope counts. Exactly two bacterial taxa move from
+  pairwise to community-only connectivity credit (1218 -> 1220); no bounds or registry changes.
+- Source-based self-adversarial review is not independent approval, protected CI success or corpus completion.
+verification:
+  status: local_validation_complete
+  checks: 30
+  records: 460
+  nodes: 1474
+  edges: 710
+  review_status_counts:
+    needs_research: 3
+    pending: 339
+    reviewed: 118
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  unchanged_raw_blocks: 42
+  snippet_counts:
+    MATCH: 53
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1460
+    edge_descriptions: 702
+  render_determinism: passed
+  regressions: 278 passed in 291.48s (0:04:51)
+  rights: 3 passed in 2.55s
+  rights_import_root_verified: true
+  caches_unchanged: true
+  primary_artifact_hashes_rechecked: true
+  corpus_sentinels_unchanged: true
+  connectivity_survey_before:
+    records: 460
+    with_community_level: 389
+    mixed: 122
+    community_level_only: 267
+    taxa: 1499
+    credited_solely_by_the_rule: 1218
+  connectivity_survey:
+    records: 460
+    with_community_level: 389
+    mixed: 122
+    community_level_only: 267
+    taxa: 1499
+    credited_solely_by_the_rule: 1220
+  connectivity_delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 2

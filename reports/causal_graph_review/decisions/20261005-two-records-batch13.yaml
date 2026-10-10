@@ -1,0 +1,182 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 0b997a697616b084dd191b54910a9af0355b042e
+issues:
+- 1299
+non_graph_followup_issues:
+- 1300
+- 1301
+existing_followup_issues:
+- 561
+issue_deduplication:
+  count: 648
+  scope: All open/closed issue titles and bodies, not exhaustive comments; ignored-inclusive local history/reports/tests.
+  existing:
+    561: Open Rhizobium F2 PRIMARY_DEGRADER role defect; do not duplicate.
+    1055: Closed whey nitrogen-removal overreach.
+    1056: Closed whey MUTUALISM typing overreach.
+    1057: Closed whey paper-local CVB strain label repair.
+reference_cache_original_hashes:
+  references_cache/PMID_24805253.md: 0671057d1a1bd9b87b1bc075a38d0fb50aa7427fb889b85a9f8f1f034d198302
+  references_cache/doi_10.1111_lam.12403.md: f6524a557195a46ddbd09b7198a22d0fe1365187fa5c0fe774450d7df359afc8
+limitations:
+- No new graph nodes/arrows or Edison job.
+- Ecoli main text/tables read, but no figure images, supplements or raw data.
+- Rhizobium abstract/Significance only; full-text mechanism unavailable.
+- Caches have scope corrected; Ecoli body unchanged, Rhizobium gains only a short quantitative excerpt.
+- Prepared on reviewed batch12 while protected merges wait for hosted runners.
+records:
+- path: kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+  id: CommunityMech:000269
+  original_sha256: d236a6302a32f5be431baf583cd2b9aedc50b42f483643256e4cf9beafc95223
+  record_sha256: d090cf0ae12560991a83e3656b8a1a2b7fac06347933dc869aa1b1bf4ce02bf2
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-two-records-batch13.yaml
+  scope: Whole record and all original graph nodes/arrows assessed to explicit source limits; unchanged non-graph
+    metadata is not certified.
+  summary: Bound Ecoli-Chlorella mutualism, bulk carbon use and antibiotic-confounded product assays
+  node_decisions:
+  - node: Bacterial Enhancement of Algal Biomass
+    rationale: Keep concentration-dependent algal benefit and partial mutualism supported by bacterial viability,
+      not neutral bacteria or uniform biomass benefit.
+  - node: Enhanced Mixotrophic Carbon Substrate Consumption
+    rationale: Untype bulk carbon disappearance and remove unsupported donor-recipient direction; qualify the existing
+      product arrow.
+  - node: Increased Biofuel-Precursor Productivity
+    rationale: Untype the product endpoint and distinguish combined biomass, antibiotic suppression and persistent
+      growth/lipid benefits.
+  edges_before:
+  - source: Bacterial Enhancement of Algal Biomass
+    target: Increased Biofuel-Precursor Productivity
+    description: Faster algal growth and higher Chlorella biomass provide the cell material that underlies higher
+      lipid and starch productivity in coculture.
+  - source: Enhanced Mixotrophic Carbon Substrate Consumption
+    target: Increased Biofuel-Precursor Productivity
+    description: Enhanced mixotrophic carbon use increases carbon flow through the coculture and feeds the lipid
+      and starch productivity endpoint.
+  edges_after:
+  - source: Bacterial Enhancement of Algal Biomass
+    target: Increased Biofuel-Precursor Productivity
+    description: PARTIAL - greater algal biomass can increase volumetric lipid and starch yield. The bulk product
+      assays include both partners, and kanamycin suppressed starch in axenic glucose controls; biomass enhancement
+      does not establish that every product-content difference is bacteria-mediated.
+  - source: Enhanced Mixotrophic Carbon Substrate Consumption
+    target: Increased Biofuel-Precursor Productivity
+    description: HYPOTHESIZED - additional consumed substrate could supply carbon for increased lipid and starch
+      production. Bulk uptake and product measurements do not trace carbon into either partner or separate this
+      contribution from altered biomass and antibiotic-sensitive starch accumulation.
+  references:
+  - PMID:24805253
+  source_review:
+    reference: PMID:24805253
+    primary_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4013066/fullTextXML
+    reading:
+      completed: Whole record, abstract, complete primary main text, all six structured tables and main captions.
+      remaining: Figure/equation images, supplements and raw data not inspected.
+      rights: Primary XML explicitly Creative Commons Attribution; version not yet verified.
+    primary_sha256: 4a5107282a82412dd532517e4bb9dc19a8eeaafc1e5698bf79695210f6d53a55
+    cache_original_sha256: 0671057d1a1bd9b87b1bc075a38d0fb50aa7427fb889b85a9f8f1f034d198302
+    source_findings:
+    - UTEX 2341 and E. coli ATCC 25922, five-day separate-substrate airlift assays.
+    - Bulk organic-carbon consumption is not donor-recipient transfer; remove directed CROSS_FEEDING assertion.
+    - Reciprocal algal biomass and bacterial viable-CFU benefits support partial mutualism interpretation, not neutral
+      bacterium.
+    - Lipid/starch are bulk combined-culture assays; bacterial contribution is small but nonzero.
+    - Axenic algal controls used kanamycin. Matched controls show starch suppression at 10 g/L glucose; starch differences
+      are not wholly bacterial causation.
+    - Existing arrows require qualification; gas, hormone and carbon-transfer mediators were not isolated.
+    - Cache has primary body appended but abstract_only metadata.
+  history_file: history/records/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture/2026-10-05T204705Z-codex-b2f2e2.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1299
+  non_graph_followups:
+    issue: https://github.com/CultureBotAI/CommunityMech/issues/1300
+  removed_edge_decisions: []
+  retained_edge_decisions:
+  - source: Bacterial Enhancement of Algal Biomass
+    target: Increased Biofuel-Precursor Productivity
+    rationale: PARTIAL - greater algal biomass can increase volumetric lipid and starch yield. The bulk product
+      assays include both partners, and kanamycin suppressed starch in axenic glucose controls; biomass enhancement
+      does not establish that every product-content difference is bacteria-mediated.
+  - source: Enhanced Mixotrophic Carbon Substrate Consumption
+    target: Increased Biofuel-Precursor Productivity
+    rationale: HYPOTHESIZED - additional consumed substrate could supply carbon for increased lipid and starch production.
+      Bulk uptake and product measurements do not trace carbon into either partner or separate this contribution
+      from altered biomass and antibiotic-sensitive starch accumulation.
+- path: kb/communities/Chlorella_Rhizobium_Bioflocculation.yaml
+  id: CommunityMech:000016
+  original_sha256: 8db367da3268d7b412763724e675934d30ea9b466b8ae5f6ef718ae8b41f04bf
+  record_sha256: 57d52ecbebc7d66ea87c15c949cb532b9cbad5e8c1211871a13f0647563dfbf9
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-two-records-batch13.yaml
+  scope: Whole record and all original graph nodes/arrows assessed to explicit source limits; unchanged non-graph
+    metadata is not certified.
+  summary: Correct F2 harvesting and remove unsupported carbon-transfer and mutualism claims
+  node_decisions:
+  - node: Bioflocculant Production and Cell Aggregation
+    rationale: Keep source-reported F2 association and a partial harvesting arrow; remove unsupported chemistry,
+      biofilm and mutualism typing.
+  - node: Algal Biomass Harvesting
+    rationale: Replace over-90-percent and energy-saving claims with the abstract-supported harvesting range and
+      axenic baseline.
+  edges_before:
+  - source: Photosynthetic Carbon Fixation
+    target: Bioflocculant Production and Cell Aggregation
+    description: Algal biomass provides substrate for bacterial growth and bioflocculant production
+  - source: Bioflocculant Production and Cell Aggregation
+    target: Algal Biomass Harvesting
+    description: Bioflocculation enables efficient separation and recovery of algal biomass
+  edges_after:
+  - source: Bioflocculant Production and Cell Aggregation
+    target: Algal Biomass Harvesting
+    description: PARTIAL - F2-associated bioflocculation supports algal biomass recovery in the optimized coculture.
+      Accessible evidence does not isolate a specific polymer or establish comparative energy savings or bacterial
+      fitness benefit.
+  references:
+  - doi:10.1111/lam.12403
+  source_review:
+    reference: doi:10.1111/lam.12403
+    primary_url: https://academic.oup.com/lambio/article-abstract/60/5/497/6699742
+    reading:
+      completed: Whole record and cache; primary abstract and Significance and Impact fully read.
+      unavailable: Publisher full body is purchase-only; no figure or supplement review.
+      rights: Copyright 2015 Society for Applied Microbiology, standard publication model.
+    primary_sha256: null
+    cache_original_sha256: f6524a557195a46ddbd09b7198a22d0fe1365187fa5c0fe774450d7df359afc8
+    source_findings:
+    - Primary abstract reports 45.0-50.0 percent optimized harvesting versus 0.2 percent axenic, not over 90 percent.
+    - Lipid content over 21 percent; ratio 0.20-0.25, glucose below 1.5 kg/m3, 9-14 days.
+    - Significance identifies F2 as Rhizobium radiobacter.
+    - Accessible source does not establish EPS identity, charge neutralization, bridging, photosynthate flux, bacterial
+      fitness or comparative energy cost.
+    - Remove unsupported photosynthesis-to-bacterial-EPS arrow; bound harvesting relation and remove mutualism typing.
+    - Cache contains selected abstract and Significance excerpts, not full text.
+  history_file: history/records/Chlorella_Rhizobium_Bioflocculation/2026-10-05T204706Z-codex-3ffe65.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1299
+  non_graph_followups:
+    issue: https://github.com/CultureBotAI/CommunityMech/issues/1301
+  removed_node_decisions:
+  - node: Photosynthetic Carbon Fixation
+    rationale: The cited lipid/harvesting snippet does not support carbon fixation, algal substrate supply, commensalism
+      or a causal link to F2 product synthesis.
+  removed_edge_decisions:
+  - source: Photosynthetic Carbon Fixation
+    target: Bioflocculant Production and Cell Aggregation
+    rationale: The cited endpoint snippet does not establish algal-carbon transfer to bacterial product synthesis.
+  retained_edge_decisions:
+  - source: Bioflocculant Production and Cell Aggregation
+    target: Algal Biomass Harvesting
+    rationale: PARTIAL - F2-associated bioflocculation supports algal biomass recovery in the optimized coculture.
+      Accessible evidence does not isolate a specific polymer or establish comparative energy savings or bacterial
+      fitness benefit.
+reference_cache_current_hashes:
+  references_cache/PMID_24805253.md: 80deb0c6b9435e22f9753903089723a85f18988b9651ffcfd84fb780d72b2699
+  references_cache/doi_10.1111_lam.12403.md: 2bfd35487a9a9ab63d5aaa0458604e6a37a88ca72851f10a6772cd020630ade0
+cache_scope_corrections:
+  ecoli_existing_body_unchanged: true
+  rhizobium_added_excerpt: harvesting efficiency reached 45·0–50·0%
+  rhizobium_new_full_text: false
+  explanation: Correct cache scope to actual available material; primary Attribution permission verified for Ecoli,
+    no version inferred; no reuse license asserted for Rhizobium excerpts.

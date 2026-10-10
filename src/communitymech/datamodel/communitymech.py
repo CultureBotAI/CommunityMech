@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-10-03T19:36:07
+# Generation date: 2026-10-10T01:26:02
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -1863,6 +1863,54 @@ class GeneAnnotation(YAMLRoot):
 
 
 @dataclass(repr=False)
+class CrossCorpusLink(YAMLRoot):
+    """
+    A directed link from the containing record or sub-object to a record in another Mech corpus. The five field names
+    preserve NaturalProductMech's existing link shape. Consumers define allowed relations and evidence requirements;
+    this class alone does not verify a target, its version, organism scope, or the scientific basis of the relation.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MECH_SHARED["CrossCorpusLink"]
+    class_class_curie: ClassVar[str] = "mech_shared:CrossCorpusLink"
+    class_name: ClassVar[str] = "CrossCorpusLink"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.CrossCorpusLink
+
+    corpus: str = None
+    identifier: str = None
+    relation: str = None
+    basis: str = None
+    source_version: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.corpus):
+            self.MissingRequiredField("corpus")
+        if not isinstance(self.corpus, str):
+            self.corpus = str(self.corpus)
+
+        if self._is_empty(self.identifier):
+            self.MissingRequiredField("identifier")
+        if not isinstance(self.identifier, str):
+            self.identifier = str(self.identifier)
+
+        if self._is_empty(self.relation):
+            self.MissingRequiredField("relation")
+        if not isinstance(self.relation, str):
+            self.relation = str(self.relation)
+
+        if self._is_empty(self.basis):
+            self.MissingRequiredField("basis")
+        if not isinstance(self.basis, str):
+            self.basis = str(self.basis)
+
+        if self.source_version is not None and not isinstance(self.source_version, str):
+            self.source_version = str(self.source_version)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class SupportingReference(YAMLRoot):
     """
     A lightweight literature/database citation supporting a Discussion or Dataset. Self-contained (so this module has
@@ -2307,6 +2355,37 @@ class EvidenceSourceEnum(EnumDefinitionImpl):
     The provenance/source of the evidence
     """
 
+    FIELD_STUDY = PermissibleValue(
+        text="FIELD_STUDY", description="Observation or measurement made in a natural system."
+    )
+    MESOCOSM = PermissibleValue(
+        text="MESOCOSM",
+        description="Experiment in a controlled enclosure representing a natural system.",
+    )
+    LABORATORY = PermissibleValue(
+        text="LABORATORY",
+        description="Controlled laboratory study; use IN_VITRO or IN_VIVO when that distinction is known.",
+    )
+    META_ANALYSIS = PermissibleValue(
+        text="META_ANALYSIS",
+        description="Systematic synthesis or quantitative analysis of results across studies.",
+    )
+    REMOTE_SENSING = PermissibleValue(
+        text="REMOTE_SENSING",
+        description="Satellite, aerial, or other remotely sensed observations.",
+    )
+    LONG_TERM_MONITORING = PermissibleValue(
+        text="LONG_TERM_MONITORING",
+        description="Repeated observations from a long-term monitoring programme.",
+    )
+    EXPERT_OPINION = PermissibleValue(
+        text="EXPERT_OPINION",
+        description="Expert judgement or consensus rather than a primary experimental result.",
+    )
+    DATABASE = PermissibleValue(
+        text="DATABASE",
+        description="Assertion or observation obtained from a database or curated data resource.",
+    )
     IN_VITRO = PermissibleValue(
         text="IN_VITRO", description="In vitro experiments (batch culture, bioreactor, etc.)"
     )
@@ -2515,7 +2594,7 @@ class InteractionTypeEnum(EnumDefinitionImpl):
     PREDATION = PermissibleValue(text="PREDATION", description="One benefits, other harmed (+/-)")
     LYTIC_INFECTION = PermissibleValue(
         text="LYTIC_INFECTION",
-        description="""A virus infects a cellular host, replicates, and lyses it. The viral special case of PREDATION, separated because the two are not interchangeable: a grazing protist removes biomass, while a lytic phage converts it into more phage and releases the cell's contents, so the predator's own population is a function of host density in a way a grazer's is not.
+        description="""A virus infects a cellular host, replicates, and lyses it. The viral special case of PREDATION, separated because the two are not interchangeable: a grazing protist removes biomass, while a lytic phage replicates within the host before lysis releases progeny viruses and cellular contents. Host- or prey-density dependence alone does not distinguish viral infection from grazing.
 Use it for the edge `phage -> host`, with the phage as `source_taxon`. The host need not be a community member: a phage applied against a target outside `taxonomy` is the same relation.
 Says nothing about whether the phage is obligately lytic. A temperate phage replicating lytically is a LYTIC_INFECTION on that occasion; what is asserted is the infection, not the genome's lifestyle. State an established lifestyle in `description` with its evidence.""",
     )
@@ -5396,6 +5475,51 @@ slots.geneAnnotation__evidence = Slot(
     model_uri=COMMUNITYMECH.geneAnnotation__evidence,
     domain=None,
     range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
+)
+
+slots.crossCorpusLink__corpus = Slot(
+    uri=MECH_SHARED.corpus,
+    name="crossCorpusLink__corpus",
+    curie=MECH_SHARED.curie("corpus"),
+    model_uri=COMMUNITYMECH.crossCorpusLink__corpus,
+    domain=None,
+    range=str,
+)
+
+slots.crossCorpusLink__identifier = Slot(
+    uri=MECH_SHARED.identifier,
+    name="crossCorpusLink__identifier",
+    curie=MECH_SHARED.curie("identifier"),
+    model_uri=COMMUNITYMECH.crossCorpusLink__identifier,
+    domain=None,
+    range=str,
+)
+
+slots.crossCorpusLink__relation = Slot(
+    uri=MECH_SHARED.relation,
+    name="crossCorpusLink__relation",
+    curie=MECH_SHARED.curie("relation"),
+    model_uri=COMMUNITYMECH.crossCorpusLink__relation,
+    domain=None,
+    range=str,
+)
+
+slots.crossCorpusLink__basis = Slot(
+    uri=MECH_SHARED.basis,
+    name="crossCorpusLink__basis",
+    curie=MECH_SHARED.curie("basis"),
+    model_uri=COMMUNITYMECH.crossCorpusLink__basis,
+    domain=None,
+    range=str,
+)
+
+slots.crossCorpusLink__source_version = Slot(
+    uri=MECH_SHARED.source_version,
+    name="crossCorpusLink__source_version",
+    curie=MECH_SHARED.curie("source_version"),
+    model_uri=COMMUNITYMECH.crossCorpusLink__source_version,
+    domain=None,
+    range=Optional[str],
 )
 
 slots.supportingReference__reference = Slot(

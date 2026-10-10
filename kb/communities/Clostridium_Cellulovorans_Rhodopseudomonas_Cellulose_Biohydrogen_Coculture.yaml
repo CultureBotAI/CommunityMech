@@ -117,10 +117,9 @@ taxonomy:
     explanation: Supports the R. palustris nitrogenase-linked contribution to coculture biohydrogen physiology.
 ecological_interactions:
 - name: VFA Cross-Feeding and pH Stabilization
-  description: >
-    C. cellulovorans degrades cellulose and releases volatile fatty acids, while
-    R. palustris consumes some of those acids, stabilizing pH and allowing
-    greater cellulose consumption.
+  description: C. cellulovorans supplies VFAs to R. palustris in illuminated cellulose-fed coculture. PARTIAL -
+    the measured pH and substrate profiles support product-removal feedback, but do not isolate pH as its only mediator.
+    Cellulose is the upstream substrate, not a compound directly donated to R. palustris.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -154,27 +153,27 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Integrated Dark and Photo Fermentation for Hydrogen
-    description: >
-      R. palustris consumption of C. cellulovorans volatile fatty acids links
-      cellulose-fed dark fermentation to photofermentative metabolism and the
-      enhanced hydrogen yield.
+    description: VFA supply supports R. palustris photofermentation. PARTIAL - acid consumption can also sustain
+      fermenter activity through a smaller pH decline; partner fluxes and the separate contributions of these routes
+      are not directly resolved.
   evidence:
   - reference: doi:10.1128/AEM.00789-16
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: genes related to biosynthesis of volatile fatty acids (VFAs) in C. cellulovorans were upregulated
-    explanation: Supports C. cellulovorans production of VFA-related fermentation products in coculture.
+    explanation: Expression supports the proposed exchange model, not measured transfer flux; primary physiological
+      comparisons provide complementary support.
   - reference: doi:10.1128/AEM.00789-16
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: a gene that mediates organic compound catabolism in R. palustris was also upregulated
-    explanation: Supports R. palustris catabolism of organic compounds produced in the coculture.
+    explanation: Expression supports the proposed exchange model, not measured transfer flux; primary physiological
+      comparisons provide complementary support.
 - name: Integrated Dark and Photo Fermentation for Hydrogen
-  description: >
-    Dark fermentation by C. cellulovorans and photofermentative metabolism by
-    R. palustris jointly enhance hydrogen production from cellulose relative to
-    monocultures.
-  interaction_type: SYNTROPHY
+  description: Coculture hydrogen output exceeded C. cellulovorans monoculture output. PARTIAL - ammonium suppression
+    supports R. palustris nitrogenase involvement in the enhancement, not a directly measured partition of all hydrogen
+    between partners. Nitrogenase-associated proton reduction is not itself evidence of N2 fixation under the argon
+    headspace.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: dihydrogen
@@ -190,49 +189,34 @@ ecological_interactions:
     term:
       id: GO:0015979
       label: photosynthesis
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
   evidence:
   - reference: doi:10.1128/AEM.00789-16
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: consistent with the physiological observations of enhanced H 2 production and cellulose degradation
-    explanation: Supports prior physiological observations of enhanced hydrogen production and cellulose degradation in coculture.
+    explanation: Supports prior physiological observations of enhanced hydrogen production and cellulose degradation
+      in coculture.
   - reference: doi:10.1128/AEM.00789-16
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: the enhanced H 2 yield was contributed mainly by R. palustris
-    explanation: Supports R. palustris nitrogenase activity as a major contributor to enhanced hydrogen production.
-- name: Transcriptomic Division of Labor
-  description: >
-    Cocultivation upregulates C. cellulovorans cellulosomal genes and
-    R. palustris nitrogen fixation genes, indicating complementary functional
-    responses during cellulose-grown hydrogen production.
-  interaction_type: CROSS_FEEDING
+    explanation: The abstract infers the enhanced component from expression; the primary ammonium experiment additionally
+      supports nitrogenase involvement without directly partitioning partner gas flux.
+- name: Transcriptomic Responses Associated with Cocultivation
+  description: Cellulosomal and nitrogenase-related transcription changes accompany cocultivation. They are measured
+    responses, not demonstrated metabolite exchange or a selectively established cause of the hydrogen phenotype.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: cellulose catabolic process
     term:
       id: GO:0030245
       label: cellulose catabolic process
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
-  downstream:
-  - target: Integrated Dark and Photo Fermentation for Hydrogen
-    description: >
-      C. cellulovorans cellulosomal induction and R. palustris nitrogenase
-      induction represent the coordinated dark- and photo-fermentative
-      activities that drive enhanced cellulose-fed hydrogen production.
   evidence:
   - reference: doi:10.1128/AEM.00789-16
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: nitrogen fixation genes in R. palustris and the cellulosomal genes in C. cellulovorans were upregulated
-    explanation: Supports complementary transcriptional responses in the two coculture members.
+    explanation: Supports differential expression, not nitrogen-fixation flux or causal mediation of hydrogen production.
 environmental_factors:
 - name: Renewable cellulose substrate
   value: cellulose-grown coculture
@@ -371,3 +355,27 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element processing role is curated for this cellulose-fed
   biohydrogen coculture.
+discussions:
+- discussion_id: cellulose_photofermentation_mediator_partition
+  prompt: How much of the hydrogen enhancement is mediated by nitrogenase activity and pH-dependent product-removal
+    feedback?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#VFA Cross-Feeding and pH Stabilization
+  - ecological_interactions#Integrated Dark and Photo Fermentation for Hydrogen
+  - ecological_interactions#Transcriptomic Responses Associated with Cocultivation
+  rationale: The ammonium intervention supports nitrogenase involvement. Partner-resolved flux and matched-pH or
+    selective pathway interventions would distinguish the remaining mechanisms. Monoculture carbon substrates differ;
+    the transcriptomic model is inferential.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-06T00:23:37Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain VFA supply and a qualified metabolic link; separate pools and pH feedback from resolved flux.;
+    Retain enhanced output and the ammonium intervention; remove categorical endpoint syntrophy and unmeasured N2-fixation
+    typing.; Preserve expression observations; remove transfer typing and the expression-to-output arrow. Issue
+    #1330; reports/causal_graph_review/decisions/20261005-three-records-batch20.yaml'
+  llm_assisted: true

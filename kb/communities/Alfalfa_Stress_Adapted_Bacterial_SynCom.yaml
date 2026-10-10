@@ -156,10 +156,9 @@ taxonomy:
     explanation: Identifies Plantibacter flavus M259 as a SynCom member.
 ecological_interactions:
 - name: Stress-adapted SynCom promotion of alfalfa root architecture
-  description: Across the drought and rewatering phases, the five-strain SynCom increased alfalfa root dry biomass, root volume,
-    root surface area, and root diameter in non-sterilized soil, a community-level plant growth-promoting phenotype under
-    the growth-chamber assay conditions.
-  interaction_type: MUTUALISM
+  description: PARTIAL - the results report a SynCom main effect on root biomass during drought stress, but not recovery.
+    Root volume and surface-area effects were not significant; diameter effects were marginal. The broader discussion statement
+    does not establish uniform architectural improvement across phases or reciprocal microbial benefit.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: response to water deprivation
@@ -168,22 +167,24 @@ ecological_interactions:
       label: response to water deprivation
   evidence:
   - reference: doi:10.21203/rs.3.rs-7812930/v1
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: SynCom inoculation significantly increased root dry biomass, root volume, root surface area, and root diameter
       during both stress and recovery phases
-    explanation: Supports the alfalfa root-architecture phenotype after SynCom inoculation.
-- name: Stress-adapted SynCom promotion of recovery root nodulation
-  description: The five-strain SynCom increased alfalfa root nodule formation after rewatering, when nodulation was quantified
-    across severe-drought, moderate-drought, and well-watered treatments.
-  interaction_type: MUTUALISM
-  scope: COMMUNITY_LEVEL
-  evidence:
+    explanation: The discussion overgeneralizes the phase-specific results; it is not sufficient evidence of significant improvement
+      in every listed trait during both phases.
   - reference: doi:10.21203/rs.3.rs-7812930/v1
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Root nodulation occurred only during the recovery phase, where both drought and SynCom had significant effects.
-    explanation: Supports a SynCom effect on root nodulation in the recovery phase.
+    snippet: During recovery, no significant (p > 0.05) effects of drought, SynCom, or their interaction were detected for
+      root biomass
+    explanation: The results explicitly limit the root-biomass finding; primary text was read separately from the local excerpt
+      cache.
+- name: Stress-adapted SynCom promotion of recovery root nodulation
+  description: The five-strain SynCom increased alfalfa root nodule formation after rewatering, when nodulation was quantified
+    across severe-drought, moderate-drought, and well-watered treatments.
+  scope: COMMUNITY_LEVEL
+  evidence:
   - reference: doi:10.21203/rs.3.rs-7812930/v1
     supports: SUPPORT
     evidence_source: IN_VIVO
@@ -308,6 +309,17 @@ discussions:
     explanation: Identifies persistence of the inoculated strains as an unresolved rhizosphere question.
   posed_by: codex
   posed_date: '2026-09-27'
+- discussion_id: alfalfa_root_results_discussion_discrepancy
+  prompt: Which phase-specific root effects remain supported after reconciling results and discussion?
+  kind: CONTROVERSY
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Stress-adapted SynCom promotion of alfalfa root architecture
+  - ecological_interactions#Stress-adapted SynCom promotion of recovery root nodulation
+  rationale: The preprint's discussion describes broad significant improvement, but its results distinguish stress-phase root
+    biomass from nonsignificant recovery and architectural responses. Recovery nodulation is supported; initial-phase nodules
+    were not quantified. Strain dynamics and reciprocal microbial benefits were not measured, and no mediation from architecture
+    to nodulation was isolated.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -318,4 +330,10 @@ curation_history:
   curator: codex
   action: CREATE_COMMUNITY_RECORD
   changes: Created the alfalfa stress-adapted five-strain bacterial SynCom record.
+  llm_assisted: true
+- timestamp: '2026-10-05T07:14:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound alfalfa causal claims to phase-specific results and remove unestablished mutualism; complete node/edge decisions:
+    reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml; https://github.com/CultureBotAI/CommunityMech/issues/1241'
   llm_assisted: true

@@ -124,9 +124,12 @@ taxonomy:
     explanation: Supports strain TM as the thermophilic methanogenic member using the source spelling.
 ecological_interactions:
 - name: Syntrophic Acetate Oxidation by Thermacetogenium
-  description: T. phaeum oxidizes acetate in coculture through the reversible CO dehydrogenase/
-    acetyl-CoA pathway, producing reduced carriers that require removal by the methanogenic
-    partner for favorable syntrophic growth.
+  description: T. phaeum PB oxidizes acetate in the studied syntrophic coculture with M. thermautotrophicus TM.
+    Enzyme activities and substrate-switch experiments support reversible use of the CO dehydrogenase/acetyl-CoA
+    (Wood-Ljungdahl) pathway. Removal of reduced products supports acetate oxidation; this does not assert obligate
+    partnership on other substrates, since T. phaeum also grows acetogenically in pure culture. Hydrogen and formate
+    are extracellular electron-carrier candidates, not a claim that intracellular cofactors are passed between cells.
+    The detailed formate-linked energy-conservation mechanism remains a model.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -163,10 +166,10 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Hydrogenotrophic Methanogenesis by Methanothermobacter
-    description: >
-      T. phaeum acetate oxidation produces low-concentration reduced carriers
-      that M. thermautotrophicus consumes during hydrogenotrophic
-      methanogenesis.
+    description: Acetate oxidation by T. phaeum supplies reduced products for the methanogenic partner, coupling
+      acetate conversion to methane formation. Hydrogen consumption is supported by the TM/PB coculture experiments;
+      PARTIAL for the partition of electron flow between hydrogen and formate and the specific formate-producing
+      energy-conservation model. This is not direct acetate utilization by the methanogen.
   evidence:
   - reference: PMID:15866934
     supports: SUPPORT
@@ -179,13 +182,18 @@ ecological_interactions:
     snippet: CO dehydrogenase/acetyl-CoA pathway reversibly
     explanation: Supports the reversible biochemical pathway used during acetate oxidation.
   - reference: PMID:31849917
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: yielding formate as reduced product
-    explanation: Supports formate as a reduced product of the energy-conserving acetate-oxidation mechanism.
+    explanation: The authors infer formate production from enzyme/proteome results; the detailed proton-coupled
+      mechanism is not fully demonstrated.
 - name: Hydrogenotrophic Methanogenesis by Methanothermobacter
-  description: M. thermautotrophicus TM consumes low-concentration hydrogen and carbon dioxide
-    during syntrophic growth and expresses methanogenesis machinery adapted to coculture conditions.
+  description: M. thermautotrophicus TM consumes hydrogen during acetate-fed coculture with T. phaeum PB, supporting
+    product removal and methane formation. The 2002 TM/PB experiment maintained 20 to 80 Pa hydrogen and detected
+    mcr/MRI rather than mrt/MRII expression in coculture; other assayed methanogenesis genes were expressed in both
+    culture modes. This is not a universal activation of all methanogenesis genes or evidence of obligate dependence
+    on PB. TM can also use formate; the hydrogenotrophic designation does not exclude formate-supported electron
+    transfer. The separate DeltaH/butyrate coculture is not the PB/TM system.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -230,11 +238,17 @@ ecological_interactions:
   - reference: PMID:11872465
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: catalyzing the final step of methanogenesis
-    explanation: Supports methanogenesis gene expression in the coculture.
-- name: Formate Transfer to the Methanogenic Partner
-  description: Proteomic and enzyme evidence supports a reversed electron transport mechanism
-    in T. phaeum that produces formate for transfer to the methanogenic partner.
+    snippet: only the mcr gene
+    explanation: Within the tested methyl-coenzyme-M reductase pair, mcr/MRI was detected in coculture, unlike mrt/MRII;
+      this does not mean mcr was the only expressed methanogenesis gene.
+- name: Formate-Linked Syntrophic Electron Transfer
+  description: 'PARTIAL: formate involvement in T. phaeum PB to M. thermautotrophicus TM electron transfer is supported
+    by the partner-comparison literature discussed in the 2019 study, not dismissed as a genomic conjecture. The
+    2019 proteome and enzyme assays support a quinone-linked formate dehydrogenase and methyl-THF oxidation machinery.
+    HYPOTHESIZED: their coupling through reverse electron transport, an ATP-supported proton gradient and ATP-independent
+    acetate activation. Proton-gradient coupling and physiological acetate reduction were not demonstrated there.
+    Neither the exact in vivo formate flux nor its fraction of total transferred electrons is established by these
+    enzyme assays.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -263,20 +277,23 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Hydrogenotrophic Methanogenesis by Methanothermobacter
-    description: >
-      Formate and reducing equivalents generated by T. phaeum are transferred
-      to the methanogenic partner that completes syntrophic acetate oxidation.
+    description: 'PARTIAL: formate produced by T. phaeum can supply reducing equivalents to the formate-utilizing
+      TM partner for methanogenesis, while removal helps maintain favorable acetate oxidation. HYPOTHESIZED for
+      the specific proton-coupled production mechanism; this arrow does not establish its in vivo flux or convert
+      formate utilization into hydrogen-only metabolism.'
   evidence:
   - reference: PMID:31849917
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: transferred to the methanogenic partner
-    explanation: Supports transfer of formate/reducing equivalents to the methanogenic partner.
+    explanation: Authors interpret formate as a transferred product; the quoted conclusion does not itself measure
+      interspecies flux or validate all proposed coupling steps.
   - reference: PMID:31849917
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: quinone-dependent formate dehydrogenase
-    explanation: Supports the formate-linked energy-conservation machinery in T. phaeum.
+    explanation: In vitro quinone-analogue assays support enzyme activity, not demonstration of the entire physiological
+      reverse-electron-transport mechanism.
 environmental_factors:
 - name: Thermophilic temperature
   value: 55 to 58
@@ -512,3 +529,35 @@ cultivation_setup:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: whereas the syntrophic co-culture was grown with acetate as substrate
+discussions:
+- discussion_id: formate-coupling-and-flux-batch114
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  prompt: How much electron transfer uses formate, and which proton-coupled steps operate during PB/TM acetate oxidation?
+  rationale: 'The formate-transfer interpretation is supported, but enzyme/proteome results do not establish the
+    complete energy budget or in vivo electron partition. The 2019 study explicitly leaves proton coupling and physiological
+    acetate reduction unresolved. Preserve these distinctions when interpreting the two incoming methanogenesis
+    arrows. Non-graph assay-condition followup remains issue #1890.'
+  attaches_to:
+  - ecological_interactions#Syntrophic Acetate Oxidation by Thermacetogenium
+  - ecological_interactions#Hydrogenotrophic Methanogenesis by Methanothermobacter
+  - ecological_interactions#Formate-Linked Syntrophic Electron Transfer
+  evidence:
+  - reference: PMID:31849917
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: transferred to the methanogenic partner
+    explanation: Authors interpret formate as a transferred product; the quoted conclusion does not itself measure
+      interspecies flux or validate all proposed coupling steps.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T09:06:42Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain acetate-linked syntrophy and the reversible pathway; distinguish extracellular carriers from cofactors
+    and avoid all-substrate obligacy.; Retain hydrogen-removing methanogenesis with exact TM/PB expression and hydrogen-pressure
+    context; do not exclude formate use or import DeltaH/butyrate results.; Retain indirectly supported formate
+    transfer as PARTIAL, with the detailed ATP/proton-coupled mechanism HYPOTHESIZED rather than established. Issue#1888;
+    reports/causal_graph_review/decisions/20261008-two-records-batch114.yaml
+  llm_assisted: true

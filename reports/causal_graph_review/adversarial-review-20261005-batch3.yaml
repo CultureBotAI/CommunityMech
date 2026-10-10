@@ -1,0 +1,87 @@
+reviewer: codex
+review_mode: self_adversarial
+independent_reviewer: false
+base_commit: dc1f4346d9fb41b70cf227e81abc76658f4f516b
+scope:
+- Four edited isolate graphs, one edited community graph, and one explicit no-change community decision.
+- Every current node, removed nodes, renamed anchors, and before/after causal edges.
+- Same-system evidence, intervention scope, ecological classification, and cache provenance.
+- Guarded writes, append-only record histories, hash-bound decisions, and generated publication.
+findings:
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1240
+  severity: high
+  finding: Four isolate graphs misclassified provenance steps or exceeded the cited experimental evidence.
+  resolution: Remove the Rothia isolation and assembly nodes and their two workflow arrows. Explicitly qualify its
+    remaining computational potential. Correct the indium inhibitory arrow and remove cellular-transport annotations
+    from extracellular dissolution. Bound the cyanogenic gold graph to tested PCB interventions. Separate supplied
+    citrate, mll expression, ppx deletion, and engineered REE dependence.
+  status: addressed
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1241
+  severity: high
+  finding: The alfalfa graph followed broad discussion claims over narrower phase-specific results and asserted
+    mutualism without reciprocal-benefit measurements.
+  resolution: Qualify the architectural phenotype, preserve recovery nodulation, remove unsupported mutualism, and
+    record the source's results/discussion discrepancy without inventing mediation between plant outcomes.
+  status: addressed
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1242
+  severity: medium
+  finding: The PCB gold cache mislabeled selected, abbreviated passages as an independently retrieved abstract.
+  resolution: Classify the body as selected_excerpts and retain a separate primary-source review URL. Report NOCONTENT
+    rather than promote curated text to source evidence. No matcher weakening or new full-text claim.
+  status: addressed
+additional_checks:
+- A gitignore-independent search of both record roots found the gold DOI only in the reviewed Chromobacterium record.
+- All 82 unrelated top-level raw YAML blocks remain byte-identical. Existing curation-history events are preserved.
+- The SL8-SL12 no-change record remains byte-identical; its existing discussion already limits omics-derived mechanistic
+  inference.
+- A final reread corrected the rare-earth explanation from preceding sentence to source; the acid identities occur
+  in the same source sentence as the negative result.
+- Exact-model identity was checked in the primary authors' repository, not assumed from the BioModels record name.
+- The first alfalfa reference check failed because the recovery result was absent from its selected cache. Rechecked
+  the primary preprint and added that short result as a labeled excerpt, preserving NOCONTENT rather than claiming
+  independent local full-text coverage.
+verification:
+  source_report: reports/causal_graph_review/validation-20261005-batch3.json
+  coverage_report: reports/causal_graph_review/summary.json
+  decision_report: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+  corpus_records: 460
+  reviewed_records_in_ledger: 17
+  pending_records_in_ledger: 443
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 18
+  network_warning_change: 0
+  regression_tests_passed:
+    focused-regressions: 115
+    cache-and-snippet-regressions: 48
+    causal-publication-regressions: 5
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1478
+    edge_descriptions: 760
+  render_determinism: passed
+  snippet_counts:
+    MATCH: 65
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 36
+  unchanged_records_remain_byte_identical:
+  - CommunityMech:000374
+limitations:
+- This is a self-adversarial review, not independent reviewer approval.
+- This batch reviews six records; the whole-corpus semantic review remains incomplete.
+- Non-graph descriptions, taxon notes, abundance values, and engineering numbers are outside certification. Some
+  still require separate evidence review.
+- Gold and alfalfa local caches are excerpts, not independent full sources. The publisher abstract and public primary
+  preprint text were read separately; automated local coverage remains incomplete.
+- Indium and gold are abstract-bounded. Missing full text does not establish that an unreviewed experiment was absent.
+- The exact BioModels deposit and rare-earth supplement were not retrieved. No byte equivalence or unverified double-mutant
+  genotype is claimed.
+- The alfalfa preprint's extracted results and Table 1 text were read, but the PDF table layout was not visually
+  inspected.
+- Publication text coverage and render determinism are checked automatically; this data-only batch has no desktop/mobile
+  screenshot QA.
+- Edison spending is authorized, but no key is configured and no paid job has been submitted. No new nodes or arrows
+  were added.
