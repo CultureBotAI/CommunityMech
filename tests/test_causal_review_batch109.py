@@ -178,14 +178,21 @@ def test_hashes_histories_and_canonical_identity_only_scope_are_explicit():
 def test_current_scope_census_tracks_later_source_bounded_repairs():
     # Batch119 moves Bacillus protection to all three THOR members: one more sole credit.
     # Batch124 adds yogurt's two named participants to mixed-scope records, not sole credit.
+    # The two phage-bacteria records add 2 records and 11 taxa: 5 in the
+    # four-species community (4 bacteria + DMS3vir) and 6 in the PHA mixed
+    # culture (5 genera + the pOTU phage community). 9 of the 11 are credited
+    # solely by the rule -- the two that are not are the four-species record's
+    # phage and its PA14 host, which carry pairwise infection edges. Removing
+    # just these two records reproduces the previous census exactly, so the
+    # whole delta is theirs.
     survey = runpy.run_path(str(ROOT / "tests/test_community_level_connectivity_credit.py"))[
         "_survey"
     ]()
     assert survey == {
-        "records": 460,
-        "with_community_level": 415,
-        "mixed": 137,
-        "community_level_only": 278,
-        "taxa": 1570,
-        "credited_solely_by_the_rule": 1281,
+        "records": 462,
+        "with_community_level": 417,
+        "mixed": 138,
+        "community_level_only": 279,
+        "taxa": 1581,
+        "credited_solely_by_the_rule": 1290,
     }

@@ -1,0 +1,39 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml
+  slug: Alseth_FourSpecies_Pathogen_Phage_Community
+session:
+  id: 2026-10-03T214846Z-claude-code-ff0e0c
+  timestamp: '2026-10-03T21:48:46Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - taxonomy
+  - evidence
+  summary: Move ungrounded taxa from NOT_ATTEMPTED to UNRESOLVED and settle four corpus-level test baselines
+  details: 'Fixed four test failures the full pytest run surfaced after the records landed, none of which
+    the record-level gates (validate, validate-strict, validate-terms, validate-references) could see.
+    (1) The nine bacterial taxa carried gtdb_grounding_status NOT_ATTEMPTED, which tests/test_gtdb_not_attempted.py
+    treats as untriaged work -- all nine NOT_ATTEMPTED in the corpus were from these two records, since
+    #401 had left zero. Changed to UNRESOLVED with a note on each, following the convention CommunityMech:000466
+    set for the same cause: scripts/gtdb_ground.py could not locate NCBI2GTDB.tsv.gz under any default
+    kg-microbe checkout path, so the lookup was never made rather than made and missed. Deliberately did
+    NOT add them to the HELD list in tests/test_gtdb_not_attempted.py, which is for curator decisions
+    with substantive reasons, not for an absent data file. The phage members keep NO_GTDB_EQUIVALENT,
+    which is final. (2) Raised the UNRESOLVED ceiling in tests/test_gtdb_coherence_validator.py from 480
+    to 489 for the measured 488, and recorded the +9 and its cause in the comment, as every prior record
+    that moved that count has done; the ceiling still catches the domain-lookup collapse it exists for,
+    which moves ~96 at once. (3) Added the four new InteractionTypeEnum values to FOLDED in tests/test_network_palette.py
+    rather than giving them hues: the palette cannot separate more than seven colours under protanopia
+    and deuteranopia, which is why #532 folded PREDATION, and all four phage values are predation-shaped
+    so the shared grey groups them. Also corrected two counts in that comment that had gone stale independently
+    of this work (PREDATION 11 -> 17, next-rarest coloured 67 -> 61). (4) Added the four-species record
+    to USERS in tests/test_participating_taxa.py and re-ran tests/test_community_level_connectivity_credit.py
+    as that assertion instructs; its numbers still hold. Re-validated both records and regenerated docs/.'

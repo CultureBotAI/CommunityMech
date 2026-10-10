@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polyhydroxyalkanoate-Producing Mixed Microbial Culture Under Phage Predation - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #3D7DD6;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FBD3E3, #CBDDF6);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: var(--background);
+            color: var(--text);
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: var(--background);
+            color: var(--text);
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .empty-state {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .empty-state p {
+            margin: 0.5rem 0;
+        }
+
+        .empty-state-note {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .dataset-description {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Network diagram */
+        .network-container {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0 2rem;
+            position: relative;
+        }
+
+        .network-container svg {
+            width: 100%;
+            display: block;
+        }
+
+        .network-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.75rem 0 0;
+            border-top: 1px solid var(--border);
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .legend-swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
+
+        .legend-circle {
+            border-radius: 50%;
+        }
+
+        .network-tooltip {
+            position: absolute;
+            background: rgba(30, 41, 59, 0.95);
+            color: #f8fafc;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            max-width: 280px;
+            z-index: 10;
+        }
+
+        .network-tooltip strong {
+            color: #93c5fd;
+        }
+    /* ---- Dark theme (OS default; superseded by the toggle) ---- */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --net-label:#cbd5e1;}
+  :root:not([data-theme="light"]) header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+  :root:not([data-theme="light"]) th{background:#232a3d}
+  :root:not([data-theme="light"]) .interaction-type{background:rgba(52,211,153,.14);color:#34d399}
+  :root:not([data-theme="light"]) .interaction-flow{background:rgba(255,255,255,.04)}
+  :root:not([data-theme="light"]) .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
+  :root:not([data-theme="light"]) .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
+  :root:not([data-theme="light"]) .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+}
+:root[data-theme="dark"]{--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --net-label:#cbd5e1;}
+:root[data-theme="dark"] header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+:root[data-theme="dark"] th{background:#232a3d}
+:root[data-theme="dark"] .interaction-type{background:rgba(52,211,153,.14);color:#34d399}
+:root[data-theme="dark"] .interaction-flow{background:rgba(255,255,255,.04)}
+:root[data-theme="dark"] .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
+:root[data-theme="dark"] .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
+:root[data-theme="dark"] .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
+            <h1>Polyhydroxyalkanoate-Producing Mixed Microbial Culture Under Phage Predation</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Community ID</span>
+                    <span class="metadata-value">
+                        <code style="background: var(--border); color: var(--text); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000468</code>
+                    </span>
+                </div>
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        sequencing batch reactor enrichment<span class="ontology-label"> — ontology label: bioreactor</span>
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00002123"
+                           class="term-link" target="_blank" rel="noopener noreferrer">
+                            ENVO:00002123
+                        </a>
+                    </span>
+                </div>
+
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Modeled Environment</span>
+                    <span class="metadata-value">
+
+                        activated sludge
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00002046"
+                           class="term-link" target="_blank" rel="noopener noreferrer">
+                            ENVO:00002046
+                        </a>
+
+
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Description -->
+
+        <section class="description">
+            <p>Five parallel 2 L sequencing batch reactors enriched from municipal activated sludge under an aerobic dynamic feeding regime, each on a single volatile fatty acid or lactate as sole carbon source, and followed for 145 days by paired metagenomics and metatranscriptomics. The polyhydroxyalkanoate-producing mixed microbial cultures (PHA-MMCs) include dominant Azoarcus, Paracoccus, Azomonas, Thauera, and Brevundimonas populations across the different reactors. The study recovered 963 metagenome-assembled genomes and 4,294 phage operational taxonomic units.
+
+Bacterial and phage community turnover are statistically associated. Structural equation modeling estimates a negative association of phage abundance with bacterial alpha diversity and activity. The authors propose kill-the-winner predation as an explanation for alternating dominance; this is a model-inferred mechanism, not a controlled phage perturbation or direct demonstration of host lysis. Predicted host links and defense systems are sequence-derived. Predicted phage auxiliary metabolic genes are transcribed, but transcription does not establish a contribution to PHA yield or productive lytic infection.
+
+This many-phages-on-many-bacteria system complements the experimentally manipulated four-species community in CommunityMech:000467. The two records preserve the distinction between inferred phage effects and experimental intervention.</p>
+        </section>
+
+
+        <!-- Taxonomy -->
+
+        <section>
+            <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <strong>Azoarcus</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=12960"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:12960
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Azoarcus, Paracoccus, Azomonas, Thauera, and Brevundimonas were the dominant genera"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Paracoccus<span class="ontology-label"> — ontology label: Paracoccus &lt;a-proteobacteria&gt;</span></strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=265"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:265
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Azoarcus, Paracoccus, Azomonas, Thauera, and Brevundimonas were the dominant genera"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Azomonas</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=69961"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:69961
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Azoarcus, Paracoccus, Azomonas, Thauera, and Brevundimonas were the dominant genera"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Thauera</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=33057"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:33057
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Azoarcus, Paracoccus, Azomonas, Thauera, and Brevundimonas were the dominant genera"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Brevundimonas</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=41275"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:41275
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Azoarcus, Paracoccus, Azomonas, Thauera, and Brevundimonas were the dominant genera"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>PHA-MMC phage community (4,294 pOTUs)<span class="ontology-label"> — ontology label: Viruses</span></strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=10239"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:10239
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                                    - SUPPORT (COMPUTATIONAL)
+
+                                    <div class="snippet">"4,294 phage operational taxonomic units (pOTUs)"</div>
+
+                                </li>
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                                    - PARTIAL (COMPUTATIONAL)
+
+                                    <div class="snippet">"the bacterial members of PHA-MMCs could be infected by diverse phages"</div>
+
+                                </li>
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                                    - SUPPORT (COMPUTATIONAL)
+
+                                    <div class="snippet">"2,276 pOTUs were classified as temperate phages (53%) while 1,741 pOTUs were classified as virulent phages (40.5%)."</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+            </div>
+        </section>
+        <!-- Ecological Interactions -->
+        <section>
+            <h2>Ecological Interactions</h2>
+
+
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
+            <!-- Network Diagram -->
+            <div class="network-container" id="network-container">
+                <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
+                <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
+                    <title id="network-svg-title">Ecological interaction network for Polyhydroxyalkanoate-Producing Mixed Microbial Culture Under Phage Predation</title>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
+                </svg>
+                <div class="network-legend">
+                    <div class="legend-item">
+                        <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Hypothesized Kill-the-Winner Succession of Dominant PHA Producers</h3>
+                    <span class="interaction-type">KILL_THE_WINNER</span>
+                </div>
+                <p class="prewrap interaction-description">HYPOTHESIZED: the authors interpret alternating dominant species and the fitted SEM as consistent with phages lysing dominant hosts and freeing niches for successors. The succession pattern was observed during maintenance under constant aerobic dynamic feeding selection, but the mechanism is model-inferred rather than established by a phage manipulation or lysis assay. The KILL_THE_WINNER label denotes this explicitly qualified hypothesis.</p>
+
+
+
+
+
+
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        viral process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0016032"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0016032</a>)
+                    </li>
+
+                </ul>
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                            - PARTIAL (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"Structural equation modeling analysis showed that phages could infect and lyse dominant species to vacate ecological niches for other species, resulting in a community succession state in which dominant species alternated."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                            - PARTIAL (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"Sample points in each reactor did not cluster together during the late stages of maintenance (days 65, 68, and 145), suggesting that the bacterial community structure reached alternative states during maintenance, even when deterministic selection pressure was applied"</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Coupled Turnover of Phage and Bacterial Community Structure</h3>
+                </div>
+                <p class="prewrap interaction-description">Temporally adjacent samples were compared by Bray-Curtis dissimilarity for both the bacterial and the phage community, and the two turnover series track each other closely in all five reactors (Spearman rho 0.95, 0.77, 0.87, 0.99, and 0.80). Structural equation modelling returns a positive association between phage and bacterial community composition. This statistical association does not establish infection or causal direction.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"There was a significant positive relationship between the bacterial and phage communities shifts"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                            - PARTIAL (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"the dynamics of bacterial community structure could be mirrored in phage communities"</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Modeled Association of Phage Abundance with Bacterial Diversity and Activity</h3>
+                </div>
+                <p class="prewrap interaction-description">Structural equation modeling estimates negative associations of phage abundance with bacterial alpha diversity (Chao1, r = -0.43, P &lt;= 0.05) and bacterial community activity (r = -0.36). The authors interpret these associations as consistent with virulent phage effects. The modeled direction is not an experimental demonstration of host killing and does not exclude host-driven or other explanations.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"significant negative correlation (r: −0.43, P ≤ 0.05) between phage abundance and the alpha diversity (Chao1) index of the bacterial community"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                            - PARTIAL (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"the SEM was used to discern the causality and quantify the effects of the drivers"</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Phage-Encoded Auxiliary Metabolic Genes for PHA Synthesis Are Transcribed</h3>
+                </div>
+                <p class="prewrap interaction-description">Seven putative phage-encoded auxiliary metabolic genes potentially contributing to PHA synthesis (phaC, fadJ, acs, ackA, phbB, acdAB, and fadD) were identified by sequence analysis. Metatranscriptomic reads support transcription. Neither the annotations nor the transcripts establish productive lytic infection or increased PHA synthesis yield.</p>
+
+
+
+
+
+
+                <p><strong>Metabolites:</strong>
+
+                    polyhydroxyalkanoate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=78037"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:78037</a>)
+
+                </p>
+
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        viral process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0016032"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0016032</a>)
+                    </li>
+
+                </ul>
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"Seven key auxiliary metabolic genes (AMGs), phaC, fadJ, acs, ackA, phbB, acdAB, and fadD, potentially contributing to PHA synthesis were identified from phage sequences"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"these AMGs were transcribed, indicating that they were in an active expression state"</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Predicted Host Antiviral Defence Repertoire</h3>
+                </div>
+                <p class="prewrap interaction-description">DefenseFinder predicts encoded antiviral systems in bacterial MAGs: restriction-modification and CRISPR-Cas predominate in 10 of 12 phyla, Wadjet in Actinobacteriota and SoFIC in Planctomycetota; AbiE and Thoeris are also represented. These are sequence-based defense predictions, not functional resistance assays or lytic infections.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"The RM and CRISPR-Cas systems were the predominant antiviral systems in 10 of the 12 bacterial phyla"</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </section>
+
+        <!-- Associated Datasets -->
+
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(4)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">CURATION_TODO</span>
+                    <span class="role-badge">OPEN</span>
+                    Should the per-reactor, per-timepoint phage-host linkages (for example Brevundimonas with phage 1010E_19 in Reactor A, or the intermittent Paracoccus linkages in Reactor D) be curated as individual LYTIC_INFECTION edges, given that the pOTUs have no stable public identifiers?
+                </h3>
+                <p class="prewrap">The paper reports named phage-host linkages per reactor and per time point in supplementary network figures, and they are the most mechanistically specific content it carries. They are not curated here for two reasons: the phage identifiers (0111B24, 1010E_19) are study-local contig labels with no NCBITaxon or other resolvable grounding, and each linkage holds at some time points and not others, which the schema has no way to qualify. Curating them as unqualified pairwise edges would assert a stability the source explicitly denies. The host links were inferred by CRISPR-spacer matching and sequence homology. Even a resolved study-local identifier would not turn a predicted link into a demonstrated lytic infection.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Coupled Turnover of Phage and Bacterial Community Structure</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">CURATION_TODO</span>
+                    <span class="role-badge">OPEN</span>
+                    Is a FunctionalRoleEnum value needed for storage-polymer accumulation, which is the defining function of this community and of PHA-MMCs generally?
+                </h3>
+                <p class="prewrap">Every member here is carried with no `functional_role`. The defining function of these genera is accumulating polyhydroxyalkanoate under alternating feast and famine, and no existing value says that. PRIMARY_DEGRADER was considered and rejected: it means degrading complex substrates, while these organisms grow on single short-chain fatty acids and lactate, so using it would assert a metabolism the source does not report — the same failure the PATHOGEN_ANTAGONIST description records for #298/#301. Leaving the slot empty is correct until a value exists, but it does mean the community&#39;s central function is readable only from prose and interactions.</p>
+
+                <p class="muted small">Attaches to: <code>taxonomy</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">OPEN_QUESTION</span>
+                    <span class="role-badge">OPEN</span>
+                    Should five reactors differing in carbon source and in dominant genus be one record or five?
+                </h3>
+                <p class="prewrap">The five reactors share an inoculum, a selection strategy, and an operating regime, and the paper analyses them as one system, so they are curated as one community. But the dominant genus differs between them — Azoarcus in A and B, Thauera in E — so the DOMINANT rank carried by all five genera here means &#34;dominant in at least one reactor&#34;, not &#34;dominant in the community&#34;. A reader taking the five dominants as co-dominant in a single vessel would be misled. Splitting per reactor would fix that and lose the cross-reactor comparison that is the paper&#39;s design.</p>
+
+                <p class="muted small">Attaches to: <code>taxonomy</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    What direct perturbation or host-lysis measurements would establish phage-mediated succession in these PHA enrichments?
+                </h3>
+                <p class="prewrap">PMID:40152616 reports observational meta-omics and fitted statistical relationships. The kill-the-winner hypothesis and the negative abundance-diversity association are not independent measured causal steps. No downstream arrow is asserted between them. A matched phage addition/removal or host-lysis experiment in these reactors would resolve the causal direction.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Hypothesized Kill-the-Winner Succession of Dominant PHA Producers</code>, <code>ecological_interactions#Modeled Association of Phage Abundance with Bacterial Diversity and Activity</code></p>
+
+
+
+
+            </div>
+
+        </section>
+
+        <!-- Environmental Factors -->
+
+        <section>
+            <h2>External Resources</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="External Resources">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Repository</th>
+                        <th>Resource ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <strong>Primary publication for the PHA-MMC phage succession community</strong>
+
+                            <br><span class="dataset-description">PubMed record for Yao et al. 2025, mSystems, &#34;Phages-bacteria interactions underlying the dynamics of polyhydroxyalkanoate-producing mixed microbial cultures via meta-omics study&#34;.</span>
+
+                        </td>
+                        <td>OTHER</td>
+                        <td>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/" class="term-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>DOI landing page</strong>
+
+                            <br><span class="dataset-description">DOI link to the mSystems paper.</span>
+
+                        </td>
+                        <td>OTHER</td>
+                        <td>
+
+                            <a href="https://doi.org/10.1128/msystems.00200-25" class="term-link" target="_blank" rel="noopener noreferrer">doi:10.1128/msystems.00200-25</a>
+
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+            </div>
+        </section>
+
+
+
+        <section>
+            <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>Temperature</strong></td>
+                        <td>26</td>
+                        <td>degree Celsius</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"All reactors were operated at 26°C"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><strong>Carbon source</strong></td>
+                        <td>acetate, propionate, butyrate, valerate, or lactate (one per reactor)</td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Reactors A, B, C, D, and E were fed with synthetic wastewater containing acetate, propionate, butyrate, valerate, and lactate as the sole carbon source, respectively"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><strong>Aerobic dynamic feeding cycle</strong></td>
+                        <td>12 h cycle; feed 10 min, aeration 650 min, settle 50 min, discharge 10 min</td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"with a cycle length of 12 h, consisting of feeding (10 min), aeration (650 min), settling (50 min), and discharge (10 min)"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><strong>Operating duration</strong></td>
+                        <td>145 days</td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40152616/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40152616</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"continuously cultured for a period of 145 days"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+            </div>
+        </section>
+
+
+        <!-- Growth Media -->
+
+        <section>
+            <h2>Growth Media</h2>
+
+            <div class="metadata">
+                <h3>
+                    Synthetic wastewater with a single volatile fatty acid or lactate
+
+                </h3>
+
+
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+
+
+
+                    <div class="metadata-item">
+                        <span class="metadata-label">Temperature</span>
+                        <span class="metadata-value">26.0 CELSIUS</span>
+                    </div>
+
+
+
+                    <div class="metadata-item">
+                        <span class="metadata-label">Atmosphere</span>
+                        <span class="metadata-value">AEROBIC</span>
+                    </div>
+
+                </div>
+
+
+
+
+                <p style="margin-top: 1rem; padding: 0.75rem; background: var(--background); color: var(--text); border: 1px solid var(--border); border-radius: 4px;">
+                    <strong>Preparation notes:</strong> Synthetic wastewater with acetate, propionate, butyrate, valerate, or lactate as the sole carbon source in Reactors A to E respectively, plus inorganic components and trace elements. Operated on a 12 h aerobic dynamic feeding cycle. The separate PHA accumulation assay is not this 2 L enrichment cultivation setup.
+                </p>
+
+
+
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+
+                    <div class="evidence-item">
+
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40152616"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:40152616
+                        </a>
+
+
+
+                        <p class="snippet">"Five sequencing batch reactors (SBR), each with a working volume of 2 L, were used for the cultivation of PHA-MMCs"</p>
+
+                    </div>
+
+                    <div class="evidence-item">
+
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40152616"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:40152616
+                        </a>
+
+
+
+                        <p class="snippet">"Activated sludge from a municipal wastewater treatment plant (Chengdu, China) was used as the inoculum source"</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+
+
+    <script src="../d3.v7.min.js"></script>
+    <script>
+    (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
+        var interactionColors = {
+            "CROSS_FEEDING": "#57c7ab",
+            "MUTUALISM": "#9f2ebb",
+            "SYNTROPHY": "#7f30cf",
+            "COMPETITION": "#a91919",
+            "NICHE_PARTITIONING": "#1212ed",
+            "COLONIZATION_FACILITATION": "#edab12"
+        };
+        var unmappedColor = "#929caa";
+
+        // The redundant channel for interaction type (#270). Names are resolved
+        // against d3 at use, so an unknown name falls back rather than throwing.
+        var interactionSymbols = {
+            "CROSS_FEEDING": "symbolDiamond",
+            "MUTUALISM": "symbolSquare",
+            "SYNTROPHY": "symbolTriangle",
+            "COMPETITION": "symbolTimes",
+            "NICHE_PARTITIONING": "symbolSquare2",
+            "COLONIZATION_FACILITATION": "symbolPlus"
+        };
+        var unmappedSymbol = "symbolTriangle2";
+
+        function symbolPathFor(type, size) {
+            var name = interactionSymbols[type] || unmappedSymbol;
+            var shape = d3[name] || d3[unmappedSymbol] || d3.symbolSquare;
+            return d3.symbol().type(shape).size(size)();
+        }
+
+        // Build taxon lookup keyed by preferred_term
+        var taxonData = {};
+
+        taxonData["Azoarcus"] = {
+            id: "NCBITaxon:12960",
+            label: "Azoarcus",
+            abundance: "DOMINANT",
+            roles: []
+        };
+
+        taxonData["Paracoccus"] = {
+            id: "NCBITaxon:265",
+            label: "Paracoccus",
+            abundance: "DOMINANT",
+            roles: []
+        };
+
+        taxonData["Azomonas"] = {
+            id: "NCBITaxon:69961",
+            label: "Azomonas",
+            abundance: "DOMINANT",
+            roles: []
+        };
+
+        taxonData["Thauera"] = {
+            id: "NCBITaxon:33057",
+            label: "Thauera",
+            abundance: "DOMINANT",
+            roles: []
+        };
+
+        taxonData["Brevundimonas"] = {
+            id: "NCBITaxon:41275",
+            label: "Brevundimonas",
+            abundance: "DOMINANT",
+            roles: []
+        };
+
+        taxonData["PHA-MMC phage community (4,294 pOTUs)"] = {
+            id: "NCBITaxon:10239",
+            label: "PHA-MMC phage community (4,294 pOTUs)",
+            abundance: "UNKNOWN",
+            roles: []
+        };
+
+
+        // Build nodes and links
+        var nodes = [];
+        var links = [];
+        var taxonNodeIds = {};
+
+        // Add taxon nodes
+        Object.keys(taxonData).forEach(function(key) {
+            var t = taxonData[key];
+            var nodeId = "taxon:" + key;
+            taxonNodeIds[key] = nodeId;
+            nodes.push({
+                id: nodeId,
+                label: t.label,
+                type: "taxon",
+                abundance: t.abundance,
+                roles: t.roles,
+                ontologyId: t.id
+            });
+        });
+
+        // Add interaction nodes and edges
+
+        (function() {
+            var intId = "interaction:0";
+            var intType = "KILL_THE_WINNER";
+            var metabolites = [];
+
+            var processes = [];
+
+
+            processes.push("viral process");
+
+
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Hypothesized Kill-the-Winner Succession of Dominant PHA Producers",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+
+
+        })();
+
+        (function() {
+            var intId = "interaction:1";
+            var intType = "UNKNOWN";
+            var metabolites = [];
+
+            var processes = [];
+
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Coupled Turnover of Phage and Bacterial Community Structure",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+
+
+        })();
+
+        (function() {
+            var intId = "interaction:2";
+            var intType = "UNKNOWN";
+            var metabolites = [];
+
+            var processes = [];
+
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Modeled Association of Phage Abundance with Bacterial Diversity and Activity",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+
+
+        })();
+
+        (function() {
+            var intId = "interaction:3";
+            var intType = "UNKNOWN";
+            var metabolites = [];
+
+
+            metabolites.push("polyhydroxyalkanoate");
+
+
+            var processes = [];
+
+
+            processes.push("viral process");
+
+
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Phage-Encoded Auxiliary Metabolic Genes for PHA Synthesis Are Transcribed",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+
+
+        })();
+
+        (function() {
+            var intId = "interaction:4";
+            var intType = "UNKNOWN";
+            var metabolites = [];
+
+            var processes = [];
+
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Predicted Host Antiviral Defence Repertoire",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+
+
+        })();
+
+
+        // Remove taxon nodes with no connections
+        var connectedIds = new Set();
+        links.forEach(function(l) {
+            connectedIds.add(typeof l.source === "object" ? l.source.id : l.source);
+            connectedIds.add(typeof l.target === "object" ? l.target.id : l.target);
+        });
+        nodes = nodes.filter(function(n) {
+            return n.type === "interaction" || connectedIds.has(n.id);
+        });
+
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
+        // D3 setup
+        var container = document.getElementById("network-container");
+        var svg = d3.select("#network-svg");
+        var width = container.clientWidth - 32;
+        // Dynamic height based on node count: minimum 500px, add 40px per node
+        var nodeCount = 11;
+        var height = Math.max(500, 400 + nodeCount * 20);
+        svg.attr("width", width).attr("height", height);
+
+        // Arrow marker
+        svg.append("defs").append("marker")
+            .attr("id", "arrowhead")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 20)
+            .attr("refY", 0)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("fill", "#94a3b8");
+
+        var simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(function(d) { return d.id; }).distance(100))
+            .force("charge", d3.forceManyBody().strength(-400))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collision", d3.forceCollide().radius(40))
+            .force("x", d3.forceX(width / 2).strength(0.05))
+            .force("y", d3.forceY(height / 2).strength(0.05));
+
+        var link = svg.append("g")
+            .selectAll("line")
+            .data(links)
+            .join("line")
+            .attr("stroke", "#94a3b8")
+            .attr("stroke-width", 1.5)
+            .attr("marker-end", "url(#arrowhead)");
+
+        var node = svg.append("g")
+            .selectAll("g")
+            .data(nodes)
+            .join("g")
+            .style("cursor", "pointer");
+
+        // Taxon nodes: circles
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("circle")
+            .attr("r", function(d) { return d.abundance === "DOMINANT" ? 18 : 12; })
+            .attr("fill", "#7a7a7a")
+            .attr("stroke", "#4a4a4a")
+            .attr("stroke-width", 1.5);
+
+        // Paint the legend swatches with the same paths the nodes use, so the
+        // legend cannot drift from the graph (#270).
+        d3.selectAll("svg.legend-symbol").each(function() {
+            var el = d3.select(this);
+            var name = el.attr("data-symbol");
+            var colour = el.attr("data-color");
+            var shape = d3[name] || d3.symbolSquare;
+            var c = d3.color(colour);
+            el.append("path")
+                .attr("d", d3.symbol().type(shape).size(90)())
+                .attr("fill", colour)
+                .attr("stroke", c ? c.darker(0.5) : "#4b5563")
+                .attr("stroke-width", 1.2);
+        });
+
+        // Interaction nodes: rounded rects
+        // One shape per interaction type, not one rect in nine colours (#270).
+        // Sized to roughly the 28x18 rect it replaces so the layout is unchanged.
+        node.filter(function(d) { return d.type === "interaction"; })
+            .append("path")
+            .attr("d", function(d) { return symbolPathFor(d.interactionType, 320); })
+            .attr("fill", function(d) { return interactionColors[d.interactionType] || unmappedColor; })
+            .attr("stroke", function(d) {
+                var c = d3.color(interactionColors[d.interactionType] || unmappedColor);
+                return c ? c.darker(0.5) : "#4b5563";
+            })
+            .attr("stroke-width", 1.5);
+
+        // Labels for taxa (positioned below circle)
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("text")
+            .text(function(d) {
+                var parts = d.label.split(" ");
+                return parts.length >= 2 ? parts[0][0] + ". " + parts.slice(1).join(" ") : d.label;
+            })
+            .attr("text-anchor", "middle")
+            .attr("dy", function(d) { return d.abundance === "DOMINANT" ? 30 : 24; })
+            .attr("font-size", "10px")
+            .style("fill", "var(--net-label, #475569)");
+
+        // Labels for interactions (multi-line, centered in rectangle)
+        node.filter(function(d) { return d.type === "interaction"; })
+            .each(function(d) {
+                var textElem = d3.select(this).append("text")
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "9px")
+                    .style("fill", "var(--net-label, #475569)")
+                    .style("pointer-events", "none");
+
+                // Word-wrap text to fit in rectangle (max ~24 chars per line)
+                var words = d.label.split(/\s+/);
+                var line = "";
+                var lines = [];
+                var maxWidth = 24;
+
+                for (var i = 0; i < words.length; i++) {
+                    var testLine = line + (line ? " " : "") + words[i];
+                    if (testLine.length > maxWidth && line.length > 0) {
+                        lines.push(line);
+                        line = words[i];
+                    } else {
+                        line = testLine;
+                    }
+                }
+                if (line) lines.push(line);
+
+                // Limit to 3 lines maximum
+                if (lines.length > 3) {
+                    lines = lines.slice(0, 3);
+                    lines[2] = lines[2].substring(0, 21) + "...";
+                }
+
+                // Add tspan for each line
+                var lineHeight = 11;
+                var startY = -(lines.length - 1) * lineHeight / 2;
+                lines.forEach(function(lineText, i) {
+                    textElem.append("tspan")
+                        .attr("x", 0)
+                        .attr("dy", i === 0 ? startY : lineHeight)
+                        .text(lineText);
+                });
+            });
+
+        // Tooltip
+        var tooltip = d3.select("#network-tooltip");
+
+        node.on("mouseenter", function(event, d) {
+            tooltip.selectAll("*").remove();
+            if (d.type === "taxon") {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.ontologyId);
+                tooltip.append("br");
+                tooltip.append("span").text("Abundance: " + d.abundance);
+                if (d.roles.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Roles: " + d.roles.join(", "));
+                }
+            } else {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.interactionType);
+                if (d.metabolites.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Metabolites: " + d.metabolites.join(", "));
+                }
+                if (d.processes.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Processes: " + d.processes.join(", "));
+                }
+                tooltip.append("br");
+                tooltip.append("span").text("Evidence items: " + d.evidenceCount);
+            }
+            tooltip.style("opacity", 1)
+                .style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mousemove", function(event) {
+            tooltip.style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mouseleave", function() {
+            tooltip.style("opacity", 0);
+        });
+
+        // Tick
+        simulation.on("tick", function() {
+            link.attr("x1", function(d) { return d.source.x; })
+                .attr("y1", function(d) { return d.source.y; })
+                .attr("x2", function(d) { return d.target.x; })
+                .attr("y2", function(d) { return d.target.y; });
+
+            node.attr("transform", function(d) {
+                // Constrain nodes within safe boundaries
+                // Account for: node size, label text, and extra padding
+                var nodeRadius = (d.type === "taxon" && d.abundance === "DOMINANT") ? 18 :
+                                (d.type === "taxon") ? 12 : 14; // interaction nodes
+                var labelOffset = d.type === "taxon" ? 35 : 0; // taxon labels below node
+
+                var marginTop = 40;
+                var marginBottom = 60; // extra space for labels
+                var marginSide = 80; // space for long names
+
+                d.x = Math.max(marginSide, Math.min(width - marginSide, d.x));
+                d.y = Math.max(marginTop, Math.min(height - marginBottom, d.y));
+                return "translate(" + d.x + "," + d.y + ")";
+            });
+        });
+
+        // Stabilize after 300 ticks then stop
+        simulation.alpha(1).alphaDecay(0.02);
+        for (var i = 0; i < 300; i++) simulation.tick();
+        simulation.stop();
+
+        // Apply final positions
+        link.attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    })();
+    </script>
+
+    <script src="../theme-toggle.js"></script>
+</body>
+</html>

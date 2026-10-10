@@ -537,9 +537,12 @@ def test_the_status_distribution_is_what_was_measured():
     # adds six strain-level members, and the FOS gut-liver SynCom adds three
     # strain/species members. #1305 corrects FT92W from grounded Duganella to
     # Pseudoduganella rivuli without borrowing the unrelated genus grounding,
-    # moving exactly one row to UNRESOLVED (479 -> 480). Tolerate the measured
-    # count without tolerating a domain-lookup collapse.
-    assert counts["UNRESOLVED"] < 481, (
+    # moving exactly one row to UNRESOLVED (479 -> 480). The phage records add
+    # four bacterial species and five genera whose mapping lookup was unavailable
+    # during curation (480 -> 489), not nine claims of absence from GTDB.
+    # Their two viral members remain NO_GTDB_EQUIVALENT. The exact added
+    # population is checked in test_phage_review_regressions.py.
+    assert counts["UNRESOLVED"] < 490, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )

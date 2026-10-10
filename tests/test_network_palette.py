@@ -68,6 +68,10 @@ FOLDED = {
     "STRAIN_COMPETITION": "0 occurrences at #1913",
     "PREDATION": "2 occurrences at #1913; the next-rarest coloured type has 29",
     "COMMENSALISM": "2 occurrences at #1913; retain exact type in text and table",
+    "LYTIC_INFECTION": "2 occurrences in the Alseth phage experiment",
+    "LYSOGENIC_INFECTION": "0 occurrences; retained for the lytic/lysogenic contrast",
+    "COMPETITIVE_RELEASE": "1 occurrence",
+    "KILL_THE_WINNER": "1 occurrence; PHA mechanism explicitly model-inferred",
 }
 
 # Every coloured type must be at least this many times as common as each folded
