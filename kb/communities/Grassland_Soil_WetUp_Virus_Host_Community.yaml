@@ -66,11 +66,14 @@ taxonomy:
       dry period
     explanation: Supports the bacterial host membership and their wet-up dynamics.
 ecological_interactions:
-- name: Lytic Virus Activity Dominates Wet-Up Response
-  description: After wet-up, lytic rather than lysogenic cycles dominate, with
-    viral richness declining by 50 percent within 24 hours and viral biomass
-    increasing four-fold within one week.
-  interaction_type: PREDATION
+- name: Lytic-Dominated Viral Response Inferred After Wet-Up
+  description: Laboratory wet-up microcosms showed viral richness loss and increasing viral-DNA biomass proxies,
+    with isotope incorporation supporting active viral DNA replication. The authors infer a predominantly lytic
+    response from these measurements and lifestyle markers. This positive evidence does not exclude nonintegrating
+    temperate lifestyles or directly count every productive infection. The abstract reports a 50% richness decline
+    within 24 h and a four-fold biomass increase within one week; the main Results summarize richness loss over
+    the week. Those time-window summaries need not conflict; no independent reconstruction of the time course is
+    claimed here.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: virus-host interaction
@@ -78,24 +81,40 @@ ecological_interactions:
       id: GO:0044003
       label: symbiont-mediated perturbation of host process
   downstream:
-  - target: Viral Lysis Drives Microbial Death
-    description: Wet-up lytic viral activity produces measurable host-cell
-      lysis by one week after rewetting.
+  - target: Estimated Viral Contribution to Microbial Death
+    description: PARTIAL - productive lytic infection would cause host death. Viral replication, particle dynamics
+      and lifestyle markers support this contribution, but the magnitude is inferred using burst-size and recovery
+      assumptions rather than directly resolved infection-to-death events.
   evidence:
   - reference: PMID:37730729
-    supports: SUPPORT
-    evidence_source: IN_VIVO
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
     snippet: viruses in lytic cycles dominate the response to wet-up
-    explanation: Supports the dominance of lytic over lysogenic cycles.
+    explanation: Supports the authors' lifestyle inference from genomic markers and experimental time courses, not
+      proof that all particles arose by lysis or that all temperate lifestyles were absent.
   - reference: PMID:37730729
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Viral richness decreases by 50% within 24 h post wet-up, while
-      viral biomass increases four-fold within one week
-    explanation: Supports the time-course richness and biomass dynamics.
-- name: Viral Lysis Drives Microbial Death
-  description: Viruses drive measurable and continuous cell lysis, accounting
-    for up to 46 percent of microbial death one week after wet-up.
+    evidence_source: IN_VITRO
+    snippet: Viral richness decreases by 50% within 24 h post wet-up, while viral biomass increases four-fold within
+      one week
+    explanation: Supports laboratory microcosm time-course observations. Viral DNA is a biomass proxy; source sections
+      summarize richness loss over different time windows, without necessarily conflicting.
+  participating_taxa:
+  - preferred_term: soil DNA viruses (virions)
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+  - preferred_term: grassland soil bacterial hosts
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+- name: Estimated Viral Contribution to Microbial Death
+  description: The study estimates a viral contribution to bacterial mortality from extracellular viral DNA and
+    a separately estimated bacterial-death denominator. Its cumulative one-week estimate ranges from below 1% to
+    46.6% as assumed burst size changes from 200 to 1 virions per cell. This is a model-dependent inference, not
+    directly counted lysis of 46% of all microbes. The estimate depends on viral genome length, extraction recovery,
+    particle persistence and assumptions about bacterial rRNA gene copies. Canonical virus-to-bacterium direction
+    denotes the proposed aggregate predatory process, not resolved strain-specific host links.
   interaction_type: PREDATION
   scope: PAIRWISE
   source_taxon:
@@ -114,44 +133,45 @@ ecological_interactions:
       id: GO:0044003
       label: symbiont-mediated perturbation of host process
   downstream:
-  - target: Lysis-Coupled Biomass Turnover and CO2 Efflux
-    description: Virus-driven bacterial death contributes to microbial biomass
-      turnover and the post-wet-up CO2 efflux from seasonally dry soil.
+  - target: Inferred Lysis Contribution to Biomass Turnover and CO2 Efflux
+    description: HYPOTHESIZED - lysis-released cellular carbon could support turnover and community respiration.
+      The study does not isolate the viral share of CO2 efflux or selectively establish this carbon-transfer mediation.
   evidence:
   - reference: PMID:37730729
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: up to 46% of microbial death driven by viral lysis one week
-      following wet-up
-    explanation: Supports the curated quantitative attribution of microbial
-      death to viral lysis.
-- name: Lysis-Coupled Biomass Turnover and CO2 Efflux
-  description: Viral lysis contributes to turnover of soil microbial biomass
-    and the widely reported CO2 efflux following wet-up of seasonally dry soils.
-  interaction_type: PREDATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: soil DNA viruses (virions)
-    term:
-      id: NCBITaxon:10239
-      label: Viruses
-  target_taxon:
-    preferred_term: grassland soil bacterial hosts
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: up to 46% of microbial death driven by viral lysis one week following wet-up
+    explanation: The abstract upper bound summarizes a burst-size-dependent mortality estimate. It is not a direct
+      census or a fixed effect across assumptions.
+- name: Inferred Lysis Contribution to Biomass Turnover and CO2 Efflux
+  description: HYPOTHESIZED - lysis can release cellular material that contributes to soil biomass turnover and
+    potentially fuels respiration after wet-up. The paper interprets its viral dynamics and mortality estimates
+    in this ecosystem context; it does not selectively isolate virus-driven CO2 flux or establish this pathway as
+    the cause of the whole wet-up respiration pulse.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: carbon dioxide
     term:
       id: CHEBI:16526
       label: carbon dioxide
+    notes: Proposed downstream respiratory product, not virus-attributed measured carbon flux.
   evidence:
   - reference: PMID:37730729
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: viruses contribute to turnover of soil microbial biomass and the
-      widely reported CO2 efflux following wet-up of seasonally dry soils
-    explanation: Supports the ecosystem-level CO2-efflux contribution.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: viruses contribute to turnover of soil microbial biomass and the widely reported CO2 efflux following
+      wet-up of seasonally dry soils
+    explanation: Supports an inferred ecosystem contribution, not virus-specific carbon tracing, selective viral
+      manipulation or a measured CO2 mediation effect.
+  participating_taxa:
+  - preferred_term: soil DNA viruses (virions)
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+  - preferred_term: grassland soil bacterial hosts
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
 environmental_factors:
 - name: Wet-up event
   value: prolonged dry period followed by laboratory rewetting
@@ -202,3 +222,28 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   grassland soil virus-host community.
+discussions:
+- discussion_id: wetup_viral_mortality_and_carbon_mediation
+  prompt: How much wet-up mortality and respiratory carbon flux are caused by viruses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Lytic-Dominated Viral Response Inferred After Wet-Up
+  - ecological_interactions#Estimated Viral Contribution to Microbial Death
+  - ecological_interactions#Inferred Lysis Contribution to Biomass Turnover and CO2 Efflux
+  rationale: Resolve burst size, genome-length conversion, extraction efficiency, persistent particles and the assumed
+    six bacterial 16S copies per cell before assigning a fixed mortality fraction. The Results and Discussion give
+    slightly different lower bounds, both below 1%; no equation or analysis-code reimplementation is claimed. Separate
+    early osmotic mortality from later viral effects. Genomic lifestyle markers do not exclude nonintegrating temperate
+    infections, and coarse host predictions do not identify every infected strain. Direct viral perturbations and
+    carbon tracing are needed for the proposed CO2 mediation. Abstract and main-body richness summaries use different
+    time windows, which need not be contradictory. Preserve all positive time-course evidence while retaining these
+    uncertainty labels; non-graph metadata is not recertified.
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T13:58:36Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound wet-up viral mortality and inferred carbon mediation. Issue #1490; reports/causal_graph_review/decisions/20261006-wetup-elusimicrobia-batch49.yaml'
+  llm_assisted: true

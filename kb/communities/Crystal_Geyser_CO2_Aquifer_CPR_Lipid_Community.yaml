@@ -59,11 +59,11 @@ taxonomy:
       provides organic carbon
     explanation: Supports the CO2-fixing autotrophic members.
 ecological_interactions:
-- name: Autotrophy-Based Deep Biosphere
-  description: Microbial lipid stable-carbon-isotope compositions show that
-    bacterial and archaeal CO2 fixation in the deep subsurface provides the
-    organic carbon for the complex communities residing there.
-  interaction_type: CROSS_FEEDING
+- name: Predominantly Autotrophic Carbon Supply
+  description: Stable carbon isotope compositions, community metagenomes and geological constraints support a predominantly
+    autotrophic origin of biomass across the sampled aquifers. Bacterial and archaeal carbon fixation supplies the
+    community organic-carbon pool; isotope mass-balance estimates depend on fractionation assumptions and allow
+    heterotrophic reuse. This does not trace a particular producer-to-CPR carbon or lipid transfer.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: carbon dioxide
@@ -76,36 +76,32 @@ ecological_interactions:
       id: GO:0015977
       label: carbon fixation
   downstream:
-  - target: Lipid Redistribution to CPR Symbionts
-    description: >
-      Autotrophic bacterial and archaeal production supplies deep-subsurface
-      organic carbon to the complex community that includes lipid-limited CPR
-      putative symbionts.
+  - target: Putative CPR Lipid Acquisition
+    description: HYPOTHESIZED - autotrophically fixed carbon can supply bacterial lipid production and the community
+      material available for CPR acquisition. The isotope, lipid and genomic observations support this proposed
+      carbon route but do not trace transfer from a particular producer to CPR cells.
   evidence:
   - reference: PMID:32203118
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: bacterial and archaeal CO2 fixation ongoing in the deep
-      subsurface provides organic carbon for the complex communities that
-      reside there
-    explanation: Supports the curated autotrophy-driven carbon source.
-- name: Lipid Redistribution to CPR Symbionts
-  description: CPR bacteria possess regular lipid membranes despite lacking
-    complete lipid biosynthesis pathways; lipids likely originate from other
-    community members, with the partner bacteria/archaea also adapting to
-    high in situ pressure via increased fatty acid unsaturation.
-  interaction_type: SYNTROPHY
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: deep-aquifer CO2-fixing bacteria and archaea
+    snippet: bacterial and archaeal CO2 fixation ongoing in the deep subsurface provides organic carbon for the
+      complex communities that reside there
+    explanation: Supports the predominantly autotrophic community carbon source from isotope and genomic evidence,
+      not a resolved producer-recipient flux. The broad producer participant is a functional pool, not one experimentally
+      paired donor.
+  participating_taxa:
+  - preferred_term: deep-aquifer CO2-fixing bacteria and archaea
     term:
       id: NCBITaxon:131567
       label: cellular organisms
-  target_taxon:
-    preferred_term: deep-aquifer CPR bacteria
-    term:
-      id: NCBITaxon:1783273
-      label: Patescibacteria group
+- name: Putative CPR Lipid Acquisition
+  description: HYPOTHESIZED - CPR-associated membrane lipids together with missing known complete lipid-biosynthesis
+    pathways support acquisition of lipids or precursors from coexisting bacteria. Scavenging degraded biomass and
+    direct host-derived acquisition remain alternatives; neither a donor nor uptake flux was resolved. The broad
+    producer participant represents community context, not proof of archaeal-to-CPR donation. Some Nealsonbacteria
+    retain near-complete pathways, so unknown ACP-independent biosynthesis cannot be excluded. Product-removal syntrophy
+    was not demonstrated.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lipid
     term:
@@ -121,35 +117,48 @@ ecological_interactions:
       id: GO:0006629
       label: lipid metabolic process
   downstream:
-  - target: CPR Lysolipid Enrichment as Curvature Adaptation
-    description: >
-      Imported or redistributed community lipids form CPR bacterial membranes,
-      whose lysolipid enrichment is a candidate response to high curvature.
+  - target: CPR-Associated Lysolipids and Proposed Curvature Adaptation
+    description: HYPOTHESIZED - acquired community lipids or precursors could provide material for CPR-associated
+      lysolipid membranes and their proposed curvature adaptation. Lipid correlations and mixed-fraction spectroscopy
+      do not demonstrate that acquisition causes lysolipid enrichment or that enrichment improves curvature tolerance.
   evidence:
   - reference: PMID:32203118
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: CPR bacteria lack complete lipid biosynthesis pathways but still
-      possess regular lipid membranes
-    explanation: Supports the curated CPR lipid sourcing.
+    snippet: CPR bacteria lack complete lipid biosynthesis pathways but still possess regular lipid membranes
+    explanation: Combined field lipid and genome observations support an acquisition hypothesis. They do not identify
+      the donor, exclude unknown biosynthesis, or demonstrate product-removal cooperation. Depth-associated unsaturation
+      is not evidence for this transfer.
   - reference: PMID:32203118
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: adapt to high in situ pressure by increasing fatty acid
-      unsaturation
-    explanation: Supports the pressure-adaptive unsaturation of partner lipids.
-  - reference: PMID:32203118
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: the redistribution of lipids into putative symbionts within this community
-    explanation: >
-      Supports lipid redistribution from other deep-aquifer community members
-      into CPR putative symbionts.
-- name: CPR Lysolipid Enrichment as Curvature Adaptation
-  description: Unusually high abundance of lysolipids attributed to CPR
-    bacteria may represent an adaptation to membrane curvature stress induced
-    by their small cell sizes.
-  interaction_type: COMMENSALISM
+    explanation: Combined field lipid and genome observations support an acquisition hypothesis. They do not identify
+      the donor, exclude unknown biosynthesis, or demonstrate product-removal cooperation. Depth-associated unsaturation
+      is not evidence for this transfer.
+  - reference: PMID:32203118
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: Thus, we suggest that most CPR bacteria derive their membrane lipids, including lysolipids, from coexisting
+      bacteria.
+    explanation: The primary Results/Discussion explicitly proposes bacterial lipid acquisition after considering
+      missing ACP machinery and possible alternative pathways. This is an author interpretation, not a traced exchange
+      experiment.
+  participating_taxa:
+  - preferred_term: deep-aquifer CPR bacteria
+    term:
+      id: NCBITaxon:1783273
+      label: Patescibacteria group
+  - preferred_term: deep-aquifer CO2-fixing bacteria and archaea
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  interaction_type: CROSS_FEEDING
+- name: CPR-Associated Lysolipids and Proposed Curvature Adaptation
+  description: Lipidomics, organism-lipid correlations and FTIR of CPR-enriched size fractions support lysolipid-rich
+    membranes in some CPR bacteria. These fractions are mixed communities, not purified CPR isolates; the initial
+    fraction also contained abundant Sulfurimonas. Reduced curvature stress in small cells is a proposed adaptive
+    explanation, not a tested membrane-mechanical or fitness effect. No unaffected-donor relationship is established.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lipid
@@ -163,12 +172,17 @@ ecological_interactions:
       label: lipid metabolic process
   evidence:
   - reference: PMID:32203118
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: An unusually high abundance of lysolipids attributed to CPR
-      bacteria may represent an adaptation to membrane curvature stress
-      induced by their small cell sizes
-    explanation: Supports the curated lysolipid-curvature-adaptation hypothesis.
+    snippet: An unusually high abundance of lysolipids attributed to CPR bacteria may represent an adaptation to
+      membrane curvature stress induced by their small cell sizes
+    explanation: Supports the authors' proposed curvature adaptation. The primary study adds mixed-fraction lipidomic
+      and FTIR observations, not purified-cell transfer, curvature perturbation or a donor fitness measurement.
+  participating_taxa:
+  - preferred_term: deep-aquifer CPR bacteria
+    term:
+      id: NCBITaxon:1783273
+      label: Patescibacteria group
 related_ingredients:
 - preferred_term: carbon dioxide
   chebi_term:
@@ -259,3 +273,32 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   deep-biosphere CPR community.
+discussions:
+- discussion_id: crystal_geyser_lipid_donor_and_adaptation
+  prompt: Which sources and uptake routes supply CPR lipids, and do lysolipids causally relieve membrane curvature
+    stress?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Predominantly Autotrophic Carbon Supply
+  - ecological_interactions#Putative CPR Lipid Acquisition
+  - ecological_interactions#CPR-Associated Lysolipids and Proposed Curvature Adaptation
+  rationale: 'The complete primary main body supports mostly autotrophic community carbon, missing known biosynthesis
+    pathways and CPR-associated lysolipids. Correlated relative abundances, mixed size fractions and FTIR do not
+    resolve donors or transfer rates. Degraded-biomass scavenging, direct host acquisition and unknown biosynthetic
+    routes remain distinguishable hypotheses. Selective uptake/biosynthesis perturbations, tracing and membrane-mechanical
+    measurements would test the proposed chain. The separate archaeal lipid discussion must not establish archaeal
+    donation to CPR. No figure images or supplementary files were inspected. Non-graph taxon-role and pressure-adaptation
+    overstatements remain in #1366.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T04:19:48Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain the positive isotope/genomic carbon-source evidence with its fractionation and recipient-resolution
+    limits; no arbitrary exchange type on primary production.; Retain source-proposed bacterial lipid acquisition
+    as partial cross-feeding, not measured donor flux, obligatory lipid dependence or product-removal syntrophy.;
+    Retain CPR-associated lysolipid measurements and a qualified curvature hypothesis without pure-isolate attribution
+    or a commensal fitness sign. Issue #1365; reports/causal_graph_review/decisions/20261006-three-records-batch27.yaml'
+  llm_assisted: true

@@ -1,0 +1,381 @@
+id: CommunityMech:000446
+name: Phaeodactylum-Aliivibrio Diel Co-culture
+description: >-
+  A defined two-member marine algae-bacteria co-culture pairing the model
+  diatom Phaeodactylum tricornutum CCAP 1055/1 with the heterotrophic marine
+  bacterium Aliivibrio fischeri MCCC 1H00019. Chen et al. 2026 grew the pair
+  in EASW medium supplemented with 30% marine broth under a 12 h light/12 h
+  dark cycle and used 4-day and 8-day samples to show bacterial surface
+  colonization, competitive rather than growth-promoting behavior, a day-6
+  extracellular-polymeric-substance peak followed by day-8 depletion, and
+  time-dependent rewiring of P. tricornutum photosynthetic physiology,
+  transcriptomic rhythmicity, and model-inferred biomass flux.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: PHYTOPLANKTON
+engineering_design:
+  objective: >-
+    Build a defined Phaeodactylum tricornutum and Aliivibrio fischeri
+    algae-bacteria co-culture to test how bacterial presence alters diatom diel
+    physiology and transcriptional rhythmicity.
+  assembly_strategy: >-
+    Axenize P. tricornutum CCAP 1055/1, wash the algal culture with sterile
+    EASW to remove antibiotics, and inoculate A. fischeri MCCC 1H00019 into an
+    EASW plus 30% marine broth co-culture medium at initial densities of
+    1x10^6 algal cells/mL and 4x10^4 bacterial cells/mL.
+  perturbation_design: >-
+    Compare axenic P. tricornutum in EASW control medium, axenic
+    P. tricornutum in EASW plus 30% marine broth, and paired
+    P. tricornutum/A. fischeri co-cultures sampled at day 4 and day 8.
+  measurement_endpoints:
+  - algal cell density
+  - A. fischeri CFU abundance
+  - extracellular polymeric substance composition
+  - chlorophyll a fluorescence
+  - maximum quantum yield of photosystem II
+  - P. tricornutum rhythmic transcript abundance
+  - genome-scale biomass flux
+  evidence:
+  - &defined_coculture
+    reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Using a defined co-culture of the diatom Phaeodactylum tricornutum with
+      the marine bacterium Aliivibrio fischeri
+    explanation: >-
+      Identifies the two-member P. tricornutum/A. fischeri co-culture design.
+  - &co4d_co8d
+    reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The two co-culture groups correspond to the exponential growth phase (day
+      4, Co4d) and the stationary phase (day 8, Co8d), respectively.
+    explanation: >-
+      Supports the early and prolonged co-culture sampling design.
+environment_term:
+  preferred_term: laboratory marine diatom-bacterium diel co-culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >-
+    Defined laboratory co-culture of a model marine diatom and a marine
+    heterotrophic bacterium under white-light diel cycling.
+modeled_environment:
+- preferred_term: marine environment
+  term:
+    id: ENVO:01000320
+    label: marine environment
+  notes: >-
+    The P. tricornutum/A. fischeri pair modeled marine diatom-bacterium
+    associations in an artificial seawater medium.
+taxonomy:
+- taxon_term:
+    preferred_term: Phaeodactylum tricornutum CCAP 1055/1
+    term:
+      id: NCBITaxon:2850
+      label: Phaeodactylum tricornutum
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: >-
+      Model pennate diatom CCAP 1055/1; GTDB does not classify eukaryotic
+      diatoms.
+  strain_designation:
+    strain_name: CCAP 1055/1
+    culture_collections:
+    - collection: OTHER
+      accession: CCAP 1055/1
+      notes: Culture Collection of Algae and Protozoa strain.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Axenic Phaeodactylum tricornutum CCAP 1055/1 was obtained from the
+      Culture Collection of Algae and Protozoa (CCAP)
+    explanation: >-
+      Identifies the P. tricornutum culture-collection strain used for the
+      co-culture.
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The initial cell densities of P. tricornutum and A. fischeri were set as
+      1×106 cells/mL and 4×104 cells/mL, respectively.
+    explanation: >-
+      Supports the higher starting abundance of the diatom member in the
+      two-member co-culture.
+- taxon_term:
+    preferred_term: Aliivibrio fischeri MCCC 1H00019
+    term:
+      id: NCBITaxon:668
+      label: Aliivibrio fischeri
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      Bioluminescent marine heterotrophic bacterium MCCC 1H00019 paired with
+      P. tricornutum in the defined co-culture; GTDB grounding was left
+      unresolved for this exact NCBITaxon species pending the local kg-microbe
+      NCBI2GTDB mapping.
+  strain_designation:
+    strain_name: MCCC 1H00019
+    culture_collections:
+    - collection: OTHER
+      accession: MCCC 1H00019
+      notes: Marine Culture Collection of China strain.
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Aliivibrio fischeri MCCC 1H00019 was obtained from the Marine Culture
+      Collection of China and maintained at 20°C in marine broth 2216 medium.
+    explanation: >-
+      Identifies the A. fischeri culture-collection strain used for the
+      co-culture.
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The initial cell densities of P. tricornutum and A. fischeri were set as
+      1×106 cells/mL and 4×104 cells/mL, respectively.
+    explanation: Supports the initial A. fischeri inoculum density.
+ecological_interactions:
+- name: Aliivibrio Surface Colonization of Phaeodactylum
+  description: SEM showed A. fischeri attached to P. tricornutum surfaces in the 30% marine-broth coculture. Filamentous
+    structures were interpreted as likely EPS from one or both partners; neither their chemical identity nor their
+    producer was established by microscopy. Preserve the physical association without treating it as proof of nutrient
+    transfer or the cause of photosynthetic decline.
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Aliivibrio fischeri MCCC 1H00019
+    term:
+      id: NCBITaxon:668
+      label: Aliivibrio fischeri
+  target_taxon:
+    preferred_term: Phaeodactylum tricornutum CCAP 1055/1
+    term:
+      id: NCBITaxon:2850
+      label: Phaeodactylum tricornutum
+  evidence:
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Scanning electron microscopy (SEM) analysis demonstrated significant colonization of P. tricornutum
+      cell surfaces by A. fischeri
+    explanation: Supports bacterial attachment to the diatom cell surface in co-culture.
+- name: Proposed Amino Acid Resource Competition
+  description: HYPOTHESIZED - Nutrient and pigment profiles led the authors to propose early amino-acid competition.
+    Nitrate-N and orthophosphate were measured, but amino-acid depletion and partner-resolved exchange were not.
+    Medium-matched axenic HAC controls support a negative coculture effect on late photosynthetic performance; moderate
+    broth enrichment itself supported axenic growth. These observations do not isolate amino-acid competition as
+    the mechanism or show bacterial growth promotion by bioluminescence.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Phaeodactylum tricornutum CCAP 1055/1
+    term:
+      id: NCBITaxon:2850
+      label: Phaeodactylum tricornutum
+  - preferred_term: Aliivibrio fischeri MCCC 1H00019
+    term:
+      id: NCBITaxon:668
+      label: Aliivibrio fischeri
+  evidence:
+  - reference: PMID:42668638
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: These results are more consistent with a competitive effect in co-culture than with a growth-promoting
+      role of A. fischeri.
+    explanation: Supports the authors' competition interpretation; nutrient/pigment observations do not directly
+      identify exchanged or limiting amino acids.
+  - reference: PMID:42668638
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: The observed nutrient depletion patterns and pigment dynamics suggest early-phase competition for amino
+      acid resources between P. tricornutum and A. fischeri
+    explanation: Supports the authors' competition interpretation; nutrient/pigment observations do not directly
+      identify exchanged or limiting amino acids.
+environmental_factors:
+- name: EPS depletion during prolonged co-culture
+  value: peak at day 6 followed by day-8 reduction
+  description: >-
+    EPS in the P. tricornutum/A. fischeri 30% marine broth co-culture peaked at
+    day 6 and then declined by day 8, a pattern interpreted as a possible
+    outcome of nutrient depletion, biomass dilution, or bacterial EPS catabolism.
+  evidence:
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Quantitative assessment of EPS production in the 30% marine broth
+      co-culture of P. tricornutum with A. fischeri revealed a peak at day 6,
+      followed by a marked reduction by day 8
+    explanation: Supports the reported temporal EPS response in the co-culture.
+- name: Rhythmic gene decrease by day 8
+  value: 7,215 rhythmic genes in Co8d versus 8,619 in the axenic control
+  description: >-
+    The prolonged day-8 co-culture had fewer rhythmic P. tricornutum genes than
+    the axenic control, consistent with progressive disruption of diatom
+    transcriptomic rhythmicity during bacterial co-culture.
+  evidence:
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      we identified 8,619, 9,387, 8,444, and 7,215 rhythmic genes in the
+      Control, HAC, Co4d, and Co8d groups, respectively
+    explanation: >-
+      Quantifies the rhythmic-gene counts across the experimental groups.
+- name: Biphasic modeled biomass flux
+  value: +81% in Co4d; -87% in Co8d
+  description: >-
+    Genome-scale metabolic modeling predicted higher P. tricornutum 24 h
+    biomass flux in the early day-4 co-culture but a strong flux decrease after
+    prolonged day-8 co-culture.
+  evidence:
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      After 4 days of co-culture (Co4d), the total 24-h biomass flux increased
+      by approximately 81% relative to the axenic control
+    explanation: Supports the early modeled biomass-flux increase.
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      prolonged co-culture (Co8d) led to a marked decline, reducing fluxes by
+      87% (24-h), 89% (daytime), and 84% (nighttime).
+    explanation: Supports the modeled biomass-flux decrease after 8 days.
+growth_media:
+- name: EASW plus 30% marine broth co-culture medium
+  temperature: 20
+  temperature_unit: C
+  light_regime: '12:12'
+  light_intensity: 100
+  light_intensity_unit: umol photons/m2/s
+  shaking_speed: 200
+  shaking_speed_unit: rpm
+  preparation_notes: >-
+    The algae-bacteria co-culture used EASW supplemented with 30% v/v marine
+    broth 2216 medium and was seeded with P. tricornutum and A. fischeri at
+    1x10^6 and 4x10^4 cells/mL, respectively.
+  evidence:
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      A co-culture medium was established by supplementing EASW with 30% (v/v)
+      marine broth to support both diatoms and bacterial growth
+    explanation: Supports the co-culture medium formulation.
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The co-culture system was cultured at 20 ± 1°C under white light with a
+      photosynthetically active radiation intensity of 100 μmol photons·m−2·s−1
+      and stirred at 200 rpm in a 12-h light/12-h dark cycle.
+    explanation: >-
+      Supports the temperature, light intensity, agitation, and diel light
+      cycle.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: >-
+    Illuminated stirred batch culture; the paper states 200 rpm and a 12 h
+    light/12 h dark cycle but not a specific vessel.
+  operating_temperature: 20.0
+  operating_temperature_unit: °C
+  notes: >-
+    Batch P. tricornutum/A. fischeri co-cultures were grown at 20 +/- 1 C
+    under 12 h:12 h white-light/dark cycling and stirred at 200 rpm; Co4d and
+    Co8d sampled the exponential and stationary phases.
+  evidence:
+  - *co4d_co8d
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The co-culture system was cultured at 20 ± 1°C under white light with a
+      photosynthetically active radiation intensity of 100 μmol photons·m−2·s−1
+      and stirred at 200 rpm in a 12-h light/12-h dark cycle.
+    explanation: Supports the stirred, diel, illuminated batch culture setup.
+external_resources:
+- name: Primary article - Phaeodactylum-Aliivibrio diel co-culture
+  repository: OTHER
+  resource_id: doi:10.1016/j.isci.2026.117307
+  url: https://doi.org/10.1016/j.isci.2026.117307
+  description: >-
+    iScience article reporting how A. fischeri alters P. tricornutum
+    chronobiology and physiology in a defined algae-bacteria co-culture.
+  evidence:
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Bacterial stress rewires diatom chronobiology and ecosystem function
+    explanation: Identifies the primary publication for this co-culture.
+- name: Phaeodactylum-Aliivibrio RNA-seq BioProject PRJNA1280653
+  repository: OTHER
+  resource_id: PRJNA1280653
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1280653
+  description: NCBI BioProject accession for sequencing data from the co-culture study.
+  evidence:
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >-
+      Sequencing data have been deposited at NCBI BioProject as PRJNA1280653
+    explanation: Supports one public sequencing-data accession for the study.
+metal_relevance: NOT_APPLICABLE
+metal_notes: >-
+  No metal or rare-earth processing role is reported for the
+  P. tricornutum/A. fischeri diel co-culture.
+curation_history:
+- timestamp: '2026-09-27T05:25:38Z'
+  curator: codex
+  action: CREATE_PHAEODACTYLUM_ALIIVIBRIO_DIEL_COCULTURE
+  changes: Created CommunityMech:000446 from PMID:42668638 and DOI 10.1016/j.isci.2026.117307 with evidence-backed
+    P. tricornutum CCAP 1055/1 and A. fischeri MCCC 1H00019 membership, EASW plus 30% marine broth co-culture conditions,
+    A. fischeri surface colonization, amino-acid competition, EPS depletion, and transcriptomic and model-inferred
+    flux effects across day-4 and day-8 diel co-cultures.
+  llm_assisted: true
+- timestamp: '2026-10-07T08:42:05Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve surface attachment while bounding EPS identity and mediation.; Retain amino-acid competition
+    as a hypothesis while preserving controlled negative physiology. Issue #1694; reports/causal_graph_review/decisions/20261007-four-records-batch84.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: diatom-association-response-and-model-boundaries
+  prompt: Which processes connect bacterial association to diatom physiological and diel responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Aliivibrio Surface Colonization of Phaeodactylum
+  - ecological_interactions#Proposed Amino Acid Resource Competition
+  rationale: 'Keep SEM attachment and medium-controlled late physiological decline as positive findings. Matched
+    late physiological controls exist, but no day-8 axenic transcriptome was collected; age, nutrients and growth
+    phase confound attribution of Co8d transcription to bacteria alone. Light-dark rhythmic gene counts do not establish
+    endogenous clock disruption. Biomass-flux changes (+81%/-87%) are transcript-constrained model predictions,
+    not measured intracellular or interspecies flux. EPS decline admits synthesis, dilution and catabolism explanations.
+    Dedicated physiological/diel/model response structure remains issue #1698, with a one-community Edison dry run
+    and no paid report; no new arrow is inferred from the two existing nodes.'
+  evidence:
+  - reference: PMID:42668638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Scanning electron microscopy (SEM) analysis demonstrated significant colonization of P. tricornutum
+      cell surfaces by A. fischeri
+    explanation: Supports bacterial attachment to the diatom cell surface in co-culture.
+  - reference: PMID:42668638
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: The observed nutrient depletion patterns and pigment dynamics suggest early-phase competition for amino
+      acid resources between P. tricornutum and A. fischeri
+    explanation: Supports the authors' competition interpretation; nutrient/pigment observations do not directly
+      identify exchanged or limiting amino acids.
+  posed_by: codex

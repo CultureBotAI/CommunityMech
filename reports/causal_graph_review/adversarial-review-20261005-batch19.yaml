@@ -1,0 +1,89 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: db05129c5f8a9fb47b6ed716405dce1be845a207
+scope:
+- kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+- kb/communities/Clostridium_Cellulovorans_Beijerinckii_AECC_ABE_Coculture.yaml
+- kb/communities/Clostridium_Cellulovorans_Methanosarcina_Cellulose_Methane_Coculture.yaml
+findings:
+- issue: 1324
+  severity: P2
+  finding: Residual pools overstated as resolved transfer, unsupported product-removal syntrophy/reciprocal mutualism
+    and localization-to-current causality.
+  disposition: addressed_and_locally_verified
+- issue: 1325
+  severity: P2
+  finding: Unsupported cosubstrate-to-saccharification and supply-to-dynamics arrows, categorical competition and
+    abundance-assay overinterpretation.
+  disposition: addressed_and_locally_verified
+- issue: 1326
+  severity: P2
+  finding: Missing formate controls, conceptual pathway certainty, unique pH mediation and reciprocal-growth overstatement.
+  disposition: addressed_and_locally_verified
+open_nongraph_followups:
+- issue: 1327
+  disposition: intentionally_not_closed_by_graph_only_patch
+  scope: Growth-media inputs versus products, abundance/assay basis, chemical scope and non-graph substrate claims.
+adversarial_checks:
+- Read each complete record and account for every original node and arrow; preserve three supported or qualified
+  arrows, remove three, add none.
+- Preserve MFC binary current and 42%-to-64% CMC degradation; residual H2/acetate/ethanol do not show uptake of
+  every listed molecule.
+- 'Check the repository SYNTROPHY definition: product removal must favor the first partner. Use CROSS_FEEDING for
+  the MFC supply model because the accessible evidence does not isolate that removal mechanism.'
+- Preserve particulate and soluble-substrate localization comparisons without asserting spatial causality or resource-partitioning
+  benefit.
+- Preserve AECC sugar supply, acid formation and solvent output, while distinguishing mixed pools from traced donor-specific
+  flux and butyrate necessity.
+- Do not turn a cosubstrate arm into an upstream saccharification cause or product supply into an isolated competition
+  mechanism.
+- Record pH/inoculation interventions and RNA/cDNA abundance-assay scope; keep experimental provenance, without
+  treating proportions as direct cell counts.
+- Retain methane formate-only failure and limited mixed-substrate monoculture uptake, not unconditional formate
+  growth or unmeasured pathway flux.
+- Keep M. barkeri-to-fermenter direction explicitly as proposed product-removal feedback, not reverse substrate
+  donation.
+- Retain increased cellulose degradation and pH alongside unchanged fermenter growth; describe similar reported
+  growth yields without inventing a significance test for yield.
+- Distinguish consumption of formate/acetate from reduced butyrate/lactate production and qualify pH mediation.
+- Preserve both exact-pair memberships and NCIMB 8052 withheld GTDB grounding; the M. mazei comparison is not an
+  additional member.
+- All five reference caches and unrelated top-level YAML blocks preserved; primary XML stays outside git.
+- MFC sources abstract-bounded; two primary main bodies/Methods/tables/captions read, no visual images or supplements
+  claimed.
+- No new structure or Edison spend. Self-adversarial review is not independent approval or completion of all 460
+  records.
+verification:
+  status: local_validation_complete
+  checks: 30
+  records: 460
+  nodes: 1474
+  edges: 713
+  review_status_counts:
+    needs_research: 3
+    pending: 351
+    reviewed: 106
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  unchanged_raw_blocks: 53
+  snippet_counts:
+    MATCH: 79
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1460
+    edge_descriptions: 705
+  render_determinism: passed
+  regressions: 247 passed in 163.73s (0:02:43)
+  rights: 3 passed in 1.48s
+  rights_import_root_verified: true
+  caches_unchanged: true
+  primary_artifact_hashes_rechecked: true
+  participant_connectivity_and_gtdb_census_tests_unchanged: true

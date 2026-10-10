@@ -77,9 +77,11 @@ taxonomy:
     explanation: Identifies Methanoculleus sp. as the hydrogenotrophic methanogenic member.
 ecological_interactions:
 - name: Phox-21 Phosphite-Driven Hydrogenogenesis
-  description: Candidatus Phosphitivorax anaerolimi Phox-21 oxidizes phosphite to
-    phosphate, sending phosphite-derived electrons into H2 production via an
-    electron-confurcating hydrogenase.
+  description: Phox-21 oxidizes phosphite to phosphate coupled to H2 production in the methanogenic enrichment.
+    Preserve the experimentally supported lithosyntrophic process. PARTIAL - The specific HndABCD electron-confurcating
+    hydrogenase/Rnf energy-conservation mechanism is a model based on annotation, abundant proteins and thermodynamic
+    calculations, not direct enzyme perturbation. Acetate supports mixotrophic biomass assimilation and is not the
+    demonstrated source of methane.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -99,26 +101,29 @@ ecological_interactions:
       label: dihydrogen
   downstream:
   - target: Lithosyntrophic interspecies H2 transfer
-    description: Phox-21 hydrogenogenesis supplies the H2 carrier that is consumed by
-      the hydrogenotrophic Methanoculleus partner.
+    description: Phox-21 hydrogenogenesis supplies the H2 carrier that is consumed by the hydrogenotrophic Methanoculleus
+      partner.
   evidence:
   - reference: PMID:41811448
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'we describe "lithosyntrophy," a mode of syntrophic interaction in which electrons that
-      drive hydrogenotrophic methanogenesis originate from an inorganic compound rather than from
-      the canonical organic substrates.'
-    explanation: Defines the obligate lithosyntrophic H2-mediated electron transfer between the two members.
+    snippet: we describe "lithosyntrophy," a mode of syntrophic interaction in which electrons that drive hydrogenotrophic
+      methanogenesis originate from an inorganic compound rather than from the canonical organic substrates.
+    explanation: Defines inorganic-electron-donor syntrophy in the enrichment; it does not establish that the culture
+      contains only two members.
   - reference: PMID:41811448
-    supports: SUPPORT
-    evidence_source: IN_VITRO
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
     snippet: In this pathway, electrons derived from phosphite drive H2 production via an electron-confurcating
       hydrogenase.
-    explanation: H2 is the interspecies electron carrier produced by Phox-21 and consumed by the methanogen.
+    explanation: The abstract summarizes the proposed hydrogenase route; full Results call it a metaproteomic and
+      thermodynamic model, not an enzyme-specific causal experiment.
 - name: Lithosyntrophic interspecies H2 transfer
-  description: Phox-21 transfers phosphite-derived reducing equivalents to Methanoculleus sp.
-    as H2, establishing an obligate lithosyntrophic dependency in which H2 consumption by
-    the methanogen keeps phosphite oxidation thermodynamically favorable.
+  description: Phox-21 supplies phosphite-derived reducing equivalents to Methanoculleus as H2. Methanogenic phosphite
+    oxidation was inhibited by BES and by excess H2; growth and oxidation were restored with hydrogenotrophic sulfate
+    reducer G11 in BES. These experiments support a required low-H2 sink under tested conditions, not universal
+    dependence on this exact methanogen. Net chemical phosphite oxidation remains exergonic; the proposed H2-sensitive
+    bottleneck concerns intracellular electron transfer and energy conservation.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -138,33 +143,35 @@ ecological_interactions:
       label: dihydrogen
   downstream:
   - target: Methanoculleus Hydrogenotrophic Methanogenesis
-    description: Consumption of lithosyntrophic H2 by Methanoculleus sp. drives the
-      hydrogenotrophic methanogenesis endpoint.
+    description: Consumption of lithosyntrophic H2 by Methanoculleus sp. drives the hydrogenotrophic methanogenesis
+      endpoint.
   evidence:
   - reference: PMID:41811448
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Candidatus Phosphitivorax anaerolimi Phox-21 oxidizes phosphite (HPO32-, oxidation
-      state +3) to phosphate coupled to hydrogenogenesis in an obligate energetic
-      dependency on a hydrogenotrophic methanogen, Methanoculleus sp.
-    explanation: Supports H2-mediated syntrophy between the phosphite oxidizer and
-      the hydrogenotrophic Methanoculleus partner.
+    snippet: Candidatus Phosphitivorax anaerolimi Phox-21 oxidizes phosphite (HPO32-, oxidation state +3) to phosphate
+      coupled to hydrogenogenesis in an obligate energetic dependency on a hydrogenotrophic methanogen, Methanoculleus
+      sp.
+    explanation: Preserves the reported positive H2-mediated partnership; the full paper bounds the requirement
+      using inhibition and an alternative hydrogen-consuming partner.
 - name: Methanoculleus Hydrogenotrophic Methanogenesis
-  description: Methanoculleus sp. consumes the H2 generated from phosphite-derived
-    electrons, driving methane formation and keeping the partner phosphite-oxidation
-    reaction near a favorable low-H2 state.
+  description: Methanoculleus consumes H2 and produces methane, providing the hydrogen sink for Phox-21 in the methanogenic
+    enrichment. Phosphite oxidation and methane production were approximately stoichiometric; isotope and isolate-substrate
+    tests support H2/CO2-derived rather than acetate-derived methane. Low H2 enables the proposed intracellular
+    energy-conserving pathway, not an otherwise endergonic net phosphite-oxidation reaction. The syntrophic pair
+    is embedded in an enrichment, not a demonstrated two-member pure culture.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
-    preferred_term: Candidatus Phosphitivorax anaerolimi Phox-21
-    term:
-      id: NCBITaxon:1918507
-      label: Candidatus Phosphitivorax anaerolimi
-  target_taxon:
     preferred_term: Methanoculleus sp.
     term:
       id: NCBITaxon:45989
       label: Methanoculleus
+  target_taxon:
+    preferred_term: Candidatus Phosphitivorax anaerolimi Phox-21
+    term:
+      id: NCBITaxon:1918507
+      label: Candidatus Phosphitivorax anaerolimi
   metabolites:
   - preferred_term: hydrogen (H2)
     term:
@@ -183,11 +190,10 @@ ecological_interactions:
   - reference: PMID:41811448
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: a mode of syntrophic interaction in which electrons that drive hydrogenotrophic
-      methanogenesis originate from an inorganic compound rather than from the canonical
-      organic substrates
-    explanation: Supports hydrogenotrophic methanogenesis as the terminal reaction
-      fueled by phosphite-derived electrons in this lithosyntrophic culture.
+    snippet: a mode of syntrophic interaction in which electrons that drive hydrogenotrophic methanogenesis originate
+      from an inorganic compound rather than from the canonical organic substrates
+    explanation: Supports the methanogenic endpoint powered by phosphite-derived electrons. Full Results provide
+      isotope, substrate and inhibition context without validating each intracellular model step.
 growth_media:
 - name: anoxic phosphite-oxidizing methanogenic enrichment medium
   atmosphere: ANAEROBIC
@@ -205,3 +211,43 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: Phox-21 is a mixotroph that assimilates acetate to form biomass
     explanation: Documents acetate as the assimilated carbon source for biomass under mixotrophic growth.
+discussions:
+- discussion_id: phosphite-feedback-energy-and-enrichment-boundaries
+  prompt: How should the demonstrated hydrogen-sink dependence be represented as feedback?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Phox-21 Phosphite-Driven Hydrogenogenesis
+  - ecological_interactions#Lithosyntrophic interspecies H2 transfer
+  - ecological_interactions#Methanoculleus Hydrogenotrophic Methanogenesis
+  rationale: 'Preserve both donor-to-H2-to-methanogenesis arrows. Primary full text supplies BES inhibition, excess-H2
+    inhibition, measured low H2 and G11 rescue: a sink-to-donor feedback candidate remains unrepresented in downstream
+    and is tracked in #1700. No new arrow without the scoped Edison workflow. HndABCD/Rnf remains a proposed intracellular
+    model, while physiological dependence is experimentally supported. Acetate/sulfide medium contained seven taxa
+    (Phox-21 >98%); cysteine medium contained sixteen. Non-graph two-member and taxonomy notes are not certified
+    and remain #1701.'
+  evidence:
+  - reference: PMID:41811448
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Candidatus Phosphitivorax anaerolimi Phox-21 oxidizes phosphite (HPO32-, oxidation state +3) to phosphate
+      coupled to hydrogenogenesis in an obligate energetic dependency on a hydrogenotrophic methanogen, Methanoculleus
+      sp.
+    explanation: Preserves the reported positive H2-mediated partnership; the full paper bounds the requirement
+      using inhibition and an alternative hydrogen-consuming partner.
+  - reference: PMID:41811448
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: In this pathway, electrons derived from phosphite drive H2 production via an electron-confurcating
+      hydrogenase.
+    explanation: The abstract summarizes the proposed hydrogenase route; full Results call it a metaproteomic and
+      thermodynamic model, not an enzyme-specific causal experiment.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-07T08:42:06Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve phosphite-driven hydrogenogenesis and qualify the intracellular enzyme model.; Preserve H2
+    transfer while distinguishing physiological inhibition and net thermodynamics.; Correct methanogenic sink actor
+    direction and preserve the positive methane endpoint. Issue #1697; reports/causal_graph_review/decisions/20261007-four-records-batch84.yaml'
+  llm_assisted: true

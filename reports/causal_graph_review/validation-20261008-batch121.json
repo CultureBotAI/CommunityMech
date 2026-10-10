@@ -1,0 +1,1293 @@
+{
+  "base_commit": "5afca28e40023b10e05db1c228ec70ecbaf5d7a9",
+  "scope": [
+    "kb/communities/Tomato_Oxylipin_SynCom3.yaml",
+    "kb/communities/Wheat_Consortium_C1.yaml",
+    "kb/communities/Wheat_Consortium_C6.yaml",
+    "kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml"
+  ],
+  "results": [
+    {
+      "check": "Tomato_Oxylipin_SynCom3-schema",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Tomato_Oxylipin_SynCom3.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Tomato_Oxylipin_SynCom3-schema.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "Tomato_Oxylipin_SynCom3-strict",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "/private/tmp/communitymech-batch121/Tomato_Oxylipin_SynCom3-strict.tsv",
+        "kb/communities/Tomato_Oxylipin_SynCom3.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Tomato_Oxylipin_SynCom3-strict.log",
+      "log_sha256": "dabcbc4cb6d7b0bf7752263a7ddde3fcc2c7fbe2f91b1e6de6725d7f7baaf92c",
+      "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch121/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch121/Tomato_Oxylipin_SynCom3-strict.tsv\n"
+    },
+    {
+      "check": "Tomato_Oxylipin_SynCom3-terms",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+        "validate-data",
+        "kb/communities/Tomato_Oxylipin_SynCom3.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Tomato_Oxylipin_SynCom3-terms.log",
+      "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+      "output_tail": "\u2705 Validation passed\n"
+    },
+    {
+      "check": "Tomato_Oxylipin_SynCom3-references",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Tomato_Oxylipin_SynCom3.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Tomato_Oxylipin_SynCom3-references.log",
+      "log_sha256": "ecf0ef0d5f94468a1e01ea448f778d3310f55a497fa2bea3fdd98cd8133960c0",
+      "output_tail": "Validating kb/communities/Tomato_Oxylipin_SynCom3.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "explained_output_tail": "Validating kb/communities/Tomato_Oxylipin_SynCom3.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "check": "Tomato_Oxylipin_SynCom3-snippets",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Tomato_Oxylipin_SynCom3.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Tomato_Oxylipin_SynCom3-snippets.log",
+      "log_sha256": "872637a69e95b3997368edea80eba5db2a2155e0ac9344b758394dcf97491410",
+      "output_tail": "# 14 evidence snippets scanned across 1 files\n  MATCH      14\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n"
+    },
+    {
+      "check": "Tomato_Oxylipin_SynCom3-rank",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Tomato_Oxylipin_SynCom3.yaml",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Tomato_Oxylipin_SynCom3-rank.log",
+      "log_sha256": "0c671ee9ead14f127ba0f94a856eae4dc18b7635a3b76168978051f7fd7bc713",
+      "output_tail": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000107\",\n    \"name\": \"Tomato Oxylipin-Protective SynCom3\",\n    \"score\": 90.0,\n    \"taxonomy\": 3,\n    \"connected_taxa\": 3,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 3,\n    \"downstream_edges\": 2,\n    \"interaction_evidence\": 5,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Tomato_Oxylipin_SynCom3.yaml\"\n  }\n]\n"
+    },
+    {
+      "check": "Tomato_Oxylipin_SynCom3-history-0",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Tomato_Oxylipin_SynCom3/2026-10-08T150228Z-codex-b1572f.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Tomato_Oxylipin_SynCom3-history-0.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "Wheat_Consortium_C1-schema",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Wheat_Consortium_C1.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_Consortium_C1-schema.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "Wheat_Consortium_C1-strict",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "/private/tmp/communitymech-batch121/Wheat_Consortium_C1-strict.tsv",
+        "kb/communities/Wheat_Consortium_C1.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_Consortium_C1-strict.log",
+      "log_sha256": "83ea6d118d10245d7e519194945c6ab83012f927b366e57986d098f0d636a2f4",
+      "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch121/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch121/Wheat_Consortium_C1-strict.tsv\n"
+    },
+    {
+      "check": "Wheat_Consortium_C1-terms",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+        "validate-data",
+        "kb/communities/Wheat_Consortium_C1.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_Consortium_C1-terms.log",
+      "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+      "output_tail": "\u2705 Validation passed\n"
+    },
+    {
+      "check": "Wheat_Consortium_C1-references",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Wheat_Consortium_C1.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_Consortium_C1-references.log",
+      "log_sha256": "f0a3ee6f7b43628b9470451f04f5e4d1bfb63f1bfbd10717c5ff5bbee10f9e9a",
+      "output_tail": "Validating kb/communities/Wheat_Consortium_C1.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "explained_output_tail": "Validating kb/communities/Wheat_Consortium_C1.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "check": "Wheat_Consortium_C1-snippets",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Wheat_Consortium_C1.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_Consortium_C1-snippets.log",
+      "log_sha256": "4bb299402af4df513130b15b512003614093122ff85b665b8b553ceada51afbf",
+      "output_tail": "# 15 evidence snippets scanned across 1 files\n  MATCH      14\n  RENDERING  1\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n   1  kb/communities/Wheat_Consortium_C1.yaml\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n"
+    },
+    {
+      "check": "Wheat_Consortium_C1-rank",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Wheat_Consortium_C1.yaml",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_Consortium_C1-rank.log",
+      "log_sha256": "69a810cb13b62440bcb2cce87f58398c3041f0c5849c6cbf02053f0d3cc6f943",
+      "output_tail": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000076\",\n    \"name\": \"Wheat Synthetic Consortium C1\",\n    \"score\": 60.0,\n    \"taxonomy\": 4,\n    \"connected_taxa\": 4,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 2,\n    \"downstream_edges\": 0,\n    \"interaction_evidence\": 4,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"additional_interactions\",\n      \"downstream\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Wheat_Consortium_C1.yaml\"\n  }\n]\n"
+    },
+    {
+      "check": "Wheat_Consortium_C1-history-0",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Wheat_Consortium_C1/2026-10-08T150228Z-codex-ff737c.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_Consortium_C1-history-0.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "Wheat_Consortium_C6-schema",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Wheat_Consortium_C6.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_Consortium_C6-schema.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "Wheat_Consortium_C6-strict",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "/private/tmp/communitymech-batch121/Wheat_Consortium_C6-strict.tsv",
+        "kb/communities/Wheat_Consortium_C6.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_Consortium_C6-strict.log",
+      "log_sha256": "98a9a701159ca9ddf1272ede04a8c9951766f7efab9b4f73ccbbb79dc96a5ba5",
+      "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch121/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch121/Wheat_Consortium_C6-strict.tsv\n"
+    },
+    {
+      "check": "Wheat_Consortium_C6-terms",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+        "validate-data",
+        "kb/communities/Wheat_Consortium_C6.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_Consortium_C6-terms.log",
+      "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+      "output_tail": "\u2705 Validation passed\n"
+    },
+    {
+      "check": "Wheat_Consortium_C6-references",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Wheat_Consortium_C6.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_Consortium_C6-references.log",
+      "log_sha256": "6de43f5e0e514e02462dd7a2608838c14e11b35400d7079a4644848fc6adf155",
+      "output_tail": "Validating kb/communities/Wheat_Consortium_C6.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "explained_output_tail": "Validating kb/communities/Wheat_Consortium_C6.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "check": "Wheat_Consortium_C6-snippets",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Wheat_Consortium_C6.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_Consortium_C6-snippets.log",
+      "log_sha256": "084ae27007699db0121de3de19b35f22b279fa80b76f47de2b781d3ae6d70cdc",
+      "output_tail": "# 21 evidence snippets scanned across 1 files\n  MATCH      19\n  RENDERING  2\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n   2  kb/communities/Wheat_Consortium_C6.yaml\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n"
+    },
+    {
+      "check": "Wheat_Consortium_C6-rank",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Wheat_Consortium_C6.yaml",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_Consortium_C6-rank.log",
+      "log_sha256": "a39483ba0dd1f4aaae05793416521ea68b0c11faab4320a786d1052498823a61",
+      "output_tail": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000077\",\n    \"name\": \"Wheat Synthetic Consortium C6\",\n    \"score\": 65.0,\n    \"taxonomy\": 4,\n    \"connected_taxa\": 4,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 5,\n    \"downstream_edges\": 0,\n    \"interaction_evidence\": 11,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"downstream\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Wheat_Consortium_C6.yaml\"\n  }\n]\n"
+    },
+    {
+      "check": "Wheat_Consortium_C6-history-0",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Wheat_Consortium_C6/2026-10-08T150229Z-codex-b61a7a.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_Consortium_C6-history-0.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "Wheat_CrownRot_SixStrain_CrossKingdom_SMC-schema",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_CrownRot_SixStrain_CrossKingdom_SMC-schema.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "Wheat_CrownRot_SixStrain_CrossKingdom_SMC-strict",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "/private/tmp/communitymech-batch121/Wheat_CrownRot_SixStrain_CrossKingdom_SMC-strict.tsv",
+        "kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_CrownRot_SixStrain_CrossKingdom_SMC-strict.log",
+      "log_sha256": "128af60b561cb5a0bc0ffd6c1e051032c2cbf63ea29bd7de907031322761389b",
+      "output_tail": "Validating 1 files with 1 workers; schema=/private/tmp/communitymech-causal-batch121/src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/communitymech-batch121/Wheat_CrownRot_SixStrain_CrossKingdom_SMC-strict.tsv\n"
+    },
+    {
+      "check": "Wheat_CrownRot_SixStrain_CrossKingdom_SMC-terms",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/neDBQyZXv0RYv8B1GH0dI/bin/linkml-term-validator",
+        "validate-data",
+        "kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_CrownRot_SixStrain_CrossKingdom_SMC-terms.log",
+      "log_sha256": "23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018",
+      "output_tail": "\u2705 Validation passed\n"
+    },
+    {
+      "check": "Wheat_CrownRot_SixStrain_CrossKingdom_SMC-references",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_CrownRot_SixStrain_CrossKingdom_SMC-references.log",
+      "log_sha256": "cfaba4ea8ce733614bfdcbc8633fdbb8ddad41c9418c9be38fcb505c74628d5e",
+      "output_tail": "Validating kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "explained_output_tail": "Validating kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "check": "Wheat_CrownRot_SixStrain_CrossKingdom_SMC-snippets",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_CrownRot_SixStrain_CrossKingdom_SMC-snippets.log",
+      "log_sha256": "6f2de9fb4d8c177ffbcd0ad88a37a36fb65a242f256bee6a97070647234944fe",
+      "output_tail": "# 33 evidence snippets scanned across 1 files\n  MATCH      33\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n"
+    },
+    {
+      "check": "Wheat_CrownRot_SixStrain_CrossKingdom_SMC-rank",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_CrownRot_SixStrain_CrossKingdom_SMC-rank.log",
+      "log_sha256": "7bd9055ac43ff9d34734e4142a030d12fc83ca11dce20a5d364ff28052269924",
+      "output_tail": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000414\",\n    \"name\": \"Wheat Crown-Rot Six-Strain Cross-Kingdom SMC\",\n    \"score\": 57.5,\n    \"taxonomy\": 6,\n    \"connected_taxa\": 6,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 2,\n    \"downstream_edges\": 0,\n    \"interaction_evidence\": 4,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"additional_interactions\",\n      \"downstream\",\n      \"metabolites_or_biological_processes\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml\"\n  }\n]\n"
+    },
+    {
+      "check": "Wheat_CrownRot_SixStrain_CrossKingdom_SMC-history-0",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Wheat_CrownRot_SixStrain_CrossKingdom_SMC/2026-10-08T150229Z-codex-fc0ee7.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/Wheat_CrownRot_SixStrain_CrossKingdom_SMC-history-0.log",
+      "log_sha256": "de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de",
+      "output_tail": "No issues found\n"
+    },
+    {
+      "check": "inventory",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "reports/causal_graph_review/build_inventory.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/inventory.log",
+      "log_sha256": "6b4a4bb06880c11cf6364b7daea50992c44d4472ff6985c7315b09315421f87e",
+      "output_tail": "{\n  \"scope\": \"Every YAML under kb/communities and data/isolates; filesystem discovery includes hidden/ignored files.\",\n  \"semantic_review_rule\": \"Structural checks and readiness scores do not establish causal support. Completed reviews must match the current record SHA-256, cover every node once with a rationale, and reproduce the current edge list.\",\n  \"records\": 460,\n  \"nodes\": 1373,\n  \"edges\": 530,\n  \"records_without_nodes\": 10,\n  \"records_without_edges\": 189,\n  \"review_status_counts\": {\n    \"needs_research\": 54,\n    \"pending\": 14,\n    \"reviewed\": 392\n  },\n  \"structural_defects\": []\n}\n"
+    },
+    {
+      "check": "network",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "communitymech.cli",
+        "audit-network",
+        "--json"
+      ],
+      "exit_code": 1,
+      "expected_exit_codes": [
+        1
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/network.log",
+      "log_sha256": "6a349ee70c3b3deb2e3171d0a85501f53c7faa0aca02351007a8296feed367e9",
+      "output_tail": "\n      \"taxon\": \"Sclerotinia sclerotiorum\",\n      \"severity\": \"warning\",\n      \"message\": \"Target taxon 'Sclerotinia sclerotiorum' not found in taxonomy section (community-level scope)\"\n    },\n    {\n      \"type\": \"UNKNOWN_TARGET\",\n      \"interaction\": \"Trinickia MC Key Contribution to Sclerotia Mortality\",\n      \"interaction_index\": 1,\n      \"taxon\": \"Sclerotinia sclerotiorum\",\n      \"severity\": \"warning\",\n      \"message\": \"Target taxon 'Sclerotinia sclerotiorum' not found in taxonomy section (community-level scope)\"\n    }\n  ],\n  \"Space_Habitat_SevenMember_Stress_Tolerance_SynCom\": [\n    {\n      \"type\": \"DISCONNECTED\",\n      \"taxon\": \"Acinetobacter radioresistens 50V1\",\n      \"taxon_id\": \"NCBITaxon:40216\",\n      \"taxon_data\": {\n        \"taxon_term\": {\n          \"preferred_term\": \"Acinetobacter radioresistens 50V1\",\n          \"term\": {\n            \"id\": \"NCBITaxon:40216\",\n            \"label\": \"Acinetobacter radioresistens\"\n          },\n          \"gtdb_grounding_status\": \"UNRESOLVED\",\n          \"notes\": \"The isolate came from the preflight Mars Odyssey Orbiter; ontology grounding is at species level.\"\n        },\n        \"strain_designation\": {\n          \"strain_name\": \"50V1\",\n          \"genome_accession\": \"GCA_002834555.1\"\n        },\n        \"evidence\": [\n          {\n            \"reference\": \"PMID:42577390\",\n            \"supports\": \"SUPPORT\",\n            \"evidence_source\": \"IN_VITRO\",\n            \"snippet\": \"Acinetobacter radioresistens | 50V1 | Preflight Mars Odyssey Orbiter | \\u2013 | Mccoy et al., 2012 | GCA_002834555.1 | TSYB/TSYA | 37 \\u00b0C | 16\\u201318 h\",\n            \"explanation\": \"Identifies A. radioresistens 50V1 as a consortium member and gives its spacecraft-associated source, genome accession and cultivation conditions.\"\n          }\n        ]\n      },\n      \"message\": \"Taxon 'Acinetobacter radioresistens 50V1' has no interactions\"\n    },\n    {\n      \"type\": \"DISCONNECTED\",\n      \"taxon\": \"Micrococcus luteus W4-Al-K1\",\n      \"taxon_id\": \"NCBITaxon:1270\",\n      \"taxon_data\": {\n        \"taxon_term\": {\n          \"preferred_term\": \"Micrococcus luteus W4-Al-K1\",\n          \"term\": {\n            \"id\": \"NCBITaxon:1270\",\n            \"label\": \"Micrococcus luteus\"\n          },\n          \"gtdb_grounding_status\": \"UNRESOLVED\",\n          \"notes\": \"The isolate was recovered from an ISS aluminum-case touch array; ontology grounding is at species level.\"\n        },\n        \"strain_designation\": {\n          \"strain_name\": \"W4-Al-K1\",\n          \"genome_accession\": \"GCA_057816565.1\"\n        },\n        \"evidence\": [\n          {\n            \"reference\": \"PMID:42577390\",\n            \"supports\": \"SUPPORT\",\n            \"evidence_source\": \"IN_VITRO\",\n            \"snippet\": \"Micrococcus luteus | W4-Al-K1 | ISS, Touch Array Aluminum Case | - | Kr\\u00e4mer et al., 2025 | GCA_057816565.1 | NB, TSYB/TSYA | 37 \\u00b0C | 24 h\",\n            \"explanation\": \"Identifies M. luteus W4-Al-K1 as a consortium member and gives its ISS source, genome accession and cultivation conditions.\"\n          }\n        ]\n      },\n      \"message\": \"Taxon 'Micrococcus luteus W4-Al-K1' has no interactions\"\n    },\n    {\n      \"type\": \"DISCONNECTED\",\n      \"taxon\": \"Propionibacterium cyclohexanicum TA-12T\",\n      \"taxon_id\": \"NCBITaxon:64702\",\n      \"taxon_data\": {\n        \"taxon_term\": {\n          \"preferred_term\": \"Propionibacterium cyclohexanicum TA-12T\",\n          \"term\": {\n            \"id\": \"NCBITaxon:64702\",\n            \"label\": \"Propionibacterium cyclohexanicum\"\n          },\n          \"gtdb_grounding_status\": \"UNRESOLVED\",\n          \"notes\": \"The source used the P. cyclohexanicum type strain as a biosafety-level-1 representative.\"\n        },\n        \"strain_designation\": {\n          \"strain_name\": \"TA-12T\",\n          \"genome_accession\": \"GCA_900111365\",\n          \"culture_collections\": [\n            {\n              \"collection\": \"DSM\",\n              \"accession\": \"16859\"\n            }\n          ]\n        },\n        \"evidence\": [\n          {\n            \"reference\": \"PMID:42577390\",\n            \"supports\": \"SUPPORT\",\n            \"evidence_source\": \"IN_VITRO\",\n            \"snippet\": \"Propionibacterium cyclohexanicum | TA-12 T | Spoilt Orange Juice | DSM 16859 T | Kusano et al., 1997 | GCA_900111365 | BHI, TSYB/TSYA | 37 \\u00b0C | 24 h\",\n            \"explanation\": \"Identifies P. cyclohexanicum TA-12T as a consortium member and gives its source, DSM number, genome accession and cultivation conditions.\"\n          }\n        ]\n      },\n      \"message\": \"Taxon 'Propionibacterium cyclohexanicum TA-12T' has no interactions\"\n    },\n    {\n      \"type\": \"DISCONNECTED\",\n      \"taxon\": \"Pseudomonas antarctica CMS 35T\",\n      \"taxon_id\": \"NCBITaxon:219572\",\n      \"taxon_data\": {\n        \"taxon_term\": {\n          \"preferred_term\": \"Pseudomonas antarctica CMS 35T\",\n          \"term\": {\n            \"id\": \"NCBITaxon:219572\",\n            \"label\": \"Pseudomonas antarctica\"\n          },\n          \"gtdb_grounding_status\": \"UNRESOLVED\",\n          \"notes\": \"The source used the P. antarctica type strain as a biosafety-level-1 Pseudomonas surrogate.\"\n        },\n        \"strain_designation\": {\n          \"strain_name\": \"CMS 35T\",\n          \"genome_accession\": \"GCA_010634845\",\n          \"culture_collections\": [\n            {\n              \"collection\": \"DSM\",\n              \"accession\": \"15318\"\n            }\n          ]\n        },\n        \"evidence\": [\n          {\n            \"reference\": \"PMID:42577390\",\n            \"supports\": \"SUPPORT\",\n            \"evidence_source\": \"IN_VITRO\",\n            \"snippet\": \"Pseudomonas antarctica | CMS 35 T | Antarctica | DSM 15318 T | Reddy et al., 2004 | GCA_010634845 | TSYB/TSYA | Ambient | 12\\u201316 h\",\n            \"explanation\": \"Identifies P. antarctica CMS 35T as a consortium member and gives its source, DSM number, genome accession and cultivation conditions.\"\n          }\n        ]\n      },\n      \"message\": \"Taxon 'Pseudomonas antarctica CMS 35T' has no interactions\"\n    },\n    {\n      \"type\": \"DISCONNECTED\",\n      \"taxon\": \"Staphylococcus capitis K1-2-2-23\",\n      \"taxon_id\": \"NCBITaxon:29388\",\n      \"taxon_data\": {\n        \"taxon_term\": {\n          \"preferred_term\": \"Staphylococcus capitis K1-2-2-23\",\n          \"term\": {\n            \"id\": \"NCBITaxon:29388\",\n            \"label\": \"Staphylococcus capitis\"\n          },\n          \"gtdb_grounding_status\": \"UNRESOLVED\",\n          \"notes\": \"The isolate was recovered from ISS V2A steel; ontology grounding is at species level.\"\n        },\n        \"strain_designation\": {\n          \"strain_name\": \"K1-2-2-23\",\n          \"genome_accession\": \"GCA_025272695\",\n          \"culture_collections\": [\n            {\n              \"collection\": \"DSM\",\n              \"accession\": \"111179\"\n            }\n          ]\n        },\n        \"evidence\": [\n          {\n            \"reference\": \"PMID:42577390\",\n            \"supports\": \"SUPPORT\",\n            \"evidence_source\": \"IN_VITRO\",\n            \"snippet\": \"Staphylococcus capitis | K1-2-2-23 | ISS, V2A Steel | DSM 111179 | Sobisch et al., 2019 | GCA_025272695 | TSYB/TSYA | 37 \\u00b0C | 16\\u201324 h\",\n            \"explanation\": \"Identifies S. capitis K1-2-2-23 as a consortium member and gives its source, DSM number, genome accession and cultivation conditions.\"\n          }\n        ]\n      },\n      \"message\": \"Taxon 'Staphylococcus capitis K1-2-2-23' has no interactions\"\n    },\n    {\n      \"type\": \"DISCONNECTED\",\n      \"taxon\": \"Streptococcus halotolerans HTS9T\",\n      \"taxon_id\": \"NCBITaxon:1814128\",\n      \"taxon_data\": {\n        \"taxon_term\": {\n          \"preferred_term\": \"Streptococcus halotolerans HTS9T\",\n          \"term\": {\n            \"id\": \"NCBITaxon:1814128\",\n            \"label\": \"Streptococcus halotolerans\"\n          },\n          \"gtdb_grounding_status\": \"UNRESOLVED\",\n          \"notes\": \"The source used the S. halotolerans type strain as a biosafety-level-1 representative.\"\n        },\n        \"strain_designation\": {\n          \"strain_name\": \"HTS9T\",\n          \"genome_accession\": \"GCA_001598035\",\n          \"culture_collections\": [\n            {\n              \"collection\": \"DSM\",\n              \"accession\": \"101996\"\n            }\n          ]\n        },\n        \"evidence\": [\n          {\n            \"reference\": \"PMID:42577390\",\n            \"supports\": \"SUPPORT\",\n            \"evidence_source\": \"IN_VITRO\",\n            \"snippet\": \"Streptococcus halotolerans | HTS9 T | Respiratory Tract of Marmota himalayana | DSM 101996 T | Niu et al., 2016 | GCA_001598035 | 2xLB, TSYB/TSYA | 37 \\u00b0C | 24 h\",\n            \"explanation\": \"Identifies S. halotolerans HTS9T as a consortium member and gives its source, DSM number, genome accession and cultivation conditions.\"\n          }\n        ]\n      },\n      \"message\": \"Taxon 'Streptococcus halotolerans HTS9T' has no interactions\"\n    }\n  ],\n  \"Tinto_River_Iron_Cycling_Community\": [\n    {\n      \"type\": \"DISCONNECTED\",\n      \"taxon\": \"Basidiomycota\",\n      \"taxon_id\": \"NCBITaxon:5204\",\n      \"taxon_data\": {\n        \"taxon_term\": {\n          \"preferred_term\": \"Basidiomycota\",\n          \"term\": {\n            \"id\": \"NCBITaxon:5204\",\n            \"label\": \"Basidiomycota\"\n          },\n          \"gtdb_grounding_status\": \"NO_GTDB_EQUIVALENT\",\n          \"notes\": \"Acidophilic fungi including Hortaea werneckii (black yeast) detected in Rio Tinto sediments and water. Fungi contribute to organic matter degradation, biofilm formation, and nutrient cycling through extracellular enzyme secretion.\\n\"\n        },\n        \"functional_role\": [\n          \"PRIMARY_DEGRADER\"\n        ],\n        \"abundance_level\": \"RARE\",\n        \"evidence\": [\n          {\n            \"reference\": \"PMID:25369810\",\n            \"supports\": \"SUPPORT\",\n            \"evidence_source\": \"IN_VIVO\",\n            \"snippet\": \"Thus, interest in the biodiversity and ecology of extreme environments has grown in recent years for several reasons\",\n            \"explanation\": \"Documents fungal presence\"\n          }\n        ]\n      },\n      \"message\": \"Taxon 'Basidiomycota' has no interactions\"\n    }\n  ]\n}\n"
+    },
+    {
+      "check": "just-network-json",
+      "command": [
+        "just",
+        "audit-network-json"
+      ],
+      "exit_code": 2,
+      "expected_exit_codes": [
+        2
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/just-network-json.log",
+      "log_sha256": "8595db43420d3f0a01c57acd6ad733a531a72e962486d20b4e1c2840dda55bff",
+      "output_tail": "uv run communitymech audit-network --json\nerror: Failed to spawn: `communitymech`\n  Caused by: No such file or directory (os error 2)\nerror: recipe `audit-network-json` failed on line 574 with exit code 2\n"
+    },
+    {
+      "check": "rank-all",
+      "command": [
+        "just",
+        "rank-causal-graphs"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/rank-all.log",
+      "log_sha256": "8084657da95074bb9bb07e0ae16e9cd243302301d6f23768983197735c3efe76",
+      "output_tail": ":000174\tClostridium cellulovorans-Methanosarcina barkeri Cellulose Methane Coculture\t2\t2\t0\t3\t2\t8\tinteraction_type\t0\t0\n405\t96.7\tkb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml\tCommunityMech:000206\tClostridium-Saccharomyces Cellulose Ethanol Coculture\t2\t2\t0\t3\t2\t5\tinteraction_type\t0\t0\n406\t96.7\tkb/communities/DIETsimp_Lignocellulose_to_Methane_DIET_Consortia.yaml\tCommunityMech:000297\tDIET-based Simplified Lignocellulose-to-Methane Consortia (DIETsimp)\t3\t3\t0\t3\t2\t4\tinteraction_type\t0\t0\n407\t96.7\tkb/communities/Desulfovibrio_Methanococcus_Syntrophy.yaml\tCommunityMech:000023\tDesulfovibrio-Methanococcus Syntrophic Consortium\t2\t2\t0\t3\t3\t6\tinteraction_type\t0\t0\n408\t96.7\tkb/communities/Pelagerythrobacter_Salinicola_PES_Pyrene_Degradation_SynCom.yaml\tCommunityMech:000340\tPelagerythrobacter-Salinicola PES Pyrene-Degradation SynCom\t2\t2\t0\t3\t2\t6\tinteraction_type\t0\t0\n409\t96.7\tkb/communities/Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.yaml\tCommunityMech:000291\tPseudomonas stutzeri + Rhodococcus Naphthalene-degrading Biochar-bridged Engineered Consortium\t2\t2\t0\t3\t2\t3\tinteraction_type\t0\t0\n410\t96.7\tkb/communities/SMutans_CAlbicans_ECC_Biofilm.yaml\tCommunityMech:000083\tStreptococcus mutans - Candida albicans ECC Biofilm Model\t2\t2\t0\t3\t2\t4\tinteraction_type\t0\t0\n411\t96.7\tkb/communities/Synechococcus_Azotobacter_Photoproduction_Mutualism.yaml\tCommunityMech:000207\tSynechococcus-Azotobacter Photoproduction Mutualism\t2\t2\t0\t3\t2\t5\tinteraction_type\t0\t0\n412\t96.7\tkb/communities/Synechococcus_Ecoli_SPC.yaml\tCommunityMech:000066\tSynechococcus-E.coli Synthetic Photosynthetic Consortium\t2\t2\t0\t3\t2\t5\tinteraction_type\t0\t0\n413\t96.7\tkb/communities/Synechococcus_Saccharomyces_SPC.yaml\tCommunityMech:000067\tSynechococcus-Saccharomyces Synthetic Photosynthetic Consortium\t2\t2\t0\t3\t2\t4\tinteraction_type\t0\t0\n414\t96.7\tkb/communities/Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.yaml\tCommunityMech:000149\tSynthetic Lichen Synechococcus-Rhodotorula Coculture\t2\t2\t0\t3\t2\t9\tinteraction_type\t0\t0\n415\t96.7\tkb/communities/Syntrophobacter_Methanobacterium_Syntrophy.yaml\tCommunityMech:000068\tSyntrophobacter-Methanobacterium Syntrophic Consortium\t2\t2\t0\t3\t3\t9\tinteraction_type\t0\t0\n416\t96.7\tkb/communities/Syntrophobacter_Methanospirillum_Syntrophy.yaml\tCommunityMech:000069\tSyntrophobacter-Methanospirillum Syntrophic Consortium\t2\t2\t0\t3\t3\t7\tinteraction_type\t0\t0\n417\t96.7\tkb/communities/Syntrophomonas_Methanospirillum_Syntrophy.yaml\tCommunityMech:000070\tSyntrophomonas-Methanospirillum Syntrophic Consortium\t2\t2\t0\t3\t3\t6\tinteraction_type\t0\t0\n418\t96.7\tkb/communities/Syntrophus_Benzoate_Degrader.yaml\tCommunityMech:000071\tSyntrophus Benzoate Degrader\t2\t2\t0\t3\t2\t6\tinteraction_type\t0\t0\n419\t96.7\tkb/communities/Trichoderma_Lactate_Platform.yaml\tCommunityMech:000075\tTrichoderma Lactate Platform for SCFA Production\t3\t3\t0\t3\t2\t4\tinteraction_type\t0\t0\n420\t97.5\tkb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml\tCommunityMech:000146\tAnammox Granule Metabolic Interaction Community\t3\t3\t0\t4\t3\t5\tinteraction_type\t0\t0\n421\t97.5\tkb/communities/ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model.yaml\tCommunityMech:000176\tORNL Clostridium-Desulfovibrio-Geobacter Trophic Model Community\t3\t3\t0\t4\t2\t8\tinteraction_type\t0\t0\n422\t97.5\tkb/communities/Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom.yaml\tCommunityMech:000312\tSuillus clintonianus-Bacillus altitudinis Thiamine Cross-Feeding SynCom\t3\t3\t0\t4\t3\t8\tinteraction_type\t0\t0\n423\t97.5\tkb/communities/SynCom_Y_Agrobacterium_Bacillus_Biofilm_Biocontrol_Coculture.yaml\tCommunityMech:000272\tSynCom Y Agrobacterium-Bacillus Biofilm Biocontrol Co-culture\t2\t2\t0\t4\t2\t8\tinteraction_type\t0\t0\n424\t97.9\tkb/communities/Maize_Drought_Response_SynCom.yaml\tCommunityMech:000103\tMaize Drought Response SynCom\t1\t1\t0\t7\t7\t8\tmetabolites_or_biological_processes\t0\t0\n425\t98.3\tkb/communities/Populus_Salt_Tolerant_SynComs.yaml\tCommunityMech:000090\tPopulus Salt-Tolerant Rhizosphere SynComs\t1\t1\t0\t3\t2\t3\tmetabolites_or_biological_processes\t0\t0\n426\t98.3\tkb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml\tCommunityMech:000404\tWollastonite Ramichloridium-Talaromyces Fungal Consortium\t2\t2\t0\t3\t2\t5\tmetabolites_or_biological_processes\t0\t0\n427\t98.8\tdata/isolates/Chromobacterium_Gold_Biocyanidation.yaml\tCommunityMech:000273\tChromobacterium Gold Biocyanidation Platform\t1\t1\t0\t4\t2\t7\tmetabolites_or_biological_processes\t0\t0\n428\t100.0\tdata/isolates/Aspergillus_Indium_LED_Recovery.yaml\tCommunityMech:000320\tAspergillus Indium LCD Recovery Platform\t1\t1\t0\t5\t4\t6\t\t0\t0\n429\t100.0\tdata/isolates/Methylobacterium_REE_Ewaste_Platform.yaml\tCommunityMech:000322\tMethylobacterium REE E-waste Platform\t1\t1\t0\t4\t2\t6\t\t0\t0\n430\t100.0\tkb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml\tCommunityMech:000276\tANME/SRB Anaerobic Methanotrophic Syntrophic Consortia\t6\t6\t0\t3\t2\t7\t\t0\t0\n431\t100.0\tkb/communities/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.yaml\tCommunityMech:000307\tAnabaena / MGS-1 Anaerobic-Digestion Methanogen Consortium\t1\t1\t0\t5\t2\t7\t\t0\t0\n432\t100.0\tkb/communities/Avena_Rhizosphere_Detritusphere_Niche_Succession.yaml\tCommunityMech:000245\tAvena Rhizosphere and Detritusphere Niche-Differentiated Decomposer Guilds\t1\t1\t0\t5\t2\t7\t\t0\t0\n433\t100.0\tkb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml\tCommunityMech:000142\tBacteroides-Methanobrevibacter Gnotobiotic Mouse Mutualism\t2\t2\t0\t3\t2\t3\t\t0\t0\n434\t100.0\tkb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml\tCommunityMech:000012\tBioModels MODEL2405300001 Infant Gut HMO SynCom\t13\t13\t0\t3\t2\t6\t\t0\t0\n435\t100.0\tkb/communities/California_Grassland_Precipitation_Legacy_Soil_Community.yaml\tCommunityMech:000215\tCalifornia Grassland Precipitation Legacy Soil Community\t1\t1\t0\t3\t2\t6\t\t0\t0\n436\t100.0\tkb/communities/Cellulose_Methane_Quad_Culture_SynCom.yaml\tCommunityMech:000089\tCellulose-to-Methane Quad-Culture SynCom\t4\t4\t0\t6\t5\t9\t\t0\t0\n437\t100.0\tkb/communities/DVM_Triculture.yaml\tCommunityMech:000021\tDVM Tri-culture\t3\t3\t0\t4\t2\t7\t\t0\t0\n438\t100.0\tkb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml\tCommunityMech:000301\tDehalococcoides mccartyi CWV2 Dechlorinating Consortium\t1\t1\t0\t5\t2\t6\t\t0\t0\n439\t100.0\tkb/communities/Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.yaml\tCommunityMech:000296\tEscherichia coli + Bifidobacterium bifidum Infant-gut Mutualistic Co-culture\t2\t2\t0\t3\t2\t6\t\t0\t0\n440\t100.0\tkb/communities/High_Ammonia_Biogas_0B_Butyrate_Oxidizing_Enrichment.yaml\tCommunityMech:000350\tHigh-Ammonia Biogas 0B Butyrate-Oxidizing Enrichment\t4\t4\t0\t3\t2\t6\t\t0\t0\n441\t100.0\tkb/communities/Honeybee_Core20_Defined_Microbiota.yaml\tCommunityMech:000124\tHoneybee Core-20 Defined Microbiota\t1\t1\t0\t3\t2\t3\t\t0\t0\n442\t100.0\tkb/communities/Microbacterium_Terrabacter_Sulfadiazine_CrossFeeding_Coculture.yaml\tCommunityMech:000462\tMicrobacterium-Terrabacter Sulfadiazine Cross-Feeding Coculture\t2\t2\t0\t3\t2\t6\t\t0\t0\n443\t100.0\tkb/communities/Microcoleus_Massilia_Cyanosphere_Urea_Mutualism.yaml\tCommunityMech:000157\tMicrocoleus-Massilia Cyanosphere Urea Mutualism\t2\t2\t0\t3\t2\t5\t\t0\t0\n444\t100.0\tkb/communities/Multiomics_Corn_Straw_Degradation_SynCom.yaml\tCommunityMech:000119\tMultiomics Corn Straw Degradation SynCom\t1\t1\t0\t4\t3\t9\t\t0\t0\n445\t100.0\tkb/communities/Neocallimastix_Methanobrevibacter_Xylan_Coculture.yaml\tCommunityMech:000156\tNeocallimastix-Methanobrevibacter Xylanolytic Coculture\t2\t2\t0\t3\t2\t5\t\t0\t0\n446\t100.0\tkb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml\tCommunityMech:000190\tPelotomaculum-Methanocella Propionate RNA-Seq Coculture\t2\t2\t0\t4\t2\t9\t\t0\t0\n447\t100.0\tkb/communities/Pelotomaculum_Methanothermobacter_Syntrophy.yaml\tCommunityMech:000052\tPelotomaculum-Methanothermobacter Syntrophic Consortium\t2\t2\t0\t3\t2\t6\t\t0\t0\n448\t100.0\tkb/communities/Phenol_Carboxylation_Consortium.yaml\tCommunityMech:000053\tPhenol Carboxylation Consortium\t2\t2\t0\t3\t3\t7\t\t0\t0\n449\t100.0\tkb/communities/Phosphitivorax_Methanoculleus_Lithosyntrophy_Phosphite_Coculture.yaml\tCommunityMech:000290\tPhosphitivorax-Methanoculleus Lithosyntrophic Phosphite-Oxidizing Methanogenic Culture\t2\t2\t0\t3\t2\t4\t\t0\t0\n450\t100.0\tkb/communities/Pseudomonas_putida_PpTE_Rhodococcus_RDK17_Terephthalic_Acid_Consortium.yaml\tCommunityMech:000289\tPseudomonas putida Pp-TE + Rhodococcus sp. RDK17 Terephthalic-acid Consortium\t2\t2\t0\t3\t2\t4\t\t0\t0\n451\t100.0\tkb/communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.yaml\tCommunityMech:000092\tRhodopseudomonas-E. coli Cross-Feeding Coculture\t2\t2\t0\t3\t2\t4\t\t0\t0\n452\t100.0\tkb/communities/Rice_Acid_Soil_Bioinoculant_SynCom.yaml\tCommunityMech:000109\tRice Acid Soil Bioinoculant SynCom\t1\t1\t0\t4\t4\t4\t\t0\t0\n453\t100.0\tkb/communities/Subsurface_Carboxydocella_CO_Aquifer_Community.yaml\tCommunityMech:000251\tSubsurface Carboxydocella CO-Oxidation Aquifer Community\t1\t1\t0\t4\t2\t4\t\t0\t0\n454\t100.0\tkb/communities/Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.yaml\tCommunityMech:000182\tThermacetogenium-Methanothermobacter Acetate Oxidation Coculture\t2\t2\t0\t3\t2\t8\t\t0\t0\n455\t100.0\tkb/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml\tCommunityMech:000213\tVariovorax-Cryptococcus Vitamin Cross-Feeding Microcosm\t2\t2\t0\t3\t2\t4\t\t0\t0\n456\t100.0\tkb/communities/Wheat_Straw_Biogas_Pretreatment_SynCom.yaml\tCommunityMech:000118\tWheat Straw Biogas Pretreatment SynCom\t4\t4\t0\t3\t2\t4\t\t0\t0\n457\t100.0\tkb/communities/Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml\tCommunityMech:000354\tYarrowia lipolytica Division-of-Labor Lipid Consortium\t2\t2\t0\t3\t2\t3\t\t0\t0\n458\t100.0\tkb/communities/Yogurt_TwoSpecies_Starter_Culture.yaml\tCommunityMech:000164\tYogurt Two-Species Starter Culture\t2\t2\t0\t4\t2\t9\t\t0\t0\n459\t100.0\tkb/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml\tCommunityMech:000210\tZymomonas-E. coli Exometabolomics-Designed Obligate Mutualism\t2\t2\t0\t3\t2\t6\t\t0\t0\n460\t100.0\tkb/communities/hCom2_Complex_Gut_Microbiome.yaml\tCommunityMech:000123\thCom2 Complex Gut Microbiome\t1\t1\t0\t3\t2\t3\t\t0\t0\nPYTHONPATH=src uv run python scripts/rank_causal_graph_readiness.py \n"
+    },
+    {
+      "check": "render",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "communitymech.render"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/render.log",
+      "log_sha256": "ef9df36ebdcf8c956cac6474c7751a3a47aba5f4875d235fc33268c8f7d87aec",
+      "output_tail": "unitymech-causal-batch121/docs/communities/Synechococcus_Bacillus_SPC.html\n  \u2713 Synechococcus_Ecoli_SPC.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synechococcus_Ecoli_SPC.html\n  \u2713 Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.html\n  \u2713 Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.html\n  \u2713 Synechococcus_Saccharomyces_SPC.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synechococcus_Saccharomyces_SPC.html\n  \u2713 Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.html\n  \u2713 Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.html\n  \u2713 Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.html\n  \u2713 Synthetic_Periphyton_Freshwater_Biofilm.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synthetic_Periphyton_Freshwater_Biofilm.html\n  \u2713 Syntrophobacter_Methanobacterium_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Syntrophobacter_Methanobacterium_Syntrophy.html\n  \u2713 Syntrophobacter_Methanospirillum_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Syntrophobacter_Methanospirillum_Syntrophy.html\n  \u2713 Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.html\n  \u2713 Syntrophomonas_Methanospirillum_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Syntrophomonas_Methanospirillum_Syntrophy.html\n  \u2713 Syntrophus_Benzoate_Degrader.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Syntrophus_Benzoate_Degrader.html\n  \u2713 Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.html\n  \u2713 TCP_NonDehalogenimonas_Groundwater_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/TCP_NonDehalogenimonas_Groundwater_Consortium.html\n  \u2713 THOR_Rhizosphere_Model_Community.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/THOR_Rhizosphere_Model_Community.html\n  \u2713 TYQ1_Nematode_Biocontrol_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/TYQ1_Nematode_Biocontrol_SynCom.html\n  \u2713 Teosinte_Maize_Biofertilizer_SynCom7.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Teosinte_Maize_Biofertilizer_SynCom7.html\n  \u2713 Thalassiosira_Marinobacter_Marine_Snow_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thalassiosira_Marinobacter_Marine_Snow_Coculture.html\n  \u2713 Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.html\n  \u2713 Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.html\n  \u2713 Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.html\n  \u2713 Thermophilic_ExSitu_Biomethanation_Mixed_Culture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thermophilic_ExSitu_Biomethanation_Mixed_Culture.html\n  \u2713 Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.html\n  \u2713 Thermophilic_Pyrite_QS_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thermophilic_Pyrite_QS_Consortium.html\n  \u2713 Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.html\n  \u2713 Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.html\n  \u2713 Tinto_River_Iron_Cycling_Community.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Tinto_River_Iron_Cycling_Community.html\n  \u2713 Tobacco_Chemotactic_Biocontrol_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Tobacco_Chemotactic_Biocontrol_SynCom.html\n  \u2713 Tomato_Oxylipin_SynCom3.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Tomato_Oxylipin_SynCom3.html\n  \u2713 Tribromophenol_Anaerobic_Bioremediation_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Tribromophenol_Anaerobic_Bioremediation_SynCom.html\n  \u2713 Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.html\n  \u2713 Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.html\n  \u2713 Trichoderma_Lactate_Platform.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Trichoderma_Lactate_Platform.html\n  \u2713 Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.html\n  \u2713 Trichodesmium_Alteromonas_Marine_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Trichodesmium_Alteromonas_Marine_Consortium.html\n  \u2713 Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.html\n  \u2713 Urine_Nitrification_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Urine_Nitrification_SynCom.html\n  \u2713 Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.html\n  \u2713 Viili_Fungus_Bacterium_EPS_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Viili_Fungus_Bacterium_EPS_SynCom.html\n  \u2713 Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.html\n  \u2713 Watermelon_Rhizosphere_Fusarium_SynCom8.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Watermelon_Rhizosphere_Fusarium_SynCom8.html\n  \u2713 Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.html\n  \u2713 Wheat_Consortium_C1.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wheat_Consortium_C1.html\n  \u2713 Wheat_Consortium_C6.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wheat_Consortium_C6.html\n  \u2713 Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.html\n  \u2713 Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wheat_CrownRot_TB_CrossKingdom_SynCom.html\n  \u2713 Wheat_DT_Rhizosphere_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wheat_DT_Rhizosphere_SynCom.html\n  \u2713 Wheat_Straw_Biogas_Pretreatment_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wheat_Straw_Biogas_Pretreatment_SynCom.html\n  \u2713 Wheat_SynCom_SASW01_Drought_Inoculant.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wheat_SynCom_SASW01_Drought_Inoculant.html\n  \u2713 Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.html\n  \u2713 Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.html\n  \u2713 Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.html\n  \u2713 Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.html\n  \u2713 Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.html\n  \u2713 Yogurt_TwoSpecies_Starter_Culture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Yogurt_TwoSpecies_Starter_Culture.html\n  \u2713 Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.html\n  \u2713 hCom2_Complex_Gut_Microbiome.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/hCom2_Complex_Gut_Microbiome.html\n  \u2713 mCAFEs_Brachypodium_RCC.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/mCAFEs_Brachypodium_RCC.html\n\n\u2705 Rendered 456 communities to /private/tmp/communitymech-causal-batch121/docs/communities\n  \u2713 Generated browser at /private/tmp/communitymech-causal-batch121/docs/browser.html\n  \u2713 Generated landing at /private/tmp/communitymech-causal-batch121/docs/index.html\n"
+    },
+    {
+      "check": "render-repeat",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "communitymech.render"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/render-repeat.log",
+      "log_sha256": "ef9df36ebdcf8c956cac6474c7751a3a47aba5f4875d235fc33268c8f7d87aec",
+      "output_tail": "unitymech-causal-batch121/docs/communities/Synechococcus_Bacillus_SPC.html\n  \u2713 Synechococcus_Ecoli_SPC.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synechococcus_Ecoli_SPC.html\n  \u2713 Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.html\n  \u2713 Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.html\n  \u2713 Synechococcus_Saccharomyces_SPC.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synechococcus_Saccharomyces_SPC.html\n  \u2713 Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.html\n  \u2713 Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.html\n  \u2713 Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.html\n  \u2713 Synthetic_Periphyton_Freshwater_Biofilm.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Synthetic_Periphyton_Freshwater_Biofilm.html\n  \u2713 Syntrophobacter_Methanobacterium_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Syntrophobacter_Methanobacterium_Syntrophy.html\n  \u2713 Syntrophobacter_Methanospirillum_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Syntrophobacter_Methanospirillum_Syntrophy.html\n  \u2713 Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.html\n  \u2713 Syntrophomonas_Methanospirillum_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Syntrophomonas_Methanospirillum_Syntrophy.html\n  \u2713 Syntrophus_Benzoate_Degrader.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Syntrophus_Benzoate_Degrader.html\n  \u2713 Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.html\n  \u2713 TCP_NonDehalogenimonas_Groundwater_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/TCP_NonDehalogenimonas_Groundwater_Consortium.html\n  \u2713 THOR_Rhizosphere_Model_Community.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/THOR_Rhizosphere_Model_Community.html\n  \u2713 TYQ1_Nematode_Biocontrol_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/TYQ1_Nematode_Biocontrol_SynCom.html\n  \u2713 Teosinte_Maize_Biofertilizer_SynCom7.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Teosinte_Maize_Biofertilizer_SynCom7.html\n  \u2713 Thalassiosira_Marinobacter_Marine_Snow_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thalassiosira_Marinobacter_Marine_Snow_Coculture.html\n  \u2713 Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.html\n  \u2713 Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.html\n  \u2713 Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.html\n  \u2713 Thermophilic_ExSitu_Biomethanation_Mixed_Culture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thermophilic_ExSitu_Biomethanation_Mixed_Culture.html\n  \u2713 Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.html\n  \u2713 Thermophilic_Pyrite_QS_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thermophilic_Pyrite_QS_Consortium.html\n  \u2713 Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.html\n  \u2713 Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.html\n  \u2713 Tinto_River_Iron_Cycling_Community.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Tinto_River_Iron_Cycling_Community.html\n  \u2713 Tobacco_Chemotactic_Biocontrol_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Tobacco_Chemotactic_Biocontrol_SynCom.html\n  \u2713 Tomato_Oxylipin_SynCom3.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Tomato_Oxylipin_SynCom3.html\n  \u2713 Tribromophenol_Anaerobic_Bioremediation_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Tribromophenol_Anaerobic_Bioremediation_SynCom.html\n  \u2713 Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.html\n  \u2713 Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.html\n  \u2713 Trichoderma_Lactate_Platform.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Trichoderma_Lactate_Platform.html\n  \u2713 Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.html\n  \u2713 Trichodesmium_Alteromonas_Marine_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Trichodesmium_Alteromonas_Marine_Consortium.html\n  \u2713 Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.html\n  \u2713 Urine_Nitrification_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Urine_Nitrification_SynCom.html\n  \u2713 Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.html\n  \u2713 Viili_Fungus_Bacterium_EPS_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Viili_Fungus_Bacterium_EPS_SynCom.html\n  \u2713 Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.html\n  \u2713 Watermelon_Rhizosphere_Fusarium_SynCom8.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Watermelon_Rhizosphere_Fusarium_SynCom8.html\n  \u2713 Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.html\n  \u2713 Wheat_Consortium_C1.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wheat_Consortium_C1.html\n  \u2713 Wheat_Consortium_C6.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wheat_Consortium_C6.html\n  \u2713 Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.html\n  \u2713 Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wheat_CrownRot_TB_CrossKingdom_SynCom.html\n  \u2713 Wheat_DT_Rhizosphere_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wheat_DT_Rhizosphere_SynCom.html\n  \u2713 Wheat_Straw_Biogas_Pretreatment_SynCom.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wheat_Straw_Biogas_Pretreatment_SynCom.html\n  \u2713 Wheat_SynCom_SASW01_Drought_Inoculant.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wheat_SynCom_SASW01_Drought_Inoculant.html\n  \u2713 Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.html\n  \u2713 Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.html\n  \u2713 Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.html\n  \u2713 Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.html\n  \u2713 Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.html\n  \u2713 Yogurt_TwoSpecies_Starter_Culture.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Yogurt_TwoSpecies_Starter_Culture.html\n  \u2713 Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.html\n  \u2713 hCom2_Complex_Gut_Microbiome.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/hCom2_Complex_Gut_Microbiome.html\n  \u2713 mCAFEs_Brachypodium_RCC.yaml \u2192 /private/tmp/communitymech-causal-batch121/docs/communities/mCAFEs_Brachypodium_RCC.html\n\n\u2705 Rendered 456 communities to /private/tmp/communitymech-causal-batch121/docs/communities\n  \u2713 Generated browser at /private/tmp/communitymech-causal-batch121/docs/browser.html\n  \u2713 Generated landing at /private/tmp/communitymech-causal-batch121/docs/index.html\n"
+    },
+    {
+      "check": "connectivity-survey",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-c",
+        "import json,runpy; print(json.dumps(runpy.run_path('tests/test_community_level_connectivity_credit.py')['_survey']()))"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/connectivity-survey.log",
+      "log_sha256": "6dba3d2251cf8431c1fc7f04f3c0806d8a8c166c0901fd6be1fcbc268a1730a4",
+      "output_tail": "{\"records\": 460, \"with_community_level\": 414, \"mixed\": 136, \"community_level_only\": 278, \"taxa\": 1568, \"credited_solely_by_the_rule\": 1281}\n"
+    },
+    {
+      "check": "focused",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_causal_review_batch121.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/focused.after-lint-fix.log",
+      "log_sha256": "09c4b2c4e3822129d4cc668b058921a37f299f5817a825e682abc92e91835d7c",
+      "output_tail": "...............                                                          [100%]\n15 passed in 3.78s\n"
+    },
+    {
+      "check": "regressions",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_causal_review_batch10.py",
+        "tests/test_causal_review_batch100.py",
+        "tests/test_causal_review_batch101.py",
+        "tests/test_causal_review_batch102.py",
+        "tests/test_causal_review_batch103.py",
+        "tests/test_causal_review_batch104.py",
+        "tests/test_causal_review_batch105.py",
+        "tests/test_causal_review_batch106.py",
+        "tests/test_causal_review_batch107.py",
+        "tests/test_causal_review_batch108.py",
+        "tests/test_causal_review_batch109.py",
+        "tests/test_causal_review_batch11.py",
+        "tests/test_causal_review_batch110.py",
+        "tests/test_causal_review_batch111.py",
+        "tests/test_causal_review_batch112.py",
+        "tests/test_causal_review_batch113.py",
+        "tests/test_causal_review_batch114.py",
+        "tests/test_causal_review_batch115.py",
+        "tests/test_causal_review_batch116.py",
+        "tests/test_causal_review_batch117.py",
+        "tests/test_causal_review_batch118.py",
+        "tests/test_causal_review_batch119.py",
+        "tests/test_causal_review_batch12.py",
+        "tests/test_causal_review_batch120.py",
+        "tests/test_causal_review_batch121.py",
+        "tests/test_causal_review_batch13.py",
+        "tests/test_causal_review_batch14.py",
+        "tests/test_causal_review_batch15.py",
+        "tests/test_causal_review_batch16.py",
+        "tests/test_causal_review_batch17.py",
+        "tests/test_causal_review_batch18.py",
+        "tests/test_causal_review_batch19.py",
+        "tests/test_causal_review_batch20.py",
+        "tests/test_causal_review_batch21.py",
+        "tests/test_causal_review_batch22.py",
+        "tests/test_causal_review_batch23.py",
+        "tests/test_causal_review_batch24.py",
+        "tests/test_causal_review_batch25.py",
+        "tests/test_causal_review_batch27.py",
+        "tests/test_causal_review_batch28.py",
+        "tests/test_causal_review_batch29.py",
+        "tests/test_causal_review_batch30.py",
+        "tests/test_causal_review_batch31.py",
+        "tests/test_causal_review_batch32.py",
+        "tests/test_causal_review_batch33.py",
+        "tests/test_causal_review_batch34.py",
+        "tests/test_causal_review_batch35.py",
+        "tests/test_causal_review_batch36.py",
+        "tests/test_causal_review_batch37.py",
+        "tests/test_causal_review_batch38.py",
+        "tests/test_causal_review_batch39.py",
+        "tests/test_causal_review_batch40.py",
+        "tests/test_causal_review_batch41.py",
+        "tests/test_causal_review_batch42.py",
+        "tests/test_causal_review_batch43.py",
+        "tests/test_causal_review_batch44.py",
+        "tests/test_causal_review_batch45.py",
+        "tests/test_causal_review_batch46.py",
+        "tests/test_causal_review_batch47.py",
+        "tests/test_causal_review_batch48.py",
+        "tests/test_causal_review_batch49.py",
+        "tests/test_causal_review_batch5.py",
+        "tests/test_causal_review_batch50.py",
+        "tests/test_causal_review_batch51.py",
+        "tests/test_causal_review_batch52.py",
+        "tests/test_causal_review_batch53.py",
+        "tests/test_causal_review_batch54.py",
+        "tests/test_causal_review_batch55.py",
+        "tests/test_causal_review_batch56.py",
+        "tests/test_causal_review_batch57.py",
+        "tests/test_causal_review_batch58.py",
+        "tests/test_causal_review_batch59.py",
+        "tests/test_causal_review_batch6.py",
+        "tests/test_causal_review_batch60.py",
+        "tests/test_causal_review_batch61.py",
+        "tests/test_causal_review_batch62.py",
+        "tests/test_causal_review_batch63.py",
+        "tests/test_causal_review_batch64.py",
+        "tests/test_causal_review_batch65.py",
+        "tests/test_causal_review_batch66.py",
+        "tests/test_causal_review_batch67.py",
+        "tests/test_causal_review_batch68.py",
+        "tests/test_causal_review_batch69.py",
+        "tests/test_causal_review_batch7.py",
+        "tests/test_causal_review_batch70.py",
+        "tests/test_causal_review_batch71.py",
+        "tests/test_causal_review_batch72.py",
+        "tests/test_causal_review_batch73.py",
+        "tests/test_causal_review_batch74.py",
+        "tests/test_causal_review_batch75.py",
+        "tests/test_causal_review_batch76.py",
+        "tests/test_causal_review_batch77.py",
+        "tests/test_causal_review_batch78.py",
+        "tests/test_causal_review_batch79.py",
+        "tests/test_causal_review_batch8.py",
+        "tests/test_causal_review_batch80.py",
+        "tests/test_causal_review_batch81.py",
+        "tests/test_causal_review_batch82.py",
+        "tests/test_causal_review_batch83.py",
+        "tests/test_causal_review_batch84.py",
+        "tests/test_causal_review_batch85.py",
+        "tests/test_causal_review_batch86.py",
+        "tests/test_causal_review_batch87.py",
+        "tests/test_causal_review_batch88.py",
+        "tests/test_causal_review_batch89.py",
+        "tests/test_causal_review_batch9.py",
+        "tests/test_causal_review_batch90.py",
+        "tests/test_causal_review_batch91.py",
+        "tests/test_causal_review_batch92.py",
+        "tests/test_causal_review_batch93.py",
+        "tests/test_causal_review_batch94.py",
+        "tests/test_causal_review_batch95.py",
+        "tests/test_causal_review_batch96.py",
+        "tests/test_causal_review_batch97.py",
+        "tests/test_causal_review_batch98.py",
+        "tests/test_causal_review_batch99.py",
+        "tests/test_network_palette.py",
+        "tests/test_datamodel.py",
+        "tests/test_site_audit_fixes.py",
+        "tests/test_causal_review_inventory.py",
+        "tests/test_rank_causal_graph_readiness.py",
+        "tests/test_network_auditor.py",
+        "tests/test_participating_taxa.py",
+        "tests/test_causal_descriptions_are_published.py",
+        "tests/test_published_pages_name_real_records.py",
+        "tests/test_reference_validator_actually_validates.py",
+        "tests/test_snippet_audit_artefact_classes.py",
+        "tests/test_reference_error_annotation.py",
+        "tests/test_community_level_connectivity_credit.py",
+        "tests/test_no_paywalled_text_in_repo.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/regressions.after-lint-fix.log",
+      "log_sha256": "12332d4867e4a6cf2521c5d32023e0f17078bda84fd195fef68aec616c1ad5a6",
+      "output_tail": "........................................................................ [  6%]\n........................................................................ [ 12%]\n........................................................................ [ 18%]\n........................................................................ [ 25%]\n........................................................................ [ 31%]\n........................................................................ [ 37%]\n........................................................................ [ 43%]\n........................................................................ [ 50%]\n........................................................................ [ 56%]\n........................................................................ [ 62%]\n........................................................................ [ 69%]\n........................................................................ [ 75%]\n........................................................................ [ 81%]\n........................................................................ [ 87%]\n........................................................................ [ 94%]\n..................................................................       [100%]\n1146 passed in 406.93s (0:06:46)\n"
+    },
+    {
+      "check": "just-lint",
+      "command": [
+        "just",
+        "lint"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/just-lint.after-lint-fix.log",
+      "log_sha256": "7ae3d908f4fe72dfd165bbe8a81a58257715a1d115d15864227a361e3182e5ad",
+      "output_tail": "All checks passed!\nSuccess: no issues found in 49 source files\nuv run black --check src/ tests/ scripts/\nAll done! \u2728 \ud83c\udf70 \u2728\n374 files would be left unchanged.\nuv run ruff check src/ tests/ scripts/\nuv run mypy src/\n"
+    },
+    {
+      "check": "mypy-explicit-runtime",
+      "command": [
+        "/private/tmp/communitymech-batch100/lint-env/bin/mypy",
+        "--no-incremental",
+        "--python-executable",
+        "/private/tmp/communitymech-batch100/lint-env/bin/python",
+        "src/"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/mypy-explicit-runtime.log",
+      "log_sha256": "b1fdd8413863455c6896d811c9ab42dc9256d679a668643bb18df2318c3bc875",
+      "output_tail": "Success: no issues found in 49 source files\n"
+    },
+    {
+      "check": "audit-snippets-all",
+      "command": [
+        "just",
+        "audit-snippets"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/audit-snippets-all.log",
+      "log_sha256": "279b5a4a022a502c4880b9e422754c6a12912bc8349045127d13f86ba8b23593",
+      "output_tail": "# 9073 evidence snippets scanned across 460 files\n  MATCH      8925\n  RENDERING  31\n  ASSEMBLED  1\n  WEAK       0\n  MISMATCH   40\n  NOCONTENT  76\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n  19 (19 hard)  kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml\n  15 (15 hard)  kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml\n   3 (3 hard)  kb/communities/Coscinodiscus_Synthetic_Community.yaml\n   1 (1 hard)  kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml\n   1 (1 hard)  kb/communities/Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml\n   1 (1 hard)  kb/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml\nuv run python scripts/evidence_snippet_audit.py \n"
+    },
+    {
+      "check": "diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/diff-check.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_tail": ""
+    }
+  ],
+  "limitations": [
+    "Both-root baseline precedes primary research:460records,923caches,57existing warnings,zero structural defects. All four whole records and14existing nodes/two arrows reviewed. Retain12nodes/two arrows,remove two inoculum-assembly nodes,rename six nodes,no new topology.",
+    "Four fresh EuropePMC abstract/metadata and Crossref retrievals cover three unique primary studies. Complete wheat C1/C6 and crown-rot main bodies read including methods,results,discussion,tables and captions. C1/C6 XML/body hashes are identical. No original figure pixels,separate supplementary files,raw data or analysis code audited.",
+    "Tomato changes are abstract-bounded. EuropePMC has no PMC identifier and lists subscription-required DOI access; DOI open was unavailable and ScienceDirect PII S0981942823004527 returned403. No exhaustive full-text absence claim,access bypass or author contact. No full article-body import.",
+    "Tomato retains positive complementary community functions,leaf oxylipin activation,biosynthesis-inhibition loss of protection,and SlLOX5/SlDES1 overexpression benefit. This supports pathway-level causality,not reciprocal bacterial fitness,unique biofilm mediation or independent necessity of each divinyl ether. Exact member/role metadata remains1943.",
+    "Wheat C1/C6 primary is CC BY4.0. Equal-ratio assembly is preparation,not ecological colonization; prior workflow-arrow removals remain intact. C1 retains significant greenhouse benefits but no demonstrated superiority over the best single strain. C6 retains positive dual-plate inhibition and Salkowski output but Arabidopsis root shortening is not growth promotion. Positive individual-member secretion/volatile assays do not override whole-mixture nulls. Persistence explicitly was not assessed. Negative r-squared notation is not silently repaired. Non-graph abundance/metal scope remains1944.",
+    "Crown-rot primary is CC BY-NC-ND4.0,not unrestricted CC BY. Preserve measured pot disease and grain benefits. Relative DNA profiles are not viable-cell colonization or functional flux; correlation networks do not establish cooperation or ecological necessity. Added allantoin/dihydrodaidzein have positive plant outcomes and negative direct fungal assays; do not erase these positives or infer intact-SMC necessity. Old cache wording differs from fresh abstract and bacterial-treatment assignments; timing and provenance remain1945.",
+    "Exactly three short crown-rot discussion excerpts,21quoted words,are appended with source/license attribution. Old cache bytes remain an unchanged prefix. No protocol addition or full-body import. All24graph and10discussion quotes independently matched to fresh primary and authoritative local caches; literal matches are not entailment proof. Existing selected caches and primary text read; no claim to manual whole-reading of the very long C1 markdown cache.",
+    "Initial and fresh pre-creation all-state1175issue titles/bodies searched,seven matching bodies read,161matching local paths found including ignored/hidden files except.git,docs,site,references_cache,.env.1035/1037 address crown-rot participants/CI;615 host-cultivation schema;1521,1378,1375,981 other records. Not a historical PR-comment audit.",
+    "Four guarded writes preserve456otherrecords,922unchangedcaches,unrelated raw YAML blocks and all prior histories/decisions. Four append-only histories and curation events. Taxon identities,participant lists and scopes unchanged; evidence aliases detached. No experimental optimization.",
+    "Existing-graph repair with no new nodes/directions: no Edison run,provider submission or spend. Prior authorized Ruegeria1883 authentication blocker not retried unchanged; no credential inspected. Source-based self-adversarial review is not independent approval. Overall review,protected merge and branch deletion remain incomplete."
+  ],
+  "reference_validator_version": "0.1.7",
+  "snippet_counts_by_record": {
+    "kb/communities/Tomato_Oxylipin_SynCom3.yaml": {
+      "MATCH": 14,
+      "RENDERING": 0,
+      "ASSEMBLED": 0,
+      "WEAK": 0,
+      "MISMATCH": 0,
+      "NOCONTENT": 0
+    },
+    "kb/communities/Wheat_Consortium_C1.yaml": {
+      "MATCH": 14,
+      "RENDERING": 1,
+      "ASSEMBLED": 0,
+      "WEAK": 0,
+      "MISMATCH": 0,
+      "NOCONTENT": 0
+    },
+    "kb/communities/Wheat_Consortium_C6.yaml": {
+      "MATCH": 19,
+      "RENDERING": 2,
+      "ASSEMBLED": 0,
+      "WEAK": 0,
+      "MISMATCH": 0,
+      "NOCONTENT": 0
+    },
+    "kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml": {
+      "MATCH": 33,
+      "RENDERING": 0,
+      "ASSEMBLED": 0,
+      "WEAK": 0,
+      "MISMATCH": 0,
+      "NOCONTENT": 0
+    }
+  },
+  "unchanged_record_files": 456,
+  "unchanged_cache_files": 922,
+  "unchanged_raw_blocks": 54,
+  "cache_changes": [
+    {
+      "path": "references_cache/PMID_41504167.txt",
+      "before_sha256": "4d486d1a61d439b27b58e26f089b287540ce49b0dfea5ff74b9d4c45b9d3b2ff",
+      "after_sha256": "09dbe7338cb653bdfec20d7103d2510e252b08f70b9166b38c193199e7e6e2fd",
+      "old_prefix_preserved": true,
+      "added_bytes": 606,
+      "added_quotation_words": 21,
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12833866/",
+      "source_artifact": "/private/tmp/communitymech-batch121/crown-primary.txt",
+      "source_sha256": "5473ae75df36a381dc6f107afe7cd3d93851565378b25de0baccca019d8ee36c",
+      "license": "CC BY-NC-ND 4.0",
+      "scope": "Three short selected discussion excerpts, not a full-text import. Existing provenance discrepancies retained for issue1945.",
+      "quotations": [
+        "functional validation at the molecular and genetic levels remains limited",
+        "showed no direct antifungal activity of either compound",
+        "significantly reduced DSI"
+      ]
+    }
+  ],
+  "edison": {
+    "required_for_this_repair": false,
+    "provider_submissions": 0,
+    "credits_spent": 0,
+    "new_nodes_or_directions": 0,
+    "prior_extension_blocker": "Ruegeria1883: configured authentication unavailable in prior approved invocation; no unchanged-state retry."
+  },
+  "primary_artifacts": {
+    "/private/tmp/communitymech-batch121/baseline.json": "e92b45d03d6c465de8302b503b81336144391a7179c1c56de54b1b0e64245493",
+    "/private/tmp/communitymech-batch121/c1-abstract.txt": "9b252c4c3c94a7afa338c6615098c79ec89fe90cc684fc17e509ea766245d611",
+    "/private/tmp/communitymech-batch121/c1-crossref.json": "c792f94d269f646a9d7d0f9f234de848623ad76a5ce3aa505775615a3d13ca79",
+    "/private/tmp/communitymech-batch121/c1-metadata.json": "434bf6f8f3d784a8c75b37dc9f0136447a673bc68c49da5ddc665230c275015e",
+    "/private/tmp/communitymech-batch121/c1-primary.txt": "3c36c4e7d883c60a96ae0a33027d1f1bfcaef52793e453ae3383b3b73071dbd9",
+    "/private/tmp/communitymech-batch121/c1-primary.xml": "cc69d3ea571e2bdf4f416df2f4185725c01989357333a0a0db4b084fcf014d8e",
+    "/private/tmp/communitymech-batch121/c6-abstract.txt": "9b252c4c3c94a7afa338c6615098c79ec89fe90cc684fc17e509ea766245d611",
+    "/private/tmp/communitymech-batch121/c6-crossref.json": "c792f94d269f646a9d7d0f9f234de848623ad76a5ce3aa505775615a3d13ca79",
+    "/private/tmp/communitymech-batch121/c6-metadata.json": "10c50b850e2f7a1f15d45cfdc428de4200f1f2f960c05e3ffbc277b670f827b0",
+    "/private/tmp/communitymech-batch121/c6-primary.txt": "3c36c4e7d883c60a96ae0a33027d1f1bfcaef52793e453ae3383b3b73071dbd9",
+    "/private/tmp/communitymech-batch121/c6-primary.xml": "cc69d3ea571e2bdf4f416df2f4185725c01989357333a0a0db4b084fcf014d8e",
+    "/private/tmp/communitymech-batch121/cache-append.json": "2b8a00668844860f4d1a6cf0008be793cd1c5b3b0df674fb7c43de0dcff074be",
+    "/private/tmp/communitymech-batch121/crown-abstract.txt": "16c788598453a61f000910a5e0f8a4008ba8519ee5701ae3a3e17d18e825810b",
+    "/private/tmp/communitymech-batch121/crown-crossref.json": "617800ca4aaf5db73b90bc0ee491c93fe22e5c5503c0e69cb440d5bebeff61d5",
+    "/private/tmp/communitymech-batch121/crown-metadata.json": "128b9f3ad73905c118c5572a74c5f187560ab502296adc51af428b6afac8a99c",
+    "/private/tmp/communitymech-batch121/crown-primary.txt": "5473ae75df36a381dc6f107afe7cd3d93851565378b25de0baccca019d8ee36c",
+    "/private/tmp/communitymech-batch121/crown-primary.xml": "0b76802b924a03d6b2a8621bf63c8a068d565267c876bc05e7116e440ea84939",
+    "/private/tmp/communitymech-batch121/issue-dedup-current.json": "855090c628e4814fea1ca1d0a4d8f7081c3727c971fe3f2dd7b30d768ec374d8",
+    "/private/tmp/communitymech-batch121/local-matches-expanded.txt": "04facf3dcb06aa984a9d620a2d9cafe0da8f0057a5d5c12d1e7292682f65dc44",
+    "/private/tmp/communitymech-batch121/local-matches.txt": "cb931efcd842d1fafd28bbfbe63bbd88b39af4056a9d998fc69585e2a683e41e",
+    "/private/tmp/communitymech-batch121/primary-manifest.json": "ecb885005fbdbcc00b35bbcb6f894fd0ad63a3b310d764ce6af154e647aee7c3",
+    "/private/tmp/communitymech-batch121/target-baseline.json": "5c3e2c7f8253df656fc9ba1aac4d6398c43a5c4564c9cd2f515db56f08597cf9",
+    "/private/tmp/communitymech-batch121/tomato-abstract.txt": "572769f335cb9e22e9f3bfa7ace56d21697b0c5f499c5ec3c4fd8bd277382a96",
+    "/private/tmp/communitymech-batch121/tomato-crossref.json": "da0362a3f97c2b71031319206884eab8da40cf83d4df180ddf67cc8e484a5473",
+    "/private/tmp/communitymech-batch121/tomato-metadata.json": "61aa41a2b34c20f8d257ff9ec6fbab461a42907621e3a4f5c918b612315f6b95",
+    "references_cache/PMID_36118206.md": "314ea2db4d987629dc153dd408a6862de979aab0fc85cdeeef3cff44e024e0c6",
+    "references_cache/PMID_37549573.txt": "a84a280cb33625ddefb3a79de376d86d6f6fe774e0f53bf8978677e50e34ffa4",
+    "references_cache/PMID_41504167.txt": "09dbe7338cb653bdfec20d7103d2510e252b08f70b9166b38c193199e7e6e2fd"
+  },
+  "immutable_prior_history_and_decision_files": 894,
+  "primary_graph_snippet_proof": {
+    "graph_quotations": 24,
+    "discussion_quotations": 10,
+    "fresh_primary_literal_matches": 34,
+    "all_cached_literal_matches": 34,
+    "retained_nodes": 12,
+    "removed_nodes": 2,
+    "renamed_nodes": 6,
+    "retained_arrows": 2,
+    "removed_arrows": 0,
+    "new_nodes_or_directions": 0
+  },
+  "network_delta": {
+    "existing_findings_preserved": 57,
+    "added_findings": {},
+    "removed_findings": {},
+    "structural_defects": 0
+  },
+  "render_determinism": true,
+  "published_description_coverage": {
+    "pages": 456,
+    "nodes": 1359,
+    "arrows": 522
+  },
+  "render_scope": "Deterministic rendering and exact HTML description parsing, not screenshots; postcommit docs-current still required.",
+  "participant_census": {
+    "current": {
+      "records": 460,
+      "with_community_level": 414,
+      "mixed": 136,
+      "community_level_only": 278,
+      "taxa": 1568,
+      "credited_solely_by_the_rule": 1281
+    },
+    "delta_from_batch120": {
+      "records": 0,
+      "with_community_level": 0,
+      "mixed": 0,
+      "community_level_only": 0,
+      "taxa": 0,
+      "credited_solely_by_the_rule": 0
+    },
+    "explanation": "All participant lists and scopes are unchanged;299participant-list users. Scope credit is not certification of actual participant coverage. Connectivity logic and thresholds are unchanged."
+  },
+  "superseded_results": [
+    {
+      "check": "focused",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_causal_review_batch121.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/focused.log",
+      "log_sha256": "1bb220465fb38a66322df21f319c57ddc286c948f1dbd9ed95e5f16c3dbf57e7",
+      "output_tail": "...............                                                          [100%]\n15 passed in 4.01s\n"
+    },
+    {
+      "check": "regressions",
+      "command": [
+        "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_causal_review_batch10.py",
+        "tests/test_causal_review_batch100.py",
+        "tests/test_causal_review_batch101.py",
+        "tests/test_causal_review_batch102.py",
+        "tests/test_causal_review_batch103.py",
+        "tests/test_causal_review_batch104.py",
+        "tests/test_causal_review_batch105.py",
+        "tests/test_causal_review_batch106.py",
+        "tests/test_causal_review_batch107.py",
+        "tests/test_causal_review_batch108.py",
+        "tests/test_causal_review_batch109.py",
+        "tests/test_causal_review_batch11.py",
+        "tests/test_causal_review_batch110.py",
+        "tests/test_causal_review_batch111.py",
+        "tests/test_causal_review_batch112.py",
+        "tests/test_causal_review_batch113.py",
+        "tests/test_causal_review_batch114.py",
+        "tests/test_causal_review_batch115.py",
+        "tests/test_causal_review_batch116.py",
+        "tests/test_causal_review_batch117.py",
+        "tests/test_causal_review_batch118.py",
+        "tests/test_causal_review_batch119.py",
+        "tests/test_causal_review_batch12.py",
+        "tests/test_causal_review_batch120.py",
+        "tests/test_causal_review_batch121.py",
+        "tests/test_causal_review_batch13.py",
+        "tests/test_causal_review_batch14.py",
+        "tests/test_causal_review_batch15.py",
+        "tests/test_causal_review_batch16.py",
+        "tests/test_causal_review_batch17.py",
+        "tests/test_causal_review_batch18.py",
+        "tests/test_causal_review_batch19.py",
+        "tests/test_causal_review_batch20.py",
+        "tests/test_causal_review_batch21.py",
+        "tests/test_causal_review_batch22.py",
+        "tests/test_causal_review_batch23.py",
+        "tests/test_causal_review_batch24.py",
+        "tests/test_causal_review_batch25.py",
+        "tests/test_causal_review_batch27.py",
+        "tests/test_causal_review_batch28.py",
+        "tests/test_causal_review_batch29.py",
+        "tests/test_causal_review_batch30.py",
+        "tests/test_causal_review_batch31.py",
+        "tests/test_causal_review_batch32.py",
+        "tests/test_causal_review_batch33.py",
+        "tests/test_causal_review_batch34.py",
+        "tests/test_causal_review_batch35.py",
+        "tests/test_causal_review_batch36.py",
+        "tests/test_causal_review_batch37.py",
+        "tests/test_causal_review_batch38.py",
+        "tests/test_causal_review_batch39.py",
+        "tests/test_causal_review_batch40.py",
+        "tests/test_causal_review_batch41.py",
+        "tests/test_causal_review_batch42.py",
+        "tests/test_causal_review_batch43.py",
+        "tests/test_causal_review_batch44.py",
+        "tests/test_causal_review_batch45.py",
+        "tests/test_causal_review_batch46.py",
+        "tests/test_causal_review_batch47.py",
+        "tests/test_causal_review_batch48.py",
+        "tests/test_causal_review_batch49.py",
+        "tests/test_causal_review_batch5.py",
+        "tests/test_causal_review_batch50.py",
+        "tests/test_causal_review_batch51.py",
+        "tests/test_causal_review_batch52.py",
+        "tests/test_causal_review_batch53.py",
+        "tests/test_causal_review_batch54.py",
+        "tests/test_causal_review_batch55.py",
+        "tests/test_causal_review_batch56.py",
+        "tests/test_causal_review_batch57.py",
+        "tests/test_causal_review_batch58.py",
+        "tests/test_causal_review_batch59.py",
+        "tests/test_causal_review_batch6.py",
+        "tests/test_causal_review_batch60.py",
+        "tests/test_causal_review_batch61.py",
+        "tests/test_causal_review_batch62.py",
+        "tests/test_causal_review_batch63.py",
+        "tests/test_causal_review_batch64.py",
+        "tests/test_causal_review_batch65.py",
+        "tests/test_causal_review_batch66.py",
+        "tests/test_causal_review_batch67.py",
+        "tests/test_causal_review_batch68.py",
+        "tests/test_causal_review_batch69.py",
+        "tests/test_causal_review_batch7.py",
+        "tests/test_causal_review_batch70.py",
+        "tests/test_causal_review_batch71.py",
+        "tests/test_causal_review_batch72.py",
+        "tests/test_causal_review_batch73.py",
+        "tests/test_causal_review_batch74.py",
+        "tests/test_causal_review_batch75.py",
+        "tests/test_causal_review_batch76.py",
+        "tests/test_causal_review_batch77.py",
+        "tests/test_causal_review_batch78.py",
+        "tests/test_causal_review_batch79.py",
+        "tests/test_causal_review_batch8.py",
+        "tests/test_causal_review_batch80.py",
+        "tests/test_causal_review_batch81.py",
+        "tests/test_causal_review_batch82.py",
+        "tests/test_causal_review_batch83.py",
+        "tests/test_causal_review_batch84.py",
+        "tests/test_causal_review_batch85.py",
+        "tests/test_causal_review_batch86.py",
+        "tests/test_causal_review_batch87.py",
+        "tests/test_causal_review_batch88.py",
+        "tests/test_causal_review_batch89.py",
+        "tests/test_causal_review_batch9.py",
+        "tests/test_causal_review_batch90.py",
+        "tests/test_causal_review_batch91.py",
+        "tests/test_causal_review_batch92.py",
+        "tests/test_causal_review_batch93.py",
+        "tests/test_causal_review_batch94.py",
+        "tests/test_causal_review_batch95.py",
+        "tests/test_causal_review_batch96.py",
+        "tests/test_causal_review_batch97.py",
+        "tests/test_causal_review_batch98.py",
+        "tests/test_causal_review_batch99.py",
+        "tests/test_network_palette.py",
+        "tests/test_datamodel.py",
+        "tests/test_site_audit_fixes.py",
+        "tests/test_causal_review_inventory.py",
+        "tests/test_rank_causal_graph_readiness.py",
+        "tests/test_network_auditor.py",
+        "tests/test_participating_taxa.py",
+        "tests/test_causal_descriptions_are_published.py",
+        "tests/test_published_pages_name_real_records.py",
+        "tests/test_reference_validator_actually_validates.py",
+        "tests/test_snippet_audit_artefact_classes.py",
+        "tests/test_reference_error_annotation.py",
+        "tests/test_community_level_connectivity_credit.py",
+        "tests/test_no_paywalled_text_in_repo.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/regressions.log",
+      "log_sha256": "873297760b8f8ff58434193e806da505e241c10d71fd4b5606e07069b36f0923",
+      "output_tail": "........................................................................ [  6%]\n........................................................................ [ 12%]\n........................................................................ [ 18%]\n........................................................................ [ 25%]\n........................................................................ [ 31%]\n........................................................................ [ 37%]\n........................................................................ [ 43%]\n........................................................................ [ 50%]\n........................................................................ [ 56%]\n........................................................................ [ 62%]\n........................................................................ [ 69%]\n........................................................................ [ 75%]\n........................................................................ [ 81%]\n........................................................................ [ 87%]\n........................................................................ [ 94%]\n..................................................................       [100%]\n1146 passed in 390.61s (0:06:30)\n"
+    },
+    {
+      "check": "just-lint",
+      "command": [
+        "just",
+        "lint"
+      ],
+      "exit_code": 1,
+      "expected_exit_codes": [
+        0
+      ],
+      "log": "/private/tmp/communitymech-batch121/verification/just-lint.log",
+      "log_sha256": "2fe8d75b0a76266199cfe190c9be5f96ccb92a6fafa1204a15db38f851ab6f2f",
+      "output_tail": "SIM300 [*] Yoda condition detected\n  --> tests/test_causal_review_batch121.py:79:9\n   |\n77 |       assert \"reduced root-rot scores and increased fresh root weight\" in node[\"description\"]\n78 |       assert (\n79 | /         \"None of them was significantly better than a single strain\"\n80 | |         == node[\"evidence\"][1][\"snippet\"]\n   | |_________________________________________^\n81 |       )\n82 |       assert \"Only B5\" in node[\"description\"]\n   |\n   |\n78 |     assert (\n   -         \"None of them was significantly better than a single strain\"\n   -         == node[\"evidence\"][1][\"snippet\"]\n79 +         node[\"evidence\"][1][\"snippet\"]\n80 +         == \"None of them was significantly better than a single strain\"\n81 |     )\n   |\n\nSIM300 [*] Yoda condition detected\n   --> tests/test_causal_review_batch121.py:145:12\n    |\n143 |     assert \"interaction_type\" not in node\n144 |     assert \"86.45%\" in node[\"description\"] and \"25.93%\" in node[\"description\"]\n145 |     assert \"SMC+Fp increased TKW by 10.39% relative to Fp\" == node[\"evidence\"][1][\"snippet\"]\n    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n146 |     assert \"not multilocation field validation\" in node[\"description\"]\n    |\n    |\n144 |     assert \"86.45%\" in node[\"description\"] and \"25.93%\" in node[\"description\"]\n    -     assert \"SMC+Fp increased TKW by 10.39% relative to Fp\" == node[\"evidence\"][1][\"snippet\"]\n145 +     assert node[\"evidence\"][1][\"snippet\"] == \"SMC+Fp increased TKW by 10.39% relative to Fp\"\n146 |     assert \"not multilocation field validation\" in node[\"description\"]\n    |\n\nFound 2 errors.\n[*] 2 fixable with the `--fix` option.\nuv run black --check src/ tests/ scripts/\nAll done! \u2728 \ud83c\udf70 \u2728\n374 files would be left unchanged.\nuv run ruff check src/ tests/ scripts/\nwarning: Invalid `# noqa` directive on scripts/gtdb_ground.py:74: expected code to consist of uppercase letters followed by digits only (e.g. `F401`)\nerror: recipe `lint` failed on line 518 with exit code 1\n"
+    }
+  ],
+  "lint_fix": "Two SIM300 equality-operand-order fixes in the new test only. Assertions retain identical string-equality semantics. Original focused/regression passes and failed lint retained; focused,combined regressions,lint and all12probes rerun on the corrected test. No canonical data or validation thresholds changed.",
+  "prior_probe_artifact": "/private/tmp/communitymech-batch121/adversarial-regression-proof-before-lint-fix.json",
+  "prior_probe_sha256": "6af8a2078d2804b963e2293514fb721e0c7b1df16b43c951aa8431e3daa6d305",
+  "lint_environment": {
+    "path": "/private/tmp/communitymech-batch100/lint-env",
+    "scope": "Temporary established Python3.13 lint environment; project dependencies unchanged."
+  },
+  "full_corpus_snippet_counts": {
+    "records": 460,
+    "total": 9073,
+    "categories": {
+      "MATCH": 8925,
+      "RENDERING": 31,
+      "ASSEMBLED": 1,
+      "WEAK": 0,
+      "MISMATCH": 40,
+      "NOCONTENT": 76
+    }
+  },
+  "full_corpus_snippet_audit_caveat": "Informational audit exit0 is not clean-corpus or entailment certification.",
+  "corpus": {
+    "scope": "Every YAML under kb/communities and data/isolates; filesystem discovery includes hidden/ignored files.",
+    "records": 460,
+    "nodes": 1373,
+    "edges": 530,
+    "records_without_nodes": 10,
+    "records_without_edges": 189,
+    "review_status_counts": {
+      "needs_research": 54,
+      "pending": 14,
+      "reviewed": 392
+    },
+    "structural_defects": []
+  },
+  "tested_file_sha256": {
+    "reports/causal_graph_review/decisions/20261008-four-records-batch121.yaml": "e6545894c4182a28cb36818c71a5d2958dd7d5494fba58b101f4a478a6f0eed5",
+    "tests/test_causal_review_batch121.py": "ac1e4196de6c948bc26632cc5b53ddf3e0e59a3eb9570340ae4e21fbc771a6cb",
+    "tests/test_participating_taxa.py": "f438815b4a028c0f38a077df53c95f685f98b3c2b523593896a124b544269db1",
+    "tests/test_community_level_connectivity_credit.py": "996cc631423bfa7adc5d8e693d67d55b374a24379d119ab0fa8f1802f38f216a",
+    "tests/test_causal_review_batch109.py": "ff8e9e26771545e1ace22b3c1d42076789c99cc4bc83e588b6a4b9ad698d3d73",
+    "tests/test_datamodel.py": "f8d4750ad64eb4156857a86a8c6adf16dedefb09ca3c3da908f697e609a35f25",
+    "reports/causal_graph_review/cache-provenance-20261008-batch121.json": "52293a3b4509be41d05b369a019fd0b99a2f4144b2f978b986eb2a911cb54d18",
+    "kb/communities/Tomato_Oxylipin_SynCom3.yaml": "228468ac43630c33939dd4b0708476ef4006c9af7dbf1f108e7f88c36b0962c3",
+    "kb/communities/Wheat_Consortium_C1.yaml": "96fe252612fed33b257aed133760e929462f7021eef085750dfbb4469b1e6f26",
+    "kb/communities/Wheat_Consortium_C6.yaml": "e0fca5ba8eedf1676949159803aa46771fa28af92dab641d102f531d3adc2c87",
+    "kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml": "cf2ae08aab3fed7a94f5a0068db6d108baf734b22152547241ebe258f52d15ce"
+  },
+  "pre_research_baseline": {
+    "base_commit": "5afca28e40023b10e05db1c228ec70ecbaf5d7a9",
+    "base_tree": "d78af7c5ca32b724f1a57b22ac40391989f72c89",
+    "research_worktree": "/private/tmp/communitymech-causal-batch121",
+    "checks": [
+      {
+        "name": "rank",
+        "command": [
+          "just",
+          "rank-causal-graphs"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "log": "/private/tmp/communitymech-batch121/baseline-rank.log",
+        "sha256": "748b1981e1bf6dbe143bff0cbf11e33d13e603d03cda2292bfb398f0688f8704"
+      },
+      {
+        "name": "just-network",
+        "command": [
+          "just",
+          "audit-network-json"
+        ],
+        "exit_code": 2,
+        "expected_exit_code": 2,
+        "log": "/private/tmp/communitymech-batch121/baseline-just-network.log",
+        "sha256": "8595db43420d3f0a01c57acd6ad733a531a72e962486d20b4e1c2840dda55bff"
+      },
+      {
+        "name": "network",
+        "command": [
+          "/Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3",
+          "-m",
+          "communitymech.cli",
+          "audit-network",
+          "--json"
+        ],
+        "exit_code": 1,
+        "expected_exit_code": 1,
+        "log": "/private/tmp/communitymech-batch121/baseline-network.log",
+        "sha256": "6a349ee70c3b3deb2e3171d0a85501f53c7faa0aca02351007a8296feed367e9"
+      },
+      {
+        "name": "downstream",
+        "command": [
+          "rg",
+          "--no-ignore",
+          "--hidden",
+          "-n",
+          "downstream:",
+          "kb/communities",
+          "data/isolates",
+          "--glob",
+          "*.yaml"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "log": "/private/tmp/communitymech-batch121/baseline-downstream.log",
+        "sha256": "cbe1386c04b624eed80061da4dce9c8f2a90bcc590a79a41f2c407a25e9e0c62"
+      }
+    ],
+    "baseline_sha256": "e92b45d03d6c465de8302b503b81336144391a7179c1c56de54b1b0e64245493"
+  },
+  "reference_validator_caveat": "Full-record local passes are macOS, not Linux certification. Literal matching does not establish entailment. Total checks in the reference CLI counts issues, not examined snippets.",
+  "status": "verified_existing_graph_repairs",
+  "total_recorded_gate_outputs": 41
+}

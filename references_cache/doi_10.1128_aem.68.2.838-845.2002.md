@@ -1,10 +1,6 @@
 ---
 reference_id: DOI:10.1128/aem.68.2.838-845.2002
-title: "Molecular Relationship between Two Groups of the Genus
-            <i>Leptospirillum</i>
-            and the Finding that
-            <i>Leptospirillum ferriphilum</i>
-            sp. nov. Dominates South African Commercial Biooxidation Tanks That Operate at 40°C"
+title: "Molecular Relationship between Two Groups of the Genus <i>Leptospirillum</i> and the Finding that <i>Leptospirillum ferriphilum</i> sp. nov. Dominates South African Commercial Biooxidation Tanks That Operate at 40°C"
 authors:
 - Nicolette J. Coram
 - Douglas E. Rawlings
@@ -12,13 +8,10 @@ journal: Applied and Environmental Microbiology
 year: '2002'
 doi: 10.1128/aem.68.2.838-845.2002
 content_type: abstract_only
+full_text_attempted: true
 ---
 
-# Molecular Relationship between Two Groups of the Genus
-            <i>Leptospirillum</i>
-            and the Finding that
-            <i>Leptospirillum ferriphilum</i>
-            sp. nov. Dominates South African Commercial Biooxidation Tanks That Operate at 40°C
+# Molecular Relationship between Two Groups of the Genus <i>Leptospirillum</i> and the Finding that <i>Leptospirillum ferriphilum</i> sp. nov. Dominates South African Commercial Biooxidation Tanks That Operate at 40°C
 **Authors:** Nicolette J. Coram, Douglas E. Rawlings
 **Journal:** Applied and Environmental Microbiology (2002)
 **DOI:** [10.1128/aem.68.2.838-845.2002](https://doi.org/10.1128/aem.68.2.838-845.2002)

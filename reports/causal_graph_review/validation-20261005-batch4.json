@@ -1,0 +1,1284 @@
+{
+  "scope": [
+    "kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml",
+    "kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml",
+    "kb/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml",
+    "kb/communities/Anaerobic_Indole_Degrading_Sludge_Consortium.yaml",
+    "kb/communities/Apple_Fire_Blight_ANP_SynCom.yaml",
+    "kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml",
+    "kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml",
+    "kb/communities/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.yaml",
+    "kb/communities/Anammox_Bioreactor_DNRA_Destabilization_Community.yaml",
+    "kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml",
+    "kb/communities/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.yaml",
+    "kb/communities/Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml"
+  ],
+  "reference_validator_version": "0.1.7",
+  "reference_output_note": "Version 0.1.7 counts issues in Total checks, not executed checks. Snippet counts are reported separately; selected excerpts are not independent full-text verification.",
+  "environment_note": "Isolated pinned-reference and ontology-enabled runtimes avoid the existing project llvmlite/Python build incompatibility. No dependency or lockfile changes.",
+  "results": [
+    {
+      "check": "Algal_Methanotroph_Biogas_Valorization_Coculture-schema",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml"
+      ]
+    },
+    {
+      "check": "Algal_Methanotroph_Biogas_Valorization_Coculture-strict",
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Algal_Methanotroph_Biogas_Valorization_Coculture-strict.tsv\n",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Algal_Methanotroph_Biogas_Valorization_Coculture-strict.tsv",
+        "kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml"
+      ]
+    },
+    {
+      "check": "Algal_Methanotroph_Biogas_Valorization_Coculture-terms",
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ]
+    },
+    {
+      "check": "Algal_Methanotroph_Biogas_Valorization_Coculture-references-explained",
+      "exit_code": 0,
+      "output": "Validating kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ]
+    },
+    {
+      "check": "Algal_Methanotroph_Biogas_Valorization_Coculture-snippets",
+      "exit_code": 0,
+      "output": "# 36 evidence snippets scanned across 1 files\n  MATCH      36\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ]
+    },
+    {
+      "check": "Algal_Methanotroph_Biogas_Valorization_Coculture-rank",
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000415\",\n    \"name\": \"Algal-Methanotroph Biogas Valorization Coculture\",\n    \"score\": 64.2,\n    \"taxonomy\": 6,\n    \"connected_taxa\": 5,\n    \"disconnected_taxa\": 1,\n    \"ecological_interactions\": 2,\n    \"downstream_edges\": 0,\n    \"interaction_evidence\": 5,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"additional_interactions\",\n      \"downstream\",\n      \"interaction_type\",\n      \"disconnected_taxa\"\n    ],\n    \"path\": \"kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml\"\n  }\n]\n",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml",
+        "--format",
+        "json"
+      ]
+    },
+    {
+      "check": "Algal_Methanotroph_Biogas_Valorization_Coculture-history",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Algal_Methanotroph_Biogas_Valorization_Coculture/2026-10-05T084241Z-codex-0a0de5.yaml"
+      ]
+    },
+    {
+      "check": "Amsterdam_10Species_Gut_Invasion_SynCom-schema",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml"
+      ]
+    },
+    {
+      "check": "Amsterdam_10Species_Gut_Invasion_SynCom-strict",
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Amsterdam_10Species_Gut_Invasion_SynCom-strict.tsv\n",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Amsterdam_10Species_Gut_Invasion_SynCom-strict.tsv",
+        "kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml"
+      ]
+    },
+    {
+      "check": "Amsterdam_10Species_Gut_Invasion_SynCom-terms",
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ]
+    },
+    {
+      "check": "Amsterdam_10Species_Gut_Invasion_SynCom-references-explained",
+      "exit_code": 0,
+      "output": "Validating kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ]
+    },
+    {
+      "check": "Amsterdam_10Species_Gut_Invasion_SynCom-snippets",
+      "exit_code": 0,
+      "output": "# 23 evidence snippets scanned across 1 files\n  MATCH      23\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ]
+    },
+    {
+      "check": "Amsterdam_10Species_Gut_Invasion_SynCom-rank",
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000382\",\n    \"name\": \"Amsterdam 10-Species Gut Invasion SynCom\",\n    \"score\": 55.0,\n    \"taxonomy\": 10,\n    \"connected_taxa\": 10,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 1,\n    \"downstream_edges\": 0,\n    \"interaction_evidence\": 2,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"additional_interactions\",\n      \"downstream\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml\"\n  }\n]\n",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml",
+        "--format",
+        "json"
+      ]
+    },
+    {
+      "check": "Amsterdam_10Species_Gut_Invasion_SynCom-history",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Amsterdam_10Species_Gut_Invasion_SynCom/2026-10-05T084241Z-codex-3ce1e3.yaml"
+      ]
+    },
+    {
+      "check": "Alaska_Tundra_Permafrost_Iron_Redox_Community-schema",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml"
+      ]
+    },
+    {
+      "check": "Alaska_Tundra_Permafrost_Iron_Redox_Community-strict",
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Alaska_Tundra_Permafrost_Iron_Redox_Community-strict.tsv\n",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Alaska_Tundra_Permafrost_Iron_Redox_Community-strict.tsv",
+        "kb/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml"
+      ]
+    },
+    {
+      "check": "Alaska_Tundra_Permafrost_Iron_Redox_Community-terms",
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ]
+    },
+    {
+      "check": "Alaska_Tundra_Permafrost_Iron_Redox_Community-references-explained",
+      "exit_code": 0,
+      "output": "Validating kb/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ]
+    },
+    {
+      "check": "Alaska_Tundra_Permafrost_Iron_Redox_Community-snippets",
+      "exit_code": 0,
+      "output": "# 13 evidence snippets scanned across 1 files\n  MATCH      13\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ]
+    },
+    {
+      "check": "Alaska_Tundra_Permafrost_Iron_Redox_Community-rank",
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000262\",\n    \"name\": \"Alaska Tundra Permafrost Iron-Redox Community\",\n    \"score\": 90.0,\n    \"taxonomy\": 3,\n    \"connected_taxa\": 3,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 3,\n    \"downstream_edges\": 3,\n    \"interaction_evidence\": 3,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml\"\n  }\n]\n",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml",
+        "--format",
+        "json"
+      ]
+    },
+    {
+      "check": "Alaska_Tundra_Permafrost_Iron_Redox_Community-history",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Alaska_Tundra_Permafrost_Iron_Redox_Community/2026-10-05T084241Z-codex-be37dd.yaml"
+      ]
+    },
+    {
+      "check": "Anaerobic_Indole_Degrading_Sludge_Consortium-schema",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Anaerobic_Indole_Degrading_Sludge_Consortium.yaml"
+      ]
+    },
+    {
+      "check": "Anaerobic_Indole_Degrading_Sludge_Consortium-strict",
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Anaerobic_Indole_Degrading_Sludge_Consortium-strict.tsv\n",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Anaerobic_Indole_Degrading_Sludge_Consortium-strict.tsv",
+        "kb/communities/Anaerobic_Indole_Degrading_Sludge_Consortium.yaml"
+      ]
+    },
+    {
+      "check": "Anaerobic_Indole_Degrading_Sludge_Consortium-terms",
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Anaerobic_Indole_Degrading_Sludge_Consortium.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ]
+    },
+    {
+      "check": "Anaerobic_Indole_Degrading_Sludge_Consortium-references-explained",
+      "exit_code": 0,
+      "output": "Validating kb/communities/Anaerobic_Indole_Degrading_Sludge_Consortium.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Anaerobic_Indole_Degrading_Sludge_Consortium.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ]
+    },
+    {
+      "check": "Anaerobic_Indole_Degrading_Sludge_Consortium-snippets",
+      "exit_code": 0,
+      "output": "# 11 evidence snippets scanned across 1 files\n  MATCH      11\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Anaerobic_Indole_Degrading_Sludge_Consortium.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ]
+    },
+    {
+      "check": "Anaerobic_Indole_Degrading_Sludge_Consortium-rank",
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000386\",\n    \"name\": \"Anaerobic Indole-Degrading Sludge Consortium\",\n    \"score\": 65.0,\n    \"taxonomy\": 4,\n    \"connected_taxa\": 4,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 1,\n    \"downstream_edges\": 0,\n    \"interaction_evidence\": 1,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"additional_interactions\",\n      \"downstream\"\n    ],\n    \"path\": \"kb/communities/Anaerobic_Indole_Degrading_Sludge_Consortium.yaml\"\n  }\n]\n",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Anaerobic_Indole_Degrading_Sludge_Consortium.yaml",
+        "--format",
+        "json"
+      ]
+    },
+    {
+      "check": "Apple_Fire_Blight_ANP_SynCom-schema",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Apple_Fire_Blight_ANP_SynCom.yaml"
+      ]
+    },
+    {
+      "check": "Apple_Fire_Blight_ANP_SynCom-strict",
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Apple_Fire_Blight_ANP_SynCom-strict.tsv\n",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Apple_Fire_Blight_ANP_SynCom-strict.tsv",
+        "kb/communities/Apple_Fire_Blight_ANP_SynCom.yaml"
+      ]
+    },
+    {
+      "check": "Apple_Fire_Blight_ANP_SynCom-terms",
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Apple_Fire_Blight_ANP_SynCom.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ]
+    },
+    {
+      "check": "Apple_Fire_Blight_ANP_SynCom-references-explained",
+      "exit_code": 0,
+      "output": "Validating kb/communities/Apple_Fire_Blight_ANP_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Apple_Fire_Blight_ANP_SynCom.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ]
+    },
+    {
+      "check": "Apple_Fire_Blight_ANP_SynCom-snippets",
+      "exit_code": 0,
+      "output": "# 30 evidence snippets scanned across 1 files\n  MATCH      30\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Apple_Fire_Blight_ANP_SynCom.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ]
+    },
+    {
+      "check": "Apple_Fire_Blight_ANP_SynCom-rank",
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000377\",\n    \"name\": \"Apple Fire Blight A+N+P SynCom\",\n    \"score\": 60.0,\n    \"taxonomy\": 9,\n    \"connected_taxa\": 9,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 2,\n    \"downstream_edges\": 0,\n    \"interaction_evidence\": 4,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"additional_interactions\",\n      \"downstream\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Apple_Fire_Blight_ANP_SynCom.yaml\"\n  }\n]\n",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Apple_Fire_Blight_ANP_SynCom.yaml",
+        "--format",
+        "json"
+      ]
+    },
+    {
+      "check": "Apple_Fire_Blight_ANP_SynCom-history",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Apple_Fire_Blight_ANP_SynCom/2026-10-05T084242Z-codex-4f54a1.yaml"
+      ]
+    },
+    {
+      "check": "Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture-schema",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml"
+      ]
+    },
+    {
+      "check": "Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture-strict",
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture-strict.tsv\n",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture-strict.tsv",
+        "kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml"
+      ]
+    },
+    {
+      "check": "Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture-terms",
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ]
+    },
+    {
+      "check": "Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture-references-explained",
+      "exit_code": 0,
+      "output": "Validating kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ]
+    },
+    {
+      "check": "Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture-snippets",
+      "exit_code": 0,
+      "output": "# 13 evidence snippets scanned across 1 files\n  MATCH      13\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ]
+    },
+    {
+      "check": "Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture-rank",
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000451\",\n    \"name\": \"Auxenochlorella-Pseudomonas Florfenicol Phycosphere Coculture\",\n    \"score\": 65.0,\n    \"taxonomy\": 2,\n    \"connected_taxa\": 2,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 1,\n    \"downstream_edges\": 0,\n    \"interaction_evidence\": 3,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"additional_interactions\",\n      \"downstream\"\n    ],\n    \"path\": \"kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml\"\n  }\n]\n",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml",
+        "--format",
+        "json"
+      ]
+    },
+    {
+      "check": "Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture-history",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture/2026-10-05T084242Z-codex-f95a73.yaml"
+      ]
+    },
+    {
+      "check": "Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community-schema",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml"
+      ]
+    },
+    {
+      "check": "Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community-strict",
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community-strict.tsv\n",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community-strict.tsv",
+        "kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml"
+      ]
+    },
+    {
+      "check": "Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community-terms",
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ]
+    },
+    {
+      "check": "Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community-references-explained",
+      "exit_code": 0,
+      "output": "Validating kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ]
+    },
+    {
+      "check": "Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community-snippets",
+      "exit_code": 0,
+      "output": "# 15 evidence snippets scanned across 1 files\n  MATCH      14\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   1\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n   1 (1 hard)  kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml\n\n# MISMATCH/WEAK detail\n  [MISMATCH cov=0.04] kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml PMID:23828891\n      ASF 356 and 492 and C. ramosum generated more propionate...\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ]
+    },
+    {
+      "check": "Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community-rank",
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000144\",\n    \"name\": \"Altered Schaedler Flora Gnotobiotic Mouse Community\",\n    \"score\": 67.5,\n    \"taxonomy\": 4,\n    \"connected_taxa\": 4,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 4,\n    \"downstream_edges\": 0,\n    \"interaction_evidence\": 4,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"downstream\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml\"\n  }\n]\n",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml",
+        "--format",
+        "json"
+      ]
+    },
+    {
+      "check": "Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community-history",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community/2026-10-05T084243Z-codex-b9f4e2.yaml"
+      ]
+    },
+    {
+      "check": "Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium-schema",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.yaml"
+      ]
+    },
+    {
+      "check": "Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium-strict",
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium-strict.tsv\n",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium-strict.tsv",
+        "kb/communities/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.yaml"
+      ]
+    },
+    {
+      "check": "Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium-terms",
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ]
+    },
+    {
+      "check": "Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium-references-explained",
+      "exit_code": 0,
+      "output": "Validating kb/communities/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ]
+    },
+    {
+      "check": "Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium-snippets",
+      "exit_code": 0,
+      "output": "# 18 evidence snippets scanned across 1 files\n  MATCH      18\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ]
+    },
+    {
+      "check": "Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium-rank",
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000307\",\n    \"name\": \"Anabaena / MGS-1 Anaerobic-Digestion Methanogen Consortium\",\n    \"score\": 100.0,\n    \"taxonomy\": 1,\n    \"connected_taxa\": 1,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 5,\n    \"downstream_edges\": 2,\n    \"interaction_evidence\": 7,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [],\n    \"path\": \"kb/communities/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.yaml\"\n  }\n]\n",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.yaml",
+        "--format",
+        "json"
+      ]
+    },
+    {
+      "check": "Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium-history",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium/2026-10-05T084243Z-codex-b65b2f.yaml"
+      ]
+    },
+    {
+      "check": "Anammox_Bioreactor_DNRA_Destabilization_Community-schema",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Anammox_Bioreactor_DNRA_Destabilization_Community.yaml"
+      ]
+    },
+    {
+      "check": "Anammox_Bioreactor_DNRA_Destabilization_Community-strict",
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Anammox_Bioreactor_DNRA_Destabilization_Community-strict.tsv\n",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Anammox_Bioreactor_DNRA_Destabilization_Community-strict.tsv",
+        "kb/communities/Anammox_Bioreactor_DNRA_Destabilization_Community.yaml"
+      ]
+    },
+    {
+      "check": "Anammox_Bioreactor_DNRA_Destabilization_Community-terms",
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Anammox_Bioreactor_DNRA_Destabilization_Community.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ]
+    },
+    {
+      "check": "Anammox_Bioreactor_DNRA_Destabilization_Community-references-explained",
+      "exit_code": 0,
+      "output": "Validating kb/communities/Anammox_Bioreactor_DNRA_Destabilization_Community.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Anammox_Bioreactor_DNRA_Destabilization_Community.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ]
+    },
+    {
+      "check": "Anammox_Bioreactor_DNRA_Destabilization_Community-snippets",
+      "exit_code": 0,
+      "output": "# 23 evidence snippets scanned across 1 files\n  MATCH      23\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Anammox_Bioreactor_DNRA_Destabilization_Community.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ]
+    },
+    {
+      "check": "Anammox_Bioreactor_DNRA_Destabilization_Community-rank",
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000244\",\n    \"name\": \"Anammox Bioreactor DNRA Destabilization Community\",\n    \"score\": 90.0,\n    \"taxonomy\": 2,\n    \"connected_taxa\": 2,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 5,\n    \"downstream_edges\": 3,\n    \"interaction_evidence\": 7,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Anammox_Bioreactor_DNRA_Destabilization_Community.yaml\"\n  }\n]\n",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Anammox_Bioreactor_DNRA_Destabilization_Community.yaml",
+        "--format",
+        "json"
+      ]
+    },
+    {
+      "check": "Anammox_Bioreactor_DNRA_Destabilization_Community-history",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Anammox_Bioreactor_DNRA_Destabilization_Community/2026-10-05T084244Z-codex-9efb26.yaml"
+      ]
+    },
+    {
+      "check": "Anammox_Granule_Metabolic_Interaction_Community-schema",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml"
+      ]
+    },
+    {
+      "check": "Anammox_Granule_Metabolic_Interaction_Community-strict",
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Anammox_Granule_Metabolic_Interaction_Community-strict.tsv\n",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Anammox_Granule_Metabolic_Interaction_Community-strict.tsv",
+        "kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml"
+      ]
+    },
+    {
+      "check": "Anammox_Granule_Metabolic_Interaction_Community-terms",
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ]
+    },
+    {
+      "check": "Anammox_Granule_Metabolic_Interaction_Community-references-explained",
+      "exit_code": 0,
+      "output": "Validating kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ]
+    },
+    {
+      "check": "Anammox_Granule_Metabolic_Interaction_Community-snippets",
+      "exit_code": 0,
+      "output": "# 15 evidence snippets scanned across 1 files\n  MATCH      15\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ]
+    },
+    {
+      "check": "Anammox_Granule_Metabolic_Interaction_Community-rank",
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000146\",\n    \"name\": \"Anammox Granule Metabolic Interaction Community\",\n    \"score\": 97.5,\n    \"taxonomy\": 3,\n    \"connected_taxa\": 3,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 4,\n    \"downstream_edges\": 3,\n    \"interaction_evidence\": 5,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml\"\n  }\n]\n",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml",
+        "--format",
+        "json"
+      ]
+    },
+    {
+      "check": "Anammox_Granule_Metabolic_Interaction_Community-history",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Anammox_Granule_Metabolic_Interaction_Community/2026-10-05T084244Z-codex-0dd10f.yaml"
+      ]
+    },
+    {
+      "check": "Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community-schema",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.yaml"
+      ]
+    },
+    {
+      "check": "Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community-strict",
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community-strict.tsv\n",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community-strict.tsv",
+        "kb/communities/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.yaml"
+      ]
+    },
+    {
+      "check": "Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community-terms",
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ]
+    },
+    {
+      "check": "Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community-references-explained",
+      "exit_code": 0,
+      "output": "Validating kb/communities/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ]
+    },
+    {
+      "check": "Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community-snippets",
+      "exit_code": 0,
+      "output": "# 11 evidence snippets scanned across 1 files\n  MATCH      11\n  RENDERING  0\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ]
+    },
+    {
+      "check": "Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community-rank",
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000234\",\n    \"name\": \"Angelarchaeales Thermoplasmata CuMMO Soil and Sediment Community\",\n    \"score\": 74.0,\n    \"taxonomy\": 1,\n    \"connected_taxa\": 1,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 5,\n    \"downstream_edges\": 0,\n    \"interaction_evidence\": 7,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"downstream\",\n      \"metabolites_or_biological_processes\"\n    ],\n    \"path\": \"kb/communities/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.yaml\"\n  }\n]\n",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.yaml",
+        "--format",
+        "json"
+      ]
+    },
+    {
+      "check": "Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community-history",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community/2026-10-05T084244Z-codex-ef2810.yaml"
+      ]
+    },
+    {
+      "check": "Arabidopsis_Bacillus_Biocontrol_SynCom150-schema",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "kb/communities/Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml"
+      ]
+    },
+    {
+      "check": "Arabidopsis_Bacillus_Biocontrol_SynCom150-strict",
+      "exit_code": 0,
+      "output": "Validating 1 files with 1 workers; schema=src/communitymech/schema/communitymech.yaml\n\n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:   0\n  total ERROR rows:   0\n  TSV:                <temporary-output>/Arabidopsis_Bacillus_Biocontrol_SynCom150-strict.tsv\n",
+      "command": [
+        "python3",
+        "scripts/validate_strict.py",
+        "--workers",
+        "1",
+        "--out",
+        "<temporary-output>/Arabidopsis_Bacillus_Biocontrol_SynCom150-strict.tsv",
+        "kb/communities/Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml"
+      ]
+    },
+    {
+      "check": "Arabidopsis_Bacillus_Biocontrol_SynCom150-terms",
+      "exit_code": 0,
+      "output": "\u2705 Validation passed\n",
+      "command": [
+        "linkml-term-validator",
+        "validate-data",
+        "kb/communities/Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--labels"
+      ]
+    },
+    {
+      "check": "Arabidopsis_Bacillus_Biocontrol_SynCom150-references-explained",
+      "exit_code": 0,
+      "output": "Validating kb/communities/Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml against schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n",
+      "command": [
+        "linkml-reference-validator",
+        "validate",
+        "data",
+        "kb/communities/Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml",
+        "-s",
+        "src/communitymech/schema/communitymech.yaml",
+        "--config",
+        "conf/reference_validator.yaml"
+      ]
+    },
+    {
+      "check": "Arabidopsis_Bacillus_Biocontrol_SynCom150-snippets",
+      "exit_code": 0,
+      "output": "# 29 evidence snippets scanned across 1 files\n  MATCH      28\n  RENDERING  1\n  ASSEMBLED  0\n  WEAK       0\n  MISMATCH   0\n  NOCONTENT  0\n\n# Files with MISMATCH/WEAK (content present but snippet absent) \u2014 fabrication suspects\n\n# MISMATCH/WEAK detail\n\n# Files by RENDERING (faithful quote; differs from cache only by\n# punctuation/whitespace/Greek \u2014 this is what validate-references flags)\n   1  kb/communities/Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml\n\n# Top files by NOCONTENT (unverifiable; cache stub/missing)\n\n# ASSEMBLED (every part is in the source; the join is not \u2014\n# a table flattened into prose, or a quote welded from two places)\n",
+      "command": [
+        "python3",
+        "scripts/evidence_snippet_audit.py",
+        "kb/communities/Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml",
+        "--list-mismatch",
+        "--list-nocontent",
+        "--list-rendering",
+        "--list-assembled"
+      ]
+    },
+    {
+      "check": "Arabidopsis_Bacillus_Biocontrol_SynCom150-rank",
+      "exit_code": 0,
+      "output": "[\n  {\n    \"rank\": 1,\n    \"id\": \"CommunityMech:000368\",\n    \"name\": \"Arabidopsis Bacillus Biocontrol SynCom150\",\n    \"score\": 65.0,\n    \"taxonomy\": 3,\n    \"connected_taxa\": 3,\n    \"disconnected_taxa\": 0,\n    \"ecological_interactions\": 5,\n    \"downstream_edges\": 0,\n    \"interaction_evidence\": 11,\n    \"dangling_downstream\": 0,\n    \"self_downstream\": 0,\n    \"missing\": [\n      \"downstream\",\n      \"interaction_type\"\n    ],\n    \"path\": \"kb/communities/Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml\"\n  }\n]\n",
+      "command": [
+        "python3",
+        "scripts/rank_causal_graph_readiness.py",
+        "kb/communities/Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml",
+        "--format",
+        "json"
+      ]
+    },
+    {
+      "check": "Arabidopsis_Bacillus_Biocontrol_SynCom150-history",
+      "exit_code": 0,
+      "output": "No issues found\n",
+      "command": [
+        "linkml-validate",
+        "-s",
+        "src/communitymech/schema/history.yaml",
+        "--target-class",
+        "HistoryRecord",
+        "history/records/Arabidopsis_Bacillus_Biocontrol_SynCom150/2026-10-05T084410Z-codex-ba9883.yaml"
+      ]
+    },
+    {
+      "check": "graph-only-scope-and-append-only-history",
+      "exit_code": 0,
+      "output": "Original hashes match HEAD. Only graph, discussions and curation_history changed; previous curation events and the no-change record are preserved."
+    },
+    {
+      "check": "corpus-inventory-and-network-audit",
+      "exit_code": 0,
+      "output": "{\n  \"scope\": \"Every YAML under kb/communities and data/isolates; filesystem discovery includes hidden/ignored files.\",\n  \"semantic_review_rule\": \"Structural checks and readiness scores do not establish causal support. Completed reviews must match the current record SHA-256, cover every node once with a rationale, and reproduce the current edge list.\",\n  \"records\": 460,\n  \"nodes\": 1492,\n  \"edges\": 758,\n  \"records_without_nodes\": 8,\n  \"records_without_edges\": 127,\n  \"review_status_counts\": {\n    \"pending\": 431,\n    \"reviewed\": 29\n  },\n  \"structural_defects\": []\n}\n",
+      "command": [
+        "python3",
+        "reports/causal_graph_review/build_inventory.py"
+      ]
+    },
+    {
+      "check": "render",
+      "exit_code": 0,
+      "output": "\nRendering 456 communities to HTML...\n  \u2713 AMD_Acidophile_Heterotroph_Network.yaml \u2192 docs/communities/AMD_Acidophile_Heterotroph_Network.html\n  \u2713 AMD_Nitrososphaerota_Archaeal.yaml \u2192 docs/communities/AMD_Nitrososphaerota_Archaeal.html\n  \u2713 AM_AB_Chlorella_MLSS_Wastewater_Consortium.yaml \u2192 docs/communities/AM_AB_Chlorella_MLSS_Wastewater_Consortium.html\n  \u2713 ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml \u2192 docs/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.html\n  \u2713 ANME_SRB_Marine_Methane_Seep_Consortium.yaml \u2192 docs/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html\n  \u2713 Aalborg_East_Full_Scale_EBPR_Community.yaml \u2192 docs/communities/Aalborg_East_Full_Scale_EBPR_Community.html\n  \u2713 Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.yaml \u2192 docs/communities/Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.html\n  \u2713 Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment.yaml \u2192 docs/communities/Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment.html\n  \u2713 Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml \u2192 docs/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.html\n  \u2713 Acidic_Nitrification_Minimal_Consortium.yaml \u2192 docs/communities/Acidic_Nitrification_Minimal_Consortium.html\n  \u2713 Aerobic_Denitrification_Disturbance_SynCom.yaml \u2192 docs/communities/Aerobic_Denitrification_Disturbance_SynCom.html\n  \u2713 Aerobic_Denitrification_QQ_SynCom.yaml \u2192 docs/communities/Aerobic_Denitrification_QQ_SynCom.html\n  \u2713 Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml \u2192 docs/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.html\n  \u2713 Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml \u2192 docs/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.html\n  \u2713 Algal_Methanotroph_Biogas_Valorization_Coculture.yaml \u2192 docs/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.html\n  \u2713 Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml \u2192 docs/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.html\n  \u2713 Amsterdam_10Species_Gut_Invasion_SynCom.yaml \u2192 docs/communities/Amsterdam_10Species_Gut_Invasion_SynCom.html\n  \u2713 Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.yaml \u2192 docs/communities/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.html\n  \u2713 Anaerobic_Indole_Degrading_Sludge_Consortium.yaml \u2192 docs/communities/Anaerobic_Indole_Degrading_Sludge_Consortium.html\n  \u2713 Anammox_Bioreactor_DNRA_Destabilization_Community.yaml \u2192 docs/communities/Anammox_Bioreactor_DNRA_Destabilization_Community.html\n  \u2713 Anammox_Granule_Metabolic_Interaction_Community.yaml \u2192 docs/communities/Anammox_Granule_Metabolic_Interaction_Community.html\n  \u2713 Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.yaml \u2192 docs/communities/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.html\n  \u2713 Apple_Fire_Blight_ANP_SynCom.yaml \u2192 docs/communities/Apple_Fire_Blight_ANP_SynCom.html\n  \u2713 Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml \u2192 docs/communities/Arabidopsis_Bacillus_Biocontrol_SynCom150.html\n  \u2713 Arabidopsis_Coumarin_Root_SynCom.yaml \u2192 docs/communities/Arabidopsis_Coumarin_Root_SynCom.html\n  \u2713 Arabidopsis_Phyllosphere_SynCom7.yaml \u2192 docs/communities/Arabidopsis_Phyllosphere_SynCom7.html\n  \u2713 Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml \u2192 docs/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.html\n  \u2713 At_RSPHERE_SynCom.yaml \u2192 docs/communities/At_RSPHERE_SynCom.html\n  \u2713 Australian_Lead_Zinc_Polymetallic.yaml \u2192 docs/communities/Australian_Lead_Zinc_Polymetallic.html\n  \u2713 Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml \u2192 docs/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.html\n  \u2713 Avena_Rhizosphere_CrossKingdom_SIP_Community.yaml \u2192 docs/communities/Avena_Rhizosphere_CrossKingdom_SIP_Community.html\n  \u2713 Avena_Rhizosphere_Detritusphere_Niche_Succession.yaml \u2192 docs/communities/Avena_Rhizosphere_Detritusphere_Niche_Succession.html\n  \u2713 BSFL_Gut_SynCom_Bacillus_Lactobacillus_Issatchenkia.yaml \u2192 docs/communities/BSFL_Gut_SynCom_Bacillus_Lactobacillus_Issatchenkia.html\n  \u2713 Bacillales_Lignin_Degrading_LDSynCom.yaml \u2192 docs/communities/Bacillales_Lignin_Degrading_LDSynCom.html\n  \u2713 Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml \u2192 docs/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.html\n  \u2713 Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml \u2192 docs/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.html\n  \u2713 Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml \u2192 docs/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.html\n  \u2713 Bacillus_Pseudomonas_Galveston_PET_Consortium.yaml \u2192 docs/communities/Bacillus_Pseudomonas_Galveston_PET_Consortium.html\n  \u2713 Bacillus_Saccharomyces_Daqu_Spatial_Cooperation_SynCom.yaml \u2192 docs/communities/Bacillus_Saccharomyces_Daqu_Spatial_Cooperation_SynCom.html\n  \u2713 Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml \u2192 docs/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.html\n  \u2713 Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml \u2192 docs/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.html\n  \u2713 Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml \u2192 docs/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.html\n  \u2713 Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml \u2192 docs/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.html\n  \u2713 Baia_de_Todos_os_Santos_Mangrove_Alkane_Degrading_Consortium.yaml \u2192 docs/communities/Baia_de_Todos_os_Santos_Mangrove_Alkane_Degrading_Consortium.html\n  \u2713 Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml \u2192 docs/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.html\n  \u2713 Banana_Fusarium_Biocontrol_SynCom12.yaml \u2192 docs/communities/Banana_Fusarium_Biocontrol_SynCom12.html\n  \u2713 Barley_DT_Rhizosphere_SynCom.yaml \u2192 docs/communities/Barley_DT_Rhizosphere_SynCom.html\n  \u2713 Bay_Area_Sewage_SARS_CoV2_Surveillance_Community.yaml \u2192 docs/communities/Bay_Area_Sewage_SARS_CoV2_Surveillance_Community.html\n  \u2713 Bayan_Obo_REE_Tailings_Consortium.yaml \u2192 docs/communities/Bayan_Obo_REE_Tailings_Consortium.html\n  \u2713 Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml \u2192 docs/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.html\n  \u2713 Bifidobacterium_Ruminococcus_Infant_HMO_CrossFeeding.yaml \u2192 docs/communities/Bifidobacterium_Ruminococcus_Infant_HMO_CrossFeeding.html\n  \u2713 Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml \u2192 docs/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.html\n  \u2713 BioAsteroid_ISS_Chondrite_Biomining_Consortium.yaml \u2192 docs/communities/BioAsteroid_ISS_Chondrite_Biomining_Consortium.html\n  \u2713 BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml \u2192 docs/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.html\n  \u2713 BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml \u2192 docs/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.html\n  \u2713 BioModels_MODEL1806250005_Cicada_Sulcia_Hodgkinia.yaml \u2192 docs/communities/BioModels_MODEL1806250005_Cicada_Sulcia_Hodgkinia.html\n  \u2713 BioModels_MODEL2204300001_Kefir_Community_Model.yaml \u2192 docs/communities/BioModels_MODEL2204300001_Kefir_Community_Model.html\n  \u2713 BioModels_MODEL2209060002_DPigrum_SAureus_Community.yaml \u2192 docs/communities/BioModels_MODEL2209060002_DPigrum_SAureus_Community.html\n  \u2713 BioModels_MODEL2310020001_Mouse_Metaorganism_Model.yaml \u2192 docs/communities/BioModels_MODEL2310020001_Mouse_Metaorganism_Model.html\n  \u2713 BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml \u2192 docs/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.html\n  \u2713 BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml \u2192 docs/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.html\n  \u2713 BioRock_ISS_Basalt_Biomining_Consortium.yaml \u2192 docs/communities/BioRock_ISS_Basalt_Biomining_Consortium.html\n  \u2713 Bosea_Pseudomonas_Dimethachlon_Degradation_Consortium.yaml \u2192 docs/communities/Bosea_Pseudomonas_Dimethachlon_Degradation_Consortium.html\n  \u2713 Bothnian_Bay_GAC_Dependent_CIET_SAO_Consortium.yaml \u2192 docs/communities/Bothnian_Bay_GAC_Dependent_CIET_SAO_Consortium.html\n  \u2713 Brachypodium_Young_Root_Rhizosphere_EcoFAB_Community.yaml \u2192 docs/communities/Brachypodium_Young_Root_Rhizosphere_EcoFAB_Community.html\n  \u2713 Brocadia_Low_Nitrogen_Anammox_Consortium.yaml \u2192 docs/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.html\n  \u2713 Buchnera_Serratia_Cinara_Cedri_Endosymbiont_Consortium.yaml \u2192 docs/communities/Buchnera_Serratia_Cinara_Cedri_Endosymbiont_Consortium.html\n  \u2713 Burkholderia_Pseudomonas_YB2_PET_Degradation_Consortium.yaml \u2192 docs/communities/Burkholderia_Pseudomonas_YB2_PET_Degradation_Consortium.html\n  \u2713 Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml \u2192 docs/communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.html\n  \u2713 CRC_Fusobacterium_Control_SynCom.yaml \u2192 docs/communities/CRC_Fusobacterium_Control_SynCom.html\n  \u2713 Cable_Bacteria_Photosynthetic_Biofilm_Sediment.yaml \u2192 docs/communities/Cable_Bacteria_Photosynthetic_Biofilm_Sediment.html\n  \u2713 Calcium_Tomato_Bacterial_Wilt_SynCom.yaml \u2192 docs/communities/Calcium_Tomato_Bacterial_Wilt_SynCom.html\n  \u2713 Caldibacillus_Clostridium_Aerotolerant_Cellulose_Coculture.yaml \u2192 docs/communities/Caldibacillus_Clostridium_Aerotolerant_Cellulose_Coculture.html\n  \u2713 Caldicellulosiruptor_TwoSpecies_Hydrogen_Coculture.yaml \u2192 docs/communities/Caldicellulosiruptor_TwoSpecies_Hydrogen_Coculture.html\n  \u2713 California_Grassland_Precipitation_Legacy_Soil_Community.yaml \u2192 docs/communities/California_Grassland_Precipitation_Legacy_Soil_Community.html\n  \u2713 Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml \u2192 docs/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.html\n  \u2713 Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml \u2192 docs/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.html\n  \u2713 Caragana_Wheat_Drought_SynCom15.yaml \u2192 docs/communities/Caragana_Wheat_Drought_SynCom15.html\n  \u2713 Carbon_Substrate_PMSX_Biofilm_SynCom.yaml \u2192 docs/communities/Carbon_Substrate_PMSX_Biofilm_SynCom.html\n  \u2713 CeMbio_Caenorhabditis_Elegans_Microbiome.yaml \u2192 docs/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.html\n  \u2713 Cellulomonas_Rhodobacter_Cellulose_Photohydrogen_Coculture.yaml \u2192 docs/communities/Cellulomonas_Rhodobacter_Cellulose_Photohydrogen_Coculture.html\n  \u2713 Cellulose_Methane_Combinatorial_SynCom_Panel.yaml \u2192 docs/communities/Cellulose_Methane_Combinatorial_SynCom_Panel.html\n  \u2713 Cellulose_Methane_Quad_Culture_SynCom.yaml \u2192 docs/communities/Cellulose_Methane_Quad_Culture_SynCom.html\n  \u2713 Cheese_Rind_InSitu_InVitro_Model_Community.yaml \u2192 docs/communities/Cheese_Rind_InSitu_InVitro_Model_Community.html\n  \u2713 Chicken_BL6_AntiSalmonella_SynCom.yaml \u2192 docs/communities/Chicken_BL6_AntiSalmonella_SynCom.html\n  \u2713 Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml \u2192 docs/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.html\n  \u2713 Chlamydomonas_Bacterial_H2_Consortium.yaml \u2192 docs/communities/Chlamydomonas_Bacterial_H2_Consortium.html\n  \u2713 Chlamydomonas_Methylobacterium_Mutualism.yaml \u2192 docs/communities/Chlamydomonas_Methylobacterium_Mutualism.html\n  \u2713 Chlorella_Azospirillum_Synthetic_Mutualism.yaml \u2192 docs/communities/Chlorella_Azospirillum_Synthetic_Mutualism.html\n  \u2713 Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml \u2192 docs/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.html\n  \u2713 Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml \u2192 docs/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.html\n  \u2713 Chlorella_Rhizobium_Bioflocculation.yaml \u2192 docs/communities/Chlorella_Rhizobium_Bioflocculation.html\n  \u2713 Chlorella_Vulgaris_Whey_Coculture.yaml \u2192 docs/communities/Chlorella_Vulgaris_Whey_Coculture.html\n  \u2713 Chlorochromatium_Aggregatum_Phototrophic_Consortium.yaml \u2192 docs/communities/Chlorochromatium_Aggregatum_Phototrophic_Consortium.html\n  \u2713 Choysum_SynLAV_DEHP_Rhizobacterial_SynCom.yaml \u2192 docs/communities/Choysum_SynLAV_DEHP_Rhizobacterial_SynCom.html\n  \u2713 Chromium_Sulfur_Reduction_Enrichment.yaml \u2192 docs/communities/Chromium_Sulfur_Reduction_Enrichment.html\n  \u2713 Cinnamate_Degradation_Consortium.yaml \u2192 docs/communities/Cinnamate_Degradation_Consortium.html\n  \u2713 Clostridial_isoDCA_Mini_Consortium.yaml \u2192 docs/communities/Clostridial_isoDCA_Mini_Consortium.html\n  \u2713 Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture.yaml \u2192 docs/communities/Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture.html\n  \u2713 Clostridium_Autoethanogenum_Kluyveri_Syngas_Coculture.yaml \u2192 docs/communities/Clostridium_Autoethanogenum_Kluyveri_Syngas_Coculture.html\n  \u2713 Clostridium_Caldicellulosiruptor_Minimal_Medium_Coculture.yaml \u2192 docs/communities/Clostridium_Caldicellulosiruptor_Minimal_Medium_Coculture.html\n  \u2713 Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml \u2192 docs/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.html\n  \u2713 Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml \u2192 docs/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.html\n  \u2713 Clostridium_Cellulovorans_Beijerinckii_AECC_ABE_Coculture.yaml \u2192 docs/communities/Clostridium_Cellulovorans_Beijerinckii_AECC_ABE_Coculture.html\n  \u2713 Clostridium_Cellulovorans_Methanosarcina_Cellulose_Methane_Coculture.yaml \u2192 docs/communities/Clostridium_Cellulovorans_Methanosarcina_Cellulose_Methane_Coculture.html\n  \u2713 Clostridium_Cellulovorans_Rhodopseudomonas_Cellulose_Biohydrogen_Coculture.yaml \u2192 docs/communities/Clostridium_Cellulovorans_Rhodopseudomonas_Cellulose_Biohydrogen_Coculture.html\n  \u2713 Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml \u2192 docs/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.html\n  \u2713 Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml \u2192 docs/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.html\n  \u2713 Clostridium_Phytofermentans_Ecoli_Cellobiose_Biofilm_Consortium.yaml \u2192 docs/communities/Clostridium_Phytofermentans_Ecoli_Cellobiose_Biofilm_Consortium.html\n  \u2713 Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml \u2192 docs/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.html\n  \u2713 Clostridium_Thermoanaerobacter_Cellulosic_Bioethanol_Coculture.yaml \u2192 docs/communities/Clostridium_Thermoanaerobacter_Cellulosic_Bioethanol_Coculture.html\n  \u2713 Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml \u2192 docs/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.html\n  \u2713 Clostridium_Thermocellum_Saccharoperbutylacetonicum_Cellulosic_Butanol_Coculture.yaml \u2192 docs/communities/Clostridium_Thermocellum_Saccharoperbutylacetonicum_Cellulosic_Butanol_Coculture.html\n  \u2713 Coastal_Forested_Wetland_Seawater_Ion_Microcosm_Community.yaml \u2192 docs/communities/Coastal_Forested_Wetland_Seawater_Ion_Microcosm_Community.html\n  \u2713 Community_G_GenX_Biodegradation_Consortium.yaml \u2192 docs/communities/Community_G_GenX_Biodegradation_Consortium.html\n  \u2713 Composting_SynCom_Lignocellulose_Degradation_Humus.yaml \u2192 docs/communities/Composting_SynCom_Lignocellulose_Degradation_Humus.html\n  \u2713 Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium.yaml \u2192 docs/communities/Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium.html\n  \u2713 Copper_Biomining_Heap_Leach.yaml \u2192 docs/communities/Copper_Biomining_Heap_Leach.html\n  \u2713 Cordyceps_Malbranchea_Antimicrobial_Coculture.yaml \u2192 docs/communities/Cordyceps_Malbranchea_Antimicrobial_Coculture.html\n  \u2713 Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml \u2192 docs/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.html\n  \u2713 Coscinodiscus_Synthetic_Community.yaml \u2192 docs/communities/Coscinodiscus_Synthetic_Community.html\n  \u2713 Crucian_Carp_Gut_Disease_Resistance_SynCom.yaml \u2192 docs/communities/Crucian_Carp_Gut_Disease_Resistance_SynCom.html\n  \u2713 Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml \u2192 docs/communities/Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.html\n  \u2713 Cultivated_Meat_Contaminant_SynCom.yaml \u2192 docs/communities/Cultivated_Meat_Contaminant_SynCom.html\n  \u2713 Cyantraniliprole_Fahmy_Consortium_T4.yaml \u2192 docs/communities/Cyantraniliprole_Fahmy_Consortium_T4.html\n  \u2713 Cyprus_Copper_Sulphide_Bioleaching_Consortium.yaml \u2192 docs/communities/Cyprus_Copper_Sulphide_Bioleaching_Consortium.html\n  \u2713 DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml \u2192 docs/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.html\n  \u2713 DIETsimp_Lignocellulose_to_Methane_DIET_Consortia.yaml \u2192 docs/communities/DIETsimp_Lignocellulose_to_Methane_DIET_Consortia.html\n  \u2713 DVM_Triculture.yaml \u2192 docs/communities/DVM_Triculture.html\n  \u2713 Dairy_Wastewater_Algal_Cyanobacterial_Cultivation_Panel.yaml \u2192 docs/communities/Dairy_Wastewater_Algal_Cyanobacterial_Cultivation_Panel.html\n  \u2713 Dangl_SynComm_35.yaml \u2192 docs/communities/Dangl_SynComm_35.html\n  \u2713 Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml \u2192 docs/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.html\n  \u2713 Defined_Multispecies_Enamel_Caries_Model.yaml \u2192 docs/communities/Defined_Multispecies_Enamel_Caries_Model.html\n  \u2713 Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml \u2192 docs/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.html\n  \u2713 Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml \u2192 docs/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.html\n  \u2713 Dehalococcoides_Desulfovibrio_Pelosinus_Corrinoid_Triculture.yaml \u2192 docs/communities/Dehalococcoides_Desulfovibrio_Pelosinus_Corrinoid_Triculture.html\n  \u2713 Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml \u2192 docs/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.html\n  \u2713 Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml \u2192 docs/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.html\n  \u2713 Dehalococcoides_Syntrophomonas_TCE_Dechlorination_Coculture.yaml \u2192 docs/communities/Dehalococcoides_Syntrophomonas_TCE_Dechlorination_Coculture.html\n  \u2713 Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml \u2192 docs/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.html\n  \u2713 Desert_Tomato_Salt_Stress_SynCom5.yaml \u2192 docs/communities/Desert_Tomato_Salt_Stress_SynCom5.html\n  \u2713 Desulfovibrio_Methanococcus_Syntrophy.yaml \u2192 docs/communities/Desulfovibrio_Methanococcus_Syntrophy.html\n  \u2713 Desulfovibrio_Methanosarcina_Lactate_Syntrophy.yaml \u2192 docs/communities/Desulfovibrio_Methanosarcina_Lactate_Syntrophy.html\n  \u2713 Diclofenac_Activated_Sludge_Microbial_Consortium.yaml \u2192 docs/communities/Diclofenac_Activated_Sludge_Microbial_Consortium.html\n  \u2713 Dolichospermum_FBCC_A233_Xenic_Phycosphere_Community.yaml \u2192 docs/communities/Dolichospermum_FBCC_A233_Xenic_Phycosphere_Community.html\n  \u2713 Drosophila_FiveSpecies_Gnotobiotic_Gut_Microbiota.yaml \u2192 docs/communities/Drosophila_FiveSpecies_Gnotobiotic_Gut_Microbiota.html\n  \u2713 Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml \u2192 docs/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.html\n  \u2713 Dual_Bacillus_coagulans_Pseudomonas_putida_Lactic_Acid_Coculture.yaml \u2192 docs/communities/Dual_Bacillus_coagulans_Pseudomonas_putida_Lactic_Acid_Coculture.html\n  \u2713 ENIGMA_Denitrifying_SynCom.yaml \u2192 docs/communities/ENIGMA_Denitrifying_SynCom.html\n  \u2713 Early_Dental_Biofilm_FiveSpecies.yaml \u2192 docs/communities/Early_Dental_Biofilm_FiveSpecies.html\n  \u2713 East_River_Floodplain_Core_Microbiome.yaml \u2192 docs/communities/East_River_Floodplain_Core_Microbiome.html\n  \u2713 East_River_Hillslope_Riparian_Transect_Community.yaml \u2192 docs/communities/East_River_Hillslope_Riparian_Transect_Community.html\n  \u2713 EcoFAB_Ring_Trial_SynCom17.yaml \u2192 docs/communities/EcoFAB_Ring_Trial_SynCom17.html\n  \u2713 Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.yaml \u2192 docs/communities/Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.html\n  \u2713 Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml \u2192 docs/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.html\n  \u2713 Ecoli_K12_MG1655_Arg_Met_CrossFeeding_Coculture.yaml \u2192 docs/communities/Ecoli_K12_MG1655_Arg_Met_CrossFeeding_Coculture.html\n  \u2713 Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium.yaml \u2192 docs/communities/Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium.html\n  \u2713 Electrostimulated_Toluene_Methanogenic_Microbiota.yaml \u2192 docs/communities/Electrostimulated_Toluene_Methanogenic_Microbiota.html\n  \u2713 Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.yaml \u2192 docs/communities/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.html\n  \u2713 Emiliania_Phaeobacter_Dynamic_Interaction.yaml \u2192 docs/communities/Emiliania_Phaeobacter_Dynamic_Interaction.html\n  \u2713 Engineered_Gut_Amino_Acid_CrossFeeding_Consortium.yaml \u2192 docs/communities/Engineered_Gut_Amino_Acid_CrossFeeding_Consortium.html\n  \u2713 Ensifer_YF2_Sphingobacterium_Y2_Polyethylene_Degrading_Consortium.yaml \u2192 docs/communities/Ensifer_YF2_Sphingobacterium_Y2_Polyethylene_Degrading_Consortium.html\n  \u2713 Episymbiotic_CPR_DPANN_Groundwater_Community.yaml \u2192 docs/communities/Episymbiotic_CPR_DPANN_Groundwater_Community.html\n  \u2713 Eucalyptus_Nursery_FiveStrain_Inoculant_SynCom.yaml \u2192 docs/communities/Eucalyptus_Nursery_FiveStrain_Inoculant_SynCom.html\n  \u2713 Euglena_Chlorella_Microalgal_Biorefinery_Coculture.yaml \u2192 docs/communities/Euglena_Chlorella_Microalgal_Biorefinery_Coculture.html\n  \u2713 Ewaste_Bioleaching_Consortium.yaml \u2192 docs/communities/Ewaste_Bioleaching_Consortium.html\n  \u2713 FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.yaml \u2192 docs/communities/FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.html\n  \u2713 Ferroplasma_Leptospirillum_Syntrophy.yaml \u2192 docs/communities/Ferroplasma_Leptospirillum_Syntrophy.html\n  \u2713 Fomitopsis_Ecoli_Nutritional_Stress_Coculture.yaml \u2192 docs/communities/Fomitopsis_Ecoli_Nutritional_Stress_Coculture.html\n  \u2713 FourSpecies_Aerobic_Lung_Microbiome_Model.yaml \u2192 docs/communities/FourSpecies_Aerobic_Lung_Microbiome_Model.html\n  \u2713 Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml \u2192 docs/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.html\n  \u2713 GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml \u2192 docs/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.html\n  \u2713 GLBRC_Exometabolite_Transwell_SynCom.yaml \u2192 docs/communities/GLBRC_Exometabolite_Transwell_SynCom.html\n  \u2713 GLBRC_Populus_Variovorax_SynCom28.yaml \u2192 docs/communities/GLBRC_Populus_Variovorax_SynCom28.html\n  \u2713 GLBRC_UFMP_Fermentation_Community.yaml \u2192 docs/communities/GLBRC_UFMP_Fermentation_Community.html\n  \u2713 GOM_Oil_Degrading_Consortium.yaml \u2192 docs/communities/GOM_Oil_Degrading_Consortium.html\n  \u2713 Garlic_Pseudomonas_SynCom6.yaml \u2192 docs/communities/Garlic_Pseudomonas_SynCom6.html\n  \u2713 Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture.yaml \u2192 docs/communities/Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture.html\n  \u2713 Geobacter_Methanosaeta_DIET.yaml \u2192 docs/communities/Geobacter_Methanosaeta_DIET.html\n  \u2713 Geobacter_Methanosarcina_DIET.yaml \u2192 docs/communities/Geobacter_Methanosarcina_DIET.html\n  \u2713 Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.yaml \u2192 docs/communities/Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.html\n  \u2713 Ginseng_CL95_Rusty_Root_Rot_Biocontrol_SynCom.yaml \u2192 docs/communities/Ginseng_CL95_Rusty_Root_Rot_Biocontrol_SynCom.html\n  \u2713 Glutamicibacter_S11_Aquaculture_Nitrogen_Removal_SynCom.yaml \u2192 docs/communities/Glutamicibacter_S11_Aquaculture_Nitrogen_Removal_SynCom.html\n  \u2713 Grassland_Soil_WetUp_Virus_Host_Community.yaml \u2192 docs/communities/Grassland_Soil_WetUp_Virus_Host_Community.html\n  \u2713 Groundwater_Elusimicrobia_Diverse_Metabolisms.yaml \u2192 docs/communities/Groundwater_Elusimicrobia_Diverse_Metabolisms.html\n  \u2713 HAMBI_Carbon_Gradient_SynCom16.yaml \u2192 docs/communities/HAMBI_Carbon_Gradient_SynCom16.html\n  \u2713 Hanford_300_Area_Unconfined_Aquifer_Community.yaml \u2192 docs/communities/Hanford_300_Area_Unconfined_Aquifer_Community.html\n  \u2713 Hexamine_Formaldehyde_Consortium_C6.yaml \u2192 docs/communities/Hexamine_Formaldehyde_Consortium_C6.html\n  \u2713 High_Ammonia_Biogas_0B_Butyrate_Oxidizing_Enrichment.yaml \u2192 docs/communities/High_Ammonia_Biogas_0B_Butyrate_Oxidizing_Enrichment.html\n  \u2713 High_Solids_Switchgrass_Methanogenic_Microbiome.yaml \u2192 docs/communities/High_Solids_Switchgrass_Methanogenic_Microbiome.html\n  \u2713 Honeybee_Core20_Defined_Microbiota.yaml \u2192 docs/communities/Honeybee_Core20_Defined_Microbiota.html\n  \u2713 Horonobe_Mizunami_URL_Subsurface_Microbiome.yaml \u2192 docs/communities/Horonobe_Mizunami_URL_Subsurface_Microbiome.html\n  \u2713 Hualgayoc_Acidic_Sulfate_Reducing_AMD_Consortium.yaml \u2192 docs/communities/Hualgayoc_Acidic_Sulfate_Reducing_AMD_Consortium.html\n  \u2713 Human_Gut_FourMember_Proteome_Complementarity_Consortium.yaml \u2192 docs/communities/Human_Gut_FourMember_Proteome_Complementarity_Consortium.html\n  \u2713 Iberian_Pit_Lake_Stratified_Community.yaml \u2192 docs/communities/Iberian_Pit_Lake_Stratified_Community.html\n  \u2713 Industrial_Bioreactor_Consortium.yaml \u2192 docs/communities/Industrial_Bioreactor_Consortium.html\n  \u2713 Industrial_Milk_Line_FourSpecies_Model_Biofilm.yaml \u2192 docs/communities/Industrial_Milk_Line_FourSpecies_Model_Biofilm.html\n  \u2713 Infant_Gut_DNA_Phage_Succession_Community.yaml \u2192 docs/communities/Infant_Gut_DNA_Phage_Succession_Community.html\n  \u2713 Infant_Gut_Prebiotic_Response_SynCom.yaml \u2192 docs/communities/Infant_Gut_Prebiotic_Response_SynCom.html\n  \u2713 Infant_Gut_Strain_Persistence_Maternal_Community.yaml \u2192 docs/communities/Infant_Gut_Strain_Persistence_Maternal_Community.html\n  \u2713 Ion_Adsorption_REE_Indigenous_Community.yaml \u2192 docs/communities/Ion_Adsorption_REE_Indigenous_Community.html\n  \u2713 Jala_Maize_PGPB_SynCom.yaml \u2192 docs/communities/Jala_Maize_PGPB_SynCom.html\n  \u2713 Jiangshui_LAB_Directed_Fermentation_SynCom.yaml \u2192 docs/communities/Jiangshui_LAB_Directed_Fermentation_SynCom.html\n  \u2713 KB1_Chlorinated_Ethene_Dechlorinating_Consortium.yaml \u2192 docs/communities/KB1_Chlorinated_Ethene_Dechlorinating_Consortium.html\n  \u2713 KBase_Models_for_Zahmeeth_Original_PLOS.yaml \u2192 docs/communities/KBase_Models_for_Zahmeeth_Original_PLOS.html\n  \u2713 KBase_ORT_Workflow_Community_Model.yaml \u2192 docs/communities/KBase_ORT_Workflow_Community_Model.html\n  \u2713 KBase_Synthetic_Bacterial_Community_R2A.yaml \u2192 docs/communities/KBase_Synthetic_Bacterial_Community_R2A.html\n  \u2713 Kefir_Flavor_Lentilactobacillus_Kluyveromyces_Coculture.yaml \u2192 docs/communities/Kefir_Flavor_Lentilactobacillus_Kluyveromyces_Coculture.html\n  \u2713 Klebsiella_Arthrobacter_KZ_Phenanthrene_Cadmium_SynCom.yaml \u2192 docs/communities/Klebsiella_Arthrobacter_KZ_Phenanthrene_Cadmium_SynCom.html\n  \u2713 Komagataella_Ecoli_Coinducible_Biosynthesis_Coculture.yaml \u2192 docs/communities/Komagataella_Ecoli_Coinducible_Biosynthesis_Coculture.html\n  \u2713 Kombucha_KMC_IMBG1_Fermentation_Community.yaml \u2192 docs/communities/Kombucha_KMC_IMBG1_Fermentation_Community.html\n  \u2713 LBNL_Brachypodium_Drought_SynCom15.yaml \u2192 docs/communities/LBNL_Brachypodium_Drought_SynCom15.html\n  \u2713 LBNL_Human_Gut_Interaction_SynCom.yaml \u2192 docs/communities/LBNL_Human_Gut_Interaction_SynCom.html\n  \u2713 LBNL_Switchgrass_Soil_SynCom16.yaml \u2192 docs/communities/LBNL_Switchgrass_Soil_SynCom16.html\n  \u2713 Lac_Pavin_Stratified_Lake_Community.yaml \u2192 docs/communities/Lac_Pavin_Stratified_Lake_Community.html\n  \u2713 Lake_Washington_Methane_Oxygen_Methylotroph_Community.yaml \u2192 docs/communities/Lake_Washington_Methane_Oxygen_Methylotroph_Community.html\n  \u2713 Legume_Rhizobia_Mars_Simulant_Symbiosis.yaml \u2192 docs/communities/Legume_Rhizobia_Mars_Simulant_Symbiosis.html\n  \u2713 Leptolyngbya_Pseudomonas_Mangrove_Coculture.yaml \u2192 docs/communities/Leptolyngbya_Pseudomonas_Mangrove_Coculture.html\n  \u2713 Lotus_LjSC3.yaml \u2192 docs/communities/Lotus_LjSC3.html\n  \u2713 Lunar_Martian_Simulant_PGPB_Lettuce_SynCom.yaml \u2192 docs/communities/Lunar_Martian_Simulant_PGPB_Lettuce_SynCom.html\n  \u2713 Lunar_Simulant_Phosphate_Solubilizing_Bacteria_Nicotiana.yaml \u2192 docs/communities/Lunar_Simulant_Phosphate_Solubilizing_Bacteria_Nicotiana.html\n  \u2713 Lupinus_SC7_Rhizosphere_SynCom.yaml \u2192 docs/communities/Lupinus_SC7_Rhizosphere_SynCom.html\n  \u2713 MAMC_M48_Lignocellulose.yaml \u2192 docs/communities/MAMC_M48_Lignocellulose.html\n  \u2713 MSC1_Dominant_Core.yaml \u2192 docs/communities/MSC1_Dominant_Core.html\n  \u2713 MSC2_Model_Soil_Consortium.yaml \u2192 docs/communities/MSC2_Model_Soil_Consortium.html\n  \u2713 MUC2_Human_Gut_Commensal_Defined_Consortium.yaml \u2192 docs/communities/MUC2_Human_Gut_Commensal_Defined_Consortium.html\n  \u2713 MUCC_Freshwater_Wetland_Methane_Network_Community.yaml \u2192 docs/communities/MUCC_Freshwater_Wetland_Methane_Network_Community.html\n  \u2713 MWF001_FourSpecies_CrossFeeding_Consortium.yaml \u2192 docs/communities/MWF001_FourSpecies_CrossFeeding_Consortium.html\n  \u2713 Magnetite_Sulfate_Stress_Anaerobic_Microbiome.yaml \u2192 docs/communities/Magnetite_Sulfate_Stress_Anaerobic_Microbiome.html\n  \u2713 Maize_Benzoxazinoid_Metabolizing_SynComs.yaml \u2192 docs/communities/Maize_Benzoxazinoid_Metabolizing_SynComs.html\n  \u2713 Maize_Drought_Response_SynCom.yaml \u2192 docs/communities/Maize_Drought_Response_SynCom.html\n  \u2713 Maize_Root_Simplified_Community.yaml \u2192 docs/communities/Maize_Root_Simplified_Community.html\n  \u2713 Maize_SC2_RootRot_Biocontrol_SynCom.yaml \u2192 docs/communities/Maize_SC2_RootRot_Biocontrol_SynCom.html\n  \u2713 Mangrove_Benzene_MFC_Bioanode_Consortium.yaml \u2192 docs/communities/Mangrove_Benzene_MFC_Bioanode_Consortium.html\n  \u2713 Mars_Meteorite_EETA79001_Growth_Panel.yaml \u2192 docs/communities/Mars_Meteorite_EETA79001_Growth_Panel.html\n  \u2713 Mars_Regolith_Cyanobacteria_Biofertilizer_Panel.yaml \u2192 docs/communities/Mars_Regolith_Cyanobacteria_Biofertilizer_Panel.html\n  \u2713 Medicago_Nodule_Biofertilizer_SynCom.yaml \u2192 docs/communities/Medicago_Nodule_Biofertilizer_SynCom.html\n  \u2713 Mediterranean_AM_Fungal_SixSpecies_SynCom.yaml \u2192 docs/communities/Mediterranean_AM_Fungal_SixSpecies_SynCom.html\n  \u2713 Mediterranean_Grassland_qSIP_Rainfall_Community.yaml \u2192 docs/communities/Mediterranean_Grassland_qSIP_Rainfall_Community.html\n  \u2713 Meghalaya_Bacillus_Consortia_A22ED9.yaml \u2192 docs/communities/Meghalaya_Bacillus_Consortia_A22ED9.html\n  \u2713 Mercury_SFA_EFPC_Sediment_Community.yaml \u2192 docs/communities/Mercury_SFA_EFPC_Sediment_Community.html\n  \u2713 Mesorhizobium_Synechococcus_B12_Synthetic_Consortium.yaml \u2192 docs/communities/Mesorhizobium_Synechococcus_B12_Synthetic_Consortium.html\n  \u2713 Methane_MFC_Electrogenesis_Nitrogen_Fixation_Consortium.yaml \u2192 docs/communities/Methane_MFC_Electrogenesis_Nitrogen_Fixation_Consortium.html\n  \u2713 Methane_Oxidation_CrVI_Reduction_SynCom.yaml \u2192 docs/communities/Methane_Oxidation_CrVI_Reduction_SynCom.html\n  \u2713 Methylacidiphilum_Galdieria_Thermoacidophilic_Coculture.yaml \u2192 docs/communities/Methylacidiphilum_Galdieria_Thermoacidophilic_Coculture.html\n  \u2713 Methylocaldum_Cupriavidus_Methane_Acetate_Crossfeeding_Coculture.yaml \u2192 docs/communities/Methylocaldum_Cupriavidus_Methane_Acetate_Crossfeeding_Coculture.html\n  \u2713 Methylocaldum_Methyloceanibacter_Methane_Crossfeeding_Coculture.yaml \u2192 docs/communities/Methylocaldum_Methyloceanibacter_Methane_Crossfeeding_Coculture.html\n  \u2713 Methylocystis_Rhodococcus_Methane_VFA_PHBV_Coculture.yaml \u2192 docs/communities/Methylocystis_Rhodococcus_Methane_VFA_PHBV_Coculture.html\n  \u2713 Methylomicrobium_Chlorella_Methane_Sequestration_Coculture.yaml \u2192 docs/communities/Methylomicrobium_Chlorella_Methane_Sequestration_Coculture.html\n  \u2713 Methylotuvimicrobium_Synechococcus_Gas_Feedstock_Coculture.yaml \u2192 docs/communities/Methylotuvimicrobium_Synechococcus_Gas_Feedstock_Coculture.html\n  \u2713 Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml \u2192 docs/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.html\n  \u2713 Microbacterium_Terrabacter_Sulfadiazine_CrossFeeding_Coculture.yaml \u2192 docs/communities/Microbacterium_Terrabacter_Sulfadiazine_CrossFeeding_Coculture.html\n  \u2713 Microcoleus_Massilia_Cyanosphere_Urea_Mutualism.yaml \u2192 docs/communities/Microcoleus_Massilia_Cyanosphere_Urea_Mutualism.html\n  \u2713 Microhabitat_Mineral_Fungal_Bacterial_SOM_SynCom.yaml \u2192 docs/communities/Microhabitat_Mineral_Fungal_Bacterial_SOM_SynCom.html\n  \u2713 Miscanthus_REE_Tailings_Nitrogen_SynCom10.yaml \u2192 docs/communities/Miscanthus_REE_Tailings_Nitrogen_SynCom10.html\n  \u2713 Mixed_Gallium_LED_Recovery_Consortium.yaml \u2192 docs/communities/Mixed_Gallium_LED_Recovery_Consortium.html\n  \u2713 Model_Cyanobacterial_Consortia_Core_Microbiome.yaml \u2192 docs/communities/Model_Cyanobacterial_Consortia_Core_Microbiome.html\n  \u2713 Model_Lignocellulose_Formaldehyde_Crossfeeding_Community.yaml \u2192 docs/communities/Model_Lignocellulose_Formaldehyde_Crossfeeding_Community.html\n  \u2713 Moss_Microbe_Complex_Regolith_Biofertilizer.yaml \u2192 docs/communities/Moss_Microbe_Complex_Regolith_Biofertilizer.html\n  \u2713 Mucin_Glycan_MDSC_Synthetic_Gut_Community.yaml \u2192 docs/communities/Mucin_Glycan_MDSC_Synthetic_Gut_Community.html\n  \u2713 Mulberry_Distillers_Grains_Feed_Consortium.yaml \u2192 docs/communities/Mulberry_Distillers_Grains_Feed_Consortium.html\n  \u2713 Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.yaml \u2192 docs/communities/Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.html\n  \u2713 Multiomics_Corn_Straw_Degradation_SynCom.yaml \u2192 docs/communities/Multiomics_Corn_Straw_Degradation_SynCom.html\n  \u2713 Multispecies_Probiotic_MV_Luteolin_Consortium.yaml \u2192 docs/communities/Multispecies_Probiotic_MV_Luteolin_Consortium.html\n  \u2713 Mushroom_Spring_Hot_Spring_Phototrophic_Mat_Community.yaml \u2192 docs/communities/Mushroom_Spring_Hot_Spring_Phototrophic_Mat_Community.html\n  \u2713 NCycle_Bioflocculation_Model_Consortium.yaml \u2192 docs/communities/NCycle_Bioflocculation_Model_Consortium.html\n  \u2713 NDC6_Psychrotolerant_Nitrogen_Removal_SynCom.yaml \u2192 docs/communities/NDC6_Psychrotolerant_Nitrogen_Removal_SynCom.html\n  \u2713 Naica_Deep_Subsurface_Thermophilic.yaml \u2192 docs/communities/Naica_Deep_Subsurface_Thermophilic.html\n  \u2713 Nasal_SynCom_C_Bioreactor.yaml \u2192 docs/communities/Nasal_SynCom_C_Bioreactor.html\n  \u2713 Neocallimastix_Methanobrevibacter_Xylan_Coculture.yaml \u2192 docs/communities/Neocallimastix_Methanobrevibacter_Xylan_Coculture.html\n  \u2713 Ngawha_Geothermal_Mercury_Cycling_Community.yaml \u2192 docs/communities/Ngawha_Geothermal_Mercury_Cycling_Community.html\n  \u2713 Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml \u2192 docs/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.html\n  \u2713 Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml \u2192 docs/communities/Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.html\n  \u2713 OMM12_Gnotobiotic_Mouse_Gut_Community.yaml \u2192 docs/communities/OMM12_Gnotobiotic_Mouse_Gut_Community.html\n  \u2713 ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model.yaml \u2192 docs/communities/ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model.html\n  \u2713 ORNL_PMI_Populus_PD10_SynCom.yaml \u2192 docs/communities/ORNL_PMI_Populus_PD10_SynCom.html\n  \u2713 Oak_Ridge_FRC_Uranium_Nitrate_Groundwater_Community.yaml \u2192 docs/communities/Oak_Ridge_FRC_Uranium_Nitrate_Groundwater_Community.html\n  \u2713 Ogataea_Met10_Str3_Sulfur_CrossFeeding_Coculture.yaml \u2192 docs/communities/Ogataea_Met10_Str3_Sulfur_CrossFeeding_Coculture.html\n  \u2713 Okeke_Lu_Cellulolytic_Consortium.yaml \u2192 docs/communities/Okeke_Lu_Cellulolytic_Consortium.html\n  \u2713 Optimized_Rumen_Fiber_Degrading_SynCom3.yaml \u2192 docs/communities/Optimized_Rumen_Fiber_Degrading_SynCom3.html\n  \u2713 Ostreococcus_Dinoroseobacter_BVitamin_Mutualism.yaml \u2192 docs/communities/Ostreococcus_Dinoroseobacter_BVitamin_Mutualism.html\n  \u2713 PET_Artificial_FourSpecies_Degradation_Consortium.yaml \u2192 docs/communities/PET_Artificial_FourSpecies_Degradation_Consortium.html\n  \u2713 PGM_Spent_Catalyst_Bioleaching.yaml \u2192 docs/communities/PGM_Spent_Catalyst_Bioleaching.html\n  \u2713 PMI_Variovorax_Thermotolerance_Collection.yaml \u2192 docs/communities/PMI_Variovorax_Thermotolerance_Collection.html\n  \u2713 PPCP_Wastewater_Sphingopyxis_Ochrobactrum_Apiotrichum_SMC.yaml \u2192 docs/communities/PPCP_Wastewater_Sphingopyxis_Ochrobactrum_Apiotrichum_SMC.html\n  \u2713 PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml \u2192 docs/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.html\n  \u2713 PSY_Transgenic_Rice_Rhizosphere_Methane_Community.yaml \u2192 docs/communities/PSY_Transgenic_Rice_Rhizosphere_Methane_Community.html\n  \u2713 Panax_Bacillus_Serratia_RootRot_Biocontrol_SynCom.yaml \u2192 docs/communities/Panax_Bacillus_Serratia_RootRot_Biocontrol_SynCom.html\n  \u2713 Panzhihua_Vanadium_Titanium_Tailings.yaml \u2192 docs/communities/Panzhihua_Vanadium_Titanium_Tailings.html\n  \u2713 Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml \u2192 docs/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.html\n  \u2713 Parmigiano_NWS_Set2_LAB_Triculture.yaml \u2192 docs/communities/Parmigiano_NWS_Set2_LAB_Triculture.html\n  \u2713 Peanut_Seed_Bacterial_CS_SynCom.yaml \u2192 docs/communities/Peanut_Seed_Bacterial_CS_SynCom.html\n  \u2713 Pelagerythrobacter_Salinicola_PES_Pyrene_Degradation_SynCom.yaml \u2192 docs/communities/Pelagerythrobacter_Salinicola_PES_Pyrene_Degradation_SynCom.html\n  \u2713 Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml \u2192 docs/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.html\n  \u2713 Pelotomaculum_Methanothermobacter_Syntrophy.yaml \u2192 docs/communities/Pelotomaculum_Methanothermobacter_Syntrophy.html\n  \u2713 Pepper_Growth_Rhizosphere_SynCom.yaml \u2192 docs/communities/Pepper_Growth_Rhizosphere_SynCom.html\n  \u2713 Pepper_Phytophthora_SynCom5.yaml \u2192 docs/communities/Pepper_Phytophthora_SynCom5.html\n  \u2713 Phaeodactylum_Aliivibrio_Diel_Coculture.yaml \u2192 docs/communities/Phaeodactylum_Aliivibrio_Diel_Coculture.html\n  \u2713 Phenol_Carboxylation_Consortium.yaml \u2192 docs/communities/Phenol_Carboxylation_Consortium.html\n  \u2713 Phormidium_Alkaline_Consortium.yaml \u2192 docs/communities/Phormidium_Alkaline_Consortium.html\n  \u2713 Phosphitivorax_Methanoculleus_Lithosyntrophy_Phosphite_Coculture.yaml \u2192 docs/communities/Phosphitivorax_Methanoculleus_Lithosyntrophy_Phosphite_Coculture.html\n  \u2713 Phylogenetically_Diverse_Denitrifying_SynCom.yaml \u2192 docs/communities/Phylogenetically_Diverse_Denitrifying_SynCom.html\n  \u2713 Pichia_Lactiplantibacillus_CCMA_Plant_Beverage_Coculture.yaml \u2192 docs/communities/Pichia_Lactiplantibacillus_CCMA_Plant_Beverage_Coculture.html\n  \u2713 Picocystis_Activated_Sludge_Refinery_SWW_Consortium.yaml \u2192 docs/communities/Picocystis_Activated_Sludge_Refinery_SWW_Consortium.html\n  \u2713 Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml \u2192 docs/communities/Pinus_armandii_Endophytic_Biocontrol_SynCom.html\n  \u2713 Pleuromutilin_Degrading_Artificial_Consortium_5_Strain.yaml \u2192 docs/communities/Pleuromutilin_Degrading_Artificial_Consortium_5_Strain.html\n  \u2713 Polaromonas_Vanadium_Reduction_Community.yaml \u2192 docs/communities/Polaromonas_Vanadium_Reduction_Community.html\n  \u2713 Populus_Salt_Tolerant_SynComs.yaml \u2192 docs/communities/Populus_Salt_Tolerant_SynComs.html\n  \u2713 Poultry_Wastewater_ThreeStrain_Electroactive_Consortium.yaml \u2192 docs/communities/Poultry_Wastewater_ThreeStrain_Electroactive_Consortium.html\n  \u2713 Prairie_Pothole_Wetland_Sulfur_Carbon_Virus_Community.yaml \u2192 docs/communities/Prairie_Pothole_Wetland_Sulfur_Carbon_Virus_Community.html\n  \u2713 Premature_Infant_Gut_Escherichia_Diametric_Ratio_Community.yaml \u2192 docs/communities/Premature_Infant_Gut_Escherichia_Diametric_Ratio_Community.html\n  \u2713 Priestia_Pseudomonas_Rice_Arsenic_Stress_SynCom.yaml \u2192 docs/communities/Priestia_Pseudomonas_Rice_Arsenic_Stress_SynCom.html\n  \u2713 Prochlorococcus_Alteromonas_Helper_Coculture.yaml \u2192 docs/communities/Prochlorococcus_Alteromonas_Helper_Coculture.html\n  \u2713 Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml \u2192 docs/communities/Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.html\n  \u2713 Prymnesium_Parvum_B12_Limited_SynCom.yaml \u2192 docs/communities/Prymnesium_Parvum_B12_Limited_SynCom.html\n  \u2713 Pseudomonas_Acidovorax_Aniline_Degradation_SynCom.yaml \u2192 docs/communities/Pseudomonas_Acidovorax_Aniline_Degradation_SynCom.html\n  \u2713 Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom.yaml \u2192 docs/communities/Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom.html\n  \u2713 Pseudomonas_Bacillus_Waxy_Oil_Biodegradation_Consortium.yaml \u2192 docs/communities/Pseudomonas_Bacillus_Waxy_Oil_Biodegradation_Consortium.html\n  \u2713 Pseudomonas_Klebsiella_Alcaligenes_FeII_Nitrogen_Removal_SynCom.yaml \u2192 docs/communities/Pseudomonas_Klebsiella_Alcaligenes_FeII_Nitrogen_Removal_SynCom.html\n  \u2713 Pseudomonas_Paracoccus_Bifenthrin_Degradation_Consortium.yaml \u2192 docs/communities/Pseudomonas_Paracoccus_Bifenthrin_Degradation_Consortium.html\n  \u2713 Pseudomonas_Pedobacter_Social_Spreading_Coculture.yaml \u2192 docs/communities/Pseudomonas_Pedobacter_Social_Spreading_Coculture.html\n  \u2713 Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml \u2192 docs/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.html\n  \u2713 Pseudomonas_putida_PpTE_Rhodococcus_RDK17_Terephthalic_Acid_Consortium.yaml \u2192 docs/communities/Pseudomonas_putida_PpTE_Rhodococcus_RDK17_Terephthalic_Acid_Consortium.html\n  \u2713 Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.yaml \u2192 docs/communities/Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.html\n  \u2713 Pseudonitzschia_Sulfitobacter_Association.yaml \u2192 docs/communities/Pseudonitzschia_Sulfitobacter_Association.html\n  \u2713 Puer_FloralFruity_Fungal_SynCom.yaml \u2192 docs/communities/Puer_FloralFruity_Fungal_SynCom.html\n  \u2713 QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml \u2192 docs/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.html\n  \u2713 Quinoa_SCDY1_Salt_Stress_SynCom.yaml \u2192 docs/communities/Quinoa_SCDY1_Salt_Stress_SynCom.html\n  \u2713 RH1_Glyphosate_Streptomyces_Consortium.yaml \u2192 docs/communities/RH1_Glyphosate_Streptomyces_Consortium.html\n  \u2713 Rammelsberg_Cobalt_Nickel_Tailings.yaml \u2192 docs/communities/Rammelsberg_Cobalt_Nickel_Tailings.html\n  \u2713 Rhizorhabdus_Cupriavidus_BDE47_Degradation_SynCom.yaml \u2192 docs/communities/Rhizorhabdus_Cupriavidus_BDE47_Degradation_SynCom.html\n  \u2713 Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml \u2192 docs/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.html\n  \u2713 Rhodococcus_Pseudomonas_PPOW_Consortium.yaml \u2192 docs/communities/Rhodococcus_Pseudomonas_PPOW_Consortium.html\n  \u2713 Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.yaml \u2192 docs/communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.html\n  \u2713 Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture.yaml \u2192 docs/communities/Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture.html\n  \u2713 Rice_Acid_Soil_Bioinoculant_SynCom.yaml \u2192 docs/communities/Rice_Acid_Soil_Bioinoculant_SynCom.html\n  \u2713 Rice_Duckweed_Bacillus_SynCom.yaml \u2192 docs/communities/Rice_Duckweed_Bacillus_SynCom.html\n  \u2713 Rice_FSQN_Rhizosphere_Microbiome_SynCom.yaml \u2192 docs/communities/Rice_FSQN_Rhizosphere_Microbiome_SynCom.html\n  \u2713 Rice_P_Uptake_Intercropping_SynCom4.yaml \u2192 docs/communities/Rice_P_Uptake_Intercropping_SynCom4.html\n  \u2713 Richmond_Mine_AMD_Biofilm.yaml \u2192 docs/communities/Richmond_Mine_AMD_Biofilm.html\n  \u2713 Rifle_Aquifer_Bioanode_EET_Community.yaml \u2192 docs/communities/Rifle_Aquifer_Bioanode_EET_Community.html\n  \u2713 Rifle_Uranium_Reducing_Community.yaml \u2192 docs/communities/Rifle_Uranium_Reducing_Community.html\n  \u2713 Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml \u2192 docs/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.html\n  \u2713 SF356_Cellulose_Degrader.yaml \u2192 docs/communities/SF356_Cellulose_Degrader.html\n  \u2713 SIHUMIx_Human_Intestinal_Model_Community.yaml \u2192 docs/communities/SIHUMIx_Human_Intestinal_Model_Community.html\n  \u2713 SMutans_CAlbicans_ECC_Biofilm.yaml \u2192 docs/communities/SMutans_CAlbicans_ECC_Biofilm.html\n  \u2713 SMutans_SSputigena_ECC_Pathobiont.yaml \u2192 docs/communities/SMutans_SSputigena_ECC_Pathobiont.html\n  \u2713 SMutans_VParvula_ASC_Biofilm.yaml \u2192 docs/communities/SMutans_VParvula_ASC_Biofilm.html\n  \u2713 SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml \u2192 docs/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.html\n  \u2713 SPRUCE_Peatland_Methane_Cycling_Community.yaml \u2192 docs/communities/SPRUCE_Peatland_Methane_Cycling_Community.html\n  \u2713 SPRUCE_Peatland_Warming_Community.yaml \u2192 docs/communities/SPRUCE_Peatland_Warming_Community.html\n  \u2713 Saanich_Inlet_OMZ_Redox_Gradient_Community.yaml \u2192 docs/communities/Saanich_Inlet_OMZ_Redox_Gradient_Community.html\n  \u2713 Saccharomyces_Acinetobacter_Lignocellulose_Detox_Coculture.yaml \u2192 docs/communities/Saccharomyces_Acinetobacter_Lignocellulose_Detox_Coculture.html\n  \u2713 Saccharomyces_Chlamydomonas_Fungal_Algal_Mutualism.yaml \u2192 docs/communities/Saccharomyces_Chlamydomonas_Fungal_Algal_Mutualism.html\n  \u2713 Saccharomyces_Met14_Trp4_FLO1_Resveratrol_Coculture.yaml \u2192 docs/communities/Saccharomyces_Met14_Trp4_FLO1_Resveratrol_Coculture.html\n  \u2713 Salar_Atacama_Lithium_Brine_Community.yaml \u2192 docs/communities/Salar_Atacama_Lithium_Brine_Community.html\n  \u2713 Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml \u2192 docs/communities/Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.html\n  \u2713 Sedimenting_Arabinose_Glucose_Saccharomyces_Coculture.yaml \u2192 docs/communities/Sedimenting_Arabinose_Glucose_Saccharomyces_Coculture.html\n  \u2713 Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml \u2192 docs/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.html\n  \u2713 Shewanella_Denitrifying_Richness_SynComs.yaml \u2192 docs/communities/Shewanella_Denitrifying_Richness_SynComs.html\n  \u2713 Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml \u2192 docs/communities/Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.html\n  \u2713 Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml \u2192 docs/communities/Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.html\n  \u2713 Shewanella_Streptococcus_Starch_Microbial_Fuel_Cell.yaml \u2192 docs/communities/Shewanella_Streptococcus_Starch_Microbial_Fuel_Cell.html\n  \u2713 Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.yaml \u2192 docs/communities/Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.html\n  \u2713 Shrimp_Vibrio_Resistance_Gut_Enrichment_SynCom_Panel.yaml \u2192 docs/communities/Shrimp_Vibrio_Resistance_Gut_Enrichment_SynCom_Panel.html\n  \u2713 Sichuan_Shai_Vinegar_Yeast_Flavor_SynCom.yaml \u2192 docs/communities/Sichuan_Shai_Vinegar_Yeast_Flavor_SynCom.html\n  \u2713 SkinCom_Synthetic_Skin_Community.yaml \u2192 docs/communities/SkinCom_Synthetic_Skin_Community.html\n  \u2713 Soil_BGC_Phylum_Depth_Vegetation_Community.yaml \u2192 docs/communities/Soil_BGC_Phylum_Depth_Vegetation_Community.html\n  \u2713 Soil_CPR_Nanoarchaea_Rare_Biosphere_Community.yaml \u2192 docs/communities/Soil_CPR_Nanoarchaea_Rare_Biosphere_Community.html\n  \u2713 Soil_Corrinoid_B12_Reservoir_Community.yaml \u2192 docs/communities/Soil_Corrinoid_B12_Reservoir_Community.html\n  \u2713 Sorghum_SRC1_Subset.yaml \u2192 docs/communities/Sorghum_SRC1_Subset.html\n  \u2713 Sorghum_SRC2v4_Root_Colonization_SynCom.yaml \u2192 docs/communities/Sorghum_SRC2v4_Root_Colonization_SynCom.html\n  \u2713 South_Bay_Salt_Pond_Methane_Restoration_Community.yaml \u2192 docs/communities/South_Bay_Salt_Pond_Methane_Restoration_Community.html\n  \u2713 Soy_Sauce_Temporal_SevenSpecies_SynCom.yaml \u2192 docs/communities/Soy_Sauce_Temporal_SevenSpecies_SynCom.html\n  \u2713 Soybean_Chlorophyll_Selected_Biofertilizer_SynCom.yaml \u2192 docs/communities/Soybean_Chlorophyll_Selected_Biofertilizer_SynCom.html\n  \u2713 Soybean_N_Fixation_sfSynCom.yaml \u2192 docs/communities/Soybean_N_Fixation_sfSynCom.html\n  \u2713 Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml \u2192 docs/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.html\n  \u2713 Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml \u2192 docs/communities/Space_Habitat_SevenMember_Stress_Tolerance_SynCom.html\n  \u2713 Sphingobium_Nitrososphaera_Phenanthrene_Carbon_SynCom.yaml \u2192 docs/communities/Sphingobium_Nitrososphaera_Phenanthrene_Carbon_SynCom.html\n  \u2713 Sphingobium_Rhodococcus_Lignin_Dimer_Valorization_Coculture.yaml \u2192 docs/communities/Sphingobium_Rhodococcus_Lignin_Dimer_Valorization_Coculture.html\n  \u2713 Staged_Cattle_Manure_Ensifer_Bacillus_SynCom.yaml \u2192 docs/communities/Staged_Cattle_Manure_Ensifer_Bacillus_SynCom.html\n  \u2713 Staphylococcus_Candida_Context_Dependent_Biofilm_Coculture.yaml \u2192 docs/communities/Staphylococcus_Candida_Context_Dependent_Biofilm_Coculture.html\n  \u2713 Stordalen_Mire_Methylotrophic_Methanogenesis_Community.yaml \u2192 docs/communities/Stordalen_Mire_Methylotrophic_Methanogenesis_Community.html\n  \u2713 Streptomyces_A2_A5_A11_M7_Pesticide_Consortium.yaml \u2192 docs/communities/Streptomyces_A2_A5_A11_M7_Pesticide_Consortium.html\n  \u2713 Subsurface_Carboxydocella_CO_Aquifer_Community.yaml \u2192 docs/communities/Subsurface_Carboxydocella_CO_Aquifer_Community.html\n  \u2713 Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom.yaml \u2192 docs/communities/Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom.html\n  \u2713 Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml \u2192 docs/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.html\n  \u2713 SynComBac10_Chicken_Intestinal_SynCom.yaml \u2192 docs/communities/SynComBac10_Chicken_Intestinal_SynCom.html\n  \u2713 SynCom_ARC_Peanut_Aflatoxin_Nodulation.yaml \u2192 docs/communities/SynCom_ARC_Peanut_Aflatoxin_Nodulation.html\n  \u2713 SynCom_BsBv_Cigar_Tobacco_Leaf_Fermentation.yaml \u2192 docs/communities/SynCom_BsBv_Cigar_Tobacco_Leaf_Fermentation.html\n  \u2713 SynCom_Chlorella_sorokiniana_Biogas_Slurry_Coupling_System.yaml \u2192 docs/communities/SynCom_Chlorella_sorokiniana_Biogas_Slurry_Coupling_System.html\n  \u2713 SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml \u2192 docs/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.html\n  \u2713 SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation.yaml \u2192 docs/communities/SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation.html\n  \u2713 SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus.yaml \u2192 docs/communities/SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus.html\n  \u2713 SynCom_Y_Agrobacterium_Bacillus_Biofilm_Biocontrol_Coculture.yaml \u2192 docs/communities/SynCom_Y_Agrobacterium_Bacillus_Biofilm_Biocontrol_Coculture.html\n  \u2713 Synechococcus_Azotobacter_Photoproduction_Mutualism.yaml \u2192 docs/communities/Synechococcus_Azotobacter_Photoproduction_Mutualism.html\n  \u2713 Synechococcus_Bacillus_SPC.yaml \u2192 docs/communities/Synechococcus_Bacillus_SPC.html\n  \u2713 Synechococcus_Ecoli_SPC.yaml \u2192 docs/communities/Synechococcus_Ecoli_SPC.html\n  \u2713 Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml \u2192 docs/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.html\n  \u2713 Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml \u2192 docs/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.html\n  \u2713 Synechococcus_Saccharomyces_SPC.yaml \u2192 docs/communities/Synechococcus_Saccharomyces_SPC.html\n  \u2713 Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.yaml \u2192 docs/communities/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.html\n  \u2713 Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.yaml \u2192 docs/communities/Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.html\n  \u2713 Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.yaml \u2192 docs/communities/Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.html\n  \u2713 Synthetic_Periphyton_Freshwater_Biofilm.yaml \u2192 docs/communities/Synthetic_Periphyton_Freshwater_Biofilm.html\n  \u2713 Syntrophobacter_Methanobacterium_Syntrophy.yaml \u2192 docs/communities/Syntrophobacter_Methanobacterium_Syntrophy.html\n  \u2713 Syntrophobacter_Methanospirillum_Syntrophy.yaml \u2192 docs/communities/Syntrophobacter_Methanospirillum_Syntrophy.html\n  \u2713 Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.yaml \u2192 docs/communities/Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.html\n  \u2713 Syntrophomonas_Methanospirillum_Syntrophy.yaml \u2192 docs/communities/Syntrophomonas_Methanospirillum_Syntrophy.html\n  \u2713 Syntrophus_Benzoate_Degrader.yaml \u2192 docs/communities/Syntrophus_Benzoate_Degrader.html\n  \u2713 Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.yaml \u2192 docs/communities/Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.html\n  \u2713 TCP_NonDehalogenimonas_Groundwater_Consortium.yaml \u2192 docs/communities/TCP_NonDehalogenimonas_Groundwater_Consortium.html\n  \u2713 THOR_Rhizosphere_Model_Community.yaml \u2192 docs/communities/THOR_Rhizosphere_Model_Community.html\n  \u2713 TYQ1_Nematode_Biocontrol_SynCom.yaml \u2192 docs/communities/TYQ1_Nematode_Biocontrol_SynCom.html\n  \u2713 Teosinte_Maize_Biofertilizer_SynCom7.yaml \u2192 docs/communities/Teosinte_Maize_Biofertilizer_SynCom7.html\n  \u2713 Thalassiosira_Marinobacter_Marine_Snow_Coculture.yaml \u2192 docs/communities/Thalassiosira_Marinobacter_Marine_Snow_Coculture.html\n  \u2713 Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml \u2192 docs/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.html\n  \u2713 Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.yaml \u2192 docs/communities/Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.html\n  \u2713 Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml \u2192 docs/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.html\n  \u2713 Thermophilic_ExSitu_Biomethanation_Mixed_Culture.yaml \u2192 docs/communities/Thermophilic_ExSitu_Biomethanation_Mixed_Culture.html\n  \u2713 Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.yaml \u2192 docs/communities/Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.html\n  \u2713 Thermophilic_Pyrite_QS_Consortium.yaml \u2192 docs/communities/Thermophilic_Pyrite_QS_Consortium.html\n  \u2713 Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.yaml \u2192 docs/communities/Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.html\n  \u2713 Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.yaml \u2192 docs/communities/Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.html\n  \u2713 Tinto_River_Iron_Cycling_Community.yaml \u2192 docs/communities/Tinto_River_Iron_Cycling_Community.html\n  \u2713 Tobacco_Chemotactic_Biocontrol_SynCom.yaml \u2192 docs/communities/Tobacco_Chemotactic_Biocontrol_SynCom.html\n  \u2713 Tomato_Oxylipin_SynCom3.yaml \u2192 docs/communities/Tomato_Oxylipin_SynCom3.html\n  \u2713 Tribromophenol_Anaerobic_Bioremediation_SynCom.yaml \u2192 docs/communities/Tribromophenol_Anaerobic_Bioremediation_SynCom.html\n  \u2713 Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.yaml \u2192 docs/communities/Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.html\n  \u2713 Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.yaml \u2192 docs/communities/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.html\n  \u2713 Trichoderma_Lactate_Platform.yaml \u2192 docs/communities/Trichoderma_Lactate_Platform.html\n  \u2713 Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.yaml \u2192 docs/communities/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.html\n  \u2713 Trichodesmium_Alteromonas_Marine_Consortium.yaml \u2192 docs/communities/Trichodesmium_Alteromonas_Marine_Consortium.html\n  \u2713 Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.yaml \u2192 docs/communities/Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.html\n  \u2713 Urine_Nitrification_SynCom.yaml \u2192 docs/communities/Urine_Nitrification_SynCom.html\n  \u2713 Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml \u2192 docs/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.html\n  \u2713 Viili_Fungus_Bacterium_EPS_SynCom.yaml \u2192 docs/communities/Viili_Fungus_Bacterium_EPS_SynCom.html\n  \u2713 Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml \u2192 docs/communities/Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.html\n  \u2713 Watermelon_Rhizosphere_Fusarium_SynCom8.yaml \u2192 docs/communities/Watermelon_Rhizosphere_Fusarium_SynCom8.html\n  \u2713 Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.yaml \u2192 docs/communities/Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.html\n  \u2713 Wheat_Consortium_C1.yaml \u2192 docs/communities/Wheat_Consortium_C1.html\n  \u2713 Wheat_Consortium_C6.yaml \u2192 docs/communities/Wheat_Consortium_C6.html\n  \u2713 Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml \u2192 docs/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.html\n  \u2713 Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml \u2192 docs/communities/Wheat_CrownRot_TB_CrossKingdom_SynCom.html\n  \u2713 Wheat_DT_Rhizosphere_SynCom.yaml \u2192 docs/communities/Wheat_DT_Rhizosphere_SynCom.html\n  \u2713 Wheat_Straw_Biogas_Pretreatment_SynCom.yaml \u2192 docs/communities/Wheat_Straw_Biogas_Pretreatment_SynCom.html\n  \u2713 Wheat_SynCom_SASW01_Drought_Inoculant.yaml \u2192 docs/communities/Wheat_SynCom_SASW01_Drought_Inoculant.html\n  \u2713 Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.yaml \u2192 docs/communities/Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.html\n  \u2713 Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml \u2192 docs/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.html\n  \u2713 Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml \u2192 docs/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.html\n  \u2713 Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml \u2192 docs/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.html\n  \u2713 Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml \u2192 docs/communities/Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.html\n  \u2713 Yogurt_TwoSpecies_Starter_Culture.yaml \u2192 docs/communities/Yogurt_TwoSpecies_Starter_Culture.html\n  \u2713 Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml \u2192 docs/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.html\n  \u2713 hCom2_Complex_Gut_Microbiome.yaml \u2192 docs/communities/hCom2_Complex_Gut_Microbiome.html\n  \u2713 mCAFEs_Brachypodium_RCC.yaml \u2192 docs/communities/mCAFEs_Brachypodium_RCC.html\n\n\u2705 Rendered 456 communities to docs/communities\n  \u2713 Generated browser at docs/browser.html\n  \u2713 Generated landing at docs/index.html\n",
+      "command": [
+        "python3",
+        "-m",
+        "communitymech.render"
+      ]
+    },
+    {
+      "check": "render-repeat",
+      "exit_code": 0,
+      "output": "\nRendering 456 communities to HTML...\n  \u2713 AMD_Acidophile_Heterotroph_Network.yaml \u2192 docs/communities/AMD_Acidophile_Heterotroph_Network.html\n  \u2713 AMD_Nitrososphaerota_Archaeal.yaml \u2192 docs/communities/AMD_Nitrososphaerota_Archaeal.html\n  \u2713 AM_AB_Chlorella_MLSS_Wastewater_Consortium.yaml \u2192 docs/communities/AM_AB_Chlorella_MLSS_Wastewater_Consortium.html\n  \u2713 ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml \u2192 docs/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.html\n  \u2713 ANME_SRB_Marine_Methane_Seep_Consortium.yaml \u2192 docs/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html\n  \u2713 Aalborg_East_Full_Scale_EBPR_Community.yaml \u2192 docs/communities/Aalborg_East_Full_Scale_EBPR_Community.html\n  \u2713 Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.yaml \u2192 docs/communities/Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.html\n  \u2713 Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment.yaml \u2192 docs/communities/Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment.html\n  \u2713 Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml \u2192 docs/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.html\n  \u2713 Acidic_Nitrification_Minimal_Consortium.yaml \u2192 docs/communities/Acidic_Nitrification_Minimal_Consortium.html\n  \u2713 Aerobic_Denitrification_Disturbance_SynCom.yaml \u2192 docs/communities/Aerobic_Denitrification_Disturbance_SynCom.html\n  \u2713 Aerobic_Denitrification_QQ_SynCom.yaml \u2192 docs/communities/Aerobic_Denitrification_QQ_SynCom.html\n  \u2713 Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml \u2192 docs/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.html\n  \u2713 Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml \u2192 docs/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.html\n  \u2713 Algal_Methanotroph_Biogas_Valorization_Coculture.yaml \u2192 docs/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.html\n  \u2713 Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml \u2192 docs/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.html\n  \u2713 Amsterdam_10Species_Gut_Invasion_SynCom.yaml \u2192 docs/communities/Amsterdam_10Species_Gut_Invasion_SynCom.html\n  \u2713 Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.yaml \u2192 docs/communities/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.html\n  \u2713 Anaerobic_Indole_Degrading_Sludge_Consortium.yaml \u2192 docs/communities/Anaerobic_Indole_Degrading_Sludge_Consortium.html\n  \u2713 Anammox_Bioreactor_DNRA_Destabilization_Community.yaml \u2192 docs/communities/Anammox_Bioreactor_DNRA_Destabilization_Community.html\n  \u2713 Anammox_Granule_Metabolic_Interaction_Community.yaml \u2192 docs/communities/Anammox_Granule_Metabolic_Interaction_Community.html\n  \u2713 Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.yaml \u2192 docs/communities/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.html\n  \u2713 Apple_Fire_Blight_ANP_SynCom.yaml \u2192 docs/communities/Apple_Fire_Blight_ANP_SynCom.html\n  \u2713 Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml \u2192 docs/communities/Arabidopsis_Bacillus_Biocontrol_SynCom150.html\n  \u2713 Arabidopsis_Coumarin_Root_SynCom.yaml \u2192 docs/communities/Arabidopsis_Coumarin_Root_SynCom.html\n  \u2713 Arabidopsis_Phyllosphere_SynCom7.yaml \u2192 docs/communities/Arabidopsis_Phyllosphere_SynCom7.html\n  \u2713 Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml \u2192 docs/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.html\n  \u2713 At_RSPHERE_SynCom.yaml \u2192 docs/communities/At_RSPHERE_SynCom.html\n  \u2713 Australian_Lead_Zinc_Polymetallic.yaml \u2192 docs/communities/Australian_Lead_Zinc_Polymetallic.html\n  \u2713 Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml \u2192 docs/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.html\n  \u2713 Avena_Rhizosphere_CrossKingdom_SIP_Community.yaml \u2192 docs/communities/Avena_Rhizosphere_CrossKingdom_SIP_Community.html\n  \u2713 Avena_Rhizosphere_Detritusphere_Niche_Succession.yaml \u2192 docs/communities/Avena_Rhizosphere_Detritusphere_Niche_Succession.html\n  \u2713 BSFL_Gut_SynCom_Bacillus_Lactobacillus_Issatchenkia.yaml \u2192 docs/communities/BSFL_Gut_SynCom_Bacillus_Lactobacillus_Issatchenkia.html\n  \u2713 Bacillales_Lignin_Degrading_LDSynCom.yaml \u2192 docs/communities/Bacillales_Lignin_Degrading_LDSynCom.html\n  \u2713 Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml \u2192 docs/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.html\n  \u2713 Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml \u2192 docs/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.html\n  \u2713 Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml \u2192 docs/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.html\n  \u2713 Bacillus_Pseudomonas_Galveston_PET_Consortium.yaml \u2192 docs/communities/Bacillus_Pseudomonas_Galveston_PET_Consortium.html\n  \u2713 Bacillus_Saccharomyces_Daqu_Spatial_Cooperation_SynCom.yaml \u2192 docs/communities/Bacillus_Saccharomyces_Daqu_Spatial_Cooperation_SynCom.html\n  \u2713 Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml \u2192 docs/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.html\n  \u2713 Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml \u2192 docs/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.html\n  \u2713 Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml \u2192 docs/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.html\n  \u2713 Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml \u2192 docs/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.html\n  \u2713 Baia_de_Todos_os_Santos_Mangrove_Alkane_Degrading_Consortium.yaml \u2192 docs/communities/Baia_de_Todos_os_Santos_Mangrove_Alkane_Degrading_Consortium.html\n  \u2713 Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml \u2192 docs/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.html\n  \u2713 Banana_Fusarium_Biocontrol_SynCom12.yaml \u2192 docs/communities/Banana_Fusarium_Biocontrol_SynCom12.html\n  \u2713 Barley_DT_Rhizosphere_SynCom.yaml \u2192 docs/communities/Barley_DT_Rhizosphere_SynCom.html\n  \u2713 Bay_Area_Sewage_SARS_CoV2_Surveillance_Community.yaml \u2192 docs/communities/Bay_Area_Sewage_SARS_CoV2_Surveillance_Community.html\n  \u2713 Bayan_Obo_REE_Tailings_Consortium.yaml \u2192 docs/communities/Bayan_Obo_REE_Tailings_Consortium.html\n  \u2713 Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml \u2192 docs/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.html\n  \u2713 Bifidobacterium_Ruminococcus_Infant_HMO_CrossFeeding.yaml \u2192 docs/communities/Bifidobacterium_Ruminococcus_Infant_HMO_CrossFeeding.html\n  \u2713 Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml \u2192 docs/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.html\n  \u2713 BioAsteroid_ISS_Chondrite_Biomining_Consortium.yaml \u2192 docs/communities/BioAsteroid_ISS_Chondrite_Biomining_Consortium.html\n  \u2713 BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml \u2192 docs/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.html\n  \u2713 BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml \u2192 docs/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.html\n  \u2713 BioModels_MODEL1806250005_Cicada_Sulcia_Hodgkinia.yaml \u2192 docs/communities/BioModels_MODEL1806250005_Cicada_Sulcia_Hodgkinia.html\n  \u2713 BioModels_MODEL2204300001_Kefir_Community_Model.yaml \u2192 docs/communities/BioModels_MODEL2204300001_Kefir_Community_Model.html\n  \u2713 BioModels_MODEL2209060002_DPigrum_SAureus_Community.yaml \u2192 docs/communities/BioModels_MODEL2209060002_DPigrum_SAureus_Community.html\n  \u2713 BioModels_MODEL2310020001_Mouse_Metaorganism_Model.yaml \u2192 docs/communities/BioModels_MODEL2310020001_Mouse_Metaorganism_Model.html\n  \u2713 BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml \u2192 docs/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.html\n  \u2713 BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml \u2192 docs/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.html\n  \u2713 BioRock_ISS_Basalt_Biomining_Consortium.yaml \u2192 docs/communities/BioRock_ISS_Basalt_Biomining_Consortium.html\n  \u2713 Bosea_Pseudomonas_Dimethachlon_Degradation_Consortium.yaml \u2192 docs/communities/Bosea_Pseudomonas_Dimethachlon_Degradation_Consortium.html\n  \u2713 Bothnian_Bay_GAC_Dependent_CIET_SAO_Consortium.yaml \u2192 docs/communities/Bothnian_Bay_GAC_Dependent_CIET_SAO_Consortium.html\n  \u2713 Brachypodium_Young_Root_Rhizosphere_EcoFAB_Community.yaml \u2192 docs/communities/Brachypodium_Young_Root_Rhizosphere_EcoFAB_Community.html\n  \u2713 Brocadia_Low_Nitrogen_Anammox_Consortium.yaml \u2192 docs/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.html\n  \u2713 Buchnera_Serratia_Cinara_Cedri_Endosymbiont_Consortium.yaml \u2192 docs/communities/Buchnera_Serratia_Cinara_Cedri_Endosymbiont_Consortium.html\n  \u2713 Burkholderia_Pseudomonas_YB2_PET_Degradation_Consortium.yaml \u2192 docs/communities/Burkholderia_Pseudomonas_YB2_PET_Degradation_Consortium.html\n  \u2713 Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml \u2192 docs/communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.html\n  \u2713 CRC_Fusobacterium_Control_SynCom.yaml \u2192 docs/communities/CRC_Fusobacterium_Control_SynCom.html\n  \u2713 Cable_Bacteria_Photosynthetic_Biofilm_Sediment.yaml \u2192 docs/communities/Cable_Bacteria_Photosynthetic_Biofilm_Sediment.html\n  \u2713 Calcium_Tomato_Bacterial_Wilt_SynCom.yaml \u2192 docs/communities/Calcium_Tomato_Bacterial_Wilt_SynCom.html\n  \u2713 Caldibacillus_Clostridium_Aerotolerant_Cellulose_Coculture.yaml \u2192 docs/communities/Caldibacillus_Clostridium_Aerotolerant_Cellulose_Coculture.html\n  \u2713 Caldicellulosiruptor_TwoSpecies_Hydrogen_Coculture.yaml \u2192 docs/communities/Caldicellulosiruptor_TwoSpecies_Hydrogen_Coculture.html\n  \u2713 California_Grassland_Precipitation_Legacy_Soil_Community.yaml \u2192 docs/communities/California_Grassland_Precipitation_Legacy_Soil_Community.html\n  \u2713 Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml \u2192 docs/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.html\n  \u2713 Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml \u2192 docs/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.html\n  \u2713 Caragana_Wheat_Drought_SynCom15.yaml \u2192 docs/communities/Caragana_Wheat_Drought_SynCom15.html\n  \u2713 Carbon_Substrate_PMSX_Biofilm_SynCom.yaml \u2192 docs/communities/Carbon_Substrate_PMSX_Biofilm_SynCom.html\n  \u2713 CeMbio_Caenorhabditis_Elegans_Microbiome.yaml \u2192 docs/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.html\n  \u2713 Cellulomonas_Rhodobacter_Cellulose_Photohydrogen_Coculture.yaml \u2192 docs/communities/Cellulomonas_Rhodobacter_Cellulose_Photohydrogen_Coculture.html\n  \u2713 Cellulose_Methane_Combinatorial_SynCom_Panel.yaml \u2192 docs/communities/Cellulose_Methane_Combinatorial_SynCom_Panel.html\n  \u2713 Cellulose_Methane_Quad_Culture_SynCom.yaml \u2192 docs/communities/Cellulose_Methane_Quad_Culture_SynCom.html\n  \u2713 Cheese_Rind_InSitu_InVitro_Model_Community.yaml \u2192 docs/communities/Cheese_Rind_InSitu_InVitro_Model_Community.html\n  \u2713 Chicken_BL6_AntiSalmonella_SynCom.yaml \u2192 docs/communities/Chicken_BL6_AntiSalmonella_SynCom.html\n  \u2713 Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml \u2192 docs/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.html\n  \u2713 Chlamydomonas_Bacterial_H2_Consortium.yaml \u2192 docs/communities/Chlamydomonas_Bacterial_H2_Consortium.html\n  \u2713 Chlamydomonas_Methylobacterium_Mutualism.yaml \u2192 docs/communities/Chlamydomonas_Methylobacterium_Mutualism.html\n  \u2713 Chlorella_Azospirillum_Synthetic_Mutualism.yaml \u2192 docs/communities/Chlorella_Azospirillum_Synthetic_Mutualism.html\n  \u2713 Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml \u2192 docs/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.html\n  \u2713 Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml \u2192 docs/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.html\n  \u2713 Chlorella_Rhizobium_Bioflocculation.yaml \u2192 docs/communities/Chlorella_Rhizobium_Bioflocculation.html\n  \u2713 Chlorella_Vulgaris_Whey_Coculture.yaml \u2192 docs/communities/Chlorella_Vulgaris_Whey_Coculture.html\n  \u2713 Chlorochromatium_Aggregatum_Phototrophic_Consortium.yaml \u2192 docs/communities/Chlorochromatium_Aggregatum_Phototrophic_Consortium.html\n  \u2713 Choysum_SynLAV_DEHP_Rhizobacterial_SynCom.yaml \u2192 docs/communities/Choysum_SynLAV_DEHP_Rhizobacterial_SynCom.html\n  \u2713 Chromium_Sulfur_Reduction_Enrichment.yaml \u2192 docs/communities/Chromium_Sulfur_Reduction_Enrichment.html\n  \u2713 Cinnamate_Degradation_Consortium.yaml \u2192 docs/communities/Cinnamate_Degradation_Consortium.html\n  \u2713 Clostridial_isoDCA_Mini_Consortium.yaml \u2192 docs/communities/Clostridial_isoDCA_Mini_Consortium.html\n  \u2713 Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture.yaml \u2192 docs/communities/Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture.html\n  \u2713 Clostridium_Autoethanogenum_Kluyveri_Syngas_Coculture.yaml \u2192 docs/communities/Clostridium_Autoethanogenum_Kluyveri_Syngas_Coculture.html\n  \u2713 Clostridium_Caldicellulosiruptor_Minimal_Medium_Coculture.yaml \u2192 docs/communities/Clostridium_Caldicellulosiruptor_Minimal_Medium_Coculture.html\n  \u2713 Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml \u2192 docs/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.html\n  \u2713 Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml \u2192 docs/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.html\n  \u2713 Clostridium_Cellulovorans_Beijerinckii_AECC_ABE_Coculture.yaml \u2192 docs/communities/Clostridium_Cellulovorans_Beijerinckii_AECC_ABE_Coculture.html\n  \u2713 Clostridium_Cellulovorans_Methanosarcina_Cellulose_Methane_Coculture.yaml \u2192 docs/communities/Clostridium_Cellulovorans_Methanosarcina_Cellulose_Methane_Coculture.html\n  \u2713 Clostridium_Cellulovorans_Rhodopseudomonas_Cellulose_Biohydrogen_Coculture.yaml \u2192 docs/communities/Clostridium_Cellulovorans_Rhodopseudomonas_Cellulose_Biohydrogen_Coculture.html\n  \u2713 Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml \u2192 docs/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.html\n  \u2713 Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml \u2192 docs/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.html\n  \u2713 Clostridium_Phytofermentans_Ecoli_Cellobiose_Biofilm_Consortium.yaml \u2192 docs/communities/Clostridium_Phytofermentans_Ecoli_Cellobiose_Biofilm_Consortium.html\n  \u2713 Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml \u2192 docs/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.html\n  \u2713 Clostridium_Thermoanaerobacter_Cellulosic_Bioethanol_Coculture.yaml \u2192 docs/communities/Clostridium_Thermoanaerobacter_Cellulosic_Bioethanol_Coculture.html\n  \u2713 Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml \u2192 docs/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.html\n  \u2713 Clostridium_Thermocellum_Saccharoperbutylacetonicum_Cellulosic_Butanol_Coculture.yaml \u2192 docs/communities/Clostridium_Thermocellum_Saccharoperbutylacetonicum_Cellulosic_Butanol_Coculture.html\n  \u2713 Coastal_Forested_Wetland_Seawater_Ion_Microcosm_Community.yaml \u2192 docs/communities/Coastal_Forested_Wetland_Seawater_Ion_Microcosm_Community.html\n  \u2713 Community_G_GenX_Biodegradation_Consortium.yaml \u2192 docs/communities/Community_G_GenX_Biodegradation_Consortium.html\n  \u2713 Composting_SynCom_Lignocellulose_Degradation_Humus.yaml \u2192 docs/communities/Composting_SynCom_Lignocellulose_Degradation_Humus.html\n  \u2713 Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium.yaml \u2192 docs/communities/Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium.html\n  \u2713 Copper_Biomining_Heap_Leach.yaml \u2192 docs/communities/Copper_Biomining_Heap_Leach.html\n  \u2713 Cordyceps_Malbranchea_Antimicrobial_Coculture.yaml \u2192 docs/communities/Cordyceps_Malbranchea_Antimicrobial_Coculture.html\n  \u2713 Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml \u2192 docs/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.html\n  \u2713 Coscinodiscus_Synthetic_Community.yaml \u2192 docs/communities/Coscinodiscus_Synthetic_Community.html\n  \u2713 Crucian_Carp_Gut_Disease_Resistance_SynCom.yaml \u2192 docs/communities/Crucian_Carp_Gut_Disease_Resistance_SynCom.html\n  \u2713 Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml \u2192 docs/communities/Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.html\n  \u2713 Cultivated_Meat_Contaminant_SynCom.yaml \u2192 docs/communities/Cultivated_Meat_Contaminant_SynCom.html\n  \u2713 Cyantraniliprole_Fahmy_Consortium_T4.yaml \u2192 docs/communities/Cyantraniliprole_Fahmy_Consortium_T4.html\n  \u2713 Cyprus_Copper_Sulphide_Bioleaching_Consortium.yaml \u2192 docs/communities/Cyprus_Copper_Sulphide_Bioleaching_Consortium.html\n  \u2713 DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml \u2192 docs/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.html\n  \u2713 DIETsimp_Lignocellulose_to_Methane_DIET_Consortia.yaml \u2192 docs/communities/DIETsimp_Lignocellulose_to_Methane_DIET_Consortia.html\n  \u2713 DVM_Triculture.yaml \u2192 docs/communities/DVM_Triculture.html\n  \u2713 Dairy_Wastewater_Algal_Cyanobacterial_Cultivation_Panel.yaml \u2192 docs/communities/Dairy_Wastewater_Algal_Cyanobacterial_Cultivation_Panel.html\n  \u2713 Dangl_SynComm_35.yaml \u2192 docs/communities/Dangl_SynComm_35.html\n  \u2713 Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml \u2192 docs/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.html\n  \u2713 Defined_Multispecies_Enamel_Caries_Model.yaml \u2192 docs/communities/Defined_Multispecies_Enamel_Caries_Model.html\n  \u2713 Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml \u2192 docs/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.html\n  \u2713 Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml \u2192 docs/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.html\n  \u2713 Dehalococcoides_Desulfovibrio_Pelosinus_Corrinoid_Triculture.yaml \u2192 docs/communities/Dehalococcoides_Desulfovibrio_Pelosinus_Corrinoid_Triculture.html\n  \u2713 Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml \u2192 docs/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.html\n  \u2713 Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml \u2192 docs/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.html\n  \u2713 Dehalococcoides_Syntrophomonas_TCE_Dechlorination_Coculture.yaml \u2192 docs/communities/Dehalococcoides_Syntrophomonas_TCE_Dechlorination_Coculture.html\n  \u2713 Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml \u2192 docs/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.html\n  \u2713 Desert_Tomato_Salt_Stress_SynCom5.yaml \u2192 docs/communities/Desert_Tomato_Salt_Stress_SynCom5.html\n  \u2713 Desulfovibrio_Methanococcus_Syntrophy.yaml \u2192 docs/communities/Desulfovibrio_Methanococcus_Syntrophy.html\n  \u2713 Desulfovibrio_Methanosarcina_Lactate_Syntrophy.yaml \u2192 docs/communities/Desulfovibrio_Methanosarcina_Lactate_Syntrophy.html\n  \u2713 Diclofenac_Activated_Sludge_Microbial_Consortium.yaml \u2192 docs/communities/Diclofenac_Activated_Sludge_Microbial_Consortium.html\n  \u2713 Dolichospermum_FBCC_A233_Xenic_Phycosphere_Community.yaml \u2192 docs/communities/Dolichospermum_FBCC_A233_Xenic_Phycosphere_Community.html\n  \u2713 Drosophila_FiveSpecies_Gnotobiotic_Gut_Microbiota.yaml \u2192 docs/communities/Drosophila_FiveSpecies_Gnotobiotic_Gut_Microbiota.html\n  \u2713 Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml \u2192 docs/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.html\n  \u2713 Dual_Bacillus_coagulans_Pseudomonas_putida_Lactic_Acid_Coculture.yaml \u2192 docs/communities/Dual_Bacillus_coagulans_Pseudomonas_putida_Lactic_Acid_Coculture.html\n  \u2713 ENIGMA_Denitrifying_SynCom.yaml \u2192 docs/communities/ENIGMA_Denitrifying_SynCom.html\n  \u2713 Early_Dental_Biofilm_FiveSpecies.yaml \u2192 docs/communities/Early_Dental_Biofilm_FiveSpecies.html\n  \u2713 East_River_Floodplain_Core_Microbiome.yaml \u2192 docs/communities/East_River_Floodplain_Core_Microbiome.html\n  \u2713 East_River_Hillslope_Riparian_Transect_Community.yaml \u2192 docs/communities/East_River_Hillslope_Riparian_Transect_Community.html\n  \u2713 EcoFAB_Ring_Trial_SynCom17.yaml \u2192 docs/communities/EcoFAB_Ring_Trial_SynCom17.html\n  \u2713 Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.yaml \u2192 docs/communities/Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.html\n  \u2713 Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml \u2192 docs/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.html\n  \u2713 Ecoli_K12_MG1655_Arg_Met_CrossFeeding_Coculture.yaml \u2192 docs/communities/Ecoli_K12_MG1655_Arg_Met_CrossFeeding_Coculture.html\n  \u2713 Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium.yaml \u2192 docs/communities/Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium.html\n  \u2713 Electrostimulated_Toluene_Methanogenic_Microbiota.yaml \u2192 docs/communities/Electrostimulated_Toluene_Methanogenic_Microbiota.html\n  \u2713 Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.yaml \u2192 docs/communities/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.html\n  \u2713 Emiliania_Phaeobacter_Dynamic_Interaction.yaml \u2192 docs/communities/Emiliania_Phaeobacter_Dynamic_Interaction.html\n  \u2713 Engineered_Gut_Amino_Acid_CrossFeeding_Consortium.yaml \u2192 docs/communities/Engineered_Gut_Amino_Acid_CrossFeeding_Consortium.html\n  \u2713 Ensifer_YF2_Sphingobacterium_Y2_Polyethylene_Degrading_Consortium.yaml \u2192 docs/communities/Ensifer_YF2_Sphingobacterium_Y2_Polyethylene_Degrading_Consortium.html\n  \u2713 Episymbiotic_CPR_DPANN_Groundwater_Community.yaml \u2192 docs/communities/Episymbiotic_CPR_DPANN_Groundwater_Community.html\n  \u2713 Eucalyptus_Nursery_FiveStrain_Inoculant_SynCom.yaml \u2192 docs/communities/Eucalyptus_Nursery_FiveStrain_Inoculant_SynCom.html\n  \u2713 Euglena_Chlorella_Microalgal_Biorefinery_Coculture.yaml \u2192 docs/communities/Euglena_Chlorella_Microalgal_Biorefinery_Coculture.html\n  \u2713 Ewaste_Bioleaching_Consortium.yaml \u2192 docs/communities/Ewaste_Bioleaching_Consortium.html\n  \u2713 FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.yaml \u2192 docs/communities/FOS_Lactobacillus_MinimalCore_GutLiver_SynCom.html\n  \u2713 Ferroplasma_Leptospirillum_Syntrophy.yaml \u2192 docs/communities/Ferroplasma_Leptospirillum_Syntrophy.html\n  \u2713 Fomitopsis_Ecoli_Nutritional_Stress_Coculture.yaml \u2192 docs/communities/Fomitopsis_Ecoli_Nutritional_Stress_Coculture.html\n  \u2713 FourSpecies_Aerobic_Lung_Microbiome_Model.yaml \u2192 docs/communities/FourSpecies_Aerobic_Lung_Microbiome_Model.html\n  \u2713 Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml \u2192 docs/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.html\n  \u2713 GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.yaml \u2192 docs/communities/GENIA_NineMember_MultiPollutant_Bioremediation_SynCom.html\n  \u2713 GLBRC_Exometabolite_Transwell_SynCom.yaml \u2192 docs/communities/GLBRC_Exometabolite_Transwell_SynCom.html\n  \u2713 GLBRC_Populus_Variovorax_SynCom28.yaml \u2192 docs/communities/GLBRC_Populus_Variovorax_SynCom28.html\n  \u2713 GLBRC_UFMP_Fermentation_Community.yaml \u2192 docs/communities/GLBRC_UFMP_Fermentation_Community.html\n  \u2713 GOM_Oil_Degrading_Consortium.yaml \u2192 docs/communities/GOM_Oil_Degrading_Consortium.html\n  \u2713 Garlic_Pseudomonas_SynCom6.yaml \u2192 docs/communities/Garlic_Pseudomonas_SynCom6.html\n  \u2713 Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture.yaml \u2192 docs/communities/Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture.html\n  \u2713 Geobacter_Methanosaeta_DIET.yaml \u2192 docs/communities/Geobacter_Methanosaeta_DIET.html\n  \u2713 Geobacter_Methanosarcina_DIET.yaml \u2192 docs/communities/Geobacter_Methanosarcina_DIET.html\n  \u2713 Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.yaml \u2192 docs/communities/Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.html\n  \u2713 Ginseng_CL95_Rusty_Root_Rot_Biocontrol_SynCom.yaml \u2192 docs/communities/Ginseng_CL95_Rusty_Root_Rot_Biocontrol_SynCom.html\n  \u2713 Glutamicibacter_S11_Aquaculture_Nitrogen_Removal_SynCom.yaml \u2192 docs/communities/Glutamicibacter_S11_Aquaculture_Nitrogen_Removal_SynCom.html\n  \u2713 Grassland_Soil_WetUp_Virus_Host_Community.yaml \u2192 docs/communities/Grassland_Soil_WetUp_Virus_Host_Community.html\n  \u2713 Groundwater_Elusimicrobia_Diverse_Metabolisms.yaml \u2192 docs/communities/Groundwater_Elusimicrobia_Diverse_Metabolisms.html\n  \u2713 HAMBI_Carbon_Gradient_SynCom16.yaml \u2192 docs/communities/HAMBI_Carbon_Gradient_SynCom16.html\n  \u2713 Hanford_300_Area_Unconfined_Aquifer_Community.yaml \u2192 docs/communities/Hanford_300_Area_Unconfined_Aquifer_Community.html\n  \u2713 Hexamine_Formaldehyde_Consortium_C6.yaml \u2192 docs/communities/Hexamine_Formaldehyde_Consortium_C6.html\n  \u2713 High_Ammonia_Biogas_0B_Butyrate_Oxidizing_Enrichment.yaml \u2192 docs/communities/High_Ammonia_Biogas_0B_Butyrate_Oxidizing_Enrichment.html\n  \u2713 High_Solids_Switchgrass_Methanogenic_Microbiome.yaml \u2192 docs/communities/High_Solids_Switchgrass_Methanogenic_Microbiome.html\n  \u2713 Honeybee_Core20_Defined_Microbiota.yaml \u2192 docs/communities/Honeybee_Core20_Defined_Microbiota.html\n  \u2713 Horonobe_Mizunami_URL_Subsurface_Microbiome.yaml \u2192 docs/communities/Horonobe_Mizunami_URL_Subsurface_Microbiome.html\n  \u2713 Hualgayoc_Acidic_Sulfate_Reducing_AMD_Consortium.yaml \u2192 docs/communities/Hualgayoc_Acidic_Sulfate_Reducing_AMD_Consortium.html\n  \u2713 Human_Gut_FourMember_Proteome_Complementarity_Consortium.yaml \u2192 docs/communities/Human_Gut_FourMember_Proteome_Complementarity_Consortium.html\n  \u2713 Iberian_Pit_Lake_Stratified_Community.yaml \u2192 docs/communities/Iberian_Pit_Lake_Stratified_Community.html\n  \u2713 Industrial_Bioreactor_Consortium.yaml \u2192 docs/communities/Industrial_Bioreactor_Consortium.html\n  \u2713 Industrial_Milk_Line_FourSpecies_Model_Biofilm.yaml \u2192 docs/communities/Industrial_Milk_Line_FourSpecies_Model_Biofilm.html\n  \u2713 Infant_Gut_DNA_Phage_Succession_Community.yaml \u2192 docs/communities/Infant_Gut_DNA_Phage_Succession_Community.html\n  \u2713 Infant_Gut_Prebiotic_Response_SynCom.yaml \u2192 docs/communities/Infant_Gut_Prebiotic_Response_SynCom.html\n  \u2713 Infant_Gut_Strain_Persistence_Maternal_Community.yaml \u2192 docs/communities/Infant_Gut_Strain_Persistence_Maternal_Community.html\n  \u2713 Ion_Adsorption_REE_Indigenous_Community.yaml \u2192 docs/communities/Ion_Adsorption_REE_Indigenous_Community.html\n  \u2713 Jala_Maize_PGPB_SynCom.yaml \u2192 docs/communities/Jala_Maize_PGPB_SynCom.html\n  \u2713 Jiangshui_LAB_Directed_Fermentation_SynCom.yaml \u2192 docs/communities/Jiangshui_LAB_Directed_Fermentation_SynCom.html\n  \u2713 KB1_Chlorinated_Ethene_Dechlorinating_Consortium.yaml \u2192 docs/communities/KB1_Chlorinated_Ethene_Dechlorinating_Consortium.html\n  \u2713 KBase_Models_for_Zahmeeth_Original_PLOS.yaml \u2192 docs/communities/KBase_Models_for_Zahmeeth_Original_PLOS.html\n  \u2713 KBase_ORT_Workflow_Community_Model.yaml \u2192 docs/communities/KBase_ORT_Workflow_Community_Model.html\n  \u2713 KBase_Synthetic_Bacterial_Community_R2A.yaml \u2192 docs/communities/KBase_Synthetic_Bacterial_Community_R2A.html\n  \u2713 Kefir_Flavor_Lentilactobacillus_Kluyveromyces_Coculture.yaml \u2192 docs/communities/Kefir_Flavor_Lentilactobacillus_Kluyveromyces_Coculture.html\n  \u2713 Klebsiella_Arthrobacter_KZ_Phenanthrene_Cadmium_SynCom.yaml \u2192 docs/communities/Klebsiella_Arthrobacter_KZ_Phenanthrene_Cadmium_SynCom.html\n  \u2713 Komagataella_Ecoli_Coinducible_Biosynthesis_Coculture.yaml \u2192 docs/communities/Komagataella_Ecoli_Coinducible_Biosynthesis_Coculture.html\n  \u2713 Kombucha_KMC_IMBG1_Fermentation_Community.yaml \u2192 docs/communities/Kombucha_KMC_IMBG1_Fermentation_Community.html\n  \u2713 LBNL_Brachypodium_Drought_SynCom15.yaml \u2192 docs/communities/LBNL_Brachypodium_Drought_SynCom15.html\n  \u2713 LBNL_Human_Gut_Interaction_SynCom.yaml \u2192 docs/communities/LBNL_Human_Gut_Interaction_SynCom.html\n  \u2713 LBNL_Switchgrass_Soil_SynCom16.yaml \u2192 docs/communities/LBNL_Switchgrass_Soil_SynCom16.html\n  \u2713 Lac_Pavin_Stratified_Lake_Community.yaml \u2192 docs/communities/Lac_Pavin_Stratified_Lake_Community.html\n  \u2713 Lake_Washington_Methane_Oxygen_Methylotroph_Community.yaml \u2192 docs/communities/Lake_Washington_Methane_Oxygen_Methylotroph_Community.html\n  \u2713 Legume_Rhizobia_Mars_Simulant_Symbiosis.yaml \u2192 docs/communities/Legume_Rhizobia_Mars_Simulant_Symbiosis.html\n  \u2713 Leptolyngbya_Pseudomonas_Mangrove_Coculture.yaml \u2192 docs/communities/Leptolyngbya_Pseudomonas_Mangrove_Coculture.html\n  \u2713 Lotus_LjSC3.yaml \u2192 docs/communities/Lotus_LjSC3.html\n  \u2713 Lunar_Martian_Simulant_PGPB_Lettuce_SynCom.yaml \u2192 docs/communities/Lunar_Martian_Simulant_PGPB_Lettuce_SynCom.html\n  \u2713 Lunar_Simulant_Phosphate_Solubilizing_Bacteria_Nicotiana.yaml \u2192 docs/communities/Lunar_Simulant_Phosphate_Solubilizing_Bacteria_Nicotiana.html\n  \u2713 Lupinus_SC7_Rhizosphere_SynCom.yaml \u2192 docs/communities/Lupinus_SC7_Rhizosphere_SynCom.html\n  \u2713 MAMC_M48_Lignocellulose.yaml \u2192 docs/communities/MAMC_M48_Lignocellulose.html\n  \u2713 MSC1_Dominant_Core.yaml \u2192 docs/communities/MSC1_Dominant_Core.html\n  \u2713 MSC2_Model_Soil_Consortium.yaml \u2192 docs/communities/MSC2_Model_Soil_Consortium.html\n  \u2713 MUC2_Human_Gut_Commensal_Defined_Consortium.yaml \u2192 docs/communities/MUC2_Human_Gut_Commensal_Defined_Consortium.html\n  \u2713 MUCC_Freshwater_Wetland_Methane_Network_Community.yaml \u2192 docs/communities/MUCC_Freshwater_Wetland_Methane_Network_Community.html\n  \u2713 MWF001_FourSpecies_CrossFeeding_Consortium.yaml \u2192 docs/communities/MWF001_FourSpecies_CrossFeeding_Consortium.html\n  \u2713 Magnetite_Sulfate_Stress_Anaerobic_Microbiome.yaml \u2192 docs/communities/Magnetite_Sulfate_Stress_Anaerobic_Microbiome.html\n  \u2713 Maize_Benzoxazinoid_Metabolizing_SynComs.yaml \u2192 docs/communities/Maize_Benzoxazinoid_Metabolizing_SynComs.html\n  \u2713 Maize_Drought_Response_SynCom.yaml \u2192 docs/communities/Maize_Drought_Response_SynCom.html\n  \u2713 Maize_Root_Simplified_Community.yaml \u2192 docs/communities/Maize_Root_Simplified_Community.html\n  \u2713 Maize_SC2_RootRot_Biocontrol_SynCom.yaml \u2192 docs/communities/Maize_SC2_RootRot_Biocontrol_SynCom.html\n  \u2713 Mangrove_Benzene_MFC_Bioanode_Consortium.yaml \u2192 docs/communities/Mangrove_Benzene_MFC_Bioanode_Consortium.html\n  \u2713 Mars_Meteorite_EETA79001_Growth_Panel.yaml \u2192 docs/communities/Mars_Meteorite_EETA79001_Growth_Panel.html\n  \u2713 Mars_Regolith_Cyanobacteria_Biofertilizer_Panel.yaml \u2192 docs/communities/Mars_Regolith_Cyanobacteria_Biofertilizer_Panel.html\n  \u2713 Medicago_Nodule_Biofertilizer_SynCom.yaml \u2192 docs/communities/Medicago_Nodule_Biofertilizer_SynCom.html\n  \u2713 Mediterranean_AM_Fungal_SixSpecies_SynCom.yaml \u2192 docs/communities/Mediterranean_AM_Fungal_SixSpecies_SynCom.html\n  \u2713 Mediterranean_Grassland_qSIP_Rainfall_Community.yaml \u2192 docs/communities/Mediterranean_Grassland_qSIP_Rainfall_Community.html\n  \u2713 Meghalaya_Bacillus_Consortia_A22ED9.yaml \u2192 docs/communities/Meghalaya_Bacillus_Consortia_A22ED9.html\n  \u2713 Mercury_SFA_EFPC_Sediment_Community.yaml \u2192 docs/communities/Mercury_SFA_EFPC_Sediment_Community.html\n  \u2713 Mesorhizobium_Synechococcus_B12_Synthetic_Consortium.yaml \u2192 docs/communities/Mesorhizobium_Synechococcus_B12_Synthetic_Consortium.html\n  \u2713 Methane_MFC_Electrogenesis_Nitrogen_Fixation_Consortium.yaml \u2192 docs/communities/Methane_MFC_Electrogenesis_Nitrogen_Fixation_Consortium.html\n  \u2713 Methane_Oxidation_CrVI_Reduction_SynCom.yaml \u2192 docs/communities/Methane_Oxidation_CrVI_Reduction_SynCom.html\n  \u2713 Methylacidiphilum_Galdieria_Thermoacidophilic_Coculture.yaml \u2192 docs/communities/Methylacidiphilum_Galdieria_Thermoacidophilic_Coculture.html\n  \u2713 Methylocaldum_Cupriavidus_Methane_Acetate_Crossfeeding_Coculture.yaml \u2192 docs/communities/Methylocaldum_Cupriavidus_Methane_Acetate_Crossfeeding_Coculture.html\n  \u2713 Methylocaldum_Methyloceanibacter_Methane_Crossfeeding_Coculture.yaml \u2192 docs/communities/Methylocaldum_Methyloceanibacter_Methane_Crossfeeding_Coculture.html\n  \u2713 Methylocystis_Rhodococcus_Methane_VFA_PHBV_Coculture.yaml \u2192 docs/communities/Methylocystis_Rhodococcus_Methane_VFA_PHBV_Coculture.html\n  \u2713 Methylomicrobium_Chlorella_Methane_Sequestration_Coculture.yaml \u2192 docs/communities/Methylomicrobium_Chlorella_Methane_Sequestration_Coculture.html\n  \u2713 Methylotuvimicrobium_Synechococcus_Gas_Feedstock_Coculture.yaml \u2192 docs/communities/Methylotuvimicrobium_Synechococcus_Gas_Feedstock_Coculture.html\n  \u2713 Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml \u2192 docs/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.html\n  \u2713 Microbacterium_Terrabacter_Sulfadiazine_CrossFeeding_Coculture.yaml \u2192 docs/communities/Microbacterium_Terrabacter_Sulfadiazine_CrossFeeding_Coculture.html\n  \u2713 Microcoleus_Massilia_Cyanosphere_Urea_Mutualism.yaml \u2192 docs/communities/Microcoleus_Massilia_Cyanosphere_Urea_Mutualism.html\n  \u2713 Microhabitat_Mineral_Fungal_Bacterial_SOM_SynCom.yaml \u2192 docs/communities/Microhabitat_Mineral_Fungal_Bacterial_SOM_SynCom.html\n  \u2713 Miscanthus_REE_Tailings_Nitrogen_SynCom10.yaml \u2192 docs/communities/Miscanthus_REE_Tailings_Nitrogen_SynCom10.html\n  \u2713 Mixed_Gallium_LED_Recovery_Consortium.yaml \u2192 docs/communities/Mixed_Gallium_LED_Recovery_Consortium.html\n  \u2713 Model_Cyanobacterial_Consortia_Core_Microbiome.yaml \u2192 docs/communities/Model_Cyanobacterial_Consortia_Core_Microbiome.html\n  \u2713 Model_Lignocellulose_Formaldehyde_Crossfeeding_Community.yaml \u2192 docs/communities/Model_Lignocellulose_Formaldehyde_Crossfeeding_Community.html\n  \u2713 Moss_Microbe_Complex_Regolith_Biofertilizer.yaml \u2192 docs/communities/Moss_Microbe_Complex_Regolith_Biofertilizer.html\n  \u2713 Mucin_Glycan_MDSC_Synthetic_Gut_Community.yaml \u2192 docs/communities/Mucin_Glycan_MDSC_Synthetic_Gut_Community.html\n  \u2713 Mulberry_Distillers_Grains_Feed_Consortium.yaml \u2192 docs/communities/Mulberry_Distillers_Grains_Feed_Consortium.html\n  \u2713 Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.yaml \u2192 docs/communities/Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.html\n  \u2713 Multiomics_Corn_Straw_Degradation_SynCom.yaml \u2192 docs/communities/Multiomics_Corn_Straw_Degradation_SynCom.html\n  \u2713 Multispecies_Probiotic_MV_Luteolin_Consortium.yaml \u2192 docs/communities/Multispecies_Probiotic_MV_Luteolin_Consortium.html\n  \u2713 Mushroom_Spring_Hot_Spring_Phototrophic_Mat_Community.yaml \u2192 docs/communities/Mushroom_Spring_Hot_Spring_Phototrophic_Mat_Community.html\n  \u2713 NCycle_Bioflocculation_Model_Consortium.yaml \u2192 docs/communities/NCycle_Bioflocculation_Model_Consortium.html\n  \u2713 NDC6_Psychrotolerant_Nitrogen_Removal_SynCom.yaml \u2192 docs/communities/NDC6_Psychrotolerant_Nitrogen_Removal_SynCom.html\n  \u2713 Naica_Deep_Subsurface_Thermophilic.yaml \u2192 docs/communities/Naica_Deep_Subsurface_Thermophilic.html\n  \u2713 Nasal_SynCom_C_Bioreactor.yaml \u2192 docs/communities/Nasal_SynCom_C_Bioreactor.html\n  \u2713 Neocallimastix_Methanobrevibacter_Xylan_Coculture.yaml \u2192 docs/communities/Neocallimastix_Methanobrevibacter_Xylan_Coculture.html\n  \u2713 Ngawha_Geothermal_Mercury_Cycling_Community.yaml \u2192 docs/communities/Ngawha_Geothermal_Mercury_Cycling_Community.html\n  \u2713 Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.yaml \u2192 docs/communities/Nitratireductor_Gordonia_Z123_LDPE_Degradation_SynCom.html\n  \u2713 Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml \u2192 docs/communities/Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.html\n  \u2713 OMM12_Gnotobiotic_Mouse_Gut_Community.yaml \u2192 docs/communities/OMM12_Gnotobiotic_Mouse_Gut_Community.html\n  \u2713 ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model.yaml \u2192 docs/communities/ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model.html\n  \u2713 ORNL_PMI_Populus_PD10_SynCom.yaml \u2192 docs/communities/ORNL_PMI_Populus_PD10_SynCom.html\n  \u2713 Oak_Ridge_FRC_Uranium_Nitrate_Groundwater_Community.yaml \u2192 docs/communities/Oak_Ridge_FRC_Uranium_Nitrate_Groundwater_Community.html\n  \u2713 Ogataea_Met10_Str3_Sulfur_CrossFeeding_Coculture.yaml \u2192 docs/communities/Ogataea_Met10_Str3_Sulfur_CrossFeeding_Coculture.html\n  \u2713 Okeke_Lu_Cellulolytic_Consortium.yaml \u2192 docs/communities/Okeke_Lu_Cellulolytic_Consortium.html\n  \u2713 Optimized_Rumen_Fiber_Degrading_SynCom3.yaml \u2192 docs/communities/Optimized_Rumen_Fiber_Degrading_SynCom3.html\n  \u2713 Ostreococcus_Dinoroseobacter_BVitamin_Mutualism.yaml \u2192 docs/communities/Ostreococcus_Dinoroseobacter_BVitamin_Mutualism.html\n  \u2713 PET_Artificial_FourSpecies_Degradation_Consortium.yaml \u2192 docs/communities/PET_Artificial_FourSpecies_Degradation_Consortium.html\n  \u2713 PGM_Spent_Catalyst_Bioleaching.yaml \u2192 docs/communities/PGM_Spent_Catalyst_Bioleaching.html\n  \u2713 PMI_Variovorax_Thermotolerance_Collection.yaml \u2192 docs/communities/PMI_Variovorax_Thermotolerance_Collection.html\n  \u2713 PPCP_Wastewater_Sphingopyxis_Ochrobactrum_Apiotrichum_SMC.yaml \u2192 docs/communities/PPCP_Wastewater_Sphingopyxis_Ochrobactrum_Apiotrichum_SMC.html\n  \u2713 PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml \u2192 docs/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.html\n  \u2713 PSY_Transgenic_Rice_Rhizosphere_Methane_Community.yaml \u2192 docs/communities/PSY_Transgenic_Rice_Rhizosphere_Methane_Community.html\n  \u2713 Panax_Bacillus_Serratia_RootRot_Biocontrol_SynCom.yaml \u2192 docs/communities/Panax_Bacillus_Serratia_RootRot_Biocontrol_SynCom.html\n  \u2713 Panzhihua_Vanadium_Titanium_Tailings.yaml \u2192 docs/communities/Panzhihua_Vanadium_Titanium_Tailings.html\n  \u2713 Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml \u2192 docs/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.html\n  \u2713 Parmigiano_NWS_Set2_LAB_Triculture.yaml \u2192 docs/communities/Parmigiano_NWS_Set2_LAB_Triculture.html\n  \u2713 Peanut_Seed_Bacterial_CS_SynCom.yaml \u2192 docs/communities/Peanut_Seed_Bacterial_CS_SynCom.html\n  \u2713 Pelagerythrobacter_Salinicola_PES_Pyrene_Degradation_SynCom.yaml \u2192 docs/communities/Pelagerythrobacter_Salinicola_PES_Pyrene_Degradation_SynCom.html\n  \u2713 Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml \u2192 docs/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.html\n  \u2713 Pelotomaculum_Methanothermobacter_Syntrophy.yaml \u2192 docs/communities/Pelotomaculum_Methanothermobacter_Syntrophy.html\n  \u2713 Pepper_Growth_Rhizosphere_SynCom.yaml \u2192 docs/communities/Pepper_Growth_Rhizosphere_SynCom.html\n  \u2713 Pepper_Phytophthora_SynCom5.yaml \u2192 docs/communities/Pepper_Phytophthora_SynCom5.html\n  \u2713 Phaeodactylum_Aliivibrio_Diel_Coculture.yaml \u2192 docs/communities/Phaeodactylum_Aliivibrio_Diel_Coculture.html\n  \u2713 Phenol_Carboxylation_Consortium.yaml \u2192 docs/communities/Phenol_Carboxylation_Consortium.html\n  \u2713 Phormidium_Alkaline_Consortium.yaml \u2192 docs/communities/Phormidium_Alkaline_Consortium.html\n  \u2713 Phosphitivorax_Methanoculleus_Lithosyntrophy_Phosphite_Coculture.yaml \u2192 docs/communities/Phosphitivorax_Methanoculleus_Lithosyntrophy_Phosphite_Coculture.html\n  \u2713 Phylogenetically_Diverse_Denitrifying_SynCom.yaml \u2192 docs/communities/Phylogenetically_Diverse_Denitrifying_SynCom.html\n  \u2713 Pichia_Lactiplantibacillus_CCMA_Plant_Beverage_Coculture.yaml \u2192 docs/communities/Pichia_Lactiplantibacillus_CCMA_Plant_Beverage_Coculture.html\n  \u2713 Picocystis_Activated_Sludge_Refinery_SWW_Consortium.yaml \u2192 docs/communities/Picocystis_Activated_Sludge_Refinery_SWW_Consortium.html\n  \u2713 Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml \u2192 docs/communities/Pinus_armandii_Endophytic_Biocontrol_SynCom.html\n  \u2713 Pleuromutilin_Degrading_Artificial_Consortium_5_Strain.yaml \u2192 docs/communities/Pleuromutilin_Degrading_Artificial_Consortium_5_Strain.html\n  \u2713 Polaromonas_Vanadium_Reduction_Community.yaml \u2192 docs/communities/Polaromonas_Vanadium_Reduction_Community.html\n  \u2713 Populus_Salt_Tolerant_SynComs.yaml \u2192 docs/communities/Populus_Salt_Tolerant_SynComs.html\n  \u2713 Poultry_Wastewater_ThreeStrain_Electroactive_Consortium.yaml \u2192 docs/communities/Poultry_Wastewater_ThreeStrain_Electroactive_Consortium.html\n  \u2713 Prairie_Pothole_Wetland_Sulfur_Carbon_Virus_Community.yaml \u2192 docs/communities/Prairie_Pothole_Wetland_Sulfur_Carbon_Virus_Community.html\n  \u2713 Premature_Infant_Gut_Escherichia_Diametric_Ratio_Community.yaml \u2192 docs/communities/Premature_Infant_Gut_Escherichia_Diametric_Ratio_Community.html\n  \u2713 Priestia_Pseudomonas_Rice_Arsenic_Stress_SynCom.yaml \u2192 docs/communities/Priestia_Pseudomonas_Rice_Arsenic_Stress_SynCom.html\n  \u2713 Prochlorococcus_Alteromonas_Helper_Coculture.yaml \u2192 docs/communities/Prochlorococcus_Alteromonas_Helper_Coculture.html\n  \u2713 Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml \u2192 docs/communities/Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.html\n  \u2713 Prymnesium_Parvum_B12_Limited_SynCom.yaml \u2192 docs/communities/Prymnesium_Parvum_B12_Limited_SynCom.html\n  \u2713 Pseudomonas_Acidovorax_Aniline_Degradation_SynCom.yaml \u2192 docs/communities/Pseudomonas_Acidovorax_Aniline_Degradation_SynCom.html\n  \u2713 Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom.yaml \u2192 docs/communities/Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom.html\n  \u2713 Pseudomonas_Bacillus_Waxy_Oil_Biodegradation_Consortium.yaml \u2192 docs/communities/Pseudomonas_Bacillus_Waxy_Oil_Biodegradation_Consortium.html\n  \u2713 Pseudomonas_Klebsiella_Alcaligenes_FeII_Nitrogen_Removal_SynCom.yaml \u2192 docs/communities/Pseudomonas_Klebsiella_Alcaligenes_FeII_Nitrogen_Removal_SynCom.html\n  \u2713 Pseudomonas_Paracoccus_Bifenthrin_Degradation_Consortium.yaml \u2192 docs/communities/Pseudomonas_Paracoccus_Bifenthrin_Degradation_Consortium.html\n  \u2713 Pseudomonas_Pedobacter_Social_Spreading_Coculture.yaml \u2192 docs/communities/Pseudomonas_Pedobacter_Social_Spreading_Coculture.html\n  \u2713 Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml \u2192 docs/communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.html\n  \u2713 Pseudomonas_putida_PpTE_Rhodococcus_RDK17_Terephthalic_Acid_Consortium.yaml \u2192 docs/communities/Pseudomonas_putida_PpTE_Rhodococcus_RDK17_Terephthalic_Acid_Consortium.html\n  \u2713 Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.yaml \u2192 docs/communities/Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.html\n  \u2713 Pseudonitzschia_Sulfitobacter_Association.yaml \u2192 docs/communities/Pseudonitzschia_Sulfitobacter_Association.html\n  \u2713 Puer_FloralFruity_Fungal_SynCom.yaml \u2192 docs/communities/Puer_FloralFruity_Fungal_SynCom.html\n  \u2713 QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.yaml \u2192 docs/communities/QY2S1_Dehalogenimonas_BFR_Bioremediation_Consortium.html\n  \u2713 Quinoa_SCDY1_Salt_Stress_SynCom.yaml \u2192 docs/communities/Quinoa_SCDY1_Salt_Stress_SynCom.html\n  \u2713 RH1_Glyphosate_Streptomyces_Consortium.yaml \u2192 docs/communities/RH1_Glyphosate_Streptomyces_Consortium.html\n  \u2713 Rammelsberg_Cobalt_Nickel_Tailings.yaml \u2192 docs/communities/Rammelsberg_Cobalt_Nickel_Tailings.html\n  \u2713 Rhizorhabdus_Cupriavidus_BDE47_Degradation_SynCom.yaml \u2192 docs/communities/Rhizorhabdus_Cupriavidus_BDE47_Degradation_SynCom.html\n  \u2713 Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml \u2192 docs/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.html\n  \u2713 Rhodococcus_Pseudomonas_PPOW_Consortium.yaml \u2192 docs/communities/Rhodococcus_Pseudomonas_PPOW_Consortium.html\n  \u2713 Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.yaml \u2192 docs/communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.html\n  \u2713 Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture.yaml \u2192 docs/communities/Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture.html\n  \u2713 Rice_Acid_Soil_Bioinoculant_SynCom.yaml \u2192 docs/communities/Rice_Acid_Soil_Bioinoculant_SynCom.html\n  \u2713 Rice_Duckweed_Bacillus_SynCom.yaml \u2192 docs/communities/Rice_Duckweed_Bacillus_SynCom.html\n  \u2713 Rice_FSQN_Rhizosphere_Microbiome_SynCom.yaml \u2192 docs/communities/Rice_FSQN_Rhizosphere_Microbiome_SynCom.html\n  \u2713 Rice_P_Uptake_Intercropping_SynCom4.yaml \u2192 docs/communities/Rice_P_Uptake_Intercropping_SynCom4.html\n  \u2713 Richmond_Mine_AMD_Biofilm.yaml \u2192 docs/communities/Richmond_Mine_AMD_Biofilm.html\n  \u2713 Rifle_Aquifer_Bioanode_EET_Community.yaml \u2192 docs/communities/Rifle_Aquifer_Bioanode_EET_Community.html\n  \u2713 Rifle_Uranium_Reducing_Community.yaml \u2192 docs/communities/Rifle_Uranium_Reducing_Community.html\n  \u2713 Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.yaml \u2192 docs/communities/Rumen_Substrate_Adapted_Lignocellulose_Enrichment_Consortia.html\n  \u2713 SF356_Cellulose_Degrader.yaml \u2192 docs/communities/SF356_Cellulose_Degrader.html\n  \u2713 SIHUMIx_Human_Intestinal_Model_Community.yaml \u2192 docs/communities/SIHUMIx_Human_Intestinal_Model_Community.html\n  \u2713 SMutans_CAlbicans_ECC_Biofilm.yaml \u2192 docs/communities/SMutans_CAlbicans_ECC_Biofilm.html\n  \u2713 SMutans_SSputigena_ECC_Pathobiont.yaml \u2192 docs/communities/SMutans_SSputigena_ECC_Pathobiont.html\n  \u2713 SMutans_VParvula_ASC_Biofilm.yaml \u2192 docs/communities/SMutans_VParvula_ASC_Biofilm.html\n  \u2713 SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml \u2192 docs/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.html\n  \u2713 SPRUCE_Peatland_Methane_Cycling_Community.yaml \u2192 docs/communities/SPRUCE_Peatland_Methane_Cycling_Community.html\n  \u2713 SPRUCE_Peatland_Warming_Community.yaml \u2192 docs/communities/SPRUCE_Peatland_Warming_Community.html\n  \u2713 Saanich_Inlet_OMZ_Redox_Gradient_Community.yaml \u2192 docs/communities/Saanich_Inlet_OMZ_Redox_Gradient_Community.html\n  \u2713 Saccharomyces_Acinetobacter_Lignocellulose_Detox_Coculture.yaml \u2192 docs/communities/Saccharomyces_Acinetobacter_Lignocellulose_Detox_Coculture.html\n  \u2713 Saccharomyces_Chlamydomonas_Fungal_Algal_Mutualism.yaml \u2192 docs/communities/Saccharomyces_Chlamydomonas_Fungal_Algal_Mutualism.html\n  \u2713 Saccharomyces_Met14_Trp4_FLO1_Resveratrol_Coculture.yaml \u2192 docs/communities/Saccharomyces_Met14_Trp4_FLO1_Resveratrol_Coculture.html\n  \u2713 Salar_Atacama_Lithium_Brine_Community.yaml \u2192 docs/communities/Salar_Atacama_Lithium_Brine_Community.html\n  \u2713 Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml \u2192 docs/communities/Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.html\n  \u2713 Sedimenting_Arabinose_Glucose_Saccharomyces_Coculture.yaml \u2192 docs/communities/Sedimenting_Arabinose_Glucose_Saccharomyces_Coculture.html\n  \u2713 Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml \u2192 docs/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.html\n  \u2713 Shewanella_Denitrifying_Richness_SynComs.yaml \u2192 docs/communities/Shewanella_Denitrifying_Richness_SynComs.html\n  \u2713 Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml \u2192 docs/communities/Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.html\n  \u2713 Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml \u2192 docs/communities/Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.html\n  \u2713 Shewanella_Streptococcus_Starch_Microbial_Fuel_Cell.yaml \u2192 docs/communities/Shewanella_Streptococcus_Starch_Microbial_Fuel_Cell.html\n  \u2713 Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.yaml \u2192 docs/communities/Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.html\n  \u2713 Shrimp_Vibrio_Resistance_Gut_Enrichment_SynCom_Panel.yaml \u2192 docs/communities/Shrimp_Vibrio_Resistance_Gut_Enrichment_SynCom_Panel.html\n  \u2713 Sichuan_Shai_Vinegar_Yeast_Flavor_SynCom.yaml \u2192 docs/communities/Sichuan_Shai_Vinegar_Yeast_Flavor_SynCom.html\n  \u2713 SkinCom_Synthetic_Skin_Community.yaml \u2192 docs/communities/SkinCom_Synthetic_Skin_Community.html\n  \u2713 Soil_BGC_Phylum_Depth_Vegetation_Community.yaml \u2192 docs/communities/Soil_BGC_Phylum_Depth_Vegetation_Community.html\n  \u2713 Soil_CPR_Nanoarchaea_Rare_Biosphere_Community.yaml \u2192 docs/communities/Soil_CPR_Nanoarchaea_Rare_Biosphere_Community.html\n  \u2713 Soil_Corrinoid_B12_Reservoir_Community.yaml \u2192 docs/communities/Soil_Corrinoid_B12_Reservoir_Community.html\n  \u2713 Sorghum_SRC1_Subset.yaml \u2192 docs/communities/Sorghum_SRC1_Subset.html\n  \u2713 Sorghum_SRC2v4_Root_Colonization_SynCom.yaml \u2192 docs/communities/Sorghum_SRC2v4_Root_Colonization_SynCom.html\n  \u2713 South_Bay_Salt_Pond_Methane_Restoration_Community.yaml \u2192 docs/communities/South_Bay_Salt_Pond_Methane_Restoration_Community.html\n  \u2713 Soy_Sauce_Temporal_SevenSpecies_SynCom.yaml \u2192 docs/communities/Soy_Sauce_Temporal_SevenSpecies_SynCom.html\n  \u2713 Soybean_Chlorophyll_Selected_Biofertilizer_SynCom.yaml \u2192 docs/communities/Soybean_Chlorophyll_Selected_Biofertilizer_SynCom.html\n  \u2713 Soybean_N_Fixation_sfSynCom.yaml \u2192 docs/communities/Soybean_N_Fixation_sfSynCom.html\n  \u2713 Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml \u2192 docs/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.html\n  \u2713 Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml \u2192 docs/communities/Space_Habitat_SevenMember_Stress_Tolerance_SynCom.html\n  \u2713 Sphingobium_Nitrososphaera_Phenanthrene_Carbon_SynCom.yaml \u2192 docs/communities/Sphingobium_Nitrososphaera_Phenanthrene_Carbon_SynCom.html\n  \u2713 Sphingobium_Rhodococcus_Lignin_Dimer_Valorization_Coculture.yaml \u2192 docs/communities/Sphingobium_Rhodococcus_Lignin_Dimer_Valorization_Coculture.html\n  \u2713 Staged_Cattle_Manure_Ensifer_Bacillus_SynCom.yaml \u2192 docs/communities/Staged_Cattle_Manure_Ensifer_Bacillus_SynCom.html\n  \u2713 Staphylococcus_Candida_Context_Dependent_Biofilm_Coculture.yaml \u2192 docs/communities/Staphylococcus_Candida_Context_Dependent_Biofilm_Coculture.html\n  \u2713 Stordalen_Mire_Methylotrophic_Methanogenesis_Community.yaml \u2192 docs/communities/Stordalen_Mire_Methylotrophic_Methanogenesis_Community.html\n  \u2713 Streptomyces_A2_A5_A11_M7_Pesticide_Consortium.yaml \u2192 docs/communities/Streptomyces_A2_A5_A11_M7_Pesticide_Consortium.html\n  \u2713 Subsurface_Carboxydocella_CO_Aquifer_Community.yaml \u2192 docs/communities/Subsurface_Carboxydocella_CO_Aquifer_Community.html\n  \u2713 Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom.yaml \u2192 docs/communities/Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom.html\n  \u2713 Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml \u2192 docs/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.html\n  \u2713 SynComBac10_Chicken_Intestinal_SynCom.yaml \u2192 docs/communities/SynComBac10_Chicken_Intestinal_SynCom.html\n  \u2713 SynCom_ARC_Peanut_Aflatoxin_Nodulation.yaml \u2192 docs/communities/SynCom_ARC_Peanut_Aflatoxin_Nodulation.html\n  \u2713 SynCom_BsBv_Cigar_Tobacco_Leaf_Fermentation.yaml \u2192 docs/communities/SynCom_BsBv_Cigar_Tobacco_Leaf_Fermentation.html\n  \u2713 SynCom_Chlorella_sorokiniana_Biogas_Slurry_Coupling_System.yaml \u2192 docs/communities/SynCom_Chlorella_sorokiniana_Biogas_Slurry_Coupling_System.html\n  \u2713 SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml \u2192 docs/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.html\n  \u2713 SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation.yaml \u2192 docs/communities/SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation.html\n  \u2713 SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus.yaml \u2192 docs/communities/SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus.html\n  \u2713 SynCom_Y_Agrobacterium_Bacillus_Biofilm_Biocontrol_Coculture.yaml \u2192 docs/communities/SynCom_Y_Agrobacterium_Bacillus_Biofilm_Biocontrol_Coculture.html\n  \u2713 Synechococcus_Azotobacter_Photoproduction_Mutualism.yaml \u2192 docs/communities/Synechococcus_Azotobacter_Photoproduction_Mutualism.html\n  \u2713 Synechococcus_Bacillus_SPC.yaml \u2192 docs/communities/Synechococcus_Bacillus_SPC.html\n  \u2713 Synechococcus_Ecoli_SPC.yaml \u2192 docs/communities/Synechococcus_Ecoli_SPC.html\n  \u2713 Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml \u2192 docs/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.html\n  \u2713 Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml \u2192 docs/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.html\n  \u2713 Synechococcus_Saccharomyces_SPC.yaml \u2192 docs/communities/Synechococcus_Saccharomyces_SPC.html\n  \u2713 Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.yaml \u2192 docs/communities/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.html\n  \u2713 Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.yaml \u2192 docs/communities/Synechocystis_Pseudomonas_Acetate_Butanol_Coculture.html\n  \u2713 Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.yaml \u2192 docs/communities/Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.html\n  \u2713 Synthetic_Periphyton_Freshwater_Biofilm.yaml \u2192 docs/communities/Synthetic_Periphyton_Freshwater_Biofilm.html\n  \u2713 Syntrophobacter_Methanobacterium_Syntrophy.yaml \u2192 docs/communities/Syntrophobacter_Methanobacterium_Syntrophy.html\n  \u2713 Syntrophobacter_Methanospirillum_Syntrophy.yaml \u2192 docs/communities/Syntrophobacter_Methanospirillum_Syntrophy.html\n  \u2713 Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.yaml \u2192 docs/communities/Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.html\n  \u2713 Syntrophomonas_Methanospirillum_Syntrophy.yaml \u2192 docs/communities/Syntrophomonas_Methanospirillum_Syntrophy.html\n  \u2713 Syntrophus_Benzoate_Degrader.yaml \u2192 docs/communities/Syntrophus_Benzoate_Degrader.html\n  \u2713 Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.yaml \u2192 docs/communities/Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.html\n  \u2713 TCP_NonDehalogenimonas_Groundwater_Consortium.yaml \u2192 docs/communities/TCP_NonDehalogenimonas_Groundwater_Consortium.html\n  \u2713 THOR_Rhizosphere_Model_Community.yaml \u2192 docs/communities/THOR_Rhizosphere_Model_Community.html\n  \u2713 TYQ1_Nematode_Biocontrol_SynCom.yaml \u2192 docs/communities/TYQ1_Nematode_Biocontrol_SynCom.html\n  \u2713 Teosinte_Maize_Biofertilizer_SynCom7.yaml \u2192 docs/communities/Teosinte_Maize_Biofertilizer_SynCom7.html\n  \u2713 Thalassiosira_Marinobacter_Marine_Snow_Coculture.yaml \u2192 docs/communities/Thalassiosira_Marinobacter_Marine_Snow_Coculture.html\n  \u2713 Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml \u2192 docs/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.html\n  \u2713 Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.yaml \u2192 docs/communities/Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.html\n  \u2713 Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml \u2192 docs/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.html\n  \u2713 Thermophilic_ExSitu_Biomethanation_Mixed_Culture.yaml \u2192 docs/communities/Thermophilic_ExSitu_Biomethanation_Mixed_Culture.html\n  \u2713 Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.yaml \u2192 docs/communities/Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.html\n  \u2713 Thermophilic_Pyrite_QS_Consortium.yaml \u2192 docs/communities/Thermophilic_Pyrite_QS_Consortium.html\n  \u2713 Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.yaml \u2192 docs/communities/Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.html\n  \u2713 Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.yaml \u2192 docs/communities/Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.html\n  \u2713 Tinto_River_Iron_Cycling_Community.yaml \u2192 docs/communities/Tinto_River_Iron_Cycling_Community.html\n  \u2713 Tobacco_Chemotactic_Biocontrol_SynCom.yaml \u2192 docs/communities/Tobacco_Chemotactic_Biocontrol_SynCom.html\n  \u2713 Tomato_Oxylipin_SynCom3.yaml \u2192 docs/communities/Tomato_Oxylipin_SynCom3.html\n  \u2713 Tribromophenol_Anaerobic_Bioremediation_SynCom.yaml \u2192 docs/communities/Tribromophenol_Anaerobic_Bioremediation_SynCom.html\n  \u2713 Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.yaml \u2192 docs/communities/Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.html\n  \u2713 Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.yaml \u2192 docs/communities/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.html\n  \u2713 Trichoderma_Lactate_Platform.yaml \u2192 docs/communities/Trichoderma_Lactate_Platform.html\n  \u2713 Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.yaml \u2192 docs/communities/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.html\n  \u2713 Trichodesmium_Alteromonas_Marine_Consortium.yaml \u2192 docs/communities/Trichodesmium_Alteromonas_Marine_Consortium.html\n  \u2713 Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.yaml \u2192 docs/communities/Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.html\n  \u2713 Urine_Nitrification_SynCom.yaml \u2192 docs/communities/Urine_Nitrification_SynCom.html\n  \u2713 Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.yaml \u2192 docs/communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.html\n  \u2713 Viili_Fungus_Bacterium_EPS_SynCom.yaml \u2192 docs/communities/Viili_Fungus_Bacterium_EPS_SynCom.html\n  \u2713 Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml \u2192 docs/communities/Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.html\n  \u2713 Watermelon_Rhizosphere_Fusarium_SynCom8.yaml \u2192 docs/communities/Watermelon_Rhizosphere_Fusarium_SynCom8.html\n  \u2713 Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.yaml \u2192 docs/communities/Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.html\n  \u2713 Wheat_Consortium_C1.yaml \u2192 docs/communities/Wheat_Consortium_C1.html\n  \u2713 Wheat_Consortium_C6.yaml \u2192 docs/communities/Wheat_Consortium_C6.html\n  \u2713 Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml \u2192 docs/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.html\n  \u2713 Wheat_CrownRot_TB_CrossKingdom_SynCom.yaml \u2192 docs/communities/Wheat_CrownRot_TB_CrossKingdom_SynCom.html\n  \u2713 Wheat_DT_Rhizosphere_SynCom.yaml \u2192 docs/communities/Wheat_DT_Rhizosphere_SynCom.html\n  \u2713 Wheat_Straw_Biogas_Pretreatment_SynCom.yaml \u2192 docs/communities/Wheat_Straw_Biogas_Pretreatment_SynCom.html\n  \u2713 Wheat_SynCom_SASW01_Drought_Inoculant.yaml \u2192 docs/communities/Wheat_SynCom_SASW01_Drought_Inoculant.html\n  \u2713 Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.yaml \u2192 docs/communities/Wine_Yeast_FiveSpecies_Strain_Substitution_Consortium.html\n  \u2713 Wine_Yeast_ThreeSpecies_Contact_Consortium.yaml \u2192 docs/communities/Wine_Yeast_ThreeSpecies_Contact_Consortium.html\n  \u2713 Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml \u2192 docs/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.html\n  \u2713 Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml \u2192 docs/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.html\n  \u2713 Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml \u2192 docs/communities/Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.html\n  \u2713 Yogurt_TwoSpecies_Starter_Culture.yaml \u2192 docs/communities/Yogurt_TwoSpecies_Starter_Culture.html\n  \u2713 Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml \u2192 docs/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.html\n  \u2713 hCom2_Complex_Gut_Microbiome.yaml \u2192 docs/communities/hCom2_Complex_Gut_Microbiome.html\n  \u2713 mCAFEs_Brachypodium_RCC.yaml \u2192 docs/communities/mCAFEs_Brachypodium_RCC.html\n\n\u2705 Rendered 456 communities to docs/communities\n  \u2713 Generated browser at docs/browser.html\n  \u2713 Generated landing at docs/index.html\n",
+      "command": [
+        "python3",
+        "-m",
+        "communitymech.render"
+      ]
+    },
+    {
+      "check": "render-determinism",
+      "exit_code": 0,
+      "output": "Compared all generated docs file hashes between consecutive renders."
+    },
+    {
+      "check": "published-description-coverage",
+      "exit_code": 0,
+      "output": "Parsed node and edge descriptions match all community YAML records.",
+      "counts": {
+        "pages": 456,
+        "node_descriptions": 1478,
+        "edge_descriptions": 750
+      }
+    },
+    {
+      "check": "focused-regressions",
+      "exit_code": 0,
+      "output": "........................................................................ [ 60%]\n................................................                         [100%]\n120 passed in 64.72s (0:01:04)\n",
+      "command": [
+        "python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_causal_review_inventory.py",
+        "tests/test_reference_validator_actually_validates.py",
+        "tests/test_rank_causal_graph_readiness.py",
+        "tests/test_network_auditor.py",
+        "tests/test_published_pages_name_real_records.py",
+        "tests/test_participating_taxa.py",
+        "tests/test_community_level_connectivity_credit.py",
+        "tests/test_causal_descriptions_are_published.py"
+      ]
+    },
+    {
+      "check": "cache-and-snippet-regressions",
+      "exit_code": 1,
+      "output": "................................................F..                      [100%]\n=================================== FAILURES ===================================\n____________________ test_no_publication_pdfs_are_committed ____________________\n\n    def test_no_publication_pdfs_are_committed():\n        \"\"\"A PDF of a paper is the least ambiguous form of the problem.\"\"\"\n        pdfs = [\n            p for p in REPO_ROOT.glob(\"**/*.pdf\") if \".venv\" not in p.parts and \".git\" not in p.parts\n        ]\n>       assert pdfs == [], (\n            \"publication PDFs must not live in this repository (#754). Cite the DOI \"\n            \"and cache the abstract or the OA full text instead:\\n\"\n            + \"\\n\".join(f\"  {p.relative_to(REPO_ROOT)} ({p.stat().st_size // 1024} kB)\" for p in pdfs)\n        )\nE       AssertionError: publication PDFs must not live in this repository (#754). Cite the DOI and cache the abstract or the OA full text instead:\nE           tmp/msystems.00113-26-s0001.pdf (2183 kB)\nE           tmp/nasal-bioreactor-tables.pdf (1479 kB)\nE           references_cache/files/PMID_37386471.pdf (1382 kB)\nE           references_cache/files/PMID_31354691.pdf (2978 kB)\nE           references_cache/files/DOI_10.1038_s41598-018-30745-7.pdf (3663 kB)\nE           references_cache/files/DOI_10.3389_fmicb.2016.00744.pdf (2946 kB)\nE           references_cache/files/PMID_38609451.pdf (3453 kB)\nE           references_cache/files/PMID_38846575.pdf (6163 kB)\nE           references_cache/files/PMID_20827289.pdf (900 kB)\nE           references_cache/files/DOI_10.1186_1471-2180-10-149.pdf (1410 kB)\nE           references_cache/files/PMID_34836550.pdf (3375 kB)\nE           references_cache/files/PMID_38711153.pdf (2044 kB)\nE           references_cache/files/DOI_10.1186_1467-4866-5-13.pdf (1810 kB)\nE           references_cache/files/DOI_10.1038_s41598-021-95324-9.pdf (4319 kB)\nE           references_cache/files/PMID_30870453.pdf (2237 kB)\nE           references_cache/files/DOI_10.3389_fmicb.2025.1592588.pdf (4296 kB)\nE           references_cache/files/DOI_10.3389_fmicb.2015.00475.pdf (2198 kB)\nE           references_cache/files/PMID_22319433.pdf (759 kB)\nE           references_cache/files/PMID_30086797.pdf (2592 kB)\nE           references_cache/files/PMID_19077236.pdf (8762 kB)\nE           references_cache/files/PMID_33064298.pdf (2116 kB)\nE           references_cache/files/DOI_10.3389_fmicb.2023.1078333.pdf (4332 kB)\nE           references_cache/files/DOI_10.1038_s41396-017-0002-z.pdf (2912 kB)\nE           references_cache/files/PMID_37553333.pdf (2538 kB)\nE           references_cache/files/PMID_28814973.pdf (1333 kB)\nE           references_cache/files/DOI_10.3389_fmicb.2020.00044.pdf (3600 kB)\nE           references_cache/files/DOI_10.1038_s41396-021-01067-w.pdf (2922 kB)\nE           references_cache/files/PMID_28634470.pdf (3378 kB)\nE           references_cache/files/PMID_25375640.pdf (480 kB)\nE           references_cache/files/PMID_28127397.pdf (1555 kB)\nE           references_cache/files/PMID_30013118.pdf (2260 kB)\nE           references_cache/files/DOI_10.1371_journal.pone.0106618.pdf (1014 kB)\nE           references_cache/files/PMID_18843300.pdf (281 kB)\nE           references_cache/files/PMID_23575369.pdf (1935 kB)\nE           references_cache/files/PMID_38961111.pdf (3669 kB)\nE           references_cache/files/DOI_10.3389_fmicb.2013.00037.pdf (1422 kB)\nE           references_cache/files/DOI_10.3389_fmicb.2018.01853.pdf (1847 kB)\nE           tmp/uv-cache/sdists-v9/pypi/biopython/1.88/iTRVzqvzWbmTF3GLa1Ara/src/Doc/images/tRNA_chrom.pdf (38 kB)\nE           tmp/uv-cache/sdists-v9/pypi/biopython/1.88/iTRVzqvzWbmTF3GLa1Ara/src/Doc/images/simple_chrom.pdf (16 kB)\nE           tmp/uv-cache/sdists-v9/pypi/biopython/1.88/iTRVzqvzWbmTF3GLa1Ara/src/Doc/images/biopython_logo.pdf (8 kB)\nE       assert [PosixPath('/...44.pdf'), ...] == []\nE         \nE         Left contains 40 more items, first extra item: PosixPath('tmp/msystems.00113-26-s0001.pdf')\nE         Use -v to get more diff\n\ntests/test_no_paywalled_text_in_repo.py:58: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_no_paywalled_text_in_repo.py::test_no_publication_pdfs_are_committed\n1 failed, 50 passed in 178.27s (0:02:58)\n",
+      "command": [
+        "python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_snippet_audit_artefact_classes.py",
+        "tests/test_cache_is_source_text_not_notes.py",
+        "tests/test_snippet_rendering_artefacts.py",
+        "tests/test_reference_error_annotation.py",
+        "tests/test_no_paywalled_text_in_repo.py"
+      ],
+      "superseded_by": "publishable-snapshot-rights-gate",
+      "failure_reason": "The only failing test scans all local files, including 40 pre-existing untracked/ignored PDFs under tmp and references_cache/files. Those files were preserved. All 50 other tests passed. The three rights tests pass on a byte-verified snapshot of tracked files plus explicit batch4 new files; this does not make the personal working directory PDF-free."
+    },
+    {
+      "check": "diff-check",
+      "exit_code": 0,
+      "output": "",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ]
+    },
+    {
+      "snapshot": "<temporary-output>/communitymech-batch4-publication-nc066wit",
+      "scope": "All tracked files plus the explicit batch4 new-file allowlist; pre-existing untracked/ignored personal files excluded, not deleted.",
+      "files": 2739,
+      "manifest_sha256": "6fc48c781b10bbd238b36c3c444c29f4aee33afd61d4619e725edb01944d26e4",
+      "new_files": [
+        "history/records/Alaska_Tundra_Permafrost_Iron_Redox_Community/2026-10-05T084241Z-codex-be37dd.yaml",
+        "history/records/Algal_Methanotroph_Biogas_Valorization_Coculture/2026-10-05T084241Z-codex-0a0de5.yaml",
+        "history/records/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community/2026-10-05T084243Z-codex-b9f4e2.yaml",
+        "history/records/Amsterdam_10Species_Gut_Invasion_SynCom/2026-10-05T084241Z-codex-3ce1e3.yaml",
+        "history/records/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium/2026-10-05T084243Z-codex-b65b2f.yaml",
+        "history/records/Anammox_Bioreactor_DNRA_Destabilization_Community/2026-10-05T084244Z-codex-9efb26.yaml",
+        "history/records/Anammox_Granule_Metabolic_Interaction_Community/2026-10-05T084244Z-codex-0dd10f.yaml",
+        "history/records/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community/2026-10-05T084244Z-codex-ef2810.yaml",
+        "history/records/Apple_Fire_Blight_ANP_SynCom/2026-10-05T084242Z-codex-4f54a1.yaml",
+        "history/records/Arabidopsis_Bacillus_Biocontrol_SynCom150/2026-10-05T084410Z-codex-ba9883.yaml",
+        "history/records/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture/2026-10-05T084242Z-codex-f95a73.yaml",
+        "references_cache/PMID_23828891.md",
+        "reports/causal_graph_review/adversarial-review-20261005-batch4.yaml",
+        "reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml",
+        "reports/causal_graph_review/validation-20261005-batch4.json"
+      ],
+      "command": [
+        "python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_no_paywalled_text_in_repo.py"
+      ],
+      "exit_code": 0,
+      "output": "...                                                                      [100%]\n3 passed in 1.28s\n",
+      "reviewed_cache_sha256": "5a830861abdb2d7eacb821bb7be23aa691c3a2b06b685054e47cd860a5774e96",
+      "check": "publishable-snapshot-rights-gate"
+    },
+    {
+      "check": "final-scope-and-hashes",
+      "exit_code": 0,
+      "output": "All 12 final hashes match the decisions; 189 unrelated raw YAML blocks and all older curation events are preserved. Eleven edited records have one new event and history artifact each; the no-change record is byte-identical. Exactly eleven expected HTML pages changed.",
+      "nodes_before_after": [
+        38,
+        38
+      ],
+      "edges_before_after": [
+        21,
+        11
+      ]
+    }
+  ],
+  "snippet_summary": {
+    "MATCH": 235,
+    "RENDERING": 1,
+    "ASSEMBLED": 0,
+    "WEAK": 0,
+    "MISMATCH": 1,
+    "NOCONTENT": 0
+  },
+  "limitations": [
+    "Self-adversarial review, not independent reviewer approval. The whole-corpus semantic review remains incomplete.",
+    "The ASF primary fermentation excerpt is labeled selected_excerpts; the independent local PMID:23828891 content remains abstract-only. A missing full-text match is a source-coverage limitation, not independent verification by the curated excerpt.",
+    "Indole is abstract-bounded and unchanged. ASF, Anabaena, Auxenochlorella and other noted supplements were not reviewed; see per-record source scopes.",
+    "No new nodes or arrows were added. Edison spend was authorized, but no key is configured and no paid job was submitted.",
+    "Non-graph metadata is outside certification. Existing unrelated untracked files remain untouched. Broader evidence issue #765 remains open.",
+    "Publication text coverage and deterministic generation are checked; no desktop/mobile screenshot QA was performed for this data-only batch.",
+    "The first mutator pass stopped on an anchor-preservation assertion after guarded valid writes. Resume verified exact expected content, preserved prior curation events, reused ten history artifacts and created the one missing artifact; no event was duplicated.",
+    "The initial local PDF failure remains in this report. Only the publishable snapshot passes the rights gate; no personal files or test predicates were changed. A tracked external embeddings symlink was preserved as a link without dereferencing its out-of-repository target.",
+    "The 235 MATCH, one unchanged SynCom150 RENDERING and one ASF MISMATCH classifications are retained as emitted. The ASF primary-paper excerpt is absent from the independent abstract cache; its selected-excerpts cache is not independent verification. No claim of an all-MATCH audit is made."
+  ],
+  "rendering_detail": [
+    {
+      "location": "kb/communities/Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml.external_resources[1].evidence[0]",
+      "reference": "PMID:40590505",
+      "unchanged_from_base": true
+    }
+  ],
+  "reviewed_cache_sha256": {
+    "references_cache/PMID_23828891.md": "5a830861abdb2d7eacb821bb7be23aa691c3a2b06b685054e47cd860a5774e96"
+  }
+}

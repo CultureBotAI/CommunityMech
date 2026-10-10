@@ -330,7 +330,7 @@ If you use this tool, please cite:
 
 ## License
 
-BSD-3-Clause (same as CommunityMech project)
+BSD-3-Clause (CommunityMech code; project data uses CC BY 4.0). See [LICENSE](../LICENSE).
 
 ## Contact
 

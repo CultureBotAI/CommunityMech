@@ -73,10 +73,16 @@ jobs:
 
       - name: Check for missing history records (advisory)
         if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
           set -euo pipefail
-          git fetch --no-tags origin "${{ github.base_ref }}"
-          base="origin/${{ github.base_ref }}"
+          # A stacked PR's base branch can be deleted while this event waits.
+          # Keep the event's immutable comparison, even after PR retargeting.
+          base="$BASE_SHA"
+          if ! git cat-file -e "$base^{commit}" 2>/dev/null; then
+            git fetch --no-tags origin "$base"
+          fi
 
           # 'kb/communities/*.yaml', not '**/*.yaml': community records are flat
           # in this repo, and a git pathspec of 'kb/communities/**/*.yaml' needs a

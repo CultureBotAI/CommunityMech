@@ -8,6 +8,7 @@ journal: "Bioscience, Biotechnology, and Biochemistry"
 year: '2021'
 doi: 10.1093/bbb/zbab150
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Acetate excretion by a methanotroph,<i>Methylocaldum marinum</i>S8, under aerobic conditions

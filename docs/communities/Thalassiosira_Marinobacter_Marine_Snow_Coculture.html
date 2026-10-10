@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>Thalassiosira-Marinobacter Marine Snow Coculture</h1>
         </div>
     </header>
@@ -400,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        laboratory marine phycosphere coculture
+                        laboratory marine phycosphere coculture<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -440,6 +463,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -453,7 +477,7 @@
 
                     <tr>
                         <td>
-                            <strong>Thalassiosira weissflogii</strong>
+                            <strong>Thalassiosira weissflogii<span class="ontology-label"> — ontology label: Conticribra weissflogii</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1577725"
@@ -539,18 +563,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Thalassiosira-Marinobacter Marine Snow Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, niche partitioning, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -558,18 +584,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -577,16 +593,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Bacteria-Dependent Diatom Aggregation</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Condition-Dependent Diatom Aggregation</h3>
                 </div>
+                <p class="prewrap interaction-description">In the 2011 rolling-tank assay, active T. weissflogii cocultured with attaching bacteria including HP15 formed substantially more aggregates than axenic controls. This is a community aggregation outcome, not a universal bacterial requirement or a separate colonization interaction. The 2014 temperature/pCO2 experiment found no effect of HP15 on total aggregate volume. Inactivated cells in the 2011 Results aggregated much less, not uniformly zero; the inactivation treatment may also have altered exudates and surface properties, so it does not isolate photosynthesis as the sole mediator.</p>
 
 
-                <p><strong>Source Taxon:</strong> Marinobacter adhaerens HP15</p>
 
 
+                <p><strong>Participating Taxa:</strong>
 
-                <p><strong>Target Taxon:</strong> Thalassiosira weissflogii</p>
+                    Thalassiosira weissflogii,
+
+                    Marinobacter adhaerens HP15
+
+                </p>
 
 
 
@@ -599,12 +619,6 @@
                         biological process involved in interspecies interaction between organisms
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                    <li>
-                        biofilm formation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0042710"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0042710</a>)
                     </li>
 
                 </ul>
@@ -655,22 +669,39 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/25375640/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:25375640</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"total aggregate volume was independent of the presence of M. adhaerens HP15"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Transparent Exopolymer Particle Enhancement</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Condition-Dependent TEP Formation</h3>
                 </div>
+                <p class="prewrap interaction-description">TEP formation and aggregation were associated with the diatom-HP15 model in earlier work. TEP is a measured community polymer outcome, not proof of directed feeding from the diatom to HP15. The 2014 study found no bacterial effect on total TEP generated; warmer treatments generated more TEP but less aggregation. The 2011 aggregate-free-water measurements and 2014 total-TEP measurements must not be treated as identical endpoints. Chitin-containing fibres in a SEM caption document physical association, not the identity of all TEP or a measured chitin-transfer flux.</p>
 
 
-                <p><strong>Source Taxon:</strong> Thalassiosira weissflogii</p>
 
 
+                <p><strong>Participating Taxa:</strong>
 
-                <p><strong>Target Taxon:</strong> Marinobacter adhaerens HP15</p>
+                    Thalassiosira weissflogii,
+
+                    Marinobacter adhaerens HP15
+
+                </p>
 
 
 
@@ -699,7 +730,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Bacteria-Dependent Diatom Aggregation
+                        <span class="flow-arrow">→</span> Condition-Dependent Diatom Aggregation
+                        <p class="prewrap causal-description">PARTIAL: TEP can provide an adhesive matrix enabling diatom aggregation, but the amount-aggregation relationship is condition dependent. The 2011 association is not a selective mediation test; the 2014 higher-TEP/lower-aggregation result rules out a universal monotonic effect, and polymer stickiness was not directly resolved.</p>
                     </div>
 
                 </div>
@@ -748,6 +780,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/25375640/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:25375640</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"had no effect on the amount of TEP generated"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -755,8 +800,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Chemotaxis-Mediated Attachment</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
+                <p class="prewrap interaction-description">Diatom homogenate or culture supernatant attracted HP15, and chemotaxis-associated mutants had a smaller attached bacterial fraction in coculture than wild type. These perturbations support HP15 chemotaxis/motility contributions to bacterial attachment to the diatom, not a demonstrated growth or colonization benefit to the diatom. Mutant biofilm impairment was assayed on abiotic surfaces and is distinct from diatom aggregation.</p>
 
 
                 <p><strong>Source Taxon:</strong> Marinobacter adhaerens HP15</p>
@@ -792,7 +837,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Bacteria-Dependent Diatom Aggregation
+                        <span class="flow-arrow">→</span> Condition-Dependent Diatom Aggregation
+                        <p class="prewrap causal-description">HYPOTHESIZED: chemotaxis-dependent attachment may enable the close association underlying the earlier HP15 aggregation phenotype. The reviewed chemotaxis abstract demonstrates reduced attachment, not selective mediation of the aggregation endpoint; aggregation effects cannot be assumed in every environmental treatment.</p>
                     </div>
 
                 </div>
@@ -834,12 +880,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Marine Snow Carbon Flux Model</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Aggregate Sinking and Carbon Export Interpretation</h3>
                 </div>
+                <p class="prewrap interaction-description">The existing marine-snow model interpretation concerns measured aggregate sinking and possible carbon export, not ecological niche partitioning. In the 2011 assay, aggregate size predicted sinking velocity while bacterial presence did not change the size-sinking relationship. Warmer 2014 treatments had depressed aggregation and sinking, especially with acidification. A resulting reduction in ocean carbon sequestration is an extrapolation, not a measured field flux or a demonstrated universal HP15 benefit.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Thalassiosira weissflogii,
+
+                    Marinobacter adhaerens HP15
+
+                </p>
 
 
 
@@ -883,7 +937,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/20827289/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:20827289</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"may enhance the efficiency of the biological pump"</div>
@@ -896,7 +950,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/25375640/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:25375640</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"potentially reduced carbon sequestration after diatom blooms"</div>
@@ -914,6 +968,7 @@
 
         <section>
             <h2>Associated Datasets</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Associated Datasets">
             <table>
                 <thead>
                     <tr>
@@ -978,8 +1033,48 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which attachment and polymer properties causally control HP15-associated aggregation under each assay condition?
+                </h3>
+                <p class="prewrap">Mutant attachment, aggregate-free TEP, total TEP, aggregation and sinking are distinct measurements. Polymer chemistry/stickiness and exact mediation remain unresolved; the 2014 null bacterial effects and inverse temperature response constrain the earlier model. Full chemotaxis and MEPS bodies were not available for this review. Non-graph overstatements are tracked in #1884.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Condition-Dependent Diatom Aggregation</code>, <code>ecological_interactions#Condition-Dependent TEP Formation</code>, <code>ecological_interactions#Chemotaxis-Mediated Attachment</code>, <code>ecological_interactions#Aggregate Sinking and Carbon Export Interpretation</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/25375640/" rel="nofollow noreferrer">PMID:25375640</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">aggregation rates and sinking velocity of aggregates were depressed in warmer treatments</p>
+                        <p class="muted small prewrap">The abstract supplies a direct counterexample to universally increased aggregation with increased TEP.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -987,6 +1082,7 @@
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -1051,6 +1147,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -1124,12 +1221,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1142,7 +1242,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1196,7 +1295,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1204,14 +1303,12 @@
 
             processes.push("biological process involved in interspecies interaction between organisms");
 
-            processes.push("biofilm formation");
 
-
-            var evidenceCount = 3;
+            var evidenceCount = 4;
 
             nodes.push({
                 id: intId,
-                label: "Bacteria-Dependent Diatom Aggregation",
+                label: "Condition-Dependent Diatom Aggregation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1220,23 +1317,26 @@
             });
 
 
-            var srcKey = "Marinobacter adhaerens HP15";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Thalassiosira weissflogii";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Thalassiosira weissflogii",
+
+                "Marinobacter adhaerens HP15"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1247,11 +1347,11 @@
             processes.push("extracellular matrix organization");
 
 
-            var evidenceCount = 3;
+            var evidenceCount = 4;
 
             nodes.push({
                 id: intId,
-                label: "Transparent Exopolymer Particle Enhancement",
+                label: "Condition-Dependent TEP Formation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1260,23 +1360,26 @@
             });
 
 
-            var srcKey = "Thalassiosira weissflogii";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Marinobacter adhaerens HP15";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Thalassiosira weissflogii",
+
+                "Marinobacter adhaerens HP15"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1316,7 +1419,7 @@
 
         (function() {
             var intId = "interaction:3";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1335,7 +1438,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Marine Snow Carbon Flux Model",
+                label: "Aggregate Sinking and Carbon Export Interpretation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1345,6 +1448,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Thalassiosira weissflogii",
+
+                "Marinobacter adhaerens HP15"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1359,6 +1475,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

@@ -142,17 +142,22 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Cecal Short-Chain Fatty Acid Remodeling
-    description: B. thetaiotaomicron glycan foraging supplies fermentation products
-      to E. rectale, which couples that carbon flow to acetate use and butyrate production.
+    description: PARTIAL - the source proposes that Bacteroides dietary-glycan processing supplies substrates for
+      E. rectale metabolism, contributing to the measured SCFA pools. Increased host-mucin foraging is a distinct
+      niche response, not direct evidence that host glycans feed E. rectale; donor-specific transfer was not traced
+      in the inspected main paper.
   evidence:
   - reference: PMID:19321416
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: B. thetaiotaomicron adapts to the presence of E. rectale by up-regulating a variety of loci specific for host-derived mucin glycans that E. rectale is unable to use
+    snippet: B. thetaiotaomicron adapts to the presence of E. rectale by up-regulating a variety of loci specific
+      for host-derived mucin glycans that E. rectale is unable to use
     explanation: Supports E. rectale-dependent niche expansion by B. thetaiotaomicron toward mucin glycan use.
 - name: Eubacterium Transport and Butyrate Shift
-  description: E. rectale responds to B. thetaiotaomicron by reducing glycan-degrading enzyme production,
-    increasing transport functions, and supporting glycolysis through butyrate generation from acetate.
+  description: E. rectale decreases glycan-degrading enzyme expression and increases selected transport functions
+    during biassociation. PARTIAL - combined acetate, redox, enzyme-expression and host Mct1 observations support
+    the source's proposed acetate-to-butyrate cross-feeding model; they do not directly measure donor-resolved flux
+    or increased production/uptake rates.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -175,7 +180,7 @@ ecological_interactions:
       id: CHEBI:17968
       label: butyrate
   biological_processes:
-  - preferred_term: butyrate biosynthetic process
+  - preferred_term: butyrate metabolic process
     term:
       id: GO:0019605
       label: butyrate metabolic process
@@ -185,23 +190,27 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Cecal Short-Chain Fatty Acid Remodeling
-    description: E. rectale butyrate generation from acetate is the cross-feeding
-      step that remodels acetate and butyrate pools during biassociation.
+    description: PARTIAL - inferred acetate use in E. rectale butyrate metabolism could contribute to lower acetate
+      and maintained standing butyrate concentrations. Similar butyrate pools plus higher host Mct1 expression do
+      not directly quantify increased production or epithelial uptake.
   evidence:
   - reference: PMID:19321416
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: E. rectale adapts to B. thetaiotaomicron by decreasing production of its glycan-degrading enzymes, increasing expression of selected amino acid and sugar transporters
+    snippet: E. rectale adapts to B. thetaiotaomicron by decreasing production of its glycan-degrading enzymes,
+      increasing expression of selected amino acid and sugar transporters
     explanation: Supports the B. thetaiotaomicron-dependent shift in E. rectale expression.
   - reference: PMID:19321416
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: generation of butyrate from acetate
-    explanation: Supports acetate-to-butyrate metabolism as a mechanistic feature of the interaction.
+    explanation: Supports the authors' acetate-to-butyrate interpretation from combined observations, not donor-specific
+      tracer flux.
 - name: Cecal Short-Chain Fatty Acid Remodeling
-  description: Cocolonization changes cecal short-chain fatty acid pools, including lower acetate relative
-    to B. thetaiotaomicron monoassociation while maintaining butyrate output associated with E. rectale.
-  interaction_type: CROSS_FEEDING
+  description: Biassociation lowered cecal acetate relative to B. thetaiotaomicron monoassociation, while cecal
+    butyrate concentration was similar to E. rectale monoassociation. These comparator-specific standing pools are
+    not production or uptake rates. Both organisms had similar colonization levels under mono- and biassociation
+    on polysaccharide-rich chow.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacteroides thetaiotaomicron VPI-5482
@@ -230,13 +239,15 @@ ecological_interactions:
   - reference: PMID:19321416
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: cecal acetate levels are significantly lower in cocolonized mice compared with B. thetaiotaomicron monoassociated animals
+    snippet: cecal acetate levels are significantly lower in cocolonized mice compared with B. thetaiotaomicron
+      monoassociated animals
     explanation: Supports short-chain fatty acid remodeling during B. thetaiotaomicron-E. rectale cocolonization.
   - reference: PMID:19321416
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: cecal butyrate levels are similar in E. rectale mono- and biassociated animals
-    explanation: Supports maintenance of E. rectale-associated butyrate in the two-member community.
+    explanation: Supports similar measured butyrate concentration relative to E. rectale monoassociation, not unchanged
+      or increased butyrate production flux.
 environmental_factors:
 - name: germ-free mouse host
   value: Germ-free mice colonized with one or both human gut-derived strains.
@@ -372,3 +383,25 @@ growth_media:
       mice, fed a standard chow diet rich in complex plant polysaccharides, to high levels
     explanation: Gives the gavage inoculation, the standard polysaccharide-rich chow diet and the 10-14
       day colonization period of the gnotobiotic host system.
+discussions:
+- discussion_id: bacteroides_eubacterium_flux_and_uptake
+  prompt: What donor-specific carbon flux and epithelial uptake mediate the biassociation SCFA response?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Bacteroides Polysaccharide Niche Expansion
+  - ecological_interactions#Eubacterium Transport and Butyrate Shift
+  - ecological_interactions#Cecal Short-Chain Fatty Acid Remodeling
+  rationale: Main-paper expression, pools and diet perturbation support a metabolic model but do not isolate acetate
+    transfer, host uptake rates or pathway necessity. Diet restriction tests substrate dependence, not molecule-specific
+    exchange. SI Methods/Results, supplementary figures/tables and underlying data were not inspected. Non-graph
+    ingredient flux wording remains a separate follow-up.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T11:29:49Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Distinguish gut SCFA concentrations from inferred transfer and production rates; decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1254'
+  llm_assisted: true

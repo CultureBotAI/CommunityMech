@@ -13,6 +13,7 @@ journal: Ecological Indicators
 year: '2025'
 doi: 10.1016/j.ecolind.2025.114023
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Moss-derived microbiome improves crop growth in lunar and Martian soil simulants

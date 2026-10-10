@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>Desert-Derived Tomato Salt Stress SynCom5</h1>
         </div>
     </header>
@@ -424,6 +447,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -437,7 +461,7 @@
 
                     <tr>
                         <td>
-                            <strong>Massilia sp. SA087</strong>
+                            <strong>Massilia sp. SA087<span class="ontology-label"> — ontology label: Massilia</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=149698"
@@ -473,7 +497,7 @@
 
                     <tr>
                         <td>
-                            <strong>Enterobacter sp. SA187</strong>
+                            <strong>Enterobacter sp. SA187<span class="ontology-label"> — ontology label: Enterobacter</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=547"
@@ -509,7 +533,7 @@
 
                     <tr>
                         <td>
-                            <strong>Ensifer sp. SA403</strong>
+                            <strong>Ensifer sp. SA403<span class="ontology-label"> — ontology label: Ensifer</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=106591"
@@ -545,7 +569,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus sp. SA436</strong>
+                            <strong>Bacillus sp. SA436<span class="ontology-label"> — ontology label: Bacillus &lt;firmicutes&gt;</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1386"
@@ -581,7 +605,7 @@
 
                     <tr>
                         <td>
-                            <strong>Streptomyces sp. SA444</strong>
+                            <strong>Streptomyces sp. SA444<span class="ontology-label"> — ontology label: Streptomyces</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1883"
@@ -617,18 +641,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Desert-Derived Tomato Salt Stress SynCom5</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -636,8 +662,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -646,11 +672,25 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>SynCom C promotion of salt-stressed tomato biomass</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">SynCom C increased salt-stressed tomato biomass. The comparison in which none of its five individual strains significantly promoted growth used sterile river sand; this does not negate single-strain benefits in the separate nonsterile screen.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Massilia sp. SA087,
+
+                    Enterobacter sp. SA187,
+
+                    Ensifer sp. SA403,
+
+                    Bacillus sp. SA436,
+
+                    Streptomyces sp. SA444
+
+                </p>
 
 
 
@@ -680,7 +720,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/35444261/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:35444261</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
                         <div class="snippet">"SynCom C was the only inoculum that significantly promoted tomato growth compared to the inoculum-free control"</div>
@@ -694,11 +734,25 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>SynCom C activation of root SOS marker expression</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">SynCom C triggered an early tomato root salt-stress response, including significant upregulation of SOS1, SOS2, and WRKY8 four days after salt imposition.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Massilia sp. SA087,
+
+                    Enterobacter sp. SA187,
+
+                    Ensifer sp. SA403,
+
+                    Bacillus sp. SA436,
+
+                    Streptomyces sp. SA444
+
+                </p>
 
 
 
@@ -722,6 +776,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> SynCom C reduction of shoot sodium-potassium imbalance
+                        <p class="prewrap causal-description">PARTIAL - early SOS-associated expression could support ion transport and thereby reduce later shoot ionic imbalance. Expression was measured, but its mediation of the ion phenotype was not selectively perturbed in this SynCom experiment.</p>
                     </div>
 
                 </div>
@@ -737,7 +792,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/35444261/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:35444261</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
                         <div class="snippet">"SOS1, SOS2 and WRKY8 expression was significantly upregulated in the root of tomato plants treated with SynCom C"</div>
@@ -751,11 +806,25 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>SynCom C reduction of shoot sodium-potassium imbalance</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">SynCom C-treated salt-stressed tomato plants accumulated a lower shoot Na+/K+ ratio than uninoculated controls, consistent with lower ion toxicity under salt stress.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Massilia sp. SA087,
+
+                    Enterobacter sp. SA187,
+
+                    Ensifer sp. SA403,
+
+                    Bacillus sp. SA436,
+
+                    Streptomyces sp. SA444
+
+                </p>
 
 
 
@@ -791,6 +860,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> SynCom C promotion of salt-stressed tomato biomass
+                        <p class="prewrap causal-description">PARTIAL - improved shoot ion balance could reduce salt injury and support biomass accumulation. Treatment-associated endpoints support this interpretation without selectively establishing ion balance as the mediator.</p>
                     </div>
 
                 </div>
@@ -806,7 +876,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/35444261/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:35444261</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
                         <div class="snippet">"Na+/K+ ratio was significantly lower in SynCom C inoculated plants"</div>
@@ -819,7 +889,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/35444261/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:35444261</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
                         <div class="snippet">"Here we show that a SynCom of five bacterial strains, originating from the root of the desert plant Indigofera argentea, protected tomato plants growing in a non-sterile substrate against a high salt stress."</div>
@@ -833,11 +903,25 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>SynCom C five-strain salt protection</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">SynCom C was the strongest reduced community from a 20-combination screen of non-redundant three- to five-strain subsets of the 15-strain Jizan library in salt-stressed tomato.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Massilia sp. SA087,
+
+                    Enterobacter sp. SA187,
+
+                    Ensifer sp. SA403,
+
+                    Bacillus sp. SA436,
+
+                    Streptomyces sp. SA444
+
+                </p>
 
 
 
@@ -856,15 +940,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> SynCom C activation of root SOS marker expression
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -876,7 +951,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/35444261/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:35444261</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
                         <div class="snippet">"the five member SynCom C performed the best and was the only one significantly different to the control"</div>
@@ -892,6 +967,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which host processes and consortium members mediate SynCom C salt protection?
+                </h3>
+                <p class="prewrap">Whole-host treatment responses do not establish reciprocal microbial benefit or member necessity. Preserve the sterile/nonsterile assay distinction and the earlier screen-to-validation workflow-edge removal. The larger Jizan tracking experiment is not a five-member functional perturbation. Non-graph evidence classification remains open under #1397.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#SynCom C promotion of salt-stressed tomato biomass</code>, <code>ecological_interactions#SynCom C activation of root SOS marker expression</code>, <code>ecological_interactions#SynCom C reduction of shoot sodium-potassium imbalance</code>, <code>ecological_interactions#SynCom C five-strain salt protection</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -899,6 +993,7 @@
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -937,6 +1032,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -1009,12 +1105,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1027,7 +1126,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1102,7 +1200,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1126,11 +1224,30 @@
 
 
 
+            var participantKeys = [
+
+                "Massilia sp. SA087",
+
+                "Enterobacter sp. SA187",
+
+                "Ensifer sp. SA403",
+
+                "Bacillus sp. SA436",
+
+                "Streptomyces sp. SA444"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1154,11 +1271,30 @@
 
 
 
+            var participantKeys = [
+
+                "Massilia sp. SA087",
+
+                "Enterobacter sp. SA187",
+
+                "Ensifer sp. SA403",
+
+                "Bacillus sp. SA436",
+
+                "Streptomyces sp. SA444"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1188,11 +1324,30 @@
 
 
 
+            var participantKeys = [
+
+                "Massilia sp. SA087",
+
+                "Enterobacter sp. SA187",
+
+                "Ensifer sp. SA403",
+
+                "Bacillus sp. SA436",
+
+                "Streptomyces sp. SA444"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:3";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1216,6 +1371,25 @@
 
 
 
+            var participantKeys = [
+
+                "Massilia sp. SA087",
+
+                "Enterobacter sp. SA187",
+
+                "Ensifer sp. SA403",
+
+                "Bacillus sp. SA436",
+
+                "Streptomyces sp. SA444"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
 
@@ -1229,6 +1403,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

@@ -1,0 +1,168 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 5d6f2a6c1a56eb9a4ab2017af1697ebafdd45667
+scope:
+- kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml
+- kb/communities/Hanford_300_Area_Unconfined_Aquifer_Community.yaml
+- kb/communities/Hexamine_Formaldehyde_Consortium_C6.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch50.json
+findings:
+- issue: 1493
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound controlled carbon-state outcomes and competitive-sorting interpretation.
+  disposition: Close only after protected main merge.
+- issue: 1494
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate aquifer guild inference from measured flux and remove two unsupported causal arrows.
+  disposition: Close only after protected main merge.
+- issue: 1495
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound bulk chemical removal and post-irradiation community recovery.
+  disposition: Close only after protected main merge.
+adversarial_checks:
+- Whole three records and all six original nodes/two arrows reviewed. HAMBI/C6 complete cached main texts,
+  Methods and embedded captions read; C6 main Tables1-3 read. Hanford complete primary abstract and selected
+  local excerpts only. No original figure images, supplements, raw data or code audited.
+- HAMBI controlled carbon-dependent composition shifts remain positive SUPPORT/IN_VITRO observations.
+  The authors' OD-scaled analysis is retained, not dismissed as purely compositional. Competitive sorting
+  remains an interpretation; ancestral monoculture traits and pH associations do not selectively demonstrate
+  the mediator or alternative within-condition stable states.
+- HAMBI keeps all16 canonical input strains, including taxa not dominant at endpoints. Do not infer persistence/extinction
+  from the roster. R2A is a limited resource-complexity proxy; no universal conclusion about complexity
+  or new trait/pH arrow is added.
+- Hanford preserves field observations and the authors' hydrologic structuring interpretation. Remove
+  two arrows that imply community-to-flux and flux-to-depth causal directions. Putative guild annotation
+  is distinct from measured metabolism, and environmental nitrate/uranium is not interspecies exchange.
+- The Hanford cache says full_text but contains selected snippets; this was not misreported as complete
+  primary-body review. PMC CAPTCHA was not bypassed. Broad four-taxon participants are an incomplete subset,
+  not resolved physiological guilds; no new top-down-control/predation mechanism was invented from the
+  abstract proposal.
+- Self-adversarial review found that the selected Hanford guild sentence did not retain its spatial comparator.
+  Removed the contact/redox-transition attribution, renamed the node to neutral depth-stratified sampling
+  context and repaired its anchor and ledger. Prior actual checks were archived as superseded; every verification
+  command was rerun against final text. No history or cache was erased.
+- C6 retains the positive reported94.41/85.56/37.64percent 24-hour biofilm benchmark. Rich AS medium,
+  bulk COD and chemical disappearance do not establish mineralization or reciprocal fitness. Table2 ammonia
+  production is distinct from isolate-level ammonia removal.
+- C6 retains all6 strain labels, including two pairs sharing taxon CURIEs. Bulk post-irradiation recovery
+  during medium renewal does not prove every-strain survival, unchanged composition or an EPS/quorum-sensing
+  mechanism. Nonsignificance is not formal equivalence, and suspended-culture recovery timing is not substituted
+  for biofilm timing.
+- 'Self-review corrected the issue1495 wording: the original record already said not significantly changed.
+  That was not an unqualified no-effect assertion. These statistical and mineralization statements are
+  explicit boundaries, not claims that the original graph asserted every excluded mechanism. The scientific
+  record required no further correction.'
+- C6 main-text50mg/L versus Fig4-caption100mg/L irradiation feed remains explicitly unresolved. The earlier
+  review's chosen non-graph concentration is preserved without recertification. Existing gap author/date/evidence
+  remain, with both nodes anchored; no duplicate gap or history deletion.
+- Inspected all record diffs and focused test assertions. Six nodes retained, two arrows removed, three
+  guarded writes and append-only history artifacts. All457 other records and920 caches preserved. Canonical
+  taxonomy and other non-graph raw blocks unchanged. Three participant registry entries added; measured
+  connectivity census unchanged, no production matching or census-bound change.
+- Actual schema, strict, terms, references, snippets, rank and history gates passed. Network equals baseline
+  with34 prior findings and zero structural defects. Deterministic repeat renders and exact descriptions
+  across456 pages parser-checked, not browser screenshots. Actual post-commit docs-current remains a separate
+  publication gate.
+- Dedup checked803 all-state issue titles/bodies and19 ignored/hidden local files, not every comment/PR
+  review. Existing1059/1060/1007 are closed non-graph repairs;1095 remains an unrelated open writer-audit
+  issue. Issues1493/1494/1495 stay open until protected main merge. Source-based self-adversarial review
+  is not independent approval.
+verification:
+  combined_regressions: 484 passed in 196.51s (0:03:16)
+  new_regression_tests: 6
+  schema_strict_terms_history: Passed with actual output digests
+  references: CLI Total checks counts reported issues, not executed checks. Exit0 is no reported issues,
+    not source verification. SupportingReference coverage (#476), Linux DOI-cache lookup (#1091) and selected-cache
+    provenance (#1362) remain limitations.
+  snippet_counts_by_record:
+    kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml:
+      MATCH: 29
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Hanford_300_Area_Unconfined_Aquifer_Community.yaml:
+      MATCH: 12
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Hexamine_Formaldehyde_Consortium_C6.yaml:
+      MATCH: 22
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network:
+    existing_findings_preserved: 34
+    added_findings: {}
+    removed_findings: {}
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml: 13a2eed2a8504570b0b7e47e924f4a63d1c7d03714098078abe4a0405ecc7472
+    tests/test_causal_review_batch50.py: 428e33029e55cd2b58566e8db92cd79ecc502488d59651f019d67672a0848341
+    tests/test_participating_taxa.py: a750e27ce86ee01f8ac6add3ee0b2ae2873a519d07118aa0f5b13b34a468d408
+    kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml: a6de23c0605bdd23154c61dca8a27d161e55f8fdf0e191bc55d38969b693a6f8
+    kb/communities/Hanford_300_Area_Unconfined_Aquifer_Community.yaml: 61ab38249ffc3fd960901f1868e3373e77ea3077bc79880e1e125eef7e8162d2
+    kb/communities/Hexamine_Formaldehyde_Consortium_C6.yaml: 275243762d5d3c3032178fcc68b9005177a5d0f1924ff6ef01e3aeaf114e8d08
+    reports/causal_graph_review/README.md: e427e7d54900e7641d2b861b4f57ebac4c93a03fe20278865658e61e8be2d96f
+  post_commit_docs_current: Separate publication gate; not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 389
+      mixed: 127
+      community_level_only: 262
+      taxa: 1498
+      credited_solely_by_the_rule: 1222
+    current:
+      records: 460
+      with_community_level: 389
+      mixed: 127
+      community_level_only: 262
+      taxa: 1498
+      credited_solely_by_the_rule: 1222
+  interpretation: All six nodes remain community-scoped with their existing canonical rosters made explicit.
+    Census unchanged; three registry entries added. No production matching or census-bound changes.
+corpus:
+  records: 460
+  nodes: 1465
+  edges: 674
+  review_status_counts:
+    needs_research: 14
+    pending: 270
+    reviewed: 176
+limitations:
+- Whole 511-line HAMBI,270-line Hanford and386-line C6 records and every original node/arrow reviewed.
+  HAMBI/C6 complete cached main bodies/Methods/embedded captions read; C6 main tables read. Hanford primary
+  abstract and selected excerpts only, not full body. No original figure images, supplements, raw data
+  or code audited.
+- 'Existing-structure repairs only: six nodes retained, two Hanford arrows removed, no new causal nodes/arrows
+  or paid Edison job. Positive findings and author interpretations retained with limits; review does not
+  claim all possible mechanisms represented.'
+- HAMBI competition and trait/pH mediation remain interpretations, with positive controlled carbon responses
+  and OD-scaled abundance retained. Explicit participants are the input roster, not demonstrated endpoint
+  persistence or alternative stable states.
+- Hanford selected-cache provenance/full-body access limits persist. Putative guild profiles are not metabolic
+  flux or demonstrated niche partitioning; four broad taxa are not a complete or guild-resolved roster.
+  Top-down-control proposal is not a new curated predation branch. The extracted guild-enrichment sentence
+  lacks its precise spatial comparator; no contact-specific enrichment is certified.
+- C6 bulk removal is not mineralization, ammonia production is not consortium removal and nonsignificance
+  is not formal equivalence. Community recovery does not prove every-strain survival or EPS/quorum-sensing
+  mechanism. Main-text/figure-caption irradiation-feed discrepancy remains unresolved.
+- All non-graph raw blocks and920 cache files preserved, not certified. SupportingReference coverage (#476),
+  Linux DOI-cache lookup (#1091), selected-cache provenance (#1362) and unrelated writer-audit artifact
+  issue (#1095) remain outside scope. Reference CLI Total checks counts reported issues, not executed
+  checks.
+- Dedup checked803 all-state issue titles/bodies and19 ignored/hidden local files, not all comments or
+  PR reviews. Existing1059/1060/1007 are closed non-graph repairs;1095 is unrelated CI audit output. Self-adversarial
+  review is not independent approval. Protected-main merge and corpus completion remain pending.

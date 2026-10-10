@@ -1,0 +1,313 @@
+issue: https://github.com/CultureBotAI/CommunityMech/issues/1236
+reviewer: codex
+review_mode: source_based
+records:
+- path: kb/communities/AMD_Nitrososphaerota_Archaeal.yaml
+  id: CommunityMech:000002
+  record_sha256: 4ec75078d1c9fcd32e5fbac218c3d4c48af25be5a0cb76887cc650c570c95e22
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-seven-records.yaml
+  scope: Whole record read; every existing causal node and edge checked against cited primary-source passages. Other
+    metadata is not certified by this graph review.
+  outcome: changed
+  summary: Separate AMD nitrifier potential from unmeasured transfers and cross-system attribution
+  node_decisions:
+  - node: Archaeal Ammonia Oxidation to Nitrite
+    rationale: Separate measured acidic-soil isolate physiology from AMD gene potential; retain only a hypothesized
+      nitrite-supply edge and remove unsupported urea attribution.
+  - node: Nitrite Oxidation to Nitrate by Nitrospira
+    rationale: Retain nxrB-supported potential, remove the unmeasured detoxification feedback and the ammonia-oxidation
+      GO term.
+  - node: Putative Ferroplasma Organic Matter Turnover
+    rationale: Rename to avoid asserting detoxification; distinguish the Leptospirillum culture partner from AOA
+      and remove the unsupported benefit classification.
+  - node: Archaeal Ammonia-Oxidizer Diversity
+    rationale: Retain lineage diversity but remove an untested pH-partitioning mechanism and classification.
+  edges_before:
+  - source: Archaeal Ammonia Oxidation to Nitrite
+    target: Nitrite Oxidation to Nitrate by Nitrospira
+    description: Nitrite produced by AOA can be consumed by nitrite-oxidizing bacteria.
+  - source: Nitrite Oxidation to Nitrate by Nitrospira
+    target: Archaeal Ammonia Oxidation to Nitrite
+    description: Prevention of nitrite toxicity enables continued AOA activity
+  - source: Urea-Mediated Ammonia Provision
+    target: Archaeal Ammonia Oxidation to Nitrite
+    description: Urea hydrolysis can supply ammonia for downstream archaeal ammonia oxidation.
+  edges_after:
+  - source: Archaeal Ammonia Oxidation to Nitrite
+    target: Nitrite Oxidation to Nitrate by Nitrospira
+    description: HYPOTHESIZED - ammonia oxidation could supply nitrite to Nitrospira-related NOB. The AMD gene survey
+      supports the potential sequence, but did not measure nitrite flux between these populations.
+  references:
+  - PMID:21896746
+  - PMID:22592820
+  - PMID:24909965
+  - PMID:26896134
+  - PMID:27535541
+  - PMID:29209281
+  - PMID:33388792
+  removed_node_decisions:
+  - node: Urea-Mediated Ammonia Provision
+    rationale: Acid-soil urea stimulation does not identify the named participant or establish this AMD process.
+      Preserve the research gap instead of an unsupported node.
+  renamed_nodes:
+    Organic Matter Detoxification by Ferroplasma: Putative Ferroplasma Organic Matter Turnover
+    Complementary Archaeal Nitrification Across pH Gradient: Archaeal Ammonia-Oxidizer Diversity
+  limitations:
+  - Non-graph descriptions, taxon notes, and environmental numbers remain outside this review's validation scope.
+  history_file: history/records/AMD_Nitrososphaerota_Archaeal/2026-10-05T055158Z-codex-ce2f0a.yaml
+- path: kb/communities/Aerobic_Denitrification_QQ_SynCom.yaml
+  id: CommunityMech:000115
+  record_sha256: 91bebb0e6765cb47335cb04931e7b62995b04a900d2cf7a9b296e9033c236980
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-seven-records.yaml
+  scope: Whole record read; every existing causal node and edge checked against cited primary-source passages. Other
+    metadata is not certified by this graph review.
+  outcome: changed
+  summary: Qualify quorum-quenching mediator edges and remove unsupported ecological classifications
+  node_decisions:
+  - node: Aeromonas quorum quenching of 3OC12-HSL
+    rationale: Retain the author-reported sequence with abstract-scope uncertainty; remove the unestablished mutual-benefit
+      label.
+  - node: Pyocyanine-stimulated electron transfer
+    rationale: Preserve the proposed nitrite-reduction contribution as PARTIAL; do not equate redox mediation with
+      nutritional exchange.
+  - node: Efficient nitrate reduction by the three-member SMC
+    rationale: Retain the measured nitrate-removal endpoint without asserting thermodynamic syntrophy.
+  edges_before:
+  - source: Aeromonas quorum quenching of 3OC12-HSL
+    target: Pyocyanine-stimulated electron transfer
+    description: The 3OC12-HSL decline caused by quorum quenching stimulates pyocyanine excretion and downstream
+      electron transfer.
+  - source: Pyocyanine-stimulated electron transfer
+    target: Efficient nitrate reduction by the three-member SMC
+    description: Pyocyanine-enhanced electron transfer supports efficient nitrate and nitrite reduction by the full
+      synthetic community.
+  edges_after:
+  - source: Aeromonas quorum quenching of 3OC12-HSL
+    target: Pyocyanine-stimulated electron transfer
+    description: PARTIAL - the abstract reports that Aeromonas-associated 3OC12-HSL decline stimulates pyocyanin
+      excretion, but does not describe mediator-specific disruption or rescue controls.
+  - source: Pyocyanine-stimulated electron transfer
+    target: Efficient nitrate reduction by the three-member SMC
+    description: PARTIAL - pyocyanin-associated electron transfer could support the nitrite-reduction component
+      of the community endpoint. The abstract also describes nitrate-reduction and energy-metabolism routes, so
+      this is not a sole explanation of nitrate removal.
+  references:
+  - PMID:38277828
+  limitations:
+  - Only the abstract was available for this source review; the Europe PMC lookup did not supply full text.
+  history_file: history/records/Aerobic_Denitrification_QQ_SynCom/2026-10-05T055159Z-codex-a94738.yaml
+- path: kb/communities/Aalborg_East_Full_Scale_EBPR_Community.yaml
+  id: CommunityMech:000139
+  record_sha256: 8b38b18b0519f17b387ecdd88334ea66438df128cd912a5c56da4f8c1f6d012d
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-seven-records.yaml
+  scope: Whole record read; every existing causal node and edge checked against cited primary-source passages. Other
+    metadata is not certified by this graph review.
+  outcome: changed
+  summary: Qualify EBPR causal interpretations
+  node_decisions:
+  - node: PAO Phosphate Storage Under EBPR Selection
+    rationale: Qualify inference; remove niche-partitioning label.
+  - node: Flanking-Community Substrate Provision To PAOs
+    rationale: Remove unsupported acetate specificity; qualify transfer.
+  - node: Sludge Floc and Biofilm Formation
+    rationale: Separate genetic potential from colonization facilitation.
+  - node: Stable Full-Scale EBPR Phosphorus Removal
+    rationale: Retain observed removal, not mutual benefit.
+  edges_before:
+  - source: PAO Phosphate Storage Under EBPR Selection
+    target: Stable Full-Scale EBPR Phosphorus Removal
+    description: 'Polyphosphate-accumulating organisms provide the phosphate-storage metabolism that removes phosphorus
+      from wastewater in the stable full-scale EBPR process.
+
+      '
+  - source: Flanking-Community Substrate Provision To PAOs
+    target: PAO Phosphate Storage Under EBPR Selection
+    description: 'Substrate release by fermenting and hydrolytic flanking bacteria supplies PAOs, linking community
+      trophic support to the phosphorus-storage process selected in the full-scale EBPR plant.
+
+      '
+  - source: Sludge Floc and Biofilm Formation
+    target: Stable Full-Scale EBPR Phosphorus Removal
+    description: 'Activated-sludge floc and biofilm formation retain biomass in the plant, sustaining the phosphorus-removing
+      community selected by EBPR operation.
+
+      '
+  edges_after:
+  - source: PAO Phosphate Storage Under EBPR Selection
+    target: Stable Full-Scale EBPR Phosphorus Removal
+    description: PARTIAL - PAO storage plausibly supports removal; its quantitative contribution was not isolated.
+  - source: Flanking-Community Substrate Provision To PAOs
+    target: PAO Phosphate Storage Under EBPR Selection
+    description: HYPOTHESIZED - flanking bacteria supply PAO substrates; this study does not measure that transfer.
+  - source: Sludge Floc and Biofilm Formation
+    target: Stable Full-Scale EBPR Phosphorus Removal
+    description: PARTIAL - biomass retention may sustain removal; gene enrichment does not isolate that effect.
+  references:
+  - PMID:22170425
+  source_review_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3358022/
+  limitations:
+  - The local reference cache contains selected excerpts; source context was read separately.
+  history_file: history/records/Aalborg_East_Full_Scale_EBPR_Community/2026-10-05T055200Z-codex-345efd.yaml
+- path: kb/communities/Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.yaml
+  id: CommunityMech:000173
+  record_sha256: 4861dca464d4efcdf3db47d3dacb0480c77210c168b30d3aec613ee4cf3518cf
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-seven-records.yaml
+  scope: Whole record read; every existing causal node and edge checked against cited primary-source passages. Other
+    metadata is not certified by this graph review.
+  outcome: changed
+  summary: Remove niche-partitioning label from engineered hydrogen supply
+  node_decisions:
+  - node: Acetogenic Lactate Production from CO2 and H2
+    rationale: Retain the lactate producer-to-consumer link supported by the exact-system publications.
+  - node: Lactate-Mediated Chain Elongation to Caproic Acid
+    rationale: Retain lactate-mediated chain elongation and the caproic-acid endpoint; no exact enzyme mechanism
+      is asserted.
+  - node: Electrolysis-Generated Hydrogen Supply
+    rationale: Retain the hydrogen-supply edge, supported by production and electrolysis-control observations; engineering
+      a substrate supply is not ecological niche partitioning.
+  edges_before:
+  - source: Acetogenic Lactate Production from CO2 and H2
+    target: Lactate-Mediated Chain Elongation to Caproic Acid
+    description: 'A. woodii converts CO2 and H2 into lactate, the intermediate that C. drakei consumes for chain
+      elongation to caproic acid in the coculture.
+
+      '
+  - source: Electrolysis-Generated Hydrogen Supply
+    target: Acetogenic Lactate Production from CO2 and H2
+    description: 'In situ electrolysis supplies the H2 electron donor used with CO2 by the recombinant A. woodii
+      strain to form lactate for the chain-elongating partner.
+
+      '
+  edges_after:
+  - source: Acetogenic Lactate Production from CO2 and H2
+    target: Lactate-Mediated Chain Elongation to Caproic Acid
+    description: 'A. woodii converts CO2 and H2 into lactate, the intermediate that C. drakei consumes for chain
+      elongation to caproic acid in the coculture.
+
+      '
+  - source: Electrolysis-Generated Hydrogen Supply
+    target: Acetogenic Lactate Production from CO2 and H2
+    description: 'In situ electrolysis supplies the H2 electron donor used with CO2 by the recombinant A. woodii
+      strain to form lactate for the chain-elongating partner.
+
+      '
+  references:
+  - PMID:36619880
+  - doi:10.1186/s12934-024-02481-3
+  - doi:10.3389/fbioe.2023.1212044
+  source_review_urls:
+  - https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2023.1212044/full
+  history_file: history/records/Acetobacterium_Clostridium_CO2_Electrolysis_Coculture/2026-10-05T055200Z-codex-928235.yaml
+- path: kb/communities/Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment.yaml
+  id: CommunityMech:000238
+  record_sha256: 31523009e0251f141c60c284424806a2289381b68f4bd125e3bea33046c8f755
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-seven-records.yaml
+  scope: Whole record read; every existing causal node and edge checked against cited primary-source passages. Other
+    metadata is not certified by this graph review.
+  outcome: changed
+  summary: Separate measured acetylene-supported transfer from genomic producer inference
+  node_decisions:
+  - node: Acetylenotrophy Provides Reductant for Dechlorination
+    rationale: Retain community hydrogen cross-feeding while qualifying metagenomic producer attribution; do not
+      infer thermodynamic syntrophy from a mass balance.
+  - node: Reductive Dechlorination of TCE and PCE
+    rationale: Retain dechlorination with the predominant vinyl-chloride endpoint and remove unsupported syntrophy
+      classification.
+  - node: Acetylene as Sole Electron Donor and Carbon Source
+    rationale: Retain the sole-substrate condition and causal supply edge, not a niche-partitioning claim.
+  edges_before:
+  - source: Acetylenotrophy Provides Reductant for Dechlorination
+    target: Reductive Dechlorination of TCE and PCE
+    description: Acetylenotrophy supplies the reductant that supports TCE and PCE reduction in the native groundwater
+      enrichment.
+  - source: Acetylene as Sole Electron Donor and Carbon Source
+    target: Acetylenotrophy Provides Reductant for Dechlorination
+    description: Acetylene-fed growth of the stable enrichment supplies the acetylenotrophic metabolism that couples
+      to TCE and PCE reductive dechlorination in the groundwater-derived community.
+  edges_after:
+  - source: Acetylenotrophy Provides Reductant for Dechlorination
+    target: Reductive Dechlorination of TCE and PCE
+    description: Acetylene fermentation supplies hydrogen that supports TCE/PCE reduction in the enrichment. The
+      community-level hydrogen balance supports this link without proving an exact isolated donor-recipient pair.
+  - source: Acetylene as Sole Electron Donor and Carbon Source
+    target: Acetylenotrophy Provides Reductant for Dechlorination
+    description: Acetylene-fed growth of the stable enrichment supplies the acetylenotrophic metabolism that couples
+      to TCE and PCE reductive dechlorination in the groundwater-derived community.
+  references:
+  - PMID:33531396
+  history_file: history/records/Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment/2026-10-05T055201Z-codex-fdadde.yaml
+- path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+  id: CommunityMech:000276
+  record_sha256: 33b202bc07eceb38a47c560434734e8b21f1b251bf20433964af97aef3568b6b
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-seven-records.yaml
+  scope: Whole record read; every existing causal node and edge checked against cited primary-source passages. Other
+    metadata is not certified by this graph review.
+  outcome: no_change
+  summary: Retain the existing source-bounded causal graph after review
+  node_decisions:
+  - node: ANME methane oxidation supplies syntrophic electrons
+    rationale: Retain the methane-derived electron source within the three characterized enrichment types. The source
+      places this upstream of interpartner electron transport; the graph does not assert a newly isolated molecular
+      methane-oxidation catalyst.
+  - node: Redox-Conduction Direct Interspecies Electron Transport
+    rationale: Retain measured redox conduction. Generator-collector assays across a 5-micrometer gap in live biomass,
+      PBS/Gelrite/sulfide controls, and heat/oxygen/fixation responses support biomolecular redox conduction. The
+      node correctly says consistent with multiheme cytochrome c instead of claiming an identified protein conduit.
+  - node: SRB sulfate reduction accepts methane-derived electrons
+    rationale: Retain the receiving sulfate-reduction process in the identified ANME/SRB enrichment pairs. This
+      completes the source-supported syntrophic electron-flow chain without adding a reciprocal feedback arrow.
+  edges_before:
+  - source: ANME methane oxidation supplies syntrophic electrons
+    target: Redox-Conduction Direct Interspecies Electron Transport
+    description: Methane-derived electrons are conducted from ANME cells to SRB partners to support the interspecies
+      syntrophy.
+  - source: Redox-Conduction Direct Interspecies Electron Transport
+    target: SRB sulfate reduction accepts methane-derived electrons
+    description: Redox-conduction electron transfer links archaeal methane oxidation to SRB sulfate reduction in
+      the sediment-free enrichments.
+  edges_after:
+  - source: ANME methane oxidation supplies syntrophic electrons
+    target: Redox-Conduction Direct Interspecies Electron Transport
+    description: Methane-derived electrons are conducted from ANME cells to SRB partners to support the interspecies
+      syntrophy.
+  - source: Redox-Conduction Direct Interspecies Electron Transport
+    target: SRB sulfate reduction accepts methane-derived electrons
+    description: Redox-conduction electron transfer links archaeal methane oxidation to SRB sulfate reduction in
+      the sediment-free enrichments.
+  references:
+  - PMID:40845095
+  review_notes:
+  - Measurements demonstrate conduction capacity and redox potentials, not identification of individual multiheme
+    proteins.
+  - The source disfavors metallic conduction by pili and does not fully exclude alternative redox-active molecules.
+    Current wording does not assert metallic pili or an exact cytochrome.
+  - Three enrichment types are kept distinct in the record description and taxa notes; their members are not presented
+    as one obligatory six-member culture.
+- path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  id: CommunityMech:000434
+  record_sha256: 376423d5910b761cc88aa6d9afe44204a7c275ed3e8873fef1a56c4def1e19c9
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261005-seven-records.yaml
+  scope: Whole record read; every existing causal node and edge checked against cited primary-source passages. Other
+    metadata is not certified by this graph review.
+  outcome: no_change
+  summary: Retain the existing source-bounded causal graph after review
+  node_decisions:
+  - node: Putative acidic carbon and nitrogen cycling linkage
+    rationale: The sole node explicitly describes potential meta-omic carbon/nitrogen linkages between the dominant
+      pH 2 partners. It avoids identifying an exchanged metabolite, transfer direction, reciprocal benefit, or isolated
+      perturbation not established by the abstract. The current abstract-scope qualification and open methods/evidence
+      gap are appropriate.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42762737
+  review_notes:
+  - Concurrent stress-response expression does not establish directed interspecies detoxification or a rescue loop.
+    New causal structure would require separate research rather than arrows between co-responses.

@@ -90,9 +90,9 @@ taxonomy:
     explanation: Supports C. elegans as the host whose gut is colonized by the CeMbio community.
 ecological_interactions:
 - name: Multi-Strain C. elegans Gut Colonization
-  description: All CeMbio strains establish as members of the worm gut community, with strain-, time-, and
-    culture-medium-dependent colonization dynamics and a gut community distinct from the bacterial lawn.
-  interaction_type: COLONIZATION_FACILITATION
+  description: CeMbio members colonized C. elegans individually and in mixtures, with medium-, time- and strain-dependent
+    abundance. This establishes gut association, not member-to-member colonization facilitation or mediation of
+    host development.
   scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: CeMbio v1.0 bacterial strain consortium
@@ -109,22 +109,16 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Community Effects on Nematode Development
-    description: >
-      Defined gut colonization establishes the host-microbiome condition under
-      which the CeMbio community measurably changes C. elegans developmental
-      timing relative to E. coli OP50 food.
   evidence:
   - reference: PMID:32669368
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: all CeMbio strains can establish themselves in the worm gut as community members
     explanation: Supports the core colonization interaction for the defined community.
 - name: Community Effects on Nematode Development
-  description: CeMbio and individual members alter C. elegans developmental timing relative to standard
-    E. coli OP50 food, indicating that the defined microbiome has measurable life-history effects.
-  interaction_type: MUTUALISM
+  description: The complete CeMbio mixture accelerated developmental timing relative to OP50 food in N2 and CB4856
+    worms. Individual members had heterogeneous effects. Adult-fraction timing is not direct biomass growth or evidence
+    that both host and bacteria benefit.
   scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: CeMbio v1.0 bacterial strain consortium
@@ -137,10 +131,6 @@ ecological_interactions:
       id: NCBITaxon:6239
       label: Caenorhabditis elegans
   biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
@@ -148,13 +138,16 @@ ecological_interactions:
   evidence:
   - reference: PMID:32669368
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: the CeMbio community as a whole significantly enhanced growth rates for both host strains compared to growth on E. coli OP50
-    explanation: Supports a measurable host developmental effect of the full community.
+    evidence_source: IN_VIVO
+    snippet: the CeMbio community as a whole significantly enhanced growth rates for both host strains compared
+      to growth on E. coli OP50
+    explanation: The paper calls this growth rate, but the measured endpoint is developmental timing; it does not
+      measure reciprocal fitness.
 - name: Strain-Resolved Metabolic Diversity
-  description: Genome-scale models and Biolog phenotyping showed diverse metabolic capabilities among the
-    twelve members, including variable predicted carbon-source utilization that can shape community assembly
-    and competition in the worm gut.
+  description: COMPUTATIONAL - gapseq/FBA models and substrate phenotyping distinguish member metabolic capacities.
+    PARTIAL - the authors propose niche differentiation as a contributor to assembly; pathway counts did not explain
+    individual colonization or community competitive fitness. Model agreement after training is not independent
+    validation or measured gut flux.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -173,26 +166,26 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Multi-Strain C. elegans Gut Colonization
-    description: >
-      Diverse strain-level biosynthetic, degradative, and carbon-use capacities
-      provide the metabolic basis for community assembly and competition in the
-      worm gut.
+    description: HYPOTHESIZED - differentiated nutrient-use capacities could favor community assembly. The source
+      proposes this explanation but does not demonstrate that these capacities cause gut colonization patterns.
   evidence:
   - reference: PMID:32669368
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: The greatest differences in the predicted metabolic capabilities among the strains is observed in both biosynthesis and degradation of amino acids, carbohydrates, cofactors and vitamins
-    explanation: Supports metabolic niche diversity among CeMbio strains.
+    snippet: The greatest differences in the predicted metabolic capabilities among the strains is observed in both
+      biosynthesis and degradation of amino acids, carbohydrates, cofactors and vitamins
+    explanation: Supports modeled capacity differences or their phenotype comparison, not causal in-gut resource
+      partitioning.
   - reference: PMID:32669368
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: The carbon source utilization by the whole CeMbio community is highlighted in yellow.
-    explanation: Supports community-level carbon-source utilization modeling.
+    explanation: Supports modeled capacity differences or their phenotype comparison, not causal in-gut resource
+      partitioning.
 - name: CeMbio Odor Preference and Food-Seeking
-  description: A follow-up study of the same twelve CeMbio reference strains showed that C. elegans prefers
-    volatile cues from three Enterobacteriaceae members, linking community member identity to host behavioral
-    preference.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Individual-member odor assays favored JUb66, CEent1 and BIGb0393 relative to OP50. Inaccessible bacteria
+    on the lid supplied volatile cues; these were not mixed-community, feeding or colonization assays. The preferred
+    members are not all Enterobacteriaceae.
   scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: CeMbio v1.0 bacterial strain consortium
@@ -216,9 +209,11 @@ ecological_interactions:
   evidence:
   - reference: PMID:38228683
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: We set out to measure the preference of C. elegans for the odors of the twelve bacterial species that comprise CeMbio.
-    explanation: Supports use of the exact CeMbio reference composition in a follow-up behavioral study.
+    evidence_source: IN_VIVO
+    snippet: We set out to measure the preference of C. elegans for the odors of the twelve bacterial species that
+      comprise CeMbio.
+    explanation: Supports the individual-member odor experiment, not a whole-consortium preference or facilitated
+      colonization.
 environmental_factors:
 - name: NGM and peptone-free NGM plate environment
   value: NGM or PFM plates seeded with CeMbio bacterial inoculum
@@ -329,3 +324,26 @@ external_resources:
     snippet: all isolates are available from the Caenorhabditis Genetics Center (CGC, http://cgc.umn.edu; search for ‘CeMbio’ in strain descriptions)
     explanation: Supports public strain availability for the defined community.
 metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: cembio_assembly_diet_and_odor_mediation
+  prompt: Which metabolic functions mediate gut assembly, and how do diet quality and volatile responses relate
+    to development?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Multi-Strain C. elegans Gut Colonization
+  - ecological_interactions#Community Effects on Nematode Development
+  - ecological_interactions#Strain-Resolved Metabolic Diversity
+  - ecological_interactions#CeMbio Odor Preference and Food-Seeking
+  rationale: 'PMID:32669368 proposes metabolic differentiation; PMID:38228683 assays inaccessible individual-member
+    odors. Neither isolates gut colonization as the mediator of developmental timing. Preserve the broad Bacteria
+    grounding pending separate roster curation and #615 host-system modeling.'
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T17:31:06Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Separate CeMbio colonization, development, metabolic hypotheses and individual-member odor assays; reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1272
+  llm_assisted: true

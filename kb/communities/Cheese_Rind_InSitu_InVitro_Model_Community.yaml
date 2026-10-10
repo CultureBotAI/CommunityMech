@@ -99,44 +99,44 @@ taxonomy:
   abundance_level: ABUNDANT
 ecological_interactions:
 - name: Moisture-Structured Rind Community Assembly
-  description: Moisture and rind-style manipulations selected different bacterial and fungal assemblages,
-    with drier natural-rind conditions enriching Debaryomyces, Staphylococcus, and Penicillium.
-  interaction_type: NICHE_PARTITIONING
+  description: Rind-style treatments changed reconstructed composition; drying also concentrates salt, so moisture
+    was not an isolated niche mechanism. The environmental reconstruction, pairwise assays and succession subset
+    have different memberships. The four genera in this record are not a complete defined assay roster.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
     term:
       id: GO:0042710
       label: biofilm formation
-  downstream:
-  - target: Reproducible Natural-Rind Succession
-    description: Moisture and rind-style manipulations impose the abiotic context in which
-      reconstructed rind communities diverge into reproducible bacterial-fungal successions.
-- name: Fungal Deacidification Facilitates Bacterial Growth
-  description: Yeasts and filamentous fungi increased cheese-curd-medium pH, and the study linked this
-    deacidification to positive growth responses of multiple bacterial genera in fungal coculture.
-  interaction_type: COLONIZATION_FACILITATION
+- name: Proposed Fungal Deacidification and Bacterial Growth Responses
+  description: PARTIAL - fungal pH changes and pH-dependent bacterial growth suggest deacidification contributes
+    to some responses. The current roster omits several responsive genera and includes bacteria with inhibitory
+    responses; facilitation cannot be assigned across its four members. Exact-system evidence and assay scope remain
+    unresolved in issue 765.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Reproducible Natural-Rind Succession
-    description: Fungal deacidification raises cheese-curd pH and facilitates bacterial
-      growth during the reconstructed natural-rind succession.
 - name: Reproducible Natural-Rind Succession
-  description: A six-genus natural-rind subset recapitulated key features of in situ succession on cheese
-    curd agar, with early Staphylococcus and Candida followed by later Brevibacterium, Brachybacterium,
-    Penicillium, and Scopulariopsis.
-  interaction_type: COLONIZATION_FACILITATION
+  description: A simplified reconstruction reproduced broad in situ succession patterns, but was faster and quantitatively
+    different. This observation does not demonstrate that earlier members facilitated later colonization. The succession
+    subset must not be conflated with the environmental reconstruction or the incomplete four-genus roster.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
     term:
       id: GO:0042710
       label: biofilm formation
+  evidence:
+  - reference: PMID:25036636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Patterns of community composition and succession observed in situ can be recapitulated in a simple
+      in vitro system.
+    explanation: Supports the abstract-level observation of in situ patterns reproduced in vitro, not exact temporal
+      ordering or facilitation among the currently listed genera.
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: OTHER
@@ -235,7 +235,33 @@ curation_history:
 - timestamp: '2026-09-13T00:56:49Z'
   curator: codex
   action: RECONCILE_PAYWALLED_EVIDENCE_REMOVAL
-  changes: "Reapplied PR #766's 21 unsupported evidence removals onto current main, preserving its newer
-    interaction curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in
-    #765."
+  changes: 'Reapplied PR #766''s 21 unsupported evidence removals onto current main, preserving its newer interaction
+    curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in #765.'
   llm_assisted: true
+- timestamp: '2026-10-01T05:00:58Z'
+  curator: codex
+  action: PRUNE_UNEVIDENCED_CAUSAL_EDGES
+  changes: Removed two downstream causal edges from the moisture-structured assembly and fungal-deacidification
+    nodes because their exact causal links still lack retained snippet support after publication-body evidence removal.
+  llm_assisted: true
+- timestamp: '2026-10-05T17:31:06Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Qualify cheese-rind assay summaries without certifying unresolved evidence and membership; reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1272
+  llm_assisted: true
+discussions:
+- discussion_id: cheese_assay_membership_and_retained_evidence
+  prompt: Which assay-specific members and permitted exact-system evidence support the three retained graph summaries?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Moisture-Structured Rind Community Assembly
+  - ecological_interactions#Proposed Fungal Deacidification and Bacterial Growth Responses
+  - ecological_interactions#Reproducible Natural-Rind Succession
+  rationale: Issue 765 remains open. Abstracts and selected primary Results/Discussion were read; complete methods
+    and images were not accessible. No deleted publication-body text is restored. Environmental reconstruction,
+    pairwise growth and succession use different member sets; media/cultivation attribution and aroma-potential
+    claims need separate review. Keep zero arrows and needs_research until evidence and roster scope are reconciled.
+  posed_by: codex
+  posed_date: '2026-10-05'

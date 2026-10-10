@@ -52,10 +52,12 @@ taxonomy:
       Actinobacteria
     explanation: Supports the drought-enriched Actinobacteria lineage.
 ecological_interactions:
-- name: Drought Selection on Iron- and Carbohydrate-Transport Functions
-  description: Drought stress enriches rhizosphere taxa whose genomes are
-    enriched in carbohydrate transport, secondary-metabolite transport, and
-    iron transport and metabolism functions.
+- name: Drought-Associated Genomic Transport Capacity
+  description: Field sorghum rhizosphere metagenomes associate drought enrichment with carbohydrate, secondary-metabolite
+    and iron transport/metabolism gene capacity. Ten of fifteen recovered Actinobacterial MAGs were drought-enriched;
+    five were not. This is genomic potential, not microbial expression, iron flux or a demonstrated fitness effect
+    of the genes. The canonical phylum participant is a partial grouping, not a universal responder or complete
+    microbiome roster.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: drought-enriched rhizosphere Actinobacteria
@@ -79,21 +81,23 @@ ecological_interactions:
   evidence:
   - reference: PMID:34050180
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: bacterial iron transport and metabolism functionality is highly
-      correlated with drought enrichment
-    explanation: Supports iron metabolism as a drought-enrichment correlate.
+    evidence_source: COMPUTATIONAL
+    snippet: bacterial iron transport and metabolism functionality is highly correlated with drought enrichment
+    explanation: Supports iron metabolism as a drought-enrichment correlate. The comparative metagenomic result
+      concerns gene capacity, not direct activity or selective microbial gene perturbation.
   - reference: PMID:34050180
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: carbohydrate and secondary metabolite transport functionalities
-      are overrepresented within drought-enriched taxa
-    explanation: Supports carbohydrate and secondary-metabolite transport
-      overrepresentation.
-- name: Plant Phytosiderophore Transporter Loss Promotes Actinobacteria
-  description: Loss of a plant phytosiderophore iron transporter alters root
-    iron homeostasis under drought stress and reshapes the microbiome,
-    increasing Actinobacteria abundance.
+    evidence_source: COMPUTATIONAL
+    snippet: carbohydrate and secondary metabolite transport functionalities are overrepresented within drought-enriched
+      taxa
+    explanation: Supports carbohydrate and secondary-metabolite transport overrepresentation. The comparative metagenomic
+      result concerns gene capacity, not direct activity or selective microbial gene perturbation.
+- name: Maize TOM1 Loss and Relative Actinobacteria Enrichment
+  description: In a separate maize growth-chamber experiment using field-site soil, loss of TOM1, an exporter of
+    the phytosiderophore mugineic acid, increased relative rhizosphere Actinobacteria under watered controls. The
+    genotype difference was not significant under drought. This host perturbation supports iron-homeostasis involvement
+    but does not establish absolute phylum growth, a sorghum knockout effect or causal selection of the field MAG
+    gene repertoire.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: drought-enriched rhizosphere Actinobacteria
@@ -109,23 +113,19 @@ ecological_interactions:
     term:
       id: CHEBI:24875
       label: iron cation
-  downstream:
-  - target: Drought Selection on Iron- and Carbohydrate-Transport Functions
-    description: Disrupting host phytosiderophore iron transport perturbs root
-      iron homeostasis and increases the drought-enriched Actinobacteria
-      lineage, reinforcing the iron-dependent selection axis in the rhizosphere.
   evidence:
   - reference: PMID:34050180
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: loss of a plant phytosiderophore iron transporter impacts microbial
-      community composition
-    explanation: Supports the host-transporter knockout effect on community
-      composition.
-- name: Exogenous Iron Disrupts Drought-Induced Actinobacteria
-  description: Exogenous application of iron disrupts the drought-induced
-    enrichment of Actinobacteria and abolishes their improvement of host
-    phenotype during drought stress.
+    snippet: loss of a plant phytosiderophore iron transporter impacts microbial community composition
+    explanation: The abstract summarizes a host-transporter effect; primary Results locate it in maize, principally
+      under watered control conditions, not a drought-specific sorghum gene perturbation.
+- name: Iron Amendment Suppresses the Sc1 Drought Response
+  description: Separate gnotobiotic sorghum assays inoculated either Streptomyces coelicolor Sc1 or Pseudomonas
+    syringae Ps1, not their coculture or the field microbiome. Fe3+-EDTA amendment removed the significant drought-versus-control
+    abundance contrast and Sc1-associated fresh-root-biomass benefit. This supports an iron-sensitive Sc1 response,
+    not suppression of every actinobacterium or causal alteration of the field genomic repertoire. The retained
+    phylum participant is only a broader taxonomic grouping for Sc1.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: drought-enriched rhizosphere Actinobacteria
@@ -137,20 +137,15 @@ ecological_interactions:
     term:
       id: CHEBI:24875
       label: iron cation
-  downstream:
-  - target: Drought Selection on Iron- and Carbohydrate-Transport Functions
-    description: Exogenous iron suppresses drought-driven Actinobacteria
-      enrichment and its host-phenotype effect, showing that available iron
-      controls the same drought-selected microbial function.
   evidence:
   - reference: PMID:34050180
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: exogenous application of iron disrupts the drought-induced
-      enrichment of Actinobacteria, as well as their improvement in host
-      phenotype during drought stress
-    explanation: Supports the iron-amendment disruption of the drought-induced
-      enrichment.
+    snippet: exogenous application of iron disrupts the drought-induced enrichment of Actinobacteria, as well as
+      their improvement in host phenotype during drought stress
+    explanation: 'This pooled abstract statement is broader than the intervention: primary Results use separate
+      single-isolate sorghum assays and report Sc1-associated root biomass, not a community-wide benefit or direct
+      test of field genomic functions.'
 environmental_factors:
 - name: Drought stress
   value: drought versus well-watered conditions
@@ -259,3 +254,27 @@ metal_relevance: SIGNIFICANT
 metal_notes: Iron transport and metabolism are central to the drought-induced
   microbiome enrichment, and exogenous iron disrupts the drought-induced
   Actinobacteria enrichment.
+discussions:
+- discussion_id: drought_iron_cross_assay_mediation
+  prompt: Which microbial iron-acquisition functions mediate enrichment in the field community?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Drought-Associated Genomic Transport Capacity
+  - ecological_interactions#Maize TOM1 Loss and Relative Actinobacteria Enrichment
+  - ecological_interactions#Iron Amendment Suppresses the Sc1 Drought Response
+  rationale: 'Field genomic association, maize TOM1 perturbation and single-isolate sorghum iron amendment are different
+    experiments. The removed arrows did not establish selection of field transport genes by either intervention.
+    Host siderophore export, microbial iron uptake and absolute taxon fitness require exact-system measurements
+    and selective perturbations. Do not import separate chamber media into the field record; existing #647 documents
+    this boundary. Non-graph role and pooled-assay wording remain under #1413.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T07:30:09Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain drought-associated genomic capacity without expression or gene-mediated fitness claims.; Retain
+    the maize genotype response with watered-control and relative-abundance boundaries.; Retain the Sc1 iron-amendment
+    observation without phylum-wide or same-community extrapolation. Issue #1410; reports/causal_graph_review/decisions/20261006-three-records-batch34.yaml'
+  llm_assisted: true

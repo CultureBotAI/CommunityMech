@@ -109,22 +109,12 @@ taxonomy:
       forming a 25-species core microbiome
     explanation: Supports the recurrent core noncyanobacterial membership.
 ecological_interactions:
-- name: Plasmid-Mediated Cyanobacteria-Heterotroph Symbiosis
-  description: Core noncyanobacterial species are significantly enriched in
-    plasmids, and plasmid-encoded functions are suggested to mediate symbiotic
-    interactions with the cyanobacterial hosts.
-  interaction_type: MUTUALISM
+- name: Putative Plasmid Functions in the Cyanobacterial Core Microbiome
+  description: PARTIAL - Core microbiome MAGs are enriched in putative plasmid contigs carrying transport, carbohydrate-metabolism
+    and signaling functions. Cobinning assigns plasmids to MAGs and 98% of predicted plasmids were not circularized.
+    Their contribution to phototroph-heterotroph establishment or maintenance is HYPOTHESIZED from genomic content,
+    not demonstrated plasmid transfer, curing, reciprocal fitness or metabolite flux.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: core noncyanobacterial heterotrophs
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
-  target_taxon:
-    preferred_term: model cyanobacterial hosts
-    term:
-      id: NCBITaxon:1117
-      label: Cyanobacteriota
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -132,17 +122,17 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:40626910
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: core species showed significant enrichment of plasmids, and functions
-      encoded on plasmids suggested plasmid-mediated roles in symbiotic interactions
-    explanation: Supports plasmid-mediated symbiotic functions in the core consortium.
+    snippet: core species showed significant enrichment of plasmids, and functions encoded on plasmids suggested
+      plasmid-mediated roles in symbiotic interactions
+    explanation: Supports plasmid enrichment and proposed symbiotic roles, not experimentally demonstrated mutual
+      benefit.
 - name: Core Micronutrient and Anoxygenic Photosynthesis Functions
-  description: The 25-species core microbiome is statistically enriched for
-    micronutrient biosynthesis, metabolite transport, and anoxygenic
-    photosynthesis functions, indicating shared community-level metabolic
-    contributions across consortia.
-  interaction_type: CROSS_FEEDING
+  description: Core microbiome MAGs are statistically enriched in micronutrient biosynthesis, membrane transport
+    and anoxygenic photosynthesis potential; 20 of 25 core MAGs encode anoxygenic photosystem components. These
+    are genomic capabilities. Cross-feeding of costly cofactors or cyanobacterial products is HYPOTHESIZED, not
+    measured expression, transferred metabolites or partner-specific growth benefit.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: vitamin biosynthetic process
@@ -161,37 +151,39 @@ ecological_interactions:
   - reference: PMID:40626910
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: core microbiome functionalities in micronutrient biosynthesis,
-      metabolite transport, and anoxygenic photosynthesis
-    explanation: Supports the curated set of shared functional categories.
-- name: Host- and Inoculum-Independent Core Recruitment
-  description: Despite varying cyanobacterial host species and freshwater inoculum
-    sources, the 108 consortia converged on the same noncyanobacterial core,
-    indicating reproducible cyanobacterium-driven recruitment.
-  interaction_type: COLONIZATION_FACILITATION
+    snippet: core microbiome functionalities in micronutrient biosynthesis, metabolite transport, and anoxygenic
+      photosynthesis
+    explanation: Supports the functional-enrichment analysis; encoded potential does not demonstrate exchange.
+- name: Reproducible Core Recruitment Across Hosts and Inocula
+  description: 'Among 108 retained consortia, 25 species met an operational core definition: occurrence with at
+    least four host strains and at least two source environments under replicated criteria. Individual core species
+    occurred in 18.5%-68.5% of samples, not universally. Communities stabilized and showed broad convergence, while
+    both host strain and inoculum significantly affected composition. Host-driven facilitation is PARTIAL because
+    cyanobacteria-free controls were absent, leaving medium and laboratory selection unresolved.'
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Core Micronutrient and Anoxygenic Photosynthesis Functions
-    description: Reproducible 25-species core recruitment made it possible to
-      statistically validate shared micronutrient-biosynthesis, metabolite-
-      transport, and anoxygenic-photosynthesis functions in the core microbiome.
-  - target: Plasmid-Mediated Cyanobacteria-Heterotroph Symbiosis
-    description: The recruited core species were significantly enriched in plasmids
-      whose encoded functions suggested plasmid-mediated cyanobacteria-heterotroph
-      symbiotic roles.
   evidence:
   - reference: PMID:40626910
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: despite host and inoculum diversity, these consortia converged on a
-      similar set of noncyanobacterial taxa
-    explanation: Supports host- and inoculum-independent recruitment of the core
-      microbiome.
+    snippet: despite host and inoculum diversity, these consortia converged on a similar set of noncyanobacterial
+      taxa
+    explanation: Supports broad convergence across hosts and inocula, not absence of host or inoculum effects.
+  - reference: PMID:40626910
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Individual core species were present in 18.5%–68.5% of all samples
+    explanation: Operational core membership is not universal occurrence.
+  - reference: PMID:40626910
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: The absence of cyanobacteria-free controls limited our ability to disentangle effects solely attributable
+      to media or laboratory conditions.
+    explanation: Directly states the limitation on causal host recruitment.
 environmental_factors:
 - name: Freshwater inoculum diversity
   value: three distinct freshwater sources
@@ -253,3 +245,27 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   freshwater cyanobacterium-heterotroph coculture framework.
+discussions:
+- discussion_id: core_recruitment_and_plasmid_function
+  prompt: Which selective mechanisms explain the measured community responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: The primary source establishes replicated enrichment, but host/source variation persists and the authors
+    report no cyanobacteria-free controls. Bioinformatic removal of predicted plasmid contigs is an analytical comparison,
+    not a biological plasmid intervention. Quantify selective host, plasmid and metabolite-exchange contributions
+    before adding mechanistic arrows; statistical analysis enabled by recruitment is not a downstream ecological
+    cause.
+  attaches_to:
+  - ecological_interactions#Putative Plasmid Functions in the Cyanobacterial Core Microbiome
+  - ecological_interactions#Core Micronutrient and Anoxygenic Photosynthesis Functions
+  - ecological_interactions#Reproducible Core Recruitment Across Hosts and Inocula
+curation_history:
+- timestamp: '2026-10-07T02:43:02Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain putative plasmid enrichment; symbiotic mechanism is PARTIAL, not measured mutualism.; Retain
+    genomic functional potential without asserting measured cross-feeding.; Correct operational-core and host/source
+    boundaries; remove two analytical-workflow arrows. Issue #1620; reports/causal_graph_review/decisions/20261007-four-records-batch74.yaml'
+  llm_assisted: true

@@ -1,0 +1,277 @@
+id: CommunityMech:000448
+name: Soymilk Mixed-Starter Metabolic Division SynCom
+description: A three-species lactic-acid-bacterial mixed starter culture for controlled soymilk fermentation, composed of
+  Streptococcus thermophilus, Lactobacillus delbrueckii subsp. bulgaricus, and Lactiplantibacillus plantarum. Li et al. 2026
+  used metatranscriptomics, non-targeted metabolomics, and single-strain dropout fermentations to resolve a cooperative succession
+  in which S. thermophilus dominated mid-stage fermentation, L. plantarum subsequently dominated late-stage fermentation,
+  and L. bulgaricus cross-fed the auxotrophic community.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Resolve the microbial succession, substrate-utilization roles, and nutrient exchange that underlie synergistic
+    soymilk fermentation by a defined mixed starter culture.
+  assembly_strategy: Grow a three-species soymilk starter containing Streptococcus thermophilus, Lactobacillus delbrueckii
+    subsp. bulgaricus, and Lactiplantibacillus plantarum.
+  perturbation_design: Use systematic single-strain exclusions during controlled soymilk fermentation to infer division of
+    labor from compensatory transcriptional responses in the remaining strains.
+  measurement_endpoints:
+  - taxonomic succession across soymilk fermentation
+  - metatranscriptomic reprogramming
+  - non-targeted metabolomics
+  - galactose-utilization response to Streptococcus thermophilus removal
+  - vitamin and amino acid biosynthetic gene-cluster response to Lactobacillus delbrueckii subsp. bulgaricus removal
+  notes: The PubMed abstract names the three starter species and the single-strain exclusion design, but it does not expose
+    exact strain accessions, inoculation ratios, vessel geometry, fermentation time points, temperature, or the full soymilk
+    medium formulation.
+  evidence:
+  - &id001
+    reference: PMID:42637460
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mixed starter culture (Streptococcus salivarius subsp. thermophilus, Lactobacillus delbrueckii subsp. bulgaricus,
+      and Lactiplantibacillus plantarum) during soymilk fermentation.
+    explanation: Names the three lactic-acid-bacterial starter species and the soymilk fermentation setting.
+  - reference: PMID:42637460
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: metatranscriptomics and non-targeted metabolomics were integrated to characterize the microbial succession and
+      metabolic reprogramming
+    explanation: Supports the multi-omics readout used to follow succession and metabolism in the starter community.
+  - reference: PMID:42637460
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Controlled soymilk fermentation with systematic exclusion of single strains, omics results elucidated a sophisticated
+      metabolic division of labor.
+    explanation: Supports the controlled dropout design used to assign division-of-labor mechanisms to starter members.
+environment_term:
+  preferred_term: soymilk mixed-starter fermentation
+  term:
+    id: ENVO:03600040
+    label: fermentation starter
+  notes: The defined three-species consortium is represented as a starter community for controlled soymilk fermentation.
+taxonomy:
+- taxon_term:
+    preferred_term: Streptococcus salivarius subsp. thermophilus
+    term:
+      id: NCBITaxon:1308
+      label: Streptococcus thermophilus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Streptococcus_thermophilus
+      gtdb_taxon: Streptococcus thermophilus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__Streptococcus
+        thermophilus
+      ncbi_source_id: NCBITaxon:1308
+      majority_fraction: 0.99
+      total_genomes: 2093
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: The source uses the older name Streptococcus salivarius subsp. thermophilus; NCBI represents this starter species
+      as Streptococcus thermophilus.
+  abundance_value: Member of the mixed starter culture that dominated mid-stage soymilk fermentation.
+  evidence:
+  - *id001
+  - reference: PMID:42637460
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. thermophilus dominated the mid-stage fermentation
+    explanation: Supports mid-stage dominance by the Streptococcus thermophilus member.
+  - reference: PMID:42637460
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: S. thermophilus acts as the primary oligosaccharide metabolizer
+    explanation: Supports the oligosaccharide-metabolizing role assigned to Streptococcus thermophilus by the dropout study.
+- taxon_term:
+    preferred_term: Lactobacillus delbrueckii subsp. bulgaricus
+    term:
+      id: NCBITaxon:1585
+      label: Lactobacillus delbrueckii subsp. bulgaricus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactobacillus_delbrueckii
+      gtdb_taxon: Lactobacillus delbrueckii
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus
+        delbrueckii
+      ncbi_source_id: NCBITaxon:1585
+      majority_fraction: 1.0
+      total_genomes: 220
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: The accessible abstract names L. delbrueckii subsp. bulgaricus and then abbreviates the dropout result to L. bulgaricus.
+  abundance_value: Member of the mixed starter culture.
+  evidence:
+  - *id001
+  - reference: PMID:42637460
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the removal of L. bulgaricus led to the significant derepression of vitamin and amino acid biosynthetic gene
+      clusters
+    explanation: Supports the dropout response used to infer a vitamin and amino acid cross-feeding role for Lactobacillus
+      delbrueckii subsp. bulgaricus.
+  - reference: PMID:42637460
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: L. bulgaricus functions as a key cross-feeding bacterium to support the auxotrophic community via cross-feeding.
+    explanation: Supports the source article's cross-feeding interpretation for Lactobacillus delbrueckii subsp. bulgaricus.
+- taxon_term:
+    preferred_term: Lactiplantibacillus plantarum
+    term:
+      id: NCBITaxon:1590
+      label: Lactiplantibacillus plantarum
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Lactiplantibacillus_plantarum
+    - GTDB:s__Lactiplantibacillus_plantarum_A
+    - GTDB:s__Lactiplantibacillus_paraplantarum
+    notes: The source names L. plantarum only at species level. GTDB splits this NCBI species with no single majority holder,
+      so likely candidates are retained rather than forcing one exact GTDB species.
+  abundance_value: Member of the mixed starter culture that dominated late-stage soymilk fermentation.
+  evidence:
+  - *id001
+  - reference: PMID:42637460
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: facilitating the subsequent dominance of L. plantarum in the late-stage.
+    explanation: Supports late-stage dominance by the Lactiplantibacillus plantarum member.
+ecological_interactions:
+- name: Observed Soymilk Starter Succession
+  description: 'Taxonomic analysis of the mixed starter reported mid-stage S. thermophilus dominance followed by
+    late-stage L. plantarum dominance. HYPOTHESIZED: the former facilitates the latter, as interpreted by the authors;
+    the accessible abstract does not isolate the direction or mediator from succession alone.'
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:42637460
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Taxonomic analysis revealed a cooperative succession pattern, where S. thermophilus dominated the mid-stage
+      fermentation, facilitating the subsequent dominance of L. plantarum in the late-stage.
+    explanation: Supports the reported observation and the authors' proposed interpretation; the accessible abstract
+      does not establish the detailed causal mechanism.
+    computational_provenance:
+      prediction_type: STATISTICAL_INFERENCE
+      model_source: Taxonomic analysis during mixed-starter soymilk fermentation; abstract-level method description
+        only.
+  participating_taxa:
+  - preferred_term: Streptococcus salivarius subsp. thermophilus
+    term:
+      id: NCBITaxon:1308
+      label: Streptococcus thermophilus
+  - preferred_term: Lactiplantibacillus plantarum
+    term:
+      id: NCBITaxon:1590
+      label: Lactiplantibacillus plantarum
+- name: Inferred Soymilk Nutrient Cross-Feeding
+  description: 'L. bulgaricus dropout was associated with derepression of vitamin and amino acid biosynthetic gene
+    clusters in the remaining starter. HYPOTHESIZED: L. bulgaricus supplies nutrients to other members. This transcriptional
+    response is indirect support for cross-feeding, not traced transfer, identification of the exchanged compounds
+    and recipients, or proof that supply caused the observed succession.'
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42637460
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: the removal of L. bulgaricus led to the significant derepression of vitamin and amino acid biosynthetic
+      gene clusters, providing transcriptional evidence that L. bulgaricus functions as a key cross-feeding bacterium
+      to support the auxotrophic community via cross-feeding.
+    explanation: Supports the reported observation and the authors' proposed interpretation; the accessible abstract
+      does not establish the detailed causal mechanism.
+    computational_provenance:
+      prediction_type: STATISTICAL_INFERENCE
+      model_source: Metatranscriptomic responses to single-strain dropout, interpreted alongside non-targeted metabolomics;
+        abstract-level method description only.
+growth_media:
+- name: soymilk fermentation substrate
+  preparation_notes: Controlled soymilk fermentations used the three-species mixed starter; the accessible abstract does not
+    expose formulation, temperature, or time-course details.
+  evidence:
+  - *id001
+external_resources:
+- name: PubMed record
+  repository: OTHER
+  resource_id: PMID:42637460
+  url: https://pubmed.ncbi.nlm.nih.gov/42637460/
+  description: PubMed record for the Food Research International article on mixed-starter soymilk fermentation.
+  evidence:
+  - reference: PMID:42637460
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PMID- 42637460
+    explanation: Supports the PubMed identifier for the primary source article.
+- name: Article DOI
+  repository: OTHER
+  resource_id: doi:10.1016/j.foodres.2026.120134
+  url: https://doi.org/10.1016/j.foodres.2026.120134
+  description: DOI for the Food Research International article describing the three-species soymilk starter culture.
+  evidence:
+  - reference: PMID:42637460
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: LID - 10.1016/j.foodres.2026.120134
+    explanation: Supports the DOI assigned to the primary source article.
+discussions:
+- discussion_id: soymilk_starter_strains_and_process_conditions
+  prompt: Which exact S. thermophilus, L. delbrueckii subsp. bulgaricus, and L. plantarum strains, inoculation ratios,
+    fermentation temperature, vessel geometry, and sampling time points were used for the soymilk dropout experiments?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy#Streptococcus salivarius subsp. thermophilus
+  - taxonomy#Lactobacillus delbrueckii subsp. bulgaricus
+  - taxonomy#Lactiplantibacillus plantarum
+  - growth_media#soymilk fermentation substrate
+  rationale: The PubMed abstract establishes the three species, soymilk setting, single-strain dropout design, and
+    high-level division-of-labor claims, but full protocol details and strain designations are not exposed in the
+    abstract and the Elsevier full text is subscription-gated.
+  posed_by: codex
+  posed_date: '2026-09-27'
+- discussion_id: soymilk_causal_attribution_batch104
+  prompt: Does the dropout response demonstrate specific nutrient transfer, and does that transfer explain the succession?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: Fresh primary abstract and existing cache agree on succession and dropout-associated transcriptional
+    responses. Those results support the authors' cross-feeding interpretation indirectly, without resolving exact
+    transferred compounds, recipients or mediation of succession. No categorical CROSS_FEEDING or downstream arrow
+    is retained or added. EuropePMC supplied no PMCID and the publisher full-text request returned HTTP403; methods,
+    supplements, software identities and versions were not reviewed. No claim is made that this evidence is absent
+    from the full paper.
+  posed_by: codex
+  posed_date: '2026-10-08'
+  evidence:
+  - reference: PMID:42637460
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: the removal of L. bulgaricus led to the significant derepression of vitamin and amino acid biosynthetic
+      gene clusters, providing transcriptional evidence that L. bulgaricus functions as a key cross-feeding bacterium
+      to support the auxotrophic community via cross-feeding.
+    explanation: Supports the reported observation and the authors' proposed interpretation; the accessible abstract
+      does not establish the detailed causal mechanism.
+  attaches_to:
+  - ecological_interactions#Observed Soymilk Starter Succession
+  - ecological_interactions#Inferred Soymilk Nutrient Cross-Feeding
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: PMID:42637460 describes soymilk fermentation by food starter organisms, not biomining, metal transformation,
+  or rare-earth-element cycling.
+curation_history:
+- timestamp: '2026-09-27T09:09:03Z'
+  curator: codex
+  action: CREATE_COMMUNITY_RECORD
+  changes: Created CommunityMech:000448 from PMID:42637460 / doi:10.1016/j.foodres.2026.120134 with abstract-backed
+    three-species soymilk starter membership, single-strain dropout design, S. thermophilus and L. plantarum succession,
+    L. bulgaricus cross-feeding, DOI/PubMed resources, and a discussion for strain and process details absent from
+    the accessible abstract.
+  llm_assisted: true
+- timestamp: '2026-10-08T00:51:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain the two-taxon succession observation with canonical participant scope and qualified facilitation.;
+    Preserve the dropout transcriptional response as indirect support for hypothesized nutrient exchange, with abstract-bounded
+    provenance. Issue#1819; reports/causal_graph_review/decisions/20261008-four-records-batch104.yaml
+  llm_assisted: true

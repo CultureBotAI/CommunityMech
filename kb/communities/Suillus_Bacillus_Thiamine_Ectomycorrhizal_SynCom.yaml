@@ -122,8 +122,10 @@ taxonomy:
       community-scale outcome.
 ecological_interactions:
 - name: Fungal recruitment of the hyphae-associated bacterium
-  description: Suillus clintonianus secretes ureidosuccinic acid and pregnenolone that recruit
-    Bacillus altitudinis B4 to the fungal mycelial surface, establishing the association.
+  description: Suillus clintonianus exudates attract Bacillus altitudinis B4 and support attachment to fungal hyphae.
+    Ureidosuccinic acid promoted chemotaxis, whereas pregnenolone primarily enhanced swimming and swarming. Their
+    separate effects support recruitment without showing that both compounds are equivalent chemoattractants or
+    that no other exudate contributes.
   interaction_type: COLONIZATION_FACILITATION
   scope: PAIRWISE
   source_taxon:
@@ -147,22 +149,28 @@ ecological_interactions:
       label: pregnenolone
   downstream:
   - target: Ureidosuccinic acid stimulation of bacterial thiamine production
-    description: >
-      Recruitment of B. altitudinis B4 to the S. clintonianus mycelial surface
-      precedes ureidosuccinic-acid stimulation of the recruited bacterium's
-      thiamine biosynthesis.
+    description: 'HYPOTHESIZED/PARTIAL: recruitment establishes the close fungal-bacterial association in which
+      fungal exudates can stimulate bacterial thiamine production. The authors propose this sequence, but recruitment
+      was not isolated as a necessary mediator of the cue response; ureidosuccinic acid also acted in the separate
+      bacterial assay.'
   evidence:
   - reference: PMID:41454778
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: S. clintonianus first secreted ureidosuccinic acid and pregnenolone, recruiting the
-      hyphae-associated bacterium B. altitudinis B4 to the mycelial surface
-    explanation: Supports fungal exudate-driven recruitment of the bacterium via ureidosuccinic acid
-      and pregnenolone.
+    snippet: S. clintonianus first secreted ureidosuccinic acid and pregnenolone, recruiting the hyphae-associated
+      bacterium B. altitudinis B4 to the mycelial surface
+    explanation: Supports fungal exudate-driven recruitment of the bacterium via ureidosuccinic acid and pregnenolone.
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: However, pregnenolone could only improve the bacterial motility, including swimming and swarming of
+      B. altitudinis B4
+    explanation: Distinguishes the measured motility effect from the ureidosuccinate chemotaxis result.
 - name: Ureidosuccinic acid stimulation of bacterial thiamine production
-  description: Ureidosuccinic acid secreted by S. clintonianus stimulates B. altitudinis B4 to
-    increase biomass and upregulate thiamine biosynthesis genes, enhancing thiamine production.
-  interaction_type: CROSS_FEEDING
+  description: Ureidosuccinic acid associated with S. clintonianus exudates increased B. altitudinis B4 growth,
+    extracellular thiamine and expression of selected thiamine-metabolism genes in the tested assays. This is a
+    measured metabolite response, not demonstrated uptake of ureidosuccinate as a carbon or nitrogen nutrient. The
+    proposed precursor explanation and the benefit received by the bacterial partner remain unresolved.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Suillus clintonianus
@@ -186,21 +194,28 @@ ecological_interactions:
       label: thiamine biosynthetic process
   downstream:
   - target: Thiamine provisioning fulfilling the fungal requirement
-    description: >
-      Ureidosuccinic acid-induced biomass increase and thiamine-gene
-      upregulation in B. altitudinis B4 enhance the thiamine pool supplied to
-      the thiamine-limited fungus.
+    description: Ureidosuccinic acid increased extracellular thiamine in the bacterial assay, supporting a greater
+      vitamin supply available to the fungal recipient. Separate coculture and tracer observations support fungal
+      acquisition of bacterial thiamine; they do not quantify what fraction of endogenous transfer is caused by
+      this one exudate.
   evidence:
   - reference: PMID:41454778
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the ureidosuccinic acid secreted by S. clintonianus further stimulated B. altitudinis B4
-      to enhance thiamine production
-    explanation: Supports fungal ureidosuccinic acid as the cue that upregulates bacterial thiamine
-      biosynthesis.
+    snippet: the ureidosuccinic acid secreted by S. clintonianus further stimulated B. altitudinis B4 to enhance
+      thiamine production
+    explanation: Supports fungal ureidosuccinic acid as the cue that upregulates bacterial thiamine biosynthesis.
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: However, it remains unclear what benefits the bacteria gain in this consortium.
+    explanation: The source explicitly leaves bacterial benefit unresolved; it does not establish reciprocal nutrient
+      exchange.
 - name: Thiamine provisioning fulfilling the fungal requirement
-  description: Bacillus altitudinis B4 supplies thiamine that Suillus clintonianus absorbs, promoting
-    fungal growth; the fungus cannot effectively obtain or synthesize thiamine on its own.
+  description: B. altitudinis B4 supplies thiamine that S. clintonianus acquires under thiamine-deficient conditions.
+    Bacterial supernatant rescued fungal growth, and labeled thiamine derived from bacterial metabolites was detected
+    in fungal hyphae, supporting actual bacterial-to-fungal vitamin transfer. Genomic evidence and vitamin-omission
+    phenotypes support fungal thiamine auxotrophy; the biosynthetic annotation refers to the bacterial donor.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -225,21 +240,27 @@ ecological_interactions:
       label: thiamine biosynthetic process
   downstream:
   - target: Enhanced ectomycorrhizal colonization of the pine host
-    description: >
-      Bacterially produced thiamine is absorbed by S. clintonianus to promote
-      fungal growth, increasing ectomycorrhizal colonization of P. massoniana.
+    description: 'HYPOTHESIZED/PARTIAL: bacterial thiamine supports fungal growth and is proposed to contribute
+      to the higher ectomycorrhizal colonization observed with B4 in the pot experiment. The vitamin-mediated route
+      is supported across the assays but is not isolated as the exclusive mediator of the in-plant phenotype.'
   evidence:
   - reference: PMID:41454778
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: S. clintonianus absorbed the thiamine secreted by the B. altitudinis B4, promoting
-      fungal growth
-    explanation: Supports thiamine cross-feeding from bacterium to fungus and the resulting fungal
-      growth benefit.
+    snippet: S. clintonianus absorbed the thiamine secreted by the B. altitudinis B4, promoting fungal growth
+    explanation: Supports thiamine cross-feeding from bacterium to fungus and the resulting fungal growth benefit.
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 13C12-thiamine was detected within the S. clintonianus hyphae following their cultivation with metabolites
+      from B. altitudinis B4
+    explanation: The reported isotope observation directly supports transfer, beyond bulk supernatant depletion.
 - name: Enhanced ectomycorrhizal colonization of the pine host
-  description: The bacterial thiamine supply promotes fungal growth and increases the ectomycorrhizal
-    colonization rate of Suillus clintonianus in association with the host pine Pinus massoniana,
-    completing a vitamin-mediated tripartite symbiosis.
+  description: The combined S. clintonianus-B4 treatment increased fungal relative biomass and ectomycorrhizal colonization
+    compared with the fungus-only treatment. Pine dry weight, root activity and phosphorus content also increased,
+    supporting a beneficial ectomycorrhizal association rather than colonization alone. B4 alone did not significantly
+    improve seedling performance. The authors interpret this as support for fungal-host mutualism; the pot comparison
+    does not isolate thiamine as the sole mediator or measure bidirectional host-fungal nutrient flux.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -261,10 +282,15 @@ ecological_interactions:
   - reference: PMID:41454778
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: promoting fungal growth and increasing the colonization rate in association with Pinus
-      massoniana
-    explanation: Supports increased ectomycorrhizal colonization of the pine host as the outcome of
-      the thiamine cross-feeding.
+    snippet: promoting fungal growth and increasing the colonization rate in association with Pinus massoniana
+    explanation: Supports increased ectomycorrhizal colonization of the pine host as the outcome of the thiamine
+      cross-feeding.
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the dry weight, root activity, and phosphorus content of P. massoniana were significantly greater in
+      the combined treatment compared to the S. clintonianus-only treatment
+    explanation: Supports the host benefit that accompanies the increased fungal biomass and colonization.
 growth_media:
 - name: Potato dextrose agar, ectomycorrhizal fungal isolation and culture
   composition:
@@ -464,3 +490,42 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this thiamine cross-feeding
   ectomycorrhizal community.
+discussions:
+- discussion_id: suillus-cue-transfer-and-plant-mediation
+  prompt: Which parts of recruitment and pine improvement are specifically mediated by the identified fungal cues
+    and bacterial thiamine?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Fungal recruitment of the hyphae-associated bacterium
+  - ecological_interactions#Ureidosuccinic acid stimulation of bacterial thiamine production
+  - ecological_interactions#Thiamine provisioning fulfilling the fungal requirement
+  - ecological_interactions#Enhanced ectomycorrhizal colonization of the pine host
+  rationale: Direct thiamine transfer and positive fungal/plant outcomes are retained. The source leaves bacterial
+    benefit and cue mechanism unresolved, and the pot treatment does not isolate thiamine as the only driver. Retain
+    the proposed sequence with these limits, without turning cue exposure into demonstrated nutrient consumption
+    or universal reciprocity.
+  evidence:
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: However, it remains unclear what benefits the bacteria gain in this consortium.
+    explanation: The source explicitly leaves bacterial benefit unresolved; it does not establish reciprocal nutrient
+      exchange.
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 13C12-thiamine was detected within the S. clintonianus hyphae following their cultivation with metabolites
+      from B. altitudinis B4
+    explanation: The reported isotope observation directly supports transfer, beyond bulk supernatant depletion.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-08T03:27:19Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain recruitment, distinguishing chemotaxis from motility and qualifying its necessity for the cue
+    response.; Retain the measured cue response without asserting nutrient uptake or resolved bacterial benefit.;
+    Preserve experimentally supported thiamine transfer and growth rescue; qualify in-plant mediation.; Preserve
+    fungal and host benefits and the source mutualism interpretation without exclusive mediator or flux claims.
+    Issue#1837; reports/causal_graph_review/decisions/20261008-four-records-batch107.yaml
+  llm_assisted: true

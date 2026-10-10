@@ -308,54 +308,49 @@ taxonomy:
     explanation: Identified as a genus enriched by the dominant Brachypodium root-exudate substrate asparagine.
 ecological_interactions:
 - name: Root Exudate-Mimicking Enrichment Assembly
-  description: >
-    Co-localized microbes from Brachypodium roots grown in Angelo Coast Range
-    Reserve soil were introduced into a multiplexed high-throughput enrichment
-    design, coupling root-exudate-like carbon substrates to 3-day and 7-day
-    transfers to produce fast- and slow-growing reduced-complexity consortia.
+  description: A multiplexed enrichment experiment varied root-associated inocula, carbon conditions and 3-day versus
+    7-day transfer intervals to generate a collection of Brachypodium-derived RCC. It is not one fixed consortium
+    of the ten listed representative taxa. The abiotic selection treatments are experimental inputs, not direct
+    evidence that species partition niches or reduce competition.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Carbon-Source ASV Sorting
-    description: >
-      The 768 enrichments crossed rhizosphere inocula with root-exudate carbon
-      substrates, allowing carbon chemistry to sort enriched ASVs.
-  - target: Transfer-Interval Growth-Rate Sorting
-    description: >
-      The same enrichment design used serial 3-day and 7-day transfers to
-      separate ASVs favored by fast and slow subculture intervals.
+    description: Changing the supplied carbon condition alters the ASV composition of enrichment cultures, with
+      inoculum source accounted for in comparisons. This experimentally imposed selection does not demonstrate reciprocal
+      niche partitioning or consumption of distinct substrates by each named organism.
+  - target: Transfer-interval ASV abundance classification
+    description: Changing serial-transfer interval alters which ASVs are relatively enriched at later generations.
+      The resulting 3-day/7-day abundance classification is a response to the transfer regime, not a direct per-ASV
+      growth-rate measurement.
   evidence:
   - reference: PMID:38846575
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      We enriched co-localized microbes from Brachypodium roots grown in field
-      soil with carbon substrates mimicking Brachypodium root exudates
-    explanation: >
-      Supports using Brachypodium rhizosphere inocula and root-exudate-like
-      substrates to seed the RCC enrichment design.
+    snippet: 'We enriched co-localized microbes from Brachypodium roots grown in field soil with carbon substrates
+      mimicking Brachypodium root exudates
+
+      '
+    explanation: 'Supports using Brachypodium rhizosphere inocula and root-exudate-like substrates to seed the RCC
+      enrichment design.
+
+      '
   - reference: PMID:38846575
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      Thereafter, plates were transferred 10 times at two different intervals,
-      3 days and 7 days for targeting fast and slow growing microbes.
-    explanation: >
-      Supports the two serial-transfer regimes used to enrich fast- and
-      slow-growing reduced-complexity consortia.
+    snippet: 'Thereafter, plates were transferred 10 times at two different intervals, 3 days and 7 days for targeting
+      fast and slow growing microbes.
+
+      '
+    explanation: 'Supports the two serial-transfer regimes used to enrich fast- and slow-growing reduced-complexity
+      consortia.
+
+      '
 - name: Carbon-Source ASV Sorting
-  description: >
-    Carbon substrate choice imposed a measurable selection on the enrichment
-    communities: 1/10 R2A gave the broadest ASV enrichment and repeatedly
-    selected Terriglobus and Arthrobacter, while asparagine selected
-    Bradyrhizobium and a related rhizobial clade.
+  description: Carbon amendments selected different ASVs in inoculum-stratified comparisons. Complex 1/10 R2A supported
+    broad enrichment including Terriglobus and Arthrobacter; asparagine enriched Bradyrhizobium and a related rhizobial
+    clade. The listed participants are representative named taxa, not all enriched ASVs. These relative-abundance
+    changes do not isolate substrate consumption, microbial cooperation or reduced competition as their mechanism.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   participating_taxa:
   - preferred_term: Terriglobus
     term:
@@ -374,99 +369,64 @@ ecological_interactions:
     term:
       id: GO:0040007
       label: growth
-  downstream:
-  - target: Growth-Rate Hub Network Divergence
-    description: >
-      The diverse 1/10 R2A enrichments supplied the ASV abundance matrices used
-      to compare 3-day and 7-day NetCoMi hub networks.
-  - target: Generational Keystone Persistence
-    description: >
-      Carbon sources that maintained tractable but diverse consortia provided
-      the stable serial-transfer communities in which recurrent hub taxa were
-      compared across generations.
   evidence:
   - reference: PMID:38846575
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      1/10 R2A had the highest potential to enrich ASVs compared to other
-      carbon sources
-    explanation: >
-      Supports 1/10 R2A as the high-diversity complex-carbon condition used for
-      deeper network analysis.
+    snippet: '1/10 R2A had the highest potential to enrich ASVs compared to other carbon sources
+
+      '
+    explanation: 'Supports 1/10 R2A as the high-diversity complex-carbon condition used for deeper network analysis.
+
+      '
   - reference: PMID:38846575
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      significantly enriched ASVs from genera Bradyrhizobium and
-      Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium
+    snippet: 'significantly enriched ASVs from genera Bradyrhizobium and Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium
+
+      '
     explanation: Supports Bradyrhizobium enrichment in asparagine-amended RCC.
-- name: Transfer-Interval Growth-Rate Sorting
-  description: >
-    Later transfer generations were analyzed by 3-day versus 7-day interval,
-    categorizing ASVs enriched at 3 days as fast growers and those enriched at
-    7 days as slow growers; 1/10 R2A, asparagine, and glucuronic acid best
-    retained both growth-rate classes.
+- name: Transfer-interval ASV abundance classification
+  description: For a fixed carbon source and original inoculum, ASVs more abundant after 7-day transfers than 3-day
+    transfers were called slow growers, and the converse were called fast growers. The comparison used generations
+    6 and 9. These are operational relative-abundance classes, not measured isolate growth rates; transfer duration
+    also changes other ecological conditions. The reported capacity of 1/10 R2A, asparagine and glucuronic acid
+    to enrich both classes is retained. Network-hub genera are not substituted for the set of ASVs in this differential-abundance
+    analysis.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  participating_taxa:
-  - preferred_term: Methylobacterium
-    term:
-      id: NCBITaxon:407
-      label: Methylobacterium
-  - preferred_term: Stenotrophomonas
-    term:
-      id: NCBITaxon:40323
-      label: Stenotrophomonas
-  - preferred_term: Pseudomonas
-    term:
-      id: NCBITaxon:286
-      label: Pseudomonas
-  - preferred_term: Terriglobus
-    term:
-      id: NCBITaxon:392733
-      label: Terriglobus
-  - preferred_term: Arthrobacter
-    term:
-      id: NCBITaxon:1667
-      label: Arthrobacter sp.
   biological_processes:
   - preferred_term: growth
     term:
       id: GO:0040007
       label: growth
-  downstream:
-  - target: Growth-Rate Hub Network Divergence
-    description: >
-      The fast- and slow-growing 1/10 R2A ASV sets were compared as separate
-      association networks to reveal interval-specific hubs.
   evidence:
   - reference: PMID:38846575
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      microbes significantly more abundant in 7-day interval samples compared
-      to 3-day interval samples were categorized as
-    explanation: >
-      Supports the 7-day versus 3-day comparison used to classify slow- and
-      fast-growing ASVs.
+    snippet: 'microbes significantly more abundant in 7-day interval samples compared to 3-day interval samples
+      were categorized as
+
+      '
+    explanation: 'Supports the 7-day versus 3-day comparison used to classify slow- and fast-growing ASVs.
+
+      '
   - reference: PMID:38846575
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      1/10 R2A medium, along with asparagine and glucuronic acid, demonstrated
-      the greatest capability to enrich both slow and fast-growing microbes
-    explanation: >
-      Supports the substrate set that best retained both transfer-interval
-      growth classes.
-- name: Growth-Rate Hub Network Divergence
-  description: >
-    NetCoMi analysis of 1/10 R2A core ASVs produced distinct 3-day and 7-day
-    association networks: Methylobacterium-Methylorubrum, Stenotrophomonas,
-    and Pseudomonas were hubs after 3-day transfers, whereas Terriglobus and
-    Arthrobacter were hubs after 7-day transfers.
+    snippet: '1/10 R2A medium, along with asparagine and glucuronic acid, demonstrated the greatest capability to
+      enrich both slow and fast-growing microbes
+
+      '
+    explanation: 'Supports the substrate set that best retained both transfer-interval growth classes.
+
+      '
+- name: Transfer-interval association-network hubs
+  description: NetCoMi Pearson-correlation analysis of core ASVs in the 1/10 R2A enrichments identified different
+    high-eigenvector-centrality hubs in 3-day and 7-day networks. The named taxa are representative reported hubs,
+    including the Methylobacterium-Methylorubrum source clade, not an exhaustive community roster. Association centrality
+    does not establish ecological niche partitioning, directly measured growth rate, keystone necessity or plant-growth
+    promotion by those ASVs.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   participating_taxa:
   - preferred_term: Methylobacterium
     term:
@@ -488,42 +448,37 @@ ecological_interactions:
     term:
       id: NCBITaxon:1667
       label: Arthrobacter sp.
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Generational Keystone Persistence
-    description: >
-      Hub calling based on eigenvector centrality provided the same network
-      framework used to test whether hubs persisted across adjacent
-      generations.
   evidence:
   - reference: PMID:38846575
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      ASVs belong to genus Methylobacterium-Methylorubrum, Stenotrophomonas,
-      Pseudomonas are hubs for 3-day interval transfers
-    explanation: >
-      Supports the Methylobacterium-Methylorubrum, Stenotrophomonas, and
-      Pseudomonas hubs in the 3-day 1/10 R2A network.
+    evidence_source: COMPUTATIONAL
+    snippet: 'ASVs belong to genus Methylobacterium-Methylorubrum, Stenotrophomonas, Pseudomonas are hubs for 3-day
+      interval transfers
+
+      '
+    explanation: Reports association-network hubs; centrality is not experimental evidence of an ecological mechanism
+      or necessity.
   - reference: PMID:38846575
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      ASVs from family Rhizobiaceae, genus Lactobacillus, Terriglobus, and
-      Arthrobacter are hubs for 7-day interval transfers
-    explanation: Supports the Terriglobus and Arthrobacter hubs in the 7-day 1/10 R2A network.
-- name: Generational Keystone Persistence
-  description: >
-    Network comparisons across adjacent generations retained recurring hubs,
-    including Paenibacillus, Sphingomonas, Mucilaginibacter, and Terriglobus,
-    indicating that several low-abundance taxa stayed central after repeated
-    passaging.
+    evidence_source: COMPUTATIONAL
+    snippet: 'ASVs from family Rhizobiaceae, genus Lactobacillus, Terriglobus, and Arthrobacter are hubs for 7-day
+      interval transfers
+
+      '
+    explanation: Reports association-network hubs; centrality is not experimental evidence of an ecological mechanism
+      or necessity.
+  - reference: PMID:38846575
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The hub node (keystone taxa) is identified if the node’s eigenvector centrality value is above the
+      90% quantile.
+    explanation: Defines the statistical hub criterion rather than a biological loss-of-function criterion.
+- name: Recurring association-network hubs
+  description: Adjacent-generation network comparisons identified recurring hub taxa, including Paenibacillus, Sphingomonas,
+    Mucilaginibacter and Terriglobus. This is persistence of a statistical hub designation across sampled transfers,
+    not a taxon-removal test of community stability or direct measurement of niche partitioning. Inferred importance
+    and PGP traits known for related genera are not validated functions of every enriched ASV.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   participating_taxa:
   - preferred_term: Paenibacillus
     term:
@@ -541,41 +496,24 @@ ecological_interactions:
     term:
       id: NCBITaxon:392733
       label: Terriglobus
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: 1/10 R2A Glycerol Stock Revival
-    description: >
-      The persistent low-abundance hubs motivated the revival test with 1/10
-      R2A glycerol stocks selected for less abundant but important and
-      difficult-to-culture taxa.
   evidence:
   - reference: PMID:38846575
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      certain keystone species, including members of the Rhizobiaceae family
-      and the genera Paenibacillus, Sphingomonas, Mucilaginibacter, and
-      Terriglobus, were consistent across multiple generations
-    explanation: >
-      Supports persistence of Paenibacillus, Sphingomonas, Mucilaginibacter,
-      and Terriglobus as recurring hubs over sequential transfers.
+    evidence_source: COMPUTATIONAL
+    snippet: 'certain keystone species, including members of the Rhizobiaceae family and the genera Paenibacillus,
+      Sphingomonas, Mucilaginibacter, and Terriglobus, were consistent across multiple generations
+
+      '
+    explanation: Reports association-network hubs; centrality is not experimental evidence of an ecological mechanism
+      or necessity.
 - name: 1/10 R2A Glycerol Stock Revival
-  description: >
-    Five 1/10 R2A RCC glycerol stocks from 3-day and 7-day transfers were
-    thawed, serially propagated, and resequenced, producing stable dominant
-    genera and a revived-stock network in which Burkholderia remained a shared
-    hub for both transfer intervals.
+  description: Five selected 1/10 R2A RCC stocks were revived and serially propagated, with broadly consistent dominant
+    genera and relative abundances in those tests. This does not establish universal revival of all initial enrichments,
+    exact strain-level identity, or retention of every rare taxon. Burkholderia and Mesorhizobium were shared statistical
+    hubs in the revived-stock networks, not demonstrated causes of revival. The original broad 1/10 R2A enrichments
+    were less stable than most other carbon arms; that result is distinct from stability of these five selected
+    stocks.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  participating_taxa:
-  - preferred_term: Burkholderia
-    term:
-      id: NCBITaxon:32008
-      label: Burkholderia
   biological_processes:
   - preferred_term: growth
     term:
@@ -585,19 +523,21 @@ ecological_interactions:
   - reference: PMID:38846575
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      dominant genera from the glycerol stocks (>0.5% in at least one sample)
-      and their relative abundances remained consistent between transfers
-    explanation: >
-      Supports stability of the genera recovered during serial propagation from
-      frozen 1/10 R2A glycerol stocks.
+    snippet: 'dominant genera from the glycerol stocks (>0.5% in at least one sample) and their relative abundances
+      remained consistent between transfers
+
+      '
+    explanation: 'Supports stability of the genera recovered during serial propagation from frozen 1/10 R2A glycerol
+      stocks.
+
+      '
   - reference: PMID:38846575
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: >
-      Genus Burkholderia and Mesorhizobium were shared keystone taxa among
-      3-day and 7-day intervals
-    explanation: Supports Burkholderia as a shared hub in revived-stock network analysis.
+    evidence_source: COMPUTATIONAL
+    snippet: 'Genus Burkholderia and Mesorhizobium were shared keystone taxa among 3-day and 7-day intervals
+
+      '
+    explanation: Shared hubs of revived-stock association networks, not experimentally necessary revival partners.
 environmental_factors:
 - name: Carbon Substrate
   value: glucose, glucuronic acid, glutamine, asparagine, 1/10 R2A
@@ -671,3 +611,44 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: Each well had 1.8 mL volume in total with 10% inoculum (180 μL)
     explanation: Supports the 96-well plate working volume and 10% v/v inoculum size.
+curation_history:
+- timestamp: '2026-10-02T06:04:09Z'
+  curator: codex
+  action: REPAIR_CAUSAL_GRAPH
+  changes: Removed five mCAFEs network-analysis or revival workflow edges from carbon-source, transfer-interval,
+    hub-network, and generational-keystone nodes, while retaining enrichment edges where carbon source and transfer
+    interval were the selection pressures.
+  llm_assisted: true
+- timestamp: '2026-10-08T13:32:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain the abiotic enrichment design and its two selection arrows without asserting niche partitioning.;
+    Preserve carbon-associated ASV sorting with representative participants and no inferred substrate flux.; Define
+    fast/slow as operational abundance classes rather than growth-rate measurements or hub membership.; Keep transfer-specific
+    hubs computational and distinguish centrality from ecological necessity.; Keep recurring hubs as statistical
+    observations without assigning validated PGP or stability function.; Retain reproducible revival only for the
+    five selected stocks and separate it from initial enrichment stability. Issue#1925; reports/causal_graph_review/decisions/20261008-four-records-batch119.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: mcafes_causal_graph_scope_batch119
+  prompt: Which inferred RCC hubs have experimentally necessary ecological functions beyond association centrality?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Root Exudate-Mimicking Enrichment Assembly
+  - ecological_interactions#Carbon-Source ASV Sorting
+  - ecological_interactions#Transfer-interval ASV abundance classification
+  - ecological_interactions#Transfer-interval association-network hubs
+  - ecological_interactions#Recurring association-network hubs
+  - ecological_interactions#1/10 R2A Glycerol Stock Revival
+  rationale: The study manipulates carbon conditions and transfer intervals and directly tests selected-stock revival,
+    but hub identity is assigned from correlation and eigenvector centrality. Taxon-removal/rescue, direct growth
+    measurements and strain-resolved functional tests are needed before asserting niche partitioning, causal stabilization
+    or PGP activity. The source represents multiple enrichments and selected stocks, not a single fixed ten-member
+    community.
+  evidence:
+  - reference: PMID:38846575
+    snippet: The hub node (keystone taxa) is identified if the node’s eigenvector centrality value is above the
+      90% quantile.
+  posed_by: codex
+  posed_date: '2026-10-08'

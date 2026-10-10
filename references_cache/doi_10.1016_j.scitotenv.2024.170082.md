@@ -12,6 +12,7 @@ journal: Science of The Total Environment
 year: '2024'
 doi: 10.1016/j.scitotenv.2024.170082
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Impacts of atmospheric deposition on the heavy metal mobilization and bioavailability in soils amended by lime

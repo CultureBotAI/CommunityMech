@@ -12,6 +12,7 @@ journal: Science
 year: '2015'
 doi: 10.1126/science.aaa4834
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Redox cycling of Fe(II) and Fe(III) in magnetite by Fe-metabolizing bacteria

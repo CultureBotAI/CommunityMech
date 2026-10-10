@@ -1,11 +1,20 @@
 """Claim assessments are typed, backward-compatible and never defaulted."""
 
+import json
 from pathlib import Path
 
 import pytest
 from linkml.validator import Validator
 from linkml.validator.plugins import JsonschemaValidationPlugin
+from linkml_runtime.dumpers import json_dumper
 from linkml_runtime.utils.schemaview import SchemaView
+
+from communitymech.datamodel.communitymech import (
+    EvidenceItem,
+    EvidenceItemSupportEnum,
+    EvidenceSourceEnum,
+    SupportingReference,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA = ROOT / "src/communitymech/schema/communitymech.yaml"
@@ -48,16 +57,9 @@ def baseline(view, cls):
         "supports": "SUPPORT",
         "evidence_source": "IN_VITRO",
     }
-    result = {}
-    for slot in view.class_induced_slots(cls):
-        if slot.required:
-            if slot.name in values:
-                result[slot.name] = values[slot.name]
-            elif slot.range in view.all_enums():
-                result[slot.name] = next(iter(view.get_enum(slot.range).permissible_values))
-            else:
-                raise AssertionError(f"Add an explicit fixture for {cls}.{slot.name}")
-    return result
+    required = {slot.name for slot in view.class_induced_slots(cls) if slot.required}
+    assert required == {"reference", "snippet", "supports", "evidence_source"}
+    return {name: values[name] for name in required}
 
 
 @pytest.mark.parametrize("cls", CLASSES)
@@ -127,20 +129,74 @@ def test_shared_reference_location_keeps_its_legacy_meaning(assessment_validator
 
 
 @pytest.mark.parametrize("source", sorted(SOURCES))
-def test_generated_dataclass_preserves_assessment(assessment_view, source):
-    import json
-    import sys
-
-    from linkml_runtime.dumpers import json_dumper
-
-    sys.path.insert(0, str(ROOT / "src"))
-    from communitymech.datamodel.communitymech import EvidenceItem
-
+@pytest.mark.parametrize("support", sorted(SUPPORT))
+def test_generated_dataclass_preserves_assessment(assessment_view, source, support):
     payload = {
         **baseline(assessment_view, "EvidenceItem"),
-        "supports": "REFUTE",
+        "supports": support,
         "evidence_source": source,
     }
     result = json.loads(json_dumper.dumps(EvidenceItem(**payload)))
-    assert result["supports"] == "REFUTE"
+    assert result["supports"] == support
     assert result["evidence_source"] == source
+
+
+@pytest.mark.parametrize("field", ["reference", "snippet", "supports", "evidence_source"])
+def test_required_fields_cannot_be_omitted(assessment_view, assessment_validator, field):
+    data = baseline(assessment_view, "EvidenceItem")
+    del data[field]
+    assert list(assessment_validator.iter_results(data, target_class="EvidenceItem"))
+    with pytest.raises(ValueError, match=field):
+        EvidenceItem(**data)
+
+
+@pytest.mark.parametrize("field", ["reference", "snippet", "supports", "evidence_source"])
+def test_generated_model_rejects_null_required_fields(assessment_view, field):
+    data = {**baseline(assessment_view, "EvidenceItem"), field: None}
+    with pytest.raises(ValueError, match=field):
+        EvidenceItem(**data)
+
+
+@pytest.mark.parametrize("field", ["supports", "evidence_source"])
+@pytest.mark.parametrize("value", [None, ""])
+def test_empty_assessments_are_not_defaulted(assessment_view, assessment_validator, field, value):
+    data = {**baseline(assessment_view, "EvidenceItem"), field: value}
+    assert list(assessment_validator.iter_results(data, target_class="EvidenceItem"))
+    with pytest.raises(ValueError):
+        EvidenceItem(**data)
+
+
+@pytest.mark.parametrize(
+    "reference",
+    [
+        "PMID:12345678",
+        "doi:10.1234/fixture",
+        "bioproject:PRJNA123456",
+        "GITHUB:Example/Fixture/tree/" + "a" * 40,
+        "GITHUB:Example/Fixture/blob/" + "b" * 40 + "/evidence.tsv",
+        "GITHUB:Example/Fixture/commit/" + "c" * 40,
+    ],
+)
+def test_existing_reference_forms_still_validate(assessment_view, assessment_validator, reference):
+    data = {**baseline(assessment_view, "EvidenceItem"), "reference": reference}
+    assert not list(assessment_validator.iter_results(data, target_class="EvidenceItem"))
+    assert json.loads(json_dumper.dumps(EvidenceItem(**data)))["reference"] == reference
+
+
+@pytest.mark.parametrize("location", ["abstract", "full_text", "figure", "supplement", "database"])
+def test_shared_quotation_locations_round_trip_without_support_default(
+    assessment_validator, location
+):
+    data = {"reference": "https://example.org/fixture", "evidence_source": location}
+    assert not list(assessment_validator.iter_results(data, target_class="SupportingReference"))
+    result = json.loads(json_dumper.dumps(SupportingReference(**data)))
+    assert result["evidence_source"] == location
+    assert "supports" not in result
+
+
+@pytest.mark.parametrize("enum", [EvidenceItemSupportEnum, EvidenceSourceEnum])
+def test_generated_enum_descriptions_match_canonical_schema(assessment_view, enum):
+    expected = assessment_view.get_enum(enum.__name__).permissible_values
+    assert {name for name in vars(enum) if name.isupper()} == set(expected)
+    for name, value in expected.items():
+        assert getattr(enum, name).description == value.description

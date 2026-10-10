@@ -1,0 +1,239 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 1b174298d4f58dc3222bbb020db2fc3ac123b865
+scope:
+- kb/communities/Rice_FSQN_Rhizosphere_Microbiome_SynCom.yaml
+- kb/communities/Rice_P_Uptake_Intercropping_SynCom4.yaml
+- kb/communities/Richmond_Mine_AMD_Biofilm.yaml
+- kb/communities/Rifle_Aquifer_Bioanode_EET_Community.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch95.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch95.json
+findings:
+- issue: 1761
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound rice phosphorus SynCom graph to measured plant response
+  disposition: Close only after protected-main merge.
+- issue: 1762
+  severity: P2
+  status: addressed_in_this_change
+  finding: Repair Richmond Mine ecological claims and preserve the iron cycle
+  disposition: Close only after protected-main merge.
+- issue: 1763
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate Rifle bioanode enrichment from genomic evidence graphs
+  disposition: Close only after protected-main merge.
+- issue: 1764
+  severity: P2
+  status: open_non_graph_follow_up
+  finding: Review batch95 non-graph functional roles and Richmond source scope
+  disposition: Separate non-graph curation remains required.
+adversarial_checks:
+- Fresh both-root graph baseline preceded paper reads. All four whole records,18originalnodes and9arrows accounted
+  for.12nodes6existingdirections retained;6nodes3analysis-order arrows removed;1node renamed. No new causal topology.
+- FSQN is byte-for-byte unchanged. Its microbiome-composition response and explicit COMPUTATIONAL fungal-guild prediction
+  remain distinct and unconnected. Zero arrows is appropriate here; no invented mediation to rice growth. Primary
+  evidence remains abstract-bounded, not complete-text certification.
+- Rice phosphorus SynCom has a positive pot biomass/P outcome, distinct from the negative field rice/soybean intercropping
+  comparison. Root morphology, IAA, soil-P fractions and transporter expression do not separately establish necessary
+  mediation. Two existing arrows and the transport pathway remain PARTIAL; plant benefit does not establish MUTUALISM.
+  Graph evidence was detached from non-graph aliases before source-classification changes. Elemental-P grounding
+  removed from the phenotype node.
+- Richmond Fe/mineral feedback remains in its actual directions. Oxygen and mineral supply bound the cycle; mine-outflow
+  dissolution estimates are not individual-biofilm or species rates. Iron oxidation is not iron-ion transport, direct
+  nutrient CROSS_FEEDING or pairwise MUTUALISM. Leptospirillum group/sample identity is bounded; Ferroplasma isolate
+  mixotrophy is not field autotrophy or competitive exclusion.
+- Richmond generic ARMAN contact remains positive, without unsupported F. acidarmanus/subgroup identification. Duplicate
+  Parvarchaeota contact is removed. Nitrogen-fixing isolate capacity is preserved in a discussion, not promoted
+  to measured partner transfer; proteomic nondetection does not deny capacity. SYNTROPHY does not require obligacy,
+  but contact is not metabolic feedback. Higher-pH A. ferrooxidans distribution is retained under a renamed observation
+  node, not COMPETITION or reference-genome functional proof.
+- Adversarial diff review caught copied taxon narratives and GTDB metadata inside seven newly populated participant
+  objects, which reintroduced unsupported non-graph claims. These were removed, leaving only canonical preferred_term/term
+  identities. Issue1762, an additional curation event/history, and an explicit regression assertion record the fix.
+  Initial verification was deliberately interrupted after10recorded outputs; all final gates were rerun. Prior outputs
+  are retained separately, not counted as final verification.
+- Rifle community electroactivity/enrichment and Geobacter biofilm dominance remain. Four genomic inventory/conclusion
+  nodes and three analysis-order arrows are removed. MHC/PCC/e-pilus/OmcS predictions do not prove niche partitioning,
+  competition, universal EET, natural mineral flux or syntrophic partners. The candidate set does not exclude all
+  other aquifer organisms. The source leaves the dominant organism environmental niche unresolved and conflicts
+  in near-complete-genome denominators; no silent reconciliation. Cultivation setup remains unchanged.
+- Two complete fresh primary main texts and their captions read, selected Richmond geochemical sections and five
+  further Richmond primary abstracts read; FSQN abstract read. No supplement/raw-data/figure-pixel review. EuropePMC
+  XML failures and PMC challenges do not count as access and were not bypassed. Background Ferroplasma review is
+  not exact-system proof; downloaded Acidithiobacillus/Parvarchaeota main texts were not read or used as functional
+  proof.21retained/new-discussion quotations freshly match primary text and unchanged caches; lexical matching is
+  not entailment.
+- Three changed records,457unchangedrecords and923unchangedcaches; four append-only histories including the adversarial
+  participant repair. All non-graph raw blocks and canonical taxonomy remain unchanged, not recertified. Richmond
+  participant-set fixture is updated. Unspecified contact participants still receive coarse legacy connectivity
+  credit, which is not evidence for every member.
+- Eight focused tests and872combined regressions pass, with four-record schema/strict/term/reference/snippet gates
+  and four history gates.56network warnings unchanged,zero structural defects. Deterministic HTML rendering and
+  exact description parsing are not screenshots. macOS reference passes do not certify Linux DOI-cache handling1091
+  or loader1703.
+- Ignored/hidden-inclusive local dedup and refreshed all-state issue titles/bodies have explicit exclusions; matching
+  prior issues read, no exhaustive PR/comment claim. Repairs1761-1763 remain open until protected-main merge;1764
+  remains non-graph follow-up. Exact-head COMMENT is self-adversarial review, not independent approval. No provider
+  spend, new wet-lab protocol or branch-protection bypass; corpus remains incomplete.
+adversarial_prepublication_fix:
+  issue: 1762
+  participant_entries_narrowed: 7
+  details: Remove copied taxon narratives and GTDB metadata from seven graph participant entries; retain only canonical
+    preferred_term and term identity. Prevent non-graph nitrogen-sharing, competitive-exclusion and pH claims from
+    re-entering repaired graph nodes.
+  initial_verification: Deliberately interrupted with SIGINT before completion after this diff finding; final gates
+    rerun from scratch.
+verification:
+  combined_regressions: 872 passed in 505.26s (0:08:25)
+  new_regression_tests: 8
+  total_recorded_gate_outputs: 42
+  preliminary_attempt:
+    status: deliberately_interrupted_for_adversarial_fix
+    recorded_outputs: 10
+    not_final_verification: true
+  primary_graph_snippet_proof:
+    graph_quotations: 16
+    new_discussion_quotations: 5
+    fresh_primary_matches: 21
+    retained_nodes: 12
+    removed_nodes: 6
+    retained_arrows: 6
+    removed_arrows: 3
+    new_nodes_or_directions: 0
+    scope: Two complete primary main texts, selected Richmond geochemical sections and fresh primary abstracts read.
+      All quotations matched; not automatic entailment or figure-pixel certification.
+  references: Four full-record CLI and local snippet checks executed on macOS,not Linux; DOI-cache casing issue1091
+    remains. Literal matches do not establish entailment; FSQN and five Richmond primary sources are abstract bounded.
+    CLI Total checks counts issues,not executed checks. Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/Rice_FSQN_Rhizosphere_Microbiome_SynCom.yaml:
+      MATCH: 11
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Rice_P_Uptake_Intercropping_SynCom4.yaml:
+      MATCH: 14
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Richmond_Mine_AMD_Biofilm.yaml:
+      MATCH: 41
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Rifle_Aquifer_Bioanode_EET_Community.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8931
+      categories:
+        MATCH: 8796
+        RENDERING: 20
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 38
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification; literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: Six unsupported transfer/duplicate/inventory nodes and three analysis-order arrows removed;12nodes6directions
+      retained. All56warnings unchanged,zero structural defects.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch95.yaml: 5a071df7d816e530b9c9547f096e16ce4be51d45a63a6a8be8a4117259b97021
+    tests/test_causal_review_batch95.py: 030a1bb7f052df837e25aad11a1690ce9b19b3fe15d2122205cbfe5fb686ddce
+    tests/test_participating_taxa.py: 38d4a7d8cfb31468d07611a053ab6df0c427b52fc57c08e7883e4420af04adfb
+    reports/causal_graph_review/README.md: 9ed4b2725fd7a0e1ae4d6a3fdd28d8b36665adb37d4972b4298d96a69836c5f3
+    reports/causal_graph_review/cache-provenance-20261007-batch95.json: 8c3584523b180187f07a198ff9fd564c94d825c5ebc76aed5f9b3c6e889c5915
+    kb/communities/Rice_FSQN_Rhizosphere_Microbiome_SynCom.yaml: be926207b3e99ec9dae97be3b8f0cac07462d7e3a9adcba2305a1efe481c5470
+    kb/communities/Rice_P_Uptake_Intercropping_SynCom4.yaml: 9a5de564abd6e776d8f8eb5717c5d11d60cdf85a27414c0b58df620fae74dd9e
+    kb/communities/Richmond_Mine_AMD_Biofilm.yaml: 2e4f2eef58a26396f76ccedc7483735ea00ea52447f3af4a7469931326686b97
+    kb/communities/Rifle_Aquifer_Bioanode_EET_Community.yaml: 9ebd0ac8d6b48fef67e67549627557ceb23347f0de930357ed73b185c666def3
+  unchanged_records: 457
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 757
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Bound existing nodes/directions and remove unsupported transfer/duplicate/inventory nodes; no
+      new topology. Unresolved gaps are recorded, not extended.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 397
+      mixed: 125
+      community_level_only: 272
+      taxa: 1525
+      credited_solely_by_the_rule: 1253
+    current:
+      records: 460
+      with_community_level: 398
+      mixed: 125
+      community_level_only: 273
+      taxa: 1531
+      credited_solely_by_the_rule: 1259
+  delta:
+    records: 0
+    with_community_level: 1
+    mixed: 0
+    community_level_only: 1
+    taxa: 6
+    credited_solely_by_the_rule: 6
+  interpretation: Richmond mineral processes are now community-scoped with supported canonical participants; generic
+    contact participants remain unspecified. Legacy connectivity is not proof of any ecological mechanism or added
+    membership.
+corpus:
+  records: 460
+  nodes: 1412
+  edges: 576
+  review_status_counts:
+    needs_research: 48
+    pending: 116
+    reviewed: 296
+limitations:
+- Four whole records and all18originalnodes/9arrows reviewed.12nodes and6existingdirections remain,6nodes and3analysis-order
+  arrows removed;1node renamed.3records changed,FSQN unchanged. No new topology or Edison dryrun/submission/spend.
+- FSQN primary abstract freshly read and matched; publisher page inaccessible. Existing explicit computational-guild
+  scope and absent mediation edge are appropriate. No complete main text or new mechanism certified.
+- Rice phosphorus and Rifle complete fresh main text through Conclusions, including embedded captions, read. No
+  supplement/raw-data/figure-pixel review. Rice field and pot outcomes remain distinct; Rifle candidate genomic
+  evidence does not demonstrate community exchange or universal EET.
+- Richmond geochemical primary abstract, Introduction, Results, community discussion/site-flux section, pyrite-pathway
+  discussion, geochemical-community section and Conclusions read (extracted lines1-191,371-533,697-807,855-933).
+  Remaining methods/geochemical modeling and figure pixels not reviewed. Five other Richmond primary abstracts freshly
+  read after EuropePMC XML HTTP500 failures. PMC challenge not bypassed.
+- Ferroplasma background review abstract read, not used as exact-system graph evidence. Acidithiobacillus reference-genome
+  and Parvarchaeota genomic full texts retrieved but not read as primary functional proof for these nodes. Retrieval
+  is not review; no new cache or copyrighted full text published.
+- 'Graph nitrogen-sharing and duplicate subgroup-contact assertions removed without denying positive diazotrophic
+  capacity or generic contact. SYNTROPHY does not require obligacy, but the relevant metabolic feedback is unresolved.
+  Contact participants unspecified: legacy community-connectivity credit is not evidence for every canonical member.
+  Canonical taxonomy labels/IDs and non-graph raw blocks preserved, not recertified.'
+- All923baselinecaches and457unchangedrecords preserved.4append-only histories. Local dedup includes ignored/hidden
+  files, excluding.git/docs/site/references_cache; relevant caches separately inspected. All-state issue titles/bodies
+  refreshed;1716/451/445/443/401/396 read, distinct. Comments/PRs not exhaustive. Repair1761-1763 close only after
+  protected-main merge;1764 remains open.
+- Self-adversarial review is not independent approval or corpus completion. Existing loader1703 and DOI-cache casing1091
+  remain. Denied/pending Edison scopes unchanged. Validation and publication are not preasserted.

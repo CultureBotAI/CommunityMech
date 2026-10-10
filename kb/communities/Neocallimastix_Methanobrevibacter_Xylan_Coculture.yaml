@@ -74,8 +74,10 @@ taxonomy:
     explanation: Supports M. smithii as the archaeal partner in the xylan cocultures.
 ecological_interactions:
 - name: Interspecies Hydrogen Transfer During Xylan Fermentation
-  description: M. smithii removes reducing equivalents from the fungal fermentation, preventing hydrogen
-    accumulation and shifting the metabolite profile toward acetate during xylan degradation.
+  description: In the N. frontalis PNK2-M. smithii coculture, hydrogen and formate did not accumulate, acetate formation
+    increased and lactate decreased, consistent with the reported interspecies hydrogen transfer and methanogenesis.
+    M. smithii alone did not utilize xylan or supply the assayed extracellular hydrolase activities. These results
+    support metabolic coupling without establishing obligate dependence of fungal growth on this partner.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -112,29 +114,32 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Methanogen-Stimulated Xylan Utilization
-    description: >
-      Hydrogen removal by M. smithii shifts fungal fermentation away from
-      reduced products, supporting the observed increase in xylan utilization.
+    description: PARTIAL - Methanogenic removal of fermentation products shifts fungal metabolism toward acetate
+      and is proposed to support the observed increase in xylan-derived sugar utilization. The coculture comparison
+      supports the positive effect, but does not isolate hydrogen removal from growth and other partner-associated
+      changes; utilization is distinct from polymer depolymerization.
   - target: Enhanced Extracellular Hemicellulase Activities
-    description: >
-      Interspecies hydrogen transfer in the fungus-methanogen coculture is the
-      syntrophic context in which extracellular xylanase and accessory
-      hemicellulase activities increase.
+    description: HYPOTHESIZED - Methanogenic product removal is proposed to improve fungal sugar uptake, reducing
+      extracellular xylose accumulation and catabolite repression of hemicellulases. This supplies a mechanistic
+      path to the measured enzyme increase, not merely a shared coculture context; the authors leave control of
+      sugar uptake unresolved.
   evidence:
   - reference: PMID:16348244
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: metabolite profiles became acetogenic as a result of interspecies hydrogen transfer
-    explanation: Supports syntrophic hydrogen transfer as the mechanism coupling fungal fermentation to
-      the methanogenic partner.
+    explanation: Supports syntrophic hydrogen transfer as the mechanism coupling fungal fermentation to the methanogenic
+      partner.
   - reference: PMID:16348244
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: more acetate and less lactate were formed, while formate and hydrogen did not accumulate
     explanation: Supports the metabolite shift associated with M. smithii coculture.
 - name: Methanogen-Stimulated Xylan Utilization
-  description: Coculture with M. smithii increases both the rate and extent of xylan utilization by
-    anaerobic ruminal fungi relative to axenic fungal culture.
+  description: 'Coculture with M. smithii increased the rate and extent of xylan utilization by N. frontalis PNK2
+    relative to fungal monoculture, with stimulation maintained during an 18-day experiment. Increased utilization
+    does not imply a corresponding increase in polymer depolymerization: N. frontalis already degraded most xylan
+    in both conditions, and the source distinguishes degradation from uptake and fermentation of released sugars.'
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -164,8 +169,11 @@ ecological_interactions:
     snippet: Both the rate and extent of xylan utilization were increased by coculturing
     explanation: Supports increased xylan utilization in the fungus-methanogen coculture.
 - name: Enhanced Extracellular Hemicellulase Activities
-  description: The M. smithii coculture stimulates extracellular xylanolytic enzyme activities by the
-    anaerobic fungal partner, including xylanase, arabinofuranosidase, and beta-xylosidase activities.
+  description: Coculture increased extracellular xylanase, alpha-L-arabinofuranosidase and beta-D-xylosidase specific
+    activities, normalized to fungal protein rather than explained solely by greater biomass. Magnitudes depended
+    on fungus, enzyme, substrate and sampling time; the abstract maxima summarize a comparison panel, not uniform
+    fold changes for N. frontalis PNK2. Cell-bound endopeptidase was not increased and alpha-D-glucosidase was little
+    affected.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -193,12 +201,14 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: marked increases in the specific activities of extracellular xylanase (up to fivefold)
-    explanation: Supports increased xylanase activity in coculture.
+    explanation: Supports positive extracellular specific-activity changes across the studied fungi; the quoted
+      maximum is not a universal N. frontalis fold change.
   - reference: PMID:16348244
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: alpha-l-arabinofuranosidase (up to fivefold), and beta-d-xylosidase (up to sevenfold)
-    explanation: Supports increased accessory hemicellulase activities in coculture.
+    explanation: Supports positive extracellular specific-activity changes across the studied fungi; the quoted
+      maximum is not a universal N. frontalis fold change.
 environmental_factors:
 - name: xylan substrate
   value: xylan as the growth substrate
@@ -300,3 +310,29 @@ associated_datasets:
     snippet: Both the rate and extent of xylan utilization were increased by coculturing
     explanation: Supports the phenotypic xylan-utilization dataset represented by this article.
 metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: xylan_utilization_repression_and_specific_activity
+  prompt: Which measurements establish the proposed causal mechanism in this exact system?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: Preserve the directly measured coculture utilization and enzyme gains, as well as hydrogen/formate
+    and fermentation-product changes. Distinguish polymer degradation from utilization and protein-normalized enzyme
+    activity from biomass. The primary main text proposes sugar-uptake and catabolite-repression mediation but calls
+    for further work on uptake control. No selective hydrogen-removal or repression-rescue experiment is inferred
+    from the coculture comparison. The three fungal systems in the comparison panel are not additional members of
+    this two-member record.
+  attaches_to:
+  - ecological_interactions#Interspecies Hydrogen Transfer During Xylan Fermentation
+  - ecological_interactions#Methanogen-Stimulated Xylan Utilization
+  - ecological_interactions#Enhanced Extracellular Hemicellulase Activities
+curation_history:
+- timestamp: '2026-10-07T04:15:50Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain hydrogen-transfer evidence and both positive outcomes; qualify utilization mediation and replace
+    the context-only enzyme arrow with the source hypothesis.; Preserve increased N. frontalis utilization and distinguish
+    it from polymer depolymerization.; Preserve normalized enzyme gains with enzyme/time/organism boundaries, not
+    uniform panel maxima. Issue #1637; reports/causal_graph_review/decisions/20261007-four-records-batch77.yaml'
+  llm_assisted: true

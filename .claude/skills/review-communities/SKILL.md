@@ -9,6 +9,38 @@ created: 2026-03-16
 
 # Review Communities Skill
 
+## Structured Review Output
+
+For every new review or audit, follow
+[docs/record-reviews.md](../../../docs/record-reviews.md) and
+[the local profile](../../../docs/record-review-profile.md).
+Capture exact targets and input hashes before judging, preserve this skill's
+native rubric, rule IDs, scores and evidence requirements, then author the
+structured assessment and run:
+
+```bash
+uv run python scripts/record_review.py inspect --targets /tmp/review-targets.yaml
+uv run python scripts/record_review.py validate /tmp/completed-review.yaml
+uv run python scripts/record_review.py save --content /tmp/completed-review.yaml
+```
+
+Choose session-unique temporary paths. Save authoritative YAML and derived
+Markdown under `reviews/structured/<timestamp>-<slug>/`; link both in the
+final response. This output contract supersedes prose-only report examples.
+A single record uses `kind: record`; batches declare exact selection,
+population, reviewed targets and limits. Categories also state boundary decisions.
+Every reviewed target must have an assessment. Keep P1-P4 and other native
+severity/rule information with a justified common severity, and metric definitions,
+scales and denominators. Do not infer scientific approval from a native score.
+
+Raw provider drafts and deterministic validator/scan reports are diagnostic
+inputs, not completed scientific reviews. Use `scientific_review: false`
+for deterministic-only or provenance-only assessments; mark required unavailable
+checks and incomplete coverage explicitly. A valid bundle does not change native
+status, clear release holds, authorize edits, or append curation history.
+For audit-only requests, stop after assessment and persistence; any application
+steps below require curation intent.
+
 ## Overview
 
 The **Review Communities** skill provides quality assurance for ontology-mapped microbial
@@ -101,7 +133,8 @@ source attribution (CultureMech vs community_curated).
 
 ### 6. Full Quality Control
 ```bash
-just qc   # validate-all + validate-terms-all + validate-references-all + lint + test
+just qc   # native schema/cross-field, taxonomy, terms, lint and test gates
+just qc-references  # separate reference/evidence check; may need network access
 ```
 
 ### Claude Code-Assisted Review
@@ -154,7 +187,7 @@ Issues are graded by priority. Full definitions (checks, impact, fixes) are in
 The skill drives existing `just` recipes:
 
 ```
-qc: validate-all validate-terms-all validate-references-all lint test
+qc / qc-references                                               # distinct gates
 validate[-all] / validate-terms[-all] / validate-references[-all]   # validation
 audit-network / check-network-quality                               # network integrity
 link-media-dry / link-media / link-media-report                     # growth media

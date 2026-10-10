@@ -1,0 +1,168 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 14e7003bc452218c62baa85d5d9f51618d20f366
+scope:
+- kb/communities/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.yaml
+- kb/communities/Emiliania_Phaeobacter_Dynamic_Interaction.yaml
+- kb/communities/Engineered_Gut_Amino_Acid_CrossFeeding_Consortium.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch40.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch40.json
+findings:
+- issue: 1452
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Electrosynthetic graph: distinguish alternative pairs, compartment effects and proposed electron
+    routes'
+  disposition: Existing-graph defect corrected; close only after protected main merge.
+- issue: 1453
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Emiliania graph: separate observed host effects from unproven endogenous IAA mediation'
+  disposition: Existing-graph defect corrected; close only after protected main merge.
+- issue: 1454
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Engineered gut graph: constrain model-inferred interactions and diet-dependent evenness claims'
+  disposition: Existing-graph defect corrected; close only after protected main merge.
+- issue: 1455
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'Electrosynthetic metadata: qualify DIET, organism roles and voltage/control regimes'
+  disposition: Non-graph fields preserved, not certified; remains open.
+- issue: 1456
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'Emiliania metadata: qualify IAA effector language and revisit source-backed cultivation limits'
+  disposition: Non-graph fields preserved, not certified; remains open.
+- issue: 1457
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'Engineered gut metadata: refresh obsolete cache-access limitation without inventing vessel
+    details'
+  disposition: Non-graph fields preserved, not certified; remains open.
+adversarial_checks:
+- Whole records and complete graph diffs checked against cached primary main bodies. All nine existing
+  nodes retained, five arrows retained with bounded descriptions, one unsupported workflow arrow removed.
+  Three renames and all corresponding targets/anchors resolve. No new structure or Edison spend.
+- Electrosynthetic AS and CS are alternative pairs, not a measured three-member consortium. Canonical
+  Andreesenella acetica label preserved. The community-level output roster denotes the comparison set,
+  not co-occurrence of both acetogens.
+- Electrochemical/spectral readouts, riboflavin add-back and compartment removal support route models
+  but do not uniquely establish contact-only DIET, specific cytochrome necessity or donor-resolved hydrogen/formate
+  flux. Hydrogen is not exclusive to one pair. Apparent instantaneous fractions are not cumulative mass-balanced
+  flux.
+- 'Applied cell voltage is distinct from referenced cathode potential; open-circuit H2/CO2 differs from
+  driven N2/CO2. Product enhancement does not establish obligatory syntrophy or reciprocal fitness. Do
+  not transform DNA/gene-abundance readouts into transcription without the unread supplement. Non-graph
+  wording remains #1455.'
+- Emiliania nutrient support and CFU growth are not a selective cause of the specific tryptophan/IAA response;
+  remove that workflow arrow. CFU may count rosettes. Exudate bioavailability plus isotope conversion
+  of added precursor in bacterial culture does not trace the complete endogenous algal-bacterial-algal
+  flux.
+- 'IAA was undetectable in coculture; exogenous micromolar responses are not local exposure measurements.
+  Mutants retained IAA and bleaching, so necessity is unresolved. Keep observed host promotion/death and
+  a HYPOTHESIZED mediation arrow without predation or unique death-pathway claims. Preserve the two-member
+  roster: E. coli reporter and CCMP372 comparator are not members. Non-graph IAA/cultivation wording remains
+  #1456.'
+- Gut consortium rescue is unequal, including absent B. fragilis rescue in tested supernatants despite
+  growth in coculture. Keep measured nutritional dependence without a complete all-to-all flux map or
+  dedicated transporter. Preserve canonical AMBIGUOUS grounding and do not add engineering procedures.
+- In-vitro Bayesian network edges are net inferred effects, not direct molecular transfers; weaker support
+  for negative interactions is not their absence. The interaction-shift-to-evenness link is PARTIAL in
+  vitro and HYPOTHESIZED in vivo. Separate trajectory, supplementation and mouse-gut assays.
+- 'Gut evenness is a day-10 fecal DNA-qPCR endpoint in a four-member gnotobiotic model. Low-protein comparisons
+  were significant; standard-diet trend was not. Do not claim longitudinal stability, conventional microbiota,
+  measured in-vivo flux or clinical benefit. Non-graph access note remains #1457; cache pointer/casing
+  remain #1094/#1091.'
+- Guarded writes, append-only histories and llm-assisted events. Canonical taxonomy, original Emiliania
+  YAML anchor/alias, non-graph raw blocks, 457 other records and 920 caches unchanged. Two participant
+  registry entries added, 185 to 187; connectivity census and numeric bounds unchanged.
+- All 33 baseline network warnings exactly preserved, zero structural errors. Repeated rendering deterministic,
+  with exact published descriptions checked across all 456 community pages. Eight new tests plus combined
+  regression coverage pass on the final tested bytes.
+- Actual validation outputs, digests and pre-research baseline retained. Reference validator 0.1.7 performs
+  zero checks; explicitly a no-op. Snippet MATCH is textual, not scientific validation. The two preflight
+  excerpt corrections and the initial test-key failure are disclosed.
+- Deduplication covered 772 all-state issue titles/bodies and ignored/hidden-inclusive local files, not
+  all comments or PRs. Full cached primary main bodies read; no figure images, separate supplements or
+  raw data. Only selected Emiliania peer-review discussion read; DOI copy not independently fully read.
+  Live challenges were not bypassed.
+- This is source-based self-adversarial review, not independent approval, protected merge or full-corpus
+  completion. Non-graph issues remain open. Exact-head eligible CI and protected main queue are still
+  required.
+verification:
+  combined_regressions: 423 passed in 195.19s (0:03:15)
+  new_regression_tests: 8
+  schema_strict_terms_history: passed; actual outputs and digests retained
+  snippet_counts_by_record:
+    kb/communities/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.yaml:
+      MATCH: 14
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Emiliania_Phaeobacter_Dynamic_Interaction.yaml:
+      MATCH: 21
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Engineered_Gut_Amino_Acid_CrossFeeding_Consortium.yaml:
+      MATCH: 20
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero errors; 33 baseline warnings exactly preserved, none added.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch40.yaml: 80329e3dcae2352d3b6937185835394e337f6405310643363b57b841588a62e0
+    tests/test_causal_review_batch40.py: 217a34c089b3fba4a6f31a6a58a1fdbd4e0aa8f598cf115c4e69e795eddfd8f2
+    tests/test_participating_taxa.py: f7a9552c057f123e66b5d3f60bd4ba1e1116704900c3072134ac48ff88e81cb6
+    kb/communities/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.yaml: 236e65e0a34ac546bcc54c39e37fd6f69d98943d2e6527324d96b800fe9a53bc
+    kb/communities/Emiliania_Phaeobacter_Dynamic_Interaction.yaml: d3d385ef2d9f8807a54d65a3e7ec6a08371f98df61b771426717fad84758577c
+    kb/communities/Engineered_Gut_Amino_Acid_CrossFeeding_Consortium.yaml: 54c35d933209e608a7f894e1e602441d945a5d311e4b9ff212ab6fae1a0f5a18
+  post_commit_docs_current: Separate publication gate; not asserted in pre-commit record.
+  protected_ci_and_merge: Eligible exact-head checks and protected queue still required.
+participant_census:
+  connectivity_before:
+    community_level_only: 263
+    credited_solely_by_the_rule: 1219
+    mixed: 124
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  connectivity_after:
+    community_level_only: 263
+    credited_solely_by_the_rule: 1219
+    mixed: 124
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  exact_change: 'Electrosynthetic and Engineered Gut newly registered: participant roster grows from 185
+    to 187. Emiliania remains pairwise. Connectivity census and numeric bounds unchanged; canonical taxonomy
+    preserved.'
+  numeric_bounds_changed: false
+corpus:
+  records: 460
+  nodes: 1469
+  edges: 688
+  review_status_counts:
+    needs_research: 9
+    pending: 291
+    reviewed: 160
+limitations:
+- Cached primary main bodies, tables and captions read; no figure images, separate supplements or raw
+  data reviewed. Selected Emiliania review exchange only.
+- Nine existing nodes retained; five arrows retained and one unsupported workflow arrow removed. Do not
+  add links to suppress connectivity warnings.
+- 'Canonical taxonomy, prior history, original YAML aliases and non-graph raw blocks preserved, not certified.
+  Non-graph followups #1455/#1456/#1457 remain open.'
+- Source-based self-adversarial review is not independent approval, protected merge or full-corpus completion.
+  Text matching is not scientific validation.
+- 'Reference validator 0.1.7 is known to perform zero checks for this schema; report the no-op explicitly.
+  DOI casing and stale pointer issues remain #1091/#1094.'

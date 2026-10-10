@@ -53,10 +53,9 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Alginate-Entrapped Nitrifier Microcolony Formation
-  description: Alginate entrapment and oxic/anoxic sequencing-batch-reactor cycles
-    generated strong nitrifier microcolonies before the entrapped aggregates were
-    released into denitrifier flocs.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Alginate entrapment during oxic/anoxic reactor cycles produced stable nitrifier microcolonies, mostly
+    composed of one species. Microcolonies persisted after alginate dissolution with retained N-cycle activity.
+    The artificial retention matrix is not itself a demonstrated interspecies colonization-facilitation interaction.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
@@ -65,45 +64,42 @@ ecological_interactions:
       label: biofilm formation
   downstream:
   - target: Nitrifier-Denitrifier Macrocluster Formation
-    description: Release of the nitrifier microcolonies into suspension seeded larger
-      macroclusters with the denitrifier flocs.
+    description: Released nitrifier microcolonies provided building blocks incorporated into mixed denitrifier macroclusters
+      after centrifugation and resuspension in calcium-rich HEPES-buffered medium. Release alone did not yield these
+      macroclusters. PARTIAL - Calcium bridging is proposed; its contribution was not fully decoupled from centrifugation.
   evidence:
   - reference: PMID:40536564
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Strong nitrifier microcolonies were formed during oxic/anoxic cycles in sequencing batch reactors,
       using alginate entrapment as a cell retention system.
-    explanation: Supports the aggregate-formation process in the defined N-cycle
-      consortium under sequencing-batch-reactor cultivation.
+    explanation: Supports the aggregate-formation process in the defined N-cycle consortium under sequencing-batch-reactor
+      cultivation.
 - name: Nitrifier-Denitrifier Macrocluster Formation
-  description: Released nitrifier aggregates formed macroclusters with denitrifier
-    flocs, yielding a bottom-up living model of a full-scale activated-sludge floc.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Mixed macroclusters containing nitrifier colonies and Azoarcus flocs appeared after centrifugation
+    at 3000 g for 10 min and resuspension in calcium-rich HEPES-buffered medium, persisting for about 10 days under
+    aerobic stirring. Release alone did not generate these structures. FISH preparation caused separate artefactual
+    aggregation; the later suspended macroclusters were a real positive result. Calcium and centrifugation effects
+    were not fully decoupled.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
     term:
       id: GO:0042710
       label: biofilm formation
-  downstream:
-  - target: Bottom-Up Activated Sludge Floc Model
-    description: Macrocluster formation with denitrifier flocs builds the
-      bottom-up living model used to study full-scale activated-sludge
-      bioflocculation.
   evidence:
   - reference: PMID:40536564
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: After the release of these aggregates into suspension, macroclusters with flocs
-      of the denitrifier were observed
-    explanation: Supports macrocluster formation by released nitrifier aggregates
-      and denitrifier flocs.
+    snippet: After the release of these aggregates into suspension, macroclusters with flocs of the denitrifier
+      were observed
+    explanation: Abstract supports the observed endpoint; complete main-body Methods and Results qualify it by centrifugation
+      plus calcium-rich resuspension, not release alone.
 - name: Bottom-Up Activated Sludge Floc Model
-  description: >
-    The reduced N-cycle consortium uses released nitrifier microcolonies and
-    denitrifier flocs as a bottom-up living model of full-scale activated-sludge
-    flocs for mechanistic bioflocculation studies.
-  interaction_type: COLONIZATION_FACILITATION
+  description: The nitrifier-microcolony/denitrifier-floc assembly provides a reduced bottom-up proof-of-concept
+    model of activated-sludge flocs. It retains N-cycle function, but its use as a model is an interpretation of
+    the same assembly, not a separate downstream biological event or proof of full-scale performance. The authors
+    recommend operation that separates medium exchange from centrifugation when testing calcium effects.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
@@ -114,10 +110,10 @@ ecological_interactions:
   - reference: PMID:40536564
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: a living model of a full-scale activated sludge floc can be built through the use of this bottom-up approach
-    explanation: >
-      Supports the bottom-up full-scale floc model as the community-level
-      outcome of released aggregate macrocluster formation.
+    snippet: a living model of a full-scale activated sludge floc can be built through the use of this bottom-up
+      approach
+    explanation: Supports the proposed model utility, not a separate causal stage or demonstrated equivalence to
+      full-scale flocs.
 related_ingredients:
 - preferred_term: alginate
   chebi_term:
@@ -177,3 +173,26 @@ cultivation_setup:
     snippet: Strong nitrifier microcolonies were formed during oxic/anoxic cycles in sequencing
       batch reactors, using alginate entrapment as a cell retention system.
     explanation: Establishes the sequencing-batch-reactor cultivation mode with alginate entrapment.
+discussions:
+- discussion_id: floc_calcium_centrifugation_and_imaging
+  prompt: Which observations distinguish activity and causal mediation from inferred potential?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: Preserve stable nitrifier microcolonies, real mixed macroclusters and retained nitrogen cycling. Separate
+    FISH-induced artefacts from unstained suspension observations. Selectively test calcium/cation bridging without
+    centrifugation and characterize matrix composition before claiming an isolated EPS mechanism or biotic facilitation.
+    Remove the model-utility workflow arrow, not the positive physical assembly result.
+  attaches_to:
+  - ecological_interactions#Alginate-Entrapped Nitrifier Microcolony Formation
+  - ecological_interactions#Nitrifier-Denitrifier Macrocluster Formation
+  - ecological_interactions#Bottom-Up Activated Sludge Floc Model
+curation_history:
+- timestamp: '2026-10-07T03:38:47Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve microcolonies and their conditional contribution to mixed structures.; Preserve actual macroclusters
+    with centrifugation/calcium and imaging boundaries; remove model-utility arrow.; Retain proof-of-concept utility
+    without a second biological causal stage. Issue #1633; reports/causal_graph_review/decisions/20261007-four-records-batch76.yaml'
+  llm_assisted: true

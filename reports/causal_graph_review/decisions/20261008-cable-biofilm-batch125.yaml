@@ -1,0 +1,167 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 985c5cb81bb72d4ff1c763db31797c31fd6ed099
+source_access:
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4292484/
+  pmid: '25416774'
+  doi: 10.1128/AEM.02682-14
+  html_sha256: 21b5fd77c31cfbf4cc18a51893908e08cfc85529baad9c3ec60a0e93ad77267d
+  text_sha256: 2e1d16b5c0b6cbd7833f936a87bf167dd204cb82ca63ebe44f89a95afa2e4458
+  paragraph_count: 83
+  source_notice: Copyright 2015 American Society for Microbiology. All rights reserved.
+  repository_import: Short attributed quotations only; full body retained outside repository.
+primary_artifacts:
+  /private/tmp/communitymech-batch125/cable-primary.html: 21b5fd77c31cfbf4cc18a51893908e08cfc85529baad9c3ec60a0e93ad77267d
+  /private/tmp/communitymech-batch125/cable-primary.txt: 2e1d16b5c0b6cbd7833f936a87bf167dd204cb82ca63ebe44f89a95afa2e4458
+  /private/tmp/communitymech-batch125/source-manifest.json: e07c3ddc55f790d6e992f4aad431d8a26e48e97d569cf3dda57323288ee16fbe
+grounding_urls:
+- https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2836&mode=Info
+- https://www.ebi.ac.uk/chebi/CHEBI:16136
+snippet_checks:
+- path: /taxonomy/0/evidence/0
+  reference: PMID:25416774
+  literal_primary_match: true
+  literal_cache_match: true
+- path: /taxonomy/1/evidence/0
+  reference: PMID:25416774
+  literal_primary_match: true
+  literal_cache_match: true
+- path: /ecological_interactions/0/evidence/0
+  reference: PMID:25416774
+  literal_primary_match: true
+  literal_cache_match: true
+- path: /ecological_interactions/1/evidence/0
+  reference: PMID:25416774
+  literal_primary_match: true
+  literal_cache_match: true
+- path: /ecological_interactions/1/evidence/1
+  reference: PMID:25416774
+  literal_primary_match: true
+  literal_cache_match: true
+- path: /ecological_interactions/2/evidence/0
+  reference: PMID:25416774
+  literal_primary_match: true
+  literal_cache_match: true
+- path: /environmental_factors/0/evidence/0
+  reference: PMID:25416774
+  literal_primary_match: true
+  literal_cache_match: true
+- path: /environmental_factors/1/evidence/0
+  reference: PMID:25416774
+  literal_primary_match: true
+  literal_cache_match: true
+- path: /related_ingredients/0/evidence/0
+  reference: PMID:25416774
+  literal_primary_match: true
+  literal_cache_match: true
+- path: /related_ingredients/1/evidence/0
+  reference: PMID:25416774
+  literal_primary_match: true
+  literal_cache_match: true
+- path: /associated_datasets/0/evidence/0
+  reference: PMID:25416774
+  literal_primary_match: true
+  literal_cache_match: true
+cache_changes:
+- path: references_cache/PMID_25416774.txt
+  before_sha256: 024e6d8868069d8cee8cc222391860530a93e8688dbb69e9e10a54b67f498d43
+  after_sha256: 686490fadcc5e7864de153e175e00dafdb40b8977465517dccc761c2551e5ddc
+  appended_excerpt_words: 8
+reviewed_counts:
+  records: 1
+  retained_nodes: 3
+  retained_arrows: 2
+  new_nodes_or_directions: 0
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+limitations:
+- Primary main body, Methods, Results, Table1, captions and Discussion through conclusions read. Figure pixels,
+  supplement, raw data and cited earlier studies not independently audited.
+- Roster and related-ingredient fields are necessary dependencies of inherited graph membership and its chemistry,
+  explicitly extending the otherwise graph-only repair boundary for issue1267.
+- NCBITaxon2836 Bacillariophyta and CHEBI16136 hydrogen sulfide verified against official NCBI/ChEBI pages. Existing
+  GTDB mapping and article-as-dataset metadata are not certified.
+- Three nodes and two arrows unchanged in identity and direction; only the first node description changes. Open
+  mechanism discussion remains appropriate after identity repair.
+- One short eight-word excerpt appendix; original cache prefix retained. No full article import, provider submission,
+  credits or new causal topology.
+- Source-based self-adversarial review, not independent approval. Issue1267 can close only after protected-main
+  merge. Issue1268 covers other records and remains open.
+records:
+- path: kb/communities/Cable_Bacteria_Photosynthetic_Biofilm_Sediment.yaml
+  id: CommunityMech:000145
+  original_sha256: 6c7154dd0b4f3a7f06031550e153ef51ca1e16a7839d4c2bbb6b8982982ebd86
+  record_sha256: 79a9597722d1caa4abad454a53464a9671801ec4d52d5b809a42ec003e90fd79
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261008-cable-biofilm-batch125.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+    record_sha256: 6c7154dd0b4f3a7f06031550e153ef51ca1e16a7839d4c2bbb6b8982982ebd86
+  scope: Whole record and existing graph read. Necessary roster and chemical dependencies repaired; not whole-record
+    certification or graph extension.
+  summary: Reconcile inherited cable-biofilm graph membership and sulfide grounding; preserve all three nodes, two
+    arrows and mechanism limits.
+  node_decisions:
+  - node: Photosynthesis Stimulates Cable-Bacteria Electron Harvesting
+    rationale: Inherited graph member identity now matches Methods; oxygen-supply claim and reciprocal-benefit limit
+      retained.
+  - node: Electrogenic Sulfide Oxidation across Sediment Redox Zones
+    rationale: Existing conduction interpretation retained without new interorganism exchange or uniquely resolved
+      physiology.
+  - node: Rapid Redox Signal Transmission under Diel Illumination
+    rationale: Perturbation response and statistical/replication bounds retained unchanged.
+  edges_before:
+  - source: Photosynthesis Stimulates Cable-Bacteria Electron Harvesting
+    target: Electrogenic Sulfide Oxidation across Sediment Redox Zones
+    description: Greater photosynthetic oxygen supply can provide the surface electron acceptor for cable-bacteria
+      sulfide oxidation at depth. Light manipulation and microsensor responses support this coupling; the precise
+      spatial redox-site model remains an interpretation.
+  - source: Electrogenic Sulfide Oxidation across Sediment Redox Zones
+    target: Rapid Redox Signal Transmission under Diel Illumination
+    description: Cable-bacteria electron conduction provides a mechanism for rapid coupling of altered surface oxygen
+      availability to deep sulfide responses during light/dark perturbations. The observed rapid response supports
+      coupling without uniquely resolving motility or biochemical regulation.
+  edges_after:
+  - source: Photosynthesis Stimulates Cable-Bacteria Electron Harvesting
+    target: Electrogenic Sulfide Oxidation across Sediment Redox Zones
+    description: Greater photosynthetic oxygen supply can provide the surface electron acceptor for cable-bacteria
+      sulfide oxidation at depth. Light manipulation and microsensor responses support this coupling; the precise
+      spatial redox-site model remains an interpretation.
+  - source: Electrogenic Sulfide Oxidation across Sediment Redox Zones
+    target: Rapid Redox Signal Transmission under Diel Illumination
+    description: Cable-bacteria electron conduction provides a mechanism for rapid coupling of altered surface oxygen
+      availability to deep sulfide responses during light/dark perturbations. The observed rapid response supports
+      coupling without uniquely resolving motility or biochemical regulation.
+  retained_edge_decisions:
+  - edge:
+      source: Photosynthesis Stimulates Cable-Bacteria Electron Harvesting
+      target: Electrogenic Sulfide Oxidation across Sediment Redox Zones
+      description: Greater photosynthetic oxygen supply can provide the surface electron acceptor for cable-bacteria
+        sulfide oxidation at depth. Light manipulation and microsensor responses support this coupling; the precise
+        spatial redox-site model remains an interpretation.
+    rationale: Existing source-bounded direction unchanged; no new topology.
+  - edge:
+      source: Electrogenic Sulfide Oxidation across Sediment Redox Zones
+      target: Rapid Redox Signal Transmission under Diel Illumination
+      description: Cable-bacteria electron conduction provides a mechanism for rapid coupling of altered surface
+        oxygen availability to deep sulfide responses during light/dark perturbations. The observed rapid response
+        supports coupling without uniquely resolving motility or biochemical regulation.
+    rationale: Existing source-bounded direction unchanged; no new topology.
+  removed_node_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:25416774
+  issues:
+  - 1267
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  - related_ingredients
+  - taxonomy
+  history_files:
+  - history/records/Cable_Bacteria_Photosynthetic_Biofilm_Sediment/2026-10-08T194617Z-codex-d8c9fa.yaml

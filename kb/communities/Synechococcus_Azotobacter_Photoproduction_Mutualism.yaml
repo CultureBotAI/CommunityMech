@@ -116,8 +116,10 @@ taxonomy:
     explanation: Supports the nitrogen-fixing functional role of A. vinelandii in the coculture design.
 ecological_interactions:
 - name: Photosynthetic Sucrose Transfer To Azotobacter
-  description: Engineered S. elongatus PCC 7942 cscB fixes inorganic carbon under illumination and exports
-    sucrose that supports A. vinelandii growth when fixed carbon is absent.
+  description: The engineered cscB S. elongatus/AV3 A. vinelandii coculture required a sucrose-exporting cyanobacterium
+    and grew without added fixed carbon or nitrogen. This supports the existing photosynthetic carbon-supply direction.
+    The initial glutamate-supplemented experiments are a distinct context; the reviewed abstract does not resolve
+    transfer rates or detailed transport.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -135,6 +137,7 @@ ecological_interactions:
     term:
       id: CHEBI:16526
       label: carbon dioxide
+    notes: Carbon-fixation substrate, not the exchanged organic carbon species.
   - preferred_term: sucrose
     term:
       id: CHEBI:17992
@@ -150,9 +153,9 @@ ecological_interactions:
       label: sucrose biosynthetic process
   downstream:
   - target: Light-Driven PHB Production
-    description: >
-      Sucrose exported by engineered S. elongatus supplies the fixed carbon used
-      by A. vinelandii in the light-driven coculture that produced PHB.
+    description: 'HYPOTHESIZED/PARTIAL: cyanobacterial carbon supply supports the productive coculture and is proposed
+      to provide carbon for PHB. The abstract establishes exporter-dependent growth and PHB production, not direct
+      carbon tracing into PHB or isolated control of its yield.'
   evidence:
   - reference: PMID:27232890
     supports: SUPPORT
@@ -165,8 +168,10 @@ ecological_interactions:
     snippet: We investigate the growth of a photosynthetic cyanobacterium
     explanation: Supports the photosynthetic role of the cyanobacterial member.
 - name: Diazotrophic Nitrogen Support
-  description: A. vinelandii provides biological nitrogen fixation capacity in the mutualism, enabling
-    coculture growth in the absence of added fixed nitrogen.
+  description: The diazotrophic AV3 partner provides nitrogen-fixation capacity in the engineered mutualism that
+    grows without added fixed carbon or nitrogen, whereas neither member grows alone under that omission. Preserve
+    this growth-context mutualism without specifying an unreported exported nitrogen compound, transfer rate or
+    nitrogen-dependent change in PHB yield.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -184,6 +189,7 @@ ecological_interactions:
     term:
       id: CHEBI:17997
       label: dinitrogen
+    notes: Dinitrogen is the fixation substrate, not a claimed donor-to-recipient transfer product.
   biological_processes:
   - preferred_term: nitrogen fixation
     term:
@@ -191,9 +197,9 @@ ecological_interactions:
       label: nitrogen fixation
   downstream:
   - target: Light-Driven PHB Production
-    description: >
-      Diazotrophic nitrogen fixation by A. vinelandii enables coculture growth
-      without added fixed nitrogen in the same mutualism that produced PHB.
+    description: 'HYPOTHESIZED/PARTIAL: diazotrophic support could enable growth of the PHB-producing coculture
+      under fixed-nitrogen omission. The abstract does not isolate nitrogen supply as the mediator of a PHB-production
+      change or establish the exact PHB assay conditions.'
   evidence:
   - reference: PMID:27232890
     supports: SUPPORT
@@ -206,41 +212,31 @@ ecological_interactions:
     snippet: neither organism can grow alone without fixed carbon or nitrogen
     explanation: Supports mutual dependence under fixed-carbon and fixed-nitrogen omission.
 - name: Light-Driven PHB Production
-  description: The designed mutualism produced polyhydroxybutyrate, linking photosynthetic carbon capture
-    and diazotrophic growth support to biopolymer production.
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Synechococcus elongatus PCC 7942 cscB
-    term:
-      id: NCBITaxon:1140
-      label: Synechococcus elongatus PCC 7942 = FACHB-805
-  target_taxon:
-    preferred_term: Azotobacter vinelandii AV3
-    term:
-      id: NCBITaxon:354
-      label: Azotobacter vinelandii
+  description: The designed coculture was demonstrated to produce PHB. This is a productive community endpoint,
+    not independent evidence of reciprocal fitness or direct photosynthetic flux. The abstract names alginate as
+    a potential product, not demonstrated production, and does not supply the PHB assay conditions or quantify carbon/nitrogen
+    mediation.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: poly(3-hydroxybutyrate)
     term:
       id: CHEBI:53389
       label: poly(3-hydroxybutyrate)
-  biological_processes:
-  - preferred_term: photosynthesis
-    term:
-      id: GO:0015979
-      label: photosynthesis
   evidence:
   - reference: PMID:27232890
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: We demonstrate the ability of the coculture to produce PHB in this work.
     explanation: Supports PHB production by the designed coculture.
-  - reference: PMID:27232890
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: industrially relevant products, such as polyhydroxybutyrate (PHB) and alginate
-    explanation: Supports the bioproduct relevance of PHB and alginate in the designed system.
+  participating_taxa:
+  - preferred_term: Synechococcus elongatus PCC 7942 cscB
+    term:
+      id: NCBITaxon:1140
+      label: Synechococcus elongatus PCC 7942 = FACHB-805
+  - preferred_term: Azotobacter vinelandii AV3
+    term:
+      id: NCBITaxon:354
+      label: Azotobacter vinelandii
 environmental_factors:
 - name: Illumination
   value: sunlight or laboratory illumination
@@ -411,3 +407,33 @@ rare_earth_elements_present: []
 metal_relevance: INCIDENTAL
 metal_notes: Trace metals are reported as inorganic inputs in the photoproduction concept, but no
   specific metal species or metal-cycling mechanism is curated from the available abstract.
+discussions:
+- discussion_id: azotobacter-growth-context-and-phb-mediation
+  prompt: How do carbon and nitrogen provision contribute to the demonstrated PHB outcome?
+  rationale: The independently retrieved primary abstract distinguishes initial glutamate studies from the engineered
+    carbon/nitrogen-omission mutualism. It supports exporter-dependent growth, failure of either partner alone under
+    omission and PHB production. It does not specify a transferred nitrogen species, fluxes or the precise PHB assay
+    conditions. Full article and supplements were not retrieved in this bounded review; no absence claim is made.
+    Alginate remains a proposed capability, not a measured product.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  attaches_to:
+  - ecological_interactions#Photosynthetic Sucrose Transfer To Azotobacter
+  - ecological_interactions#Diazotrophic Nitrogen Support
+  - ecological_interactions#Light-Driven PHB Production
+  evidence:
+  - reference: PMID:27232890
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: From initial studies of the coculture grown in media with glutamate, we proposed a model of cross-feeding
+      between these organisms.
+    explanation: Initial supplemented-condition model must not be conflated with the later engineered omission experiment.
+curation_history:
+- timestamp: '2026-10-08T04:59:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain exporter-dependent carbon support without transport-rate or PHB-tracing claims.; Retain omission-context
+    mutualism; qualify nitrogen-to-PHB mediation and substrate role.; Retain PHB production as a community endpoint
+    and distinguish potential alginate production. Issue#1851; reports/causal_graph_review/decisions/20261008-six-records-batch109.yaml
+  llm_assisted: true

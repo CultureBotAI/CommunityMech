@@ -1,0 +1,296 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: f1c21708622a610e2dd4208818a38d20472a3114
+scope:
+- kb/communities/SynCom_BsBv_Cigar_Tobacco_Leaf_Fermentation.yaml
+- kb/communities/SynCom_Chlorella_sorokiniana_Biogas_Slurry_Coupling_System.yaml
+- kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml
+- kb/communities/SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-four-records-batch108.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch108.json
+findings:
+- issue: 1843
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate BsBv fermentation outcomes and modeled mediation from mutualism and niche partitioning
+  disposition: Close only after protected-main merge.
+- issue: 1844
+  severity: P2
+  status: addressed_in_this_change
+  finding: Remove workflow and coincidence arrows from the sequential SynCom-Chlorella slurry graph
+  disposition: Close only after protected-main merge.
+- issue: 1845
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate MetG2-associated gene responses from demonstrated root colonization and reciprocal benefit
+  disposition: Close only after protected-main merge.
+- issue: 1846
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound Artemisia SynCom traits and low antagonism without asserting niche separation or mutualism
+  disposition: Close only after protected-main merge.
+- issue: 1847
+  severity: P2
+  status: open_identity_follow_up
+  finding: Resolve MetG2 inoculant membership and sugarcane host grounding before certifying graph participants
+  disposition: Coordinated canonical and graph identity curation required; record remains needs_research.
+adversarial_checks:
+- 'Whole original targets and changed graph/discussion diffs reviewed. All 14 original nodes and seven directions
+  have dispositions: retain 12 nodes and three qualified existing directions, remove two workflow nodes and four
+  context/coincidence arrows, rename seven nodes. No new topology or Edison spend.'
+- 'Challenge deletion versus evidence loss: preserve measured tobacco substrate loss and sensory outcomes, Chlorella
+  removal/growth/transcript responses, MetG2 microbial/host molecular responses, and Artemisia tolerance/compatibility/carbon-fixation
+  capacity. Positive endpoints and source hypotheses remain.'
+- 'Tobacco: the uninoculated comparator does not establish monoculture synergy or reciprocal bacterial fitness.
+  Relative Bacillus abundance is not absolute growth or the beta-diversity path-model variable. Preserve PLS-PM
+  as PARTIAL statistical inference without invented software. Keep the two existing outcome contributions hypothetical;
+  remove degradation-process annotations from the volatile/sensory endpoint.'
+- 'Chlorella: construction and 60-day duration are context, not separate biological causal nodes. Preserve all three
+  removal percentages and the BG11-referenced algal response, without inferring exchanged nitrate, neutral bacterial
+  fitness or an isolated bacterial conditioning effect. Transcript upregulation is not enzyme activity or measured
+  flux. Preserve previous October2 edge repairs; give only algal observations canonical identity-only participant
+  scope. Existing unnamed bacterial membership issue183 remains separate.'
+- 'MetG2: distinguish inferred colonization from direct tracking, enriched genes from products/transfer, and stress-response
+  transcription from measured stress-challenge performance. Retain one hypothetical functional contribution, remove
+  the context arrow and redundant unverified community-level taxon links. The primary preview names four inoculant
+  strains with a Chiliseed2/Chileseed2 discrepancy; responding native Proteobacteria is not the inoculant. Generic
+  sugarcane does not verify the canonical species. Record remains needs_research under1847.'
+- 'Artemisia: retain pair-level tolerance and PGP/carbon-fixation capacity, and the partial complementarity/minimal-antagonism
+  design rationale. None proves niche partitioning, reciprocal fitness or sequestration flux. The abstract does
+  not identify these trait-assay settings, so OTHER replaces unsupported IN_VIVO. Prior removal of screening-order
+  arrows is preserved; no new topology is inferred from other positive plant/soil endpoints.'
+- Fifteen graph and seven discussion quotations match independently retrieved primary abstracts/indexed publisher
+  previews and unchanged caches. Literal matching is separate from entailment. Whole indexed tobacco/Artemisia abstracts,
+  bounded MetG2 Introduction/section previews and the whole EuropePMC Chlorella abstract were read, not complete
+  papers. Direct publisher403 and public API400 attempts are recorded; two source CC licenses do not imply full-body
+  retrieval. No supplements, figure pixels or raw datasets were certified.
+- Four guarded writes produce four append-only histories. All 456 other records, all 923 caches, non-graph raw blocks
+  and prior history/decision files remain byte-identical. No schema, validator, census-threshold or runtime-rule
+  changes. Chlorella identity scopes and removal of redundant MetG2 links leave the global participant census unchanged;
+  canonical MetG2 identities are not certified.
+- Three in-memory control/mutation/restored-control probes reject promoting statistical evidence to SUPPORT or restoring
+  the Chlorella and MetG2 coincidence/context arrows at scientific assertions. No canonical files changed; these
+  probes do not inflate the pytest count.
+- Eight focused tests and 975 combined regressions pass. Four full-record schema/strict/term/reference/snippet checks
+  and four histories validate. The network retains 56 baseline warnings and zero structural defects. Deterministic
+  rendering and exact HTML parsing cover 456 pages, 1370 node descriptions and 539 arrows, not screenshots.
+- Repair issues1843-1846 are addressed but remain open until protected-main merge. Identity1847 and non-graph membership183
+  stay open. Existing license949, loader1703, DOI-cache case1091 and stub-policy1093 are not certified. Denied and
+  unanswered Edison scopes remain untouched. Self-review is not independent approval; no artificial CI, protection
+  bypass or premature branch deletion.
+- Corpus status is 344 reviewed, 64 pending and 52 needs_research, not completion. Postcommit docs-current and exact-head
+  publication require separate receipts and are not preasserted here.
+- Plain just-lint passed;explicit-runtime no-incremental mypy additionally checked.
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: tobacco modeled mediation promoted to SUPPORT
+      test: test_tobacco_path_model_is_bounded_and_directions_stay_hypotheses
+      control: PASS
+      mutation_rejected: true
+      assertion_line: 34
+      assertion: assert model["evidence_source"] == "COMPUTATIONAL" and model["supports"] == "PARTIAL"
+      restored_control: PASS
+    - mutation: Chlorella coincidence arrow restored
+      test: test_chlorella_workflows_are_context_not_graph_nodes_or_arrows
+      control: PASS
+      mutation_rejected: true
+      assertion_line: 48
+      assertion: assert all("interaction_type" not in n and not n.get("downstream") for n in nodes)
+      restored_control: PASS
+    - mutation: MetG2 context arrow restored
+      test: test_metg2_omics_and_identity_gaps_are_not_certified_as_mechanisms
+      control: PASS
+      mutation_rejected: true
+      assertion_line: 82
+      assertion: assert not colonization.get("downstream")
+      restored_control: PASS
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/SynCom_BsBv_Cigar_Tobacco_Leaf_Fermentation.yaml: 53f9cefb513a07926eee79884f4109702e56df3567d93ac65ec56658025d68f4
+      kb/communities/SynCom_Chlorella_sorokiniana_Biogas_Slurry_Coupling_System.yaml: f76054afccd798d444ad3e51a74e13afbed91762384966fb998b842dc54dfeb2
+      kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml: a1fe9ffb3e47c18fa4d8ac5abb97a451dc8bffd7940b3b741d682729bb47bfb7
+      kb/communities/SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation.yaml: 88b173ca8cef1393eedf415783725e0befc985adcf2cc3b2564fb7465df3d279
+      tests/test_causal_review_batch108.py: fc8e5c1fdaff00b1b7db98c2b0b6afbc2f9a095fde4892439bd40ea73d509039
+    scope: In-memory mutations of already-loaded evidence; no canonical write or added pytest count.
+  artifact: /private/tmp/communitymech-batch108/adversarial-regression-proof.json
+  sha256: a28ee1cd7ad7b163ceb93ed9c855628f903bdbc1ef1ea2843c196d695d5b0c11
+verification:
+  combined_regressions: 975 passed in 301.81s (0:05:01)
+  new_regression_tests: 8
+  total_recorded_gate_outputs: 41
+  primary_graph_snippet_proof:
+    graph_quotations: 15
+    new_discussion_quotations: 7
+    fresh_primary_literal_matches: 22
+    all_cached_literal_matches: 22
+    retained_nodes: 12
+    removed_nodes: 2
+    retained_arrows: 3
+    removed_arrows: 4
+    new_nodes_or_directions: 0
+    scope: All reviewed quotations match fresh primary text and unchanged caches; source entailment separately reviewed.
+      Bounded primary abstracts/indexed publisher previews,not full-body/supplement/figure/raw-data certification.
+  references: Four full-record CLI and local snippet checks on macOS,not Linux;DOI-cache case1091 remains. Literal
+    matches do not establish entailment;per-source read limits recorded. CLI Total checks counts issues,not checks.
+    Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/SynCom_BsBv_Cigar_Tobacco_Leaf_Fermentation.yaml:
+      MATCH: 9
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/SynCom_Chlorella_sorokiniana_Biogas_Slurry_Coupling_System.yaml:
+      MATCH: 9
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml:
+      MATCH: 8
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation.yaml:
+      MATCH: 7
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8984
+      categories:
+        MATCH: 8847
+        RENDERING: 21
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 39
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification;literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: Twelve nodes and three qualified existing directions retained,two workflow nodes and four context/coincidence
+      arrows removed. All56existing warnings unchanged;zero structural defects. MetG2 identity remains unresolved1847
+      despite structural validity.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-four-records-batch108.yaml: 4004aaf9719161201cb0135d82c2f0ba2e7231ef9f7473ec99760465993bdaeb
+    tests/test_causal_review_batch108.py: fc8e5c1fdaff00b1b7db98c2b0b6afbc2f9a095fde4892439bd40ea73d509039
+    tests/test_participating_taxa.py: 3a97ee16d14fa2cf1fb8dbb1dedc4cd0dbe89c06e1948247003a05f5c9b31c74
+    tests/test_community_level_connectivity_credit.py: 383a0f5904085a5cda800b5102923fc99301831f5769d8d4821e000773d2ea4c
+    reports/causal_graph_review/cache-provenance-20261008-batch108.json: 94021e82e614fa11c4e8dc2b50d490f9233a514fa7c2664c8e8e53bc3c159512
+    kb/communities/SynCom_BsBv_Cigar_Tobacco_Leaf_Fermentation.yaml: 53f9cefb513a07926eee79884f4109702e56df3567d93ac65ec56658025d68f4
+    kb/communities/SynCom_Chlorella_sorokiniana_Biogas_Slurry_Coupling_System.yaml: f76054afccd798d444ad3e51a74e13afbed91762384966fb998b842dc54dfeb2
+    kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml: a1fe9ffb3e47c18fa4d8ac5abb97a451dc8bffd7940b3b741d682729bb47bfb7
+    kb/communities/SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation.yaml: 88b173ca8cef1393eedf415783725e0befc985adcf2cc3b2564fb7465df3d279
+  history_sha256:
+    history/records/SynCom_BsBv_Cigar_Tobacco_Leaf_Fermentation/2026-10-08T041040Z-codex-dd5f0e.yaml: 6e0376aee12c70d8a30c704fdcfdee1fa5a90fe0ff3de74bb5b586b312d26963
+    history/records/SynCom_Chlorella_sorokiniana_Biogas_Slurry_Coupling_System/2026-10-08T041041Z-codex-cc3e7e.yaml: 725253c5978d1dc827b5744e55d40c62d0db96fec123f4acac40e32c1d97ae35
+    history/records/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience/2026-10-08T041041Z-codex-ab21b2.yaml: 3f95efad304d902ed9b2fe0697d82a4b5e8dd9dedcc454e11163ef3d2fe31fd7
+    history/records/SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation/2026-10-08T041041Z-codex-ab8e2d.yaml: 9048ae3a67a348abd19e101c1d01ef550520c00c12b35de72e8bab1f677b859f
+  unchanged_records: 456
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 828
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Existing-node repair and retention/qualification of three existing directions; no new causal structure.
+      Identity1847 requires coordinated curation, not topology generation.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 403
+      mixed: 128
+      community_level_only: 275
+      taxa: 1544
+      credited_solely_by_the_rule: 1270
+    current:
+      records: 460
+      with_community_level: 403
+      mixed: 128
+      community_level_only: 275
+      taxa: 1544
+      credited_solely_by_the_rule: 1270
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: Chlorella growth/transcript observations gain canonical identity-only scope;the system removal
+    endpoint stays community-level. Redundant MetG2 source/target links are removed without changing COMMUNITY_LEVEL
+    scope;global census unchanged. MetG2 canonical identities are explicitly uncertified. No census thresholds or
+    audit rules changed.
+corpus:
+  records: 460
+  nodes: 1384
+  edges: 547
+  review_status_counts:
+    needs_research: 52
+    pending: 64
+    reviewed: 344
+lint_limitation: Plain just-lint passed;explicit-runtime no-incremental mypy additionally checked.
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary Python3.13 lint environment reuses validation runtime and locked typing tools;project dependencies
+    unchanged. Not a complete embedding runtime.
+limitations:
+- 'Fresh both-root baseline precedes source reads: 460 records, 923 caches, 56 existing warnings, zero structural
+  defects. Whole four records and all 14 original nodes/seven directions reviewed. Retain 12 nodes/three qualified
+  existing directions; remove two workflow nodes/four context or coincidence arrows; rename seven nodes. No new
+  topology or Edison spend.'
+- Tobacco and Artemisia whole indexed publisher abstracts/highlights read; MetG2 whole indexed abstract/Introduction
+  and the displayed bounded experimental-design, metagenome, discussion/conclusion previews read. Chlorella whole
+  independently retrieved EuropePMC abstract read, plus an indexed publisher preview lead. These are not complete
+  papers. Direct ScienceDirect requests returned HTTP403; Crossref-advertised public API links for the two CC-licensed
+  articles returned HTTP400. No bypass or whole-paper/supplement/figure-pixel/raw-data certification. Publisher
+  index was crawled earlier; retrieval is fresh, not a claim that the publisher page was fetched live.
+- Crossref version-of-record metadata identifies tobacco as CC BY4.0 and Artemisia as CC BY-NC4.0 despite local
+  historical paywall wording. That metadata does not mean their complete bodies were retrieved. No cache or license949
+  repair is claimed. The four cited Markdown caches were read whole; Artemisia contains two trait/design sentences,
+  not its full abstract. Existing cache content is unchanged and sufficient for every retained/new literal quotation.
+- 'Tobacco: preserve measured substrate loss, community shifts and volatile/sensory outcomes. Remove mutualism and
+  niche partitioning, qualify the existing directions and preserve PLS-PM mediation as a statistical hypothesis.
+  No invented software/version, taxon-specific mediator or monoculture-synergy claim. Endpoint process annotations
+  are removed because they describe upstream degradation, not volatile/sensory measurement.'
+- 'Chlorella: preserve 60-day removal, algal biomass/protein versus BG11 and transcript responses. Remove construction/duration
+  nodes and three remaining noncausal arrows while preserving prior October2 repairs. No demonstrated cross-feeding,
+  neutral bacterial fitness, isolated medium effect or measured metabolic flux. Only the algal observations gain
+  canonical identity-only participant scope; unnamed bacterial membership remains existing issue183.'
+- 'MetG2: preserve microbial and host molecular responses and one qualified source-proposed functional contribution.
+  Remove the context-only arrow, unestablished interaction types and redundant community-level source/target links.
+  The indexed source names four inoculant strains and has a Chiliseed2/Chileseed2 spelling discrepancy; broad native
+  rhizosphere Proteobacteria is not a resolved inoculant identity. Generic sugarcane is not verified as the canonical
+  species. Record remains needs_research under1847; no new identifiers or canonical-taxonomy edits.'
+- 'Artemisia: preserve the pair-level tolerance, complementarity and PGP/carbon-fixation capacity. Remove niche
+  partitioning and mutualism; source assay setting is not specified in the reviewed abstract, so OTHER replaces
+  unsupported IN_VIVO assignment on these trait/design items. Preserve previous removal of screening-order arrows.
+  Positive whole-abstract plant/soil outcomes are not rejected, but no new graph mechanism or sequestration-flux
+  claim is introduced.'
+- Repair issues1843-1846 await protected-main merge; identity1847 and existing membership183 remain open. Fresh
+  all-state issue titles/bodies and ignored/hidden local search matched1093,1091,184,183; all four bodies read.
+  The122 local matching paths were inspected as an index, not all read; focused prior access/missing-PDF/author-request
+  leads were inspected without contacting anyone. No reusable taxon match found in ignored/hidden-inclusive kb/taxa
+  searches for the target names/IDs. PRs/comments not exhaustively searched.
+- Only existing graphs, focused discussions and curation events change. All456 other records,923 caches, non-graph
+  raw blocks and prior histories/decisions preserved. No schema, validator, runtime, census threshold or configuration
+  changes. Non-graph membership, abundance, growth and role claims are not recertified. Loader1703, DOI-case1091
+  and stub-policy1093 remain separate. Self-review is not independent approval or corpus completion. Denied AM_AB000444
+  and unanswered Edison scopes untouched; validation/publication not preasserted.

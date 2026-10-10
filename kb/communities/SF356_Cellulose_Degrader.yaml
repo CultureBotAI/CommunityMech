@@ -128,10 +128,10 @@ taxonomy:
       stably coexisted through 20 subcultures
 ecological_interactions:
 - name: Thermophilic Cellulose Hydrolysis
-  description: >
-    Clostridium straminisolvens CSK1 hydrolyzes cellulose in the five-member
-    SF356 culture and supplies acetate and glucose that support the aerobic
-    Pseudoxanthomonas and Brevibacillus partners.
+  description: 'Clostridium straminisolvens CSK1 hydrolyzes cellulose in the five-member SF356 culture and supplies
+    acetate and glucose that support the aerobic Pseudoxanthomonas and Brevibacillus partners.
+
+    '
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -172,19 +172,20 @@ ecological_interactions:
       label: cellulose catabolic process
   downstream:
   - target: Oxygen Consumption and Anaerobiosis Creation
-    description: >
-      Acetate and glucose supplied by C. straminisolvens CSK1 feed the aerobic
-      partners whose respiration removes oxygen from the cellulose culture.
+    description: 'Acetate and glucose supplied by C. straminisolvens CSK1 feed the aerobic partners whose respiration
+      removes oxygen from the cellulose culture.
+
+      '
   evidence:
   - reference: PMID:16269746
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: straminisolvens CSK1 supplied metabolites (acetate and glucose)
+    snippet: C. straminisolvens CSK1 supplied metabolites (acetate and glucose)
+    explanation: The primary abstract supports metabolite supply in the inferred positive CSK1-aerobe relationship.
 - name: Oxygen Consumption and Anaerobiosis Creation
-  description: >
-    Pseudoxanthomonas sp. M1-3 and Brevibacillus sp. M1-5 consume oxygen in
-    the static, aerobic SF356 culture, introducing anaerobic conditions that
-    allow the anaerobic cellulolytic CSK1 population to degrade cellulose.
+  description: Pseudoxanthomonas sp. M1-3 and Brevibacillus sp. M1-5 introduce anaerobic conditions that support
+    cellulolytic CSK1 in the mixed culture. Together with CSK1 metabolite supply, this is a supported positive reciprocal
+    relationship. It does not imply CSK1 cannot tolerate any oxygen.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -211,33 +212,26 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Thermophilic Cellulose Hydrolysis
-    description: >
-      Aerobic oxygen consumption recreates the anaerobic microenvironment
-      required for CSK1 cellulose fermentation in the mixed culture.
+    description: Aerobic oxygen consumption lowers oxygen availability and supports CSK1 cellulose degradation in
+      the mixed culture, completing the positive feedback with metabolite supply. This does not assert an absolute
+      zero-oxygen requirement for the aerotolerant CSK1 isolate.
   evidence:
   - reference: PMID:16269746
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: straminisolvens CSK1) and two strains of aerobic bacteria (Pseudoxanthomonas
-      sp. strain M1-3 and Brevibacillus sp. strain M1-5) were observed; the aerobes
-      introduced anaerobic conditions, and C
+    snippet: the aerobes introduced anaerobic conditions
+    explanation: Together with the metabolite-supply evidence, the primary abstract supports the retained positive
+      feedback.
 - name: FG4 Excess Acetate Inhibits Cellulose Degradation
-  description: >
-    Clostridium sp. FG4 is a second cellulolytic member of SF356, but it can
-    inhibit cellulose degradation by producing excess acetic acid, one of the
-    negative interactions balanced in the stable mixed culture.
-  interaction_type: COMPETITION
-  scope: PAIRWISE
+  description: The primary abstract attributes inhibition of SF356 cellulose degradation to excess acetic acid produced
+    by Clostridium sp. FG4. Retain this negative community-function link; it does not separately establish reciprocal
+    harm between FG4 and CSK1 or isolated CSK1 toxicity.
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Clostridium sp. FG4
     term:
       id: NCBITaxon:319464
       label: Clostridium sp. FG4
-  target_taxon:
-    preferred_term: Clostridium straminisolvens CSK1
-    term:
-      id: NCBITaxon:253314
-      label: Acetivibrio straminisolvens
   metabolites:
   - preferred_term: acetic acid
     term:
@@ -250,22 +244,20 @@ ecological_interactions:
       label: cellulose catabolic process
   downstream:
   - target: Thermophilic Cellulose Hydrolysis
-    description: >
-      Excess acetic acid made by FG4 inhibits the cellulose-degradation
-      reaction driven by CSK1 in the SF356 consortium.
+    description: Excess acetic acid attributed to FG4 inhibits cellulose degradation in the mixed culture, opposing
+      the community hydrolysis/cross-feeding process. The accessible evidence does not isolate the effect on CSK1
+      from the rest of the consortium.
   evidence:
   - reference: PMID:16269746
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the inhibition of cellulose degradation by producing excess amounts of acetic acid by
-      Clostridium sp. strain FG4
+    snippet: the inhibition of cellulose degradation by producing excess amounts of acetic acid by Clostridium sp.
+      strain FG4
     explanation: Supports FG4 excess acetic acid as a negative interaction in SF356.
 - name: Brevibacillus Suppression of Bordetella
-  description: >
-    Brevibacillus sp. M1-5 suppresses growth of Bordetella sp. M1-6, providing
-    a second negative interaction that is balanced with the positive CSK1-aerobe
-    syntrophy during stable coexistence of all five SF356 members.
-  interaction_type: COMPETITION
+  description: Brevibacillus sp. M1-5 suppresses growth of Bordetella sp. M1-6 in the relationships inferred from
+    the SF356 knockout communities. Suppression is retained without asserting reciprocal harm or an identified inhibitory
+    mechanism. The positive CSK1-aerobe relationship is separately retained.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Brevibacillus sp. M1-5
@@ -286,8 +278,7 @@ ecological_interactions:
   - reference: PMID:16269746
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: growth suppression of Bordetella sp. strain M1-6 by Brevibacillus sp.
-      strain M1-5
+    snippet: growth suppression of Bordetella sp. strain M1-6 by Brevibacillus sp. strain M1-5
     explanation: Supports Brevibacillus-mediated growth suppression of Bordetella.
 environmental_factors:
 - name: Temperature
@@ -451,3 +442,46 @@ related_media:
     medium for this compost-derived thermophilic cellulose-degrading consortium.
     Linkage basis is the shared ENVO term (CultureMech source_environment, backfilled
     from CommunityMech).
+discussions:
+- discussion_id: sf356_negative_effects_and_feedback_scope
+  prompt: What causes the negative effects and which partners are harmed?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Thermophilic Cellulose Hydrolysis
+  - ecological_interactions#Oxygen Consumption and Anaerobiosis Creation
+  - ecological_interactions#FG4 Excess Acetate Inhibits Cellulose Degradation
+  - ecological_interactions#Brevibacillus Suppression of Bordetella
+  rationale: The fresh primary abstract supports the positive metabolite/oxygen feedback, FG4-associated excess-acid
+    inhibition and Brevibacillus suppression of Bordetella. The available evidence does not establish reciprocal
+    harm required by COMPETITION. The complete main text was not retrieved in this pass, so no further inhibitory
+    mechanism is certified. Current SYNTROPHY does not require obligacy, but oxygen facilitation alone is not product-removal
+    feedback. CSK1 aerotolerance also precludes an absolute zero-oxygen claim. Non-graph origin, physiological roles
+    and whole-community cultivation claims remain issue1770.
+  evidence:
+  - reference: PMID:16269746
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: knockout communities
+    explanation: The source investigated member removal, not merely coexistence.
+  - reference: PMID:15545431
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grew under a gas phase containing up to 4 % O(2)
+    explanation: The isolate abstract directly establishes CSK1 oxygen tolerance.
+curation_history:
+- timestamp: '2026-10-07T17:54:05Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain supported metabolite cross-feeding and the existing oxygen-consumption direction.; Retain reciprocal
+    positive oxygen/metabolite feedback without an absolute zero-oxygen or syntrophy claim.; Retain FG4-associated
+    inhibition and its negative arrow, not reciprocal competition or isolated-target toxicity.; Retain Brevibacillus-to-Bordetella
+    growth suppression without reciprocal-harm classification. Issue#1768; reports/causal_graph_review/decisions/20261007-four-records-batch96.yaml
+  llm_assisted: true
+- timestamp: '2026-10-07T18:03:39Z'
+  curator: codex
+  action: FIX_ADVERSARIAL_REVIEW_FINDINGS
+  changes: Make the FG4 excess-acid inhibition node community-scoped and remove its unsupported CSK1 pairwise target.
+    Retain FG4 as source and the existing arrow to community cellulose degradation; no new node, direction or canonical
+    taxon. Issue#1768.
+  llm_assisted: true

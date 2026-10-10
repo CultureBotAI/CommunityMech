@@ -21,7 +21,13 @@ authors:
 journal: Frontiers in Microbiology
 year: '2018'
 doi: 10.3389/fmicb.2018.01853
-content_type: abstract_only
+content_type: full_text_pdf
+full_text_attempted: true
+full_text_provider: openalex
+full_text_url: "https://www.frontiersin.org/articles/10.3389/fmicb.2018.01853/pdf"
+oa_status: gold
+license: cc-by
+local_pdf_path: files/DOI_10.3389_fmicb.2018.01853.pdf
 ---
 
 # Inoculation of Sinorhizobium saheli YH1 Leads to Reduced Metal Uptake for Leucaena leucocephala Grown in Mine Tailings and Metal-Polluted Soils
@@ -133,3 +139,1112 @@ Front Microbiol Front Microbiol 1526 frontmicrobio Front. Microbiol. Frontiers i
  9 : e106618 . 10.1371/journal.pone.0106618 25188470 PMC4154735 Zhang Y. Kang X. Liu H. Liu Y. Li Y. Yu X. ( 2018 ). Endophytes isolated from ginger rhizome exhibit growth promoting potential for Zea mays . Arch. Agron. Soil. Sci. 
  64 , 1302 – 1314 . 10.1080/03650340.2018.1430892 Zhang Z. Shu W. Lan C. Wong M. ( 2001 ). Soil seed bank as an input of seed source in revegetation of lead/zinc mine tailings . Restor. Ecol. 
  9 , 378 – 385 . 10.1046/j.1526-100X.2001.94007.x Zheng T. Yang J. Huang P. Tang C. Wan J. ( 2018 ). Comparison of trace element pollution, sequential extraction, and risk level in different depths of tailings with different accumulation age from a rare earth mine in Jiangxi Province, China . J. Soil. Sediment . 18 , 992 – 1002 . 10.1007/s11368-017-1853-7 Zornoza P. Sánchez-Pardo B. Carpena R. O. ( 2010 ). Interaction and accumulation of manganese and cadmium in the manganese accumulator Lupinus albus . J. Plant. Physiol . 167 , 1027 – 1032 . 10.1016/j.jplph.2010.02.011 20399531 Zribi K. Nouairi I. Slama I. Talbi-Zribi O. Mhadhbi H. ( 2015 ). Medicago sativa-Sinorhizobium meliloti symbiosis promotes the bioaccumulation of zinc in nodulated roots . Int. J. Phytoremediat . 17 , 49 – 55 . 10.1080/15226514.2013.828017 25174424
+
+ORIGINAL RESEARCH
+published: 27 August 2018
+doi: 10.3389/fmicb.2018.01853
+Frontiers in Microbiology | www.frontiersin.org 1 August 2018 | Volume 9 | Article 1853
+Edited by:
+Mariusz Cycon,
+Medical University of Silesia, Poland
+Reviewed by:
+Ademir Araujo,
+Federal University of Piauí, Brazil
+Mazhar Raﬁque,
+Çukurova University, Turkey
+Christel Baum,
+University of Rostock, Germany
+*Correspondence:
+Xiumei Yu
+yuxiumeicool@163.com
+†These authors have contributed
+equally to this work
+Specialty section:
+This article was submitted to
+Microbiotechnology, Ecotoxicology
+and Bioremediation,
+a section of the journal
+Frontiers in Microbiology
+Received: 29 March 2018
+Accepted: 24 July 2018
+Published: 27 August 2018
+Citation:
+Kang X, Yu X, Zhang Y , Cui Y , Tu W,
+Wang Q, Li Y , Hu L, Gu Y , Zhao K,
+Xiang Q, Chen Q, Ma M, Zou L,
+Zhang X and Kang J (2018)
+Inoculation of Sinorhizobium saheli
+YH1 Leads to Reduced Metal Uptake
+for Leucaena leucocephala Grown in
+Mine Tailings and Metal-Polluted Soils.
+Front. Microbiol. 9:1853.
+doi: 10.3389/fmicb.2018.01853
+Inoculation of Sinorhizobium saheli
+YH1 Leads to Reduced Metal Uptake
+for Leucaena leucocephala Grown in
+Mine T ailings and Metal-Polluted
+Soils
+Xia Kang 1,2†, Xiumei Yu 1*†, Yu Zhang 1, Yongliang Cui 3, Weiguo Tu 3, Qiongyao Wang 3,
+Yanmei Li 1, Lanfang Hu 1, Yunfu Gu 1, Ke Zhao 1, Quanju Xiang 1, Qiang Chen 1,
+Menggen Ma 1, Likou Zou 1, Xiaoping Zhang 1 and Jinsan Kang 4
+1 College of Resources, Sichuan Agricultural University, Ch engdu, China, 2 Geomicrobiology Group, School of Life Sciences,
+University of Dundee, Dundee, United Kingdom, 3 Sichuan Provincial Academy of Natural Resource and Science s, Chengdu,
+China, 4 Sichuan Earthquake Administration, Chengdu, China
+Metalliferous mine tailings have a negative impact on the so il environment near mining
+areas and render cultivable lands infertile. Phytoremedia tion involving the synergism of
+legume and rhizobia provides a useful technique in tackling this issue with cost-effective,
+environmentally friendly, and easy-to-use features under adverse soil conditions.
+Leucaena leucocephala has been found to build symbiotic relationships with native
+rhizobia in the iron-vanadium-titanium oxide (V-Ti magnet ite) mine tailing soil. Rhizobia
+YH1, isolated from the root nodules of L. leucocephala, was classiﬁed as Sinorhizobium
+saheli according to similarity and phylogenetic analyses of 16S rR NA, housekeeping and
+nitrogen ﬁxation genes. Besides nitrogen ﬁxation, S. saheli YH1 also showed capabilities
+to produce indole-acetic acid (IAA) (166.77 ± 2.03 mg l −1) and solubilize phosphate
+(104.41 ± 7.48 mg l−1). Pot culture experiments showed that strain YH1 increased the
+biomass, plant height and root length of L. leucocephala by 67.2, 39.5 and 27.2%
+respectively. There was also an average increase in plant N ( 10.0%), P (112.2%) and K
+(25.0%) contents compared to inoculation-free control. Th e inoculation of YH1 not only
+reduced the uptake of all metals by L. leucocephala in the mine tailings, but also resulted
+in decreased uptake of Cd by up to 79.9% and Mn by up to 67.6% for plants grown in
+soils contaminated with Cd/Mn. It was concluded that S. saheli YH1 possessed multiple
+beneﬁcial effects on L. leucocephala grown in metalliferous soils. Our ﬁndings highlight
+the role of S. saheli YH1 in improving plant health of L. leucocephala by reducing metal
+uptake by plants grown in heavy metal-polluted soils. We als o suggest the idea of using
+L. leucocephala-S. saheli association for phytoremediation and revegetation of V-Ti mine
+tailings and soils polluted with Cd or Mn.
+Keywords: mine tailings, heavy metals, Leucaena leucocephala, Sinorhizobium, phytoremediation
+
+Kang et al. S. saheli Cuts L. leucocephala Metal Uptake
+INTRODUCTION
+Industrial activities, e.g., mining and smelting, are a maj or
+source of water and soil pollutions and threaten human health
+through accumulative eﬀects along food chains ( Wuana and
+Okieimen, 2011 ). Residents living in proximity to mining
+areas are continually exposed to hazardous substances relea sed
+from the factories. Large swathes of cultivable land have be en
+laid to waste as a result of mine tailings being continuously
+dumped in huge volumes into reservoir-like ponds. Chronic
+damages to the surrounding soil environment are caused through
+leaching eﬀects by rainfall. V anadium-titanium (V-Ti) magnetite
+mine tailings contain elevated amounts ( >2,000 mg kg −1) of
+manganese ( Yu et al., 2014 ), which is considered to be a major
+metal pollutant in soil and aquatic environments ( Li et al.,
+2014). Cadmium is one of the main heavy metal pollutants that
+have high cytotoxicity and usually associate with anthropog enic
+activities such as mining and metal smelting, causing sever e
+contamination to agricultural soils near the vicinity of mines (Liu
+et al., 2013; Zheng et al., 2018). It is necessary to give a satisfactory
+solution to this environmental hazard.
+Plant growth-promoting rhizobacteria (PGPR) are noted
+for their capabilities to colonize roots of legumes and at the
+same time confer beneﬁcial eﬀects on the hosts by alleviating
+deleterious abiotic stresses ( Rajkumar et al., 2010 ). They have
+been deemed as a promising approach to the remediation
+of polluted soils for the rhizobia-legume associations not
+only promote plant growth but also raise soil nitrogen level,
+leading to an increased crop yield ( Bashan and Holguin,
+1998). Several rhizobial species that can form mutualism
+with legumes are primarily found in genera Azorhizobium,
+Bradyrhizobium, Mesorhizobium, Rhizobium, and Sinorhizobium
+(Hayat et al., 2010 ). Symbiotic nitrogen ﬁxers in the rhizosphere
+colonize root systems through sophisticated mechanisms at
+both cellular and molecular levels. Legume-rhizobia assoc iations
+can lead to enhanced plant growth either by biological
+nitrogen ﬁxation ( Sanginga et al., 1988 ), indole-3-acetic acid
+(IAA) production, siderophore secretion, and phosphorus
+solubilization or by a combination of all the above mentione d
+features ( Khan et al., 2009 ). It was reported that the symbiosis
+of Sinorhizobium meliloti CCNWSX0020 and Medicago lupulina
+exhibited phytostabilizing eﬀects for Cu by boosting plant growth
+and metal uptake from Cu-spiked soil while decreasing the
+translocation of Cu in the plant ( Kong et al., 2015 ). In another
+report, the biofuel legume Pongamia pinnata was used for the
+phytoremediation of V-Ti magnetite mine tailings in partnership
+with Bradyrhizobium liaoningense and both plant growth and
+metal uptake were signiﬁcantly increased under multi-metal lic
+conditions (Yu et al., 2016).
+Leucaena leucocephala ﬁrst came under notice due to its water
+holding capacity in a hot and dry climate. Besides, it has stro ng
+tolerance and adaptability to drought and therefore is of gre at
+importance for agriculture and forestry ( Shelton and Brewbaker,
+1998). L. leucocephala was introduced to Panzhihua city, a major
+industrial hub in southern Sichuan Province 30 years ago as a
+pioneer species for aﬀorestation and has ever since been widely
+cultivated along the hot and arid valleys of Golden Sand River,
+upper Y angtze (Xu et al., 2013a ). A previous study found that
+it could serve as a pioneer for the revegetation of lead-zinc
+and tin mine tailings, indicating its potential to thrive und er
+metal-contaminated environments ( Li, 2006 ). In another case,
+a variant of L. leucocephala was discovered to be capable of
+taking up and metabolizing organic pollutants such as ethylen e
+dibromide and trichloroethylene even without the synergism
+of rhizobia, which again proves that it could be a potential
+candidate for the remediation of polluted soils (Doty et al., 2003).
+Although many other similar studies for the remediation of heavy
+metal-contaminated sites have been reported of late years, t he
+information on remediation eﬀects of L. leucocephala and its
+associated rhizobia is still scanty.
+In the present study, we aim to establish the rhizobia-
+plant association and explore the feasibility of using it as a
+novel means for the phytoremediation and revegetation of
+heavy metal-polluted soils. In this work, we report PGP eﬀects
+of Sinorhizobium saheli YH1 on and reduced metal uptake
+for L. leucocephala in the phytoremediation of both original
+mine tailings and soils supplemented with Cd or Mn. Our
+results propound the idea of utilizing the symbiotic system
+of L. leucocephala and S. saheli YH1 as an alternative to the
+alleviation of environmental hazards including Cd, Mn, and
+other metals.
+MATERIALS AND METHODS
+Sample Collection, Rhizobia Isolation and
+Soil Metal Measurements
+Soil samples and L. leucocephala seedlings were collected
+from the edge of a vanadium-titanium magnetite tailing
+reservoir ( Figure 1), situated on the outskirts of Panzhihua city
+(N26◦33′13.23′′; E 101 ◦45′59.42′′; elevation 1219.3 m). Healthy
+plants were carefully uprooted, stored in a sterile sampling
+bag, and shipped back to laboratory. Samples of the V-Ti
+magnetite tailing soil were taken from the topsoil (0–20 cm
+deep) within an area of 4 m 2 consisting of ﬁve sampling points
+near the plants. The isolation of rhizobia was carried out usin g
+Congo red-amended yeast mannitol agar (YMA) medium which
+comprised of (l −1 Milli-Q H 2O): yeast extract 1.0 g, mannitol
+10.0 g, K 2HPO4 0.5 g, MgSO 4 0.2 g, NaCl 0.1 g, CaCO 3 1.0 g,
+agar 15.0 g and Congo red 0.025 g (pH 6.8 ± 0.2) (Somasegaran
+and Hoben, 2012). Fresh root nodules were initially washed with
+tap water to remove rhizosphere soil. Surface sterilization was
+performed by soaking root tissues in 75% (v/v) ethanol for 5 mi n
+followed by 1% (v/v) sodium hypochlorite for 3 min before they
+were ﬁnally rinsed for 3 times with sterile Milli-Q water ( Zhang
+et al., 2018 ). Nodules were aseptically cut oﬀ from the roots and
+crushed in a sterile Eppendorf tube with a sterile glass rod. A
+loopful of the nodule suspension was streaked on a Congo red-
+containing YMA plate, which was incubated in the dark at 28 ◦C
+for at least 7 d. Repeated streaking was performed on fresh plates
+until pure culture was obtained (Somasegaran and Hoben, 2012).
+Soil samples were thoroughly air-dried at room temperature, put
+through a sieve (pore size 2 mm). and digested in Teﬂon crucibles
+Frontiers in Microbiology | www.frontiersin.org 2 August 2018 | Volume 9 | Article 1853
+
+Kang et al. S. saheli Cuts L. leucocephala Metal Uptake
+FIGURE 1 | (A) Sampling site at Majiatian V-Ti tailings reservoir in Panzh ihua mining area and (B) a fresh plant sample of L. leucocephala with (C) vigorously growing
+root nodules thereon.
+with a concentrated acid mixture of HNO 3, HF , and HClO 4
+(5:5:3, v/v/v).
+Phylogenetic Analyses
+Liquid rhizobia culture was used for DNA extraction. The str ain
+was grown in liquid mannitol broth and harvested when cell
+concentration reached 1 × 108 CFU ml −1. Genomic DNA was
+extracted using TIANamp Bacteria DNA Kit (TIANGEN Biotech,
+Beijing, China) following standard protocols prescribed by t he
+manufacturer. Fragments of 16S rRNA gene were ampliﬁed using
+the universal primers of 27F (5 ′-AGA GTT TGA TCC TGG
+CTC AG-3 ′) and 1492R (5 ′-GGT TAC CTT GTT ACG ACT
+T-3′) ( Yu et al., 2014 ). PCR was performed in a 30 µ l buﬀer
+system using a Bio-rad T100 Thermo Cycler (Bio-rad, USA)
+according to the following protocol: an initial denaturatio n step
+at 94 ◦C for 3 min, 30 denaturation cycles at 94 ◦C for 1 min, an
+annealing step at 56 ◦C for 1 min, an extension step at 72 ◦C for
+2 min and a ﬁnal extension at 72 ◦C for 10 min ( Tan et al., 1997).
+The nitrogen ﬁxation gene nifH was ampliﬁed according to
+methods described by Laguerre et al. (2001). The ampliﬁcation of
+housekeeping genes was carried out using the following primers
+at speciﬁc melting temperatures: atpD255F-atpD782R for atpD
+at Tm 58 ◦C, glnII12F-glnII689R for glnII at Tm 56 ◦C, recA63F-
+recA555R for recA at Tm 58 ◦C, and rpoB454F-rpoB1364R for
+rpoB at Tm 65 ◦C ( Gaunt et al., 2001; Vinuesa et al., 2005,
+2008). PCR products were subjected to electrophoresis in 1%
+agarose gel to verify the size of target fragments and afterw ards
+sent to Tsing Ke Biological Technology (Chengdu, China) for
+sequencing. The determined sequences were then compared and
+aligned with those from known species on GenBank (NCBI,
+USA) using ClustalW in MEGA 6.0 package (Tamura et al., 2013).
+Phylogenetic trees were constructed using maximum likelih ood
+method with Kimura 2-parameter ( Kimura, 1980 ) and multi-
+locus sequence analysis (MLSA) was carried out by constructi ng
+a single phylogenetic tree using the concatenated sequences of
+four housekeeping genes ( Tak et al., 2016 ). The reliability of
+the phylogenetic trees was calculated based on 1,000 bootstrap
+repetitions. All sequences mentioned above were deposited in
+GenBank using BLASTn tool and a unique accession number was
+assigned to each.
+Metal T olerance T ests
+The tolerance of rhizobia to cadmium (Cd) and manganese
+(Mn) was assayed by spot-inoculating cell suspension on yeast
+mannitol agar. An aliquot of 10 µ l initial culture containing 1
+× 108 CFU ml −1 cells obtained from yeast mannitol broth was
+pipetted on YMA plates supplemented with 50, 150, 250, and
+400 mg l −1 of Mn 2+ or Cd 2+, respectively. Each treatment had
+at least three plates as replication and each plate was inoculate d
+with three colonies at equal distance. All plates were maintai ned
+in an incubator for 7 d at 28 ◦C in the dark. The metal tolerance
+was determined by calculating the ratio of the colony size of the
+experimental group to that of the control.
+Assay of Growth Promoting Traits
+Bacterial plant growth promoting abilities including indole -
+3-acetic acid (IAA) production, siderophore secretion and
+phosphate solubilization were estimated by measuring the
+concentrations of IAA, siderophore and solubilized phosphate
+in liquid media. For the determination of IAA production,
+rhizobia strains were grown in 5 ml yeast mannitol broth (YMB)
+supplemented with L-tryptophan (2.5 g l −1) at 28 ◦C on a rotary
+shaker at 150 rpm for 3 days. Culture supernatant was obtained
+by centrifugation at 8,000 rpm for 5 min. An aliquot of 2 ml
+supernatant was mixed with 4 ml Salkowski reagent (2% 0.5 M
+FeCl3 in 35% HClO 4) and immediately incubated in the dark
+for 30 min at room temperature ( Datta and Basu, 2000 ). The
+optical density of the mixture after reaction was measured at
+a wavelength of 530 nm (OD 530) using a spectrophotometer
+(WFJ2100, UNICO, China). The actual IAA concentration was
+calculated in accordance with a standard curve. Siderophore
+Frontiers in Microbiology | www.frontiersin.org 3 August 2018 | Volume 9 | Article 1853
+
+Kang et al. S. saheli Cuts L. leucocephala Metal Uptake
+production was estimated using chrome azurol sulfonate (CAS )
+assay on solid plates according to the method described by
+Schwyn and Neilands (1987). Liquid National Botanical Research
+Institute’s phosphate medium (NBRIP), which was used to
+perform quantitative assay of siderophore production, consis ted
+of (l −1 Milli-Q H 2O): MgCl 2·6H2O 5.0 g, MgSO 4·7H2O 0.25 g,
+KCl 0.2 g, (NH 4)2SO4 0.1 g, Ca 3(PO4)2 5.0 g and glucose 10.0 g.
+The medium was adjusted to pH 7.0 ± 0.2 before sterilization
+at 115 ◦C for 15 min. An aliquot of 1 ml bacterial start culture
+(1 × 108 CFU ml −1) was inoculated into a 250 ml Erlenmeyer
+ﬂask containing 100 ml medium and incubated on a rotary
+shaker at 150 rpm for 7 days at 28 ◦C ( Nautiyal, 1999 ). The
+vanadium molybdate blue colorimetric method was employed for
+the quantiﬁcation of phosphate, where the absorbance at 660 nm
+was measured using a spectrophotometer (WFJ2100, UNICO,
+China) (Walker et al., 2004).
+Pot Culture Experiment
+To assess the eﬀectiveness of the leucaena-rhizobia remedia tion
+system, pot culture experiment was carried out in both tailing s
+and metal-spiked soils using Leonard jar apparatus (Somasegaran
+and Hoben, 2012), which was composed of two parts, i.e., the jar
+at the bottom (10 × 14 cm) containing plant nutrient solution
+and the pot (7 × 15 cm) at the top ﬁlled with substrate. These two
+parts were connected by a cotton wick to keep a steady supply
+of nutrients to the substrate in the pot, and joined together b y a
+sealed screw cap to prevent microbial contamination from the air
+(Supplementary Figure S1). The jar contained 1 L of nitrogen-
+free nutrient solution ( Yu et al., 2016 ) which consisted of
+(l−1 Milli-Q H 2O): KCl 0.5 g, CaSO 4·2H2O 0.2 g, MgSO 4·7H2O
+0.2 g, KH2PO4 0.2 g, Fe-EDTA 0.001 g, KNO 31 g, trace elements
+(containing H 3BO3 0.1 g, ZnSO 4·7H2O 0.1 g, CuSO 4·5H2O
+0.05 g, MnCl 2·4H2O 0.05 g and Na 2MoO4·2H2O 0.01 g), and
+CaCO3 2 g which was added to the ﬁnal solution and stirred
+well. Vermiculite was used as substrate for the pot culture
+experiment with added metals. Stock solutions of CdCl 2 and
+MnCl2 were separately prepared in Milli-Q water. Metal-spiked
+vermiculite was prepared by adding 190 ml of the stock solution
+to vermiculite (200 g dry wt) to achieve desired concentrati ons at
+5, 20, and 35 mg kg −1 Cd or Mn in the substrate. The apparatus
+was assembled by ﬁlling the pot with vermiculite to 90% and
+autoclaved at 115 ◦C for 30 min. Homogeneity was tested by
+measuring vermiculite samples randomly taken from at least
+ﬁve spots across diﬀerent depths. Physico-chemical properties
+of V-Ti magnetite tailings and vermiculite were determined
+using standard methods ( Pansu and Gautheyrou, 2007 ). Seeds
+of L. leucocephala were surface sterilized by soaking in 95%
+alcohol for 10 s and in 5% sodium hypochlorite solution for 5 min
+before they were rinsed with at least 10 changes of sterile Mil li-
+Q water ( Somasegaran and Hoben, 2012 ). After sterilization,
+the seeds were placed on plain agar (0.05%) for germination
+at 25 ◦C in the dark. Three burgeoning seeds were aseptically
+transferred into each pot and inoculated with 1 ml rhizobial
+suspension at the root of each seedling. After this, a layer of
+1 cm autoclaved quartz sand was placed on top of the vermiculit e
+to ensure seedlings grew in a sterile environment. Each meta l
+concentration had three pots as replication and non-inoculat ed
+plants served as the control group. The plants were grown in a
+greenhouse for a total length of 6 months at a day temperature
+of 25 ◦C for 16 h and night temperature of 17 ◦C for 8 h. Upon
+harvest, nodule number, plant height and root length were
+measured and freshly harvested samples of L. leucocephala were
+immediately oven-dried at 105 ◦C for 30 min and maintained at
+80◦C until constant weight. Dried plant samples were pulverized
+for following experimentation.
+Determination of Plant Metal Contents
+Dried tissues of the leucaena plants were ﬁnely ground and
+digested with a concentrated mixture of HNO 3 and HClO4 (5:1,
+v/v) prior to the measurement of heavy metal concentrations
+using ICP-AES (IRIS Intrepid II, Thermo Electron, USA). The
+remediation capabilities of L. leucocephala-rhizhobia system were
+determined by calculating bioconcentration coeﬃcient fac tor
+(BCF) and translocation factor (TF), which were deﬁned as
+follows: BCF = root metal content (mg kg−1) / soil metal content
+(mg kg −1); TF = shoot metal content (mg kg −1) / root metal
+content (mg kg−1).
+Determination of N, P , and K in Plants
+Plant samples were digested by sulphuric acid prior to the
+determination of nitrogen (N) using indophenol blue method,
+phosphorus (P) using vanadium molybdate method, and
+potassium (K) using a ﬂame photometer (FP6410, Shanghai
+Precision & Scientiﬁc, China) ( Novozamsky et al., 1974).
+Statistical Analyses
+Statistical analyses were done using the SPSS 22.0 package.
+Data were expressed as mean values ± standard deviations
+calculated using Microsoft Excel 2013. For the analyses of
+symbiotic eﬀects and metal contents in plants, means between
+diﬀerent metal treatments were compared using one-way analysis
+of variance (ANOV A) and least signiﬁcant diﬀerence (LSD) tes t.
+Means between the inoculated and non-inoculated groups at
+each metal concentration were compared using Tukey’s post-
+hoc test. Diﬀerences were considered statistically signiﬁcant at
+P < 0.05.
+RESUL TS
+Metal Contents of V-Ti Magnetite T ailing
+Soil
+Heavy metal assay revealed that the topsoil of V-Ti magnetite
+tailings at Panzhihua mainly contained 7 heavy metal element s
+(Table 1). Exceedingly high amounts of Fe (143.3 g kg −1) and Ti
+(35.7 g kg−1) were found. However, the concentration of V was
+only 0.3 g kg −1. Compared to Fe, Ti, and V , Mn (2.8 g kg −1), Cu
+(58.4 mg kg−1), Ni (92.3 mg kg−1), and Cd (7.1 mg kg −1) existed
+in moderate amounts.
+Identiﬁcation of Isolate YH1
+All successfully ampliﬁed nucleotide sequences of isolate YH1 for
+phylogenetic analysis were uploaded to GenBank and accession
+numbers were obtained (KU904504, 16S rRNA; KU904541,
+nifH; KU904549 , atpD ; KU904591, glnII; KU904570, recA;
+Frontiers in Microbiology | www.frontiersin.org 4 August 2018 | Volume 9 | Article 1853
+
+Kang et al. S. saheli Cuts L. leucocephala Metal Uptake
+TABLE 1 | Heavy metal contents in the tailings and plant tissues and me tal uptake and translocation in L. leucocephala after 6 months growth in V-Ti magnetite tailings.
+Samples Metal content (mg kg − 1)
+Fe Ti V Mn Cd Cu Ni
+Tailings 143331.2 ± 1206.7 35681.0 ± 380.0 311.4 ± 19.0 2767.4 ± 37.0 7.1 ± 1.7 58.4 ± 3.9 92.3 ± 0.58
+YH1-Root 3609.7 ± 47.1b (2.8%) 277.2 ± 17.3b (0.9%) 9.5 ± 0.6b (3.1%) 431.5 ± 7.5a (19.8%) 0.4 ± 0.02b (5.3%) 80.3 ± 8.6b (156.0%) 16.5 ± 1.1b (22.5%)
+CK-Root 5110.9 ± 111.2a (4.2%) 729.1 ± 23.2a (2.4%) 16.0 ± 0.9a (5.2%) 452.6 ± 18.4a (21.6%) 1.1 ± 0.08a (15.5%) 166.1 ± 18.1a (329.4%) 35.6 ± 4.1a (48.8%)
+YH1-Shoot 331.3 ± 6.9b (9.2%) 41.7 ± 7.8b (15.1%) – 115.8 ± 9.5b (26.8%) – 10.9 ± 2.7b (13.6%) 4.2 ± 1.5b (25.5%)
+CK-Shoot 967.0 ± 30.6a (18.9%) 127.2 ± 16.4a (17.5%) – 144.8 ± 20.7a (32.0%) – 26.4 ± 5.1a (15.9%) 9.5 ± 2.5a (26.5%)
+The data are presented as mean values ± standard deviations of 3 replicates; normal letters indicate the comparison betw een values of YH1-Root and CK-Root while bold letters indicate the comparison betw een values of YH1-Shoot
+and CK-Shoot; “-” indicates data not applicable. Values from different tr eatments in each column are followed by different lowercase letters indi cating statistical difference at P < 0.05 between inoculated and non-inoculated plants
+according to LSD test; Percentage values in bracket means the bioconcen tration coefﬁcient factor (BCF) of root and the translocation factor (TF) of shoot f or metals; YH1-Root indicates the root of L. leucocephala inoculated with
+S. saheli YH1; CK-Root means the root of non-inoculated plants; YH1- Shoot indicates the shoot of L. leucocephala inoculated with S. saheli YH1; CK -Shoot means the shoot of non-inoculated plants.
+KU904612, rpoB). The isolate was clustered into the same
+group with 99.9% similarity with Sinorhizobium saheli LMG7837
+in the 16S rRNA phylogenetic tree ( Figure 2). Therefore, it
+was preliminarily classiﬁed as belonging to Sinorhizobium.
+Moreover, the concatenated tree of the four housekeeping
+genes (atpD-glnII-recA-rpoB) assigned YH1 to the same branch
+with Sinorhizobium saheli with 99.0% homology ( Figure 3).
+Therefore, isolate YH1 was identiﬁed as Sinorhizobium saheli .
+The nitrogenase reductase gene ( nifH) tree which consisted
+of 12 other known species was constructed and it showed
+that the nifH gene of strain YH1 shared 99.0 % similarity
+with that of Neorhizobium huautlense (CCBAU 65798T)
+(Figure 4).
+Metal T olerance of YH1
+Metal tolerance test revealed that vigorous growth of YH1 was
+observed at 50 mg kg −1 Cd and 250 mg kg −1 Mn, indicating its
+strong tolerance to these metals. Therefore, the metals of Cd
+and Mn were selected as metal contaminants for pot culture
+experiments to further explore the synergism of S. saheli YH1
+with L. leucocephala.
+PGP Traits of YH1
+S. saheli YH1 secreted 166.77 ± 2.03 mg l −1 IAA in L-
+tryptophan-containing YMB medium after 3 days growth. An
+amount of 104.41 ± 7.48 mg l−1 soluble phosphate was detected
+in the supernatant of NBRIP after 7 days incubation. However,
+S. saheli YH1 did not show siderophore producing activity.
+Remediation Effects in V-Ti Magnetite
+T ailings
+The physico-chemical analysis showed that the tailing samples
+were at pH 6.66 ± 0.37 and contained 8.51 ± 0.43 mg kg −1
+available nitrogen, 23.98 ± 2.33 mg kg −1 available phosphorus
+and 13.56 ± 1.11 mg kg −1 available potassium. L. leucocephala
+was nodulated by S. saheli YH1 in V-Ti mine tailings after 6
+months growth, while no nodules were found on the roots in
+the control group. The nodule number was on average 38 for
+each inoculated plant. In general, the inoculation of YH1 led
+to 10.0% increase in plant nitrogen content and a signiﬁcant
+increase ( P < 0.05) in plant height and root length by 39.5
+and 27.2% respectively ( Table 2). There was also a signiﬁcant
+(P < 0.05) increase of the plant biomass by 67.2% in comparison
+with the non-inoculated control. The contents of phosphorus and
+potassium were also signiﬁcantly (P < 0.05) elevated by 112.2 and
+25.0%, respectively (Table 2).
+The amounts of metal uptake in L. leucocephala roots
+from the V-Ti magnetite tailing soil are in the following
+order: Fe >Mn>Ti>Cu>Ni>V>Cd for inoculated plants and
+Fe>Ti>Mn>Cu>Ni>V>Cd for control group. Overall, the
+uptake of Cd was most while that of Mn was least eﬀectively
+reduced. Comparing with inoculation-free plants, S. saheli YH1
+signiﬁcantly ( P < 0.05) reduced metal uptake in roots, with
+the reduction rates for the tested metals ranging from 8.4 to
+65.5%.
+The translocation of these metals showed that only Fe, Ti,
+Mn, Cu, and Ni were transferred from roots to shoots. TF values
+Frontiers in Microbiology | www.frontiersin.org 5 August 2018 | Volume 9 | Article 1853
+
+Kang et al. S. saheli Cuts L. leucocephala Metal Uptake
+FIGURE 2 | 16S rRNA phylogenetic tree (1,404 bp) of L. leucocephala-isolated strain YH1 created using maximum likelihood meth od with the Kimura 2-parameter
+model. Bootstrap conﬁdence level is based on 1,000 iteration s. Accession numbers retrieved from GenBank are shown in par entheses. The scale bar implies 2%
+nucleotide substitutions per site. Values lower than 50 are not shown at the nodes. Superscript “T” following each strai n number indicates type strain.
+for these transferred metals ranged from 9.2 to 26.8% for the
+inoculated plants and from 15.9 to 32.0% for the non-inoculat ed
+plants. The amount of Fe transferred was the highest among
+all metals tested in both inoculated and control groups, the
+former amounting to 331.3 mg kg−1 and the latter 967.0 mg kg−1.
+The inoculation of YH1 prevented these metals from moving
+to shoots, leading to a signiﬁcant reduction ( P < 0.05) of TF
+values for the inoculated plants. However, in the case of Fe,
+the inoculated plants exhibited less than 50% reduction in th e
+amounts of the translocated metals compared with the control
+plants.
+Remediation Effects in Cd/Mn Soil
+The non-spiked vermiculite was at pH 7.06 ± 0.04 and had the
+following properties: 56.02 ± 13.60 mg kg −1 total phosphorus,
+0.67 ± 0.05 mg kg−1 available phosphorous, 15.75 ± 1.29 g kg−1
+total potassium, and 75.80 ± 3.66 mg kg−1 available potassium.
+No nitrogen contents were detected for vermiculite.
+Metal Uptake by Plants
+In all plants inoculated with L. leucocephala grown in Cd- or
+Mn-amended soils, uptake of both metals by the plants was
+decreased compared to the control. Root uptake of Cd was
+positively correlated with the Cd content in control group, wh ile
+it remained at a low level in all three inoculated treatments.
+The highest amount of Cd uptake was found in the soil added
+with 35 mg kg −1 Cd, where the roots of inoculation-free plants
+contained 281.33 ± 61.24 mg kg −1 Cd, 79.9% higher than in
+the YH1-inoculated group (56.43 ± 11.14 mg kg−1) (Figure 5A).
+However, shoot Cd contents in plants with YH1 inoculation were
+only slightly reduced ( Figure 5B) compared to the control at
+all three soil Cd concentrations. There was no correlation o f
+Frontiers in Microbiology | www.frontiersin.org 6 August 2018 | Volume 9 | Article 1853
+
+Kang et al. S. saheli Cuts L. leucocephala Metal Uptake
+FIGURE 3 | Concatenated tree of L. leucocephala-isolated strain YH1 combining atpD-glnII-recA-rpoB (1,631 bp), generated using maximum likelihood method
+(Kimura 2-parameter model) with 1,000 repetitions of boots trap value. Accession numbers retrieved from GenBank are sh own in parentheses. The scale bar denotes
+2% nucleotide substitutions per site. Values lower than 50 a re not shown at the nodes.
+FIGURE 4 | Maximum likelihood tree of nifH sequences (453 bp) for L. leucocephala-isolated strain YH1 constructed using the Kimura 2-parame ter model with
+bootstrap conﬁdence based on 1,000 repetitions. Accession n umbers retrieved from GenBank are shown in parentheses. The scale bar denotes 5% nucleotide
+substitutions per site. Values lower than 50 are not shown at the nodes. Superscript “T” following each strain number ind icates type strain.
+shoot Cd content to the soil Cd content in both groups. The
+highest amount of shoot Cd content in control group was 8.96
+± 4.87 mg kg−1 in the soil treated with 5 mg kg −1 Cd, while in
+inoculated group was 4.78 ± 0.61 mg kg −1 at 20 mg kg −1 soil
+Cd.
+Root Mn contents in inoculated plants at all levels of soil Mn
+were also lower than in the control group ( Figure 5C). In the
+presence of 35 mg kg −1 Mn in soil, the biological concentration
+factor (BCF) for Mn was reduced by 67.6% compared with the
+non-inoculated control. Shoot Mn contents in all inoculated
+plants were apparently reduced compared to the control, and
+in treatments with 20 and 35 mg kg −1 soil Mn, shoot Mn
+contents were signiﬁcantly (P < 0.05) reduced by 64.1 and 78.9%
+respectively (Figure 5D).
+Symbiosis and Nitrogen Fixation
+All plants with inoculation of strain YH1 exhibited formation
+of root nodules. Less nodules were produced in plants treated
+Frontiers in Microbiology | www.frontiersin.org 7 August 2018 | Volume 9 | Article 1853
+
+Kang et al. S. saheli Cuts L. leucocephala Metal Uptake
+TABLE 2 | Symbiotic nitrogen-ﬁxing and PGP effects of strain YH1 on L. leucocephala after 6 months growth in V-Ti mine tailings and vermiculite s upplemented with
+different concentrations of Cd or Mn.
+Pot soil Treatment Nodule number Plant height (cm) Root length
+(cm)
+T otal dry
+weight (g)
+T otal N
+(g kg− 1)
+T otal P
+(g kg− 1)
+T otal K
+(g kg− 1)
+T ailings YH1 32 ± 2ab 16.6 ± 0.7ab* 15.1 ± 2.5c 1.0 ± 0.2a 9.4 ± 0.1bc 1.8 ± 0.1ab* 18.5 ± 0.5a*
+CK 0 11.9 ± 0.9b 10.1 ± 2.3d 0.6 ± 0.2a 9.0 ± 1.0b 0.9 ± 0.1d 14.9 ± 1.2ab
+Cd (5 mg kg −1) YH1 23 ± 5bc 15.1 ± 2.2ab 23.6 ± 1.0ab* 0.3 ± 0.0c 8.2 ± 0.3bc 1.6 ± 0.2ab 15.7 ± 0.6ab
+CK 0 16.3 ± 2.8a 12.6 ± 0.7cd 0.3 ± 0.1c 8.2 ± 0.2b 1.1 ± 0.1cd 10.7 ± 1.8c
+Cd (20 mg kg −1) YH1 23 ± 5bc 12.7 ± 4.7b 23.8 ± 2.1ab* 0.5 ± 0.1bc 8.0 ± 0.8c 1.3 ± 0.1bc 15.4 ± 0.4ab
+CK 0 17.3 ± 0.9a 16.6 ± 1.7bc 0.4 ± 0.1abc 8.9 ± 0.1b 1.5 ± 0.3bc 14.2 ± 0.8ab
+Cd (35 mg kg −1) YH1 27 ± 5abc 15.7 ± 2.1ab 27.1 ± 2.9a* 0.5 ± 0.0bc 9.3 ± 0.8bc 1.2 ± 0.1bc 15.1 ± 2.5ab
+CK 0 17.3 ± 1.4a 16.2 ± 2.5c 0.4 ± 0.1bc 11.5 ± 0.8a 1.1 ± 0.1cd 12.0 ± 0.3bc
+Mn (5 mg kg −1) YH1 33 ± 5ab 19.6 ± 3.2ab 19.5 ± 1.5bc 0.6 ± 0.1bc 9.2 ± 0.8bc 1.6 ± 0.1b* 17.0 ± 1.7ab
+CK 0 16.7 ± 1.1a 21.0 ± 1.5ab 0.5 ± 0.0ab 8.8 ± 1.4b 0.9 ± 0.1d 14.0 ± 0.7ab
+Mn (20 mg kg −1) YH1 33 ± 9ab 17.2 ± 2.5ab 20.1 ± 3.4bc 0.7 ± 0.1b 8.0 ± 0.4c 1.2 ± 0.0bc 18.5 ± 0.0a
+CK 0 16.1 ± 0.7a 21.0 ± 1.6ab 0.6 ± 0.0a 7.8 ± 0.9b 1.6 ± 0.3b 16.3 ± 0.5a
+Mn (35 mg kg −1) YH1 17 ± 5c 15.1 ± 2.6ab 22.3 ± 3.2ab 0.5 ± 0.1bc 10.7 ± 1.6ab 0.5 ± 0.1c 14.3 ± 0.8b
+CK 0 14.5 ± 1.5ab 17.1 ± 3.3bc 0.3 ± 0.1c 9.6 ± 0.3ab 1.5 ± 0.1bc* 12.0 ± 0.9bc
+NA (0) YH1 40 ± 8a 21.7 ± 3.4a 22.0 ± 1.4ab 0.5 ± 0.1bc 12.2 ± 0.2a* 2.5 ± 0.8a 16.3 ± 0.7ab
+CK 0 15.7 ± 2.5a 23.1 ± 1.7a 0.5 ± 0.1abc 9.8 ± 0.0ab 2.2 ± 0.2a 13.4 ± 0.2bc
+The data are presented as mean values ± standard deviations of three replicates. “CK” indicates the non-inoculatedcontrol plants. “NA (0)” denotes the plants in non-spiked vermiculite.
+Data in each column with different metal concentrations inoculated w ith the same strain (or without inoculation) are followed by different lower case letters indicating statistical difference
+at P < 0.05 according to LSD test. The highest value in either the inoculated or non-inoculated group is expressed in bold lowercase letters. “ *” is placed after the value that is higher
+the other with statistical signiﬁcance (P < 0.05) between the inoculated and non-inoculated groups at each metal concen tration according to Tukey’s post-hoc test.
+with 5, 20, and 35 mg kg −1 cadmium than in those grown in
+Cd-free control. With the increasing amount of manganese in
+the background from 0 to 20 mg kg −1, the number of nodules
+was reduced ( Table 2). However, more nodules were found in
+35 mg kg−1 Cd soil. There was no signiﬁcant diﬀerence between
+nodule numbers for plants grown in both metal-spiked soils at all
+concentrations.
+Biomass Yield
+After growing for 6 months under greenhouse conditions, all
+inoculated groups saw a slightly improved biomass yield in the
+presence of both metals. Among all metal-treated plants, dry
+weight was increased with the inoculation of YH1, except for
+plants in 5 mg kg −1 Cd soil, where biomass remained the same
+for both groups (Table 2). However, the total dry weight of YH1-
+inoculated plants in 5, 20, and 35 mg kg −1 Cd soils did not
+show apparent diﬀerence compared to either inoculation-free or
+non-spiked control.
+The biomass yield pattern for Mn-treated plants was diﬀerent
+from that for Cd-treated plants. Dry weight of both inoculated
+plants and control showed positive correlation to Mn content
+ranging from 0 to 20 mg kg −1. However, in 35 mg kg −1 Mn soil,
+biomass yield of both groups decreased. YH1-free plants showe d
+a signiﬁcant decrease of biomass at 35 mg kg−1 soil Mn compared
+to all treatments with lower Mn contents ( Table 2).
+Plant Height and Root Length
+For inoculation-free plants in 0, 5, 20, and 35 mg kg −1 Cd soils
+(Table 2), no signiﬁcant diﬀerence in plant height was found. In
+the inoculated group, plant height was reduced in the presence
+of diﬀerent concentrations of Cd in soil. Only in non-spiked
+treatment, inoculated plants appeared to be higher than the
+control. YH1-inoculated plants showed a signiﬁcant increas e
+(P < 0.05) in root length by 86.9, 44.2 and 67.5% at 5, 20,
+and 35 mg kg −1 soil Cd respectively, except in the non-spiked
+control group, where YH1 did not contribute to the increase of
+root length. It showed that plant height was negatively corre lated
+with the Mn content in soil for both YH1 and YH1-free groups.
+The introduction of YH1 led to a slight increase of plant heigh t
+compared to plants without inoculation at 5, 20, and 30 mg kg −1
+soil Mn (Table 2).
+DISCUSSION
+Rhizobia Identiﬁcation
+L. leucocephala-associated sinorhizobia in this region have been
+previously identiﬁed as nearest neighbors to S. americanum, S.
+fredii, S. kummerowiae, S. meliloti, S. mexicanus, S. saheli , and
+S. xinjiangense (Xu et al., 2013a,b ). The existence of various
+toxic metals tends to exercise a natural selection process, through
+which metal-tolerant species are favored ( Rajkumar et al., 2009 ).
+As was shown by our results, L. leucocephala was still able to grow
+vigorously and produce nitrogen-ﬁxing nodules regardless o f the
+presence of elevated amounts of toxic metals and the infertility in
+the V-Ti mine tailings, indicating the successful establis hment of
+synergism between rhizobia and the host.
+Both 16 rRNA and MLSA results identiﬁed strain YH1 as
+the closest neighbor to Sinorhizobium saheli (99.0% similarity),
+which is widely reported as a beneﬁcial rhizobium to colonize
+L. leucocephala (Wang et al., 2006; Ardley, 2017 ). It is well
+known that the dinitrogenase reductase enzyme encoding
+nifH is accountable for the formation of root nodules with
+nitrogen-ﬁxing capability ( Laguerre et al., 2001 ). In our work,
+the symbiotic gene nifH of Sinorhizobium strain YH1 was
+Frontiers in Microbiology | www.frontiersin.org 8 August 2018 | Volume 9 | Article 1853
+
+Kang et al. S. saheli Cuts L. leucocephala Metal Uptake
+FIGURE 5 | Cd contents in (A) shoot and (B) root, Mn contents in (C) root and (D) shoot of L. leucocephala after 6 months growth in vermiculite supplemented with
+three different concentrations of Cd or Mn. YH1, plants inoc ulated with strain YH1; CK, control group without inoculati on. Different lowercase letters following data in
+either the YH1-inoculated or the YH1-free control group tre ated with different concentrations of the same metal show th e statistical difference is signiﬁcant at P < 0.05
+according to LSD test. Error bars represent standard deviat ions.
+clustered nearer to Neorhizobium huautlense (formerly known
+as Rhizobium huautlense) CCBAU 65798 with 99.6% homogeny
+than to Sinorhizobium saheli which only had 97.1% similarity.
+This could be explained by the fact that N. huautlense was also
+found to be a PGPR microbe that could reduce the accumulation
+of Cd by plant ( Chen et al., 2016 ). In addition, a horizontal
+gene transfer could help further explain this phenomenon. It
+may be conjectured that the functional gene nifH of Rhizobium
+huautlense was accidentally obtained by YH1 due to close co-
+existence of the both species in the same region, as was proposed
+by other researchers before (Andrews et al., 2018).
+Pot Culture Experiment in T ailings
+Studies on the in-situ remediation of V-Ti tailings-polluted sites
+by the association of natively grown L. leucocephala and rhizobia
+are scarce. Mine tailings in Panzhihua region diﬀer from other
+mine wastes due to their excessive amounts of extractable ir on,
+titanium, and vanadium among other toxic metals.
+L. leucocephala is not deemed as a hyper-accumulator as
+both biological concentration and translocation factors f or most
+metals of interest were no more than 1.0. In spite of the higher
+concentrations of Fe and Ti in the tailings, the plants did
+not tend to absorb them as much as Cu and Ni, which are
+considered toxic to the plant at a lower dose. Phytoremediati on
+of soils using legume-rhizobia associations can be generali zed
+under two categories: mobilization, being the enhancement
+of metal uptake by the plants, owing to the production of
+various mobilizing agents such as biosurfactants, organic aci ds,
+siderophores and through biomethylation and redox eﬀects
+(Ullah et al., 2015 ); immobilization or stabilization, the process
+in which the bioavailability of heavy metals in the rhizosphe re
+is reduced due to on-root sorption and precipitation eﬀects by
+root exudates and microbial metabolites ( Salt et al., 1995; Wong,
+2003). In this study, it may be concluded that L. leucocephala -
+YH1 symbiotic system, which led to 8.4% reduction of plant
+uptake for Mn and 65.5% for Cd in tailings, has the best
+reduction eﬀect on Cd. This is again conﬁrmed by vermiculite pot
+experiment where higher reduction rates on cadmium ranging
+from 59.7 to 79.4% were found. Consequently, the signiﬁcant
+reduction (P < 0.05) of metal uptake except for Cd, as shown in
+the inoculated group probably implies the positive eﬀects of the
+strain YH1 on the host which exhibit the immobilization feat ure
+in the root system.
+Among a few leguminous tree species, L. leucocephala is
+able to tolerate higher concentrations of toxic metals compar ed
+to non-legumes and is less likely to succumb to multi-metal
+contaminated substrates ( Chan et al., 1999 ). In addition, there is
+evidence showing the predominant status of this tree species i n
+the topsoil of Pb/Zn mine tailings and the potential of using it a s
+a phytoremediation tool (Zhang et al., 2001).
+Frontiers in Microbiology | www.frontiersin.org 9 August 2018 | Volume 9 | Article 1853
+
+Kang et al. S. saheli Cuts L. leucocephala Metal Uptake
+The growth state of plant-YH1 consortium demonstrated
+that, in contrast to control group, plants infected with
+strain YH1 showed successful nodulation and that biomass
+yield, plant height, root lengths and NPK contents were
+signiﬁcantly elevated. This is indicative of the eﬀectivene ss of
+this inoculum and suggestive of the normal functioning of th e
+symbiotic genes in it. It is widely reported that a number of
+PGPRs capable of increasing plant yield and improving soil
+conditions can be used in phytoremediation: these include
+Achromobacter, Acinetobacter, Actinobacteria, Azotobacter,
+Bacillus, Flavobacterium, Ochrobactrum, Pseudomonas,
+Rhizobium, and Bradyrhizobium (Reichman, 2007; Wani
+et al., 2008; Khan et al., 2009 ). For a long time, arbuscular
+mycorrhizal fungi (AMF) have been especially noted for
+improving phytoremediation by attenuating various metal
+stresses to the host apart from improving plant growth, whose
+mechanisms are frequently alluded to those of bacterial PGP
+strains (Lins et al., 2006 ). Discoveries of phytostabilization using
+rhizobia-legume systems came under notice when a number
+of rhizobial strains were reported to be both PGP-positive and
+capable of reducing metal uptake for the host. In a separate
+study, Bradyrhizobium sp. ( vigna) RM8, isolated from green
+gram in metal contaminated sites, tolerant to high levels of
+nickel and zinc, active in promoting plant growth, was found
+to be able to cut nickel and zinc intake by the host while
+alleviating the toxic stresses (Wani et al., 2007). Another instance
+of phyto-immobilization was recorded by Dary et al. (2010) ,
+in which, an eﬀective nitrogen ﬁxer Bradyrhizobium sp. 750
+reduced the accumulation of Cd, Cu, and Pb by Lupinus luteus in
+a ﬁeld experiment on a multi-metal polluted site. There appears
+to be more metal enhancers than reducers and the former are
+often coupled with the ability of siderophore production ( Glick,
+2010), which may be attributed to the fact that siderophores as
+chelating agents make insoluble metal compounds bioavailab le
+and thereby facilitating metal uptake. However, it works bot h
+ways, as established by Dimkpa et al. (2008) , in which the
+accumulation of nickel in cowpea plants was lowered with the
+help of Ni-binding hydroxamate siderophores produced by
+Streptomyces acidiscabies, and this may prove that siderophores
+play a dual role in determining the uptake pattern regarding
+their various types while other more dominant factors may als o
+have to be taken into account ( Ma et al., 2011).
+Phosphorus solubilization is another indispensable trait fo r
+soil microbes in the immobilization of heavy metals. Free
+metal ions can be readily precipitated as metal-P complexes of
+various mineral phases such, taking cadmium as an example, as
+Cd5H2(PO4)4·4H2O, Cd(H 2PO4)2, Cd 3(PO4)2 and amorphous
+cadmium phosphates at higher pH values ( Sharma and Archana,
+2016), which can be deposited on the surfaces of both roots
+and microbes in the rhizosphere resulting in reduced metal
+bioavailability and a reduction in both biological concentr ation
+and translocation eﬀects ( Park et al., 2011).
+Indole-3-acetic acid is a phytohormone which has been widely
+regarded as an index for assessing the eﬀectiveness of the
+promotion of cell elongation in plant tissues ( Nadeem et al.,
+2015). The production of IAA by strain YH1 is higher ( >100
+µ g ml −1) than most rhizobial stains previously reported and
+can be considered as an IAA-overproducer ( Chiboub et al.,
+2016; Yu et al., 2017 ). It is observed that negative impact of
+metal accumulation inside plant tissues could be mitigated by
+the application of IAA ( Nadeem et al., 2015 ). In our study of
+microbial phosphorus solubilization, strain YH1 was found to
+be more competent than most strains isolated from infertile a nd
+polluted soils, which among other PGP traits, further conﬁrm ed
+the eﬀectiveness of strain YH1 to be potentially utilized in the
+phytoremediation of heavy metal contaminated soils.
+As of today, there is limited information on the remediation of
+soils involving members from Sinorhizobium. It was revealed that
+some strains of Sinorhizobium meliloti helped with the uptake
+of Cd, Cu and Zn by Medicago plants with high translocation
+eﬀects ( Fan et al., 2011; Ghnaya et al., 2015; Zribi et al., 2015 ).
+Most interestingly, it was found that a symbiotic PGPR strain
+may help increase the uptake by one plant species while cause the
+decrease by another, as in the case of Bradyrhizobium sp. YL-6,
+where it boosted Cd uptake by Lolium multiﬂorum while reduced
+Cd uptake by Glycine max (Guo and Chi, 2013).
+Pot Culture in Cd/Mn Soils
+Our work exhibited that the plants achieved greater biomass
+yield in both Cd and Mn tainted soils. In this experiment,
+the cross inﬂuence of other metals was minimized by using
+single metal-spiked vermiculite as substrate. Treatments wi th
+YH1 inoculum were all indicative of the successful formation
+of synergism with the microbe. By comparing plant dry weight
+between diﬀerent treatments and the tolerance of YH1 to Cd and
+Mn, it is obvious that Cd appears to exercise more negative eﬀects
+on both plant and rhizobia, and this may be explained by the
+fact that Cd has both higher microbial toxicity and phytotoxi city
+than Mn ( Lambers et al., 2015; Ullah et al., 2015 ) and that Mn
+content is way higher in the tailings from which this strain
+was isolated. Biomass yield and growth parameters of leucaen a
+plants were both reduced under the stress of cadmium even at
+a low concentration of 25 ppm as revealed by a previous study
+(Shaﬁq et al., 2010 ). Both Cd and Mn can stunt root growth and
+have damaging eﬀects to leaves ( Khan et al., 2011 ).It has been
+well explained that, several sophisticated microbial mechan isms
+conspire to curb the metal bioavailability to plants, which include
+biosorption onto the outer wall, intracellular sequestratio n, and
+complexation by certain biogenic anions ( Gadd, 2004).
+Root is where the toxic metals exert direct inﬂuence on the
+plant. Changes in this microbial-rhizospheric niche may alter the
+composition and patterns of exudation, which can further lead
+to damage to the root-hair cells. The signiﬁcant increase in ro ot
+length against the increasing amount of Cd, is probably attributed
+to the reduced metal stress caused by the immobilization eﬀec ts.
+There existed a great diﬀerence regarding the overall uptake
+of these two separately added metals, in which Mn uptake was
+more than three times the amounts of Cd in both groups and
+the translocation for Mn was more than 10 times that for Cd.
+Manganese exhibits extreme toxicity to plant cells in excessi ve
+amounts ( >500 mg kg −1 in content) and is positively linked to
+soil acidity and a lack of other exchangeable metal ions such as
+Ca, Mg, and Fe in the rhizosphere ( de V arennes et al., 2001 ).
+The reduction of Mn uptake by plants can be more complicated
+Frontiers in Microbiology | www.frontiersin.org 10 August 2018 | Volume 9 | Article 1853
+
+Kang et al. S. saheli Cuts L. leucocephala Metal Uptake
+as common microorganisms are usually not directly involved
+in this process except for manganese oxidizing bacteria, whic h
+can increase Mn availability through the release of low weigh t
+bacteriogenic acids as IAA ( Millaleo et al., 2010 ). Therefore, it
+may be conjectured that Mn resistant strain YH1 helped allevia te
+manganese uptake through indirect mechanisms by altering th e
+plant exudation patterns, as suggested in studies on AMF-plant
+interactions (Nogueira and Cardoso, 2003), where plant exudates
+were changed under the inﬂuence of microbial activities resulting
+in an immobilization eﬀect and reduced metal uptake by the
+plant.
+Cadmium is a toxic metal with high mobility in both plant
+tissues and soils, the uptake of it by plants is in rise with the
+increase of its background concentration in both inoculated
+group and control. It is apparent that in metal-spiked soil, the
+uptake of Cd is also drastically reduced with the inoculation o f
+YH1 especially under higher contents, and the plant translocation
+factor for Cd was also decreased with the inoculation of YH1,
+which is consistent with the tailings experiment and further
+indicates the metal-immobilizing eﬀects on the legume.
+Nodulation Under Cd or Mn Stress
+The decreasing trend in nodule yield under both metal stress es
+against the increasing levels of soil metal contents from 5 t o
+20 mg kg−1 was reversed in the treatment with 35 mg kg −1 Mn,
+which may be accounted for by the fact that manganese is less
+toxic to plants and its microbial symbionts. Manganese is an
+indispensable trace element constituting the reactive cent ers of
+various enzymes and is more than 20 times the amounts of
+the other metal pollutants in the V-Ti tailings. It should be
+noted that excessive ingestion of Mn can also cause toxicity t o
+both plants and bacteria ( Zornoza et al., 2010 ). Investigations
+by predecessors discovered that although Mn exists in plants
+in fairly large amounts, its toxicity can still aﬀect the bact erial
+growth and legume-rhizobia associations ( de V arennes et al.,
+2001; Hayes et al., 2012). However, our results conﬁrmed that Cd
+appears to be more toxic than Mn, since the nodule number was
+lower than in plants treated with Mn at the same amounts of 5
+and 35 mg kg−1.
+CONCLUSIONS
+In conclusion, metalliferous V-Ti magnetite tailings from
+Panzhihua region harbor a PGP-positive rhizobia species, whi ch
+was identiﬁed as Sinorhizobium saheli YH1. This strain exhibited
+IAA-producing and phosphate-solubilizing activities and was
+tolerant to high amounts of Cd and Mn. It also improved
+plant height, root length, and biomass yield for L. Leucocephala
+grown in both V-Ti tailings and soils amended with Cd/Mn.
+In particular, strain YH1 demonstrated abilities to nodulate
+the plant and reduce the uptake of heavy metals for the plant
+in the tailings and Cd- / Mn-supplemented soils. Our results
+thus provide further understanding of the eﬃciency of S. saheli
+YH1 in promoting plant health under heavy metal-ridden soil
+environments and suggest that it could be potentially used as
+an inoculum for the phytoremediation of metal-contaminated
+soils.
+AUTHOR CONTRIBUTIONS
+XK and XY conceived the idea and carried out the
+experimentation. YZ, YL, QC, QW, and WT provided the
+funding. YC, YG, KZ, QX, and MM supervised the project. LZ,
+XZ, and LH analyzed the data. JK oﬀered language polishing and
+editing service.
+FUNDING
+This research was ﬁnancially supported by the Key Research
+Project (No. 2017SZ0183, No. 2017SZ0087), the Major Scienc e
+Technology Project (2017NZDZX0003) of Sichuan Province,
+the Science and Technology Innovation Talent Project of
+Sichuan Province (No. 2017RZ0064), and the Student Innovation
+Training Program of Sichuan Agricultural University (No.
+201710626072).
+ACKNOWLEDGMENTS
+XK gratefully acknowledges receipt of a joint PhD scholarship
+from School of Life Sciences, University of Dundee and China
+Scholarship Council (No. 201606910077).
+SUPPLEMENTARY MATERIAL
+The Supplementary Material for this article can be found
+online at: https://www.frontiersin.org/articles/10.338 9/fmicb.
+2018.01853/full#supplementary-material
+REFERENCES
+Andrews, M., De Meyer, S., James, E. K., Stepkowski, T., Hodge, S. , Simon,
+M. F., et al. (2018). Horizontal transfer of symbiosis genes withi n
+and between rhizobial genera: occurrence and Importance. Genes 9:321.
+doi: 10.3390/genes9070321
+Ardley, J. (2017). Legumes of the Thar desert and their nitrogen ﬁx ing
+Ensifer symbionts. Plant. Soil. 410, 517–520. doi: 10.1007/s11104-016-
+3125-5
+Bashan, Y., and Holguin, G. (1998). Proposal for the division of pla nt growth-
+promoting rhizobacteria into two classiﬁcations: biocontrol-PGP B (plant
+growth-promoting bacteria) and PGPB. Soil. Biol. Biochem. 30, 1225–1228.
+doi: 10.1016/S0038-0717(97)00187-9
+Chan, Y., Wong, M., and Whitton, B. (1999). Eﬀects of landﬁll lea chate on growth
+and nitrogen ﬁxation of two leguminous trees ( Acacia confusa , Leucaena
+leucocephala). Water. Air. Soil. Poll. 111, 29–40. doi: 10.1023/A:1005088919668
+Chen, L., He, L., Wang, Q., and Sheng, X. (2016). Synergistic eﬀ ects of plant
+growth-promoting Neorhizobium huautlense T1-17 and immobilizers on the
+growth and heavy metal accumulation of edible tissues of hot pepper.J. Hazard.
+Mater. 312, 123–131. doi: 10.1016/j.jhazmat.2016.03.042
+Chiboub, M., Saadani, O., Fatnassi, I. C., Abdelkrim, S., Abid, G., Jebara, M., et al.
+(2016). Characterization of eﬃcient plant-growth-promoting bacte ria isolated
+Frontiers in Microbiology | www.frontiersin.org 11 August 2018 | Volume 9 | Article 1853
+
+Kang et al. S. saheli Cuts L. leucocephala Metal Uptake
+from Sulla coronaria resistant to cadmium and to other heavy metals. CR. Biol.
+339, 391–398. doi: 10.1016/j.crvi.2016.04.015
+Dary, M., Chamber-Pérez, M. A., Palomares, A. J., and Pajuelo, E. (20 10). “In situ”
+phytostabilisation of heavy metal polluted soils using Lupinus luteus inoculated
+with metal resistant plant-growth promoting rhizobacteria. J. Hazard. Mater.
+177, 323–330. doi: 10.1016/j.jhazmat.2009
+Datta, C., and Basu, P. (2000). Indole acetic acid production bya Rhizobium species
+from root nodules of a leguminous shrub, Cajanus cajan. Microbiol. Res. 155,
+123–127. doi: 10.1016/S0944-5013(00)80047-6
+de V arennes, A., Carneiro, J. P., and Goss, M. J. (2001). Characte rization of
+manganese toxicity in two species of annual medics. J. Plant. Nutr. 24,
+1947–1955. doi: 10.1081/PLN-100107606
+Dimkpa, C., Svatoš, A., Merten, D., Büchel, G., and Kothe, E. (2008). Hydroxamate
+siderophores produced by Streptomyces acidiscabies E13 bind nickel and
+promote growth in cowpea ( Vigna unguiculata L.) under nickel stress. Can. J.
+Microbiol. 54, 163–172. doi: 10.1139/W07-130
+Doty, S. L., Shang, T. Q., Wilson, A. M., Moore, A. L., Newman, L. A., Strand, S. E.,
+et al. (2003). Metabolism of the soil and groundwater contaminan ts, ethylene
+dibromide and trichloroethylene, by the tropical leguminous tree, Leuceana
+leucocephala. Water. Res. 37, 441–449. doi: 10.1016/S0043-1354(02)00291-9
+Fan, L. M., Ma, Z. Q., Liang, J. Q., Li, H. F., Wang, E. T., and Wei , G. H.
+(2011). Characterization of a copper-resistant symbiotic bacteri um isolated
+from Medicago lupulina growing in mine tailings. Bioresource. Technol . 102,
+703–709. doi: 10.1016/j.biortech.2010.08.046
+Gadd, G. M. (2004). Microbial inﬂuence on metal mobility and applica tion for
+bioremediation. Geoderma 122, 109–119. doi: 10.1016/j.geoderma.2004.01.002
+Gaunt, M. W., Turner, S. L., Rigottier-Gois, L., Lloyd-Macgilp, S. A., and
+Young, J. P. (2001). Phylogenies of atpD and recA support the small subunit
+rRNA-based classiﬁcation of rhizobia. Int. J. Syst. Evol. Micr. 51, 2037–2048.
+doi: 10.1099/00207713-51-6-2037
+Ghnaya, T., Mnassri, M., Ghabriche, R., Wali, M., Poschenrieder, C., Lutts, S., et al.
+(2015). Nodulation by Sinorhizobium meliloti originated from a mining soil
+alleviates Cd toxicity and increases Cd-phytoextraction in Medicago sativa L.
+Front. Plant Sci. 6:863. doi: 10.3389/fpls.2015.00863
+Glick, B. R. (2010). Using soil bacteria to facilitate phytoremedi ation. Biotechnol.
+Adv. 28, 367–374. doi: 10.1016/j.biotechadv.2010.02.001
+Guo, J., and Chi, J. (2013). Eﬀect of Cd-tolerant plant growth-promot ing
+rhizobium on plant growth and Cd uptake by Lolium multiﬂorum Lam. and
+Glycine max (L.) Merr. in Cd-contaminated soil . Plant Soil 375, 205–214.
+doi: 10.1007/s11104-013-1952-1
+Hayat, R., Ali, S., Amara, U., Khalid, R., and Ahmed, I. (2010). Soil beneﬁcial
+bacteria and their role in plant growth promotion: a review. Ann. Microbiol.
+60, 579–598. doi: 10.1007/s13213-010-0117-1
+Hayes, R. C., Conyers, M. K., Li, G. D., Poile, G. J., Price, A., M cVittie, B. J., et al.
+(2012). Spatial and temporal variation in soil Mn 2+ concentrations and the
+impact of manganese toxicity on lucerne and subterranean clover seed lings.
+Crop. Pasture. Sci. 63, 875–885. doi: 10.1071/CP12138
+Khan, M. S., Zaidi, A., Goel, R., and Musarrat, J. editors (2011) . Biomanagement
+of Metal-Contaminated Soils . Vol. 20 , Environmental pollution (Dordrecht:
+Springer).
+Khan, M. S., Zaidi, A., Wani, P. A., and Oves, M. (2009). Role of plant growth
+promoting rhizobacteria in the remediation of metal contaminated so ils.
+Environ. Chem. Lett. 7, 1–19. doi: 10.1007/s10311-008-0155-0
+Kimura, M. (1980). A simple method for estimating evolutionary rates of base
+substitutions through comparative studies of nucleotide sequences. J. Mol. Evol.
+16, 111–120. doi: 10.1007/BF01731581
+Kong, Z., Mohamad, O. A., Deng, Z., Liu, X., Glick, B. R., and Wei, G. (2015).
+Rhizobial symbiosis eﬀect on the growth, metal uptake, and antio xidant
+responses of Medicago lupulina under copper stress . Environ. Sci. Pollut. Res.
+Int. 22, 12479–12489. doi: 10.1007/s11356-015-4530-7
+Laguerre, G., Nour, S. M., Macheret, V., Sanjuan, J., Drouin, P., and
+Amarger, N. (2001). Classiﬁcation of rhizobia based on nodC and nifH
+gene analysis reveals a close phylogenetic relationship among Phaseolus
+vulgaris symbionts. Microbiology 147, 981–993. doi: 10.1099/00221287-147-
+4-981
+Lambers, H., Hayes, P. E., Laliberté, E., Oliveira, R. S., and Turner, B. L. (2015). Leaf
+manganese accumulation and phosphorus-acquisition eﬃciency. Trends Plant
+Sci. 20, 83–90. doi: 10.1016/j.tplants.2014.10.007
+Li, M. (2006). Ecological restoration of mineland with particular ref erence
+to the metalliferous mine wasteland in China: a review of research
+and practice. Sci. Total Environ . 357, 38–53. doi: 10.1016/j.scitotenv.2005.
+05.003
+Li, P., Qian, H., Howard, K. W. F., Wu, J., and Lyu, X. (2014). Anthro pogenic
+pollution and variability of manganese in alluvial sediments of the Ye llow
+River, Ningxia, northwest China. Environ. Monit. Assess. 186, 1385–1398.
+doi: 10.1007/s10661-013-3461-3
+Lins, C. E. L., Cavalcante, U. M. T., Sampaio, E. V. S. B., Messias, A. S., and
+Maia, L. C. (2006). Growth of mycorrhized seedlings of Leucaena leucocephala
+(Lam.) de Wit. in a copper contaminated soil . Appl. Soil Ecol. 31, 181–185.
+doi: 10.1016/j.apsoil.2005.06.004
+Liu, G., Tao, L., Liu, X., Hou, J., Wang, A., and Li, R. (2013). Hea vy metal
+speciation and pollution of agricultural soils along Jishui River in n on-ferrous
+metal mine area in Jiangxi Province, China. J. Geochem. Explor. 132, 156–163.
+doi: 10.1016/j.gexplo.2013.06.017
+Ma, Y., Prasad, M. N. V., Rajkumar, M., and Freitas, H. (2011).
+Plant growth promoting rhizobacteria and endophytes accelerate
+phytoremediation of metalliferous soils. Biotechnol. Adv. 29, 248–258.
+doi: 10.1016/j.biotechadv.2010.12.001
+Millaleo, R., Reyes-Diaz, M., Ivanov, A. G., Mora, M. L., and Alberd i, M.
+(2010). Manganese as essential and toxic element for plants: tran sport,
+accumulation and resistance mechanisms. J. Soil Sci. Plant Nut . 10, 470–481.
+doi: 10.4067/S0718-95162010000200008
+Nadeem, S. M., Naveed, M., Ahmad, M., and Zahir, Z. A. (2015). “R hizosphere
+bacteria for crop production and improvement of stress tolerance: mechanisms
+of action, applications, and future prospects, ” in Plant Microbes Symbiosis:
+Applied Facets, ed N. Arora (Berlin:Springer), 1–36.
+Nautiyal, C. S. (1999). An eﬃcient microbiological growth medium f or screening
+phosphate solubilizing microorganisms. FEMS Microbiol. Lett . 170, 265–270.
+doi: 10.1111/j.1574-6968.1999.tb13383.x
+Nogueira, M. A., and Cardoso, E. J. B. N. (2003). Mycorrhizal eﬀe ctiveness and
+manganese toxicity in soybean as aﬀected by soil type and endoph yte. Sci. Agr.
+60, 329–335. doi: 10.1590/S0103-90162003000200018
+Novozamsky, R.E., Schonwenburg, J., and Walling, I. (1974). Ni trogen
+determination in plant material by means of indophenol blue method. Neth.
+J. Agric. Sci. 22, 3–5.
+Pansu, M., and Gautheyrou, J. (2007). Handbook of Soil Analysis: Mineralogical,
+Organic and Inorganic Methods. Berlin: Springer.
+Park, J. H., Bolan, N., Megharaj, M., and Naidu, R. (2011). Isolati on of phosphate
+solubilizing bacteria and their potential for lead immobilization i n soil. J.
+Hazard Mater. 185, 829–836. doi: 10.1016/j.jhazmat.2010.09.095
+Rajkumar, M., Ae, N., and Freitas, H. (2009). Endophytic bacteria and their
+potential to enhance heavy metal phytoextraction. Chemosphere 77, 153–160.
+doi: 10.1016/j.chemosphere.2009.06.047
+Rajkumar, M., Ae, N., Prasad, M. N. V., and Freitas, H. (2010).
+Potential of siderophore-producing bacteria for improving heavy meta l
+phytoextraction. Trends Biotechnol. 28, 142–149. doi: 10.1016/j.tibtech.2009.
+12.002
+Reichman, S. (2007). The potential use of the legume–rhizobium s ymbiosis for the
+remediation of arsenic contaminated sites. Soil Biol. Biochem. 39, 2587–2593.
+doi: 10.1016/j.soilbio.2007.04.030
+Salt, D. E., Blaylock, M., Kumar, N. P. B. A., Dushenkov, V., Ensley , B. D.,
+Chet, I., et al. (1995). Phytoremediation: a novel strategy for t he removal of
+toxic metals from the environment using plants. Nat. Biotech. 13, 468–474.
+doi: 10.1038/nbt0595-468
+Sanginga, N., Mulongoy, K., and Ayanaba, A. (1988). Nitrogen c ontribution of
+Leucaena/Rhizobium symbiosis to soil and a subsequent maize c rop. Plant Soil
+112, 137–141. doi: 10.1007/BF02181763
+Schwyn, B., and Neilands, J. B. (1987). Universal chemical assa y for the
+detection and determination of siderophores. Anal. Biochem . 160, 47–56.
+doi: 10.1016/0003-2697(87)90612-9
+Shaﬁq, M., Iqbal, M. Z., and Mohammad, A. (2010). Eﬀect of lead and cadmium
+on germination and seedling growth of Leucaena leucocephala . J. Appl. Sci.
+Environ. Manage. 12, 61–66. doi: 10.4314/jasem.v12i3.55497
+Sharma, R. K., and Archana, G. (2016). Cadmium minimization in foo d crops by
+cadmium resistant plant growth promoting rhizobacteria. Appl. Soil Ecol. 107,
+66–78. doi: 10.1016/j.apsoil.2016.05.009
+Frontiers in Microbiology | www.frontiersin.org 12 August 2018 | Volume 9 | Article 1853
+
+Kang et al. S. saheli Cuts L. leucocephala Metal Uptake
+Shelton, H. M., and Brewbaker, J. L. (1998). “ Leucaena leucocephala -the most
+widely used forage tree legume, ” inForage Tree Legumes in Tropical Agriculture,
+eds R C Gutteridge and H M Shelton (Wallingford: CAB International), 15–29.
+Somasegaran, P., and Hoben, H. J. (2012). Handbook for Rhizobia: Methods in
+Legume-Rhizobium Technology. (Germany:Springer).
+Tak, N., Awasthi, E., Bissa, G., Meghwal, R. R., James, E. K., Spre nt, J. S., et al.
+(2016). Multi locus sequence analysis and symbiotic characteriza tion of novel
+Ensifer strains nodulating Tephrosia spp. in the Indian Thar Desert. Syst. Appl,
+Microbiol. 39, 534–545. doi: 10.1016/j.syapm.2016.08.002
+Tamura, K., Stecher, G., Peterson, D., Filipski, A., and Kumar, S. (2013). MEGA6:
+molecular evolutionary genetics analysis version 6.0. Mol. Biol. Evol. 30,
+2725–2729. doi: 10.1093/molbev/mst197
+Tan, Z. Y., Xu, X. D., Wang, E. T., Gao, J. L., Martinez-Romero, E., a nd
+Chen, W. X. (1997). Phylogenetic and genetic relationships of Mesorhizobium
+tianshanense and related rhizobia. Int. J. Syst. Bacteriol. 47, 874–879.
+doi: 10.1099/00207713-47-3-874
+Ullah, A., Heng, S., Munis, M. F. H., Fahad, S., and Y ang, X.
+(2015). Phytoremediation of heavy metals assisted by plant growth
+promoting (PGP) bacteria: a review. Environ. Exp. Bot . 117, 28–40.
+doi: 10.1016/j.envexpbot.2015.05.001
+Vinuesa, P., Rojas-Jiménez, K., Contreras-Moreira, B., Mahna, S . K., Prasad, B.
+N., Moe, H., et al. (2008). Multilocus sequence analysis for asses sment of
+the biogeography and evolutionary genetics of four Bradyrhizobium species
+that nodulate soybeans on the Asiatic continent. Appl. Environ. Microb. 74,
+6987–6996. doi: 10.1128/AEM.00875-08
+Vinuesa, P., Silva, C., Werner, D., and Martínez-Romero, E. (2005 ). Population
+genetics and phylogenetic inference in bacterial molecular systema tics: the
+roles of migration and recombination in Bradyrhizobium species cohesion and
+delineation. Mol. Phylogenet. Evol. 34, 29–54. doi: 10.1016/j.ympev.2004.08.020
+Walker, D. J., Rafael Clemente, R., and Bernal, M. P. (2004). Contra sting eﬀects
+of manure and compost on soil pH, heavy metal availability and growth
+of Chenopodium album L. in a soil contaminated by pyritic mine waste.
+Chemosphere 57, 215–224. doi: 10.1016/j.chemosphere.2004.05.020
+Wang, F. Q., Wang, E. T., Zhang, Y. F., and Chen, W. X. (2006). Ch aracterization
+of rhizobia isolated from Albizia spp. in comparison with microsymbionts of
+Acacia spp. and Leucaena leucocephala grown in China . Syst. Appl. Microbiol.
+29, 502–517. doi: 10.1016/j.syapm.2005.12.010
+Wani, P. A., Khan, M. S., and Zaidi, A. (2007). Eﬀect of metal to lerant
+plant growth promoting Bradyrhizobium sp. (vigna) on growth, symbiosis,
+seed yield and metal uptake by greengram plants . Chemosphere 70, 36–45.
+doi: 10.1016/j.chemosphere.2007.07.028
+Wani, P. A., Khan, M. S., and Zaidi, A. (2008). Eﬀect of metal-to lerant
+plant growth-promoting Rhizobium on the performance of pea
+grown in metal-amended soil. Arch. Environ. Con. Tox. 55, 33–42.
+doi: 10.1007/s00244-007-9097-y
+Wong, M. H. (2003). Ecological restoration of mine degraded soils, w ith
+emphasis on metal contaminated soils. Chemosphere 50, 775–780.
+doi: 10.1016/S0045-6535(02)00232-1
+Wuana, R. A., and Okieimen, F. E. (2011). Heavy metals in contamina ted soils: a
+review of sources, chemistry, risks and best available strategies for remediation.
+ISRN Ecol. 2011, 1–20. doi: 10.5402/2011/402647
+Xu, K. W., Penttinen, P., Chen, Y. X., Chen, Q., and Zhang, X. (201 3a). Symbiotic
+eﬃciency and phylogeny of the rhizobia isolated from Leucaena leucocephala
+in arid–hot river valley area in Panxi, Sichuan, China. Appl. Microbiol. Biot. 97,
+783–793. doi: 10.1007/s00253-012-4246-2
+Xu, K. W., Penttinen, P., Chen, Y. X., Zou, L., Zhou, T., Zhang, X. , et al.
+(2013b). Polyphasic characterization of rhizobia isolated from Leucaena
+leucocephala from Panxi, China. World J. Microb. Biot. 29, 2303–2315.
+doi: 10.1007/s11274-013-1396-z
+Yu, X., Li, Y., Cui, Y., Liu, R., Li, Y., Chen, Q., et al. (2017). A n indoleacetic
+acid producing Ochrobactrum sp. MGJ11 counteracts cadmium eﬀect on
+soybean by promoting plant growth . J. Appl. Microbiol. 122, 987–996.
+doi: 10.1111/jam.13379
+Yu, X., Li, Y., Li, Y., Xu, C., Cui, Y., Xiang, Q., et al. (2016). Pon gamia
+pinnata inoculated with Bradyrhizobium liaoningense PZHK1 shows potential
+for phytoremediation of mine tailings. Appl. Microbiol. Biot . 101, 1739–1751.
+doi: 10.1007/s00253-016-7996-4
+Yu, X., Li, Y., Zhang, C., Liu, H., Liu, J., Zheng, W., et al. (2014 ).
+Culturable heavy metal-resistant and plant growth promoting bacteria in V -
+Ti magnetite mine tailing soil from Panzhihua, China. PloS ONE 9:e106618.
+doi: 10.1371/journal.pone.0106618
+Zhang, Y., Kang, X., Liu, H., Liu, Y., Li, Y., Yu, X., et al. (2018).Endophytes isolated
+from ginger rhizome exhibit growth promoting potential for Zea mays. Arch.
+Agron. Soil. Sci. 64, 1302–1314. doi: 10.1080/03650340.2018.1430892
+Zhang, Z., Shu, W., Lan, C., and Wong, M. (2001). Soil seed ban k as an input of
+seed source in revegetation of lead/zinc mine tailings. Restor. Ecol. 9, 378–385.
+doi: 10.1046/j.1526-100X.2001.94007.x
+Zheng, T., Y ang, J., Huang, P., Tang, C., and Wan, J. (2018). Co mparison
+of trace element pollution, sequential extraction, and risk level in
+diﬀerent depths of tailings with diﬀerent accumulation age from a rare
+earth mine in Jiangxi Province, China. J. Soil. Sediment . 18, 992–1002.
+doi: 10.1007/s11368-017-1853-7
+Zornoza, P., Sánchez-Pardo, B., and Carpena, R. O. (2010). Intera ction
+and accumulation of manganese and cadmium in the manganese
+accumulator Lupinus albus . J. Plant. Physiol . 167, 1027–1032.
+doi: 10.1016/j.jplph.2010.02.011
+Zribi, K., Nouairi, I., Slama, I., Talbi-Zribi, O., and Mhadhbi, H. ( 2015).
+Medicago sativa-Sinorhizobium meliloti symbiosis promotes the
+bioaccumulation of zinc in nodulated roots. Int. J. Phytoremediat . 17,
+49–55. doi: 10.1080/15226514.2013.828017
+Conﬂict of Interest Statement: The authors declare that the research was
+conducted in the absence of any commercial or ﬁnancial relations hips that could
+be construed as a potential conﬂict of interest.
+Copyright © 2018 Kang, Yu, Zhang, Cui, Tu, Wang, Li, Hu, Gu, Zhao, Xi ang, Chen,
+Ma, Zou, Zhang and Kang. This is an open-access article distr ibuted under the
+terms of the Creative Commons Attribution License (CC BY). T he use, distribution
+or reproduction in other forums is permitted, provided the or iginal author(s) and
+the copyright owner(s) are credited and that the original pub lication in this journal
+is cited, in accordance with accepted academic practice. No use, distribution or
+reproduction is permitted which does not comply with these t erms.
+Frontiers in Microbiology | www.frontiersin.org 13 August 2018 | Volume 9 | Article 1853

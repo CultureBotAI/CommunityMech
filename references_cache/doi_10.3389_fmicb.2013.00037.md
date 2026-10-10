@@ -10,7 +10,13 @@ authors:
 journal: Frontiers in Microbiology
 year: '2013'
 doi: 10.3389/fmicb.2013.00037
-content_type: abstract_only
+content_type: full_text_pdf
+full_text_attempted: true
+full_text_provider: openalex
+full_text_url: "https://www.frontiersin.org/articles/10.3389/fmicb.2013.00037/pdf"
+oa_status: gold
+license: cc-by
+local_pdf_path: files/DOI_10.3389_fmicb.2013.00037.pdf
 ---
 
 # Microbial diversity in the deep-subsurface hydrothermal aquifer feeding the giant gypsum crystal-bearing Naica Mine, Mexico
@@ -279,3 +285,1136 @@ Front Microbiol Front Microbiol 1526 frontmicrobio Front. Microbiol. Frontiers i
  Curr. Microbiol. 
  60 
  439 – 445 20024655 10.1007/s00284-009-9562-0
+
+“fmicb-04-00037” — 2013/3/4 — 15:42 — pag e1—# 1
+ORIGINAL RESEARCH ARTICLE
+published: 06 March 2013
+doi: 10.3389/fmicb.2013.00037
+Microbial diversity in the deep-subsurface hydrothermal
+aquifer feeding the giant gypsum crystal-bearing Naica
+Mine, Mexico
+Marie Ragon1, Alexander E. S. V an Driessche2, Juan M. García-Ruíz 2, David Moreira1 and
+Puriﬁcación López-García1*
+1 Unité d’Ecologie, Systématique et Evolution, CNRS UMR 8079, Université Paris-Sud, Orsay, France
+2 Laboratorio de Estudios Cristalográﬁcos, Instituto Andaluz de Ciencias de la Tierra, Consejo Superior de Investigaciones Cientíﬁcas,
+Universidad Granada, Granada, Spain
+Edited by:
+Andreas T eske, University of North
+Carolina at Chapel Hill, USA
+Reviewed by:
+Kasthuri Venkateswaran, National
+Aeronautics and Space
+Administration - Jet Propulsion
+Laboratory, USA
+Mohammad Ali Amoozegar,
+University of T ehran, Iran
+*Correspondence:
+Puriﬁcación López-García, Unité
+d’Ecologie, Systématique et
+Evolution, CNRS UMR 8079,
+Université Paris-Sud, 91405
+Orsay Cedex, France.
+e-mail: puri.lopez@u-psud.fr
+The Naica Mine in northern Mexico is famous for its giant gypsum crystals, which may reach
+up to 1 1 m long and contain ﬂuid inclusions that might have captured microorganisms during
+their formation. These crystals formed under particularly stable geochemical conditions in
+cavities ﬁlled by low salinity hydrothermal water at 54–58◦C. We have explored the microbial
+diversity associated to these deep, saline hydrothermal waters collected in the deepest
+(ca. 700–760 m) mineshafts by amplifying, cloning and sequencing small-subunit ribosomal
+RNA genes using primers speciﬁc for archaea, bacteria, and eukaryotes. Eukaryotes were
+not detectable in the samples and the prokaryotic diversity identiﬁed was very low. T wo
+archaeal operational taxonomic units (OTUs) were detected in one sample. They clustered
+with, respectively, basal Thaumarchaeota lineages and with a large clade of environmental
+sequences branching at the base of the Thermoplasmatales within the Euryarchaeota.
+Bacterial sequences belonged to the Candidate Division OP3, Firmicutes and the Alpha-
+and Beta-proteobacteria. Most of the lineages detected appear autochthonous to the Naica
+system, since they had as closest representatives environmental sequences retrieved
+from deep sediments or the deep subsurface. In addition, the high GC content of 16S
+rRNA gene sequences belonging to the archaea and to some OP3 OTUs suggests that
+at least these lineages are thermophilic. Attempts to amplify diagnostic functional genes
+for methanogenesis (mcrA ) and sulfate reduction (dsrAB ) were unsuccessful, suggesting
+that those activities, if present, are not important in the aquifer. By contrast, genes
+encoding archaeal ammonium monooxygenase ( AamoA) were ampliﬁed, suggesting that
+Naica Thaumarchaeota are involved in nitriﬁcation. These organisms are likely thermophilic
+chemolithoautotrophs adapted to thrive in an extremely energy-limited environment.
+Keywords: aerobic ammonium oxidation, Candidate Division OP3, GC content, hydrothermal, Thaumarchaeota,
+thermophile, Thermoplasmatales
+INTRODUCTION
+At the onset of the 1980s, the detection of living microorgan-
+isms in deep sediment cores revealed the occurrence of a hitherto
+unsuspected but vast subsurface ecosystem associated to deep-
+sea sediments as well as continental and oceanic crusts ( Ghiorse
+and Wilson, 1988; Gold, 1992; White et al., 1998; Whitman et al.,
+1998; Pedersen, 2000). Since then, the number of microbial diver-
+sity surveys on the deep subsur face has multiplied, especially
+in the subseaﬂoor, beneﬁting from initiatives such as the Inter-
+national Ocean Drilling Program (IODP 1). As data accumulate,
+initial quantitative assessments pre dicting that over 50% of all
+prokaryotic cells occur in the subsurface ( Whitman et al., 1998 )
+have been seriously challenged (Jorgensen, 2012; Kallmeyer et al.,
+2012). This illustrates that, despite increasing efforts, the diver-
+sity, extent, and function of the deep biosphere remain largely
+unknown.
+1http://www.iodp.org/
+This limited knowledge is due to a variety of factors includ-
+ing the inherent difﬁculty of sampling at progressively higher
+underground depths, the problem of external microbial contam-
+ination, and the refractory nature of many subsurface microbes
+that are dormant or living at extremely low metabolic rates
+(White et al., 1998 ; T eske, 2005). Indeed, although the deep
+subseaﬂoor constitutes the largest biotope on Earth, it seem-
+ingly possesses the lowest metabolic rates. The deep biosphere
+is also highly heterogeneous. Hot spots of microbial activity occur
+whenever chemical energy derived from redox reactions involving
+organic matter or inorganic electron donors (hydrogen, methane,
+hydrogen sulﬁde, or iron) are available at sedimentary and/or
+geochemical interfaces ( Chapelle et al., 2002 ; Parkes et al., 2005 ;
+Jorgensen and Boetius, 2007 ). Subseaﬂoor sediments are rich in
+organic matter as compared to rocky environments and, thus, sus-
+tain relatively diverse microorganisms, some of which degrade
+aromatic and other recalcitrant compounds ( Fredrickson et al.,
+1995). Nonetheless, the microbial activities that dominate in these
+www.frontiersin.org March 2013 | Volume 4 | Article 37 | 1
+
+“fmicb-04-00037” — 2013/3/4 — 15:42 — pag e2—# 2
+Ragon et al. Microbial diversity in Naica aquifer
+settings are methanogenesis and sulfate reduction, which con-
+stitute the terminal steps in the degradation of organics in the
+biogeochemical carbon cycle (Newberry et al., 2004; W ebster et al.,
+2006; Fry et al., 2008). Active microorganisms have been detected
+in marine subseaﬂoor sediments down to depths of 1,626 m below
+the sea ﬂoor at the Newfoundland margin, which corresponds
+to the oldest (111 million years old), and potentially hottest
+(∼100◦C) marine sediments investigated ( Roussel et al., 2008 ).
+Deep oil/petroleum reservoirs also sustain active microbial com-
+munities and several of their members are able to degrade long
+hydrocarbon chains and other complex organics ( Rueter et al.,
+1994; Head et al., 2003; Kim and Crowley, 2007).
+However, most of the deep subsurface, especially the bed rock,
+harbors organisms living under extreme energy limitation. Under
+these conditions, microorganisms are likely inactive or display
+exceedingly low metabolic activities ( Jorgensen and D’Hondt,
+2006; Jorgensen and Boetius, 2007 ). The detection of subsur-
+face microorganisms may be hampered by such low metabolic
+rates ( T eske, 2005) but also by the occurrence of divergent phy-
+logenetic lineages, since general primers used to amplify marker
+ribosomal RNA genes may fail to amplify genes from such diver-
+gent clades, a problem that may typically affect the archaea ( T eske
+and Sorensen, 2008 ). The volcanic oceanic crust has also been
+less explored due to the challenging sampling conditions and the
+needs for speciﬁc equipment ( Edwards et al., 2011). Nonetheless,
+microbial communities have been recently studied in subseaﬂoor
+basement ﬂuids as deep as 2,667 m on the eastern ﬂank of the
+Juan de Fuca Ridge in the Paciﬁc ( Jungbluth et al., 2012 ). While
+very deep rock communities in, for instance, granite or basalts,
+are much poorer than sediment communities due to the extreme
+nutrient depletion, organisms able to degrade hydrocarbons that
+might originate from serpentinization have been detected in very
+deep ocean gabbro (Mason et al., 2010), opening an intriguing new
+window for life in such ecosystems.
+The microbiology of the deep continental crust is even less
+well explored than that of the oceanic crust. Among the investi-
+gated sites, often from an applied perspective, are deep aquifers
+(Kimura et al., 2005 ), potential sites for the storage of radioac-
+tive waste ( Stroes-Gascoyne and W est, 1997)o rg a s( Basso et al.,
+2009), and deep mines ( Onstott et al., 2003; Sahl et al., 2008; Ras-
+togi et al., 2010). One of the deepest sites studied is the Archaean
+metabasalt at 2.825 km below the land surface in the Mponeng
+gold mine, South Africa, where sulfate reducers belonging to the
+Firmicutes appeared to be sustained by geologically produced sul-
+fate and hydrogen (Lin et al., 2006b). Deep mines offer a relatively
+easy access to the continental subsurface biosphere, and allow for
+sampling in very different geological settings.
+In this work, we have explored the microbial diversity asso-
+ciated to a deep, saline hydrothermal aquifer by sampling water
+springing at ca. 60 ◦C in the deepest (ca. 700 m) shafts of the
+Naica Mine, Mexico. Naica, one of the most important lead and
+silver deposits in the world, is located in a semi-desertic region
+but, during the raining season, temporary lagoons and ﬂood-
+ing zones parallel to the regional fault system may recharge the
+hydrothermal aquifer (Villasuso, 2002). The Naica area is under a
+mild thermal anomaly and water springing in the mine galleries
+has a temperature ranging from 50 to 60 ◦C( Garcia-Ruiz et al.,
+2007). The unique geochemical conditions of the mine have led
+to the formation, at very low calcium-sulfate supersaturation, of
+giant gypsum crystals (Erwood et al., 1979; Garcia-Ruiz et al., 2007;
+V an Driessche et al., 2011). Some of these giant crystals contain
+ﬂuid inclusions that might have captured microorganisms during
+their formation. The description of current microbial communi-
+ties associated to the subsurface hydrothermal water where these
+crystals formed is a pre-requisite to predict the type of microor-
+ganisms that may have been trapped in ﬂuid inclusions and a
+control to distinguish potential contaminants during the analysis
+of such small ﬂuid inclusions.
+MATERIALS AND METHODS
+SAMPLING AND DNA PURIFICATION
+The Naica Mine is located 112 km southeast of Chihuahua City in
+northern Mexico (27 ◦51′3′′N; 105◦29′47′′W). A further descrip-
+tion of the geological and hydrological setting of the mine is
+provided as Appendix. Water samples N1 and N2 were collected in
+the deepest excavated Naica mineshafts at ca. 700 and 760 m depth
+(Figure 1). Having been abandoned and partially inundated, these
+sites are seldom visited by miners, which limits potential contami-
+nation brought from the exterior or from upper layers of the mine.
+The air temperature was ca. 40 ◦C and the humidity ca. 90%. The
+water vigorously sprang from fractures in the rock wall. The water
+temperature measuredin situ in N1 and N2 was of ca. 60◦C and the
+pH of 7.5. Chemical analyses of the aquifer water have been car-
+ried out from 1976 to 2003, showing a rather stable composition
+through time. The water is highly enriched in calcium (∼600 mg/l)
+and sulfate (∼2 g/l) but contains also 100 mg/l Na, 24 mg/l Cl, and
+120 mg/l Mg as major components (see T able DR4 in Data Repos-
+itory Item; Garcia-Ruiz et al., 2007 ). T wo water samples of 20 l
+each were collected from two different hot springs (N1 and N2)
+in clean plastic containers thoroughly rinsed with the same hot
+spring water. The containers were immediately transported to the
+nearest laboratory and the water ﬁltered directly through GTTPTM
+isopore ﬁlters (Millipore, MA, USA) of 0.22 μm-pore diameter.
+Filters were ﬁxed in situ in 96% ethanol and stored at −20◦C until
+DNA was puriﬁed. For DNA extraction, the ethanol was removed
+from the ﬁlters by evaporation. The remaining ethanol was ﬁltered
+through a small 0.22 μm-pore size ﬁlter to retain detached micro-
+bial biomass. Filters from each sample were cut in small fragments,
+which were immediately rehydrated in the initial resuspension
+buffer of the PowerSoil DNA isolation kit (Mo Bio, Laborato-
+ries Inc., CA, USA). DNA was puriﬁed then using the PowerSoil
+DNA isolation kit following the instructions of the manufac-
+turer. DNA was eluted in 60 μl of T ris–HCl, pH 8 and conserved
+at −20◦C.
+PCR AMPLIFICATION, CLONING, AND SEQUENCING
+Small-subunit ribosomal RNA genes were ampliﬁed by poly-
+merase chain reaction (PCR) using speciﬁc primers for each
+domain of life. For bacteria, we used the primers 27F (AGAGTT-
+TGATCCTGGCTCAG) and 23S-1R (GGGTTTCCCCATTCG-
+GAAATC), which also amplify the adjacent internal transcribed
+spacer (ITS) region. Semi-nested reactions were subsequently
+carried out with 27F and the reverse prokaryotic primer 1492R
+(GGTTACCTTGTTACGACTT). Archaeal 16S rRNA genes were
+Frontiers in Microbiology | Extreme Microbiology March 2013 | Volume 4 | Article 37 | 2
+
+“fmicb-04-00037” — 2013/3/4 — 15:42 — pag e3—# 3
+Ragon et al. Microbial diversity in Naica aquifer
+FIGURE 1 | Hot spring sampling sites in the Naica Mine. Water sampling
+sites N1 and N2 are indicated in a not-to-scale hydrogeological sketch of
+the Naica deposit and associated caves. The horizontal groundwater level
+marks the position of the phreatic level immediately before the discovery of
+Cueva de la Espadas in 1910. The stratigraphic sequence on the right
+reports the lithology of a 1,150-m deep drillcore of the area ( Garofalo et al.,
+2010). The ﬁgure was adapted from ( Garcia-Ruiz et al., 2007 ) and ( Forti and
+Sanna, 2010).
+initially ampliﬁed using the forward archaea-speciﬁc primer 21FQ
+(GGGCGGGCTTCCGGTTGATCCTGCCGGA) and 1492R. Sub-
+sequent semi-nested ampliﬁcations were carried out with the
+internal forward primer Ar109 (AC(G/T)GCTGCTCAGTAACA-
+CGT)(N1-4A), W36 (TCCAGGCCCTACGGGG) (N1-5A), and
+ANMEF (GGCTCAGTAACACGTGGA) (N1-6A). Attempts to
+amplify eukaryotic 18S rRNA genes were carried out using the
+speciﬁc primers 82F (GAAACTGCGAATGGCTC) and 1520R
+(CYGCAGGTTCACCTAC) followed by semi-nested PCRs with
+1498R (CACCTACGGAAACCTTGTTA). PCR reactions were car-
+r i e do u ti n2 5μl of reaction buffer, containing 1.5 μl of the eluted
+DNA, 1.5 mM MgCl 2, dNTPs (10 nmol each), 20 pmol of each
+primer, and 0.2 U T aq platinum DNA polymerase (Invitrogen).
+PCR reactions were performed under the following conditions:
+35 cycles (denaturation at 94 ◦C for 15 s, annealing at 55 ◦C for
+30 s, extension at 72 ◦C for 2 min) preceded by 2 min denat-
+uration at 94 ◦C, and followed by 7 min extension at 72 ◦C.
+Negative controls were carried out systematically for each PCR
+ampliﬁcation experiment; all were n egative. In addition, to
+identify and eliminate potential contaminant sequences intro-
+duced during the manipulation in the laboratory of samples with
+extremely low biomass, e.g., contaminants associated to the DNA
+extraction kit and process, we had previously built a database
+of potential contaminants ( Gerard et al., 2009 ). Naica sequences
+were not closely related to them. Attempts to amplify dsrAB
+genes encoding the dissimilatory sulﬁte reductase diagnostic of
+sulfate reducers and mcrA genes encoding the methyl coenzyme
+M reductase characteristic of methanogenic archaea were done
+using, respectively, the speciﬁc primers DSR-1F (ACSCACTG-
+GAAGCACG) + DSR-4R (GTG TAG CAG TTA CCG CA)
+(Perez-Jimenez et al., 2001 ) and ME1F (CGMATGCARATHG-
+GW ATGTC)+ ME2R (TCATKGCRTAGTTDGGRTAGT) (Ina-
+gaki et al., 2004 ). Archaeal amoA genes encoding the ammo-
+nium monooxygenase were ampliﬁed with primers Arch-amoAF
+(STAATGGTCTGGCTTAGACG) and Arch-amoAR (GCGGC-
+CATCCATCTGTATGT) (Francis et al., 2005 ). T o amplify protein
+genes an annealing-temperature gradient of 47–55 ◦C was used
+to maximize the chances of ampliﬁcation. Clone libraries were
+www.frontiersin.org March 2013 | Volume 4 | Article 37 | 3
+
+“fmicb-04-00037” — 2013/3/4 — 15:42 — pag e4—# 4
+Ragon et al. Microbial diversity in Naica aquifer
+constructed using the T opoTA cloning kit (Invitrogen, Carlsbad,
+CA, USA) according to the manufacturer’s instructions. Clone
+inserts were PCR-ampliﬁed using ﬂanking vector primers, and
+inserts of expected size were par tially sequenced (Beckman Coul-
+ter Genomics, T akeley, UK) with 1492R yielding sequences of
+800–1,000 bp. A total of 91 archaeal and 266 bacterial high qual-
+ity sequences were retained for this study. Potential chimeric
+sequences were identiﬁed manually by comparing BLAST (Basic
+Local Alignment Search T ool) results from several portions of the
+full-length sequence. Operational taxonomic units (OTUs) were
+deﬁned as groups of 16S rRNA gene sequences sharing ≥98%
+identity. Several representative 16S rRNA clones of the different
+OTUs were nearly fully sequenced by using forward primers. Com-
+plete sequences were assembled using Code Aligner (CodonCode
+Corporation2) prior to phylogenetic analyses.
+PHYLOGENETIC ANALYSES
+Environmental 16S rRNA gene sequences from the Naica Mine
+were compared with sequences in the database GenBank 3 by
+BLAST (Altschul et al., 1997 ). W e retrieved the closest sequences
+found in the database and included them in an alignment con-
+taining also sequences from the closest cultivated members and
+some representative sequencesof the major taxa found. Sequences
+were aligned using MUSCLE (MUltiple Sequence Comparison by
+Log-Expectation; Edgar, 2004 ). Ambiguously aligned positions
+and gaps were eliminated using Gblocks ( Castresana, 2000 ). A
+total of 1,079 and 846 unambiguously aligned nucleotide positions
+were retained for, respectively, archaeal and bacterial sequences in
+order to carry out subsequent phylogenetic analyses. The resulting
+sequence alignments were used as input to build phylogenetic trees
+by approximate maximum likelihood using Fasttree ( Price et al.,
+2010) with a general time reversible (GTR) model of sequence
+evolution, and taking among-site rate variation into account by
+using a four-category discrete approximation of a Γ distribution.
+ML bootstrap proportions were inferred using 1,000 replicates.
+For protein (amoA) phylogenetic analyses, amino acid alignments
+were obtained with MUSCLE and trimmed using Gblocks. The
+ML phylogenetic tree was reconstructed using T reeﬁnder ( Jobb
+et al., 2004) with the W AG-Γ model of sequence evolution. Phy-
+logenetic trees were visualized using the program FIGTREE 4.T h e
+sequences reported in this study have been deposited in GenBank
+with accession numbers KC481372-KC481399.
+RESULTS AND DISCUSSION
+MICROBIAL DIVERSITY IN NAICA DEEP HYDROTHERMAL WATER
+W e tried to amplify archaeal, bacterial, and eukaryotic 16S/18S
+rRNA genes in the samples collected in two of the deepest
+accessible fracture-associated springs in the Naica mineshafts at
+approximately 700 and 760 m below the entrance level (Figure 1).
+However, despite several attempts, including nested PCR experi-
+ments, we failed to amplify eukaryotic 18S rRNA genes. Similarly,
+we failed to amplify archaea from N2. By contrast, we detected
+archaea belonging to the Thaumarchaeota and the Euryarchaeota
+2www.codoncode.com
+3http://www.ncbi.nlm.nih.gov/
+4http://tree.bio.ed.ac.uk/software/ﬁgtree/
+in N1 ( Figure 2 ). Nested PCR reactions were also required
+to amplify bacterial 16S rRNA genes, indicating that microbial
+biomass in this thermal water is very low. Only two high rank-
+bacterial taxa were detected in both samples, Betaproteobacteria,
+which represented between 80% (N2) and 90% (N1) of the 16S
+rRNA gene sequences analyzed, and the Candidate Division OP3,
+which represented 2% (N2) and 10% (N1) of the clone sequences.
+N2 displayed a higher bacterial diversity, with a few additional rep-
+resentatives of Firmicutes and Alphaproteobacteria accounting for
+up to 18% of the sequences ( Figure 2).
+The low prokaryotic diversity was not only observed at the
+level of high-rank taxa but also within taxa. Thus, very few OTUs
+(deﬁned at ≥98% sequence similarity level) were detected. Thau-
+marchaeota, Euryarchaeota, Alphaproteobacteria, and Firmicutes
+were represented by a single OTU, while up to three OTUs were
+detected within the Beta-proteobacteria and the Candidate Divi-
+sion OP3 ( Figure 2 ). Nonetheless, the different OTUs were not
+singletons, but encompassed several closely related sequences,
+sometimes detected in both samples N1 and N2.
+The two detected archaeal OTUs formed clades with other
+environmental sequences, but were very far from sequences
+of cultured species. The Thaumarchaeota Thaum_OTU1 clus-
+tered with a group of sequences retrieved mostly from deep-sea
+waters, sediments, and ﬂuids, including sequences from crustal
+ﬂuids in back-arc hydrothermal ﬁelds of the southern Mari-
+ana T rough ( Kato et al., 2009 ; Figure 3 ). Related sequences
+came from boreholes in other Mexican regions and from sub-
+surface coastal aquifers ( López-Archilla et al., 2007 ). Similarly,
+the Euryarchaeota Eury_OTU1 belonged to a large clade consist-
+ing exclusively of environmental sequences branching as a sister
+group to the Thermoplasmatales. Again the closest neighbors were
+sequences retrieved from deep-sea hydrothermal ﬁelds, continen-
+tal hot springs or pits (Figure 3). The Thaumarchaeota or Group I
+archaea constitute one of the most diversiﬁed archaeal phyla, being
+abundant in deep-sea plankton and soils, but also frequently asso-
+ciated to hot springs and the deep subsurface (Chandler et al., 1998;
+FIGURE 2 | Relative proportions of archaeal and bacterial operational
+taxonomic units (OTUs) distributed in major high-rank taxa from
+Naica deep hot springs. Archaea were only detected in sample N1 .
+Eukaryotes were not detected in any of the two samples.
+Frontiers in Microbiology | Extreme Microbiology March 2013 | Volume 4 | Article 37 | 4
+
+“fmicb-04-00037” — 2013/3/4 — 15:42 — pag e5—# 5
+Ragon et al. Microbial diversity in Naica aquifer
+FIGURE 3 | Maximum likelihood phylogenetic tree of archaeal 16S rRNA
+genes retrieved from Naica deep hot springs. The tree was reconstructed
+using 1,079 positions. Sequences obtained in this work are shown in color.
+Accession numbers of sequences retrieved from GenBank are given between
+brackets. Only bootstrap values higher than 50% are given at nodes. The
+scale bar represents the number of substitutions per a unit branch length.
+Rastogi et al., 2009). While many of the marine and soil mesophilic
+Thaumarchaeota may be nitriﬁers, aerobically oxidizing ammonia
+to nitrite, the metabolism of the deeper Thaumarchaeota branches
+to which the Naica OTU belongs, remains unknown ( Pester et al.,
+2011). The Thermoplasmatales are moderately thermoacidophilic
+archaea frequent in hot springs. The related lineages to which the
+Naica sequences resemble have been identiﬁed in deep-sea sed-
+iments and also in the deep subsurface ( Lin et al., 2006a ; Kato
+et al., 2009; Zhang et al., 2010 ). This suggests that both archaeal
+OTUs are autochthonous lineages in the Naica hydrothermal
+springs.
+Bacteria were dominated by the Betaproteobacteria, and in par-
+ticular by the Beta_OTU1, which represented between 50 and
+65% of the sequences retrieved in N1 and N2. Naica sequences
+were identical or nearly identical to Delftia sp. XYJ6, a strain iso-
+lated from wastewater and being able to degrade aniline (Y an et al.,
+2011) and to an environmental sequence obtained from a coral
+(Figure 4). By contrast the Beta_OTU2 is most closely related to
+Alcaligenes denitriﬁcans, which can be an opportunistic pathogen.
+This OTU might therefore represent an external contaminant.
+The remaining bacterial OTUs appear also to be autochthonous
+to the Naica system. The alphaproteobacterial OTU detected
+in N2 ascribed to the genus Paracoccus, encompassing bacteria
+often associated to soils but which can be isolated from the
+deep subseaﬂoor (Kobayashi et al., 2008). Likewise, the Firmicutes
+sequences (Firmi_OTU1) were nearly 100% identical to sequences
+retrieved from a subsurface aquifer at the Hanford Site (USA; Lin
+et al., 2012) and also to sequences retrieved from deeply buried
+coral carbonates and sediment at Porcupine Seabight (site U1317
+Hole A; Figure 4). Finally, the three OTUs ascribing to the Candi-
+date Division OP3 are most likely indigenous as well. So far, there
+is no cultured member of this taxon, but their 16S rRNA sequences
+have been identiﬁed in a variety of ecosystems such as marine sed-
+iments, hypersaline deep-sea, freshwater lakes, aquifers, ﬂooded
+paddy soils, and methanogenic bioreactors ( Madrid et al., 2001 ;
+López-Archilla et al., 2007 ; Glockner et al., 2010 ). The fact that
+many of these environments are anoxic and the identiﬁcation of
+OP3 genes potentially involved in anaerobic respiration in metage-
+nomic libraries suggest that many OP3 bacteria are anaerobes
+(Glockner et al., 2010 ). V ery recently, some OP3 members have
+been shown to be magnetotactic bacteria ( Kolinko et al., 2012 ).
+They have been notably detected in fracture-derived groundwater
+in a deep gold mine of South Africa ( Lin et al., 2006a). The Naica
+OP3 OTUs are divergent and have as closest relatives, although rel-
+atively distant, environmental sequences retrieved from deep-sea
+sediments or the subseaﬂoor ( Figure 4).
+www.frontiersin.org March 2013 | Volume 4 | Article 37 | 5
+
+“fmicb-04-00037” — 2013/3/4 — 15:42 — pag e6—# 6
+Ragon et al. Microbial diversity in Naica aquifer
+FIGURE 4 | Maximum likelihood tree of bacterial 16S rRNA genes
+retrieved from Naica deep hot springs. The tree was reconstructed using
+846 positions. Sequences obtained in this work are shown in color. Accession
+numbers of sequences retrieved from GenBank are given between brackets.
+Only bootstrap values higher than 50% are given at nodes. The scale bar
+represents the number of substitutions per a unit branch length.
+Frontiers in Microbiology | Extreme Microbiology March 2013 | Volume 4 | Article 37 | 6
+
+“fmicb-04-00037” — 2013/3/4 — 15:42 — pag e7—# 7
+Ragon et al. Microbial diversity in Naica aquifer
+LIKELY THERMOPHILIC LIFESTYLE UNDER EXTREME ENERGY
+LIMITATION
+The microbial diversity identiﬁed in the Naica hydrothermal water
+samples N1 and N2 was very low, being only comparable to that
+found in strongly energy-limited areas of the subsurface ( Jor-
+gensen and Boetius, 2007 ). Even samples from other deep-sea
+mines seemed to host a larger microbial diversity ( Onstott et al.,
+2003; Lin et al., 2006b ; Sahl et al., 2008 ; Rastogi et al., 2010 ),
+although the introduction of external contaminants by the mining
+activity or during the processing of extremely low biomass samples
+remains a general risk in deep-subsurface studies. In our case, most
+of the OTUs identiﬁed had as closest relatives other environmental
+sequences coming from deep sediments or subseaﬂoor environ-
+ments, suggesting that many of the microorganisms detected are
+indeed autochthonous to the Naica system. This is particularly
+clear for the archaea and bacteria of the Candidate Division OP3,
+and possibly for the Firmicutes OTU identiﬁed. With the exception
+of Beta_OTU2, which may be a human-related contaminant, the
+remaining Alpha- and Beta-proteobacterial sequences identiﬁed
+in Naica samples may be also indigenous. However, the possibil-
+ity that they are associated to soil or dust particles that have been
+introduced in the shaft cannot be completely ruled out. Given the
+low prokaryotic diversity of the system and its extreme conditions,
+especially the relatively high temperatures and the high nutrient
+depletion (oligotrophy), the absence of detectable eukaryotes in
+the Naica hot springs was not surprising.
+The above observations were further conﬁrmed by the GC con-
+tent of the retrieved sequences, which suggests that the archaeal
+and at least two OTUs of the Candidate Division OP3 correspond
+to thermophilic organisms. Although GC content varies along the
+genome and across phylogenetic lineages, it is well known that
+thermophiles and, most especially, hyperthermophiles increase
+the GC content of their rRNA molecules to cope with high tem-
+peratures (Groussin and Gouy, 2011). As can be seen in Figure 5,
+the GC content of Naica archaea, OP3 OTUs 1, and 2 and the
+Firmicutes fall among that of organisms growing optimally at tem-
+peratures between 50 and 70◦C. This suggests that these organisms
+are indeed thermophiles. The Thaumarchaeota, with over 60% GC
+at their 16S rRNA genes might be even extreme thermophiles and
+be able to grow in even hotter areas of the aquifer ( ∼60–70◦C).
+By contrast, little can be said about the optimal growth temper-
+ature of the remaining OTUs that display lower GC content in
+their rRNA sequences. They could be mesophiles or they might
+be moderate thermophiles growing well at temperatures around
+50–55◦C in the Naica system. Intriguingly, the sequences with
+the lowest GC content were those of the Candidate Division OP3
+OTU3 (Figure 5), which is most certainly autochthonous to Naica.
+This might indicate an overall low GC content in the genome of
+these organisms.
+With the exception of the thermophilic character of microor-
+ganisms thriving in Naica waters, little can be said about their
+metabolic potential from their 16S rRNA genes. Therefore, we
+aimed at providing some metabolic information about the Naica
+community by amplifying genes involved in speciﬁc metabolic
+pathways. In the case of archaea, many Thaumarchaeota are
+known to be nitriﬁers, oxidizing ammonia aerobically to nitrite,
+although the presence of archaeal amo genes does not necessarily
+FIGURE 5 | Comparative histogram showing the GC content of the
+same 16S rRNA region in Naica clones and in a wide range of
+microbial species growing at different temperatures.
+correlate with the basal branching groups, leaving the question
+open for these basal Thaumarchaeota ( Pester et al., 2011 ). W e
+succeeded in amplifying archaeal amoA genes, which branched
+together with amoA genes coming from soils and hot springs
+forming a clade distinct from that of marine planktonic archaea
+(Figure 6). This strongly suggests that these Naica archaea are ther-
+mophilic nitriﬁers that, given the highly oligotrophic conditions,
+are likely chemolithoautotrophic, as other members of the group
+(Pester et al., 2011).
+Methanogenic archaea and sulfate-reducing bacteria are often
+detected in subsurface environments ( Jorgensen and Boetius,
+2007; Fry et al., 2008 ; Roussel et al., 2008 ). However, archaeal
+sequences belonging to classical methanogenic Euryarchaeota
+were not observed in Naica. Nonetheless, very recently, the
+occurrence of methanogenesis has been discovered in organisms
+branching at the base of the Thermoplasmatales (Paul et al., 2012).
+Although our Naica sequences are not very closely related to
+these new “Methanoplasmatales, ” they remain related to deep-
+sea sequences forming a cluster with them ( Figure 3; Paul et al.,
+2012). However, we failed to amplify mcrA genes, used as a
+marker for methanogenesis, suggesting that Eury_OTU2 are not
+methanogens and gain energy by an unknown mechanism.
+In principle, the presence of sulfate-reducing bacteria could be
+expected in Naica since its hydrothermal waters are highly enriched
+in sulfate, allowing for the formation of massive gypsum crystals
+at a delicate super-saturation balance between anhydrite and gyp-
+sum (Garcia-Ruiz et al., 2007; V an Driessche et al., 2011; Krueger
+et al., 2013). However, members of the sulfate-reducing Deltapro-
+teobacteria were not identiﬁed. Sulfate reducers are also found
+within the Firmicutes, but the Naica OTU is not closely related to
+www.frontiersin.org March 2013 | Volume 4 | Article 37 | 7
+
+“fmicb-04-00037” — 2013/3/4 — 15:42 — pag e8—# 8
+Ragon et al. Microbial diversity in Naica aquifer
+FIGURE 6 | Maximum likelihood tree of archaeal amoA genes retrieved
+from Naica deep hot springs. The tree was reconstructed using 203
+amino acid positions. Sequences obtained in this work are shown in color.
+Accession numbers of sequences retrieved from GenBank are given
+between brackets. Only bootstrap values higher than 50% are given at
+nodes. The scale bar represents the number of substitutions per a unit
+branch length.
+known Gram-positive sulfate reducers (Figure 4), suggesting that
+they use another type of metabolism. W e failed to amplify dsrA
+genes encoding the dissimilatory sulﬁte reductase, which further
+reinforces the idea that Naica-associated microbial communities
+do not (or not dominantly) carry out sulfate reduction. At any rate,
+for sulfate reduction to occur, either organic matter or inorganic
+electron donors, typically H 2, must be present to fuel the redox
+reaction. However, both appear to be extremely low in the aquifer.
+Conversely, appreciable amounts of H2S, the resulting product of
+sulfate reduction, are not detectable in Naica (unpublished obser-
+vations). All these observations suggest that sulfate reduction, if
+it exists, is not a dominant metabolism in the microbiota of the
+Naica hydrothermal water despite an overwhelming availability of
+sulfate. This highlights the importance of having access to redox
+interfaces for life and implies that microorganisms thriving in the
+deep-subsurface thermal waters of the Naica system are among the
+most oligotrophic and energy-challenged communities explored
+to date.
+Given the low biomass and diversity associated to the Naica
+thermal water, the possibility that microorganisms were entrapped
+in ﬂuid inclusions in the massive crystals that slowly formed in
+these saline hot waters is small. Nevertheless, the present descrip-
+tion offers a list of potential bona-ﬁde candidate lineages to be
+captured in the ﬂuid inclusions. Whether their macromolecules,
+especially their DNA, have escaped thermal degradation upon
+metabolic exhaustion in the ﬂuid entrapments and are still
+detectable should be the subject of future studies.
+ACKNOWLEDGMENTS
+W e are grateful to Eng. Roberto Carlos Reyes and Compañía
+Peñoles for the facilities provided during the ﬁeld studies. This
+work was ﬁnanced by the Spanish MINECO (Consolider-Ingenio
+2010 project “Factoría de Cristalización” and project CGL2010-
+16882) and by the French Agence Nationale de la Recherche
+(ANR-08-GENM-024-001).
+REFERENCES
+Altschul, S. F ., Madden, T. L., Schaffer,
+A. A., Zhang, J., Zhang, Z., Miller, W .,
+et al. (1997). Gapped BLAST and PSI-
+BLAST: a new generation of protein
+database search programs. Nucleic
+Acids Res. 25, 3389–3402.
+Basso, O., Lascourreges, J. F ., Le Borgne,
+F ., Le Goff, C., and Magot, M.
+(2009). Characterization by culture
+and molecular analysis of the micro-
+bial diversity of a deep subsurface gas
+storage aquifer. Res. Microbiol. 160,
+107–116.
+Castresana, J. (2000). Selection of con-
+served blocks from multiple align-
+ments for their use in phylogenetic
+analysis. Mol. Biol. Evol. 17,
+540–552.
+Chandler, D. P ., Brockman, F . J., Bailey,
+T. J., and Fredrickson, J. K. (1998).
+Phylogenetic diversity of Archaea and
+bacteria in a deep subsurface pale-
+osol. Microb. Ecol. 36, 37–50.
+Chapelle, F . H., O’Neill, K., Bradley, P .
+M., Methe, B. A., Ciufo, S. A., Knobel,
+L. L., et al. (2002). A hydrogen-based
+subsurface microbial community
+dominated by methanogens. Nature
+415, 312–315.
+Edgar, R. C. (2004). MUSCLE: multiple
+sequence alignment with high accu-
+racy and high throughput. Nucleic
+Acids Res. 32, 1792–1797.
+Edwards, K. J., Wheat, C. G., and Sylvan,
+J. B. (2011). Under the sea: micro-
+bial life in volcanic oceanic crust.Nat.
+Rev. Microbiol. 9, 703–712.
+Erwood, R. J., Kesler, S. E., and Cloke, P .
+L. (1979). Compositionally distinct,
+saline hydrothermal solutions, Naica
+Mine, Chihuahua, Mexico. Economic
+Geology 74, 95–108.
+Forti, P ., and Sanna, L. (2010). The
+Naica projec – A multidisciplinary
+study of the largest gypsum crystal of
+the world. Episodes 33, 23–32.
+Francis, C. A., Roberts, K. J., Beman,
+J. M., Santoro, A. E., and Oakley, B.
+B. (2005). Ubiquity and diversity of
+ammonia-oxidizing archaea in water
+columns and sediments of the ocean.
+Proc. Natl. Acad. Sci. U.S.A. 102,
+14683–14688.
+Fredrickson, J. K., Balkwill, D. L., Drake,
+G. R., Romine, M. F ., Ringelberg, D.
+B., and White, D. C. (1995). Aro-
+matic-degrading Sphingomonas iso-
+lates from the deep subsurface. Appl.
+Environ. Microbiol. 61, 1917–1922.
+Fry, J. C., Parkes, R. J., Cragg, B. A.,
+W eightman, A. J., and W ebster, G.
+(2008). Prokaryotic biodiversity and
+activity in the deep subseaﬂoor bio-
+sphere. FEMS Microbiol. Ecol. 66,
+181–196.
+Garcia-Ruiz, J. M., Villasuso, R., Ayora,
+C., Canals, A., and Otalora, F .
+(2007). Formation of natural gyp-
+sum megacrystals in Naica, Mexico.
+Geology 35, 327–330.
+Garofalo, P . S., Fricker, M., Günther,
+D., Mercuri, A. M., Loreti, M., Forti,
+P ., et al. (2010). A climatic control
+on the formation of gigantic gypsum
+crystals within the hypogenic caves
+of Naica (Mexico)? Earth Planet Sci.
+Lett. 289, 560–569.
+Gerard, E., Moreira, D., Philip-
+pot, P ., V an Kranendonk, M.
+J., and Lopez-Garcia, P . (2009).
+Modern subsurface bacteria in pris-
+tine 2.7 Ga-old fossil stromatolite
+drillcore samples from the Fortes-
+cue Group, W estern Australia. PLoS
+ONE 4:e5298. doi: 10.1371/jour-
+nal.pone.0005298
+Ghiorse, W. C., and Wilson, J. T. (1988).
+Microbial ecology of the terrestrial
+subsurface. Adv. Appl. Microbiol. 33,
+107–172.
+Glockner, J., Kube, M., Shrestha, P . M.,
+W eber, M., Glockner, F . O., Reinhardt,
+R., et al. (2010). Phylogenetic diver-
+sity and metagenomics of candidate
+division OP3. Environ. Microbiol. 12,
+1218–1229.
+Gold, T. (1992). The deep, hot bio-
+sphere. Proc. Natl. Acad. Sci. U.S.A.
+89, 6045–6049.
+Groussin, M., and Gouy, M. (2011).
+Adaptation to environmental tem-
+perature is a major determinant
+of molecular evolutionary rates in
+archaea. Mol. Biol. Evol. 28, 2661–
+2674.
+Head, I. M., Jones, D. M., and
+Larter, S. R. (2003). Biological activity
+Frontiers in Microbiology | Extreme Microbiology March 2013 | Volume 4 | Article 37 | 8
+
+“fmicb-04-00037” — 2013/3/4 — 15:42 — pag e9—# 9
+Ragon et al. Microbial diversity in Naica aquifer
+in the deep subsurface and the
+origin of heavy oil. Nature 426,
+344–352.
+Inagaki, F ., T sunogai, U., Suzuki, M.,
+Kosaka, A., Machiyama, H., T akai,
+K., et al. (2004). Characterization of
+C1-metabolizing prokaryotic com-
+munities in methane seep habitats
+at the Kuroshima Knoll, southern
+Ryukyu Arc, by analyzing pmoA,
+mmoX, mxaF , mcrA, and 16S rRNA
+genes. Appl. Environ. Microbiol. 70,
+7445–7455.
+Jobb, G., V on Haeseler, A., and
+Strimmer, K. (2004). TREEFINDER:
+a powerful graphical analysis envi-
+ronment for molecular phylogenet-
+ics. BMC Evol. Biol. 4:18. doi:
+10.1186/1471-2148-4-18
+Jorgensen, B. B. (2012). Shrinking
+majority of the deep biosphere. Proc.
+Natl. Acad. Sci. U.S.A. 109, 15976–
+15977.
+Jorgensen, B. B., and Boetius, A. (2007).
+Feast and famine – microbial life in
+the deep-sea bed. Nat. Rev. Microbiol.
+5, 770–781.
+Jorgensen, B. B., and D’Hondt, S.
+(2006). Ecology. A starving major-
+ity deep beneath the seaﬂoor .S c i e n c e
+314, 932–934.
+Jungbluth, S. P ., Grote, J., Lin, H. T.,
+Cowen, J. P ., and Rappe, M. S. (2012).
+Microbial diversity within basement
+ﬂuids of the sediment-buried Juan
+de Fuca Ridge ﬂank. ISME J. 7,
+161–172.
+Kallmeyer, J., Pockalny, R., Adhikari,
+R. R., Smith, D. C., and D’Hondt,
+S. (2012). Global distribution of
+microbial abundance and biomass
+in subseaﬂoor sediment. Proc. Natl.
+Acad. Sci. U.S.A. 109, 16213–
+16216.
+Kato, S., Y anagawa, K., Sunamura,
+M., T akano, Y ., Ishibashi, J.,
+Kakegawa, T., et al. (2009). Abun-
+dance of Zetaproteobacteria within
+crustal ﬂuids in back-arc hydrother-
+mal ﬁelds of the Southern Mariana
+T rough.Environ. Microbiol. 11, 3210–
+3222.
+Kim, J. S., and Crowley, D. E.
+(2007). Microbial diversity in natu-
+ral asphalts of the Rancho La Brea
+T ar Pits.Appl. Environ. Microbiol. 73,
+4579–4591.
+Kimura, H., Sugihara, M., Y amamoto,
+H., Patel, B. K., Kato, K., and Hanada,
+S. (2005). Microbial community in
+a geothermal aquifer associated with
+the subsurface of the Great Arte-
+sian Basin, Australia.Extremophiles 9,
+407–414.
+Kobayashi, T., Koide, O., Mori, K., Shi-
+mamura, S., Matsuura, T., Miura, T.,
+et al. (2008). Phylogenetic and enzy-
+matic diversity of deep subseaﬂoor
+aerobic microorganisms in organics-
+and methane-rich sediments off
+Shimokita Peninsula. Extremophiles
+12, 519–527.
+Kolinko, S., Jogler, C., Katzmann, E.,
+Wanner, G., Peplies, J., and Schuler,
+D. (2012). Single-cell analysis reveals
+a novel uncultivated magnetotactic
+bacterium within the candidate divi-
+sion OP3. Environ. Microbiol. 14,
+1709–1721.
+Krueger, Y ., Garcia-Ruiz, J. M., Canals,
+A., Marti, D., Frenz, M., and V an
+Driessche, A. E. S. (2013). Deter-
+mining gypsum growth temperaturas
+using monophase ﬂuid inclusions –
+application to the giant gypsum crys-
+tals of Naica, Mexico. Geology.d o i :
+10.1130/G33581.33581 [Epub ahead
+of print].
+Lin, L.-H., Hall, J., Onstott, T. C.,
+Gihring, T., Sherwood Lollar, B.,
+Boice, E., et al. (2006a). Planktonic
+microbial communities associated
+with fracture-derived ground-
+water in a deep gold mine of
+South Africa. Geomicrobiol. J. 23,
+475–497.
+Lin, L. H., Wang, P . L., Rumble, D.,
+Lippmann-Pipke, J., Boice, E., Pratt,
+L. M., et al. (2006b). Long-term
+sustainability of a high-energy, low-
+diversity crustal biome. Science 314,
+479–482.
+Lin, X., Kennedy, D., Fredrickson,
+J., Bjornstad, B., and Konopka, A.
+(2012). V ertical stratiﬁcation of sub-
+surface microbial community com-
+position across geological formations
+at the Hanford Site. Environ. Micro-
+biol. 14, 414–425.
+López-Archilla, A. I., Moreira, D.,
+V elasco, S., and López-García, P .
+(2007). Archaeal and bacterial com-
+munity composition of a pristine
+coastal aquifer in Doñana National
+Park, Spain. Aquatic Microbiol. Ecol.
+47, 123–129.
+Madrid, V . M., T aylor, G. T., Scran-
+ton, M. I., and Chistoserdov, A.
+Y . (2001). Phylogenetic diversity of
+bacterial and archaeal communities
+in the anoxic zone of the Cariaco
+Basin. Appl. Environ. Microbiol. 67,
+1663–1674.
+Mason, O. U., Nakagawa, T., Rosner,
+M., V an Nostrand, J. D., Zhou, J.,
+Maruyama, A., et al. (2010). First
+investigation of the microbiology of
+the deepest layer of ocean crust. PLoS
+ONE 5:e15399. doi: 10.1371/jour-
+nal.pone.0015399
+Newberry, C. J., W ebster, G., Cragg,
+B. A., Parkes, R. J., W eightman, A.
+J., and Fry, J. C. (2004). Diversity
+of prokaryotes and methanogenesis
+in deep subsurface sediments from
+the Nankai T rough, Ocean Drilling
+Program Leg 190. Environ. Microbiol.
+6, 274–287.
+Onstott, T. C., Moser, D. P ., Pﬁffner, S.
+M., Fredrickson, J. K., Brockman, F .
+J., Phelps, T. J., et al. (2003). Indige-
+nous and contaminant microbes in
+ultradeep mines. Environ. Microbiol.
+5, 1168–1191.
+Parkes, R. J., W ebster, G., Cragg, B.
+A., W eightman, A. J., Newberry, C.
+J., Ferdelman, T. G., et al. (2005).
+Deep sub-seaﬂoor prokaryotes stim-
+ulated at interfaces over geological
+time. Nature 436, 390–394.
+Paul, K., Nonoh, J. O., Mikulski, L.,
+and Brune, A. (2012). “Methanoplas-
+matales, ” thermoplasmatales-related
+archaea in termite guts and other
+environments, are the seventh order
+of methanogens. Appl. Environ.
+Microbiol. 78, 8245–8253.
+Pedersen, K. (2000). Exploration of
+deep intraterrestrial microbial life:
+current perspectives. FEMS Micro-
+biol. Lett. 185, 9–16.
+Perez-Jimenez, J. R., Y oung, L. Y .,
+and Kerkhof, L. J. (2001). Molecular
+characterization of sulfate-reducing
+bacteria in anaerobic hydrocarbon-
+degrading consortia and pure cul-
+tures using the dissimilatory sulﬁte
+reductase (dsrAB) genes. FEMS
+Microbiol. Ecol. 35, 145–150.
+Pester, M., Schleper, C., and Wagner,
+M. (2011). The Thaumarchaeota: an
+emerging view of their phylogeny and
+ecophysiology. Curr. Opin. Microbiol.
+14, 300–306.
+Price, M. N., Dehal, P . S., and Arkin, A.
+P . (2010). FastT ree 2–approximately
+maximum-likelihood trees for large
+alignments. PLoS ONE 5:e9490. doi:
+10.1371/journal.pone.0009490
+Rastogi, G., Osman, S., Kukkadapu, R.,
+Engelhard, M., V aishampayan, P . A.,
+Andersen, G. L., et al. (2010). Micro-
+bial and mineralogical characteriza-
+tions of soils collected from the deep
+biosphere of the former Homestake
+gold mine, South Dakota. Microb.
+Ecol. 60, 539–550.
+Rastogi, G., Stetler, L. D., Peyton, B.
+M., and Sani, R. K. (2009). Molec-
+ular analysis of prokaryotic diversity
+in the deep subsurface of the former
+Homestake gold mine, South Dakota,
+USA. J. Microbiol. 47, 371–384.
+Roussel, E. G., Bonavita, M. A., Querel-
+lou, J., Cragg, B. A., W ebster, G.,
+Prieur, D., et al. (2008). Extending the
+sub-sea-ﬂoor biosphere. Science 320,
+1046.
+Rueter, P ., Rabus, R., Wilkes, H., Aeck-
+ersberg, F ., Rainey, F . A., Jannasch, H.
+W., et al. (1994). Anaerobic oxidation
+of hydrocarbons in crude oil by new
+types of sulphate-reducing bacteria.
+Nature 372, 455–458.
+Sahl, J. W ., Schmidt, R., Swanner, E. D.,
+Mandernack, K. W., T empleton, A. S.,
+Kieft, T. L., et al. (2008). Subsurface
+microbial diversity in deep-granitic-
+fracture water in Colorado. Appl.
+Environ. Microbiol. 74, 143–152.
+Stroes-Gascoyne, S., and W est, J. M.
+(1997). Microbial studies in the
+Canadian nuclear fuel waste manage-
+ment program. FEMS Microbiol. Rev.
+20, 573–590.
+T eske, A., and Sorensen, K. B. (2008).
+Uncultured archaea in deep marine
+subsurface sediments: have we caught
+them all? ISME J. 2, 3–18.
+T eske, A. P . (2005). The deep subsur-
+face biosphere is alive and well.Trends
+Microbiol. 13, 402–404.
+V an Driessche, A. E., Garcia-Ruiz, J.
+M., T sukamoto, K., Patino-Lopez, L.
+D., and Satoh, H. (2011). Ultraslow
+growth rates of giant gypsum crys-
+tals. Proc. Natl. Acad. Sci. U.S.A. 108,
+15721–15726.
+Villasuso, M. R. (2002). “Descripción
+del yacimiento de Naica, ” inGeología
+Económica de México , 2nd Edn, eds
+K. F . Clark, G. A. Salas Piza, and R. C.
+Estrada (Pachuca: Servicio Geológico
+Mexicano), 10.
+W ebster, G., Parkes, R. J., Cragg, B. A.,
+Newberry, C. J., W eightman, A. J., and
+Fry, J. C. (2006). Prokaryotic commu-
+nity composition and biogeochemi-
+cal processes in deep subseaﬂoor sed-
+iments from the Peru Margin. FEMS
+Microbiol. Ecol.58, 65–85.
+White, D. C., Phelps, T. J., and Onstott,
+T. C. (1998). What’s up down there?
+Curr. Opin. Microbiol. 1, 286–290.
+Whitman, W. B., Coleman, D. C., and
+Wiebe, W . J. (1998). Prokaryotes: the
+unseen majority.Proc. Natl. Acad. Sci.
+U.S.A. 95, 6578–6583.
+Y an, H., Y ang, X., Chen, J., Yin, C.,
+Xiao, C., and Chen, H. (2011). Syn-
+ergistic removal of aniline by carbon
+nanotubes and the enzymes of Delf-
+tia sp. XYJ6. J. Environ. Sci. 23, 1165–
+1170.
+Zhang, W ., Saren, G., Li, T., Yu, X., and
+Zhang, L. (2010). Diversity and com-
+munity structure of archaea in deep
+subsurface sediments from the trop-
+ical W estern paciﬁc. Curr. Microbiol.
+60, 439–445.
+Conflict of Interest Statement: The
+authors declare that the research was
+conducted in the absence of any com-
+mercial or ﬁnancial relationships that
+could be construed as a potential con-
+ﬂict of interest.
+Received: 13 December 2012; paper pend-
+ing published: 09 January 2013; accepted:
+12 February 2013; published online: 06
+March 2013
+www.frontiersin.org March 2013 | Volume 4 | Article 37 | 9
+
+“fmicb-04-00037” — 2013/3/4 — 15:42 — page 10 — #10
+Ragon et al. Microbial diversity in Naica aquifer
+Citation: Ragon M, Van Driessche AES,
+García-Ruíz JM, Moreira D and López-
+García P (2013) Microbial diversity in the
+deep-subsurface hydrothermal aquifer
+feeding the giant gypsum crystal-bearing
+Naica Mine, Mexico. Front. Microbiol.
+4:37. doi: 10.3389/fmicb.2013.00037
+This article was submitted to Frontiers
+in Extreme Microbiology, a specialty of
+Frontiers in Microbiology.
+Copyright © 2013 Ragon, Van Driessche,
+García-Ruíz, Moreira and López-García.
+This is an open-access article distributed
+under the terms of the Creative Commons
+Attribution License, which permits use,
+distribution and reproduction in other
+forums, provided the original authors and
+source are credited and subject to any
+copyright notices concerning any third-
+party graphics etc.
+Frontiers in Microbiology | Extreme Microbiology March 2013 | Volume 4 | Article 37 | 10
+
+“fmicb-04-00037” — 2013/3/4 — 15:42 — page 1 1 — #1 1
+Ragon et al. Microbial diversity in Naica aquifer
+APPENDIX
+HYDROLOGICAL AND GEOLOGICAL SETTING OF THE NAICA MINE
+(CHIHUAHUA, MEXICO)
+The Naica mining district is located in a semi-desertic region
+(100 km southeast of the city of Chihuahua), on the northwest
+ﬂank of the Sierra de Naica which, together with Sierra En medio
+and El Monarca, is elevated above an extensive alluvial ﬂoodplain.
+It is located inside of a hydrological basin (sub basin T ortuguil-
+las) with an extension of approximately 1.300 km 2. This area is
+characterized by small “arroyos” which drain run off water orig-
+inated in the surrounding mountain ranges (Sierra de Naica, En
+Medio, and El Monarca), towards alluvial plains, which in their
+lower parts form closed basins. During the raining season these
+basins host temporary lagoons (e.g., Chancaplea, Agua Zoquete,
+and El Soldado lagoons located at, respectively, the west, south-
+west, and south of the Naica Mine), and the potential excess of
+superﬁcial water might feed a shallow phreatic layer. Around these
+intermittent lagoons, marsh zones are observed subject to ﬂoods.
+These ﬂooding zones have a NW–SE orientation and are parallel
+to the regional fault systems, thus representing possible recharge
+sources (Villasuso, 2002).
+The materials of the Naica drainage basin, which host the
+ore deposit, are of Albian–Cenomanian age and form a gentle
+antiform structure made of a sequence of limestones and marls.
+This sequence is cut by discontinuous, pre-ore quartz–feldspar
+dikes (Megaw et al., 1988), which are associated to a relatively shal-
+low subhorizontal igneous intrusion that still generates a broad
+thermal anomaly in the southwest part of the region. Magnetomet-
+ric studies have unveiled an igneous source at a depth of between
+2.5 and 5 km, some 4 km south of Naica (Villasuso, 2002), while in
+2007 a drilling close to the mine shaft met an igneous body about
+1,140 m below the surface ( Forti and Sanna, 2010).
+The ore deposit is made of extensive tabular bodies ( Figure 1)
+and is related to hydrothermal ﬂows induced by T ertiary dykes
+forming one of the largest chimney-manto (skarn) Ag–Pb–Zn
+deposits of Mexico ( Erwood et al., 1979; Megaw et al., 1988; Pala-
+cios et al., 1991 ; Alva-V aldivia et al., 2003). Its ore mineralogy
+is represented mainly by early pyrite, galena, sphalerite, chal-
+copyrite, pyrrhotite, magnetite, rutile, and ﬂuorite. The main
+ore-forming process was dated at 30.2–26.0 Ma ( Alva-V aldivia
+et al., 2003 , and references therein) and the early conditions of
+ore deposition were estimated to be about 400–500 ◦C and 100–
+270 MPa (Megaw et al., 1988; Palacios et al., 1991). During a later
+stage, when the thermal ﬂuids got colder, quartz, anhydrite, and
+calcite formed veins within the ore bodies ( Stone, 1959 ). Mine
+activities have reached ca. 890 m below the mine entrance (level
+0 at 1,385 masl), and they are some 760 m below the original
+groundwater level which was at −130 m (1,255 masl). T o main-
+tain the mine galleries water free a dewatering of about 1 m 3/s is
+required.
+As mentioned above, the Naica area is still under a mild thermal
+anomaly and water springing in the mine galleries has a temper-
+ature ranging from 50 to 60 ◦C( Garcia-Ruiz et al., 2007 ). T wo
+different fault sets are the main structural controls for hydrother-
+mal circulation and therefore for the location of the mineral
+deposits. The most important of them are the Gibraltar, Naica,
+and Montaña faults. These structures still control the thermal
+water ﬂow within the Naica anticline: almost all the water spring-
+ing in the deep mine galleries comes from fractures related to these
+faults. Their important role in water circulation is also conﬁrmed
+by the fact that karst caves have developed in their vicinity. These
+hypogenic caves (i.e., deep karst cavities that develop from frac-
+tured controlled ﬂow of ground water within conﬁded aquifers)
+formed well after the ore-forming event ( Garofalo et al., 2010 )
+and some of them exhibit impressive deposits of very large selen-
+ite crystals. For example, along a segment of the Naica fault several
+such caves have been discovered: Cave of crystals, Ojo de la Reina,
+and Cueva de las V elas. These caves developed completely isolated
+from the surface, under hundreds of meters of hydraulic head
+from the regional aquifer. Partial or effective conﬁnement of this
+aquifer was achieved by the reduction of rock porosity from the
+precipitation of the hydrothermal minerals, and by the presence
+of shale levels (Benevides formation, Figure 1). The most typical
+cave mineralogy phases are gypsum, celestine, anglesite, jarosite,
+and goethite.
+A detailed study of the geochemical and physicochemical char-
+acteristics of the thermal aquifer evidenced a novel formation
+mechanism of these giant crystals (Garcia-Ruiz et al., 2007) which
+is based upon the gypsum-anhydrite solubility disequilibrium.
+At 58 ◦C the gypsum and anhydrite solubilities are the same
+(Hardie, 1967). At lower temperatures the solubility of gypsum
+becomes smaller than that of anhydrite. Therefore, below this
+temperature a solution saturated with respect to anhydrite is auto-
+matically super-saturated with respect to gypsum, thus inducing
+the deposition of gypsum and undersaturation with respect to
+anhydrite. Hence, the development of a few large crystals instead
+of many small ones is due to the fact that the temperature drop
+was extremely slow (data from ﬂuid inclusions indicate that the
+giant crystals developed in a temperature range between 55 and
+58◦C( Krueger et al., 2013 ); which lead to reduced nucleation
+(Garcia-Ruiz et al., 2007 )a n dav e r yl o wg r o w t hr a t e( Va n
+Driessche et al., 2011).
+REFERENCES
+Alva-V aldivia, L. M., Goguitchaichvili,
+A., and Urrutia-Fucugauchi, J.
+(2003). Petromagnetic properties in
+the Naica mining district, Chihuahua,
+Mexico: searching for source of min-
+eralization. Earth Planets Space 55,
+19–31.
+Erwood, R. J., Kesler, S. E., and Cloke, P .
+L. (1979). Compositionally distinct,
+saline hydrothermal solutions, Naica
+Mine, Chihuahua, Mexico. Econ.
+Geol. 74, 95–108.
+Forti, P ., and Sanna, L. (2010). The
+Naica projec t–am u l t idisciplinary
+study of the largest gypsum crystal of
+the world. Episodes 33, 23–32.
+Garcia-Ruiz, J. M., Villasuso, R., Ayora,
+C., Canals, A., and Otalora, F .
+(2007). Formation of natural gyp-
+sum megacrystals in Naica, Mexico.
+Geology 35, 327–330.
+Garofalo, P . S., Fricker, M., Günther,
+D., Mercuri, A. M., Loreti, M., Forti,
+P ., et al. (2010). A climatic control
+on the formation of gigantic gypsum
+crystals within the hypogenic caves
+of Naica (Mexico)? Earth Planet Sci.
+Lett. 289, 560–569.
+Hardie, L. A. (1967). The gypsum-
+anhydrite equilibrium at one atmo-
+sphere pressure. Am. Miner. 52,
+171–200.
+Krueger, Y ., Garcia-Ruiz, J. M., Canals,
+A., Marti, D., Frenz, M., and V an Dri-
+essche, A. E. S. (2013). Determining
+gypsum growth temperaturas using
+monophase ﬂuid inclusions – appli-
+cation to the giant gypsum crystals of
+Naica, Mexico.Geology. doi: 10.1130/
+G33581.1 [Epub ahead of print].
+Megaw, P . K. M., Ruiz, J., and Tit-
+ley, S. R. (1988). High-temperature,
+carbonate-hosted Pb–Zn–Ag (Cu)
+www.frontiersin.org March 2013 | Volume 4 | Article 37 | 11
+
+“fmicb-04-00037” — 2013/3/4 — 15:42 — page 12 — #12
+Ragon et al. Microbial diversity in Naica aquifer
+deposits of northern Mexico. Econ.
+Geol. 83, 1856–1885.
+Palacios, M. H. A., Querol, S. F ., and
+Lowther, G. K. (1991). “Geology and
+genesis of the Naica mineral deposits,
+Chihuahua, ” in Economic Geology of
+Mexico, ed. G. P . Salas. (Boulder,
+CO: Geological Society of America),
+259–265.
+Stone, J. G. (1959). Ore genesis in the
+Naica District, Chihuahua, Mexico.
+Econ. Geol. 54, 1002–1034.
+V an Driessche, A. E., Garcia-Ruiz, J.
+M., T sukamoto, K., Patino-Lopez, L.
+D., and Satoh, H. (2011). Ultraslow
+growth rates of giant gypsum crys-
+tals. Proc. Natl. Acad. Sci. U.S.A. 108,
+15721–15726.
+Villasuso, M. R. (2002). “Descripción
+del yacimiento de Naica, ” inGeología
+Económica de México , 2nd Edn, eds
+K. F . Clark, G. A. Salas Piza, and R. C.
+Estrada (Pachuca: Servicio Geológico
+Mexicano).
+Frontiers in Microbiology | Extreme Microbiology March 2013 | Volume 4 | Article 37 | 12

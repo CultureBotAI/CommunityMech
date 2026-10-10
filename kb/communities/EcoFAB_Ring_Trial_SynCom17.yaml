@@ -548,81 +548,140 @@ taxonomy:
     explanation: Documents SynCom member participation in ring trial
 ecological_interactions:
 - name: SynCom17 EcoFAB Ring-Trial Perturbation
-  description: >
-    The full 17-member switchgrass-rhizosphere SynCom was introduced into Brachypodium
-    distachyon EcoFAB 2.0 devices as a standardized inoculum, then compared with axenic,
-    SynCom16, and plant-free medium controls across five laboratories.
-  interaction_type: COLONIZATION_FACILITATION
+  description: The full 17-member inoculum was applied to 10-day-old Brachypodium distachyon plants in EcoFAB 2.0
+    devices and compared with axenic plants, SynCom16 lacking OAS925, and plant-free medium controls in five laboratories.
+    Its three downstream arrows represent whole-treatment effects on root composition, bulk spent-medium profiles
+    and plant development, not a claim that protocol standardization itself is a biological mechanism or that every
+    member facilitates colonization.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: symbiotic process
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
   downstream:
   - target: Paraburkholderia-Dominated SynCom17 Root Assembly
-    description: >
-      The standardized SynCom17 treatment yielded root communities that reproducibly
-      converged on high Paraburkholderia abundance across laboratories.
+    description: SynCom17 inoculation supplied the 17-member community from which the OAS925-dominated root profile
+      developed by 22 DAI. The SynCom16 omission comparison supports an inoculum-composition effect, not identification
+      of the molecular mechanism or absolute loss of the other members.
   - target: Treatment-Structured Rhizosphere Exometabolites
-    description: >
-      SynCom17 was one of the ring-trial treatments that drove reproducible,
-      treatment-dependent changes in the spent EcoFAB medium metabolome.
+    description: SynCom17 inoculation altered the plant-microbe system and thereby changed the measured bulk spent-medium
+      metabolite profile relative to the control treatments. This is a treatment-level effect; microbial versus
+      plant production, uptake and extracellular enzyme activity were not separated.
+  - target: SynCom17 Plant Biomass and Root Development Decrease
+    description: The SynCom17 inoculation treatment reduced shoot biomass in the combined-laboratory comparison
+      with axenic plants and reduced root development from 14 DAI onward. The experiment establishes a whole-treatment
+      response, not OAS925-only toxicity, competition for a specific nutrient or one necessary member.
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
-      root exudate composition, and final bacterial community structure
-    explanation: >
-      Anchors the standardized EcoFAB 2.0 SynCom ring trial and its treatment-dependent
-      plant, exudate, and community-structure outcomes.
-- name: Paraburkholderia Acid-Tolerant Root Colonization Traits
-  description: >
-    Paraburkholderia sp. OAS925 was the only SynCom17 member whose genome carried the
-    surveyed acid-resistance systems and a type III secretion system; fluorescence microscopy
-    also detected early root-tip and maturation-zone colonization, biofilm formation, and
-    active swimming near B. distachyon roots.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
+    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype, root
+      exudate composition, and final bacterial community structure
+    explanation: 'Anchors the standardized EcoFAB 2.0 SynCom ring trial and its treatment-dependent plant, exudate,
+      and community-structure outcomes.
+
+      '
   participating_taxa:
   - preferred_term: Paraburkholderia sp. OAS925
     term:
       id: NCBITaxon:1822464
       label: Paraburkholderia
-  biological_processes:
-  - preferred_term: symbiotic process
+  - preferred_term: Rhodococcus sp. OAS809
     term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  - preferred_term: Mycobacterium sp. OAE908
+    term:
+      id: NCBITaxon:1763
+      label: Mycobacterium
+  - preferred_term: Methylobacterium sp. OAE515
+    term:
+      id: NCBITaxon:407
+      label: Methylobacterium
+  - preferred_term: Variovorax sp. OAS795
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Rhizobium sp. OAE497
+    term:
+      id: NCBITaxon:379
+      label: Rhizobium
+  - preferred_term: Bosea sp. OAE506
+    term:
+      id: NCBITaxon:85413
+      label: Allobosea
+  - preferred_term: Bradyrhizobium sp. OAE829
+    term:
+      id: NCBITaxon:374
+      label: Bradyrhizobium
+  - preferred_term: Lysobacter sp. OAE881
+    term:
+      id: NCBITaxon:68
+      label: Lysobacter
+  - preferred_term: Arthrobacter sp. OAP107
+    term:
+      id: NCBITaxon:1667
+      label: Arthrobacter sp.
+  - preferred_term: Marmoricola sp. OAE513
+    term:
+      id: NCBITaxon:86795
+      label: Marmoricola
+  - preferred_term: Chitinophaga sp. OAE865
+    term:
+      id: NCBITaxon:79328
+      label: Chitinophaga
+  - preferred_term: Mucilaginibacter sp. OAE612
+    term:
+      id: NCBITaxon:423349
+      label: Mucilaginibacter
+  - preferred_term: Niastella sp. OAS944
+    term:
+      id: NCBITaxon:354354
+      label: Niastella
+  - preferred_term: Gottfriedia sp. OAE603
+    term:
+      id: NCBITaxon:2837503
+      label: Gottfriedia
+  - preferred_term: Brevibacillus sp. OAP136
+    term:
+      id: NCBITaxon:55080
+      label: Brevibacillus
+  - preferred_term: Paenibacillus sp. OAE614
+    term:
+      id: NCBITaxon:44249
+      label: Paenibacillus
+- name: Paraburkholderia Acid-Tolerant Root Colonization Traits
+  description: OAS925 carried uniquely detected surveyed acid-resistance and type III secretion modules among the
+    17 genomes. Separate RFP-isolate plant assays showed root colonization at 1 DAI and biofilm at 3 DAI; separate
+    culture assays showed high liquid growth and acid-tolerant motility. OAS925 was sixth, not first, in the biofilm
+    assay. These are one-strain observations, not facilitation of another taxon. No selective gene or trait perturbation
+    established which mechanism causes dominance in SynCom17.
+  scope: PAIRWISE
   downstream:
   - target: Paraburkholderia-Dominated SynCom17 Root Assembly
-    description: >
-      Acid-resistance genes, a unique T3SS module, biofilm formation, and rapid
-      acidic-condition motility provided candidate mechanisms for Paraburkholderia
-      dominance in the full SynCom17 root microbiome.
+    description: HYPOTHESIZED - acid-tolerant motility, colonization traits and associated genomic modules may help
+      OAS925 establish and expand on roots, contributing to its relative dominance. Separate isolate assays and
+      gene annotation support candidate mechanisms, but none was selectively disrupted or rescued in the 17-member
+      community.
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: Comparative genomic analysis showed that the Paraburkholderia sp. OAS925 genome
-    explanation: >
-      Supports Paraburkholderia-specific comparative-genomic signatures, including
-      acid-resistance genes and a T3SS module.
+    explanation: Supports surveyed OAS925 genomic signatures, not demonstrated expression, necessity or a gene-specific
+      mechanism of community dominance.
   - reference: PMID:40920748
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Clear RFP signals were detected at the root tip and in the maturation zone at 1 DAI
-    explanation: >
-      Documents early Paraburkholderia OAS925 colonization in B. distachyon roots
-      grown in the EcoFAB 2.0 device.
+    explanation: Supports early colonization in the separate RFP-isolate assay, not a selective trait test in SynCom17.
+  source_taxon:
+    preferred_term: Paraburkholderia sp. OAS925
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
 - name: Paraburkholderia-Dominated SynCom17 Root Assembly
-  description: >
-    By 22 days after inoculation, SynCom17 root microbiomes were dominated by
-    Paraburkholderia sp. OAS925 across all five laboratories, whereas the Paraburkholderia-free
-    SynCom16 condition produced more variable roots enriched in Rhodococcus, Mycobacterium,
-    and Methylobacterium.
-  interaction_type: COMPETITION
+  description: At 22 DAI, OAS925 accounted for about 98% of root bacterial 16S reads in SynCom17 across the five
+    laboratories. SynCom16 lacking OAS925 had more variable relative profiles dominated by Rhodococcus, Mycobacterium
+    and Methylobacterium. The listed participants identify the inoculum roster, not equal final abundance or proven
+    competition. Relative read dominance does not establish extinction, absolute suppression of the other members,
+    or mediation of the spent-medium response.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Paraburkholderia sp. OAS925
@@ -641,36 +700,74 @@ ecological_interactions:
     term:
       id: NCBITaxon:407
       label: Methylobacterium
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
+  - preferred_term: Variovorax sp. OAS795
     term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Treatment-Structured Rhizosphere Exometabolites
-    description: >
-      The Paraburkholderia-dominated SynCom17 root community coincided with a
-      rhizosphere exometabolite profile distinct from axenic and SynCom16 treatments.
-  - target: SynCom17 Plant Biomass and Root Development Decrease
-    description: >
-      The same SynCom17 treatment that selected Paraburkholderia-dominated roots
-      produced the strongest B. distachyon biomass and root-development decreases.
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Rhizobium sp. OAE497
+    term:
+      id: NCBITaxon:379
+      label: Rhizobium
+  - preferred_term: Bosea sp. OAE506
+    term:
+      id: NCBITaxon:85413
+      label: Allobosea
+  - preferred_term: Bradyrhizobium sp. OAE829
+    term:
+      id: NCBITaxon:374
+      label: Bradyrhizobium
+  - preferred_term: Lysobacter sp. OAE881
+    term:
+      id: NCBITaxon:68
+      label: Lysobacter
+  - preferred_term: Arthrobacter sp. OAP107
+    term:
+      id: NCBITaxon:1667
+      label: Arthrobacter sp.
+  - preferred_term: Marmoricola sp. OAE513
+    term:
+      id: NCBITaxon:86795
+      label: Marmoricola
+  - preferred_term: Chitinophaga sp. OAE865
+    term:
+      id: NCBITaxon:79328
+      label: Chitinophaga
+  - preferred_term: Mucilaginibacter sp. OAE612
+    term:
+      id: NCBITaxon:423349
+      label: Mucilaginibacter
+  - preferred_term: Niastella sp. OAS944
+    term:
+      id: NCBITaxon:354354
+      label: Niastella
+  - preferred_term: Gottfriedia sp. OAE603
+    term:
+      id: NCBITaxon:2837503
+      label: Gottfriedia
+  - preferred_term: Brevibacillus sp. OAP136
+    term:
+      id: NCBITaxon:55080
+      label: Brevibacillus
+  - preferred_term: Paenibacillus sp. OAE614
+    term:
+      id: NCBITaxon:44249
+      label: Paenibacillus
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the root microbiome inoculated with SynCom17 was dominated by Paraburkholderia sp.
-      OAS925 across all laboratories
-    explanation: >
-      Reports the reproducible Paraburkholderia dominance in root samples and the
-      altered SynCom16 community observed when OAS925 was removed.
+    snippet: the root microbiome inoculated with SynCom17 was dominated by Paraburkholderia sp. OAS925 across all
+      laboratories
+    explanation: 'Reports the reproducible Paraburkholderia dominance in root samples and the altered SynCom16 community
+      observed when OAS925 was removed.
+
+      '
 - name: Treatment-Structured Rhizosphere Exometabolites
-  description: >
-    Targeted LC-MS/MS of spent EcoFAB medium resolved treatment-dependent metabolite
-    clusters, including diverse metabolites increased in SynCom17, an amino-acid-rich
-    cluster with lower relative concentrations in SynCom17, and a smaller nucleoside
-    cluster increased in SynCom16 or in both SynCom treatments.
-  interaction_type: CROSS_FEEDING
+  description: Bulk spent EcoFAB medium showed treatment-dependent targeted and untargeted LC-MS profiles, including
+    an amino-acid-rich cluster depleted under SynCom17 and other clusters elevated under SynCom17 or SynCom16. This
+    is net extracellular abundance in a plant-microbe system, not identified donor-to-recipient cross-feeding. Plant
+    or microbial production and uptake, and extracellular enzyme activity, remain alternative contributors; OAS925-specific
+    amino-acid flux was not isolated.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: amino acid
@@ -681,17 +778,86 @@ ecological_interactions:
   - reference: PMID:40920748
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: A second large cluster consisted of metabolites with lower relative concentrations in the
-      SynCom17 treatment, represented mainly by amino acids
-    explanation: >
-      Identifies the amino-acid-rich metabolite cluster whose abundance was reduced
-      in the SynCom17 rhizosphere profile.
+    snippet: A second large cluster consisted of metabolites with lower relative concentrations in the SynCom17
+      treatment, represented mainly by amino acids
+    explanation: 'Identifies the amino-acid-rich metabolite cluster whose abundance was reduced in the SynCom17
+      rhizosphere profile.
+
+      '
+  participating_taxa:
+  - preferred_term: Paraburkholderia sp. OAS925
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
+  - preferred_term: Rhodococcus sp. OAS809
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  - preferred_term: Mycobacterium sp. OAE908
+    term:
+      id: NCBITaxon:1763
+      label: Mycobacterium
+  - preferred_term: Methylobacterium sp. OAE515
+    term:
+      id: NCBITaxon:407
+      label: Methylobacterium
+  - preferred_term: Variovorax sp. OAS795
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Rhizobium sp. OAE497
+    term:
+      id: NCBITaxon:379
+      label: Rhizobium
+  - preferred_term: Bosea sp. OAE506
+    term:
+      id: NCBITaxon:85413
+      label: Allobosea
+  - preferred_term: Bradyrhizobium sp. OAE829
+    term:
+      id: NCBITaxon:374
+      label: Bradyrhizobium
+  - preferred_term: Lysobacter sp. OAE881
+    term:
+      id: NCBITaxon:68
+      label: Lysobacter
+  - preferred_term: Arthrobacter sp. OAP107
+    term:
+      id: NCBITaxon:1667
+      label: Arthrobacter sp.
+  - preferred_term: Marmoricola sp. OAE513
+    term:
+      id: NCBITaxon:86795
+      label: Marmoricola
+  - preferred_term: Chitinophaga sp. OAE865
+    term:
+      id: NCBITaxon:79328
+      label: Chitinophaga
+  - preferred_term: Mucilaginibacter sp. OAE612
+    term:
+      id: NCBITaxon:423349
+      label: Mucilaginibacter
+  - preferred_term: Niastella sp. OAS944
+    term:
+      id: NCBITaxon:354354
+      label: Niastella
+  - preferred_term: Gottfriedia sp. OAE603
+    term:
+      id: NCBITaxon:2837503
+      label: Gottfriedia
+  - preferred_term: Brevibacillus sp. OAP136
+    term:
+      id: NCBITaxon:55080
+      label: Brevibacillus
+  - preferred_term: Paenibacillus sp. OAE614
+    term:
+      id: NCBITaxon:44249
+      label: Paenibacillus
 - name: SynCom17 Plant Biomass and Root Development Decrease
-  description: >
-    Compared with axenic plants, the SynCom17 treatment significantly decreased shoot
-    fresh weight and dry weight in the combined laboratory analysis and consistently
-    reduced root development from 14 days after inoculation onward.
-  interaction_type: COMPETITION
+  description: Compared with axenic plants, SynCom17 reduced shoot fresh and dry biomass in the combined-laboratory
+    analysis and reduced root development from 14 DAI onward. SynCom16 had a smaller shoot effect. These are whole-treatment
+    plant outcomes with laboratory variation, not a demonstrated microbial competition mechanism, direct OAS925-only
+    effect or reciprocal symbiosis.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: growth
@@ -703,36 +869,79 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: SynCom17 caused a consistent decrease in root development observed after 14 DAI onwards
-    explanation: >
-      Supports the reproducible root-development decrease measured for the full
-      SynCom17 treatment across EcoFAB laboratories.
-- name: Nitrogen-Status EcoFAB Root Exudation
-  description: >
-    Brachypodium distachyon grown in EcoFAB 2.0 altered its root-exudate metabolite
-    profile in response to nitrate, ammonium, ammonium nitrate, and nitrogen
-    starvation; nitrogen deficiency reduced nitrogen-containing compounds and
-    increased shikimate-phenylpropanoid metabolites.
-  interaction_type: NICHE_PARTITIONING
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: shikimic acid
+    explanation: 'Supports the reproducible root-development decrease measured for the full SynCom17 treatment across
+      EcoFAB laboratories.
+
+      '
+  participating_taxa:
+  - preferred_term: Paraburkholderia sp. OAS925
     term:
-      id: CHEBI:16119
-      label: shikimic acid
-    notes: Increased in root exudates under nitrogen deficiency
-  - preferred_term: p-coumaric acid
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
+  - preferred_term: Rhodococcus sp. OAS809
     term:
-      id: CHEBI:32374
-      label: trans-4-coumaric acid
-    notes: Phenylpropanoid increased under nitrogen stress; affects bacterial growth
-  evidence:
-  - reference: doi:10.1126/sciadv.adg7888
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: nitrogen deficiency decreased nitrogen-containing compounds but increased shikimates-phenylpropanoids
-    explanation: >
-      Documents nitrogen-status exudate modulation by B. distachyon grown in
-      EcoFAB 2.0 devices.
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  - preferred_term: Mycobacterium sp. OAE908
+    term:
+      id: NCBITaxon:1763
+      label: Mycobacterium
+  - preferred_term: Methylobacterium sp. OAE515
+    term:
+      id: NCBITaxon:407
+      label: Methylobacterium
+  - preferred_term: Variovorax sp. OAS795
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Rhizobium sp. OAE497
+    term:
+      id: NCBITaxon:379
+      label: Rhizobium
+  - preferred_term: Bosea sp. OAE506
+    term:
+      id: NCBITaxon:85413
+      label: Allobosea
+  - preferred_term: Bradyrhizobium sp. OAE829
+    term:
+      id: NCBITaxon:374
+      label: Bradyrhizobium
+  - preferred_term: Lysobacter sp. OAE881
+    term:
+      id: NCBITaxon:68
+      label: Lysobacter
+  - preferred_term: Arthrobacter sp. OAP107
+    term:
+      id: NCBITaxon:1667
+      label: Arthrobacter sp.
+  - preferred_term: Marmoricola sp. OAE513
+    term:
+      id: NCBITaxon:86795
+      label: Marmoricola
+  - preferred_term: Chitinophaga sp. OAE865
+    term:
+      id: NCBITaxon:79328
+      label: Chitinophaga
+  - preferred_term: Mucilaginibacter sp. OAE612
+    term:
+      id: NCBITaxon:423349
+      label: Mucilaginibacter
+  - preferred_term: Niastella sp. OAS944
+    term:
+      id: NCBITaxon:354354
+      label: Niastella
+  - preferred_term: Gottfriedia sp. OAE603
+    term:
+      id: NCBITaxon:2837503
+      label: Gottfriedia
+  - preferred_term: Brevibacillus sp. OAP136
+    term:
+      id: NCBITaxon:55080
+      label: Brevibacillus
+  - preferred_term: Paenibacillus sp. OAE614
+    term:
+      id: NCBITaxon:44249
+      label: Paenibacillus
 environmental_factors:
 - name: Nitrogen Source
   value: NH4NO3
@@ -850,3 +1059,41 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: The plates were then moved to the growth chamber with a 14 h photoperiod (16 h for lab C) at 26 °C and 10 h dark at 20 °C with photosynthetic photon flux density (PPFD) at 110–140 µmol/m2/s and 70% humidity if tunable.
     explanation: Names the plant growth-chamber photoperiod, light/dark temperatures, light intensity, and humidity.
+curation_history:
+- timestamp: '2026-10-02T05:49:32Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: 'Retargeted the SynCom17 plant-biomass and root-development edge onto the SynCom17 treatment perturbation
+    instead of the co-occurring Paraburkholderia-dominated root profile, and rewrote the Paraburkholderia-to-exometabolite
+    edge to state the source-supported metabolome modulation directly.
+
+    '
+  llm_assisted: true
+- timestamp: '2026-10-06T08:26:09Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain three whole-treatment effects without colonization facilitation or symbiotic-process claims.;
+    Retain intrinsic OAS925 traits with only a hypothesized contribution to dominance.; Retain relative community
+    composition without competition or metabolome mediation.; Retain net spent-medium profiles without assigning
+    direct cross-feeding.; Retain measured whole-treatment plant growth effects without a competition mechanism.
+    Issue #1424; reports/causal_graph_review/decisions/20261006-three-records-batch36.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: ecofab_syncom17_mediation_and_study_scope
+  prompt: Which OAS925 traits and plant-microbe fluxes mediate the SynCom17 outcomes?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#SynCom17 EcoFAB Ring-Trial Perturbation
+  - ecological_interactions#Paraburkholderia Acid-Tolerant Root Colonization Traits
+  - ecological_interactions#Paraburkholderia-Dominated SynCom17 Root Assembly
+  - ecological_interactions#Treatment-Structured Rhizosphere Exometabolites
+  - ecological_interactions#SynCom17 Plant Biomass and Root Development Decrease
+  rationale: 'The three treatment arrows are retained, the trait-to-assembly arrow remains HYPOTHESIZED, and the
+    assembly-to-metabolome arrow is removed because a common treatment does not isolate mediation. Single-isolate
+    assays, relative reads and net spent-medium profiles do not resolve trait necessity or cross-feeding. The removed
+    nitrogen-status node belongs to doi:10.1126/sciadv.adg7888, whose EcoFAB plants were sterile and whose 14 bacterial
+    bioassays were individual cultures, not the SynCom17 trial. Protocol and non-graph role/uptake claims remain
+    under #1427; canonical Allobosea grounding is preserved.'
+  posed_by: codex
+  posed_date: '2026-10-06'

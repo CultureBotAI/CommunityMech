@@ -1,0 +1,27 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml
+  slug: Wheat_CrownRot_SixStrain_CrossKingdom_SMC
+session:
+  id: 2026-09-22T003400Z-claude-code-66602d
+  timestamp: '2026-09-22T00:34:00Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: codex
+    agent_tool: codex-cli
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1035
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - interactions
+  - tests
+  summary: Fix six-strain wheat SMC review finding
+  details: Removed the redundant participating_taxa list from the whole-community Fusarium
+    crown-rot suppression edge. The interaction applies to the complete introduced SMC, so
+    an omitted participating_taxa slot is the clearer all-member representation and avoids
+    adding this record to the participating_taxa corpus canary.

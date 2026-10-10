@@ -1,0 +1,73 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 0910d162535f98abba87fadb931b1261ce7aa775
+scope:
+- kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture.yaml
+findings:
+- issue: 1316
+  severity: P2
+  finding: The wild-type graph included an engineered-donor DNA endpoint, generalized condition-specific product
+    emergence and promoted proposed mechanisms to categorical effects.
+  disposition: addressed_and_locally_verified
+open_nongraph_followups:
+- issue: 1317
+  disposition: intentionally_not_closed_by_graph_only_patch
+  scope: Description assay scope, manual Type I pH adjustment, organism-specific heat shock and monoculture conditions.
+existing_model_followups:
+- 749
+- 752
+adversarial_checks:
+- Preserve the real plasmid integration result in the removed-node ledger snapshot while excluding it from the wild-type
+  graph.
+- Retain wild-type structural fusion and reported chemical protein-label exchange; distinguish the RNA reporter
+  assay.
+- Do not claim visual inspection of primary or supplemental figures; main bodies, Methods and captions were read.
+- Retain measured supernatant profiles, amino-acid supplementation and glucose-consumption results, not a transcript-only
+  characterization.
+- Supplementation uses two biological replicates; transcriptome comparisons and early glucose-consumption measurements
+  use three.
+- Distinguish recipient monoculture supplementation from traced donor flux, ATP mediation and Wood-Ljungdahl pathway
+  flux.
+- Do not equate transcript-associated growth with species-specific growth rates or headspace comparisons with direct
+  hydrogenase activity.
+- Bound 2,3-butanediol emergence to reported controls, not universal monoculture inability.
+- Contact separation is not a selective fusion perturbation; both retained causal arrows remain explicitly hypothesized.
+- Different monoculture substrate/gas conditions do not settle same-condition obligacy; existing global enum issues
+  remain open.
+- Four exact renames and one node/arrow removal, with complete ledger accounting and valid discussion anchors; no
+  new structure or Edison spend.
+- Unrelated YAML blocks, all reference caches and participant/connectivity test registries remain unchanged.
+verification:
+  status: local_validation_complete
+  checks: 16
+  records: 460
+  nodes: 1474
+  edges: 717
+  review_status_counts:
+    needs_research: 3
+    pending: 357
+    reviewed: 100
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  unchanged_raw_blocks: 18
+  snippet_counts:
+    MATCH: 41
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1460
+    edge_descriptions: 709
+  render_determinism: passed
+  regressions: 239 passed in 161.89s (0:02:41)
+  rights: 3 passed in 1.67s
+  rights_import_root_verified: true
+  caches_unchanged: true
+  primary_artifact_hashes_rechecked: true
+  participant_registry_and_connectivity_test_bytes_unchanged: true

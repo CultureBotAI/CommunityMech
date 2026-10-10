@@ -84,9 +84,11 @@ taxonomy:
     snippet: B. thetaiotaomicron-derived formate is used by M. smithii for methanogenesis
     explanation: Supports the formate-consuming methanogenic role of M. smithii.
 ecological_interactions:
-- name: Formate Transfer To Methanogenesis
-  description: Bacteroides thetaiotaomicron produces formate that is consumed by Methanobrevibacter smithii
-    for methanogenesis, creating an archaeal-bacterial cross-feeding interaction.
+- name: Inferred Formate Transfer To Methanogenesis
+  description: PARTIAL - the source infers that B. thetaiotaomicron-derived formate supports M. smithii methanogenesis
+    from in-vitro formate consumption and in-vivo bacterial/archaeal transcription. Cecal formate concentration
+    did not differ significantly. SYNTROPHY represents the proposed product-removal mechanism, not a directly resolved
+    donor-specific flux or proof of obligacy.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -104,7 +106,7 @@ ecological_interactions:
     term:
       id: CHEBI:15740
       label: formate
-    concentration: B. thetaiotaomicron-derived methanogenesis substrate
+    concentration: Proposed B. thetaiotaomicron-derived methanogenesis substrate; donor flux unmeasured
   - preferred_term: methane
     term:
       id: CHEBI:16183
@@ -117,19 +119,20 @@ ecological_interactions:
       label: methanogenesis
   downstream:
   - target: Biassociation Enhances Colonization Density
-    description: >
-      M. smithii consumption of B. thetaiotaomicron-derived formate provides a
-      syntrophic methanogenic sink that helps explain the improved distal-gut
-      representation of both organisms.
+    description: PARTIAL - methanogen consumption of bacterial formate could relieve a fermentation-product constraint
+      and contribute to higher colonization of both partners. Formate-specific necessity and its contribution relative
+      to hydrogen were not resolved by the inspected main-paper measurements.
   evidence:
   - reference: PMID:16782812
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: B. thetaiotaomicron-derived formate is used by M. smithii for methanogenesis
-    explanation: Supports formate transfer from the bacterial member to the archaeal methanogen.
+    explanation: Supports the source's formate-transfer inference from in-vitro consumption and in-vivo transcription,
+      not traced donor-specific transfer.
 - name: Methanogen-Directed Fructan Fermentation
-  description: Methanobrevibacter smithii redirects B. thetaiotaomicron metabolism toward dietary fructan
-    fermentation and acetate production, unlike the D. piger comparator.
+  description: M. smithii biassociation increased dietary-fructan utilization and acetate concentration, with bacterial
+    transcriptional and redox changes unlike the D. piger comparator. PARTIAL - product removal provides the source's
+    syntrophic explanation; the specific necessary sink was not isolated.
   interaction_type: SYNTROPHY
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -149,10 +152,9 @@ ecological_interactions:
     concentration: Product increased during B. thetaiotaomicron-M. smithii biassociation
   downstream:
   - target: Biassociation Enhances Colonization Density
-    description: >
-      The M. smithii-specific shift toward dietary fructan fermentation and
-      acetate production is the bacterial metabolic response associated with
-      enhanced biassociation fitness.
+    description: PARTIAL - enhanced dietary-fructan fermentation could supply energy supporting bacterial expansion
+      within the mutually beneficial biassociation. The metabolic shifts and higher colonization are measured, but
+      selective pathway mediation was not established by their co-occurrence.
   evidence:
   - reference: PMID:16782812
     supports: SUPPORT
@@ -160,8 +162,8 @@ ecological_interactions:
     snippet: M. smithii directs B. thetaiotaomicron to focus on fermentation of dietary fructans to acetate
     explanation: Supports the methanogen-specific effect on bacterial fermentation output.
 - name: Biassociation Enhances Colonization Density
-  description: Cocolonization with M. smithii and B. thetaiotaomicron increased representation of both
-    species in the distal intestines of gnotobiotic mice relative to monoassociated controls.
+  description: Cocolonization with M. smithii and B. thetaiotaomicron increased representation of both species in
+    the distal intestines of gnotobiotic mice relative to monoassociated controls.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -295,3 +297,25 @@ growth_media:
     snippet: Each mouse was inoculated with a single gavage with 10
     explanation: Supports the single-gavage inoculation regimen (10^8 microbes per strain) used to
       establish the defined community.
+discussions:
+- discussion_id: methanogen_formate_hydrogen_mediation
+  prompt: How much do formate and hydrogen removal contribute to each partner's colonization benefit?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Inferred Formate Transfer To Methanogenesis
+  - ecological_interactions#Methanogen-Directed Fructan Fermentation
+  - ecological_interactions#Biassociation Enhances Colonization Density
+  rationale: Paired abundance increases support mutualism. Main-paper formate consumption/transcripts, fructan depletion
+    and fermentation pools support a mechanistic model, not donor-specific in-vivo transfer or necessary/sufficient
+    mediation. Labeled analytical internal standards are not tracer-fed flux experiments. Supplementary methods,
+    tables, figures and underlying data remain unread.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T11:29:49Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve measured gut mutualism while qualifying syntrophic mediation; decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1254'
+  llm_assisted: true

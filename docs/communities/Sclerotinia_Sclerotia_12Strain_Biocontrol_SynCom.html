@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>Sclerotinia Sclerotia 12-Strain Biocontrol SynCom</h1>
         </div>
     </header>
@@ -400,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        laboratory Sclerotinia sclerotiorum sclerotia co-culture
+                        laboratory Sclerotinia sclerotiorum sclerotia co-culture<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -414,7 +437,7 @@
                     <span class="metadata-label">Modeled Environment</span>
                     <span class="metadata-value">
 
-                        flooded agricultural soil
+                        flooded agricultural soil<span class="ontology-label"> — ontology label: soil</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00001998"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -439,6 +462,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -452,7 +476,7 @@
 
                     <tr>
                         <td>
-                            <strong>Caballeronia zhejiangensis N8</strong>
+                            <strong>Caballeronia zhejiangensis N8<span class="ontology-label"> — ontology label: Caballeronia zhejiangensis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=871203"
@@ -494,7 +518,7 @@
 
                     <tr>
                         <td>
-                            <strong>Cupriavidus sp. N4</strong>
+                            <strong>Cupriavidus sp. N4<span class="ontology-label"> — ontology label: Cupriavidus</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=106589"
@@ -536,7 +560,7 @@
 
                     <tr>
                         <td>
-                            <strong>Massilia sp. R20</strong>
+                            <strong>Massilia sp. R20<span class="ontology-label"> — ontology label: Massilia</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=149698"
@@ -578,7 +602,7 @@
 
                     <tr>
                         <td>
-                            <strong>Massilia sp. TB221</strong>
+                            <strong>Massilia sp. TB221<span class="ontology-label"> — ontology label: Massilia</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=149698"
@@ -620,7 +644,7 @@
 
                     <tr>
                         <td>
-                            <strong>Massilia sp. RB201</strong>
+                            <strong>Massilia sp. RB201<span class="ontology-label"> — ontology label: Massilia</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=149698"
@@ -662,7 +686,7 @@
 
                     <tr>
                         <td>
-                            <strong>Massilia sp. RB202</strong>
+                            <strong>Massilia sp. RB202<span class="ontology-label"> — ontology label: Massilia</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=149698"
@@ -704,7 +728,7 @@
 
                     <tr>
                         <td>
-                            <strong>Paraburkholderia sp. I59</strong>
+                            <strong>Paraburkholderia sp. I59<span class="ontology-label"> — ontology label: Paraburkholderia</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1822464"
@@ -746,7 +770,7 @@
 
                     <tr>
                         <td>
-                            <strong>Paraburkholderia phenoliruptrix TB211</strong>
+                            <strong>Paraburkholderia phenoliruptrix TB211<span class="ontology-label"> — ontology label: Paraburkholderia phenoliruptrix</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=252970"
@@ -788,7 +812,7 @@
 
                     <tr>
                         <td>
-                            <strong>Paraburkholderia phymatum R7</strong>
+                            <strong>Paraburkholderia phymatum R7<span class="ontology-label"> — ontology label: Paraburkholderia phymatum</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=148447"
@@ -830,7 +854,7 @@
 
                     <tr>
                         <td>
-                            <strong>Paraburkholderia sp. T17</strong>
+                            <strong>Paraburkholderia sp. T17<span class="ontology-label"> — ontology label: Paraburkholderia</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1822464"
@@ -872,7 +896,7 @@
 
                     <tr>
                         <td>
-                            <strong>Ralstonia sp. R4</strong>
+                            <strong>Ralstonia sp. R4<span class="ontology-label"> — ontology label: Ralstonia</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=48736"
@@ -914,7 +938,7 @@
 
                     <tr>
                         <td>
-                            <strong>Trinickia sclerotiorum sp. nov. MC</strong>
+                            <strong>Trinickia sclerotiorum sp. nov. MC<span class="ontology-label"> — ontology label: Trinickia</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2571160"
@@ -956,18 +980,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Sclerotinia Sclerotia 12-Strain Biocontrol SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -975,13 +1001,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -990,28 +1011,45 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Twelve-Strain SynCom Suppression of Sclerotinia Sclerotia</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">The full twelve-member inoculum increased sclerotium mortality relative to the control in the reported laboratory comparison. This establishes a community treatment effect, not equal antagonistic contributions by every member, resource competition with the fungus or a demonstrated cellular defense-response pathway.</p>
 
 
 
 
                 <p><strong>Target Taxon:</strong> Sclerotinia sclerotiorum</p>
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Caballeronia zhejiangensis N8,
+
+                    Cupriavidus sp. N4,
+
+                    Massilia sp. R20,
+
+                    Massilia sp. TB221,
+
+                    Massilia sp. RB201,
+
+                    Massilia sp. RB202,
+
+                    Paraburkholderia sp. I59,
+
+                    Paraburkholderia phenoliruptrix TB211,
+
+                    Paraburkholderia phymatum R7,
+
+                    Paraburkholderia sp. T17,
+
+                    Ralstonia sp. R4,
+
+                    Trinickia sclerotiorum sp. nov. MC
+
+                </p>
 
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        defense response to fungus
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0050832"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0050832</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -1040,28 +1078,23 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Trinickia MC Key Contribution to Sclerotia Mortality</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">The dropout series and single-member comparison identify Trinickia MC as the strongest resolved contributor to accelerated sclerotium mortality. Its contribution is context- and time-dependent, not proof that MC is uniquely necessary for all eventual mortality or that every other member reinforces it. The primary discussion reports attenuation by the remaining nine-member group and eventual mortality from assemblies lacking MC. This node records the named member&#39;s contribution to the community intervention; Sclerotinia is the external challenge context, not a thirteenth consortium member.</p>
 
 
 
 
                 <p><strong>Target Taxon:</strong> Sclerotinia sclerotiorum</p>
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Trinickia sclerotiorum sp. nov. MC
+
+                </p>
 
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        defense response to fungus
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0050832"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0050832</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -1070,6 +1103,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Twelve-Strain SynCom Suppression of Sclerotinia Sclerotia
+                        <p class="prewrap causal-description">The decrease in mortality following MC removal supports a causal contribution to the full-community outcome over the measured time course. This is not an additive decomposition of member effects or proof of universal necessity; other-member effects can attenuate MC and later reach the same endpoint.</p>
                     </div>
 
                 </div>
@@ -1099,11 +1133,23 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Spatial Invasion of Sclerotia by SynCom Members</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
+                <p class="prewrap interaction-description">Spatial profiling detected early interior colonization by Massilia TB221 and R20, later interior enrichment of Ralstonia R4 and Trinickia MC, and MC dominance across the sampled layers at the final observation. These distribution and timing observations are not demonstrated competition-reducing niche partitioning or evidence that early colonization itself causes mortality. The MC contribution is supported independently by the dropout comparison, not inferred solely from its location.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Massilia sp. TB221,
+
+                    Massilia sp. R20,
+
+                    Ralstonia sp. R4,
+
+                    Trinickia sclerotiorum sp. nov. MC
+
+                </p>
 
 
 
@@ -1166,6 +1212,7 @@
 
         <section>
             <h2>Associated Datasets</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Associated Datasets">
             <table>
                 <thead>
                     <tr>
@@ -1211,10 +1258,11 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(3)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -1286,12 +1334,48 @@
 
             </div>
 
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which mechanisms explain the context-dependent antagonism and spatial associations?
+                </h3>
+                <p class="prewrap">Mortality contrasts support the community and MC treatment effects, while the spatial profile alone does not establish facilitation, resource competition or reduced competition among bacteria. Nonadditive effects and eventual mortality in assemblies lacking MC limit an essential-member interpretation. Molecular mechanisms remain unresolved; no new pathway, culturing procedure or genetic design is introduced. Existing taxonomic and partial-coverage discussions remain unchanged.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Twelve-Strain SynCom Suppression of Sclerotinia Sclerotia</code>, <code>ecological_interactions#Trinickia MC Key Contribution to Sclerotia Mortality</code>, <code>ecological_interactions#Spatial Invasion of Sclerotia by SynCom Members</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42523014/" rel="nofollow noreferrer">PMID:42523014</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">dropping TsMC significantly decreased mortality and its mono-inoculation alone could accelerate sclerotia mortality</p>
+                        <p class="muted small prewrap">Supports a dropout-resolved MC contribution in the tested comparisons, not universal necessity or an additive contribution model.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
         </section>
 
         <!-- Environmental Factors -->
 
         <section>
             <h2>External Resources</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="External Resources">
             <table>
                 <thead>
                     <tr>
@@ -1374,12 +1458,14 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -1444,6 +1530,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -1566,12 +1653,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1584,7 +1674,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1708,14 +1797,10 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("defense response to fungus");
-
 
             var evidenceCount = 1;
 
@@ -1741,14 +1826,10 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("defense response to fungus");
-
 
             var evidenceCount = 1;
 
@@ -1774,7 +1855,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1794,6 +1875,23 @@
 
 
 
+            var participantKeys = [
+
+                "Massilia sp. TB221",
+
+                "Massilia sp. R20",
+
+                "Ralstonia sp. R4",
+
+                "Trinickia sclerotiorum sp. nov. MC"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
 
@@ -1807,6 +1905,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

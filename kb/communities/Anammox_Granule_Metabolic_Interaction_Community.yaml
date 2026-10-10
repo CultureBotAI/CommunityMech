@@ -133,10 +133,10 @@ taxonomy:
     explanation: Supports the broader heterotrophic flanking community in the recovered MAG set.
 ecological_interactions:
 - name: Anammox Ammonium-Nitrite Conversion
-  description: Brocadia-affiliated AMX1 oxidizes ammonium anaerobically using nitrite as the terminal
-    electron acceptor, producing nitrogen gas and nitrate-linked byproducts that structure the granule.
+  description: The Brocadia-affiliated AMX1 genome expressed anammox genes in the nitrogen-removing granule reactor.
+    This supports active metabolic potential; the proposed transfers to neighboring heterotrophs were inferred from
+    genomes and transcripts rather than measured as partner-resolved fluxes.
   scope: COMMUNITY_LEVEL
-  interaction_type: CROSS_FEEDING
   participating_taxa:
   - preferred_term: Brocadia-affiliated anammox bacterium AMX1
     term:
@@ -153,17 +153,14 @@ ecological_interactions:
       label: nitrite
   downstream:
   - target: Heterotrophic Nitrite Loop
-    description: Nitrate-linked products of Brocadia anammox metabolism provide
-      the oxidized nitrogen pool that heterotrophic flanking bacteria can
-      reduce back to nitrite.
+    description: HYPOTHESIZED - anammox-derived nitrate could supply heterotrophic nitrate reduction and a nitrite-return
+      loop; expression supports potential but not the exchanged flux.
   - target: EPS Peptide Scavenging by Chlorobi
-    description: Dominant anammox growth supplies the EPS matrix whose
-      proteinaceous material is scavenged by Chlorobi-affiliated
-      heterotrophs.
+    description: HYPOTHESIZED - anammox-associated extracellular material could feed heterotrophic proteolysis;
+      the source of consumed protein and the transfer were not traced in this study.
   - target: Detritus and Small-Donor Scavenging
-    description: Biomass turnover from the dominant anammox population supplies
-      detrital organic matter and small donors for heterotrophic scavengers in
-      the granule.
+    description: HYPOTHESIZED - biomass turnover or released small substrates could feed heterotrophs; wastewater-derived
+      organic carbon and unresolved pathway directions prevent exclusive attribution to AMX1.
   evidence:
   - reference: doi:10.1038/ncomms15416
     supports: SUPPORT
@@ -171,8 +168,9 @@ ecological_interactions:
     snippet: genes involved in anammox metabolism
     explanation: Supports active anammox metabolism in the Brocadia-affiliated AMX1 genome.
 - name: Heterotrophic Nitrite Loop
-  description: Heterotrophic anammox-granule members respire nitrate to nitrite, potentially recycling nitrate
-    produced by anammox growth back into nitrite for anammox bacteria.
+  description: HYPOTHESIZED - expressed heterotrophic nitrate-reductase genes could support nitrate-to-nitrite recycling
+    for anammox. The study also identifies other nitrogen-reduction routes; a realized nitrite loop and its contribution
+    were not directly measured.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -193,20 +191,17 @@ ecological_interactions:
     term:
       id: CHEBI:16301
       label: nitrite
-  biological_processes:
-  - preferred_term: denitrification
-    term:
-      id: GO:0019333
-      label: denitrification pathway
   evidence:
   - reference: doi:10.1038/ncomms15416
-    supports: SUPPORT
+    snippet: All heterotrophs expressed respiratory nitrate reductase genes
+    explanation: Same-study results support nitrate-reduction potential. They do not prove nitrite return or complete
+      nitrate-to-dinitrogen denitrification by every participant.
     evidence_source: COMPUTATIONAL
-    snippet: possibly completing a nitrite loop with anammox and nitrite oxidizing bacteria (NOB) by reducing nitrate back to nitrite
-    explanation: Supports nitrate-to-nitrite recycling as an interaction with anammox bacteria.
+    supports: PARTIAL
 - name: EPS Peptide Scavenging by Chlorobi
-  description: Chlorobi-affiliated heterotrophs degrade extracellular proteinaceous material in the granule
-    matrix, releasing amino acids and peptides that can support themselves and other community members.
+  description: HYPOTHESIZED - highly expressed peptidases and peptide/amino-acid transport genes support Chlorobi-affiliated
+    protein scavenging. Extracellular localization and anammox-derived EPS as the substrate are inferred; transfer
+    to other community members was not directly demonstrated.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -225,18 +220,21 @@ ecological_interactions:
       label: proteolysis
   evidence:
   - reference: doi:10.1038/ncomms15416
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: catabolizing extracellular peptides
-    explanation: Supports peptide scavenging by Chlorobi-affiliated heterotrophs.
+    explanation: Supports a source-proposed EPS/peptide-scavenging model; same-system substrate origin and inter-member
+      flux were not directly traced.
   - reference: doi:10.1038/ncomms15416
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: EPS produced by anammox bacteria
-    explanation: Supports anammox-derived EPS as an organic carbon source.
+    explanation: Supports a source-proposed EPS/peptide-scavenging model; same-system substrate origin and inter-member
+      flux were not directly traced.
 - name: Detritus and Small-Donor Scavenging
-  description: Other heterotrophic members scavenge detritus, peptides, hydrogen, acetate, and formate,
-    broadening carbon and electron flow in the granule.
+  description: HYPOTHESIZED - heterotrophic genomes expressed functions compatible with detritus, peptide and small-donor
+    metabolism. The direction of acetate metabolism remains unresolved, and hydrogen/formate use does not establish
+    secretion by AMX1 or exclusive anammox-derived carbon supply.
   scope: COMMUNITY_LEVEL
   interaction_type: CROSS_FEEDING
   participating_taxa:
@@ -259,10 +257,10 @@ ecological_interactions:
       label: formate
   evidence:
   - reference: doi:10.1038/ncomms15416
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: scavenging of detritus and peptides
-    explanation: Supports detritus and peptide scavenging by heterotrophic members.
+    explanation: Supports proposed scavenging based on expressed gene content, not resolved donor-to-recipient flux.
 environmental_factors:
 - name: anaerobic granule interior
   value: Oxygen diffusion limited by dense aggregate structure
@@ -315,3 +313,26 @@ associated_datasets:
     evidence_source: COMPUTATIONAL
     snippet: Metabolic network analysis reveals microbial community interactions
     explanation: Links this record to the article and associated supplementary data.
+discussions:
+- discussion_id: anammox_granule_resolved_exchange
+  prompt: Which proposed nitrogen and carbon exchanges occur between these granule members?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Anammox Ammonium-Nitrite Conversion
+  - ecological_interactions#Heterotrophic Nitrite Loop
+  - ecological_interactions#EPS Peptide Scavenging by Chlorobi
+  - ecological_interactions#Detritus and Small-Donor Scavenging
+  rationale: doi:10.1038/ncomms15416 reconstructs expressed metabolic potential. Acetate pathway direction is explicitly
+    unresolved; cited tracer support for EPS origin comes from other work. The reactor received wastewater filtrate
+    with residual organic carbon. Same-system flux tracing and partner perturbations are required to identify the
+    exchanged substrates and their contributors.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T08:42:44Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate anammox granule expression evidence from proposed metabolite exchanges; complete decisions:
+    reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml; https://github.com/CultureBotAI/CommunityMech/issues/1245'
+  llm_assisted: true

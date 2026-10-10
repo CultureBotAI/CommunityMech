@@ -1,7 +1,7 @@
 ---
 name: review-yaml-record
 description: "Review one CommunityMech YAML record without editing it: verify identity, source support, evidence placement, completeness, and the exact changes a curator would need. Use when asked to audit, inspect, spot-check, or review a named record. Not for bulk sampling, curation edits, paid research, or GitHub mutation."
-allowed-tools: Bash, Read, Grep, Glob, WebSearch, WebFetch
+allowed-tools: Bash, Read, Grep, Glob, WebSearch, WebFetch, Write
 metadata:
   category: review
   requires_database: false
@@ -23,10 +23,10 @@ or internally inconsistent, what is materially incomplete, and what bounded
 checks would resolve the remaining uncertainty.
 
 Reviewing is not curation. A review request authorizes reads, validation
-commands, and a written report in the session; it does not authorize editing a
-record, regenerating products, spending provider credits, contacting anyone, or
-creating or mutating GitHub issues, pull requests, comments, labels, or
-settings.
+commands, one new structured YAML/Markdown review bundle described below, and
+a concise final summary; it does not authorize editing a record, regenerating
+products, spending provider credits, contacting anyone, or creating or mutating
+GitHub issues, pull requests, comments, labels, or settings.
 
 Resolve exactly one target before judging anything. If a label, slug, or
 identifier matches several records, stop and disambiguate; a thorough review of
@@ -40,20 +40,19 @@ cannot support a record-level verdict on their own.
 ## Scope
 
 <!-- canonical:begin scope -->
-Review only YAML records from this repository's curated record corpus. If a
-record is generated from a maintained table, overlay, or source transform,
-report the maintained upstream input that owns any future fix. Do not patch
-generated artifacts, generated pages, cache files, reports, or cross-repository
-outputs to make a reviewed record look correct.
+Review records from this repository's declared corpus, including an exact frozen
+snapshot row when the local profile uses that surface. Read
+`docs/record-review-profile.md` for the active native review entrypoints, local
+rubrics, validators, and maintained input ownership. A curation skill is not a
+prerequisite for reviewing a record.
 
-Use the write boundaries, generated-output warnings, and curation ownership
-rules from `.claude/skills/curate-yaml-record/SKILL.md` to decide where a future
-fix would belong. For this skill, report that path; do not make the change.
+For a generated record, identify the maintained table, overlay, source transform
+or seeder that owns a future fix. Do not patch records, generated artifacts,
+pages, caches, or cross-repository outputs. Only the new review bundle is written.
 
-Use `.claude/skills/curate-yaml-record/references/review-checklist.md` as the
-field-by-field rubric for this corpus. The checklist is deliberately local: the
-shared review shape is the same across the fleet, but claim types and
-completeness criteria are Mech-specific.
+Preserve local claim types, priority rules, scoring definitions, and scientific
+status/history gates. The shared shape standardizes observations; it does not
+replace the Mech's field-by-field rubric or authorize status promotion.
 <!-- canonical:end scope -->
 
 ## Evidence Rules
@@ -77,6 +76,42 @@ completeness criteria are Mech-specific.
   adjacent term; leave unsupported identity claims flagged as unresolved.
 <!-- canonical:end evidence-rules -->
 
+## Structured Source Cross-Checks
+
+<!-- canonical:begin structured-source-cross-checks -->
+Use structured source adapters before open-ended web search when this record
+names a gene, locus tag, UniProt accession, regulator, pathway, stress response,
+trait, or transcriptomics dataset that may already be represented in a shared
+database.
+
+For iModulonDB candidates, first resolve the runner. In the commands below,
+`<kg-microbe-sources>` means either an installed `kg-microbe-sources` console
+script or `uv run --project <claw-root> kg-microbe-sources` from a local
+`culturebotai-claw` checkout. If neither runner is available, record the
+structured adapter as unavailable and fall back to inspected iModulonDB source
+pages or open web search.
+
+- Run `<kg-microbe-sources> imodulondb datasets` to find covered
+  organism/dataset keys.
+- Run `<kg-microbe-sources> imodulondb search --organism <organism> --dataset
+  <dataset> --query <term>` for a record gene, locus, regulator, protein name,
+  stress-response term, or iModulon name that matches a covered organism.
+- Run `<kg-microbe-sources> imodulondb summarize --organism <organism>
+  --dataset <dataset> --k <component>` for any iModulon hit that would inform
+  the record verdict.
+- Record useful `organism/dataset/component` and `organism/dataset/gene` keys
+  under **Evidence** or **Additional Notes**, and keep any copied summary table
+  small enough to justify why the record is or is not supported.
+
+iModulon membership is computational expression-module evidence. It can support
+a bounded transcriptomic context finding for a covered strain, gene, regulator,
+or protein, but it is not direct proof of a phenotype, MIC, natural-product
+identity, cell-structure localization, habitat assertion, medium recipe, or
+medium-ingredient identity. If no covered organism/dataset matches the target,
+write that iModulonDB was not applicable; absence from iModulonDB is not
+negative evidence.
+<!-- canonical:end structured-source-cross-checks -->
+
 ## Missing Things
 
 <!-- canonical:begin missing-things -->
@@ -93,10 +128,9 @@ search, call the miss provisional.
 
 <!-- canonical:begin workflow -->
 1. Read the local guidance that names exact validators and write boundaries:
-   `CLAUDE.md`, `justfile`,
-   `.claude/skills/curate-yaml-record/SKILL.md`, and
-   `.claude/skills/curate-yaml-record/references/review-checklist.md`.
-2. Resolve one YAML file under the curated record globs named above. Confirm
+   `CLAUDE.md`, `justfile`, `docs/record-review-profile.md`, its local rubrics,
+   and `docs/record-reviews.md` for the shared output contract.
+2. Resolve one record under the declared corpus or native frozen-row selector. Confirm
    its class, identifier, label, source provenance, grounding status, evidence
    entries, discussion or quality flags, generated status, and curation history
    shape.
@@ -125,19 +159,36 @@ search, call the miss provisional.
 ## Output
 
 <!-- canonical:begin output -->
-Return a concise markdown report with these sections:
+Save one immutable structured review bundle for the resolved record
+using the CLAW-governed contract in `docs/record-reviews.md` and
+`schema/record_review.yaml`. Preserve the local rubric identified by
+`docs/record-review-profile.md`.
 
-- **Verdict**: pass, pass with minor issues, or needs curation.
-- **Identity**: the record reviewed and whether its ID, label, category, and
-  source identity agree.
-- **Validation**: each command run and its result, including unavailable checks.
-- **Evidence**: supported claims, unsupported or over-scoped claims, and any
-  citation or snippet mismatch.
-- **Completeness**: consequential gaps, empty optional slots correctly left
-  empty, and bounded searches that found nothing.
-- **Recommended Edits**: concrete future curation actions, ordered by severity,
-  with the maintained path that owns each fix.
+- Capture actual UTC start/finish, reviewer identity and independence, exact
+  target IDs/locators, Git base, input hashes, and generated-input owners.
+- Retain every check and its real result, domain assessments, inspected evidence,
+  normalized findings, native rules/severity rationale, proposed actions with
+  acceptance checks, and explicit limitations. Do not equate a deterministic
+  check with scientific review.
+- Use `kind: record`; it identifies exactly one target.
+- Invoke `uv run python scripts/record_review.py inspect --targets <targets.yaml>`
+  before assessment, then `validate <completed-review.yaml>` and
+  `save --content <completed-review.yaml>` with the same script. Recheck changed
+  inputs instead of silently refreshing their hashes.
+- The saver writes
+  `reviews/structured/<YYYYMMDDTHHMMSSZ>-<slug>/review.yaml` plus `review.md`.
+  YAML is authoritative; do not hand-edit the rendered Markdown or overwrite an
+  earlier bundle. Run `uv run python scripts/record_review.py check` afterward.
+- If required checks are unavailable after the target is resolved, save an honest
+  partial/blocked observation. If the shared saver itself cannot run, report
+  that persistence is blocked; session-only prose is not a saved review.
+- Retain stable issue keys and exact `previous_occurrences` when reassessing a
+  finding. A later clean report does not close earlier unresolved findings.
+- Do not append curation/history events or promote native scientific status.
+  Those require a separately authorized curation change and native gates.
 
-Do not append a curation event, promote a review status, or write a history
-entry from this read-only review. Those belong to a later curation change.
+Do not create a report for an unresolved ambiguous target. In the final response,
+link both saved files and summarize scope, verdict, findings by severity, and
+unavailable checks. Existing ad hoc Markdown is historical, not the output format
+for new reviews.
 <!-- canonical:end output -->

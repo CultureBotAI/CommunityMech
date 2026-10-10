@@ -68,6 +68,11 @@ media_cache/
 reports/*.csv
 reports/*.txt
 reports/*.json
+# Written by `just report-label-drift`; the label-correspondence CI workflow
+# regenerates it and uploads it as an artifact. Deliberately NOT reports/*.tsv:
+# the five tracked reports/*.tsv files are committed on purpose (#391 weighed
+# ignoring instance_validation_failures.tsv; #406 kept it tracked).
+reports/label_drift.tsv
 research/
 
 # Generated HTML pages (can be regenerated)
@@ -139,3 +144,7 @@ pages/style.css
 
 # linkml-term-validator / OAK label cache
 cache/
+# New structured review bundles are tracked; legacy report rules stay scoped.
+!/reviews/
+!/reviews/structured/
+!/reviews/structured/**

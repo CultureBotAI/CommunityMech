@@ -1,0 +1,117 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: ee38b8f0a6166f3d56dbf9ec07ac3afbabe2d1eb
+decision_ledger: reports/causal_graph_review/decisions/20261005-three-records-batch24.yaml
+validation_report: reports/causal_graph_review/validation-20261005-batch24.json
+scope:
+- kb/communities/Cordyceps_Malbranchea_Antimicrobial_Coculture.yaml
+- kb/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml
+- kb/communities/Crucian_Carp_Gut_Disease_Resistance_SynCom.yaml
+findings:
+- issue: 1351
+  severity: P2
+  finding: External additive response and transcript interpretation encoded as directed transfer, thermodynamic
+    syntrophy and unqualified flux mediation.
+  disposition: addressed_and_locally_verified
+- issue: 1352
+  severity: P2
+  finding: Host enzyme/transcript responses promoted into selective immune/barrier mediation and microbial fitness
+    signs; transcript markers described as protein validation.
+  disposition: addressed_and_locally_verified
+open_nongraph_followups:
+- issue: 1353
+  disposition: not_closed_by_graph_only_patch
+- issue: 1354
+  disposition: not_closed_by_graph_only_patch
+adversarial_checks:
+- Review all eight original nodes and four arrows. Retain every node/arrow with four exact renames; no new structure
+  or Edison spend.
+- 'Cordyceps graph remains byte-unchanged: isolation and selective antibacterial assays are abstract-supported endpoints.
+  Neither partner-dependent induction nor reciprocal benefit is asserted. Do not add an artificial connecting arrow
+  or duplicate closed #1158/#1159.'
+- 'Remove SYNTROPHY from the succinate graph: no demonstrated thermodynamically favorable metabolism enabled by
+  partner product removal. External riboflavin is not proof of Shewanella secretion or directed electron flux.'
+- Keep the additive response at coculture scope and the Corynebacterium transcript response source-only. Canonical
+  strain metadata is retained but the unresolved assignment of every assay to K1 is explicit.
+- Preserve parent-strain yield 0.169 g/g (+45.65%) separately from K1 yield 0.686 g/g and extended-fermentation
+  improvement up to 23.4%. Preserve lactate abolition after ldhA deletion.
+- Qualify redox-to-transcript causation as HYPOTHESIZED and transcript-to-output mediation as PARTIAL. Positive
+  interventions do not directly trace carbon/electron flux or selectively identify each mediator.
+- 'Remove COMMENSALISM/MUTUALISM/COMPETITION from fish host-response nodes: microbial partner fitness signs are
+  not measured by the host protection trial.'
+- Retain 28-day SynCom feeding, enzyme activities and selected transcript qPCR validation. The IgA phrase is a KEGG
+  annotation, not direct IgA synthesis measurement.
+- Prefer Methods/Results gene-expression measurements over the Discussion protein wording. Keep elevated DAO as
+  ambiguous injury-associated turnover/repair, not proof of improved permeability.
+- 'Keep both immune/barrier output arrows PARTIAL: no mediator-specific blockade/rescue or direct functional barrier
+  validation is reported in the reviewed primary body.'
+- Preserve challenge survival 60% versus 32.5% and calibrated qPCR pathogen DNA-load reductions. Do not replace
+  them with relative 16S change, viable CFU, or the separate FMT survival comparison of 66.7% versus 36.7%.
+- Fish main text reports preliminary single/pair/triple feeding and non-antagonistic in vitro tests. Supplementary
+  images/data were not independently inspected. Proposed gut cross-feeding/signaling does not become an additional
+  node or arrow.
+- One complete primary main body/captions and two complete abstracts read. Publisher bodies for the two cocultures
+  were inaccessible; no full Methods/Results claim. No visual figures or supplementary files reviewed or full copyrighted
+  body added.
+- 'Three tracked caches and unrelated YAML blocks are byte-preserved. Remaining fish strain/units/schedule/top-level
+  prose and succinate donor-role/prose issues are explicitly open as #1353/#1354, not silently certified.'
+- Both-root census remains 460 records, 389 with community scope, 122 mixed records and 1499 community-credited
+  taxa. One Shewanella participant changes from pairwise to solely community credit (1220 -> 1221); no registry
+  or sentinel changes.
+- Copper and Coscinodiscus source preparation does not count as completed review. Coverage is 121/460, and self-adversarial
+  review is not independent approval or protected CI success.
+verification:
+  status: local_validation_complete
+  checks: 29
+  records: 460
+  nodes: 1474
+  edges: 710
+  review_status_counts:
+    needs_research: 3
+    pending: 336
+    reviewed: 121
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  unchanged_raw_blocks: 36
+  snippet_counts:
+    MATCH: 24
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1460
+    edge_descriptions: 702
+  render_determinism: passed
+  regressions: 285 passed in 190.25s (0:03:10)
+  rights: 3 passed in 1.56s
+  rights_import_root_verified: true
+  caches_unchanged: true
+  primary_artifact_hashes_rechecked: true
+  corpus_sentinels_unchanged: true
+  connectivity_survey_before:
+    records: 460
+    with_community_level: 389
+    mixed: 122
+    community_level_only: 267
+    taxa: 1499
+    credited_solely_by_the_rule: 1220
+  connectivity_survey:
+    records: 460
+    with_community_level: 389
+    mixed: 122
+    community_level_only: 267
+    taxa: 1499
+    credited_solely_by_the_rule: 1221
+  connectivity_delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 1

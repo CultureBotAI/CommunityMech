@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>Bacillales Lignin-Degrading LDSynCom</h1>
         </div>
     </header>
@@ -400,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        M9 beechwood-lignin laboratory medium
+                        M9 beechwood-lignin laboratory medium<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -424,6 +447,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -437,7 +461,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus safensis CEW-AP100</strong>
+                            <strong>Bacillus safensis CEW-AP100<span class="ontology-label"> — ontology label: Bacillus safensis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=561879"
@@ -457,7 +481,7 @@
 
                                 <li class="evidence-item">
 
-                                    <strong>GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</strong>
+                                    <a href="https://github.com/Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py" rel="noreferrer">GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</a>
 
                                     - SUPPORT (OTHER)
 
@@ -472,7 +496,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus paralicheniformis CEW_1W</strong>
+                            <strong>Bacillus paralicheniformis CEW_1W<span class="ontology-label"> — ontology label: Bacillus paralicheniformis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1648923"
@@ -492,7 +516,7 @@
 
                                 <li class="evidence-item">
 
-                                    <strong>GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</strong>
+                                    <a href="https://github.com/Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py" rel="noreferrer">GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</a>
 
                                     - SUPPORT (OTHER)
 
@@ -507,7 +531,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus altitudinis G6S2</strong>
+                            <strong>Bacillus altitudinis G6S2<span class="ontology-label"> — ontology label: Bacillus altitudinis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=293387"
@@ -527,7 +551,7 @@
 
                                 <li class="evidence-item">
 
-                                    <strong>GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</strong>
+                                    <a href="https://github.com/Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py" rel="noreferrer">GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</a>
 
                                     - SUPPORT (OTHER)
 
@@ -542,7 +566,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus subtilis KF24</strong>
+                            <strong>Bacillus subtilis KF24<span class="ontology-label"> — ontology label: Bacillus subtilis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1423"
@@ -562,7 +586,7 @@
 
                                 <li class="evidence-item">
 
-                                    <strong>GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</strong>
+                                    <a href="https://github.com/Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py" rel="noreferrer">GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</a>
 
                                     - SUPPORT (OTHER)
 
@@ -577,7 +601,7 @@
 
                     <tr>
                         <td>
-                            <strong>Lysinibacillus pakistanensis LY92</strong>
+                            <strong>Lysinibacillus pakistanensis LY92<span class="ontology-label"> — ontology label: Lysinibacillus pakistanensis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=759811"
@@ -597,7 +621,7 @@
 
                                 <li class="evidence-item">
 
-                                    <strong>GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</strong>
+                                    <a href="https://github.com/Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py" rel="noreferrer">GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</a>
 
                                     - SUPPORT (OTHER)
 
@@ -612,7 +636,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus velezensis MB7_B11</strong>
+                            <strong>Bacillus velezensis MB7_B11<span class="ontology-label"> — ontology label: Bacillus velezensis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=492670"
@@ -632,7 +656,7 @@
 
                                 <li class="evidence-item">
 
-                                    <strong>GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</strong>
+                                    <a href="https://github.com/Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py" rel="noreferrer">GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</a>
 
                                     - SUPPORT (OTHER)
 
@@ -647,7 +671,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus toyonensis Puebla_S2</strong>
+                            <strong>Bacillus toyonensis Puebla_S2<span class="ontology-label"> — ontology label: Bacillus toyonensis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=155322"
@@ -667,7 +691,7 @@
 
                                 <li class="evidence-item">
 
-                                    <strong>GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</strong>
+                                    <a href="https://github.com/Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py" rel="noreferrer">GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</a>
 
                                     - SUPPORT (OTHER)
 
@@ -682,7 +706,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus velezensis MB7_B13</strong>
+                            <strong>Bacillus velezensis MB7_B13<span class="ontology-label"> — ontology label: Bacillus velezensis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=492670"
@@ -702,7 +726,7 @@
 
                                 <li class="evidence-item">
 
-                                    <strong>GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</strong>
+                                    <a href="https://github.com/Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py" rel="noreferrer">GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</a>
 
                                     - SUPPORT (OTHER)
 
@@ -717,7 +741,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus subtilis D9_B_56</strong>
+                            <strong>Bacillus subtilis D9_B_56<span class="ontology-label"> — ontology label: Bacillus subtilis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1423"
@@ -737,7 +761,7 @@
 
                                 <li class="evidence-item">
 
-                                    <strong>GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</strong>
+                                    <a href="https://github.com/Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py" rel="noreferrer">GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</a>
 
                                     - SUPPORT (OTHER)
 
@@ -752,7 +776,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus licheniformis D9_B_45</strong>
+                            <strong>Bacillus licheniformis D9_B_45<span class="ontology-label"> — ontology label: Bacillus licheniformis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1402"
@@ -772,7 +796,7 @@
 
                                 <li class="evidence-item">
 
-                                    <strong>GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</strong>
+                                    <a href="https://github.com/Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py" rel="noreferrer">GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</a>
 
                                     - SUPPORT (OTHER)
 
@@ -807,7 +831,7 @@
 
                                 <li class="evidence-item">
 
-                                    <strong>GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</strong>
+                                    <a href="https://github.com/Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py" rel="noreferrer">GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</a>
 
                                     - SUPPORT (OTHER)
 
@@ -822,18 +846,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Bacillales Lignin-Degrading LDSynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -850,9 +876,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>LDSynCom lignin phenolic release</h3>
-                    <span class="interaction-type"></span>
+                    <h3>LDSynCom lignin-associated phenolic signal</h3>
                 </div>
+                <p class="prewrap interaction-description">The complete LDSynCom produced a higher Folin-Ciocalteu phenolic signal than uninoculated, 11B-only and 11B-dropout controls in lignin-containing medium. The authors explicitly treat this as an indirect lignin-associated signal, not direct structural depolymerization or a carbon mineralization measurement.</p>
 
 
 
@@ -868,17 +894,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        lignin catabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0046274"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0046274</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -907,11 +922,17 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Paenibacillus 11B contribution to LDSynCom phenolic accumulation</h3>
-                    <span class="interaction-type"></span>
                 </div>
+                <p class="prewrap interaction-description">Removing Paenibacillus 11B reduced community growth and phenolic accumulation relative to the full consortium; 11B alone produced less biomass than the consortium. This supports a contribution to the measured phenotype, not an exclusive depolymerization function or reciprocal benefits to every strain.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Paenibacillus sp. 11B
+
+                </p>
 
 
 
@@ -924,17 +945,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        lignin catabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0046274"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0046274</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -963,8 +973,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>LDSynCom lignin-particle biofilm formation</h3>
-                    <span class="interaction-type"></span>
                 </div>
+                <p class="prewrap interaction-description">After growth in M9 medium with beechwood lignin, LDSynCom cells formed extracellular-matrix-associated biofilm structures attached to lignin particles.</p>
 
 
 
@@ -1023,6 +1033,7 @@
 
         <section>
             <h2>Associated Datasets</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Associated Datasets">
             <table>
                 <thead>
                     <tr>
@@ -1068,10 +1079,11 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(3)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -1081,7 +1093,7 @@
                 </h3>
                 <p class="prewrap">The source reports a targeted 11B dropout and community-level proteomic profiling, but explicitly cautions that roles in the consortium are not strictly partitioned.</p>
 
-                <p class="muted small">Attaches to: <code>ecological_interactions#LDSynCom lignin phenolic release</code>, <code>ecological_interactions#Paenibacillus 11B contribution to LDSynCom phenolic accumulation</code></p>
+                <p class="muted small">Attaches to: <code>ecological_interactions#LDSynCom lignin-associated phenolic signal</code>, <code>ecological_interactions#Paenibacillus 11B contribution to LDSynCom phenolic accumulation</code></p>
 
 
 
@@ -1094,7 +1106,7 @@
                             <span class="badge small">SUPPORT</span>
 
 
-                                doi:10.64898/2026.08.24.746789
+                                <a href="https://doi.org/10.64898/2026.08.24.746789" rel="noreferrer">doi:10.64898/2026.08.24.746789</a>
 
                         </div>
                         <p class="snippet small prewrap">functional roles within the consortium are not strictly partitioned</p>
@@ -1119,12 +1131,28 @@
 
             </div>
 
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Do structural chemical assays confirm lignin depolymerization, and does biofilm formation cause that activity?
+                </h3>
+                <p class="prewrap">The preprint explicitly describes A280 and Folin-Ciocalteu assays as indirect. Structural/specific product analyses would distinguish depolymerization from other lignin-associated changes. SEM establishes attached biofilm, not its causal contribution. The targeted 11B dropout does not resolve all strain functions; prior mutualism and dangling-readout removals remain intact.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#LDSynCom lignin-associated phenolic signal</code>, <code>ecological_interactions#Paenibacillus 11B contribution to LDSynCom phenolic accumulation</code>, <code>ecological_interactions#LDSynCom lignin-particle biofilm formation</code></p>
+
+
+
+
+            </div>
+
         </section>
 
         <!-- Environmental Factors -->
 
         <section>
             <h2>External Resources</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="External Resources">
             <table>
                 <thead>
                     <tr>
@@ -1202,7 +1230,7 @@
 
                                 <li class="evidence-item">
 
-                                    <strong>GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</strong>
+                                    <a href="https://github.com/Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py" rel="noreferrer">GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py</a>
 
                                     - SUPPORT (OTHER)
 
@@ -1217,12 +1245,14 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -1287,6 +1317,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -1323,6 +1354,7 @@
 
 
                 <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <div class="table-scroll" role="region" tabindex="0" aria-label="M9 minimal medium with beechwood lignin composition">
                 <table>
                     <thead>
                         <tr>
@@ -1361,6 +1393,7 @@
 
                     </tbody>
                 </table>
+                </div>
 
 
 
@@ -1417,12 +1450,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1435,7 +1471,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1561,15 +1596,11 @@
 
             var processes = [];
 
-
-            processes.push("lignin catabolic process");
-
-
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "LDSynCom lignin phenolic release",
+                label: "LDSynCom lignin-associated phenolic signal",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1593,10 +1624,6 @@
 
             var processes = [];
 
-
-            processes.push("lignin catabolic process");
-
-
             var evidenceCount = 1;
 
             nodes.push({
@@ -1611,6 +1638,17 @@
 
 
 
+
+            var participantKeys = [
+
+                "Paenibacillus sp. 11B"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1657,6 +1695,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

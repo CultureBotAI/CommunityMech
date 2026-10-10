@@ -1,0 +1,246 @@
+id: CommunityMech:000454
+name: Thermoleptolyngbya-Chelatococcus Arsenic Detoxification Coculture
+description: A defined light-driven coculture pairing the hot-spring cyanobacterium "Thermoleptolyngbya sichuanensis" XZ-Cy5
+  with the mat-derived heterotroph Chelatococcus sp. XZ-Ab1. Qing et al. 2026 used pure-culture and coculture comparisons,
+  arsenite oxidation assays, 13CO2 NanoSIMS tracing, and genome analyses to show that XZ-Cy5 supplied photoautotroph-derived
+  organic carbon to Chelatococcus sp. XZ-Ab1, while Chelatococcus detoxified arsenite to arsenate and thereby promoted XZ-Cy5
+  growth under arsenic stress.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Resolve how a thermophilic cyanobacterium and a mat-derived heterotroph cooperate to detoxify arsenite under
+    light-driven growth conditions.
+  assembly_strategy: Pair the dominant hot-spring cyanobacterium "T. sichuanensis" XZ-Cy5 with the arsenite-oxidizing heterotroph
+    Chelatococcus sp. XZ-Ab1 isolated from the same high-arsenic photosynthetic microbial mat.
+  perturbation_design: Compare arsenite oxidation and growth in the photosynthetic mat, pure XZ-Cy5, pure Chelatococcus sp.
+    XZ-Ab1 supplied with organic carbon and oxygen, and the two-member coculture under light.
+  measurement_endpoints:
+  - arsenite oxidation
+  - cyanobacterial chlorophyll and photosynthetic activity
+  - heterotrophic growth
+  - 13CO2 NanoSIMS carbon tracing
+  - metagenomic and genomic metabolic-complementarity analysis
+  evidence:
+  - reference: PMID:42468699
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A co-culture system demonstrated mutualistic interactions
+    explanation: Supports the engineered two-member coculture used to test the arsenic-detoxifying cyanobacterium-heterotroph
+      mutualism.
+  - reference: PMID:42468699
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Following growth of the co-culture using 13CO2, NanoSIMS isotope tracing provided direct evidence
+    explanation: Supports NanoSIMS isotope tracing as a measurement endpoint for the coculture.
+environment_term:
+  preferred_term: laboratory arsenic-detoxifying thermophilic coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Defined laboratory coculture used to test light-driven mutualistic cross-feeding between two isolates from an arsenic-rich
+    hot-spring microbial mat.
+modeled_environment:
+- preferred_term: high-arsenic hot spring
+  term:
+    id: ENVO:00000051
+    label: hot spring
+  notes: Both strains came from a cyanobacteria-dominated photosynthetic microbial mat from a high-arsenic hot spring in Tibet.
+taxonomy:
+- taxon_term:
+    preferred_term: Thermoleptolyngbya sichuanensis XZ-Cy5
+    term: &id001
+      id: NCBITaxon:3031812
+      label: Thermoleptolyngbya sichuanensis XZ-Cy5
+    gtdb_grounding_status: UNRESOLVED
+    notes: Dominant cyanobacterium isolated from the high-arsenic hot-spring mat; the PubMed abstract writes the species name
+      in quotation marks as "Thermoleptolyngbya sichuanensis".
+  strain_designation:
+    strain_name: XZ-Cy5
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:42468699
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: dominant cyanobacterium isolated from the mat, "Thermoleptolyngbya sichuanensis" XZ-Cy5
+    explanation: Identifies "Thermoleptolyngbya sichuanensis" XZ-Cy5 as the dominant cyanobacterial isolate assayed in pure
+      culture and coculture.
+- taxon_term:
+    preferred_term: Chelatococcus sp. XZ-Ab1
+    term: &id002
+      id: NCBITaxon:3034027
+      label: Chelatococcus sp. XZ-Ab1
+    gtdb_grounding_status: UNRESOLVED
+    notes: Mat-derived heterotroph that oxidized arsenite in pure culture when supplied with organic carbon and oxygen.
+  strain_designation:
+    strain_name: XZ-Ab1
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42468699
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mat-derived heterotroph Chelatococcus sp. XZ-Ab1
+    explanation: Identifies Chelatococcus sp. XZ-Ab1 as the heterotrophic arsenite-oxidizing partner in the coculture.
+ecological_interactions:
+- name: Cyanobacterial Organic-Carbon Provisioning
+  description: Illuminated XZ-Cy5/XZ-Ab1 coculture supports organic-carbon provision from the cyanobacterium to
+    the heterotroph. The abstract reports heterotrophic growth benefit and direct NanoSIMS detection of photoautotroph-derived
+    carbon after 13CO2 labeling. Retain this experimentally supported cross-feeding without assigning an identified
+    secreted molecule or extending the carbon tracer result to nitrogen or oxygen transfer.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Thermoleptolyngbya sichuanensis XZ-Cy5
+    term:
+      id: NCBITaxon:3031812
+      label: Thermoleptolyngbya sichuanensis XZ-Cy5
+  target_taxon:
+    preferred_term: Chelatococcus sp. XZ-Ab1
+    term:
+      id: NCBITaxon:3034027
+      label: Chelatococcus sp. XZ-Ab1
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:42468699
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: '"T. sichuanensis" XZ-Cy5 secreted organic carbon to facilitate heterotrophic growth of Chelatococcus
+      sp. XZ-Ab1'
+    explanation: Supports the direction of organic-carbon cross-feeding from the cyanobacterium to Chelatococcus.
+  - reference: PMID:42468699
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: direct evidence of photoautotroph-derived carbon from "T. sichuanensis" XZ-Cy5 to Chelatococcus sp.
+      XZ-Ab1
+    explanation: Supports isotope-tracing evidence for cyanobacterium-derived carbon reaching the heterotrophic
+      partner.
+- name: Chelatococcus Arsenite Detoxification
+  description: 'Chelatococcus sp. XZ-Ab1 oxidizes arsenite to less-toxic arsenate and promotes XZ-Cy5 growth in
+    coculture. Together with the reciprocal heterotrophic benefit from photosynthetic carbon, this supports mutualism
+    under the tested arsenic-stress conditions. The cyanobacterial monoculture did not oxidize arsenite, whereas
+    the heterotroph did so when supplied organic carbon and oxygen. PARTIAL for the exact oxygen-supply route in
+    coculture: genomic interpretation and a supplemented pure-culture comparison are not direct tracing of cyanobacterial
+    oxygen into arsenite oxidation. No nitrogen transfer or thermodynamic product-removal dependence is asserted.'
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Chelatococcus sp. XZ-Ab1
+    term:
+      id: NCBITaxon:3034027
+      label: Chelatococcus sp. XZ-Ab1
+  target_taxon:
+    preferred_term: Thermoleptolyngbya sichuanensis XZ-Cy5
+    term:
+      id: NCBITaxon:3031812
+      label: Thermoleptolyngbya sichuanensis XZ-Cy5
+  biological_processes:
+  - preferred_term: response to toxic substance
+    term:
+      id: GO:0009636
+      label: response to toxic substance
+  evidence:
+  - reference: PMID:42468699
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Chelatococcus sp. XZ-Ab1 promoted growth of "T. sichuanensis" XZ-Cy5
+    explanation: Directly cites the reported reciprocal cyanobacterial growth benefit, not only monoculture toxicity.
+  - reference: PMID:42468699
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: oxidizing toxic As(Ⅲ) to the less toxic arsenate
+    explanation: Supports Chelatococcus-mediated detoxification of arsenite into arsenate.
+  - reference: PMID:42468699
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: exposure of a growing culture to 5 mM As(Ⅲ) led to rapid loss of chlorophyll and photosynthetic activity
+    explanation: Supports arsenite as a toxic stressor for pure XZ-Cy5 cultures.
+  - reference: PMID:42468699
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: a pure culture of the mat-derived heterotroph Chelatococcus sp. XZ-Ab1 could oxidize As(Ⅲ) quickly
+      with the addition of organic carbon and oxygen
+    explanation: Supports oxidation in supplemented heterotroph culture, not a demonstrated oxygen-source requirement
+      in coculture.
+environmental_factors:
+- name: High-arsenic Tibetan hot-spring mat source
+  value: Tibet high-As hot spring
+  description: The coculture partners were isolated from a photosynthetic microbial mat from a high-arsenic hot spring in
+    Tibet.
+  evidence:
+  - reference: PMID:42468699
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: photosynthetic microbial mat from a high-As hot spring in Tibet
+    explanation: Identifies the hot-spring source environment for the strains.
+external_resources:
+- name: Primary article - Thermoleptolyngbya-Chelatococcus arsenic detoxification coculture
+  repository: OTHER
+  resource_id: doi:10.1016/j.biortech.2026.135440
+  url: https://doi.org/10.1016/j.biortech.2026.135440
+  description: Bioresource Technology article reporting light-driven arsenic detoxification by mutualistic cross-feeding in
+    a thermophilic cyanobacterium-heterotroph coculture.
+  evidence:
+  - reference: PMID:42468699
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.1016/j.biortech.2026.135440'
+    explanation: Supports the DOI for the primary Thermoleptolyngbya-Chelatococcus coculture publication.
+discussions:
+- discussion_id: thermoleptolyngbya_chelatococcus_exact_culture_conditions
+  prompt: Which medium, temperature, light regime, arsenite concentration series, inoculum densities, and time points
+    were used for the XZ-Cy5/XZ-Ab1 coculture?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - engineering_design
+  - ecological_interactions#Cyanobacterial Organic-Carbon Provisioning
+  - ecological_interactions#Chelatococcus Arsenite Detoxification
+  rationale: The PubMed abstract names the exact strains, arsenite-detoxifying mutualism, organic-carbon transfer,
+    oxygen production, NanoSIMS tracing, and pure-culture comparisons, but Europe PMC did not expose open-access
+    full text with the coculture recipe or condition series.
+  posed_by: codex
+  posed_date: '2026-09-27'
+- discussion_id: arsenic_causal_scope_batch120
+  prompt: Which chemical and oxygen-supply routes account for the measured XZ-Cy5/XZ-Ab1 mutualism?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Cyanobacterial Organic-Carbon Provisioning
+  - ecological_interactions#Chelatococcus Arsenite Detoxification
+  rationale: The primary abstract directly supports carbon transfer and reciprocal growth. It separately interprets
+    metabolic complementarity from genomes, including nitrogen provision and oxygen production. These are not equivalent
+    to isotope-resolved oxygen or nitrogen transfer. Full primary methods and route-specific evidence would resolve
+    these details; missing detail does not negate the positive carbon and growth results. The earlier culture-conditions
+    discussion remains open. No new node or arrow is introduced.
+  evidence:
+  - reference: PMID:42468699
+    snippet: Metagenomic and genomic analyses indicated several mechanisms for metabolic complementarity between
+      the two strains
+  posed_by: codex
+  posed_date: '2026-10-08'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: PRIMARY
+metal_notes: Arsenic is the central metalloid detoxified by the XZ-Cy5/XZ-Ab1 coculture, but it is not one of the MetalElementEnum
+  values available in this schema.
+curation_history:
+- timestamp: '2026-09-27T20:12:39Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000454 from PMID:42468699 and DOI 10.1016/j.biortech.2026.135440 for the Thermoleptolyngbya
+    sichuanensis XZ-Cy5 and Chelatococcus sp. XZ-Ab1 arsenic-detoxification coculture.
+  llm_assisted: true
+- timestamp: '2026-10-08T14:15:39Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain experimentally supported carbon cross-feeding and tracer direction without inventing a compound
+    or nitrogen flux.; Retain reciprocal-growth mutualism with direct growth evidence, bounding supplemented-culture
+    comparisons and genomic route inference. Issue#1931; reports/causal_graph_review/decisions/20261008-four-records-batch120.yaml
+  llm_assisted: true

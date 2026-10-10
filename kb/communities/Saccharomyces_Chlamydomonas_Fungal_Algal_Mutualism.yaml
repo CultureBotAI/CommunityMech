@@ -60,8 +60,9 @@ taxonomy:
   - CROSS_FEEDER
 ecological_interactions:
 - name: Yeast Carbon Dioxide Provisioning
-  description: S. cerevisiae metabolizes glucose and releases carbon dioxide that is assimilated
-    photosynthetically by C. reinhardtii under carbon-limited coculture conditions.
+  description: In the sealed illuminated coculture, yeast glucose metabolism supplies carbon dioxide assimilated
+    by the algal partner. This is the carbon arm of the authors' experimentally supported reciprocal carbon/nitrogen
+    mutualism. The source does not isolate fermentation as the only route of yeast carbon dioxide production.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -84,47 +85,26 @@ ecological_interactions:
       id: CHEBI:16526
       label: carbon dioxide
   biological_processes:
-  - preferred_term: fermentation
-    term:
-      id: GO:0006113
-      label: fermentation
   - preferred_term: photosynthesis
     term:
       id: GO:0015979
       label: photosynthesis
   downstream:
   - target: Algal Reduced Nitrogen Provisioning
-    description: Yeast-derived carbon dioxide is fixed photosynthetically by
-      C. reinhardtii, sustaining the algal partner that reduces nitrite to
-      ammonia for S. cerevisiae.
-- name: Algal Oxygen Provisioning
-  description: C. reinhardtii releases photosynthetic oxygen that supports aerobic yeast metabolism in
-    the sealed coculture.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Chlamydomonas reinhardtii
-    term:
-      id: NCBITaxon:3055
-      label: Chlamydomonas reinhardtii
-  target_taxon:
-    preferred_term: Saccharomyces cerevisiae
-    term:
-      id: NCBITaxon:4932
-      label: Saccharomyces cerevisiae
-  metabolites:
-  - preferred_term: dioxygen
-    term:
-      id: CHEBI:15379
-      label: dioxygen
-  biological_processes:
-  - preferred_term: photosynthesis
-    term:
-      id: GO:0015979
-      label: photosynthesis
+    description: 'PARTIAL: yeast-derived carbon dioxide sustains the alga that supplies reduced nitrogen to yeast,
+      closing the resource-dependence loop. Coculture and resource-availability comparisons support this reciprocal
+      mechanism, but do not separately quantify how a change in carbon transfer changes ammonia release.'
+  evidence:
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. cerevisiae metabolizes glucose to carbon dioxide (CO2), a carbon source that C. reinhardtii fixes
+      via photosynthesis
+    explanation: Supports yeast glucose metabolism supplying the carbon dioxide fixed by the algal partner.
 - name: Algal Reduced Nitrogen Provisioning
-  description: C. reinhardtii metabolizes nitrite and releases ammonia, providing reduced nitrogen that
-    supports S. cerevisiae growth.
+  description: Algal nitrite metabolism supplies ammonia usable by yeast in the carbon/nitrogen mutualism. The dependence
+    is conditional on the resource environment, not an unconditional property of these species; external reduced
+    nitrogen can remove yeast dependence on the alga.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -153,9 +133,15 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Yeast Carbon Dioxide Provisioning
-    description: Algal reduction of nitrite to ammonia supplies the nitrogen
-      source that lets S. cerevisiae proliferate and keep producing carbon
-      dioxide from glucose.
+    description: 'PARTIAL: algal reduced nitrogen sustains yeast growth and therefore the yeast partner supplying
+      carbon dioxide. This reciprocal support is consistent with the reported dependence, not a measured feedback
+      gain or a separate temporal causal experiment.'
+  evidence:
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. reinhardtii reduces nitrite (NO2−) into ammonia (NH3) (14), which yeast can use as a nitrogen source
+    explanation: Supports algal nitrite reduction to ammonia as the nitrogen source used by yeast.
 environmental_factors:
 - name: atmospheric carbon dioxide exclusion
   description: Preventing access to atmospheric carbon dioxide makes the alga depend on yeast-derived
@@ -249,7 +235,37 @@ curation_history:
 - timestamp: '2026-09-13T00:56:50Z'
   curator: codex
   action: RECONCILE_PAYWALLED_EVIDENCE_REMOVAL
-  changes: "Reapplied PR #766's 17 unsupported evidence removals onto current main, preserving its newer
-    interaction curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in
-    #765."
+  changes: 'Reapplied PR #766''s 17 unsupported evidence removals onto current main, preserving its newer interaction
+    curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in #765.'
   llm_assisted: true
+- timestamp: '2026-10-01T05:00:58Z'
+  curator: codex
+  action: EVIDENCE_CAUSAL_GRAPH_NODES
+  changes: Added cached PMID:24994654 evidence to the yeast carbon-dioxide and algal reduced-nitrogen interaction
+    nodes that participate in the reciprocal causal graph.
+  llm_assisted: true
+- timestamp: '2026-10-07T20:37:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain yeast-to-alga carbon supply without requiring fermentation as its sole route.; Retain algal reduced-nitrogen
+    supply and the conditional reciprocal resource loop; mediation strength remains PARTIAL. Issue#1784; reports/causal_graph_review/decisions/20261007-four-records-batch99.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: alga_graph_evidence_scope
+  prompt: Is algal oxygen release a demonstrated additional benefit to yeast in this exact coculture?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The primary manuscript depicts oxygen release, but the reviewed main text establishes reciprocal carbon/nitrogen
+    dependence rather than an isolated oxygen-mediated yeast benefit. The two-node resource loop is retained with
+    PARTIAL mediation limits. The oxygen-benefit assertion is removed pending exact-system evidence. This does not
+    assert that yeast cannot use oxygen. Broader re-evidencing remains in issue765, and cache-version/license provenance
+    is tracked separately.
+  evidence:
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: an environment requiring reciprocal carbon and nitrogen exchange
+    explanation: The abstract supports the established reciprocal resource basis, not an oxygen-specific benefit.
+  attaches_to:
+  - ecological_interactions#Yeast Carbon Dioxide Provisioning
+  - ecological_interactions#Algal Reduced Nitrogen Provisioning

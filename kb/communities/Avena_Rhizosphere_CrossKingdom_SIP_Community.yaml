@@ -133,11 +133,11 @@ taxonomy:
     snippet: a Catenulispora sp., a possible plant growth-promoting bacterium
     explanation: Supports the Catenulispora PGPR member.
 ecological_interactions:
-- name: Phage Lysis Turns Over Plant-Derived Carbon
-  description: Phages with high 13C labeling rapidly turn over plant-derived
-    carbon in the rhizosphere, supporting an important agent role for phage in
-    carbon cycling.
-  interaction_type: PREDATION
+- name: Plant-Derived Carbon Incorporation into Phage DNA
+  description: Stable-isotope probing detected plant-derived carbon in reconstructed circular phage genomes, some
+    among the most highly labeled entities. This directly supports tracer incorporation into phage DNA. Active infection
+    and lysis-driven nutrient recycling are interpretations; nutrient-release flux and bacterial mortality were
+    not measured by isotope enrichment alone.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: 13C-labeled rhizosphere bacteria
@@ -148,21 +148,17 @@ ecological_interactions:
     term:
       id: NCBITaxon:10239
       label: Viruses
-  metabolites:
-  - preferred_term: carbon dioxide
-    term:
-      id: CHEBI:16526
-      label: carbon dioxide
   evidence:
   - reference: PMID:34468166
-    supports: SUPPORT
+    snippet: Many of the phage we identified appear to be highly labeled.
+    explanation: Supports observed isotope enrichment of reconstructed phage DNA; the carbon-transfer interpretation
+      is distinct from a measured lysis or nutrient-release flux.
     evidence_source: IN_VIVO
-    snippet: phage may be important agents of turnover of plant-derived C in soil
-    explanation: Supports the phage role in plant-derived C turnover.
-- name: Phage Targets Burkholderiales Plant Pathogen
-  description: CRISPR spacer targeting connected one phage to a Burkholderiales
-    host predicted to be a plant pathogen.
-  interaction_type: PREDATION
+    supports: SUPPORT
+- name: Candidate Burkholderiales Phage-Host Link
+  description: PARTIAL - a CRISPR spacer match identifies Burkholderiales_62_29 as a possible host for a highly
+    labeled phage. Plant pathogenicity is predicted from genomic content, not demonstrated infection or disease
+    in this experiment.
   scope: PAIRWISE
   source_taxon:
     preferred_term: 13C-labeled rhizosphere bacteriophages
@@ -180,22 +176,22 @@ ecological_interactions:
       id: GO:0044003
       label: symbiont-mediated perturbation of host process
   downstream:
-  - target: Phage Lysis Turns Over Plant-Derived Carbon
-    description: CRISPR spacer targeting links this highly labeled phage to a
-      Burkholderiales host predicted to consume plant-derived carbon directly,
-      so infection of that host contributes to phage-mediated rhizosphere
-      carbon turnover.
+  - target: Plant-Derived Carbon Incorporation into Phage DNA
+    description: HYPOTHESIZED - replication in this candidate plant-carbon-assimilating host could transfer labeled
+      nucleotide carbon into the observed phage DNA. Host identity and infection dynamics remain inferred, and this
+      arrow does not measure lysis-mediated nutrient release.
   evidence:
   - reference: PMID:34468166
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: CRISPR locus targeting connected one of these phage to a
-      Burkholderiales host predicted to be a plant pathogen
-    explanation: Supports the CRISPR-based phage-host linkage to Burkholderiales.
-- name: Phage Replicates in Catenulispora PGPR
-  description: Another highly labeled phage is predicted to replicate in a
-    Catenulispora sp. predicted to be a plant growth-promoting bacterium.
-  interaction_type: PREDATION
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: CRISPR locus targeting connected one of these phage to a Burkholderiales host predicted to be a plant
+      pathogen
+    explanation: Supports an inferred host assignment and predicted plant-interaction phenotype, not experimentally
+      demonstrated infection of that host.
+- name: Candidate Catenulispora Phage-Host Link
+  description: PARTIAL - shared GH25 sequence and phylogeny support a candidate Catenulisporales/Catenulispora host
+    for another labeled phage; this is not a CRISPR assignment. Plant-growth promotion is a genomic prediction,
+    not a measured host-benefit phenotype.
   scope: PAIRWISE
   source_taxon:
     preferred_term: 13C-labeled rhizosphere bacteriophages
@@ -213,48 +209,44 @@ ecological_interactions:
       id: GO:0044003
       label: symbiont-mediated perturbation of host process
   downstream:
-  - target: Phage Lysis Turns Over Plant-Derived Carbon
-    description: Replication in a 13C-labeled Catenulispora host ties this
-      phage-host interaction to recycling of plant-derived carbon through
-      active rhizosphere bacterial populations.
+  - target: Plant-Derived Carbon Incorporation into Phage DNA
+    description: HYPOTHESIZED - replication in this candidate plant-carbon-assimilating host could transfer labeled
+      nucleotide carbon into the observed phage DNA. Host identity and infection dynamics remain inferred, and this
+      arrow does not measure lysis-mediated nutrient release.
   evidence:
   - reference: PMID:34468166
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Another highly labeled phage is predicted to replicate in a
-      Catenulispora sp.
-    explanation: Supports the predicted Catenulispora phage host.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Another highly labeled phage is predicted to replicate in a Catenulispora sp.
+    explanation: Supports an inferred host assignment and predicted plant-interaction phenotype, not experimentally
+      demonstrated infection of that host.
 - name: 13C-Labeled Plant-Signaling and Defense Functions
-  description: 13C-labeled bacterial genomes encode genes involved in
-    modulating plant signaling hormones, plant pathogenicity, and defense
-    against microeukaryote grazing.
-  interaction_type: COMPETITION
+  description: COMPUTATIONAL POTENTIAL - labeled bacterial genomes encode homologs proposed to affect plant hormones,
+    pathogenicity and defense against grazing. Annotation supports candidate functions, not expression or activity
+    in this experiment; homologs may have alternative substrates. Related-study expression results are not measurements
+    from this isotope experiment.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: 13C-labeled rhizosphere bacteria
     term:
       id: NCBITaxon:2
       label: Bacteria
-  - preferred_term: 13C-labeled rhizosphere microeukaryotic bacterivores and
-      fungi
+  - preferred_term: 13C-labeled rhizosphere microeukaryotic bacterivores and fungi
     term:
       id: NCBITaxon:2759
       label: Eukaryota
   biological_processes:
-  - preferred_term: biological process involved in interspecies interaction
-      between organisms
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
-      label: biological process involved in interspecies interaction between
-        organisms
+      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:34468166
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: bacterial genes thought to be involved in modulating plant
-      signaling hormones, plant pathogenicity, and defense against
-      microeukaryote grazing
-    explanation: Supports the curated cross-kingdom interaction functions.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: bacterial genes thought to be involved in modulating plant signaling hormones, plant pathogenicity,
+      and defense against microeukaryote grazing
+    explanation: Supports functional predictions from genes, not a measured competitive outcome or biochemical activity.
 environmental_factors:
 - name: Plant growth atmosphere
   value: 13CO2 labeling
@@ -415,3 +407,26 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   rhizosphere SIP community.
+discussions:
+- discussion_id: avena_sip_infection_and_flux
+  prompt: Which hosts are infected, and how much plant carbon is released by phage-mediated lysis?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Plant-Derived Carbon Incorporation into Phage DNA
+  - ecological_interactions#Candidate Burkholderiales Phage-Host Link
+  - ecological_interactions#Candidate Catenulispora Phage-Host Link
+  - ecological_interactions#13C-Labeled Plant-Signaling and Defense Functions
+  rationale: PMID:34468166 measures isotope incorporation and infers host/function links. Circular genomes can represent
+    particles or replicating phage, and lysogenic genes are also present. There are no biological replicates; the
+    enrichment threshold is model-derived, and growth estimates are not mortality measurements. Host validation,
+    functional assays and release flux remain unresolved.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T10:11:47Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve phage isotope incorporation while qualifying host and lysis inference; complete decisions:
+    reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml; https://github.com/CultureBotAI/CommunityMech/issues/1249'
+  llm_assisted: true

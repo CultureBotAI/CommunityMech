@@ -1,0 +1,156 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 441f6302d39d11b6d18da88316330f382e22d8ce
+scope:
+- kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+- kb/communities/Dual_Bacillus_coagulans_Pseudomonas_putida_Lactic_Acid_Coculture.yaml
+- kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch34.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch34.json
+findings:
+- issue: 1410
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Drought-iron graph: separate field genomic associations from maize and isolate perturbations'
+  disposition: Graph corrected; close only after protected main merge.
+- issue: 1411
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'Dual Bacillus graph: reverse exclusion direction and qualify the succession mechanism'
+  disposition: Graph corrected; close only after protected main merge.
+- issue: 1412
+  severity: P2
+  status: addressed_in_this_change
+  finding: 'ENIGMA graph: resolve bidirectional exchange and separate kinetic inference from measurement'
+  disposition: Graph corrected; close only after protected main merge.
+- issue: 1413
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'Drought-iron metadata: review unsupported degrader role and pooled assay claims'
+  disposition: Non-graph raw blocks preserved; separate metadata review remains open.
+- issue: 1414
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'Dual Bacillus metadata: distinguish shake-flask fermentation from staged Pseudomonas pretreatment'
+  disposition: Non-graph raw blocks preserved; separate metadata review remains open.
+- issue: 1415
+  severity: P2
+  status: open_nongraph_followup
+  finding: 'ENIGMA metadata: qualify modeled nitric-oxide exchange outside the causal graph'
+  disposition: Non-graph raw blocks preserved; separate metadata review remains open.
+- issue: 647
+  severity: P2
+  status: open_existing_followup
+  finding: Existing cross-assay cultivation-assignment warning reused.
+  disposition: No separate chamber media added to field sorghum record.
+adversarial_checks:
+- Actual full record diffs inspected against cached primary main bodies, Methods, Results, Discussion,
+  captions and table text. Nine existing nodes retained, four existing arrows qualified and two cross-assay
+  arrows removed. Renamed targets and new discussion anchors resolve exactly.
+- Drought metagenomic capacity distinguished from expression and microbial gene causality. Maize TOM1
+  response is relative and principally under watered controls; Fe3+-EDTA uses separate single-isolate
+  sorghum assays. No phylum-wide responder claim, field-to-chamber media import or causal cross-assay
+  arrow retained.
+- Bacillus proposed exclusion direction is CC17B-1 toward DSM1-25280, preserving distinct preferred terms
+  despite one species ID. CFU is culturability; product inhibition remains an alternative to resource
+  competition. PAD-associated vanillin removal is not direct PAD catalysis, and facilitation does not
+  establish donor neutrality.
+- Three-strain treatment retains aerobic 30 C pretreatment and anaerobic 50 C relay with two 12 h intervals.
+  Three canonical participants remain distinct; measured LA improvement does not establish selective aromatic
+  mediation or stable simultaneous coexistence.
+- ENIGMA nitrite supply and reverse modeled NO handoff are represented as a joint process. Measured joint
+  growth is separate IN_VITRO SUPPORT from COMPUTATIONAL PARTIAL NO exchange. Both isolates grow separately
+  on nitrate; no obligate dependence or direct N2 measurement asserted.
+- ENIGMA nitrate/composition context and monoculture nitrite inhibition retained. High-condition SynCom
+  nitrite exposure is modeled and related to measured N2O, not selectively perturbed. Negative arrow refers
+  to nitrite inhibition, not N2O toxicity; proteomic competition is not categorical fact.
+- Three guarded writes, append-only histories and llm-assisted events. Prior non-graph raw blocks, 457
+  other records and all 920 caches byte-identical. Eight focused tests cover scientific boundaries, strain
+  identity, exact anchors, hashes and complete original-arrow accounting.
+- Initial full regression run passed 376 tests, but Ruff B023 rejected the test helper closing over a
+  loop variable. The closure now binds its mapping at definition time. Original failed lint output is
+  retained under prior_test_attempts; the full regression suite and formatting/lint gates were rerun successfully.
+- All 31 baseline network warnings exactly unchanged; zero structural errors. Registry adds Dual Bacillus
+  and ENIGMA, 178 to 180 users. ENIGMA mixed-to-community-only scope accounts for two additional sole-rule
+  taxa; no taxonomy, connectivity algorithm or numeric test bounds changed.
+- Repeated render hashes identical; exact node/arrow descriptions checked across 456 pages. Reference-validator
+  0.1.7 performed zero checks despite exit 0; independent snippet matching is not scientific validation.
+  No browser screenshots, visual figures, raw-data analysis or supplement review claimed.
+- 'Deduplication covers 736 all-state titles/bodies and ignored/hidden-inclusive target-local material,
+  not every comment. #647 reused; #1413-1415 remain open. Cache abstract_only headers are stale, not treated
+  as full-text absence. No new nodes/arrows, provider task or charge.'
+verification:
+  combined_regressions: 376 passed in 175.08s (0:02:55)
+  new_regression_tests: 8
+  schema_strict_terms_history: passed; command output and log digests retained
+  snippet_counts_by_record:
+    kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml:
+      MATCH: 12
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Dual_Bacillus_coagulans_Pseudomonas_putida_Lactic_Acid_Coculture.yaml:
+      MATCH: 10
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/ENIGMA_Denitrifying_SynCom.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero errors and 31 exactly unchanged baseline warnings; warning exit explicit.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch34.yaml: fe62f390c239a8feab12aed2824b5786db78b13fd75c40d0f244b447631f67d0
+    tests/test_causal_review_batch34.py: b2712649c26d932e27994a36a703fa59e91f06cac2a7e1524bda953bea080c0a
+    tests/test_participating_taxa.py: c2f850e66f92db46f480156ab0cee5b5340ce4f3c8279d6e2694f022600d8340
+    kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml: 43a6278925edf2172f53f949f654de35a85d0139160a6445e6e09a6483967d7b
+    kb/communities/Dual_Bacillus_coagulans_Pseudomonas_putida_Lactic_Acid_Coculture.yaml: 222e691cd06dfd934351e2b0b117ad6d65d4e937c5c36d0fa6e7aa9143a1294d
+    kb/communities/ENIGMA_Denitrifying_SynCom.yaml: a35550c54115980d58745e932271f5af7eff69dfa8eafa13c73a8bbc36e1676b
+  post_commit_docs_current: Separate publication gate, not yet asserted in pre-commit record.
+  protected_ci_and_merge: Protected exact-head main checks and queue mandatory; not asserted here.
+participant_census:
+  connectivity_before:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1220
+    mixed: 123
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  connectivity_after:
+    community_level_only: 265
+    credited_solely_by_the_rule: 1222
+    mixed: 122
+    records: 460
+    taxa: 1494
+    with_community_level: 387
+  exact_change: 178 -> 180 users; only Dual Bacillus and ENIGMA added. ENIGMA changes mixed to community-level-only,
+    accounting for two additional sole-rule taxa; no taxon changes.
+  numeric_bounds_changed: false
+corpus:
+  records: 460
+  nodes: 1470
+  edges: 701
+  review_status_counts:
+    needs_research: 7
+    pending: 309
+    reviewed: 144
+limitations:
+- Nine existing nodes retained; four arrows qualified and two cross-assay arrows removed. No added causal
+  connectivity; unresolved mechanisms remain knowledge gaps.
+- Source main bodies, captions and tables read as cached text. No visual figures, supplements or raw data
+  inspected; caches unchanged, including their stale abstract_only headers.
+- Canonical taxonomy unchanged; the drought phylum is only a partial grouping and Bacillus strain identity
+  must not collapse to their shared species ID.
+- Non-graph metadata raw blocks preserved, not certified; follow-ups remain open. No selective mediation
+  is inferred from correlation alone.
+- Self-adversarial review is not independent approval, protected main merge or full-corpus completion.
+  Textual MATCH is not scientific validation.

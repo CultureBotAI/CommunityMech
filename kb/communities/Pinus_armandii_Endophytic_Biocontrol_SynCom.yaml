@@ -139,91 +139,109 @@ taxonomy:
       biomass accumulation.
     explanation: Identifies Bacillus subtilis NA11 as a constituent strain of the optimized SynCom.
 ecological_interactions:
-- name: Functionally complementary biocontrol SynCom assembly
-  description: The community was assembled from endophytic isolates selected for complementary plant
-    growth-promoting and antagonistic functions and for pairwise compatibility, yielding a
-    functionally complementary and stable synthetic community rather than any single-strain effect.
-  interaction_type: NICHE_PARTITIONING
+- name: Compatibility of Selected Endophytic Isolates
+  description: The five constituent strains were selected using pairwise compatibility tests. Public Supplement
+    Figure S3 shows an agar/filter-disc assay with no inhibition zones among the tested strains. Preserve assay-specific
+    compatibility, not demonstrated long-term stable coexistence, resource partitioning or a causal contribution
+    of complementarity to seedling growth. Screened nitrogen-fixing/IAA traits do not establish ammonia or IAA exchange
+    within this SynCom.
   scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: indole-3-acetic acid
-    term:
-      id: CHEBI:16411
-      label: indole-3-acetic acid
-    notes: IAA was among the plant growth-promoting traits screened in the endophytic isolates.
-  - preferred_term: ammonia
-    term:
-      id: CHEBI:16134
-      label: ammonia
-    notes: Nitrogen-fixing potential was among the screened plant growth-promoting traits.
-  biological_processes:
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
-  downstream:
-  - target: Pinus Seedling Growth Promotion
-    description: Pairwise-compatible strains with complementary plant growth-promoting
-      traits form the optimized SynCom that increases Pinus armandii seedling
-      height and biomass.
   evidence:
   - reference: PMID:42322490
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: this study screened endophytic bacteria with superior plant growth-promoting (PGP) and
-      antagonistic functions to construct a functionally complementary and stable synthetic microbial
-      community (SynCom).
-    explanation: Members were chosen for complementary PGP and antagonistic functions, a community-level
-      niche/functional partitioning.
-- name: Community antagonism of the blister rust pathogen
-  description: Constituent strains were selected for antagonistic potential against the blister rust
-    pathogen, assessed by dual-culture assays and inhibition of urediniospore germination; the
-    assembled SynCom enhanced blister rust-associated host defense responses.
-  interaction_type: COMPETITION
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: defense response
+    snippet: Based on pairwise compatibility tests, a SynCom was constructed
+    explanation: The abstract supports compatibility-based selection; public Supplement Figure S3 specifies the
+      no-inhibition-zone assay, not long-term stability or growth mediation.
+  participating_taxa:
+  - preferred_term: Pseudomonas koreensis RC1
     term:
-      id: GO:0006952
-      label: defense response
-  downstream:
-  - target: Blister Rust-Associated Defense Enzyme Induction
-    description: Antagonistic endophytic strains assembled into the optimized SynCom
-      enhance polyphenol oxidase and peroxidase defense responses associated with
-      Pinus armandii blister rust resistance.
+      id: NCBITaxon:198620
+      label: Pseudomonas koreensis
+  - preferred_term: Paenibacillus terrae RE7
+    term:
+      id: NCBITaxon:159743
+      label: Paenibacillus terrae
+  - preferred_term: Bacillus velezensis OB3
+    term:
+      id: NCBITaxon:492670
+      label: Bacillus velezensis
+  - preferred_term: Bacillus velezensis NA3
+    term:
+      id: NCBITaxon:492670
+      label: Bacillus velezensis
+  - preferred_term: Bacillus subtilis NA11
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+- name: Antagonistic Activity of Selected Endophytic Isolates
+  description: Selected isolates showed antagonistic activity in vitro. Public Supplement Table S2 and Figure S1
+    identify Phomopsis sp. as the plate-inhibition target, distinct from the separate urediniospore-germination
+    assay with cell-free fermentation supernatants (Figure S2). NA11, NA3 and RE7 occur among the tested inhibitory
+    isolates and in the final SynCom; RC1 and OB3 are not among the nine spore-assay treatments. Preserve isolate
+    inhibition without assigning every result to the complete five-strain community or asserting that direct pathogen
+    inhibition caused host defense-enzyme induction.
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:42322490
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: antagonistic potential using dual-culture assays and inhibition of urediniospore germination.
-    explanation: Members were screened for antagonism (dual-culture inhibition, urediniospore germination
-      suppression) against the rust pathogen.
+    snippet: nine strains with significant antagonistic activity
+    explanation: Supports the positive isolate-screen result. Public supplements distinguish Phomopsis plates from
+      the cell-free urediniospore assay and delimit which isolates overlap the final SynCom; not a whole-SynCom
+      inhibition experiment.
+  participating_taxa:
+  - preferred_term: Paenibacillus terrae RE7
+    term:
+      id: NCBITaxon:159743
+      label: Paenibacillus terrae
+  - preferred_term: Bacillus velezensis NA3
+    term:
+      id: NCBITaxon:492670
+      label: Bacillus velezensis
+  - preferred_term: Bacillus subtilis NA11
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
 - name: Pinus Seedling Growth Promotion
-  description: The optimized five-strain SynCom significantly increases Pinus
-    armandii seedling height and biomass accumulation in pot experiments.
-  interaction_type: MUTUALISM
+  description: The optimized five-strain SynCom significantly increased Pinus armandii seedling height and biomass
+    accumulation in pot experiments. Preserve this positive host-growth response. The accessible evidence does not
+    isolate IAA production or nitrogen fixation as its mediator, demonstrate individual-strain necessity, or show
+    reciprocal microbial fitness benefits.
   scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: indole-3-acetic acid
-    term:
-      id: CHEBI:16411
-      label: indole-3-acetic acid
-  biological_processes:
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
   evidence:
   - reference: PMID:42322490
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: IN_VIVO
     snippet: significantly increased seedling height and biomass accumulation.
-    explanation: Supports the seedling-growth effect of the optimized five-strain SynCom.
+    explanation: Supports the significant host-growth endpoint in pot experiments, not demonstrated IAA/nitrogen
+      mediation or reciprocal mutualism.
+  participating_taxa:
+  - preferred_term: Pseudomonas koreensis RC1
+    term:
+      id: NCBITaxon:198620
+      label: Pseudomonas koreensis
+  - preferred_term: Paenibacillus terrae RE7
+    term:
+      id: NCBITaxon:159743
+      label: Paenibacillus terrae
+  - preferred_term: Bacillus velezensis OB3
+    term:
+      id: NCBITaxon:492670
+      label: Bacillus velezensis
+  - preferred_term: Bacillus velezensis NA3
+    term:
+      id: NCBITaxon:492670
+      label: Bacillus velezensis
+  - preferred_term: Bacillus subtilis NA11
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
 - name: Blister Rust-Associated Defense Enzyme Induction
-  description: SynCom treatment raises defense-related polyphenol oxidase and
-    peroxidase activities relative to uninoculated Pinus armandii controls,
-    consistent with priming blister rust-associated defense responses.
-  interaction_type: MUTUALISM
+  description: SynCom treatment increased host polyphenol oxidase (PPO) and peroxidase (POD) activities by 19.1%
+    and 157.3% relative to controls in the pot experiment. Preserve these positive defense-associated enzyme endpoints.
+    They do not alone demonstrate priming, resistance to infection or disease control; the abstract explicitly calls
+    for subsequent in planta biocontrol evaluation.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: defense response
@@ -233,8 +251,71 @@ ecological_interactions:
   evidence:
   - reference: PMID:42322490
     supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom treatment enhanced defense-related enzyme activities, increasing polyphenol oxidase (PPO) and
+      peroxidase (POD) activities by 19.1% and 157.3% relative to the control
+    explanation: Supports the measured host enzyme increases, not demonstrated infection resistance or a specific
+      isolate-mediated mechanism.
+  participating_taxa:
+  - preferred_term: Pseudomonas koreensis RC1
+    term:
+      id: NCBITaxon:198620
+      label: Pseudomonas koreensis
+  - preferred_term: Paenibacillus terrae RE7
+    term:
+      id: NCBITaxon:159743
+      label: Paenibacillus terrae
+  - preferred_term: Bacillus velezensis OB3
+    term:
+      id: NCBITaxon:492670
+      label: Bacillus velezensis
+  - preferred_term: Bacillus velezensis NA3
+    term:
+      id: NCBITaxon:492670
+      label: Bacillus velezensis
+  - preferred_term: Bacillus subtilis NA11
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+discussions:
+- discussion_id: pine-assay-compatibility-and-host-causality
+  prompt: Which strain functions mediate the observed seedling responses and actual blister-rust protection?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Compatibility of Selected Endophytic Isolates
+  - ecological_interactions#Antagonistic Activity of Selected Endophytic Isolates
+  - ecological_interactions#Pinus Seedling Growth Promotion
+  - ecological_interactions#Blister Rust-Associated Defense Enzyme Induction
+  rationale: 'Preserve compatibility, isolate antagonism, growth and enzyme responses as separate positive findings.
+    Public Supplement Figures S1-S3 and Table S2 separate Phomopsis inhibition, cell-free urediniospore inhibition
+    and compatibility; these assays do not demonstrate stable community coexistence or direct inhibition by the
+    complete SynCom. Both removed arrows conflated isolate selection/screening with causal mediation of host outcomes.
+    No untested IAA/nitrogen exchange or reciprocal mutualism is assigned. Disease-challenge, strain-removal and
+    mediator perturbations would resolve mechanisms. Main text remains inaccessible, while both public supplements
+    were read and all six PDF pages visually inspected. Non-graph priming/stability and assay-scope claims remain
+    #1709.'
+  evidence:
+  - reference: PMID:42322490
+    supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: SynCom treatment enhanced defense-related enzyme activities, increasing polyphenol
-      oxidase (PPO) and peroxidase (POD) activities by 19.1% and 157.3% relative to the
-      control
-    explanation: Supports the enhanced defense-enzyme endpoint of the optimized SynCom.
+    snippet: nine strains with significant antagonistic activity
+    explanation: Supports the positive isolate-screen result. Public supplements distinguish Phomopsis plates from
+      the cell-free urediniospore assay and delimit which isolates overlap the final SynCom; not a whole-SynCom
+      inhibition experiment.
+  - reference: PMID:42322490
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom treatment enhanced defense-related enzyme activities, increasing polyphenol oxidase (PPO) and
+      peroxidase (POD) activities by 19.1% and 157.3% relative to the control
+    explanation: Supports the measured host enzyme increases, not demonstrated infection resistance or a specific
+      isolate-mediated mechanism.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-07T09:58:34Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve measured pairwise compatibility without stability or niche claims.; Preserve selected-isolate
+    inhibition with correct assay targets and participants.; Preserve positive pot-growth endpoint without untested
+    trait mediation.; Preserve positive host enzyme induction without asserting disease control. Issue #1705; reports/causal_graph_review/decisions/20261007-four-records-batch85.yaml'
+  llm_assisted: true

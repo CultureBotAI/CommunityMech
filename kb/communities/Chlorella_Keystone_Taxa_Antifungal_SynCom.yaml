@@ -1,44 +1,37 @@
 id: CommunityMech:000313
 name: Chlorella fusca CHK0059 Keystone-Taxa Antifungal SynCom
-description: >
-  A three-member bacterial synthetic community assembled from the keystone taxa of the
-  Chlorella fusca CHK0059 phytomicrobiome — Pseudomonas, Duganella and Brevibacterium — identified
-  by microbiota structure and co-occurrence network analysis of plant hosts treated with the
-  biofertilizer microalga. Applying Chlorella, a Chlorella methanol extract, or D-mannitol to the
-  plant system shifted microbial distribution and diversity, with 2% D-mannitol markedly enriching
-  Pseudomonas, implicating an algal-derived polyol as a recruitment signal in
-  Chlorella-microbiome-plant communication. Recombined as a SynCom, the three keystone taxa
-  suppressed the soilborne pathogen Fusarium oxysporum in both strawberry and tomato more strongly
-  than any constituent strain alone — a community-level phenotype; the source reports "compared to
-  individual strains" and does not report an additivity model, so no claim of synergy or
-  superadditivity is made here. The record captures the SynCom as the mechanistic unit through which
-  C. fusca CHK0059 exerts its disease-suppressive effect. A 2025 precursor study of the same strain
-  (PMID:40064531) located the CHK0059-correlated keystone bacteria in the strawberry rhizosphere and
-  named Pseudomonas, Duganella and Rhizomicrobium; the third genus differs from the Brevibacterium of
-  the SynCom reported here, so the keystone set is not identical between the two studies.
+description: 'A four-isolate bacterial synthetic community selected from Chlorella-associated plant microbiome networks:
+  Pseudomonas 8C3D12, Pseudoduganella rivuli FT92W (KACC 21474), Pseudomonas 6C7F4 and Brevibacterium renqingii
+  REN4 (KCTC 49366). The two Pseudomonas isolates share a genus-level taxonomy entry here; three bacterial taxonomy
+  entries do not mean three isolates. Table 1 distinguishes the network label Duganella from the inoculated Pseudoduganella
+  strain. Treat8 combines all four bacteria with Fusarium challenge; Treat9 also contains C. fusca CHK0059. Host
+  disease-index responses depend on treatment, host and time, without demonstrated universal superiority to single
+  isolates or formal synergy. Separate in-vitro strawberry rhizosphere microbiome-fraction assays show compositional
+  responses to live/killed Chlorella, methanol extract and mannitol. Algal mannitol secretion, strain-specific recruitment
+  and the mechanism mediating plant protection remain unresolved. The 2025 precursor names Rhizomicrobium rather
+  than Brevibacterium as its third correlated genus; the two studies do not establish identical keystone sets.'
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: RHIZOSPHERE
 engineering_design:
-  objective: Determine whether the keystone taxa of the Chlorella fusca CHK0059 phytomicrobiome,
-    recombined as a defined synthetic community, reproduce and enhance the antifungal effect
-    attributed to the microalga.
-  assembly_strategy: Bottom-up recombination of three keystone genera (Pseudomonas, Duganella,
-    Brevibacterium) selected from microbiota structure and network analyses of Chlorella-treated
-    plant hosts, then challenged against Fusarium oxysporum on strawberry and tomato.
+  objective: Test plant disease and growth responses to four selected bacterial isolates, their mixtures and combinations
+    with CHK0059; separately test microbiome-fraction responses to substance amendments.
+  assembly_strategy: Bottom-up assembly of Pseudomonas 8C3D12 and 6C7F4, Pseudoduganella rivuli FT92W and Brevibacterium
+    REN4. Compare singles, the 8C3D12/FT92W pair and all four bacteria, with or without CHK0059, under host-specific
+    Fusarium challenge. Selection from network associations is not proof of in-plant recruitment.
   measurement_endpoints:
-  - Shift in microbial distribution and diversity after Chlorella, methanol extract or D-mannitol
-    treatment
-  - Pseudomonas relative abundance under 2% D-mannitol
-  - Antifungal suppression of Fusarium oxysporum by the SynCom versus individual strains
+  - In-vitro microbiome-fraction composition and diversity at 12 and 36 hours
+  - Pseudomonas relative abundance under substance treatments including 2% D-mannitol
+  - Strawberry and tomato Fusarium wilt symptom-based disease indices
+  - Plant phenotypes and separate isolate PGP screening assays
   evidence:
   - reference: PMID:41937467
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: a synthetic community (SynCom) of keystone taxa exhibited enhanced antifungal effects
-      against Fusarium oxysporum in both strawberry and tomato, compared to individual strains
-    explanation: Establishes the SynCom as a defined, recombined community whose antifungal effect
-      exceeds that of its constituent strains.
+    snippet: a synthetic community (SynCom) of keystone taxa exhibited enhanced antifungal effects against Fusarium
+      oxysporum in both strawberry and tomato, compared to individual strains
+    explanation: The abstract summarizes disease effects. Table 1 and Figures 4/5 identify the four isolates and
+      treatment arms; the results do not establish universal superiority or mechanistic mediation.
 environment_term:
   preferred_term: strawberry and tomato plant-associated environment
   term:
@@ -51,11 +44,9 @@ modeled_environment:
   term:
     id: ENVO:00005801
     label: rhizosphere
-  notes: The rhizosphere compartment is not asserted from the 2026 SynCom paper, which does not state
-    the sampling compartment; it comes from the 2025 precursor study of the same strain
-    (PMID:40064531), which places the CHK0059-correlated keystone bacteria in the strawberry
-    rhizosphere. That citation is carried as evidence on the Pseudomonas taxon entry, since
-    EnvironmentDescriptor takes no evidence of its own.
+  notes: The 2026 Methods explicitly extract a microbiome fraction from strawberry rhizosphere soil for in-vitro
+    assays. This sampling compartment is distinct from the bacterial culture-collection strains and subsequent strawberry/tomato
+    challenge experiments. The 2025 precursor also concerns rhizosphere associations.
 taxonomy:
 - taxon_term:
     preferred_term: Chlorella fusca CHK0059
@@ -63,21 +54,19 @@ taxonomy:
       id: NCBITaxon:3073
       label: Scenedesmus fuscus
     gtdb_grounding_status: NO_GTDB_EQUIVALENT
-    notes: The paper's "Chlorella fusca CHK0059" — NCBITaxon carries this organism under the current
-      name Scenedesmus fuscus, with "Chlorella fusca" retained as a synonym. The strain is the
-      biofertilizer microalga whose phytomicrobiome supplied the keystone taxa; it is not itself a
-      member of the recombined three-member SynCom.
+    notes: The source names Chlorella fusca CHK0059; the existing canonical NCBI synonym grounding is Scenedesmus
+      fuscus. CHK0059 is absent from the four-bacterium Treat8 but added in Treat9 and the two-bacterium Treat7,
+      and is also tested alone in Treat5.
   functional_role:
   - PRIMARY_PRODUCER
   evidence:
   - reference: PMID:41937467
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: keystone taxa (Psedomonas, Duganella, Brevibacterium) interaction with C. fusca
-      CHK0059 within plant hosts were identified
-    explanation: Names the microalga whose phytomicrobiome supplied the keystone taxa, and the
-      three keystone genera themselves. The snippet reproduces the source's misspelling of
-      Pseudomonas verbatim, as required for substring validation.
+    snippet: keystone taxa (Psedomonas, Duganella, Brevibacterium) interaction with C. fusca CHK0059 within plant
+      hosts were identified
+    explanation: Names CHK0059 and network-associated genera. Table 1 and the disease-figure captions, rather than
+      this genus list, identify actual inoculated isolates and algal-containing treatment arms.
 - taxon_term:
     preferred_term: Pseudomonas
     term:
@@ -93,54 +82,57 @@ taxonomy:
       support_genomes: 17956
       total_genomes: 25706
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
-    notes: Keystone genus; the taxon enriched by 2% D-mannitol treatment. Resolved at genus level —
-      the study does not assign a species.
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank;
+        11 GTDB taxa under the NCBI taxon]
+    notes: 'Genus-level aggregation of TWO distinct inoculated Pseudomonas isolates: 8C3D12 (PQ555449; strawberry-network
+      association) and 6C7F4 (PQ555450; Arabidopsis-network association). The source does not assign species. Pseudomonas
+      ASVs responding in the separate microbiome fraction are not resolved to these inoculated strains. PATHOGEN_ANTAGONIST
+      summarizes disease-suppression phenotypes, not a demonstrated direct bacterial-fungal mechanism.'
   evidence:
   - reference: PMID:41937467
+    snippet: Pseudomonas sp. 8C3D12 (isolate)
+    explanation: Table 1 identifies one inoculated isolate at genus level; the second is separately evidenced.
+    evidence_source: IN_VITRO
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: a notable increase in Pseudomonas abundance following 2% D-mannitol treatment
-    explanation: Supports Pseudomonas as a keystone member and identifies D-mannitol as the
-      treatment that enriches it.
   - reference: PMID:40064531
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Pseudomonas, Duganella, and Rhizomicrobium species appear to be correlated with CHK0059
-      treatment in the rhizosphere
-    explanation: The 2025 precursor study of the same strain, which independently associates
-      Pseudomonas and Duganella with CHK0059 treatment and locates them in the rhizosphere — the
-      basis for this record's rhizosphere modeled_environment. Note the precursor's third genus is
-      Rhizomicrobium, not the Brevibacterium of the 2026 SynCom, so the keystone set is not identical
-      across the two studies.
+    snippet: Pseudomonas, Duganella, and Rhizomicrobium species appear to be correlated with CHK0059 treatment in
+      the rhizosphere
+    explanation: The precursor independently reports genus-level rhizosphere correlations. It names Rhizomicrobium
+      rather than Brevibacterium and does not establish the identity of all four inoculated strains.
+  - reference: PMID:41937467
+    snippet: Pseudomonas sp. 6C7F4 (isolate)
+    explanation: Table 1 identifies the second distinct Pseudomonas isolate; both share this genus-level entry.
+    evidence_source: IN_VITRO
+    supports: SUPPORT
   functional_role:
   - PATHOGEN_ANTAGONIST
 - taxon_term:
-    preferred_term: Duganella
+    preferred_term: Pseudoduganella rivuli FT92W
     term:
-      id: NCBITaxon:75654
-      label: Duganella
-    gtdb_grounding_status: GROUNDED
-    gtdb_classification:
-      gtdb_id: GTDB:g__Duganella
-      gtdb_taxon: Duganella
-      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Duganella
-      ncbi_source_id: NCBITaxon:75654
-      majority_fraction: 1.0
-      support_genomes: 45
-      total_genomes: 45
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
-    notes: Keystone genus of the Chlorella phytomicrobiome; resolved at genus level.
+      id: NCBITaxon:2666085
+      label: Pseudoduganella rivuli
+    gtdb_grounding_status: UNRESOLVED
+    notes: Table 1 maps the Duganella network ASV label to inoculated Pseudoduganella rivuli FT92W (KACC 21474).
+      NCBI taxonomy 2666085 and local ontology agree. BioSample SAMN13220418 identifies FT92W as a stream-water
+      isolate; strawberry network association is not its collection-strain isolation provenance. The local GTDB
+      grounder could not locate NCBI2GTDB.tsv.gz at its checked paths; the old Duganella classification is not transferable.
+      PATHOGEN_ANTAGONIST summarizes disease-suppression phenotypes, not a demonstrated direct bacterial-fungal
+      mechanism.
   evidence:
   - reference: PMID:41937467
+    snippet: Pseudoduganella rivuli FT92W (KACC 21474)
+    explanation: Table 1 identifies the inoculated culture independently of the Duganella ASV label. NCBI taxonomy
+      verifies the species CURIE; genus-network provenance is not treated as a strain isolation source.
+    evidence_source: IN_VITRO
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: keystone taxa (Psedomonas, Duganella, Brevibacterium) interaction with C. fusca
-      CHK0059 within plant hosts were identified
-    explanation: Names Duganella as one of the three keystone taxa recombined into the SynCom.
   functional_role:
   - PATHOGEN_ANTAGONIST
+  strain_designation:
+    strain_name: FT92W
+    notes: KACC 21474 in primary Table 1; NCBI BioSample SAMN13220418 and assembly GCA_009674485.1 independently
+      identify FT92W.
 - taxon_term:
     preferred_term: Brevibacterium
     term:
@@ -156,26 +148,33 @@ taxonomy:
       support_genomes: 469
       total_genomes: 469
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
-    notes: Keystone genus of the Chlorella phytomicrobiome; resolved at genus level.
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank;
+        1 GTDB taxa under the NCBI taxon]
+    notes: The inoculated strain is Brevibacterium renqingii REN4 (KCTC 49366) in Table 1. The existing conservative
+      genus-level grounding is retained; the species name in the source is not promoted to an unverified species
+      CURIE. PATHOGEN_ANTAGONIST summarizes disease-suppression phenotypes, not a demonstrated direct bacterial-fungal
+      mechanism.
   evidence:
   - reference: PMID:41937467
+    snippet: Brevibacterium renqingii strain REN4 (KCTC 49366)
+    explanation: Primary Table 1 identifies the inoculated REN4 culture; its phenotype does not by itself isolate
+      a direct antifungal mechanism.
+    evidence_source: IN_VITRO
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: keystone taxa (Psedomonas, Duganella, Brevibacterium) interaction with C. fusca
-      CHK0059 within plant hosts were identified
-    explanation: Names Brevibacterium as one of the three keystone taxa recombined into the SynCom.
   functional_role:
   - PATHOGEN_ANTAGONIST
+  strain_designation:
+    strain_name: REN4
+    notes: KCTC 49366; Table 1 names Brevibacterium renqingii. The canonical taxon remains at genus rank.
 - taxon_term:
     preferred_term: Fusarium oxysporum
     term:
       id: NCBITaxon:5507
       label: Fusarium oxysporum
     gtdb_grounding_status: NO_GTDB_EQUIVALENT
-    notes: Soilborne fungal pathogen challenged by the SynCom; the antagonism target rather than a
-      SynCom member. Included in taxonomy so the antagonistic interactions resolve, matching the
-      house pattern used for pathogens in Maize_Root_Simplified_Community.
+    notes: Soilborne fungal pathogen challenged by the SynCom; the antagonism target rather than a SynCom member.
+      Included in taxonomy so the antagonistic interactions resolve, matching the house pattern used for pathogens
+      in Maize_Root_Simplified_Community.
   evidence:
   - reference: PMID:41937467
     supports: SUPPORT
@@ -210,13 +209,11 @@ taxonomy:
     explanation: Names tomato as one of the two host plants used for the suppression assay.
 ecological_interactions:
 - name: Chlorella-Substance Microbiome Restructuring
-  description: >
-    Chlorella, Chlorella methanol extract, and D-mannitol were applied to
-    strawberry rhizosphere microbiome fractions to perturb microbial diversity
-    and keystone-taxon abundance, tying the alga and an algal-associated carbon
-    source to the rhizosphere taxa later recombined as a SynCom.
+  description: In-vitro strawberry rhizosphere microbiome fractions changed composition and diversity during 12-
+    and 36-hour exposure to live or sterilized CHK0059, methanol extract or D-mannitol. Responses differed by substance
+    and time. Only Pseudomonas among the selected network groups was detected in these fractions; this is not demonstrated
+    commensalism, in-plant recruitment or transfer from CHK0059 to the inoculated strains.
   scope: COMMUNITY_LEVEL
-  interaction_type: COMMENSALISM
   participating_taxa:
   - preferred_term: Chlorella fusca CHK0059
     term:
@@ -231,44 +228,32 @@ ecological_interactions:
     term:
       id: CHEBI:16899
       label: D-mannitol
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: D-mannitol Enrichment of Pseudomonas in the Chlorella Phytomicrobiome
-    description: >
-      Among the applied Chlorella-related substances, 2% D-mannitol yielded a
-      prominent Pseudomonas response by 36 h.
   evidence:
   - reference: PMID:41937467
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      By applying various substances, including Chlorella, Chlorella methanol
-      extract (methanol extract), and D-mannitol, we observed changes in
-      microbial distribution and diversity
-    explanation: >
-      Supports testing Chlorella-associated substance perturbations against the
-      microbial fraction to resolve keystone-taxon responses.
+    snippet: 'By applying various substances, including Chlorella, Chlorella methanol extract (methanol extract),
+      and D-mannitol, we observed changes in microbial distribution and diversity
+
+      '
+    explanation: Supports substance-associated changes in cultured rhizosphere fractions. Methods, Results and Figure
+      S4 distinguish this in-vitro relative-abundance assay from later inoculated plant experiments.
 - name: Keystone-Taxa SynCom Suppression of Fusarium oxysporum
-  description: >
-    The recombined three-member SynCom (Pseudomonas, Duganella,
-    Brevibacterium) antagonises the soilborne pathogen Fusarium oxysporum on
-    strawberry and tomato more strongly than any single constituent strain,
-    indicating an emergent community-level antifungal activity.
-  interaction_type: COMPETITION
+  description: PARTIAL - the four bacterial isolates, alone or in mixtures and sometimes with CHK0059, altered symptom-based
+    Fusarium wilt disease indices in strawberry and tomato. Treat8 contains all four bacteria plus pathogen; Treat9
+    additionally contains CHK0059. Results depend on arm, host and time; the full mixture does not uniformly outperform
+    each single isolate. Disease reduction is not a fungal-load measurement or demonstrated competition, direct
+    antibiosis, host-defense activation or formal synergy.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pseudomonas
     term:
       id: NCBITaxon:286
       label: Pseudomonas
-  - preferred_term: Duganella
+  - preferred_term: Pseudoduganella rivuli FT92W
     term:
-      id: NCBITaxon:75654
-      label: Duganella
+      id: NCBITaxon:2666085
+      label: Pseudoduganella rivuli
   - preferred_term: Brevibacterium
     term:
       id: NCBITaxon:1696
@@ -277,99 +262,70 @@ ecological_interactions:
     term:
       id: NCBITaxon:5507
       label: Fusarium oxysporum
-  biological_processes:
-  - preferred_term: defense response to fungus
+  - preferred_term: Chlorella fusca CHK0059
     term:
-      id: GO:0050832
-      label: defense response to fungus
-  downstream:
-  - target: Strawberry Fusarium Wilt Disease-Index Reduction
-    description: >
-      The SynCom-only strawberry treatment arm had much lower Fusarium wilt
-      disease severity than the pathogen-only arm.
-  - target: Tomato Fusarium Wilt Disease-Index Reduction
-    description: >
-      The full SynCom tomato treatment arm also reduced Fusarium wilt disease
-      severity relative to pathogen-only controls.
+      id: NCBITaxon:3073
+      label: Scenedesmus fuscus
   evidence:
   - reference: PMID:41937467
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: a synthetic community (SynCom) of keystone taxa exhibited enhanced antifungal effects
-      against Fusarium oxysporum in both strawberry and tomato, compared to individual strains
-    explanation: >
-      States both the Fusarium antagonism and that the community outperformed
-      individual members.
+    snippet: a synthetic community (SynCom) of keystone taxa exhibited enhanced antifungal effects against Fusarium
+      oxysporum in both strawberry and tomato, compared to individual strains
+    explanation: The abstract labels effects antifungal. Primary treatment definitions and Figures 4/5 support host
+      disease outcomes, not universal superiority or a separately measured upstream antagonism mechanism.
 - name: Keystone Plant-Growth-Promoting Trait Pool
-  description: >
-    Before in-planta challenge, the four SynCom isolates were screened for
-    complementary plant-growth-promoting activities: Pseudomonas 8C3D12 had
-    protease activity, Brevibacterium REN4 produced siderophore and
-    indole-3-acetic acid, and FT92W plus Pseudomonas 6C7F4 carried multiple
-    PGP activities including nitrogen fixation.
+  description: PARTIAL - separate isolate screens found protease activity for 8C3D12; phosphate-solubilization,
+    protease, CAS and Nfb responses for 6C7F4; CAS and Nfb responses for FT92W; and CAS plus Salkowski responses
+    for REN4. Supplementary Table S2 additionally reports a positive FT92W Salkowski/IAA screen. Nfb color change
+    is not measured nitrogen flux, and Salkowski color is not chemically resolved IAA. These screens do not establish
+    colonization facilitation, community complementarity or necessary mediation of plant protection.
   scope: COMMUNITY_LEVEL
-  interaction_type: COLONIZATION_FACILITATION
   participating_taxa:
   - preferred_term: Pseudomonas
     term:
       id: NCBITaxon:286
       label: Pseudomonas
-  - preferred_term: Duganella
+  - preferred_term: Pseudoduganella rivuli FT92W
     term:
-      id: NCBITaxon:75654
-      label: Duganella
+      id: NCBITaxon:2666085
+      label: Pseudoduganella rivuli
   - preferred_term: Brevibacterium
     term:
       id: NCBITaxon:1696
       label: Brevibacterium
-  metabolites:
-  - preferred_term: indole-3-acetic acid
-    term:
-      id: CHEBI:16411
-      label: indole-3-acetic acid
-  biological_processes:
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
-  downstream:
-  - target: Keystone-Taxa SynCom Suppression of Fusarium oxysporum
-    description: >
-      The functionally distinct keystone isolates were then tested as single,
-      partial-SynCom, and full-SynCom disease-suppression treatments.
   evidence:
   - reference: PMID:41937467
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: The FT92W and the 6C7F4 strains showed multiple PGP activities
-    explanation: >
-      Supports functional differentiation among two keystone taxa selected for
-      the SynCom panel.
+    explanation: Main text supports separate FT92W and 6C7F4 PGP screens. Methods and actual Supplementary Figure
+      S7 identify Nfb/CAS/plate assays; Table S2 also lists a positive FT92W IAA screen. These are proxies, not
+      nitrogen flux or demonstrated community mediation.
   - reference: PMID:41937467
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: >
-      REN4 strain demonstrated siderophore production and indole-3-acetic acid
-      (IAA) production abilities
-    explanation: >
-      Supports Brevibacterium REN4 as a third keystone member with a measured
-      plant-growth-promoting activity distinct from the Pseudomonas strains.
+    snippet: 'REN4 strain demonstrated siderophore production and indole-3-acetic acid (IAA) production abilities
+
+      '
+    explanation: Supports reported REN4 screening responses. The Methods use CAS and Salkowski assays; chemical
+      IAA identity and in-plant causal necessity were not isolated.
 - name: Strawberry Fusarium Wilt Disease-Index Reduction
-  description: >
-    In strawberries challenged with F. oxysporum f. sp. fragariae, the full
-    SynCom lowered the Fusarium wilt disease-index percentage at week 5 and
-    also increased shoot biomass under pathogen pressure.
+  description: Under F. oxysporum f. sp. fragariae F9 challenge, the four-bacterium Treat8 had about 20% strawberry
+    wilt disease index at week 5 versus about 60% for pathogen-only F, consistent with Figure 4. Treat9 adds CHK0059.
+    Table S3 reports Treat8 mean shoot weight 1.47 g versus 0.43 g for F, while the single-isolate Treat3 mean was
+    2.24 g. These are host symptom and growth endpoints, not proof of direct fungal inhibition or universal mixture
+    superiority.
   scope: COMMUNITY_LEVEL
-  interaction_type: COMPETITION
   participating_taxa:
   - preferred_term: Pseudomonas
     term:
       id: NCBITaxon:286
       label: Pseudomonas
-  - preferred_term: Duganella
+  - preferred_term: Pseudoduganella rivuli FT92W
     term:
-      id: NCBITaxon:75654
-      label: Duganella
+      id: NCBITaxon:2666085
+      label: Pseudoduganella rivuli
   - preferred_term: Brevibacterium
     term:
       id: NCBITaxon:1696
@@ -382,44 +338,41 @@ ecological_interactions:
     term:
       id: NCBITaxon:3747
       label: Fragaria x ananassa
-  biological_processes:
-  - preferred_term: defense response to fungus
+  - preferred_term: Chlorella fusca CHK0059
     term:
-      id: GO:0050832
-      label: defense response to fungus
+      id: NCBITaxon:3073
+      label: Scenedesmus fuscus
   evidence:
   - reference: PMID:41937467
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: the SynCom treatment group showed a disease index 20% percentage
-    explanation: >
-      Supports lower strawberry Fusarium wilt severity in the SynCom-treated
-      group.
+    explanation: Results plus visually inspected Figure 4 support the approximate week-5 Treat8/F contrast; it is
+      not a terminal week-7 estimate or a fungal-burden assay.
   - reference: PMID:41937467
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >
-      The only SynCom treatment (Treat8) had an average shoot weight of 1.47 g
-    explanation: >
-      Supports a strawberry growth endpoint for the full SynCom under Fusarium
-      challenge.
+    snippet: 'The only SynCom treatment (Treat8) had an average shoot weight of 1.47 g
+
+      '
+    explanation: Table S3 corroborates Treat8 mean shoot weight 1.47 g, F 0.43 g and single-isolate Treat3 2.24
+      g. SynCom-only means without alga, not without pathogen.
 - name: Tomato Fusarium Wilt Disease-Index Reduction
-  description: >
-    In tomatoes challenged with F. oxysporum f. sp. lycopersici, the full
-    SynCom and several SynCom combinations had lower week-4 disease-index
-    percentages than the pathogen-only treatment, extending the keystone
-    community's antifungal effect beyond strawberry.
+  description: Under F. oxysporum f. sp. lycopersici challenge, the Results report week-4 mean tomato wilt disease
+    indices of 25% for four-bacterium Treat8 and 18% for Treat9 with CHK0059, below pathogen-only F (about 68-75%).
+    Single-isolate FT92W Treat2 is reported at 22.2%; Figure 5 shows overlapping post-hoc groups among effective
+    arms. Thus lower disease severity does not establish universal full-mixture superiority, direct antagonism,
+    competition or a specific host-defense mechanism.
   scope: COMMUNITY_LEVEL
-  interaction_type: COMPETITION
   participating_taxa:
   - preferred_term: Pseudomonas
     term:
       id: NCBITaxon:286
       label: Pseudomonas
-  - preferred_term: Duganella
+  - preferred_term: Pseudoduganella rivuli FT92W
     term:
-      id: NCBITaxon:75654
-      label: Duganella
+      id: NCBITaxon:2666085
+      label: Pseudoduganella rivuli
   - preferred_term: Brevibacterium
     term:
       id: NCBITaxon:1696
@@ -432,29 +385,27 @@ ecological_interactions:
     term:
       id: NCBITaxon:4081
       label: Solanum lycopersicum
-  biological_processes:
-  - preferred_term: defense response to fungus
+  - preferred_term: Chlorella fusca CHK0059
     term:
-      id: GO:0050832
-      label: defense response to fungus
+      id: NCBITaxon:3073
+      label: Scenedesmus fuscus
   evidence:
   - reference: PMID:41937467
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >
-      Treat1, Treat2, Treat6, Treat7, Treat8, and Treat9 had lower disease
-      index percentages
-    explanation: >
-      Supports reduced tomato Fusarium wilt severity in treatments that include
-      several SynCom members or the full SynCom.
+    snippet: 'Treat1, Treat2, Treat6, Treat7, Treat8, and Treat9 had lower disease index percentages
+
+      '
+    explanation: The primary Results and Figure 5 identify reduced symptom-based disease indices in multiple arms,
+      including a single isolate. This supports treatment-specific host protection, not necessary synergy or direct
+      pathogen inhibition.
 - name: D-mannitol Enrichment of Pseudomonas in the Chlorella Phytomicrobiome
-  description: >
-    Applying 2% D-mannitol, a polyol associated with the microalga and its
-    methanol extract, shifted the plant-associated microbiota and markedly
-    increased Pseudomonas abundance, implicating an algal-associated compound
-    as a recruitment signal for a keystone member.
+  description: In-vitro rhizosphere microbiome-fraction assays showed higher Pseudomonas relative abundance with
+    exogenous 2% D-mannitol at 36 hours; Figure S4 also shows lower relative abundance in live and sterilized CHK0059
+    arms. This compositional response is not absolute Pseudomonas growth, recruitment of 8C3D12 or 6C7F4 in plants,
+    demonstrated algal mannitol secretion, or commensalism. A carbon-source mechanism is HYPOTHESIZED, not traced
+    algal-to-bacterial transfer.
   scope: COMMUNITY_LEVEL
-  interaction_type: COMMENSALISM
   target_taxon:
     preferred_term: Pseudomonas
     term:
@@ -466,24 +417,13 @@ ecological_interactions:
       id: CHEBI:16899
       label: D-mannitol
     notes: Applied at 2%; the treatment under which Pseudomonas enrichment was observed.
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Keystone Plant-Growth-Promoting Trait Pool
-    description: >
-      D-mannitol-enriched Pseudomonas was one component of the keystone set
-      that was functionally screened before SynCom plant inoculation.
   evidence:
   - reference: PMID:41937467
     supports: PARTIAL
-    evidence_source: IN_VIVO
+    evidence_source: IN_VITRO
     snippet: a notable increase in Pseudomonas abundance following 2% D-mannitol treatment
-    explanation: PARTIAL - establishes that D-mannitol enriches Pseudomonas, but the paper reports
-      an abundance shift under treatment rather than demonstrating that the microalga secretes
-      D-mannitol in planta, so the algal origin of the signal remains inferred.
+    explanation: Supports a relative-abundance response under exogenous mannitol. Primary Methods/Results and Figure
+      S4 distinguish it from absolute counts, strain-resolved recruitment and algal secretion.
 growth_media:
 - name: R2A broth, Chlorella fusca CHK0059 culture
   composition:
@@ -497,17 +437,15 @@ growth_media:
   incubation_time_unit: DAYS
   light_regime: 16 h light / 8 h dark
   vessel_type: Broth culture, from a single colony picked off R2A agar
-  preparation_notes: >-
-    The alga's own culture, which is what the SynCom is assembled from. Extracted from the
-    cached open-access full text rather than the abstract - #183 lists this record among
-    those lacking growth conditions because the conditions are Methods-level, and the
-    Methods are reachable now (PMC full text cached).
+  preparation_notes: Maintenance culture for CHK0059 only. The four bacterial isolates are prepared separately;
+    they are not assembled from the algal broth. The source reports R2A bacterial growth to OD600 0.6 for the PGP
+    screens, distinct from the microbiome-fraction incubation and plant challenge.
   evidence:
   - reference: PMID:41937467
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'inoculate the single fresh CHK0059 colony to R2A broth (MB cell R2A 3.15 g per L),
-      temperature; 28°C, period; 5 days, light; 16 h and dark; 8 hr in a day'
+    snippet: inoculate the single fresh CHK0059 colony to R2A broth (MB cell R2A 3.15 g per L), temperature; 28°C,
+      period; 5 days, light; 16 h and dark; 8 hr in a day
     explanation: Names the medium, temperature, duration and photoperiod in one sentence.
   - reference: PMID:41937467
     supports: SUPPORT
@@ -518,29 +456,69 @@ growth_media:
   temperature: 27.0
   temperature_unit: CELSIUS
   vessel_type: Shaking incubator
-  preparation_notes: >-
-    The assay leg rather than the maintenance culture - samples were sampled at 12, 24, 36
-    and 48 h, and viability read by dilution plating back onto R2A.
+  preparation_notes: The assay leg rather than the maintenance culture - samples were sampled at 12, 24, 36 and
+    48 h, and viability read by dilution plating back onto R2A.
   evidence:
   - reference: PMID:41937467
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the samples were cultured in a 27°C shaking incubator for designated time intervals
-      (12 h, 24 h, 36 h, and 48 h)
+    snippet: the samples were cultured in a 27°C shaking incubator for designated time intervals (12 h, 24 h, 36
+      h, and 48 h)
     explanation: Names the assay temperature, agitation and sampling schedule.
-
 environmental_factors:
 - name: D-mannitol amendment
-  value: '2%'
-  description: >
-    D-mannitol (CHEBI:16899) applied at 2% as one of the tested substances, alongside Chlorella
-    itself and a Chlorella methanol extract. This is the condition under which Pseudomonas
-    enrichment was observed, so it is the perturbation that links an algal-associated polyol to
-    recruitment of a keystone member.
+  value: 2%
+  description: Exogenous 2% D-mannitol in the in-vitro microbiome-fraction experiment; Figure S4 reports Pseudomonas
+    relative abundance at 12 and 36 hours. A separate plant treatment, Treat10, combines 2% mannitol with pathogen
+    challenge. Neither experiment establishes algal secretion or recruitment of the inoculated bacterial strains.
   evidence:
   - reference: PMID:41937467
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: By applying various substances, including Chlorella, Chlorella methanol extract
-      (methanol extract), and D-mannitol
-    explanation: Lists the applied substances that define the tested conditions.
+    evidence_source: IN_VITRO
+    snippet: By applying various substances, including Chlorella, Chlorella methanol extract (methanol extract),
+      and D-mannitol
+    explanation: Lists the substances applied in microbiome-fraction assays; plant Treat10 is a separate challenge
+      arm in Figures 4/5.
+curation_history:
+- timestamp: '2026-10-02T05:42:48Z'
+  curator: codex
+  action: PRUNE_NONCAUSAL_WORKFLOW_EDGES
+  changes: 'Removed three downstream edges that linked Chlorella-associated substance perturbation, D-mannitol enrichment
+    of Pseudomonas, keystone member PGP trait screening, and SynCom Fusarium challenge as a design and assay sequence
+    rather than source-backed ecological causal transitions. Retained the SynCom-to-disease-index edges for the
+    strawberry and tomato Fusarium outcomes.
+
+    '
+  llm_assisted: true
+- timestamp: '2026-10-05T21:23:45Z'
+  curator: codex
+  action: CORRECT_MEMBER_IDENTITY_AND_ASSAY_CONTEXT
+  changes: 'Correct four-isolate membership and FT92W identity; distinguish network associations, cultured fractions
+    and plant challenge arms; issue #1305'
+  llm_assisted: true
+- timestamp: '2026-10-05T21:23:45Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound six causal nodes to assay evidence and remove two duplicate disease-outcome arrows; issue #1306;
+    reports/causal_graph_review/decisions/20261005-two-records-batch14.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: chk0059_causal_mediation_and_source_consistency
+  prompt: Which microbial or host mechanisms mediate the treatment-specific disease reductions?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Chlorella-Substance Microbiome Restructuring
+  - ecological_interactions#Keystone-Taxa SynCom Suppression of Fusarium oxysporum
+  - ecological_interactions#Keystone Plant-Growth-Promoting Trait Pool
+  - ecological_interactions#Strawberry Fusarium Wilt Disease-Index Reduction
+  - ecological_interactions#Tomato Fusarium Wilt Disease-Index Reduction
+  - ecological_interactions#D-mannitol Enrichment of Pseudomonas in the Chlorella Phytomicrobiome
+  rationale: Separate microbiome-fraction responses, isolate proxy screens and plant symptoms do not establish a
+    causal chain. No reviewed selective mediator loss/rescue, strain-resolved transfer, fungal-load assay or host-defense
+    perturbation isolates the mechanism. The source body has inconsistent week-7 strawberry wording and supplement
+    figure numbering; use the actual treatment captions/plots and distinguish week-specific values from overall
+    summaries. Methods sample three plants for growth phenotypes while Tables S3/S4 label n=10; inferential precision
+    should not be reconstructed from these summaries.
+  posed_by: codex
+  posed_date: '2026-10-05'

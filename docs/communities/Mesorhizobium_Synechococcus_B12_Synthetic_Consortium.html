@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>Mesorhizobium TaiHu-Synechococcus PCC 7002 Vitamin B12 Synthetic Consortium</h1>
         </div>
     </header>
@@ -400,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        laboratory co-culture
+                        laboratory co-culture<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -414,7 +437,7 @@
                     <span class="metadata-label">Modeled Environment</span>
                     <span class="metadata-value">
 
-                        Lake Taihu freshwater bloom
+                        Lake Taihu freshwater bloom<span class="ontology-label"> — ontology label: freshwater lake</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000021"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -440,6 +463,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -453,7 +477,7 @@
 
                     <tr>
                         <td>
-                            <strong>Synechococcus sp. PCC 7002 (Syn7002)</strong>
+                            <strong>Synechococcus sp. PCC 7002 (Syn7002)<span class="ontology-label"> — ontology label: Picosynechococcus sp. PCC 7002</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=32049"
@@ -495,7 +519,7 @@
 
                     <tr>
                         <td>
-                            <strong>Mesorhizobium sp. TaiHu (MesTH)</strong>
+                            <strong>Mesorhizobium sp. TaiHu (MesTH)<span class="ontology-label"> — ontology label: Mesorhizobium</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=68287"
@@ -537,7 +561,7 @@
 
                     <tr>
                         <td>
-                            <strong>Pseudomonas sp. TaiHu (PseTH)</strong>
+                            <strong>Pseudomonas sp. TaiHu (PseTH)<span class="ontology-label"> — ontology label: Pseudomonas</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=286"
@@ -573,7 +597,7 @@
 
                     <tr>
                         <td>
-                            <strong>bloom-forming Microcystis community (source inoculum)</strong>
+                            <strong>bloom-forming Microcystis community (source inoculum)<span class="ontology-label"> — ontology label: Microcystis &lt;cyanobacteria&gt;</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1125"
@@ -609,18 +633,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Mesorhizobium TaiHu-Synechococcus PCC 7002 Vitamin B12 Synthetic Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, competition, niche partitioning, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -633,18 +659,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -652,38 +668,26 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Microcystis-Bloom Selection into Syn7002 Epibionts</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Microcystis Disappearance During Salinity Passaging</h3>
                 </div>
+                <p class="prewrap interaction-description">Increasing salinity during Syn7002 co-cultivation with a Lake Taihu bloom inoculum was accompanied by disappearance of Microcystis and persistence of associated epibionts. This is a treatment-associated compositional result, not proof of niche partitioning, an exclusive salinity mechanism or the cause of later B12 complementarity. Microcystis is the source inoculum, not a confirmed member of the final pair.</p>
+
+
+
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Synechococcus sp. PCC 7002 (Syn7002),
+
+                    bloom-forming Microcystis community (source inoculum)
+
+                </p>
 
 
 
 
 
 
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Syn7002-MesTH-PseTH Community Sorting
-                    </div>
-
-                </div>
 
 
 
@@ -725,41 +729,27 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Syn7002-MesTH-PseTH Community Sorting</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">Across successive streak-purification rounds, Syn7002, MesTH and PseTH were the major early components; relative PseTH abundance declined and MesTH became dominant after the second round. This preserves compositional stabilization without asserting PseTH extinction, competitive exclusion, absolute viable growth or B12 availability as the isolated cause. Purification and changing conditions are part of the observation, not an ecological arrow to later assays.</p>
+
+
+
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Synechococcus sp. PCC 7002 (Syn7002),
+
+                    Mesorhizobium sp. TaiHu (MesTH),
+
+                    Pseudomonas sp. TaiHu (PseTH)
+
+                </p>
 
 
 
 
 
 
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Close Spatial Association of Partner Bacteria with Syn7002 Cells
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> MesTH Vitamin B12 Biosynthesis and Transport Response
-                    </div>
-
-                </div>
 
 
 
@@ -801,6 +791,7 @@
                     <h3>Vitamin B12 Provision from Mesorhizobium TaiHu to Synechococcus PCC 7002</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">HYPOTHESIZED - MesTH supplies B12 needed by auxotrophic Syn7002 in the washed, B12-free BG11 coculture. Positive growth rescue, B12-supplemented controls and genomic/transcript evidence support this proposed cross-feeding. Targeted LC-MS/MS did not detect free B12 in day-20 pelleted cultures; that is not an extracellular assay, proof of rapid utilization or demonstration of donor-to-recipient transfer. Delivery by release versus contact and the necessity of MesTH B12 biosynthesis were not selectively resolved.</p>
 
 
                 <p><strong>Source Taxon:</strong> Mesorhizobium sp. TaiHu (MesTH)</p>
@@ -839,6 +830,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> MesTH Growth Rescue of B12-Limited Syn7002
+                        <p class="prewrap causal-description">HYPOTHESIZED - B12 supplied by MesTH could relieve the auxotroph limitation and explain positive Syn7002 growth rescue. Coculture and added-B12 controls support this mechanism without directly measuring vitamin delivery or selectively disrupting the donor pathway.</p>
                     </div>
 
                 </div>
@@ -868,26 +860,21 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Close Spatial Association of Partner Bacteria with Syn7002 Cells</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
+                <p class="prewrap interaction-description">SEM showed rod-shaped bacteria clustered around Syn7002 in fixed, dehydrated coculture material. MesTH morphology is compatible with the rods, but morphology alone does not independently resolve every cell identity. Close association is a positive observation, not experimentally demonstrated colonization facilitation, mandatory contact or vitamin transfer.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Synechococcus sp. PCC 7002 (Syn7002)
+
+                </p>
 
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -896,6 +883,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Vitamin B12 Provision from Mesorhizobium TaiHu to Synechococcus PCC 7002
+                        <p class="prewrap causal-description">HYPOTHESIZED - proximity could facilitate local B12 availability or contact-associated delivery. The source leaves extracellular release versus direct contact unresolved; microscopy does not establish that proximity is required or sufficient for transfer.</p>
                     </div>
 
                 </div>
@@ -925,11 +913,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>MesTH Vitamin B12 Biosynthesis and Transport Response</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">MesTH showed B12 biosynthesis/transport-associated transcript changes during community formation, while Syn7002 had lower reported transporter expression. Figure 4 presents log2 fold changes relative to the initial stage; these are not absolute cross-species vitamin-output measurements or a matched coculture-versus-monoculture induction test. Transcription supports the proposed B12 role, not secretion, uptake flux or pathway necessity. Nitrogen-related expression is likewise not direct nitrogen fixation or assimilation.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Synechococcus sp. PCC 7002 (Syn7002),
+
+                    Mesorhizobium sp. TaiHu (MesTH)
+
+                </p>
 
 
 
@@ -961,6 +957,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Vitamin B12 Provision from Mesorhizobium TaiHu to Synechococcus PCC 7002
+                        <p class="prewrap causal-description">HYPOTHESIZED - MesTH biosynthetic and transport capacity could support B12 availability to Syn7002. Transcript profiles are consistent with this proposal but do not establish that their changes drive secretion or donor-to-recipient transfer.</p>
                     </div>
 
                 </div>
@@ -976,7 +973,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41790499/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41790499</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"vitamin B12 biosynthesis and transport-related genes were more highly expressed in MesTH compared to Syn7002
@@ -991,11 +988,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>MesTH Growth Rescue of B12-Limited Syn7002</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">Adding washed MesTH to washed Syn7002 in B12-free BG11 promoted the cyanobacterial growth endpoint relative to the unsupplemented alga-only condition; supplied B12 was the positive control. Growth was followed by absorbance and culture appearance over 20 days. Preserve the positive rescue without claiming directly measured photosynthetic flux, reciprocal benefit, universal long-term survival or that B12 is the sole mediator. Washing does not by itself quantify residual or intracellular vitamin stores.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Synechococcus sp. PCC 7002 (Syn7002),
+
+                    Mesorhizobium sp. TaiHu (MesTH)
+
+                </p>
 
 
 
@@ -1008,17 +1013,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        photosynthesis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015979"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015979</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -1050,6 +1044,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Does MesTH-derived B12 mediate rescue, and does spatial association contribute?
+                </h3>
+                <p class="prewrap">All six observations remain. Remove salinity-to-sorting and sorting-to-microscopy/transcript arrows because they describe assembly or analysis order. Retain three source-consistent B12 links as hypotheses. Pellet non-detection does not prove rapid uptake; separate extracellular assays, donor perturbation/rescue and contact separation would test delivery. PseTH decline is not extinction or isolated competition; nitrogen transcripts are not functional fixation. Preserve B12-free and added-B12 controls, canonical genus groundings and #583 guidance. #1597 repairs graph claims; non-graph vitamin certainty and PseTH/source wording remain #1600. Complete primary main text/captions read, not separate Table S1, images or raw data.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Microcystis Disappearance During Salinity Passaging</code>, <code>ecological_interactions#Syn7002-MesTH-PseTH Community Sorting</code>, <code>ecological_interactions#Vitamin B12 Provision from Mesorhizobium TaiHu to Synechococcus PCC 7002</code>, <code>ecological_interactions#Close Spatial Association of Partner Bacteria with Syn7002 Cells</code>, <code>ecological_interactions#MesTH Vitamin B12 Biosynthesis and Transport Response</code>, <code>ecological_interactions#MesTH Growth Rescue of B12-Limited Syn7002</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1057,6 +1070,7 @@
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -1095,6 +1109,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -1126,6 +1141,7 @@
 
 
                 <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <div class="table-scroll" role="region" tabindex="0" aria-label="Vitamin B12-supplemented BG11, Syn7002 culture composition">
                 <table>
                     <thead>
                         <tr>
@@ -1161,6 +1177,7 @@
 
                     </tbody>
                 </table>
+                </div>
 
 
 
@@ -1226,6 +1243,7 @@
 
 
                 <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <div class="table-scroll" role="region" tabindex="0" aria-label="LB, MesTH isolation and culture composition">
                 <table>
                     <thead>
                         <tr>
@@ -1250,6 +1268,7 @@
 
                     </tbody>
                 </table>
+                </div>
 
 
 
@@ -1293,12 +1312,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1311,7 +1333,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1379,20 +1400,16 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
 
             var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Microcystis-Bloom Selection into Syn7002 Epibionts",
+                label: "Microcystis Disappearance During Salinity Passaging",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1403,18 +1420,27 @@
 
 
 
+            var participantKeys = [
+
+                "Synechococcus sp. PCC 7002 (Syn7002)",
+
+                "bloom-forming Microcystis community (source inoculum)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
 
             var evidenceCount = 2;
 
@@ -1430,6 +1456,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Synechococcus sp. PCC 7002 (Syn7002)",
+
+                "Mesorhizobium sp. TaiHu (MesTH)",
+
+                "Pseudomonas sp. TaiHu (PseTH)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1477,14 +1518,10 @@
 
         (function() {
             var intId = "interaction:3";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
 
             var evidenceCount = 1;
 
@@ -1501,11 +1538,22 @@
 
 
 
+            var participantKeys = [
+
+                "Synechococcus sp. PCC 7002 (Syn7002)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:4";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1533,11 +1581,24 @@
 
 
 
+            var participantKeys = [
+
+                "Synechococcus sp. PCC 7002 (Syn7002)",
+
+                "Mesorhizobium sp. TaiHu (MesTH)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:5";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1545,10 +1606,6 @@
 
 
             var processes = [];
-
-
-            processes.push("photosynthesis");
-
 
             var evidenceCount = 1;
 
@@ -1565,6 +1622,19 @@
 
 
 
+            var participantKeys = [
+
+                "Synechococcus sp. PCC 7002 (Syn7002)",
+
+                "Mesorhizobium sp. TaiHu (MesTH)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
 
@@ -1578,6 +1648,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

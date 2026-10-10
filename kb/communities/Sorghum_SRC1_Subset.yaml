@@ -157,102 +157,7 @@ taxonomy:
     snippet: SRC1 was assembled from bacterial isolates identified either for their potential role in
       community cohesion through network analysis or for their ability to benefit from host-specific exudate
       compounds
-ecological_interactions:
-- name: Network and Exudate Guided SRC1 Assembly
-  description: >
-    SRC1 was assembled from sorghum bacterial isolates selected either for network-predicted
-    community cohesion or for growth on host-specific root-exudate compounds.
-  scope: COMMUNITY_LEVEL
-  interaction_type: COLONIZATION_FACILITATION
-  biological_processes:
-  - preferred_term: symbiotic process
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  downstream:
-  - target: Host-Associated SRC1 Cohesion
-    description: >
-      The cohesion- and exudate-guided isolate set was then tested across solid-medium,
-      gnotobiotic sorghum, and native-field growth contexts.
-  evidence:
-  - reference: doi:10.1093/ismejo/wrae126
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: SRC1 was assembled from bacterial isolates identified either for their potential role in
-      community cohesion through network analysis or for their ability to benefit from host-specific exudate
-      compounds
-- name: Host-Associated SRC1 Cohesion
-  description: >
-    SRC1 community cohesion was most robust with the sorghum host in laboratory conditions, while
-    some lineages were lost during growth on solid medium or in the native field.
-  scope: COMMUNITY_LEVEL
-  interaction_type: COLONIZATION_FACILITATION
-  biological_processes:
-  - preferred_term: symbiotic process
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  downstream:
-  - target: Above- and Below-Ground Sorghum Growth Promotion
-    description: >
-      Sorghum-associated SRC1 growth connected the designed isolate mixture to above- and
-      below-ground host growth phenotypes.
-  evidence:
-  - reference: doi:10.1093/ismejo/wrae126
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: SRC1 cohesion is most robust when cultivated in the presence of the plant host
-      under laboratory conditions
-    explanation: >
-      Anchors the host-associated community cohesion that distinguished the gnotobiotic sorghum
-      condition from in-vitro or native-field SRC1 growth.
-- name: Above- and Below-Ground Sorghum Growth Promotion
-  description: >
-    The SRC1 SynCom promoted both above-ground and below-ground sorghum growth phenotypes in
-    laboratory and native-field contexts.
-  scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
-  biological_processes:
-  - preferred_term: plant growth
-    term:
-      id: GO:0040007
-      label: growth
-  downstream:
-  - target: Host Lignin Biosynthesis Dampening
-    description: >
-      Under laboratory conditions, the sorghum growth improvements were correlated with
-      transcriptional dampening of host lignin biosynthesis.
-  evidence:
-  - reference: doi:10.1093/ismejo/wrae126
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: SRC1 effectively promotes the growth of both above- and below-ground plant phenotypes
-      in both laboratory and native field contexts
-    explanation: >
-      Reports the main plant-growth phenotype measured after SRC1 inoculation.
-- name: Host Lignin Biosynthesis Dampening
-  description: >
-    In the laboratory sorghum host, SRC1-driven growth enhancement correlated with dampened
-    transcription of lignin-biosynthesis genes.
-  scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
-  biological_processes:
-  - preferred_term: lignin biosynthetic process
-    term:
-      id: GO:0009809
-      label: lignin biosynthetic process
-  - preferred_term: regulation of secondary metabolite biosynthetic process
-    term:
-      id: GO:1900376
-      label: regulation of secondary metabolite biosynthetic process
-  evidence:
-  - reference: doi:10.1093/ismejo/wrae126
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: these growth enhancements correlate with the transcriptional dampening of lignin
-      biosynthesis in the host
-    explanation: >
-      Links the SRC1 growth phenotype to the host lignin-biosynthesis transcriptional response.
+ecological_interactions: []
 environmental_factors:
 - name: Community design strategy
   value: network-based and exudate-responsive selection
@@ -321,3 +226,37 @@ growth_media:
     snippet: The growth performance of SRC1 was assessed in vitro on solid media, in planta under gnotobiotic
       laboratory conditions, and in the field
     explanation: Names the three cultivation contexts (solid media in vitro, gnotobiotic in planta, field).
+curation_history:
+- timestamp: '2026-10-02T06:15:13Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Removed three downstream edges that linked SRC1 isolate selection, host-associated cohesion, growth promotion,
+    and lignin dampening through assay order or correlation rather than demonstrated causal direction.
+  llm_assisted: true
+- timestamp: '2026-10-08T00:12:44Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Withhold four parent-SRC1 nodes from an unverified subset identity; retain needs_research and source-grounded
+    identity discussion. Issue#1810; reports/causal_graph_review/decisions/20261008-four-records-batch103.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: src1_causal_attribution_batch103
+  prompt: Which exact source-backed community does the claimed 16-20-member SRC1 subset represent?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: 'The record claims a subset but cites parent SRC1 results. The primary paper introduction identifies
+    57 strains, independently corroborated by the SRC2 primary study; the cached and freshly retrieved SRC1 abstract
+    does not identify a 16-20-member formulation. Four subset-attributed nodes are withheld, not a rejection of
+    the parent study''s positive observations. Cohesion does not establish facilitation, host benefit does not establish
+    reciprocal mutualism, and lignin transcription is not proven mediation. Resolve identity, membership and endpoint
+    scope in issue #1813 before restoring a graph. Top-level identity/taxonomy are preserved pending that separately
+    scoped decision; this record remains needs_research.'
+  posed_by: codex
+  posed_date: '2026-10-08'
+  evidence:
+  - reference: doi:10.1093/ismejo/wrae126
+    supports: NO_EVIDENCE
+    evidence_source: IN_VIVO
+    snippet: Here, we engineered a synthetic rhizosphere community (SRC1) with the anticipation that it would exhibit
+      a selective advantage in colonizing the host Sorghum bicolor, thereby potentially fostering its growth
+    explanation: Identifies the studied SRC1 broadly, but does not identify the record-specific subset.

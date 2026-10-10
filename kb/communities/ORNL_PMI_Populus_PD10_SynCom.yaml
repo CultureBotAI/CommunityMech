@@ -287,10 +287,11 @@ taxonomy:
       combined and passaged in two different media environments to form stable microbial communities
     explanation: Documents membership of defined Populus-derived strains in the PD10 community
 ecological_interactions:
-- name: Medium-Dependent Stable Community Assembly
-  description: Serial passaging of the same ten-strain Populus rhizosphere inoculum in R2A versus
-    MOPS-glucose produced distinct stable communities after the first several growth cycles.
-  interaction_type: NICHE_PARTITIONING
+- name: Medium-Dependent Serial-Passage Selection
+  description: Serial passage of the same ten-strain inoculum in MOPS-glucose versus R2A selected distinct persistent
+    communities. The controlled medium comparison supports medium-dependent assembly, not uniquely demonstrated
+    niche partitioning. Main-text trajectories distinguish the MOPS four-strain pattern from passage 4 and R2A stable
+    coexistence from passage 10; the abstract summary of about five cycles is not a universal threshold.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
@@ -299,30 +300,32 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: MOPS Minimal-Medium Four-Strain Coexistence
-    description: The MOPS-glucose condition selected a stable community dominated by Pseudomonas,
-      Variovorax, Rhizobium, and Sphingobium.
+    description: Serial passage in the MOPS-glucose condition selected the persistent Pseudomonas, Variovorax, Rhizobium
+      and Sphingobium assemblage, in contrast to the R2A outcome from the same inoculum. The condition-to-composition
+      effect is supported without isolating nutrient competition from proposed exchange mechanisms.
   - target: R2A Pantoea-Dominated Stable Community
-    description: The R2A condition selected a community dominated by Pantoea, Pseudomonas,
-      Sphingobium, and viable Bacillus biomass.
+    description: Serial passage in the R2A condition selected the Pantoea-dominated 16S assemblage with Pseudomonas
+      and Sphingobium, while metaproteomics also recovered notable Bacillus proteins. The medium effect on community
+      composition is retained without equating protein-relative abundance with directly counted viable biomass.
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: In this study, 10 bacterial strains isolated from the Populus deltoides rhizosphere were
-      combined and passaged in two different media environments to form stable microbial communities
-    explanation: Supports medium-dependent stable-community assembly from a defined ten-strain
-      rhizosphere inoculum.
+    snippet: In this study, 10 bacterial strains isolated from the Populus deltoides rhizosphere were combined and
+      passaged in two different media environments to form stable microbial communities
+    explanation: Supports medium-dependent stable-community assembly from a defined ten-strain rhizosphere inoculum.
   - reference: PMID:33995895
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The membership and relative abundances of the strains stabilized after around 5 growth cycles
-      and resulted in just a few dominant strains that depended on the medium
+    snippet: The membership and relative abundances of the strains stabilized after around 5 growth cycles and resulted
+      in just a few dominant strains that depended on the medium
     explanation: Supports medium-dependent convergence to a few dominant surviving strains.
-- name: Selective Antagonism During Assembly
-  description: Pairwise screens showed that Pseudomonas was antagonistic to most other members, while
-    Pantoea showed positive interactions with several strains, implicating both competition and
-    facilitation in final community selection.
-  interaction_type: COMPETITION
+- name: Pairwise Growth Phenotypes on R2A Agar
+  description: R2A agar pairwise screens found GM17-associated inhibition of multiple lawns and YR343-associated
+    growth promotion of CF142 and CF313. These are measured colony phenotypes, not a direct test of their contribution
+    to liquid-community selection or a uniquely established nutrient-competition or antimicrobial mechanism. AP49,
+    CF142 and CF313 still coexisted with GM17 in liquid culture; positive exchanges and the agar-versus-liquid conditions
+    are alternative explanations.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
@@ -342,13 +345,15 @@ ecological_interactions:
   - reference: PMID:33995895
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Pseudomonas sp. GM17 cells were antagonistic to the growth of the majority of the other
-      community members, while Pantoea sp. YR343 demonstrated positive interactions with several strains
-    explanation: Supports selective antagonism and positive pairwise interactions as experimentally
-      screened assembly mechanisms.
+    snippet: Pseudomonas sp. GM17 cells were antagonistic to the growth of the majority of the other community members,
+      while Pantoea sp. YR343 demonstrated positive interactions with several strains
+    explanation: Supports the positive and negative pairwise agar phenotypes. Their mediation of liquid-community
+      assembly was proposed, not directly established by this assay.
 - name: Pantoea-Centered R2A Metabolite Export
-  description: The R2A community FBA model predicted that dominant Pantoea sp. YR343 exports more
-    metabolite classes than it receives from the other R2A community members.
+  description: HYPOTHESIZED - In the three-member R2A community FBA model, Pantoea sp. YR343 exports predicted organic
+    acids, purine derivatives and biogenic amines that could support other modeled members, Pseudomonas sp. GM17
+    and Sphingobium sp. AP49. This is a constrained, gapfilled model conditioned on endpoint 16S proportions; pathway
+    proteins support metabolic capacity, not measured exchange flux or proof that export caused long-term persistence.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -356,46 +361,49 @@ ecological_interactions:
     term:
       id: NCBITaxon:53335
       label: Pantoea
-  target_taxon:
-    preferred_term: Sphingobium sp. AP49
-    term:
-      id: NCBITaxon:165695
-      label: Sphingobium
   metabolites:
   - preferred_term: organic acid
     term:
       id: CHEBI:64709
       label: organic acid
-  - preferred_term: purine derivative
-    term:
-      id: CHEBI:26385
-      label: purine alkaloid
-  - preferred_term: biogenic amine
-    term:
-      id: CHEBI:50790
-      label: EC 1.14.14.14 (aromatase) inhibitor
   downstream:
   - target: R2A Pantoea-Dominated Stable Community
-    description: FBA-predicted export by Pantoea provides a computational exchange mechanism for
-      R2A community persistence.
+    description: HYPOTHESIZED - Predicted YR343 secretion could provide growth substrates that help sustain the
+      R2A partners. The source proposes this mechanism, but FBA uses final community proportions as inputs and does
+      not independently establish temporal assembly or measured cross-feeding; enzyme detection is not exchange-flux
+      validation.
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: In the community model using R2A medium, metabolite exchange can also be predicted. Here,
-      the dominant strain Pantoea sp. YR343, based on the 16S rRNA marker data, is expected
-      to export a greater range of metabolites than it receives from the other two members of the community
+    snippet: In the community model using R2A medium, metabolite exchange can also be predicted. Here, the dominant
+      strain Pantoea sp. YR343, based on the 16S rRNA marker data, is expected to export a greater range of metabolites
+      than it receives from the other two members of the community
     explanation: Supports Pantoea as the dominant modeled metabolite exporter in the R2A community.
   - reference: PMID:33995895
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Organic acids, purine derivatives and biogenic amines are predicted to be excreted and
-      support the growth of the other community members
+    snippet: Organic acids, purine derivatives and biogenic amines are predicted to be excreted and support the
+      growth of the other community members
     explanation: Identifies the metabolite classes predicted to support other R2A community members.
+  participating_taxa:
+  - preferred_term: Pantoea sp. YR343
+    term:
+      id: NCBITaxon:53335
+      label: Pantoea
+  - preferred_term: Pseudomonas sp. GM17
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+  - preferred_term: Sphingobium sp. AP49
+    term:
+      id: NCBITaxon:165695
+      label: Sphingobium
 - name: MOPS Minimal-Medium Four-Strain Coexistence
-  description: In MOPS-glucose minimal medium, Pseudomonas sp. GM17 dominated while Variovorax sp. CF313,
-    Rhizobium sp. CF142, and Sphingobium sp. AP49 persisted in stable proportions.
-  interaction_type: NICHE_PARTITIONING
+  description: In MOPS-glucose, GM17 dominated while CF313, CF142 and AP49 persisted in consistent relative proportions
+    from approximately passage 4. This positive coexistence result does not establish obligate mutualism or niche
+    partitioning. The paper also predicts MOPS-specific exchanges, but their missing graph structure requires separate
+    causal research and must not be borrowed from the distinct R2A model.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
@@ -419,22 +427,18 @@ ecological_interactions:
     term:
       id: NCBITaxon:165695
       label: Sphingobium
-  downstream:
-  - target: Pantoea-Centered R2A Metabolite Export
-    description: The MOPS and R2A survivor sets were both analyzed by community FBA to estimate
-      potential metabolic exchange in the stable community context.
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: In MOPS medium, Pseudomonas sp. GM17 is the most abundant member along with three other
-      strains, Variovorax sp. CF313, Rhizobium sp. CF142 and Sphingobium sp. AP49, that
-      persist in consistent proportions
+    snippet: In MOPS medium, Pseudomonas sp. GM17 is the most abundant member along with three other strains, Variovorax
+      sp. CF313, Rhizobium sp. CF142 and Sphingobium sp. AP49, that persist in consistent proportions
     explanation: Supports the four-strain MOPS survivor set and its stable coexistence.
 - name: R2A Pantoea-Dominated Stable Community
-  description: In R2A complex medium, Pantoea sp. YR343, Pseudomonas sp. GM17, and Sphingobium sp.
-    AP49 dominated the 16S profile, while metaproteomics also detected notable viable Bacillus sp. BC15.
-  interaction_type: NICHE_PARTITIONING
+  description: In R2A, YR343, GM17 and AP49 dominated the 16S profile, with stable coexistence reported from passage
+    10 and YR343 most abundant after 15 passages. Metaproteomics recovered notable BC15 proteins and different YR343
+    proportions. Sporulation-related detection bias and relic DNA were proposed explanations; protein-relative abundance
+    is not a direct viable-cell count or proof of a uniform four-strain abundance ranking.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
@@ -458,27 +462,20 @@ ecological_interactions:
     term:
       id: NCBITaxon:1386
       label: Bacillus <firmicutes>
-  downstream:
-  - target: Pantoea-Centered R2A Metabolite Export
-    description: The R2A FBA model predicted Pantoea-centered metabolite export in the Pantoea-dominated
-      stable community.
-  - target: Selective Antagonism During Assembly
-    description: Pairwise interaction screening found Pseudomonas antagonism and Pantoea positive
-      effects that can contribute to R2A community selection.
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: For 16S rRNA gene amplicon sequencing, three members dominate in abundance when grown
-      in R2A complex medium, and Pantoea sp. YR343 is the member with highest content
-      after 15 passages
+    snippet: For 16S rRNA gene amplicon sequencing, three members dominate in abundance when grown in R2A complex
+      medium, and Pantoea sp. YR343 is the member with highest content after 15 passages
     explanation: Supports Pantoea-dominated R2A community membership in the 16S time series.
   - reference: PMID:33995895
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Additionally, there is a notable abundance of Bacillus sp. BC15 not seen in 16S rRNA
-      gene amplicon sequencing data.
-    explanation: Supports viable Bacillus biomass in the R2A community by metaproteomics.
+    snippet: Additionally, there is a notable abundance of Bacillus sp. BC15 not seen in 16S rRNA gene amplicon
+      sequencing data.
+    explanation: Supports notable BC15 representation in metaproteomics despite low 16S representation, not directly
+      counted viable Bacillus biomass.
 cultivation_setup:
 - cultivation_mode: BATCH
   operating_temperature: 30.0
@@ -608,3 +605,42 @@ growth_media:
       cultivated in a shaking incubator at 30 °C and 200 rpm for 48 h
     explanation: States medium (R2A/MOPS), vessel, temperature (30 °C), shaking (200 rpm)
       and incubation time (48 h).
+curation_history:
+- timestamp: '2026-10-02T06:10:22Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Removed three downstream edges that treated community FBA and pairwise interaction screening as downstream
+    consequences of the MOPS and R2A survivor states.
+  llm_assisted: true
+- timestamp: '2026-10-07T04:42:13Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain two condition-to-assembly arrows while distinguishing MOPS and R2A stabilization times.; Preserve
+    agar inhibition and promotion without treating them as demonstrated liquid-assembly mechanisms.; Retain explicitly
+    hypothesized R2A support arrow; bound FBA evidence, include the modeled partners and remove two incorrect chemical
+    groundings.; Preserve four-strain MOPS coexistence without niche overclaim; missing exchange topology remains
+    research work.; Preserve R2A survivor and BC15 protein results without equating assays or proving viable-cell
+    counts. Issue #1647; reports/causal_graph_review/decisions/20261007-four-records-batch78.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: pd10_model_assay_and_assembly_boundaries
+  prompt: Which exact-system measurements distinguish the observed outcome from the proposed mechanism?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: Keep the controlled medium-dependent assembly and persistent survivor patterns, including slow-growing
+    CF142 in MOPS. Separate the ten-strain experimental inoculum from the four-member MOPS and three-member R2A
+    models. Endpoint proportions constrain the FBA model, so model agreement is not an independent demonstration
+    of assembly causation. Metaproteomics supports pathways but does not measure exchange flux. Agar inhibition
+    and liquid coexistence can differ because of positive interactions or culture conditions; neither explanation
+    was selectively isolated. Purine alkaloid and aromatase inhibitor are not valid equivalents for the two predicted
+    generic metabolite classes, so those groundings are removed without inventing specific compounds. The omitted
+    MOPS exchange structure remains needs_research pending scoped causal research; prior removal of analysis-workflow
+    arrows remains intact.
+  attaches_to:
+  - ecological_interactions#Medium-Dependent Serial-Passage Selection
+  - ecological_interactions#Pairwise Growth Phenotypes on R2A Agar
+  - ecological_interactions#Pantoea-Centered R2A Metabolite Export
+  - ecological_interactions#MOPS Minimal-Medium Four-Strain Coexistence
+  - ecological_interactions#R2A Pantoea-Dominated Stable Community

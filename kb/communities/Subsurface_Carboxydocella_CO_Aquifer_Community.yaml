@@ -49,9 +49,9 @@ taxonomy:
       decline.
 ecological_interactions:
 - name: scCO2 Injection Reshapes Subsurface Community
-  description: >
-    Injection of 150 tons of supercritical carbon dioxide into a 1.4 km deep
-    aquifer perturbed the native subsurface microbiome.
+  description: The source reports community-structure changes following supercritical carbon dioxide injection into
+    the deep aquifer. Retain the field perturbation as abiotic input context; the accessible abstract does not isolate
+    the mechanism of the community response.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: carbon dioxide
@@ -60,20 +60,42 @@ ecological_interactions:
       label: carbon dioxide
   downstream:
   - target: Post-Injection Carboxydocella Decline
-    description: >
-      Community restructuring after supercritical carbon dioxide injection was
-      associated with a decline in native carboxydotrophic Carboxydocella.
+    description: 'HYPOTHESIZED/PARTIAL: the injected supercritical carbon dioxide is the upstream field perturbation
+      proposed to alter conditions underlying the subsequent Carboxydocella relative-abundance decrease. The temporal
+      association does not establish that aggregate community restructuring itself caused the decline or isolate
+      the physiological mediator.'
   evidence:
   - reference: PMID:32633030
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: changes to the microbial community structure of a deep aquifer
-      (1.4 km) receiving 150 tons of injected supercritical CO2
+    snippet: changes to the microbial community structure of a deep aquifer (1.4 km) receiving 150 tons of injected
+      supercritical CO2
     explanation: Supports the scCO2 injection effect on community structure.
 - name: Post-Injection Carboxydocella Decline
-  description: >
-    The aquifer perturbation reduced the relative abundance of the native,
-    thermophilic, carbon-monoxide-utilizing anaerobe Carboxydocella.
+  description: Carboxydocella decreased in relative abundance after the field injection. Relative abundance does
+    not establish absolute cell loss, mortality or a measured fitness decrease, and the accessible abstract does
+    not isolate the mechanism.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon monoxide
+    term:
+      id: CHEBI:17245
+      label: carbon monoxide
+  evidence:
+  - reference: PMID:32633030
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 'the thermophilic CO-utilizing anaerobe Carboxydocella, which decreased in relative abundance post-scCO2
+      injection
+
+      '
+    explanation: 'Supports the Carboxydocella decline after supercritical carbon dioxide injection.
+
+      '
+- name: CODH-Associated CO-Oxidation Potential
+  description: The source infers a before/after difference in Carboxydocella CO-oxidation potential from CODH gene
+    analysis. Preserve this genomic interpretation, not a demonstrated physiological switch or a measured oxidation
+    rate.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: carbon monoxide
@@ -81,76 +103,29 @@ ecological_interactions:
       id: CHEBI:17245
       label: carbon monoxide
   downstream:
-  - target: Native Carboxydocella Genome Resolution
-    description: >
-      Carboxydocella's post-injection abundance response motivated
-      genome-resolved metagenomic profiling of this carboxydotroph.
+  - target: Potential Subsurface Carbon-Electron Flow Through CO
+    description: 'HYPOTHESIZED/PARTIAL: a change in encoded CO-oxidation potential could alter carbon/electron flow
+      through carbon monoxide. The source discusses this implication; the accessible abstract does not report a
+      measured flux or isolate CODH variation as the causal mediator.'
   evidence:
   - reference: PMID:32633030
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >
-      the thermophilic CO-utilizing anaerobe Carboxydocella, which decreased
-      in relative abundance post-scCO2 injection
-    explanation: >
-      Supports the Carboxydocella decline after supercritical carbon dioxide
-      injection.
-- name: Native Carboxydocella Genome Resolution
-  description: >
-    Detailed metagenomic profiling recovered genome-level information for the
-    native carboxydotrophic Carboxydocella population before and after the
-    geosequestration experiment.
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: carbon monoxide
-    term:
-      id: CHEBI:17245
-      label: carbon monoxide
-  downstream:
-  - target: CODH-Mediated CO-Oxidation Switch
-    description: >
-      The resolved Carboxydocella genome allowed before-versus-after analysis
-      of its carbon monoxide dehydrogenase gene.
-  evidence:
-  - reference: PMID:32633030
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >
-      detailed metagenomic profiling of this experiment, with genome resolution
-      of the native carboxydotrophic Carboxydocella
-    explanation: >
-      Supports genome-resolved analysis of the native Carboxydocella
-      carboxydotroph.
-- name: CODH-Mediated CO-Oxidation Switch
-  description: >
-    Carbon monoxide dehydrogenase analysis showed that Carboxydocella changed
-    its potential for carbon monoxide oxidation across the scCO2 perturbation.
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: carbon monoxide
-    term:
-      id: CHEBI:17245
-      label: carbon monoxide
-  downstream:
-  - target: Subsurface Carbon-Electron Flow Through CO
-    description: >
-      A CODH-mediated change in carbon monoxide oxidation can alter subsurface
-      carbon and electron transfer through the CO intermediate.
-  evidence:
-  - reference: PMID:32633030
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >
-      a switch in CO-oxidation potential by Carboxydocella through analysis of
-      its carbon monoxide dehydrogenase (CODH) gene before and after the
-      geosequestration experiment
-    explanation: >
-      Supports the CODH-driven CO-oxidation function and its switch.
-- name: Subsurface Carbon-Electron Flow Through CO
-  description: >
-    The Carboxydocella CODH switch has implications for the movement of carbon
-    and electrons through the metabolic intermediate carbon monoxide in
-    geosequestration-perturbed deep aquifers.
+    evidence_source: COMPUTATIONAL
+    snippet: 'a switch in CO-oxidation potential by Carboxydocella through analysis of its carbon monoxide dehydrogenase
+      (CODH) gene before and after the geosequestration experiment
+
+      '
+    explanation: Supports the source gene-based interpretation of functional potential, not directly measured CO
+      oxidation or physiological switching.
+    computational_provenance:
+      prediction_type: OTHER
+      parameters: Abstract-reported genome-resolved metagenomics and before/after CODH gene comparison. Software,
+        gene-comparison method and versions were not verified; physiological rates and carbon/electron flux were
+        not measured in the abstract.
+- name: Potential Subsurface Carbon-Electron Flow Through CO
+  description: 'HYPOTHESIZED/PARTIAL: the source discusses potential impacts on subsurface carbon and electron flow
+    through carbon monoxide. This is an implication of the genomic comparison, not measured community flux or demonstrated
+    metabolite exchange.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: carbon monoxide
@@ -159,14 +134,19 @@ ecological_interactions:
       label: carbon monoxide
   evidence:
   - reference: PMID:32633030
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >
-      subsurface flow of carbon and electrons from oxidation of the metabolic
-      intermediate carbon monoxide (CO)
-    explanation: >
-      Supports carbon monoxide oxidation as a route for subsurface carbon and
-      electron flow.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: 'subsurface flow of carbon and electrons from oxidation of the metabolic intermediate carbon monoxide
+      (CO)
+
+      '
+    explanation: Supports the source discussion of potential carbon/electron-flow impacts; the surrounding abstract
+      explicitly qualifies these as potential.
+    computational_provenance:
+      prediction_type: OTHER
+      parameters: Abstract-reported genome-resolved metagenomics and before/after CODH gene comparison. Software,
+        gene-comparison method and versions were not verified; physiological rates and carbon/electron flux were
+        not measured in the abstract.
 environmental_factors:
 - name: Supercritical CO2 injection
   value: 150 tons of injected scCO2
@@ -213,3 +193,43 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   Carboxydocella aquifer community.
+curation_history:
+- timestamp: '2026-10-02T06:04:09Z'
+  curator: codex
+  action: REPAIR_CAUSAL_GRAPH
+  changes: Removed two Subsurface Carboxydocella analysis edges that treated a post-scCO2 abundance response and
+    native genome resolution as upstream of metagenome profiling and CODH before-versus-after comparison.
+  llm_assisted: true
+- timestamp: '2026-10-08T02:08:55Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain field perturbation input with its existing relative-abundance direction HYPOTHESIZED/PARTIAL,
+    not aggregate restructuring as a proven mediator.; Retain observed relative-abundance decline without inferring
+    absolute loss, mortality or fitness.; Retain CODH-associated genomic potential with computational provenance,
+    not a demonstrated physiological switch.; Retain potential carbon/electron-flow implications and their existing
+    direction as HYPOTHESIZED/PARTIAL, not measured flux. Issue#1832; reports/causal_graph_review/decisions/20261008-four-records-batch106.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: aquifer_relative_abundance_and_functional_potential
+  prompt: Which field responses and genomic interpretations establish absolute population change or functional flux?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#scCO2 Injection Reshapes Subsurface Community
+  - ecological_interactions#Post-Injection Carboxydocella Decline
+  - ecological_interactions#CODH-Associated CO-Oxidation Potential
+  - ecological_interactions#Potential Subsurface Carbon-Electron Flow Through CO
+  rationale: Keep the field association and relative-abundance observation separate from gene-based functional potential.
+    Remove the isolated genome-resolution workflow node, preserving the prior analysis-edge repair. The two remaining
+    directions are hypotheses/partial interpretations rather than isolated causal mediators. The primary abstract
+    was read; a failed publisher request is not proof that full text is absent elsewhere.
+  evidence:
+  - reference: PMID:32633030
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: 'subsurface flow of carbon and electrons from oxidation of the metabolic intermediate carbon monoxide
+      (CO)
+
+      '
+    explanation: Supports the source discussion of potential carbon/electron-flow impacts; the surrounding abstract
+      explicitly qualifies these as potential.

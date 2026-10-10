@@ -100,12 +100,18 @@ class ScalarIssue:
 # check_vendored_sync.sh fails on any local edit, so a report here could only
 # ask for a change nobody in this repository may make (culturebotai-claw#391).
 GOVERNED_BANNER = "# Governed by culturebotai-claw"
+# These root workflows are likewise byte-identical upstream artifacts but lack
+# the historical banner. A basename match would exempt unrelated record files.
+GOVERNED_WORKFLOW_PATHS = frozenset(
+    Path(__file__).resolve().parents[3] / ".github" / "workflows" / name
+    for name in ("merge-queue-admission.yaml", "verify-merge-integrity.yaml")
+)
 
 
 def find_truncated_scalars(path: Path, *, require_gap: bool = False) -> list[ScalarIssue]:
     """Report plain scalars in `path` that a mid-line comment cut short.
 
-    A governed file (see GOVERNED_BANNER) is skipped outright rather than
+    A governed file (banner or exact repository workflow path) is skipped rather than
     relaxed: RELAXED_FILES loosens the heuristic for files this repository
     owns, and this one it does not.
 
@@ -131,7 +137,9 @@ def find_truncated_scalars(path: Path, *, require_gap: bool = False) -> list[Sca
     offered for trees where the alternative is no checking at all (#400).
     """
     with path.open(encoding="utf-8") as handle:
-        if handle.readline().startswith(GOVERNED_BANNER):
+        if path.resolve() in GOVERNED_WORKFLOW_PATHS or handle.readline().startswith(
+            GOVERNED_BANNER
+        ):
             return []
     text = path.read_text()
     lines = text.splitlines()

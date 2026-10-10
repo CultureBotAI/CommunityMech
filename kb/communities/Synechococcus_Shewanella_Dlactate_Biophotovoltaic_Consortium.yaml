@@ -117,8 +117,10 @@ taxonomy:
     explanation: Supports the engineered nitrate-reductase mutant used as the Shewanella partner.
 ecological_interactions:
 - name: Photosynthetic D-Lactate Cross-Feeding
-  description: Engineered S. elongatus UTEX 2973 converts light and carbon dioxide into D-lactate,
-    which serves as the transferred energy carrier for S. oneidensis MR-1.
+  description: 'Engineered Syn2973-omcS-ldh produces D-lactate that supports current production by the napA-deletion
+    derivative of S. oneidensis MR-1. The engineered carrier is important but not the exclusive organic input: the
+    paper reports additional cyanobacterial organics and LB supplementation in the consortium assays. Canonical
+    member labels denote their strain backgrounds.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -132,15 +134,15 @@ ecological_interactions:
       id: NCBITaxon:211586
       label: Shewanella oneidensis MR-1
   metabolites:
-  - preferred_term: D-lactic acid
+  - preferred_term: D-lactate
     term:
-      id: CHEBI:42111
-      label: (R)-lactic acid
-    notes: Source uses D-lactate as the transferred energy carrier; CHEBI:42111 represents D-lactic acid.
+      id: CHEBI:16004
+      label: (R)-lactate
   - preferred_term: carbon dioxide
     term:
       id: CHEBI:16526
       label: carbon dioxide
+    notes: Photosynthetic carbon-fixation substrate, not the exchanged organic carrier.
   biological_processes:
   - preferred_term: photosynthesis
     term:
@@ -152,51 +154,42 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Shewanella Anode Electron Transfer
-    description: >
-      Photosynthetically produced D-lactate is the engineered carrier oxidized
-      by S. oneidensis as it releases electrons to the anode.
+    description: Photosynthetically produced D-lactate is oxidized by the engineered Shewanella partner, supporting
+      electron transfer to the anode. Lactate-free and axenic comparisons support its contribution, not exclusive
+      attribution of all current to D-lactate.
   evidence:
   - reference: PMID:31537786
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: D-lactate mediated microbial consortium consisting of photosynthetic cyanobacteria and exoelectrogenic Shewanella
+    snippet: D-lactate mediated microbial consortium consisting of photosynthetic cyanobacteria and exoelectrogenic
+      Shewanella
     explanation: Supports D-lactate-mediated cross-feeding between the photosynthetic and exoelectrogenic partners.
   - reference: PMID:31537786
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: D-lactate is selected as the energy carrier
     explanation: Supports D-lactate as the curated exchanged metabolite.
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: d-lactate which is the dominant secreted metabolite
+    explanation: Supports a dominant carrier rather than the sole organic substrate.
 - name: Shewanella Anode Electron Transfer
-  description: S. oneidensis MR-1 oxidizes D-lactate and uses its extracellular electron transfer
-    machinery to release electrons to the anode for current production.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Shewanella oneidensis MR-1
-    term:
-      id: NCBITaxon:211586
-      label: Shewanella oneidensis MR-1
-  target_taxon:
-    preferred_term: Synechococcus elongatus UTEX 2973
-    term:
-      id: NCBITaxon:1350461
-      label: Synechococcus elongatus UTEX 2973
+  description: The napA-deletion S. oneidensis MR-1 derivative oxidizes D-lactate and transfers electrons to an
+    abiotic anode. This is the consortium electrode-output process, not electron or metabolite donation to Synechococcus.
+    The paper also reports enhanced cyanobacterial growth; it does not isolate CO2 recycling as its cause.
+  scope: COMMUNITY_LEVEL
   metabolites:
-  - preferred_term: D-lactic acid
+  - preferred_term: D-lactate
     term:
-      id: CHEBI:42111
-      label: (R)-lactic acid
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
+      id: CHEBI:16004
+      label: (R)-lactate
   downstream:
   - target: Photosynthetic D-Lactate Cross-Feeding
-    description: >
-      Physical and temporal separation prevents light- and oxygen-associated
-      inhibition of S. oneidensis while preserving D-lactate transfer from the
-      engineered cyanobacterium.
+    description: 'HYPOTHESIZED/PARTIAL: the source schematic proposes that CO2 released during Shewanella oxidation
+      can be re-assimilated by cyanobacteria for D-lactate production. The reviewed main text does not demonstrate
+      this carbon-return flux or identify it as the cause of cyanobacterial growth benefit; electrons flow to the
+      anode, not the cyanobacterium.'
   evidence:
   - reference: PMID:31537786
     supports: SUPPORT
@@ -204,31 +197,26 @@ ecological_interactions:
     snippet: releases electrons from D-lactate and transfers them to the anode
     explanation: Supports the Shewanella D-lactate oxidation and anode electron transfer role.
   - reference: PMID:31537786
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: The released CO2 can be re-assimilated by cyanobacteria for d-lactate production.
+    explanation: Figure1 schematic proposes the existing reverse direction; it is not a transfer measurement.
+  - reference: PMID:31537786
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: converting organic compounds into electricity using its efficient EET capacity
-    explanation: Supports the exoelectrogenic function assigned to S. oneidensis MR-1.
-- name: Spatial-Temporal Separation for Compatibility
-  description: Light and oxygen produced during photosynthesis damaged or inhibited S. oneidensis,
-    so temporal and spatial separation protected the exoelectrogenic partner while allowing D-lactate
-    transfer to support durable power generation.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Synechococcus elongatus UTEX 2973
-    term:
-      id: NCBITaxon:1350461
-      label: Synechococcus elongatus UTEX 2973
-  target_taxon:
-    preferred_term: Shewanella oneidensis MR-1
+    snippet: enhanced the growth of cyanobacteria
+    explanation: The primary Results report a positive cyanobacterial growth response without isolating its mediator.
+  participating_taxa:
+  - preferred_term: Shewanella oneidensis MR-1
     term:
       id: NCBITaxon:211586
       label: Shewanella oneidensis MR-1
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
+- name: Spatial-Temporal Separation for Compatibility
+  description: Device-level temporal or spatial separation mitigated incompatible light and oxygen conditions for
+    the Shewanella partner while preserving D-lactate transfer. This is an abiotic compatibility intervention, not
+    colonization facilitation by cyanobacteria. The more-than-40-day spatial-temporal result additionally used continuous
+    medium replenishment and LB supplementation; it is distinct from temporal batch and spatially separated assays.
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:31537786
     supports: SUPPORT
@@ -240,6 +228,20 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: temporal/spatial separation design conquered the physiological incompatibility
     explanation: Supports the spatial-temporal device organization as the compatibility mechanism.
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: spatial-temporal separation setup with medium replenishment enables stable operation for over 40 days
+    explanation: The duration belongs to the replenished device format.
+  participating_taxa:
+  - preferred_term: Synechococcus elongatus UTEX 2973
+    term:
+      id: NCBITaxon:1350461
+      label: Synechococcus elongatus UTEX 2973
+  - preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:211586
+      label: Shewanella oneidensis MR-1
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: BIOELECTROCHEMICAL_SYSTEM
@@ -476,3 +478,30 @@ rare_earth_elements_present: []
 metal_relevance: INCIDENTAL
 metal_notes: The community uses Shewanella extracellular electron transfer to an electrode; no metal
   or rare earth extraction, cycling, or stress mechanism is curated for this record.
+discussions:
+- discussion_id: shewanella-carbon-return-versus-electrode-output
+  prompt: Does Shewanella-derived CO2 contribute to cyanobacterial D-lactate production or growth?
+  rationale: The primary main text, Results and figure captions were inspected. Figure1 proposes CO2 re-assimilation
+    and Results report cyanobacterial growth enhancement, but these do not isolate a carbon-return mediator. The
+    anode remains the electron recipient. Preserve the existing reverse direction only as a hypothesis pending direct
+    flux evidence; device separation and medium replenishment are distinct interventions.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  attaches_to:
+  - ecological_interactions#Shewanella Anode Electron Transfer
+  - ecological_interactions#Photosynthetic D-Lactate Cross-Feeding
+  evidence:
+  - reference: PMID:31537786
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: The released CO2 can be re-assimilated by cyanobacteria for d-lactate production.
+    explanation: Source-proposed carbon recycling is not demonstrated electron return.
+curation_history:
+- timestamp: '2026-10-08T05:36:18Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain D-lactate supply and anode support without exclusive organic-input claims.; Correct anode recipient
+    and preserve source-proposed CO2 feedback as hypothetical.; Retain abiotic compatibility and duration with distinct
+    replenished-device context. Issue#1859; reports/causal_graph_review/decisions/20261008-three-records-batch110.yaml
+  llm_assisted: true

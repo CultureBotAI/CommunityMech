@@ -226,325 +226,120 @@ taxonomy:
       predominant, and Geobacter species became a minor component of the community
     explanation: Quantifies Desulfobacteraceae dominance during sulfate reduction phase
 ecological_interactions:
-- name: Acetate Oxidation Coupled to Fe(III) and U(VI) Reduction
-  description: 'During Phase I (days 0-50), Geobacter species oxidize injected acetate (1-3 mM) coupled
-    to reduction of Fe(III) in aquifer sediments and U(VI) in groundwater. The Fe(III) reduction generates
-    Fe(II) and creates reducing conditions favorable for U(VI) reduction. Geobacter directly reduces U(VI)
-    to U(IV) through enzymatic pathways involving c-type cytochromes and outer membrane proteins. The
-    reduced U(IV) precipitates as biogenic uraninite (UO₂) nanoparticles, immobilizing uranium in the
-    subsurface. U(VI) concentrations decline from 0.4-1.4 μM to below the EPA treatment goal of 0.18 μM
-    in some wells within 50 days. The acetate serves as both carbon source and electron donor, enabling
-    rapid Geobacter proliferation from <1% to 89% of the community.
-
-    '
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Geobacter species
-    term:
-      id: NCBITaxon:28232
-      label: Geobacter metallireducens
+- name: Geobacter Enrichment and Coincident Metal Reduction
+  description: During the initial Rifle field response to acetate amendment, Geobacter enrichment accompanied groundwater
+    uranium loss and increasing Fe(II). This supports coincident community metal reduction, not a measured G. metallireducens-specific
+    flux, a demonstrated cytochrome mechanism or cross-feeding between named members.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: acetate
     term:
       id: CHEBI:30089
       label: acetate
-    concentration: 1-3 mM injected
   - preferred_term: uranium(VI)
     term:
       id: CHEBI:32992
       label: uranium(6+)
-    concentration: 'Initial: 0.4-1.4 μM; reduced to <0.18 μM in 50 days'
-  - preferred_term: uranium(IV)
-    term:
-      id: CHEBI:32995
-      label: uranium(4+)
-    concentration: Precipitated as uraninite nanoparticles
   - preferred_term: Fe(III)
     term:
       id: CHEBI:29034
       label: iron(3+)
-    notes: Abundant in aquifer sediments
   - preferred_term: Fe(II)
     term:
       id: CHEBI:29033
       label: iron(2+)
-    notes: Product of Fe(III) reduction
   biological_processes:
   - preferred_term: acetate catabolic process
     term:
       id: GO:0045733
       label: acetate catabolic process
   downstream:
-  - target: Uranium Immobilization via Uraninite Formation
-    description: Reduced U(IV) precipitates as biogenic uraninite nanoparticles
+  - target: Initial Groundwater Uranium Removal
+    description: 'PARTIAL: acetate-stimulated Geobacter-associated metal reduction is the proposed contributor to
+      the observed initial groundwater uranium decline. Field covariation does not apportion species-specific flux
+      or establish the mineral product and nanoparticle size.'
   evidence:
   - reference: PMID:14532040
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: As the acetate injection continued over 50 days there was a loss of sulfate from the groundwater
-      and an accumulation of sulfide and the composition of the microbial community changed
-    explanation: Demonstrates rapid onset of uranium reduction
-  - reference: PMID:14532040
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Within 50 days uranium had declined below the prescribed treatment level
-    explanation: Quantifies uranium removal to below EPA standards
+    snippet: the initial loss of uranium from the groundwater was associated with an enrichment of Geobacter species
+    explanation: Supports the observed genus-level association, not the canonical species assignment.
   - reference: PMID:14532040
     supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: the initial loss of uranium from the groundwater was associated with an enrichment of Geobacter species
-    explanation: Links acetate amendment to Geobacter proliferation
-- name: Uranium Immobilization via Uraninite Formation
-  description: 'Enzymatic reduction of soluble U(VI) to insoluble U(IV) by Geobacter and Anaeromyxobacter
-    results in precipitation of biogenic uraninite (UO₂) nanoparticles. These nanoparticles have diameters
-    of 2-5 nm and form within or around bacterial cells. Uraninite formation effectively immobilizes uranium,
-    preventing its transport in groundwater. However, uraninite stability depends on maintaining reducing
-    conditions - re-oxidation to U(VI) can occur if oxygen or nitrate enters the aquifer. The nanoparticulate
-    form exhibits different stability characteristics compared to abiotic or bulk uraninite.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Geobacter species
-    term:
-      id: NCBITaxon:28232
-      label: Geobacter metallireducens
-  target_taxon:
-    preferred_term: Anaeromyxobacter dehalogenans
-    term:
-      id: NCBITaxon:161493
-      label: Anaeromyxobacter dehalogenans
-  metabolites:
-  - preferred_term: uranium(IV)
-    term:
-      id: CHEBI:32995
-      label: uranium(4+)
-    notes: As uraninite (UO₂) nanoparticles
+    snippet: suggesting that U(VI) reduction was coincident with Fe(III) reduction
+    explanation: Primary abstract explicitly treats the coupled reduction interpretation as suggestive.
+- name: Initial Groundwater Uranium Removal
+  description: Groundwater U(VI) decreased during the initial acetate-amended field phase and fell below the prescribed
+    treatment level in some monitoring wells. This is a measured removal outcome, not a direct characterization
+    of 2-5 nm uraninite or a demonstrated Geobacter-Anaeromyxobacter mutualism. Later sulfate reduction coincided
+    with increasing groundwater uranium, not sustained removal at the initial effectiveness.
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:14532040
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Analysis of 16S ribosomal DNA (rDNA) sequences and phospholipid fatty acid profiles demonstrated
-      that the initial loss of uranium from the groundwater was associated with an enrichment of Geobacter
-      species in the treatment zone
-    explanation: Links Geobacter activity to uranium immobilization
-- name: Hydrogen-Mediated U(VI) Reduction by Anaeromyxobacter
-  description: 'Anaeromyxobacter dehalogenans reduces U(VI) using hydrogen as electron donor, particularly
-    when grown on fumarate. Unlike Geobacter, Anaeromyxobacter cannot use acetate directly for U(VI) reduction.
-    In the Rifle subsurface, hydrogen may be generated by fermentative bacteria or through Geobacter metabolism,
-    creating microenvironments where Anaeromyxobacter contributes to uranium reduction. This represents
-    a complementary pathway to direct Geobacter-mediated reduction, potentially extending uranium removal
-    to niches with low acetate but available hydrogen.
-
-    '
-  interaction_type: SYNTROPHY
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Anaeromyxobacter dehalogenans
-    term:
-      id: NCBITaxon:161493
-      label: Anaeromyxobacter dehalogenans
-  metabolites:
-  - preferred_term: dihydrogen
-    term:
-      id: CHEBI:18276
-      label: dihydrogen
-    notes: Required electron donor for U(VI) reduction
-  - preferred_term: uranium(VI)
-    term:
-      id: CHEBI:32992
-      label: uranium(6+)
-  - preferred_term: uranium(IV)
-    term:
-      id: CHEBI:32995
-      label: uranium(4+)
-  downstream:
-  - target: Uranium Immobilization via Uraninite Formation
-    description: >
-      Anaeromyxobacter hydrogen-dependent U(VI) reduction provides a
-      complementary enzymatic route for forming insoluble U(IV) during
-      Rifle aquifer biostimulation.
-  evidence:
-  - reference: PMID:18843300
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Thirty-four c-type cytochrome genes were upregulated in the sediment-grown cells, including
-      several genes that are homologous to cytochromes that are required for optimal Fe(III) and U(VI)
-      reduction by G
-    explanation: Establishes hydrogen requirement for Anaeromyxobacter U(VI) reduction
-- name: Sulfate Reduction and Chemical U(VI) Reduction
-  description: 'During Phase II (>50 days), sulfate-reducing bacteria including Desulfobacteraceae (45%
-    by day 80), Desulfovibrio, and Desulfosporosinus oxidize acetate and other organic compounds coupled
-    to sulfate reduction, producing hydrogen sulfide (H₂S). The sulfide chemically reduces U(VI) to U(IV)
-    and precipitates uranium as uraninite or uranium sulfide minerals. Additionally, some sulfate reducers
-    enzymatically reduce U(VI) directly. This phase begins after Fe(III) depletion (>50 days) and represents
-    a metabolic succession from metal reduction to sulfate reduction. Sulfide production also precipitates
-    other metals as metal sulfides.
-
-    '
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Desulfobacteraceae family
-    term:
-      id: NCBITaxon:213118
-      label: Desulfobacterales
-  target_taxon:
-    preferred_term: Desulfovibrio vulgaris
-    term:
-      id: NCBITaxon:881
-      label: Nitratidesulfovibrio vulgaris
+    snippet: within 50 days uranium had declined below the prescribed treatment level
+    explanation: Supports early groundwater removal; the abstract limits attainment to some wells.
+- name: Later Sulfate Reduction and Sulfide Accumulation
+  description: The later field phase showed sulfate loss and sulfide accumulation as sulfate-reducer-related sequences
+    became predominant. Groundwater uranium increased during this transition. These observations do not establish
+    sulfide-mediated U(VI) reduction, a uraninite/uranium-sulfide product or pairwise nutrient exchange in this
+    field system.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: sulfate
     term:
       id: CHEBI:16189
       label: sulfate
-    notes: Electron acceptor
   - preferred_term: hydrogen sulfide
     term:
       id: CHEBI:16136
       label: hydrogen sulfide
-    notes: Product; chemically reduces U(VI)
-  - preferred_term: uranium(VI)
-    term:
-      id: CHEBI:32992
-      label: uranium(6+)
-  - preferred_term: uranium(IV)
-    term:
-      id: CHEBI:32995
-      label: uranium(4+)
   biological_processes:
   - preferred_term: sulfate reduction
     term:
       id: GO:0019420
       label: dissimilatory sulfate reduction
-  downstream:
-  - target: Uranium Immobilization via Uraninite Formation
-    description: >
-      Sulfate reduction produces sulfide that chemically reduces soluble U(VI)
-      to insoluble U(IV), extending uranium immobilization into the later
-      sulfate-reducing phase.
   evidence:
   - reference: PMID:14532040
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Organisms with 16S rDNA sequences most closely related to those of sulfate reducers became
-      predominant, and Geobacter species became a minor component of the community
-    explanation: Documents sulfate reducer dominance in Phase II
+    snippet: there was a loss of sulfate from the groundwater and an accumulation of sulfide
+    explanation: Directly supports late sulfate/sulfide observations, not chemical uranium reduction.
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: associated with an increase in uranium concentration in the groundwater
+    explanation: The reported later uranium response contradicts the former continued-immobilization arrow.
 - name: Community Succession from Metal to Sulfate Reduction
-  description: 'The microbial community undergoes predictable metabolic succession as terminal electron
-    acceptors are sequentially depleted. Phase I (0-50 days) is dominated by Geobacter (89% peak) performing
-    Fe(III) and U(VI) reduction. As Fe(III) becomes depleted, Phase II (>50 days) transitions to sulfate
-    reduction with Desulfobacteraceae reaching 45% and Geobacter declining to 35%. This succession reflects
-    thermodynamic favorability - Fe(III) reduction yields more energy than sulfate reduction, so iron
-    reducers outcompete sulfate reducers when Fe(III) is available. The transition affects uranium removal
-    mechanisms, shifting from direct enzymatic reduction to combined enzymatic and sulfide-mediated chemical
-    reduction.
-
-    '
-  interaction_type: COMPETITION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Geobacter species
-    term:
-      id: NCBITaxon:28232
-      label: Geobacter metallireducens
-  target_taxon:
-    preferred_term: Desulfobacteraceae family
-    term:
-      id: NCBITaxon:213118
-      label: Desulfobacterales
+  description: 'The groundwater community shifted from Geobacter enrichment toward sulfate-reducer-related sequences
+    during continued amendment. HYPOTHESIZED: depletion of accessible Fe(III) near the amendment zone and local
+    acetate consumption may have favored this transition. The primary discussion calls this explanation a hypothesis
+    requiring verification; succession alone does not establish reciprocal harm, exact species replacement or the
+    sediment-attached community composition.'
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: Fe(III)
     term:
       id: CHEBI:29034
       label: iron(3+)
-    notes: Depleted by day 50
   - preferred_term: sulfate
     term:
       id: CHEBI:16189
       label: sulfate
-    notes: Becomes dominant electron acceptor after Fe(III) depletion
   downstream:
-  - target: Sulfate Reduction and Chemical U(VI) Reduction
-    description: >
-      Depletion of bioavailable Fe(III) shifts the acetate-stimulated aquifer
-      from Geobacter-associated metal reduction toward sulfate-reducing
-      taxa that generate sulfide for U(VI) reduction.
+  - target: Later Sulfate Reduction and Sulfide Accumulation
+    description: 'PARTIAL: the shift toward sulfate-reducer-related populations is proposed to accompany a change
+      in the dominant acetate-oxidizing process, contributing to sulfate consumption and sulfide accumulation. The
+      Fe(III)-depletion and donor-consumption explanation remains a field hypothesis, not independently established
+      mediation or continued uranium immobilization.'
   evidence:
   - reference: PMID:14532040
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: As the acetate injection continued over 50 days there was a loss of sulfate from the groundwater
-      and an accumulation of sulfide and the composition of the microbial community changed
-    explanation: Demonstrates decline of iron reducers
-  - reference: PMID:14532040
-    supports: PARTIAL
-    evidence_source: IN_VIVO
-    snippet: stimulating the in situ activity of dissimilatory metal-reducing microorganisms
-    explanation: Describes metabolic succession mechanism
-- name: Complementary Sulfate Reduction and U(VI) Reduction
-  description: 'Desulfosporosinus species contribute to sulfate reduction and uranium removal during Phase
-    II, working alongside Desulfobacteraceae and Desulfovibrio. As a Gram-positive, spore-forming sulfate
-    reducer, Desulfosporosinus exhibits distinct enzymatic pathways for U(VI) reduction compared to Gram-negative
-    Desulfovibrio, lacking certain cytochromes. This functional diversity may enhance community resilience
-    and uranium reduction efficiency across varying microenvironmental conditions. Spore formation enables
-    Desulfosporosinus to persist during unfavorable conditions and rapidly reactivate when acetate and
-    sulfate are available.
-
-    '
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Desulfosporosinus species
-    term:
-      id: NCBITaxon:79206
-      label: Desulfosporosinus
-  target_taxon:
-    preferred_term: Desulfobacteraceae family
-    term:
-      id: NCBITaxon:213118
-      label: Desulfobacterales
-  metabolites:
-  - preferred_term: sulfate
-    term:
-      id: CHEBI:16189
-      label: sulfate
-    notes: Electron acceptor
-  - preferred_term: hydrogen sulfide
-    term:
-      id: CHEBI:16136
-      label: hydrogen sulfide
-    notes: Product; chemically reduces U(VI)
-  - preferred_term: uranium(VI)
-    term:
-      id: CHEBI:32992
-      label: uranium(6+)
-  - preferred_term: uranium(IV)
-    term:
-      id: CHEBI:32995
-      label: uranium(4+)
-  biological_processes:
-  - preferred_term: sulfate reduction
-    term:
-      id: GO:0019420
-      label: dissimilatory sulfate reduction
-  evidence:
-  - reference: PMID:12788780
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: This removal was associated with an enrichment in microorganisms most closely related to
-      Pseudomonas and Desulfosporosinus species.
-    explanation: Documents Desulfosporosinus enrichment during uranium removal
-  - reference: PMID:36889400
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The reduction of U(VI) by the sulfate-reducing bacterium Desulfosporosinus hippei DSM 8344T,
-      a close phylogenetic relative to naturally occurring microorganism present in clay rock and bentonite,
-      was investigated
-    explanation: Establishes U(VI) reduction capability
+    snippet: Organisms with 16S rDNA sequences most closely related to those of sulfate reducers became predominant
+    explanation: Supports the observed community shift; it does not resolve exact species or prove competition.
 environmental_factors:
 - name: pH
   value: ~7
@@ -740,3 +535,41 @@ growth_media:
     evidence_source: IN_VIVO
     snippet: there was a loss of sulfate from the groundwater and an accumulation of sulfide
     explanation: Sulfate reduction and sulfide accumulation indicate anaerobic subsurface conditions.
+discussions:
+- discussion_id: rifle_field_mechanism_and_member_scope
+  prompt: Which organisms and mechanisms explain the two field phases?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Geobacter Enrichment and Coincident Metal Reduction
+  - ecological_interactions#Initial Groundwater Uranium Removal
+  - ecological_interactions#Later Sulfate Reduction and Sulfide Accumulation
+  - ecological_interactions#Community Succession from Metal to Sulfate Reduction
+  rationale: Fresh primary abstracts and the cached Rifle main text were checked. PMID18843300 studies G. uraniireducens,
+    while PMID19346346 and PMID18456853 concern Oak Ridge. High-salinity enrichment and D. hippei isolate evidence
+    do not establish the removed Rifle mechanisms. The cached field discussion reports low-identity sulfate-reducer-related
+    clones and a proposed Fe(III)/acetate explanation requiring verification. Field uranium loss does not measure
+    nanoparticle identity or size. Unspecified COMMUNITY_LEVEL participants must not be interpreted as evidence
+    for every canonical member; non-graph membership, family/species grounding, clone percentages and later-removal
+    claims remain issue1770. No inference that these taxa or reactions can never occur is intended.
+  evidence:
+  - reference: PMID:18843300
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: were inoculated with Geobacter uraniireducens
+    explanation: Identifies the organism of the transcriptome study formerly misassigned to Anaeromyxobacter.
+  - reference: PMID:19346346
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: site near Oak Ridge, TN
+    explanation: The Anaeromyxobacter field evidence is from another site.
+curation_history:
+- timestamp: '2026-10-07T17:54:04Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain initial genus-level enrichment and coincident reduction with a PARTIAL removal arrow, not cross-feeding
+    or species-resolved enzymology.; Retain measured early groundwater uranium loss, not nanoparticle identity or
+    mutualism.; Retain sulfate/sulfide observations and the adverse later uranium response; remove the contradicted
+    immobilization arrow.; Retain community succession and a PARTIAL process link, with the Fe(III)/acetate explanation
+    explicitly hypothetical. Issue#1766; reports/causal_graph_review/decisions/20261007-four-records-batch96.yaml
+  llm_assisted: true

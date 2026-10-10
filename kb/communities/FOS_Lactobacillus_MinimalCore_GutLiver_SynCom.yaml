@@ -1,0 +1,661 @@
+id: CommunityMech:000466
+name: FOS Lactobacillus-Minimal Core Gut-Liver SynCom
+description: A defined seven-strain in vitro human-gut model assembled by supplementing a four-strain minimal core with a
+  probiotic Lactobacillus formulation and culturing the resulting whole community in modified MRS medium with 2% fructooligosaccharides.
+  The probiotic arm contained Lactiplantibacillus plantarum PBS067, Lactobacillus acidophilus PBS066, and Limosilactobacillus
+  reuteri PBS072, while the minimal core contained Bacteroides cellulosilyticus CL02T12C19, Clostridium symbiosum WAL-14673,
+  Flavonifractor plautii 1_3_50AFAA, and Escherichia coli ATCC 25922. Finazzi et al. quantified strain dynamics by RT-qPCR,
+  assayed Lactobacillus FOS-utilization genes, profiled SCFAs and organic acids by GC-MS, and tested culture-derived metabolites
+  on palmitate-induced steatotic HepG2 cells.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: DIET
+engineering_design:
+  objective: Test whether FOS-driven metabolism of a defined three-strain Lactobacillus probiotic formulation alters strain
+    dynamics and metabolite output in a four-strain minimal human-gut core, and whether the resulting microbial metabolites
+    modulate lipid accumulation in a palmitate-induced steatotic HepG2 assay.
+  assembly_strategy: Combine L. plantarum PBS067, L. acidophilus PBS066, and L. reuteri PBS072 as the probiotic consortium;
+    combine F. plautii, C. symbiosum, B. cellulosilyticus, and E. coli as the minimal core; and merge both groups as a reconstructed
+    whole community.
+  inoculation_strategy: Inoculate each member at OD600 = 0.05 into the combined probiotic, minimal-core, or whole-community
+    growth assays.
+  perturbation_design: Grow single strains, the probiotic consortium, the minimal core, and the whole seven-strain community
+    in mMRS with either 2% FOS DP ~ 10 or 1% glucose as reference sole carbon sources.
+  measurement_endpoints:
+  - OD600 growth in single-strain FOS assays
+  - strain-specific RT-qPCR counts after FOS or glucose growth
+  - Lactobacillus sacA, scrB, and sacK1 expression by RT-qPCR
+  - organic-acid and SCFA profiles by GC-MS
+  - Oil Red O lipid accumulation in palmitate-induced HepG2 cells
+  - HepG2 Cd36 expression after treatment with bacterial metabolite extracts
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a previously validated four-strain minimal core community ( De Giani et al., 2024 ; Finazzi et al., 2025 ), was
+      supplemented with the probiotic formulation and cultured in the presence of fructooligosaccharides
+    explanation: Supports the minimal-core plus probiotic assembly scope.
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: strains were inoculated at initial OD600nm equal to 0.05 combined to obtain the probiotic consortium
+    explanation: Supports OD600-normalized co-inoculation into defined consortia.
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lactobacillus strain growth and modulation, transcriptional activation of FOS-related genes, and short-chain
+      fatty acid (SCFA) metabolic profiles were characterized
+    explanation: Supports the microbial abundance, expression, and metabolite readouts.
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Microbiota-derived metabolites were then tested on palmitate-induced steatotic HepG2 cells
+    explanation: Supports the downstream hepatocyte metabolite-assay arm.
+environment_term:
+  preferred_term: anaerobic FOS-supplemented gut-bacterium batch culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The whole reconstructed community was grown as a defined anaerobic in vitro batch culture in 10 mL mMRS with 2% FOS
+    DP ~ 10 at 37 degrees C.
+modeled_environment:
+- preferred_term: human intestine environment
+  term:
+    id: ENVO:2100002
+    label: intestine environment
+  notes: The four-strain minimal core and three probiotic strains are a reductionist model of human-gut microbial metabolism
+    along the gut-liver axis.
+taxonomy:
+- taxon_term:
+    preferred_term: Lactiplantibacillus plantarum PBS067
+    term:
+      id: NCBITaxon:1590
+      label: Lactiplantibacillus plantarum
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactiplantibacillus_plantarum
+      gtdb_taxon: Lactiplantibacillus plantarum
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactiplantibacillus;s__Lactiplantibacillus
+        plantarum
+      ncbi_source_id: NCBITaxon:1590
+      majority_fraction: 1.0
+      total_genomes: 2061
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: The source uses L. plantarum; the current NCBI label reflects Lactobacillus reclassification.
+  strain_designation:
+    strain_name: PBS067
+    culture_collections:
+    - collection: DSM
+      accession: '24937'
+    isolation_source: human
+  abundance_value: Probiotic member that reached about 10^8 bacterial counts/mL after 48 h in the FOS-grown whole community.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lactiplantibacillus plantarum PBS067 (DSM 24937) Human LP Probiotic
+    explanation: Identifies L. plantarum PBS067 / DSM 24937 as a human-derived probiotic member.
+- taxon_term:
+    preferred_term: Lactobacillus acidophilus PBS066
+    term:
+      id: NCBITaxon:1579
+      label: Lactobacillus acidophilus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      curated: true
+      curation_note: Manual GTDB R232 bac120 metadata species-level pin reused while the local kg-microbe crosswalk was unavailable
+        during curation.
+      gtdb_id: GTDB:s__Lactobacillus_acidophilus
+      gtdb_taxon: Lactobacillus acidophilus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus;s__Lactobacillus
+        acidophilus
+      ncbi_source_id: NCBITaxon:1579
+      majority_fraction: 0.994
+      total_genomes: 158
+      is_reclassified: false
+      mapping_source: manual GTDB R232 bac120_metadata.tsv.gz species tally
+  strain_designation:
+    strain_name: PBS066
+    culture_collections:
+    - collection: DSM
+      accession: '24936'
+    isolation_source: human
+  abundance_value: Probiotic member tracked by LA-specific qPCR in the whole community.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lactobacillus acidophilus PBS066 (DSM 24936) Human LA Probiotic
+    explanation: Identifies L. acidophilus PBS066 / DSM 24936 as a human-derived probiotic member.
+- taxon_term:
+    preferred_term: Limosilactobacillus reuteri PBS072
+    term:
+      id: NCBITaxon:1598
+      label: Limosilactobacillus reuteri
+    gtdb_grounding_status: UNRESOLVED
+    notes: GTDB grounding was left unresolved because scripts/gtdb_ground.py could not locate NCBI2GTDB.tsv.gz under any default
+      kg-microbe checkout path during curation.
+  strain_designation:
+    strain_name: PBS072
+    culture_collections:
+    - collection: DSM
+      accession: '25175'
+    isolation_source: human
+  abundance_value: Probiotic member that reached about 10^8 bacterial counts/mL after 48 h in the FOS-grown whole community.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Limosilactobacillus reuteri PBS072 (DSM 25175) Human LR Probiotic
+    explanation: Identifies L. reuteri PBS072 / DSM 25175 as a human-derived probiotic member.
+- taxon_term:
+    preferred_term: Bacteroides cellulosilyticus CL02T12C19
+    term:
+      id: NCBITaxon:246787
+      label: Bacteroides cellulosilyticus
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI Taxonomy resolved Bacteroides cellulosilyticus to this species id. GTDB grounding was left unresolved because
+      scripts/gtdb_ground.py could not locate NCBI2GTDB.tsv.gz under any default kg-microbe checkout path during curation.
+  strain_designation:
+    strain_name: CL02T12C19
+    isolation_source: human
+    notes: The source lists BEI Resources stock HM-726; BEI/HM is not in the local culture-collection enum.
+  abundance_value: Minimal-core member that grew to about 10^7 bacterial counts/mL after 48 h in the FOS-grown whole community.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacteroides cellulosilyticus CL02T12C19 (HM-726) Human BC Minimal core
+    explanation: Identifies B. cellulosilyticus CL02T12C19 / HM-726 as a human-derived minimal-core member.
+- taxon_term:
+    preferred_term: Clostridium symbiosum WAL-14673
+    term:
+      id: NCBITaxon:1512
+      label: '[Clostridium] symbiosum'
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      curated: true
+      curation_note: Manual GTDB R232 bac120 metadata species-level pin reused while the local kg-microbe crosswalk was unavailable
+        during curation.
+      gtdb_id: GTDB:s__Otoolea_symbiosa
+      gtdb_taxon: Otoolea symbiosa
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Otoolea;s__Otoolea symbiosa
+      ncbi_source_id: NCBITaxon:1512
+      majority_fraction: 0.964
+      total_genomes: 112
+      is_reclassified: true
+      mapping_source: manual GTDB R232 bac120_metadata.tsv.gz species tally
+    notes: GTDB places NCBI [Clostridium] symbiosum in Otoolea symbiosa.
+  strain_designation:
+    strain_name: WAL-14673
+    isolation_source: human
+    notes: The source lists BEI Resources stock HM-319; BEI/HM is not in the local culture-collection enum.
+  abundance_value: Minimal-core member quantified by CS-specific RT-qPCR.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium symbiosum WAL-14673 (HM-319) Human CS Minimal core
+    explanation: Identifies C. symbiosum WAL-14673 / HM-319 as a human-derived minimal-core member.
+- taxon_term:
+    preferred_term: Flavonifractor plautii 1_3_50AFAA
+    term:
+      id: NCBITaxon:292800
+      label: Flavonifractor plautii
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI Taxonomy resolved Flavonifractor plautii to this species id. GTDB grounding was left unresolved because scripts/gtdb_ground.py
+      could not locate NCBI2GTDB.tsv.gz under any default kg-microbe checkout path during curation.
+  strain_designation:
+    strain_name: 1_3_50AFAA
+    isolation_source: human
+    notes: The source lists the HMP/BEI stock as HM-303 and reports Flavonifractor plautii as previously Clostridium orbiscindens.
+  abundance_value: Minimal-core member that grew to about 10^7 bacterial counts/mL after 48 h in the FOS-grown whole community.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Flavonifractor plautii (previously Clostridium orbiscindens) 1_3_50AFAA (HM-303)
+    explanation: Identifies F. plautii 1_3_50AFAA / HM-303 as a minimal-core member.
+- taxon_term:
+    preferred_term: Escherichia coli ATCC 25922
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      total_genomes: 166397
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: ATCC 25922
+    culture_collections:
+    - collection: ATCC
+      accession: '25922'
+    isolation_source: human
+  abundance_value: Minimal-core member that reached about 10^8 bacterial counts/mL after 48 h in FOS-grown minimal-core and
+    whole-community cultures.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Escherichia coli ATCC 25922 Human EC Minimal core
+    explanation: Identifies E. coli ATCC 25922 as a human-derived minimal-core member.
+ecological_interactions:
+- name: FOS-driven whole-community strain modulation
+  description: After 48 h in the seven-strain community with 2% FOS, species-specific DNA-qPCR estimated about 10^8
+    bacterial counts/mL for L. plantarum, L. reuteri and E. coli and about 10^7 for B. cellulosilyticus and F. plautii.
+    Calibration used strain-specific genomic-DNA standards, not CFU viability or direct cell counting. Low L. acidophilus
+    abundance and absent scrB expression are associated observations, not selective gene causality. The 1% glucose
+    reference is not carbon-mass matched to 2% FOS.
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in the whole community, FOS promotes the growth of L. plantarum PBS067, L. reuteri PBS072, and E. coli
+      reaching values of bacterial counts around ~108 at 48 h
+    explanation: Supports the dominant LP/LR/EC 48 h response in FOS-grown whole communities.
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. cellulosilyticus and F. plautii showed values of ~107 bacterial counts/mL
+    explanation: Supports the lower BC/FP 48 h FOS-grown whole-community counts.
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: calibration curves from serial dilutions of strain-specific genomic DNA
+    explanation: Defines the enumeration method and prevents conflation with CFU or RNA expression assays.
+  participating_taxa:
+  - preferred_term: Lactiplantibacillus plantarum PBS067
+    term:
+      id: NCBITaxon:1590
+      label: Lactiplantibacillus plantarum
+  - preferred_term: Lactobacillus acidophilus PBS066
+    term:
+      id: NCBITaxon:1579
+      label: Lactobacillus acidophilus
+  - preferred_term: Limosilactobacillus reuteri PBS072
+    term:
+      id: NCBITaxon:1598
+      label: Limosilactobacillus reuteri
+  - preferred_term: Bacteroides cellulosilyticus CL02T12C19
+    term:
+      id: NCBITaxon:246787
+      label: Bacteroides cellulosilyticus
+  - preferred_term: Clostridium symbiosum WAL-14673
+    term:
+      id: NCBITaxon:1512
+      label: '[Clostridium] symbiosum'
+  - preferred_term: Flavonifractor plautii 1_3_50AFAA
+    term:
+      id: NCBITaxon:292800
+      label: Flavonifractor plautii
+  - preferred_term: Escherichia coli ATCC 25922
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+- name: Community-context Lactobacillus FOS-pathway expression
+  description: Homology identified putative FOS-utilization genes in the three probiotic strains. RNA/cDNA-qPCR
+    showed community- and time-associated expression differences, including L. plantarum sacA/sacK1 and L. reuteri
+    fructokinase; whole-community 48-h expression excluded L. acidophilus scrB. Expression normalized to species
+    16S and glucose reference does not establish necessary enzyme activity, inability to use FOS or partner-resolved
+    cross-feeding. Participants name the assayed probiotic members, not every member of the seven-strain culture.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Lactiplantibacillus plantarum PBS067
+    term:
+      id: NCBITaxon:1590
+      label: Lactiplantibacillus plantarum
+  - preferred_term: Lactobacillus acidophilus PBS066
+    term:
+      id: NCBITaxon:1579
+      label: Lactobacillus acidophilus
+  - preferred_term: Limosilactobacillus reuteri PBS072
+    term:
+      id: NCBITaxon:1598
+      label: Limosilactobacillus reuteri
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  evidence:
+  - reference: PMID:42781020
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: the differential expression of LP genes (sacA and sacK1) between the monoculture and the probiotic
+      consortium at 48 h suggests that interspecies interactions modulate the transcriptional regulation of FOS
+      utilization pathways
+    explanation: Supports the authors' inference from context-associated transcription, not a selective interaction
+      perturbation or identified transfer.
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In the reconstructed microbial community at 48 h, all FOS-related genes identified in the probiotic
+      strains were expressed, with the exception of scrB from LA
+    explanation: Supports the whole-community Lactobacillus FOS-expression profile at 48 h.
+- name: Whole-community organic-acid profile broadening
+  description: Qualitative GC-MS of derivatized culture extracts showed a broader carboxylic-acid profile for the
+    reconstructed whole community. Figure 7C labels acetic acid, lactic acid and butanoic acid among other peaks;
+    the propanoic-acid marker appears in minimal-core panel B, not separately in panel C. This does not establish
+    physiological absence of propionate from the whole community. Profiles do not measure absolute production, donor-resolved
+    flux or the host-active compound, and glucose-grown profiles were similar. Canonical acetate/butyrate terms
+    represent the reported acid identities, not measured ionic speciation.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    notes: Qualitative Figure 7C peak identity; not quantified yield, ionic speciation or a demonstrated host-active
+      mediator.
+  - preferred_term: lactic acid
+    term:
+      id: CHEBI:28358
+      label: rac-lactic acid
+    notes: Qualitative Figure 7C peak identity; not quantified yield, ionic speciation or a demonstrated host-active
+      mediator.
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+    notes: Qualitative Figure 7C peak identity; not quantified yield, ionic speciation or a demonstrated host-active
+      mediator.
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In the probiotic formulation, the metabolic profile showed typical fermentation products of lactobacilli,
+      including acetic acid
+    explanation: Probiotic subcommunity context only; whole-community assignments additionally depend on direct
+      inspection of Figure 7C.
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The whole reconstructed microbial community exhibited a broader metabolite profile
+    explanation: Supports broader organic-acid diversity in the seven-strain whole community.
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: were qualitatively analyzed using a gas chromatograph
+    explanation: The Methods define a qualitative assay, not absolute yields or metabolite flux.
+  participating_taxa:
+  - preferred_term: Lactiplantibacillus plantarum PBS067
+    term:
+      id: NCBITaxon:1590
+      label: Lactiplantibacillus plantarum
+  - preferred_term: Lactobacillus acidophilus PBS066
+    term:
+      id: NCBITaxon:1579
+      label: Lactobacillus acidophilus
+  - preferred_term: Limosilactobacillus reuteri PBS072
+    term:
+      id: NCBITaxon:1598
+      label: Limosilactobacillus reuteri
+  - preferred_term: Bacteroides cellulosilyticus CL02T12C19
+    term:
+      id: NCBITaxon:246787
+      label: Bacteroides cellulosilyticus
+  - preferred_term: Clostridium symbiosum WAL-14673
+    term:
+      id: NCBITaxon:1512
+      label: '[Clostridium] symbiosum'
+  - preferred_term: Flavonifractor plautii 1_3_50AFAA
+    term:
+      id: NCBITaxon:292800
+      label: Flavonifractor plautii
+  - preferred_term: Escherichia coli ATCC 25922
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+environmental_factors:
+- name: fructooligosaccharides DP ~ 10
+  value: '2'
+  unit: '% w/v'
+  description: FOS with an average degree of polymerization near 10 was the prebiotic sole carbon source used to grow the
+    probiotic, minimal-core, and whole-community cultures for qPCR, expression, metabolite, and HepG2 extract assays.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2% w/v fructooligosaccharides with an average degree of polymerization of 10
+    explanation: Defines the FOS concentration and average polymerization degree.
+- name: anaerobic 48 h FOS batch incubation
+  value: '48'
+  unit: h
+  description: The whole community was grown statically under anaerobic conditions at 37 degrees C for 48 h before OD600,
+    strain-qPCR, RNA, and metabolite analyses.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All setups were grown statically under anaerobic conditions (Anaerocult GasPack System, Merck, Darmstadt, Germany)
+      at 37 °C for 24 h (only for probiotic consortium) and 48 h
+    explanation: Supports static anaerobic incubation at 37 degrees C for the whole-community endpoint.
+growth_media:
+- name: mMRS with 2% FOS DP ~ 10
+  composition:
+  - name: modified MRS medium
+  - name: L-cysteine
+    concentration: '0.3'
+    unit: '% w/v'
+    from_source: community_curated
+  - name: fructooligosaccharides DP ~ 10
+    concentration: '2'
+    unit: '% w/v'
+    from_source: community_curated
+  temperature: '37'
+  temperature_unit: °C
+  atmosphere: ANAEROBIC
+  inoculum_size: '0.05'
+  inoculum_unit: OD600 per strain
+  incubation_time: '48'
+  incubation_time_unit: h
+  preparation_notes: The FOS assay used 10 mL mMRS with 0.3% cysteine and 2% FOS DP ~ 10 as the sole carbon source; probiotic,
+    minimal-core, and whole-community members were co-inoculated at OD600 = 0.05 per strain.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Growth assays were performed by cultivating bacteria in 10 mL modified MRS medium (mMRS) supplemented with 0.3%
+      w/v cysteine
+    explanation: Supports the 10 mL mMRS plus cysteine batch medium.
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: either 2% w/v fructooligosaccharides with an average degree of polymerization of 10
+    explanation: Supports the FOS DP ~ 10 sole-carbon-source amendment.
+- name: mMRS with 1% glucose reference carbon
+  composition:
+  - name: modified MRS medium
+  - name: L-cysteine
+    concentration: '0.3'
+    unit: '% w/v'
+    from_source: community_curated
+  - name: glucose
+    concentration: '1'
+    unit: '% w/v'
+    from_source: community_curated
+  temperature: '37'
+  temperature_unit: °C
+  atmosphere: ANAEROBIC
+  inoculum_size: '0.05'
+  inoculum_unit: OD600 per strain
+  incubation_time: '48'
+  incubation_time_unit: h
+  preparation_notes: Glucose-grown consortia used the same mMRS background as a readily fermentable reference condition.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 1% w/v glucose as the sole carbon source
+    explanation: Supports the glucose reference condition.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: 10 mL static anaerobic mMRS batch cultures in an Anaerocult GasPack System
+  working_volume: 10.0
+  working_volume_unit: mL
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: The same strains were assayed as single-strain monocultures, as the three-strain probiotic consortium, as
+    the four-strain minimal core, and as the seven-strain whole community under FOS and glucose reference carbon conditions.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: combined to obtain the probiotic consortium
+    explanation: Supports assembly of the OD600-normalized consortium arms.
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: both cells and supernatants were collected for subsequent DNA, RNA, and metabolite analyses
+    explanation: Supports the harvest design after anaerobic batch incubation.
+related_ingredients:
+- preferred_term: fructooligosaccharides
+  relevance: FOS DP ~ 10 was the prebiotic carbon source used to drive seven-strain community metabolism.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: fructooligosaccharides with an average degree of polymerization of approximately 10
+    explanation: Identifies the prebiotic substrate used for the FOS-grown community.
+external_resources:
+- name: PubMed - FOS Lactobacillus probiotic consortium
+  repository: OTHER
+  resource_id: PMID:42781020
+  url: https://pubmed.ncbi.nlm.nih.gov/42781020/
+  description: PubMed record for Finazzi et al. 2026 on FOS-driven metabolism in a defined Lactobacillus-supplemented reductionist
+    human-gut model.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'PMID: 42781020'
+    explanation: Identifies the PubMed accession for the primary publication.
+- name: DOI - FOS Lactobacillus probiotic consortium
+  repository: OTHER
+  resource_id: doi:10.3389/fmicb.2026.1866842
+  url: https://doi.org/10.3389/fmicb.2026.1866842
+  description: Version-of-record DOI for the Frontiers in Microbiology primary publication.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.3389/fmicb.2026.1866842'
+    explanation: Identifies the DOI for the primary publication.
+- name: PMC open-access full text
+  repository: OTHER
+  resource_id: PMC13599725
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13599725/
+  description: Open-access PMC full text for the Frontiers in Microbiology primary publication.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'PMCID: PMC13599725'
+    explanation: Identifies the PMC identifier for the open-access full text.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: PMID:42781020 describes FOS-driven organic-acid metabolism in a gut-liver in vitro model, not metal stress, biomining,
+  bioremediation, or rare-earth-element processing.
+discussions:
+- discussion_id: fos_lactobacillus_hepg2_active_metabolites_unresolved
+  prompt: Which FOS-derived microbial metabolite or metabolite combination causally reduces HepG2 lipid accumulation
+    and Cd36 expression?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Whole-community organic-acid profile broadening
+  - engineering_design
+  rationale: Finazzi et al. measured community-level organic-acid profiles and exposed HepG2 cells to extracted
+    bacterial metabolites, but the study reports that the specific metabolites responsible for the observed host-cell
+    response were not identified.
+  evidence:
+  - reference: PMID:42781020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the specific metabolites responsible for the observed effect on host cells were not identified
+    explanation: States the source-level limitation on causal metabolite assignment.
+  proposed_experiments:
+  - name: Fractionated FOS-fermentation metabolite add-back
+    description: Fractionate FOS-grown whole-community supernatants and add individual organic acids or reconstructed
+      mixtures back to palmitate-induced HepG2 cells to test lipid accumulation and Cd36 expression.
+    approach: metabolite fractionation and targeted add-back
+    model_systems:
+    - FOS-grown seven-strain in vitro human-gut community
+    - palmitate-induced steatotic HepG2 cells
+    perturbations:
+    - organic-acid depletion
+    - single-metabolite add-back
+    - defined metabolite-mixture add-back
+    readouts:
+    - Oil Red O lipid staining
+    - Cd36 RT-qPCR
+    - targeted SCFA and organic-acid quantification
+    decision_criterion: A fraction or reconstructed metabolite mixture that reproduces both reduced lipid accumulation
+      and lower Cd36 expression would nominate a causal metabolite set for follow-up.
+  posed_by: codex
+  posed_date: '2026-09-28'
+- discussion_id: fos_readout_scope_and_host_response_expansion
+  prompt: How should the extract pretreatment response be represented without inventing its active mediator?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#FOS-driven whole-community strain modulation
+  - ecological_interactions#Community-context Lactobacillus FOS-pathway expression
+  - ecological_interactions#Whole-community organic-acid profile broadening
+  rationale: 'The existing nodes report DNA-qPCR abundance, relative transcript levels and qualitative chemical
+    profiles, not partner-resolved cross-feeding. Actual Figure 7 does not separately label propionate in whole-community
+    panel C; do not infer its biological absence. The source also reports 0.1 mg/mL extract pretreatment of HepG2
+    for 24 h, removal, then 0.25 mM palmitate for 24 h, with lipid and Cd36 mRNA responses. This missing graph endpoint
+    remains #1450 pending a separately authorized Edison expansion and source review; do not claim graph completeness.
+    Active compounds and Cd36 mediation are unresolved. Preserve the earlier active-metabolite discussion and #1206
+    role correction. Non-graph pretreatment and readout wording remain #1449.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-09-28T17:56:43Z'
+  curator: codex
+  action: CREATE_COMMUNITY
+  changes: Created CommunityMech:000466 for PMID:42781020 / doi:10.3389/fmicb.2026.1866842, a defined seven-strain
+    FOS-grown reductionist gut-liver SynCom with three DSM Lactobacillus probiotic strains, four minimal-core gut
+    bacteria, FOS/glucose mMRS growth conditions, RT-qPCR and GC-MS evidence, PubMed/DOI/PMC resources, and an open
+    discussion for the unresolved causal host-cell metabolites.
+  llm_assisted: true
+- timestamp: '2026-09-28T17:59:27Z'
+  curator: codex
+  action: ADD_GTDB_GROUNDINGS
+  changes: Added GTDB grounding status to all seven FOS gut-liver SynCom taxonomy entries, reused species-level
+    GTDB groundings for L. plantarum, L. acidophilus, C. symbiosum, and E. coli, and left L. reuteri, B. cellulosilyticus,
+    and F. plautii unresolved because the local NCBI2GTDB.tsv.gz mapping was unavailable.
+  llm_assisted: true
+- timestamp: '2026-09-28T18:06:13Z'
+  curator: codex
+  action: REMOVE_UNSUPPORTED_FUNCTIONAL_ROLES
+  changes: Removed seven PRIMARY_DEGRADER member roles from CommunityMech:000466 after adversarial review found
+    the source supported strain membership and FOS response measurements but not uniform primary-degrader labels
+    for every member (#1206).
+  llm_assisted: true
+- timestamp: '2026-10-06T09:47:46Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain DNA-qPCR abundance estimates without viability, matched-carbon or selective scrB causality claims.;
+    Retain context-associated transcription without proved transfer or necessary enzyme activity.; Retain qualitative
+    whole-community acid profile and remove the unsupported panel-specific propionate assignment; host-response
+    expansion remains pending. Issue #1447; reports/causal_graph_review/decisions/20261006-three-records-batch39.yaml'
+  llm_assisted: true

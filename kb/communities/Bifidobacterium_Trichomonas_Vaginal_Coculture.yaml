@@ -98,12 +98,9 @@ taxonomy:
       confers no protection.
 ecological_interactions:
 - name: Direct Bifidobacterium-Trichomonas Surface Association
-  description: >
-    Confocal imaging after 4 h of anaerobic co-culture placed B. breve cells
-    closely around the T. vaginalis surface, establishing the direct
-    in-vitro contact from which the parasite growth, transcriptional, and lipid
-    responses were measured.
-  interaction_type: PREDATION
+  description: Confocal imaging after 4 hours of anaerobic coculture showed B. breve around the T. vaginalis surface.
+    This supports physical association, not bacterial internalization or contact-dependent mediation of the parallel
+    growth, transcript, lipid and host-assay responses.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bifidobacterium breve
@@ -119,39 +116,20 @@ ecological_interactions:
     term:
       id: GO:0007155
       label: cell adhesion
-  downstream:
-  - target: T. vaginalis Growth with B. breve Attrition
-    description: >
-      The direct co-culture paired increased parasite viability with declining
-      B. breve colony-forming units.
-  - target: Parasite DNA-Replication and Energy Response
-    description: >
-      T. vaginalis RNA-seq after B. breve co-culture resolved transcriptional
-      enrichment for DNA replication and ATP synthesis-coupled electron
-      transport.
-  - target: Parasite Fatty-Acid Pathway Response
-    description: >
-      The same 4 h exposure produced a parasite fatty-acid transcriptional
-      response.
-  - target: Adhesin-Linked HeLa Nonprotection
-    description: >
-      B. breve-treated or co-treated T. vaginalis retained epithelial
-      cytopathic effects and adherence while virulence-associated adhesin
-      genes increased.
   evidence:
   - reference: PMID:41688526
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Microscopy showed a direct physical association between the two organisms
-    explanation: >
-      Supports direct physical contact between the B. breve and T. vaginalis
-      partners in the short co-culture assay.
+    explanation: 'Supports direct physical contact between the B. breve and T. vaginalis partners in the short co-culture
+      assay.
+
+      '
 - name: T. vaginalis Growth with B. breve Attrition
-  description: >
-    In 4 h co-culture the protozoan proliferated 1.2-fold more while bacterial
-    abundance fell 27%, an asymmetric direct-coculture outcome reported without
-    resolving whether B. breve loss came from ingestion, competition, or the
-    culture conditions.
+  description: Four-hour coculture increased viable parasite counts by the reported 1.2-fold and reduced bacterial
+    CFUs by 27% relative to controls. PREDATION here follows the local paired benefit/harm (+/-) definition; it
+    does not establish ingestion. The paper explicitly lacked direct evidence of bacterial internalization, and
+    the trophic mechanism remains unresolved.
   interaction_type: PREDATION
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -163,39 +141,25 @@ ecological_interactions:
     term:
       id: NCBITaxon:1685
       label: Bifidobacterium breve
-  metabolites:
-  - preferred_term: long-chain fatty acid
-    term:
-      id: CHEBI:15904
-      label: long-chain fatty acid
-    notes: Metabolomics confirmed changes in long-chain fatty acid content in the parasite,
-      corroborating the transcriptomic signal for fatty acid metabolism.
   biological_processes:
   - preferred_term: cell population proliferation
     term:
       id: GO:0008283
       label: cell population proliferation
-  downstream:
-  - target: Adhesin-Linked HeLa Nonprotection
-    description: >
-      The B. breve-exposed parasite population was carried forward into host
-      epithelial assays that showed no protective B. breve effect.
   evidence:
   - reference: PMID:41688526
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Co-culture of T. vaginalis with B. breve for 4 h significantly increased protozoan
-      proliferation by 1.2-fold, while bacterial abundance was reduced by 27%
-    explanation: >
-      Supports the measured asymmetric direct-coculture outcome without
-      assigning a trophic mechanism to the decrease in B. breve abundance.
+    snippet: Co-culture of T. vaginalis with B. breve for 4 h significantly increased protozoan proliferation by
+      1.2-fold, while bacterial abundance was reduced by 27%
+    explanation: 'Supports the measured asymmetric direct-coculture outcome without assigning a trophic mechanism
+      to the decrease in B. breve abundance.
+
+      '
 - name: Parasite DNA-Replication and Energy Response
-  description: >
-    T. vaginalis exposed to B. breve showed a distinct transcriptomic response
-    in which upregulated genes were enriched for DNA replication, chromatin
-    organization, and ATP synthesis-coupled electron transport, matching the
-    observed short-term increase in parasite viable counts.
-  interaction_type: PREDATION
+  description: Parasite RNA-seq after B. breve exposure showed enrichment of DNA-replication, chromatin and ATP
+    synthesis-coupled electron-transport annotations. These are expression responses accompanying higher viable
+    parasite counts, not direct replication-rate, ATP-flux or necessity measurements.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bifidobacterium breve
@@ -213,27 +177,23 @@ ecological_interactions:
       label: DNA replication
   downstream:
   - target: T. vaginalis Growth with B. breve Attrition
-    description: >
-      The authors interpreted replication-gene enrichment as consistent with
-      the measured increase in T. vaginalis proliferation after B. breve
-      exposure.
+    description: PARTIAL - the source proposes that the replication-associated program supports parasite proliferation.
+      Enrichment and viable counts are consistent with this explanation but do not selectively establish pathway
+      mediation of either parasite growth or bacterial CFU loss.
   evidence:
   - reference: PMID:41688526
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      Upregulated genes were enriched in pathways related to DNA replication
-      and chromatin organization
-    explanation: >
-      Supports activation of DNA-replication-associated transcription in
-      B. breve-exposed T. vaginalis.
+    snippet: 'Upregulated genes were enriched in pathways related to DNA replication and chromatin organization
+
+      '
+    explanation: 'Supports activation of DNA-replication-associated transcription in B. breve-exposed T. vaginalis.
+
+      '
 - name: Parasite Fatty-Acid Pathway Response
-  description: >
-    B. breve co-culture shifted the T. vaginalis transcriptome toward fatty
-    acid biosynthesis, propionate metabolism, and putative fatty-acid metabolic
-    pathways, indicating a lipid metabolic program accompanying parasite
-    growth.
-  interaction_type: PREDATION
+  description: GSVA identified fatty-acid-biosynthesis and propionate-metabolism pathway annotations in the parasite
+    transcriptional response. This does not demonstrate de-novo fatty-acid synthesis, which the paper notes the
+    parasite lacks, or measure SCFA concentrations or metabolic rates.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bifidobacterium breve
@@ -250,30 +210,24 @@ ecological_interactions:
       id: GO:0006631
       label: fatty acid metabolic process
   downstream:
-  - target: Long-Chain Fatty-Acid Pool Decrease
-    description: >
-      The pathway signal was followed by LC-MS profiling of the long-chain
-      fatty-acid pool in co-cultured parasites.
   - target: T. vaginalis Growth with B. breve Attrition
-    description: >
-      Transcriptomic and functional analyses connected B. breve-enhanced
-      parasite growth to upregulated fatty-acid metabolism.
+    description: PARTIAL - the source proposes that altered fatty-acid handling contributes to the energetic or
+      biosynthetic demands of parasite growth. Transcript pathway scores are not a selective metabolic perturbation,
+      and the mechanism of bacterial CFU loss remains separate.
   evidence:
   - reference: PMID:41688526
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      gene set variation analysis (GSVA) showed increased activity in fatty
-      acid biosynthesis and propionate metabolism pathways
-    explanation: >
-      Supports a fatty-acid and SCFA-related transcriptional response in the
-      parasite after B. breve co-culture.
-- name: Long-Chain Fatty-Acid Pool Decrease
-  description: >
-    Targeted metabolomics of co-cultured T. vaginalis showed significant
-    decreases in saturated and unsaturated long-chain fatty acids, consistent
-    with increased parasite utilization of fatty acids after B. breve exposure.
-  interaction_type: PREDATION
+    snippet: 'gene set variation analysis (GSVA) showed increased activity in fatty acid biosynthesis and propionate
+      metabolism pathways
+
+      '
+    explanation: Supports expression-based pathway scoring, not measured synthesis or metabolic flux.
+- name: Fatty-Acid Pool Decrease
+  description: Protein-normalized LC-MS in parasite-enriched low-speed pellets detected decreases in 15 fatty-acid
+    pools after four-hour coculture, among 38 identified species containing at least 12 carbons. PARTIAL - increased
+    utilization is the authors' interpretation, not measured uptake, oxidation, turnover or bacterial-to-parasite
+    transfer; sample enrichment does not establish complete lipid-source purity.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bifidobacterium breve
@@ -285,10 +239,11 @@ ecological_interactions:
       id: NCBITaxon:5722
       label: Trichomonas vaginalis
   metabolites:
-  - preferred_term: long-chain fatty acid
+  - preferred_term: fatty acid
     term:
-      id: CHEBI:15904
-      label: long-chain fatty acid
+      id: CHEBI:35366
+      label: fatty acid
+    notes: Broad class covers the source panel of at least 12 carbons; CHEBI:15904 only covers C13-C22.
   biological_processes:
   - preferred_term: fatty acid metabolic process
     term:
@@ -296,28 +251,24 @@ ecological_interactions:
       label: fatty acid metabolic process
   downstream:
   - target: T. vaginalis Growth with B. breve Attrition
-    description: >
-      The fatty-acid decrease was interpreted as a metabolic adaptation that
-      could support the energetic and biosynthetic demands of parasite DNA
-      replication and proliferation.
+    description: PARTIAL - increased fatty-acid utilization could support parasite biosynthesis and growth in the
+      source's model. Decreased standing pools do not determine turnover or energetic flux and do not explain bacterial
+      CFU loss by themselves.
   evidence:
   - reference: PMID:41688526
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      levels of several fatty acids were significantly reduced in the
-      B. breve–treated group relative to the control, including 8 UFAs and 7
-      SFAs
-    explanation: >
-      Supports B. breve-linked depletion of saturated and unsaturated
-      long-chain fatty acids in the parasite lipid pool.
-- name: Adhesin-Linked HeLa Nonprotection
-  description: >
-    B. breve-exposed T. vaginalis increased virulence-associated adhesin genes,
-    and B. breve failed to reduce parasite adherence, cytopathic effects, or
-    sustained cytokine production in HeLa epithelial assays whether supplied
-    before or alongside the parasite.
-  interaction_type: PREDATION
+    snippet: 'levels of several fatty acids were significantly reduced in the B. breve–treated group relative to
+      the control, including 8 UFAs and 7 SFAs
+
+      '
+    explanation: Supports reduced protein-normalized fatty-acid pools in the enriched preparation, not turnover,
+      uptake or pure parasite origin.
+- name: Adhesin Transcripts and HeLa Nonprotection
+  description: B. breve exposure increased parasite adhesin-associated transcripts, while HeLa assays did not show
+    reduced parasite adherence or epithelial damage. Host pretreatment, simultaneous exposure and exposure to pretreated
+    parasites are distinct designs. Cytokine responses varied by assay and time; lack of cytoprotection is not absence
+    of cytokine effects or proof that adhesins mediate nonprotection.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bifidobacterium breve
@@ -346,16 +297,16 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: B. breve did not prevent epithelial damage or reduce T. vaginalis adherence
-    explanation: >
-      Supports the absence of a B. breve cytoprotective effect in the HeLa
-      infection model.
+    explanation: 'Supports the absence of a B. breve cytoprotective effect in the HeLa infection model.
+
+      '
   - reference: PMID:41688526
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: there was an increase in virulence-associated genes, including adhesins
-    explanation: >
-      Supports a virulence-associated adhesin response in T. vaginalis after
-      B. breve exposure.
+    explanation: 'Supports a virulence-associated adhesin response in T. vaginalis after B. breve exposure.
+
+      '
 growth_media:
 - name: Bifidobacterium broth, B. breve maintenance
   composition:
@@ -415,3 +366,35 @@ environmental_factors:
     snippet: modulates parasite gene expression and lipid metabolism transiently
     explanation: Records that the observed modulation does not persist, which bounds how the
       interaction should be read.
+curation_history:
+- timestamp: '2026-10-02T05:19:54Z'
+  curator: codex
+  action: PRUNE_NONCAUSAL_WORKFLOW_EDGES
+  changes: Removed two downstream edges that linked B. breve-exposed parasite growth and fatty-acid-pathway transcriptomics
+    to follow-on host-cell and LC-MS assays rather than source-backed ecological causal interactions in the Bifidobacterium-Trichomonas
+    co-culture record.
+  llm_assisted: true
+- timestamp: '2026-10-05T11:29:49Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate vaginal contact, paired fitness and molecular or host-response inference; decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1254'
+  llm_assisted: true
+discussions:
+- discussion_id: trichomonas_contact_lipid_and_adhesin_mediation
+  prompt: Which contact, lipid and adhesin mechanisms cause the transient coculture and host responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Direct Bifidobacterium-Trichomonas Surface Association
+  - ecological_interactions#T. vaginalis Growth with B. breve Attrition
+  - ecological_interactions#Parasite DNA-Replication and Energy Response
+  - ecological_interactions#Parasite Fatty-Acid Pathway Response
+  - ecological_interactions#Fatty-Acid Pool Decrease
+  - ecological_interactions#Adhesin Transcripts and HeLa Nonprotection
+  rationale: The source explicitly lacks direct internalization evidence and proposes future contact-versus-conditioned-medium
+    tests. RNA enrichment and lipid pools do not measure donor transfer, oxidation or necessary growth mediation.
+    Separate HeLa designs show differing cytokine responses; adhesin necessity is not resolved by co-occurrence.
+    Figures, supplementary files and raw ArrayExpress measurements were not inspected.
+  posed_by: codex
+  posed_date: '2026-10-05'

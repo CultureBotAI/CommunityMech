@@ -52,87 +52,11 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Automated Soil SynCom Assembly
-  description: >
-    A CellenONE liquid-handling printer dispensed normalized switchgrass soil isolates into
-    SynComs with less between-assembler variation than the manually pipetted communities.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
-  downstream:
-  - target: Low-Nutrient Alpha-Diversity Enrichment
-    description: >
-      Machine assembly produced the replicated communities used to test whether diluted R2A medium
-      retained more members during in vitro community growth.
-  evidence:
-  - reference: PMID:36472419
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: SynCom assembly with the automated printer will, on average, result in less variability
-      than will SynCom assembly by different people
-    explanation: >
-      The direct hand-versus-machine comparison showed that the automated assembly workflow made
-      replicate synthetic communities more compositionally reproducible.
 - name: Low-Nutrient Alpha-Diversity Enrichment
-  description: >
-    Diluting R2A to low nutrient strength lowered total biomass but retained a broader and more even
-    mixture of soil isolates during three days of SynCom growth.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
-  downstream:
-  - target: Starting-Ratio Diversity Maximization
-    description: >
-      The low-nutrient screen motivated start-ratio designs that counterweighted fast and slow
-      growers to improve the final community alpha diversity beyond equal mixing.
-  evidence:
-  - reference: PMID:36472419
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: the Shannon diversity index and Pielou’s evenness, two α-diversity metrics, were
-      lowest in the 1× medium and increased as the medium dilution increased
-    explanation: >
-      Shows that low-nutrient R2A reduced dominance in the synthetic soil community and increased
-      alpha diversity during growth.
-- name: Starting-Ratio Diversity Maximization
-  description: >
-    The 3× cutoff composition used orders-of-magnitude more slow-grower inoculum than fast-grower
-    inoculum, yielding a high-diversity final SynCom that persisted after two and six days of growth.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
-  downstream:
-  - target: Glycerol-Preserved SynCom Regrowth
-    description: >
-      The tuned SynCom was preserved, thawed, and regrown to test whether a stock-based workflow
-      could recover the viable community without rebuilding it from separate isolates.
-  - target: EcoFAB Brachypodium Rhizosphere Colonization
-    description: >
-      The soil-isolate SynCom design was moved from plate culture into EcoFABs to test whether
-      Brachypodium roots could be colonized by the assembled community.
-  evidence:
-  - reference: PMID:36472419
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Starting ratios containing orders of magnitude more of slower-growing organisms
-      (2× cutoff and 3× cutoff) resulted in higher Shannon diversity and evenness
-      values than did the 4 equally mixed conditions
-    explanation: >
-      Establishes that the starting-ratio perturbation produced a more even, higher-diversity
-      synthetic soil community than equal-ratio assembly.
-- name: Glycerol-Preserved SynCom Regrowth
-  description: >
-    Glycerol stocks frozen at -80°C and revived into 0.1× R2A recapitulated both OD600 growth and
-    16S community composition of an unfrozen synthetic soil community.
+  description: In the initial equally mixed 18-strain community, dilution from 1X to 0.2X or 0.1X R2A lowered total
+    OD600 while increasing Shannon diversity and evenness after three days. Pseudomonas remained relatively dominant.
+    This assay preceded the final 16-member model and does not demonstrate increased absolute viable abundance,
+    partner-specific facilitation or the same response in every community variant.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: growth
@@ -143,31 +67,75 @@ ecological_interactions:
   - reference: PMID:36472419
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: glycerol preservation and regrowth in 0.1× an R2A medium resulted in SynCom regrowth
-      that closely recapitulated the unfrozen community in terms of both OD600 and
-      community composition
-    explanation: >
-      Identifies the glycerol-freezing and 0.1× R2A regrowth condition as the storage workflow that
-      best recovered the mixed SynCom.
+    snippet: the Shannon diversity index and Pielou’s evenness, two α-diversity metrics, were lowest in the 1× medium
+      and increased as the medium dilution increased
+    explanation: Supports the measured nutrient-dilution diversity response in the initial 18-strain assay, not
+      a result specific to the final 16-member model.
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: an equally mixed community of all 18 strains
+    explanation: Identifies the 18-strain starting membership of the nutrient-dilution experiment.
+  participating_taxa:
+  - preferred_term: soil bacterial SynCom members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+- name: Starting-Ratio Dependent Community Diversity
+  description: Adjusting inoculum ratios to favor organisms that became relatively rare in equal mixtures increased
+    Shannon diversity and evenness at two and six days in the tested panels, particularly 2X/3X cutoff communities
+    without Pseudomonas. These are defined starting-composition effects, not a universal optimum or proof of a unique
+    competition mechanism. The 17/18-strain starting-ratio panels and later 16-member dropout experiments are distinct;
+    relative sequencing is not a direct viable-cell count.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Starting ratios containing orders of magnitude more of slower-growing organisms (2× cutoff and 3× cutoff)
+      resulted in higher Shannon diversity and evenness values than did the 4 equally mixed conditions
+    explanation: Supports experimentally altered starting ratios and diversity outcomes, not permanent stability
+      or universal optimality of one inoculum.
+  participating_taxa:
+  - preferred_term: soil bacterial SynCom members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
 - name: EcoFAB Brachypodium Rhizosphere Colonization
-  description: >
-    An equally mixed switchgrass soil-isolate SynCom colonized sterile Brachypodium distachyon in
-    EcoFAB devices and shifted into a root-associated composition over seven days on the plant.
+  description: Equal mixtures of 17 or 18 isolates, without or with Pseudomonas, were inoculated onto 12-day-old
+    Brachypodium in EcoFABs and profiled seven days later. Root-associated community composition differed from the
+    inoculum. These are plant-colonization observations, not demonstrated reciprocal benefit; the single inoculum
+    batch limits taxon-level before/after significance tests. Pseudomonas presence did not significantly change
+    overall EcoFAB composition, unlike the in-vitro diversity response.
   scope: COMMUNITY_LEVEL
   biological_processes:
-  - preferred_term: symbiotic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:36472419
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The SynComs grown on plants were significantly different from the original inoculant,
-      as determined by the Bray-Curtis distance
-    explanation: >
-      Demonstrates that the inoculated soil-isolate community colonized Brachypodium roots in EcoFAB
-      devices and changed composition after growth on the host.
+    evidence_source: IN_VIVO
+    snippet: The SynComs grown on plants were significantly different from the original inoculant, as determined
+      by the Bray-Curtis distance
+    explanation: Supports root-associated composition after live-plant inoculation, not a demonstrated plant growth
+      benefit or the identical final 16-member inoculum.
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: an equally mixed community of 17 or 18 bacterial isolates
+    explanation: Methods resolves the EcoFAB inoculum as 17 or 18 isolates rather than the final 16-member model.
+  participating_taxa:
+  - preferred_term: soil bacterial SynCom members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
 environmental_factors:
 - name: defined synthetic community design
   value: Bottom-up assembly of 16 culturable soil microorganisms commonly found in plant rhizospheres,
@@ -205,3 +173,38 @@ growth_media:
       at 30°C without shaking.
     explanation: Gives the Teknova 1× R2A medium and aerobic 30°C conditions for the
       member isolates.
+curation_history:
+- timestamp: '2026-10-02T05:57:41Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: 'Removed four downstream edges that linked automated assembly to nutrient screening, nutrient screening
+    to starting-ratio design, and starting-ratio tuning to glycerol-preservation and EcoFAB colonization tests as
+    workflow transitions rather than ecological causal mechanisms.
+
+    '
+  llm_assisted: true
+- timestamp: '2026-10-06T20:44:04Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate soil SynCom assay variants and remove assembly/storage graph procedures. Issue #1547; reports/causal_graph_review/decisions/20261006-lbnl-batch61.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: lbnl_soil_variant_scope_and_ecological_mediators
+  prompt: Which interactions explain diversity responses within each defined SynCom variant?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Low-Nutrient Alpha-Diversity Enrichment
+  - ecological_interactions#Starting-Ratio Dependent Community Diversity
+  - ecological_interactions#EcoFAB Brachypodium Rhizosphere Colonization
+  rationale: 'Remove automated assembly and cryopreservation as ecological graph nodes, without rejecting their
+    positive methodological results: automated assembly generally reduced between-assembler variation, and glycerol/R2A
+    regrowth resembled unfrozen controls. Nutrient tests used 18 strains, ratio panels included/excluded Pseudomonas,
+    and EcoFAB Methods specifies 17 or 18 isolates; these are not interchangeable with the final 16-member model
+    excluding Pseudomonas and Sphingomonas. Taxon-dropout experiments support additional diversity effects, while
+    proposed Lysobacter facilitation and three-fast-grower competition remain mechanistic interpretations, not new
+    curated arrows. Relic-DNA controls and DNA spike-ins do not make all abundance values viable-cell counts. Canonical
+    Bacteria remains an aggregate placeholder; #1548 tracks roster and non-graph metadata. Full main text/captions
+    were read, not original images, separate supplements or raw data.'
+  posed_by: codex
+  posed_date: '2026-10-06'

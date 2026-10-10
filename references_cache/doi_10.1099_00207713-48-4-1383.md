@@ -11,7 +11,11 @@ authors:
 journal: International Journal of Systematic Bacteriology
 year: '1998'
 doi: 10.1099/00207713-48-4-1383
-content_type: abstract_only
+content_type: full_text_html
+full_text_attempted: true
+full_text_provider: openalex
+full_text_url: "https://research.wur.nl/en/publications/syntrophobacter-fumaroxidans-sp-nov-a-syntrophic-propionate-degra"
+oa_status: green
 ---
 
 # Syntrophobacter fumaroxidans sp. nov., a syntrophic propionate-degrading sulfate-reducing bacterium
@@ -49,3 +53,51 @@ proposed; strain MPOBT (= DSM 10017T) is the type strain.
 
 DOI: 10.1099/00207713-48-4-1383
 PMID: 9828440 [Indexed for MEDLINE]
+
+Research output:Contribution to journal›Article›Academic›peer-review
+
+}
+
+Research output:Contribution to journal›Article›Academic›peer-review
+
+TY  - JOUR
+
+T1  - Syntrophobacter fumaroxidans sp. nov.: a syntrophic propionate-degrading sulfate-reducing bacterium.
+
+AU  - Harmsen, H.J.M.
+
+AU  - van Kuijk, B.L.M.
+
+AU  - Plugge, C.M.
+
+AU  - Akkermans, A.D.L.
+
+AU  - de Vos, W.M.
+
+AU  - Stams, A.J.M.
+
+PY  - 1998
+
+Y1  - 1998
+
+KW  - Propionate oxidation
+
+KW  - Syntrophobacter fumaroxidans sp. nov.
+
+KW  - Syntrophy
+
+M3  - Article
+
+SN  - 0020-7713
+
+VL  - 48
+
+SP  - 1383
+
+EP  - 1387
+
+JO  - International Journal of Systematic Bacteriology
+
+JF  - International Journal of Systematic Bacteriology
+
+ER  -

@@ -1,0 +1,151 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 5ae571c502c5f81e086ffeceb490dc52a93cce8a
+decision_ledger: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml
+validation_report: reports/causal_graph_review/validation-20261005-batch6.json
+scope:
+  records_reviewed: 11
+  records_changed: 9
+  records_unchanged: 2
+  nodes_before: 32
+  nodes_after: 32
+  arrows_before: 19
+  arrows_after: 11
+  new_nodes: 0
+  new_arrows: 0
+findings:
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1253
+  severity: P2
+  disposition: addressed_in_patch
+  finding: Plant arrows encode temporal ordering, experiment-to-experiment workflow or parallel outcomes; optional
+    interaction types overstate their own evidence.
+  resolution: Removed three arrows and unsupported types while preserving all six nodes, starch perturbation evidence
+    and HT-specific plant measurements. Full-methods limits are explicit.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1254
+  severity: P2
+  disposition: addressed_in_patch
+  finding: Gut and vaginal graphs conflate metabolite pools, expression, recipient traits, shared exposure and host
+    endpoints with molecular mediation.
+  resolution: Removed five arrows; retained eleven qualified metabolic arrows and measured outcomes. Corrected generic
+    lactose and the fatty-acid class. Preserved source-supported cross-feeding, paired mutualism and local-definition
+    predation.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1255
+  severity: P2
+  disposition: addressed_in_patch
+  finding: PET and alkane role assignments lack clear separation between measurements, proposed division of labor
+    and assay limitations.
+  resolution: Removed alkane mutualism, retained explicitly PARTIAL source-proposed niche interpretations, and documented
+    single-reactor/prior-baseline, proteomic, chemistry and unresolved-flux limits.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/1256
+  severity: P3
+  disposition: deferred_outside_graph_scope
+  finding: Medium carbon claims, ingredient flux wording, cultivation timing/anomer scope and a strain-taxonomy
+    lead require separate whole-record follow-up.
+  resolution: No non-graph edits or certification; this issue must remain open after the graph PR merges.
+- issue: https://github.com/CultureBotAI/CommunityMech/issues/703
+  severity: P3
+  disposition: existing_cache_discovery_followup
+  finding: The reference validator misses three unchanged methanogen snippets because it reads the canonical abstract
+    cache, not the noncanonical full-text file.
+  resolution: Preserve source quotations and caches. All 16 snippets match in the separate audit; baseline/current
+    default-validator failures and a temporary canonical-source pass are recorded in validation. No claim that the
+    default gate passes.
+adversarial_checks:
+- challenge: Does conservative pruning incorrectly remove experimentally supported interactions?
+  resolution: Retained carrageenan sulfate CROSS_FEEDING unchanged, gut reciprocal MUTUALISM, qualified SYNTROPHY,
+    and the explicit HMO/acetate cross-feeding models. Measurements remain SUPPORT when mechanisms are PARTIAL.
+- challenge: Does PREDATION require demonstrated ingestion under the local schema?
+  resolution: No. The schema defines paired benefit/harm. Retained the parasite viable-count/bacterial-CFU outcome
+    type but explicitly excluded an internalization claim; removed the type from five other assay nodes.
+- challenge: Are temporal and substrate specialization automatically invalid niche classifications?
+  resolution: No. Schema comments allow them. Galveston and Baia retain PARTIAL source-proposed NICHE_PARTITIONING
+    with competition reduction unresolved; Daqu individual stages and generic spatial cooperation do not independently
+    establish it.
+- challenge: Were source scope and statistical independence overstated?
+  resolution: Preserved abstract-only and selected-caption limits. Baia alkane chains are not biological replicates,
+    its 36-member parent is not the nine representative isolates, and prior consortium results are not a contemporaneously
+    reconstructed mixture.
+- challenge: Could a standing pool, gene annotation or tracer-like analytical standard be mistaken for flux?
+  resolution: Distinguished SCFA pools, lipid pools, expression/localization predictions and isotope-labeled analytical
+    internal standards from donor-resolved transfer or metabolic rates.
+- challenge: Does the fatty-acid grounding cover the actual source panel?
+  resolution: The paper uses a panel of at least 12 carbons; CHEBI:15904 specifies C13-C22. The pool node now uses
+    CHEBI:35366 and a neutral fatty-acid name. The unrelated growth-node lipid annotation was removed.
+- challenge: Did the review invent work on correctly bounded graphs?
+  resolution: Carrageenan and G4 have complete node decisions and unchanged hashes, with no fabricated edit/history
+    events. Prior H2S and flavor dangling targets remain removed.
+- challenge: Could YAML aliases leak graph edits into unrelated fields?
+  resolution: Graph nodes were copied independently, preflight reparsed the final raw-block assembly, and validation
+    compares every non-graph block against the base commit.
+prior_fixes_preserved:
+- - 855
+  - 856
+- - 872
+  - 873
+- - 991
+  - 992
+  - 993
+  - 994
+- - 1032
+  - 1033
+- - 1201
+  - 1202
+- - 823
+issue_deduplication:
+  issues_scanned: 609
+  scope: All paginated open and closed titles and bodies, excluding PRs, matched against record stems, IDs, PMIDs
+    and DOIs; earlier record-specific bodies also read. Not an exhaustive comment search.
+limits:
+- This is a second critical pass by the editing agent, not independent reviewer approval.
+- Exact source coverage and unread material are recorded for each record. Source-cache matches do not independently
+  validate biological claims.
+- No new nodes or arrows, no paid Edison job, and no graph-extension certification. Edison spending authorization
+  remains recorded, but a configured credential has not been supplied.
+- Unrelated untracked and ignored research files remain untouched and must not enter the PR.
+- Corpus-wide semantic review remains incomplete; this batch does not certify all 460 records.
+- Local workspace PDF gate fails on unrelated ignored/untracked files; the publishable snapshot passes all three
+  rights tests. No PDF/article body is part of this patch.
+verification:
+  status: local_checks_complete_with_documented_cache_and_workspace_limits
+  corpus_records: 460
+  reviewed_records_in_ledger: 51
+  pending_records_in_ledger: 409
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  network_warning_change: 0
+  focused_regressions_output: '........................................................................ [ 56%]
+
+    .......................................................                  [100%]
+
+    127 passed in 54.63s
+
+    '
+  cache_and_snippet_suite_passed: 50
+  cache_and_snippet_suite_workspace_pdf_failures: 1
+  publishable_snapshot_rights_tests_passed: 3
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1475
+    edge_descriptions: 741
+  render_determinism: passed
+  snippet_counts:
+    MATCH: 229
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  batch_graph_counts:
+    changed_records: 9
+    nodes_before: 32
+    nodes_after: 32
+    edges_before: 19
+    edges_after: 11
+    unchanged_raw_blocks: 174
+    unchanged_records: 2
+  reference_default_passed: 10
+  reference_default_cache_discovery_failure: 1
+  reference_failure_unchanged_from_base: true
+  reference_temporary_canonical_source_passed: true

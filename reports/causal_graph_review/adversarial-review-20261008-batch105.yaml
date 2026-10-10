@@ -1,0 +1,244 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 5d8eb3bd131fbf5c259038a2d45de27a39de0c72
+scope:
+- kb/communities/Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml
+- kb/communities/Sphingobium_Nitrososphaera_Phenanthrene_Carbon_SynCom.yaml
+- kb/communities/Sphingobium_Rhodococcus_Lignin_Dimer_Valorization_Coculture.yaml
+- kb/communities/Staged_Cattle_Manure_Ensifer_Bacillus_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-four-records-batch105.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch105.json
+findings:
+- issue: 1823
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate space-habitat cultivability result from categorical competition
+  disposition: Close only after protected-main merge.
+- issue: 1824
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate phenanthrene SynCom carbon stocks from fixation flux
+  disposition: Close only after protected-main merge.
+- issue: 1825
+  severity: P2
+  status: addressed_in_this_change
+  finding: Qualify lignin-dimer coupling and distinguish muconate results from gallate potential
+  disposition: Close only after protected-main merge.
+- issue: 1826
+  severity: P2
+  status: addressed_in_this_change
+  finding: Scope staged manure SynCom transcript evidence to Ensifer S2-8-1
+  disposition: Close only after protected-main merge.
+- issue: 1827
+  severity: P2
+  status: open_non_graph_follow_up
+  finding: Audit abundance and functional-role evidence in Sphingobium and manure SynCom records
+  disposition: Separate non-graph curation required.
+adversarial_checks:
+- 'Whole original targets and all changed graph/discussion diffs reviewed. All9 original nodes and2 directions have
+  dispositions: retain9nodes and1 qualified existing direction, remove1 substrate-range restatement arrow, rename3nodes.
+  No new topology or provider spend.'
+- 'Challenge removal versus lost evidence: retain positive colony-recovery, phenanthrene removal, soil carbon-content,
+  lignin-conversion, broth-density, maize-pot and transcript observations. Removing categorical mechanism labels
+  does not reject the source results.'
+- 'Space habitat: reduced B. subtilis CFU is cultivability, not definitive viability loss or reciprocal negative
+  effects. The canonical B. subtilis participant remains. Genomic potential is not confirmed metabolite activity.
+  Prior accession repair771 preserved; no new survival, stress-tolerance, biofilm, resistance, virulence, culture
+  or disinfection optimization details.'
+- 'Phenanthrene: soil carbon stocks and modeled guild associations are not measured fixation flux or traced carbon
+  transfer. Keep positive lettuce-pot endpoints with IN_VIVO evidence and partial statistical interpretation. Existing
+  random-forest/PLS-PM methods are preserved without invented software versions. Prior847/848 changes remain; those
+  open issues are not duplicated.'
+- 'Lignin: the source describes coculture systems plural, not demonstrated simultaneous products in one formulation.
+  Preserve observed muconate conversion separately from gallate potential and reuse the existing local CHEBI16918
+  descriptor. Whole primary abstract confirms all six linkage classes; the three retained class snippets are representative
+  examples, not exhaustive quotations. Remove the background-study quotation and ecological niche label; keep the
+  existing cleavage-to-conversion direction only as HYPOTHESIZED/PARTIAL.'
+- 'Manure: preserve distinct broth-density and water-control plant comparators; keep observed transcript upregulation
+  rather than direct activity, flux or pathway mediation. Narrow the transcript node to canonical identity-only
+  Ensifer S2-8-1. No inferred transcript-to-broth or transcript-to-host edges. Earlier cross-feeder removals and
+  IN_VIVO pot classification preserved.'
+- Seventeen graph and five discussion quotations match fresh primary text and unchanged caches. Space-habitat main-text
+  coverage is bounded; three other sources are abstract-only. Wiley redirected to an abstract/access page; OUP and
+  the phenanthrene DOI requests returned Internal Error, not a verified HTTP403. No global full-text absence claim,
+  bypass, cache import, supplement/figure-pixel or raw-data certification.
+- Four guarded writes and four append-only histories;456 other records/all923 caches and prior history/decision
+  files byte-identical. Non-graph raw blocks unchanged. Ensifer-only transcript scope does not change the global
+  community-level census because other whole-consortium observations remain. No census threshold, schema or runtime-rule
+  changes.
+- Eight focused tests and951 combined regressions pass. Four full-record schema/strict/term/reference/snippet checks
+  and four histories validate. Network equals56 baseline warnings with zero structural defects. Deterministic rendering
+  and exact HTML parser cover456pages/1373descriptions/550arrows, not screenshots. Plain just-lint passed; explicit-runtime
+  no-incremental mypy additionally checked.
+- Repairs1823-1826 addressed but remain open until protected-main merge; non-graph1827 remains open. Existing license949,
+  loader1703, DOIcache1091, denied and unansweredEdison scopes are not resolved. Self-review is not independent
+  approval; no artificial CI, protection bypass or premature cleanup.
+- Corpus334reviewed/76pending/50needs_research is not completion. Postcommit docs-current and exact-head publication
+  require separate receipts, not preasserted here.
+verification:
+  combined_regressions: 951 passed in 379.05s (0:06:19)
+  new_regression_tests: 8
+  total_recorded_gate_outputs: 42
+  primary_graph_snippet_proof:
+    graph_quotations: 17
+    new_discussion_quotations: 5
+    fresh_primary_literal_matches: 22
+    all_cached_literal_matches: 22
+    retained_nodes: 9
+    removed_nodes: 0
+    retained_arrows: 1
+    removed_arrows: 1
+    new_nodes_or_directions: 0
+    scope: All reviewed quotations match fresh primary text and unchanged existing caches literally after normalization;
+      entailment separately reviewed. Phenanthrene, lignin and manure abstracts only; space-habitat source has bounded
+      main-text coverage. No cache text or audit exception.
+  references: Four full-record CLI and local snippet checks executed on macOS,not Linux; DOI-cache casing issue1091
+    remains. Literal matches do not establish entailment; per-source read and access limits are recorded. CLI Total
+    checks counts issues,not executed checks. Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml:
+      MATCH: 20
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Sphingobium_Nitrososphaera_Phenanthrene_Carbon_SynCom.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Sphingobium_Rhodococcus_Lignin_Dimer_Valorization_Coculture.yaml:
+      MATCH: 23
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Staged_Cattle_Manure_Ensifer_Bacillus_SynCom.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8956
+      categories:
+        MATCH: 8820
+        RENDERING: 20
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 39
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification; literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: One substrate-range restatement arrow removed; all nine nodes retained with qualified mechanisms
+      and one scoped transcript node; all56existing warnings unchanged and zero structural defects. No audit rules
+      changed.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-four-records-batch105.yaml: 3d64b6bccead35688461e4485e84ed02d2118a45ffc71bb36a99c579f02a56d9
+    tests/test_causal_review_batch105.py: 253024f0a23a9313cbb2dd062051e60e7a5299895c1cb6ba2bf626666cf4c8e2
+    tests/test_participating_taxa.py: 0685ac6f4a721680ccb3967614b1411c59f553ccc45d485582d11126abfa9f9a
+    tests/test_community_level_connectivity_credit.py: 383a0f5904085a5cda800b5102923fc99301831f5769d8d4821e000773d2ea4c
+    reports/causal_graph_review/cache-provenance-20261008-batch105.json: eca35700399c0be5808426ebbd9e899e3549d787825d9d95c34a9b888abc1d06
+    kb/communities/Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml: 0304999156eeec1556a337ff0138a6bfce205c38b9d5a8010051d864949a2a7f
+    kb/communities/Sphingobium_Nitrososphaera_Phenanthrene_Carbon_SynCom.yaml: e2555ecc152f3bbdbb5c2d557a17fc46da135500092494e0379c73fbb85c117a
+    kb/communities/Sphingobium_Rhodococcus_Lignin_Dimer_Valorization_Coculture.yaml: fa5b1abb2f9493bb52263f1041fe4075028d57daf40abe7cd804edd6c65aa05c
+    kb/communities/Staged_Cattle_Manure_Ensifer_Bacillus_SynCom.yaml: ece6ced257acf7538a072ee6fb940f73d96f0f36d83a6e1eae1514356884ab12
+  unchanged_records: 456
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 812
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Qualify existing observation/mechanism boundaries and narrow member scope; retain one qualified
+      existing direction and remove one restatement. No new mechanisms or directions.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 403
+      mixed: 128
+      community_level_only: 275
+      taxa: 1544
+      credited_solely_by_the_rule: 1270
+    current:
+      records: 460
+      with_community_level: 403
+      mixed: 128
+      community_level_only: 275
+      taxa: 1544
+      credited_solely_by_the_rule: 1270
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: Manure transcript node gains identity-only Ensifer scope. Other community-level observations still
+    encompass the consortium, so the global census is unchanged. No census threshold or runtime rule changes.
+corpus:
+  records: 460
+  nodes: 1387
+  edges: 558
+  review_status_counts:
+    needs_research: 50
+    pending: 76
+    reviewed: 334
+lint_limitation: Plain just-lint passed; explicit-runtime no-incremental mypy additionally checked.
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary Python3.13 lint environment reuses validation runtime and locked mypy1.19.1/stubs/scikit-learn1.8.0/pacmap0.9.1
+    for static checks; not a complete embedding runtime. Project dependencies unchanged.
+limitations:
+- 'Fresh both-root baseline before source reads: 460 records, 923 caches, 56 existing warnings, zero structural
+  defects. Four whole records and all9 original nodes/2 directions reviewed; all9 nodes and one qualified direction
+  retained, one restatement arrow removed, three renames. No new topology or Edison submission/spend.'
+- Fresh EuropePMC XML retrieved for space habitat. Results lines462-558 and Discussion lines731-819 read for colony-recovery
+  and interpretation context. This is bounded main-text reading, not whole-paper methods, supplements, figure pixels
+  or raw-data certification.
+- Phenanthrene, lignin and manure primary abstracts independently retrieved and read whole, alongside whole existing
+  abstract caches. No PMCID supplied for these three. Wiley full-text request redirected to the abstract/access
+  page; OUP and the phenanthrene DOI web requests returned Internal Error with no HTTP code reported. No full bodies
+  or supplements read, no bypass; no global assertion of full-text absence.
+- Large space-habitat cache used for normalized claim matching, not exhaustive duplicated full-text review. All
+  retained graph and new discussion quotations match fresh primary text and unchanged caches. No cache imports or
+  license949/loader1703/DOI-case1091 certification. Space-habitat metadata identifies CC BY; other publisher notices
+  retained.
+- 'Space habitat: preserve reduced recoverable B. subtilis CFU and canonical participant; remove COMPETITION because
+  reciprocal negative effects are not established. Cultivability is not definitive viability loss; genomic potential
+  is not confirmed activity. No new stress-survival, resistance, virulence, biofilm, culture or disinfection optimization
+  procedures or genetic designs.'
+- 'Phenanthrene: retain positive lettuce-pot removal and carbon-content endpoints with IN_VIVO provenance. Carbon
+  stocks and statistical guild associations do not establish carbon-fixation flux or traced transfer. Existing model
+  methods retained without invented software versions; causal interpretation PARTIAL. Prior847/848 interaction-typing
+  and provenance fixes preserved.'
+- 'Lignin: source systems plural; retain designed pairwise cleavage/conversion coupling and existing arrow as HYPOTHESIZED/PARTIAL.
+  Remove background-study evidence and categorical cross-feeding/niche-partitioning. Retain observed muconate conversion
+  and qualified gallate potential, not simultaneous production by one formulation. Reuse existing local CHEBI16918
+  gallate descriptor; keep substrate-range node without its restatement arrow.'
+- 'Manure: retain broth and positive plant observations with their distinct comparators. Scope transcript upregulation
+  to identity-only Ensifer S2-8-1. Transcript abundance is not protein activity, flux or proven mediation; no new
+  arrows. Preserve earlier cross-feeder-role removals and IN_VIVO pot classification. Full protocols not certified.'
+- Graph issues1823-1826 addressed here and remain open until protected-main merge; non-graph1827 remains open. Fresh
+  all-state title/body dedup matches771/847/848. Hidden/ignored local search excludes.git/docs/site/references_cache
+  with relevant caches separately covered. PRs/comments not exhaustively searched. Abundance, functional roles,
+  broad source-formulation text and protocol blocks remain separately scoped.
+- Four guarded writes and append-only histories;456 other records and all923 caches unchanged. Every unrelated raw
+  block preserved. No schema/runtime/audit rule changes. Self-adversarial review is not independent approval or
+  corpus completion. DeniedAM_AB000444 and unanswered Edison scopes untouched. Validation/publication not preasserted.

@@ -1,0 +1,302 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: cf322d4f9793d1a7e6ebd14eabefca78bf805fdb
+issues:
+- 1335
+- 1336
+- 1337
+open_nongraph_followups:
+- 1338
+- 746
+issue_deduplication:
+  all_state_issue_titles_bodies: 674
+  ignored_hidden_local_files_included: true
+  comments_exhaustive: false
+  relevant_issues_read:
+  - 639
+  - 605
+  - 529
+  - 746
+  - 749
+  - 752
+  finding: No duplicate exact graph issue in searched scope; broader provenance and enum work remains separate.
+reference_cache_original_hashes:
+  references_cache/PMID_21868218.md: 7fd8135ce1128391fbd624d330b685c9642bae5ed4aeb5f56730db5ec35b5dde
+  references_cache/PMID_23628342.md: 28d1da49aa2fa358bdfeded20f3e04b5e7dcaecd4f67085ea81353b8fe42f6e9
+  references_cache/PMID_33268782.md: 7616b7daddd7a3b0416ddbece46acf73ec62ab64ead8b6c8fd1aee79858183d2
+  references_cache/PMID_23275517.md: e3946fd427450f64248b382a1d7cd0102360217b2c3830934d2713035cb47268
+limitations:
+- All ten nodes and seven arrows retained with five exact renames; no new structure or Edison spend.
+- Three primary main bodies and one abstract reviewed; no visual images/supplements inspected.
+- Four existing reference caches unchanged; no copyrighted full body added to git.
+- Unrelated metadata and canonical taxonomy preserved, not scientifically certified; issue1338 and existing746 remain
+  open.
+- Self-adversarial review is not independent approval or corpus completion.
+records:
+- path: kb/communities/Clostridium_Phytofermentans_Ecoli_Cellobiose_Biofilm_Consortium.yaml
+  id: CommunityMech:000196
+  original_sha256: cc831b8ffc6ef81e59ddd671f8e071abe8e9a9ac68b27eac4a6fbc0811d7db94
+  record_sha256: 9a4fdb8dc3bbda96d454f371df026770f3baa65a1cff23b8c43d883ff3105836
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch21.yaml
+  scope: Whole record and every original node/arrow; primary access scope bounded below.
+  summary: Preserve glucose cross-feeding and positive inhibition/enzyme controls while bounding feedback and cellobiose-versus-polymer
+    scope.; Represent reciprocal necromass assays with both existing participants; retain growth and CFU support
+    without isolating peptides or asserting anaerobic metabolism in the aerobic assay.; Preserve oxygen consumption
+    and spatial partitioning after anoxic establishment; remove unsupported colonization typing and bound qPCR interpretation.;
+    Separate directly measured planktonic products from biofilm mass and unmeasured biofilm product flux; remove
+    aggregate endpoint syntrophy.
+  renamed_nodes:
+    Reciprocal Necromass Catabolism: Reciprocal Necromass-Supported Partner Growth
+    Enhanced Cellulosic-Sugar Conversion and Biofilm Productivity: Measured Planktonic Conversion and Biofilm Biomass
+      Outcomes
+  node_decisions:
+  - node: Cellobiose Hydrolysis And Glucose Scavenging Feedback
+    rationale: Preserve glucose cross-feeding and positive inhibition/enzyme controls while bounding feedback and
+      cellobiose-versus-polymer scope.
+  - node: Reciprocal Necromass-Supported Partner Growth
+    rationale: Represent reciprocal necromass assays with both existing participants; retain growth and CFU support
+      without isolating peptides or asserting anaerobic metabolism in the aerobic assay.
+  - node: Biofilm Oxygen Partitioning
+    rationale: Preserve oxygen consumption and spatial partitioning after anoxic establishment; remove unsupported
+      colonization typing and bound qPCR interpretation.
+  - node: Measured Planktonic Conversion and Biofilm Biomass Outcomes
+    rationale: Separate directly measured planktonic products from biofilm mass and unmeasured biofilm product flux;
+      remove aggregate endpoint syntrophy.
+  edges_before:
+  - source: Cellobiose Hydrolysis And Glucose Scavenging Feedback
+    target: Enhanced Cellulosic-Sugar Conversion and Biofilm Productivity
+    description: Glucose scavenging by E. coli relieves feedback inhibition of C. phytofermentans cellulolytic-enzyme
+      synthesis and increases cellulose-derived sugar flux through the consortium.
+  - source: Reciprocal Necromass Catabolism
+    target: Enhanced Cellulosic-Sugar Conversion and Biofilm Productivity
+    description: Reciprocal necromass catabolism transfers nutrients and energy between the two trophic levels,
+      increasing C. phytofermentans and E. coli biomass accumulation.
+  - source: Biofilm Oxygen Partitioning
+    target: Enhanced Cellulosic-Sugar Conversion and Biofilm Productivity
+    description: E. coli oxygen consumption maintains an anoxic biofilm zone that lets the obligate anaerobe C.
+      phytofermentans persist during oxic perturbation.
+  edges_after:
+  - source: Cellobiose Hydrolysis And Glucose Scavenging Feedback
+    target: Measured Planktonic Conversion and Biofilm Biomass Outcomes
+    description: PARTIAL - glucose scavenging can relieve inhibition and sustain cellobiose conversion, consistent
+      with glucose-addition, extracellular-enzyme and coculture comparisons. This supports the planktonic conversion
+      model, not a direct measurement of biofilm ethanol output.
+  - source: Reciprocal Necromass-Supported Partner Growth
+    target: Measured Planktonic Conversion and Biofilm Biomass Outcomes
+    description: PARTIAL - necromass-addition controls support resource recovery as a contributor to partner growth
+      and consortium biomass. They do not isolate its contribution to all planktonic products or establish biofilm
+      ethanol production.
+  - source: Biofilm Oxygen Partitioning
+    target: Measured Planktonic Conversion and Biofilm Biomass Outcomes
+    description: PARTIAL - biological oxygen consumption helps preserve an anoxic region after the anoxic-to-oxic
+      transition and supports the biofilm biomass response. It is not a demonstrated driver of biofilm ethanol output,
+      which was not directly measured.
+  retained_edge_decisions:
+  - source: Cellobiose Hydrolysis And Glucose Scavenging Feedback
+    target: Measured Planktonic Conversion and Biofilm Biomass Outcomes
+    rationale: PARTIAL - glucose scavenging can relieve inhibition and sustain cellobiose conversion, consistent
+      with glucose-addition, extracellular-enzyme and coculture comparisons. This supports the planktonic conversion
+      model, not a direct measurement of biofilm ethanol output.
+  - source: Reciprocal Necromass-Supported Partner Growth
+    target: Measured Planktonic Conversion and Biofilm Biomass Outcomes
+    rationale: PARTIAL - necromass-addition controls support resource recovery as a contributor to partner growth
+      and consortium biomass. They do not isolate its contribution to all planktonic products or establish biofilm
+      ethanol production.
+  - source: Biofilm Oxygen Partitioning
+    target: Measured Planktonic Conversion and Biofilm Biomass Outcomes
+    rationale: PARTIAL - biological oxygen consumption helps preserve an anoxic region after the anoxic-to-oxic
+      transition and supports the biofilm biomass response. It is not a demonstrated driver of biofilm ethanol output,
+      which was not directly measured.
+  removed_edge_decisions: []
+  references:
+  - PMID:33268782
+  issues:
+  - 1335
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    PMID:33268782:
+      url: https://doi.org/10.1038/s41522-020-00170-8
+      path: /private/tmp/communitymech-batch21/PMC7710750.xml
+      sha256: 91b35a900f6ea079b87e24787c35ce19e42304601b88bd5402da7d20a108af8d
+      license: CC BY 4.0
+      reviewed_scope: Whole primary main body, three tables and nine captions read; images and supplements not inspected.
+  history_files:
+  - history/records/Clostridium_Phytofermentans_Ecoli_Cellobiose_Biofilm_Consortium/2026-10-06T005604Z-codex-b04d5d.yaml
+- path: kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+  id: CommunityMech:000206
+  original_sha256: 5667bd49d4cff29eb9ece6d046c8fac61a8aca27bbb55e3369fea82c63ba611d
+  record_sha256: fa05e29f87dd939c2d7a694b88083fb080077be68faa3d53007d0762609c7915
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch21.yaml
+  scope: Whole record and every original node/arrow; primary access scope bounded below.
+  summary: Retain soluble-sugar cross-feeding with enzyme-assisted output context, distinguishing feedstock, exchange
+    and product.; Retain the positive respiratory-protection and conditional mutualism evidence, not universal partner
+    dependence.; Represent oxygen-dependent viable population maintenance as a two-member outcome and keep the separate
+    long-term assay conditions.
+  renamed_nodes:
+    Long-Term Symbiotic Population Maintenance: Oxygen-Dependent Long-Term Population Maintenance
+  node_decisions:
+  - node: Cellulose Hydrolysis Feeds Yeast Fermentation
+    rationale: Retain soluble-sugar cross-feeding with enzyme-assisted output context, distinguishing feedstock,
+      exchange and product.
+  - node: Oxygen Protection of Anaerobic Cellulolytic Partner
+    rationale: Retain the positive respiratory-protection and conditional mutualism evidence, not universal partner
+      dependence.
+  - node: Oxygen-Dependent Long-Term Population Maintenance
+    rationale: Represent oxygen-dependent viable population maintenance as a two-member outcome and keep the separate
+      long-term assay conditions.
+  edges_before:
+  - source: Cellulose Hydrolysis Feeds Yeast Fermentation
+    target: Long-Term Symbiotic Population Maintenance
+    description: 'C. phytofermentans cellulose hydrolysis supplies soluble sugars that support yeast fermentation
+      during the maintained bacterium-yeast population pairing.
+
+      '
+  - source: Oxygen Protection of Anaerobic Cellulolytic Partner
+    target: Long-Term Symbiotic Population Maintenance
+    description: 'Yeast oxygen removal protects the anaerobic cellulolytic partner under controlled oxygen transfer,
+      allowing both populations to persist in the long-term symbiosis.
+
+      '
+  edges_after:
+  - source: Cellulose Hydrolysis Feeds Yeast Fermentation
+    target: Oxygen-Dependent Long-Term Population Maintenance
+    description: Bacterial cellulose hydrolysis provides soluble carbon that can sustain yeast in the oxygen-controlled
+      culture. PARTIAL - the long-term viable-count comparison supports this cooperation but does not directly partition
+      carbon transfer or isolate every stabilizing mechanism.
+  - source: Oxygen Protection of Anaerobic Cellulolytic Partner
+    target: Oxygen-Dependent Long-Term Population Maintenance
+    description: PARTIAL - yeast respiratory protection together with oxygen-supported yeast growth and bacterial
+      sugar supply can stabilize the pairing. Oxygen-positive versus oxygen-negative viable-count controls support
+      the conditional cooperation, without selectively measuring every mediator.
+  retained_edge_decisions:
+  - source: Cellulose Hydrolysis Feeds Yeast Fermentation
+    target: Oxygen-Dependent Long-Term Population Maintenance
+    rationale: Bacterial cellulose hydrolysis provides soluble carbon that can sustain yeast in the oxygen-controlled
+      culture. PARTIAL - the long-term viable-count comparison supports this cooperation but does not directly partition
+      carbon transfer or isolate every stabilizing mechanism.
+  - source: Oxygen Protection of Anaerobic Cellulolytic Partner
+    target: Oxygen-Dependent Long-Term Population Maintenance
+    rationale: PARTIAL - yeast respiratory protection together with oxygen-supported yeast growth and bacterial
+      sugar supply can stabilize the pairing. Oxygen-positive versus oxygen-negative viable-count controls support
+      the conditional cooperation, without selectively measuring every mediator.
+  removed_edge_decisions: []
+  references:
+  - PMID:23628342
+  issues:
+  - 1336
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    PMID:23628342:
+      url: https://doi.org/10.1186/1754-6834-6-59
+      path: /private/tmp/communitymech-batch21/PMC3653780.xml
+      sha256: 3db696d51deeadee8570d2136696451462a35c25bace69c3a3853fbad9efb8e0
+      license: CC BY 2.0
+      reviewed_scope: Whole primary main body and six main captions read; images and supplementary files not inspected.
+  history_files:
+  - history/records/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture/2026-10-06T005604Z-codex-10cfff.yaml
+- path: kb/communities/Clostridium_Thermoanaerobacter_Cellulosic_Bioethanol_Coculture.yaml
+  id: CommunityMech:000168
+  original_sha256: 4b15f63df86a441462b92e2edc669c7f2c53d39aa31af98335b613267c612871
+  record_sha256: 0b2e76d94c5f2eb1d40c8505f71e811b3b4784ed0322a278f4b27628a37e7e63
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-three-records-batch21.yaml
+  scope: Whole record and every original node/arrow; primary access scope bounded below.
+  summary: Retain the proposed sugar-supply direction with flux and condition bounds, not direct cellulose or ethanol
+    donation.; Retain comparative community ethanol production without an unsupported donor-recipient output relation.
+    Keep the abstract-level C. thermocellum comparison separate from the LQRI-specific fed-batch study.; Retain
+    biosynthetic capacity and the 39E intervention as support for an explicitly hypothesized X514 contribution,
+    not vitamin donation or commensalism. Retain X514 as the source of its intrinsic capacity with no recipient,
+    rather than using community-level scope.
+  renamed_nodes:
+    X514-Enhanced Ethanolic Fermentation: Enhanced Ethanol Output in X514 Cocultures
+    Vitamin B12-Linked Fermentation Robustness: X514 B12 Biosynthesis and Proposed Fermentation Support
+  node_decisions:
+  - node: Cellulose Hydrolysis Supporting Coculture Fermentation
+    rationale: Retain the proposed sugar-supply direction with flux and condition bounds, not direct cellulose or
+      ethanol donation.
+  - node: Enhanced Ethanol Output in X514 Cocultures
+    rationale: Retain comparative community ethanol production without an unsupported donor-recipient output relation.
+      Keep the abstract-level C. thermocellum comparison separate from the LQRI-specific fed-batch study.
+  - node: X514 B12 Biosynthesis and Proposed Fermentation Support
+    rationale: Retain biosynthetic capacity and the 39E intervention as support for an explicitly hypothesized X514
+      contribution, not vitamin donation or commensalism. Retain X514 as the source of its intrinsic capacity with
+      no recipient, rather than using community-level scope.
+  edges_before:
+  - source: Cellulose Hydrolysis Supporting Coculture Fermentation
+    target: X514-Enhanced Ethanolic Fermentation
+    description: 'C. thermocellum cellulose hydrolysis supplies the recalcitrant cellulosic substrate conversion
+      that X514-containing cocultures redirect toward higher ethanol output.
+
+      '
+  - source: Vitamin B12-Linked Fermentation Robustness
+    target: X514-Enhanced Ethanolic Fermentation
+    description: 'X514 cobalamin biosynthesis is associated with the partner''s stronger ethanolic-fermentation
+      enhancement in C. thermocellum cocultures.
+
+      '
+  edges_after:
+  - source: Cellulose Hydrolysis Supporting Coculture Fermentation
+    target: Enhanced Ethanol Output in X514 Cocultures
+    description: PARTIAL - access to LQRI-derived soluble sugars can support X514 fermentation and higher community
+      ethanol output. Partner flux and the separate contributions of sugar removal and operating conditions remain
+      unresolved.
+  - source: X514 B12 Biosynthesis and Proposed Fermentation Support
+    target: Enhanced Ethanol Output in X514 Cocultures
+    description: HYPOTHESIZED - B12 biosynthesis may support X514 fermentation and thereby contribute to coculture
+      ethanol output. Comparative genomes and the 39E supplementation response support this proposal, but do not
+      selectively establish the causal contribution in X514.
+  retained_edge_decisions:
+  - source: Cellulose Hydrolysis Supporting Coculture Fermentation
+    target: Enhanced Ethanol Output in X514 Cocultures
+    rationale: PARTIAL - access to LQRI-derived soluble sugars can support X514 fermentation and higher community
+      ethanol output. Partner flux and the separate contributions of sugar removal and operating conditions remain
+      unresolved.
+  - source: X514 B12 Biosynthesis and Proposed Fermentation Support
+    target: Enhanced Ethanol Output in X514 Cocultures
+    rationale: HYPOTHESIZED - B12 biosynthesis may support X514 fermentation and thereby contribute to coculture
+      ethanol output. Comparative genomes and the 39E supplementation response support this proposal, but do not
+      selectively establish the causal contribution in X514.
+  removed_edge_decisions: []
+  references:
+  - PMID:21868218
+  - PMID:23275517
+  issues:
+  - 1337
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  source_review:
+    PMID:21868218:
+      url: https://pubmed.ncbi.nlm.nih.gov/21868218/
+      reviewed_scope: Complete abstract; publisher full body unavailable. Do not infer the full experiment from
+        the abstract.
+      copyright: 2011 Elsevier; all rights reserved; existing abstract cache unchanged.
+    PMID:23275517:
+      url: https://journals.asm.org/doi/10.1128/AEM.02617-12
+      reviewed_scope: Publisher Introduction, Methods, Results, Discussion, both tables and six main captions read;
+        no visual images/supplements. Initial direct full URL failed, PubMed publisher link succeeded.
+      copyright: 2013 ASM; all rights reserved; no full body added to git.
+  history_files:
+  - history/records/Clostridium_Thermoanaerobacter_Cellulosic_Bioethanol_Coculture/2026-10-06T005605Z-codex-1f7709.yaml
+self_review_followup:
+  issue: 1337
+  finding: The first draft used community-level scope for single-source intrinsic B12 capacity and conflated abstract-level
+    strain scope with the separate LQRI fed-batch study.
+  disposition: Corrected before commit; retained existing X514 source and no recipient, interaction type, or participant
+    list. Separated species-level abstract and strain-specific fed-batch comparisons. No node or arrow added.

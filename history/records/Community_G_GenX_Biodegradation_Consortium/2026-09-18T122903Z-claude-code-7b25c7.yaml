@@ -1,0 +1,33 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml
+  slug: Community_G_GenX_Biodegradation_Consortium
+session:
+  id: 2026-09-18T122903Z-claude-code-7b25c7
+  timestamp: '2026-09-18T12:29:03Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: gpt-5
+    agent_tool: codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/946
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/945
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - taxonomy
+  - interactions
+  - curation_history
+  summary: Use exact Community G Stenotrophomonas taxon IDs
+  details: Re-grounded the Community G Stenotrophomonas sp. LM091 and Stenotrophomonas sp.
+    MYb57 taxonomy entries, and the corresponding community-level interaction participants,
+    from broad genus-level NCBITaxon:40323 placeholders to exact NCBITaxon:1904944 and
+    NCBITaxon:1827305 placeholders after NCBI Taxonomy verification. This resolved issue
+    946 by keeping the KGX export from collapsing two curated CommunityMech:000387 membership
+    edges into one shared genus edge; schema, ontology-label, evidence-snippet, strict,
+    GTDB, scalar, shared-taxon-ID, and KGX validators all passed after regeneration.

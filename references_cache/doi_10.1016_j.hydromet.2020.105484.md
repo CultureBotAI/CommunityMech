@@ -12,6 +12,7 @@ journal: Hydrometallurgy
 year: '2020'
 doi: 10.1016/j.hydromet.2020.105484
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Bioleaching to reprocess sulfidic polymetallic primary mining residues: Determination of metal leaching mechanisms

@@ -53,65 +53,11 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Seven-Strain Phyllosphere SynCom Construction
-  description: >
-    Twenty candidate isolates were tested for Arabidopsis thaliana phyllosphere
-    colonization, absence of plant disease or growth inhibition, and representation of
-    the dominant phyllosphere lineages before seven strains were selected for the
-    reduced-complexity SynCom.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: symbiotic process
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  downstream:
-  - target: Candidate-Gene Mutant Phyllosphere Inoculation
-    description: >
-      The reduced-complexity, colonization-competent isolate set enabled controlled
-      spray inoculation of Arabidopsis mutants in a gnotobiotic phyllosphere system.
-  evidence:
-  - reference: PMID:24743269
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: To be included in the synthetic community, strains were chosen that met two criteria
-    explanation: >
-      Supports the colonization and host-health criteria used to choose the seven
-      strains in the Arabidopsis phyllosphere SynCom.
-- name: Candidate-Gene Mutant Phyllosphere Inoculation
-  description: >
-    The seven-strain synthetic community was inoculated onto a controlled panel of 55
-    Arabidopsis mutants with altered surface structure, cell wall, defense signaling,
-    secondary metabolism, or pathogen recognition.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: symbiotic process
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  downstream:
-  - target: Cuticle-Mutant SynCom Abundance Increase
-    description: >
-      Screening the host mutant panel identified lacs2 and pec1 as the alleles with
-      the strongest SynCom perturbation relative to the wild type.
-  - target: EIN2 Ethylene-Signaling Composition Shift
-    description: >
-      The same gnotobiotic host-mutant screen also identified the ethylene-signaling
-      factor EIN2 as a plant genetic axis that shifted SynCom composition.
-  evidence:
-  - reference: PMID:24743269
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: From a panel of 55 plant mutants with alterations in the surface structure, cell wall,
-      defense signaling, secondary metabolism, and pathogen recognition
-    explanation: >
-      Defines the candidate-gene Arabidopsis mutant panel used to expose host-genotype
-      effects on the seven-member phyllosphere SynCom.
-- name: Cuticle-Mutant SynCom Abundance Increase
-  description: >
-    The cuticle-formation mutants lacs2 and pec1 produced the strongest phyllosphere
-    SynCom perturbations and increased bacterial abundance relative to wild-type
-    Arabidopsis, consistent with differential bacterial benefit from a modified cuticle.
+- name: Cuticle-Mutant Phyllosphere Abundance and Composition Changes
+  description: Cuticle mutants lacs2 and pec1 strongly changed the controlled seven-strain phyllosphere community.
+    Increased total abundance was strongest for lacs2, while responses varied by strain and mutant. Relative ARISA
+    profiles and absolute enumeration are distinct readouts; the proposed nutrient-leakage or cuticle-substrate
+    mechanisms were not directly measured exchange.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: symbiotic process
@@ -122,15 +68,16 @@ ecological_interactions:
   - reference: PMID:24743269
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Host alleles that resulted in the strongest perturbation of the microbiota relative
-      to the wild-type were lacs2 and pec1
-    explanation: >
-      Identifies the lacs2 and pec1 cuticle mutants as the strongest genotype effects
-      in the seven-strain SynCom screen.
+    snippet: Host alleles that resulted in the strongest perturbation of the microbiota relative to the wild-type
+      were lacs2 and pec1
+    explanation: 'Identifies the lacs2 and pec1 cuticle mutants as the strongest genotype effects in the seven-strain
+      SynCom screen.
+
+      '
 - name: EIN2 Ethylene-Signaling Composition Shift
-  description: >
-    Loss of the Arabidopsis ethylene-signaling factor EIN2 changed the composition of
-    the seven-member bacterial community in the gnotobiotic phyllosphere system.
+  description: Loss of EIN2 reproducibly changed the controlled phyllosphere community composition and Variovorax
+    counts. The total-abundance effect was weak. The genotype experiment implicates ethylene signaling without directly
+    measuring an ethylene concentration or universal bacterial biomass increase.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: ethylene
@@ -146,16 +93,16 @@ ecological_interactions:
   - reference: PMID:24743269
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: we identified ein2, which is involved in ethylene signaling, as a host factor modulating
-      the community's composition
-    explanation: >
-      Supports EIN2-dependent ethylene signaling as one host-genotype axis that
-      modulates Arabidopsis phyllosphere SynCom composition.
+    snippet: we identified ein2, which is involved in ethylene signaling, as a host factor modulating the community's
+      composition
+    explanation: 'Supports EIN2-dependent ethylene signaling as one host-genotype axis that modulates Arabidopsis
+      phyllosphere SynCom composition.
+
+      '
 - name: Natural-Accession Phyllosphere Community Shift
-  description: >
-    Four of nine tested Arabidopsis accessions altered the seven-member phyllosphere
-    SynCom's composition or total abundance, showing that natural plant variation
-    could be used to search for further host genes affecting phyllosphere microbiota.
+  description: Four of nine natural Arabidopsis accessions changed composition or abundance of the seven-strain
+    community in the controlled plant assay. Specific causal host genes and transfer of these outcomes to field
+    communities remain unresolved.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: symbiotic process
@@ -166,11 +113,11 @@ ecological_interactions:
   - reference: PMID:24743269
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: of the nine natural accessions tested, four were found to modify community composition
-      and abundance
-    explanation: >
-      Extends the controlled SynCom assay from candidate mutants to natural
-      Arabidopsis accessions with altered phyllosphere community structure.
+    snippet: of the nine natural accessions tested, four were found to modify community composition and abundance
+    explanation: 'Extends the controlled SynCom assay from candidate mutants to natural Arabidopsis accessions with
+      altered phyllosphere community structure.
+
+      '
 environmental_factors:
 - name: defined synthetic community design
   value: Seven bacterial strains representing abundant phyllosphere phyla were inoculated onto gnotobiotic
@@ -235,3 +182,33 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: This solution was then diluted to an OD600 of 0.02.
     explanation: Gives the OD600 0.02 inoculum density used for spray inoculation.
+curation_history:
+- timestamp: '2026-10-02T05:55:33Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: 'Removed three downstream edges that linked seven-strain phyllosphere SynCom construction to the candidate-gene
+    mutant screen and linked that screen to the lacs2/pec1 cuticle and EIN2 ethylene-signaling phenotypes as assay
+    sequencing rather than ecological causal transitions.
+
+    '
+  llm_assisted: true
+- timestamp: '2026-10-05T10:11:47Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Remove phyllosphere workflow nodes and preserve distinct host-genotype outcomes; complete decisions:
+    reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml; https://github.com/CultureBotAI/CommunityMech/issues/1248'
+  llm_assisted: true
+discussions:
+- discussion_id: phyllosphere_host_genotype_mechanisms
+  prompt: Which cuticle or signaling changes cause the strain-specific abundance responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Cuticle-Mutant Phyllosphere Abundance and Composition Changes
+  - ecological_interactions#EIN2 Ethylene-Signaling Composition Shift
+  - ecological_interactions#Natural-Accession Phyllosphere Community Shift
+  rationale: PMID:24743269 establishes genotype-associated outcomes, but nutrient leakage, substrate use and specific
+    natural-accession genes remain mechanistic questions. Relative ARISA signals and absolute enumeration must not
+    be interchanged. Construction and inoculation are retained in engineering metadata, not ecological graph nodes.
+  posed_by: codex
+  posed_date: '2026-10-05'

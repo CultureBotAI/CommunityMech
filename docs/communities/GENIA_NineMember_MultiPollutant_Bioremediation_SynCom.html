@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>GENIA Nine-Member Multi-Pollutant Bioremediation SynCom</h1>
         </div>
     </header>
@@ -400,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        aerobic M9 minimal-medium pollutant-degradation flask culture
+                        aerobic M9 minimal-medium pollutant-degradation flask culture<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -440,6 +463,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -840,18 +864,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for GENIA Nine-Member Multi-Pollutant Bioremediation SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -859,13 +885,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -873,12 +894,34 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>GENIA Multipollutant Assembly</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Predicted GENIA Metabolic Complementarity</h3>
                 </div>
+                <p class="prewrap interaction-description">HYPOTHESIZED: Genome annotations and computational network models predict complementary degradation potential across nine selected members, including five predicted generalists and four specialists. Agreement between GENIA and iNAP is computational cross-validation, not measured interspecies metabolite transfer, active expression or catalytic necessity. Growth-screen fluorescence does not independently establish pollutant degradation. The assembly workflow is not itself a biological cause of the measured removal phenotype; no design-to-removal arrow is retained.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Atlantibacter hermannii,
+
+                    Bacillus cabrialesii,
+
+                    Bacillus licheniformis,
+
+                    Bacillus pseudomycoides,
+
+                    Micrococcus luteus,
+
+                    Paenibacillus polymyxa,
+
+                    Pantoea dispersa,
+
+                    Pseudomonas fulva,
+
+                    Pseudomonas pergaminensis
+
+                </p>
 
 
 
@@ -900,33 +943,7 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
 
-                    <li>
-                        lignin catabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0046274"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0046274</a>)
-                    </li>
-
-                    <li>
-                        xenobiotic metabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006805"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006805</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Liquid Multipollutant Degradation
-                    </div>
-
-                </div>
 
 
 
@@ -939,7 +956,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42036878/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42036878</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"Functional classification based on genomic capacity identified two ecological roles: 5 generalist strains (55.6% of consortium) possessing enzymatic capacity across all three pollutant classes
@@ -953,12 +970,34 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Liquid Multipollutant Degradation</h3>
-                    <span class="interaction-type">MUTUALISM</span>
+                    <h3>Reported GENIA Liquid Pollutant Removal</h3>
                 </div>
+                <p class="prewrap interaction-description">The source reports consortium removal above the best assayed monoculture: PFOS 93.1%, atrazine 91.4% and lignin 91.6% in the separate treatment comparisons. A distinct seven-day mixed-pollutant experiment reports PFOS 87.1%, atrazine 84.7% and lignin 88.9%; do not substitute the higher figures for this mixture. LC-MS/MS loss and lignin UV-visible changes are community-level endpoints, not proof of reciprocal member benefit, assigned cross-feeding or complete carbon mineralization. The paper reports fluoride and intermediates, but its PFOS fluorine denominator and atrazine nitrogen/method descriptions conflict; removal is retained as source-reported, not independent certification of defluorination efficiency or complete mineralization. Supplements and raw data were not audited.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Atlantibacter hermannii,
+
+                    Bacillus cabrialesii,
+
+                    Bacillus licheniformis,
+
+                    Bacillus pseudomycoides,
+
+                    Micrococcus luteus,
+
+                    Paenibacillus polymyxa,
+
+                    Pantoea dispersa,
+
+                    Pseudomonas fulva,
+
+                    Pseudomonas pergaminensis
+
+                </p>
 
 
 
@@ -1018,18 +1057,53 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42036878/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42036878</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"yielded 84.7 ± 2.3% atrazine, 87.1 ± 3.6% PFOS, and 88.9 ± 2.9% lignin removal after 7 days"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Community Stability During Degradation</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>GENIA DNA Composition and Ratio-Management Comparison</h3>
                 </div>
+                <p class="prewrap interaction-description">Full-length 16S rRNA gene profiles track relative DNA composition during removal; predicted hub taxa increased in relative abundance and other inoculated taxa remained detectable. These measurements do not establish absolute viable persistence, member-resolved flux or hub necessity. The source also compares self-organizing communities with daily dilution/remixing to equal ratios, reporting lower PFOS and atrazine removal in the remixed condition; the lignin comparison had p=0.092. PARTIAL: this treatment comparison supports a composition-management association with performance, but does not isolate a particular taxon, metabolite or persistence-mediated pathway from the handling intervention.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Atlantibacter hermannii,
+
+                    Bacillus cabrialesii,
+
+                    Bacillus licheniformis,
+
+                    Bacillus pseudomycoides,
+
+                    Micrococcus luteus,
+
+                    Paenibacillus polymyxa,
+
+                    Pantoea dispersa,
+
+                    Pseudomonas fulva,
+
+                    Pseudomonas pergaminensis
+
+                </p>
 
 
 
@@ -1041,7 +1115,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Liquid Multipollutant Degradation
+                        <span class="flow-arrow">→</span> Reported GENIA Liquid Pollutant Removal
+                        <p class="prewrap causal-description">PARTIAL: Allowing composition to reorganize was associated with greater PFOS and atrazine removal than daily equal-ratio dilution/remixing. This reported intervention supports a bounded community-management effect, not selective proof that persistence or a particular cross-feeding network causes removal. Dilution/remixing changes handling as well as ratios; the reported lignin difference was not significant at p&lt;0.05.</p>
                     </div>
 
                 </div>
@@ -1079,6 +1154,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42036878/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42036878</a>
+
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Comparison of self-organizing community dynamics vs artificially maintained equal ratios"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -1090,6 +1178,7 @@
 
         <section>
             <h2>Associated Datasets</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Associated Datasets">
             <table>
                 <thead>
                     <tr>
@@ -1120,8 +1209,28 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which mechanisms and quantitative balances can be established independently of the GENIA predictions?
+                </h3>
+                <p class="prewrap">Retain reported removal and relative DNA profiles, not mutualism, measured handoffs or necessary hubs. The daily equal-ratio intervention supports only PARTIAL management-level causality because handling and composition change together; lignin p=0.092. A PFOS-only inventory at the stated 37.1 micromolar gives approximately 12.0 mg/L fluorine, not the alternatively stated 64.08 mg/L. Methods also mention a PFOA/PFOS mixture, so the true denominator needs treatment-specific reconciliation rather than a blanket impossibility claim. Atrazine concentrations, nitrogen yield and Nessler versus indophenol methods also conflict. Source-reported fluoride/intermediates are not ignored, but no efficiency or complete-mineralization certification follows. Raw data and supplements were not inspected; follow-up #1468 remains open. Existing graph corrections address #1466 without new structure or provider spend.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Predicted GENIA Metabolic Complementarity</code>, <code>ecological_interactions#Reported GENIA Liquid Pollutant Removal</code>, <code>ecological_interactions#GENIA DNA Composition and Ratio-Management Comparison</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1129,6 +1238,7 @@
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -1273,6 +1383,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -1304,6 +1415,7 @@
 
 
                 <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <div class="table-scroll" role="region" tabindex="0" aria-label="M9 minimal medium with lignin, atrazine, or PFAS pollutants composition">
                 <table>
                     <thead>
                         <tr>
@@ -1439,6 +1551,7 @@
 
                     </tbody>
                 </table>
+                </div>
 
 
 
@@ -1498,12 +1611,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1516,7 +1632,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1619,7 +1734,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1632,17 +1747,11 @@
 
             var processes = [];
 
-
-            processes.push("lignin catabolic process");
-
-            processes.push("xenobiotic metabolic process");
-
-
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "GENIA Multipollutant Assembly",
+                label: "Predicted GENIA Metabolic Complementarity",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1652,12 +1761,39 @@
 
 
 
+
+            var participantKeys = [
+
+                "Atlantibacter hermannii",
+
+                "Bacillus cabrialesii",
+
+                "Bacillus licheniformis",
+
+                "Bacillus pseudomycoides",
+
+                "Micrococcus luteus",
+
+                "Paenibacillus polymyxa",
+
+                "Pantoea dispersa",
+
+                "Pseudomonas fulva",
+
+                "Pseudomonas pergaminensis"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1676,11 +1812,11 @@
             processes.push("xenobiotic metabolic process");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Liquid Multipollutant Degradation",
+                label: "Reported GENIA Liquid Pollutant Removal",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1690,21 +1826,48 @@
 
 
 
+
+            var participantKeys = [
+
+                "Atlantibacter hermannii",
+
+                "Bacillus cabrialesii",
+
+                "Bacillus licheniformis",
+
+                "Bacillus pseudomycoides",
+
+                "Micrococcus luteus",
+
+                "Paenibacillus polymyxa",
+
+                "Pantoea dispersa",
+
+                "Pseudomonas fulva",
+
+                "Pseudomonas pergaminensis"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "Community Stability During Degradation",
+                label: "GENIA DNA Composition and Ratio-Management Comparison",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1714,6 +1877,33 @@
 
 
 
+
+            var participantKeys = [
+
+                "Atlantibacter hermannii",
+
+                "Bacillus cabrialesii",
+
+                "Bacillus licheniformis",
+
+                "Bacillus pseudomycoides",
+
+                "Micrococcus luteus",
+
+                "Paenibacillus polymyxa",
+
+                "Pantoea dispersa",
+
+                "Pseudomonas fulva",
+
+                "Pseudomonas pergaminensis"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1728,6 +1918,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

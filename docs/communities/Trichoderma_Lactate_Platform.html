@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>Trichoderma Lactate Platform for SCFA Production</h1>
         </div>
     </header>
@@ -400,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        laboratory bioreactor
+                        laboratory bioreactor<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -425,6 +448,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -438,7 +462,7 @@
 
                     <tr>
                         <td>
-                            <strong>Trichoderma reesei Rut-C30</strong>
+                            <strong>Trichoderma reesei Rut-C30<span class="ontology-label"> — ontology label: Trichoderma reesei</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=51453"
@@ -480,7 +504,7 @@
 
                     <tr>
                         <td>
-                            <strong>Lactobacillus pentosus</strong>
+                            <strong>Lactobacillus pentosus<span class="ontology-label"> — ontology label: Lactiplantibacillus pentosus</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1589"
@@ -564,18 +588,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Trichoderma Lactate Platform for SCFA Production</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -583,13 +609,13 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolDiamond"
+                             data-color="#57c7ab"></svg> Cross-feeding
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -598,8 +624,9 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Cellulose Hydrolysis to Soluble Sugars</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
+                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">T. reesei hydrolysis supplies soluble carbohydrates to L. pentosus in the membrane reactor. Cellulose supplies hexose products; xylose belongs to the separately supplied pentose or hemicellulose fraction, not cellulose hydrolysis. This food-chain link does not establish reciprocal thermodynamic syntrophy.</p>
 
 
                 <p><strong>Source Taxon:</strong> Trichoderma reesei Rut-C30</p>
@@ -618,11 +645,7 @@
 
                     glucose
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17234"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17234</a>),
-
-                    xylose
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18222"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18222</a>)
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17234</a>)
 
                 </p>
 
@@ -645,7 +668,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Lactic Acid Fermentation and Oxygen Depletion
+                        <span class="flow-arrow">→</span> Lactate Supply and Redox Facilitation
+                        <p class="prewrap causal-description">Fungal hydrolysis supplies fermentable carbohydrates that L. pentosus converts to lactate. This substrate route enables LAB metabolism in the membrane reactor; it does not make fungal hydrolysis alone sufficient for the observed redox state.</p>
                     </div>
 
                 </div>
@@ -674,9 +698,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Lactic Acid Fermentation and Oxygen Depletion</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Lactate Supply and Redox Facilitation</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">L. pentosus funnels carbohydrates to lactate and supplies acetate when metabolizing pentoses. Fungal oxygen consumption first lowers dissolved oxygen; subsequent LAB inoculation lowers redox potential further, enabling the obligate anaerobe. The membrane configuration, continuing fungal activity and LAB contribution work jointly: LAB alone cannot maintain anoxia. This supports resource and redox facilitation, not demonstrated reciprocal thermodynamic syntrophy.</p>
 
 
                 <p><strong>Source Taxon:</strong> Lactobacillus pentosus</p>
@@ -728,7 +753,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Butyric Acid Production from Lactate
+                        <span class="flow-arrow">→</span> Butyrate Production by Lactate-Acetate Co-fermentation
+                        <p class="prewrap causal-description">L. pentosus supplies lactate and contributes to reducing conditions that enable C. tyrobutyricum co-fermentation. Acetate or glucose must also be available; acetate depletion and feed-rescue experiments support this requirement. Neither lactate alone nor LAB-alone oxygen removal is sufficient.</p>
                     </div>
 
                 </div>
@@ -744,7 +770,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/32855308/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32855308</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"A spatial niche enabled in situ cellulolytic enzyme production by an aerobic fungus next to facultative anaerobic lactic acid bacteria and the product-forming anaerobes"</div>
@@ -757,14 +783,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Butyric Acid Production from Lactate</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Butyrate Production by Lactate-Acetate Co-fermentation</h3>
                 </div>
+                <p class="prewrap interaction-description">C. tyrobutyricum converts lactate with a co-substrate to butyrate. Lactate alone is insufficient: acetate depletion stops utilization, and acetate addition restores it; glucose can also serve as co-substrate. These experiments support the recipient conversion, not an exclusive source of every acetate molecule. Acetate feed, lower oxygen transfer and addition of L. brevis are separate experimental arms. The three-member consortium produced the reported beechwood yield after steam pretreatment; the four-member arm is not that benchmark.</p>
 
 
-                <p><strong>Source Taxon:</strong> Clostridium tyrobutyricum</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Clostridium tyrobutyricum
+
+                </p>
 
 
 
@@ -790,7 +820,7 @@
                 <ul>
 
                     <li>
-                        butyrate biosynthetic process
+                        butyrate metabolic process
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0019605"
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0019605</a>)
                     </li>
@@ -823,6 +853,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/32855308/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32855308</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"lactic acid cannot serve as a sole carbon source but must be co-consumed with either glucose or acetic acid"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -832,6 +875,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How are oxygen uptake and carbon flux partitioned among members under each feed and oxygen-transfer condition?
+                </h3>
+                <p class="prewrap">The source supports fungal oxygen consumption, additional LAB-associated redox lowering and acetate-dependent lactate utilization. These controls do not establish exclusive partner-specific fluxes or reciprocal thermodynamic syntrophy. Keep acetate-feed, low-OTR and L. brevis arms separate. Non-graph pretreatment and gradient metadata remain issue #1904.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Cellulose Hydrolysis to Soluble Sugars</code>, <code>ecological_interactions#Lactate Supply and Redox Facilitation</code>, <code>ecological_interactions#Butyrate Production by Lactate-Acetate Co-fermentation</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/32855308/" rel="nofollow noreferrer">PMID:32855308</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">A spatial niche enabled in situ cellulolytic enzyme production by an aerobic fungus next to facultative anaerobic lactic acid bacteria and the product-forming anaerobes</p>
+                        <p class="muted small prewrap">Abstract supports spatial coexistence; accepted manuscript main text and Fig.S3 distinguish fungal oxygen consumption from the additional LAB-associated redox decrease. SI physiology discussion argues that LAB alone cannot sustain anoxia. The abstract is not itself an oxygen-flux partition experiment.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -839,6 +921,7 @@
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -879,6 +962,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -969,12 +1053,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -987,7 +1074,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1048,15 +1134,13 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMMENSALISM";
+            var intType = "CROSS_FEEDING";
             var metabolites = [];
 
 
             metabolites.push("cellulose");
 
             metabolites.push("glucose");
-
-            metabolites.push("xylose");
 
 
             var processes = [];
@@ -1094,7 +1178,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "CROSS_FEEDING";
             var metabolites = [];
 
 
@@ -1117,7 +1201,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Lactic Acid Fermentation and Oxygen Depletion",
+                label: "Lactate Supply and Redox Facilitation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1142,7 +1226,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1156,16 +1240,16 @@
             var processes = [];
 
 
-            processes.push("butyrate biosynthetic process");
+            processes.push("butyrate metabolic process");
 
             processes.push("lactate catabolic process");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Butyric Acid Production from Lactate",
+                label: "Butyrate Production by Lactate-Acetate Co-fermentation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1174,12 +1258,18 @@
             });
 
 
-            var srcKey = "Clostridium tyrobutyricum";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Clostridium tyrobutyricum"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1194,6 +1284,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

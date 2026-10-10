@@ -108,8 +108,10 @@ taxonomy:
     explanation: Supports N1-4 as the preferred butanol producer in this coculture system.
 ecological_interactions:
 - name: Staged Cellulose Hydrolysis Feeding Solventogenesis
-  description: C. thermocellum hydrolyzes crystalline cellulose during a thermophilic preincubation, creating
-    a substrate stream that supports subsequent butanol production by C. saccharoperbutylacetonicum N1-4.
+  description: C. thermocellum preincubation on crystalline cellulose before N1-4 addition supports later butanol
+    production, consistent with soluble-carbon cross-feeding. Cellulose is the feedstock and butanol the output,
+    not the transfer currencies. PARTIAL - timing and temperature are coupled, and the N1-4 inoculum medium contains
+    glucose; the intervention does not selectively quantify cellulose-derived transfer or explain solvent selectivity.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -127,10 +129,12 @@ ecological_interactions:
     term:
       id: CHEBI:18246
       label: (1->4)-beta-D-glucan
+    notes: Upstream crystalline feedstock; soluble hydrolysis products are the proposed transfer currency.
   - preferred_term: butanol
     term:
       id: CHEBI:28885
       label: butan-1-ol
+    notes: Measured solvent output, not demonstrated donation between partners.
   biological_processes:
   - preferred_term: cellulose catabolic process
     term:
@@ -142,36 +146,29 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Selective Butanol Production With Low Acetone
-    description: >
-      C. thermocellum prehydrolysis of crystalline cellulose creates the
-      substrate stream that feeds subsequent N1-4 solventogenesis and selective
-      butanol production.
+    description: PARTIAL - preincubation supplies hydrolysis products that can support N1-4 solventogenesis. The
+      staged-versus-simultaneous comparison supports this process contribution, while coupled temperature changes
+      and glucose carried in with the inoculum prevent selective flux attribution or a complete explanation of low
+      acetone.
   evidence:
   - reference: PMID:21764954
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Butanol was produced from Avicel cellulose
-    explanation: Supports cellulose-to-butanol conversion as the coculture output.
+    explanation: Supports the measured cellulose-fed coculture output, not exclusive cellulose-carbon attribution
+      or directly traced sugar transfer.
   - reference: PMID:21764954
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: after it was incubated with C. thermocellum for at least 24 h
-    explanation: Supports the staged hydrolysis-before-solventogenesis interaction design.
+    explanation: Supports the positive staging intervention; it is not a selective enzyme or transferred-metabolite
+      perturbation.
 - name: Selective Butanol Production With Low Acetone
-  description: The C. thermocellum and N1-4 coculture favored butanol as a solvent product, with acetone
-    undetectable or very low in the reported coculture studies.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Clostridium saccharoperbutylacetonicum N1-4
-    term:
-      id: NCBITaxon:1335640
-      label: Clostridium saccharoperbutylacetonicum N1-4
-  target_taxon:
-    preferred_term: Clostridium thermocellum ATCC 27405
-    term:
-      id: NCBITaxon:203119
-      label: Acetivibrio thermocellus ATCC 27405
+  description: Butanol was the favored solvent in the reported coculture, with acetone undetectable in the 2011
+    experiment and very low in the 2013 abstract. The 2011 acetone-addition control argues against removal by C.
+    thermocellum, while crude-extract assays retain acetone-pathway enzyme activities. These are community product
+    and assay outcomes, not butanol donation or proof of pathway shutdown.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: butanol
     term:
@@ -187,27 +184,27 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: acetone was undetectable in this coculture system
-    explanation: Supports selective butanol production with undetectable acetone in the cellulose coculture.
+    explanation: Supports the low-acetone endpoint. Primary acetone-addition and crude-extract enzyme controls constrain,
+      but do not identify, the mechanism.
   - reference: PMID:22999358
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: butanol was selectively produced with extremely low level of acetone
     explanation: Supports the same species-pair coculture as a selective butanol-production system.
-- name: Reduced Hydrogen Associated With Butanol Selectivity
-  description: A later exact-species coculture study reported decreased hydrogen production when C. thermocellum
-    and N1-4 were grown together, linking low hydrogen output to a higher butanol ratio.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Clostridium thermocellum ATCC 27405
+  participating_taxa:
+  - preferred_term: Clostridium thermocellum ATCC 27405
     term:
       id: NCBITaxon:203119
       label: Acetivibrio thermocellus ATCC 27405
-  target_taxon:
-    preferred_term: Clostridium saccharoperbutylacetonicum N1-4
+  - preferred_term: Clostridium saccharoperbutylacetonicum N1-4
     term:
       id: NCBITaxon:1335640
       label: Clostridium saccharoperbutylacetonicum N1-4
+- name: Reduced Hydrogen Output and Proposed Redox Allocation
+  description: The 2013 abstract associates lower hydrogen output with higher butanol production and proposes future
+    hydrogenase selection. The 2011 Discussion proposes redox allocation. PARTIAL - neither the available abstract
+    nor the 2011 coculture assays establish selective hydrogenase causality or interspecies hydrogen donation.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: hydrogen
     term:
@@ -224,20 +221,31 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Selective Butanol Production With Low Acetone
-    description: >
-      The exact-species coculture couples lower hydrogen evolution to a higher
-      butanol ratio and low-acetone solvent profile.
+    description: HYPOTHESIZED - reduced electron allocation to hydrogen could favor the butanol branch and contribute
+      to solvent selectivity. The observed inverse association supports this redox proposal, not a selectively demonstrated
+      causal effect or transfer of hydrogen between partners.
   evidence:
   - reference: PMID:22999358
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: hydrogen production decreased and butanol was selectively produced
-    explanation: Supports reduced hydrogen production as a coculture-associated feature linked to butanol selectivity.
+    explanation: Supports the coculture association available in the complete abstract; full 2013 experimental details
+      were unavailable for this review.
   - reference: PMID:22999358
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: high butanol production correlates with low hydrogen production
-    explanation: Supports the proposed hydrogen-butanol relationship in the same species-pair coculture.
+    explanation: Supports correlation and a redox-allocation hypothesis, not selective perturbation or hydrogen
+      cross-feeding.
+  participating_taxa:
+  - preferred_term: Clostridium thermocellum ATCC 27405
+    term:
+      id: NCBITaxon:203119
+      label: Acetivibrio thermocellus ATCC 27405
+  - preferred_term: Clostridium saccharoperbutylacetonicum N1-4
+    term:
+      id: NCBITaxon:1335640
+      label: Clostridium saccharoperbutylacetonicum N1-4
 cultivation_setup:
 - cultivation_mode: BATCH
   instrument_detail: >-
@@ -462,3 +470,27 @@ metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this cellulosic butanol coculture.
+discussions:
+- discussion_id: staged_butanol_carbon_and_redox_partition
+  prompt: Which carbon-transfer and redox mechanisms determine the staged coculture solvent profile?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Staged Cellulose Hydrolysis Feeding Solventogenesis
+  - ecological_interactions#Selective Butanol Production With Low Acetone
+  - ecological_interactions#Reduced Hydrogen Output and Proposed Redox Allocation
+  rationale: Staging, temperature and partner comparisons support the process; acetone-addition and crude-enzyme
+    controls constrain alternative explanations. Carbon tracing with inoculum carryover controls and selective redox
+    perturbations would resolve causal contributions. The 2013 follow-up was available only as an abstract, so its
+    correlation must not be promoted to demonstrated hydrogen transfer or hydrogenase causality.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-06T01:29:00Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain proposed soluble-carbon cross-feeding and the positive staging control, with temperature and
+    inoculum-carbon limits.; Represent selective solvent output with both participants, retaining the acetone and
+    enzyme controls without inferred donation or pathway shutdown.; Retain lower hydrogen as a community association
+    and an explicitly hypothesized redox contribution, not hydrogen transfer. Issue #1341; reports/causal_graph_review/decisions/20261005-three-records-batch22.yaml'
+  llm_assisted: true

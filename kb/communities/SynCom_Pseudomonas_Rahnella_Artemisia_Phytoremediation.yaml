@@ -81,11 +81,10 @@ taxonomy:
     explanation: Identifies Rahnella as one member of the SynCom pair with Cd tolerance, PGP, and
       carbon fixation.
 ecological_interactions:
-- name: Cd-tolerant Pseudomonas-Rahnella SynCom co-selection
-  description: The simplified SynCom pairs the Pseudomonas and Rahnella isolates after selection for
-    joint tolerance of approximately 2 mM Cd, retaining both members under the heavy-metal stress
-    targeted by the phytoremediation design.
-  interaction_type: NICHE_PARTITIONING
+- name: Cadmium tolerance of the Pseudomonas-Rahnella pair
+  description: The selected Pseudomonas-Rahnella pair was reported to tolerate approximately 2 mM cadmium. This
+    is a trait of the tested pair, not a causal co-selection step or evidence that the partners occupy distinct
+    niches. The reviewed abstract does not resolve the assay setting or each member's quantitative contribution.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pseudomonas (rhizosphere isolate)
@@ -106,21 +105,19 @@ ecological_interactions:
     term:
       id: GO:0010038
       label: response to metal ion
-  downstream:
-  - target: Functionally complementary Pseudomonas-Rahnella pairing with minimal antagonism
-    description: Co-selection for Cd tolerance retains both isolates before the top-down screen
-      assembles them into a simplified pair with complementary functions and minimal antagonism.
   evidence:
   - reference: doi:10.1016/j.indcrop.2025.122518
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: The selected Pseudomonas-Rahnella pair exhibited strong Cd tolerance (~ 2 mM), Plant
-      growth promotion (PGP) traits, and carbon fixation capacity.
-    explanation: Identifies the paired Pseudomonas and Rahnella isolates as the Cd-tolerant SynCom.
+    evidence_source: OTHER
+    snippet: The selected Pseudomonas-Rahnella pair exhibited strong Cd tolerance (~ 2 mM), Plant growth promotion
+      (PGP) traits, and carbon fixation capacity.
+    explanation: Reports tolerance of the selected pair; the abstract does not specify the trait-assay setting,
+      so in-vivo provenance is not asserted.
 - name: Functionally complementary Pseudomonas-Rahnella pairing with minimal antagonism
-  description: The two members were selected by a top-down design strategy to be functionally
-    complementary while minimizing antagonism, allowing stable coexistence in the simplified SynCom.
-  interaction_type: NICHE_PARTITIONING
+  description: The source describes top-down assembly of a functionally complementary Pseudomonas-Rahnella SynCom
+    with minimal antagonism. This supports the reported compatibility/design rationale, not demonstrated spatial
+    or temporal niche separation, reduced resource competition, or stable reciprocal fitness benefits. No causal
+    direction between the two members is resolved.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Pseudomonas (rhizosphere isolate)
@@ -137,24 +134,19 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Joint PGP and carbon-fixation capacity
-    description: The simplified, minimally antagonistic pair is the SynCom context in which the
-      selected Pseudomonas and Rahnella isolates jointly exhibit PGP traits and carbon-fixation
-      capacity.
   evidence:
   - reference: doi:10.1016/j.indcrop.2025.122518
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: A top-down design strategy guided the assembly of a simplified, yet functionally
-      complementary SynCom with minimal antagonism.
-    explanation: Supports functional complementarity and minimal antagonism between the two SynCom
-      members.
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: A top-down design strategy guided the assembly of a simplified, yet functionally complementary SynCom
+      with minimal antagonism.
+    explanation: Supports the reported design rationale and minimal antagonism, not proof of the ecological mechanism
+      or its assay setting.
 - name: Joint PGP and carbon-fixation capacity
-  description: The selected Pseudomonas-Rahnella SynCom pair carries plant-growth-promotion traits
-    together with carbon-fixation capacity, linking the two-member community to phytoremediation,
-    productivity, and carbon sequestration goals.
-  interaction_type: MUTUALISM
+  description: The selected pair was reported to possess plant-growth-promoting traits and carbon-fixation capacity.
+    These positive traits do not establish mutualism between the bacteria or quantify their contribution to plant
+    benefit and persistent soil-carbon storage. The capacity claim is retained without turning it into a measured
+    sequestration flux.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pseudomonas (rhizosphere isolate)
@@ -173,7 +165,53 @@ ecological_interactions:
   evidence:
   - reference: doi:10.1016/j.indcrop.2025.122518
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: The selected Pseudomonas-Rahnella pair exhibited strong Cd tolerance (~ 2 mM), Plant
-      growth promotion (PGP) traits, and carbon fixation capacity.
-    explanation: Links the selected two-member SynCom to PGP traits and carbon-fixation capacity.
+    evidence_source: OTHER
+    snippet: The selected Pseudomonas-Rahnella pair exhibited strong Cd tolerance (~ 2 mM), Plant growth promotion
+      (PGP) traits, and carbon fixation capacity.
+    explanation: Supports the reported pair-level traits and capacity; the abstract does not specify the assay setting
+      or quantify persistent carbon storage from bacterial fixation.
+curation_history:
+- timestamp: '2026-10-02T06:15:13Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Removed two downstream edges that described Cd-tolerance co-selection and top-down screening order instead
+    of causal links between the Pseudomonas-Rahnella SynCom phenotypes.
+  llm_assisted: true
+- timestamp: '2026-10-08T04:10:39Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Recast co-selection as the reported tolerance phenotype; remove niche-partitioning typing and unsupported
+    in-vivo assay assignment.; Preserve complementarity/minimal-antagonism context without stable coexistence, directional
+    causation or niche separation.; Preserve plant-growth-promoting and carbon-fixation capacity without reciprocal-benefit
+    or sequestration-flux claims. Issue#1846; reports/causal_graph_review/decisions/20261008-four-records-batch108.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: artemisia-traits-versus-ecological-mechanism
+  prompt: How do the reported pair-level traits contribute to the observed plant and soil outcomes?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Cadmium tolerance of the Pseudomonas-Rahnella pair
+  - ecological_interactions#Functionally complementary Pseudomonas-Rahnella pairing with minimal antagonism
+  - ecological_interactions#Joint PGP and carbon-fixation capacity
+  rationale: The whole indexed publisher abstract reports positive plant and soil outcomes, but the committed cache
+    contains only the two trait/design sentences used here. Preserve these supported traits and the prior removal
+    of screening-order arrows. Low antagonism does not establish niche partitioning, and carbon-fixation capacity
+    does not isolate a durable soil-carbon contribution. No new causal topology or unsupported assay provenance
+    is introduced.
+  evidence:
+  - reference: doi:10.1016/j.indcrop.2025.122518
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: A top-down design strategy guided the assembly of a simplified, yet functionally complementary SynCom
+      with minimal antagonism.
+    explanation: Supports the reported design rationale and minimal antagonism, not proof of the ecological mechanism
+      or its assay setting.
+  - reference: doi:10.1016/j.indcrop.2025.122518
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: The selected Pseudomonas-Rahnella pair exhibited strong Cd tolerance (~ 2 mM), Plant growth promotion
+      (PGP) traits, and carbon fixation capacity.
+    explanation: Supports the reported pair-level traits and capacity; the abstract does not specify the assay setting
+      or quantify persistent carbon storage from bacterial fixation.
+  posed_by: codex

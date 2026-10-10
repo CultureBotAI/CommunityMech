@@ -88,11 +88,10 @@ taxonomy:
       modulation.
 ecological_interactions:
 - name: Asgard Acetogenesis Modulates Methanogenic Substrates
-  description: Soil-associated Asgard archaea are predicted to include
-    non-methanogenic acetogens that produce and consume acetate, formate, and
-    H2-linked carbon pools known to serve as substrates for methanogenesis in
-    wetland soil.
-  interaction_type: CROSS_FEEDING
+  description: HYPOTHESIZED - genomes and transcripts suggest non-methanogenic Asgard acetogens can produce or consume
+    acetate, formate and hydrogen-linked carbon pools. Hydrogen consumption could reduce methanogen substrate supply,
+    while acetate production could support acetoclastic methanogens; neither realized transfer nor the net methane
+    effect was resolved.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Atabeyarchaeia (Asgard)
@@ -120,23 +119,17 @@ ecological_interactions:
     term:
       id: CHEBI:15740
       label: formate
-  biological_processes:
-  - preferred_term: methanogenesis
-    term:
-      id: GO:0015948
-      label: methanogenesis
   evidence:
   - reference: PMID:39085194
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: soil-associated Asgard archaea are predicted to include
-      non-methanogenic acetogens
-    explanation: Supports the acetogenic non-methanogenic role of soil Asgard
-      archaea.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: soil-associated Asgard archaea are predicted to include non-methanogenic acetogens
+    explanation: Supports genome/transcript-based metabolic inference, not resolved pathway direction, substrate
+      flux or partner exchange.
 - name: Wood-Ljungdahl Carbon Fixation and Hydrogen Cycling
-  description: Asgard archaea express [NiFe]-hydrogenases and the Wood-Ljungdahl
-    pathway, indicating active H2 cycling and CO2 fixation in wetland soil.
-  interaction_type: CROSS_FEEDING
+  description: 'COMPUTATIONAL POTENTIAL - detected Wood-Ljungdahl and hydrogenase transcripts support an expressed
+    metabolic capacity. The pathway is reversible: carbon fixation and reverse acetate oxidation are possible, and
+    transcript presence does not determine direction or hydrogen flux.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Atabeyarchaeia (Asgard)
@@ -163,20 +156,19 @@ ecological_interactions:
       label: carbon fixation
   downstream:
   - target: Asgard Acetogenesis Modulates Methanogenic Substrates
-    description: Wood-Ljungdahl carbon fixation and H2 cycling are expressed
-      components of the non-methanogenic acetogenic metabolism that can alter
-      substrate pools relevant to co-resident methanogens.
+    description: HYPOTHESIZED - expressed Wood-Ljungdahl/hydrogenase capacity could alter methanogenic substrate
+      pools through production or consumption. Direction, exchanged flux and net methanogen response remain unresolved.
   evidence:
   - reference: PMID:39085194
-    supports: SUPPORT
-    evidence_source: IN_VIVO
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
     snippet: pyruvate oxidation and carbon fixation via the Wood-Ljungdahl pathway
-    explanation: Supports active H2 cycling and Wood-Ljungdahl carbon fixation.
+    explanation: Supports genome/transcript-based metabolic inference, not resolved pathway direction, substrate
+      flux or partner exchange.
 - name: Carbohydrate Breakdown to Acetate and Formate
-  description: Asgard archaea express enzymes for carbohydrate breakdown to
-    acetate and formate, releasing common methanogenic substrates that the same
-    organisms can also consume acetogenically.
-  interaction_type: CROSS_FEEDING
+  description: COMPUTATIONAL POTENTIAL - genome/transcript reconstructions suggest carbohydrate conversion to acetate
+    and formate. Freyarchaeia encode predicted glucose use, whereas Atabeyarchaeia entry is proposed through phosphorylated
+    sugars. These are lineage-dependent capacities, not measured release of identical products by both groups.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Atabeyarchaeia (Asgard)
@@ -203,16 +195,15 @@ ecological_interactions:
       label: carbohydrate metabolic process
   downstream:
   - target: Asgard Acetogenesis Modulates Methanogenic Substrates
-    description: Carbohydrate breakdown produces acetate and formate, two of
-      the substrate pools through which Asgard archaea can modulate potential
-      methanogenesis in wetland soil.
+    description: HYPOTHESIZED - realized carbohydrate metabolism could supply acetate/formate to shared pools, but
+      these compounds can also be consumed and no partner-resolved transfer or methane response was measured.
   evidence:
   - reference: PMID:39085194
-    supports: SUPPORT
-    evidence_source: IN_VIVO
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
     snippet: carbohydrate breakdown to acetate and formate
-    explanation: Supports the carbohydrate-to-acetate/formate metabolic
-      contribution.
+    explanation: Supports genome/transcript-based metabolic inference, not resolved pathway direction, substrate
+      flux or partner exchange.
 environmental_factors:
 - name: Wetland soil anaerobic niche
   value: wetland soil
@@ -295,3 +286,24 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   Asgard archaeal wetland-soil community.
+discussions:
+- discussion_id: asgard_flux_direction_and_methanogens
+  prompt: Which Asgard fluxes produce or consume methanogenic substrates under native soil conditions?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Asgard Acetogenesis Modulates Methanogenic Substrates
+  - ecological_interactions#Wood-Ljungdahl Carbon Fixation and Hydrogen Cycling
+  - ecological_interactions#Carbohydrate Breakdown to Acetate and Formate
+  rationale: PMID:39085194 reports genomic and transcript evidence, not a resolved carbon/hydrogen balance. Reversible
+    pathway direction, hydrogenase function and methanogen responses need biochemical or tracer discrimination.
+    Pooled homogenized RNA without technical replicates does not resolve replicated depth-specific ecosystem effects.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T10:11:47Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound Asgard substrate links to reversible genomic and transcript potential; complete decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1249'
+  llm_assisted: true

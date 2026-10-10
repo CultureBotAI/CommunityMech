@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>Rifle Aquifer Bioanode Extracellular Electron Transfer Community</h1>
         </div>
     </header>
@@ -400,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        microbial electrochemical cell anode biofilm
+                        microbial electrochemical cell anode biofilm<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -440,6 +463,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -453,7 +477,7 @@
 
                     <tr>
                         <td>
-                            <strong>novel multiheme-cytochrome Geobacter sp.</strong>
+                            <strong>novel multiheme-cytochrome Geobacter sp.<span class="ontology-label"> — ontology label: Geobacter</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=28231"
@@ -497,7 +521,7 @@
 
                     <tr>
                         <td>
-                            <strong>EET-capable Rifle aquifer Actinobacteria</strong>
+                            <strong>EET-capable Rifle aquifer Actinobacteria<span class="ontology-label"> — ontology label: Actinomycetota</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=201174"
@@ -539,7 +563,7 @@
 
                     <tr>
                         <td>
-                            <strong>EET-capable Rifle aquifer Ignavibacteria</strong>
+                            <strong>EET-capable Rifle aquifer Ignavibacteria<span class="ontology-label"> — ontology label: Ignavibacteriota</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1134404"
@@ -581,7 +605,7 @@
 
                     <tr>
                         <td>
-                            <strong>EET-capable Rifle aquifer Chloroflexi</strong>
+                            <strong>EET-capable Rifle aquifer Chloroflexi<span class="ontology-label"> — ontology label: Chloroflexota</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=200795"
@@ -623,7 +647,7 @@
 
                     <tr>
                         <td>
-                            <strong>EET-capable Rifle aquifer Acidobacteria</strong>
+                            <strong>EET-capable Rifle aquifer Acidobacteria<span class="ontology-label"> — ontology label: Acidobacteriota</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=57723"
@@ -665,7 +689,7 @@
 
                     <tr>
                         <td>
-                            <strong>EET-capable Rifle aquifer Firmicutes</strong>
+                            <strong>EET-capable Rifle aquifer Firmicutes<span class="ontology-label"> — ontology label: Bacillota</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1239"
@@ -707,7 +731,7 @@
 
                     <tr>
                         <td>
-                            <strong>EET-capable Rifle aquifer Beta- and Gammaproteobacteria</strong>
+                            <strong>EET-capable Rifle aquifer Beta- and Gammaproteobacteria<span class="ontology-label"> — ontology label: Pseudomonadota</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1224"
@@ -749,18 +773,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Rifle Aquifer Bioanode Extracellular Electron Transfer Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -768,13 +794,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -783,8 +804,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Acetate-Fed Iron-Oxide-Like Bioanode Selection</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
+                <p class="prewrap interaction-description">Acetate-fed microbial electrochemical cells enriched electroactive consortia from Rifle aquifer material. Electrode-attached biofilm and planktonic communities differed, and the systems produced current. This is an observed community response to the enrichment environment, not proof that every member directly respires the anode or occupies a demonstrated partitioned niche.</p>
 
 
 
@@ -825,10 +846,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Multiheme Geobacter Electrode Dominance
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Non-Geobacter EET Gene Repertoire
+                        <p class="prewrap causal-description">PARTIAL: the acetate-fed electrode environment enriched a biofilm dominated by the novel Geobacter population. The observed enrichment supports selection in this system, but does not establish competitive exclusion, a single causal contribution of its MHC inventory or dominance throughout the natural aquifer.</p>
                     </div>
 
                 </div>
@@ -847,7 +865,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"using acetate as the sole carbon source"</div>
+                        <div class="snippet">"Electroactive biofilms were established and maintained for almost 4 years"</div>
 
                     </li>
 
@@ -858,41 +876,23 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Multiheme Geobacter Electrode Dominance</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">A novel Geobacter population dominated the sampled electrode-attached community, and its recovered genome encoded at least 72 putative multiheme c-type cytochromes. This combines observed biofilm composition with predicted genomic capacity; it does not establish competition, conductivity of each candidate protein or the organism&#39;s natural aquifer niche.</p>
+
+
+
+
+                <p><strong>Participating Taxa:</strong>
+
+                    novel multiheme-cytochrome Geobacter sp.
+
+                </p>
 
 
 
 
 
 
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        electron transport chain
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0022900"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0022900</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Candidate Porin-Cytochrome Complex Distribution
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> e-Pili and OmcS Conductive Filament Potential
-                    </div>
-
-                </div>
 
 
 
@@ -917,268 +917,56 @@
 
             </div>
 
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Non-Geobacter EET Gene Repertoire</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
-                </div>
-
-
-
-
-
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        electron transport chain
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0022900"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0022900</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Candidate Porin-Cytochrome Complex Distribution
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> e-Pili and OmcS Conductive Filament Potential
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/32849356/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32849356</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"a diverse range of other electrode-associated organisms also harbored putative MHCs with at least 10 heme-binding motifs
-"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Candidate Porin-Cytochrome Complex Distribution</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
-                </div>
-
-
-
-
-
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        electron transport chain
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0022900"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0022900</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Rifle Mineral Redox Candidate Set
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/32849356/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32849356</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"putative MHCs with at least 10 heme-binding motifs, as well as porin-cytochrome complexes and e-pili"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/32849356/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32849356</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"Twelve of the 53 near-complete genomes that contain one or more MHCs harbor at least one putative PCC
-"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>e-Pili and OmcS Conductive Filament Potential</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
-                </div>
-
-
-
-
-
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        electron transport chain
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0022900"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0022900</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Rifle Mineral Redox Candidate Set
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/32849356/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32849356</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"16/31 contained pili meeting the strict criteria"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/32849356/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32849356</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"A total of 22 sequences were deemed to be true OmcS homologs, with all but one of these found in five of the six Geobacter genomes
-"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Rifle Mineral Redox Candidate Set</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
-                </div>
-
-
-
-
-
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        electron transport chain
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0022900"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0022900</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/32849356/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32849356</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"a small subset of the thousands of organisms previously detected in the Rifle aquifer that may have the potential to mediate mineral redox transformations"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
 
         </section>
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which genomic candidates actually mediate environmental EET or interspecies feedback?
+                </h3>
+                <p class="prewrap">The complete primary main text supports community current, enrichment and biofilm dominance. Non-Geobacter MHCs, candidate PCCs, e-pili and OmcS homologs are valuable genomic predictions, not demonstrated niche partitioning, conductivity, mineral flux or syntrophic partnerships. The candidate-set conclusion does not exclude EET potential in all other aquifer organisms. Remove four inventory/conclusion nodes and three analysis-order arrows while preserving the environmental-selection observation and one PARTIAL dominance direction. The source leaves the dominant organism&#39;s environmental niche unresolved and gives inconsistent near-complete-genome denominators in the PCC caption versus main text; no denominator is silently adjudicated. Non-graph functional-role labels and canonical taxonomy remain issue1764; cultivation setup is unchanged.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Acetate-Fed Iron-Oxide-Like Bioanode Selection</code>, <code>ecological_interactions#Multiheme Geobacter Electrode Dominance</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">COMPUTATIONAL</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/32849356/" rel="nofollow noreferrer">PMID:32849356</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">may have the potential to mediate mineral redox transformations</p>
+                        <p class="muted small prewrap">The primary abstract explicitly describes potential, not experimentally measured natural-community flux.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
         <section>
             <h2>External Resources</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="External Resources">
             <table>
                 <thead>
                     <tr>
@@ -1242,12 +1030,14 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -1312,6 +1102,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -1329,12 +1120,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1347,7 +1141,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1436,7 +1229,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1470,14 +1263,10 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("electron transport chain");
-
 
             var evidenceCount = 1;
 
@@ -1494,117 +1283,16 @@
 
 
 
-        })();
+            var participantKeys = [
 
-        (function() {
-            var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
-            var metabolites = [];
+                "novel multiheme-cytochrome Geobacter sp."
 
-            var processes = [];
-
-
-            processes.push("electron transport chain");
-
-
-            var evidenceCount = 1;
-
-            nodes.push({
-                id: intId,
-                label: "Non-Geobacter EET Gene Repertoire",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
             });
-
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:3";
-            var intType = "NICHE_PARTITIONING";
-            var metabolites = [];
-
-            var processes = [];
-
-
-            processes.push("electron transport chain");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Candidate Porin-Cytochrome Complex Distribution",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:4";
-            var intType = "NICHE_PARTITIONING";
-            var metabolites = [];
-
-            var processes = [];
-
-
-            processes.push("electron transport chain");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "e-Pili and OmcS Conductive Filament Potential",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:5";
-            var intType = "NICHE_PARTITIONING";
-            var metabolites = [];
-
-            var processes = [];
-
-
-            processes.push("electron transport chain");
-
-
-            var evidenceCount = 1;
-
-            nodes.push({
-                id: intId,
-                label: "Rifle Mineral Redox Candidate Set",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
 
         })();
 
@@ -1619,12 +1307,15 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 13;
+        var nodeCount = 9;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

@@ -120,10 +120,9 @@ taxonomy:
     explanation: Supports DSM 12137 as the second member of the exact coculture.
 ecological_interactions:
 - name: Stable Chemostat Coexistence
-  description: The two Caldicellulosiruptor strains stably coexisted in continuous
-    culture over multiple dilution rates despite competing for glucose and xylose.
+  description: Both strains persisted across dilution rates, including glucose-only limitation. Coexistence does
+    not establish niche partitioning or show that stability causes enhanced hydrogen yield.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   participating_taxa:
   - preferred_term: Caldicellulosiruptor saccharolyticus DSM 8903
     term:
@@ -147,11 +146,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Synergistic Biohydrogen Production
-    description: >
-      Stable coexistence of the two sugar-fermenting Caldicellulosiruptor strains maintains the continuous
-      mixed-sugar conversion regime that yielded more hydrogen than either monoculture under glucose limitation.
   evidence:
   - reference: PMID:21192828
     supports: SUPPORT
@@ -164,10 +158,9 @@ ecological_interactions:
     snippet: The two strains retained their ability to stably coexist
     explanation: Supports coexistence even under one-carbon-source limitation.
 - name: C. saccharolyticus Growth-Supernatant Enhancement
-  description: C. saccharolyticus culture supernatant shortened the lag phase and
-    increased maximum biomass concentration of C. kristjanssonii, supporting a
-    stimulatory interaction rather than simple substrate competition.
-  interaction_type: COLONIZATION_FACILITATION
+  description: C. saccharolyticus supernatant shortened C. kristjanssonii lag and increased maximum biomass about
+    18% in batch culture. Maximum specific growth rate did not significantly change. This growth response is not
+    a direct colonization assay; the active material and secretion-versus-lysis origin remain unknown.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Caldicellulosiruptor saccharolyticus DSM 8903
@@ -186,27 +179,24 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Stable Chemostat Coexistence
-    description: >
-      Growth enhancement of C. kristjanssonii by C. saccharolyticus
-      conditioned supernatant provides a facilitative interaction that helps
-      explain stable coexistence instead of simple shared-sugar competition.
+    description: HYPOTHESIZED - growth stimulation could help maintain coexistence. The model assumes rate and biomass-yield
+      enhancement; the batch assay supports only part of that mechanism, not its necessity in the chemostat.
   evidence:
   - reference: PMID:21192828
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: enhance the growth of C. kristjanssonii
-    explanation: Supports a stimulatory effect from C. saccharolyticus on the second strain.
+    explanation: Supports batch stimulation; extrapolation to the modeled coexistence mechanism remains partial.
   - reference: PMID:21192828
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: increasing its maximum biomass concentration by ca. 18%
     explanation: Supports the measured growth enhancement in supernatant-supplemented culture.
-- name: Synergistic Biohydrogen Production
-  description: The coculture converted glucose and xylose to hydrogen-rich fermentation
-    products and achieved higher glucose-limited hydrogen yields than either pure
-    culture under the same conditions.
+- name: Enhanced Glucose-Limited Hydrogen Yield
+  description: Glucose-limited coculture hydrogen yield exceeded both monocultures, reaching 3.7 mol/mol glucose
+    at dilution 0.06/h. Yield is not volumetric productivity or evidence of reciprocal fitness benefit; the mixed-sugar
+    experiments are a different condition.
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   participating_taxa:
   - preferred_term: Caldicellulosiruptor saccharolyticus DSM 8903
     term:
@@ -243,7 +233,7 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: from glucose and xylose
-    explanation: Supports hydrogen and acetate as major fermentation products of the coculture.
+    explanation: Identifies the mixed-sugar feed, not the glucose-limited maximum or product identities by itself.
   - reference: PMID:21192828
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -429,3 +419,23 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element transformation role is curated for this
   thermophilic biohydrogen coculture.
+discussions:
+- discussion_id: caldicellulosiruptor_growth_factor_and_coexistence
+  prompt: Does the unidentified stimulatory material mediate coexistence under continuous operation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Stable Chemostat Coexistence
+  - ecological_interactions#C. saccharolyticus Growth-Supernatant Enhancement
+  - ecological_interactions#Enhanced Glucose-Limited Hydrogen Yield
+  rationale: PMID:21192828 provides a model and batch-supernatant test, not molecular necessity. Retain the proposed
+    direction as hypothetical; do not infer a named signal, altruism or reciprocal fitness.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T15:54:20Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Separate Caldicellulosiruptor outcomes from hypothesized growth-mediated coexistence; reports/causal_graph_review/decisions/20261005-thermophile-pair-batch9.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1270
+  llm_assisted: true

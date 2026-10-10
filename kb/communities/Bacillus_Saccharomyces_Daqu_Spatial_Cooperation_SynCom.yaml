@@ -112,8 +112,8 @@ taxonomy:
     explanation: Identifies Saccharomyces as a member genus of the synthetic consortia.
 ecological_interactions:
 - name: Bacillus-dominated starch hydrolysis
-  description: Bacillus-dominated starch hydrolysis characterized the liquefaction stage of the Daqu fermentation succession.
-  interaction_type: NICHE_PARTITIONING
+  description: Bacillus-dominated starch hydrolysis characterized the liquefaction stage of the Daqu fermentation
+    succession.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacillus
@@ -130,21 +130,17 @@ ecological_interactions:
     term:
       id: GO:0005983
       label: starch catabolic process
-  downstream:
-  - target: Saccharomyces-driven ethanol production
-    description: Starch hydrolysis occurred during the Bacillus-dominated liquefaction stage before the subsequent Saccharomyces-driven
-      ethanol-production stage.
   evidence:
   - reference: PMID:42679964
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Bacillus-dominated starch hydrolysis during the liquefaction stage and Saccharomyces-driven ethanol production
-      during the subsequent fermentation stage.
+    snippet: Bacillus-dominated starch hydrolysis during the liquefaction stage and Saccharomyces-driven ethanol
+      production during the subsequent fermentation stage.
     explanation: Supports a temporally ordered Bacillus-associated starch-hydrolysis phase followed by Saccharomyces-associated
       ethanol production.
 - name: Saccharomyces-driven ethanol production
-  description: Saccharomyces drove ethanol production during the fermentation stage following Bacillus-dominated starch hydrolysis.
-  interaction_type: NICHE_PARTITIONING
+  description: Saccharomyces drove ethanol production during the fermentation stage following Bacillus-dominated
+    starch hydrolysis.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Saccharomyces
@@ -168,9 +164,10 @@ ecological_interactions:
     snippet: Saccharomyces-driven ethanol production during the subsequent fermentation stage
     explanation: Supports Saccharomyces-associated ethanol production during the later Daqu fermentation stage.
 - name: Starch-mediated Bacillus-Saccharomyces spatial cooperation
-  description: Starch availability governed colony expansion and spatial cooperation in fluorescently labeled Bacillus-Saccharomyces
-    synthetic consortia.
-  interaction_type: NICHE_PARTITIONING
+  description: The abstract reports that starch availability governs colony expansion and spatial cooperation in
+    fluorescently labeled Bacillus-Saccharomyces consortia. An IPTG-inducible alpha-amylase system supports experimental
+    control of starch availability. These are experimentally supported cooperation results, not a demonstrated competition-reducing
+    partition or a specified transferred metabolite.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacillus
@@ -203,12 +200,12 @@ ecological_interactions:
       critically governs colony expansion and spatial cooperation.
     explanation: Supports starch availability as a determinant of Bacillus-Saccharomyces spatial cooperation.
   - reference: PMID:42679964
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: spatial cooperation between Bacillus and Saccharomyces on starch substrates is a key mechanism linking efficient
-      starch utilization to enhanced flavor production
-    explanation: Supports the curated Bacillus-Saccharomyces cooperation on starch substrates and its connection to flavor
-      production.
+    snippet: spatial cooperation between Bacillus and Saccharomyces on starch substrates is a key mechanism linking
+      efficient starch utilization to enhanced flavor production
+    explanation: Reports the source's proposed link between spatial cooperation, starch use and flavor; exact mediation
+      and constructs require the unread full methods.
 related_ingredients:
 - preferred_term: starch
   chebi_term:
@@ -293,18 +290,33 @@ external_resources:
     explanation: Lists the DOI for the primary publication.
 discussions:
 - discussion_id: bacillus_saccharomyces_daqu_strains_and_conditions
-  prompt: Which Bacillus and Saccharomyces strains, fluorescent labels, alpha-amylase construct host, inoculation ratio, Daqu
-    matrix, humidity, temperature, and fermentation duration were used for the engineered Daqu spatial-cooperation consortium?
+  prompt: Which Bacillus and Saccharomyces strains, fluorescent labels, alpha-amylase construct host, inoculation
+    ratio, Daqu matrix, humidity, temperature, and fermentation duration were used for the engineered Daqu spatial-cooperation
+    consortium?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - growth_media#Daqu starch solid-state fermentation
   - engineering_design#assembly_strategy
-  rationale: The PubMed abstract identifies a Bacillus-Saccharomyces synthetic consortium, fluorescent labeling, Daqu fermentation,
-    starch-availability control, and an IPTG-inducible alpha-amylase expression system, but it does not expose the exact species
-    or strains, construct host, or reproducible solid-state cultivation recipe.
+  rationale: The PubMed abstract identifies a Bacillus-Saccharomyces synthetic consortium, fluorescent labeling,
+    Daqu fermentation, starch-availability control, and an IPTG-inducible alpha-amylase expression system, but it
+    does not expose the exact species or strains, construct host, or reproducible solid-state cultivation recipe.
   posed_by: codex
   posed_date: '2026-09-12'
+- discussion_id: daqu_causal_mediation_and_transfer
+  prompt: Which transferred substrates and spatial mechanisms mediate the observed cooperation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Bacillus-dominated starch hydrolysis
+  - ecological_interactions#Saccharomyces-driven ethanol production
+  - ecological_interactions#Starch-mediated Bacillus-Saccharomyces spatial cooperation
+  rationale: The complete abstract supports temporal transcriptomic stages, starch perturbation and inducible alpha-amylase
+    control. Temporal order alone does not establish hydrolysis-to-ethanol mediation. Full methods, strain/construct
+    identities, figures and supplements remain unread; no claim is made that additional experiments are absent.
+    Prior dangling flavor targets remain removed.
+  posed_by: codex
+  posed_date: '2026-10-05'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -314,13 +326,19 @@ curation_history:
 - timestamp: '2026-09-13T03:37:08Z'
   curator: codex
   action: CREATE_COMMUNITY_RECORD
-  changes: Curated CommunityMech:000355 from PMID:42679964 / doi:10.1016/j.biortech.2026.135755 at genus level, with Daqu
-    solid-state fermentation context, starch and ethanol interactions, related ingredients, DOI/PubMed resources, and an open
-    discussion for strain, construct, and cultivation details absent from the abstract.
+  changes: Curated CommunityMech:000355 from PMID:42679964 / doi:10.1016/j.biortech.2026.135755 at genus level,
+    with Daqu solid-state fermentation context, starch and ethanol interactions, related ingredients, DOI/PubMed
+    resources, and an open discussion for strain, construct, and cultivation details absent from the abstract.
   llm_assisted: true
 - timestamp: '2026-09-13T03:46:04Z'
   curator: codex
   action: FIX_DANGLING_DOWNSTREAM_TARGETS
-  changes: Removed Daqu flavor compound formation downstream targets that did not name a curated ecological interaction; flavor
-    formation remains a measured fermentation outcome in the record prose and evidence.
+  changes: Removed Daqu flavor compound formation downstream targets that did not name a curated ecological interaction;
+    flavor formation remains a measured fermentation outcome in the record prose and evidence.
+  llm_assisted: true
+- timestamp: '2026-10-05T11:29:49Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate Daqu stage order from experimentally supported starch cooperation; decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1253'
   llm_assisted: true

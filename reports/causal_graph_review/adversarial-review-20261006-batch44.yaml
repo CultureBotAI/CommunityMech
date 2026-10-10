@@ -1,0 +1,216 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 5b0b555a45aa07071a1e9865f46a37842d9ab27e
+scope:
+- kb/communities/GLBRC_UFMP_Fermentation_Community.yaml
+- kb/communities/GOM_Oil_Degrading_Consortium.yaml
+- kb/communities/Garlic_Pseudomonas_SynCom6.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch44.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch44.json
+findings:
+- issue: 1474
+  severity: P2
+  status: addressed_in_this_change
+  finding: Retain heterogeneous Actinobacteriota genome-based fermentation hypotheses, not universal demonstrated
+    products.; Retain three substrate-distinct Firmicute hypotheses and distinguish measured reactor products
+    from member allocation.; Retain the proposed lactate-transfer model with candidate donors and CLOS1,
+    not obligatory syntrophy or complete conversion.
+  disposition: See all-node and all-arrow decisions; close only after protected main merge.
+- issue: 1475
+  severity: P2
+  status: addressed_in_this_change
+  finding: Retain abiotic-referenced, time-dependent n-alkane depletion without assigned in-consortium
+    member flux.; Retain heterogeneous PAH-panel depletion, not substantial degradation of all 12 or generic
+    phenanthrene.; Retain gross removal improvement while exposing abiotic and total-inoculum limits on
+    synergy.
+  disposition: See all-node and all-arrow decisions; close only after protected main merge.
+- issue: 1476
+  severity: P2
+  status: addressed_in_this_change
+  finding: Retain only the measured two-day radish host-response outcome, with unresolved six-member identity
+    and mechanism explicit.
+  disposition: See all-node and all-arrow decisions; close only after protected main merge.
+adversarial_checks:
+- All three whole records, nine original nodes and four original arrows reviewed. Primary main bodies/Methods/tables/captions
+  read for all three. UFMP cache has appended full text despite stale abstract_only front matter; that
+  front matter is preserved, not treated as an accurate reading-scope label. No figure images, separate
+  supplementary files, raw data or analysis code audited.
+- 'UFMP: preserve measured reactor substrate/product changes while marking member roles and both retained
+  arrows HYPOTHESIZED with PARTIAL COMPUTATIONAL evidence. CLOS1 lactate/butyrate, LCO1 direct lactose
+  and inconclusive ACID1 ethanol assignments must not become universal lactate dependence or terminal-chain-length
+  diagnostics.'
+- 'UFMP: six Actinobacteriota and three Firmicute MAGs retain exact canonical preferred names, not guessed
+  species or representative pair attribution. The five-member proposed lactate-transfer subset is not
+  measured flux. Existing #486/#624 taxonomy and grounding notes remain intact. Remove unsupported stereospecific
+  CHEBI:422 from graph nodes without claiming the non-graph ingredient block is fixed.'
+- 'UFMP: SPH2 is deliberately outside these existing nodes. Its proposed ethanol role does not justify
+  automatically crediting it to the lactate network. The audit exposes exactly one new disconnected warning;
+  no link is invented to hide it.'
+- 'GOM: positive n-alkane and PAH measurements remain. GC-MS uses an abiotic baseline; n-alkane time points
+  and PAH panel heterogeneity are not replaced by generic total-oil percentages. Remove unsupported representative
+  dodecane and generic phenanthrene assertions. The gross endpoint is a crude-oil mixture measurement,
+  not an identified polycyclic-arene concentration.'
+- 'GOM: gross ~62% versus ~25-39% removal does not subtract abiotic loss. Each strain starts at 1e8 CFU/mL,
+  so consortium and monoculture are not matched on total starting CFUs. Higher removal is not a selectively
+  demonstrated synergy or niche-partitioning mechanism. Both class-to-comparative-endpoint arrows are
+  removed. Relative population stability after day7 and MetaMIS directions are predictions, not newly
+  added causal nodes.'
+- 'GOM: the existing cache includes an abstract and one Methods sentence despite its FULL TEXT marker.
+  Separately downloaded publisher main body is hash-identified in the ledger; source caches are not expanded
+  to silence validation. Abstract snippets support broad observations, with body-based restrictions and
+  source locations in explanations.'
+- 'Garlic: selection and equal-proportion assembly are removed as workflow nodes, not converted into symbiosis.
+  Preserve earlier 2026-10-02 arrow-removal history. The remaining two-day radish length result is IN_VIVO
+  host evidence, not garlic yield, proven six-member synergy or necessity. B8-7 alone lacks growth promotion
+  and does not significantly change M when added.'
+- 'Garlic: retain the unresolved canonical Pseudomonas umbrella, explicitly not a strain-resolved roster
+  or a claim of one species. Do not promote tentative 16S names to invented species CURIEs.'
+- All current graph diffs inspected. Exactly three guarded records, three append-only history artifacts
+  and three regenerated pages. 457 other records, all 920 caches, non-graph raw blocks and prior history
+  artifacts preserved; old inline history is semantically unchanged.
+- Schema, strict, terms, reference, snippet, rank and history checks passed. Existing 33 audit warnings
+  preserved exactly plus one justified SPH2 warning; no structural errors. Repeat renders deterministic
+  and published node/arrow descriptions parser-checked across all 456 pages; no browser screenshot claim.
+- Six focused tests plus historical-batch and shared regressions passed. Reference-validator positive/negative
+  canaries included. Three participant-registry additions (190 to 193), unchanged corrected connectivity
+  census and unchanged numeric bounds. Production auditor and ranker semantics unchanged.
+- Verification helper initially treated the network JSON object as a list; its assertion failed after
+  all per-record gates passed. The helper was corrected without changing curated bytes, completed command
+  logs were hash-checked and reused, and remaining verification completed. Failure and correction are
+  explicitly retained; not a data-gate failure or a false pass.
+- Dedup included 790 all-state issue titles/bodies and ignored/hidden local files. Five relevant issue
+  bodies and prior UFMP/Garlic histories read. Existing render/audit logs naming candidates were not mistaken
+  for completed source reviews. Not all comments or PR reviews inspected.
+- Self-adversarial review is not independent approval. Exact-head COMMENT and actual post-commit docs-current
+  are publication steps; protected main checks and dependent-parent merges remain mandatory. Full-corpus
+  completion is not claimed.
+verification:
+  combined_regressions: 451 passed in 209.31s (0:03:29)
+  new_regression_tests: 6
+  schema_strict_terms_history: passed with actual outputs and digests
+  references: 'CLI Total checks counts reported issues, not executed checks. All three records exited
+    0; textual matching does not prove scientific support or independent provenance. SupportingReference
+    coverage remains incomplete under #476.'
+  snippet_counts_by_record:
+    kb/communities/GLBRC_UFMP_Fermentation_Community.yaml:
+      MATCH: 27
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/GOM_Oil_Degrading_Consortium.yaml:
+      MATCH: 10
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Garlic_Pseudomonas_SynCom6.yaml:
+      MATCH: 5
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network:
+    existing_findings_preserved: 33
+    new_disconnected: 1
+    added_findings:
+      GLBRC_UFMP_Fermentation_Community:
+      - type: DISCONNECTED
+        taxon: RUG023 sp. (MAG SPH2)
+        taxon_id: NCBITaxon:203691
+        taxon_data:
+          taxon_term:
+            preferred_term: RUG023 sp. (MAG SPH2)
+            term:
+              id: NCBITaxon:203691
+              label: Spirochaetota
+            gtdb_grounding_status: GROUNDED
+            gtdb_classification:
+              gtdb_id: GTDB:p__Spirochaetota
+              gtdb_taxon: Spirochaetota
+              gtdb_lineage: d__Bacteria;p__Spirochaetota
+              ncbi_source_id: NCBITaxon:203691
+              majority_fraction: 1.0
+              support_genomes: 6024
+              total_genomes: 6025
+              is_reclassified: false
+              mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded
+                at p__ rank; 2 GTDB taxa under the NCBI taxon]
+            notes: 'Spirochaetota member (up to 16.1% relative abundance). Produces ethanol which serves
+              as substrate for chain elongation by Firmicutes.
+
+              '
+          strain_designation:
+            strain_name: MAG SPH2
+            isolation_source: UFMP bioreactor metagenome
+          functional_role:
+          - CROSS_FEEDER
+          abundance_level: DOMINANT
+          abundance_value: up to 16.1% relative abundance
+          evidence:
+          - reference: PMID:37324413
+            supports: SUPPORT
+            evidence_source: IN_VITRO
+            snippet: 'members of the Firmicutes phylum contribute to the chain-elongation-mediated production
+              of butyric, hexanoic, and octanoic acids, with different microbes using either lactose,
+              ethanol, or lactic acid as the growth substrate
+
+              '
+            explanation: RUG023 sp. SPH2 produces ethanol used as chain elongation substrate
+        message: Taxon 'RUG023 sp. (MAG SPH2)' has no interactions
+    removed_findings: {}
+    rationale: Explicit UFMP guild participants expose SPH2 outside existing nodes. No causal link invented
+      to suppress the warning.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch44.yaml: 066c435d002774ad3950ddaeb4cc0d22f9cdff48c82e5cf8fbb431ccf1be9bcb
+    tests/test_causal_review_batch44.py: cbeedafaf01b58a8d56a33236a4e1d866accc7ebdfe2408fc3a2f225ae2fad0d
+    tests/test_participating_taxa.py: 6080726bb3d197c9af0b45fd6941fc460c8fa0a13f3557575f0cc4b4933ce7a9
+    kb/communities/GLBRC_UFMP_Fermentation_Community.yaml: 0cd65716c7bf522b2c8326bdc476339c3196f551d9a2ee92c405d15dc9ea9c92
+    kb/communities/GOM_Oil_Degrading_Consortium.yaml: 90d4d45224abfc9829feb8fd1cabde320c410a7a843ea3410c89dda4852cc299
+    kb/communities/Garlic_Pseudomonas_SynCom6.yaml: 0052209591a0d6d3e106ad27feaca9dde69645f9725f01ba63e41ebeb5c5c59c
+    reports/causal_graph_review/README.md: 7a3f52353d7fa286a75110ca6b068676a86657db5ac8d7650bebf12e659d20f3
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 387
+      mixed: 125
+      community_level_only: 262
+      taxa: 1494
+      credited_solely_by_the_rule: 1221
+    current:
+      records: 460
+      with_community_level: 387
+      mixed: 125
+      community_level_only: 262
+      taxa: 1494
+      credited_solely_by_the_rule: 1221
+  interpretation: Existing pairwise-vs-community-level survey is unchanged; explicit participant membership
+    exposes one disconnected SPH2. No census bound or production matching logic changed. Participant registry
+    adds exactly three records, 190 to 193.
+corpus:
+  records: 460
+  nodes: 1466
+  edges: 682
+  review_status_counts:
+    needs_research: 12
+    pending: 281
+    reviewed: 167
+limitations:
+- Whole records and complete primary main bodies, Methods, tables and embedded captions read. No figure
+  images, separate supplementary files, raw data or analysis code independently audited.
+- 'Repairs only: no new nodes/arrows, no Edison job or provider spend. UFMP retains two explicitly hypothesized
+  arrows; GOM removes two unsupported comparative-mediation arrows; Garlic removes two workflow nodes
+  and does not restore prior arrows.'
+- Canonical taxonomy, non-graph raw blocks, prior history and all source caches preserved, not certified.
+  UFMP non-graph stereospecific/functional claims and GOM non-graph significance wording remain outside
+  this repair.
+- 'Reference CLI Total checks counts reported issues, not executed checks. SupportingReference coverage
+  remains incomplete under #476; snippet matching is not scientific support or independent source provenance.'
+- Source-based self-adversarial review is not independent approval or corpus completion.

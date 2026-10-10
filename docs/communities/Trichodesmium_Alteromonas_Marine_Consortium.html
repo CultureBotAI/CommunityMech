@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>Trichodesmium-Alteromonas Marine Consortium</h1>
         </div>
     </header>
@@ -400,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        warm oligotrophic marine water column
+                        warm oligotrophic marine water column<span class="ontology-label"> — ontology label: marine environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01000320"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -425,6 +448,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -480,7 +504,7 @@
 
                     <tr>
                         <td>
-                            <strong>Alteromonas macleodii Trichodesmium associate</strong>
+                            <strong>Alteromonas macleodii Trichodesmium associate<span class="ontology-label"> — ontology label: Alteromonas macleodii</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=28108"
@@ -524,7 +548,7 @@
 
                     <tr>
                         <td>
-                            <strong>Trichodesmium-associated heterotrophic microbiome</strong>
+                            <strong>Trichodesmium-associated heterotrophic microbiome<span class="ontology-label"> — ontology label: Bacteria</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2"
@@ -566,18 +590,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Trichodesmium-Alteromonas Marine Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -585,18 +611,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -605,15 +621,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Colony Substrate Colonization by Heterotrophs</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
                 </div>
+                <p class="prewrap interaction-description">Trichodesmium colonies provide physical and nutrient-rich habitats associated with heterotrophs. The 2017 study recovered an A. macleodii representative genome from an IMS101 laboratory enrichment and found a conserved association across culture and environmental samples. This establishes association, not commensal neutrality, universal mutualism or a causal explanation of the separate 2018 field day-night transcript patterns. Named participants here identify the laboratory association, not an assertion that the field host was the IMS101 strain.</p>
 
 
-                <p><strong>Source Taxon:</strong> Trichodesmium erythraeum IMS101</p>
 
 
+                <p><strong>Participating Taxa:</strong>
 
-                <p><strong>Target Taxon:</strong> Trichodesmium-associated heterotrophic microbiome</p>
+                    Trichodesmium erythraeum IMS101,
+
+                    Alteromonas macleodii Trichodesmium associate
+
+                </p>
 
 
 
@@ -631,15 +651,6 @@
                 </ul>
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Diel Coordinated Resource Cycling
-                    </div>
-
-                </div>
 
 
 
@@ -665,9 +676,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Alteromonas Helper Functions in Trichodesmium Colonies</h3>
-                    <span class="interaction-type">MUTUALISM</span>
+                    <h3>Putative Alteromonas Helper Functions in Trichodesmium Colonies</h3>
                 </div>
+                <p class="prewrap interaction-description">HYPOTHESIZED: comparative genomics and transcription identify candidate A. macleodii contributions to Trichodesmium nutrient acquisition, small-carbon recycling and ROS detoxification. The study also assayed siderophore production in isolates and reported Trichodesmium DMSP production; those measurements do not establish complete interpartner fluxes or reciprocal fitness effects. The proposed B12 direction is host-to-epibiont, not Alteromonas-to-Trichodesmium, and the 2017 genome permits facultative B12 use. These candidates are not demonstrated causes of the later field co-expression phenotype.</p>
 
 
                 <p><strong>Source Taxon:</strong> Alteromonas macleodii Trichodesmium associate</p>
@@ -713,15 +724,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Diel Coordinated Resource Cycling
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -733,7 +735,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/28440800/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:28440800</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"iron and phosphorus acquisition, vitamin B12 exchange"</div>
@@ -746,7 +748,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/28440800/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:28440800</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"detoxification of reactive oxygen species"</div>
@@ -759,16 +761,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Diel Coordinated Resource Cycling</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Field Host-Microbiome Diel Coexpression</h3>
                 </div>
+                <p class="prewrap interaction-description">Sixteen field-colony metatranscriptomes over three day-night transitions in the North Pacific Subtropical Gyre showed coordinated host/microbiome expression, including nitrogen-, carbon-, iron- and B12-related functions. This is coexpression supporting candidate resource interactions, not directly demonstrated cross-feeding, a metabolite flux, or causation by A. macleodii helper genes. The host was field Trichodesmium, not demonstrated to be IMS101; Alteromonas genus transcripts must not be assigned wholesale to A. macleodii. The participant list credits only the record microbiome guild that this field measurement supports. Pseudocobalamin/DMB remodeling and host-to-microbiome provision remain interpretations.</p>
 
 
-                <p><strong>Source Taxon:</strong> Trichodesmium erythraeum IMS101</p>
 
 
+                <p><strong>Participating Taxa:</strong>
 
-                <p><strong>Target Taxon:</strong> Trichodesmium-associated heterotrophic microbiome</p>
+                    Trichodesmium-associated heterotrophic microbiome
+
+                </p>
 
 
 
@@ -835,6 +839,7 @@
 
         <section>
             <h2>Associated Datasets</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Associated Datasets">
             <table>
                 <thead>
                     <tr>
@@ -864,8 +869,48 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which candidate helper activities mediate resource flux or host benefit in the exact association?
+                </h3>
+                <p class="prewrap">Genomic complementation and field coexpression generate testable hypotheses, not selective mediation or reciprocal-fitness measurements. The removed arrows described habitat context and cross-study candidate explanations. Host-to-microbiome B12 provision, pseudocobalamin remodeling and possible DMB supply are unresolved mechanistic interpretations. Exact laboratory strain, isolate source and field-community identities must remain distinct; non-graph reconciliation is #1886. Existing #297 ROS compound/process and #765 publication-body provenance decisions are preserved.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Colony Substrate Colonization by Heterotrophs</code>, <code>ecological_interactions#Putative Alteromonas Helper Functions in Trichodesmium Colonies</code>, <code>ecological_interactions#Field Host-Microbiome Diel Coexpression</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">COMPUTATIONAL</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/29382945/" rel="nofollow noreferrer">PMID:29382945</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Evidence of microbiome reliance on Trichodesmium-derived vitamin B12</p>
+                        <p class="muted small prewrap">The abstract gives the proposed host-to-microbiome direction as an inference from coexpression, not a traced flux.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -873,6 +918,7 @@
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -937,6 +983,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -991,12 +1038,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1009,7 +1059,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1070,7 +1119,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1092,23 +1141,26 @@
             });
 
 
-            var srcKey = "Trichodesmium erythraeum IMS101";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Trichodesmium-associated heterotrophic microbiome";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Trichodesmium erythraeum IMS101",
+
+                "Alteromonas macleodii Trichodesmium associate"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1131,7 +1183,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Alteromonas Helper Functions in Trichodesmium Colonies",
+                label: "Putative Alteromonas Helper Functions in Trichodesmium Colonies",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1156,7 +1208,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1171,7 +1223,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Diel Coordinated Resource Cycling",
+                label: "Field Host-Microbiome Diel Coexpression",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1180,17 +1232,18 @@
             });
 
 
-            var srcKey = "Trichodesmium erythraeum IMS101";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Trichodesmium-associated heterotrophic microbiome";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Trichodesmium-associated heterotrophic microbiome"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1205,6 +1258,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

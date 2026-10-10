@@ -1,0 +1,182 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 8eb118a173d7a2224d521986b5d3f5212b5f1f8b
+issues:
+- 1305
+- 1306
+issue_deduplication:
+  count: 651
+  scope: All open/closed issue titles and bodies, not exhaustive comments; ignored-inclusive local reports/history/tests.
+  existing:
+  - 299
+  - 1055
+  - 1056
+  - 1057
+reference_cache_original_hashes:
+  references_cache/PMID_42249951.txt: ea121b0be41e8fb8849e76ab3d59ba820b5b8558567a96850ef7d777c59dd5e2
+  references_cache/PMID_41937467.txt: 772f52aded8ffb54ebaf8a1d99120afa1282399ece384b21c820431a60d9d5ec
+limitations:
+- No new nodes/arrows; no Edison spend needed.
+- GTDB crosswalk unavailable at checked paths; canonical FT92W NCBI grounding verified separately.
+- Whey unchanged and abstract-bounded; source term synergy is not formal model verification.
+- Primary PDFs/images remain outside the repository; caches unchanged.
+- Protected merge remains gated on required GitHub checks.
+records:
+- path: kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+  id: CommunityMech:000313
+  original_sha256: a27ec0a5b4706ed02586c92cdb9f72ddde519d18a242c9c90b12664af3e96c51
+  record_sha256: 506d388b39c47c8ebafff9d587222d3880f9cff303e1c161fbf0e0188f8278c6
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261005-two-records-batch14.yaml
+  scope: Whole record and all original nodes/arrows assessed; coordinated membership/assay context repaired, conservative
+    existing non-FT92W ontology groundings retained.
+  summary: Bound six causal nodes to assay evidence and remove two duplicate disease-outcome arrows
+  node_decisions:
+  - node: Chlorella-Substance Microbiome Restructuring
+    rationale: Retain in-vitro compositional response; remove commensalism and implied strain recruitment.
+  - node: Keystone-Taxa SynCom Suppression of Fusarium oxysporum
+    rationale: Retain qualified treatment-specific disease summary, remove competition and duplicate outcome arrows.
+  - node: Keystone Plant-Growth-Promoting Trait Pool
+    rationale: Retain isolate screening phenotype with proxy limits and Table S2 FT92W response; remove facilitation
+      and direct process/metabolite claims.
+  - node: Strawberry Fusarium Wilt Disease-Index Reduction
+    rationale: Retain visually corroborated approximate week-5 Treat8 disease response and Table S3 biomass; bound
+      comparisons.
+  - node: Tomato Fusarium Wilt Disease-Index Reduction
+    rationale: Retain Results-reported treatment-specific tomato values, with plot/statistical limitations and no
+      universal superiority.
+  - node: D-mannitol Enrichment of Pseudomonas in the Chlorella Phytomicrobiome
+    rationale: Retain relative-abundance response with in-vitro provenance and source-proposed carbon hypothesis,
+      not secretion or commensalism.
+  edges_before:
+  - source: Keystone-Taxa SynCom Suppression of Fusarium oxysporum
+    target: Strawberry Fusarium Wilt Disease-Index Reduction
+    description: 'The SynCom-only strawberry treatment arm had much lower Fusarium wilt disease severity than the
+      pathogen-only arm.
+
+      '
+  - source: Keystone-Taxa SynCom Suppression of Fusarium oxysporum
+    target: Tomato Fusarium Wilt Disease-Index Reduction
+    description: 'The full SynCom tomato treatment arm also reduced Fusarium wilt disease severity relative to pathogen-only
+      controls.
+
+      '
+  edges_after: []
+  references:
+  - PMID:41937467
+  - PMID:40064531
+  retained_edge_decisions: []
+  removed_edge_decisions:
+  - source: Keystone-Taxa SynCom Suppression of Fusarium oxysporum
+    target: Strawberry Fusarium Wilt Disease-Index Reduction
+    rationale: Restates a host-specific measured outcome already summarized by the source node; no separately demonstrated
+      upstream mechanism.
+  - source: Keystone-Taxa SynCom Suppression of Fusarium oxysporum
+    target: Tomato Fusarium Wilt Disease-Index Reduction
+    rationale: Restates a host-specific measured outcome already summarized by the source node; no separately demonstrated
+      upstream mechanism.
+  history_files:
+  - history/records/Chlorella_Keystone_Taxa_Antifungal_SynCom/2026-10-05T212346Z-codex-851520.yaml
+  - history/records/Chlorella_Keystone_Taxa_Antifungal_SynCom/2026-10-05T212347Z-codex-17ef70.yaml
+  issues:
+  - 1305
+  - 1306
+  allowed_changed_fields:
+  - curation_history
+  - description
+  - discussions
+  - ecological_interactions
+  - engineering_design
+  - environmental_factors
+  - growth_media
+  - modeled_environment
+  - taxonomy
+  curation_events_added: 2
+  source_review:
+    primary_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13066648/fullTextXML
+    primary_sha256: ca96fc4005031c536003dd108a5ada7a025c1938cecc2f2f11a480c0ff867fda
+    supplementary_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13066648/supplementaryFiles
+    supplementary_zip_sha256: f9431aa901bc878ffacbbe6469162b8d4f2cad05fb030e2dbbc8bb62c41ba779
+    supplementary_pdf_sha256: eff63583669bc008020e404023e6b657049bbc0df61e3b1c384ef39d4b70b84a
+    reading: Full main text and structured Tables 1/2; all five main captions; Figure 4/5 images; all 22 supplement
+      pages text-extracted, with Tables S2/S3 and Figures S4/S7 visually inspected. Precursor abstract only. Other
+      supplement images and raw data not inspected.
+    findings:
+    - Actual full bacterial SynCom has FOUR isolates, not three members.
+    - Pseudomonas 8C3D12 (PQ555449), Pseudoduganella rivuli FT92W (KACC21474), Pseudomonas 6C7F4 (PQ555450), Brevibacterium
+      renqingii REN4 (KCTC49366).
+    - Duganella is a network ASV genus label, not the correct exact FT92W isolate identity. Canonical taxonomy
+      and all affected graph participants were repaired together before graph certification.
+    - Official NCBI taxonomy page confirms Pseudoduganella rivuli at 2666085; BioSample SAMN13220418 confirms FT92W,
+      stream-water origin, and type strain of historical Massilia rivuli.
+    - Microbiome fraction culture is in vitro, not in-plant recruitment. Only Pseudomonas among selected network
+      groups detected in fraction.
+    - Mannitol increased relative Pseudomonas; live/killed Chlorella decreased it. Neither is absolute abundance
+      or proof of algal mannitol secretion.
+    - PGP screens are isolate proxies, not colonization facilitation, direct nitrogen flux, chemical IAA identity
+      or in-plant necessity.
+    - Plant disease index is host symptoms, not fungal burden or direct antagonism. No formal community synergy
+      demonstrated.
+    - Treatment 8 is four bacteria plus pathogen, treatment 9 adds Chlorella; SynCom-only means without alga, not
+      without pathogen.
+    - Strawberry week-specific values are distinguished from overall means; Figure 4 was inspected before retaining
+      an approximate week-5 value.
+    - All six existing nodes retain measured-endpoint interpretations. Both arrows were removed as duplicate outcome
+      statements, and the previously removed workflow arrows were not restored.
+    - Figure 4 corroborates approximate week-5 Treat8 response; source week-7 body wording conflicts with the plot.
+    - Table S2 includes a positive FT92W IAA screen; actual plate/color-screen figure is S7, not S5 as cited in
+      the body.
+    - Growth Methods sample three plants while Tables S3/S4 label n=10; no precision re-estimated.
+  identity_precondition:
+    issue: 1305
+    ncbi_id: NCBITaxon:2666085
+    label: Pseudoduganella rivuli
+    local_ontology_label_verified: true
+    primary_grounding_sources:
+    - https://www.ncbi.nlm.nih.gov/taxonomy/2666085
+    - https://www.ncbi.nlm.nih.gov/biosample/SAMN13220418
+    - https://www.ncbi.nlm.nih.gov/bioproject/575502
+    gtdb_attempt: 'Existing grounder returned 1: mapping unavailable at explicit kg-microbe path and default candidates.
+      Prior ignored-inclusive repository search had permission errors; no global absence claim. Temporary-directory
+      bounded find returned no match.'
+    safeguards: No transfer of Duganella GTDB block; Pseudomonas remains an explicit two-isolate genus aggregation;
+      REN4 remains conservatively genus-grounded.
+- path: kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+  id: CommunityMech:000422
+  original_sha256: a73b9abd45c5b23d856add09519dcc812b72c3297307872b76e5e7b75c6e8f35
+  record_sha256: a73b9abd45c5b23d856add09519dcc812b72c3297307872b76e5e7b75c6e8f35
+  status: reviewed
+  outcome: no_change
+  review_file: reports/causal_graph_review/decisions/20261005-two-records-batch14.yaml
+  scope: Whole record and sole graph node checked against primary publisher abstract; subscription body and figure
+    previews not inspected. No new mechanistic interpretation.
+  summary: Retain previously corrected untyped growth observation and existing exact-pair/conditions knowledge gap
+  node_decisions:
+  - node: Chlorella Whey Growth Synergy
+    rationale: Primary abstract directly reports the two-Chlorella growth comparison. Synergy remains source terminology,
+      not a verified formal additivity model. No mutualism, pair-specific nitrogen-removal node or causal edge is
+      added.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42249951
+  history_files: []
+  allowed_changed_fields: []
+  curation_events_added: 0
+  source_review:
+    primary_url: https://link.springer.com/article/10.1007/s00284-026-05004-y
+    reading:
+      completed: Whole record, cache and publisher abstract.
+      unavailable: Subscription-only body; figure previews not inspected.
+    findings:
+    - One untyped growth node and no arrows; earlier nitrogen-removal and mutualism overreach already repaired.
+    - Synergy is author terminology; abstract does not establish a formal additivity model.
+    - Global nitrogen removal is not assigned to the pair.
+  existing_closed_issues:
+  - 1055
+  - 1056
+  - 1057

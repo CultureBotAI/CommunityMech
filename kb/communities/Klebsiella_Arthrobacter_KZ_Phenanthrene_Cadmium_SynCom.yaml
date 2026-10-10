@@ -150,24 +150,13 @@ taxonomy:
       Supports the metagenome-inferred cadmium-stress response assigned to
       SZ-3.
 ecological_interactions:
-- name: SZ-3 to CW-D3T phenanthrene-mineralization division of labor
-  description: >-
-    Arthrobacter sp. SZ-3 supplied stronger upstream catalytic activity,
-    measured as 50% higher 2H1N conversion, whereas Klebsiella sp. CW-D3T
-    dominated downstream mineralization with more than 80% contribution in the
-    biomass-normalized enzyme activity assays.
-  interaction_type: NICHE_PARTITIONING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Arthrobacter sp. SZ-3
-    term:
-      id: NCBITaxon:1663
-      label: Arthrobacter
-  target_taxon:
-    preferred_term: Klebsiella sp. CW-D3T
-    term:
-      id: NCBITaxon:570
-      label: Klebsiella
+- name: Assay-Inferred Phenanthrene Catabolic Division Of Labor
+  description: Under 25 mg/L cadmium stress, the KZ pair showed better phenanthrene degradation and mineralization
+    than the monocultures. Biomass-normalized enzyme assays assign stronger upstream 2H1N conversion to Arthrobacter
+    sp. SZ-3 and a dominant downstream mineralization contribution to Klebsiella sp. CW-D3T. PARTIAL - these complementary
+    activities support a division-of-labor model, not a resolved donor-to-recipient transfer or necessary mediation.
+    The linked corrigendum and complete assay Methods remain unverified.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: phenanthrene
     term:
@@ -175,16 +164,29 @@ ecological_interactions:
       label: phenanthrene
   evidence:
   - reference: PMID:41365368
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: 'Through biomass-normalized enzyme activity assays, we uncovered a structured division of labor: SZ-3
+      exhibited superior upstream catalytic activity (50 % higher 2H1N conversion), while CW-D3T dominated downstream
+      mineralization (>80 % contribution).'
+    explanation: Supports complementary assay-inferred roles; does not establish a directed interstrain transfer.
+      Complete Methods and the linked corrigendum remain unread.
+  - reference: PMID:41365368
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      Through biomass-normalized enzyme activity assays, we uncovered a
-      structured division of labor: SZ-3 exhibited superior upstream catalytic
-      activity (50 % higher 2H1N conversion), while CW-D3T dominated downstream
-      mineralization (>80 % contribution).
-    explanation: >-
-      Supports complementary upstream and downstream phenanthrene-catabolism
-      roles for the two KZ members.
+    snippet: which synergistically enhanced phenanthrene (PHE) degradation and mineralization under cadmium stress
+      (25 mg/L Cd2+), outperforming monocultures by 1.2-1.9-fold.
+    explanation: Preserves the reported positive consortium-versus-monoculture outcome without assigning its necessary
+      mediator.
+  participating_taxa:
+  - preferred_term: Klebsiella sp. CW-D3T
+    term:
+      id: NCBITaxon:570
+      label: Klebsiella
+  - preferred_term: Arthrobacter sp. SZ-3
+    term:
+      id: NCBITaxon:1663
+      label: Arthrobacter
 environmental_factors:
 - name: Cadmium co-contamination stress
   value: '25'
@@ -237,23 +239,42 @@ external_resources:
     explanation: Lists the primary publication for the KZ consortium.
 discussions:
 - discussion_id: kz_cultivation_and_inoculation_details
-  prompt: >-
-    Which growth medium, inoculation ratio, and initial phenanthrene
-    concentration were used to assemble and assay the KZ consortium?
+  prompt: Which growth medium, inoculation ratio, and initial phenanthrene concentration were used to assemble and
+    assay the KZ consortium?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - engineering_design#assembly_strategy
-  rationale: >-
-    The PubMed abstract identifies the two KZ members, the 25 mg/L cadmium
-    stressor, and the phenanthrene-mineralization phenotype, but it does not
-    expose the medium recipe, inoculum composition, or phenanthrene dose needed
-    for a fully reproducible cultivation record.
+  rationale: The PubMed abstract identifies the two KZ members, the 25 mg/L cadmium stressor, and the phenanthrene-mineralization
+    phenotype, but it does not expose the medium recipe, inoculum composition, or phenanthrene dose needed for a
+    fully reproducible cultivation record.
   posed_by: codex
   posed_date: '2026-09-11'
+- discussion_id: kz_correction_and_transfer_verification
+  prompt: What does the corrigendum change, and which transfers mediate KZ performance?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Assay-Inferred Phenanthrene Catabolic Division Of Labor
+  rationale: 'The complete abstract and public publisher preview support positive KZ outcomes and assay-inferred
+    upstream/downstream roles. Full enzyme Methods, supplements and tracer or selective perturbation evidence were
+    not read. PMID:41456976 / doi:10.1016/j.biortech.2025.133853 is a linked corrigendum; the official publisher
+    API supplied metadata only, not its body. Do not assume the correction is biologically immaterial or infer expression
+    from metagenomic gene content. #1541 tracks unresolved verification. Keep this record needs_research after the
+    bounded #1540 repair. Existing medium/inoculation questions remain open; routine LB/MSM mentioned in the preview
+    is not a verified co-contamination assay recipe.'
+  posed_by: codex
+  posed_date: '2026-10-06'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: SIGNIFICANT
 metal_notes: >-
   Cadmium is a reported 25 mg/L co-stressor in the KZ phenanthrene assay; the
   current MetalElementEnum does not include cadmium as an enum value.
+curation_history:
+- timestamp: '2026-10-06T20:19:10Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound KZ catabolic roles to the reported assays and flag unresolved corrigendum verification. Issue
+    #1540; reports/causal_graph_review/decisions/20261006-kz-kmc-komagataella-batch60.yaml'
+  llm_assisted: true

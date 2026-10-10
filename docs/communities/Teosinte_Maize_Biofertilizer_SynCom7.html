@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>Teosinte-Derived Maize Biofertilizer SynCom7</h1>
         </div>
     </header>
@@ -424,6 +447,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -437,7 +461,7 @@
 
                     <tr>
                         <td>
-                            <strong>Serratia sp.</strong>
+                            <strong>Serratia sp.<span class="ontology-label"> — ontology label: Serratia &lt;enterobacteria&gt;</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=613"
@@ -581,18 +605,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Teosinte-Derived Maize Biofertilizer SynCom7</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -600,177 +626,18 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
 
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>PGP-Trait SynCom7 Formulation</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
-                </div>
-
-
-
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    phosphate ion
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=35780"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:35780</a>),
-
-                    indole-3-acetic acid
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16411"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16411</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        nitrogen fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009399"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009399</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Equal-Volume Field Inoculum
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/40270813/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40270813</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"This SynCom consisted of seven bacterial strains: Serratia nematodiphila EDR2, Klebsiella variicola EChLG19, Bacillus thuringiensis EML22, Pantoea agglomerans EMH25, Bacillus thuringiensis EBG39, Serratia marcescens EPLG52, and Bacillus tropicus EPP72."</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/40270813/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40270813</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"screening bacterial isolates for nitrogen fixation, phosphate solubilization, and production of phytohormones such as indole-3-acetic acid (IAA)"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Equal-Volume Field Inoculum</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
-                </div>
-
-
-
-
-
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Four-Stage Maize Biofertilization
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/40270813/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40270813</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"The SynCom was prepared for field application by mixing equal volumes of each bacterial suspension
-"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/40270813/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40270813</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"The viability of each strain in the final mixture was confirmed through colony-forming unit (CFU) counts on selective media
-"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
 
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Four-Stage Maize Biofertilization</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
+                <p class="prewrap interaction-description">The field experiment compared no application, conventional fertilizer and seven-strain biofertilizer, each active treatment delivered manually or by drone. The reported protocol used 50 mL per plant and four application times (0, 25, 55 and 85 days after sowing). Delivery is a manipulated input, not microbial colonization facilitation. The source separately describes about 120 days for yield harvest; those timing descriptions are not silently reconciled here.</p>
 
 
 
@@ -778,17 +645,6 @@
 
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        growth
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0040007"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0040007</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -797,10 +653,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Biofertilizer-Linked Soil and Yield Response
+                        <p class="prewrap causal-description">The repeated biofertilizer treatment is the manipulated input compared with control and conventional-fertilizer arms in the reported field design. The resulting agronomic differences support a treatment-level effect, not proof that a particular strain, nitrogen-fixation route or within-consortium mutualism mediated it.</p>
                     </div>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Beneficial-Taxon Soil Microbiome Shift
+                        <span class="flow-arrow">→</span> Treatment-associated soil microbiome shifts
+                        <p class="prewrap causal-description">The biofertilizer application arms produced distinct soil-community profiles across the sampled season. This treatment-to-profile link does not establish absolute taxon growth, tracking of the introduced strains, or causation by the individual edges of the co-occurrence network.</p>
                     </div>
 
                 </div>
@@ -816,7 +674,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/40270813/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40270813</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
                         <div class="snippet">"The drone was calibrated to deliver 50 mL of treatment solution per plant
@@ -830,7 +688,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/40270813/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40270813</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
                         <div class="snippet">"Applications were carried out at four key growth stages: pre-treatment at 0 days after sowing (DAS), mid-season at 25 DAS, early reproductive stage at 55 DAS, and harvest at 85 DAS
@@ -845,32 +703,18 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Biofertilizer-Linked Soil and Yield Response</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">The study reports higher soil microbial biomass, aggregate stability, plant nutrient uptake, chlorophyll, growth and yield, with lower disease incidence, under biofertilization, especially drone delivery, than its comparison treatments. These are treatment-level outcomes of the reported field experiment, not measurements of nitrogen-fixation flux, phosphate transfer, mutual benefit among seven strains, or a uniquely demonstrated microbial mechanism. The field statistics were not independently reproduced.</p>
 
 
 
 
 
-
-                <p><strong>Metabolites:</strong>
-
-                    phosphate ion
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=35780"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:35780</a>)
-
-                </p>
 
 
 
                 <p><strong>Biological Processes:</strong></p>
                 <ul>
-
-                    <li>
-                        nitrogen fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009399"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009399</a>)
-                    </li>
 
                     <li>
                         growth
@@ -921,9 +765,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Beneficial-Taxon Soil Microbiome Shift</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Treatment-associated soil microbiome shifts</h3>
                 </div>
+                <p class="prewrap interaction-description">Soil bacterial and fungal relative-abundance profiles shifted across fertilization treatments and sampling times, including reduced Enterobacteriaceae dominance and increased representation of source-described beneficial genera. The soil community includes indigenous taxa beyond the seven inoculant strains. Relative abundance does not prove absolute population growth, inoculant strain establishment, or uniformly beneficial function of every organism assigned to those genera.</p>
 
 
 
@@ -944,15 +788,6 @@
                 </ul>
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Bacillus-Centered Nutrient-Cycling Network
-                    </div>
-
-                </div>
 
 
 
@@ -993,9 +828,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Bacillus-Centered Nutrient-Cycling Network</h3>
-                    <span class="interaction-type">MUTUALISM</span>
+                    <h3>Statistical Bacillus-centered soil association network</h3>
                 </div>
+                <p class="prewrap interaction-description">Computational co-occurrence analysis of soil abundance profiles identifies Bacillus as a central taxonomic node and correlated responses among putative functional guilds. Correlation and centrality do not establish mutualism, directed nutrient exchange, nitrogen-fixation activity, pathogen suppression by a particular edge, or experimental keystone necessity. These are soil-community associations, not a resolved interaction network among the seven inoculant strains.</p>
 
 
 
@@ -1003,17 +838,6 @@
 
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -1028,7 +852,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/40270813/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40270813</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"Network analysis demonstrated that microbial interaction complexity increased across treatments, with Bacillus emerging as a keystone species
@@ -1042,11 +866,24 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/40270813/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40270813</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"Drone-assisted biofertilization fostered particularly intricate microbial networks, enhancing synergistic relationships involved in nutrient cycling and biocontrol
 "</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40270813/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40270813</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"based on correlated changes in abundance throughout the crop cycle"</div>
 
                     </li>
 
@@ -1059,6 +896,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which inoculant strains and ecological mechanisms mediate the reported field effects?
+                </h3>
+                <p class="prewrap">The seven-strain formulation and field-treatment contrasts are described, but soil amplicon profiles and correlation networks do not identify strain-resolved establishment or necessary exchange pathways. The record taxonomy is an incomplete broad representation of the seven isolates. Source timing and sample/replicate descriptions also differ; raw-data and design reconciliation are needed for quantitative reanalysis. No extra causal arrow from the statistical network to yield is introduced.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Four-Stage Maize Biofertilization</code>, <code>ecological_interactions#Biofertilizer-Linked Soil and Yield Response</code>, <code>ecological_interactions#Treatment-associated soil microbiome shifts</code>, <code>ecological_interactions#Statistical Bacillus-centered soil association network</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+
+
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/40270813/" rel="nofollow noreferrer">PMID:40270813</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">based on correlated changes in abundance throughout the crop cycle</p>
+
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1066,6 +942,7 @@
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -1104,6 +981,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -1176,12 +1054,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1194,7 +1075,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1262,76 +1142,10 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COLONIZATION_FACILITATION";
-            var metabolites = [];
-
-
-            metabolites.push("phosphate ion");
-
-            metabolites.push("indole-3-acetic acid");
-
-
-            var processes = [];
-
-
-            processes.push("nitrogen fixation");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "PGP-Trait SynCom7 Formulation",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:1";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Equal-Volume Field Inoculum",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
-            var metabolites = [];
-
-            var processes = [];
-
-
-            processes.push("growth");
-
 
             var evidenceCount = 2;
 
@@ -1351,18 +1165,12 @@
         })();
 
         (function() {
-            var intId = "interaction:3";
-            var intType = "MUTUALISM";
+            var intId = "interaction:1";
+            var intType = "UNKNOWN";
             var metabolites = [];
-
-
-            metabolites.push("phosphate ion");
-
 
             var processes = [];
 
-
-            processes.push("nitrogen fixation");
 
             processes.push("growth");
 
@@ -1385,8 +1193,8 @@
         })();
 
         (function() {
-            var intId = "interaction:4";
-            var intType = "COLONIZATION_FACILITATION";
+            var intId = "interaction:2";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1399,7 +1207,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Beneficial-Taxon Soil Microbiome Shift",
+                label: "Treatment-associated soil microbiome shifts",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1413,21 +1221,17 @@
         })();
 
         (function() {
-            var intId = "interaction:5";
-            var intType = "MUTUALISM";
+            var intId = "interaction:3";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "Bacillus-Centered Nutrient-Cycling Network",
+                label: "Statistical Bacillus-centered soil association network",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1451,12 +1255,15 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 10;
+        var nodeCount = 8;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

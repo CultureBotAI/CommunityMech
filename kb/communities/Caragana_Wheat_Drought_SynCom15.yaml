@@ -1,0 +1,691 @@
+id: CommunityMech:000456
+name: Caragana-Wheat Drought SynCom15
+description: A fifteen-member bacterial synthetic community constructed from drought-responsive core microbes of the desert
+  shrub Caragana korshinskii and tested as a cross-host wheat drought-tolerance inoculant. Hao et al. combined four functional
+  strains with eleven core microbial strains, assayed the full SynCom15 in potted plant experiments, and linked SynCom inoculation
+  to wheat growth under drought, Pseudomonas-associated biofilm and quorum-sensing functions, and later streamlining into
+  a biofilm-forming SynCom5.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Construct a desert-plant-root bacterial SynCom that transfers drought tolerance to wheat and other crop hosts.
+  assembly_strategy: Identify Caragana korshinskii root-enriched core ASVs with aridity-linked functional contributions, isolate
+    cultivable candidates, and combine four functional strains with eleven core microbial strains into a 15-member SynCom.
+  perturbation_design: Compare uninoculated and SynCom-inoculated plants under well-watered and drought treatments, including
+    wheat rhizosphere 16S rRNA gene amplicon and metagenomic profiling.
+  measurement_endpoints:
+  - wheat fresh weight under drought
+  - SynCom member root colonization
+  - rhizosphere 16S rRNA amplicon profiles
+  - rhizosphere metagenomic functions
+  - biofilm formation pathway abundance
+  - quorum sensing pathway abundance
+  - Pseudomonas relative abundance
+  notes: This record curates the original fifteen-member SynCom. The paper later streamlined the consortium to SynCom5, but
+    the cached text enumerates SynCom5 members only through Fig. 6 labels, so SynCom5 should be curated as a separate record
+    only if those labels are captured as source text.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Finally, a 15-member synthetic community (SynCom) was constructed by combining these four functional strains
+      with 11 core microbial strains
+    explanation: Supports the 15-member engineered SynCom construction.
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Functionally, inoculation with the complete SynCom15 consortium significantly enhanced wheat growth under drought
+      stress compared to any single member
+    explanation: Supports the full SynCom15 wheat drought assay and community-level phenotype.
+environment_term:
+  preferred_term: wheat rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: The defined SynCom was inoculated onto wheat in potted drought assays and evaluated through rhizosphere amplicon
+    and metagenomic sequencing.
+modeled_environment:
+- preferred_term: Caragana korshinskii root endosphere
+  term:
+    id: ENVO:01001001
+    label: plant-associated environment
+  notes: The member-selection strategy mined drought-responsive core bacteria from the desert shrub Caragana korshinskii.
+taxonomy:
+- taxon_term:
+    preferred_term: Priestia strain DB2L1
+    term:
+      id: NCBITaxon:2800373
+      label: Priestia
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source resolves Priestia strain DB2L1 to genus rank plus a laboratory strain code in Supplementary Table S7;
+      no species or genome accession was asserted.
+  strain_designation:
+    strain_name: DB2L1
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-1; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-1
+
+      DB2L1
+
+      ASV_49 (100%)
+
+      Firmicutes
+
+      Priestia'
+    explanation: Maps CM-1 to DB2L1, ASV_49 (100%), and genus Priestia in Supplementary Table S7.
+- taxon_term:
+    preferred_term: Bacillus strain DB2L13
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Bacillus
+      gtdb_taxon: Bacillus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus
+      ncbi_source_id: NCBITaxon:1386
+      majority_fraction: 0.57
+      support_genomes: 4981
+      total_genomes: 8737
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 44 GTDB taxa under the NCBI taxon]
+    notes: The source resolves Bacillus strain DB2L13 to genus rank plus a laboratory strain code in Supplementary Table S7;
+      no species or genome accession was asserted.
+  strain_designation:
+    strain_name: DB2L13
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-2; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-2
+
+      DB2L13
+
+      ASV_19 (100%)
+
+      Firmicutes
+
+      Bacillus'
+    explanation: Maps CM-2 to DB2L13, ASV_19 (100%), and genus Bacillus in Supplementary Table S7.
+- taxon_term:
+    preferred_term: Pseudomonas strain WSL11
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+    notes: The source resolves Pseudomonas strain WSL11 to genus rank plus a laboratory strain code in Supplementary Table
+      S7; no species or genome accession was asserted.
+  strain_designation:
+    strain_name: WSL11
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-3; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-3
+
+      WSL11
+
+      ASV_195 (99.7%)
+
+      Proteobacteria
+
+      Pseudomonas'
+    explanation: Maps CM-3 to WSL11, ASV_195 (99.7%), and genus Pseudomonas in Supplementary Table S7.
+- taxon_term:
+    preferred_term: Microbacterium strain HSG14-2
+    term:
+      id: NCBITaxon:33882
+      label: Microbacterium
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Microbacterium
+      gtdb_taxon: Microbacterium
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Microbacteriaceae;g__Microbacterium
+      ncbi_source_id: NCBITaxon:33882
+      majority_fraction: 1.0
+      support_genomes: 591
+      total_genomes: 591
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
+    notes: The source resolves Microbacterium strain HSG14-2 to genus rank plus a laboratory strain code in Supplementary
+      Table S7; no species or genome accession was asserted.
+  strain_designation:
+    strain_name: HSG14-2
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-4; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-4
+
+      HSG14-2
+
+      ASV_47 (100%)
+
+      Actinobacteria
+
+      Microbacterium'
+    explanation: Maps CM-4 to HSG14-2, ASV_47 (100%), and genus Microbacterium in Supplementary Table S7.
+- taxon_term:
+    preferred_term: Pseudomonas strain SMR15
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+    notes: The source resolves Pseudomonas strain SMR15 to genus rank plus a laboratory strain code in Supplementary Table
+      S7; no species or genome accession was asserted.
+  strain_designation:
+    strain_name: SMR15
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-5; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-5
+
+      SMR15
+
+      ASV_20 (98.1%)
+
+      Proteobacteria
+
+      Pseudomonas'
+    explanation: Maps CM-5 to SMR15, ASV_20 (98.1%), and genus Pseudomonas in Supplementary Table S7.
+- taxon_term:
+    preferred_term: Pseudomonas strain SMG3
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+    notes: The source resolves Pseudomonas strain SMG3 to genus rank plus a laboratory strain code in Supplementary Table
+      S7; no species or genome accession was asserted.
+  strain_designation:
+    strain_name: SMG3
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-6; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-6
+
+      SMG3
+
+      ASV_331 (99.7%)
+
+      Proteobacteria
+
+      Pseudomonas'
+    explanation: Maps CM-6 to SMG3, ASV_331 (99.7%), and genus Pseudomonas in Supplementary Table S7.
+- taxon_term:
+    preferred_term: Peribacillus strain YCL9
+    term:
+      id: NCBITaxon:2675229
+      label: Peribacillus
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source resolves Peribacillus strain YCL9 to genus rank plus a laboratory strain code in Supplementary Table
+      S7; no species or genome accession was asserted.
+  strain_designation:
+    strain_name: YCL9
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-7; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-7
+
+      YCL9
+
+      ASV_1850(98.9%)
+
+      Firmicutes
+
+      Peribacillus'
+    explanation: Maps CM-7 to YCL9, ASV_1850(98.9%), and genus Peribacillus in Supplementary Table S7.
+- taxon_term:
+    preferred_term: Priestia strain ETQL6
+    term:
+      id: NCBITaxon:2800373
+      label: Priestia
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source resolves Priestia strain ETQL6 to genus rank plus a laboratory strain code in Supplementary Table S7;
+      no species or genome accession was asserted.
+  strain_designation:
+    strain_name: ETQL6
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-8; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-8
+
+      ETQL6
+
+      ASV_29 (100%)
+
+      Firmicutes
+
+      Priestia'
+    explanation: Maps CM-8 to ETQL6, ASV_29 (100%), and genus Priestia in Supplementary Table S7.
+- taxon_term:
+    preferred_term: Pseudomonas strain HST18
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+    notes: The source resolves Pseudomonas strain HST18 to genus rank plus a laboratory strain code in Supplementary Table
+      S7; no species or genome accession was asserted.
+  strain_designation:
+    strain_name: HST18
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-9; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-9
+
+      HST18
+
+      ASV_26 (100%)
+
+      Proteobacteria
+
+      Pseudomonas'
+    explanation: Maps CM-9 to HST18, ASV_26 (100%), and genus Pseudomonas in Supplementary Table S7.
+- taxon_term:
+    preferred_term: Pantoea strain SMR5
+    term:
+      id: NCBITaxon:53335
+      label: Pantoea
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pantoea
+      gtdb_taxon: Pantoea
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Pantoea
+      ncbi_source_id: NCBITaxon:53335
+      majority_fraction: 0.982
+      support_genomes: 1455
+      total_genomes: 1482
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 6 GTDB taxa under the NCBI taxon]
+    notes: The source resolves Pantoea strain SMR5 to genus rank plus a laboratory strain code in Supplementary Table S7;
+      no species or genome accession was asserted.
+  strain_designation:
+    strain_name: SMR5
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-10; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-10
+
+      SMR5
+
+      ASV_6 (98.9%)
+
+      Proteobacteria
+
+      Pantoea'
+    explanation: Maps CM-10 to SMR5, ASV_6 (98.9%), and genus Pantoea in Supplementary Table S7.
+- taxon_term:
+    preferred_term: Bacillus strain DB2T1
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Bacillus
+      gtdb_taxon: Bacillus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus
+      ncbi_source_id: NCBITaxon:1386
+      majority_fraction: 0.57
+      support_genomes: 4981
+      total_genomes: 8737
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 44 GTDB taxa under the NCBI taxon]
+    notes: The source resolves Bacillus strain DB2T1 to genus rank plus a laboratory strain code in Supplementary Table S7;
+      no species or genome accession was asserted.
+  strain_designation:
+    strain_name: DB2T1
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-11; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-11
+
+      DB2T1
+
+      ASV_61 (100%)
+
+      Firmicutes
+
+      Bacillus'
+    explanation: Maps CM-11 to DB2T1, ASV_61 (100%), and genus Bacillus in Supplementary Table S7.
+- taxon_term:
+    preferred_term: Chryseobacterium strain SMG5
+    term:
+      id: NCBITaxon:59732
+      label: Chryseobacterium
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Chryseobacterium
+      gtdb_taxon: Chryseobacterium
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Flavobacteriales;f__Weeksellaceae;g__Chryseobacterium
+      ncbi_source_id: NCBITaxon:59732
+      majority_fraction: 0.828
+      support_genomes: 361
+      total_genomes: 436
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 5 GTDB taxa under the NCBI taxon]
+    notes: The source resolves Chryseobacterium strain SMG5 to genus rank plus a laboratory strain code in Supplementary Table
+      S7; no species or genome accession was asserted.
+  strain_designation:
+    strain_name: SMG5
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-12; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-12
+
+      SMG5
+
+      -
+
+      Bacteroidota
+
+      Chryseobacterium'
+    explanation: Maps CM-12 to SMG5 and genus Chryseobacterium in Supplementary Table S7, where the ASV column reports
+      '-'.
+- taxon_term:
+    preferred_term: Cupriavidus strain WSR4
+    term:
+      id: NCBITaxon:106589
+      label: Cupriavidus
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source resolves Cupriavidus strain WSR4 to genus rank plus a laboratory strain code in Supplementary Table
+      S7; no species or genome accession was asserted.
+  strain_designation:
+    strain_name: WSR4
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-13; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-13
+
+      WSR4
+
+      -
+
+      Proteobacteria
+
+      Cupriavidus'
+    explanation: Maps CM-13 to WSR4 and genus Cupriavidus in Supplementary Table S7, where the ASV column reports '-'.
+- taxon_term:
+    preferred_term: Bacillus strain WSG6
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Bacillus
+      gtdb_taxon: Bacillus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus
+      ncbi_source_id: NCBITaxon:1386
+      majority_fraction: 0.57
+      support_genomes: 4981
+      total_genomes: 8737
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 44 GTDB taxa under the NCBI taxon]
+    notes: The source resolves Bacillus strain WSG6 to genus rank plus a laboratory strain code in Supplementary Table S7;
+      no species or genome accession was asserted.
+  strain_designation:
+    strain_name: WSG6
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-14; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-14
+
+      WSG6
+
+      ASV_69 (99.5%)
+
+      Firmicutes
+
+      Bacillus'
+    explanation: Maps CM-14 to WSG6, ASV_69 (99.5%), and genus Bacillus in Supplementary Table S7.
+- taxon_term:
+    preferred_term: Kocuria strain WST6
+    term:
+      id: NCBITaxon:57493
+      label: Kocuria
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source resolves Kocuria strain WST6 to genus rank plus a laboratory strain code in Supplementary Table S7;
+      no species or genome accession was asserted.
+  strain_designation:
+    strain_name: WST6
+    notes: Supplementary Table S7 reports this strain code and genus; the 15-member SynCom combined four functional strains
+      with eleven core microbial strains.
+  abundance_value: CM-15; one of fifteen members of the Caragana root-derived SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'CM-15
+
+      WST6
+
+      -
+
+      Actinobacteria
+
+      Kocuria'
+    explanation: Maps CM-15 to WST6 and genus Kocuria in Supplementary Table S7, where the ASV column reports '-'.
+ecological_interactions:
+- name: SynCom15 wheat drought growth promotion
+  description: The fifteen-member SynCom improved wheat growth under drought relative to uninoculated and single-member
+    controls in non-sterile pot assays. This is not evidence of long-term field performance or the mechanism established
+    for the separate five-member derivative.
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: inoculation with the complete SynCom15 consortium significantly enhanced wheat growth under drought
+      stress compared to any single member
+    explanation: Supports a community-level drought-growth phenotype for SynCom15.
+- name: Pseudomonas-Associated Metagenomic Biofilm and Quorum-Sensing Gene Enrichment
+  description: Rhizosphere metagenomic gene abundance assigned largely to Pseudomonas was associated with biofilm/quorum
+    pathways and plant fresh weight. DNA abundance is not expression, pathway activity or strain-resolved transfer.
+    SynCom5 AI-2, EPS, root-biofilm and host-response experiments cannot be assigned to SynCom15.
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41634815
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: biofilm formation and quorum sensing pathways were significantly positively correlated with plant fresh
+      weight
+    explanation: Supports metagenomic functional association and genus-level assignment, not expression or causal
+      mediation by inoculated strains.
+  - reference: PMID:41634815
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: enriched genes were predominantly of Pseudomonas origin
+    explanation: Supports metagenomic functional association and genus-level assignment, not expression or causal
+      mediation by inoculated strains.
+environmental_factors:
+- name: Drought treatment
+  value: drought stress
+  description: The SynCom was evaluated for its ability to improve plant growth under drought treatment.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Both SynCom5 and SynCom15 significantly enhanced plant growth under drought to a comparable extent
+    explanation: Supports drought treatment as the main perturbation for SynCom15 evaluation.
+associated_datasets:
+- accession: PRJCA045628
+  title: Caragana korshinskii SynCom sequencing data
+  description: Genome Sequence Archive project carrying the raw sequencing data for the Caragana root microbiome and SynCom
+    drought-tolerance study.
+  dataset_type: MULTI_OMICS
+  repository: OTHER
+  sample_types:
+  - Caragana plant compartments
+  - wheat rhizosphere
+  url: https://ngdc.cncb.ac.cn/gsa/browse/PRJCA045628
+  publication: PMID:41634815
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: The project accession number is PRJCA045628.
+    explanation: Links PRJCA045628 to the sequencing raw data from the study.
+external_resources:
+- name: Caragana2025 analysis code
+  repository: GITHUB
+  resource_id: hxwwx/Caragana2025
+  url: https://github.com/hxwwx/Caragana2025
+  description: GitHub repository for scripts from the Caragana SynCom analysis.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: https://github.com/hxwwx/Caragana2025
+    explanation: Links the GitHub repository to the Caragana SynCom analysis.
+- name: Primary Caragana-Wheat SynCom15 publication
+  repository: OTHER
+  resource_id: doi:10.1186/s40168-026-02350-8
+  url: https://doi.org/10.1186/s40168-026-02350-8
+  description: DOI for the Microbiome article describing the Caragana-derived wheat drought SynCom.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.1186/s40168-026-02350-8'
+    explanation: Records the article DOI.
+discussions:
+- discussion_id: syncom5_membership_text_gap
+  prompt: Should the streamlined five-member SynCom5 be curated as a separate strain-code record?
+  kind: CURATION_TODO
+  status: OPEN
+  attaches_to:
+  - engineering_design
+  rationale: The article functionally validates SynCom5 and Fig. 6 labels its five CM codes, but the cached text
+    does not enumerate those codes together. A separate record should wait for a text/OCR cache of the figure or
+    an independent table that lists the SynCom5 members.
+  evidence:
+  - reference: PMID:41634815
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: we subsequently designed a simplified five-strain SynCom (SynCom5) that synergistically enhances wheat
+      drought tolerance via community biofilms
+    explanation: Supports the existence of a streamlined SynCom5 derived from SynCom15.
+  posed_by: codex
+  posed_date: '2026-09-27'
+- discussion_id: caragana_syncom15_functional_mediation
+  prompt: Which functions of the fifteen-member inoculum mediate its drought-growth phenotype?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#SynCom15 wheat drought growth promotion
+  - ecological_interactions#Pseudomonas-Associated Metagenomic Biofilm and Quorum-Sensing Gene Enrichment
+  rationale: PMID:41634815 separates original-community metagenomics from follow-up SynCom5 perturbations. Preserve
+    the existing SynCom5 membership gap and the table-backed fifteen strain codes; no mechanistic arrow is justified
+    by correlation alone.
+  posed_by: codex
+  posed_date: '2026-10-05'
+metal_relevance: NOT_APPLICABLE
+metal_notes: PMID:41634815 studies drought tolerance in wheat conferred by a Caragana-derived bacterial SynCom, not metal
+  or rare-earth transformation.
+curation_history:
+- timestamp: '2026-09-27T23:51:38Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: Created a PMID:41634815-backed Caragana-derived SynCom15 record with 15 genus-level strain-code members
+    from Supplementary Table S7, wheat drought assay context, biofilm/quorum-sensing functional evidence, the GSA
+    PRJCA045628 dataset, and primary DOI/GitHub external resources.
+  llm_assisted: true
+- timestamp: '2026-10-05T17:31:06Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Separate SynCom15 pot outcomes and metagenomic associations from SynCom5 mechanisms; reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1272
+  llm_assisted: true

@@ -1,0 +1,173 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 277b7254fa7d78c16d801e45972e13469e4e5027
+scope:
+- kb/communities/Kefir_Flavor_Lentilactobacillus_Kluyveromyces_Coculture.yaml
+- kb/communities/Dairy_Wastewater_Algal_Cyanobacterial_Cultivation_Panel.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-kefir-dairy-batch59.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch59.json
+findings:
+- issue: 1535
+  severity: P2
+  status: addressed_in_this_change
+  finding: Kefir procedure nodes, genomic/transfer overclaims and compound-specific response interpretation.
+  disposition: Close only after protected-main merge.
+- issue: 1536
+  severity: P2
+  status: unresolved_non_graph
+  finding: Kefir comparison and milk protocol metadata.
+  disposition: Keep open after graph repair merge.
+- issue: 1537
+  severity: P2
+  status: unresolved_research
+  finding: Dairy treatment-specific causal extension and primary/report verification.
+  disposition: Keep open; zero nodes/edges remains needs_research.
+adversarial_checks:
+- Whole kefir and dairy records read. All six original kefir nodes and zero arrows accounted for; dairy
+  zero-node/zero-arrow gap explicitly assessed. No source selection that silently drops empty graphs.
+- Remove strain-prioritization and genome-sequencing procedures, not biological observations. Preserve
+  the five Oct02 workflow-arrow removals. Reframe annotated pathways as computational capacity, not expression,
+  flux or partner transfer.
+- Kefir Results distinguish yeast main effects without bacterial main/strain-interaction effects for five
+  volatiles from positive interactions for other fatty-acid/aldehyde endpoints. Preserve higher viable
+  counts and modest acidification; do not infer uniformly absent or positive interaction across all metabolites.
+- Expose internal abstract/Table3/Discussion ester-comparator inconsistency instead of selecting whichever
+  sentence favors a desired direction. Normalized GC-MS peak areas are not measured sensory-panel scores
+  or demonstrated metabolite transfer. Original figures, exact contrasts and raw data remain unverified.
+- Retain strain-associated profiles and the proposed exchange mechanism without a fabricated causal arrow.
+  Four retained nodes name both exact canonical strains; no taxon ID or strain change. Genomic potential
+  and Spearman correlations do not identify necessary mediation of flavor or growth.
+- Dairy is a12-treatment panel, not four phototrophs in every bottle. Endpoint16S, FAPROTAX function prediction
+  and CCA/RDA associations do not establish gene activity or mediated flux. Related research abstract
+  reports positive nutrient-removal and biomolecule/EPS outcomes; its full Methods remain unread. Do not
+  infer no interactions from the empty graph.
+- Dairy stays needs_research under1537. Preserve the prior one-community LITERATURE dry-run metadata and
+  query hash exactly;10945 characters, zero provider calls or credits. Specific paid submission/report
+  remains pending. No new node/edge is minted just to fill the empty graph.
+- Kefir source scope is complete abstract plus public indexed selected body sections, tables and main
+  captions with gaps. Direct publisher403 was not bypassed. Dairy data-article full extracted main text/Methods/Tables1-3/main
+  captions read; no original images, supplements or raw-data audits. Separate host study abstract establishes
+  identity only.
+- One cache gains three short excerpts totaling21 source words, independently matched to indexed primary
+  text, with attribution/retrieval digest and exact original prefix.919 other caches unchanged. Context
+  labels are curator prose; this is not a complete full-text cache or certification of previous cached
+  content.
+- Both full record diffs, cache appendix, regression assertions and exact participant-use set were reviewed.458
+  other records and raw non-graph blocks preserved. Both-root census unchanged;36 baseline warnings and
+  zero structural defects. Non-graph comparison/protocol1536 remains OPEN.
+- Actual schema/strict/term/reference/snippet/history/rank/regression gates and output hashes recorded.
+  Repeat rendering and456-page exact description parser checks passed; no browser-screenshot claim. Post-commit
+  docs-current remains a separate publication gate.
+- 836 all-state issue titles/bodies and46 ignored/hidden local matches searched; all six matching issue
+  bodies read, not every comment/PR or local match. Initial failed issue POST was followed by authoritative
+  newest-issue readback before retry.1535 addressed but OPEN until protected-main merge;1536/1537 remain
+  unresolved. Exact-head self-review is COMMENT, not independent approval.
+verification:
+  combined_regressions: 544 passed in 218.33s (0:03:38)
+  new_regression_tests: 8
+  schema_strict_terms_history: Passed with actual output digests
+  references: CLI Total checks counts reported issues, not executed checks. Cache MATCH does not prove
+    scientific entailment or complete provenance. Three new excerpt fragments are independently matched
+    to public indexed publisher body, with explicit gaps;919 caches unchanged. Non-graph metadata1536
+    and new-structure research1537 remain OPEN. Existing476/1091/1095 limitations remain.
+  snippet_counts_by_record:
+    kb/communities/Kefir_Flavor_Lentilactobacillus_Kluyveromyces_Coculture.yaml:
+      MATCH: 16
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Dairy_Wastewater_Algal_Cyanobacterial_Cultivation_Panel.yaml:
+      MATCH: 24
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network:
+    existing_findings_preserved: 36
+    added_findings: {}
+    removed_findings: {}
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-kefir-dairy-batch59.yaml: 6eb7cba4bcbbfee3ba456be7cc886f59f3a032845a7c2ad252174cf2afb9f5f0
+    tests/test_causal_review_batch59.py: e0f66a2803e94f4b35920fdc3296f504753b05761427427c5f411d4fe811afea
+    tests/test_participating_taxa.py: 8ac7a0f05b800a5d2519e5223912b396e7507e55020af3a83b5ec2c414c26c72
+    kb/communities/Kefir_Flavor_Lentilactobacillus_Kluyveromyces_Coculture.yaml: f562c28689b45ec3c53061db80bb3c6f33c4e464fe82b7d2d8236eebf53c383d
+    kb/communities/Dairy_Wastewater_Algal_Cyanobacterial_Cultivation_Panel.yaml: 4fc81cfb17b74f44b121440c5375d5a8e2f42e76b60ee057fdc53deafa263831
+    reports/causal_graph_review/README.md: 7bb429cdc55478aa6b75b81727cae1e54ca7898a0665f9ff47c40906921255bf
+  cache_update:
+    path: references_cache/PMID_42217781.txt
+    original_sha256: 2e8f099719c00807a49200790a3a93ff7b08168a7fc806b8450add79973d4dd5
+    updated_sha256: d21dec93a47eaf53a4f0c6e9faddde751f029f1f4ed8c4e8251e9759b8543414
+    primary_artifact: /private/tmp/communitymech-batch59/kefir-indexed-primary.txt
+    primary_artifact_sha256: 5b1f288d45d97b0559a74bb3b0cc8760bc60d73ce11ac354ed597d50981c1996
+    primary_url: https://www.journalofdairyscience.org/article/S0022-0302%2826%2902870-5/fulltext
+    license: CC BY4.0; attribution retained
+    quoted_words: 21
+    original_cache_is_exact_prefix: true
+    verified_excerpts:
+    - no significant effect of L. kefiri SLAM023B or strain interaction was detected
+    - with notable interaction effects
+    - cocultivation increased viable cell counts
+    retrieval_scope: Public indexed publisher body excerpts, not complete full text; direct403 not bypassed.
+    all_excerpts_matched_indexed_primary: true
+  edison_dry_run:
+    path: research/communities/Dairy_Wastewater_Algal_Cyanobacterial_Cultivation_Panel-edison-literature-causal-meta.yaml
+    sha256: 04042b5d68781891c536659bf65e140c24434038fdae8f27b497d2d0eae81487
+    query_sha256: 8b2c44ecfe4d09661ff2942ada98db2eac871d9262df75f977ef9629c176e788
+    query_chars: 10945
+    job: LITERATURE
+    status: dry-run
+    provider_submissions: 0
+    credits_spent: 0
+    paid_authorization: specific one-job request pending
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 390
+      mixed: 124
+      community_level_only: 266
+      taxa: 1505
+      credited_solely_by_the_rule: 1236
+    current:
+      records: 460
+      with_community_level: 390
+      mixed: 124
+      community_level_only: 266
+      taxa: 1505
+      credited_solely_by_the_rule: 1236
+  interpretation: Kefir retains four explicit community-level nodes after removing two procedures; dairy
+    retains its empty graph. Canonical taxonomy and both-root census remain unchanged.
+corpus:
+  records: 460
+  nodes: 1458
+  edges: 652
+  review_status_counts:
+    needs_research: 19
+    pending: 248
+    reviewed: 193
+limitations:
+- Kefir:all six original nodes and zero arrows reviewed; two procedural nodes removed and four biological/potential
+  nodes bounded. Five Oct02 workflow arrows are not restored. No new causal structure.
+- Kefir complete abstract and public indexed selected Methods/Results/Discussion, tables/main captions
+  read with gaps, not complete full body. Direct publisher403 not bypassed. Original figures, supplements
+  and raw data not inspected; comparator inconsistency remains explicit.
+- Dairy data-article full extracted main text/Methods/Tables1-3/main captions read. Related research PMID40946759
+  abstract/highlights only. Zero nodes/arrows remains needs_research under1537, not certified absence
+  of biological interactions.
+- Dairy one-community LITERATURE dry run retained exactly,10945 characters; zero provider calls/credits.
+  Specifically scoped paid submission/report pending. No duplicate job or new structure.
+- Canonical taxa and raw non-graph blocks preserved, not recertified. Kefir non-graph comparison/protocol
+  metadata1536 and dairy research1537 remain OPEN after the graph repair merge.
+- One cache gains21 primary-indexed verified excerpt words with original exact prefix preserved;919 other
+  caches unchanged. This is not a full-text cache or provenance certification of historical content.
+- 836 all-state issue titles/bodies searched;46 scoped ignored/hidden local matches. All six matching
+  issue bodies read, not every historical comment/PR or matching local file. Initial issue POST failed;
+  authoritative latest-issue readback preceded successful retry.
+- Self-adversarial review is COMMENT, not independent approval.1535 stays OPEN until protected-main merge.
+  SupportingReference coverage476, Linux DOI lookup1091 and writer artifact1095 remain pre-existing limitations.

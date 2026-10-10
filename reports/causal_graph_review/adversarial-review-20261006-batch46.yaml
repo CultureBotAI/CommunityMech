@@ -1,0 +1,184 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 038ac9ce75c9922efa357610386a34da7a313305
+scope:
+- kb/communities/Geobacter_Methanosaeta_DIET.yaml
+- kb/communities/Geobacter_Methanosarcina_DIET.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-methanogens-batch46.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch46.json
+findings:
+- issue: 1480
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate the donor reaction from aggregate formation and methane carbon allocation.; Retain
+    positive defined-coculture DIET while bounding aggregation and electron-entry claims.; Retain only
+    the CO2 methane route, explicitly not the missing acetate branch.
+  disposition: Close after protected main merge.
+- issue: 1482
+  severity: P2
+  status: open_incomplete_extension
+  finding: Source-supported acetate branch remains missing.
+  disposition: Keep open; complete authorized one-community Edison/report review and independently verified
+    curation before declaring the graph reviewed.
+- issue: 1481
+  severity: P2
+  status: addressed_in_this_change
+  finding: Retain donor-to-partner DIET and condition-dependent pili/GAC evidence; correct the donor carbon
+    reaction.; Bound the existing methane node to CO2 reduction without universal uniqueness or DIET-only
+    growth.; Retain the exact hcp-lag phenotype and hypothetical negative arrow without niche partitioning,
+    secretion or killing claims.
+  disposition: Close after protected main merge.
+- issue: 1483
+  severity: P2
+  status: open_incomplete_extension
+  finding: Source-supported acetate branch remains missing.
+  disposition: Keep open; complete authorized one-community Edison/report review and independently verified
+    curation before declaring the graph reviewed.
+adversarial_checks:
+- Both whole records, all six original nodes and all four arrows reviewed. Complete primary main bodies/Methods/captions
+  read for the two2014 studies and2023 T6SS study. Selected2014 figures inspected as specified in the
+  ledger; no2023 figure images, supplements, raw data or code audited.
+- 'Methanosaeta: replace environmental Geobacter/Methanosaeta concilii expression excerpts with independently
+  checked primary abstract excerpts about the defined G. metallireducens/M. harundinacea coculture. Preserve
+  positive DIET rather than demote demonstrated electron transfer to a generic hypothesis.'
+- 'Methanosaeta: distinguish the donor reaction, interspecies transfer and CO2 reduction. Pili-associated
+  initiation evidence is not a selective test of aggregate formation or direct measurement of conductivity
+  in these defined aggregates. Receiver proteins remain unresolved; both retained directions are bounded
+  to electron supply, not acetate-carbon routing.'
+- 'Methanosaeta: resolve the obsolete primary-access biological question using the primary figures, while
+  separately keeping the missing acetate graph branch OPEN under#1482. Roughly one-third CO2-derived methane
+  is a bounded stoichiometric/radiotracer interpretation, not an all-methane claim or an exact universal
+  fraction.'
+- 'Methanosarcina: retain the positive DIET and pilin/GAC evidence. Correct direct ethanol-carbon-to-CO2
+  wording; distinguish bulk methane from its CO2 route. Historical first-report wording does not mean
+  timeless uniqueness, and DIET-only growth without acetate was not established.'
+- 'Methanosarcina: preserve the exact hcp genotype/lag comparison but remove NICHE_PARTITIONING and unmeasured
+  secretion annotations. Discovery RNA-seq and GAC/AQDS controls involve G. sulfurreducens. Pleiotropic
+  EET changes prevent a selective T6SS-antagonism attribution; the retained negative arrow is explicitly
+  HYPOTHESIZED and refers to establishment timing, not killing.'
+- Do not import Methanosaeta radiotracer evidence into Methanosarcina. The Pelobacter/H2 comparator uses
+  a different medium, not a selective same-medium H2 switch. The inspected Gmet1868 curve has residual
+  methane; no new absolute zero-activity claim is added.
+- Both acetate branches remain incomplete, not silently absorbed into a CO2 node or declared unnecessary
+  for an easier passing graph. Both records remain needs_research under#1482/#1483. Separate dry runs
+  are hash-bound and cost0; no provider report, paid-job execution or authorization is fabricated.
+- Both graph diffs inspected. Two guarded records, two append-only histories and two regenerated pages.
+  All458 other records, all920 caches, taxonomy, non-graph raw blocks and prior histories preserved. Stronger
+  non-graph claims and the composite cached Methanosaeta Content are not certified.
+- All per-record gates passed;31 snippets match unchanged caches. Reference canaries included, but DOI
+  case-sensitivity and SupportingReference/provenance limitations remain explicit. Zero structural errors
+  and all34 prior network findings unchanged. Repeat renders deterministic and descriptions parser-checked
+  across456 pages without a browser screenshot claim.
+- Six focused tests plus historical/shared regressions passed. Canonical endpoints and explicit participants
+  preserved; registry and corrected connectivity census unchanged. No production auditor, ranker or census-bound
+  changes.
+- Dedup includes794 all-state issue titles/bodies and ignored/hidden local files;#1091/#751/#306 bodies
+  read. No duplication of existing cache/validator issues. Not every comment or PR review inspected.
+- Pre-source batch45 baseline and fresh pre-edit batch46 baseline distinguished. Selected record and all
+  cache hashes match across them. Self-adversarial review is not independent approval, graph expansion
+  completion or full-corpus completion. Exact-head COMMENT and actual post-commit docs-current remain
+  separate publication gates.
+verification:
+  combined_regressions: 461 passed in 211.31s (0:03:31)
+  new_regression_tests: 6
+  schema_strict_terms_history: Passed with actual outputs and digests
+  references: CLI Total checks counts reported issues, not executed checks. Both local runs exited0; this
+    does not certify Linux DOI-cache lookup (#1091), SupportingReference coverage (#476), independent
+    cache provenance (#1362) or scientific support.
+  snippet_counts_by_record:
+    kb/communities/Geobacter_Methanosaeta_DIET.yaml:
+      MATCH: 12
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Geobacter_Methanosarcina_DIET.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network:
+    existing_findings_preserved: 34
+    added_findings: {}
+    removed_findings: {}
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-methanogens-batch46.yaml: 655c8cf5bb1a6c8810c2afad82fb0083fe651ed4a72642857547fbe9483a2272
+    tests/test_causal_review_batch46.py: 83a759a575d1d3eaec5043dd25f2fd74a69939cbacf5cd32c7b1b3eff6b264cc
+    kb/communities/Geobacter_Methanosaeta_DIET.yaml: 8e194a9177b013c6db3e2dd9b4ed9744f06ca0379116f41a0f4ed62cf1d4fde1
+    kb/communities/Geobacter_Methanosarcina_DIET.yaml: b6b5f1714e6692936ca408e74dba44df4cbb9518a258c7c7203425998c2979e0
+    reports/causal_graph_review/README.md: 5ff428c05ffa0e218a58ab54d3551d32176e41a127fe0681fc19438d71f30ff2
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 388
+      mixed: 125
+      community_level_only: 263
+      taxa: 1496
+      credited_solely_by_the_rule: 1223
+    current:
+      records: 460
+      with_community_level: 388
+      mixed: 125
+      community_level_only: 263
+      taxa: 1496
+      credited_solely_by_the_rule: 1223
+  interpretation: Canonical endpoints and participants preserved; registry remains 194. No census bounds
+    or production matching logic changed.
+corpus:
+  records: 460
+  nodes: 1465
+  edges: 681
+  review_status_counts:
+    needs_research: 14
+    pending: 278
+    reviewed: 168
+edison:
+- community: Geobacter_Methanosaeta_DIET
+  issue: 1482
+  meta_path: /private/tmp/communitymech-batch45/edison/Geobacter_Methanosaeta_DIET-edison-literature-causal-meta.yaml
+  meta_sha256: 4a99808b7cd4b5ac10be8a8b63dfccb1f4c9e17d315966d3b38d31640867bb1d
+  query_sha256: e1f4b922bfcf60f8b40c0148c22b31e04c767f7ae8355be74783937c9a074b81
+  query_chars: 13233
+  job: LITERATURE
+  status: dry-run
+  provider_calls: 0
+  provider_credits_spent: 0
+  authorization: Specific async request pending; no paid run or report.
+- community: Geobacter_Methanosarcina_DIET
+  issue: 1483
+  meta_path: /private/tmp/communitymech-batch46/edison/Geobacter_Methanosarcina_DIET-edison-literature-causal-meta.yaml
+  meta_sha256: 14f5ea6d34fd2772d4721a607cc7321a4a981addce7ae479fa427c5973fe735d
+  query_sha256: 04978828f6bc783e3d6655b40e8ddc62d7f0eb9b50d1b777e6f770805442996c
+  query_chars: 13853
+  job: LITERATURE
+  status: dry-run
+  provider_calls: 0
+  provider_credits_spent: 0
+  authorization: Specific async request pending; no paid run or report.
+limitations:
+- Whole 445-line Methanosaeta and 501-line Methanosarcina records and all six nodes/four arrows reviewed.
+  Complete primary main bodies/Methods/captions read for both 2014 papers and the 2023 T6SS paper. Selected
+  2014 Figures 2-5 (Methanosaeta) and 1-3 (Methanosarcina) inspected; no 2023 figure images, separate
+  supplements, raw data or analysis code audited.
+- 'Existing-node/edge repairs only. Both acetate branches remain unimplemented new causal structure under
+  #1482/#1483; both records remain needs_research. Two separate dry runs spent no credits and produced
+  no provider reports; specific paid-job authorization remains pending.'
+- Canonical taxonomy, all non-graph raw blocks, prior history and all 920 caches are preserved, not certified.
+  Selected updated Methanosaeta excerpts were independently checked in the actual primary abstract; its
+  cached composite Content is not certified as a faithful complete abstract. Full copyrighted PDFs remain
+  temporary, not committed.
+- Research began after the batch45 pre-source baseline at batch44 head. Both selected records and caches
+  are unchanged at the fresh batch46 pre-edit baseline; the latter is not falsely described as preceding
+  all source reading.
+- Reference CLI Total checks counts reported issues, not executed checks. SupportingReference coverage
+  remains incomplete (#476); DOI cache casing remains a cross-platform limitation (#1091), and textual
+  matching is not provenance or scientific support (#1362).
+- Source-based self-adversarial review is not independent approval; protected-main merge and full-corpus
+  completion remain pending.

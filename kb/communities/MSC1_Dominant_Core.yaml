@@ -179,54 +179,78 @@ taxonomy:
       genera occupied positions of high centrality in the network
 ecological_interactions:
 - name: Chitin-Selected MSC-1 Stabilization
-  description: >
-    Serial enrichment on chitin/soil-extract agar selected MSC-1 as a stable,
-    naturally interacting arid-grassland soil consortium whose dominant members
-    persisted through extended passaging and two storage-revival cycles.
-  interaction_type: NICHE_PARTITIONING
+  description: Chitin-selected MSC-1 retained a broadly similar composition across prolonged passaging and storage-revival
+    cycles, with residual drift rather than invariant membership. The selected consortium had 31 detected bacterial
+    OTUs in Table 1 and Results, with its top 13 accounting for over 98% of reads; other source passages say approximately
+    35. The nine canonical participants represent an incomplete roster, not a defined nine-strain mixture. HYPOTHESIZED
+    - repeated co-enrichment could reflect metabolic codependencies, but persistence and selection on chitin/soil-extract
+    agar do not demonstrate obligate dependence, niche partitioning or measured chitin turnover.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: chitin
     term:
       id: CHEBI:17029
       label: chitin
-  biological_processes:
-  - preferred_term: chitin catabolic process
-    term:
-      id: GO:0006032
-      label: chitin catabolic process
-  downstream:
-  - target: NAG Positive Co-Cultures
-    description: >
-      MSC-1 stabilization by chitin enrichment motivated pairwise tests of
-      isolates growing on soluble N-acetylglucosamine, the chitin monomer.
-  - target: Soil Co-Abundance Central Hubs
-    description: >
-      The chitin-selected MSC-1 consortium was transferred to sterile soil
-      perturbation experiments whose abundance trajectories resolved central
-      co-abundance hubs.
+    notes: Selection-substrate context, not a directly quantified chitin-consumption or partner-transfer endpoint.
   evidence:
   - reference: PMID:32983014
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: 'This consortium was re-designated: Model Soil Consortium – 1 (MSC-1).'
-    explanation: Identifies MSC-1 as the stable model soil consortium selected
-      for detailed interaction analysis.
+    explanation: Identifies the selected MSC-1 consortium; persistence and residual compositional drift are described
+      in the primary Results, not evidence for metabolic necessity.
   - reference: PMID:32983014
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Because these species were co-enriched together over a 22-week period and through
-      two rounds of freezing and revival, we hypothesized that there existed metabolic
-      co-dependencies within MSC-1.
-    explanation: Links long-term co-enrichment and storage-revival stability to
-      suspected metabolic codependencies among MSC-1 members.
+    snippet: Because these species were co-enriched together over a 22-week period and through two rounds of freezing
+      and revival, we hypothesized that there existed metabolic co-dependencies within MSC-1.
+    explanation: The authors explicitly hypothesize codependencies from repeated co-enrichment; no selective dependence
+      test is supplied by this excerpt.
+  participating_taxa:
+  - preferred_term: Rhodococcus sp.
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  - preferred_term: Streptomyces sp.
+    term:
+      id: NCBITaxon:1931
+      label: Streptomyces sp.
+  - preferred_term: Dyadobacter sp.
+    term:
+      id: NCBITaxon:1914288
+      label: Dyadobacter sp.
+  - preferred_term: Taibaiella sp.
+    term:
+      id: NCBITaxon:1869185
+      label: Taibaiella sp.
+  - preferred_term: Bosea sp.
+    term:
+      id: NCBITaxon:85413
+      label: Allobosea
+  - preferred_term: Sphingopyxis sp.
+    term:
+      id: NCBITaxon:1908224
+      label: Sphingopyxis sp.
+  - preferred_term: Ensifer sp.
+    term:
+      id: NCBITaxon:1872086
+      label: Ensifer sp.
+  - preferred_term: Variovorax sp.
+    term:
+      id: NCBITaxon:1871043
+      label: Variovorax sp.
+  - preferred_term: Mycobacterium sp.
+    term:
+      id: NCBITaxon:1785
+      label: Mycobacterium sp.
 - name: NAG Positive Co-Cultures
-  description: >
-    Pairwise MSC-1 isolate assays in M9 plus N-acetylglucosamine detected
-    statistically significant positive interactions, including
-    Streptomyces-Rhodococcus, Streptomyces-Variovorax, Rhizobium-Rhodococcus,
-    and Ensifer-Rhodococcus co-cultures.
-  interaction_type: SYNTROPHY
+  description: Pairwise isolates in M9 with 10 mM soluble N-acetylglucosamine (NAG) showed higher early-exponential
+    optical density than the expected average of the two corresponding monocultures (p < 0.01 for reported positive
+    comparisons). Named examples include Streptomyces-Rhodococcus, Streptomyces-Variovorax, Rhizobium-Rhodococcus
+    and Ensifer-Rhodococcus. The difference was not significant in late exponential phase. Total OD does not resolve
+    each partner biomass, reciprocal benefit or obligate syntrophy, and these NAG assays do not measure chitin-polymer
+    degradation. The four canonical participants are a partial set of the named positive pairs; the source Rhizobium
+    isolate is not canonically resolved here, and V4 does not distinguish which Ensifer OTU matches the isolate.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Rhodococcus sp.
@@ -250,55 +274,55 @@ ecological_interactions:
     term:
       id: CHEBI:28009
       label: N-acetyl-beta-D-glucosamine
-  biological_processes:
-  - preferred_term: glucosamine catabolic process
-    term:
-      id: GO:0006046
-      label: N-acetylglucosamine catabolic process
+    notes: Supplied soluble NAG substrate, not proven interspecies donation. The retained beta-anomer grounding
+      is not independently recertified by this assay review.
   evidence:
   - reference: PMID:32983014
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Several of the combinations showed much higher growth than would be predicted including
-      Streptomyces paired with Rhodococcus, Streptomyces paired with Variovorax, and
-      Rhizobium paired with Rhodococcus.
-    explanation: Names MSC-1 isolate pairs with higher-than-predicted biomass in
-      NAG co-culture assays.
+    snippet: Several of the combinations showed much higher growth than would be predicted including Streptomyces
+      paired with Rhodococcus, Streptomyces paired with Variovorax, and Rhizobium paired with Rhodococcus.
+    explanation: Supports the named early-exponential total-OD association. The whole primary text states no significant
+      late-exponential difference; individual partner benefit or transfer is unresolved.
   - reference: PMID:32983014
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: observed Ensifer and Rhodococcus co-culture ODs were higher than predicted suggesting
-      positive interactions
-    explanation: Adds the Ensifer-Rhodococcus positive interaction that agreed
-      between NAG co-culture and the soil co-abundance network.
+    snippet: observed Ensifer and Rhodococcus co-culture ODs were higher than predicted suggesting positive interactions
+    explanation: Supports the named early-exponential total-OD association. The whole primary text states no significant
+      late-exponential difference; individual partner benefit or transfer is unresolved.
 - name: Soil Co-Abundance Central Hubs
-  description: >
-    Soil incubations across chitin, temperature, salt, and herbicide
-    perturbations produced a Pearson co-abundance network whose high-centrality
-    MSC-1 taxa included Rhodococcus, Mycobacterium, and Rhizobiales members.
-  interaction_type: NICHE_PARTITIONING
+  description: A Pearson network pooled normalized relative 16S abundances across soil-incubation conditions, replicate
+    samples and time points. Rhodococcus, Mycobacterium and Rhizobiales-associated OTUs had high betweenness centrality.
+    Rhizobiales is an order, not a genus or a verified isolate identity. The two explicit canonical participants
+    identify the named Rhodococcus and Mycobacterium subset, not every hub. Positive and negative co-abundance associations
+    can reflect common environmental or temporal responses; they do not establish pairwise facilitation, competition,
+    niche partitioning or keystone necessity. Soil chitin and liquid NAG assays are distinct contexts, and their
+    partly matching correlation signs do not establish a shared mechanism.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:32983014
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Rhodococcus had several positive and negative correlations with other genera of
-      MSC-1, including Streptomyces, Variovorax, and Delftia (negative) and Rhizobiales
-      (positive).
-    explanation: Supports Rhodococcus as a central MSC-1 co-abundance hub with
-      multiple positive and negative correlations.
+    evidence_source: COMPUTATIONAL
+    snippet: Rhodococcus had several positive and negative correlations with other genera of MSC-1, including Streptomyces,
+      Variovorax, and Delftia (negative) and Rhizobiales (positive).
+    explanation: Supports network associations computed from relative abundance data, not experimentally perturbed
+      interactions. The source calls Rhizobiales a genus, but it is an order.
   - reference: PMID:32983014
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: species of the Rhodococcus, Mycobacterium and Rhizobiales genera occupied positions
-      of high centrality in the network
-    explanation: Names the high-centrality genera in the MSC-1 soil
-      co-abundance network.
+    evidence_source: COMPUTATIONAL
+    snippet: species of the Rhodococcus, Mycobacterium and Rhizobiales genera occupied positions of high centrality
+      in the network
+    explanation: Supports network associations computed from relative abundance data, not experimentally perturbed
+      interactions. The source calls Rhizobiales a genus, but it is an order.
+  participating_taxa:
+  - preferred_term: Rhodococcus sp.
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  - preferred_term: Mycobacterium sp.
+    term:
+      id: NCBITaxon:1785
+      label: Mycobacterium sp.
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: OTHER
@@ -403,3 +427,37 @@ growth_media:
     snippet: The soil samples were incubated for 7 months at 20°C in the dark, with
       respiration used to monitor bioactivity once a week
     explanation: Gives the 20°C, dark enrichment incubation conditions.
+curation_history:
+- timestamp: '2026-10-02T05:57:41Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: 'Removed two downstream edges from chitin-selected MSC-1 stabilization to N-acetylglucosamine pairwise
+    coculture tests and soil co-abundance network analysis because they described follow-up assays rather than causal
+    transitions.
+
+    '
+  llm_assisted: true
+- timestamp: '2026-10-06T22:47:09Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate MSC1 persistence, early NAG growth and computational co-abundance from untested dependency.
+    Issue #1566; reports/causal_graph_review/decisions/20261006-soil-mucin-batch65.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: msc1_assay_and_network_limits
+  prompt: Which MSC-1 dependencies explain persistence and conditional coculture growth?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Chitin-Selected MSC-1 Stabilization
+  - ecological_interactions#NAG Positive Co-Cultures
+  - ecological_interactions#Soil Co-Abundance Central Hubs
+  rationale: 'Retain three observations and zero arrows, preserving the earlier workflow-edge deletion. Early total
+    OD on supplied soluble NAG is not partner-resolved benefit or late-phase improvement. Soil-network centrality
+    from pooled relative abundance is not causal interaction or keystone necessity. Canonical participants are explicitly
+    incomplete, and the source Table 1 maps the Rhizobium isolate to Rhizomicrobium OTU68; no new taxon equivalence
+    is asserted. Storage drift, 31-versus-35 OTUs, Sect_C_4-versus-C2 naming, herbicide dose and inconsistent positive/negative
+    Methods inequalities need separate reconciliation under #1569. Whole fresh primary body and main text table
+    read; figure pixels, separate supplements and raw data not audited.'
+  posed_by: codex
+  posed_date: '2026-10-06'

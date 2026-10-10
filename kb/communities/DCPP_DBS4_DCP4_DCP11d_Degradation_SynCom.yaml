@@ -1,0 +1,364 @@
+id: CommunityMech:000410
+name: DCPP DBS4-DCP-4-DCP-11d Degradation SynCom
+description: A metabolic-model-selected three-strain synthetic community composed of Sphingopyxis sp. DBS4, Sphingopyxis sp.
+  DCP-4, and Achromobacter sp. DCP-11d. Lin et al. built genome-scale metabolic models from five DCPP-enrichment isolates,
+  simulated 15 DBS4-containing two- to five-strain combinations, selected DBS4&DCP-4&DCP-11d as the optimal three-member DCPP
+  degrader, and experimentally verified its DCPP removal and predicted metabolite exchange in mineral medium and DCPP-contaminated
+  soil.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Use genome-scale metabolic modelling to simplify a five-isolate DCPP-degrading enrichment into a defined SynCom
+    that retains high DCPP degradation.
+  assembly_strategy: Construct community models for DBS4-containing strain combinations among Sphingopyxis sp. DBS4, Sphingopyxis
+    sp. DCP-4, Bosea sp. DCP-2, Pigmentiphaga sp. DCP-6d, and Achromobacter sp. DCP-11d; select the highest-performing three-strain
+    design, DBS4&DCP-4&DCP-11d, for in vitro metabolite validation and DCPP-degradation assays.
+  inoculation_strategy: Inoculate each strain in a candidate SynCom at equal representation in simulations and experiments,
+    then compare model-selected two-, three-, four-, and five-strain consortia.
+  perturbation_design: Assay DCPP removal in mineral medium with DCPP as the target carbon source, in DCPP-contaminated soil
+    microcosms, and after glucose addition as a predicted biostimulation perturbation.
+  measurement_endpoints:
+  - Predicted biomass in multi-strain community models
+  - DCPP degradation in mineral medium
+  - DCPP degradation in contaminated soil
+  - LC-MS detection of predicted exchanged metabolites
+  - DBS4 degradation response to exchanged metabolites and 2,4-DCP
+  evidence:
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the combination of DBS4, DCP‐4 and DCP‐11d (DBS4&DCP‐4&DCP‐11d) showed the maximum biomass production
+    explanation: Supports metabolic-model selection of DBS4, DCP-4, and DCP-11d as the best three-strain DCPP-degradation
+      SynCom.
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: optimal three‐strain SynCom DBS4&DCP‐4&DCP‐11d was comparable to that of the four‐ or five‐strain SynCom
+    explanation: Supports experimental validation that the simplified three-strain SynCom retained degradation activity comparable
+      to larger designs.
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The initial inoculation ratio was set to 1:1 in model simulations
+    explanation: Supports equal initial representation in the community-model simulations.
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: same 1:1 inoculation ratio was applied in experimental validation
+    explanation: Supports using the same equal-strain ratio in the wet-lab validation experiments.
+environment_term:
+  preferred_term: mineral-medium DCPP degradation flask
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The three-strain SynCom was selected by community metabolic models and tested in controlled mineral-medium DCPP shake-flask
+    assays.
+modeled_environment:
+- preferred_term: DCPP-contaminated soil
+  term:
+    id: ENVO:00002116
+    label: contaminated soil
+  notes: The simplified SynCom was derived from a DCPP-degrading enrichment originally obtained from contaminated soil and
+    was validated in DCPP-spiked soil microcosms.
+taxonomy:
+- taxon_term:
+    preferred_term: Sphingopyxis sp. DBS4
+    term:
+      id: NCBITaxon:165697
+      label: Sphingopyxis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source identifies DBS4 at genus level; no species-level assignment is asserted here.
+  strain_designation:
+    strain_name: DBS4
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Five strains, including Sphingopyxis sp. DBS4, Sphingopyxis sp. DCP‐4
+    explanation: Identifies Sphingopyxis sp. DBS4 as a member of the DCPP-degradation strain panel from which the three-strain
+      SynCom was selected.
+- taxon_term:
+    preferred_term: Sphingopyxis sp. DCP-4
+    term:
+      id: NCBITaxon:165697
+      label: Sphingopyxis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source identifies DCP-4 at genus level and reports (R)-DCPP degradation; no species-level assignment is asserted
+      here.
+  strain_designation:
+    strain_name: DCP-4
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Five strains, including Sphingopyxis sp. DBS4, Sphingopyxis sp. DCP‐4
+    explanation: Identifies Sphingopyxis sp. DCP-4 as a member of the DCPP-degradation strain panel from which the three-strain
+      SynCom was selected.
+- taxon_term:
+    preferred_term: Achromobacter sp. DCP-11d
+    term:
+      id: NCBITaxon:222
+      label: Achromobacter
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Achromobacter
+      gtdb_taxon: Achromobacter
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Achromobacter
+      ncbi_source_id: NCBITaxon:222
+      majority_fraction: 0.991
+      support_genomes: 325
+      total_genomes: 328
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
+        under the NCBI taxon]
+    notes: The source identifies DCP-11d at genus level and reports 2,4-DCP degradation; no species-level assignment is asserted
+      here.
+  strain_designation:
+    strain_name: DCP-11d
+  abundance_level: DOMINANT
+  functional_role:
+  - CROSS_FEEDER
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Achromobacter sp. DCP‐11d were used in this study.
+    explanation: Identifies Achromobacter sp. DCP-11d as a member of the DCPP-degradation strain panel from which the three-strain
+      SynCom was selected.
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DCP‐11d were all able to degrade 2,4‐DCP, an intermediate metabolite of DCPP
+    explanation: Supports DCP-11d as a helper able to catabolize the DCPP intermediate 2,4-DCP.
+ecological_interactions:
+- name: Model-selected DCPP degradation
+  description: Community metabolic modelling predicted DBS4&DCP-4&DCP-11d as the best three-strain SynCom, and shake-flask
+    and soil experiments validated that this simplified SynCom degraded DCPP comparably to the larger four- and five-strain
+    designs.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: DCPP
+    term:
+      id: CHEBI:75375
+      label: dichlorprop
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  evidence:
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the combination of DBS4, DCP‐4 and DCP‐11d (DBS4&DCP‐4&DCP‐11d) showed the maximum biomass production
+    explanation: Supports the community-model prediction that selected DBS4&DCP-4&DCP-11d as the optimal three-strain community.
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: optimal three‐strain SynCom DBS4&DCP‐4&DCP‐11d was comparable to that of the four‐ or five‐strain SynCom
+    explanation: Supports wet-lab validation that the simplified three-strain community preserved DCPP-degradation performance.
+- name: DBS4 to DCP-11d 2,4-DCP detoxification
+  description: The community model predicted 2,4-DCP flow from DBS4 to DCP-11d; experiments then confirmed that the intermediate
+    2,4-DCP inhibits DBS4 DCPP degradation and that DCP-11d relieves this inhibition by consuming 2,4-DCP.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Sphingopyxis sp. DBS4
+    term:
+      id: NCBITaxon:165697
+      label: Sphingopyxis
+  target_taxon:
+    preferred_term: Achromobacter sp. DCP-11d
+    term:
+      id: NCBITaxon:222
+      label: Achromobacter
+  metabolites:
+  - preferred_term: 2,4-DCP
+    term:
+      id: CHEBI:16738
+      label: 2,4-dichlorophenol
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  evidence:
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the model predicted the metabolic flow of the intermediate 2,4‐DCP from the degrader strain DBS4 to the helper strain
+      DCP‐11d
+    explanation: Supports the model-derived 2,4-DCP edge from DBS4 to the helper strain DCP-11d.
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2,4‐DCP inhibits the degradation activity of DBS4, while DCP‐11d alleviates this inhibition
+    explanation: Supports DCP-11d detoxification of the inhibitory DCPP intermediate produced by DBS4.
+- name: Predicted exchanged metabolite validation
+  description: LC-MS analysis of DBS4&DCP-4&DCP-11d co-culture detected six of seven metabolites predicted by the community
+    model, supporting but not fully quantifying the predicted exchange network.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Sphingopyxis sp. DBS4
+    term:
+      id: NCBITaxon:165697
+      label: Sphingopyxis
+  - preferred_term: Sphingopyxis sp. DCP-4
+    term:
+      id: NCBITaxon:165697
+      label: Sphingopyxis
+  - preferred_term: Achromobacter sp. DCP-11d
+    term:
+      id: NCBITaxon:222
+      label: Achromobacter
+  evidence:
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the optimal consortium (DBS4&DCP‐4&DCP‐11d) was used to detect the secreted metabolites
+    explanation: Supports that the three curated strains were co-cultured for metabolite detection.
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Except for D‐glucosamine, the other six substances were successfully detected by LC–MS
+    explanation: Supports LC-MS detection of most predicted exchanged metabolites in the DBS4&DCP-4&DCP-11d co-culture.
+environmental_factors:
+- name: DCPP herbicide
+  value: sole carbon source in mineral medium
+  description: Dichlorprop was the target pollutant and sole carbon source in the mineral-medium simulations and shake-flask
+    assays.
+  evidence:
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 30 mg/L of DCPP as the sole carbon and nitrogen source at 30°C and 180 rpm
+    explanation: Supports DCPP as the supplied pollutant in the mineral-medium co-culture assay.
+- name: Soil DCPP spike
+  value: '5'
+  unit: mg/kg
+  description: DCPP-spiked soil was used to test whether the simplified SynCom degraded the pesticide outside liquid mineral
+    medium.
+  evidence:
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Soil samples containing 5 mg/kg of DCPP
+    explanation: Supports the DCPP concentration used in the soil validation assay.
+growth_media:
+- name: DCPP mineral-medium co-culture
+  composition:
+  - name: NH4Cl
+    concentration: '1.0'
+    unit: g/L
+  - name: KH2PO4
+    concentration: '0.5'
+    unit: g/L
+  - name: K2HPO4
+    concentration: '1.5'
+    unit: g/L
+  - name: NaCl
+    concentration: '1.0'
+    unit: g/L
+  - name: MgSO4·7 H2O
+    concentration: '0.2'
+    unit: g/L
+  - name: DCPP
+    concentration: '30'
+    unit: mg/L
+    chebi_term:
+      preferred_term: DCPP
+      term:
+        id: CHEBI:75375
+        label: dichlorprop
+  ph: 7.0
+  temperature: 30
+  temperature_unit: °C
+  incubation_time: 15
+  incubation_time_unit: h
+  preparation_notes: DBS4, DCP-4, and DCP-11d were co-cultured in MM with 30 mg/L DCPP as the supplied pesticide for LC-MS
+    screening of predicted exchanged metabolites.
+  evidence:
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 1.0 g NH4Cl, 0.5 g KH2PO4, 1.5 g K2HPO4, 1.0 g NaCl, and 0.2 g MgSO4·7 H2O per litre of water
+    explanation: Supports the mineral-medium salt formulation used in the DCPP study.
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: pH = 7.0
+    explanation: Supports the neutral pH of the mineral medium.
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 30 mg/L of DCPP as the sole carbon and nitrogen source at 30°C and 180 rpm for 15 h
+    explanation: Supports the DCPP concentration, temperature, shaking speed, and duration used for metabolite-exchange validation.
+external_resources:
+- name: Primary publication - DCPP DBS4-DCP-4-DCP-11d SynCom
+  repository: OTHER
+  resource_id: PMID:42613016
+  url: https://pubmed.ncbi.nlm.nih.gov/42613016/
+  description: PubMed record for the Environ Microbiol metabolic-modelling study that designed and experimentally validated
+    the DBS4&DCP-4&DCP-11d DCPP-degradation SynCom.
+  evidence:
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Metabolic Modelling Facilitates the Design of Synthetic Communities by Simplifying Natural Microbial Communities.
+    explanation: Identifies the primary publication for the curated DCPP-degradation SynCom.
+- name: Publication DOI - DCPP DBS4-DCP-4-DCP-11d SynCom
+  repository: OTHER
+  resource_id: doi:10.1111/1462-2920.70404
+  url: https://doi.org/10.1111/1462-2920.70404
+  description: DOI for the primary Environ Microbiol study of the DBS4&DCP-4&DCP-11d DCPP-degradation SynCom.
+  evidence:
+  - reference: PMID:42613016
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.1111/1462-2920.70404'
+    explanation: Supports the DOI for the primary DCPP SynCom publication.
+discussions:
+- discussion_id: dcpp_syncom_mechanism_quantification
+  prompt: What are the relative quantitative contributions of nutrient cross-feeding and 2,4-DCP detoxification to enhanced
+    DBS4&DCP-4&DCP-11d DCPP degradation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#DBS4 to DCP-11d 2,4-DCP detoxification
+  - ecological_interactions#Predicted exchanged metabolite validation
+  rationale: The authors state that both cross-feeding and intermediate detoxification can enhance degradation, but that their
+    wet-lab experiments validated model predictions rather than quantitatively dissecting the mechanisms. Further perturbation
+    or isotope-tracing experiments would be needed to apportion their relative contributions.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for this DCPP-degradation synthetic community.
+curation_history:
+- timestamp: '2026-09-21T17:27:29Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000410 for the metabolic-model-selected DBS4&DCP-4&DCP-11d DCPP-degradation SynCom from PMID:42613016,
+    including exact three-strain membership, optimal-combination evidence, 2,4-DCP detoxification, predicted metabolite-exchange
+    validation, mineral-medium DCPP co-culture conditions, and soil DCPP validation.
+  llm_assisted: true
+- timestamp: '2026-09-21T17:32:31Z'
+  curator: codex
+  action: FIX_EVIDENCE_SNIPPETS
+  changes: 'Addressed adversarial-review issues #1019, #1020, #1021, and #1022 by retargeting the pairwise 2,4-DCP model-flow
+    evidence, adding direct 1:1 inoculation evidence, and adding direct mineral-medium pH and 15 h co-culture evidence.'
+  llm_assisted: true
+- timestamp: '2026-09-21T17:38:25Z'
+  curator: codex
+  action: FIX_NETWORK_INTEGRITY
+  changes: 'Addressed CI issue #1024 by removing a free-text downstream target from the pairwise 2,4-DCP interaction.'
+  llm_assisted: true

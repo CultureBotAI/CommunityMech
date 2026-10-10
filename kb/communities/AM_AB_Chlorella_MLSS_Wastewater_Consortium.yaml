@@ -1,0 +1,245 @@
+id: CommunityMech:000444
+name: AM-AB Chlorella-MLSS Wastewater Consortium
+description: A microalga-bacteria wastewater-treatment consortium assembled by combining activated Chlorella vulgaris with
+  separately activated mixed liquor suspended solids (MLSS) bacteria in an outdoor high-rate algal pond. Kumar et al. 2026
+  called this pairing an activated microalgae-activated bacteria, or AM-AB, consortium and reported rapid nitrogen,
+  phosphate, and biological oxygen demand removal during biological wastewater treatment.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Pair activated C. vulgaris with activated MLSS bacteria to improve biological wastewater treatment and biomass
+    production in an outdoor high-rate algal pond.
+  assembly_strategy: Activate C. vulgaris separately in suboptimal nutrient concentrations, activate bacterial MLSS separately,
+    and incorporate the activated MLSS into activated C. vulgaris to assemble the AM-AB consortium.
+  perturbation_design: Evaluate wastewater-treatment kinetics after incorporating activated MLSS into activated C. vulgaris.
+  measurement_endpoints:
+  - total nitrogen removal
+  - phosphate removal
+  - ammonia substrate affinity
+  - biological oxygen demand reduction
+  - biomass production
+  evidence:
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Chlorella vulgaris and mixed liquor suspended solids (MLSSs) bacterial consortium for wastewater treatment in an
+      outdoor high-rate algal pond (HRAP)
+    explanation: Identifies C. vulgaris, the MLSS bacterial consortium, wastewater treatment, and the outdoor HRAP setting.
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Separately activated bacterial MLSS was incorporated into activated C. vulgaris, making an AM-AB consortium
+    explanation: Supports the assembly step that combines activated MLSS bacteria with activated C. vulgaris.
+environment_term:
+  preferred_term: outdoor high-rate algal pond wastewater treatment system
+  term:
+    id: ENVO:00002043
+    label: wastewater treatment plant
+  notes: Outdoor HRAP wastewater-treatment system used to evaluate AM-AB biological wastewater treatment.
+modeled_environment:
+- preferred_term: wastewater
+  term:
+    id: ENVO:00002001
+    label: waste water
+  notes: Wastewater was the treatment matrix for the AM-AB consortium; the PubMed abstract does not identify its exact source
+    or initial chemistry.
+taxonomy:
+- taxon_term:
+    preferred_term: Chlorella vulgaris
+    term:
+      id: NCBITaxon:3077
+      label: Chlorella vulgaris
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic green microalga activated before assembly of the AM-AB consortium; GTDB does not classify eukaryotes.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: combining Chlorella vulgaris and mixed liquor suspended solids
+    explanation: Identifies C. vulgaris as the microalgal member combined with the MLSS bacterial consortium.
+- taxon_term:
+    preferred_term: Activated MLSS bacterial consortium
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    gtdb_grounding_status: GROUNDED
+    notes: Mixed-liquor suspended-solids bacterial partner; the PubMed abstract does not resolve the activated MLSS consortium
+      below the bacterial domain.
+    gtdb_classification:
+      gtdb_id: GTDB:d__Bacteria
+      gtdb_taxon: Bacteria
+      gtdb_lineage: d__Bacteria
+      ncbi_source_id: NCBITaxon:2
+      majority_fraction: 1.0
+      support_genomes: 1603049
+      total_genomes: 1603049
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+  abundance_value: Activated bacterial MLSS inoculated into activated C. vulgaris to assemble the AM-AB consortium.
+  evidence:
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mixed liquor suspended solids (MLSSs) bacterial consortium
+    explanation: Identifies the bacterial member pool as a consortium from mixed liquor suspended solids.
+ecological_interactions: []
+environmental_factors:
+- name: Chlorella nutrient activation
+  value: 0.1x standard commercial medium for 2 days
+  description: C. vulgaris was nutrient-activated before AM-AB assembly by pre-cultivation under suboptimal nutrient
+    concentrations relative to the standard commercial medium.
+  evidence:
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. vulgaris was activated separately in suboptimal nutrient concentrations
+    explanation: Supports the microalgal activation step before AM-AB assembly.
+- name: Nitrogen removal
+  value: 99.9% after 6 h
+  description: The AM-AB consortium removed 99.9% of nitrogen after six hours of wastewater treatment.
+  evidence:
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: nitrogen removal efficiency of 99.9% after 6-h treatment
+    explanation: Quantifies rapid nitrogen removal by the AM-AB consortium.
+- name: Phosphate removal
+  value: '<0.01 mg/L after 2 h'
+  description: The AM-AB treatment removed phosphate to below 0.01 mg/L within two hours.
+  evidence:
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: complete removal of phosphate
+    explanation: Supports the phosphate removal endpoint for the AM-AB consortium.
+- name: Total-nitrogen specific removal rate
+  value: 49.81 mg/g/h
+  description: The maximum specific removal rate for total nitrogen reached 49.81 mg per gram per hour in the AM-AB treatment.
+  evidence:
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The maximum specific removal rate for total nitrogen reached 49.81
+    explanation: Supports the reported maximum total-nitrogen specific removal rate.
+- name: BOD reduction
+  value: 81.73%
+  description: Biological oxygen demand decreased by 81.73% during AM-AB wastewater treatment.
+  evidence:
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The consortium achieved 81.73% BOD reduction
+    explanation: Quantifies biological oxygen demand reduction by the consortium.
+growth_media:
+- name: wastewater outdoor HRAP medium
+  inoculum_source: Activated Chlorella vulgaris and activated bacterial mixed liquor suspended solids
+  vessel_type: outdoor high-rate algal pond
+  preparation_notes: C. vulgaris was activated separately in 0.1x suboptimal nutrients for two days before wastewater
+    treatment; separately activated bacterial MLSS was then incorporated into the activated C. vulgaris culture to form the
+    AM-AB consortium.
+  evidence:
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. vulgaris was activated separately in suboptimal nutrient concentrations
+    explanation: Supports pre-activation of the microalgal inoculum.
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Separately activated bacterial MLSS was incorporated into activated C. vulgaris
+    explanation: Supports the activated MLSS addition step for AM-AB assembly.
+cultivation_setup:
+- system_type: PHOTOBIOREACTOR
+  instrument_detail: Outdoor high-rate algal pond used for AM-AB biological wastewater treatment.
+  notes: The PubMed abstract names the outdoor HRAP setting but does not report the pond geometry, working volume, light
+    conditions, temperature, or hydraulic retention time.
+  evidence:
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: outdoor high-rate algal pond (HRAP)
+    explanation: Supports the outdoor HRAP cultivation system.
+external_resources:
+- name: Primary publication - AM-AB Chlorella-MLSS wastewater consortium
+  repository: OTHER
+  resource_id: PMID:42429207
+  url: https://pubmed.ncbi.nlm.nih.gov/42429207/
+  description: PubMed record for the Water Environment Research study reporting an activated microalgae-activated MLSS bacteria
+    consortium for outdoor high-rate algal pond wastewater treatment.
+  evidence:
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Activated Microalgae-Activated MLSS Bacteria Consortium Synergistically Improves
+    explanation: Identifies the PubMed-indexed primary publication for the curated AM-AB consortium.
+- name: Publication DOI - AM-AB Chlorella-MLSS wastewater consortium
+  repository: OTHER
+  resource_id: doi:10.1002/wer.70489
+  url: https://doi.org/10.1002/wer.70489
+  description: DOI for the Water Environment Research study of the AM-AB Chlorella-MLSS wastewater consortium.
+  evidence:
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.1002/wer.70489'
+    explanation: Supports the DOI assigned to the primary AM-AB consortium publication.
+discussions:
+- discussion_id: am_ab_hrAp_conditions
+  prompt: Which reported HRAP conditions can now be curated from the full text, and which outdoor operating conditions
+    remain unspecified?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy#Activated MLSS bacterial consortium
+  - growth_media#wastewater outdoor HRAP medium
+  - cultivation_setup
+  rationale: The full primary Methods and Tables 1-3 are now available and identify wastewater/sludge sources, activation,
+    pond geometry, inoculation and initial chemistry. These are no longer abstract-access gaps. Reconcile the non-graph
+    fields with those sections; do not transfer indoor algal-stock light and temperature settings to outdoor treatment.
+    The graph review leaves that metadata curation separate.
+- discussion_id: am_ab_control_bounded_graph_extension
+  prompt: Which consortium-level treatment effects and qualified mechanisms belong in the currently empty graph?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions
+  rationale: The primary study compares the combined culture with activated algae alone. Retain improved late total-nitrogen
+    removal, but early nitrogen removal is slower, phosphate reaches the detection limit in both conditions, and
+    BOD removal is not uniformly better. Biomass correlations do not establish a transfer mechanism. New nodes require
+    a separately authorized Edison causal-graph review; none were added in this repair pass.
+  evidence:
+  - reference: PMID:42429207
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: phycoremediation using the AM–AB consortium delayed the removal of nitrogen compared to standalone
+      activated C. vulgaris treatment
+    explanation: The algae-only control prevents an unqualified faster-removal or universal-synergy graph.
+  posed_by: codex
+  posed_date: '2026-10-08'
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for the AM-AB Chlorella-MLSS wastewater consortium.
+curation_history:
+- timestamp: '2026-09-27T01:25:49Z'
+  curator: codex
+  action: CREATE_AM_AB_CHLORELLA_MLSS_WASTEWATER_CONSORTIUM
+  changes: Created CommunityMech:000444 from PMID:42429207 and DOI 10.1002/wer.70489 with evidence-backed C. vulgaris
+    and activated MLSS bacterial membership, AM-AB assembly, outdoor HRAP wastewater-treatment context, and nitrogen,
+    phosphate, and BOD endpoints.
+  llm_assisted: true
+- timestamp: '2026-09-27T01:32:47Z'
+  curator: codex
+  action: FIX_AM_AB_ENVIRONMENT_TERM
+  changes: Addressed issue 1130 by regrounding the AM-AB outdoor HRAP environment from laboratory environment to
+    wastewater treatment plant while keeping the wastewater treatment matrix under modeled_environment.
+  llm_assisted: true
+- timestamp: '2026-10-08T17:51:29Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Review empty graph against full-text controls; retain a substantive extension gap without inventing nodes,
+    and update the stale abstract-access discussion. Issue#1968; reports/causal_graph_review/decisions/20261008-six-records-batch124.yaml
+  llm_assisted: true

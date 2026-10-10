@@ -1,0 +1,394 @@
+id: CommunityMech:000450
+name: Ogataea Met10-Str3 Sulfur Cross-Feeding Coculture
+description: A defined two-member Ogataea polymorpha synthetic yeast coculture pairing a met10Δ-mCherry auxotroph, FY34, with
+  a str3Δ-EGFP auxotroph, FY31. The pair was selected from systematic auxotroph screening because it showed reproducible growth
+  restoration in Delft minimal medium with glucose or methanol; single-strain supplementation assays supported an asymmetric
+  sulfur-metabolite dependency in which met10Δ could use multiple sulfur-containing intermediates while str3Δ depended on
+  homocysteine.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Establish auxotrophy-based cross-feeding as a stabilization strategy for synthetic consortia in the non-conventional
+    methylotrophic yeast Ogataea polymorpha.
+  assembly_strategy: Construct Ogataea polymorpha auxotrophic mutants in the JQcr03L background with CRISPR/Cas9, screen pairwise
+    combinations in Delft minimal glucose medium, then fluorescently tag the met10Δ-str3Δ pair as FY34 met10Δ-mCherry and
+    FY31 str3Δ-EGFP for composition tracking.
+  perturbation_design: Compare met10Δ-str3Δ against other pairwise auxotrophic mutants, glucose versus 10 or 20 g/L methanol
+    as the sole carbon source, and initial met10Δ:str3Δ inoculation ratios from 1:10 to 10:1.
+  measurement_endpoints:
+  - maximum OD600
+  - lag phase
+  - growth restoration on glucose
+  - growth restoration on methanol
+  - met10Δ fraction by red and green fluorescence
+  - response to 20 mg/L sulfur-containing supplements
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we establish an auxotrophy-based cross-feeding strategy in the non-conventional yeast Ogataea polymorpha
+    explanation: Supports the engineered cross-feeding design in O. polymorpha.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: met10Δ-str3Δ, met14Δ-str3Δ, and met10Δ-met3Δ all achieved RI > 0.8, suggesting that these combinations are capable
+      of robust reciprocal cross-feeding.
+    explanation: Shows that met10Δ-str3Δ was one of several strongly complementary screened pairs.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Among all tested pairs, met10Δ-str3Δ and str3Δ-leu2Δ exhibited the most reproducible and robust complementation.
+    explanation: Supports choosing the met10Δ-str3Δ pair for focused curation.
+environment_term:
+  preferred_term: engineered methylotrophic yeast auxotroph coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: A constructed O. polymorpha pair grown in Delft minimal medium for laboratory cross-feeding assays.
+taxonomy:
+- taxon_term:
+    preferred_term: Ogataea polymorpha FY34 met10Δ-mCherry
+    term:
+      id: NCBITaxon:460523
+      label: Ogataea polymorpha
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Engineered Ogataea polymorpha sulfur-assimilation auxotroph from the JQcr03L laboratory background.
+  strain_designation:
+    strain_name: FY34 met10Δ-mCherry
+    genetic_modification: MET10 deletion in the O. polymorpha JQcr03L background with URA3 restored and mCherry integrated
+      for fluorescence-based population tracking.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For population dynamics studies, FY31 (str3Δ-EGFP) and FY34 (met10Δ-mCherry) were used.
+    explanation: Identifies the fluorescent strains used to track the two members in met10Δ-str3Δ cocultures.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All gene deletions and fluorescent marker integrations were verified by PCR.
+    explanation: Supports the engineered deletion and fluorescent-marker status of the tracked auxotrophic member.
+- taxon_term:
+    preferred_term: Ogataea polymorpha FY31 str3Δ-EGFP
+    term:
+      id: NCBITaxon:460523
+      label: Ogataea polymorpha
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Engineered Ogataea polymorpha sulfur-assimilation auxotroph from the JQcr03L laboratory background.
+  strain_designation:
+    strain_name: FY31 str3Δ-EGFP
+    genetic_modification: STR3 deletion in the O. polymorpha JQcr03L background with URA3 restored and EGFP integrated for
+      fluorescence-based population tracking.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For population dynamics studies, FY31 (str3Δ-EGFP) and FY34 (met10Δ-mCherry) were used.
+    explanation: Identifies the fluorescent strains used to track the two members in met10Δ-str3Δ cocultures.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All gene deletions and fluorescent marker integrations were verified by PCR.
+    explanation: Supports the engineered deletion and fluorescent-marker status of the tracked auxotrophic member.
+ecological_interactions:
+- name: MET10-STR3 Sulfur Auxotrophy Cross-Feeding
+  description: The met10Delta-str3Delta O. polymorpha pair showed reproducible growth complementation in Delft minimal
+    medium on glucose and methanol. The reported glucose maximum OD600 range 27.3-28.5 spans this pair and str3Delta-leu2Delta,
+    with no significant advantage over FY00 (26.8); methanol growth remained below FY00. FY34 met10Delta-mCherry
+    and FY31 str3Delta-EGFP were the labeled derivatives used for population tracking, not identities established
+    for every screening assay. Cooperative rescue is observed; specific sulfur exchange remains inferred.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Ogataea polymorpha FY34 met10Δ-mCherry
+    term:
+      id: NCBITaxon:460523
+      label: Ogataea polymorpha
+  - preferred_term: Ogataea polymorpha FY31 str3Δ-EGFP
+    term:
+      id: NCBITaxon:460523
+      label: Ogataea polymorpha
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The met10Δ and str3Δ mutants harbor deletions in the sulfur assimilation pathway at MET10 and STR3,
+      respectively.
+    explanation: Places the two deletions in the sulfur-assimilation pathway.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The strongly complementary pairs (met10Δ-str3Δ and str3Δ-leu2Δ) reached maximum OD600 values of 27.3–28.5
+    explanation: Reports the range across two complementary pairs, not an exact value or significant superiority
+      for this pair alone.
+- name: Asymmetric Homocysteine Dependency
+  description: HYPOTHESIZED - The model proposes homocysteine supply from met10Delta to str3Delta and multiple organic
+    sulfur intermediates in the reverse direction. Single-strain supplementation at 20 mg/L restored met10Delta
+    growth with L-cysteine, cystathionine or homocysteine, but not sodium sulfide; str3Delta recovered substantially
+    only with homocysteine among the tested compounds. These are demonstrated nutrient-rescue profiles, not measured
+    interstrain transfer, secretion, exchange rates or an exhaustive nutrient requirement. The paper calls for isotope
+    labeling or targeted metabolomics to identify coculture exchange.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Ogataea polymorpha FY34 met10Δ-mCherry
+    term:
+      id: NCBITaxon:460523
+      label: Ogataea polymorpha
+  target_taxon:
+    preferred_term: Ogataea polymorpha FY31 str3Δ-EGFP
+    term:
+      id: NCBITaxon:460523
+      label: Ogataea polymorpha
+  evidence:
+  - reference: PMID:42318495
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: met10Δ can utilize multiple sulfur-containing intermediates, whereas str3Δ relies exclusively on homocysteine.
+    explanation: Abstract summarizes asymmetric use of the tested supplements; this only partially supports the
+      directed exchange model.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: met10Δ recovered growth in the presence of L-Cys, Cysta, or Hcy, but not with Na2S. str3Δ, by contrast,
+      showed substantial growth recovery only with Hcy.
+    explanation: Directly supports single-strain supplementation outcomes, not donor-to-recipient transfer.
+- name: Initial Ratio-Dependent Met10 Enrichment
+  description: Controlled initial met10Delta:str3Delta ratios at total OD600 0.4 changed growth and composition
+    on glucose. Ratios 1:10, 1:5 and 1:1 achieved higher final biomass, with met10Delta fractions increasing; 5:1
+    and 10:1 maintained met10Delta dominance but grew weakly. Endpoint composition was generally met10Delta-biased
+    at 168 h, not evidence that every culture increased its met10Delta fraction, grew robustly or converged to one
+    identical ratio. Longer-term continuous and product-producing stability was not established.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Ogataea polymorpha FY34 met10Δ-mCherry
+    term:
+      id: NCBITaxon:460523
+      label: Ogataea polymorpha
+  - preferred_term: Ogataea polymorpha FY31 str3Δ-EGFP
+    term:
+      id: NCBITaxon:460523
+      label: Ogataea polymorpha
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Communities with initially higher frequencies of str3Δ (1:10, 1:5, and 1:1 groups) achieved higher
+      final OD600 values.
+    explanation: Supports the positive ratio-dependent biomass response.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In contrast, groups initially dominated by met10Δ (5:1 and 10:1) showed weak growth throughout.
+    explanation: Distinguishes maintained compositional bias from successful high-biomass establishment.
+growth_media:
+- name: Delft minimal glucose medium
+  temperature: '37'
+  temperature_unit: °C
+  shaking_speed: '220'
+  shaking_speed_unit: rpm
+  vessel_type: 100 mL flask
+  composition:
+  - name: glucose
+    concentration: '20'
+    unit: g/L
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+  preparation_notes: Glucose screening cocultures started at total OD600 0.2 and a 1:1 strain ratio; fluorescence-based FY31/FY34
+    population tracking started at total OD600 0.4 across 1:10, 1:5, 1:1, 5:1, and 10:1 met10Δ:str3Δ ratios.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: glucose (20 g/L) was used as the carbon source.
+    explanation: Supports the standard 20 g/L glucose carbon source.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Initial ratios of met10Δ to str3Δ were set at 1:10, 1:5, 1:1, 5:1, and 10:1.
+    explanation: Supports the glucose population-tracking ratio series.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For screening under glucose conditions, co-cultures were initiated in Delft medium containing 20 g/L glucose
+      at an initial total OD600 of 0.2 with a 1:1 strain ratio.
+    explanation: Supports the glucose screening inoculation density and 1:1 starting ratio.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: FY31 (str3Δ-EGFP) and FY34 (met10Δ-mCherry) were co-cultured in Delft medium containing 20 g/L glucose at an
+      initial total OD600 of 0.4.
+    explanation: Supports the FY31/FY34 fluorescence-tracking inoculation density.
+- name: Delft minimal methanol medium
+  temperature: '37'
+  temperature_unit: °C
+  shaking_speed: '220'
+  shaking_speed_unit: rpm
+  vessel_type: 100 mL flask
+  composition:
+  - name: methanol
+    concentration: 10 or 20
+    unit: g/L
+    chebi_term:
+      preferred_term: methanol
+      term:
+        id: CHEBI:17790
+        label: methanol
+  preparation_notes: Methanol complementation tests replaced glucose with 10 or 20 g/L methanol, used the methanol as sole
+    carbon source, and started at total OD600 0.6.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For methanol experiments, Delft medium containing 10 or 20 g/L methanol was used as the sole carbon source.
+    explanation: Supports the methanol-only Delft medium condition.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: met10Δ-str3Δ consistently performed well under both methanol concentrations and was selected for further characterization.
+    explanation: Supports met10Δ-str3Δ complementation on both methanol concentrations.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For methanol experiments, Delft medium containing 10 or 20 g/L methanol was used as the sole carbon source. The
+      initial total OD600 was set to 0.6.
+    explanation: Supports the methanol-only medium and the 0.6 initial total OD600.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  working_volume: 20.0
+  working_volume_unit: mL
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  notes: O. polymorpha cultures were routinely run as shaken 20 mL cultures in 100 mL flasks at 37 °C and 220 rpm.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: O. polymorpha strains were routinely cultivated in Delft minimal medium at 37 °C with shaking at 220 rpm in 100
+      mL flasks containing 20 mL medium.
+    explanation: Supports the shaken-flask cultivation setup for O. polymorpha strains.
+related_ingredients:
+- preferred_term: L-cysteine
+  relevance: L-cysteine rescued met10Δ growth in the sulfur-intermediate supplementation assay.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: met10Δ recovered growth in the presence of L-Cys, Cysta, or Hcy, but not with Na2S.
+    explanation: Identifies L-cysteine as one of the intermediates that restored met10Δ growth.
+- preferred_term: cystathionine
+  relevance: Cystathionine rescued met10Δ growth in the sulfur-intermediate supplementation assay.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: met10Δ recovered growth in the presence of L-Cys, Cysta, or Hcy, but not with Na2S.
+    explanation: Identifies cystathionine as one of the intermediates that restored met10Δ growth.
+- preferred_term: homocysteine
+  relevance: Homocysteine restored growth for both met10Δ and str3Δ single mutants and was the only sulfur intermediate that
+    substantially rescued str3Δ.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: str3Δ, by contrast, showed substantial growth recovery only with Hcy.
+    explanation: Identifies homocysteine as the rescuing intermediate for the str3Δ auxotroph.
+environmental_factors:
+- name: initial met10Δ:str3Δ ratio
+  description: Initial FY34:FY31 ratios spanning 1:10 through 10:1 were used to test how starting composition controlled final
+    biomass and population reorganization.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Initial ratios of met10Δ to str3Δ were set at 1:10, 1:5, 1:1, 5:1, and 10:1.
+    explanation: Lists the inoculation-ratio series.
+external_resources:
+- name: Primary publication - Ogataea sulfur cross-feeding coculture
+  repository: OTHER
+  resource_id: PMID:42318495
+  url: https://pubmed.ncbi.nlm.nih.gov/42318495/
+  description: Synthetic and Systems Biotechnology article reporting the Ogataea polymorpha met10Δ-str3Δ auxotrophic cross-feeding
+    consortium.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Engineering an asymmetric cross-feeding consortium in Ogataea polymorpha driven by sulfur metabolism
+    explanation: Identifies the primary publication title.
+- name: DOI for the Ogataea sulfur cross-feeding article
+  repository: OTHER
+  resource_id: doi:10.1016/j.synbio.2026.05.008
+  url: https://doi.org/10.1016/j.synbio.2026.05.008
+  description: Version-of-record DOI for the 2026 Synthetic and Systems Biotechnology Ogataea cross-feeding article.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1016/j.synbio.2026.05.008'
+    explanation: Supports the article DOI.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for the engineered O. polymorpha sulfur cross-feeding coculture.
+curation_history:
+- timestamp: '2026-09-27T13:08:02Z'
+  curator: codex
+  action: CREATE_OGATAEA_SULFUR_CROSSFEEDING_COCULTURE
+  changes: Created CommunityMech:000450 from PMID:42318495 and DOI 10.1016/j.synbio.2026.05.008 with evidence-backed
+    O. polymorpha FY34 met10Δ-mCherry and FY31 str3Δ-EGFP membership, auxotrophy-based sulfur cross-feeding, asymmetric
+    homocysteine dependency, inoculation-ratio tracking, and Delft glucose/methanol batch cultivation conditions.
+  llm_assisted: true
+- timestamp: '2026-09-27T13:16:09Z'
+  curator: codex
+  action: ADD_OD600_GROWTH_MEDIA_EVIDENCE
+  changes: 'Added exact Methods evidence snippets for glucose screening, FY31/FY34 population tracking, and methanol
+    initial OD600 values after adversarial review issue #1149.'
+  llm_assisted: true
+- timestamp: '2026-09-27T13:21:06Z'
+  curator: codex
+  action: REMOVE_DANGLING_DOWNSTREAM_TARGETS
+  changes: 'Removed two Ogataea downstream outcome labels that the network audit correctly treated as dangling interaction-edge
+    targets for issue #1150.'
+  llm_assisted: true
+- timestamp: '2026-10-07T05:06:34Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve observed complementation with two-pair OD range, carbon-source and labeled-strain limits.;
+    Retain directed sulfur-exchange model as hypothesized while preserving measured supplement rescue.; Preserve
+    controlled ratio effects without universal growth, increasing-fraction or identical-endpoint claims. Issue #1653;
+    reports/causal_graph_review/decisions/20261007-four-records-batch79.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: sulfur-exchange-and-ratio-mediation
+  prompt: Which metabolites are actually exchanged, and how do they mediate the tested initial-ratio effect on growth?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#MET10-STR3 Sulfur Auxotrophy Cross-Feeding
+  - ecological_interactions#Asymmetric Homocysteine Dependency
+  - ecological_interactions#Initial Ratio-Dependent Met10 Enrichment
+  rationale: The full paper explicitly infers directional exchange from single-strain supplement profiles and proposes
+    tracers/metabolomics. Figure schematics are not transfer measurements. Growth restoration and ratio effects
+    remain supported; distinct input/outcome and proposed exchange-to-rescue topology remain a research task. Prior
+    dangling phenotype arrows remain absent. One-record Edison dry run is not an inspected provider report or paid
+    authorization.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: The isotopic labeling or targeted metabolomics would help to directly identify the specific metabolites
+      exchanged in co-culture
+    explanation: Explicitly identifies the unresolved exchange measurement.
+  posed_by: codex

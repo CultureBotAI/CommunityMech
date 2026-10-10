@@ -11,6 +11,7 @@ journal: Applied and Environmental Microbiology
 year: '2003'
 doi: 10.1128/aem.69.8.4853-4865.2003
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Microbial Ecology of an Extreme Acidic Environment, the Tinto River

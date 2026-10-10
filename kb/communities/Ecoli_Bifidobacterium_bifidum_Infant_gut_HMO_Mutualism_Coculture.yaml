@@ -74,8 +74,11 @@ taxonomy:
     explanation: Identifies B. bifidum as the auxotrophic partner in the mutualistic co-culture.
 ecological_interactions:
 - name: Cysteine provision enabling cooperative 2'-fucosyllactose degradation
-  description: E. coli supplies cysteine to the auxotrophic B. bifidum, facilitating cooperative
-    degradation of 2'-fucosyllactose, the predominant human milk oligosaccharide.
+  description: In the nutrient-limited in vitro model, E. coli K12 supplies the cysteine requirement of an infant-stool
+    B. bifidum isolate, enabling growth and 2-fucosyllactose degradation without added cysteine or casamino acids.
+    The delta-cysE donor control impaired coculture growth and ethanol-killed partner controls failed to support
+    it. This supports cysteine-dependent cooperation, not a measured cysteine export rate or proof of active secretion
+    rather than overflow or lysis.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -99,21 +102,29 @@ ecological_interactions:
       label: 2'-fucosyllactose
   downstream:
   - target: Monosaccharide return sustaining E. coli growth
-    description: >
-      Cysteine supplied by E. coli enables B. bifidum to cooperatively degrade
-      2'-fucosyllactose, liberating monosaccharides that return carbon to
-      E. coli.
+    description: Cysteine-dependent support from E. coli permits the auxotrophic B. bifidum partner to grow and
+      degrade 2-fucosyllactose under the tested nutrient limitation, releasing sugar substrates usable by E. coli.
+      The mutant and killed-partner controls support the dependency; the sugar-consumption assay separately required
+      spent-medium pH adjustment to 6.3.
   evidence:
   - reference: PMID:42020426
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: E. coli supplies cysteine to its auxotrophic partner, facilitating cooperative
-      degradation of 2'-fucosyllactose, the predominant human milk oligosaccharide
-    explanation: E. coli-to-B. bifidum cysteine cross-feeding drives cooperative HMO degradation.
+    snippet: E. coli supplies cysteine to its auxotrophic partner, facilitating cooperative degradation of 2'-fucosyllactose,
+      the predominant human milk oligosaccharide
+    explanation: Supports reciprocal in vitro cross-feeding in the tested strain pair; does not establish host abundance
+      regulation, a cysteine export route or universal infant-gut mutualism.
+  - reference: PMID:42020426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: observing a significant impairment of growth
+    explanation: The delta-cysE comparison supports the cysteine dependence discussed in Results, without quantifying
+      donor export.
 - name: Monosaccharide return sustaining E. coli growth
-  description: Monosaccharides liberated from cooperative 2'-fucosyllactose degradation sustain E.
-    coli growth, completing a cooperative cross-feeding loop that may help regulate E. coli
-    abundance in the infant gut.
+  description: B. bifidum degraded 2-fucosyllactose and left fucose and galactose that E. coli K12 subsequently
+    consumed, measured by chromatography. E. coli grew in this spent medium only after pH readjustment from 4.3
+    to 6.3. This measured in vitro return of carbon does not establish that the same exchange controls E. coli abundance
+    in infants or quantify sugar-to-cysteine flux in coculture.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -133,27 +144,35 @@ ecological_interactions:
       label: monosaccharide
   downstream:
   - target: Cysteine provision enabling cooperative 2'-fucosyllactose degradation
-    description: >
-      Monosaccharides returned from B. bifidum sustain E. coli growth and close
-      the cooperative loop that maintains cysteine provisioning to the auxotroph.
-  - target: Cooperative Infant-Gut HMO Mutualism
-    description: >
-      Reciprocal cysteine and monosaccharide exchange completes the cooperative
-      HMO-fed loop between E. coli and B. bifidum.
+    description: PARTIAL - accessible HMO-derived sugars sustain E. coli growth and can maintain the donor population
+      supporting the cysteine-dependent partner. Reciprocal nutrient dependence is experimentally supported, but
+      a time-resolved sugar-to-cysteine feedback gain or isotope-resolved flux was not measured; the separate spent-medium
+      assay required pH 6.3.
   evidence:
   - reference: PMID:42020426
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the liberated monosaccharides sustain E. coli growth, highlighting a cooperative
-      cross-feeding interaction that may contribute to regulating E. coli abundance within the
-      infant host
-    explanation: Monosaccharides released during HMO degradation feed back to sustain E. coli.
+    snippet: the liberated monosaccharides sustain E. coli growth, highlighting a cooperative cross-feeding interaction
+      that may contribute to regulating E. coli abundance within the infant host
+    explanation: Supports reciprocal in vitro cross-feeding in the tested strain pair; does not establish host abundance
+      regulation, a cysteine export route or universal infant-gut mutualism.
+  - reference: PMID:42020426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. bifidum efficiently degraded 2’FL, but left galactose and fucose unconsumed
+    explanation: Chromatography identifies the extracellular sugar substrates subsequently consumed by E. coli K12
+      in pH-adjusted spent medium.
+  - reference: PMID:42020426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: growth only when the pH was adjusted to its initial value of 6.3
+    explanation: Directly bounds the spent-medium growth result to the pH-adjusted assay.
 - name: Cooperative Infant-Gut HMO Mutualism
-  description: >
-    E. coli cysteine provision to B. bifidum and B. bifidum monosaccharide
-    liberation from 2'-fucosyllactose form a reciprocal, cooperative
-    cross-feeding loop that sustains both partners in the infant-gut
-    two-member model.
+  description: E. coli K12 and the infant-stool B. bifidum isolate co-grew in modified M9 with 0.5% 2-fucosyllactose
+    and without added cysteine or casamino acids. Cysteine dependence, viable-partner controls and measured sugar
+    utilization support reciprocal benefit in this restricted laboratory model. This node summarizes that exchange
+    rather than adding a separate downstream outcome. Its prevalence, strength and effect on E. coli abundance in
+    living infants remain untested.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -187,12 +206,10 @@ ecological_interactions:
   - reference: PMID:42020426
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the liberated monosaccharides sustain E. coli growth, highlighting a cooperative
-      cross-feeding interaction that may contribute to regulating E. coli abundance within the
-      infant host
-    explanation: >
-      Supports reciprocal, cooperative HMO cross-feeding between E. coli and
-      B. bifidum.
+    snippet: the liberated monosaccharides sustain E. coli growth, highlighting a cooperative cross-feeding interaction
+      that may contribute to regulating E. coli abundance within the infant host
+    explanation: Supports reciprocal in vitro cross-feeding in the tested strain pair; does not establish host abundance
+      regulation, a cysteine export route or universal infant-gut mutualism.
 growth_media:
 - name: modified M9 medium (m-M9) with 0.1% (w/v) 2'-fucosyllactose as the primary carbon source
   temperature: '37'
@@ -217,3 +234,28 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: growth only when the pH was adjusted to its initial value of 6.3
     explanation: Names the medium pH (initial value 6.3).
+discussions:
+- discussion_id: hmo_mutualism_flux_and_host_boundary
+  prompt: How strongly does the measured laboratory exchange operate in the infant gut?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Cysteine provision enabling cooperative 2'-fucosyllactose degradation
+  - ecological_interactions#Monosaccharide return sustaining E. coli growth
+  - ecological_interactions#Cooperative Infant-Gut HMO Mutualism
+  rationale: 'The K12 donor and infant B. bifidum isolate support nutrient-limited reciprocal cooperation, not a
+    universal species-level interaction or demonstrated regulation of E. coli abundance in vivo. Chromatographic
+    sugar data and a delta-cysE control do not resolve cysteine release route, export rate or isotope-resolved feedback.
+    The pH-adjusted spent-medium assay is distinct from the live coculture. The sugar-to-mutualism summary arrow
+    is removed as a part/whole restatement, not an independently supported causal consequence. Experimental-strain
+    and 0.1% screening versus 0.5% coculture metadata remain under #1428.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T08:26:10Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain cysteine-dependent support with mutant and viability controls and unresolved release route.;
+    Retain measured fucose/galactose return with its pH constraint and partial donor-maintenance feedback.; Retain
+    reciprocal mutualism as an in vitro summary, not an independently measured host endpoint. Issue #1425; reports/causal_graph_review/decisions/20261006-three-records-batch36.yaml'
+  llm_assisted: true

@@ -812,10 +812,10 @@ def test_the_domain_groundings_are_filterable(grounded):
     domain = [b for _, _, b in grounded if b["gtdb_id"].startswith("GTDB:d__")]
 
     assert {b["gtdb_id"] for b in domain} == {"GTDB:d__Bacteria", "GTDB:d__Archaea"}
-    # Tight both ways: `> 50` let a regression lose 21 of the 72 and still pass.
-    assert 65 <= len(domain) <= 80, (
-        f"{len(domain)} domain groundings; SKILL.md's rank table says 72 and is "
-        f"the thing that goes stale"
+    # Tight both ways: a one-sided `> 50` let a regression lose 21 domain
+    # groundings and still pass.
+    assert 70 <= len(domain) <= 90, (
+        f"{len(domain)} domain groundings; SKILL.md's rank table is the thing " f"that goes stale"
     )
 
 

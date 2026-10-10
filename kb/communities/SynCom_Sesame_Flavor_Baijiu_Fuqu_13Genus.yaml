@@ -23,7 +23,7 @@ taxonomy:
     preferred_term: Aspergillus
     term:
       id: NCBITaxon:5052
-      label: Aspergillus <genus>
+      label: Aspergillus
     gtdb_grounding_status: NO_GTDB_EQUIVALENT
     notes: Genus-level identification (core Fuqu microbiota); no species resolved in the abstract.
       NCBITaxon canonical label carries a "<genus>" disambiguation suffix.
@@ -306,97 +306,13 @@ taxonomy:
       core microbiota involved in the production of those flavor compounds
     explanation: Identifies Wickerhamomyces as a core member genus of the Fuqu SynCom.
 ecological_interactions:
-- name: Fuqu Starch Ethanol and Flavor Base Guild
-  description: Pichia, Bacillus, Aspergillus, Saccharomyces, and Wickerhamomyces
-    formed the five-genus SC1 base consortium because they are commonly used
-    in Fuqu preparation and contribute to starch degradation, ethanol production,
-    and flavor-compound formation.
-  interaction_type: NICHE_PARTITIONING
-  scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Pichia
-    term:
-      id: NCBITaxon:4919
-      label: Pichia
-  - preferred_term: Bacillus
-    term:
-      id: NCBITaxon:1386
-      label: Bacillus <firmicutes>
-  - preferred_term: Aspergillus
-    term:
-      id: NCBITaxon:5052
-      label: Aspergillus <genus>
-  - preferred_term: Saccharomyces
-    term:
-      id: NCBITaxon:4930
-      label: Saccharomyces
-  - preferred_term: Wickerhamomyces
-    term:
-      id: NCBITaxon:599737
-      label: Wickerhamomyces
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Emergent flavor-compound co-production by the assembled SynCom
-    description: The Fuqu base guild supplies starch, ethanol, and flavor-production
-      functions used as the SC1 foundation for the higher-performing SC3 SynCom.
-  evidence:
-  - reference: PMID:42121419
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Pichia, Bacillus, Aspergillus, Saccharomyces, and Wickerhamomyces
-      are microorganisms commonly used in the preparation of Fuqu
-    explanation: Supports the five core Fuqu genera as a functional base guild.
-- name: Lactic-Acid Bacteria Flavor-Precursor Guild
-  description: Lactobacillus, Leuconostoc, Weissella, and Pediococcus were added
-    to the five-member SC1 base to test whether lactic-acid bacteria that make
-    flavor compounds and precursors could enhance flavor-compound formation.
-  interaction_type: CROSS_FEEDING
-  scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Lactobacillus
-    term:
-      id: NCBITaxon:1578
-      label: Lactobacillus
-  - preferred_term: Leuconostoc
-    term:
-      id: NCBITaxon:1243
-      label: Leuconostoc
-  - preferred_term: Weissella
-    term:
-      id: NCBITaxon:46255
-      label: Weissella
-  - preferred_term: Pediococcus
-    term:
-      id: NCBITaxon:1253
-      label: Pediococcus
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Emergent flavor-compound co-production by the assembled SynCom
-    description: The lactic-acid bacterial subguild expands the SC2 consortium
-      with precursor-forming taxa that feed flavor-compound formation.
-  evidence:
-  - reference: PMID:42121419
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: SC2 was constructed by adding four lactic acid bacteria genera to
-      the five microorganisms present in SC1, with the aim of enhancing the
-      formation of flavor compounds.
-    explanation: Supports the four lactic-acid bacterial genera as a flavor-precursor
-      expansion of the SC1 Fuqu guild.
-- name: Emergent flavor-compound co-production by the assembled SynCom
-  description: When the 13 core genera are assembled into a SynCom, the community exhibits emergent,
-    community-level enhancement of flavor-compound production - the highest flavor-compound diversity and
-    3-(methylthio)-1-propanal (a key sulfur-containing flavor compound) content in simulative fermentation,
-    exceeding commercial Fuqu at large scale.
-  interaction_type: MUTUALISM
+- name: Flavor-compound outcomes of SC3 versus comparator starters
+  description: The 13-genus SC3 had the highest flavor-compound diversity metric and 3-(methylthio)-1-propanal content
+    among the three tested SynComs in simulated fermentation. The diversity metric was 0.45, 0.40 and 0.64 for SC1,
+    SC2 and SC3, respectively; it is a chemical-content metric, not microbial richness. In large-scale production,
+    SC3-derived Fuqu exceeded commercial Fuqu for the reported flavor metric and this sulfur-containing compound,
+    while ethanol did not differ significantly. These are consortium-level outcomes, not demonstrated reciprocal
+    microbial fitness, niche partitioning or a resolved exchange pathway.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: 3-(methylthio)-1-propanal
@@ -407,11 +323,73 @@ ecological_interactions:
   - reference: PMID:42121419
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The resulting SynCom exhibited the highest flavor compound diversity
-      (0.64) and 3-(methylthio)-1-propanal content (618.14 μg/kg) in simulative
-      fermentation.
-    explanation: Community-level emergent enhancement of flavor-compound diversity and the key sulfur
-      flavor compound 3-(methylthio)-1-propanal by the assembled SynCom.
+    snippet: The resulting SynCom exhibited the highest flavor compound diversity (0.64) and 3-(methylthio)-1-propanal
+      content (618.14 μg/kg) in simulative fermentation.
+    explanation: Supports the measured SC3 flavor outcomes, not reciprocal benefit or a donor-to-recipient mechanism.
+  - reference: PMID:42121419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The diversity of flavor compounds in SC1, SC2, and SC3 was 0.45, 0.40, and 0.64, respectively.
+    explanation: The intermediate LAB-containing consortium did not monotonically increase the diversity metric.
+  - reference: PMID:42121419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The ethanol content showed no significant difference between SC3
+    explanation: Large-scale SC3 versus commercial-Fuqu ethanol comparison; not a general increase in all fermentation
+      endpoints.
+  participating_taxa:
+  - preferred_term: Aspergillus
+    term:
+      id: NCBITaxon:5052
+      label: Aspergillus
+  - preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+  - preferred_term: Lactobacillus
+    term:
+      id: NCBITaxon:1578
+      label: Lactobacillus
+  - preferred_term: Leuconostoc
+    term:
+      id: NCBITaxon:1243
+      label: Leuconostoc
+  - preferred_term: Pediococcus
+    term:
+      id: NCBITaxon:1253
+      label: Pediococcus
+  - preferred_term: Pichia
+    term:
+      id: NCBITaxon:4919
+      label: Pichia
+  - preferred_term: Saccharomyces
+    term:
+      id: NCBITaxon:4930
+      label: Saccharomyces
+  - preferred_term: Trichosporon
+    term:
+      id: NCBITaxon:5552
+      label: Trichosporon
+  - preferred_term: Weissella
+    term:
+      id: NCBITaxon:46255
+      label: Weissella
+  - preferred_term: Candida
+    term:
+      id: NCBITaxon:5475
+      label: Candida
+  - preferred_term: Torulaspora
+    term:
+      id: NCBITaxon:4948
+      label: Torulaspora
+  - preferred_term: Clavispora
+    term:
+      id: NCBITaxon:36910
+      label: Clavispora
+  - preferred_term: Wickerhamomyces
+    term:
+      id: NCBITaxon:599737
+      label: Wickerhamomyces
 growth_media:
 - name: sorghum extract medium (simulated fermentation)
   temperature_range: '30-37'
@@ -468,3 +446,30 @@ cultivation_setup:
     evidence_source: IN_VITRO
     snippet: Each strain in the SynComs was mixed at an equal concentration of 1 × 105
       CFU/mL
+discussions:
+- discussion_id: fuqu-comparator-outcomes-versus-exchange
+  prompt: Which interspecies mechanisms explain the SC3 flavor outcome?
+  rationale: The primary main text compares SC1, SC2 and SC3, then SC3-derived and commercial Fuqu. The five-genus
+    base and addition of four LAB are assembly decisions supported by prior functional literature; they are not
+    measured niche separation or metabolite transfer in this consortium. The source proposes fungal diversity and
+    bacterial-fungal synergy as explanations. Retain that hypothesis and the positive flavor outcomes without assigning
+    a specific donor, recipient or reciprocal growth benefit. No cultivation or optimization changes are made.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  attaches_to:
+  - ecological_interactions#Flavor-compound outcomes of SC3 versus comparator starters
+  evidence:
+  - reference: PMID:42121419
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: the superior performance of SC3 may therefore be attributed to its higher fungal diversity, together
+      with the synergistic interactions between its more diverse bacteria and fungi.
+    explanation: Source-proposed interpretation; exact interspecies mediation remains unresolved.
+curation_history:
+- timestamp: '2026-10-08T04:59:39Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain comparator-specific chemical outcomes; remove construction nodes, unsupported interaction types
+    and two design-order arrows. Issue#1849; reports/causal_graph_review/decisions/20261008-six-records-batch109.yaml
+  llm_assisted: true

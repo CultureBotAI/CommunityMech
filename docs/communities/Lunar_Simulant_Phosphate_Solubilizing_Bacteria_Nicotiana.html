@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>Lunar Regolith Simulant Phosphorus-Solubilizing Bacteria for Nicotiana benthamiana</h1>
         </div>
     </header>
@@ -400,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        lunar regolith simulant plant-cultivation laboratory experiment
+                        lunar regolith simulant plant-cultivation laboratory experiment<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -440,6 +463,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -453,7 +477,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus mucilaginosus (AS1.232)</strong>
+                            <strong>Bacillus mucilaginosus (AS1.232)<span class="ontology-label"> — ontology label: Paenibacillus mucilaginosus</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=61624"
@@ -500,7 +524,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus megaterium (AS1.217)</strong>
+                            <strong>Bacillus megaterium (AS1.217)<span class="ontology-label"> — ontology label: Priestia megaterium</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1404"
@@ -547,7 +571,7 @@
 
                     <tr>
                         <td>
-                            <strong>Pseudomonas fluorescens (ATCC 13525)</strong>
+                            <strong>Pseudomonas fluorescens (ATCC 13525)<span class="ontology-label"> — ontology label: Pseudomonas fluorescens</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=294"
@@ -594,7 +618,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus subtilis (CMCC 63501)</strong>
+                            <strong>Bacillus subtilis (CMCC 63501)<span class="ontology-label"> — ontology label: Bacillus subtilis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1423"
@@ -630,7 +654,7 @@
 
                     <tr>
                         <td>
-                            <strong>Bacillus licheniformis (ATCC 11946)</strong>
+                            <strong>Bacillus licheniformis (ATCC 11946)<span class="ontology-label"> — ontology label: Bacillus licheniformis</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1402"
@@ -666,18 +690,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Lunar Regolith Simulant Phosphorus-Solubilizing Bacteria for Nicotiana benthamiana</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -685,13 +711,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -699,124 +720,32 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>PSB attachment to regolith particles concentrates phosphate dissolution</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>PSB Particle-Associated Biomass Phosphorus</h3>
                 </div>
+                <p class="prewrap interaction-description">In five separate individual-strain flask treatments, attached microbial biomass phosphorus tracked inferred insoluble-phosphorus dissociation. The attached pool increased after day 4 for B. mucilaginosus, B. megaterium and P. fluorescens, while most microbial biomass phosphorus remained suspended. This is an operational biomass-P and regression observation, not direct biofilm imaging or a selective attachment perturbation. HYPOTHESIZED - particle-associated biofilms could concentrate proton or organic-acid action, but the proposed bacteria-mineral microenvironment was not demonstrated. The five participants identify the tested panel, not a five-strain coculture.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
 
+                    Bacillus mucilaginosus (AS1.232),
 
+                    Bacillus megaterium (AS1.217),
 
+                    Pseudomonas fluorescens (ATCC 13525),
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
+                    Bacillus subtilis (CMCC 63501),
 
-                    <li>
-                        biofilm formation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0042710"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0042710</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Phosphorus solubilization from lunar regolith simulant via organic-acid secretion
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"attachment of PSBs to the regolith simulant particles was also an important factor in the dissociation of insoluble inorganic phosphorus"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"developing biofilms to tightly bind with mineral particles, forming a stable bacteria-mineral complex"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Phosphorus solubilization from lunar regolith simulant via organic-acid secretion</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
-                </div>
-
-
-
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    phosphate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18367"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18367</a>),
-
-                    oxalic acid
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16995"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16995</a>),
-
-                    citrate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16947"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16947</a>)
+                    Bacillus licheniformis (ATCC 11946)
 
                 </p>
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        organic acid biosynthetic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0016053"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0016053</a>)
-                    </li>
-
-                </ul>
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Phosphorus-enabled promotion of Nicotiana benthamiana growth
-                    </div>
-
-                </div>
 
 
 
@@ -832,20 +761,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"PSBs to synthesize organic acids by using carbon sources in the medium to reduce regolith pH, thus activating insoluble inorganic phosphorus in lunar regolith simulant"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"organic acid ions also facilitate the dissolution of phosphate minerals through chelating with the metal ions in Ca3(PO4)2, FePO4, AlPO4"</div>
+                        <div class="snippet">"Suspended microbial biomass phosphorus was always much higher than attached microbial biomass phosphorus among all five PSB treatments"</div>
 
                     </li>
 
@@ -855,12 +771,26 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Phosphorus-enabled promotion of Nicotiana benthamiana growth</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>PSB Phosphorus Mobilization In Regolith Simulant</h3>
                 </div>
+                <p class="prewrap interaction-description">Individual-strain flasks with terrestrial CAS-1-type regolith simulant and glucose broth showed increased total available phosphorus for B. mucilaginosus, B. megaterium and P. fluorescens; B. subtilis and B. licheniformis had little dissociation activity. Total available phosphorus includes dissolved, biomass and adsorbed pools and is not identical to freely dissolved inorganic phosphate. Low pH and attached biomass phosphorus correlated with inferred dissociation. HYPOTHESIZED - acidification and organic-acid chelation may contribute, but specific secreted oxalate or citrate, mediator necessity and interspecies nutrient transfer were not measured. The five canonical participants are separate tested strains, not an experimentally demonstrated cross-feeding community.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus mucilaginosus (AS1.232),
+
+                    Bacillus megaterium (AS1.217),
+
+                    Pseudomonas fluorescens (ATCC 13525),
+
+                    Bacillus subtilis (CMCC 63501),
+
+                    Bacillus licheniformis (ATCC 11946)
+
+                </p>
 
 
 
@@ -890,9 +820,51 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"The phosphorus-solubilizing bacteria treatment improves the available phosphorus content of the regolith simulant, promoting the growth of Nicotiana benthamiana"</div>
+                        <div class="snippet">"the total available phosphorus capacity could be significantly increased by B. mucilaginosus, B. megaterium, and P. fluorescens"</div>
 
                     </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Nicotiana Response To PSB-Conditioned Regolith Simulant</h3>
+                </div>
+                <p class="prewrap interaction-description">Living Nicotiana benthamiana plants grew better on simulant conditioned with the three effective PSBs, with the strongest measured response after 18 days of pretreatment. At 24 days after sowing, fresh weight and chlorophyll were 315.92% and 204.08% of the sterilized control, respectively; these are percentages of control, not percentage increases. Without pretreatment, seedling length at day 6 was only 53.28% of control. The three strains were mixed 1:1:1 by volume; blank and steam-killed controls were not pre-cultured. MS nutrient supplementation from day 6 contributed phosphorus. These results support a conditioning-treatment effect, not exclusive phosphorus mediation, universal early benefit or actual lunar-environment performance. The listed participants are inoculants, not the missing canonical plant host.</p>
+
+
+
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus mucilaginosus (AS1.232),
+
+                    Bacillus megaterium (AS1.217),
+
+                    Pseudomonas fluorescens (ATCC 13525)
+
+                </p>
+
+
+
+                <p><strong>Metabolites:</strong>
+
+                    phosphate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18367"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18367</a>)
+
+                </p>
+
+
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
 
                     <li class="evidence-item">
                         <div>
@@ -900,7 +872,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
                         <div class="snippet">"the growth of Nicotiana benthamiana could be most improved by treating the regolith simulant with PSBs 18 days before sowing"</div>
@@ -916,11 +888,31 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which processes mediate regolith phosphorus mobilization and the time-dependent plant response?
+                </h3>
+                <p class="prewrap">Retain measured attachment pools, phosphorus mobilization and plant outcomes without the two untested mediation arrows. Separate five individual-strain flask treatments from three-strain plant inoculation. Biofilms and named organic acids are hypotheses; correlated phosphorus pools are not a selective mediator test. MS supplementation after day6, unconditioned controls and the adverse early unconditioned-treatment response limit exclusive-P attribution. Full primary body and embedded tables were read. The complete 2026 correction PMID:42304108 changes Fig1 particle-size labels, not the biology; no original figure pixels or separate supplementary measurement methods were audited. Non-graph mechanism, host, medium and assay metadata remain under #1564.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#PSB Particle-Associated Biomass Phosphorus</code>, <code>ecological_interactions#PSB Phosphorus Mobilization In Regolith Simulant</code>, <code>ecological_interactions#Nicotiana Response To PSB-Conditioned Regolith Simulant</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
         <section>
             <h2>External Resources</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="External Resources">
             <table>
                 <thead>
                     <tr>
@@ -1017,12 +1009,14 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -1113,6 +1107,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -1154,6 +1149,7 @@
 
 
                 <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <div class="table-scroll" role="region" tabindex="0" aria-label="PSB phosphorus-solubilization liquid medium (shaking-flask assay) composition">
                 <table>
                     <thead>
                         <tr>
@@ -1192,6 +1188,7 @@
 
                     </tbody>
                 </table>
+                </div>
 
 
 
@@ -1249,12 +1246,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1267,7 +1267,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1342,20 +1341,16 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
-
-            processes.push("biofilm formation");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "PSB attachment to regolith particles concentrates phosphate dissolution",
+                label: "PSB Particle-Associated Biomass Phosphorus",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1365,33 +1360,44 @@
 
 
 
+
+            var participantKeys = [
+
+                "Bacillus mucilaginosus (AS1.232)",
+
+                "Bacillus megaterium (AS1.217)",
+
+                "Pseudomonas fluorescens (ATCC 13525)",
+
+                "Bacillus subtilis (CMCC 63501)",
+
+                "Bacillus licheniformis (ATCC 11946)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
             metabolites.push("phosphate");
 
-            metabolites.push("oxalic acid");
-
-            metabolites.push("citrate");
-
 
             var processes = [];
 
-
-            processes.push("organic acid biosynthetic process");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Phosphorus solubilization from lunar regolith simulant via organic-acid secretion",
+                label: "PSB Phosphorus Mobilization In Regolith Simulant",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1401,12 +1407,31 @@
 
 
 
+
+            var participantKeys = [
+
+                "Bacillus mucilaginosus (AS1.232)",
+
+                "Bacillus megaterium (AS1.217)",
+
+                "Pseudomonas fluorescens (ATCC 13525)",
+
+                "Bacillus subtilis (CMCC 63501)",
+
+                "Bacillus licheniformis (ATCC 11946)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1415,11 +1440,11 @@
 
             var processes = [];
 
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Phosphorus-enabled promotion of Nicotiana benthamiana growth",
+                label: "Nicotiana Response To PSB-Conditioned Regolith Simulant",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1429,6 +1454,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Bacillus mucilaginosus (AS1.232)",
+
+                "Bacillus megaterium (AS1.217)",
+
+                "Pseudomonas fluorescens (ATCC 13525)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1443,6 +1483,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

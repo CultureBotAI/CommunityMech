@@ -126,9 +126,13 @@ taxonomy:
   - *id002
 ecological_interactions:
 - name: AM Fungal Establishment and Sporulation Trajectory
-  description: The six-member arbuscular mycorrhizal fungal SynCom established and persisted with species-specific trajectories
-    in plant roots and the rhizosphere spore pool; plant species composition had only a limited influence on overall AM fungal
-    community structure in the abstract-level summary.
+  description: The initially six-species AM fungal SynCom showed species-specific root-detection and rhizosphere-spore
+    trajectories over three years of quarterly sampling in planted mesocosms. S. constrictum spores increased across
+    plant-cover treatments; R. clarus and F. coronatum became undetectable in the spore pool, while F. mosseae and
+    S. viscosum remained at low spore density. Initial membership does not mean all six persisted equally. Pooled
+    root PCR-TTGE gives qualitative occurrence, not a quantitative root-to-spore abundance comparison; undetectable
+    spores do not establish extinction from roots. The abstract reports limited plant-cover influence, not its complete
+    absence or competitive exclusion. Named participants are the initial fungal roster; plants are external hosts.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: symbiotic process
@@ -140,25 +144,57 @@ ecological_interactions:
     reference: PMID:42661004
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Changes in the AM SynCom, both colonizing plant roots and the spores in the rhizosphere, were monitored every
-      three months over three years.
+    snippet: Changes in the AM SynCom, both colonizing plant roots and the spores in the rhizosphere, were monitored
+      every three months over three years.
     explanation: Supports the three-year, quarterly monitoring schedule and the root and rhizosphere-spore compartments.
   - &id005
     reference: PMID:42661004
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Fungi colonizing roots were identified through nested PCR-TTGE of the SSU rDNA, while AM fungal spores were quantified
-      based on morphotype.
+    snippet: Fungi colonizing roots were identified through nested PCR-TTGE of the SSU rDNA, while AM fungal spores
+      were quantified based on morphotype.
     explanation: Supports the two measurement methods used to follow the fungal SynCom.
   - reference: PMID:42661004
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Results indicate that plant species composition exerted only a limited influence on the AM fungal community structure,
-      whereas pronounced species-specific differences in establishment, persistence, and sporulation shaped community trajectories
-      over time.
-    explanation: Supports the abstract-level conclusion that fungal species identity, more than plant-cover composition, shaped
-      SynCom trajectories.
-  - *id002
+    snippet: Results indicate that plant species composition exerted only a limited influence on the AM fungal community
+      structure, whereas pronounced species-specific differences in establishment, persistence, and sporulation
+      shaped community trajectories over time.
+    explanation: Supports species-specific trajectories and limited plant-cover effects at abstract scope, not equal
+      persistence of all starting species or experimental isolation of competition.
+  - reference: PMID:42661004
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Septoglomus constrictum showed increasing spore abundance and specific density across all plant cover
+      types, while other species (R. clarus, F. coronatum) became undetectable in the spore pool or maintained a
+      low spore density (F. mosseae, S. viscosum).
+    explanation: Supports compartment-specific spore trends, not extinction of those species from roots or quantitative
+      intraradical abundance.
+  participating_taxa:
+  - preferred_term: Rhizophagus clarus
+    term:
+      id: NCBITaxon:94130
+      label: Rhizophagus clarus
+  - preferred_term: Septoglomus constrictum
+    term:
+      id: NCBITaxon:1133423
+      label: Septoglomus constrictum
+  - preferred_term: Funneliformis coronatum
+    term:
+      id: NCBITaxon:1117309
+      label: Funneliformis coronatus
+  - preferred_term: Rhizophagus intraradices
+    term:
+      id: NCBITaxon:4876
+      label: Rhizophagus intraradices
+  - preferred_term: Funneliformis mosseae
+    term:
+      id: NCBITaxon:27381
+      label: Funneliformis mosseae
+  - preferred_term: Septoglomus viscosum
+    term:
+      id: NCBITaxon:1316151
+      label: Septoglomus viscosum
 environmental_factors:
 - name: Southern-Spain plant-cover design
   value: four plant species as monocultures and all pairwise combinations
@@ -215,16 +251,17 @@ external_resources:
     explanation: Gives the DOI of the primary publication.
 discussions:
 - discussion_id: mediterranean_am_fungal_exact_inoculum_gap
-  prompt: What isolate-level designations, initial spore counts or proportions, and mesocosm inoculation procedures were used
-    for the six arbuscular mycorrhizal fungal species?
+  prompt: What isolate-level designations, initial spore counts or proportions, and mesocosm inoculation procedures
+    were used for the six arbuscular mycorrhizal fungal species?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - taxonomy
   - engineering_design
   - cultivation_setup
-  rationale: The PubMed abstract lists the six species and states that all were isolated from southern Spain, but it does
-    not report strain or isolate identifiers, the starting proportions, or the physical inoculation protocol for the mesocosms.
+  rationale: The PubMed abstract lists the six species and states that all were isolated from southern Spain, but
+    it does not report strain or isolate identifiers, the starting proportions, or the physical inoculation protocol
+    for the mesocosms.
   evidence:
   - reference: PMID:42661004
     supports: SUPPORT
@@ -235,17 +272,17 @@ discussions:
   posed_by: codex
   posed_date: '2026-09-13'
 - discussion_id: mediterranean_am_fungal_mesocosm_protocol_gap
-  prompt: Which soil source, mesocosm dimensions, water regime, and sampling schedule details defined the semi-arid Mediterranean
-    mesocosm?
+  prompt: Which soil source, mesocosm dimensions, water regime, and sampling schedule details defined the semi-arid
+    Mediterranean mesocosm?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - environment_term
   - modeled_environment
   - cultivation_setup
-  rationale: The PubMed abstract identifies a soil mesocosm designed to mimic semi-arid Mediterranean conditions and reports
-    sampling every three months over three years, but does not provide enough protocol detail to curate growth_media composition,
-    mesocosm geometry, or watering and harvest parameters.
+  rationale: The PubMed abstract identifies a soil mesocosm designed to mimic semi-arid Mediterranean conditions
+    and reports sampling every three months over three years, but does not provide enough protocol detail to curate
+    growth_media composition, mesocosm geometry, or watering and harvest parameters.
   evidence:
   - reference: PMID:42661004
     supports: SUPPORT
@@ -255,6 +292,19 @@ discussions:
     explanation: Supports the mesocosm context while leaving the detailed physical and environmental recipe unresolved.
   posed_by: codex
   posed_date: '2026-09-13'
+- discussion_id: am_fungal_compartment_and_mechanism_limits
+  prompt: What explains the different root-occurrence and spore trajectories?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#AM Fungal Establishment and Sporulation Trajectory
+  rationale: 'Root colonization supports the broad symbiotic-process context; the abstract does not establish reciprocal
+    fitness, competition, or a causal sequence among species. Pooled PCR-TTGE cannot quantitatively compare intraradical
+    occurrence with spores. Preserve the two existing inoculum/protocol gaps and prior #862/#863 fixes. #1589 bounds
+    the current node. Full text is subscription content; only the complete primary abstract and publisher preview
+    were read, not main methods, separate supplement or figure pixels. No arrows added.'
+  posed_by: codex
+  posed_date: '2026-10-06'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -265,12 +315,18 @@ curation_history:
   curator: codex
   action: ADD_MEDITERRANEAN_AM_FUNGAL_SYNCOM
   changes: Added the six-species southern-Spain arbuscular mycorrhizal fungal SynCom from PMID:42661004 with abstract-bounded
-    evidence for member identity, plant-cover design, long-term root and rhizosphere-spore monitoring, DOI, and open gaps
-    for exact isolate designations, inoculum proportions, and mesocosm protocol details.
+    evidence for member identity, plant-cover design, long-term root and rhizosphere-spore monitoring, DOI, and
+    open gaps for exact isolate designations, inoculum proportions, and mesocosm protocol details.
   llm_assisted: true
 - timestamp: '2026-09-13T21:03:10Z'
   curator: codex
   action: ADDRESS_MEDITERRANEAN_AM_FUNGAL_REVIEW
-  changes: Addressed adversarial review issues 862 and 863 by reclassifying live plant-soil mesocosm evidence from IN_VITRO
-    to IN_VIVO and adding direct PMID:42661004 support to cultivation_setup.
+  changes: Addressed adversarial review issues 862 and 863 by reclassifying live plant-soil mesocosm evidence from
+    IN_VITRO to IN_VIVO and adding direct PMID:42661004 support to cultivation_setup.
+  llm_assisted: true
+- timestamp: '2026-10-07T00:40:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain compartment-specific establishment/sporulation with initial-roster and qualitative-root limits.
+    Issue #1589; reports/causal_graph_review/decisions/20261006-four-records-batch69.yaml'
   llm_assisted: true

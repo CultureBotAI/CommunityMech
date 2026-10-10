@@ -1,0 +1,217 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 65716e7454538e9749b65bcbbb6fc233b6c6b8f8
+scope:
+- kb/communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.yaml
+- kb/communities/Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture.yaml
+- kb/communities/Rice_Acid_Soil_Bioinoculant_SynCom.yaml
+- kb/communities/Rice_Duckweed_Bacillus_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch94.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch94.json
+findings:
+- issue: 1755
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound R. palustris-E. coli cross-feeding to tested recipient and donor contexts
+  disposition: Close only after protected-main merge.
+- issue: 1756
+  severity: P2
+  status: addressed_in_this_change
+  finding: Correct magnetite battery charging and mineral-mediated interaction scope
+  disposition: Close only after protected-main merge.
+- issue: 1757
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate acid-soil SynCom assembly and phosphorus hypotheses from measured outcomes
+  disposition: Close only after protected-main merge.
+- issue: 1758
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound rice-duckweed SynCom mechanism labels to greenhouse and dropout evidence
+  disposition: Close only after protected-main merge.
+- issue: 1759
+  severity: P2
+  status: open_non_graph_follow_up
+  finding: Reconcile batch94 non-graph member identities, functional roles and plant mechanism claims
+  disposition: Separate non-graph curation remains required.
+adversarial_checks:
+- Fresh both-root baseline preceded papers. All four whole records,15originalnodes and14arrows accounted for;14nodes13existingdirections
+  retained, one assembly node/arrow removed. No new topology.
+- E.coli-R.palustris reciprocal CROSS_FEEDING remains positive, with donor/recipient scope. Consumed organic acids
+  are distinguished from formate and ethanol excretion. Initial dry-run quote proof encountered a PDF page/figure
+  boundary; the replacement quote directly supports acid use and exclusion of formate, and passes independent primary/cache
+  matching. No genetic design or feedback extension.
+- Magnetite reduction charges and oxidation discharges. Preserve the real reversible coculture cycle, not just an
+  acyclic simplification. External light/electron-donor conditions bound the cycle. Mineral redox is not direct
+  nutrient transfer, iron-ion transport, a resource-competition experiment or demonstrated syntrophic metabolic/fitness
+  feedback. Current SYNTROPHY does not require obligacy. Both recorded taxa remain explicit; primary PMID evidence
+  replaces the secondary editorial quote.
+- Acid-soil assembly is experimental design and remains in that section, not an interaction node. Root-carbon use,
+  extracellular protonation/Al mitigation and26.36%field yield remain positive. The primary abstract describes legacyP
+  as promising; keep phosphorus PARTIAL and four mediation directions explicitly uncertain. Complete main text was
+  not read and commentary does not substitute for it.
+- 'Rice-duckweed full-text limitations constrain the graph: positive greenhouse growth/disease endpoints remain,
+  metabolite-to-phenotype mediation is PARTIAL. Dropout contributions are not bacterial abundance, reciprocal fitness,
+  competition or colonization facilitation. Unqualified2,3-butanediol does not establish the existing specific stereoisomer,
+  so that graph grounding is removed rather than replaced by a guessed CURIE. Source conflicts about auxin roles
+  and duckweed-comparison outcomes remain unresolved; no field efficacy or general safety claim.'
+- Two complete primary main texts and one fresh PMC main body read, plus primary acid-soil abstract/limited preview.
+  Only E.coli page2/Figure1 visually inspected; no general supplement, raw-data or figure-pixel certification.21graph/new-discussion
+  quotations freshly matched to independent source text and unchanged caches; lexical agreement is not entailment.
+  Failed empty eScholarship/EuropePMC XML/pypdf attempts are not successful full-text access. No challenge bypass.
+- All923baselinecaches,456otherrecords, prior histories/decisions and all non-graph raw blocks preserved. Four append-only
+  histories record the changes. Explicit-participant fixture adds magnetite; legacy census changes are measured,
+  not evidence for ecology. Existing source-cache licensing and provenance are not rewritten.
+- Eight new tests and864combined regressions pass, plus focused schema/strict/term/reference/snippet/history gates.
+  All56network warnings unchanged, zero structural defects. Exact HTML-description coverage and deterministic rendering
+  are not browser screenshots. Reference checks ran on macOS, not Linux; issue1091 remains. Loader1703 remains outside
+  certification.
+- Ignored/hidden-inclusive local dedup and fresh all-state issue bodies recorded with exclusions; comments/PRs not
+  exhaustive. Graph repairs1755-1758 remain open until protected-main merge;1759 remains a separate non-graph issue.
+  Self-adversarial COMMENT is not independent approval. No Edison spend, new wet-lab protocol, branch-protection
+  bypass or corpus-completion claim.
+verification:
+  combined_regressions: 864 passed in 277.19s (0:04:37)
+  new_regression_tests: 8
+  total_recorded_gate_outputs: 42
+  primary_graph_snippet_proof:
+    graph_quotations: 17
+    new_discussion_quotations: 4
+    fresh_primary_matches: 21
+    retained_nodes: 14
+    removed_nodes: 1
+    retained_arrows: 13
+    removed_arrows: 1
+    new_nodes_or_directions: 0
+    scope: Two primary complete main texts plus fresh PMC main text; acid primary abstract only. All snippets literal-normalized
+      matched; not automatic entailment or figure-pixel certification.
+  references: Four full-record CLI and local snippet checks executed on macOS,not Linux; DOI-cache casing issue1091
+    remains. Literal matches do not establish entailment; acid-soil primary is abstract bounded. CLI Total checks
+    counts issues,not executed checks. Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.yaml:
+      MATCH: 14
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture.yaml:
+      MATCH: 23
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Rice_Acid_Soil_Bioinoculant_SynCom.yaml:
+      MATCH: 10
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Rice_Duckweed_Bacillus_SynCom.yaml:
+      MATCH: 14
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8937
+      categories:
+        MATCH: 8802
+        RENDERING: 20
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 38
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification; literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: One assembly node/arrow removed;14nodes13directions retained. All56warnings unchanged,zero structural
+      defects.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch94.yaml: 1a3f0d13141bfcad2d7e5b67ea8f7997b48ef2e29d83e87c2bbd7a049f19df8b
+    tests/test_causal_review_batch94.py: 6ab007d1b2cedbb01f716dcd79e48540820d728b34d4d0dc0db5734685150b2d
+    tests/test_participating_taxa.py: b9b7dcf113a826071d3c40ebec416d29d05558ba8e242ccce42e75a8e9868efd
+    reports/causal_graph_review/README.md: e182a508947486d4720cff4797c432aaf61fd148e78d9bcb07eaae345fe2726f
+    reports/causal_graph_review/cache-provenance-20261007-batch94.json: bef11b8060a53bedd74dd9b80737b329401ca014a4bbf14b2e148b79510300bc
+    kb/communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.yaml: 4c797dbaa4c2fe4d6627839b90da2a1b4adb5e0185bec3606120860268913ad3
+    kb/communities/Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture.yaml: 21ea769fcc97b50c66ad0fd3ba76cca647ae23fde4a34ce2b7d1aea81bc69378
+    kb/communities/Rice_Acid_Soil_Bioinoculant_SynCom.yaml: c5ad3b426974ce6bb56386d0a624bbf325f9764a86afdd3b1f59989196033113
+    kb/communities/Rice_Duckweed_Bacillus_SynCom.yaml: 6d924ddcd1a9baf67a149de2d91aaeacafdd57113f5df61b97c5ec04e5e09a4e
+  unchanged_records: 456
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 752
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Bound existing nodes/directions and remove assembly node; no new topology.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 397
+      mixed: 126
+      community_level_only: 271
+      taxa: 1525
+      credited_solely_by_the_rule: 1251
+    current:
+      records: 460
+      with_community_level: 397
+      mixed: 125
+      community_level_only: 272
+      taxa: 1525
+      credited_solely_by_the_rule: 1253
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: -1
+    community_level_only: 1
+    taxa: 0
+    credited_solely_by_the_rule: 2
+  interpretation: Magnetite redox steps are now community-scoped with both existing taxa named. This legacy connectivity
+    census is not evidence of ecological mechanism or added community membership.
+corpus:
+  records: 460
+  nodes: 1418
+  edges: 579
+  review_status_counts:
+    needs_research: 48
+    pending: 120
+    reviewed: 292
+limitations:
+- Four whole records,15originalnodes and14originalarrows reviewed.14nodes and13existingdirections remain; experimental
+  assembly node/arrow removed. No new topology or Edison submission/spend.
+- Fresh complete E.coli NSF-hosted author manuscript read; rendered page2/Figure1 inspected, not all figure pixels/supplements.
+  EuropePMC XML failedHTTP500; eScholarship PDF response was empty; neither counted as full text. Failed pypdf extraction
+  replaced by successful PyMuPDF extraction. PubMed challenge not bypassed.
+- Magnetite primary author-upload main text read through public ResearchGate browser extraction, including captions
+  but not figure pixels/supplements. Earlier adjacent Science article and later citing works are excluded. Primary
+  abstract quotes freshly matched; DOI cache editorial summary is not primary evidence. All caches preserved, no
+  copyrighted full text added.
+- Acid-soil primary abstract and limited preview/caption only; complete main/supplement text not read. Existing
+  mediation directions remain explicitly uncertain, phosphorus PARTIAL, measured field yield SUPPORT. Commentary
+  is not primary mechanistic evidence.
+- Duckweed fresh complete PMC main text and embedded captions read; no supplement/raw-data/figure-pixel review.
+  Positive greenhouse effects retained, individual chemical necessity and abundance dynamics unresolved. Internal
+  auxin/abundance/duckweed-comparison reporting conflicts not adjudicated. No field efficacy or safety certification.
+- All923baselinecaches and456otherrecords preserved. Four histories appended. All non-graph raw blocks and canonical
+  taxonomy labels/IDs unchanged. Magnetite community participants explicitly name the two existing taxa, not direct
+  cross-feeding beneficiaries.
+- Ignored/hidden-inclusive local dedup excludes.git/docs/site/references_cache; relevant caches separately inspected.
+  All-state issue titles/bodies refreshed, matching23/319/1093 previously read. Comments/PRs not exhaustively searched.
+  Repairs1755-1758 close only after protected-main merge; non-graph1759 stays open.
+- Self-adversarial review is not independent approval or corpus completion. Existing loader1703 and DOI-case1091
+  limitations remain. Prior denied/pending Edison scopes unchanged. Validation and publication results are not preasserted.

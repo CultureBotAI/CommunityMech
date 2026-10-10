@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>Lotus Lj-SC3 Synthetic Community</h1>
         </div>
     </header>
@@ -425,6 +448,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -438,7 +462,7 @@
 
                     <tr>
                         <td>
-                            <strong>Mesorhizobium sp. LjNodule210</strong>
+                            <strong>Mesorhizobium sp. LjNodule210<span class="ontology-label"> — ontology label: Mesorhizobium</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=68287"
@@ -480,7 +504,7 @@
 
                     <tr>
                         <td>
-                            <strong>Mesorhizobium sp. LjNodule215</strong>
+                            <strong>Mesorhizobium sp. LjNodule215<span class="ontology-label"> — ontology label: Mesorhizobium</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=68287"
@@ -522,7 +546,7 @@
 
                     <tr>
                         <td>
-                            <strong>Mesorhizobium sp. LjNodule218</strong>
+                            <strong>Mesorhizobium sp. LjNodule218<span class="ontology-label"> — ontology label: Mesorhizobium</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=68287"
@@ -690,7 +714,7 @@
 
                     <tr>
                         <td>
-                            <strong>Oxalobacteriaceae bacterium</strong>
+                            <strong>Oxalobacteriaceae bacterium<span class="ontology-label"> — ontology label: Oxalobacteraceae</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=75682"
@@ -858,18 +882,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Lotus Lj-SC3 Synthetic Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -877,13 +903,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -892,11 +913,17 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Cognate-host preference of commensal SynComs</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
+                <p class="prewrap interaction-description">In living-host FlowPots, mixed LjAt-SC3 commensal communities preferentially colonized roots of their cognate Lotus or Arabidopsis host. The SC3 mono-association experiment did not reproduce this preference. This supports community-context dependence, not facilitation by a particular strain or reciprocal benefit. The sole listed canonical participant is the Lotus host: the current bacterial roster is not a verified SC3 membership list, and Arabidopsis is missing. Broader SC1 exudate and SC2 experiments are not silently relabeled SC3.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Lotus japonicus
+
+                </p>
 
 
 
@@ -915,15 +942,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Host preference increases invasion of standing root communities
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -935,10 +953,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/34312531/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:34312531</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"detected signatures of host preference among commensal bacteria in a community context, but not in mono-associations"</div>
+                        <div class="snippet">"commensal SynComs preferentially colonized roots of their cognate host"</div>
 
                     </li>
 
@@ -949,11 +967,17 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Resident-community priority effect</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">SC3 experiment L established communities for four weeks, then challenged them with the complementary host-derived SynCom and harvested two weeks later. Early arrivals retained higher relative proportions in roots and rhizosphere than late arrivals. Arrival order affects assembly, but does not demonstrate absolute exclusion, final equilibrium, selective resource preemption or host-feedback mediation. Secondary inoculation did not significantly increase total bacterial load. The listed Lotus host is only the securely grounded canonical subset, not the microbial roster.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Lotus japonicus
+
+                </p>
 
 
 
@@ -972,15 +996,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Host preference increases invasion of standing root communities
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -992,10 +1007,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/34312531/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:34312531</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"established communities are resilient to invasion by latecomers"</div>
+                        <div class="snippet">"early-arriving SynComs invariably reached higher proportions"</div>
 
                     </li>
 
@@ -1005,12 +1020,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Host preference increases invasion of standing root communities</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>Cognate-Root Invasion Advantage Associated With Host Preference</h3>
                 </div>
+                <p class="prewrap interaction-description">In SC3 experiment L, host-derived SynComs invaded resident communities more successfully in cognate roots than in the other host; that differential invasion advantage was absent in rhizosphere samples. Strain-level host-preference and invasiveness indices were strongly correlated in roots, not the rhizosphere. This is an association, not selective manipulation of host preference establishing it as the causal mediator. Early-arrival advantages persisted, and later equilibrium was not established. The listed Lotus host does not imply complete microbial or comparator-host coverage.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Lotus japonicus
+
+                </p>
 
 
 
@@ -1040,23 +1061,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/34312531/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:34312531</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"host preference of commensal bacteria confers a competitive advantage in their cognate host"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/34312531/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:34312531</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"host preference in commensal bacteria from diverse taxonomic groups is associated with their invasiveness into standing root-associated communities"</div>
+                        <div class="snippet">"correlation between host preference and invasiveness"</div>
 
                     </li>
 
@@ -1069,6 +1077,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which host and microbial processes mediate SC3 preference and invasion, and which strains belong to SC3?
+                </h3>
+                <p class="prewrap">Retain living-host preference, priority effects and differential root invasion; remove correlation and standing-community-context arrows. Niche preemption, host feedback and unfilled niches are hypotheses. Relative abundance is not absolute exclusion; lack of a significant total-load increase is not proof of invariant abundance. SC1 millifluidic exudates, SC2 experiments, SC3 competition/invasion and mono-associations must remain distinct. Full primary main body and captions read, not original figure pixels, raw data or separate supplements. Public Europe PMC supplemental download timed out after90s with an incomplete archive; no supplement contents certified. Only the canonical Lotus host is confidently grounded for these nodes; the three listed nodule isolates and family-associated bacterium IDs are not validated as the16 SC3 members. Omitted entries expose connectivity warnings rather than being silently certified. #1559 tracks roster/metadata repair, alongside existing #497/#1082.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Cognate-host preference of commensal SynComs</code>, <code>ecological_interactions#Resident-community priority effect</code>, <code>ecological_interactions#Cognate-Root Invasion Advantage Associated With Host Preference</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1076,6 +1103,7 @@
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -1130,6 +1158,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -1150,7 +1179,7 @@
 
 
                 <p style="margin: 0.5rem 0;">
-                    <a href="https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/CultureMech:008227" class="term-link" target="_blank" rel="noopener">
+                    <a href="https://culturebotai.github.io/CultureMech/pages/normalized/008227.html" class="term-link" target="_blank" rel="noopener">
                         View in CultureMech →
                     </a>
                 </p>
@@ -1181,6 +1210,7 @@
 
 
                 <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <div class="table-scroll" role="region" tabindex="0" aria-label="Tryptic Soy Agar (TSA) for bacterial isolation composition">
                 <table>
                     <thead>
                         <tr>
@@ -1216,6 +1246,7 @@
 
                     </tbody>
                 </table>
+                </div>
 
 
 
@@ -1258,7 +1289,7 @@
 
 
                 <p style="margin: 0.5rem 0;">
-                    <a href="https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/CultureMech:015437" class="term-link" target="_blank" rel="noopener">
+                    <a href="https://culturebotai.github.io/CultureMech/pages/normalized/015437.html" class="term-link" target="_blank" rel="noopener">
                         View in CultureMech →
                     </a>
                 </p>
@@ -1284,6 +1315,7 @@
 
 
                 <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <div class="table-scroll" role="region" tabindex="0" aria-label="Nitrogen-free B&amp;D medium for Lotus japonicus growth composition">
                 <table>
                     <thead>
                         <tr>
@@ -1350,6 +1382,7 @@
 
                     </tbody>
                 </table>
+                </div>
 
 
 
@@ -1394,12 +1427,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1412,7 +1448,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1522,7 +1557,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1546,11 +1581,22 @@
 
 
 
+            var participantKeys = [
+
+                "Lotus japonicus"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1574,11 +1620,22 @@
 
 
 
+            var participantKeys = [
+
+                "Lotus japonicus"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1587,11 +1644,11 @@
             processes.push("interspecies interaction between organisms");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Host preference increases invasion of standing root communities",
+                label: "Cognate-Root Invasion Advantage Associated With Host Preference",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1601,6 +1658,17 @@
 
 
 
+
+            var participantKeys = [
+
+                "Lotus japonicus"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1615,6 +1683,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

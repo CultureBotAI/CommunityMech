@@ -1,0 +1,156 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 17b5c3da1722987a42a9d0c26d2f6ec4b3a834f2
+scope:
+- kb/communities/Dangl_SynComm_35.yaml
+- kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+- kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch29.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch29.json
+findings:
+- issue: 1375
+  severity: P2
+  status: addressed_in_this_change
+  finding: SynCom35 whole-community observations were assigned to a single pair; mutual benefit, nutrient
+    exchange and control competition were unsupported.
+  disposition: Keep four positive immune/colonization nodes, scope MF79 secretion and both existing arrows
+    to the actual experiments, retain WRKY observation with partial snippet support, and remove three
+    unsupported relationship nodes.
+- issue: 1376
+  severity: P2
+  status: addressed_in_this_change
+  finding: Deepwater oxygen-conservation duplicated the upstream outcome; laboratory pathway/floc hypotheses
+    were represented as established field mechanisms.
+  disposition: Consolidate the duplicate and restatement arrow, retain cold biodegradation and flocs,
+    preserve experimental SIP evidence alongside genome predictions, and qualify two existing arrows with
+    sample and laboratory/field limits.
+- issue: 1377
+  severity: P2
+  status: addressed_in_this_change
+  finding: Enamel assay-context arrows and relationship signs implied facilitation, cross-feeding and
+    competition without corresponding measurements.
+  disposition: Remove two workflow arrows and unsupported signs, keep all three positive observations,
+    distinguish inoculated roster from persistence, and constrain viable-count and mineral endpoints.
+- issue: 1378
+  severity: P2
+  status: open_nongraph_followup
+  finding: SynCom35 non-graph strain/control identities, roles and assay-specific cultivation conditions
+    require further source curation.
+  disposition: Separate scoped follow-up. These blocks are byte-preserved, not certified by graph curation.
+- issue: 1379
+  severity: P2
+  status: open_nongraph_followup
+  finding: Deepwater non-graph Methylophaga/methane, oxygen and enrichment-context wording exceeds source
+    support.
+  disposition: Separate scoped follow-up. These blocks are byte-preserved, not certified by graph curation.
+- issue: 1380
+  severity: P2
+  status: open_nongraph_followup
+  finding: Enamel non-graph basal treatment arms and cultivation/strain details are incomplete; one source
+    count comparison is internally inconsistent.
+  disposition: Separate scoped follow-up. These blocks are byte-preserved, not certified by graph curation.
+adversarial_checks:
+- Every original node and arrow has a retain, repair or removal decision. Four unsupported/duplicate nodes
+  and three duplicate/workflow arrows are removed; four arrows remain, two explicitly hypothetical. Exact
+  renames and discussion anchors resolve.
+- SynCom35 whole-community suppression is not attributed exclusively to MF79. The MF79 T2SS result is
+  strain-specific; suppressor-community precolonization and MF79 retentate experiments are distinguished.
+  No reciprocal fitness, resolved effector or universal colonization requirement is asserted.
+- The WRKY observation was verified in the primary main body. Its cached abstract snippet is explicitly
+  partial and does not independently validate that detail. Proposed regulatory roles are not converted
+  into downstream causal edges.
+- Removing unsupported E. coli competition and nutrient-exchange claims does not establish biological
+  impossibility. The full strain/control roster remains a follow-up; canonical taxon blocks are untouched.
+- Deepwater cold biodegradation remains a positive result. The potential oxygen outcome is retained without
+  a separate conservation mechanism or syntrophy. Floc observations and the isolated-strain degradation
+  assay are not treated as a selective aggregation perturbation.
+- Deep-water HEX and surface-water PAH enrichments are not one five-member consortium. Room-temperature,
+  dispersant-free SIP conditions and incomplete-genome/unknown-enzyme alternatives remain explicit. Positive
+  assimilation evidence is not discarded or conflated with intertaxon flux.
+- Enamel inoculation is not universal persistence, calcium does not alter every count, and material outcomes
+  are not microbial competition. The disputed L. casei 1-versus-2 mM result is not silently resolved;
+  proposed pH and EPS mechanisms are not asserted as demonstrated.
+- Exactly three guarded edits, three llm-assisted events and three append-only histories. All non-graph
+  raw blocks, 457 other records and all 920 reference caches remain byte-identical.
+- Participant registry changes only 170 to 173 users. Connectivity surveys are measured and numeric bounds/algorithms
+  unchanged. Six newly exposed DISCONNECTED warnings are explicitly retained, not hidden with invented
+  relationships.
+- 'Deduplication covered 706 all-state issue titles/bodies and ignored/hidden-inclusive scoped local searches,
+  with #401 and #754 read; not every issue comment or the entire filesystem.'
+- All 456 pages have exact node/arrow descriptions verified by parser and deterministic repeat rendering.
+  No browser screenshot QA is claimed. Primary enamel Tables 1-2 and Dombrowski Figure 3 were inspected
+  visually; other figures and supplements were not.
+verification:
+  combined_regressions: 342 passed in 165.07s (0:02:45)
+  new_regression_tests: 6
+  schema_strict_terms_history: passed; full commands and raw results retained
+  snippet_counts_by_record:
+    kb/communities/Dangl_SynComm_35.yaml:
+      MATCH: 21
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml:
+      MATCH: 29
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml:
+      MATCH: 16
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero structural errors. All 25 prior warnings preserved and six explicit participant-related
+    DISCONNECTED warnings exposed; 31 total, warning exits preserved.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch29.yaml: 6627d37b0aad90ee137572b39e5b4039380bfd01f7e0c16912d7cb10a3c78439
+    tests/test_causal_review_batch29.py: 2e8f41544c35091698f5c4a7459750cf97418edc5b27a64abe41e7de9dcf9bbe
+    tests/test_participating_taxa.py: f3b3bf65f4d442fa95c55b9aaf624696bdb51683dc35a46dc93d6706f70584d3
+    kb/communities/Dangl_SynComm_35.yaml: 9a828b5a59f88ca41699338a0187ebbe4d59da5b05fcc4ef40cf788b2ee9a277
+    kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml: 7cc349b1d2309b6d071aeaea72234305922c0c76458baab1469ce258142083f7
+    kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml: 320691301cf3e2d94ca9bf69873471e12309ce32271eecc02c3b222a08e6b9d6
+  post_commit_docs_current: Separate publication gate, not yet claimed by this pre-commit artifact.
+  protected_ci_and_merge: Require live exact-head checks and protected main queue; not asserted here.
+participant_census:
+  connectivity_before:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1216
+    mixed: 124
+    records: 460
+    taxa: 1496
+    with_community_level: 388
+  connectivity_after:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1220
+    mixed: 124
+    records: 460
+    taxa: 1496
+    with_community_level: 388
+  exact_change: 170 -> 173 users; only Dangl, Deepwater and enamel added
+  numeric_bounds_changed: false
+corpus:
+  records: 460
+  nodes: 1470
+  edges: 705
+  review_status_counts:
+    needs_research: 4
+    pending: 324
+    reviewed: 132
+limitations:
+- Three graph reviews; fourteen original nodes become ten and seven arrows become four. No new graph structure
+  or Edison job/spend.
+- Primary-source access differs by study and is recorded per reference. Snippet MATCH is textual verification,
+  not scientific endorsement; WRKY detail was checked in the full body rather than its broad abstract
+  snippet.
+- No new full article/PDF is committed. Existing reference caches and all non-graph record blocks are
+  preserved.
+- Three separate non-graph metadata follow-ups remain open. This is a self-adversarial review, not independent
+  approval, protected CI success or full-corpus completion.

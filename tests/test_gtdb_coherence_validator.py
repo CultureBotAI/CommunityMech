@@ -496,10 +496,50 @@ def test_the_status_distribution_is_what_was_measured():
     # Two-sided: without a ceiling, losing the domain lookup and dumping all 96
     # eukaryotes back into UNRESOLVED would pass (#393). Recent curated
     # strain-level bacterial rows with no crosswalk hit can still move this
-    # count by small increments. #922 adds a 15-member marine algal SynCom
-    # whose strains lack committed GTDB groundings, so leave headroom above 224
-    # without tolerating a domain-lookup collapse.
-    assert counts["UNRESOLVED"] < 250, (
+    # count by small increments. #922 adds a 15-member marine algal SynCom,
+    # #945 adds a 6-member GenX consortium, #968 adds a 9-member Nasal SynCom
+    # C bioreactor, #987 adds a 4-member PMSX SynCom with three taxa whose
+    # members lack committed GTDB groundings, #1003 adds five Choysum
+    # genus-level isolates, #1006 adds six hexamine/formaldehyde isolates,
+    # #1013 adds two Viili lactic-acid bacterial strains, #1023 adds two DCPP
+    # enrichment-culture strains, #1031 adds one RAMC Rhodococcus member,
+    # #1034 adds two Baia Bacillus representatives without committed GTDB
+    # groundings, #1036 adds four wheat-rhizosphere Bacillus representatives
+    # without committed GTDB groundings, #1038 adds four photobioreactor
+    # bacterial representatives without committed GTDB groundings, #1041 adds
+    # six high-rank/qPCR biomethanation groups, #1047 adds four rice FSQN
+    # rhizosphere strains, #1051 adds three PPCP wastewater SMC members, #1061
+    # adds sixteen HAMBI carbon-gradient SynCom members, #1064 adds one QY2-S1
+    # Dehalogenimonas genus, the probiotic MV luteolin record adds one
+    # L. reuteri strain, #1067 adds two YB2 PET-degradation strains, #1068
+    # adds twelve Lupinus SC-7 strains, #1071 adds thirty-one Barley/Wheat
+    # DT rhizosphere strains, #1076 adds two Parmigiano NWS LAB strains, the
+    # four-species lung model adds four species members, #1084 adds three
+    # nitrifying wastewater genera, #1085 adds two high-rank acidic
+    # nitrification taxa, #1102 adds one Mulberry/DG L. brevis member,
+    # #1107 adds seven shrimp SynCom genus-level members, and #1110 adds
+    # four TCP groundwater genera. The electrostimulated toluene microbiota
+    # adds three proposed MAG/genus members, the Dolichospermum FBCC-A233
+    # xenic phycosphere adds three genus/species members, the mangrove benzene
+    # MFC bioanode adds four genus members, MWF001 adds four species members,
+    # and the Phaeodactylum-Aliivibrio diel co-culture adds one A. fischeri
+    # species member. The low-nitrogen anammox biofilter adds two genera, the
+    # Fucoidan seven-degrader SynCom adds seven strain-level bacteria, the
+    # Auxenochlorella-Pseudomonas phycosphere record adds one genus-level
+    # isolate, the Leptolyngbya-Pseudomonas mangrove co-culture adds one
+    # L. lignicola species member, the Thermoleptolyngbya-Chelatococcus
+    # arsenic coculture adds two strain members, #1165 adds five Caragana
+    # genus-level isolates, and #1174 adds five alfalfa SynCom strain members,
+    # and the Quinoa SCDY1 salt-stress SynCom adds five species-level isolate
+    # representatives. The Panax Bacillus-Serratia root-rot SynCom adds one
+    # S. marcescens strain, the Microbacterium-Terrabacter sulfadiazine
+    # coculture adds two sp.-level strains, the NDC-6 psychrotolerant SynCom
+    # adds six strain-level members, and the FOS gut-liver SynCom adds three
+    # strain/species members. #1305 corrects FT92W from grounded Duganella to
+    # Pseudoduganella rivuli without borrowing the unrelated genus grounding,
+    # moving exactly one row to UNRESOLVED (479 -> 480). Tolerate the measured
+    # count without tolerating a domain-lookup collapse.
+    assert counts["UNRESOLVED"] < 481, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )

@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>Syntrophobacter-Methanospirillum Syntrophic Consortium</h1>
         </div>
     </header>
@@ -400,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        anaerobic environment
+                        anaerobic environment<span class="ontology-label"> — ontology label: active anaerobic enrichment culturing unit</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001825"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -425,6 +448,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -524,18 +548,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Syntrophobacter-Methanospirillum Syntrophic Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for syntrophy. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -546,6 +572,11 @@
                              aria-hidden="true" data-symbol="symbolTriangle"
                              data-color="#7f30cf"></svg> Syntrophy
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
@@ -555,6 +586,7 @@
                     <h3>Propionate Oxidation and H2/Formate Production</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">S. fumaroxidans oxidizes propionate in syntrophy with M. hungatei, releasing reducing equivalents through hydrogen and/or formate. The methylmalonyl-CoA pathway produces acetate and inorganic carbon. Partner consumption maintains low hydrogen partial pressure and formate concentration; these are different physical quantities. This is the tested methanogenic growth context, not universal partner dependence: sulfate or fumarate can support axenic growth. PARTIAL: comparative protein abundance and homology support proposed Fdh1/Hox confurcation and Fdh2/Hyn reverse-electron-transport roles, not direct demonstration of every enzyme assignment or the fraction of electrons carried by each route in this pair.</p>
 
 
                 <p><strong>Source Taxon:</strong> Syntrophobacter fumaroxidans</p>
@@ -611,6 +643,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Interspecies Electron Transfer and Methanogenesis
+                        <p class="prewrap causal-description">DIRECTLY IMPLIED: reducing equivalents released during bacterial propionate oxidation supply M. hungatei through hydrogen and/or formate for methanogenesis. The evidence does not quantify their separate fluxes in this pair.</p>
                     </div>
 
                 </div>
@@ -623,13 +656,13 @@
                     <li class="evidence-item">
                         <div>
 
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/9828440/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:9828440</a>
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/29611893/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29611893</a>
 
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"It oxidized propionate syntrophically in co-culture with the hydrogen- and formate-utilizing Methanospirillum hungateii, and was able to oxidize propionate and other organic compounds in pure culture with sulfate or fumarate as the electron acceptor"</div>
+                        <div class="snippet">"We performed a proteome analysis of S. fumaroxidans growing with propionate axenically with sulfate or fumarate, and in syntrophy with Methanospirillum hungatei, Methanobacterium formicicum or Desulfovibrio desulfuricans"</div>
 
                     </li>
 
@@ -639,10 +672,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/29611893/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29611893</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Formate dehydrogenase Fdh1 and hydrogenase Hox were the main confurcating enzymes used for energy conservation"</div>
+                        <div class="snippet">"a very plausible candidate for a confurcating-type of formate dehydrogenase"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/29611893/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29611893</a>
+
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Hox is most probably a confurcating hydrogenase involved in energy conservation"</div>
 
                     </li>
 
@@ -655,6 +701,7 @@
                     <h3>Interspecies Electron Transfer and Methanogenesis</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">M. hungatei acts as the hydrogen/formate-using methanogenic partner of S. fumaroxidans. Carrier consumption supports methane formation and relieves the thermodynamic constraint on propionate oxidation. Low hydrogen partial pressure and low formate concentration are distinct constraints; formate is not a gas pressure. The comparative proteome suggests an important formate route but does not independently quantify exact-pair carrier partitioning.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methanospirillum hungatei</p>
@@ -701,10 +748,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Propionate Oxidation and H2/Formate Production
+                        <p class="prewrap causal-description">DIRECTLY IMPLIED feedback: hydrogen/formate consumption by M. hungatei lowers hydrogen partial pressure and formate concentration, enabling continued propionate oxidation. This retains the thermodynamic cooperation inferred from syntrophic versus electron-acceptor-supported axenic growth; it is not a selective carrier-removal assay in this exact pair.</p>
                     </div>
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Syntrophic Propionate-to-Methane Conversion
+                        <p class="prewrap causal-description">Methanogenic consumption of bacterially supplied reducing equivalents couples propionate oxidation to methane production. Cooperation is reciprocal, but the carrier transfer described here is bacterial-to-methanogen, not bidirectional donation.</p>
                     </div>
 
                 </div>
@@ -717,13 +766,13 @@
                     <li class="evidence-item">
                         <div>
 
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/9828440/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:9828440</a>
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/29611893/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29611893</a>
 
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"It oxidized propionate syntrophically in co-culture with the hydrogen- and formate-utilizing Methanospirillum hungateii, and was able to oxidize propionate and other organic compounds in pure culture with sulfate or fumarate as the electron acceptor"</div>
+                        <div class="snippet">"We performed a proteome analysis of S. fumaroxidans growing with propionate axenically with sulfate or fumarate, and in syntrophy with Methanospirillum hungatei, Methanobacterium formicicum or Desulfovibrio desulfuricans"</div>
 
                     </li>
 
@@ -736,7 +785,20 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"fumaroxidans mainly used formate for electron release and that different confurcating mechanisms were used in its sulfidogenic metabolism"</div>
+                        <div class="snippet">"During syntrophic growth, S. fumaroxidans needs to transfer electrons via hydrogen and/or formate to a syntrophic partner."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/29611893/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29611893</a>
+
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"It has long been speculated that formate plays a more important role than hydrogen as an electron carrier"</div>
 
                     </li>
 
@@ -747,11 +809,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Syntrophic Propionate-to-Methane Conversion</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">The S. fumaroxidans-M. hungatei coculture joins propionate oxidation to methanogenesis. This community conversion is the outcome of the two existing partner processes, not a third pairwise exchange. Acetate remains a bacterial product, so this does not assert complete mineralization of propionate carbon to methane.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Syntrophobacter fumaroxidans,
+
+                    Methanospirillum hungatei
+
+                </p>
 
 
 
@@ -800,13 +870,13 @@
                     <li class="evidence-item">
                         <div>
 
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/9828440/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:9828440</a>
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/29611893/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29611893</a>
 
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"It oxidized propionate syntrophically in co-culture with the hydrogen- and formate-utilizing Methanospirillum hungateii, and was able to oxidize propionate and other organic compounds in pure culture with sulfate or fumarate as the electron acceptor"</div>
+                        <div class="snippet">"We performed a proteome analysis of S. fumaroxidans growing with propionate axenically with sulfate or fumarate, and in syntrophy with Methanospirillum hungatei, Methanobacterium formicicum or Desulfovibrio desulfuricans"</div>
 
                     </li>
 
@@ -819,6 +889,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    What are the separate carrier fluxes and enzyme contributions in this exact pairing?
+                </h3>
+                <p class="prewrap">Comparative proteomics supports candidate energy-conservation and electron-transfer roles. It does not resolve exact carrier fractions or selectively demonstrate all enzyme assignments. Existing metabolic feedback is retained with that boundary.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Propionate Oxidation and H2/Formate Production</code>, <code>ecological_interactions#Interspecies Electron Transfer and Methanogenesis</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/29611893/" rel="nofollow noreferrer">PMID:29611893</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">It has long been speculated that formate plays a more important role than hydrogen as an electron carrier</p>
+                        <p class="muted small prewrap">The main text explicitly frames relative carrier importance as a mechanistic interpretation rather than a measured exact-pair flux.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -826,6 +935,7 @@
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -916,6 +1026,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -936,7 +1047,7 @@
 
 
                 <p style="margin: 0.5rem 0;">
-                    <a href="https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/CultureMech:000423" class="term-link" target="_blank" rel="noopener">
+                    <a href="https://culturebotai.github.io/CultureMech/pages/normalized/000423.html" class="term-link" target="_blank" rel="noopener">
                         View in CultureMech →
                     </a>
                 </p>
@@ -967,6 +1078,7 @@
 
 
                 <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <div class="table-scroll" role="region" tabindex="0" aria-label="Anaerobic bicarbonate-buffered mineral medium for syntrophic propionate oxidation composition">
                 <table>
                     <thead>
                         <tr>
@@ -1285,6 +1397,7 @@
 
                     </tbody>
                 </table>
+                </div>
 
 
 
@@ -1342,12 +1455,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1360,7 +1476,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1435,7 +1550,7 @@
             processes.push("propionate catabolic process");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1481,7 +1596,7 @@
             processes.push("methanogenesis");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1510,7 +1625,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1544,6 +1659,19 @@
 
 
 
+            var participantKeys = [
+
+                "Syntrophobacter fumaroxidans",
+
+                "Methanospirillum hungatei"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
 
@@ -1557,6 +1685,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

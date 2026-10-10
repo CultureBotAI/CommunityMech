@@ -80,13 +80,9 @@ taxonomy:
     explanation: Establishes M. hungatei as a compatible H2-utilizing syntrophic partner
 ecological_interactions:
 - name: Butyrate Oxidation and H2 Production
-  description: 'Syntrophomonas wolfei β-oxidizes butyrate (C4) to acetate, using protons as the electron
-    acceptor and producing H2 as the electron sink product. This fatty acid β-oxidation is thermodynamically
-    unfavorable under standard conditions and only proceeds when H2 partial pressure is kept extremely
-    low by a syntrophic partner. The organism cannot utilize common electron acceptors (nitrate, sulfate,
-    etc.) and is therefore obligately dependent on syntrophic H2 removal.
-
-    '
+  description: S. wolfei oxidizes butyrate to acetate with hydrogen as an electron-sink product in the studied syntrophic
+    cultures. Common electron acceptors did not support the tested butyrate metabolism. This is substrate- and assay-bounded
+    dependence on a hydrogen-using partner, not a claim that every substrate requires coculture.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -104,17 +100,17 @@ ecological_interactions:
     term:
       id: CHEBI:17968
       label: butyrate
-    concentration: Substrate for β-oxidation
+    notes: Substrate for β-oxidation
   - preferred_term: acetate
     term:
       id: CHEBI:30089
       label: acetate
-    concentration: Product of butyrate oxidation
+    notes: Product of butyrate oxidation
   - preferred_term: dihydrogen
     term:
       id: CHEBI:18276
       label: dihydrogen
-    concentration: Electron sink product - must be maintained at low levels
+    notes: Electron sink product - must be maintained at low levels
   biological_processes:
   - preferred_term: fatty acid beta-oxidation
     term:
@@ -131,21 +127,19 @@ ecological_interactions:
   - reference: PMID:16345745
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The addition of H(2) to the medium stopped growth and butyrate degradation by S
-    explanation: Demonstrates the core metabolic activity of S. wolfei in butyrate degradation
+    snippet: An anaerobic, nonphototrophic bacterium that beta-oxidizes saturated fatty acids (butyrate through
+      octanoate) to acetate or acetate and propionate using protons as the electron acceptor
+    explanation: The abstract supports the bacterial reaction; butyrate is the acetate-producing case.
   - reference: PMID:16345745
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: An anaerobic, nonphototrophic bacterium that beta-oxidizes saturated fatty acids (butyrate
-      through octanoate) to acetate or acetate and propionate using protons as the electron acceptor
+    snippet: Common electron acceptors are not utilized with butyrate as the electron donor
+    explanation: The negative result is bounded to butyrate and tested acceptors.
 - name: Interspecies Hydrogen Transfer and Methanogenesis
-  description: 'Methanospirillum hungatei consumes the H2 produced by S. wolfei, combining it with CO2
-    to produce methane via hydrogenotrophic methanogenesis. This H2 removal maintains a low H2 partial
-    pressure (<10^-4 atm), making the thermodynamically unfavorable butyrate oxidation by S. wolfei energetically
-    feasible. This interspecies hydrogen transfer (IHT) is the classic example of syntrophic metabolism
-    in anaerobic environments.
-
-    '
+  description: M. hungatei is a documented hydrogen-using partner of S. wolfei. Hydrogen removal supports bacterial
+    butyrate oxidation and methanogenesis. The abstract reports inhibition of growth and butyrate degradation by
+    added hydrogen, but does not provide an exact permissive partial-pressure threshold or quantify competing carrier
+    contributions.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -163,12 +157,12 @@ ecological_interactions:
     term:
       id: CHEBI:18276
       label: dihydrogen
-    concentration: Consumed from environment - must be maintained at low levels
+    notes: Consumed from environment - must be maintained at low levels
   - preferred_term: methane
     term:
       id: CHEBI:16183
       label: methane
-    concentration: End product of methanogenesis
+    notes: End product of methanogenesis
   biological_processes:
   - preferred_term: methanogenesis
     term:
@@ -176,45 +170,30 @@ ecological_interactions:
       label: methanogenesis
   downstream:
   - target: Butyrate Oxidation and H2 Production
-    description: H2 scavenging by M. hungatei keeps the H2 partial pressure low enough for
-      butyrate β-oxidation to remain thermodynamically feasible; S. wolfei grows and degrades
-      butyrate only in association with an H2-using partner, and adding H2 back to the medium
-      stops both. Reciprocal (feedback) arm of the syntrophic loop.
+    description: 'DIRECTLY IMPLIED feedback: removal of hydrogen by the methanogenic partner relieves a constraint
+      on S. wolfei butyrate oxidation. The 1981 abstract reports that added hydrogen stops growth and butyrate degradation;
+      it does not specify a numerical permissive threshold or isolate hydrogen from all alternative carrier routes
+      in this exact pairing.'
   - target: Syntrophic Butyrate-to-Methane Conversion
-    description: >
-      Hydrogen transfer links S. wolfei butyrate oxidation to M. hungatei
-      hydrogenotrophic methanogenesis.
+    description: 'Hydrogen transfer links S. wolfei butyrate oxidation to M. hungatei hydrogenotrophic methanogenesis.
+
+      '
   evidence:
   - reference: PMID:16345745
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Growth and degradation of fatty acids occur only in syntrophic association with
-      H(2)-using bacteria
-    explanation: Establishes the methanogen-side dependency underlying the feedback edge - S.
-      wolfei is obligately dependent on an H2-scavenging partner
+    snippet: cocultures of S. wolfei with Desulfovibrio and Methanospirillum hungatei
+    explanation: Identifies the methanogenic partner separately from the nonmethanogenic comparison.
   - reference: PMID:16345745
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The addition of H(2) to the medium stopped growth and butyrate degradation by S
-    explanation: Perturbation evidence for the feedback edge - raising H2 (i.e. removing the
-      effect of H2 scavenging) halts butyrate oxidation
-  - reference: PMID:16345745
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Common electron acceptors are not utilized with butyrate as the electron donor
-    explanation: Demonstrates successful syntrophic coculture with M. hungatei as H2-utilizing partner
-  - reference: PMID:16345745
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Common electron acceptors are not utilized with butyrate as the electron donor
-    explanation: Confirms that S. wolfei cannot use alternative electron acceptors, making it obligately
-      dependent on syntrophic H2 removal
+    snippet: The addition of H(2) to the medium stopped growth and butyrate degradation by S. wolfei.
+    explanation: The reported hydrogen perturbation supports product-inhibition feedback; the abstract does not
+      specify every assay condition or a numerical threshold.
 - name: Syntrophic Butyrate-to-Methane Conversion
-  description: >
-    S. wolfei oxidizes butyrate only when a hydrogen-consuming partner such as
-    M. hungatei removes the produced H2, coupling fatty-acid beta-oxidation to
-    hydrogenotrophic methanogenesis in the two-member consortium.
-  interaction_type: SYNTROPHY
+  description: S. wolfei butyrate oxidation is coupled to hydrogen-consuming M. hungatei methanogenesis in the documented
+    coculture. This is a community conversion endpoint, not an additional pairwise exchange; acetate is retained
+    as an organic product.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Syntrophomonas wolfei
@@ -251,11 +230,13 @@ ecological_interactions:
   - reference: PMID:16345745
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Growth and degradation of fatty acids occur only in syntrophic association with
-      H(2)-using bacteria
-    explanation: >
-      Establishes the obligate syntrophic H2-removal requirement for
-      S. wolfei fatty-acid degradation.
+    snippet: cocultures of S. wolfei with Desulfovibrio and Methanospirillum hungatei
+    explanation: Identifies the methanogenic partner separately from the nonmethanogenic comparison.
+  - reference: PMID:16345745
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Growth and degradation of fatty acids occur only in syntrophic association with H(2)-using bacteria
+    explanation: Supports the reported fatty-acid growth context, not species-wide obligacy across all substrates.
 environmental_factors:
 - name: Anaerobic Conditions
   value: Strict anaerobic
@@ -564,3 +545,31 @@ growth_media:
       for low H2 partial pressure maintained by methanogenic partner
   culturemech_id: CultureMech:000423
   culturemech_url: https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/CultureMech:000423
+discussions:
+- discussion_id: butyrate-hydrogen-feedback-assay-limits
+  prompt: What quantitative carrier constraints apply to this exact butyrate coculture?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The accessible primary abstract supports the named partner and hydrogen-addition inhibition, but not
+    the former less-than-10^-4-atm threshold. The existing feedback remains directly implied; no carrier-exclusive
+    mechanism or universal obligacy is asserted. The older full-text XML endpoint failed, so detailed perturbation
+    conditions remain unverified here.
+  attaches_to:
+  - ecological_interactions#Butyrate Oxidation and H2 Production
+  - ecological_interactions#Interspecies Hydrogen Transfer and Methanogenesis
+  evidence:
+  - reference: PMID:16345745
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The addition of H(2) to the medium stopped growth and butyrate degradation by S. wolfei.
+    explanation: The reported hydrogen perturbation supports product-inhibition feedback; the abstract does not
+      specify every assay condition or a numerical threshold.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-08T07:10:55Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain butyrate oxidation with substrate-bounded dependence.; Retain hydrogen feedback without an uncited
+    pressure threshold or duplicate evidence.; Retain the conversion endpoint without an additional exchange claim.
+    Issue#1873; reports/causal_graph_review/decisions/20261008-seven-records-batch112.yaml
+  llm_assisted: true

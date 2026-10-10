@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>Soil Biosynthetic Gene Cluster Phylum-Depth-Vegetation Community</h1>
         </div>
     </header>
@@ -400,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        California Critical Zone Observatory soil and saprolite
+                        California Critical Zone Observatory soil and saprolite<span class="ontology-label"> — ontology label: grassland soil</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00005750"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -425,6 +448,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -438,7 +462,7 @@
 
                     <tr>
                         <td>
-                            <strong>Actinobacteria (prolific BGC producers)</strong>
+                            <strong>Actinobacteria (prolific BGC producers)<span class="ontology-label"> — ontology label: Actinomycetota</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=201174"
@@ -474,7 +498,7 @@
 
                     <tr>
                         <td>
-                            <strong>Chloroflexi (prolific BGC producers)</strong>
+                            <strong>Chloroflexi (prolific BGC producers)<span class="ontology-label"> — ontology label: Chloroflexota</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=200795"
@@ -510,7 +534,7 @@
 
                     <tr>
                         <td>
-                            <strong>Candidatus Dormibacteraeota (prolific BGC producers)</strong>
+                            <strong>Candidatus Dormibacteraeota (prolific BGC producers)<span class="ontology-label"> — ontology label: Candidatus Dormiibacterota</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2052312"
@@ -546,7 +570,7 @@
 
                     <tr>
                         <td>
-                            <strong>BGC-encoding CPR bacterium</strong>
+                            <strong>BGC-encoding CPR bacterium<span class="ontology-label"> — ontology label: Patescibacteria group</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1783273"
@@ -582,18 +606,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Soil Biosynthetic Gene Cluster Phylum-Depth-Vegetation Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -601,171 +627,37 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
 
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Three-Site CZO Genome-Resolved Metagenomics</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
-                </div>
-
-
-
-
-
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Dereplicated-MAG BGC Discovery
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/32546614/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32546614</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"We sampled soils and saprolite from three sites in a northern California Critical Zone Observatory with various vegetation and bedrock characteristics
-"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Dereplicated-MAG BGC Discovery</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
-                </div>
-
-
-
-
-
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Phylum-Scale Biosynthetic-Potential Heterogeneity
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> CPR Linaridin BGC Detection
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Depth and Vegetation Enrichment of BGC-Rich Genomes
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/32546614/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32546614</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"Overall, 3,175 BGCs were identified on contigs of &gt;10 kb within the set of 1,334 dereplicated genomes
-"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
 
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Phylum-Scale Biosynthetic-Potential Heterogeneity</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
+                <p class="prewrap interaction-description">Predicted BGC content varied among recovered genomes and within soil bacterial lineages. Some genomes assigned to Actinobacteria, Chloroflexi and Candidatus Dormibacteraeota had high biosynthetic potential. This does not establish metabolite production by every member of those clades or reduced competition through niche partitioning.</p>
+
+
+
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Actinobacteria (prolific BGC producers),
+
+                    Chloroflexi (prolific BGC producers),
+
+                    Candidatus Dormibacteraeota (prolific BGC producers)
+
+                </p>
 
 
 
 
 
 
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Depth and Vegetation Enrichment of BGC-Rich Genomes
-                    </div>
-
-                </div>
 
 
 
@@ -778,7 +670,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/32546614/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32546614</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"We obtained genomes for prolific producers of secondary metabolites, including novel groups within the Actinobacteria, Chloroflexi, and candidate phylum &#34;Candidatus Dormibacteraeota.&#34;
@@ -792,27 +684,22 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>CPR Linaridin BGC Detection</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>CPR Linear Azole/Azoline-Containing Peptide BGC Prediction</h3>
                 </div>
+                <p class="prewrap interaction-description">A soil CPR genome carried a predicted linear azole/azoline-containing peptide (LAP) biosynthetic gene cluster, with related predictions in additional public CPR genomes. LAP is the reported class, not linaridin. The finding is genomic potential, not measured peptide production, antibiotic action or an ecological partner effect in the sampled community.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    BGC-encoding CPR bacterium
+
+                </p>
 
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -827,7 +714,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/32546614/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32546614</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"one genome of a candidate phyla radiation (CPR) bacterium coded for a ribosomally synthesized linear azole/azoline-containing peptide
@@ -841,9 +728,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Depth and Vegetation Enrichment of BGC-Rich Genomes</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Depth and Vegetation Associations of Biosynthetic Potential</h3>
                 </div>
+                <p class="prewrap interaction-description">Genomes enriched in shallow samples encoded more predicted BGCs and ketosynthase domains on average; genomes enriched in grasslands encoded more ketosynthase domains than those enriched at tree-covered sites. These field-sample associations do not show that biosynthetic products caused the abundance patterns or reduced interspecies competition. BGC-type distributions were not broadly different between the environmental groups.</p>
 
 
 
@@ -851,17 +738,6 @@
 
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -883,6 +759,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/32546614/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32546614</a>
+
+                            - SUPPORT (IN_VIVO)
+                        </div>
+
+                        <div class="snippet">"genomes that were enriched in grasslands encoded more KS domains than genomes that were enriched at tree-covered sites"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -892,11 +781,51 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which predicted soil BGCs yield active products and demonstrable ecological effects in the surveyed communities?
+                </h3>
+                <p class="prewrap">The primary main text and relevant cached passages were checked. Genome predictions and depth/vegetation associations do not establish expression, product identity or partner effects. The comparison to an experimentally active Rhizobium product is not a demonstration for the CPR prediction. Fragmented assemblies also limit genomic completeness. Product and ecological-function evidence for the actual surveyed taxa would resolve these claims; no additional causal edges are inferred.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Phylum-Scale Biosynthetic-Potential Heterogeneity</code>, <code>ecological_interactions#CPR Linear Azole/Azoline-Containing Peptide BGC Prediction</code>, <code>ecological_interactions#Depth and Vegetation Associations of Biosynthetic Potential</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">OTHER</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/32546614/" rel="nofollow noreferrer">PMID:32546614</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">While we can only predict the function of these clusters with the present data</p>
+                        <p class="muted small prewrap">Explicitly distinguishes the CPR cluster prediction from a measured function.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
         <section>
             <h2>External Resources</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="External Resources">
             <table>
                 <thead>
                     <tr>
@@ -960,12 +889,14 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -1030,6 +961,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -1047,12 +979,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1065,7 +1000,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1133,70 +1067,10 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
-
-            var evidenceCount = 1;
-
-            nodes.push({
-                id: intId,
-                label: "Three-Site CZO Genome-Resolved Metagenomics",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
-            var metabolites = [];
-
-            var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
-
-            var evidenceCount = 1;
-
-            nodes.push({
-                id: intId,
-                label: "Dereplicated-MAG BGC Discovery",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
-            var metabolites = [];
-
-            var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
 
             var evidenceCount = 1;
 
@@ -1213,24 +1087,35 @@
 
 
 
+            var participantKeys = [
+
+                "Actinobacteria (prolific BGC producers)",
+
+                "Chloroflexi (prolific BGC producers)",
+
+                "Candidatus Dormibacteraeota (prolific BGC producers)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
-            var intId = "interaction:3";
-            var intType = "NICHE_PARTITIONING";
+            var intId = "interaction:1";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
 
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "CPR Linaridin BGC Detection",
+                label: "CPR Linear Azole/Azoline-Containing Peptide BGC Prediction",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1241,24 +1126,31 @@
 
 
 
+            var participantKeys = [
+
+                "BGC-encoding CPR bacterium"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
-            var intId = "interaction:4";
-            var intType = "NICHE_PARTITIONING";
+            var intId = "interaction:2";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
-
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Depth and Vegetation Enrichment of BGC-Rich Genomes",
+                label: "Depth and Vegetation Associations of Biosynthetic Potential",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1282,12 +1174,15 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 9;
+        var nodeCount = 7;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

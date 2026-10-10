@@ -173,12 +173,10 @@ taxonomy:
     explanation: Establishes K. exigua as a kefir yeast member.
 ecological_interactions:
 - name: L. kefiranofaciens Proteolytic Support for L. mesenteroides
-  description: Lactobacillus kefiranofaciens provides amino acids and small peptides to Leuconostoc mesenteroides
-    through proteolytic activity. L. mesenteroides depends on proteolytic activity by other community
-    members, as it cannot grow in milk whey alone but grows well in kefir spent whey containing casein
-    peptides and amino acids liberated by L. kefiranofaciens. This niche-opening interaction enables L.
-    mesenteroides to thrive during early fermentation (Stage II-III) despite being poorly suited for milk
-    alone.
+  description: Experimental pairwise growth and supplementation support reciprocal benefit between L. kefiranofaciens
+    and L. mesenteroides in liquid milk. Proteolysis, casein peptides and amino-acid supplementation support L.
+    mesenteroides growth. PARTIAL - partner-specific transfer and its necessity are inferred from these assays,
+    not resolved donor-tracer flux. MUTUALISM retains the measured paired benefits.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -196,17 +194,17 @@ ecological_interactions:
     term:
       id: CHEBI:16670
       label: peptide
-    concentration: Liberated by proteolytic activity
+    notes: Liberated by proteolytic activity
   - preferred_term: amino acid
     term:
       id: CHEBI:33709
       label: amino acid
-    concentration: Accumulates throughout fermentation via proteolysis
+    notes: Accumulates throughout fermentation via proteolysis
   downstream:
   - target: L. mesenteroides Lactate Provisioning to L. kefiranofaciens
-    description: Proteolytic growth support lets L. mesenteroides produce the
-      lactate that feeds back to L. kefiranofaciens in the reciprocal pairwise
-      mutualism.
+    description: PARTIAL - proteolytic support of L. mesenteroides growth can enable lactate production that benefits
+      L. kefiranofaciens in the proposed reciprocal mechanism. Growth and supplementation support this model, but
+      donor-resolved transfer and selective molecular necessity were not established at this review scope.
   evidence:
   - reference: PMID:33398099
     supports: SUPPORT
@@ -219,12 +217,10 @@ ecological_interactions:
     snippet: casein peptides as well as free amino acids restore the growth of L. mesenteroides
     explanation: Shows that peptides and amino acids from proteolysis enable L. mesenteroides growth.
 - name: L. kefiranofaciens Suppression of L. kefiri
-  description: >
-    Among the abundant kefir species, Lactobacillus kefiranofaciens directly
-    suppresses its apparent competitor Lactobacillus kefiri while promoting L.
-    mesenteroides, exposing an antagonistic branch in the otherwise cooperative
-    kefir succession.
-  interaction_type: COMPETITION
+  description: 'L. kefiranofaciens suppressed L. kefiri in liquid-milk pairwise assays. This measured directional
+    inhibition is retained without assigning the local reciprocal-negative COMPETITION type: the inspected main-text
+    claim does not establish both partners'' negative responses. Solid milk-agar interactions are a separate experimental
+    condition.'
   scope: PAIRWISE
   source_taxon:
     preferred_term: Lactobacillus kefiranofaciens
@@ -246,14 +242,12 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: L. kefiranofaciens suppressed its seemingly direct competitor L. kefiri
-    explanation: Supports a pairwise inhibitory interaction between the two
-      abundant Lactobacillus species.
+    explanation: Supports a pairwise inhibitory interaction between the two abundant Lactobacillus species.
 - name: L. mesenteroides Lactate Provisioning to L. kefiranofaciens
-  description: 'Leuconostoc mesenteroides produces lactate as a major fermentation by-product, which boosts
-    the growth of L. kefiranofaciens approximately three-fold. Lactate supplementation considerably enhances
-    L. kefiranofaciens growth in milk, demonstrating cross-feeding that completes the mutualistic loop.
-    This metabolic cooperation between the two species involves bidirectional exchange: amino acids/peptides
-    from L. kefiranofaciens to L. mesenteroides, and lactate from L. mesenteroides to L. kefiranofaciens.'
+  description: Lactate supplementation increased L. kefiranofaciens growth about three-fold, and living partners
+    showed reciprocal benefit. PARTIAL - L. mesenteroides-derived lactate is the source's proposed return metabolite,
+    supported by modeling, supplementation and partner assays. Supplementation is not donor-resolved flux or proof
+    of necessity. The 7-12 mg/ml range reported for Acetobacter does not belong to this recipient.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -267,38 +261,30 @@ ecological_interactions:
       id: NCBITaxon:267818
       label: Lactobacillus kefiranofaciens
   metabolites:
-  - preferred_term: L-lactate
+  - preferred_term: lactate
     term:
-      id: CHEBI:422
-      label: (S)-lactic acid
-    concentration: Major fermentation by-product, 7-12 mg/ml optimal
-  downstream:
-  - target: Acetobacter Lactate Cross-Feeding
-    description: Lactate-producing early bacteria accumulate the lactate pool
-      that later supports Acetobacter growth.
-  - target: Kazachstania Lactate-Promoted Growth
-    description: The same lactate buildup creates the concentration window that
-      promotes Kazachstania exigua growth during kefir succession.
+      id: CHEBI:24996
+      label: lactate
+    notes: Candidate return metabolite in the experimentally supported mutualism; no enantiomer-specific or Acetobacter-derived
+      concentration claim.
   evidence:
   - reference: PMID:33398099
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: lactate considerably boosted (circa three-fold) the growth of L. kefiranofaciens
-    explanation: Quantifies the growth enhancement of L. kefiranofaciens by lactate from L. mesenteroides.
+    explanation: Quantifies response to added lactate, not donor-resolved lactate transfer from L. mesenteroides.
   - reference: PMID:33398099
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: early members open the niche for the followers by making available metabolites
-      such as amino acids and lactate
-    explanation: Abstract confirms cross-feeding of amino acids and lactate among kefir
-      members; the specific kefiranofaciens/mesenteroides direction is detailed in the
-      full text but only generically supported by the abstract.
+    snippet: early members open the niche for the followers by making available metabolites such as amino acids
+      and lactate
+    explanation: Supports the source-proposed reciprocal metabolic model; direct molecular necessity remains unresolved.
 - name: Acetobacter Lactate Cross-Feeding
-  description: Acetobacter fabarum exhibits strong dependency on lactate produced by lactate-generating
-    bacteria (L. mesenteroides, L. lactis). The majority of mutualistic interactions involving A. fabarum
-    (8 total) are with lactate-producing partners. Acetobacter growth is promoted by lactate concentrations
-    between 7-12 mg/ml, explaining its late onset during fermentation (Stage VI) when lactate accumulates.
-    This cross-feeding enables A. fabarum to thrive despite poor growth in plain milk whey.
+  description: PARTIAL - lactate-producer partnerships, conditioned-medium assays and supplementation support the
+    authors' Acetobacter cross-feeding model. Acetobacter growth benefited most at 7-12 mg/ml supplied lactate.
+    GC-MS did not detect appreciable lactate consumption in the tested conditioned media, although amino-acid consumption
+    was measured; limited analytical sensitivity is a proposed explanation. Supplementation and late growth do not
+    uniquely resolve the donor-specific lactate flux.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -315,29 +301,30 @@ ecological_interactions:
       id: NCBITaxon:483199
       label: Acetobacter fabarum
   metabolites:
-  - preferred_term: L-lactate
+  - preferred_term: lactate
     term:
-      id: CHEBI:422
-      label: (S)-lactic acid
-    concentration: Consumed at 7-12 mg/ml for optimal growth
+      id: CHEBI:24996
+      label: lactate
+    notes: 7-12 mg/ml is the beneficial supplementation range, not a measured uptake concentration or species-specific
+      flux.
   evidence:
   - reference: PMID:33398099
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: The majority of the mutualistic interactions, 8 in total, involved A. fabarum and a lactate-producing
       partner, supporting its dependency on lactate and late onset during fermentation.
-    explanation: Demonstrates A. fabarum's strong dependency on lactate cross-feeding from other community
-      members.
+    explanation: Pairwise benefits with lactate producers support the proposed mechanism; no appreciable lactate
+      depletion was resolved in the conditioned-medium assay.
   - reference: PMID:33398099
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Acetobacter sp. benefited from lactate most between 7 and 12 mg/ml
     explanation: Quantifies the optimal lactate concentration for Acetobacter growth.
 - name: Kazachstania Lactate-Promoted Growth
-  description: Kazachstania exigua, a kefir yeast, is promoted by lactate at lower concentrations than
-    Acetobacter. The time-window of K. exigua growth aligns with the beneficial range of lactate concentration
-    during fermentation. This cross-feeding on lactate produced by bacterial community members enables
-    the yeast to thrive in the kefir ecosystem despite limited ability to utilize milk whey alone.
+  description: Lactate supplementation promoted K. exigua at lower concentrations than Acetobacter, and its growth
+    timing was compatible with changing organic-acid levels. PARTIAL - bacterial lactate support is a proposed community
+    cross-feeding route, not directly measured producer-to-yeast uptake or necessity. Yeasts were among the organisms
+    able to grow appreciably in plain whey, so lactate is not established as their sole enabling substrate.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -354,24 +341,23 @@ ecological_interactions:
       id: NCBITaxon:1245
       label: Leuconostoc mesenteroides
   metabolites:
-  - preferred_term: L-lactate
+  - preferred_term: lactate
     term:
-      id: CHEBI:422
-      label: (S)-lactic acid
-    concentration: Promotes growth at lower concentrations than Acetobacter
+      id: CHEBI:24996
+      label: lactate
+    notes: Growth-promoting supplementation below the Acetobacter range; exact donor-specific uptake was not measured.
   evidence:
   - reference: PMID:33398099
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Kazachstania exigua (and Saccharomyces unisporus) were also promoted by lactate but at lower
-      concentrations
-    explanation: Demonstrates that K. exigua benefits from lactate cross-feeding at lower concentrations.
+    snippet: Kazachstania exigua (and Saccharomyces unisporus) were also promoted by lactate but at lower concentrations
+    explanation: Supports measured promotion by added lactate, not a traced bacterial-donor exchange.
   - reference: PMID:33398099
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: the time-windows of yeast and Acetobacter growth align well with the beneficial or inhibitory
-      range of lactate and acetate concentration
-    explanation: Shows temporal alignment of K. exigua growth with beneficial lactate concentrations.
+    snippet: the time-windows of yeast and Acetobacter growth align well with the beneficial or inhibitory range
+      of lactate and acetate concentration
+    explanation: Temporal agreement supports an interpretation, not necessary mediation or direct uptake.
 related_ingredients:
 - preferred_term: lactose
   chebi_term:
@@ -627,3 +613,29 @@ growth_media:
       for lower volumes). The process was carried at the 25 ˚C and without shaking for 48 h'
     explanation: Reports the inoculum (60 g kefir grains per liter milk), temperature (25 °C), static (no
       shaking) conditions, and 48 h incubation time.
+discussions:
+- discussion_id: kefir_partner_flux_and_reciprocal_effects
+  prompt: Which donor-specific fluxes and reciprocal fitness responses resolve the inferred kefir mechanisms?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#L. kefiranofaciens Proteolytic Support for L. mesenteroides
+  - ecological_interactions#L. kefiranofaciens Suppression of L. kefiri
+  - ecological_interactions#L. mesenteroides Lactate Provisioning to L. kefiranofaciens
+  - ecological_interactions#Acetobacter Lactate Cross-Feeding
+  - ecological_interactions#Kazachstania Lactate-Promoted Growth
+  rationale: 'Preserve experimental pairwise mutualism and supplementation responses. Recipient-directed lactate
+    delivery to L. kefiranofaciens does not cause the general pool supporting Acetobacter or yeast, so those two
+    arrows were removed. Source main text and captions read; figure image and supplementary-table access was not
+    obtained, and reciprocal inhibition of the L. kefiri pair was not independently resolved. The source XML was
+    retrieved to inspect Fig. 4 metadata, not to claim its image or Table 8 was reviewed. Non-graph follow-up remains
+    #1262.'
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T12:49:56Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve experimental kefir mutualism while bounding inferred transfer and inhibition; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1259'
+  llm_assisted: true

@@ -20,6 +20,7 @@ journal: The ISME Journal
 year: '2024'
 doi: 10.1093/ismejo/wrae126
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Defined synthetic microbial communities colonize and benefit field-grown sorghum

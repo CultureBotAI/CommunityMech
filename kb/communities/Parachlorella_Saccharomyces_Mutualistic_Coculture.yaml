@@ -55,11 +55,11 @@ taxonomy:
       when co-cultured with Saccharomyces cerevisiae to enhance lipid productivity
     explanation: Identifies Saccharomyces cerevisiae as the yeast member of the co-culture.
 ecological_interactions:
-- name: Reciprocal oxygen/carbon dioxide gas exchange
-  description: The microalga and yeast establish a mutualistic relationship based on reciprocal exchange
-    of oxygen and carbon dioxide, offering a strategy to overcome productivity limits caused by the
-    slow growth of the microalga.
-  interaction_type: MUTUALISM
+- name: Proposed Reciprocal Oxygen and Carbon Dioxide Exchange
+  description: HYPOTHESIZED - Reciprocal oxygen/carbon dioxide exchange is proposed as a basis for microalga-yeast
+    association. In the accessible PMID42217804 abstract, this is introductory context rather than an exact-system
+    gas-flux or mediator-perturbation result. Preserve it as a mechanistic hypothesis for P. kessleri and S. cerevisiae,
+    not demonstrated bidirectional flux or reciprocal fitness benefit.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Parachlorella kessleri
@@ -81,23 +81,24 @@ ecological_interactions:
       id: CHEBI:16526
       label: carbon dioxide
   downstream:
-  - target: Fourfold Microalgal Biomass and Lipid Increase
-    description: >
-      Reciprocal O2/CO2 exchange helps the coculture overcome microalgal
-      productivity limits and contributes to the higher biomass and lipid
-      production measured in coculture.
+  - target: Fourfold Coculture Biomass and Lipid Increase
+    description: HYPOTHESIZED - Photosynthetic oxygen and respiratory carbon dioxide exchange could support coculture
+      productivity. The accessible abstract does not isolate the contribution of gas exchange to the observed fourfold
+      biomass/lipid increase.
   evidence:
   - reference: PMID:42217804
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Microalgae and yeasts can establish a mutualistic relationship based on reciprocal
-      oxygen/carbon dioxide exchange, offering a strategy to overcome productivity limits caused by the
-      slow growth of microalgae.
-    explanation: States the mutualistic O2/CO2 gas-exchange interaction underlying the co-culture.
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: Microalgae and yeasts can establish a mutualistic relationship based on reciprocal oxygen/carbon dioxide
+      exchange, offering a strategy to overcome productivity limits caused by the slow growth of microalgae.
+    explanation: Introductory mechanistic context, not an exact-system gas-exchange measurement in the accessible
+      abstract.
 - name: Yeast support of microalgal growth and lipid accumulation
-  description: Yeast sustained microalgal growth during the transition to phototrophy after glucose
-    depletion (day 6) and promoted lipid accumulation through nutrient competition.
-  interaction_type: MUTUALISM
+  description: The abstract reports that yeast sustained microalgal growth during the transition to phototrophy
+    after glucose depletion on day 6 and promoted lipid accumulation through nutrient competition. Preserve these
+    reported positive physiological effects without interpreting nutrient competition as a demonstrated reciprocal
+    benefit or specifying an unmeasured exchanged nutrient. Full-text comparisons and the fraction of productivity
+    mediated by each process remain uninspected.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Saccharomyces cerevisiae
@@ -119,24 +120,23 @@ ecological_interactions:
       id: GO:0006629
       label: lipid metabolic process
   downstream:
-  - target: Fourfold Microalgal Biomass and Lipid Increase
-    description: >
-      Yeast sustains microalgal growth after glucose depletion and promotes
-      lipid accumulation, directly supporting the coculture biomass and lipid
-      endpoint.
+  - target: Fourfold Coculture Biomass and Lipid Increase
+    description: PARTIAL - Yeast-associated maintenance of algal growth and nutrient-competition-associated lipid
+      accumulation provide the reported physiological contribution to higher coculture biomass/lipid production.
+      This does not apportion the fourfold endpoint among growth support, gas exchange and other mechanisms.
   evidence:
   - reference: PMID:42217804
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Yeast sustained microalgal growth during the transition to phototrophy after glucose
-      depletion (day 6) and promoted lipid accumulation through nutrient competition.
+    snippet: Yeast sustained microalgal growth during the transition to phototrophy after glucose depletion (day
+      6) and promoted lipid accumulation through nutrient competition.
     explanation: Yeast supports microalgal growth and drives lipid accumulation via nutrient competition.
-- name: EPS-mediated metabolic support of yeast by microalgae
-  description: Despite prolonged nutrient limitation, yeast viability remained above 68%, indicating
-    possible metabolic support from microalgae via exopolysaccharide (EPS)-derived molecules; FluidFM
-    revealed stronger and longer microalga-yeast interactions linked to enhanced EPS production in
-    co-culture.
-  interaction_type: CROSS_FEEDING
+- name: Proposed EPS-Derived Metabolic Support of Yeast
+  description: HYPOTHESIZED - Yeast viability remained above 68% during approximately 8 days of nutrient limitation,
+    which the authors interpret as possible metabolic support by microalgal EPS-derived molecules. AFM showed visible
+    EPS and cell-surface changes, and FluidFM found stronger, longer cell interactions, likely associated with EPS.
+    These positive viability and biophysical observations do not by themselves demonstrate EPS-carbon uptake, donor-to-recipient
+    transfer or dependence of yeast survival on EPS.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Parachlorella kessleri
@@ -155,29 +155,19 @@ ecological_interactions:
       label: exopolysaccharide
   evidence:
   - reference: PMID:42217804
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: yeast viability remained above 68%, indicating possible metabolic support from microalgae
-      via exopolysaccharides (EPS) - derived molecules
-    explanation: Inferred microalga-to-yeast metabolic support via EPS-derived molecules sustaining
-      yeast viability.
-- name: Fourfold Microalgal Biomass and Lipid Increase
-  description: >
-    The Parachlorella-Saccharomyces coculture increased biomass and lipid
-    production fourfold relative to the microalgal monoculture, integrating gas
-    exchange and yeast-supported phototrophic growth into the target
-    lipid-productivity phenotype.
-  interaction_type: MUTUALISM
+    snippet: yeast viability remained above 68%, indicating possible metabolic support from microalgae via exopolysaccharides
+      (EPS) - derived molecules
+    explanation: Positive viability observation supports a proposed EPS mechanism, not directly traced carbon transfer
+      or demonstrated necessity.
+- name: Fourfold Coculture Biomass and Lipid Increase
+  description: Under coculture conditions, biomass and lipid production increased fourfold relative to microalgal
+    monoculture grown in BBM + NO3 medium. This is a positive culture-level productivity comparison. The accessible
+    abstract does not establish that the entire biomass increase is microalgal, quantify each species contribution,
+    or isolate gas exchange or EPS transfer as the cause. It does not demonstrate reciprocal benefit solely from
+    increased bulk output.
   scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: oxygen
-    term:
-      id: CHEBI:15379
-      label: dioxygen
-  - preferred_term: carbon dioxide
-    term:
-      id: CHEBI:16526
-      label: carbon dioxide
   biological_processes:
   - preferred_term: growth
     term:
@@ -191,11 +181,11 @@ ecological_interactions:
   - reference: PMID:42217804
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: biomass and lipid production increased 4-fold compared to microalgal monoculture grown in
-      BBM + NO3 medium
-    explanation: >
-      Supports the increased biomass and lipid-production endpoint of the
-      microalga-yeast coculture.
+    snippet: biomass and lipid production increased 4-fold compared to microalgal monoculture grown in BBM + NO3
+      medium
+    explanation: 'Supports the increased biomass and lipid-production endpoint of the microalga-yeast coculture.
+
+      '
 growth_media:
 - name: BBM + NO3 medium
   preparation_notes: 'Microalga-yeast co-culture; yeast supplied with glucose as initial carbon source,
@@ -214,3 +204,42 @@ growth_media:
     snippet: Yeast sustained microalgal growth during the transition to phototrophy after glucose depletion
       (day 6)
     explanation: Documents glucose as the initial carbon source, depleted at day 6.
+discussions:
+- discussion_id: parachlorella-assay-and-mediator-boundaries
+  prompt: Which measured gas, EPS and physical-interaction changes mediate the positive productivity and viability
+    responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Proposed Reciprocal Oxygen and Carbon Dioxide Exchange
+  - ecological_interactions#Yeast support of microalgal growth and lipid accumulation
+  - ecological_interactions#Proposed EPS-Derived Metabolic Support of Yeast
+  - ecological_interactions#Fourfold Coculture Biomass and Lipid Increase
+  rationale: Keep positive coculture productivity and yeast-associated algal support distinct from proposed gas
+    and EPS mechanisms. Stronger/longer cell adhesion and visible EPS are not themselves metabolite transfer. Full
+    text, controls and taxon-resolved measurements remain uninspected. A one-community Edison causal dry run prepares
+    possible separately evidenced biophysical structure; no paid report has been generated or used to add topology.
+  evidence:
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Yeast sustained microalgal growth during the transition to phototrophy after glucose depletion (day
+      6) and promoted lipid accumulation through nutrient competition.
+    explanation: Yeast supports microalgal growth and drives lipid accumulation via nutrient competition.
+  - reference: PMID:42217804
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: yeast viability remained above 68%, indicating possible metabolic support from microalgae via exopolysaccharides
+      (EPS) - derived molecules
+    explanation: Positive viability observation supports a proposed EPS mechanism, not directly traced carbon transfer
+      or demonstrated necessity.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-07T06:44:09Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain gas-exchange hypothesis with contextual evidence and partial productivity mediation.; Preserve
+    reported yeast-associated growth/lipid physiology without reciprocal-benefit inference.; Preserve yeast viability
+    and physical observations while qualifying EPS transfer.; Preserve fourfold culture-level output without unsupported
+    algal-only attribution. Issue #1677; reports/causal_graph_review/decisions/20261007-four-records-batch82.yaml'
+  llm_assisted: true

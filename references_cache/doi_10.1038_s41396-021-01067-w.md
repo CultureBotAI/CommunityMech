@@ -11,7 +11,13 @@ authors:
 journal: The ISME Journal
 year: '2022'
 doi: 10.1038/s41396-021-01067-w
-content_type: abstract_only
+content_type: full_text_pdf
+full_text_attempted: true
+full_text_provider: openalex
+full_text_url: "https://www.nature.com/articles/s41396-021-01067-w.pdf"
+oa_status: hybrid
+license: cc-by
+local_pdf_path: files/DOI_10.1038_s41396-021-01067-w.pdf
 ---
 
 # Microbial drivers of methane emissions from unrestored industrial salt ponds
@@ -32,3 +38,1254 @@ pmc ISME J ISME J 1478 ismej 101301086 The ISME Journal 1751-73621751-7370 Oxfor
  Table S3: Table of 532 carbon, nitrogen, phosphorus, and sulfur cycling KOs 
  Table S4: Sample metadata and biogeochemical data 
  Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations. Supplementary information The online version contains supplementary material available at 10.1038/s41396-021-01067-w. Acknowledgements This project was funded by the DOE Early Career Research Program, grant no. KP/CH57/1, and includes work conducted by the U.S. Department of Energy Joint Genome Institute, a DOE Office of Science User Facility supported by the Office of Science of the U.S. Department of Energy under Contract No. DE-AC02-05CH11231. We thank the production and sequence analysis teams at JGI for sequencing and bioinformatic support. We thank John Bourgeois, Donna Ball, and John Krause for help accessing the field sites. Competing interests The authors declare no competing interests. References 1. Costanza R d’Arge R de Groot R Farber S Grasso M Hannon B The value of the world’s ecosystem services and natural capital Ecol Econ 1998 25 3 15 2. Grimsditch G Alder J Nakamura T Kenchington R Tamelander J The blue carbon special edition—introduction and overview Ocean Coast Manag 2013 83 1 4 3. Duarte CM Losada IJ Hendriks IE Mazarrasa I Marbà N The role of coastal plant communities for climate change mitigation and adaptation Nat Clim Change 2013 3 961 8 4. Mcleod E Chmura GL Bouillon S Salm R Björk M Duarte CM A blueprint for blue carbon: toward an improved understanding of the role of vegetated coastal habitats in sequestering CO2 Front Ecol Environ 2011 9 552 60 5. Neef L, Weele M van, Velthoven P van. Optimal estimation of the present-day global methane budget. Glob Biogeochem Cycles. 2010;24:GB4024. 6. Schlesinger WH, Bernhardt ES. Biogeochemistry: an analysis of global change. 3rd ed. Waltham, MA: Academic Press; 2013. 7. Lessner DJ. Methanogenesis biochemistry. eLS. John Wiley & Sons, Hoboken, NJ, USA; 2009. 8. Conrad R Importance of hydrogenotrophic, aceticlastic and methylotrophic methanogenesis for methane production in terrestrial, aquatic and other anoxic environments: a mini review Pedosphere 2020 30 25 39 9. Herbert ER Boon P Burgin AJ Neubauer SC Franklin RB Ardón M A global perspective on wetland salinization: ecological consequences of a growing threat to freshwater wetlands Ecosphere 2015 6 art206 10. Wicke B Smeets E Dornburg V Vashev B Gaiser T Turkenburg W The global technical and economic potential of bioenergy from salt-affected soils Energy Environ Sci 2011 4 2669 81 11. Kristjansson JK Schönheit P Why do sulfate-reducing bacteria outcompete methanogenic bacteria for substrates? Oecologia 1983 60 264 6 28310495 10.1007/BF00379530 12. Karl DM Beversdorf L Björkman KM Church MJ Martinez A Delong EF Aerobic production of methane in the sea Nat Geosci 2008 1 473 8 13. Mcgenity T, Sorokin D. Methanogens and methanogenesis in hypersaline environments. Biogenesis of hydrocarbons. Springer International Publishing, New York, NY, USA; 2018. p. 1–27. 14. Repeta DJ Ferrón S Sosa OA Johnson CG Repeta LD Acker M Marine methane paradox explained by bacterial degradation of dissolved organic matter Nat Geosci 2016 9 884 7 15. Oremland RS Polcin S Methanogenesis and sulfate reduction: competitive and noncompetitive substrates in estuarine sediments Appl Environ Microbiol 1982 44 1270 6 16346144 10.1128/aem.44.6.1270-1276.1982 PMC242184 16. van der Gon HACD Neue H-U Methane emission from a wetland rice field as affected by salinity Plant Soil 1995 170 307 13 17. Gómez-Villegas P Vigara J León R Characterization of the microbial population inhabiting a solar saltern pond of the Odiel Marshlands (SW Spain) Mar Drugs 2018 16 332 10.3390/md16090332 PMC6164061 30213145 18. Ley RE Harris JK Wilcox J Spear JR Miller SR Bebout BM Unexpected diversity and complexity of the Guerrero Negro hypersaline microbial mat Appl Environ Microbiol 2006 72 3685 95 16672518 10.1128/AEM.72.5.3685-3695.2006 PMC1472358 19. Thombre RS Shinde VD Oke RS Dhar SK Shouche YS Biology and survival of extremely halophilic archaeon Haloarcula marismortui RR12 isolated from Mumbai salterns, India in response to salinity stress Sci Rep 2016 6 25642 27231230 10.1038/srep25642 PMC4882750 20. Takekawa JY Miles AK Schoellhamer DH Athearn ND Saiki MK Duffy WD Trophic structure and avian communities across a salinity gradient in evaporation ponds of the San Francisco Bay estuary Hydrobiologia 2006 567 307 27 21. Ver Planck WE. Salt in California. State of California Deparment of Natural Resources, Division of Mines. Mines Bull 175. San Francisco, CA, USA: 1958. 22. Johnck EJ. The South Bay Salt Pond Restoration Project: a cultural landscape approach for the resource management plan. Sonoma State University, Rohnert Park, CA, USA; 2008. 23. Ackerman JT, Marvin-DiPasquale M, Slotton D, Eagles-Smith CA, Hartman A, Agee JL, et al. The South Bay Mercury Project: using biosentinels to monitor effects of wetland restoration for the South Bay Salt Pond Restoration Project. South Bay Salt Pond Restoration Project and Resources Legacy Fund, San Francisco, CA, USA; 2013. 24. Valoppi L. Phase 1 studies summary of major findings of the South Bay Salt Pond Restoration Project, South San Francisco Bay, California. Phase 1 studies summary of major findings of the South Bay Salt Pond Restoration Project, South San Francisco Bay, California. Reston, VA: U.S. Geological Survey; 2018. 25. Callaway JC, Parker VT, Vasey MC, Schile LM, Herbert ER. Tidal wetland restoration in San Francisco Bay: history and current issues. San Franc Estuary Watershed Sci. 2011;9: Article 2. 26. Cargill. San Francisco Bay salt ponds. Cargill, Newark, CA, USA; 2020. https://www.cargill.com/page/sf/sf-bay-salt-ponds . 27. Levey JR, Vasicek P, Fricke H, Archer J, Henry RF. Salt pond SF2 restoration, wildlife, and habitat protection. American Society of Civil Engineers, Reston, VA; 2012.520−9. 28. Dugan HA Summers JC Skaff NK Krivak-Tetley FE Doubek JP Burke SM Long-term chloride concentrations in North American and European freshwater lakes Sci Data 2017 4 170101 28786983 10.1038/sdata.2017.101 PMC5548073 29. Tremblay J, Singh K, Fern A, Kirton ES, He S, Woyke T, et al. Primer and platform effects on 16S rRNA tag sequencing. Front Microbiol 2015;6:771. 10.3389/fmicb.2015.00771 PMC4523815 26300854 30. Quast C Pruesse E Yilmaz P Gerken J Schweer T Yarza P The SILVA ribosomal RNA gene database project: improved data processing and web-based tools Nucleic Acids Res 2013 41 D590 96 23193283 10.1093/nar/gks1219 PMC3531112 31. Wang Q, Garrity GM, Tiedje JM, Cole JR. A naïve Bayesian classifier for rapid assignment of rRNA sequences into the new bacterial taxonomy. Appl Environ Microbiol 2007;73:5264−67. 10.1128/AEM.00062-07 PMC1950982 17586664 32. Caporaso JG Kuczynski J Stombaugh J Bittinger K Bushman FD Costello EK QIIME allows analysis of high-throughput community sequencing data Nat Methods 2010 7 335 6 20383131 10.1038/nmeth.f.303 PMC3156573 33. Edgar RC Search and clustering orders of magnitude faster than BLAST Bioinformatics 2010 26 2460 1 20709691 10.1093/bioinformatics/btq461 34. Love MI Huber W Anders S Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2 Genome Biol 2014 15 550 25516281 10.1186/s13059-014-0550-8 PMC4302049 35. Bankevich A Nurk S Antipov D Gurevich AA Dvorkin M Kulikov AS SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing J Comput Biol 2012 19 455 77 22506599 10.1089/cmb.2012.0021 PMC3342519 36. Gurevich A Saveliev V Vyahhi N Tesler G QUAST: quality assessment tool for genome assemblies Bioinformatics 2013 29 1072 5 23422339 10.1093/bioinformatics/btt086 PMC3624806 37. Wu Y-W Tang Y-H Tringe SG Simmons BA Singer SW MaxBin: an automated binning method to recover individual genomes from metagenomes using an expectation-maximization algorithm Microbiome 2014 2 26 25136443 10.1186/2049-2618-2-26 PMC4129434 38. Kang DD Froula J Egan R Wang Z MetaBAT, an efficient tool for accurately reconstructing single genomes from complex microbial communities PeerJ 2015 3 e1165 26336640 10.7717/peerj.1165 PMC4556158 39. Lin H-H Liao Y-C Accurate binning of metagenomic contigs via automated clustering sequences using information of genomic signatures and marker genes Sci Rep 2016 6 24175 27067514 10.1038/srep24175 PMC4828714 40. Sieber CMK Probst AJ Sharrar A Thomas BC Hess M Tringe SG Recovery of genomes from metagenomes via a dereplication, aggregation, and scoring strategy Nat Microbiol 2018 3 836 43 29807988 10.1038/s41564-018-0171-1 PMC6786971 41. Parks DH Imelfort M Skennerton CT Hugenholtz P Tyson GW CheckM: assessing the quality of microbial genomes recovered from isolates, single cells, and metagenomes Genome Res 2015 25 1043 55 25977477 10.1101/gr.186072.114 PMC4484387 42. Olm MR Brown CT Brooks B Banfield JF dRep: a tool for fast and accurate genomic comparisons that enables improved genome recovery from metagenomes through de-replication ISME J 2017 11 2864 8 28742071 10.1038/ismej.2017.126 PMC5702732 43. Bowers RM Kyrpides NC Stepanauskas R Harmon-Smith M Doud D Reddy TBK Minimum information about a single amplified genome (MISAG) and a metagenome-assembled genome (MIMAG) of bacteria and archaea Nat Biotechnol 2017 35 725 31 28787424 10.1038/nbt.3893 PMC6436528 44. Yu FB Blainey PC Schulz F Woyke T Horowitz MA Quake SR Microfluidic-based mini-metagenomics enables discovery of novel microbial lineages from complex environmental samples eLife 2017 6 e26580 28678007 10.7554/eLife.26580 PMC5498146 45. von Meijenfeldt FAB Arkhipova K Cambuy DD Coutinho FH Dutilh BE Robust taxonomic classification of uncharted microbial sequences and bins with CAT and BAT Genome Biol 2019 20 217 31640809 10.1186/s13059-019-1817-x PMC6805573 46. Oksanen J, Blanchet FG, Friendly M, Kindt R, Legendre P, McGlinn D, et al. vegan: Community Ecology Package. R package version 2.5-6. 2019.  https://CRAN.R-project.org/package=vegan . 47. Vu VQ. ggbiplot: a ggplot2 based biplot. R package version 0.55. 2011. http://github.com/vqv/ggbiplot . 48. De Cáceres M Legendre P Associations between species and groups of sites: indices and statistical inference Ecology 2009 90 3566 74 20120823 10.1890/08-1823.1 49. Prestat E David MM Hultman J Taş N Lamendella R Dvornik J FOAM (functional ontology assignments for metagenomes): a hidden Markov model (HMM) database with environmental focus Nucleic Acids Res 2014 42 e145 25260589 10.1093/nar/gku702 PMC4231724 50. Liu J, Cade-Menun BJ, Yang J, Hu Y, Liu CW, Tremblay J, et al. Long-term land use affects phosphorus speciation and the composition of phosphorus cycling genes in agricultural soils. Front Microbiol. 2018;9:1643. 10.3389/fmicb.2018.01643 PMC6065304 30083148 51. Manor O Borenstein E MUSiCC: a marker genes based framework for metagenomic normalization and accurate profiling of gene abundances in the microbiome Genome Biol 2015 16 53 25885687 10.1186/s13059-015-0610-8 PMC4391136 52. Banerjee S Schlaeppi K van der Heijden MGA Keystone taxa as drivers of microbiome structure and functioning Nat Rev Microbiol 2018 16 567 76 29789680 10.1038/s41579-018-0024-1 53. Girvan M Newman MEJ Community structure in social and biological networks Proc Natl Acad Sci USA. 2002 99 7821 6 12060727 10.1073/pnas.122653799 PMC122977 54. Jurasinski G, Koebsch F, Guenther A, Beetz S. flux: flux rate calculation from dynamic closed chamber measurements. R package version 0.3-0. 2014. https://CRAN.R-project.org/package=flux . 55. Culkin F Smith N Determination of the concentration of potassium chloride solution having the same electrical conductivity, at 15 °C and infinite frequency, as standard seawater of salinity 35.0000 ‰ (chlorinity 19.37394 ‰) IEEE J Ocean Eng 1980 5 22 23 56. Kuever J. The Family Desulfohalobiaceae. In: Rosenberg E, DeLong EF, Lory S, Stackebrandt E, Thompson F (eds). The Prokaryotes: Deltaproteobacteria and Epsilonproteobacteria. Berlin, Heidelberg: Springer; 2014. p. 87–95. 57. López-Pérez M, Rodriguez-Valera F. The Family Alteromonadaceae. In: Rosenberg E, DeLong EF, Lory S, Stackebrandt E, Thompson F (eds). The Prokaryotes: Gammaproteobacteria. Berlin, Heidelberg: Springer; 2014. p. 69–92. 58. Oren A. The Order Halanaerobiales, and the Families Halanaerobiaceae and Halobacteroidaceae. In: Rosenberg E, DeLong EF, Lory S, Stackebrandt E, Thompson F (eds). The Prokaryotes: Firmicutes and Tenericutes. Berlin, Heidelberg: Springer; 2014. p. 153−77. 59. Pujalte MJ, Lucena T, Ruvira MA, Arahal DR, Macián MC. The Family Rhodobacteraceae. In: Rosenberg E, DeLong EF, Lory S, Stackebrandt E, Thompson F (eds). The Prokaryotes: Alphaproteobacteria and Betaproteobacteria. Berlin, Heidelberg: Springer; 2014. p. 439–512. 60. Kuever J. The Family Desulfobacteraceae. In: Rosenberg E, DeLong EF, Lory S, Stackebrandt E, Thompson F (eds). The Prokaryotes: Deltaproteobacteria and Epsilonproteobacteria. Berlin, Heidelberg: Springer; 2014. p. 45–73. 61. Kuever J. The Family Desulfobulbaceae. In: Rosenberg E, DeLong EF, Lory S, Stackebrandt E, Thompson F (eds). The Prokaryotes: Deltaproteobacteria and Epsilonproteobacteria. Berlin, Heidelberg: Springer; 2014. p. 75–86. 62. Kuever J. The Family Syntrophobacteraceae. In: Rosenberg E, DeLong EF, Lory S, Stackebrandt E, Thompson F (eds). The Prokaryotes: Deltaproteobacteria and Epsilonproteobacteria. Berlin, Heidelberg: Springer; 2014. p. 289−99. 63. Oren A. The Family Methanosarcinaceae. In: Rosenberg E, DeLong EF, Lory S, Stackebrandt E, Thompson F (eds). The Prokaryotes: other major lineages of bacteria and the archaea. Berlin, Heidelberg: Springer; 2014. p. 259−81. 64. Bonin AS, Boone DR. The Order Methanobacteriales. In: Dworkin M, Falkow S, Rosenberg E, Schleifer K-H, Stackebrandt E (eds). The Prokaryotes: Volume 3: Archaea. Bacteria: Firmicutes, Actinomycetes. New York, NY: Springer; 2006. p. 231−43. 65. Kathuria S Martiny AC Prevalence of a calcium-based alkaline phosphatase associated with the marine cyanobacterium Prochlorococcus and other ocean bacteria Environ Microbiol 2011 13 74 83 20649645 10.1111/j.1462-2920.2010.02310.x 66. Kamat SS Williams HJ Dangott LJ Chakrabarti M Raushel FM The catalytic mechanism for aerobic formation of methane by bacteria Nature 2013 497 132 6 23615610 10.1038/nature12061 67. Yu X Doroghazi JR Janga SC Zhang JK Circello B Griffin BM Diversity and abundance of phosphonate biosynthetic genes in nature Proc Natl Acad Sci USA 2013 110 20759 64 24297932 10.1073/pnas.1315107110 PMC3870699 68. Fish JA, Chai B, Wang Q, Sun Y, Brown CT, Tiedje JM, et al. FunGene: the functional gene pipeline and repository. Front Microbiol. 2013;4:291. 10.3389/fmicb.2013.00291 PMC3787254 24101916 69. Metcalf WW Griffin BM Cicchillo RM Gao J Janga SC Cooke HA Synthesis of methylphosphonic acid by marine microbes: a source for methane in the aerobic ocean Science 2012 337 1104 7 22936780 10.1126/science.1219875 PMC3466329 70. Poffenbarger HJ Needelman BA Megonigal JP Salinity influence on methane emissions from tidal marshes Wetlands 2011 31 831 42 71. Oremland RS Boone DR Methanolobus taylorii sp. nov., a new methylotrophic, estuarine methanogen Int J Syst Bacteriol 1994 44 573 5 72. Zhang G Jiang N Liu X Dong X Methanogenesis from methanol at low temperatures by a novel psychrophilic methanogen, “Methanolobus psychrophilus” sp. nov., prevalent in Zoige Wetland of the Tibetan Plateau Appl Environ Microbiol 2008 74 6114 20 18676698 10.1128/AEM.01146-08 PMC2565969 73. Antony CP Murrell JC Shouche YS Molecular diversity of methanogens and identification of Methanolobus sp. as active methylotrophic Archaea in Lonar crater lake sediments FEMS Microbiol Ecol 2012 81 43 51 22150151 10.1111/j.1574-6941.2011.01274.x 74. König H Stetter KO Isolation and characterization of Methanolobus tindarius, sp. nov., a coccoid methanogen growing only on methanol and methylamines Zentralblatt Für Bakteriol Mikrobiol Hyg Abt Orig C Allg Angew Ökol Mikrobiol 1982 3 478 90 75. Doerfert SN Reichlen M Iyer P Wang M Ferry JG Methanolobus zinderi sp. nov., a methylotrophic methanogen isolated from a deep subsurface coal seam Int J Syst Evol Microbiol 2009 59 1064 9 19406794 10.1099/ijs.0.003772-0 76. Ni S Boone DR Isolation and characterization of a dimethyl sulfide-degrading methanogen, methanolobus siciliae HI350, from an oil well, characterization of M. siciliae T4/MT, and emendation of M. siciliae Int J Syst Bacteriol 1991 41 410 6 1883716 10.1099/00207713-41-3-410 77. Mochimaru H Tamaki H Hanada S Imachi H Nakamura K Sakata S Methanolobus profundi sp. nov., a methylotrophic methanogen isolated from deep subsurface sediments in a natural gas field Int J Syst Evol Microbiol 2009 59 714 8 19329594 10.1099/ijs.0.001677-0 78. Orphan VJ Jahnke LL Embaye T Turk KA Pernthaler A Summons RE Characterization and spatial distribution of methanogens and methanogenic biosignatures in hypersaline microbial mats of Baja California Geobiology 2008 6 376 93 18564187 10.1111/j.1472-4669.2008.00166.x 79. Smith JM Green SJ Kelley CA Prufert‐Bebout L Bebout BM Shifts in methanogen community structure and function associated with long-term manipulation of sulfate and salinity in a hypersaline microbial mat Environ Microbiol 2008 10 386 94 18177370 10.1111/j.1462-2920.2007.01459.x 80. Zhuang G-C Elling FJ Nigro LM Samarkin V Joye SB Teske A Multiple evidence for methylotrophic methanogenesis as the dominant methanogenic pathway in hypersaline sediments from the Orca Basin, Gulf of Mexico Geochim Cosmochim Acta 2016 187 1 20 81. Zhuang G-C Heuer VB Lazar CS Goldhammer T Wendt J Samarkin VA Relative importance of methylotrophic methanogenesis in sediments of the Western Mediterranean Sea Geochim Cosmochim Acta 2018 224 171 86 82. Oremland RS Marsh LM Polcin S Methane production and simultaneous sulphate reduction in anoxic, salt marsh sediments Nature 1982 296 143 5 83. Wanner BL Metcalf WW Molecular genetic studies of a 10.9 kb operon in Escherichia coli for phosphonate uptake and biodegradation FEMS Microbiol Lett 1992 100 133 9 1335942 10.1111/j.1574-6968.1992.tb14031.x 84. Dyhrman ST Chappell PD Haley ST Moffett JW Orchard ED Waterbury JB Phosphonate utilization by the globally important marine diazotroph Trichodesmium Nature 2006 439 68 71 16397497 10.1038/nature04203 85. White AK Metcalf WW Microbial metabolism of reduced phosphorus compounds Annu Rev Microbiol 2007 61 379 400 18035609 10.1146/annurev.micro.61.080706.093357 86. Carini P White AE Campbell EO Giovannoni SJ Methane production by phosphate-starved SAR11 chemoheterotrophic marine bacteria Nat Commun 2014 5 4346 25000228 10.1038/ncomms5346 87. Damm E Helmke E Thoms S Schauer U Nothig E Bakker K Methane production in aerobic oligotrophic surface water in the central Arctic Ocean Biogeosciences 2010 7 1099 108 88. Martínez A Ventouras L-A Wilson ST Karl DM Delong EF Metatranscriptomic and functional metagenomic analysis of methylphosphonate utilization by marine bacteria Front Microbiol 2013 4 340 24324460 10.3389/fmicb.2013.00340 PMC3840354 89. Yao M Henny C Maresca JA Freshwater bacteria release methane as a by-product of phosphorus acquisition Appl Environ Microbiol 2016 82 6994 7003 27694233 10.1128/AEM.02399-16 PMC5103098 90. Sosa OA Repeta DJ DeLong EF Ashkezari MD Karl DM Phosphate-limited ocean regions select for bacterial populations enriched in the carbon–phosphorus lyase pathway for phosphonate degradation Environ Microbiol 2019 21 2402 14 30972938 10.1111/1462-2920.14628 PMC6852614 91. Fisher J Acreman MC Wetland nutrient removal: a review of evidence Hydrol Earth Syst Sci Discuss Eur Geosci Union 2004 8 673 85 92. Kadlec RH Constructed marshes for nitrate removal Crit Rev Environ Sci Technol 2012 42 934 1005 93. He S Malfatti SA McFarland JW Anderson FE Pati A Huntemann M Patterns in wetland microbial community composition and functional gene repertoire associated with methane emissions mBio 2015 6 e00066 15 25991679 10.1128/mBio.00066-15 PMC4442139
+
+ARTICLE OPEN
+Microbial drivers of methane emissions from unrestored
+industrial salt ponds
+Jinglie Zhou 1, Susanna M. Theroux 1,2, Clifton P . Bueno de Mesquita 1, Wyatt H. Hartman 1, Ye Tian 3 and Susannah G. Tringe 1,4 ✉
+© The Author(s) 2021
+Wetlands are important carbon (C) sinks, yet many have been destroyed and converted to other uses over the past few centuries,
+including industrial salt making. A renewed focus on wetland ecosystem services (e.g., ﬂood control, and habitat) has resulted in
+numerous restoration efforts whose effect on microbial communities is largely unexplored. We investigated the impact of
+restoration on microbial community composition, metabolic functional potential, and methane ﬂux by analyzing sediment cores
+from two unrestored former industrial salt ponds, a restored former industrial salt pond, and a reference wetland. We observed
+elevated methane emissions from unrestored salt ponds compared to the restored and reference wetlands, which was positively
+correlated with salinity and sulfate across all samples. 16S rRNA gene amplicon and shotgun metagenomic data revealed that the
+restored salt pond harbored communities more phylogenetically and functionally similar to the reference wetland than to
+unrestored ponds. Archaeal methanogenesis genes were positively correlated with methane ﬂux, as were genes encoding enzymes
+for bacterial methylphosphonate degradation, suggesting methane is generated both from bacterial methylphosphonate
+degradation and archaeal methanogenesis in these sites. These observations demonstrate that restoration effectively converted
+industrial salt pond microbial communities back to compositions more similar to reference wetlands and lowered salinities, sulfate
+concentrations, and methane emissions.
+The ISME Journal (2022) 16:284 –295; https://doi.org/10.1038/s41396-021-01067-w
+INTRODUCTION
+Wetlands are land areas saturated or covered with water and are a
+transition zone between dry land (upland) and bodies of water.
+They are recognized as invaluable ecosystems that perform
+numerous essential ecosystem services such as improving water
+quality, regulating climate, mitigating storm surges, and support-
+ing biodiversity [ 1]. Anoxic conditions in wetland soils slow
+decomposition and improve the accumulation of organic matter,
+leading to the potential for carbon (C) sequestration. Vegetated
+coastal wetlands (e.g., mangrove forests and salt marshes) are
+particularly effective at taking up carbon dioxide (CO 2) into plant
+biomass and organic C in the sediment; this “blue carbon ” is
+proposed as a critical buffer against climate change [ 2, 3]. The C
+storage rate of tidal wetlands greatly surpasses that of upland
+terrestrial ecosystems [ 4].
+While they can be effective C sinks, wetlands are also the single
+largest natural source of atmospheric methane (~127 −155 Tg
+annually) [ 5], a greenhouse gas with 25 −35 times the global
+warming potential of CO 2 over a century timescale [ 6]. Methane
+production in wetlands is largely attributed to the activity of
+anaerobic archaeal methanogens [ 7]. Anaerobic archaea can
+produce methane via three pathways —by splitting acetate
+(acetoclastic methanogenesis), by reducing CO 2 using hydrogen
+as an electron donor (hydrogenotrophic methanogenesis), or by
+demethylating methyl-containing substrates such as methanol,
+methylamine, or dimethylsul ﬁde (methylotrophic methanogen-
+esis) [ 8]. The relative importance of these different pathways
+depends on temperature, organic matter quality, the rates of
+intermediate processes such as acetogenesis or acetate oxidation,
+and the presence of alternate electron acceptors such as nitrate,
+sulfate, or iron, whose reduction competes with methanogenesis
+to consume acetate and hydrogen [ 8]. Freshwater wetlands
+typically have low nitrate and sulfate concentrations, leading to
+high rates of methanogenesis [ 9].
+Salinization is a widespread and expanding threat to both
+inland and wetland ecosystems [ 9]. It is caused by a variety of
+factors including reduced freshwater in ﬂows, wastewater ef ﬂuent
+disposal, sea level rise, storm surges, and road salts [ 9]. While there
+is not a speci ﬁc estimate on the extent of wetland salinization,
+Wicke et al. 2011 [ 10] estimated that 1.5 × 10 8 ha of forests,
+wetlands, and protected areas were salt-affected. Salinization is
+expected to cause major changes in wetland C, nitrogen (N),
+phosphorus (P), sulfur (S), and iron (Fe) cycling. Salinization and
+the associated increase in sulfate availability have been shown to
+suppress methanogenesis, as sulfate-reducing bacteria outcom-
+pete methanogens for hydrogen leading to the inhibition of
+methanogenesis [ 11]. However, the effects may not always be so
+straightforward, as elevated methane emissions are still observed
+in saline to hypersaline environments across a wide range of
+sulfate and dissolved oxygen concentrations [ 12, 13]. Even in the
+Received: 19 January 2021 Revised: 7 July 2021 Accepted: 9 July 2021
+Published online: 28 July 2021
+1Department of Energy Joint Genome Institute, Lawrence Berkeley National Laboratory, Berkeley, CA, USA. 2Southern California Coastal Water Research Project, Costa Mesa, CA,
+USA. 3Mount Holyoke College, South Hadley, MA, USA. 4Environmental Genomics and Systems Biology Division, Lawrence Berkeley National Laboratory, Berkeley, CA, USA.
+✉email: sgtringe@lbl.gov
+www.nature.com/ismej
+
+
+presence of high sulfate concentrations, methane has been shown
+to be produced aerobically through methylphosphonate degrada-
+tion, such that competition with sulfate-reducers is bypassed
+[12, 14]. Methylotrophic methanogenesis with substrates such as
+methanol, trimethylamine, and methionine can also proceed
+uninhibited by high sulfate concentrations [ 13, 15]. Furthermore,
+salinization can reduce methane consumption [ 16], which would
+serve to increase the net methane emissions.
+Industrial salt ponds, created through a process of seawater
+evaporation, represent the extreme case of wetland salinization,
+with almost saturated salinities in addition to high light intensity,
+UV radiation, and elevated temperatures [ 17]. These extreme
+conditions greatly limit planktonic biodiversity but support a
+thriving community of halophilic microorganisms, especially
+members of the haloarchaea and Chloro ﬂexi [ 18, 19]. Salt
+evaporation ponds for salt making are found across the globe,
+including the San Francisco Bay where large stretches of tidal
+wetlands were converted to industrial salt ponds over the past
+century and a half [ 20, 21]. However, the South Bay Salt Pond
+Restoration Project is now restoring over 6,000 hectares of former
+industrial salt ponds to a rich mosaic of tidal and inter-tidal
+wetlands [ 22]. The large-scale, multi-phased plan aims to provide
+wildlife-oriented public access as well as ﬂood management and
+other ecosystems services in the South Bay. The success of
+restoration and impacts on biogeochemical cycling and microbial
+communities has not yet been assessed.
+In this study, we sampled sediments from four adjacent wetland
+sites in the South Bay, including two unrestored former industrial
+salt ponds, one recently restored pond, and one unaltered
+remnant ( “reference”) salt marsh. We explored the microbial
+communities in these four wetland sites through both 16S rRNA
+gene pro ﬁling and shotgun metagenome sequencing, in parallel
+with greenhouse gas measurements and sediment biogeochem-
+ical characterization, to investigate the biogeochemical and
+microbiological effects of restoration. We hypothesized that the
+restoration activities undertaken to restore the natural hydrology
+would result in abiotic conditions and microbial communities
+more similar to reference conditions. Based on previous experi-
+ments, we hypothesized that reducing salinity and sulfate levels in
+the unrestored salt ponds through restoration could lead to
+increased methanogenesis rates and methane emissions.
+METHODS
+Field site and sampling
+Former industrial salt ponds R1 and R2 (unrestored, 57.2 and 180.4 ha,
+respectively), SF2 (restored, 96.9 ha), and reference tidal wetland (20.5 ha,
+hereafter “R2A”) are located in the Ravenswood complex, Menlo Park, CA,
+adjacent to the Dumbarton Bridge (Fig. S1). These sites were chosen
+because they represent three different states of wetland management in
+the San Francisco South Bay (reference, unrestored, restored) and have
+been extensively studied as part of previous restoration efforts [ 23–25].
+Additionally, their proximity to each other helps control for broader
+environmental conditions such as climate. The reference wetland R2A is a
+tidal salt marsh dominated by cordgrass ( Sporobolus follosus ) and
+pickleweed ( Sarcocornia paci ﬁca). The salt-making process started with
+pumping bay water into the pond system followed by water evaporation
+inside each pond, leading to a slow concentration of brines for three years
+[26]; after approximately ~150 years of industrial salt production, salt
+making discontinued at these sites in 2003 and the ponds were left idle
+awaiting restoration. SF2 was restored to a managed pond at Bay salinity
+(22−24 ppt) in 2008 to provide improved ﬂood control, recreation, and
+wildlife habitat. Restoration work included improving the ﬂood control
+levee and constructing berms (dividing the pond into two cells), canals (an
+inlet and outlet to provide uniform water ﬂow through the cells), 30 bird
+nesting islands, water control structures (to regulate water levels and ﬂow
+rates of the ponds) and public access features [ 27].
+Soil core samples were collected from each sampling site in July 2014
+using a Split Core Sampler ﬁtted with an auger tip (AMS Inc., American
+Falls, ID). Duplicate soil cores were collected at each of three coring
+locations (A, B, C) per sampling site, for a total of six cores per site.
+Duplicate cores were collected adjacent to one another, one core for gas
+ﬂux measurements and one for DNA and geochemical analyses, and all
+coring locations were 20 −30 m distance from each other, approximately 2
+m from the shore. Coring locations at each site were selected to be
+representative of the site habitat conditions, but a more spatially
+comprehensive sampling was not possible due to limited site accessibility.
+On-site CH 4 and CO 2 ﬂuxes were measured from the intact soil cores
+using a Los Gatos Research Greenhouse Gas Analyzer (GGA; Los Gatos
+Research, Mountain View, CA). The GGA measures CO 2 and CH 4
+concentrations at 1 Hz with tunable laser cavity ringdown spectroscopy,
+at a precision of < 2 ppb (1 σ @ 1 Hz) over an operating range of 0.1 −100
+ppm. Cores were closed on the bottom with airtight caps and placed into
+2 L glass Mason jars ﬁtted with airtight Bev-A-Line IV connective tubing (US
+Plastic Corp, Lima OH) that allowed continuous gas exchange with the
+GGA’s pumped internal chamber. Soil core ﬂuxes were measured over two
+consecutive >300 s intervals and ventilated between these cycles for 100 s
+by gently agitating air above the opened jar while the GGA ’s pump purged
+the gas lines and chamber with ambient air. Time series data on CO 2 and
+CH4 from the (linear slope) second measurement interval were used to
+calculate rates of concentration increases within the experimental
+chamber. Fluxes (µmol m −2 d−1) were calculated given the volume of
+the chamber and tubing, and the surface area of the soil core through
+which gases passed.
+Soil core samples were split into two section depths D1 and D2 (0 −5a n d
+5–15 cm belowground, respectively). Cores were homogenized, placed on ice,
+and frozen at −80 °C for downstream DNA extraction and geochemical
+analyses. On-siteﬁeld measurements of water temperature, pH, and dissolved
+oxygen (DO) were performed with YSI probes (model 6920-v2, YSI Inc., Yellow
+Springs, OH, USA). Sediments were assessed for total elemental concentra-
+tions of C, N, and P; DTPA extractable concentrations of Zn, Mn, Cu, and Fe; 2
+M KCl extractable concentrations of nitrate and ammonium; ammonium
+acetate extractable concentrations of base cations Ca+,N a +,K +,a n dM g2+;
+Olsen extractable concentrations of in organic phosphate; saturated paste
+extractable concentrations of sulfate and chloride (used as a proxy for salinity
+[28]); and loss on ignition percentage organic C at the UC Davis Analytical
+Laboratory. Differences among site types were assessed with Kruskal−Wallis
+tests followed by Nemenyi posthoc tests.
+Duplicate DNA extractions were performed on 1 g homogenized soil
+from each sample using the MoBio PowerLyzer kit according to the
+manufacturer’s instructions and stored in the freezer ( −20 to −80 °C); both
+duplicates were individually used for 16S rRNA gene sequencing. For
+metagenome sequencing, multiple DNA extractions were performed for
+each sample and pooled to obtain suf ﬁcient DNA for the shotgun library
+construction.
+16S rRNA gene amplicon processing
+16S rRNA gene V4 515F-Y GTGYCAGCMGCCGCGGTAA and 926R CCGYC
+AATTYMTTTRAGTTT primer sets, modi ﬁed to include Illumina barcodes and
+sequencing adapters, were used to PCR amplify the V4 region and the
+resulting amplicons were pooled and sequenced on a MiSeq (Illumina)
+[29]. Sequences were then processed through the Joint Genome Institute
+(JGI) centralized rolling quality control system and iTagger computational
+pipeline [ 29] for sequence trimming, clustering operational taxonomic
+units (OTUs) based on 97% sequence identity, and taxonomic assignment
+with SILVA version 119 [ 30], resulting in 3,795 unique OTUs. Functional
+guilds were assigned from the taxonomy with a semi-automated
+classiﬁcation script based on recent literature (Appendix 1). Singletons
+and potential chimeras were removed using QIIME [ 29, 31–33]. Mean
+sequencing depth per sample was 188,358 (± 6560 standard error) reads.
+OTU counts were normalized with the DESeq2 R package [ 34], with
+normalization based on median of ratios using the functions “estimate-
+SizeFactors”, “estimateDispersions” and “getVarianceStabilizedData” (var-
+iance stabilization transformation). Normalized OTU counts were further
+scaled to a total sum of 1 million in order to obtain relative abundance as
+counts per million (CPM). 16S rRNA gene sequencing data are available on
+NCBI; BioProject, BioSample, and SRA accession numbers can be found in
+Table S1.
+Metagenome sequencing, assembly, annotation, and binning
+Shotgun metagenome sequencing and data processing . For each meta-
+genome sample, ~20 Gb of shotgun sequence data were generated on the
+HiSeq 2500 platform (Illumina) in a 2 × 150 paired-end run mode, for a total
+of 700 Gb with ~400 bp inserts with reads overlapped and merged. The
+J. Zhou et al.
+285
+The ISME Journal (2022) 16:284 – 295
+1234567890();,:
+
+shotgun metagenomic reads were pre-processed using BBTools ( ﬁltering
+and trimming) and assembled using MEGAHIT v1.0.3. The assembled
+contigs were further processed for annotation and integration into IMG
+through JGI ’s Microbial Genome Annotation Pipeline. The estimated gene
+copies of metagenomes from all sites were generated by IMG/M
+(“Compare Genomes ” -> “Abundance Pro ﬁles Tools ”) based on KEGG
+Orthology Terms (KO ID). The assembled metagenomes are publicly
+available on IMG and NCBI SRA (accession numbers are listed in Table S1).
+Genome binning . Each metagenome was re-assembled ( de novo ) using
+Tadpole error correction in BBTools and the SPAdes assembler to generate
+longer contigs for high-quality bins [ 35]. Assembly statistics were obtained
+from QUAST [ 36]. Metagenomic reads from each sample were mapped to
+all contigs using BBTools ( https://sourceforge.net/projects/bbmap/) default
+parameters to get read depths across samples and binning was performed
+on each individual assembly with three different tools (CONCOCT, MaxBin,
+and MetaBat), which use different algorithms to cluster contigs into bins
+based on sequence composition and obtained depth of reads [ 37–39]. DAS
+Tool was used to select the best non-redundant set of genome bins from
+the three software tools [ 40], and then CheckM was applied to evaluate the
+completeness, contamination, and strain heterogeneity [ 41]. Finally, we
+applied dRep to remove redundant genome bins with high average
+nucleotide identity (gANI > 96.5% and minimum overlap 60%) across
+different metagenomes [ 42]. Only bins with completeness > 70%,
+contamination < 25% and strain heterogeneity < 200% were retained for
+downstream analysis, leading to identi ﬁcation of 310 metagenome-
+assembled genomes (MAGs) used for downstream analyses. Based on
+the recommendation of Bowers et al. [ 43], we found 130 MAGs were
+assigned to ‘High-quality draft’ (> 90% complete and < 5% contamination),
+145 were assigned to ‘Medium-quality draft ’ (≥ 50% complete and < 10%
+contamination) and the remaining 35 had completeness from 77 to 100%
+and contamination from 12 to 24% (Table S2). Raw reads were then
+mapped to all the collected MAGs using BBTools. The average read depth
+was used as a proxy for the abundance of genomes and normalized using
+DESeq2. The Spearman correlation of each MAG with methane was also
+calculated using the SciPy Python library ( https://www.scipy.org/).
+The phylogenetic tree was constructed using genomestoreferencetree
+[44] based on 56 single-copy genes (SCG) including identi ﬁed MAGs and
+reference genomes available in IMG. Taxonomies of newly identi ﬁed MAGs
+were assigned based on the nearest two, three, or more neighbors in the
+phylogenetic tree. Lastly, the Bin Annotation Tool (BAT) was used to assign
+taxonomies to MAGs based on gene calling, mapping of predicted ORFs
+against the nr protein database, and voting-based classi ﬁcation of ORFs
+[45].
+Statistical analyses
+α-diversity and β-diversity. α-diversity (OTU richness and Shannon index)
+of 16S rRNA gene amplicon data was calculated based on counts of OTUs
+rareﬁed to the minimum library size (140,388 reads per sample) and site
+differences were assessed with ANOVA. β-diversity was calculated using
+weighted UniFrac or Bray-Curtis dissimilarity, and site differences were
+assessed with PERMANOVA using the “adonis” function in the vegan R
+package [ 46] with 10 4 permutations and visualized with principal
+coordinates analysis (PCoA) with the ggbiplot R package [ 47].
+Indicator species. The indicspecies R package was employed to determine
+indicator OTUs based on the point-biserial correlation coef ﬁcient ( r)o fa n
+OTU’s positive association to each individual site type or combination of
+site types [ 48]. The resulting OTUs were further analyzed with 10 4
+permutations and considered signiﬁcant at p < 0.001 and r > 0.5. Signiﬁcant
+OTUs were grouped at the family level and the ten most abundant families
+for each site type were visualized as a bipartite network representing
+associations between indicator OTUs and site types using NetworkX Python
+package ( https://networkx.org/). Signi ﬁcant OTUs from indicspecies were
+then also validated as differing between any two of the three sites at a
+false discovery rate corrected p value ( PFDR) < 0.001 using likelihood ratio
+tests implemented in DESeq2. Only OTUs signi ﬁcant from both indicspecies
+and DESeq2 were highlighted using different colors in the co-occurrence
+networks of all OTUs.
+Gene copies . The downloaded matrix of the estimated gene copies from
+annotated metagenomes in IMG was normalized using DESeq2, followed
+by the calculation of Spearman rank correlation for each gene with
+methane and salinity. The log2 transformations of DESeq2-normalized
+gene counts, as well as their correlations with methane and salinity, were
+visualized as a heatmap for 149 genes involved in C, N, P, and S cycling
+[49, 50].
+To compare the abundance of phnJ and mcrA genes across the three
+habitat types and make the difference more biologically meaningful, the
+estimated gene copies were then normalized using MUSiCC [ 51]. Final
+normalized abundances of genes were represented in terms of the fraction
+of genomes, which included a step of division by the median abundance
+of 76 universal single-copy genes (USiCGs) used in MUSiCC [ 51].
+Co-occurrence networks . Two OTU co-occurrence networks were con-
+structed using the DESeq2 normalized counts and Spearman rank
+correlations between OTUs and visualized with the Fruchterman −Reingold
+layout using NetworkX. For the ﬁrst network (Fig. S2), only strong
+correlations (Spearman ’s| r| > 0.9) were visualized. OTUs speci ﬁc to one
+or two types of sites were labeled in different colors in the network. The
+second co-occurrence network includes only OTUs speci ﬁc to unrestored
+salt ponds but uses the same correlation matrix as Fig. S2 to highlight
+interactions within unrestored salt ponds. The top 5% of salt pond-speci ﬁc
+OTUs with the highest degree centralities were de ﬁned as keystone OTUs
+of unrestored salt ponds. Keystone OTUs are de ﬁned as those with the
+capacity to drive community composition and function despite relatively
+low abundance [ 52].
+An additional network (Fig. S3) constructed using 149 unique carbon
+(speciﬁcally methane), nitrogen, phosphorus, and sulfur (CNPS) cycling
+genes was then used to analyze functional interactions in different sites.
+Signiﬁcant and positive correlations between these genes (Spearman ’s r >
+0.7, PFDR < 0.05) were selected for visualization. The Girvan −Newman
+algorithm was applied to de ﬁne well-connected subnetworks and the
+optimal assignment was selected based on the highest modularity
+calculated [ 53], leading to a total of 19 subnetworks. The ﬁve most
+optimal subnetworks with more than four genes were then visualized
+separately (Fig. S4).
+Phylogenetic pro ﬁling. The genomes of 173 archaea and 3318 bacteria
+from IMG were employed for phylogenetic pro ﬁling analysis. The
+presence/absence matrix of the 149 unique CNPS genes in genomes
+across the phylogenetic tree was downloaded using the function “function
+proﬁling” in IMG, followed by calculating correlations between gene pairs.
+Only the cassettes of genes with Spearman ’s r > 0.8 and PFDR < 0.05 were
+considered to have signi ﬁcant co-occurrence within a majority of microbial
+genomes and selected for further analysis.
+Substrate addition experiment
+Water collected from Pond R2 (unrestored) was used as a culture medium
+for a substrate addition incubation experiment. The experiment was
+conducted in a Type B Vinyl Anaerobic Chamber (Coy Lab Products, Inc.
+Michigan) enriched with non- ﬂammable hydrogen gas mixture (less than
+5%), CO 2 (5%), and N 2 (balance). The hydrogen concentration is typically
+reduced down to 0.2−0.6% during oxygen scavenging and is not enough to
+support hydrogenotrophic methanogenesis. Consistent with this expecta-
+tion, minimal methanogenesis was measured in the controls without added
+substrate. After the water equilibrated overnight in the chamber to remove
+remaining oxygen, 10−15 mL of soil from an additional core collected from
+Pond R2 in March 2015 were mixed with 15 mL culture medium to make a
+soil slurry, which was funneled into autoclaved 100 mL glass bottles. Glass
+bottles were capped and crimped and stored in the dark inside the
+anaerobic chamber. Fifteen milliliters solutions of trimethylamine (15 mM),
+methanol (20 mM), acetate (20 mM), or pure culture medium (control) were
+prepared and injected into the glass bottles with three replicates for each
+treatment (n = 12 total). CH4 production was measured with a Picarro G2508
+Cavity Ringdown Spectrometer (Picarro, Inc. California) after substrate
+addition and every other day for two weeks. Speci ﬁcally, 10 mL headspace
+gas was withdrawn from each glass bottle and injected into the Picarro
+circulation system; 5−10 min after the injection, the circulation system was
+equilibrated with atmospheric gas so that the recorded gas level was back to
+atmospheric level before the next sample injection. Each measurement was
+followed by 10 mL gas addition from the anaerobic chamber to maintain the
+pressure inside the glass bottle. The amount of methane (dry) in the
+injection was computed by integrating the area under the curve using the
+ﬂux Rp a c k a g e[54]. To estimate the rate of methane production in each soil
+microcosm, the net methane production was converted to μmol/gram/day
+J. Zhou et al.
+286
+The ISME Journal (2022) 16:284 – 295
+
+by taking into consideration the time elapsed between measurements and
+the mass of soil inside each bottle. Data were analyzed with repeated-
+measures ANOVA to test for the effects of time, substrate type, and their
+interaction.
+RESULTS
+Biogeochemistry and methane ﬂux
+Unrestored salt ponds ( “R1” and “R2”) had much higher salinity
+(range 150.7 −236.4 ppt) than the restored salt pond ( “SF2”, 30.2
+−40.2 ppt) and reference wetland ( “R2A”, 25.5 −28.2 ppt) (Fig. 1a)
+[55]. The salinities of unrestored salt ponds were roughly ﬁve-fold
+higher than the salinity of common seawater (35 ppt). Unrestored
+salt ponds had higher sulfate concentrations (2497 −9115 mg/L)
+than the restored salt pond (1367 −2249 mg/L) and reference
+wetland (958 −1167 mg/L) (Fig. 1b). Inorganic N:P ratios were also
+higher in unrestored salt ponds (2798:1 −21735:1) than in the
+restored salt pond (462:1 −2394:1) and reference wetland (124:1
+−332:1) (Fig. 1c) suggesting the availability of P, especially
+inorganic P, may be limiting in unrestored salt ponds. The
+abundance of C relative to N was also lower in unrestored salt
+ponds (Fig. 1h).
+Unrestored salt pond cores exhibited signi ﬁcantly higher
+methane emissions (490.47 −1607.09 μmol/m2/d) than both the
+restored salt pond (4.4 −41.4 μmol/m2/d, Nemenyi test p = 0.029)
+and the reference wetland ( −24.3 to −1.7 μmol/m2/d, Nemenyi
+test p < 0.001), where negative ﬂux values indicate net methane
+consumption (Fig. 1d). Methane ﬂuxes were highly correlated
+(Spearman’s r > 0.7) with salinity and sulfate (Fig. 1e, f). Methane
+was positively correlated with inorganic N:P ratios, but negatively
+correlated (Spearman ’s r = −0.83) with C:N ratios (Fig. 1g, h).
+Additionally, conductivity, chloride, total N:P, calcium, magnesium,
+sodium, potassium, CO 2, organic C, organic matter, and zinc were
+all positively correlated with methane while copper, inorganic
+phosphorus, dissolved oxygen, and iron were all negatively
+correlated with methane ( PFDR < 0.05, Fig. S5).
+Microbial community composition (16S rRNA gene)
+Unrestored salt ponds had a signiﬁcantly lower OTU richness (mean
+= 1280 ± 49 standard error) and Shannon diversity compared to the
+restored salt pond (2230 ± 68 OTUs) and reference wetland (1913 ±
+115 OTUs) (Fig. 2a, ANOVA, p < 0.05). At the phylum/class level,
+Chloroﬂexi, Planctomycetes, and Deltaproteobacteria were more
+dominant in the restored/reference wetlands, while Firmicutes made
+up a higher percentage of unrestored salt pond communities
+(Fig. 2b). Microbial community composition was signiﬁcantly different
+among the three types of sites, with restored/reference wetland
+communities more similar to each other than to those of unrestored
+salt ponds (PERMANOVAR2 = 0.623, p < 0.001), regardless of distance
+metric used (weighted UniFrac vs. Bray −Curtis; Fig. 2c and Fig. S6).
+There was no signi ﬁcant effect of depth.
+There were 1832 signi ﬁcant indicator OTUs ( p < 0.001 and r >
+0.5) out of 3795 total, nearly all of which (1829) were unique to a
+single site type rather than shared by two site types and absent in
+the other (Fig. S2a). The co-occurrence network of all OTUs from
+all three site types (Spearman ’s| r| > 0.9) indicated that OTUs
+speciﬁc to restored salt ponds and reference wetlands shared
+more positive correlations compared to those shared with
+unrestored salt ponds (Fig. S2b).
+Indicator taxa in the unrestored salt ponds were largely
+halophiles, including Rhodobacteraceae, Alteromonadaceae, Bal-
+neolaceae, Halanaerobiaceae and Desulfohalobiaceae (Fig. S2a)
+[56–59]. The restored salt pond included more sulfate-reducers
+among its indicator species including Desulfobacteraceae, Desulfo-
+bulbaceae and Syntrophobacteraceae [60–62]. One OTU (degree =
+76, a methanogen, marked with an asterisk) belonging to the order
+Methanobacteriales was identi ﬁed as a keystone OTU (top 5% in
+degree centrality) speciﬁc to unrestored salt ponds (Fig. S2c).
+Concordant with the indicator spec ies analysis, sulfate-reducing
+bacteria (SRB) were most abundant in the restored salt pond (Fig.2d),
+despite the higher concentrations of sulfate in unrestored ponds
+(Fig. 1b). Conversely, methanogen abundance was highest in the
+Fig. 1 Biogeochemistry of sampled sites. Variation of salinity (Cl −)( a), sulfate ( b), inorganic N:P ratio ( c), and methane ﬂuxes (d) in restored/
+unrestored salt ponds and reference wetland. Methane ﬂuxes were positively correlated with salinity ( e), sulfate ( f), and inorganic N:P ratio ( g)
+and negatively correlated with C:N ratios ( h). Note the change in the y-axis scale in panels ( a−d) and the logarithmic scale in panels ( e−h).
+Different letters delineate signi ﬁcant pairwise comparisons (Nemenyi posthoc, P < 0.05).
+J. Zhou et al.
+287
+The ISME Journal (2022) 16:284 – 295
+
+unrestored salt ponds, as was the abundance of methane-oxidizing
+bacteria (MOB), though neither oft h e s eg u i l d sm a d eu pm o r et h a n
+1% of the community in any sample (Fig.2d). Methanomicrobiaceae,
+Methanosarcinaceae, and unassi gned Methanobacteriales were
+present in unrestored salt ponds (F i g .S 7 ) .M e t h a n o s a r c i n a c e a et a x a
+can employ methylamine, m ethanol, acetate, and H 2/CO2 as
+methane precursors [ 63]. Most known Methanomicrobiaceae and
+Methanobacteriales are hydrogenotrophic; some also use formate,
+carbon monoxide (CO), or secondary alcohols instead of H 2 as an
+electron donor [64]. Ammonia oxidizing archaea and bacteria were
+highest in reference wetlands, lower in the restored site and nearly
+absent in unrestored salt ponds; nitrite-oxidizing bacteria (NOB) and
+anaerobic ammonia-oxidizing (anammox) bacteria displayed a similar
+pattern, suggesting nitri ﬁcation and ammonia oxidation may be
+active in the reference wetland (Fig. 2d).
+Genes positively correlated with methane ﬂux
+We focused on 149 CNPS genes for in-depth analysis of
+abundance patterns (Fig. 3 and Fig. S3). Thirty-one of these
+functional gene families were found to be positively correlated
+(Spearman’s r > 0.5) with methane ﬂuxes across restored and
+unrestored salt ponds and reference wetlands (Fig. 3a), of which
+nine are involved in “core methanogenesis ” pathways. These
+include the three genes, mcrABG, encoding methyl coenzyme M
+reductase, which catalyzes the terminal step in methanogenesis,
+and the six genes mtrBCDEFG comprising tetrahydromethanop-
+terin S-methyltransferase (along with mtrA and mtrH) for
+generation of methyl-CoM, the next to last step in hydrogeno-
+trophic and acetoclastic methanogenesis. Five additional genes
+involved in methane cycling, ackA, pta, mtbA, mtmC, and mch
+were more prevalent in unrestored ponds and correlated with
+methane (Spearman ’s r = 0.58, 0.59, 0.77, 0.6, and 0.6; Fig. 3a).
+ackA and pta metabolize acetate into acetyl-CoA for methanogen-
+esis, mtbA and mtmC produce enzymes that convert methylamine,
+an alternative substrate for methanogenesis, to methyl-CoM, and
+mch encodes methenyltetrahydromethanopterin cyclohydrolase
+which participates in the formation of methane from CO 2.
+The phosphorus cycling genes phoH (phosphate starvation-
+inducible protein), phoA (alkaline phosphatase), and PRUNE1
+(exopolyphosphatase) were observed to be most abundant in
+the salt pond sediments and positively correlated with methane
+ﬂux, which might re ﬂect a de ﬁciency in phosphate [ 65] (Fig. 3a).
+The other two phosphorus cycling genes positively correlated with
+methane were ppaC (manganese-dependent inorganic pyropho-
+sphatase) and appA (4-phytase/acid phosphatase). Only three N
+cycling genes, nrfAH encoding nitrite reductase and gudB encoding
+glutamate dehydrogenase (both transform nitrite into ammonia),
+were signiﬁcantly and positively correlated with methane (Fig. 3a).
+Six genes in one pathway, phnILHGMJ, had positive correlations
+with methane (Spearman ’s r from 0.56 to 0.64, Fig. 3). These genes
+encode enzymes involved in the demethylation of methylpho-
+sphonates (MPn), which has been demonstrated to generate
+methane aerobically as a side product through breaking a C –P
+(phosphonate) bond via the C −P lyase pathway [ 12, 14, 66]. All
+Fig. 2 Microbial community diversity and composition from 16S rRNA gene amplicon data. a Alpha diversity as measured by Shannon
+index. b Phylum-level community composition (or class for Proteobacteria): counts per million (CPM) following normalization using DESeq2’s
+variance stabilization transformation to account for differences in read depth among samples. c PCoA based on the dissimilarity matrix
+calculated using weighted UniFrac. PERMANOVA con ﬁrmed the marked differences among the three types of sites ( R2 = 0.623, P < 0.001). d
+Abundance of microbial guilds based on 16S rRNA gene taxonomy and shown as CPM following normalization using DESeq2’s variance
+stabilization transformation to account for differences in read depth among samples. Guilds are: iron-reducing and oxidizing bacteria (FeRB
+and FeOB respectively); sulfate-reducing bacteria, syntrophs, and sulfur-oxidizing bacteria (SRB, SRB_syn, and SOxB); anammox bacteria
+(Anamx); nitrite and ammonia-oxidizing bacteria/archaea (NOB, AOB, and AOA); methanol-oxidizing bacteria /non-methanotrophic
+methylotrophs (MeOB); Type I, II, and IIa methanotrophic bacteria (MOB_I, MOB_II, and MOB_IIa); and methanogens (CH4). Different letters
+delineate signi ﬁcant pairwise comparisons (Nemenyi posthoc, P < 0.05).
+J. Zhou et al.
+288
+The ISME Journal (2022) 16:284 – 295
+
+genes in this pathway were signi ﬁcantly more abundant in all
+unrestored salt pond samples than in restored/reference wetland
+samples. The phnCDE genes encoding a phosphonate transport
+system were also more abundant in unrestored salt ponds and
+positively correlated with methane (Spearman ’s r from 0.51 to
+0.55, Fig. 3). Notably, phnJ, the marker gene of the C –P lyase
+pathway, was estimated to be present in 14.9% of community
+members based on single-copy genes (mean genome fraction),
+about 34 times more abundant than mcrA with a 0.4% mean
+genome fraction (normalized by MUSiCC) in salt pond data
+(Fig. S8). As these genes are typically present as a single copy, this
+indicates organisms with the ability to break down phosphonates
+are at least an order of magnitude more abundant in the salt pond
+sediments than methanogens.
+To identify possible sources of methylphosphonates, we searched
+for the methylphosphonate synthase gene (mpnS, Metcalf et al. 2012;
+Born et al. 2017) in both sediment and water metagenomes. mpnS
+was found in sediments of reference wetlands and water from both
+reference wetlands and restored salt ponds, but not in water or
+sediment from unrestored salt ponds (Fig. S9a, b). The observation
+suggests that methylphosphonates may accumulate in the sediments
+of salt marshes while conversion to industrial salt ponds creates
+conditions favoring their degradation. Upstream genes in the
+methylphosphonate synthesis pathway such aspepM, E4.1.1.82, and
+phpC were also more abundant in restored/reference sediments (Fig.
+S9a), indicating the potential for active transformation of phosphoe-
+nolpyruvate (a product of glycolysis) into methylphosphonate [67]. In
+addition, higher abundance of genes phnSTUV and phnW (2-
+Fig. 3 Functional genes for element cycling correlated with methane. (a) A heatmap of functional gene abundances in shotgun
+metagenome data; genes are color-coded by element cycle and pathway, and selected genes are shown, where correlations with methane
+had Spearman ’s r > 0.5 from 149 unique CNPS genes. Correlations with CH 4 ﬂuxes and salinity across all sites are shown in the leftmost
+heatmap. The central heatmap shows the relative abundance of these genes across sites (values in the heatmap had a step of z-transformation
+for a better visualization by Seaborn Python package ( https://seaborn.pydata.org/), with site type indicated by the bars at the top. The
+function names of genes were truncated to save space; full names are in Table S3. Scatterplots in ( b) show relationships between CH 4 ﬂux and
+key genes for methanogenesis ( mcrA), demethylation of phosphonate ( phnJ) and ammonia/methane oxidation ( amo/pmoA)( DESeq2
+normalized and log2 transformed). Note the logarithmic y-axis scale in panel ( b).
+J. Zhou et al.
+289
+The ISME Journal (2022) 16:284 – 295
+
+aminoethylphosphonate transport system and transaminase) in
+restored/reference sediments might provide an alternative substrate,
+2-aminoethylphosphonate, for methylphosphonate synthesis (Fig.
+S9a).
+Genes negatively correlated with methane ﬂux
+Thirty genes were negatively correlated with methane ﬂuxes. Of
+particular note were amo/pmoABC that encode a family of
+methane and ammonia monooxygenases (Fig. 3a). As pmoABC
+are the key genes for oxidation of methane in methanotrophs,
+their high abundance in the reference wetlands could explain the
+lower and even negative values of methane ﬂuxes for those cores
+despite the higher abundance of phosphonate pathways relative
+to the restored site (Fig. 3b). An hmm search using all identi ﬁed
+amo/pmoA genes against hmm models of amoA and pmoA
+downloaded from FunGene [ 68] suggested that the majority of
+these genes in the reference wetland were likely ammonia rather
+than methane monooxygenases, consistent with 16S rRNA gene
+amplicon data indicating ammonia-oxidizing microbes signi ﬁ-
+cantly outnumber methanotrophs in the reference wetlands
+(Fig. 2d). One other gene negatively correlated with methane
+(Spearman’s r = −0.69), hydroxylamine oxidoreductase ( hao), is
+also found in ammonia-oxidizing bacteria and functions down-
+stream from ammonia oxidation to produce nitrite. Three genes
+that showed strong and negative correlations with methane,
+fwdAB, and mer, are involved in hydrogen metabolism (Spear-
+man’s r = −0.67, −0.75, and −0.54) which might indicate a
+relatively lower activity of hydrogenotrophic methanogenesis in
+unrestored salt ponds compared to other sites.
+Several additional N cycling genes were negatively correlated
+with methane ﬂuxes (Fig. 3a), including nitrate reductases ( nasA,
+napAB, and narBIHG, transforming nitrate into nitrite), nitrite
+reductases (nirABDH and NIT-6, transforming nitrite into ammonia),
+and nirS (denitrifying nitrite into nitric oxide) as well as three
+genes GDH2, GLT1, GLU, transforming ammonia to L-glutamate,
+and additional ammonia assimilation genes ( aspQ, asnB). Most had
+similar abundance in restored and reference samples, indicating a
+high potential for N cycling. Only three sulfur cycling genes
+(aprAB, sir) had correlations with methane and all of them were
+negative. Interestingly, two of these genes ( aprAB), which are
+adenylylsulfate reductases involved in sulfate reduction, were
+relatively more abundant in restored salt pond samples that had
+higher concentrations of sulfate as compared to reference
+wetland samples (Figs. 1b, 3a).
+Gene co-occurrence patterns
+A correlation matrix of the 149 CNPS genes ( PFDR <0 . 0 5 a n d
+Spearman’s r > 0.7) was further used for co-occurrence network
+analysis (Figs. S3, S4). Five distinct subnetworks with more than
+four co-occurring genes were identi ﬁed within the larger network.
+The almost complete central methanogenesis pathways of mcrABG
+and mtrBCDEFG, together with mtbA and mtmC involved in
+digesting acetate, methanol, and monomethylamine, were con-
+tained in subnetwork 1, whose abundance was highest in
+unrestored salt ponds (Fig. S4). While mtbA and mtmC tend to
+occur within the same isolate genomes (Spearman ’s r > 0.8; Fig.
+S10), the three co-occurring pathways encompassed by subnet-
+work 1 displayed distinct phylogenetic pro ﬁles, indicating they are
+not trivially co-occurring within genomes and may in fact represent
+three microbial guilds which cooperate in methanogenesis (Fig.
+S4).
+The phosphonate transport and degradation pathway genes
+(phnCDE and phnILHGMJ) were found in subnetwork 3. But these
+two sets of genes did not consistently co-occur in the network of
+correlations within IMG reference genomes (Spearman ’s r > 0.8
+and PFDR < 0.05, Fig. S11), indicating the existence of microbes in
+nature with the phosphonate degradation pathway but lacking
+phosphonate transport genes (Fig. S4). The phn genes and an
+operon ( pstABCS) encoding the high-af ﬁnity inorganic phosphate
+(Pi) membrane transport system proteins co-occurred frequently
+in our metagenomic datasets (Fig. S4) but not in reference isolate
+genomes (Fig. S10), suggesting the two pathways reside in distinct
+but co-occurring organisms in salt ponds.
+The majority of genes from subnetworks 4 and 5 had much
+higher abundances in the restored site samples than in unrestored
+or reference samples (Fig. S4). Subnetwork 4 contained sulfate/
+sulﬁte reduction genes such as dsrAB, sat, met3, and aprAB,
+consistent with higher populations of sulfate reducers in restored
+salt ponds (Figs. S4 and 2d). In both subnetworks 4 and 5, we
+found many methane cycling genes, such as mtaABC, mtbC, mttBC,
+mtmB, and mtd, involved in the digestion of methanol,
+trimethylamine, dimethylamine, and monomethylamine for
+methanogenesis (Fig. S4). These methane cycling genes were
+most abundant in restored samples, in contrast to mcrABG and
+mtrBCDEFG which were most abundant in unrestored salt ponds.
+This is consistent with phylogenetic pro ﬁling results indicating
+these genes have distinct patterns of occurrence (Fig. S4, S10).
+This could indicate an increased rate of microbes digesting
+dimethylamine and trimethylamine after restoration despite a
+lower abundance of downstream methanogenesis genes
+(mcrABG). Finally, subnetwork 2 had a mix of genes with higher
+abundance in both restored and reference samples (Figs. S4)
+involved in nitri ﬁcation ( amo/pmoABC, hao, and nxrAB), nitrate
+reduction/denitriﬁcation ( napAB, narBG, and nirBDS), and ammo-
+nia assimilation ( GDH2 and GLT1), suggesting higher N cycling
+activity in both site types.
+MAGs connected to methane cycling
+A phylogenetic tree constructed from MAGs and 2817 representa-
+tive IMG genomes using 56 SCGs placed our MAGs into at least 24
+distinct phyla (Fig. S12). 23 MAGs harboring key genes with
+potential effects on methane emission, speci ﬁcally those involved
+in methanogenesis, phosphonate metabolism, and methane/
+ammonia oxidation, were selected for further analysis. A new
+phylogenetic tree was built focusing on these genomes, using the
+same 56 SCGs and incorporating additional IMG reference
+genomes of several nearest neighbors belonging to the same
+genus or family as the MAGs of interest, for more precise
+classiﬁcation (Fig. 4). Only one MAG (R1_A_D2_concoct.21) was
+placed within the methanogenic archaea, grouping with members
+of the genus Methanolobus (family Methanosarcinaceae). This high-
+quality MAG (Table S2) contained mcrABG and its abundance was
+strongly correlated with methane (Fig. 4; Spearman’s r = 0.77 and
+PFDR = 4.11e−06). Most of the genes necessary for methylotrophic,
+hydrogenotrophic, and acetoclastic methanogenesis were found in
+this MAG, indicating this organism has the potential to metabolize
+a broad range of substrates for methanogenesis similar to its
+nearest neighbors in the Methanolobus genus (Fig. 4 and Table S3).
+Two Nitrosopumilus MAGs with identi ﬁed amo/pmoABC genes
+(completeness 100 and 85.44%, contamination 1.94 and 2.91%,
+respectively) were strongly and negatively correlated with
+methane emission (Spearman ’s r = −0.86 and −0.87, PFDR = 8.4e
+−08 and 4.7e −08), consistent with the amplicon functional guild
+analysis (Figs. 2d and S6b). This genus is ubiquitous in the
+oligotrophic ocean surface [ 69].
+20 MAGs harbored the key gene phnJ involved in breaking C –P
+(phosphonate) bonds and generating CH 4. 15 of these belong to
+Rhodobacteraceae based on their positions in the tree (11
+Roseovarius,2 Marivita, 2 not clearly assigned to genus;
+completeness from 76.06 to 99.70%); this family also contained
+many indicator OTUs speci ﬁc to unrestored salt ponds (Figs. 4 and
+S2c). The majority of Roseovarius reference genomes (24 out of 35
+in IMG) have the complete phosphonate degradation pathway
+(phnILHGMJ, Fig. 4). While the remaining two MAGs could not be
+classiﬁed to genera due to a lack of close reference genomes,
+several nearest neighbors including Roseicyclus mahoneyensis and
+J. Zhou et al.
+290
+The ISME Journal (2022) 16:284 – 295
+
+two other unclassi ﬁed Rhodobacteraceae contain the phnILHGMJ
+genes as well (Fig. 4). Another three MAGs with phnJ were found
+to belong to the order Rhizobiales (Fig. 4). One of these fell within
+the family Salinarimonadaceae, which includes two reference
+genomes harboring the complete phosphonate degradation
+pathway, but the closest relatives of the other two Rhizobiales
+MAGs lacked these genes (Fig. 4). The remaining two MAGs with
+phnJ were halophilic archaea, clustered with reference genomes of
+Haloquadratum and Haloterrigena. Many members of these two
+genera, common in hypersaline environments worldwide, har-
+bored the phnILHGMJ genes in their genomes (4 out of 5
+Haloquadratum and 4 out of 14 Haloterrigena reference genomes).
+Half of all MAGs with phnJ were positively correlated with
+methane ﬂux (Spearman ’s r > 0.6 and PFDR < 0.001).
+Substrate addition experiment
+Anaerobic microcosms were used to assess the potential for the
+unrestored salt pond communities to produce methane from
+different substrates. Substrate type and time signi ﬁcantly affected
+net methane production rates (repeated measures ANOVA, p <
+0.05, Fig. 5). Salt pond methanogen populations responded most
+strongly to additions of trimethylamine (TMA), followed by
+methanol (but note that TMA has three times the methane
+production potential as methanol). Acetate addition did not
+stimulate signiﬁcant methane production, and control incubations
+also exhibited little change in methane production rates. The
+largest increase in CH 4 production from methanol occurred on day
+14, eight days later than the ﬁrst major increase stimulated by
+TMA, suggesting changes in the microbial community after long-
+term incubation with methanol may have contributed. The
+response to TMA is consistent with the strong and positive
+−2
+0
+2
+4
+2 4 6 8 10 12 14
+Time (days after substrate addition)
+Net CH4 production (µmol/g/day)
+Substrate
+TMA
+Methanol
+Acetate
+Control
+Fig. 5 Net daily methane production over two weeks of
+incubation in an anaerobic chamber with different substrates.
+Negative values represent net methane consumption. Each sub-
+strate had three replicate bottles (small points). Standard error bars
+are shown around the means (large points). Points were sampled at
+the same time but are slightly offset ( “dodged”) for legibility. TMA =
+trimethylamine.
+Fig. 4 A phylogenetic tree of 23 metagenome-assembled genomes (bolded) with methane generation-related genes and their closest
+neighbors among IMG reference genomes, constructed based on 56 SCGs. Columns from left to right: family, genus, presence/absence of
+speciﬁc methane cycling genes, percentage of completeness and contamination, correlation with methane (only MAGs with Spearman ’s| r|>
+0.5), and abundance (log2 and then z-score transformed). Note that one MAG ( “R2 restored C black concoct.17 ”) comes from the additional
+March 2015 unrestored pond R2 sample, while all of the other bolded MAGs are from the main sampling in July 2014.
+J. Zhou et al.
+291
+The ISME Journal (2022) 16:284 – 295
+
+correlation of two methylotrophic methanogenesis genes, mtbA
+and mtmC, with in situ methane production (Fig. 3a).
+DISCUSSION
+Near-coastal saline wetlands are not expected to be substantial
+sources of methane, as the abundance of sulfate in seawater
+favors sulfate reduction over methanogenesis. Yet methane
+emissions from unrestored salt pond sediment cores examined
+here were comparable to those observed at many freshwater or
+brackish sites [ 70], in contrast to our hypothesis. A combination of
+genetic and taxonomic data coupled with a laboratory incubation
+experiment suggests that methylotrophic methanogenesis is the
+primary archaeal methanogenesis pathway in this system.
+Methanogens were most abundant in unrestored salt ponds,
+consistent with high methane ﬂux from these ponds and a strong
+positive correlation between methane ﬂux and core methanogen-
+esis genes ( mcrABG and mtrBCDEFG) across all sites (Figs. 2d
+and 3a, b). Two methylotrophic methanogenesis genes, mtbA and
+mtmC, were observed to have strong and positive correlations
+with methane ﬂux. The only methanogen MAG assembled from
+sediment metagenomes was assigned to the genus Methanolobus
+(Methanosarcinaceae) and its abundance was highly correlated
+with methane ﬂux. Several species from this genus isolated from a
+variety of environments have been shown to perform methylo-
+trophic methanogenesis [ 71–73], with some experiments provid-
+ing evidence for exclusive methylotrophic methanogenesis
+[74–77]. Furthermore, the substrate addition experiment demon-
+strated the conversion of trimethylamine and methanol to
+methane. This is consistent with other studies that have observed
+methane production in the presence of high sulfate in hypersaline
+environments, which has been attributed to methylotrophic
+methanogens’ ability to utilize substrates not accessible to sulfur
+reducers [ 12, 14, 78–81]. While these data suggest a primary role
+for methylotrophic methanogenesis, two lines of evidence also
+support a potential minor contribution of acetoclastic methano-
+genesis. First, two acetoclastic methanogenesis genes, ackA and
+pta, were strongly and positively correlated with methane. These
+correlations should be interpreted cautiously, however, because
+the genes could be present but inactive in the methylotrophic
+methanogens; indeed, sequenced Methanolobus genomes as well
+as the dominant Methanolobus MAG in our data harbor these
+genes despite the demonstrated preference of this genus for the
+methylotrophic pathway. Second, sulfate reducers in sediments of
+unrestored salt ponds were observed to be much less abundant
+than in restored site samples or reference wetland despite high
+sulfate concentrations, in contrast to other estuarine and salt
+marsh samples where methylotrophic methanogenesis and sulfate
+reduction were found to be simultaneously active [ 15, 82]. This
+suggests that despite the high sulfate concentrations, the
+conditions are not favorable to sulfate reduction and acetoclastic
+methanogens, therefore, do not face signi ﬁcant competition from
+sulfate reducers. Our data suggest that hydrogenotrophic
+methanogenesis is not an important methane production path-
+way in this system, as three hydrogenotrophic methanogenesis
+genes, fwdAB and mer, were negatively correlated with methane
+(Fig. 3a). In summary, the genetic, taxonomic and substrate
+incubation data indicate that methylotrophic and possibly
+acetoclastic methanogenesis are larger contributors to ﬂux in
+these environments than hydrogenotrophic methanogenesis.
+In addition to archaeal methanogenesis, the bacterial phospho-
+nate degradation pathway ( phnILHGMJ) that demethylates MPn
+and aerobically generates methane as a side product was
+observed to have a much higher abundance in unrestored salt
+ponds than the other two habitats, despite lower dissolved
+oxygen levels in the unrestored ponds (Fig. 3a, b). An estimated
+14.9% of genomes in unrestored salt pond samples harbored phnJ
+as opposed to 0.4% for mcrA (ratio against the median abundance
+of 76 USiCGs, normalized by MUSiCC), yet the correlation of mcrA
+with methane was stronger (Fig. 3), suggesting these two
+pathways may jointly contribute to the high methane emission.
+The C −P lyase phosphonate degradation pathway encoded by
+phnILHGMJ is induced by phosphate starvation in some organisms
+to take advantage of MPn as a P source [ 83–86]. This is a common
+pathway in marine and other phosphate-limited environments to
+obtain P from organic matter [ 14, 69, 87–90]. Inorganic N:P ratios
+in unrestored salt pond sediments were high (Fig. 1c), indicating a
+deﬁciency in inorganic P, but total dissolved N:P ratios (11:1 −21:1)
+were close to the average in seawater (16:1), suggesting that
+taking advantage of organic P would allow resident microorgan-
+isms to overcome this limitation, favoring the survival of
+organisms with the ability to utilize phosphonates. Both commu-
+nity and phylogenetic pro ﬁling showed that methanogenesis
+(mcrABG and mtrABCDEFG) and phosphonate degradation path-
+ways ( phnILHGMJ) displayed patterns of occurrence indicating
+they were harbored by different microorganisms adapted to the
+conditions in unrestored salt ponds (Figs. S3, S10). Yet another set
+of genes ( pstABCS) encoding the high-af ﬁnity Pi membrane
+transport system proteins were signi ﬁcantly correlated with the
+phosphonate pathway in salt pond metagenomes but not isolate
+reference genomes, suggesting increased phosphate uptake may
+be another strategy for surviving the low P availability (Fig. S4).
+pstA has been reported to be signi ﬁcantly and negatively
+correlated with the concentration of phosphate in ocean surface
+waters [72], and hence this module is expected to help organisms
+adapt to P-limitation in unrestored salt ponds by importing more
+phosphate and scavenging phosphorus from complex molecules.
+While up to 21 MAGs contained phosphonate degradation
+pathways, including both bacteria and archaea, the family
+Rhodobacteraceae encompasses the majority of these MAGs (15)
+as well as several OTUs highly enriched in unrestored salt ponds
+(Fig. S2c). Both observations support the hypothesis that
+Rhodobacteraceae, especially the genera Roseovarius and Marivita,
+are key players in phosphonate metabolism and methane
+generation in unrestored salt ponds. Despite the limited previous
+investigation of phylogenetic distribution, the phosphonate path-
+way is prevalent in the genus Roseobacter within the family
+Rhodobacteraceae (Sosa et al. 2019). However, some Rhodobac-
+teraceae MAGs lacked phosphonate degradation genes and were
+negatively correlated with methane (Fig. S10), indicating not all
+Rhodobacteraceae in these communities were able to demethy-
+late methylphosphonates.
+The methylphosphonate synthesis gene mpnS was not pre-
+valent in sediments of unrestored and restored salt ponds but was
+observed in the reference wetland (Fig. S9a, b). It was also
+observed in surface waters from reference and restored sites,
+particularly the restored sites (Fig. S9b). This implies that
+methylphosphonate synthesis may be active in both sediments
+and surface water of undisturbed salt marshes, allowing the
+accumulation of methylphosphonates in sediments. The nearest
+neighbor of two Nitrosopumilus MAGs from the salt marsh site,
+Nitrosopumilus salaria BD31, contains mpnS; therefore, it is
+possible that the Nitrosopumilus in reference wetland could
+contribute to methylphosphonate synthesis although this gene
+was not observed in the reconstructed MAGs (Fig. 4). In addition,
+upstream genes of methylphosphonate synthesis such as pepM,
+phosphonopyruvate decarboxylase (EC4.1.1.82), phpC, phnW, and
+phnSTUV as well as many MAGs containing these genes were most
+abundant in the reference wetland (Figs. S9a, S10). The gene
+mpnS is widely distributed in the marine environment [ 56],
+consistent with its presence in reference and restored sites that
+have recently exchanged water with the San Francisco Bay.
+Isolation and concentration of seawater solutes in salt making
+apparently lead to depletion of inorganic phosphate and
+conditions favoring methylphosphonate degradation as opposed
+to synthesis.
+J. Zhou et al.
+292
+The ISME Journal (2022) 16:284 – 295
+
+Several N cycling genes, especially those involved in denitri ﬁca-
+tion and ammonia assimilation, were signi ﬁcantly negatively
+correlated with methane, displaying higher abundance in restored
+and reference samples (Fig. 3a). This is consistent with previous
+studies that observed ef ﬁcient nitrate removal in coastal wetlands
+while restored salt ponds only gradually regained this ability
+[91, 92]. Nitrate, like sulfate, is a more energetically favorable
+electron acceptor than CO 2; thus, in anoxic sediments denitri ﬁca-
+tion would precede methanogenesis and explain a negative
+correlation with methane emissions [ 6, 93]. Lower abundance of
+genes for denitri ﬁcation could re ﬂect limited nitrate availability in
+some samples (Table S4); furthermore, sul ﬁde is known to inhibit
+nitrate reductases [ 9], and while we see relatively few sulfate
+reducers in the unrestored ponds, there may still be sul ﬁde
+produced. Low concentrations of sul ﬁde may inhibit denitri ﬁcation
+and result in low abundance of denitri ﬁers; and while acetoclastic
+methanogenesis is also expected to be inhibited by sul ﬁde, as
+noted above the methanogens present in these sites appear to be
+capable of using multiple substrates so inhibition of acetoclastic
+methanogenesis may not lead to reduced abundance of methano-
+gens or methanogenesis genes. In addition, the amo/pmoABC
+genes were highly negatively correlated with methane (Fig. 3a, b).
+Other lines of evidence including hmm search results, co-
+occurrence with hao and other nitri ﬁcation genes, and 16S rRNA
+gene data revealing abundant ammonia oxidizers in the reference
+site (Fig. 2d) indicated these genes were more likely ammonia
+monooxygenases rather than methane monooxygenases. Even so,
+some evidence suggests that the functional boundary of amoABC
+and pmoABC is not explicit and ammonia-oxidizing bacteria can
+also oxidize methane, still indicating the potential possibility of
+methane consumption in the reference wetland. Indeed, greater
+rates of anaerobic methane oxidation (consumption) by sulfate-
+reducers [6] is another possible explanation for the lack of methane
+emissions in the reference wetland. This is consistent with the
+ﬁnding of greater abundances of sulfate reducers and net
+consumption of methane in the reference wetland. It is possible
+that the high salinity of the unrestored salt ponds reduced
+methane oxidation, as has been shown in other studies [ 16].
+The construction of industrial salt ponds involves feeding
+seawater and drawing out water through natural evaporation,
+leading to a highly concentrated brine. This can lead to high
+concentrations of sulfate, yet salt pond sediments from South San
+Francisco Bay harbored lower overall populations of sulfate
+reducers and higher populations of methanogens than a reference
+wetland or a restored salt pond. This trend was driven by
+unassigned genera in the Desulfuromonadales order and the
+Desulfobacteraceae, and Desulfobulbaceae families, which we
+speculate are not halotolerant, and while some halophilic genera
+were more abundant in the unrestored salt ponds, these genera
+represented a very small proportion of the community (< 1%). The
+hypersaline and phosphate-stressed conditions of salt pond
+sediments selected for salt-loving microbes such as Rhodobacter-
+aceae, many of which possessed genes for phosphorus scaven-
+ging via methylphosphonate degradation, which can produce
+methane as a side product. Restoration of salt ponds back to
+wetlands greatly lowered salinities, sulfate concentrations, and
+methane emissions, increased C:N ratios, and restored microbial
+communities taxonomically, phylogenetically, and functionally;
+together, these metrics indicate restoration may have climate
+beneﬁts due to mitigation of GHG emissions, as well as ecological
+beneﬁts due to habitat restoration.
+REFERENCES
+1. Costanza R, d ’Arge R, de Groot R, Farber S, Grasso M, Hannon B, et al. The value of
+the world ’s ecosystem services and natural capital. Ecol Econ. 1998;25:3 –15.
+2. Grimsditch G, Alder J, Nakamura T, Kenchington R, Tamelander J. The blue carbon
+special edition —introduction and overview. Ocean Coast Manag. 2013;83:1 –4.
+3. Duarte CM, Losada IJ, Hendriks IE, Mazarrasa I, Marbà N. The role of coastal plant
+communities for climate change mitigation and adaptation. Nat Clim Change.
+2013;3:961–8.
+4. Mcleod E, Chmura GL, Bouillon S, Salm R, Björk M, Duarte CM, et al. A blueprint for
+blue carbon: toward an improved understanding of the role of vegetated coastal
+habitats in sequestering CO2. Front Ecol Environ. 2011;9:552 –60.
+5. Neef L, Weele M van, Velthoven P van. Optimal estimation of the present-day
+global methane budget. Glob Biogeochem Cycles. 2010;24:GB4024.
+6. Schlesinger WH, Bernhardt ES. Biogeochemistry: an analysis of global change. 3rd
+ed. Waltham, MA: Academic Press; 2013.
+7. Lessner DJ. Methanogenesis biochemistry. eLS. John Wiley & Sons, Hoboken, NJ,
+USA; 2009.
+8. Conrad R. Importance of hydrogenotrophic, aceticlastic and methylotrophic
+methanogenesis for methane production in terrestrial, aquatic and other anoxic
+environments: a mini review. Pedosphere. 2020;30:25 –39.
+9. Herbert ER, Boon P, Burgin AJ, Neubauer SC, Franklin RB, Ardón M, et al. A global
+perspective on wetland salinization: ecological consequences of a growing threat
+to freshwater wetlands. Ecosphere. 2015;6:art206.
+10. Wicke B, Smeets E, Dornburg V, Vashev B, Gaiser T, Turkenburg W, et al. The
+global technical and economic potential of bioenergy from salt-affected soils.
+Energy Environ Sci. 2011;4:2669 –81.
+11. Kristjansson JK, Schönheit P. Why do sulfate-reducing bacteria outcompete
+methanogenic bacteria for substrates? Oecologia. 1983;60:264 –6.
+12. Karl DM, Beversdorf L, Björkman KM, Church MJ, Martinez A, Delong EF. Aerobic
+production of methane in the sea. Nat Geosci. 2008;1:473 –8.
+13. Mcgenity T, Sorokin D. Methanogens and methanogenesis in hypersaline envir-
+onments. Biogenesis of hydrocarbons. Springer International Publishing, New
+York, NY, USA; 2018. p. 1 –27.
+14. Repeta DJ, Ferrón S, Sosa OA, Johnson CG, Repeta LD, Acker M, et al. Marine
+methane paradox explained by bacterial degradation of dissolved organic mat-
+ter. Nat Geosci. 2016;9:884 –7.
+15. Oremland RS, Polcin S. Methanogenesis and sulfate reduction: competitive and
+noncompetitive substrates in estuarine sediments. Appl Environ Microbiol.
+1982;44:1270–6.
+16. van der Gon HACD, Neue H-U. Methane emission from a wetland rice ﬁeld as
+affected by salinity. Plant Soil. 1995;170:307 –13.
+17. Gómez-Villegas P, Vigara J, León R. Characterization of the microbial population
+inhabiting a solar saltern pond of the Odiel Marshlands (SW Spain). Mar Drugs.
+2018;16:332.
+18. Ley RE, Harris JK, Wilcox J, Spear JR, Miller SR, Bebout BM, et al. Unexpected
+diversity and complexity of the Guerrero Negro hypersaline microbial mat. Appl
+Environ Microbiol. 2006;72:3685 –95.
+19. Thombre RS, Shinde VD, Oke RS, Dhar SK, Shouche YS. Biology and survival of
+extremely halophilic archaeon Haloarcula marismortui RR12 isolated from
+Mumbai salterns, India in response to salinity stress. Sci Rep. 2016;6:25642.
+20. Takekawa JY, Miles AK, Schoellhamer DH, Athearn ND, Saiki MK, Duffy WD, et al.
+Trophic structure and avian communities across a salinity gradient in evaporation
+ponds of the San Francisco Bay estuary. Hydrobiologia. 2006;567:307 –27.
+21. Ver Planck WE. Salt in California. State of California Deparment of Natural
+Resources, Division of Mines. Mines Bull 175. San Francisco, CA, USA: 1958.
+22. Johnck EJ. The South Bay Salt Pond Restoration Project: a cultural landscape
+approach for the resource management plan. Sonoma State University, Rohnert
+Park, CA, USA; 2008.
+23. Ackerman JT, Marvin-DiPasquale M, Slotton D, Eagles-Smith CA, Hartman A, Agee
+JL, et al. The South Bay Mercury Project: using biosentinels to monitor effects of
+wetland restoration for the South Bay Salt Pond Restoration Project. South Bay
+Salt Pond Restoration Project and Resources Legacy Fund, San Francisco, CA,
+USA; 2013.
+24. Valoppi L. Phase 1 studies summary of major ﬁndings of the South Bay Salt Pond
+Restoration Project, South San Francisco Bay, California. Phase 1 studies summary
+of major ﬁndings of the South Bay Salt Pond Restoration Project, South San
+Francisco Bay, California. Reston, VA: U.S. Geological Survey; 2018.
+25. Callaway JC, Parker VT, Vasey MC, Schile LM, Herbert ER. Tidal wetland restoration
+in San Francisco Bay: history and current issues. San Franc Estuary Watershed Sci.
+2011;9: Article 2.
+26. Cargill. San Francisco Bay salt ponds. Cargill, Newark, CA, USA; 2020. https://www.
+cargill.com/page/sf/sf-bay-salt-ponds.
+27. Levey JR, Vasicek P, Fricke H, Archer J, Henry RF. Salt pond SF2 restoration,
+wildlife, and habitat protection. American Society of Civil Engineers, Reston, VA;
+2012.520−9.
+28. Dugan HA, Summers JC, Skaff NK, Krivak-Tetley FE, Doubek JP, Burke SM, et al.
+Long-term chloride concentrations in North American and European freshwater
+lakes. Sci Data. 2017;4:170101.
+29. Tremblay J, Singh K, Fern A, Kirton ES, He S, Woyke T, et al. Primer and platform
+effects on 16S rRNA tag sequencing. Front Microbiol 2015;6:771.
+J. Zhou et al.
+293
+The ISME Journal (2022) 16:284 – 295
+
+30. Quast C, Pruesse E, Yilmaz P, Gerken J, Schweer T, Yarza P, et al. The SILVA
+ribosomal RNA gene database project: improved data processing and web-based
+tools. Nucleic Acids Res. 2013;41:D590 –96.
+31. Wang Q, Garrity GM, Tiedje JM, Cole JR. A naïve Bayesian classi ﬁer for rapid
+assignment of rRNA sequences into the new bacterial taxonomy. Appl Environ
+Microbiol 2007;73:5264 −67.
+32. Caporaso JG, Kuczynski J, Stombaugh J, Bittinger K, Bushman FD, Costello EK,
+et al. QIIME allows analysis of high-throughput community sequencing data. Nat
+Methods. 2010;7:335 –6.
+33. Edgar RC. Search and clustering orders of magnitude faster than BLAST. Bioin-
+formatics. 2010;26:2460 –1.
+34. Love MI, Huber W, Anders S. Moderated estimation of fold change and dispersion
+for RNA-seq data with DESeq2. Genome Biol. 2014;15:550.
+35. Bankevich A, Nurk S, Antipov D, Gurevich AA, Dvorkin M, Kulikov AS, et al.
+SPAdes: a new genome assembly algorithm and its applications to single-cell
+sequencing. J Comput Biol. 2012;19:455 –77.
+36. Gurevich A, Saveliev V, Vyahhi N, Tesler G. QUAST: quality assessment tool for
+genome assemblies. Bioinformatics. 2013;29:1072 –5.
+37. Wu Y-W, Tang Y-H, Tringe SG, Simmons BA, Singer SW. MaxBin: an automated
+binning method to recover individual genomes from metagenomes using an
+expectation-maximization algorithm. Microbiome. 2014;2:26.
+3 8 . K a n gD D ,F r o u l aJ ,E g a nR ,W a n gZ .M e t a B A T ,a ne fﬁcient tool for accurately recon-
+structing single genomes from complex microbial communities. PeerJ. 2015;3:e1165.
+39. Lin H-H, Liao Y-C. Accurate binning of metagenomic contigs via automated
+clustering sequences using information of genomic signatures and marker genes.
+Sci Rep. 2016;6:24175.
+40. Sieber CMK, Probst AJ, Sharrar A, Thomas BC, Hess M, Tringe SG, et al. Recovery of
+genomes from metagenomes via a dereplication, aggregation, and scoring
+strategy. Nat Microbiol. 2018;3:836 –43.
+41. Parks DH, Imelfort M, Skennerton CT, Hugenholtz P, Tyson GW. CheckM: assessing
+the quality of microbial genomes recovered from isolates, single cells, and
+metagenomes. Genome Res. 2015;25:1043 –55.
+42. Olm MR, Brown CT, Brooks B, Ban ﬁeld JF. dRep: a tool for fast and accurate
+genomic comparisons that enables improved genome recovery from metagen-
+omes through de-replication. ISME J. 2017;11:2864 –8.
+43. Bowers RM, Kyrpides NC, Stepanauskas R, Harmon-Smith M, Doud D, Reddy TBK,
+et al. Minimum information about a single ampli ﬁed genome (MISAG) and a
+metagenome-assembled genome (MIMAG) of bacteria and archaea. Nat Bio-
+technol. 2017;35:725 –31.
+44. Yu FB, Blainey PC, Schulz F, Woyke T, Horowitz MA, Quake SR. Micro ﬂuidic-based
+mini-metagenomics enables discovery of novel microbial lineages from complex
+environmental samples. eLife. 2017;6:e26580.
+45. von Meijenfeldt FAB, Arkhipova K, Cambuy DD, Coutinho FH, Dutilh BE. Robust
+taxonomic classi ﬁcation of uncharted microbial sequences and bins with CAT
+and BAT. Genome Biol. 2019;20:217.
+46. Oksanen J, Blanchet FG, Friendly M, Kindt R, Legendre P, McGlinn D, et al. vegan:
+Community Ecology Package. R package version 2.5-6. 2019. https://CRAN.R-
+project.org/package=vegan.
+47. Vu VQ. ggbiplot: a ggplot2 based biplot. R package version 0.55. 2011. http://
+github.com/vqv/ggbiplot.
+48. De Cáceres M, Legendre P. Associations between species and groups of sites:
+indices and statistical inference. Ecology. 2009;90:3566 –74.
+49. Prestat E, David MM, Hultman J, Ta ş N, Lamendella R, Dvornik J, et al. FOAM
+(functional ontology assignments for metagenomes): a hidden Markov model
+(HMM) database with environmental focus. Nucleic Acids Res. 2014;42:e145.
+50. Liu J, Cade-Menun BJ, Yang J, Hu Y, Liu CW, Tremblay J, et al. Long-term land use
+affects phosphorus speciation and the composition of phosphorus cycling genes
+in agricultural soils. Front Microbiol. 2018;9:1643.
+51. Manor O, Borenstein E. MUSiCC: a marker genes based framework for metage-
+nomic normalization and accurate pro ﬁling of gene abundances in the micro-
+biome. Genome Biol. 2015;16:53.
+52. Banerjee S, Schlaeppi K, van der Heijden MGA. Keystone taxa as drivers of
+microbiome structure and functioning. Nat Rev Microbiol. 2018;16:567 –76.
+53. Girvan M, Newman MEJ. Community structure in social and biological networks.
+Proc Natl Acad Sci USA. 2002;99:7821 –6.
+54. Jurasinski G, Koebsch F, Guenther A, Beetz S. ﬂux: ﬂux rate calculation from
+dynamic closed chamber measurements. R package version 0.3-0. 2014. https://
+CRAN.R-project.org/package=ﬂux.
+55. Culkin F, Smith N. Determination of the concentration of potassium chloride
+solution having the same electrical conductivity, at 15 °C and in ﬁnite frequency,
+as standard seawater of salinity 35.0000 ‰ (chlorinity 19.37394 ‰). IEEE J Ocean
+Eng. 1980;5:22 –23.
+56. Kuever J. The Family Desulfohalobiaceae. In: Rosenberg E, DeLong EF, Lory S,
+Stackebrandt E, Thompson F (eds). The Prokaryotes: Deltaproteobacteria and
+Epsilonproteobacteria. Berlin, Heidelberg: Springer; 2014. p. 87 –95.
+57. López-Pérez M, Rodriguez-Valera F. The Family Alteromonadaceae. In: Rosenberg
+E, DeLong EF, Lory S, Stackebrandt E, Thompson F (eds). The Prokaryotes:
+Gammaproteobacteria. Berlin, Heidelberg: Springer; 2014. p. 69 –92.
+58. Oren A. The Order Halanaerobiales, and the Families Halanaerobiaceae and
+Halobacteroidaceae. In: Rosenberg E, DeLong EF, Lory S, Stackebrandt E,
+Thompson F (eds). The Prokaryotes: Firmicutes and Tenericutes. Berlin, Heidel-
+berg: Springer; 2014. p. 153 −77.
+59. Pujalte MJ, Lucena T, Ruvira MA, Arahal DR, Macián MC. The Family Rhodo-
+bacteraceae. In: Rosenberg E, DeLong EF, Lory S, Stackebrandt E, Thompson F
+(eds). The Prokaryotes: Alphaproteobacteria and Betaproteobacteria. Berlin, Hei-
+delberg: Springer; 2014. p. 439 –512.
+60. Kuever J. The Family Desulfobacteraceae. In: Rosenberg E, DeLong EF, Lory S,
+Stackebrandt E, Thompson F (eds). The Prokaryotes: Deltaproteobacteria and
+Epsilonproteobacteria. Berlin, Heidelberg: Springer; 2014. p. 45 –73.
+61. Kuever J. The Family Desulfobulbaceae. In: Rosenberg E, DeLong EF, Lory S,
+Stackebrandt E, Thompson F (eds). The Prokaryotes: Deltaproteobacteria and
+Epsilonproteobacteria. Berlin, Heidelberg: Springer; 2014. p. 75 –86.
+62. Kuever J. The Family Syntrophobacteraceae. In: Rosenberg E, DeLong EF, Lory S,
+Stackebrandt E, Thompson F (eds). The Prokaryotes: Deltaproteobacteria and
+Epsilonproteobacteria. Berlin, Heidelberg: Springer; 2014. p. 289 −99.
+63. Oren A. The Family Methanosarcinaceae. In: Rosenberg E, DeLong EF, Lory S,
+Stackebrandt E, Thompson F (eds). The Prokaryotes: other major lineages of
+bacteria and the archaea. Berlin, Heidelberg: Springer; 2014. p. 259 −81.
+64. Bonin AS, Boone DR. The Order Methanobacteriales. In: Dworkin M, Falkow S,
+Rosenberg E, Schleifer K-H, Stackebrandt E (eds). The Prokaryotes: Volume 3: Archaea.
+Bacteria: Firmicutes, Actinomycetes. New York, NY: Springer; 2006. p. 231−43.
+65. Kathuria S, Martiny AC. Prevalence of a calcium-based alkaline phosphatase
+associated with the marine cyanobacterium Prochlorococcus and other ocean
+bacteria. Environ Microbiol. 2011;13:74 –83.
+66. Kamat SS, Williams HJ, Dangott LJ, Chakrabarti M, Raushel FM. The catalytic
+mechanism for aerobic formation of methane by bacteria. Nature. 2013;497:132–6.
+67. Yu X, Doroghazi JR, Janga SC, Zhang JK, Circello B, Grif ﬁn BM, et al. Diversity and
+abundance of phosphonate biosynthetic genes in nature. Proc Natl Acad Sci USA.
+2013;110:20759–64.
+68. Fish JA, Chai B, Wang Q, Sun Y, Brown CT, Tiedje JM, et al. FunGene: the func-
+tional gene pipeline and repository. Front Microbiol. 2013;4:291.
+69. Metcalf WW, Grif ﬁn BM, Cicchillo RM, Gao J, Janga SC, Cooke HA, et al. Synthesis
+of methylphosphonic acid by marine microbes: a source for methane in the
+aerobic ocean. Science. 2012;337:1104 –7.
+70. Poffenbarger HJ, Needelman BA, Megonigal JP. Salinity in ﬂuence on methane
+emissions from tidal marshes. Wetlands. 2011;31:831 –42.
+71. Oremland RS, Boone DR. Methanolobus taylorii sp. nov., a new methylotrophic,
+estuarine methanogen. Int J Syst Bacteriol. 1994;44:573 –5.
+72. Zhang G, Jiang N, Liu X, Dong X. Methanogenesis from methanol at low tem-
+peratures by a novel psychrophilic methanogen, “Methanolobus psychrophilus ”
+sp. nov., prevalent in Zoige Wetland of the Tibetan Plateau. Appl Environ
+Microbiol. 2008;74:6114 –20.
+73. Antony CP, Murrell JC, Shouche YS. Molecular diversity of methanogens and
+identiﬁcation of Methanolobus sp. as active methylotrophic Archaea in Lonar
+crater lake sediments. FEMS Microbiol Ecol. 2012;81:43 –51.
+74. König H, Stetter KO. Isolation and characterization of Methanolobus tindarius, sp.
+nov., a coccoid methanogen growing only on methanol and methylamines.
+Zentralblatt Für Bakteriol Mikrobiol Hyg Abt Orig C Allg Angew Ökol Mikrobiol.
+1982;3:478–90.
+75. Doerfert SN, Reichlen M, Iyer P, Wang M, Ferry JG. Methanolobus zinderi sp. nov.,
+a methylotrophic methanogen isolated from a deep subsurface coal seam. Int J
+Syst Evol Microbiol. 2009;59:1064 –9.
+76. Ni S, Boone DR. Isolation and characterization of a dimethyl sul ﬁde-
+degrading methanogen, methanolobus siciliae HI350, from an oil well, char-
+acterization of M. siciliae T4/MT, and emendation of M. siciliae. Int J Syst Bacteriol.
+1991;41:410–6.
+77. Mochimaru H, Tamaki H, Hanada S, Imachi H, Nakamura K, Sakata S, et al.
+Methanolobus profundi sp. nov., a methylotrophic methanogen isolated from
+deep subsurface sediments in a natural gas ﬁeld. Int J Syst Evol Microbiol.
+2009;59:714–8.
+78. Orphan VJ, Jahnke LL, Embaye T, Turk KA, Pernthaler A, Summons RE, et al.
+Characterization and spatial distribution of methanogens and methanogenic
+biosignatures in hypersaline microbial mats of Baja California. Geobiology.
+2008;6:376–93.
+79. Smith JM, Green SJ, Kelley CA, Prufert ‐Bebout L, Bebout BM. Shifts in methano-
+gen community structure and function associated with long-term manipulation
+of sulfate and salinity in a hypersaline microbial mat. Environ Microbiol.
+2008;10:386–94.
+80. Zhuang G-C, Elling FJ, Nigro LM, Samarkin V, Joye SB, Teske A, et al. Multiple
+evidence for methylotrophic methanogenesis as the dominant methanogenic
+J. Zhou et al.
+294
+The ISME Journal (2022) 16:284 – 295
+
+pathway in hypersaline sediments from the Orca Basin, Gulf of Mexico. Geochim
+Cosmochim Acta. 2016;187:1 –20.
+81. Zhuang G-C, Heuer VB, Lazar CS, Goldhammer T, Wendt J, Samarkin VA, et al.
+Relative importance of methylotrophic methanogenesis in sediments of the
+Western Mediterranean Sea. Geochim Cosmochim Acta. 2018;224:171 –86.
+82. Oremland RS, Marsh LM, Polcin S. Methane production and simultaneous sul-
+phate reduction in anoxic, salt marsh sediments. Nature. 1982;296:143 –5.
+83. Wanner BL, Metcalf WW. Molecular genetic studies of a 10.9 kb operon in
+Escherichia coli for phosphonate uptake and biodegradation. FEMS Microbiol
+Lett. 1992;100:133 –9.
+84. Dyhrman ST, Chappell PD, Haley ST, Moffett JW, Orchard ED, Waterbury JB, et al.
+Phosphonate utilization by the globally important marine diazotroph Tricho-
+desmium. Nature. 2006;439:68 –71.
+85. White AK, Metcalf WW. Microbial metabolism of reduced phosphorus com-
+pounds. Annu Rev Microbiol. 2007;61:379 –400.
+86. Carini P, White AE, Campbell EO, Giovannoni SJ. Methane production by
+phosphate-starved SAR11 chemoheterotrophic marine bacteria. Nat Commun.
+2014;5:4346.
+87. Damm E, Helmke E, Thoms S, Schauer U, Nothig E, Bakker K, et al. Methane
+production in aerobic oligotrophic surface water in the central Arctic Ocean.
+Biogeosciences. 2010;7:1099 –108.
+88. Martínez A, Ventouras L-A, Wilson ST, Karl DM, Delong EF. Metatranscriptomic
+and functional metagenomic analysis of methylphosphonate utilization by
+marine bacteria. Front Microbiol. 2013;4:340.
+89. Yao M, Henny C, Maresca JA. Freshwater bacteria release methane as a by-
+product of phosphorus acquisition. Appl Environ Microbiol. 2016;82:6994 –7003.
+90. Sosa OA, Repeta DJ, DeLong EF, Ashkezari MD, Karl DM. Phosphate-limited ocean
+regions select for bacterial populations enriched in the carbon –phosphorus lyase
+pathway for phosphonate degradation. Environ Microbiol. 2019;21:2402 –14.
+91. Fisher J, Acreman MC. Wetland nutrient removal: a review of evidence. Hydrol
+Earth Syst Sci Discuss Eur Geosci Union. 2004;8:673 –85.
+92. Kadlec RH. Constructed marshes for nitrate removal. Crit Rev Environ Sci Technol.
+2012;42:934–1005.
+93. He S, Malfatti SA, McFarland JW, Anderson FE, Pati A, Huntemann M, et al. Pat-
+terns in wetland microbial community composition and functional gene reper-
+toire associated with methane emissions. mBio. 2015;6:e00066 –15.
+ACKNOWLEDGEMENTS
+This project was funded by the DOE Early Career Research Program, grant no. KP/
+CH57/1, and includes work conducted by the U.S. Department of Energy Joint
+Genome Institute, a DOE Of ﬁce of Science User Facility supported by the Of ﬁce of
+Science of the U.S. Department of Energy under Contract No. DE-AC02-05CH11231.
+We thank the production and sequence analysis teams at JGI for sequencing and
+bioinformatic support. We thank John Bourgeois, Donna Ball, and John Krause for
+help accessing the ﬁeld sites.
+COMPETING INTERESTS
+The authors declare no competing interests.
+ADDITIONAL INFORMATION
+Supplementary information The online version contains supplementary material
+available at https://doi.org/10.1038/s41396-021-01067-w.
+Correspondence and requests for materials should be addressed to S.G.T.
+Reprints and permission information is available at http://www.nature.com/
+reprints
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims
+in published maps and institutional af ﬁliations.
+Open Access This article is licensed under a Creative Commons
+Attribution 4.0 International License, which permits use, sharing,
+adaptation, distribution and reproduction in any medium or format, as long as you give
+appropriate credit to the original author(s) and the source, provide a link to the Creative
+Commons license, and indicate if changes were made. The images or other third party
+material in this article are included in the article ’s Creative Commons license, unless
+indicated otherwise in a credit line to the material. If material is not included in the
+article’s Creative Commons license and your intended use is not permitted by statutory
+regulation or exceeds the permitted use, you will need to obtain permission directly
+from the copyright holder. To view a copy of this license, visit http://creativecommons.
+org/licenses/by/4.0/.
+© The Author(s) 2021
+J. Zhou et al.
+295
+The ISME Journal (2022) 16:284 – 295

@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>E-waste Bioleaching Consortium</h1>
         </div>
     </header>
@@ -400,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        e-waste bioleaching bioreactor
+                        e-waste bioleaching bioreactor<span class="ontology-label"> — ontology label: laboratory environment</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -425,6 +448,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -535,18 +559,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for E-waste Bioleaching Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -554,13 +580,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -569,11 +590,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Ferrous Iron Oxidation for Metal Dissolution</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
+                <p class="prewrap interaction-description">The Leptospirillum ferriphilum-dominated FeOB culture, with Sulfobacillus benefaciens as the other named member, regenerates ferric iron from ferrous iron in acidic PCB systems. Redox potential is used to infer iron oxidation; this is not an iron-transporter or carbon-fixation assay. Culture-level activity does not establish obligate syntrophy or resolve each member&#39;s contribution. Faster oxidation after subculture did not accelerate batch metal dissolution in this experiment.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Leptospirillum ferriphilum,
+
+                    Sulfobacillus benefaciens
+
+                </p>
 
 
 
@@ -591,23 +620,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        iron ion transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006826</a>)
-                    </li>
-
-                    <li>
-                        carbon fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015977"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015977</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
@@ -615,6 +627,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Base Metal Exposure in PCB Leachate
+                        <p class="prewrap causal-description">Regenerated Fe(III) can oxidatively dissolve PCB metals and is reduced to Fe(II), exposing the culture to dissolved metals. This is an oxidant/substrate feedback, not a claim that faster biological regeneration increased the measured batch dissolution rate: initial ferric consumption and acidic dissolution dominated those batches.</p>
                     </div>
 
                 </div>
@@ -650,6 +663,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.3389/fmicb.2021.669738"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2021.669738</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"FeOB uses the resulting Fe(II) as a source of energy to regenerate the ferric iron"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -657,11 +683,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Base Metal Exposure in PCB Leachate</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">Ferric reduction and acidic dissolution released metals from solid PCBs in the 2.2-L stirred-tank assays. The listed Cu, Zn and Ni concentrations belong to the 1% and 2% solid-PCB treatments, not the separate equivalent-leachate flask series. Metal dissolution supplies Fe(II) for microbial reoxidation while creating mixed-metal exposure. Dissolution reached its maximum after seven days regardless of subculture; the shorter iron-oxidation lag did not accelerate this batch endpoint. These are chemical/culture observations, not interspecies competition.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Leptospirillum ferriphilum,
+
+                    Sulfobacillus benefaciens
+
+                </p>
 
 
 
@@ -690,6 +724,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Ferrous Iron Oxidation for Metal Dissolution
+                        <p class="prewrap causal-description">Oxidative metal dissolution reduces Fe(III) to Fe(II), replenishing the substrate that the FeOB culture can reoxidize. This chemically coupled return path is supported by the reaction scheme and the immediate redox drop after PCB addition, not merely by transferring a leachate to another subculture.</p>
                     </div>
 
                 </div>
@@ -712,6 +747,45 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.3389/fmicb.2021.669738"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2021.669738</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Leachates of 1% (w/v) PCBs reached a maximum of 2.6 g L–1 Cu, 30 mg L–1 Ni, and 303 mg L–1 Zn, whereas leachates of 2% (w/v) PCBs contained up to 4.2 g L–1 Cu, 52 mg L–1 Ni, and 543 mg L–1 Zn."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.3389/fmicb.2021.669738"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2021.669738</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"indicating that Fe(III) was being reduced"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.3389/fmicb.2021.669738"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2021.669738</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"maximum dissolution yield after 7 days as in the previous experiments, regardless of the subculture"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -719,21 +793,21 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>PCB Toxicity and Microbial Adaptation</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">PCB exposure delayed culture iron oxidation. In solid-PCB stirred tanks, the adapted culture had pre-oxidation lags of 11 days at 1% and 18 days at 2%. Serial 2% subcultures shortened the lag from 18 to 13 to 7 days; after a ten-day storage pause it lengthened to 11 days before shortening again. Separately, no growth or microbial iron-oxidation activity was observed at 8% equivalent chemical leachate during the 25-day flask assay; this is not a universal above-8% threshold. Operational adaptation does not identify genetic resistance, altered membranes or a specific toxic compound. Planktonic counts omit attached biomass and are affected by solids.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
 
+                    Leptospirillum ferriphilum,
 
-                <p><strong>Metabolites:</strong>
-
-                    organic molecular entity
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=50860"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:50860</a>)
+                    Sulfobacillus benefaciens
 
                 </p>
+
+
 
 
 
@@ -755,6 +829,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Ferrous Iron Oxidation for Metal Dissolution
+                        <p class="prewrap causal-description">PCB exposure delays iron-oxidizing activity, while serial transfer under the tested 2% solid-PCB conditions shortens the pre-oxidation lag. This operational history changes the onset of culture activity; the molecular adaptation mechanism is unresolved and the faster onset did not accelerate batch metal dissolution.</p>
                     </div>
 
                 </div>
@@ -812,6 +887,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which toxic components and physiological changes determine the iron-oxidation lag?
+                </h3>
+                <p class="prewrap">Retain the FeIII/FeII chemical-biological feedback rather than a subculture-workflow cycle. Retain the operational adaptation-to-oxidation link without claiming measured genetic detoxification, membrane changes or obligatory syntrophy. In these batches metal dissolution reached maximum after seven days regardless of subculture, despite faster iron oxidation. Distinguish equivalent-leachate flask toxicity from solid-PCB stirred-tank concentrations and continuous-startup results. Non-graph acidity, assay-regime and organism-role claims remain #1448; preserve the prior #596 vessel evidence correction. No new nodes or arrows are required.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Ferrous Iron Oxidation for Metal Dissolution</code>, <code>ecological_interactions#Base Metal Exposure in PCB Leachate</code>, <code>ecological_interactions#PCB Toxicity and Microbial Adaptation</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -819,6 +913,7 @@
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -983,6 +1078,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -1078,12 +1174,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1096,7 +1195,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1150,7 +1248,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1161,13 +1259,7 @@
 
             var processes = [];
 
-
-            processes.push("iron ion transport");
-
-            processes.push("carbon fixation");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1182,11 +1274,24 @@
 
 
 
+            var participantKeys = [
+
+                "Leptospirillum ferriphilum",
+
+                "Sulfobacillus benefaciens"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1199,7 +1304,7 @@
 
             var processes = [];
 
-            var evidenceCount = 1;
+            var evidenceCount = 4;
 
             nodes.push({
                 id: intId,
@@ -1214,16 +1319,25 @@
 
 
 
+            var participantKeys = [
+
+                "Leptospirillum ferriphilum",
+
+                "Sulfobacillus benefaciens"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
-
-
-            metabolites.push("organic molecular entity");
-
 
             var processes = [];
 
@@ -1246,6 +1360,19 @@
 
 
 
+            var participantKeys = [
+
+                "Leptospirillum ferriphilum",
+
+                "Sulfobacillus benefaciens"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
 
@@ -1259,6 +1386,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

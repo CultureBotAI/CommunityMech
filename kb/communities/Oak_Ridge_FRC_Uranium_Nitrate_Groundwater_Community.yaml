@@ -129,16 +129,17 @@ taxonomy:
       well.
 ecological_interactions:
 - name: Low-pH Mixed-Ion Rhodanobacter Tolerance
-  description: Low pH plus U(VI), Mn(II), Al(III), Cd(II), Zn(II), Co(II), and Ni(II)
-    form a mixed-ion stress regime that Rhodanobacter isolates from contaminated Oak Ridge
-    FRC wells tolerate better than most non-Rhodanobacter isolates from the site.
-  interaction_type: NICHE_PARTITIONING
+  description: 'R2A dose-response and mixture assays support differential tolerance to low pH and seven metal ions:
+    uranyl, manganese, aluminium, cadmium, zinc, cobalt and nickel. Eight Rhodanobacter isolates from contaminated
+    wells grew under the pH-4 mixture, whereas 186 tested isolates from uncontaminated wells did not. This is an
+    isolate-panel result, not a whole-groundwater-community perturbation or universal genus trait; strain provenance
+    is confounded with genus, and some Pseudomonas isolates tolerate neutral-pH mixtures.'
   scope: COMMUNITY_LEVEL
   metabolites:
-  - preferred_term: uranium(VI)
+  - preferred_term: uranyl ion
     term:
-      id: CHEBI:32992
-      label: uranium(6+)
+      id: CHEBI:43515
+      label: dioxouranium(2+)
   - preferred_term: manganese(2+)
     term:
       id: CHEBI:29035
@@ -170,82 +171,63 @@ ecological_interactions:
       label: response to metal ion
   downstream:
   - target: Contaminant-Selected Rhodanobacter Dominance
-    description: Rhodanobacter tolerance to the low-pH U(VI)-Mn(II)-Al(III)-Cd(II)-
-      Zn(II)-Co(II)-Ni(II) ion mixture identifies a selective mechanism for the
-      Rhodanobacter enrichment observed in the most contaminated FRC wells.
-  - target: Mixed Metal and Nitrate Reduction Potential
-    description: Mixed metal tolerance defines the contaminated groundwater guilds
-      that retain uranium, nitrate, and iron reduction potential under the high-stress
-      conditions of well FW113-47.
+    description: PARTIAL - Differential survival under low-pH mixed-metal stress supplies an experimentally supported
+      selection mechanism for field Rhodanobacter enrichment when relevant ions reach inhibitory concentrations.
+      This combines isolate perturbations with field abundance/geochemistry, not an in situ manipulation or proof
+      that nitrate toxicity selects Rhodanobacter. Organic matter, speciation and strain provenance limit transfer
+      of thresholds to groundwater.
   evidence:
   - reference: PMID:30523276
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: low pH and high UO_{2}^{2+}, Mn^{2+}, Al^{3+}, Cd^{2+}, Zn^{2+}, Co^{2+},
-      and Ni^{2+} are both (a) selectively inhibitory of a Pseudomonas isolate from an uncontaminated
-      well vs. a Rhodanobacter isolate from a contaminated well
-    explanation: Supports low pH and mixed metal ions as selective pressures favoring
-      Rhodanobacter over less tolerant Oak Ridge groundwater isolates.
+    snippet: few isolates aside from Rhodanobacter can tolerate these eight ions.
+    explanation: Preserves the observed mixture-tolerance result; the eight selective ions include protons, not
+      eight metals.
   - reference: PMID:30523276
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: few isolates aside from Rhodanobacter can tolerate these eight ions.
-    explanation: Supports the site-wide rarity of mixed-ion tolerance outside
-      Rhodanobacter isolates.
+    snippet: selectively inhibitory of non-Rhodanobacter isolates from uncontaminated wells
+    explanation: Supports differential isolate susceptibility, not a universal property of all Pseudomonas or field
+      populations.
 - name: Contaminant-Selected Rhodanobacter Dominance
-  description: Low pH and high concentrations of uranium and other ions select for Rhodanobacter enrichment
-    in the most contaminated Oak Ridge FRC groundwater wells, while inhibiting many other isolates.
-  interaction_type: NICHE_PARTITIONING
+  description: PARTIAL - Rhodanobacter genus enrichment in the most contaminated groundwater wells is consistent
+    with the experimentally supported acid/mixed-metal tolerance mechanism. The field association and isolate perturbations
+    support selective filtering, not demonstrated niche partitioning, species-resolved denitrification flux or universal
+    Rhodanobacter resistance. Nitrate is a correlated co-contaminant and possible electron acceptor, not a selectively
+    toxic driver in the tested strain comparison.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Rhodanobacter denitrificans and related Rhodanobacter spp.
-    term:
-      id: NCBITaxon:666685
-      label: Rhodanobacter denitrificans
   metabolites:
-  - preferred_term: uranium(VI)
+  - preferred_term: uranyl ion
     term:
-      id: CHEBI:32992
-      label: uranium(6+)
+      id: CHEBI:43515
+      label: dioxouranium(2+)
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
-  biological_processes:
-  - preferred_term: denitrification
-    term:
-      id: GO:0019333
-      label: denitrification pathway
   evidence:
   - reference: PMID:30523276
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: We focused on a contaminated aquifer in Oak Ridge, Tennessee, USA that has large gradients
-      of pH and widely varying concentrations of uranium, nitrate, and many other inorganic ions.
-    explanation: Establishes the geochemical gradients that structure the community.
+    snippet: In the most contaminated wells, the microbial community is enriched in the Rhodanobacter genus.
+    explanation: Directly supports genus-level field enrichment, not a resolved species assignment.
   - reference: PMID:30523276
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: few isolates aside from Rhodanobacter can tolerate these eight ions.
-    explanation: Supports contaminant tolerance as a mechanism favoring Rhodanobacter under mixed ion stress.
+    explanation: Supplies the isolate-selection mechanism with strain/condition limits.
 - name: Mixed Metal and Nitrate Reduction Potential
-  description: The contaminated well FW113-47 selected for bacteria associated with uranium, nitrate, and
-    iron reduction, indicating bioremediation-relevant redox capacity in the natural groundwater community.
-  interaction_type: CROSS_FEEDING
+  description: PARTIAL - The four-well 16S clone-library study associates taxa in FW113-47 with previously recognized
+    uranium-, nitrate- and iron-reducing capabilities and identifies bioremediation potential across the wells.
+    The accessible abstract does not quantify community reduction rates or metabolite exchange. This redox-capacity
+    inference is distinct from the later mixed-ion isolate-tolerance experiment; it does not demonstrate cross-feeding
+    or prove that tolerant Rhodanobacter drive uranium immobilization.
   scope: COMMUNITY_LEVEL
   metabolites:
-  - preferred_term: uranium(VI)
-    term:
-      id: CHEBI:32992
-      label: uranium(6+)
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
-  - preferred_term: iron(3+)
-    term:
-      id: CHEBI:29034
-      label: iron(3+)
   biological_processes:
   - preferred_term: denitrification
     term:
@@ -253,18 +235,20 @@ ecological_interactions:
       label: denitrification pathway
   evidence:
   - reference: PMID:22988623
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: Metal-reducing bacteria were present in all four wells, which may suggest that there is
-      potential for successful bioremediation of the groundwater at the Oak Ridge FRC.
-    explanation: Supports bioremediation relevance of metal-reducing members.
+    snippet: Metal-reducing bacteria were present in all four wells, which may suggest that there is potential for
+      successful bioremediation of the groundwater at the Oak Ridge FRC.
+    explanation: Supports taxon-associated redox potential in the field survey, not measured reduction flux, chemical
+      speciation or interspecies transfer.
   - reference: PMID:22988623
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: The high concentrations of contaminants present in well FW113-47 stimulated the growth
-      of organisms capable of reducing uranium (Shewanella and Pseudomonas), nitrate (Pseudomonas,
-      Rhodanobacter and Xanthomonas) and iron (Stenotrophomonas), and which were unique to this well.
-    explanation: Links community members to uranium, nitrate, and iron redox processes.
+    snippet: The high concentrations of contaminants present in well FW113-47 stimulated the growth of organisms
+      capable of reducing uranium (Shewanella and Pseudomonas), nitrate (Pseudomonas, Rhodanobacter and Xanthomonas)
+      and iron (Stenotrophomonas), and which were unique to this well.
+    explanation: Supports taxon-associated redox potential in the field survey, not measured reduction flux, chemical
+      speciation or interspecies transfer.
 environmental_factors:
 - name: Groundwater pH, nitrate, uranium, and metals
   value: pH 3 to 7; nitrate 44 to 23,400 mg/L; uranium 0.73 to 60.36 mg/L
@@ -359,3 +343,35 @@ metals_present:
 metal_relevance: PRIMARY
 metal_notes: Uranium and iron are directly tied to reported reduction potential; nickel, cobalt, and zinc
   are included as selective metal contaminants reported in Oak Ridge FRC ion-mixture studies.
+discussions:
+- discussion_id: field-selection-versus-redox-flux
+  prompt: How do isolate-specific metal tolerance and groundwater chemistry alter actual redox fluxes in the same
+    wells?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Low-pH Mixed-Ion Rhodanobacter Tolerance
+  - ecological_interactions#Contaminant-Selected Rhodanobacter Dominance
+  - ecological_interactions#Mixed Metal and Nitrate Reduction Potential
+  rationale: The full tolerance paper supports a likely selective mechanism, but not the removed tolerance-to-redox-guild
+    arrow. Field clone-library evidence remains abstract bounded after normal publisher access returned403. Quantify
+    exact-well activity and distinguish nitrate respiration from selective nitrate toxicity. Canonical membership
+    is preserved, not recertified at species level.
+  evidence:
+  - reference: PMID:22988623
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: Metal-reducing bacteria were present in all four wells, which may suggest that there is potential for
+      successful bioremediation of the groundwater at the Oak Ridge FRC.
+    explanation: Supports taxon-associated redox potential in the field survey, not measured reduction flux, chemical
+      speciation or interspecies transfer.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-07T05:06:33Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain controlled isolate tolerance, correct uranyl grounding and keep bounded selection arrow; remove
+    unsupported redox coupling.; Retain genus-level field enrichment without species/denitrification or nitrate-selective-toxicity
+    overclaims.; Keep abstract-bounded redox potential without cross-feeding, measured flux or unmeasured ionic
+    speciation. Issue #1652; reports/causal_graph_review/decisions/20261007-four-records-batch79.yaml'
+  llm_assisted: true

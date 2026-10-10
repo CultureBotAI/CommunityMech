@@ -53,44 +53,42 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Pairwise Interaction-Dominated Community Dynamics
-  description: Time-resolved measurements of lower-order assemblages showed that pairwise interactions,
-    rather than higher-order interactions, are major drivers of the synthetic gut community dynamics.
-  interaction_type: CROSS_FEEDING
+- name: Pairwise Model Prediction Of Community Dynamics
+  description: A generalized Lotka-Volterra model trained on monospecies and pairwise time series predicted much
+    of the tested 11- and 12-member community dynamics; additional full-community training improved predictions.
+    PARTIAL - model success supports important pairwise effects in these conditions, not absence of higher-order
+    effects, perfect prediction or universal acetate cross-feeding. Abundance inputs combined 16S proportions with
+    OD600, not direct viable-cell counts.
   scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: acetate
-    term:
-      id: CHEBI:30089
-      label: acetate
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Positive-Negative Ecological Network Topology
-    description: Pairwise inference resolved both negative and positive interactions that together
-      define the ecological network topology of the synthetic gut community.
   evidence:
-  - *id001
   - reference: PMID:29930200
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: pairwise interactions are major drivers of multi-species community dynamics
-    explanation: Supports pairwise interactions, rather than only higher-order terms, as the principal
-      drivers of the modeled synthetic gut community.
+    snippet: This method was employed to decipher microbial interactions in a diverse human gut microbiome synthetic
+      community.
+    explanation: Defines the tested synthetic gut community; this context statement does not itself identify a metabolite
+      mediator.
   - reference: PMID:29930200
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: cross‐feeding of metabolic by‐products such as acetate in the gut microbiota is a prevalent
-      mechanism that could alter environmental pH
-    explanation: Names acetate as a representative cross-fed byproduct in the
-      gut interactions modeled for the SynCom.
-- name: Positive-Negative Ecological Network Topology
-  description: The inferred human-gut SynCom network contains many negative interactions and frequent
-    positive interactions that form the interaction topology of the community.
-  interaction_type: NICHE_PARTITIONING
+    evidence_source: COMPUTATIONAL
+    snippet: pairwise interactions are major drivers of multi‐species community dynamics
+    explanation: Supports the fitted model and experimental predictive comparison within the tested assemblages;
+      higher-order effects are not categorically excluded.
+  participating_taxa:
+  - preferred_term: human gut bacterial SynCom members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+- name: Inferred Positive-Negative Ecological Network Topology
+  description: The fitted 12-species gut network contains frequent negative and positive interaction coefficients,
+    including coupled positive/negative pairwise motifs. These are effective ecological effects inferred from abundance
+    dynamics. Their signs do not uniquely identify nutrient competition, cross-feeding, niche partitioning or molecular
+    mechanisms; conditioned-medium and metabolomics results provide complementary but imperfect support.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
@@ -98,20 +96,28 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
   downstream:
-  - target: Robust Coexistence Feedback
-    description: The mixed positive and negative topology enables feedback that balances differences
-      in monospecies fitness and supports robust coexistence.
+  - target: Modeled Pairwise Coexistence Feedback
+    description: PARTIAL - in the fitted pairwise gLV models, coupled positive and negative effects create negative
+      feedback that limits the higher-fitness partner and permits coexistence with the lower-fitness partner across
+      a broader tested growth-rate range than mutual inhibition. This preserves the source-supported model mechanism,
+      not proof of a universal or molecularly resolved feedback in the entire gut community.
   evidence:
   - reference: PMID:29930200
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The inferred ecological network exhibits a high proportion of negative and frequent
-      positive interactions.
-    explanation: Supports the topology inferred from lower-order synthetic gut assemblages.
-- name: Robust Coexistence Feedback
-  description: Positive and negative interactions implement a stabilizing negative feedback loop that
-    balances monospecies fitness differences and enables robust coexistence.
-  interaction_type: NICHE_PARTITIONING
+    evidence_source: COMPUTATIONAL
+    snippet: The inferred ecological network exhibits a high proportion of negative and frequent positive interactions.
+    explanation: Supports signs of inferred gLV interaction coefficients, not uniquely identified molecular mechanisms.
+  participating_taxa:
+  - preferred_term: human gut bacterial SynCom members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+- name: Modeled Pairwise Coexistence Feedback
+  description: Within the inferred pairwise gLV models, a positive/negative motif implements negative feedback that
+    balances monospecies fitness differences and supports coexistence over a broader tested parameter range than
+    mutual inhibition. The CH-ER pair provides an experimentally coexisting example. PARTIAL - the mathematical
+    mechanism is model-bounded; neither its molecular mediator nor universal stability of the full 12-member system
+    follows from this analysis.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
@@ -121,10 +127,16 @@ ecological_interactions:
   evidence:
   - reference: PMID:29930200
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: positive and negative interaction topology enables robust coexistence by implementing
-      a negative feedback loop
-    explanation: Supports coexistence as an emergent property of the inferred interaction topology.
+    evidence_source: COMPUTATIONAL
+    snippet: positive and negative interaction topology enables robust coexistence by implementing a negative feedback
+      loop
+    explanation: Supports a negative-feedback coexistence mechanism in analyzed pairwise gLV motifs, not demonstrated
+      niche partitioning or a traced metabolite loop.
+  participating_taxa:
+  - preferred_term: human gut bacterial SynCom members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
 environmental_factors:
 - name: model-guided synthetic community design
   value: Lower-order assemblages were used to predict higher-dimensional human gut SynCom dynamics.
@@ -202,3 +214,29 @@ cultivation_setup:
     evidence_source: IN_VITRO
     snippet: In multi‐species assemblages, the total initial OD600 was 0.01 OD600 × n,
       where n represents the number of strains in the community
+discussions:
+- discussion_id: lbnl_gut_effective_interactions_and_molecular_mechanisms
+  prompt: Which molecular mechanisms realize the inferred signed interactions and feedback?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Pairwise Model Prediction Of Community Dynamics
+  - ecological_interactions#Inferred Positive-Negative Ecological Network Topology
+  - ecological_interactions#Modeled Pairwise Coexistence Feedback
+  rationale: 'Remove the analytical inference-to-topology arrow, but retain topology-to-coexistence as a model-bounded
+    causal mechanism. Acetate in the cited passage is a prior-literature example; separate metabolomics cultures
+    supplemented ER and FP with acetate, which does not prove cross-feeding throughout this graph. Co-consumption/secretion
+    only yields an ecological effect when relevant substrates limit growth, and conditioned-medium signs do not
+    always match inferred coefficients. Higher-order effects, parameter uncertainty and OD-scaled abundance remain
+    limitations. Canonical NCBITaxon:2 is only an aggregate placeholder for the 12-species experimental roster;
+    #1548 tracks its grounding and non-graph metadata. No original figure pixels, separate supplements, raw data
+    or executable model reproduction was performed.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T20:44:04Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve modeled gut coexistence feedback and remove unsupported acetate and inference-workflow claims.
+    Issue #1546; reports/causal_graph_review/decisions/20261006-lbnl-batch61.yaml'
+  llm_assisted: true

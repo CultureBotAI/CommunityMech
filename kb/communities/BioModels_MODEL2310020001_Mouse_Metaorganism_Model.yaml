@@ -79,12 +79,10 @@ taxonomy:
     explanation: Supports Bacteroidota as a dominant mouse gut MAG group in the aging cohort.
 ecological_interactions:
 - name: Model-Predicted Beneficial Gut Interactions
-  description: >-
-    Community FBA over genome-scale models from 181 mouse gut MAGs inferred
-    pairwise growth effects among bacterial species. Aging was associated with
-    a loss of beneficial bacterial interactions, linking within-microbiome
-    ecological decline to lower microbiome metabolic output.
-  interaction_type: COMMENSALISM
+  description: COMPUTATIONAL - pairwise community FBA compares single and paired growth for mouse gut MAG reconstructions.
+    Across age groups, inferred beneficial interactions decline. This collection is not uniformly commensal, and
+    concurrent metabolite predictions do not establish that interaction loss causes reduced metabolic output. The
+    aging comparison uses separate age cohorts, not a longitudinal competition intervention.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: growth
@@ -92,17 +90,6 @@ ecological_interactions:
       id: GO:0040007
       label: growth
     notes: Community FBA compared single and paired bacterial growth rates to infer beneficial interactions.
-  metabolites:
-  - preferred_term: butyrate
-    term:
-      id: CHEBI:17968
-      label: butyrate
-    notes: Butyrate was a beneficial microbial metabolite reduced in aging-associated microbiome change.
-  downstream:
-  - target: Aging Shift Toward Competitive Gut Interactions
-    description: >-
-      Loss of beneficial growth interactions accompanied an aging-associated
-      increase in competitive pairwise interaction frequencies.
   evidence:
   - reference: PMID:40140706
     supports: SUPPORT
@@ -112,16 +99,14 @@ ecological_interactions:
   - reference: PMID:40140706
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: We observed a pronounced reduction in metabolic activity within the aging microbiome
-      accompanied by reduced beneficial interactions between bacterial species.
+    snippet: We observed a pronounced reduction in metabolic activity within the aging microbiome accompanied by
+      reduced beneficial interactions between bacterial species.
     explanation: Supports the aging-associated decline in beneficial bacterial interactions.
 - name: Aging Shift Toward Competitive Gut Interactions
-  description: >-
-    Community FBA predicted every pairwise relationship in each mouse gut
-    microbiome by comparing single-bacterium growth with two-species growth.
-    Aging shifted the inferred interaction frequencies away from amensal,
-    commensal, and neutral outcomes and toward competition, consistent with a
-    loss of beneficial metabolic interactions among bacterial members.
+  description: COMPUTATIONAL - normalized pairwise interaction frequencies shift toward the model's competition
+    category with age, while amensal, commensal and neutral categories decline. COMPETITION refers to the paired-growth
+    classification, not a cause of every aging-associated metabolite change. Reduced amensalism and neutralism are
+    not themselves losses of beneficial commensalism.
   interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
   biological_processes:
@@ -130,47 +115,26 @@ ecological_interactions:
       id: GO:0040007
       label: growth
     notes: FBA compared single and combined bacterial growth rates to call ecological relationships.
-  metabolites:
-  - preferred_term: succinate
-    term:
-      id: CHEBI:30031
-      label: succinate(2-)
-    notes: Succinate was a model-predicted pro-inflammatory product that increased with aging.
-  - preferred_term: butyrate
-    term:
-      id: CHEBI:17968
-      label: butyrate
-    notes: Butyrate was a beneficial microbial metabolite reduced in aging-associated microbiome change.
-  downstream:
-  - target: Microbiota-Dependent Host Nucleotide Support
-    description: >-
-      Reduced beneficial bacterial interactions and microbiome metabolic output
-      are upstream of model-predicted declines in host pathways that depend on
-      microbiome-derived metabolism.
   evidence:
   - reference: PMID:40140706
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: We observed a significant decrease in amensal, commensal and neutral interactions at the
-      expense of increased competitive interactions
+    snippet: We observed a significant decrease in amensal, commensal and neutral interactions at the expense of
+      increased competitive interactions
     explanation: Supports the predicted aging-associated shift toward competitive bacterial interactions.
   - reference: PMID:40140706
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: >-
-      Aging-related microbiome changes led to the accumulation of pro-aging
-      metabolites (D-galactose, succinate) and a decline in beneficial
-      metabolites (nucleotides, butyrate).
-    explanation: Links the modeled ecological shift to aging-associated changes in microbial metabolic output.
+    snippet: Aging-related microbiome changes led to the accumulation of pro-aging metabolites (D-galactose, succinate)
+      and a decline in beneficial metabolites (nucleotides, butyrate).
+    explanation: Reports parallel aging-associated model outputs, not proof that competitive interactions mediate
+      metabolite changes or host effects.
 - name: Microbiota-Dependent Host Nucleotide Support
-  description: >-
-    The integrated host-microbiome metamodel linked gut microbial reactions with
-    host colon, liver, and brain reactions through lumen and bloodstream
-    exchanges. Aging reduced microbial nucleotide synthesis and other microbial
-    metabolic activities correlated with host expression, tying community
-    metabolic decline to model-predicted loss of microbiota-supported host
-    nucleotide pathways.
-  interaction_type: COMMENSALISM
+  description: COMPUTATIONAL - a separate pooled microbiome/host metamodel links colon, liver and brain reconstructions
+    and predicts age-associated nucleotide co-metabolism changes. Host-to-microbe and microbe-to-host routes are
+    reciprocal, not established commensalism. PARTIAL - a contribution to barrier integrity is hypothesized; predicted
+    flux ranges, gene associations and broad germ-free/colonization validation do not establish donor-traced exchange
+    or route-specific causal rescue.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: nucleotide
@@ -187,17 +151,16 @@ ecological_interactions:
   - reference: PMID:40140706
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: >-
-      In this metamodel, the host is represented by three different tissues
-      (colon, liver and brain) connected through the bloodstream and interacting
-      with the microbiome through the gut lumen
+    snippet: In this metamodel, the host is represented by three different tissues (colon, liver and brain) connected
+      through the bloodstream and interacting with the microbiome through the gut lumen
     explanation: Describes the host and microbiome compartments used to model gut-lumen and bloodstream exchange.
   - reference: PMID:40140706
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: An aging-associated decline in nucleotide co-metabolism could underlie diminished intestinal
-      barrier integrity
-    explanation: Supports nucleotide co-metabolism as an aging-affected host-microbiome pathway.
+    snippet: An aging-associated decline in nucleotide co-metabolism could underlie diminished intestinal barrier
+      integrity
+    explanation: The source says could underlie; the barrier mechanism is a hypothesis, not a route-specific intervention
+      result.
 related_ingredients:
 - preferred_term: nucleotide
   chebi_term:
@@ -280,3 +243,25 @@ external_resources:
     snippet: The metamodel can be found under accession MODEL2310020001 in the EBI BioModels
       database
     explanation: Confirms the peer-reviewed article's BioModels accession for the host-microbiome metamodel.
+discussions:
+- discussion_id: mouse_model_interaction_to_host_mediation
+  prompt: Do targeted partner and nucleotide interventions link ecological changes to host outcomes?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Model-Predicted Beneficial Gut Interactions
+  - ecological_interactions#Aging Shift Toward Competitive Gut Interactions
+  - ecological_interactions#Microbiota-Dependent Host Nucleotide Support
+  rationale: Species-level community FBA and the pooled host-microbiome model are separate analyses; their association
+    is not a causal chain. The metamodel uses human Recon 2.2 reconstructions as a mouse-host proxy; FVA ranges
+    are not measured fluxes. The 52-male aging cohort differs from the separate 24-female germ-free validation cohort.
+    Main text and figure captions were read, but supplementary data, images and models were not inspected or rerun.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T12:49:56Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate aging-associated model classifications from host nucleotide mediation; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1258'
+  llm_assisted: true

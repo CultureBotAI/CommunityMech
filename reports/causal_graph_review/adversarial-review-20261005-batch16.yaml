@@ -1,0 +1,63 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: aa617f97b5d0ac79807d659856a8336880747559
+scope:
+- kb/communities/Cinnamate_Degradation_Consortium.yaml
+- kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+findings:
+- issue: 1313
+  severity: P2
+  finding: Mixed acetate/methane/CO2 products are not complete carbon mineralization; the abstract does not identify
+    the electron carrier or support commensalism/fatty-acid-process typing.
+  disposition: addressed_and_locally_verified
+open_nongraph_followups:
+- issue: 1314
+  disposition: intentionally_not_closed_by_graph_only_patch
+  scope: Cinnamate environmental mineralization, abundance, metal relevance, sole-substrate and ingredient metadata.
+adversarial_checks:
+- Preserve observed syntrophic interdependence and both existing causal links; do not erase the supported benzoate
+  intermediate.
+- Distinguish a proposed hydrogenotrophic route from directly measured interspecies hydrogen flux.
+- Retain the mixed product list and distinguish original versus replacement methanogen.
+- Do not mistake aromatic-side-chain beta oxidation for measured fatty-acid beta oxidation.
+- Inspect isoDCA Figure 1 and sequential sterile spent-medium Methods; retain the valid existing interaction byte
+  unchanged.
+- Do not imply direct cell contact, peer review, quantified transfer flux or newly verified supplementary images
+  for isoDCA.
+- No new nodes/arrows or Edison spend. No change to participant/connectivity test registries.
+- Primary PDF/text/images stay outside the repository; existing reference caches unchanged.
+- Review counts include a hash-bound no-change decision, not a fabricated curation event.
+verification:
+  status: local_validation_complete
+  checks: 22
+  records: 460
+  nodes: 1475
+  edges: 718
+  review_status_counts:
+    needs_research: 3
+    pending: 358
+    reviewed: 99
+  structural_defects: 0
+  network_errors: 0
+  network_warnings: 25
+  new_network_warnings: 0
+  unchanged_raw_blocks: 29
+  snippet_counts:
+    MATCH: 36
+    RENDERING: 0
+    ASSEMBLED: 0
+    WEAK: 0
+    MISMATCH: 0
+    NOCONTENT: 0
+  published_description_coverage:
+    pages: 456
+    node_descriptions: 1461
+    edge_descriptions: 710
+  render_determinism: passed
+  regressions: 233 passed in 156.39s (0:02:36)
+  rights: 3 passed in 1.51s
+  rights_import_root_verified: true
+  caches_unchanged: true
+  primary_artifact_hashes_rechecked: true
+  participant_registry_and_connectivity_test_bytes_unchanged: true

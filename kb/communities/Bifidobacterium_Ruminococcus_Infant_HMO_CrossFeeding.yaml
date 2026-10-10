@@ -100,12 +100,9 @@ taxonomy:
     explanation: Supports R. gnavus as the extracellular fucosidase producer.
 ecological_interactions:
 - name: B. breve 2'FL Transporter Constraint
-  description: >
-    The FT-1 Bifidobacterium breve isolate could not grow with 2'FL as
-    its sole carbohydrate source because it carried only an intracellular GH95
-    fucosidase and lacked 2'FL transporters, making external 2'FL cleavage
-    by a partner the prerequisite for lactose release and B. breve expansion.
-  interaction_type: CROSS_FEEDING
+  description: The FT-1 B. breve isolate did not grow on 2'FL or fucose alone but grew on lactose. Genomic searches
+    found a predicted intracellular GH95 fucosidase and no identifiable 2'FL transporter. PARTIAL - this is a candidate
+    explanation for substrate limitation, not a transporter knockout or a cause of donor hydrolysis.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bifidobacterium breve
@@ -119,39 +116,31 @@ ecological_interactions:
       label: 2'-fucosyllactose
   - preferred_term: lactose
     term:
-      id: CHEBI:36219
-      label: alpha-lactose
+      id: CHEBI:17716
+      label: lactose
   biological_processes:
   - preferred_term: carbohydrate metabolic process
     term:
       id: GO:0005975
       label: carbohydrate metabolic process
-  downstream:
-  - target: R. gnavus 2'FL Hydrolysis Feeds B. breve
-    description: >
-      Because the FT-1 B. breve isolate could not directly use 2'FL,
-      growth on this HMO required extracellular cleavage by R. gnavus.
   evidence:
   - reference: PMID:37973815
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: B. breve from FT-1 cannot metabolize 2’FL
-    explanation: >
-      Supports the absence of direct 2'FL utilization by the FT-1 B. breve isolate.
+    explanation: 'Supports the absence of direct 2''FL utilization by the FT-1 B. breve isolate.
+
+      '
   - reference: PMID:37973815
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: B. breve encoded one fucosidase, GH95, but this gene was predicted to be intracellular
-    explanation: >
-      Supports the genomic explanation for B. breve's dependence on extracellular
-      HMO cleavage by other community members.
+    explanation: Supports predicted intracellular localization; functional sufficiency and transporter necessity
+      were not demonstrated by this annotation.
 - name: R. gnavus Extracellular Fucosidase Capacity
-  description: >
-    Ruminococcus gnavus was the only FT-1 organism besides B. breve predicted
-    to encode fucosidases; it carried six fucosidase genes, including one GH29
-    and one GH95 predicted to be extracellular, positioning R. gnavus as the
-    community member able to open 2'FL for lactose cross-feeding.
-  interaction_type: CROSS_FEEDING
+  description: COMPUTATIONAL POTENTIAL - FT-1 R. gnavus encoded six fucosidase genes, two predicted to be extracellular.
+    This supplies a candidate molecular route for 2'FL cleavage, not directly measured extracellular activity or
+    proof that the same donor explains every infant community.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Ruminococcus gnavus
@@ -170,8 +159,8 @@ ecological_interactions:
       label: 2'-fucosyllactose
   - preferred_term: lactose
     term:
-      id: CHEBI:36219
-      label: alpha-lactose
+      id: CHEBI:17716
+      label: lactose
   biological_processes:
   - preferred_term: carbohydrate metabolic process
     term:
@@ -179,36 +168,33 @@ ecological_interactions:
       label: carbohydrate metabolic process
   downstream:
   - target: R. gnavus 2'FL Hydrolysis Feeds B. breve
-    description: >
-      The predicted extracellular fucosidase activity is the genomic route
-      through which R. gnavus can hydrolyze 2'FL and release lactose.
+    description: PARTIAL - predicted extracellular fucosidases could release lactose from 2'FL, providing the proposed
+      route for B. breve substrate access. Localization, cleavage products and enzyme necessity were not directly
+      resolved in the inspected main paper.
   - target: R. gnavus PT-1 2'FL Rescue
-    description: >
-      Adding the extracellular-fucosidase producer supplied the 2'FL-opening
-      capacity missing from the unsupplemented PT-1 community.
+    description: PARTIAL - FT-1 R. gnavus supplies a candidate 2'FL-cleaving capacity to PT-1. Supplementation enriches
+      B. breve, but the specific fucosidase-dependent route is inferred rather than selectively perturbed.
   evidence:
   - reference: PMID:37973815
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: >
-      R. gnavus was the only organism besides B. breve in FT-1 whose genome
-      encodes fucosidases
+    snippet: 'R. gnavus was the only organism besides B. breve in FT-1 whose genome encodes fucosidases
+
+      '
     explanation: Identifies R. gnavus as the candidate 2'FL-cleaving partner in FT-1.
   - reference: PMID:37973815
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: >
-      it encodes six fucosidase genes (three GH29 and three GH95 genes), two of
-      which (one GH29 and one GH95 gene) were predicted to be extracellular
-    explanation: >
-      Supports the extracellular-fucosidase mechanism for R. gnavus-mediated
-      2'FL cleavage.
+    snippet: 'it encodes six fucosidase genes (three GH29 and three GH95 genes), two of which (one GH29 and one
+      GH95 gene) were predicted to be extracellular
+
+      '
+    explanation: Supports predicted gene content/localization rather than a measured extracellular enzyme rate.
 - name: R. gnavus 2'FL Hydrolysis Feeds B. breve
-  description: >
-    In 2'FL-only medium, the FT-1 R. gnavus isolate grew while the FT-1
-    B. breve isolate did not; their co-culture outperformed R. gnavus alone
-    because R. gnavus released lactose from 2'FL and made that carbohydrate
-    available to B. breve.
+  description: PARTIAL - complementary monoculture growth on 2'FL, fucose and lactose, together with increased total
+    coculture OD600, supports the authors' lactose-release cross-feeding model. Released lactose and donor-to-recipient
+    flux were not directly measured in the inspected main methods; higher total OD does not demonstrate benefit
+    to both partners.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -228,43 +214,40 @@ ecological_interactions:
       label: 2'-fucosyllactose
   - preferred_term: lactose
     term:
-      id: CHEBI:36219
-      label: alpha-lactose
+      id: CHEBI:17716
+      label: lactose
   biological_processes:
   - preferred_term: carbohydrate metabolic process
     term:
       id: GO:0005975
       label: carbohydrate metabolic process
   downstream:
-  - target: B. breve Lactose-Driven Coculture Dominance
-    description: >
-      R. gnavus extracellular 2'FL hydrolysis supplies the lactose that lets
-      B. breve dominate the 2'FL co-culture.
+  - target: B. breve Coculture Dominance and Lactose Growth
+    description: PARTIAL - proposed lactose supply could favor B. breve, whose lactose controls show faster growth
+      and higher final density. This explains observed coculture composition as a candidate mechanism, not measured
+      lactose flux or proof of molecular necessity.
   - target: R. gnavus PT-1 2'FL Rescue
-    description: >
-      The same R. gnavus-to-B. breve lactose cross-feeding explains why
-      R. gnavus supplementation enriches B. breve in PT-1.
+    description: PARTIAL - the proposed lactose-release route could mediate B. breve enrichment after R. gnavus
+      supplementation to PT-1. The donor intervention is measured; lactose-specific mediation of enrichment, pH
+      and diversity remains unresolved.
   evidence:
   - reference: PMID:37973815
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: R. gnavus can promote extensive growth of B. breve through the
-      release of lactose from 2'FL
-    explanation: Supports the lactose-mediated cross-feeding from R. gnavus to
-      B. breve.
+    snippet: R. gnavus can promote extensive growth of B. breve through the release of lactose from 2'FL
+    explanation: Supports the authors' lactose-mediated interpretation from growth and genomic evidence, not a direct
+      lactose-transfer assay.
   - reference: PMID:37973815
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: The R. gnavus monoculture grew on 2’FL, but not the B. breve culture
-    explanation: >
-      Shows that R. gnavus, not B. breve alone, could initiate growth on 2'FL
-      in the pairwise assay.
-- name: B. breve Lactose-Driven Coculture Dominance
-  description: >
-    The 2'FL co-culture became B. breve-dominated and lactose-only controls
-    showed why: both isolates could grow on d-lactose, but B. breve had the
-    higher growth rate and final density on lactose.
-  interaction_type: CROSS_FEEDING
+    explanation: 'Shows that R. gnavus, not B. breve alone, could initiate growth on 2''FL in the pairwise assay.
+
+      '
+- name: B. breve Coculture Dominance and Lactose Growth
+  description: B. breve accounted for approximately 80% of the 2'FL coculture community. Separate lactose-only controls
+    showed faster growth and higher final density for B. breve than R. gnavus. Relative representation and total
+    OD600 are different endpoints; these controls support but do not directly trace the proposed lactose mechanism.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Ruminococcus gnavus
@@ -279,8 +262,8 @@ ecological_interactions:
   metabolites:
   - preferred_term: lactose
     term:
-      id: CHEBI:36219
-      label: alpha-lactose
+      id: CHEBI:17716
+      label: lactose
   biological_processes:
   - preferred_term: carbohydrate metabolic process
     term:
@@ -291,21 +274,18 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: B. breve dominated the co-culture community (~80% of the community)
-    explanation: >
-      Supports B. breve dominance in the R. gnavus/B. breve 2'FL co-culture.
+    explanation: 'Supports B. breve dominance in the R. gnavus/B. breve 2''FL co-culture.
+
+      '
   - reference: PMID:37973815
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: B. breve had a higher growth rate and reached a higher final cell density than R. gnavus
-    explanation: >
-      Shows that lactose released from 2'FL is preferentially exploitable by B. breve.
+    explanation: Supports comparative growth on supplied lactose, not measured lactose release from 2'FL.
 - name: Individualized HMO Utilization Capacity
-  description: >
-    HMO utilization varies with individualized infant microbiome composition:
-    in FT-1, a non-Bifidobacterium extracellular fucosidase producer could free
-    lactose for B. breve, while PT-1 lacked a native producer and did not
-    respond to 2'FL until R. gnavus was added.
-  interaction_type: CROSS_FEEDING
+  description: Infant-derived communities responded differently to 2'FL. FT-1 and PT-1 differ in predicted donor
+    capacity and in response to R. gnavus supplementation; FT-2 has other candidate extracellular-fucosidase producers.
+    The listed FT-1/PT-1 partners are not a universal infant-microbiome wiring diagram.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Ruminococcus gnavus
@@ -323,8 +303,8 @@ ecological_interactions:
       label: 2'-fucosyllactose
   - preferred_term: lactose
     term:
-      id: CHEBI:36219
-      label: alpha-lactose
+      id: CHEBI:17716
+      label: lactose
   biological_processes:
   - preferred_term: carbohydrate metabolic process
     term:
@@ -334,22 +314,17 @@ ecological_interactions:
   - reference: PMID:37973815
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: microbiome responses to 2'-fucosyllactose (2'FL), a prevalent HMO and a common
-      infant formula additive
-    explanation: Supports 2'FL as the focal HMO used to compare individualized
-      infant microbiome utilization.
+    snippet: microbiome responses to 2'-fucosyllactose (2'FL), a prevalent HMO and a common infant formula additive
+    explanation: Supports 2'FL as the focal HMO used to compare individualized infant microbiome utilization.
   - reference: PMID:37973815
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: HMO utilization can vary with an individual's microbiome
     explanation: Supports the inter-individual variability of HMO utilization.
 - name: R. gnavus PT-1 2'FL Rescue
-  description: >
-    PT-1 lacked non-B. breve fucosidase producers and did not respond to 2'FL
-    on its own, but supplementation with the FT-1 R. gnavus isolate under
-    0.3% 2'FL significantly enriched B. breve and shifted the culture toward
-    lower pH and reduced species diversity.
-  interaction_type: CROSS_FEEDING
+  description: Adding the FT-1 R. gnavus isolate to PT-1 with 0.3% 2'FL enriched B. breve, accompanied by lower
+    pH and diversity. Predicted missing fucosidase capacity offers an explanation, not proof that lactose transfer
+    or acidification is the necessary mediator.
   scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Ruminococcus gnavus
@@ -368,8 +343,8 @@ ecological_interactions:
       label: 2'-fucosyllactose
   - preferred_term: lactose
     term:
-      id: CHEBI:36219
-      label: alpha-lactose
+      id: CHEBI:17716
+      label: lactose
   biological_processes:
   - preferred_term: carbohydrate metabolic process
     term:
@@ -380,28 +355,28 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: In PT-1, no other organisms besides B. breve encode a fucosidase
-    explanation: >
-      Supports the absence of a native extracellular 2'FL-cleaving partner in
-      the unsupplemented PT-1 community.
+    explanation: Supports predicted fucosidase-gene content of the profiled PT-1 community, not direct extracellular
+      enzyme measurement.
   - reference: PMID:37973815
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      B. breve was significantly enriched in the R. gnavus-positive PT-1
-      microbiome grown in media with 0.3% 2’FL
-    explanation: >
-      Shows that adding R. gnavus was sufficient to enrich B. breve during
-      PT-1 growth on 2'FL.
+    snippet: 'B. breve was significantly enriched in the R. gnavus-positive PT-1 microbiome grown in media with
+      0.3% 2’FL
+
+      '
+    explanation: 'Shows that adding R. gnavus was sufficient to enrich B. breve during PT-1 growth on 2''FL.
+
+      '
   - reference: PMID:37973815
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      the increase in B. breve abundance in the R. gnavus-supplemented PT-1
-      microbiome was correlated with a decrease in community species diversity
-      and pH
-    explanation: >
-      Supports the broader compositional and acidification shift that followed
-      R. gnavus supplementation.
+    snippet: 'the increase in B. breve abundance in the R. gnavus-supplemented PT-1 microbiome was correlated with
+      a decrease in community species diversity and pH
+
+      '
+    explanation: 'Supports the broader compositional and acidification shift that followed R. gnavus supplementation.
+
+      '
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: OTHER
@@ -536,3 +511,28 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   infant gut HMO cross-feeding system.
+discussions:
+- discussion_id: infant_hmo_direct_flux_and_mediation
+  prompt: Do direct lactose measurements and enzyme perturbations resolve the proposed HMO cross-feeding routes?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#B. breve 2'FL Transporter Constraint
+  - ecological_interactions#R. gnavus Extracellular Fucosidase Capacity
+  - ecological_interactions#R. gnavus 2'FL Hydrolysis Feeds B. breve
+  - ecological_interactions#B. breve Coculture Dominance and Lactose Growth
+  - ecological_interactions#Individualized HMO Utilization Capacity
+  - ecological_interactions#R. gnavus PT-1 2'FL Rescue
+  rationale: Main-paper growth controls, genomics and donor supplementation support the model. Extracellular localization/activity,
+    transporter sufficiency, donor-resolved lactose flux and mediation of pH/diversity remain unresolved at this
+    review scope. Figures, supplements, source data and genomes were not inspected. Generic lactose is grounded
+    without selecting an anomer; assay timing discrepancies remain a separate non-graph follow-up.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T11:29:49Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound infant HMO routes to inferred lactose mediation and measured donor response; decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1254'
+  llm_assisted: true

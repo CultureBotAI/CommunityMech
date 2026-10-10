@@ -127,8 +127,12 @@ taxonomy:
     explanation: Identifies XL12 as the engineered E. coli member produced from the XL5 intermediate.
 ecological_interactions:
 - name: GL10-XL12 glucose-xylose niche partitioning
-  description: GL10 and XL12 partition mixed glucose and xylose utilization as two E. coli metabolic specialists, enabling
-    simultaneous hexose and pentose consumption and D-lactate accumulation in the synthetic consortium.
+  description: GL10 and XL12 show partial, overlapping carbon-source specialization in the tested mixed-glucose/xylose
+    fermentation. GL10 retains xylose metabolism in single-sugar medium, while XL12 still consumes glucose; these
+    are not exclusive substrate users. The 1:1 consortium produced 3.76 g/L D-lactate at 36 h under the baseline
+    conditions. NICHE_PARTITIONING denotes this engineered division of labor, not strain-resolved coculture flux,
+    direct interstrain cross-feeding, partner-dependent growth or universal superiority across shaking speeds and
+    inoculum ratios.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -162,21 +166,34 @@ ecological_interactions:
   - reference: PMID:42038008
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: A co-culture strategy was implemented to improve metabolic orthogonality toward specific carbon sources within
-      mixed sugars.
-    explanation: Supports niche partitioning over the supplied glucose and xylose carbon sources.
+    snippet: A co-culture strategy was implemented to improve metabolic orthogonality toward specific carbon sources
+      within mixed sugars.
+    explanation: Supports an engineered specialization strategy, not perfect metabolic orthogonality or exclusive
+      sugar use by either strain.
+  - reference: PMID:42038008
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Microbial consortium using GL10 and XL12 with the inoculation ratio of 1:1 achieved complete glucose
+      depletion and 53.21% xylose utilization simultaneously.
+    explanation: 'The abstract reports 53.21% xylose utilization without reconciling its timepoint to Results 3.4.1,
+      which reports 1.22 g/L at 36 h from 5 g/L feed. Retained as a source statement, not certified as the same
+      resolved quantitative endpoint; see #1429.'
   - reference: PMID:42038008
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Microbial consortium using GL10 and XL12 with the inoculation ratio of 1:1 achieved complete glucose depletion
-      and 53.21% xylose utilization simultaneously.
-    explanation: Supports simultaneous mixed-sugar utilization by the 1:1 GL10/XL12 consortium.
-  - reference: PMID:42038008
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: In mixed sugar fermentation, the consortium produced 3.76 g/L of D-lactate, achieving a 37.6% conversion yield
-      and a productivity of 0.10 g/L/h
+    snippet: In mixed sugar fermentation, the consortium produced 3.76 g/L of D-lactate, achieving a 37.6% conversion
+      yield and a productivity of 0.10 g/L/h
     explanation: Quantifies D-lactate production from the baseline 1:1 consortium.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: GL10 was not modified to block xylose metabolism
+    explanation: Directly prevents interpreting the glucose-specialist label as exclusive glucose use.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: XL12 co-utilized glucose and xylose simultaneously
+    explanation: Supports overlapping rather than mutually exclusive substrate use.
 environmental_factors:
 - name: Mixed glucose-xylose feed
   value: 5 g/L glucose and 5 g/L xylose
@@ -442,16 +459,29 @@ external_resources:
     explanation: Lists the DOI for the primary publication.
 discussions:
 - discussion_id: gl10_xl12_direct_cross_feeding
-  prompt: Which metabolites, if any, are directly exchanged between E. coli GL10 and E. coli XL12 during mixed-sugar D-lactate
-    fermentation?
+  prompt: Which metabolites, if any, are directly exchanged between E. coli GL10 and E. coli XL12 during mixed-sugar
+    D-lactate fermentation?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#GL10-XL12 glucose-xylose niche partitioning
-  rationale: The primary article supports carbon-source niche partitioning by glucose- and xylose-specialized E. coli strains,
-    but this curation did not find evidence for a named GL10-to-XL12 or XL12-to-GL10 cross-fed metabolite.
+  rationale: The primary article supports carbon-source niche partitioning by glucose- and xylose-specialized E.
+    coli strains, but this curation did not find evidence for a named GL10-to-XL12 or XL12-to-GL10 cross-fed metabolite.
   posed_by: codex
   posed_date: '2026-09-13'
+- discussion_id: gl10_xl12_specialization_and_endpoint_limits
+  prompt: Which strain-specific fluxes account for consortium output under each condition?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#GL10-XL12 glucose-xylose niche partitioning
+  rationale: 'The two preferred strain labels must remain distinct despite shared NCBITaxon:562. Individual-strain
+    phenotypes and consortium-level HPLC do not resolve each strain''s flux during coculture or establish an exchanged
+    metabolite. Keep the existing direct-cross-feeding gap and zero arrows; do not restore the dangling endpoint
+    arrows removed under #826. The abstract and 36 h xylose quantities require reconciliation against unread original
+    supplementary data under #1429, without merging supplement text back into the article cache (#827).'
+  posed_by: codex
+  posed_date: '2026-10-06'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -461,32 +491,38 @@ curation_history:
 - timestamp: '2026-09-13T06:10:36Z'
   curator: codex
   action: CREATE_COMMUNITY_RECORD
-  changes: Created CommunityMech:000357 for the E. coli GL10/XL12 mixed-sugar D-lactate SynCom with evidence-backed membership,
-    carbon-source niche partitioning, M9 and corn-straw-hydrolysate growth media, glucose/xylose/D-lactate ingredient links,
-    PubMed/DOI resources, and no asserted pairwise cross-feeding edge.
+  changes: Created CommunityMech:000357 for the E. coli GL10/XL12 mixed-sugar D-lactate SynCom with evidence-backed
+    membership, carbon-source niche partitioning, M9 and corn-straw-hydrolysate growth media, glucose/xylose/D-lactate
+    ingredient links, PubMed/DOI resources, and no asserted pairwise cross-feeding edge.
   llm_assisted: true
 - timestamp: '2026-09-13T06:14:43Z'
   curator: codex
   action: TIGHTEN_EVIDENCE
-  changes: Added exact evidence for the GL10/XL12 glucose-xylose assignment, XL12 glk/ptsI glucose-uptake knockouts, consortium
-    optical purity, and Wuhan SunHY corn straw hydrolysate provenance.
+  changes: Added exact evidence for the GL10/XL12 glucose-xylose assignment, XL12 glk/ptsI glucose-uptake knockouts,
+    consortium optical purity, and Wuhan SunHY corn straw hydrolysate provenance.
   llm_assisted: true
 - timestamp: '2026-09-13T06:15:10Z'
   curator: codex
   action: REMOVE_UNSUPPORTED_VESSEL_ASSERTION
-  changes: Removed the FLASK cultivation-system assertion and narrowed growth_media vessel text because PMID:42038008 reports
-    shaking liquid incubation but does not name the vessel type.
+  changes: Removed the FLASK cultivation-system assertion and narrowed growth_media vessel text because PMID:42038008
+    reports shaking liquid incubation but does not name the vessel type.
   llm_assisted: true
 - timestamp: '2026-09-13T06:18:42Z'
   curator: codex
   action: FIX_DANGLING_DOWNSTREAM_EDGES
-  changes: 'Removed two downstream outcome labels flagged in #826 from GL10-XL12 glucose-xylose niche partitioning because
-    InteractionDownstream.target must name another curated interaction, not a fermentation endpoint.'
+  changes: 'Removed two downstream outcome labels flagged in #826 from GL10-XL12 glucose-xylose niche partitioning
+    because InteractionDownstream.target must name another curated interaction, not a fermentation endpoint.'
   llm_assisted: true
 - timestamp: '2026-09-13T06:21:54Z'
   curator: codex
   action: DROP_SUPPLEMENT_ONLY_MEDIUM_COMPONENTS
   changes: 'Removed the Table S2-only corn straw hydrolysate component concentrations flagged in #827 because PMID:42038008
-    supplement text is kept in a separate sidecar and is not reference-validator-visible for PMID snippets; retained the article-supported
-    hydrolysate source, detoxification, M9 dilution, and pH.'
+    supplement text is kept in a separate sidecar and is not reference-validator-visible for PMID snippets; retained
+    the article-supported hydrolysate source, detoxification, M9 dilution, and pH.'
+  llm_assisted: true
+- timestamp: '2026-10-06T08:26:10Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain the single division-of-labor node with overlapping substrate capacities, zero unsupported arrows
+    and an explicit quantitative evidence limitation. Issue #1426; reports/causal_graph_review/decisions/20261006-three-records-batch36.yaml'
   llm_assisted: true

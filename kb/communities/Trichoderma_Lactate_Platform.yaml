@@ -100,9 +100,10 @@ taxonomy:
       the lactate platform to produce 196 kilograms of butyric acid per metric ton of beechwood
 ecological_interactions:
 - name: Cellulose Hydrolysis to Soluble Sugars
-  description: T. reesei hydrolyzes lignocellulosic carbohydrates to soluble
-    sugars that enter the engineered lactate-centered food chain.
-  interaction_type: COMMENSALISM
+  description: T. reesei hydrolysis supplies soluble carbohydrates to L. pentosus in the membrane reactor. Cellulose
+    supplies hexose products; xylose belongs to the separately supplied pentose or hemicellulose fraction, not cellulose
+    hydrolysis. This food-chain link does not establish reciprocal thermodynamic syntrophy.
+  interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
     preferred_term: Trichoderma reesei Rut-C30
@@ -123,32 +124,32 @@ ecological_interactions:
     term:
       id: CHEBI:17234
       label: glucose
-  - preferred_term: xylose
-    term:
-      id: CHEBI:18222
-      label: xylose
   biological_processes:
   - preferred_term: cellulose catabolic process
     term:
       id: GO:0030245
       label: cellulose catabolic process
   downstream:
-  - target: Lactic Acid Fermentation and Oxygen Depletion
-    description: Soluble carbohydrates released by T. reesei are funneled by
-      lactic-acid bacteria to lactate, the central intermediate of the
-      short-chain-fatty-acid platform.
+  - target: Lactate Supply and Redox Facilitation
+    description: Fungal hydrolysis supplies fermentable carbohydrates that L. pentosus converts to lactate. This
+      substrate route enables LAB metabolism in the membrane reactor; it does not make fungal hydrolysis alone sufficient
+      for the observed redox state.
   evidence:
   - reference: PMID:32855308
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We developed a versatile consortium-based strategy for the direct conversion of lignocellulose
-      to short-chain fatty acids, which included the funneling of the lignocellulosic carbohydrates to
-      lactate as a central intermediate in engineered food chains
-- name: Lactic Acid Fermentation and Oxygen Depletion
-  description: L. pentosus ferments fungal hydrolysis products to lactate and
-    helps shape the oxygen gradient that lets the downstream obligate
-    anaerobic butyrate producer coexist in the membrane-aerated reactor.
-  interaction_type: SYNTROPHY
+    snippet: We developed a versatile consortium-based strategy for the direct conversion of lignocellulose to short-chain
+      fatty acids, which included the funneling of the lignocellulosic carbohydrates to lactate as a central intermediate
+      in engineered food chains
+    explanation: Abstract supports the fungal carbohydrate-to-lactate food chain; Fig.1 distinguishes cellulose-derived
+      hexoses from pentose-containing feedstocks.
+- name: Lactate Supply and Redox Facilitation
+  description: 'L. pentosus funnels carbohydrates to lactate and supplies acetate when metabolizing pentoses. Fungal
+    oxygen consumption first lowers dissolved oxygen; subsequent LAB inoculation lowers redox potential further,
+    enabling the obligate anaerobe. The membrane configuration, continuing fungal activity and LAB contribution
+    work jointly: LAB alone cannot maintain anoxia. This supports resource and redox facilitation, not demonstrated
+    reciprocal thermodynamic syntrophy.'
+  interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
     preferred_term: Lactobacillus pentosus
@@ -183,25 +184,26 @@ ecological_interactions:
       id: GO:0006113
       label: fermentation
   downstream:
-  - target: Butyric Acid Production from Lactate
-    description: Lactate produced by L. pentosus supplies the central
-      fermentation intermediate that C. tyrobutyricum converts to butyrate.
+  - target: Butyrate Production by Lactate-Acetate Co-fermentation
+    description: L. pentosus supplies lactate and contributes to reducing conditions that enable C. tyrobutyricum
+      co-fermentation. Acetate or glucose must also be available; acetate depletion and feed-rescue experiments
+      support this requirement. Neither lactate alone nor LAB-alone oxygen removal is sufficient.
   evidence:
   - reference: PMID:32855308
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: A spatial niche enabled in situ cellulolytic enzyme production by an aerobic fungus next
-      to facultative anaerobic lactic acid bacteria and the product-forming anaerobes
-- name: Butyric Acid Production from Lactate
-  description: C. tyrobutyricum consumes lactate from the engineered platform
-    and produces butyrate as the target short-chain fatty acid.
-  interaction_type: SYNTROPHY
+    snippet: A spatial niche enabled in situ cellulolytic enzyme production by an aerobic fungus next to facultative
+      anaerobic lactic acid bacteria and the product-forming anaerobes
+    explanation: Abstract supports spatial coexistence; accepted manuscript main text and Fig.S3 distinguish fungal
+      oxygen consumption from the additional LAB-associated redox decrease. SI physiology discussion argues that
+      LAB alone cannot sustain anoxia. The abstract is not itself an oxygen-flux partition experiment.
+- name: Butyrate Production by Lactate-Acetate Co-fermentation
+  description: 'C. tyrobutyricum converts lactate with a co-substrate to butyrate. Lactate alone is insufficient:
+    acetate depletion stops utilization, and acetate addition restores it; glucose can also serve as co-substrate.
+    These experiments support the recipient conversion, not an exclusive source of every acetate molecule. Acetate
+    feed, lower oxygen transfer and addition of L. brevis are separate experimental arms. The three-member consortium
+    produced the reported beechwood yield after steam pretreatment; the four-member arm is not that benchmark.'
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Clostridium tyrobutyricum
-    term:
-      id: NCBITaxon:1519
-      label: Clostridium tyrobutyricum
   metabolites:
   - preferred_term: lactate
     term:
@@ -216,7 +218,7 @@ ecological_interactions:
       id: CHEBI:17968
       label: butyrate
   biological_processes:
-  - preferred_term: butyrate biosynthetic process
+  - preferred_term: butyrate metabolic process
     term:
       id: GO:0019605
       label: butyrate metabolic process
@@ -228,8 +230,22 @@ ecological_interactions:
   - reference: PMID:32855308
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Clostridium tyrobutyricum, Veillonella criceti, or Megasphaera elsdenii were integrated into
-      the lactate platform to produce 196 kilograms of butyric acid per metric ton of beechwood
+    snippet: Clostridium tyrobutyricum, Veillonella criceti, or Megasphaera elsdenii were integrated into the lactate
+      platform to produce 196 kilograms of butyric acid per metric ton of beechwood
+    explanation: Abstract supplies the consortium/product benchmark; accepted manuscript Fig.4 assigns the beechwood
+      result to the three-member consortium after steam pretreatment.
+  - reference: PMID:32855308
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: lactic acid cannot serve as a sole carbon source but must be co-consumed with either glucose or acetic
+      acid
+    explanation: Accepted manuscript p6, main text, interpreted with acetate-feed rescue in Fig.2A/B and Fig.S5
+      controls; requires a co-substrate, not lactate alone.
+  participating_taxa:
+  - preferred_term: Clostridium tyrobutyricum
+    term:
+      id: NCBITaxon:1519
+      label: Clostridium tyrobutyricum
 environmental_factors:
 - name: Oxygen gradient
   value: aerobic to anaerobic
@@ -346,3 +362,36 @@ cultivation_setup:
     snippet: For fed-batch experiments, the feed solution was sterile filtered and fed at
       a constant feeding rate.
     explanation: Establishes fed-batch operating mode with constant-rate feeding.
+discussions:
+- discussion_id: lactate-conditions-and-mediation-batch116
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  prompt: How are oxygen uptake and carbon flux partitioned among members under each feed and oxygen-transfer condition?
+  rationale: 'The source supports fungal oxygen consumption, additional LAB-associated redox lowering and acetate-dependent
+    lactate utilization. These controls do not establish exclusive partner-specific fluxes or reciprocal thermodynamic
+    syntrophy. Keep acetate-feed, low-OTR and L. brevis arms separate. Non-graph pretreatment and gradient metadata
+    remain issue #1904.'
+  attaches_to:
+  - ecological_interactions#Cellulose Hydrolysis to Soluble Sugars
+  - ecological_interactions#Lactate Supply and Redox Facilitation
+  - ecological_interactions#Butyrate Production by Lactate-Acetate Co-fermentation
+  evidence:
+  - reference: PMID:32855308
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: A spatial niche enabled in situ cellulolytic enzyme production by an aerobic fungus next to facultative
+      anaerobic lactic acid bacteria and the product-forming anaerobes
+    explanation: Abstract supports spatial coexistence; accepted manuscript main text and Fig.S3 distinguish fungal
+      oxygen consumption from the additional LAB-associated redox decrease. SI physiology discussion argues that
+      LAB alone cannot sustain anoxia. The abstract is not itself an oxygen-flux partition experiment.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T10:53:56Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain carbohydrate cross-feeding while separating cellulose hexoses from supplied pentoses and unsupported
+    commensalism.; Preserve LAB redox evidence alongside continuing fungal oxygen consumption, without reciprocal
+    syntrophy or LAB-alone anoxia.; Restore experimentally supported co-substrate dependence and distinguish recipient
+    production, alternative arms and pretreated three-member benchmark. Issue#1902; reports/causal_graph_review/decisions/20261008-three-records-batch116.yaml
+  llm_assisted: true

@@ -96,47 +96,11 @@ taxonomy:
     explanation: Identifies the yeast Issatchenkia (Pichia) as a functionally relevant SynCom member
       linked to protein conversion and amino-acid metabolism.
 ecological_interactions:
-- name: Function-Guided BSFL SynCom Selection
-  description: >
-    Multi-omics analysis in germ-free black soldier fly larvae identified
-    Bacillus, Lactobacillus, and Issatchenkia as gut taxa functionally
-    associated with improved host protein conversion and amino-acid metabolism,
-    defining the tripartite SynCom tested in gnotobiotic larvae.
-  scope: COMMUNITY_LEVEL
-  interaction_type: COLONIZATION_FACILITATION
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Bacillus Direct Proteolysis
-    description: >
-      The selected Bacillus member was assayed as the direct proteolytic member
-      of the protein-conversion consortium.
-  - target: Lactobacillus-Issatchenkia Protein-Conversion Association
-    description: >
-      The selected Lactobacillus and Issatchenkia members were retained as the
-      non-proteolytic partners associated with stronger protein conversion and
-      host amino-acid metabolic responses.
-  evidence:
-  - reference: PMID:42167379
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >
-      identified the bacteria Bacillus and Lactobacillus and the yeast
-      Issatchenkia functionally relevant taxa associated with improved host
-      protein conversion and amino-acid metabolic responses
-    explanation: >
-      Supports selecting Bacillus, Lactobacillus, and Issatchenkia as the three
-      functionally relevant BSFL gut taxa used in the SynCom.
 - name: Bacillus Direct Proteolysis
-  description: >
-    Bacillus supplied the directly observed proteolytic activity in the
-    gnotobiotic BSFL SynCom, providing a protein-catabolic function upstream of
-    the tripartite consortium's improved larval protein-conversion phenotype.
+  description: The abstract reports direct Bacillus proteolytic activity in the study of the tripartite BSFL gut
+    consortium. It does not specify the assay format in enough detail to assign the proteolysis measurement to an
+    isolated culture or the living gut, and activity alone is not demonstrated inter-member cross-feeding.
   scope: COMMUNITY_LEVEL
-  interaction_type: CROSS_FEEDING
   participating_taxa:
   - preferred_term: Bacillus
     term:
@@ -147,26 +111,19 @@ ecological_interactions:
     term:
       id: GO:0030163
       label: protein catabolic process
-  downstream:
-  - target: Tripartite Gut-pH Niche Partitioning
-    description: >
-      Bacillus proteolysis was combined with Lactobacillus and Issatchenkia in
-      the three-member SynCom that had the best host protein-conversion
-      performance.
   evidence:
   - reference: PMID:42167379
     supports: SUPPORT
-    evidence_source: IN_VIVO
+    evidence_source: OTHER
     snippet: Bacillus showed direct proteolytic activity
-    explanation: Supports Bacillus as the directly proteolytic member of the tripartite SynCom.
+    explanation: Supports directly reported proteolysis; its precise assay modality requires the full methods.
 - name: Lactobacillus-Issatchenkia Protein-Conversion Association
-  description: >
-    Lactobacillus and the yeast Issatchenkia did not have direct proteolysis
-    asserted in the abstract, but both taxa were associated with the improved
-    host protein-conversion performance and amino-acid metabolic responses that
-    motivated their inclusion with Bacillus.
+  description: 'Lactobacillus and the yeast Issatchenkia did not have direct proteolysis asserted in the abstract,
+    but both taxa were associated with the improved host protein-conversion performance and amino-acid metabolic
+    responses that motivated their inclusion with Bacillus.
+
+    '
   scope: COMMUNITY_LEVEL
-  interaction_type: CROSS_FEEDING
   participating_taxa:
   - preferred_term: Lactobacillus
     term:
@@ -181,93 +138,65 @@ ecological_interactions:
     term:
       id: GO:0006520
       label: amino acid metabolic process
-  downstream:
-  - target: Tripartite Gut-pH Niche Partitioning
-    description: >
-      Lactobacillus and Issatchenkia joined Bacillus in the tripartite SynCom
-      that produced the strongest protein-conversion performance.
   evidence:
   - reference: PMID:42167379
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >
-      Lactobacillus and Issatchenkia were associated with improved protein
-      conversion performance in the tested SynCom
-    explanation: >
-      Supports Lactobacillus and Issatchenkia as members associated with the
-      tested SynCom's improved protein-conversion performance.
+    snippet: 'Lactobacillus and Issatchenkia were associated with improved protein conversion performance in the
+      tested SynCom
+
+      '
+    explanation: 'Supports Lactobacillus and Issatchenkia as members associated with the tested SynCom''s improved
+      protein-conversion performance.
+
+      '
 - name: Tripartite Gut-pH Niche Partitioning
-  description: >
-    The Bacillus/Lactobacillus/Issatchenkia SynCom showed the best protein
-    conversion among tested inoculation schemes and formed distinct
-    spatiotemporal patterns along the black soldier fly larval gut pH gradient,
-    a community-level distribution pattern associated with a 63% final larval
-    protein-content increase.
-  interaction_type: NICHE_PARTITIONING
+  description: The tripartite inoculum showed the highest protein-conversion performance among tested schemes and
+    distinct spatiotemporal distributions along the gut pH gradient, with 63% higher final larval protein content.
+    Niche partitioning is a proposed interpretation of distribution, not an isolated explanation for ALDH/TOR responses.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: ALDH-TOR Amino-Acid Host Response
-    description: >
-      The highest-performing tripartite SynCom was associated with host ALDH as
-      a candidate protein-conversion node linked to amino-acid metabolism and
-      TOR-related signaling.
-  - target: Organic-Waste SynCom-BSFL Proof of Concept
-    description: >
-      The three-member SynCom was transferred from germ-free host testing to
-      proof-of-concept BSFL conversion of chicken manure and kitchen waste.
   evidence:
   - reference: PMID:42167379
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: a tripartite SynCom comprising these taxa showed the highest protein conversion performance
-      and was associated with distinct spatiotemporal distribution patterns along the gut pH gradient,
-      increasing final larval protein content by 63%.
-    explanation: Members occupy distinct spatial/temporal niches along the gut pH gradient, associated
-      with peak protein conversion.
+    snippet: a tripartite SynCom comprising these taxa showed the highest protein conversion performance and was
+      associated with distinct spatiotemporal distribution patterns along the gut pH gradient, increasing final
+      larval protein content by 63%.
+    explanation: Supports the distribution and host-performance observations, not selective pH/niche mediation.
 - name: ALDH-TOR Amino-Acid Host Response
-  description: >
-    The host aldehyde dehydrogenase node linked the microbiota-responsive
-    branched-chain amino acid and tryptophan changes to TOR-related signaling,
-    providing the host-side candidate mechanism paired with the tripartite
-    SynCom phenotype.
+  description: PARTIAL - the abstract identifies host ALDH as a candidate associated with microbiota-responsive
+    branched-chain amino-acid, tryptophan and TOR-related changes. This is a proposed host mechanism, not certified
+    necessary mediation or reciprocal microbial fitness.
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   biological_processes:
   - preferred_term: amino acid metabolic process
     term:
       id: GO:0006520
       label: amino acid metabolic process
-  downstream:
-  - target: Organic-Waste SynCom-BSFL Proof of Concept
-    description: >
-      The candidate host amino-acid/TOR response was the mechanistic context
-      for carrying the function-guided SynCom into waste-feedstock trials.
   evidence:
   - reference: PMID:42167379
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: >
-      The host aldehyde dehydrogenase (ALDH) was identified as a candidate host
-      node, associated with microbiota-responsive branched-chain amino acids,
-      tryptophan metabolism and the host's Target of Rapamycin (TOR) related
-      signaling.
-    explanation: >
-      Supports ALDH, microbiota-responsive amino-acid metabolism, and
-      TOR-related signaling as the candidate host response coupled to the
-      SynCom.
+    snippet: 'The host aldehyde dehydrogenase (ALDH) was identified as a candidate host node, associated with microbiota-responsive
+      branched-chain amino acids, tryptophan metabolism and the host''s Target of Rapamycin (TOR) related signaling.
+
+      '
+    explanation: 'Supports ALDH, microbiota-responsive amino-acid metabolism, and TOR-related signaling as the candidate
+      host response coupled to the SynCom.
+
+      '
 - name: Organic-Waste SynCom-BSFL Proof of Concept
-  description: >
-    The function-guided tripartite SynCom-BSFL system was applied to chicken
-    manure and kitchen waste, where it improved selected performance metrics as
-    a preliminary test of the gnotobiotic protein-conversion design in complex
-    waste-treatment feedstocks.
+  description: 'The function-guided tripartite SynCom-BSFL system was applied to chicken manure and kitchen waste,
+    where it improved selected performance metrics as a preliminary test of the gnotobiotic protein-conversion design
+    in complex waste-treatment feedstocks.
+
+    '
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   biological_processes:
   - preferred_term: protein catabolic process
     term:
@@ -277,12 +206,13 @@ ecological_interactions:
   - reference: PMID:42167379
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >
-      when applied to chicken manure and kitchen waste, the SynCom-BSFL system
-      showed improvements in selected performance metrics
-    explanation: >
-      Supports applying the tripartite SynCom-BSFL system to chicken-manure and
-      kitchen-waste bioconversion.
+    snippet: 'when applied to chicken manure and kitchen waste, the SynCom-BSFL system showed improvements in selected
+      performance metrics
+
+      '
+    explanation: 'Supports applying the tripartite SynCom-BSFL system to chicken-manure and kitchen-waste bioconversion.
+
+      '
 growth_media:
 - name: Gnotobiotic BSFL host reared on organic-waste feedstock
   composition:
@@ -315,3 +245,34 @@ growth_media:
     snippet: distinct spatiotemporal distribution patterns along the gut pH gradient
     explanation: The cultivation environment is the larval gut, which presents a spatial pH gradient
       shaping member distribution.
+curation_history:
+- timestamp: '2026-10-02T05:12:51Z'
+  curator: codex
+  action: PRUNE_NONCAUSAL_WORKFLOW_EDGES
+  changes: Removed six downstream edges that linked SynCom member selection, taxon combination, and proof-of-concept
+    waste-feedstock assay steps rather than source-backed ecological causal interactions in the BSFL gnotobiotic
+    SynCom record.
+  llm_assisted: true
+- timestamp: '2026-10-05T10:11:47Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate BSFL performance from unverified exchange and host mediation; complete decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1250'
+  llm_assisted: true
+discussions:
+- discussion_id: bsfl_full_methods_and_mediation
+  prompt: Do the full experiments isolate pH distribution, ALDH/TOR mediation or exchanged metabolites?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Bacillus Direct Proteolysis
+  - ecological_interactions#Lactobacillus-Issatchenkia Protein-Conversion Association
+  - ecological_interactions#Tripartite Gut-pH Niche Partitioning
+  - ecological_interactions#ALDH-TOR Amino-Acid Host Response
+  - ecological_interactions#Organic-Waste SynCom-BSFL Proof of Concept
+  rationale: Only the complete abstract and publisher highlights were reviewed for PMID:42167379. Preserve reported
+    proteolysis, host performance and waste proof of concept, but do not infer the absence of unreviewed perturbations.
+    The existing distribution-to-ALDH arrow was associative, and selection is experimental workflow rather than
+    facilitation.
+  posed_by: codex
+  posed_date: '2026-10-05'

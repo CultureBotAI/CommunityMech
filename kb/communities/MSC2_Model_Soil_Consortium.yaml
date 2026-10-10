@@ -218,12 +218,12 @@ associated_datasets:
   description: Primary publication describing MSC-2 assembly, multiomics, and community interaction results.
 ecological_interactions:
 - name: Primary Chitin Polymer Degradation
-  description: >-
-    Dyadobacter, Ensifer MSC1_011, Variovorax, Sinorhizobium, and Rhodococcus
-    MSC-2 members can grow on chitin as the sole carbon source and act as primary
-    degraders that initiate chitin decomposition before nondegraders profit from
-    released breakdown products.
-  interaction_type: SYNTROPHY
+  description: Five individual MSC-2 isolates, Dyadobacter, Ensifer MSC1_011, Variovorax, Sinorhizobium and Rhodococcus,
+    grew with chitin as the sole added carbon source in monoculture. This establishes conditional chitin-use phenotypes,
+    not obligate syntrophy or exclusive initiating roles in the mixed community. Monocultures used 100 ppm chitin;
+    the community used 500 ppm after chitin-plus-NAG preconditioning, with 18 mM ammonium in M9. Streptomyces, Neorhizobium
+    and Sphingopyxis lacked monoculture growth even in reported 500/1000 ppm tests. Species roles in the community
+    are inferred from additional molecular data and need not equal their monoculture roles.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Dyadobacter sp. MSC1_007
@@ -251,10 +251,14 @@ ecological_interactions:
     term:
       id: CHEBI:17029
       label: chitin
+    notes: Substrate or proposed breakdown-product context; specific extracellular donor-to-recipient transfer was
+      not measured.
   - preferred_term: chitooligosaccharide
     term:
       id: CHEBI:23104
       label: chitooligosaccharide
+    notes: Substrate or proposed breakdown-product context; specific extracellular donor-to-recipient transfer was
+      not measured.
   biological_processes:
   - preferred_term: chitin catabolic process
     term:
@@ -262,82 +266,125 @@ ecological_interactions:
       label: chitin catabolic process
   downstream:
   - target: Chitin Breakdown Product Sharing
-    description: Primary chitin degradation releases soluble decomposition products
-      that other MSC-2 members can consume in the mixed community.
+    description: HYPOTHESIZED - chitin degradation by community members releases assimilable products that could
+      support other members. Monoculture growth, community transcripts and cell-pellet metabolites support this
+      model, but they do not measure donor-to-recipient extracellular flux or prove that the five monoculture-positive
+      isolates are the exclusive initial donors.
   evidence:
   - reference: PMID:36154140
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: This analysis showed that Dyadobacter, one Ensifer strain (strain PNNL_MSC-1_Str_011),
-      Variovorax, Sinorhizobium, and Rhodococcus grew with chitin
-    explanation: Identifies the MSC-2 members that grew with chitin as their sole
-      carbon source in monoculture assays.
+    snippet: This analysis showed that Dyadobacter, one Ensifer strain (strain PNNL_MSC-1_Str_011), Variovorax,
+      Sinorhizobium, and Rhodococcus grew with chitin
+    explanation: Directly supports five monoculture chitin-growth phenotypes under the tested conditions, not exclusive
+      community donor roles or mutual dependence.
   - reference: PMID:36154140
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: certain species act as primary degraders of carbon sources and that the most successful
-      species are likely those that can take the most advantage of breakdown products
-    explanation: Supports primary-degrader roles followed by secondary use of chitin
-      breakdown products.
+    snippet: certain species act as primary degraders of carbon sources and that the most successful species are
+      likely those that can take the most advantage of breakdown products
+    explanation: Supports the authors proposed division of roles; it does not selectively identify each producer,
+      recipient or exchanged substrate in MSC-2.
 - name: Chitin Breakdown Product Sharing
-  description: >-
-    Community growth on chitin is supported by interspecies sharing of decomposition
-    products, so the most abundant members are not necessarily the taxa that directly
-    metabolize chitin in monoculture.
-  interaction_type: CROSS_FEEDING
+  description: HYPOTHESIZED - MSC-2 members share chitin-derived products, allowing taxa with broader substrate-use
+    potential to grow in the consortium. Community DNA/RNA increased and member transcript proportions differed;
+    these are not direct measurements of equal viable abundance or partner-resolved carbon flux. GC-MS found increased
+    NAG at 118 versus 70 hours in cell-pellet extracts after supernatant removal, not extracellular transfer measurements.
+    Mixed-bag metabolic modeling merged isolate networks without species boundaries, so predicted community substrate
+    use does not identify actual exchange partners. Niche-size association and omics support a mechanistic model
+    rather than proving reciprocal benefit.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: chitin
     term:
       id: CHEBI:17029
       label: chitin
+    notes: Chitin is the supplied polymer; sharing of its products remains a hypothesis, not transfer of the polymer
+      itself.
   downstream:
   - target: Community-Responsive Streptomyces Chitin Phenotype
-    description: Initial community chitin breakdown provides products that let
-      Streptomyces grow and express a chitin-decomposition phenotype not seen
-      during monoculture growth on chitin.
+    description: HYPOTHESIZED - products supplied by other community members could relieve an initial resource limitation
+      and allow Streptomyces to grow and express chitin-associated machinery. The primary Discussion proposes this
+      explanation, while noting possible NAG repression during preconditioning. No selective product rescue, partner-removal
+      test or matched mono-versus-community enzyme assay establishes this causal route.
   evidence:
   - reference: PMID:36154140
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: the most abundant members of MSC-2 were not those that were able to metabolize chitin itself, but rather those that were able to take full advantage of interspecies interactions to grow on chitin decomposition products
-    explanation: Supports cross-feeding and shared access to products released during community chitin degradation.
+    snippet: the most abundant members of MSC-2 were not those that were able to metabolize chitin itself, but rather
+      those that were able to take full advantage of interspecies interactions to grow on chitin decomposition products
+    explanation: Supports the authors interspecies-sharing interpretation. The primary Methods specify cell-pellet
+      metabolomics, and the mixed-bag model does not preserve species boundaries; neither is a direct extracellular
+      transfer assay.
+  participating_taxa:
+  - preferred_term: Streptomyces sp. MSC1_001
+    term:
+      id: NCBITaxon:1931
+      label: Streptomyces sp.
+  - preferred_term: Neorhizobium tomejilense MSC1_005
+    term:
+      id: NCBITaxon:2093828
+      label: Neorhizobium tomejilense
+  - preferred_term: Dyadobacter sp. MSC1_007
+    term:
+      id: NCBITaxon:1914288
+      label: Dyadobacter sp.
+  - preferred_term: Sphingopyxis sp. MSC1_008
+    term:
+      id: NCBITaxon:1908224
+      label: Sphingopyxis sp.
+  - preferred_term: Ensifer adhaerens MSC1_011
+    term:
+      id: NCBITaxon:106592
+      label: Ensifer adhaerens
+  - preferred_term: Variovorax beijingensis MSC1_012
+    term:
+      id: NCBITaxon:2496117
+      label: Variovorax beijingensis
+  - preferred_term: Sinorhizobium meliloti MSC1_014
+    term:
+      id: NCBITaxon:382
+      label: Sinorhizobium meliloti
+  - preferred_term: Rhodococcus sp. MSC1_016
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
 - name: Community-Responsive Streptomyces Chitin Phenotype
-  description: >-
-    Streptomyces exhibits a community-responsive chitin phenotype, and MSC-2 organizes
-    members into distinct functional roles during decomposition.
-  interaction_type: NICHE_PARTITIONING
+  description: Streptomyces MSC1_001 lacked detectable monoculture growth on chitin under the tested conditions
+    but contributed about 12% of aligned community RNA at 70 hours and expressed chitin-associated genes in MSC-2.
+    Differential expression compares 70 with 118 hours within the community, not matched monoculture-versus-community
+    expression or direct enzyme activity. These observations support a community-responsive phenotype and proposed
+    contribution to decomposition. They do not establish partner-specific induction, measured chitinase flux, mutualism
+    or experimentally demonstrated niche partitioning. The single canonical participant identifies the focal organism,
+    not the complete eight-member experimental context.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Streptomyces sp. MSC1_001
     term:
       id: NCBITaxon:1931
       label: Streptomyces sp.
-  source_taxon:
-    preferred_term: Streptomyces sp. MSC1_001
-    term:
-      id: NCBITaxon:1931
-      label: Streptomyces sp.
   metabolites:
   - preferred_term: chitin
     term:
       id: CHEBI:17029
       label: chitin
+    notes: Context for inferred chitin-associated activity; no focal-strain product flux or transferred oligomer
+      was directly resolved.
   - preferred_term: chitooligosaccharide
     term:
       id: CHEBI:23104
       label: chitooligosaccharide
-  biological_processes:
-  - preferred_term: chitin catabolic process
-    term:
-      id: GO:0006032
-      label: chitin catabolic process
+    notes: Context for inferred chitin-associated activity; no focal-strain product flux or transferred oligomer
+      was directly resolved.
   evidence:
   - reference: PMID:36154140
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Emergent properties of both species and the community were found, including changes in the chitin degradation potential of Streptomyces species and organization of all species into distinct roles in the chitin degradation process.
-    explanation: Supports that Streptomyces behavior and community roles depend on the surrounding MSC-2 membership.
+    snippet: Emergent properties of both species and the community were found, including changes in the chitin degradation
+      potential of Streptomyces species and organization of all species into distinct roles in the chitin degradation
+      process.
+    explanation: Supports an emergent-role interpretation from growth context and molecular observations, not selectively
+      demonstrated induction, enzyme activity or division of labor.
 external_resources:
 - name: KBase Soil Microbiome SFA collaboration page
   repository: KBASE
@@ -372,3 +419,29 @@ growth_media:
       at 20°C for 5 days.
     explanation: Gives the flask cultivation vessel, 20°C temperature, and 5-day incubation
       for the MSC-2 community assay.
+discussions:
+- discussion_id: msc2_product_sharing_and_emergent_role
+  prompt: Do transferred chitin products enable the Streptomyces community phenotype?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Primary Chitin Polymer Degradation
+  - ecological_interactions#Chitin Breakdown Product Sharing
+  - ecological_interactions#Community-Responsive Streptomyces Chitin Phenotype
+  rationale: 'Retain both existing biological arrows as HYPOTHESIZED; do not restore previously removed dangling
+    outcome arrows. Five monoculture-positive isolates need not be the exclusive initial community degraders. Main
+    Fig5 describes a hypothesized decomposition route, temporal community transcripts are not matched induction
+    assays, and pellet GC-MS is not extracellular transfer despite Introduction wording. The mixed-bag model removes
+    species boundaries. Pairwise and leave-one-out experiments are future work, and NAG preconditioning may repress
+    Streptomyces chitinase. Primary body and main Tables1/2 read, not original figure pixels, separate supplements,
+    raw data or executable models. Canonical labels/genomes preserved without independent identity recertification;
+    non-graph protocol and source inconsistencies remain under #1569.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T22:47:09Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Qualify MSC2 chitin-sharing and Streptomyces induction arrows with assay and model limits. Issue #1567;
+    reports/causal_graph_review/decisions/20261006-soil-mucin-batch65.yaml'
+  llm_assisted: true

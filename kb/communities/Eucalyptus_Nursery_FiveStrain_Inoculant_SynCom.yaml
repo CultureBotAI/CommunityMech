@@ -204,76 +204,106 @@ taxonomy:
     explanation: Names the host and the nursery field setting in which the consortium was assessed.
 ecological_interactions:
 - name: Complementary Nitrogen-Phosphate Trait Pool
-  description: >
-    The five-strain consortium was built from Eucalyptus root and rhizosphere isolates selected in
-    previous work for phosphate solubilization, indolic-compound production, nifH presence, nitrogen
-    cycling traits and rhizosphere colonization traits. That trait pool is the engineered community
-    starting point for the nursery-scale root-endophyte and seedling-performance responses.
-  interaction_type: COLONIZATION_FACILITATION
+  description: The five bacterial inoculant members were selected using prior phosphate-solubilization screens,
+    with nifH detected and indolic compounds produced by some candidates. These prior traits do not demonstrate
+    nitrogen fixation in the nursery, specific indole-3-acetic acid exchange or persistence of each inoculant. The
+    participants name the inoculant, not every member of the native root microbiome.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: phosphate
     term:
       id: CHEBI:18367
       label: phosphate(3-)
-    notes: Phosphate solubilization was a primary trait used when selecting members of the SynCom.
-  - preferred_term: indole-3-acetic acid
-    term:
-      id: CHEBI:16411
-      label: indole-3-acetic acid
-    notes: Indolic-compound production was detected in some candidate strains in previous studies.
-  biological_processes:
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
-  downstream:
-  - target: Root Endophytic Community Restructuring
-    description: >
-      The trait-selected consortium was applied to Eucalyptus seedlings before their root endophytic
-      communities were profiled after 13 weeks.
-  - target: Genotype-Dependent Improvement of Seedling Quality and Survival
-    description: >
-      The same five-strain inoculant was followed through the nursery assay to quantify seedling
-      quality classes and mortality across three host genotypes.
+    notes: Prior phosphate-solubilization screening, not measured phosphate transfer or nursery flux.
   evidence:
   - reference: PMID:42050290
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: These bacteria were selected for their strong performance in phosphate solubilization
-      tests, and some exhibited the presence of the nifH gene (indicating potential nitrogen-fixing
-      capacity) as well as the production of indolic compounds
-    explanation: >
-      Names phosphate solubilization, nifH presence and indolic-compound production as previously
-      characterized plant-growth-promoting traits of the five-strain Eucalyptus consortium.
-- name: Root Endophytic Community Restructuring
-  description: >
-    The five-strain inoculant changed 13-week Eucalyptus root endophytic community structure by
-    Bray-Curtis nMDS and two-way PERMANOVA without a significant shift in richness or Shannon
-    diversity. The source did not resolve this into a pairwise displacement or niche-partitioning
-    mechanism, so this is curated as a measured community-level graph node.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: symbiotic process
+    snippet: These bacteria were selected for their strong performance in phosphate solubilization tests, and some
+      exhibited the presence of the nifH gene (indicating potential nitrogen-fixing capacity) as well as the production
+      of indolic compounds
+    explanation: Reports prior screening traits; nifH indicates potential, not measured nursery nitrogen fixation,
+      and indolic compounds do not uniquely identify IAA.
+  - reference: PMID:42050290
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: direct nitrogen fixation was not measured in this study
+    explanation: The source explicitly limits the functional interpretation.
+  participating_taxa:
+  - preferred_term: Bacillus subtilis
     term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  - preferred_term: Paraburkholderia caribensis
+    term:
+      id: NCBITaxon:75105
+      label: Paraburkholderia caribensis
+  - preferred_term: Methylobacterium tardum
+    term:
+      id: NCBITaxon:374432
+      label: Methylobacterium tardum
+  - preferred_term: Paenibacillus sp. (putative novel species)
+    term:
+      id: NCBITaxon:44249
+      label: Paenibacillus
+  - preferred_term: Mesorhizobium sp. (putative novel species)
+    term:
+      id: NCBITaxon:68287
+      label: Mesorhizobium
+- name: Root Endophytic Community Restructuring
+  description: At 13 weeks, inoculation changed root community structure by PERMANOVA without significantly changing
+    richness or Shannon diversity. No genus or phylum showed robust differential abundance after ANCOM-BC-2 sensitivity
+    analysis; reported Mesorhizobium enrichment and Ralstonia reduction are exploratory, not proof of inoculant
+    persistence or disease suppression. Endpoint profiles of 30 A/B-category seedlings do not resolve strain-specific
+    colonization through time. Participants identify inoculant plus host context, not an exhaustive root community.
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:42050290
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: While inoculation did not significantly affect bacterial richness and diversity, it
-      altered the root microbial community structure
-    explanation: >
-      States the compositional shift and the absence of a diversity change, which together define
-      the measured community-level effect of introducing the inoculant.
+    snippet: While inoculation did not significantly affect bacterial richness and diversity, it altered the root
+      microbial community structure
+    explanation: 'States the compositional shift and the absence of a diversity change, which together define the
+      measured community-level effect of introducing the inoculant.
+
+      '
+  - reference: PMID:42050290
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: No taxa were identified as robustly differentially abundant after ANCOM-BC-2 sensitivity analysis
+    explanation: Limits interpretation of the plotted taxon-level trends.
+  participating_taxa:
+  - preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  - preferred_term: Paraburkholderia caribensis
+    term:
+      id: NCBITaxon:75105
+      label: Paraburkholderia caribensis
+  - preferred_term: Methylobacterium tardum
+    term:
+      id: NCBITaxon:374432
+      label: Methylobacterium tardum
+  - preferred_term: Paenibacillus sp. (putative novel species)
+    term:
+      id: NCBITaxon:44249
+      label: Paenibacillus
+  - preferred_term: Mesorhizobium sp. (putative novel species)
+    term:
+      id: NCBITaxon:68287
+      label: Mesorhizobium
+  - preferred_term: Eucalyptus (three clones)
+    term:
+      id: NCBITaxon:3932
+      label: Eucalyptus
 - name: Genotype-Dependent Improvement of Seedling Quality and Survival
-  description: >
-    Two of three Eucalyptus genotypes showed improved seedling quality after inoculation, and one
-    showed mortality fall from 21.8% to 6.7%. The benefit is therefore conditional on host genotype
-    rather than a uniform property of the consortium.
-  interaction_type: MUTUALISM
+  description: 'The nursery trial compared five-strain inoculation with a water control across three Eucalyptus
+    genotypes. At 13 weeks, quality improvements were genotype-dependent: the reported nonviable/dead category fell
+    from 21.8% to 6.7% for genotype Y, and genotype Z had improved quality. The operational dead category also included
+    severe stem curvature greater than 45 degrees, so this is not exclusively literal mortality. Morphological responses
+    were not uniformly positive across genotypes and traits. Host outcomes do not establish reciprocal bacterial
+    fitness or a resolved microbial mediator.'
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: growth
@@ -284,12 +314,42 @@ ecological_interactions:
   - reference: PMID:42050290
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Two genotypes exhibited improved seedling quality, with a higher proportion classified
-      into superior categories, and one genotype showed a significant reduction in mortality (from
-      21.8% to 6.7%)
-    explanation: >
-      Supports the host-genotype-dependent seedling quality and survival
-      response to five-strain inoculation.
+    snippet: Two genotypes exhibited improved seedling quality, with a higher proportion classified into superior
+      categories, and one genotype showed a significant reduction in mortality (from 21.8% to 6.7%)
+    explanation: Supports the reported host response; the main Methods operational definition includes severely
+      curved seedlings in the dead category.
+  - reference: PMID:42050290
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Seedlings exhibiting severe stem curvature (defined as a deviation greater than 45° from the vertical
+      axis) or found dead during the evaluation period were counted as dead
+    explanation: The full operational definition includes severely curved seedlings as well as dead seedlings; the
+      reported category is broader than literal mortality.
+  participating_taxa:
+  - preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  - preferred_term: Paraburkholderia caribensis
+    term:
+      id: NCBITaxon:75105
+      label: Paraburkholderia caribensis
+  - preferred_term: Methylobacterium tardum
+    term:
+      id: NCBITaxon:374432
+      label: Methylobacterium tardum
+  - preferred_term: Paenibacillus sp. (putative novel species)
+    term:
+      id: NCBITaxon:44249
+      label: Paenibacillus
+  - preferred_term: Mesorhizobium sp. (putative novel species)
+    term:
+      id: NCBITaxon:68287
+      label: Mesorhizobium
+  - preferred_term: Eucalyptus (three clones)
+    term:
+      id: NCBITaxon:3932
+      label: Eucalyptus
 growth_media:
 - name: Phytate Low liquid medium, strain preculture
   composition:
@@ -348,3 +408,39 @@ environmental_factors:
     snippet: After 13 weeks, we assessed microbial diversity, morphological seedling traits, and
       survival rates
     explanation: Records the trial duration and the endpoints measured in the nursery setting.
+curation_history:
+- timestamp: '2026-10-02T05:49:32Z'
+  curator: codex
+  action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
+  changes: 'Removed two downstream edges from the complementary nitrogen-phosphate-trait pool to the root-endophytic
+    community and genotype-dependent seedling response nodes because the edge descriptions linked the selected inoculant
+    to later nursery measurements rather than to a resolved ecological mechanism.
+
+    '
+  llm_assisted: true
+- timestamp: '2026-10-06T09:47:45Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain prior inoculant trait pool without nursery nitrogen-fixation, specific IAA exchange or colonization
+    facilitation.; Retain root compositional endpoint without robust taxon-specific displacement or strain persistence.;
+    Retain genotype-dependent operational seedling-quality outcomes without reciprocal microbial fitness. Issue
+    #1445; reports/causal_graph_review/decisions/20261006-three-records-batch39.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: eucalyptus_nursery_trait_expression_and_host_mediation
+  prompt: Which inoculant functions mediate the genotype-dependent nursery response?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Complementary Nitrogen-Phosphate Trait Pool
+  - ecological_interactions#Root Endophytic Community Restructuring
+  - ecological_interactions#Genotype-Dependent Improvement of Seedling Quality and Survival
+  rationale: 'Prior trait screens do not establish nursery nitrogen fixation or specific IAA flux. Root compositional
+    change does not demonstrate persistence of each inoculant; differential taxon trends were not robust after sensitivity
+    analysis. Host quality is genotype-dependent and the dead category includes severe stem curvature. Preserve
+    both workflow-arrow removals from 2026-10-02: none of these observations resolves a mediator linking traits,
+    root composition and host outcome. The control received water; the trial does not isolate PBS-carrier effects.
+    Canonical five-member inoculant and Eucalyptus host labels are preserved, including AMBIGUOUS Paenibacillus
+    grounding. Non-graph fields are preserved, not certified.'
+  posed_by: codex
+  posed_date: '2026-10-06'

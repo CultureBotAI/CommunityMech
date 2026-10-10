@@ -15,6 +15,7 @@ journal: Standards in Genomic Sciences
 year: '2010'
 doi: 10.4056/sigs.922139
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Complete genome sequence of Marinobacter adhaerens type strain (HP15), a diatom-interacting marine microorganism

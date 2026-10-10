@@ -11,6 +11,7 @@ journal: Frontiers in Microbiology
 year: '2022'
 doi: 10.3389/fmicb.2022.780346
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Ecological Interactions of Cyanobacteria and Heterotrophs Enhances the Robustness of Cyanobacterial Consortium for Carbon Sequestration

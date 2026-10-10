@@ -290,12 +290,11 @@ taxonomy:
   - SECONDARY_FERMENTER
 ecological_interactions:
 - name: Bifidobacterium HMO Degradation and Cross-Feeding
-  description: Bifidobacterium species (B. infantis, B. bifidum, B. breve) serve as primary human milk
-    oligosaccharide degraders in BIG-Syc. These HMO degraders break down complex oligosaccharides and
-    release simpler carbohydrates, organic acids, and gases that are utilized by cross-feeding community
-    members. B. infantis and B. bifidum can suppress one another depending on HMO composition, with four-HMO
-    mixes favoring B. infantis dominance and five-HMO mixes supporting B. bifidum dominance. This resource-sharing
-    mechanism enables complete HMO degradation through teamwork.
+  description: Bifidobacterial HMO use contributes to the source-reconstructed BIG-Syc resource-sharing network.
+    B. infantis dominated four of six 4HMO replicates, whereas B. bifidum dominated 5HMO cultures. B. breve often
+    scavenged simpler carbohydrates rather than uniformly degrading every HMO. PARTIAL - specific donor-to-recipient
+    carbon and gas routes combine growth, metaproteomics, literature and models, not traced transfer; alternate
+    dominance mechanisms remain hypotheses.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -316,36 +315,36 @@ ecological_interactions:
     term:
       id: CHEBI:50699
       label: oligosaccharide
-    concentration: Human milk oligosaccharides degraded by Bifidobacterium
+    notes: Human milk oligosaccharides degraded by Bifidobacterium
   - preferred_term: organic acid
     term:
       id: CHEBI:64709
       label: organic acid
-    concentration: Released by HMO degraders for cross-feeders
+    notes: Released by HMO degraders for cross-feeders
   downstream:
   - target: Cross-Feeder Utilization of HMO Degradation Products
-    description: Bifidobacterial HMO degradation releases simpler carbohydrates,
-      organic acids, and gases that cross-feeding BIG-Syc members can consume.
+    description: PARTIAL - bifidobacterial HMO processing can supply simpler substrates and fermentation products
+      for the source-proposed recipient routes. Community depletion and proteomics support resource sharing but
+      do not trace each donor-to-recipient flux or demonstrate identical release by all three bifidobacteria.
   evidence:
   - reference: doi:10.1093/ismejo/wrae209
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: BIG-Syc demonstrated teamwork as cross-feeders utilized simpler carbohydrates, organic acids,
-      and gases released from human milk oligosaccharide degraders.
-    explanation: Demonstrates the cross-feeding mechanism where HMO degraders provide metabolites to other
-      community members.
+    snippet: BIG-Syc demonstrated teamwork as cross-feeders utilized simpler carbohydrates, organic acids, and gases
+      released from human milk oligosaccharide degraders.
+    explanation: Supports the authors' resource-sharing reconstruction from multiple measurements and models, not
+      directly traced donor-specific flux.
   - reference: doi:10.1093/ismejo/wrae209
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Bifidobacterium infantis and Bifidobacterium bifidum suppressing one another
     explanation: Shows competitive dynamics between the two main Bifidobacterium HMO degraders.
 - name: Cross-Feeder Utilization of HMO Degradation Products
-  description: B. ovatus, B. vulgatus, L. rhamnosus, E. faecalis, S. salivarius, and
-    E. coli proliferate on simple sugars released during HMO degradation, while
-    V. parvula scavenges lactate and B. producta consumes simple carbohydrates
-    plus H2 and CO2. These cross-feeding routes consume HMO-derived products
-    released by the primary HMO degraders and sustain the broader BIG-Syc
-    community.
+  description: PARTIAL - the source reconstructs simple-sugar use by B. ovatus, B. vulgatus, L. rhamnosus, E. faecalis,
+    S. thermophilus and E. coli, lactate use by V. parvula, and sugar/gas use by B. producta. Species assignments
+    draw on monoculture, proteomic and model evidence. Gas production and transfer were inferred; supplied headspace
+    CO2 prevents unique attribution to bacterial donors. Model and experimental metabolite profiles did not fully
+    agree. The paper's S. salivarius subsp. thermophilus ATCC19258 is the taxon grounded here as S. thermophilus.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -386,39 +385,38 @@ ecological_interactions:
     term:
       id: CHEBI:35381
       label: monosaccharide
-    concentration: Simple carbohydrates from HMO degradation
+    notes: Simple carbohydrates from HMO degradation
   - preferred_term: organic acid
     term:
       id: CHEBI:64709
       label: organic acid
-    concentration: Metabolites from HMO degraders
+    notes: Metabolites from HMO degraders
   evidence:
   - reference: doi:10.1093/ismejo/wrae209
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: BIG-Syc demonstrated teamwork as cross-feeders utilized simpler carbohydrates, organic acids,
-      and gases released from human milk oligosaccharide degraders.
-    explanation: Demonstrates cross-feeder reliance on metabolites from primary HMO degraders.
+    snippet: BIG-Syc demonstrated teamwork as cross-feeders utilized simpler carbohydrates, organic acids, and gases
+      released from human milk oligosaccharide degraders.
+    explanation: Supports the authors' resource-sharing reconstruction from multiple measurements and models, not
+      directly traced donor-specific flux.
   - reference: doi:10.1093/ismejo/wrae209
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: B. ovatus, B. vulgatus, L. rhamnosus, S. salivarius, E. faecalis,
-      and E. coli proliferated via cross-feeding of simple sugars
-    explanation: Names the BIG-Syc members that proliferated by consuming
-      simple sugars released during HMO degradation.
+    snippet: B. ovatus, B. vulgatus, L. rhamnosus, S. salivarius, E. faecalis, and E. coli proliferated via cross-feeding
+      of simple sugars
+    explanation: Names the BIG-Syc members that proliferated by consuming simple sugars released during HMO degradation.
   - reference: doi:10.1093/ismejo/wrae209
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: human milk oligosaccharides prompt resource-sharing for their complete degradation while
-      leading to a different compositional and functional profile in the community
-    explanation: Shows that HMOs drive resource-sharing dynamics in the community.
+    snippet: human milk oligosaccharides prompt resource-sharing for their complete degradation while leading to
+      a different compositional and functional profile in the community
+    explanation: Supports the authors' resource-sharing reconstruction from multiple measurements and models, not
+      directly traced donor-specific flux.
 - name: Non-Bifidobacterial HMO Degradation
-  description: B. fragilis and R. gnavus act as the non-bifidobacterial HMO
-    degraders in BIG-Syc. B. fragilis consumes fucosyllactoses,
-    siallyllactoses, and LNT, while R. gnavus utilizes fucosyllactoses and
-    3'-SL through extracellular enzymes that release fucose and lactose for
-    other members. These routes complement the bifidobacterial HMO-degradation
-    module and feed simpler substrates into the cross-feeding community.
+  description: PARTIAL - B. fragilis and R. gnavus contribute non-bifidobacterial HMO-degrading capacity. Growth
+    and enzyme observations, interpreted with prior strain literature, motivate release of simpler substrates to
+    the community. These are reconstructed routes, not measured flux from every named donor; exact extracellular
+    activity and R. gnavus fucose/lactose release depend partly on cited external studies.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -435,20 +433,20 @@ ecological_interactions:
     term:
       id: CHEBI:50699
       label: oligosaccharide
-    concentration: Human milk oligosaccharides degraded
+    notes: Human milk oligosaccharides degraded
   downstream:
   - target: Cross-Feeder Utilization of HMO Degradation Products
-    description: B. fragilis and R. gnavus HMO degradation releases
-      HMO-derived simple substrates for BIG-Syc cross-feeders.
+    description: PARTIAL - the authors propose that extracellular HMO processing by B. fragilis and R. gnavus supplies
+      simpler substrates to recipients. The main study supports a resource-sharing model rather than donor-resolved
+      tracer transfer or necessity of every participating strain.
   evidence:
   - reference: doi:10.1093/ismejo/wrae209
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: >-
-      The HMO degraders, namely B. infantis, B. bifidum, B. breve,
-      B. fragilis, and R. gnavus were able to fully degrade the HMOs present
-    explanation: Identifies B. fragilis and R. gnavus among the HMO degraders
-      reconstructed from BIG-Syc carbon utilization.
+    snippet: The HMO degraders, namely B. infantis, B. bifidum, B. breve, B. fragilis, and R. gnavus were able to
+      fully degrade the HMOs present
+    explanation: Supports the authors' resource-sharing reconstruction from multiple measurements and models, not
+      directly traced donor-specific flux.
 related_ingredients:
 - preferred_term: human milk oligosaccharide
   chebi_term:
@@ -578,3 +576,26 @@ cultivation_setup:
     snippet: "the fermentations were switched to continuous by introducing fresh medium and removing
       liquid culture. A flow rate of 12.5 ml/h"
     explanation: Establishes continuous-mode operation with a 12.5 mL/h feed rate.
+discussions:
+- discussion_id: big_syc_resolved_hmo_and_gas_flux
+  prompt: Which strain-specific transfer routes and dependencies explain HMO depletion?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Bifidobacterium HMO Degradation and Cross-Feeding
+  - ecological_interactions#Cross-Feeder Utilization of HMO Degradation Products
+  - ecological_interactions#Non-Bifidobacterial HMO Degradation
+  rationale: 'Community LC-MS showed greater than 90% depletion with a 6-SL exception at t119C in 4HMO 1; this is
+    not proof of every transfer or member necessity. The mixes differ in relative HMO proportions as well as LNT
+    presence. Gas predictions and model/in-vitro disagreement require validation. Full main paper/Table 1/captions
+    read, not images, supplements, raw data or rerun models. Preserve B. ovatus NCBITaxon:28116 and the two existing
+    donor-to-recipient arrows. Non-graph medium/environment wording remains #1262.'
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T12:49:56Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Distinguish infant HMO community measurements from reconstructed carbon and gas exchange; decisions:
+    reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml; https://github.com/CultureBotAI/CommunityMech/issues/1259'
+  llm_assisted: true

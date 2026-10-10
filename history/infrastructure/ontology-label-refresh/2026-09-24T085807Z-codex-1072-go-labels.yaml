@@ -1,0 +1,29 @@
+history_version: 1
+target:
+  kind: infrastructure
+  path: .
+  slug: ontology-label-refresh
+session:
+  id: 2026-09-24T085807Z-codex-1072-go-labels
+  timestamp: '2026-09-24T08:58:07Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-5
+    agent_tool: codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1072
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - ontology_labels
+  - label_correspondence
+  summary: Align obsolete GO source labels with current canonical names
+  details: >
+    Followed up on issue #1072 by updating source labels for GO terms whose
+    current canonical names are obsolete-prefixed in OAK. This keeps the
+    LinkML-native Engine A and product-level Engine B id-label gates aligned
+    without needing GO exceptions in conf/id_label_targets.yaml for these
+    already-canonical labels.

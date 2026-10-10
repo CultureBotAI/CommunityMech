@@ -1,0 +1,358 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 9b429a9fa64f383ece90031645efbb8f913e111b
+scope:
+- kb/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml
+- kb/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml
+- kb/communities/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-three-records-batch110.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch110.json
+findings:
+- issue: 1857
+  severity: P2
+  finding: Separate Halomonas PHB phenotype and alginate intervention from ecological typing
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1858
+  severity: P2
+  finding: Bound Pseudomonas PHA and DNT graph outcomes by polymer and assay
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1859
+  severity: P2
+  finding: Correct anode recipient and qualify CO2-return arrow in biophotovoltaic graph
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1860
+  severity: P2
+  finding: Obtain Halomonas PHB primary methods to verify LC1 scope and encapsulation mediation
+  status: open_research_follow_up
+  disposition: Remains open; source and non-graph scope limits are explicit.
+- issue: 1861
+  severity: P2
+  finding: Review Pseudomonas PHB ingredient attribution outside repaired PHA graph
+  status: open_non_graph_follow_up
+  disposition: Remains open; source and non-graph scope limits are explicit.
+- issue: 1862
+  severity: P2
+  finding: Reconcile biophotovoltaic cultivation mode and medium with primary device arms
+  status: open_non_graph_follow_up
+  disposition: Remains open; source and non-graph scope limits are explicit.
+- issue: 1863
+  severity: P2
+  finding: Snippet auditor drops PDF fi ligature and reports a false MISMATCH.
+  status: open_validator_follow_up
+  disposition: Exact single-quote exception documented; fix shared normalization in a separate tested change.
+adversarial_checks:
+- Whole original targets and all changed graph/discussion diffs reviewed. All ten nodes and six existing directions
+  retained. No renamed, removed or new topology; no Edison job or spend.
+- 'Challenge overcorrection: preserve photosynthetic carbon supply, PHB/PHA accumulation, DNT transformation, cyanobacterial
+  growth benefits, anode current and device-compatibility benefits. Qualification distinguishes observed outcomes
+  from isolated causal mediation, not positive from negative results.'
+- 'Halomonas: abstract supports sucrose feeding, PHB up to 31% dry weight, productive persistence over five months
+  and alginate-enhanced export/stability. It does not identify LC1, resolve all organic inputs or isolate encapsulation-to-PHB
+  mediation. Preserve existing identities but mark graph needs_research and retain the mediation arrow as HYPOTHESIZED/PARTIAL.
+  PHB output and alginate intervention are untyped community processes, not duplicate exchange or colonization facilitation.'
+- 'Pseudomonas: distinguish cscAB PHA, cscRABY/nitrate-blind and EM173 DNT implementations. Measured medium-chain-length
+  PHA is not PHB homopolymer; 8.8-fold final accumulation is not a rate comparison. DNT disappearance includes adsorption
+  and reductive fates; oxidative intermediates support transformation, not measured complete mineralization. Preserve
+  nitrogen-limited PHA outcome without importing polymer identity from a crotonic-acid assay.'
+- 'Pseudomonas feedback: retain conditional carbon-supported partnership and positive cyanobacterial growth. The
+  heterotroph does not gain growth rate over matched externally fed axenic controls. Mixed-cell omics and transporter
+  responses do not establish a donor/recipient mediator or reverse sucrose donation. The unresolved mechanism remains
+  PARTIAL with a discussion, not a new exchange node.'
+- 'Shewanella: retain D-lactate contribution using lactate rather than acid grounding, without exclusive organic-carbon
+  attribution. The anode is abiotic, not the cyanobacterium. Source Figure1 proposes CO2 return, so the existing
+  reverse arrow remains explicitly hypothetical; positive cyanobacterial growth is retained separately. Temporal
+  batch, spatial and replenished spatial-temporal devices are distinct. More-than-40-day output is qualified by
+  medium replenishment and LB supplementation; no protocol optimization is added.'
+- Twenty-four graph and three new discussion quotations match fresh primary text and unchanged caches under documented
+  normalization. Five primary main texts were read in bounded spans and one primary abstract in full; remaining
+  Methods, supplements, figure pixels and raw data were not certified. Halomonas full article was not retrieved
+  in bounded searches, not declared globally unavailable.
+- Initial reference failure came from a PDF word join. A replacement excerpt from the same primary paragraph passes
+  CLI validation, with append-only correction history and the failed attempt retained. One remaining local snippet-audit
+  MISMATCH is an exact, independently proven fi-ligature false positive; issue1863 stays open. No shared validator
+  change, cache rewrite or claim that all snippet classifications are clean.
+- Three guarded records and four append-only histories preserve all prior history and decision files, 457 other
+  records, all 923 caches and non-graph raw blocks. Shewanella adds one community-level/mixed record and two taxa
+  to the survey denominator, with no new taxa credited solely by the broad rule. Measurement-based census expectations
+  are updated; connectivity and share logic are unchanged.
+- Four in-memory control/mutation/restored-control probes reject PHA-to-PHB inflation, complete-mineralization inflation,
+  a cyanobacterial anode recipient and unsupported growth-mediator certainty. Canonical files remain unchanged;
+  probes are not added to the pytest count.
+- Seven focused tests and 994 combined regressions pass. Three full-record schema/strict/term/reference validations
+  and four histories pass. Local snippet checks retain the one explicitly documented ligature discrepancy. Network
+  preserves 56 baseline warnings with zero structural defects. Deterministic rendering and exact HTML descriptions
+  cover 456 pages, 1367 nodes and 536 arrows; this is not screenshot QA.
+- Repairs1857-1859 await protected-main merge. Research1860, non-graph1861-1862 and validator1863 remain open. Existing
+  loader1703, DOI-case1091 and cache-policy949/1093 are not certified. Denied/unanswered Edison scopes are untouched.
+  Self-review is not independent approval, and no CI/protection bypass or premature branch deletion is allowed.
+- Corpus status is 352 reviewed, 55 pending and 53 needs_research. The whole goal remains incomplete. Exact-head
+  publication and postcommit docs-current are separate gates, not preasserted here.
+- Plain just-lint passed;explicit-runtime no-incremental mypy additionally checked.
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: PHA family inflated to PHB homopolymer
+      test: test_pha_is_not_phb_or_a_rate_comparison
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 35
+      assertion: assert product["metabolites"][1]["term"] == {
+      restored_control: PASS
+    - mutation: DNT disappearance promoted to complete mineralization
+      test: test_dnt_removal_does_not_prove_complete_mineralization
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 49
+      assertion: assert "Complete mineralization was not directly established" in dnt["description"]
+      restored_control: PASS
+    - mutation: Anode output assigned to cyanobacterial recipient
+      test: test_anode_is_not_a_cyanobacterial_recipient_and_carbon_return_is_hypothetical
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 72
+      assertion: assert "source_taxon" not in anode and "target_taxon" not in anode
+      restored_control: PASS
+    - mutation: Unresolved growth mediator promoted to SUPPORT
+      test: test_growth_feedback_preserves_positive_context_without_reverse_sucrose
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 60
+      assertion: assert feedback["evidence"][1]["supports"] == "PARTIAL"
+      restored_control: PASS
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml: 6f80bc26157b469b40d247d9d8bdf08aacee7ce6009e53527820248179397b3c
+      kb/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml: 76fe4a6229c920128650e889592471c220a7a42283bc97c605c6d9615983cf8a
+      kb/communities/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.yaml: 826172b3e4ec14cb21b506f830175d55dc982b3ee809bc7811e9a29cb67e231c
+      tests/test_causal_review_batch110.py: 39b08c28d3140ebbd608ca57317d51e1302d36d8a5474c186873d918858f3b69
+    scope: In-memory evidence mutations with control and restored-control; no canonical writes or inflated pytest
+      count.
+  artifact: /private/tmp/communitymech-batch110/adversarial-regression-proof.json
+  sha256: 3dcf04022bd3717c8c8b58e7cd0524e808b53972cea3d83f285d075d3be59eba
+verification:
+  combined_regressions: 994 passed in 335.27s (0:05:35)
+  new_regression_tests: 7
+  total_recorded_gate_outputs: 35
+  primary_graph_snippet_proof:
+    graph_quotations: 24
+    new_discussion_quotations: 3
+    fresh_primary_literal_matches: 27
+    all_cached_literal_matches: 27
+    retained_nodes: 10
+    removed_nodes: 0
+    retained_arrows: 6
+    removed_arrows: 0
+    new_nodes_or_directions: 0
+    scope: All reviewed quotations match fresh primary text and unchanged caches;source entailment separately reviewed.
+      Primary abstract and bounded main-text/caption spans documented in ledger;no raw-data,figure-pixel or supplement
+      certification.
+  references: Three full-record CLI and local snippet checks on macOS,not Linux;DOI-cache case1091 remains. Literal
+    matches do not establish entailment;per-source read limits recorded. CLI Total checks counts issues,not checks.
+    Loader1703 not certified.
+  initial_failed_attempt:
+    artifact: /private/tmp/communitymech-batch110/validation-attempt1.json
+    sha256: 9e7c4bf7ac745ae0463afc6a1183360eb6df042af6ef52819c5df5ad53393b4b
+    failed_check:
+      check: Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture-references
+      command:
+      - /Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator
+      - validate
+      - data
+      - kb/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml
+      - -s
+      - src/communitymech/schema/communitymech.yaml
+      - --config
+      - conf/reference_validator.yaml
+      exit_code: 1
+      expected_exit_codes:
+      - 0
+      log: /private/tmp/communitymech-batch110/verification-attempt1/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture-references.log
+      log_sha256: cd0ab1221ff4111d88fd313d59beee8da5682f9860f1c1f3149d37461385a475
+      output_tail: "Validating kb/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml against schema\
+        \ src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Issues (1):\n\
+        \  [ERROR] Text part not found as substring: 'they did not differ within the same experiment'\n    Location:\
+        \ ecological_interactions[3].evidence[2].snippet\n    Reference: PMID:38609451\n\nValidation Summary:\n\
+        \  Total checks: 1\n  Issues found: 1\n"
+      explained_output_tail: "Validating kb/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml against\
+        \ schema src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Issues\
+        \ (1):\n  [ERROR] Text part not found as substring: 'they did not differ within the same experiment'\n \
+        \   Location: ecological_interactions[3].evidence[2].snippet\n    Reference: PMID:38609451\n\nValidation\
+        \ Summary:\n  Total checks: 1\n  Issues found: 1\n"
+    disposition: PDF word join rejected the initial excerpt; replaced with another literal passage from the same
+      primary paragraph, appended correction history, reran every gate. Caches and scientific interpretation unchanged.
+  known_snippet_audit_false_positive:
+    issue: 1863
+    path: kb/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml.discussions[0].evidence[0]
+    reference: PMID:38609451
+    snippet: attributing core metabolites to a specific co-culture partner is not possible
+    reported_class: MISMATCH
+    reported_coverage: 0.0
+    independent_normalization: NFKD/case/whitespace/punctuation contiguous match
+    source_sha256:
+      /private/tmp/communitymech-causal-batch110/references_cache/PMID_38609451.md: 823040c434fe5d39a55b9b7efe43ee277021dd2f22c979c71cd40142d6025b96
+      /private/tmp/communitymech-batch110/omics-primary.txt: d0297a40f3662014578949cac1f4e8434449b29db9f5887642006be0088bb8c8
+    disposition: Explicit single-quote exception for PDF fi ligature stripped by auditor. Primary and cache checked;
+      CLI references pass. Initial audit assertion stopped validation; shared auditor and canonical quote unchanged.
+      Follow-up1863 remains open.
+  snippet_counts_by_record:
+    kb/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml:
+      MATCH: 20
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml:
+      MATCH: 37
+      RENDERING: 2
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 1
+      NOCONTENT: 0
+    kb/communities/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.yaml:
+      MATCH: 37
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8998
+      categories:
+        MATCH: 8858
+        RENDERING: 23
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 40
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification;literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: Ten nodes and six existing directions retained. All56existing warnings unchanged;zero structural
+      defects. Halomonas needs research1860;non-graph follow-ups1861-1862.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-three-records-batch110.yaml: 814876819500a172c6d4423086c5299d62b15e9915c1f96ed66fdaaf3367fb2e
+    tests/test_causal_review_batch110.py: 39b08c28d3140ebbd608ca57317d51e1302d36d8a5474c186873d918858f3b69
+    tests/test_causal_review_batch109.py: 2b244b24479edf6025412c2a42459e92151d4602a20f571fef8fade9769d92d5
+    tests/test_participating_taxa.py: f70e3c12c1c295edda98a5b9c60f0b791213a49b060be96071409fe0164188bc
+    tests/test_community_level_connectivity_credit.py: 4d13eaa74d04b6730e5e88c5aba5df1c2bc9aeea4597084274c48b9df9cd5247
+    reports/causal_graph_review/cache-provenance-20261008-batch110.json: 7fb379fd4c081d4251b9f6599018a5db9a2fdab31ccdf852957b06cc4107dbac
+    kb/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml: 6f80bc26157b469b40d247d9d8bdf08aacee7ce6009e53527820248179397b3c
+    kb/communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml: 76fe4a6229c920128650e889592471c220a7a42283bc97c605c6d9615983cf8a
+    kb/communities/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.yaml: 826172b3e4ec14cb21b506f830175d55dc982b3ee809bc7811e9a29cb67e231c
+  history_sha256:
+    history/records/Synechococcus_Halomonas_Light_Driven_PHB_Coculture/2026-10-08T053619Z-codex-d68757.yaml: 29a2002ea46efe7131363d795998e84f55922a89ac49c3e15bd0b12e4176b9f0
+    history/records/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture/2026-10-08T053619Z-codex-9a9ab2.yaml: 530d6eb19253d8f043ec446dacd61e44f748057e590bde24b093b69e18ff812b
+    history/records/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture/2026-10-08T054129Z-codex-d4dcce.yaml: 344a6752a0d6009012e4ee7dd69684556e9b384d9ac6c27601398d7a472d5b1c
+    history/records/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium/2026-10-08T053619Z-codex-a21481.yaml: 14157eebb8d1446fc0613b16cd2f9c2c39e1a884658eab29249c639d241d2d27
+  unchanged_records: 457
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 840
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Existing node scope/evidence repairs and qualification of identical existing directions. Missing
+      primary methods are an access/scope follow-up,not topology extension.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 407
+      mixed: 132
+      community_level_only: 275
+      taxa: 1552
+      credited_solely_by_the_rule: 1270
+    current:
+      records: 460
+      with_community_level: 408
+      mixed: 133
+      community_level_only: 275
+      taxa: 1554
+      credited_solely_by_the_rule: 1270
+  delta:
+    records: 0
+    with_community_level: 1
+    mixed: 1
+    community_level_only: 0
+    taxa: 2
+    credited_solely_by_the_rule: 0
+  interpretation: Shewanella electrode output and device intervention gain community-level identity-only scope.
+    One additional mixed-scope record and two taxa in survey;zero new solely-credited taxa. Exact census and observational
+    bounds updated;connectivity and share rules unchanged.
+corpus:
+  records: 460
+  nodes: 1381
+  edges: 544
+  review_status_counts:
+    needs_research: 53
+    pending: 55
+    reviewed: 352
+lint_limitation: Plain just-lint passed;explicit-runtime no-incremental mypy additionally checked.
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary Python3.13 lint environment reuses validation runtime and locked typing tools;project dependencies
+    unchanged. Not a complete embedding runtime.
+limitations:
+- Fresh both-root baseline before primary reads:460 records,923 caches,56 existing warnings,zero structural defects.
+  Three full targets and ten nodes/six arrows reviewed. All topology retained; no new nodes/directions or Edison
+  spend.
+- Primary texts independently retrieved via EuropePMC with exact Crossref DOI checks. Read spans:PHA abstract/background/Results/Discussion/Conclusions
+  and initial Methods lines1-114;DNT summary/main Results/Discussion/Methods/captions lines1-145;omics abstract/main
+  Results/Discussion/captions lines1-160;Shewanella abstract/main Results/Discussion/captions/initial Methods lines1-128;nitrate
+  abstract/introduction1-18 and coculture Results/Discussion/Conclusion55-94. Truncated spans were reread; remaining
+  Methods, supplementary files, figure pixels and raw datasets not audited.
+- Halomonas independently retrieved primary abstract and whole committed abstract cache read. No PMCID;DOI landing
+  inaccessible,publisher403,author pagecitation only. Bounded title/DOI/OSTI search did not retrieve primary full
+  article. This is not global absence. LC1/complete organic inputs/isolated encapsulation mediation remain1860 and
+  needs_research;not silently certified. Existing canonical taxonomy untouched.
+- Other five cache content-type/section headers inspected,not whole caches. All graph/discussion quotations checked
+  against fresh primary and unchanged caches. Case/spacing/hyphen normalization accommodates XML/PDF rendering;matches
+  alone do not prove entailment. DNT oxidation/mineralization distinction comes from direct Results/Discussion,not
+  a removal-only assay. No source-cache changes.
+- Retain Halomonas feeding,PHB/persistence and alginate intervention;remove duplicate exchange/colonization typing
+  and unsupported organic-input exclusion. Keep alginate mechanism in text without asserting alginic-acid protonation.
+  Existing alginate-to-PHB direction stays HYPOTHESIZED/PARTIAL.
+- Pseudomonas preserves separate cscAB,cscRABY/nitrate-blind and EM173 implementations. PHA family not PHB;8.8-fold
+  endpoint not rate;DNT disappearance not complete mineralization. Conditional mutualism retains carbon supply/cyanobacterial
+  benefit,not heterotroph advantage over externally fed controls. Additional molecular exchange unresolved,not reverse
+  sucrose. General PHA term reused from same record.
+- Shewanella retains D-lactate contribution,not substrate exclusivity. Anode is abiotic recipient;positive cyanobacterial
+  growth is retained separately from hypothetical CO2-return mediation. Retain existing reverse direction using
+  source Fig1 proposal,not device-separation wording. Device modes and replenishment/LB context qualified. D-lactate
+  CHEBI16004 canonical label checked against EBI acid/base relation and focused term validation. No new engineering/cultivation/protocol
+  instructions.
+- Whole reviewed Azotobacter neighboring record and reusable Shewanella MR1 taxon record read as modeling context,not
+  evidence for targets. Reusable record is not linked automatically to the engineered derivative;no gene claims
+  copied. Ignored/hidden kb/taxa search found only that matching reusable taxon. Fresh all-state title/body dedup
+  matched1093,258,1851,1669,1606,1605,837,836,835;all wholebodies and related529 read. Local matching-path index
+  read,not every report;PRs/comments not exhaustive.
+- Only ecological_interactions,discussions,curation_history change. Preserve other457records,all923caches,non-graph
+  rawblocks and prior history/decisionfiles. Issues1857-1859 remainopen untilprotectedmainmerge;research1860 and
+  nongraph1861-1862 remainopen afterward. Self-review is not independent approval or full corpus completion. No
+  schema/validator/runtime change. Participantcensus updates must be measurement-based with unchanged connectivity/share
+  rules. Loader1703,DOIcase1091,cachepolicy949/1093 not certified. Denied/unanswered Edison scopes untouched.
+- Replace growth-rate excerpt with an exact passage shared by the primary XML and unchanged PDF cache; the initial
+  CLI rejected a PDF word-join artifact. Matched-control growth interpretation and graph topology are unchanged.
+  Issue#1858. Four append-only histories across three records; no prior history rewritten.
+- Local snippet auditor reports one exact known MISMATCH for the Pseudomonas discussion because it drops the PDF
+  fi ligature. Primary XML and unchanged cache match under independent NFKD normalization; CLI references pass.
+  Preserve the faithful quote and record the exact classification rather than claiming a clean snippet audit. Shared-auditor
+  follow-up1863 remains open; related257/596 and fresh all-state title/body dedup reviewed. Initial audit assertion
+  failure is retained; no shared validator change.

@@ -116,136 +116,90 @@ taxonomy:
       for a ribosomally synthesized linear azole/azoline-containing peptide
     explanation: Supports the curated CPR BGC capacity.
 ecological_interactions:
-- name: Three-Site CZO Genome-Resolved Metagenomics
-  description: >
-    Soil and saprolite from three northern California Critical Zone Observatory
-    sites were sequenced to recover a genome-resolved view of bacterial
-    secondary-metabolite potential across vegetation, depth, and bedrock
-    gradients.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Dereplicated-MAG BGC Discovery
-    description: >
-      The metagenomes were filtered and dereplicated into MAGs that could be
-      screened for biosynthetic gene clusters.
-  evidence:
-  - reference: PMID:32546614
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >
-      We sampled soils and saprolite from three sites in a northern California
-      Critical Zone Observatory with various vegetation and bedrock
-      characteristics
-    explanation: >
-      Supports the three-site soil and saprolite sampling design.
-- name: Dereplicated-MAG BGC Discovery
-  description: >
-    Genome-resolved metagenomics narrowed thousands of bins to 1,334
-    dereplicated MAGs, then antiSMASH found thousands of biosynthetic gene
-    clusters carried by soil bacteria and archaea.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Phylum-Scale Biosynthetic-Potential Heterogeneity
-    description: >
-      Mapping BGC calls to genome phylogeny revealed uneven
-      secondary-metabolite potential across bacterial phyla.
-  - target: CPR Linaridin BGC Detection
-    description: >
-      The genome-resolved BGC screen recovered a RiPP-class peptide cluster in
-      a Candidate Phyla Radiation bacterium.
-  - target: Depth and Vegetation Enrichment of BGC-Rich Genomes
-    description: >
-      The BGC calls were combined with depth- and vegetation-based differential
-      abundance tests to identify where high-potential genomes were enriched.
-  evidence:
-  - reference: PMID:32546614
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >
-      Overall, 3,175 BGCs were identified on contigs of >10 kb within the set
-      of 1,334 dereplicated genomes
-    explanation: >
-      Supports the genome-resolved BGC-discovery step.
 - name: Phylum-Scale Biosynthetic-Potential Heterogeneity
-  description: >
-    Biosynthetic gene cluster loads varied strongly across soil bacterial
-    lineages, with prolific individual producers among Actinobacteria,
-    Chloroflexi, and Candidatus Dormibacteraeota.
+  description: Predicted BGC content varied among recovered genomes and within soil bacterial lineages. Some genomes
+    assigned to Actinobacteria, Chloroflexi and Candidatus Dormibacteraeota had high biosynthetic potential. This
+    does not establish metabolite production by every member of those clades or reduced competition through niche
+    partitioning.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:32546614
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'We obtained genomes for prolific producers of secondary metabolites, including novel groups within
+      the Actinobacteria, Chloroflexi, and candidate phylum "Candidatus Dormibacteraeota."
+
+      '
+    explanation: Supports the reported genomic prediction, not expression, product activity or an experimentally
+      demonstrated interaction.
+    computational_provenance:
+      prediction_type: OTHER
+      model_source: BGC predictions in metagenome-assembled genomes from the primary soil survey.
+      tools:
+      - tool_name: antiSMASH
+        tool_version: '4.0'
+        role: BGC prediction and classification
+  participating_taxa:
+  - preferred_term: Actinobacteria (prolific BGC producers)
     term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Depth and Vegetation Enrichment of BGC-Rich Genomes
-    description: >
-      Phylum-resolved BGC assignments let the study compare BGC-rich bacterial
-      abundance by soil depth and vegetation.
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  - preferred_term: Chloroflexi (prolific BGC producers)
+    term:
+      id: NCBITaxon:200795
+      label: Chloroflexota
+  - preferred_term: Candidatus Dormibacteraeota (prolific BGC producers)
+    term:
+      id: NCBITaxon:2052312
+      label: Candidatus Dormiibacterota
+- name: CPR Linear Azole/Azoline-Containing Peptide BGC Prediction
+  description: A soil CPR genome carried a predicted linear azole/azoline-containing peptide (LAP) biosynthetic
+    gene cluster, with related predictions in additional public CPR genomes. LAP is the reported class, not linaridin.
+    The finding is genomic potential, not measured peptide production, antibiotic action or an ecological partner
+    effect in the sampled community.
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:32546614
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'one genome of a candidate phyla radiation (CPR) bacterium coded for a ribosomally synthesized linear
+      azole/azoline-containing peptide
+
+      '
+    explanation: Supports the reported genomic prediction, not expression, product activity or an experimentally
+      demonstrated interaction.
+    computational_provenance:
+      prediction_type: OTHER
+      model_source: BGC predictions in metagenome-assembled genomes from the primary soil survey.
+      tools:
+      - tool_name: antiSMASH
+        tool_version: '4.0'
+        role: BGC prediction and classification
+  participating_taxa:
+  - preferred_term: BGC-encoding CPR bacterium
+    term:
+      id: NCBITaxon:1783273
+      label: Patescibacteria group
+- name: Depth and Vegetation Associations of Biosynthetic Potential
+  description: Genomes enriched in shallow samples encoded more predicted BGCs and ketosynthase domains on average;
+    genomes enriched in grasslands encoded more ketosynthase domains than those enriched at tree-covered sites.
+    These field-sample associations do not show that biosynthetic products caused the abundance patterns or reduced
+    interspecies competition. BGC-type distributions were not broadly different between the environmental groups.
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:32546614
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >
-      We obtained genomes for prolific producers of secondary metabolites,
-      including novel groups within the Actinobacteria, Chloroflexi, and
-      candidate phylum "Candidatus Dormibacteraeota."
-    explanation: >
-      Supports the bacterial phyla curated as prolific BGC producers.
-- name: CPR Linaridin BGC Detection
-  description: >
-    One Candidate Phyla Radiation bacterial MAG encoded a RiPP-family
-    ribosomally synthesized linear azole/azoline-containing peptide, extending
-    the BGC survey into genomes from an uncultivated soil lineage.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:32546614
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >
-      one genome of a candidate phyla radiation (CPR) bacterium coded for a
-      ribosomally synthesized linear azole/azoline-containing peptide
-    explanation: >
-      Supports the CPR-associated RiPP BGC finding.
-- name: Depth and Vegetation Enrichment of BGC-Rich Genomes
-  description: >
-    Bacteria with higher BGC content were differentially enriched in shallow
-    and grassland soils, linking secondary-metabolite potential to local
-    environmental structure.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:32546614
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: bacteria with higher biosynthetic potential were enriched in
-      shallow soils and grassland soils, with patterns of abundance of BGC
-      type varying by taxonomy
+    snippet: bacteria with higher biosynthetic potential were enriched in shallow soils and grassland soils, with
+      patterns of abundance of BGC type varying by taxonomy
     explanation: Supports the depth and vegetation enrichment.
+  - reference: PMID:32546614
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: genomes that were enriched in grasslands encoded more KS domains than genomes that were enriched at
+      tree-covered sites
+    explanation: Specifies the vegetation-associated domain result rather than assigning an increase to every BGC
+      type.
 environmental_factors:
 - name: Site number
   value: three Critical Zone Observatory sites
@@ -292,3 +246,39 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   soil-BGC community.
+curation_history:
+- timestamp: '2026-10-02T06:04:09Z'
+  curator: codex
+  action: REPAIR_CAUSAL_GRAPH
+  changes: Removed five soil BGC workflow edges that connected three-site sampling, MAG dereplication, BGC calls,
+    phylum mapping, CPR RiPP detection, and depth or vegetation enrichment as analysis steps.
+  llm_assisted: true
+- timestamp: '2026-10-07T23:24:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain heterogeneous predicted capacities without phylum-wide producer or niche claims.; Correct LAP
+    terminology, scope to canonical CPR identity and distinguish prediction from product function.; Retain bounded
+    environmental associations without causal ecological mediation. Issue#1805; reports/causal_graph_review/decisions/20261007-four-records-batch102.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: bgc_causal_attribution_batch102
+  prompt: Which predicted soil BGCs yield active products and demonstrable ecological effects in the surveyed communities?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Phylum-Scale Biosynthetic-Potential Heterogeneity
+  - ecological_interactions#CPR Linear Azole/Azoline-Containing Peptide BGC Prediction
+  - ecological_interactions#Depth and Vegetation Associations of Biosynthetic Potential
+  rationale: The primary main text and relevant cached passages were checked. Genome predictions and depth/vegetation
+    associations do not establish expression, product identity or partner effects. The comparison to an experimentally
+    active Rhizobium product is not a demonstration for the CPR prediction. Fragmented assemblies also limit genomic
+    completeness. Product and ecological-function evidence for the actual surveyed taxa would resolve these claims;
+    no additional causal edges are inferred.
+  posed_by: codex
+  posed_date: '2026-10-07'
+  evidence:
+  - reference: PMID:32546614
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: While we can only predict the function of these clusters with the present data
+    explanation: Explicitly distinguishes the CPR cluster prediction from a measured function.

@@ -109,20 +109,9 @@ taxonomy:
     explanation: Supports the host and gut microbiota study context.
 ecological_interactions:
 - name: Acetobacter-Lactobacillus Nutrient Allocation Interaction
-  description: Acetobacter and Lactobacillus members jointly restore host triglyceride phenotypes that
-    are not restored by Lactobacillus alone, linking interspecies effects to host nutrient allocation.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Drosophila gut Lactobacillus isolates
-    term:
-      id: NCBITaxon:1578
-      label: Lactobacillus
-  target_taxon:
-    preferred_term: Drosophila gut Acetobacter isolates
-    term:
-      id: NCBITaxon:434
-      label: Acetobacter
+  description: Combined Acetobacter-Lactobacillus treatments alter whole-host triglyceride levels. This joint outcome
+    does not establish metabolite exchange; individual pair responses differ.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: lipid metabolic process
     term:
@@ -132,22 +121,31 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Microbiota-Dependent Host Nutrition
-    description: >
-      Joint Acetobacter-Lactobacillus colonization restores the host
-      triglyceride phenotype measured in the five-species Drosophila nutrition
-      model.
   evidence:
   - reference: PMID:24242251
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Only flies with both Acetobacter and Lactobacillus had triglyceride contents restored to the level in conventional flies.
-    explanation: Supports a non-additive community effect involving both bacterial groups and host triglyceride allocation.
+    snippet: Only flies with both Acetobacter and Lactobacillus had triglyceride contents restored to the level
+      in conventional flies.
+    explanation: Supports a non-additive community effect involving both bacterial groups and host triglyceride
+      allocation.
+  participating_taxa:
+  - preferred_term: Drosophila gut Acetobacter isolates
+    term:
+      id: NCBITaxon:434
+      label: Acetobacter
+  - preferred_term: Drosophila gut Lactobacillus isolates
+    term:
+      id: NCBITaxon:1578
+      label: Lactobacillus
+  - preferred_term: Drosophila melanogaster
+    term:
+      id: NCBITaxon:7227
+      label: Drosophila melanogaster
 - name: Lactobacillus Promotion of Acetobacter Abundance
-  description: Lactobacillus cocolonization increases Acetobacter abundance in flies, explaining a
-    nonmodular microbiota effect on host triglyceride content.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Whole-fly Acetobacter CFU increased with L. brevis or L. fructivorans, but not significantly with
+    L. plantarum. CFU endpoints do not establish stable gut residence or growth rates. Grouped canonical taxa must
+    not imply a universal genus-level effect.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Drosophila gut Lactobacillus isolates
@@ -160,36 +158,26 @@ ecological_interactions:
       id: NCBITaxon:434
       label: Acetobacter
   biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Acetobacter-Lactobacillus Nutrient Allocation Interaction
-    description: >
-      Lactobacillus-mediated promotion of Acetobacter abundance explains the
-      nonmodular Acetobacter-Lactobacillus effect on host triglyceride
-      allocation.
+    description: PARTIAL - greater Acetobacter abundance could contribute to lower host triglycerides. Inoculum
+      perturbations support this model but do not selectively establish abundance as the mediator.
   evidence:
   - reference: PMID:24242251
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: Lactobacillus-mediated promotion of Acetobacter abundance in the fly
-    explanation: Supports facilitation of Acetobacter abundance by Lactobacillus during fly colonization.
+    explanation: Supports abundance promotion in tested contexts, not all Lactobacillus species or a demonstrated
+      exchange mechanism.
 - name: Microbiota-Dependent Host Nutrition
-  description: The five-species community was used to quantify microbiota-dependent Drosophila nutritional
-    phenotypes including development, glucose, triglyceride, glycogen, protein, and weight.
-  interaction_type: MUTUALISM
+  description: Host nutrition depends on microbiota and experimental context. The 2014 single/five-species comparison
+    found no significant weight, protein or glycogen response. The separate 2015 host-genotype study found variation
+    in response magnitude and direction, not universal benefit.
   scope: COMMUNITY_LEVEL
-  target_taxon:
-    preferred_term: Drosophila melanogaster
-    term:
-      id: NCBITaxon:7227
-      label: Drosophila melanogaster
   biological_processes:
   - preferred_term: growth
     term:
@@ -203,13 +191,28 @@ ecological_interactions:
   - reference: PMID:24242251
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: The low glucose content of conventional flies was recapitulated in gnotobiotic Drosophila flies colonized with any of the 5 bacterial taxa tested.
+    snippet: The low glucose content of conventional flies was recapitulated in gnotobiotic Drosophila flies colonized
+      with any of the 5 bacterial taxa tested.
     explanation: Supports microbiota-dependent effects on host glucose levels.
   - reference: PMID:25692519
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: effects of eliminating the gut microbiota on five host nutritional indices
-    explanation: Supports reuse of the same defined community to measure microbiota-dependent host nutritional traits.
+    explanation: Supports host-genotype-dependent nutritional responses; exact five-species reuse is described in
+      the primary Methods, not this short abstract excerpt.
+  participating_taxa:
+  - preferred_term: Drosophila gut Acetobacter isolates
+    term:
+      id: NCBITaxon:434
+      label: Acetobacter
+  - preferred_term: Drosophila gut Lactobacillus isolates
+    term:
+      id: NCBITaxon:1578
+      label: Lactobacillus
+  - preferred_term: Drosophila melanogaster
+    term:
+      id: NCBITaxon:7227
+      label: Drosophila melanogaster
 environmental_factors:
 - name: Drosophila yeast-glucose diet
   value: Yeast-glucose agar diet at 25 C with a 12-hour light/dark cycle
@@ -292,8 +295,29 @@ curation_history:
 - timestamp: '2026-09-13T01:01:47Z'
   curator: codex
   action: REMOVE_UNVERIFIABLE_PUBLICATION_EVIDENCE
-  changes: "Removed 6 evidence items that no longer match the retained abstracts after PR #766's publication-body
-    policy caught newer main caches. Preserved all scientific claims, taxonomy and interaction topology;
-    these claims require re-evidencing where support was removed. See the linked publication-text-removal
-    history for license/version uncertainty."
+  changes: 'Removed 6 evidence items that no longer match the retained abstracts after PR #766''s publication-body
+    policy caught newer main caches. Preserved all scientific claims, taxonomy and interaction topology; these claims
+    require re-evidencing where support was removed. See the linked publication-text-removal history for license/version
+    uncertainty.'
   llm_assisted: true
+- timestamp: '2026-10-06T07:02:09Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Represent the joint host outcome without cross-feeding and remove its redundant panel arrow.; Retain
+    species-bounded whole-fly abundance and qualify its proposed host mediation.; Retain context-dependent host
+    outcomes without mutualism; species-resolved structure remains pending. Issue #1404; reports/causal_graph_review/decisions/20261006-three-records-batch33.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: drosophila_species_and_host_mediation
+  prompt: Which species-specific interactions and host pathways mediate the nutritional outcomes?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Acetobacter-Lactobacillus Nutrient Allocation Interaction
+  - ecological_interactions#Lactobacillus Promotion of Acetobacter Abundance
+  - ecological_interactions#Microbiota-Dependent Host Nutrition
+  rationale: 'The endpoint-to-panel arrow is redundant, not demonstrated causation. Species-level expansion remains
+    pending under #1408 and canonical roster/role review under #1407. Existing non-graph evidence debt is tracked
+    by #765. No removed publisher body is restored.'
+  posed_by: codex
+  posed_date: '2026-10-06'

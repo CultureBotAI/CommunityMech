@@ -1,0 +1,439 @@
+id: CommunityMech:000455
+name: E. coli K-12 MG1655 Arg-Met Cross-Feeding Coculture
+description: A defined two-member synthetic Escherichia coli K-12 MG1655 coculture built from complementary double-mutant
+  amino-acid auxotrophs. The ΔargA-ΔmetJ mutant requires arginine and overproduces methionine, while the ΔmetA-ΔargR mutant
+  requires methionine and overproduces arginine, producing an obligate Arg/Met mutualism that the study used to test how metabolic
+  cross-feeding changes single-cell fluorescence noise under liquid, strain-ratio, and spatial heterogeneity perturbations.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Construct an isogenic E. coli amino-acid cross-feeding system to test whether reciprocal metabolic exchange amplifies
+    phenotypic heterogeneity and gene-expression noise within each strain population.
+  assembly_strategy: Pair engineered E. coli K-12 MG1655 ΔargA-ΔmetJ and ΔmetA-ΔargR mutants whose complementary auxotrophy
+    and overproduction phenotypes force reciprocal methionine and arginine exchange.
+  perturbation_design: Compare mono-cultures with co-cultures, fluorescent reporter swaps, externally added Arg or Met commensalism
+    controls, amino-acid gradients, strain-ratio heterogeneity levels, and liquid or agar spatial structures.
+  measurement_endpoints:
+  - single-cell GFP and BFP fluorescence by flow cytometry
+  - co-culture and mono-culture cell noise at 8 h and 24 h
+  - arginine and methionine secretion by LC-MS
+  - strain-distribution heterogeneity inside shaken tubes
+  - strain-ratio variation across spatial heterogeneity treatments
+  notes: The article also reports fluorescent-protein swaps, a second ΔargA-ΔtrpR/ΔtrpC-ΔargR auxotrophic pair, and BL21-GFP
+    pairings with environmental isolates; this record captures the primary ΔargA-ΔmetJ plus ΔmetA-ΔargR Arg/Met pair because
+    it is the mechanistic system used throughout the main strain-distribution and spatial-heterogeneity experiments.
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: metabolic cross-feeding system consisting of two genetically engineered double-mutant strains of E. coli, ΔargA-ΔmetJ
+      and ΔmetA-ΔargR
+    explanation: Supports the two-member engineered E. coli design.
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study utilized four engineered E. coli K-12 MG1655 double-mutant strains, ΔargA-ΔmetJ, ΔargA-ΔtrpR, ΔmetA-ΔargR
+      and ΔtrpC-ΔargR
+    explanation: Supports K-12 MG1655 as the strain background for the engineered mutants.
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Experiments 3–6: To test whether nutrient heterogeneity could alter noise, we experimentally manipulated low,
+      medium and high levels of AA, strain ratio and spatial structure heterogeneity in synthetic consortia'
+    explanation: Supports the amino-acid, strain-ratio, and spatial perturbation design.
+environment_term:
+  preferred_term: aerobic E. coli K-12 MG1655 amino-acid cross-feeding culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Defined laboratory co-culture of engineered E. coli K-12 MG1655 mutants grown aerobically in LB or M9-glucose media
+    for fluorescence-noise assays.
+taxonomy:
+- taxon_term:
+    preferred_term: Escherichia coli K-12 MG1655 ΔargA-ΔmetJ
+    term:
+      id: NCBITaxon:511145
+      label: Escherichia coli str. K-12 substr. MG1655
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:511145
+      majority_fraction: 1.0
+      total_genomes: 37
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: E. coli K-12 MG1655-derived amino-acid auxotroph and overproducer used as one member of the engineered Arg/Met
+      cross-feeding pair.
+  strain_designation:
+    strain_name: ΔargA-ΔmetJ
+    genetic_modification: K-12 MG1655 double mutant requiring arginine and overproducing methionine.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ΔargA-ΔmetJ required arginine (Arg) to grow but overproduced methionine (Met)
+    explanation: Identifies the arginine-auxotrophic, methionine-overproducing member.
+- taxon_term:
+    preferred_term: Escherichia coli K-12 MG1655 ΔmetA-ΔargR
+    term:
+      id: NCBITaxon:511145
+      label: Escherichia coli str. K-12 substr. MG1655
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:511145
+      majority_fraction: 1.0
+      total_genomes: 37
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: E. coli K-12 MG1655-derived amino-acid auxotroph and overproducer used as one member of the engineered Arg/Met
+      cross-feeding pair.
+  strain_designation:
+    strain_name: ΔmetA-ΔargR
+    genetic_modification: K-12 MG1655 double mutant requiring methionine and overproducing arginine.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ΔmetA-ΔargR needed Met but overproduced Arg
+    explanation: Identifies the methionine-auxotrophic, arginine-overproducing member.
+ecological_interactions:
+- name: ΔargA-ΔmetJ methionine cross-feeding
+  description: The delta-argA/delta-metJ mutant overproduces methionine supporting the methionine-requiring delta-metA/delta-argR
+    partner under the tested amino-acid limitation. Both strains are E. coli K-12 MG1655 derivatives. Reciprocal
+    growth dependence does not resolve the release route or single-cell export flux, and supplemented cultures need
+    not remain obligately mutualistic.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Escherichia coli K-12 MG1655 ΔargA-ΔmetJ
+    term:
+      id: NCBITaxon:511145
+      label: Escherichia coli str. K-12 substr. MG1655
+  target_taxon:
+    preferred_term: Escherichia coli K-12 MG1655 ΔmetA-ΔargR
+    term:
+      id: NCBITaxon:511145
+      label: Escherichia coli str. K-12 substr. MG1655
+  metabolites:
+  - preferred_term: methionine
+    term:
+      id: CHEBI:16811
+      label: methionine
+  biological_processes:
+  - preferred_term: amino acid biosynthetic process
+    term:
+      id: GO:0008652
+      label: amino acid biosynthetic process
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ΔargA-ΔmetJ required arginine (Arg) to grow but overproduced methionine (Met)
+    explanation: Supports methionine overproduction by the ΔargA-ΔmetJ member and arginine auxotrophy in that same
+      member.
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cooperated by exchanging two essential AAs (Met and Arg)
+    explanation: Supports reciprocal amino-acid exchange in the engineered pair.
+- name: ΔmetA-ΔargR arginine cross-feeding
+  description: The delta-metA/delta-argR mutant supplies arginine supporting the arginine-requiring delta-argA/delta-metJ
+    partner under the tested amino-acid limitation. The same canonical taxon ID represents distinct engineered genotypes,
+    not one organism acting on itself. Supplementation can remove partner dependence; this is not universal obligate
+    exchange across media.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Escherichia coli K-12 MG1655 ΔmetA-ΔargR
+    term:
+      id: NCBITaxon:511145
+      label: Escherichia coli str. K-12 substr. MG1655
+  target_taxon:
+    preferred_term: Escherichia coli K-12 MG1655 ΔargA-ΔmetJ
+    term:
+      id: NCBITaxon:511145
+      label: Escherichia coli str. K-12 substr. MG1655
+  metabolites:
+  - preferred_term: arginine
+    term:
+      id: CHEBI:29016
+      label: arginine
+  biological_processes:
+  - preferred_term: amino acid biosynthetic process
+    term:
+      id: GO:0008652
+      label: amino acid biosynthetic process
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ΔmetA-ΔargR needed Met but overproduced Arg
+    explanation: Supports arginine overproduction by the ΔmetA-ΔargR member and methionine auxotrophy in that same
+      member.
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cooperated by exchanging two essential AAs (Met and Arg)
+    explanation: Supports reciprocal amino-acid exchange in the engineered pair.
+- name: Arg-Met obligate mutualism increases cell noise
+  description: 'In the tested nutrient-limited Arg/Met coculture, reciprocal exchange was associated with higher
+    single-cell fluorescent-reporter coefficient of variation than in supplemented monocultures. Mean amino-acid
+    matching controls supported a heterogeneity interpretation. Reporter amino-acid sensitivity and experimental
+    context matter: this is not a direct measurement of intrinsic transcriptional noise, a universal protein-noise
+    effect or evidence that noise causes community collapse. MUTUALISM denotes the restricted reciprocal-growth
+    model, not every supplementation condition.'
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Escherichia coli K-12 MG1655 ΔargA-ΔmetJ
+    term:
+      id: NCBITaxon:511145
+      label: Escherichia coli str. K-12 substr. MG1655
+  - preferred_term: Escherichia coli K-12 MG1655 ΔmetA-ΔargR
+    term:
+      id: NCBITaxon:511145
+      label: Escherichia coli str. K-12 substr. MG1655
+  metabolites:
+  - preferred_term: methionine
+    term:
+      id: CHEBI:16811
+      label: methionine
+  - preferred_term: arginine
+    term:
+      id: CHEBI:29016
+      label: arginine
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: forming an obligate mutualistic relationship through exchanging essential AAs with each other
+    explanation: Supports reciprocal obligation under the tested nutrient limitation; supplementation changes the
+      interaction.
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cross-feeding consistently increased cell noise of two populations
+    explanation: Supports the fluorescent-reporter CV endpoint in the tested Arg/Met system, not all reporters or
+      resolved intrinsic transcriptional noise.
+environmental_factors:
+- name: Arginine and methionine reciprocal auxotrophy
+  value: ΔargA-ΔmetJ requires Arg and overproduces Met; ΔmetA-ΔargR requires Met and overproduces Arg
+  description: The reciprocal amino-acid requirements and overproduction phenotypes make growth depend on extracellular Arg
+    and Met exchange.
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ΔargA-ΔmetJ required arginine (Arg) to grow but overproduced methionine (Met), while ΔmetA-ΔargR needed Met but
+      overproduced Arg
+    explanation: Supports the complementary Arg/Met requirements and overproduction phenotypes.
+- name: Strain-ratio heterogeneity
+  value: ΔargA-ΔmetJ:ΔmetA-ΔargR pre-culture ratios varied from 1:2/2:1 to 1:8/8:1
+  description: The study varied the initial ratio of the two strains to test whether uneven strain distribution creates metabolite
+    heterogeneity and changes cell noise.
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-cultured ΔargA-ΔmetJ and ΔmetA-ΔargR under three different levels of heterogeneity in strain distribution
+    explanation: Supports strain-ratio heterogeneity as a designed perturbation.
+- name: Spatial structure
+  value: shaken liquid, pre-mixed agar, and adjacent unmixed agar co-cultures
+  description: Liquid shaking cultures were compared with agar-plate communities where the two populations were either well
+    mixed or adjacent.
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-cultured in liquid cultures with shaking (low), in agar plates with two populations well pre-mixed (medium)
+      or placed adjacently without pre-mixing (high)
+    explanation: Supports liquid and agar spatial-heterogeneity treatments.
+growth_media:
+- name: LB or M9-glucose E. coli aerobic culture media
+  composition:
+  - name: glucose
+    from_source: community_curated
+  temperature: '37'
+  temperature_unit: °C
+  atmosphere: AEROBIC
+  shaking_speed: '200'
+  shaking_speed_unit: rpm
+  vessel_type: shaken liquid culture or agar plate
+  preparation_notes: The full article states that E. coli strains were grown aerobically in LB or M9-glucose at 37 C and 200
+    rpm, with antibiotics, IPTG, and amino acids added as required; the primary full text points to Supplementary data for
+    more detailed experiment-by-experiment recipes.
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. coli strains were cultured aerobically in LB (Luria-Bertani broth) or M9-glucose media (M9 media)
+    explanation: Supports the LB and M9-glucose media used for engineered E. coli culture.
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: at 37°C, 200 rpm
+    explanation: Supports the reported temperature and shaking speed for E. coli cultures.
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Antibiotics, IPTG (Isopropyl β-D-1-thiogalactopyranoside) and AAs were added as required
+    explanation: Supports experiment-specific antibiotic, IPTG, and amino-acid additions.
+cultivation_setup:
+- cultivation_mode: BATCH
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: The study compared shaken liquid cultures with agar-plate spatial arrangements but did not report active
+    pH or dissolved-oxygen control for the E. coli Arg/Met batch cocultures in the primary text.
+  notes: Flow-cytometry measurements were taken from paired auxotroph co-cultures, including Experiment 1 for mono-culture
+    versus co-culture noise and Experiments 3-6 for amino-acid, strain-ratio, and spatial-structure perturbations.
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we constructed co-cultures of paired auxotrophic mutants, and monitored single-cell fluorescence to determine
+      cell noise
+    explanation: Supports batch co-culture of paired auxotrophic mutants for noise measurement.
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: measured by flow cytometry
+    explanation: Supports flow cytometry as the single-cell fluorescence readout.
+related_ingredients:
+- preferred_term: arginine
+  chebi_term:
+    id: CHEBI:29016
+    label: arginine
+  relevance: Arginine is required by ΔargA-ΔmetJ and overproduced by ΔmetA-ΔargR in the reciprocal amino-acid cross-feeding
+    pair.
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ΔargA-ΔmetJ required arginine (Arg) to grow
+    explanation: Identifies arginine as the growth requirement of the ΔargA-ΔmetJ member.
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ΔmetA-ΔargR needed Met but overproduced Arg
+    explanation: Identifies arginine as the amino acid overproduced by the ΔmetA-ΔargR member.
+- preferred_term: methionine
+  chebi_term:
+    id: CHEBI:16811
+    label: methionine
+  relevance: Methionine is required by ΔmetA-ΔargR and overproduced by ΔargA-ΔmetJ in the reciprocal amino-acid cross-feeding
+    pair.
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: overproduced methionine (Met), while ΔmetA-ΔargR needed Met
+    explanation: Identifies methionine as the amino acid overproduced by ΔargA-ΔmetJ and required by ΔmetA-ΔargR.
+external_resources:
+- name: PubMed - E. coli K-12 Arg-Met cross-feeding coculture
+  repository: OTHER
+  resource_id: PMID:42592155
+  url: https://pubmed.ncbi.nlm.nih.gov/42592155/
+  description: PubMed record for the National Science Review article describing engineered E. coli amino-acid cross-feeding
+    and emergent phenotypic heterogeneity.
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'PMID: 42592155'
+    explanation: Lists the PubMed identifier for the primary article.
+- name: DOI - E. coli K-12 Arg-Met cross-feeding coculture
+  repository: OTHER
+  resource_id: doi:10.1093/nsr/nwag357
+  url: https://doi.org/10.1093/nsr/nwag357
+  description: DOI landing page for the primary National Science Review article on synthetic cross-feeding consortia.
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1093/nsr/nwag357'
+    explanation: Lists the DOI for the primary article.
+- name: PubMed Central - E. coli K-12 Arg-Met cross-feeding coculture
+  repository: OTHER
+  resource_id: PMCID:PMC13463769
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13463769/
+  description: Open full text for the primary article.
+  evidence:
+  - reference: PMID:42592155
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'PMCID: PMC13463769'
+    explanation: Lists the PubMed Central identifier for the open full text.
+discussions:
+- discussion_id: arg_met_supplementary_protocol_details
+  prompt: What exact M9-glucose recipe, antibiotic and IPTG concentrations, amino-acid omission/addition conditions,
+    inoculum density, and culture volumes were used for each Arg/Met co-culture experiment?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - growth_media#LB or M9-glucose E. coli aerobic culture media
+  - cultivation_setup
+  rationale: The primary full text supports LB or M9-glucose aerobic culture at 37 C and 200 rpm and says that detailed
+    information for Experiments 1-8 was presented in Supplementary data, so condition-specific recipes should be
+    resolved from the supplement before asserting exact amino-acid supplementation or inoculum sizes.
+  posed_by: codex
+  posed_date: '2026-09-27'
+- discussion_id: additional_pair_and_environmental_isolate_scope
+  prompt: Should the ΔargA-ΔtrpR/ΔtrpC-ΔargR pair and BL21-GFP environmental-isolate co-cultures be curated as separate
+    variant records?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The main text reports a second K-12 MG1655 auxotrophic pair and synthetic environmental communities,
+    but this record intentionally covers the primary ΔargA-ΔmetJ/ΔmetA-ΔargR arginine-methionine system rather than
+    grouping all variant co-cultures under one biological identity.
+  posed_by: codex
+  posed_date: '2026-09-27'
+- discussion_id: argmet_noise_mechanism_expansion
+  prompt: How do nutrient heterogeneity and reporter sensitivity mediate the Arg/Met fluorescence response?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#ΔargA-ΔmetJ methionine cross-feeding
+  - ecological_interactions#ΔmetA-ΔargR arginine cross-feeding
+  - ecological_interactions#Arg-Met obligate mutualism increases cell noise
+  rationale: 'Existing nodes are qualified, not an exhaustive mechanism graph. The primary main body supports assessing
+    additional structure for reporter sensitivity and manipulated nutrient, strain-ratio and spatial heterogeneity.
+    Mixed preincubations are not a direct spatial nutrient map, and modeled diffusion/uptake is not measured micro-scale
+    flux. Intrinsic/extrinsic noise remains unresolved. Keep distinct Arg-Trp and BL21/environmental-isolate experiments
+    outside this record. One-community Edison dry run is complete, but no provider job was submitted; expansion
+    remains needs_research under #1436 pending specific spend authorization. Preserve the existing supplement/protocol
+    and alternative-pair gaps.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: The primary article studies engineered E. coli amino-acid cross-feeding and fluorescence-noise heterogeneity,
+  not metal stress, biomining, metal transformation, or rare-earth-element cycling.
+curation_history:
+- timestamp: '2026-09-27T21:56:57Z'
+  curator: codex
+  action: CREATE_COMMUNITY_RECORD
+  changes: Created CommunityMech:000455 for the two-member E. coli K-12 MG1655 DeltaargA-DeltametJ plus DeltametA-DeltaargR
+    Arg/Met cross-feeding coculture from PMID:42592155, with exact-member taxonomy, reciprocal amino-acid cross-feeding
+    interactions, culture conditions, PubMed/DOI/PMCID resources, and supplement-scoped knowledge gaps.
+  llm_assisted: true
+- timestamp: '2026-10-06T08:49:09Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain genotype-specific methionine support under tested nutrient limitation.; Retain reverse arginine
+    support without collapsing same-species engineered strains.; Qualify the fluorescence CV endpoint and remove
+    interspecies GO grounding; mechanism expansion remains pending. Issue #1431; reports/causal_graph_review/decisions/20261006-three-records-batch37.yaml'
+  llm_assisted: true

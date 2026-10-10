@@ -328,8 +328,11 @@
             outline-offset: 2px;
         }
 
-        .facet-header h3 {
+        .facet-heading { margin: 0; }
+
+        .facet-title {
             font-size: 1rem;
+            font-weight: 700;
             margin: 0;
             color: var(--text);
         }
@@ -536,6 +539,7 @@
 }
 </style>
     <script src="d3.v7.min.js"></script>
+    {% include "_facet_sidebar.html" %}
 </head>
 <body>
     <div class="container">
@@ -543,6 +547,7 @@
             <h1>Community Embedding Space</h1>
             <p class="subtitle">2D projection of {{ num_communities }} microbial communities based on taxonomic composition</p>
             <a href="index.html" class="nav-link">← Back to Community Index</a>
+            <a href="https://culturebotai.github.io/mechs/" class="nav-link">All Mech projects</a>
         </header>
 
         <div class="controls">
@@ -574,6 +579,7 @@
                  order match what is on screen. -->
             <div class="filter-panel">
                 <!-- Enhanced search -->
+                <label for="search">Search communities</label>
                 <div class="search-container">
                     <input type="search" id="search"
                         placeholder="Search by name, category, or environment..."
@@ -595,10 +601,10 @@
 
                 <!-- Category facet -->
                 <div class="facet-section">
-                    <button class="facet-header" onclick="toggleFacet('category-facet')" aria-expanded="true" aria-controls="category-facet">
-                        <h3>Category</h3>
+                    <h2 class="facet-heading"><button class="facet-header" onclick="toggleFacet('category-facet')" aria-expanded="true" aria-controls="category-facet">
+                        <span class="facet-title">Category</span>
                         <span class="facet-toggle" aria-hidden="true">−</span>
-                    </button>
+                    </button></h2>
                     <div id="category-facet" class="facet-body">
                         <div class="facet-actions">
                             <button class="select-all" data-facet="category">All</button>
@@ -610,10 +616,10 @@
 
                 <!-- Ecological state facet -->
                 <div class="facet-section">
-                    <button class="facet-header" onclick="toggleFacet('state-facet')" aria-expanded="true" aria-controls="state-facet">
-                        <h3>Ecological State</h3>
+                    <h2 class="facet-heading"><button class="facet-header" onclick="toggleFacet('state-facet')" aria-expanded="true" aria-controls="state-facet">
+                        <span class="facet-title">Ecological State</span>
                         <span class="facet-toggle" aria-hidden="true">−</span>
-                    </button>
+                    </button></h2>
                     <div id="state-facet" class="facet-body">
                         <div id="state-checkboxes" class="facet-checkboxes"></div>
                     </div>
@@ -621,10 +627,10 @@
 
                 <!-- Origin facet -->
                 <div class="facet-section">
-                    <button class="facet-header" onclick="toggleFacet('origin-facet')" aria-expanded="true" aria-controls="origin-facet">
-                        <h3>Origin</h3>
+                    <h2 class="facet-heading"><button class="facet-header" onclick="toggleFacet('origin-facet')" aria-expanded="true" aria-controls="origin-facet">
+                        <span class="facet-title">Origin</span>
                         <span class="facet-toggle" aria-hidden="true">−</span>
-                    </button>
+                    </button></h2>
                     <div id="origin-facet" class="facet-body">
                         <div id="origin-checkboxes" class="facet-checkboxes"></div>
                     </div>
@@ -675,6 +681,38 @@
     <script>
         // Data from Jinja2 template
         const communityData = {{ community_data_json | safe }};
+        // Populate the accessible data-table fallback (dataviz #10) from the
+        // same data the plot renders.
+        (function buildDataTable() {
+            const tbody = document.getElementById('data-table-body');
+            if (!tbody) return;
+            const esc = s => String(s == null ? '' : s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const rows = communityData.slice().sort((a, b) => a.name.localeCompare(b.name));
+            tbody.innerHTML = rows.map(d =>
+                '<tr>' +
+                '<td><a href="' + esc(d.url) + '">' + esc(d.name) + '</a></td>' +
+                '<td>' + esc(d.id) + '</td>' +
+                '<td>' + esc(d.category) + '</td>' +
+                '<td>' + esc(d.ecological_state) + '</td>' +
+                '<td>' + esc(d.origin) + '</td>' +
+                '<td>' + esc(d.num_taxa) + '</td>' +
+                '<td>' + esc(d.num_interactions) + '</td>' +
+                '<td>' + (typeof d.coverage_pct === 'number'
+                    ? d.coverage_pct.toFixed(1) : esc(d.coverage_pct)) + '</td>' +
+                '</tr>'
+            ).join('');
+        })();
+
+
+        if (typeof d3 === 'undefined') {
+            const message = document.createElement('p');
+            message.setAttribute('role', 'status');
+            message.textContent = 'The plot could not be loaded. View the complete plotted dataset in the table below, or reload this page to retry.';
+            document.getElementById('umap-plot').before(message);
+            document.querySelector('.data-table-details').open = true;
+        } else {
+
 
         // Configuration
         const width = 1200;
@@ -1294,7 +1332,7 @@
         // Toggle facet collapse/expand
         function toggleFacet(facetId) {
             const facetBody = d3.select(`#${facetId}`);
-            const button = facetBody.node().previousElementSibling;
+            const button = facetBody.node().previousElementSibling.querySelector('button');
             const toggle = button.querySelector('.facet-toggle');
 
             if (facetBody.classed('collapsed')) {
@@ -1313,29 +1351,6 @@
 
         // Initial render
         updateVisualization();
-
-        // Populate the accessible data-table fallback (dataviz #10) from the
-        // same data the plot renders.
-        (function buildDataTable() {
-            const tbody = document.getElementById('data-table-body');
-            if (!tbody) return;
-            const esc = s => String(s == null ? '' : s)
-                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            const rows = communityData.slice().sort((a, b) => a.name.localeCompare(b.name));
-            tbody.innerHTML = rows.map(d =>
-                '<tr>' +
-                '<td><a href="' + esc(d.url) + '">' + esc(d.name) + '</a></td>' +
-                '<td>' + esc(d.id) + '</td>' +
-                '<td>' + esc(d.category) + '</td>' +
-                '<td>' + esc(d.ecological_state) + '</td>' +
-                '<td>' + esc(d.origin) + '</td>' +
-                '<td>' + esc(d.num_taxa) + '</td>' +
-                '<td>' + esc(d.num_interactions) + '</td>' +
-                '<td>' + (typeof d.coverage_pct === 'number'
-                    ? d.coverage_pct.toFixed(1) : esc(d.coverage_pct)) + '</td>' +
-                '</tr>'
-            ).join('');
-        })();
 
         // Add axes
         const xAxis = d3.axisBottom(xScale).ticks(5);
@@ -1361,6 +1376,7 @@
             .attr('fill', 'currentColor')
             .attr('text-anchor', 'middle')
             .text('{{ projection_label | default("PaCMAP", true) }} Dimension 2');
+        }
     </script>
     <script src="theme-toggle.js"></script>
 </body>

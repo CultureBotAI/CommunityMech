@@ -107,10 +107,10 @@ taxonomy:
     explanation: Supports the dechlorinating function of the enrichment members.
 ecological_interactions:
 - name: Acetylenotrophy Provides Reductant for Dechlorination
-  description: An Actinobacteria acetylenotroph oxidizes C2H2 to provide
-    reductant and organic carbon that support reductive dechlorination of TCE
-    and PCE by the community.
-  interaction_type: SYNTROPHY
+  description: PARTIAL - acetylene fermentation supplied hydrogen supporting community dechlorination. Hydrogen measurements
+    and mass balances support interspecies transfer at enrichment level; attribution of acetylene metabolism to the Actinobacteria/Coriobacteriales
+    population is metagenomic, not confirmed by isolate biochemistry.
+  interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: novel anaerobic acetylenotroph (Actinobacteria)
@@ -142,22 +142,24 @@ ecological_interactions:
       label: anaerobic respiration
   evidence:
   - reference: PMID:33531396
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: the coupling of acetylenotrophy and reductive dechlorination can occur in the environment with native bacteria
+    explanation: Supports community coupling, not product-removal thermodynamics or isolate-resolved attribution.
+  - reference: PMID:33531396
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the coupling of acetylenotrophy and reductive dechlorination can
-      occur in the environment with native bacteria
-    explanation: Supports the curated syntrophic coupling.
+    snippet: interspecies hydrogen transfer occurred in the enrichment
+    explanation: Hydrogen concentrations and mass balances support community-level transfer; the producer assignment remains
+      genomic.
   downstream:
   - target: Reductive Dechlorination of TCE and PCE
-    description: Acetylenotrophy supplies the reductant that supports
-      TCE and PCE reduction in the native groundwater enrichment.
+    description: Acetylene fermentation supplies hydrogen that supports TCE/PCE reduction in the enrichment. The community-level
+      hydrogen balance supports this link without proving an exact isolated donor-recipient pair.
 - name: Reductive Dechlorination of TCE and PCE
-  description: >
-    Reductive dechlorinating community members use acetylenotrophy-derived
-    reductant to reduce trichloroethene and perchloroethene in the stable
-    groundwater enrichment.
+  description: The groundwater enrichment reductively dechlorinated TCE and PCE primarily to vinyl chloride using acetylene-derived
+    reductant. This is not a claim of complete conversion to ethene, nor of product-removal-enabled thermodynamic cooperation.
   scope: COMMUNITY_LEVEL
-  interaction_type: SYNTROPHY
   metabolites:
   - preferred_term: trichloroethene
     term:
@@ -176,15 +178,16 @@ ecological_interactions:
   - reference: PMID:33531396
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: TCE and perchloroethene (PCE) reductive dechlorination by a
-      microbial community enriched from contaminated groundwater
-    explanation: Supports reductive dechlorination of TCE and PCE by the
-      groundwater-derived enrichment community.
+    snippet: TCE and perchloroethene (PCE) reductive dechlorination by a microbial community enriched from contaminated groundwater
+    explanation: Supports reductive dechlorination of TCE and PCE by the groundwater-derived enrichment community.
+  - reference: PMID:33531396
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: dechlorinate PCE and TCE to VC using acetylene
+    explanation: Specifies the predominant vinyl-chloride endpoint rather than complete detoxification.
 - name: Acetylene as Sole Electron Donor and Carbon Source
-  description: C2H2 alone supports the stable enrichment as the sole electron
-    donor and organic carbon source.
+  description: C2H2 alone supports the stable enrichment as the sole electron donor and organic carbon source.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   participating_taxa:
   - preferred_term: novel anaerobic acetylenotroph (Actinobacteria)
     term:
@@ -197,15 +200,13 @@ ecological_interactions:
       label: acetylene
   downstream:
   - target: Acetylenotrophy Provides Reductant for Dechlorination
-    description: Acetylene-fed growth of the stable enrichment supplies the
-      acetylenotrophic metabolism that couples to TCE and PCE reductive
-      dechlorination in the groundwater-derived community.
+    description: Acetylene-fed growth of the stable enrichment supplies the acetylenotrophic metabolism that couples to TCE
+      and PCE reductive dechlorination in the groundwater-derived community.
   evidence:
   - reference: PMID:33531396
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: amended with C2H2 as the sole electron donor and organic carbon
-      source
+    snippet: amended with C2H2 as the sole electron donor and organic carbon source
     explanation: Supports C2H2 as the sole substrate.
 cultivation_setup:
 - cultivation_mode: BATCH
@@ -340,3 +341,21 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   acetylene/TCE enrichment.
+discussions:
+- discussion_id: acetylene_producer_validation
+  prompt: Which organism and enzyme supply hydrogen from acetylene in this enrichment?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Acetylenotrophy Provides Reductant for Dechlorination
+  - ecological_interactions#Acetylene as Sole Electron Donor and Carbon Source
+  rationale: PMID:33531396 supports community hydrogen transfer and dechlorination. The putative Coriobacteriales acetylene
+    hydratases were assigned from metagenomic homology; the authors call for organism isolation and biochemical validation.
+    Neither the sole-donor amendment nor low hydrogen concentrations establish niche partitioning or product-removal thermodynamics.
+curation_history:
+- timestamp: '2026-10-05T05:52:00Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate measured acetylene-supported transfer from genomic producer inference; complete node/edge decisions under
+    reports/causal_graph_review; issue #1236.'
+  llm_assisted: true

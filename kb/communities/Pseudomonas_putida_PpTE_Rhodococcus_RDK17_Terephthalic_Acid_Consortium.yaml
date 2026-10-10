@@ -90,9 +90,10 @@ taxonomy:
     explanation: Identifies Rhodococcus sp. strain RDK17 as the native member of the coculture.
 ecological_interactions:
 - name: Exploitative competition for terephthalic acid
-  description: Both strains utilize TPA at comparable rates in monoculture, but they compete for TPA
-    as the shared sole carbon and energy source in coculture; Pp-TE consistently outcompetes RDK17,
-    partly through relative growth kinetics.
+  description: 'Both members use the shared substrate, and the source reports that abolishing its metabolism in
+    Pp-TE removes dominance. This supports a metabolic contribution to competition; dominance alone does not identify
+    that mechanism. PARTIAL: the abstract does not separately quantify resource competition and contact-inhibition
+    contributions.'
   interaction_type: COMPETITION
   scope: PAIRWISE
   source_taxon:
@@ -112,19 +113,25 @@ ecological_interactions:
       label: terephthalic acid
   downstream:
   - target: Pp-TE Dominance During TPA Coculture
-    description: >
-      Competition for terephthalic acid contributes to Pp-TE dominance in the
-      two-member TPA coculture fermentations.
+    description: 'The source-reported metabolic perturbation supports a contribution of substrate use to dominance,
+      alongside contact inhibition. PARTIAL: their separate effect sizes are not resolved by the accessible abstract.'
   evidence:
   - reference: PMID:42324694
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Pp-TE consistently outcompeted RDK17 in batch and multitransfer coculture fermentations,
-      even when RDK17 was inoculated at a significantly higher initial abundance
-    explanation: Exploitative competition for the shared TPA carbon source drives Pp-TE dominance.
+    snippet: Pp-TE consistently outcompeted RDK17 in batch and multitransfer coculture fermentations, even when
+      RDK17 was inoculated at a significantly higher initial abundance
+    explanation: Supports the observed competitive outcome, not by itself the mechanism of resource competition.
+  - reference: PMID:42324694
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: when TPA metabolism was abolished in Pp-TE, it lost its dominance to RDK17
+    explanation: Supports the source-reported metabolic perturbation and its population outcome, without inventing
+      an exact genetic intervention or separating every competitive contribution.
 - name: Interference competition via type VI secretion system
-  description: Pp-TE inhibits RDK17 through contact-dependent inhibition mediated by its type VI
-    secretion system, which impairs RDK17 growth and reinforces Pp-TE dominance in coculture.
+  description: The authors report assays attributing the main competitive advantage to type-VI-secretion-associated
+    contact inhibition, with a partial contribution from relative growth kinetics. Preserve this experimental attribution;
+    the accessible abstract does not expose the full controls or separate effect sizes.
   interaction_type: COMPETITION
   scope: PAIRWISE
   source_taxon:
@@ -144,22 +151,20 @@ ecological_interactions:
       label: protein secretion by the type VI secretion system
   downstream:
   - target: Pp-TE Dominance During TPA Coculture
-    description: >
-      Contact-dependent growth inhibition reinforces Pp-TE dominance over RDK17
-      in TPA-fed cocultures.
+    description: The source reports that contact-dependent impairment of the partner is the main contributor to
+      dominance, alongside metabolic capability and relative kinetics. This preserves the reported causal attribution
+      without independently certifying unreviewed methods.
   evidence:
   - reference: PMID:42324694
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the dominance of Pp-TE was primarily conferred by its type VI secretion system, which
-      impaired the growth of RDK17 via contact-dependent inhibition
-    explanation: Contact-dependent inhibition through the Pp-TE T6SS is interference competition
-      against RDK17.
+    snippet: the dominance of Pp-TE was primarily conferred by its type VI secretion system, which impaired the
+      growth of RDK17 via contact-dependent inhibition
+    explanation: Contact-dependent inhibition through the Pp-TE T6SS is interference competition against RDK17.
 - name: Pp-TE Dominance During TPA Coculture
-  description: >
-    P. putida Pp-TE consistently dominates Rhodococcus sp. RDK17 in batch and
-    serial-transfer cocultures supplied with terephthalic acid as the sole
-    carbon and energy source.
+  description: Pp-TE consistently outcompetes RDK17 in the reported batch and serial-transfer cocultures. This is
+    the measured population outcome; its mechanistic attribution is represented by the two upstream nodes, not inferred
+    from dominance alone.
   interaction_type: COMPETITION
   scope: PAIRWISE
   source_taxon:
@@ -207,3 +212,38 @@ growth_media:
       fermentations
     explanation: Cultivation was by batch and multitransfer (serial-transfer) coculture
       fermentation.
+discussions:
+- discussion_id: tpa-outcome-versus-competitive-contributions
+  prompt: How are the two competitive contributions distinguished from the dominance observation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  rationale: All three competition nodes and both existing directions remain. The primary abstract reports contact
+    inhibition, relative kinetics and a metabolism-loss comparison; those positive findings are retained. Full methods
+    and quantitative decomposition were unavailable, which does not imply absent controls. No new resistance-selection
+    details, genetic designs or experimental protocols were added.
+  attaches_to:
+  - ecological_interactions#Exploitative competition for terephthalic acid
+  - ecological_interactions#Interference competition via type VI secretion system
+  - ecological_interactions#Pp-TE Dominance During TPA Coculture
+  evidence:
+  - reference: PMID:42324694
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pp-TE consistently outcompeted RDK17 in batch and multitransfer coculture fermentations, even when
+      RDK17 was inoculated at a significantly higher initial abundance
+    explanation: Supports the observed competitive outcome, not by itself the mechanism of resource competition.
+  - reference: PMID:42324694
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the dominance of Pp-TE was primarily conferred by its type VI secretion system, which impaired the
+      growth of RDK17 via contact-dependent inhibition
+    explanation: Contact-dependent inhibition through the Pp-TE T6SS is interference competition against RDK17.
+curation_history:
+- timestamp: '2026-10-07T12:54:50Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Add reported metabolic-perturbation evidence rather than treating dominance alone as mechanism.; Preserve
+    reported contact inhibition and relative-kinetics attribution with source-access limits.; Preserve the measured
+    dominance outcome separately from its explanatory mechanisms. Issue #1739; reports/causal_graph_review/decisions/20261007-four-records-batch90.yaml'
+  llm_assisted: true

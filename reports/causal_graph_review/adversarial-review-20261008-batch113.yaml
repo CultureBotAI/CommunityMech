@@ -1,0 +1,337 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 7a920570e99167cd0e97083f1dbc32cc20c317b9
+scope:
+- kb/communities/Thalassiosira_Marinobacter_Marine_Snow_Coculture.yaml
+- kb/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml
+- kb/communities/Trichodesmium_Alteromonas_Marine_Consortium.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-three-records-batch113.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch113.json
+findings:
+- issue: 1880
+  severity: P2
+  finding: Bound HP15 marine-snow graph to assay-specific aggregation and TEP evidence
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1881
+  severity: P2
+  finding: Separate Ruegeria transcript responses from colonization and reverse cross-feeding
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1882
+  severity: P2
+  finding: Bound Trichodesmium helper hypotheses and remove cross-study causal arrows
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1883
+  severity: P2
+  finding: Complete the missing Ruegeria B12 growth-support graph after Edison authentication
+  status: open_research_extension
+  disposition: Remain open until separately verified.
+- issue: 1884
+  severity: P2
+  finding: Reconcile HP15 non-graph photosynthesis, pCO2 and chitin claims with source limits
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1885
+  severity: P2
+  finding: Keep Ruegeria assay media and metabolite evidence grades distinct outside the graph
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1886
+  severity: P2
+  finding: Separate IMS101 enrichment, epibiont isolation and field-community metadata
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+adversarial_checks:
+- 'Every original node and direction has a disposition: ten nodes retained, six renamed, two existing directions
+  qualified and four unsupported arrows removed. No new topology. Renamed targets and discussion anchors resolve
+  exactly.'
+- 'Overcorrection check: preserve positive 2011 aggregation, mutant attachment impairment, diatom-supported Ruegeria
+  growth, the 2017 B12-limited growth rescue and conserved Trichodesmium association. Qualification does not erase
+  observed benefits.'
+- 'HP15: later null bacterial effects on total TEP, aggregate volume and the size-sinking relation constrain universal
+  claims. Aggregate-free-water TEP and total TEP are different endpoints. Inactivation did not produce uniformly
+  zero aggregation and may change surface chemistry. The caption documents chitin fibres, not all TEP chemistry
+  or feeding. The two retained arrows remain conditional or hypothetical; ocean export is an extrapolation.'
+- 'Ruegeria: recognition is inferred from gene homology and transcription, not a colonization benefit. Chitin/lipid
+  transcription is not reverse feeding. Neither removed arrow demonstrates mediation. Structured 2020 Table 1 cells
+  distinguish DMSP/GlcNAc expression from proline/guanosine net drawdown; neither is a traced compound-specific
+  flux. Separate pair cultures are not a mixed consortium.'
+- 'B12 check: the 2017 growth rescue must not be erased by later L1 assay results or substituted for the chitin
+  node. Missing topology remains #1883 and needs_research. One authorized real invocation stopped at authentication
+  before submission. No report, task or spend is claimed; previously denied scopes were not retried.'
+- 'Trichodesmium: association is not commensal neutrality and genomic complementarity is not mutualistic fitness.
+  The 2017 mechanism figure is a model; siderophore and DMSP measurements do not prove full interpartner fluxes.
+  Proposed B12 provision runs host-to-epibiont, with facultative use in the 2017 genome. Preserve #297 ROS compound/process
+  distinctions and proposed iron chemistry without treating Fe(II) as generic iron. Remove the two unsupported explanatory
+  arrows.'
+- 'Field identity: the 2018 host was not demonstrated to be IMS101, and Alteromonas genus transcripts are not automatically
+  A. macleodii. The field node credits only the canonical microbiome guild. Laboratory association retains the canonical
+  pair. Non-graph identity and medium issues remain #1886 and #765; restricted publication bodies are not restored.'
+- 'Source scope: three fresh extracted main bodies, three complete primary PDF text extractions and selected figure
+  images were reviewed. Diel main text came from existing curator text; chemotaxis is abstract-bounded and MEPS
+  remains caption-only after HTTP 401. Of 24 quotations, 23 match fresh primary text and one matches the existing
+  caption. No new publication bodies or caches. Supplements, raw data and other figure pixels were not reviewed.'
+- Three guarded records and append-only histories preserve 457 other records, 923 caches, all non-graph blocks and
+  prior history/decision artifacts. Two explicit participant-list users are added to the exact test expectation.
+  Census remains 412 community-level, 136 mixed, 276 community-only, 1563 taxa and 1273 solely credited. Connectivity
+  logic and share guards are unchanged.
+- Five real in-memory control/mutation/restored-control probes reject TEP feeding, proven attachment mediation,
+  reverse transcript feeding, genomic SUPPORT inflation and exact IMS101 field attribution. Actual mutations and
+  rejecting assertions are recorded. Canonical hashes are unchanged; probes are not counted as additional pytest
+  tests.
+- Ten focused tests and 1024 combined regressions pass. All three edited records pass schema, strict, terms, full-record
+  references, snippets and history checks. The 56 network warnings are unchanged, with zero structural defects.
+  Deterministic rendering and exact HTML descriptions cover 456 pages, 1366 nodes and 531 arrows, not UI screenshots.
+  Full-corpus snippets remain informational. Local reference passes are not Linux certification.
+- 'Repairs #1880-#1882 await protected-main merge; research #1883 and metadata #1884-#1886 remain open. Self-review
+  is not independent approval. Exact-head publication and postcommit docs-current are separate gates. Root CI blocker
+  #1836 is not bypassed and dependent branches are not deleted.'
+- 'Corpus: 364 reviewed, 42 pending and 54 needs_research across 460 records. The overall goal remains incomplete.'
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: TEP restored as directed feeding
+      test: test_tep_is_not_directed_feeding_or_a_universal_aggregation_driver
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 32
+      assertion: assert tep["scope"] == "COMMUNITY_LEVEL" and "interaction_type" not in tep
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/1/interaction_type
+        before: null
+        after: CROSS_FEEDING
+    - mutation: Attachment promoted to demonstrated aggregation mediation
+      test: test_attachment_perturbation_does_not_demonstrate_aggregation_mediation
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 49
+      assertion: assert attachment["downstream"][0]["description"].startswith("HYPOTHESIZED:")
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/2/downstream/0/description
+        before: 'HYPOTHESIZED: chemotaxis-dependent attachment may enable the close association underlying the earlier
+          HP15 aggregation phenotype. The reviewed chemotaxis abstract demonstrates reduced attachment, not selective
+          mediation of the aggregation endpoint; aggregation effects cannot be assumed in every environmental treatment.'
+        after: Attachment demonstrably causes aggregation in every condition.
+    - mutation: Transcript response restored as reverse cross-feeding
+      test: test_ruegeria_recognition_and_chitin_response_are_not_exchange_or_mediation
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 65
+      assertion: assert "interaction_type" not in recognition and "interaction_type" not in response
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/2/interaction_type
+        before: null
+        after: CROSS_FEEDING
+    - mutation: Candidate genomic helper mechanisms promoted to proven support
+      test: test_trichodesmium_helpers_remain_hypotheses_with_host_to_epibiont_b12
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 97
+      assertion: assert all(e["supports"] == "PARTIAL" for e in helper["evidence"])
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/1/evidence/0/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Exact laboratory strain added to the field-expression participants
+      test: test_field_expression_does_not_credit_the_exact_laboratory_strain
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 106
+      assertion: assert [p["preferred_term"] for p in diel["participating_taxa"]] == [
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/2/participating_taxa
+        before:
+        - preferred_term: Trichodesmium-associated heterotrophic microbiome
+          term:
+            id: NCBITaxon:2
+            label: Bacteria
+        after:
+        - preferred_term: Trichodesmium-associated heterotrophic microbiome
+          term:
+            id: NCBITaxon:2
+            label: Bacteria
+        - preferred_term: Trichodesmium erythraeum IMS101
+          term:
+            id: NCBITaxon:203124
+            label: Trichodesmium erythraeum IMS101
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/Thalassiosira_Marinobacter_Marine_Snow_Coculture.yaml: 8b79efb0b04a43548b3c73ac280ac987b83c4e97f2531b55da5c940f29485eae
+      kb/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml: f1e51614a8c4a7856a2669afe12574d1c982f12dcebf9f53f49c65d470f747d6
+      kb/communities/Trichodesmium_Alteromonas_Marine_Consortium.yaml: 0d2e03b468366edc434574c18f28c80e5f3ce5ebf4a69d31169fa647f6edcdd0
+      tests/test_causal_review_batch113.py: 84a0d66a0b217512ecca6a4988cd20009a0924f90a68eadce3da56c0aa7868d0
+    probe_script_sha256: 975019454558d57378233c5069eff106cfd4ce15499def3fe2aec65a7d5a0cec
+    scope: In-memory control/mutation/restored-control; no canonical writes and not additional pytest tests.
+  artifact: /private/tmp/communitymech-batch113/adversarial-regression-proof.json
+  sha256: 8a500d7db1c016637ddfd9bf517d6d60537735f8dc5c648c5d1a9222f752b8d8
+verification:
+  combined_regressions: 1024 passed in 306.57s (0:05:06)
+  new_regression_tests: 10
+  total_recorded_gate_outputs: 34
+  primary_graph_snippet_proof:
+    graph_quotations: 21
+    discussion_quotations: 3
+    fresh_primary_literal_matches: 23
+    existing_caption_only: 1
+    all_cached_literal_matches: 24
+    retained_nodes: 10
+    removed_nodes: 0
+    renamed_nodes: 6
+    retained_arrows: 2
+    removed_arrows: 4
+    new_nodes_or_directions: 0
+  references: Full-record local passes are macOS, not Linux certification. Literal matching does not establish entailment.
+    Total checks in the reference CLI counts issues, not examined snippets.
+  snippet_counts_by_record:
+    kb/communities/Thalassiosira_Marinobacter_Marine_Snow_Coculture.yaml:
+      MATCH: 24
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml:
+      MATCH: 24
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Trichodesmium_Alteromonas_Marine_Consortium.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 9017
+      categories:
+        MATCH: 8872
+        RENDERING: 28
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 40
+        NOCONTENT: 76
+    caveat: Informational audit exit0 is not clean-corpus or entailment certification.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    structural_defects: 0
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-three-records-batch113.yaml: 37a32697693f1a6298e472ddb74f6b9688b9d08b2902f4830c975c9f4f9b0f39
+    tests/test_causal_review_batch113.py: 84a0d66a0b217512ecca6a4988cd20009a0924f90a68eadce3da56c0aa7868d0
+    tests/test_participating_taxa.py: a7daf71d4b29c7849293647ab82e6dbf828a42c88b26130eb0e39e9ffd3ee6ca
+    reports/causal_graph_review/cache-provenance-20261008-batch113.json: 6287cbceda5407c04d63c12b9739b6041e3824a6de5013ddde13f614796bfc09
+    kb/communities/Thalassiosira_Marinobacter_Marine_Snow_Coculture.yaml: 8b79efb0b04a43548b3c73ac280ac987b83c4e97f2531b55da5c940f29485eae
+    kb/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml: f1e51614a8c4a7856a2669afe12574d1c982f12dcebf9f53f49c65d470f747d6
+    kb/communities/Trichodesmium_Alteromonas_Marine_Consortium.yaml: 0d2e03b468366edc434574c18f28c80e5f3ce5ebf4a69d31169fa647f6edcdd0
+  history_sha256:
+    history/records/Thalassiosira_Marinobacter_Marine_Snow_Coculture/2026-10-08T083138Z-codex-825172.yaml: 96367c9ae4fb2b219fbfac915bea44ac4d74db35d15cb9ae5b0917ff72d5ccad
+    history/records/Thalassiosira_Ruegeria_Phycosphere_Coculture/2026-10-08T083139Z-codex-dd87e7.yaml: b2db268516d72edbf9bbba6d801a1ff52239842f2c153a824dbcbfdfd00ec9f5
+    history/records/Trichodesmium_Alteromonas_Marine_Consortium/2026-10-08T083139Z-codex-a37037.yaml: ef36a5df8e56897ef7b0d50f5dac1d6c9384ad7ecec866f7ccf662bdb7934d51
+  unchanged_records: 457
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 858
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: true
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs:
+    - target: CommunityMech:000162
+      artifact: /private/tmp/communitymech-batch113/edison-dry-run/Thalassiosira_Ruegeria_Phycosphere_Coculture-edison-literature-causal-meta.yaml
+      sha256: 4e371d688d522e5288bf5f0ed47abf41785e62199d53466e58d450627fdd90b1
+      query_sha256: 1b2797a8920505adf873e50a02f8827e5aa23ac5e5aa8387603ef7310bb42e67
+    authorized_invocations: 1
+    invocation_exit_code: 1
+    blocked_stage: load_api_key before client creation
+    task_id: null
+    blocker: Configured Edison key unavailable; no other credential locations inspected.
+    issue: 1883
+    repair_scope: Existing-node evidence/scope corrections and removal of four unsupported arrows; no added nodes
+      or directions.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  current:
+    records: 460
+    with_community_level: 412
+    mixed: 136
+    community_level_only: 276
+    taxa: 1563
+    credited_solely_by_the_rule: 1273
+  delta_from_batch112:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  explanation: Two new explicit participant-list users; overall connectivity census unchanged. No connectivity rule
+    or share-guard changes.
+corpus:
+  records: 460
+  nodes: 1380
+  edges: 539
+  review_status_counts:
+    needs_research: 54
+    pending: 42
+    reviewed: 364
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary established Python3.13 lint environment; project dependencies unchanged.
+limitations:
+- Fresh pre-source baseline across both roots:460 records,923 caches,56 warnings,zero structural defects. All10
+  existing nodes/6directions reviewed;10nodes/2directions retained,4unsupported arrows removed. No new topology.
+- Three whole canonical records and existing snippet evidence read. Fresh primary metadata/abstracts and Crossref
+  identities for nine sources; MEPS has no retrieved abstract. Full fresh extracted main bodies:2014future-ocean1-167,HP15genome1-89,2020partitioning1-163.
+  Table1 of the 2020 paper also parsed as structured XML to confirm the Ruegeria column.
+- Full PDF extracted text read:2011aggregation pages1-10 from existing user PDF,2017recognition pages1-14 from WHOI,2017Trichodesmium
+  pages1-12 from author research site. Visual review:aggregation pages5/6/8(Figs1/2/3/5),recognition pages2/3/8(Figs1/2/4),Trichodesmium
+  pages7/9(text and Fig3). Other figure pixels, separate supplements and raw data not reviewed.
+- 2018diel existing curator TXT read lines1-810, including abstract,complete main body and beginning references;
+  reference-list tail not read. Fresh primary abstract independently retrieved. FullTextXML attempts failed for
+  aggregation,chemotaxis,Trichodesmium2017 and diel2018. Chemotaxis graph is abstract-bounded; MEPS public PDF returned401
+  twice, no bypass or full-paper claim. Existing caption retained PARTIAL and not treated as proof of all TEP chemistry.
+- No PDFs or publication bodies added to the repository;923 existing caches untouched. Graph/discussion quote matches
+  are independently checked against fresh primary texts except one existing MEPS caption-only quote. Cache matching
+  is not entailment or Linux reference-loader certification. Some long cache bodies were not read in full; the independent
+  primary bodies and existing target snippets were reviewed.
+- HP15 preserves positive2011and null2014assay effects; no universal attachment/TEP/aggregation/sinking chain, no
+  measured ocean sequestration. Inactivation has possible surface/exudate confounding. Mutant attachment and abiotic
+  biofilm phenotypes are not selective aggregation mediation.
+- Ruegeria preserves supported organic-carbon feeding and transcript responses. DMSP/GlcNAc expression and proline/guanosine
+  net drawdown have distinct evidence grades; net depletion is not a traced transfer flux.2017B12-limited growth
+  rescue is distinct from laterL1assay. Missing reciprocal B12topology remains needs_research in1883.
+- Trichodesmium association,genomic complementation and field coexpression are distinct evidence levels. Preserve
+  potential helper mechanisms andROScompound/process#297; vitamin provision is proposed host-to-epibiont and2017facultativeuse
+  must not become obligatory dependence. Field node does not assert exactIMS101orA.macleodii membership; only canonical
+  microbiome guild is credited there. Non-graph identity issues remain1886.
+- Issue-title/body dedup covered all1124existing issues initially and a fresh pre-creation sweep; nine matching
+  issue bodies read. Ignored/hidden-inclusive local path index covers128files,excluding.git/docs/site/references_cache/.env,not
+  all historical file bodies. Historical PR comments were not exhaustively searched.
+- Edison one-community dry run completed. Scope-specific credit-spending invocation authorized by execution approval,
+  then stopped in load_api_key before client creation:configured key unavailable. No task submitted,report received
+  or provider credit spent. User asked to configure key securely. Previous denied and unanswered scopes not retried.
+  No absence claim about credentials elsewhere.
+- Non-graph blocks,457otherrecords,923caches and prior histories preserved. No runtime/schema/validator changes.
+  Required validation and measured census are recorded separately; self-review is not independent approval. Issues
+  remain open until protected-main merge or separately verified followup. RootCI blocker1836 forbids invented CI
+  or premature merge/branch cleanup.

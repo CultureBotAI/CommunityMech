@@ -114,10 +114,13 @@ taxonomy:
     explanation: Supports the anode-associated role of Geobacter in the particulate-cellulose MFC.
 ecological_interactions:
 - name: Cellulose Fermentation Feeding Electrode Respiration
-  description: C. cellulolyticum metabolizes cellulose and produces fermentation products that enable
-    G. sulfurreducens to respire on the anode, linking insoluble cellulosic biomass to electricity
-    generation.
-  interaction_type: SYNTROPHY
+  description: C. cellulolyticum fermentation supplies products that support G. sulfurreducens anode respiration
+    in the defined cellulose-fed MFC. Binary current production and the negative pure-culture controls support functional
+    complementarity. The primary abstract calls this syntrophy, but does not demonstrate obligate growth dependence
+    or isolate product removal as the mechanism favoring the fermenter. Hydrogen, acetate and ethanol were reported
+    as residual metabolites; that list does not establish uptake of every compound, especially ethanol, by Geobacter
+    or quantify partner-specific transfer.
+  interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium cellulolyticum
@@ -138,14 +141,20 @@ ecological_interactions:
     term:
       id: CHEBI:30089
       label: acetate
+    notes: Reported residual metabolite; inclusion does not assert direct measurement of Geobacter uptake or transfer
+      flux.
   - preferred_term: dihydrogen
     term:
       id: CHEBI:18276
       label: dihydrogen
+    notes: Reported residual metabolite; inclusion does not assert direct measurement of Geobacter uptake or transfer
+      flux.
   - preferred_term: ethanol
     term:
       id: CHEBI:16236
       label: ethanol
+    notes: Reported residual metabolite; inclusion does not assert direct measurement of Geobacter uptake or transfer
+      flux.
   biological_processes:
   - preferred_term: cellulose catabolic process
     term:
@@ -157,27 +166,29 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Defined Binary Electricity Production
-    description: >
-      Fermentation products from C. cellulolyticum provide the carbon and
-      electron flow that allows the binary coculture to respire on the anode
-      and produce current from cellulose.
+    description: Fermentative conversion of cellulose supplies electron-donor products for G. sulfurreducens anode
+      respiration, enabling current from substrates on which neither pure culture produced electricity. The conversion
+      is supported by the binary-versus-pure-culture comparison; the accessible abstract does not resolve each metabolite
+      contribution or transfer rate.
   evidence:
   - reference: PMID:17695929
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: requires a syntrophic microbial community
-    explanation: Supports the syntrophic interpretation for cellulose-to-anode conversion.
+    explanation: The authors use syntrophy for the conversion model, but the repository type additionally asserts
+      a metabolic benefit from product removal. The accessible abstract does not isolate that mechanism; CROSS_FEEDING
+      preserves the supported supply model without that extra assertion.
   - reference: PMID:17695929
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: Hydrogen, acetate, and ethanol were the main residual metabolites
-    explanation: Supports the fermentation product context linking cellulose metabolism to Geobacter
-      electrode respiration.
+    explanation: This is a residual-pool observation, not a partner-resolved uptake experiment. It does not establish
+      that Geobacter consumes all three listed products.
 - name: Defined Binary Electricity Production
-  description: Neither pure culture alone produced electricity from the cellulose substrates, while the
-    binary coculture generated current and improved CMC degradation, demonstrating division of labor
-    between cellulose hydrolysis and extracellular electron transfer.
-  interaction_type: MUTUALISM
+  description: The binary coculture produced current from CMC and MN301 cellulose, whereas neither pure culture
+    did so. CMC degradation increased from 42% in C. cellulolyticum monoculture to 64% in coculture. These measured
+    conversion and substrate-degradation outcomes support division of labor, but do not by themselves establish
+    reciprocal fitness benefits or a unique metabolite-removal mechanism.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium cellulolyticum
@@ -213,13 +224,12 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: increased CMC degradation from 42% to 64%
-    explanation: Supports improved cellulose derivative degradation in coculture relative to C. cellulolyticum
-      alone.
-- name: Substrate-Dependent Spatial Partitioning
-  description: During growth on particulate MN301 cellulose, C. cellulolyticum is enriched on suspended
-    cellulose particles while G. sulfurreducens is enriched on the electrode biofilm, partitioning the
-    cellulose-hydrolysis and anode-respiration niches within the reactor.
-  interaction_type: NICHE_PARTITIONING
+    explanation: Supports improved cellulose derivative degradation in coculture relative to C. cellulolyticum alone.
+- name: Observed Substrate-Dependent Spatial Distribution
+  description: FISH and qPCR showed that most C. cellulolyticum cells were associated with suspended MN301 cellulose
+    particles and most G. sulfurreducens cells with the electrode. With soluble CMC, both organisms occurred in
+    suspension and biofilm samples. This is substrate-dependent spatial distribution, not a demonstrated requirement
+    that physical separation causes or improves electricity generation, nor an isolated resource-partitioning mechanism.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium cellulolyticum
@@ -236,12 +246,6 @@ ecological_interactions:
     term:
       id: CHEBI:18246
       label: (1->4)-beta-D-glucan
-  downstream:
-  - target: Defined Binary Electricity Production
-    description: >
-      Particulate cellulose separates cellulolytic activity on suspended
-      particles from Geobacter-rich anode respiration, preserving the
-      cellulose-to-electricity division of labor.
   evidence:
   - reference: PMID:18725730
     supports: SUPPORT
@@ -258,6 +262,12 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: most Geobacter cells were attached to the electrode
     explanation: Supports G. sulfurreducens localization on the electrode.
+  - reference: PMID:18725730
+    snippet: both bacteria resided in suspension and biofilm samples
+    explanation: Supports the soluble-CMC comparison, preventing generalization of particulate-cellulose localization
+      to every condition.
+    evidence_source: IN_VITRO
+    supports: SUPPORT
 cultivation_setup:
 - cultivation_mode: FED_BATCH
   system_type: MICROBIAL_FUEL_CELL
@@ -440,3 +450,28 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No direct metal or rare earth element processing role is curated for this cellulose-fed
   microbial fuel cell record.
+discussions:
+- discussion_id: cellulose_mfc_metabolite_and_spatial_mediation
+  prompt: Which exchanged products and spatial arrangements causally control current and partner fitness?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Cellulose Fermentation Feeding Electrode Respiration
+  - ecological_interactions#Defined Binary Electricity Production
+  - ecological_interactions#Observed Substrate-Dependent Spatial Distribution
+  rationale: PMIDs:17695929 and 18725730 were reviewed through fresh primary abstracts and cached snippets; full
+    bodies were not obtained through the attempted public DOI/search routes. Residual metabolites do not measure
+    individual uptake, and FISH/qPCR localization does not establish its causal benefit. Partner-resolved metabolite
+    flux, spatial perturbations and growth measurements are needed to separate these mechanisms. Preserve binary
+    current and increased CMC degradation as measured endpoints.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T23:42:29Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain the supported fermentation-to-current link with residual-pool and non-obligate-syntrophy limits.;
+    Preserve binary current and improved CMC degradation without categorical reciprocal mutualism.; Preserve both
+    substrate-dependent localization patterns; remove its unsupported causal arrow and niche typing. Issue #1324;
+    reports/causal_graph_review/decisions/20261005-three-records-batch19.yaml'
+  llm_assisted: true

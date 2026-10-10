@@ -1,0 +1,87 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: b67230b18333580f43b58cb916714704247dc1f9
+pr_layer_base: 6f062d2eb68fedab336b700c758cd21622fabbb6
+scope:
+- kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-spring-identity-batch127.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch127.json
+findings:
+- issue: 1841
+  severity: P2
+  status: partially_addressed_pending_protected_main_merge
+  finding: Unsupported Thiothrix nivea identity persists in canonical taxonomy and two graph links.
+  disposition: Use verified genus1030 with primary TableS4 support; leave Beggiatoa classification and cell-identity
+    questions open.
+adversarial_checks:
+- Both publisher supplement URLs yield the same hash-identical six-sheet workbook; S4 has no header and row104 is
+  the named MS4 bin, not a similarly named reference genome.
+- The species field is blank. ColumnD is not promoted to a study-genome accession. The primary genus assignment
+  is explicit; it is not inferred from51percent amino-acid similarity.
+- Official NCBI response verifies1030 as genus Thiothrix. All three affected canonical/graph identifiers change
+  together; no stale1031 remains in active participant links.
+- The GTDB block is explicitly source-specific, curated, genus-level and release-unspecified; inherited species
+  mapping and unrelated vote counts are removed. No current crosswalk vote is invented.
+- S4 does not support the canonical Beggiatoa genus assignment for the named MS11 bin. That unresolved issue remains
+  visible in both node and discussion and is not counted as completed review.
+- The original three nodes and zero arrows remain. FISH failure, tentative CPR identity, unverified fitness/exchange
+  and lineage-specific computational predictions remain explicit.
+- Prior evidence arrays are preserved with one narrow identity item appended to each affected owner. The separate
+  prediction node, other taxa, roles and ingredients remain unchanged and uncertified.
+- Eight focused tests include five control/mutation/restored-control probes; the historical batch107 ledger remains
+  immutable with a verified successor hash.
+- 459otherrecords,923othercaches,allpriorhistories/decisions and46userfiles are preserved. Network warning set is
+  unchanged; zero structural errors. Rendering verified deterministically, not by screenshot.
+- Self-review is not independent approval.17external-crosswalk-dependent tests skipped with unavailable fixture
+  mapping; local consistency and synthetic writer tests ran. Full historical-suite and full-repository lint/mypy
+  not rerun. This commit extends the non-native PR1975 without another admission attempt at100native members.
+verification:
+  regressions: 319 passed, 17 skipped in 423.72s (0:07:03)
+  focused_tests: 8
+  mutation_cases: 5
+  recorded_gate_outputs: 18
+  reference_scope: 20 local-cache evidence instances match; validator checks18 quotations/0titles with documented
+    DNS failure and older-cache fallback. Only the new supplementary identity evidence received fresh source comparison;
+    cache matching is not entailment proof.
+  test_scope: Focused prior/current record regressions, GTDB coherence/count/writer contracts, inventory, graph,
+    participants, evidence and publishing. Not the full historical suite or all-repository lint/mypy.
+  preservation:
+    unchanged_records: 459
+    unchanged_caches: 923
+    unchanged_prior_histories: 795
+    unchanged_prior_decisions: 125
+    preserved_user_files: 46
+    unrelated_raw_blocks_unchanged: true
+    original_cache_prefix_preserved: true
+    prediction_node_and_other_taxa_structurally_unchanged: true
+    no_new_nodes_or_arrows: true
+  tested_file_sha256:
+    kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml: 94a4a5855730de3a7f9aea67e694040d9ae7337e6c0d8072438a2d46a8670c87
+    references_cache/PMID_38273328.md: 9ba82a9b9ffa63754f6575ef42dff1476c8e1b22d0514ada1f72cc7f200a365b
+    reports/causal_graph_review/decisions/20261008-spring-identity-batch127.yaml: 9166b3bb643162691aeee39ebb7b98b9ad22ef63505fa3e9cc5654be228519ef
+    reports/causal_graph_review/sources/20261008-spring-supplements-batch127.json: e95387a98bd9afe49b2c51830fa02f05002d8936985d739efda40f5e7ccd7505
+    reports/causal_graph_review/README.md: 1454cbbec79e762a4b63e282d105aff409b0545f8e7905da2d86c242ddd328ad
+    tests/test_causal_review_batch107.py: f468c1d28978be2685cae07cbaee1d0476362baf165b099b2942af315a1c9db4
+    tests/test_causal_review_batch127.py: 893cc61fd2ab7cdfc5f7c3ead951bd799e459bec1020d372a0d9d66a1ed511f8
+    docs/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.html: abb9b77fe36cbcfecae645d0f234a2119a1286ae0725b53346d0c6c8091ed600
+    history/records/Sulfide_Spring_Autotrophic_CPR_Biofilm/2026-10-08T205806Z-codex-1f0fb9.yaml: 7e99a1bd106d95f3648416a6e363c73761f71e2647e78afaf45f72e2ff957d20
+  postcommit_docs_current: Required separately; not preasserted.
+limitations:
+- The same six-sheet workbook was returned by both publisher supplement URLs.
+- S4 has no header; column D is preserved verbatim, not interpreted as an accession of the study genome.
+- S4 supports Thiothrix genus with empty species for the selected bins; this does not identify photographed cells.
+- S4 assigns the dominant named MS11 Beggiatoa-related bin to Beggiatoaceae with empty genus/species; other bins
+  lack family. No direct NCBI genus substitution is licensed.
+- S5 relative coverages vary by sample; the manuscript dominance summary must not become a universal sample-level
+  claim.
+- GTDB release is not specified in these table rows. No current crosswalk vote or species-level assignment is inferred.
+- 'Partial repair: Beggiatoa canonical and graph identities remain unresolved; needs_research and issue1841 stay
+  open.'
+- CPR identity, host fitness and metabolic exchange remain hypothetical. No new topology or paid-provider use.
+- Only the new supplementary identity evidence was freshly checked in this pass. Existing graph evidence was read
+  but not all old snippets were freshly refetched.
+- Related ingredients and non-graph functional roles remain unchanged and uncertified; the necessary taxonomy/GTDB
+  dependency is explicitly in scope.
+- Self-adversarial review is not independent approval. PR1975 is outside the full100-entry native stack; protected
+  merge and cleanup remain unfinished.

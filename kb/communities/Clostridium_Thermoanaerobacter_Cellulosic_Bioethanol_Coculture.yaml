@@ -117,8 +117,10 @@ taxonomy:
     explanation: Supports X514 as a non-cellulolytic Thermoanaerobacter member evaluated with C. thermocellum.
 ecological_interactions:
 - name: Cellulose Hydrolysis Supporting Coculture Fermentation
-  description: C. thermocellum LQRI supplies cellulolytic activity that enables the two-member coculture
-    to ferment recalcitrant cellulose to ethanol under anaerobic process conditions.
+  description: PARTIAL - LQRI hydrolysis is proposed to supply soluble sugars to noncellulolytic, saccharolytic
+    X514. Lower sugar accumulation in coculture supports this model, not directly traced transfer. Cellulose is
+    the feedstock and ethanol the output, not the exchanged compounds; improved ethanol production does not imply
+    universally improved cellulose utilization.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -150,37 +152,28 @@ ecological_interactions:
       id: GO:0006113
       label: fermentation
   downstream:
-  - target: X514-Enhanced Ethanolic Fermentation
-    description: >
-      C. thermocellum cellulose hydrolysis supplies the recalcitrant
-      cellulosic substrate conversion that X514-containing cocultures redirect
-      toward higher ethanol output.
+  - target: Enhanced Ethanol Output in X514 Cocultures
+    description: PARTIAL - access to LQRI-derived soluble sugars can support X514 fermentation and higher community
+      ethanol output. Partner flux and the separate contributions of sugar removal and operating conditions remain
+      unresolved.
   evidence:
   - reference: PMID:23275517
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: improve bioethanol production from the fermentation of recalcitrant cellulosic materials
-    explanation: Supports cellulose fermentation as the central bioprocess function of the coculture.
+    explanation: Supports the coculture process context. The primary fed-batch Discussion proposes soluble-carbon
+      supply; bulk sugar concentrations do not directly trace donor-to-recipient transfer.
   - reference: PMID:23275517
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: tested in the semicontinuous fermentor as a model system
-    explanation: Supports the controlled fermentor context for the interaction.
-- name: X514-Enhanced Ethanolic Fermentation
-  description: Thermoanaerobacter X514 increased ethanol production in C. thermocellum cocultures, with
-    stronger enhancement than the Thermoanaerobacter 39E comparator.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Thermoanaerobacter pseudethanolicus strain X514
-    term:
-      id: NCBITaxon:399726
-      label: Thermoanaerobacter sp. X514
-  target_taxon:
-    preferred_term: Clostridium thermocellum LQRI
-    term:
-      id: NCBITaxon:572545
-      label: Acetivibrio thermocellus DSM 2360
+    explanation: Supports the coculture process context. The primary fed-batch Discussion proposes soluble-carbon
+      supply; bulk sugar concentrations do not directly trace donor-to-recipient transfer.
+- name: Enhanced Ethanol Output in X514 Cocultures
+  description: The 2011 abstract reports greater ethanol output in C. thermocellum cocultures and stronger enhancement
+    with X514 than 39E. The separate LQRI-X514 fed-batch study shows condition-dependent improvements relative to
+    LQRI monoculture. This is a community product phenotype, not demonstrated ethanol donation from X514 to LQRI.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: ethanol
     term:
@@ -196,28 +189,28 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: improved ethanol production by 194-440%
-    explanation: Supports the enhanced ethanol production phenotype in Clostridium-Thermoanaerobacter cocultures.
+    explanation: The reported 194-440% range summarizes multiple coculture comparisons, not one fixed X514 effect
+      size or ethanol-transfer assay.
   - reference: PMID:21868218
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Strain X514 enhanced ethanolic fermentation much more effectively
-    explanation: Supports X514 as the more effective Thermoanaerobacter partner for ethanolic fermentation.
-- name: Vitamin B12-Linked Fermentation Robustness
-  description: The higher ethanol performance of X514 cocultures was associated with a complete vitamin
-    B12 biosynthesis pathway, suggesting a cofactor-linked mechanism for selecting robust ethanolic
-    fermentation partners.
-  interaction_type: COMMENSALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Thermoanaerobacter pseudethanolicus strain X514
-    term:
-      id: NCBITaxon:399726
-      label: Thermoanaerobacter sp. X514
-  target_taxon:
-    preferred_term: Clostridium thermocellum LQRI
+    explanation: Supports X514 versus 39E partner performance; it does not identify ethanol donation to LQRI.
+  participating_taxa:
+  - preferred_term: Clostridium thermocellum LQRI
     term:
       id: NCBITaxon:572545
       label: Acetivibrio thermocellus DSM 2360
+  - preferred_term: Thermoanaerobacter pseudethanolicus strain X514
+    term:
+      id: NCBITaxon:399726
+      label: Thermoanaerobacter sp. X514
+- name: X514 B12 Biosynthesis and Proposed Fermentation Support
+  description: PARTIAL - comparative genomes associate X514 performance with B12 biosynthesis capacity; supplementation
+    improved 39E ethanol production. This supports a proposed cofactor-related contribution, not demonstrated vitamin
+    donation to LQRI or commensalism. The separate fed-batch study supplied vitamins and does not establish B12
+    autonomy.
+  scope: PAIRWISE
   metabolites:
   - preferred_term: cobalamin
     term:
@@ -229,23 +222,28 @@ ecological_interactions:
       id: GO:0009236
       label: cobalamin biosynthetic process
   downstream:
-  - target: X514-Enhanced Ethanolic Fermentation
-    description: >
-      X514 cobalamin biosynthesis is associated with the partner's stronger
-      ethanolic-fermentation enhancement in C. thermocellum cocultures.
+  - target: Enhanced Ethanol Output in X514 Cocultures
+    description: HYPOTHESIZED - B12 biosynthesis may support X514 fermentation and thereby contribute to coculture
+      ethanol output. Comparative genomes and the 39E supplementation response support this proposal, but do not
+      selectively establish the causal contribution in X514.
   evidence:
   - reference: PMID:21868218
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: complete vitamin B(12) biosynthesis pathway
-    explanation: Supports X514 cobalamin biosynthesis capacity as a proposed mechanism linked to ethanol
-      fermentation performance.
+    explanation: Supports genomic biosynthetic capacity and its association with performance, not measured vitamin
+      export or recipient benefit.
   - reference: PMID:21868218
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: improved ethanol production in strain 39E by 203%
-    explanation: Supports vitamin B12 availability as a factor affecting ethanol production in related
-      Thermoanaerobacter cocultures.
+    explanation: Retains the positive 39E supplementation result without treating it as selective X514 perturbation;
+      the mechanism paper is available here only as an abstract.
+  source_taxon:
+    preferred_term: Thermoanaerobacter pseudethanolicus strain X514
+    term:
+      id: NCBITaxon:399726
+      label: Thermoanaerobacter sp. X514
 environmental_factors:
 - name: Initial cellulose concentration
   value: 40 to 80 g liter(-1) cellulose
@@ -382,3 +380,28 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role was reported for this cellulosic bioethanol
   coculture in the curated sources.
+discussions:
+- discussion_id: x514_sugar_flux_and_b12_causality
+  prompt: What is the causal contribution of sugar exchange and X514 B12 biosynthesis to community ethanol output?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Cellulose Hydrolysis Supporting Coculture Fermentation
+  - ecological_interactions#Enhanced Ethanol Output in X514 Cocultures
+  - ecological_interactions#X514 B12 Biosynthesis and Proposed Fermentation Support
+  rationale: Partner-resolved flux and selective X514 perturbation would distinguish the proposed mechanisms. The
+    2011 abstract supports the comparative association and 39E supplementation response, not vitamin transfer. The
+    2013 fed-batch medium contains added vitamins and its process comparisons are not a test of biosynthetic autonomy.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-06T00:56:04Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain the proposed sugar-supply direction with flux and condition bounds, not direct cellulose or ethanol
+    donation.; Retain comparative community ethanol production without an unsupported donor-recipient output relation.
+    Keep the abstract-level C. thermocellum comparison separate from the LQRI-specific fed-batch study.; Retain
+    biosynthetic capacity and the 39E intervention as support for an explicitly hypothesized X514 contribution,
+    not vitamin donation or commensalism. Retain X514 as the source of its intrinsic capacity with no recipient,
+    rather than using community-level scope. Issue #1337; reports/causal_graph_review/decisions/20261005-three-records-batch21.yaml'
+  llm_assisted: true

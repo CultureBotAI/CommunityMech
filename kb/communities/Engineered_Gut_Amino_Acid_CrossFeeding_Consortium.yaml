@@ -135,33 +135,29 @@ taxonomy:
     explanation: Supports B. fragilis as a tracked member of the consortium.
 ecological_interactions:
 - name: Engineered Amino Acid Cross-Feeding
-  description: Each engineered strain was made auxotrophic for amino acids while overproducing one amino
-    acid, creating reciprocal nutritional dependencies that supported growth without external addition
-    of the cross-fed amino acids.
-  interaction_type: CROSS_FEEDING
+  description: Engineered auxotrophy and amino acid overproduction supported consortium growth without external
+    addition of the designated cross-fed amino acids. LC-MS production measurements and supernatant-rescue assays
+    show unequal capacities, not complete measured all-to-all transfer. B. fragilis was not rescued by the tested
+    overproducer supernatants although it grew in coculture. These observations support community-level nutritional
+    dependence without identifying a dedicated transporter or proving all partner-specific fluxes. Canonical participants
+    describe the studied four-member consortium.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: amino acid
     term:
       id: CHEBI:33709
       label: amino acid
-    notes: The engineered exchange class; the record intentionally does not assert unverified strain-specific
-      amino acid identities.
+    notes: Generic exchanged amino-acid class, not a complete quantified partner-to-partner flux map.
   biological_processes:
   - preferred_term: cellular amino acid biosynthetic process
     term:
       id: GO:0008652
       label: amino acid biosynthetic process
-  - preferred_term: amino acid transport
-    term:
-      id: GO:0006865
-      label: amino acid transport
   downstream:
   - target: Beneficial Interaction Shift
-    description: >
-      Engineered auxotrophy and amino acid overproduction created positive
-      nutritional dependencies that shifted the consortium away from
-      antagonism.
+    description: 'PARTIAL: The combined dependency/overproduction intervention introduced nutritional support and
+      changed the in-vitro growth trajectories used to infer interaction structure. Unequal rescue and remaining
+      negative-interaction uncertainty prevent interpreting this as a measured fully mutualistic all-to-all network.'
   evidence:
   - reference: doi:10.1128/mSystems.00352-19
     supports: SUPPORT
@@ -173,10 +169,35 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: Cross-feeding capabilities of each strain were assessed
     explanation: Supports experimental testing of cross-feeding capacity between engineered strains.
+  - reference: PMID:31409662
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. fragilis growth was not rescued by any of the strains
+    explanation: The supernatant result limits complete reciprocal-rescue claims; coculture growth differs.
+  participating_taxa:
+  - preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  - preferred_term: Salmonella enterica serovar Typhimurium
+    term:
+      id: NCBITaxon:90371
+      label: Salmonella enterica subsp. enterica serovar Typhimurium
+  - preferred_term: Bacteroides thetaiotaomicron
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+  - preferred_term: Bacteroides fragilis
+    term:
+      id: NCBITaxon:817
+      label: Bacteroides fragilis
+  interaction_type: CROSS_FEEDING
 - name: Beneficial Interaction Shift
-  description: Engineered amino acid exchange alleviated antagonistic interactions and added beneficial
-    interactions to the four-species consortium.
-  interaction_type: MUTUALISM
+  description: A Bayesian dynamical model fitted to in-vitro strain-specific qPCR growth trajectories inferred two
+    positive effects from B. fragilis toward E. coli and S. Typhimurium, with weaker evidence for several negative
+    interactions than in the WT consortium. These are model-inferred net effects under inoculum perturbations, not
+    direct molecular exchange measurements or proof that antagonism vanished. They do not establish reciprocal benefit
+    among every member or identify the same interaction network in vivo.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
@@ -185,20 +206,46 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Cross-Feeding Increased Population Evenness
-    description: >
-      The engineered shift from antagonistic to beneficial interactions drove
-      the more even four-strain population structure measured in vitro and in
-      the low-protein mouse gut.
+    description: 'PARTIAL: Engineered nutritional dependencies and altered inferred net interactions are consistent
+      with the greater evenness observed in separate in-vitro endpoint assays. The interaction-shift node was not
+      selectively perturbed to establish mediation. Extension of this pathway to the day-10 mouse-gut endpoint is
+      HYPOTHESIZED; in-vitro network inference does not measure in-vivo exchange.'
   evidence:
   - reference: doi:10.1128/mSystems.00352-19
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: genetic modifications alleviated antagonistic interactions and resulted in beneficial interactions
-    explanation: Supports the shift from antagonistic to beneficial interaction structure after engineering.
+    explanation: The abstract conclusion is based on in-vitro growth perturbations and statistical network inference,
+      not direct measurement of every molecular interaction.
+  - reference: PMID:31409662
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: although some inferred negative interactions are still present
+    explanation: Reduced confidence in negative edges is not evidence that all antagonism disappeared.
+  participating_taxa:
+  - preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  - preferred_term: Salmonella enterica serovar Typhimurium
+    term:
+      id: NCBITaxon:90371
+      label: Salmonella enterica subsp. enterica serovar Typhimurium
+  - preferred_term: Bacteroides thetaiotaomicron
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+  - preferred_term: Bacteroides fragilis
+    term:
+      id: NCBITaxon:817
+      label: Bacteroides fragilis
 - name: Cross-Feeding Increased Population Evenness
-  description: Engineered cross-feeding increased population evenness in anaerobic batch culture and in
-    the gnotobiotic mouse gut, especially under low amino acid or low-protein conditions.
-  interaction_type: CROSS_FEEDING
+  description: The engineered four-member consortium had higher Pielou evenness in anaerobic endpoint cultures,
+    especially without supplemented cross-fed amino acids, despite lower overall growth in the unsupplemented in-vitro
+    setting. In gnotobiotic mice, day-10 fecal strain-specific DNA-qPCR supported greater evenness for the engineered
+    consortium on the low-protein diet; the standard-diet trend was not statistically significant. This is a composition
+    endpoint, not longitudinal stability, a conventional microbiome or a host-health benefit. The assay does not
+    directly measure amino-acid flux in the gut.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: amino acid
@@ -210,12 +257,36 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Engineered cross-feeding increased population evenness
-    explanation: Supports the core outcome that engineered exchange changed consortium composition.
+    explanation: Supports the engineered-versus-WT composition outcome, not selective mediation by each inferred
+      interaction.
   - reference: PMID:31409662
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: low-protein diet showed significantly greater population evenness
-    explanation: Supports the in vivo mouse-gut population-evenness result under low-protein diet.
+    explanation: Supports the diet-specific day-10 gnotobiotic-mouse endpoint, not a significant standard-diet effect
+      or measured in-vivo exchange.
+  - reference: PMID:31409662
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: although this trend was not statistically significant
+    explanation: The standard-diet evenness trend did not meet the reported significance criterion.
+  participating_taxa:
+  - preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  - preferred_term: Salmonella enterica serovar Typhimurium
+    term:
+      id: NCBITaxon:90371
+      label: Salmonella enterica subsp. enterica serovar Typhimurium
+  - preferred_term: Bacteroides thetaiotaomicron
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+  - preferred_term: Bacteroides fragilis
+    term:
+      id: NCBITaxon:817
+      label: Bacteroides fragilis
 cultivation_setup:
 - cultivation_mode: BATCH
   operating_temperature: 37.0
@@ -328,3 +399,31 @@ related_ingredients:
     explanation: Anchors amino acids as the auxotrophy-complementing, overproduced compounds exchanged
       between strains in the engineered consortium.
 metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: gut_crossfeeding_model_and_in_vivo_mediation
+  prompt: Which nutritional interactions mediate the diet-dependent mouse-gut evenness endpoint?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Engineered Amino Acid Cross-Feeding
+  - ecological_interactions#Beneficial Interaction Shift
+  - ecological_interactions#Cross-Feeding Increased Population Evenness
+  rationale: 'Keep unequal supernatant rescue distinct from community growth. The Bayesian model used in-vitro qPCR
+    time series with inoculum perturbations; its net interaction edges do not identify molecular flux or prove an
+    all-to-all mutualistic network. Higher-order effects were not supported by those data, not biologically excluded.
+    Separate the 27-hour trajectory assays from 24-hour supplementation endpoints and day-10 fecal DNA-qPCR. Low-protein
+    diet changes more than a single measured amino-acid flux, and the standard-diet evenness trend was nonsignificant.
+    Do not extrapolate to longitudinal stability, conventional microbiota or clinical benefit. Canonical B. fragilis
+    AMBIGUOUS grounding is preserved, not resolved. Non-graph cache-access wording remains #1457; cache pointer/casing
+    issues remain #1094/#1091. No new genetic engineering procedures or pairwise mechanisms are added.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T10:16:21Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain measured nutritional dependence without complete reciprocal rescue or transporter-specific annotation.;
+    Retain in-vitro model-inferred interaction shift without universal mutualism or absence-of-antagonism claims.;
+    Retain condition-specific evenness endpoints without established in-vivo mediation, stability or host benefit.
+    Issue #1454; reports/causal_graph_review/decisions/20261006-three-records-batch40.yaml'
+  llm_assisted: true

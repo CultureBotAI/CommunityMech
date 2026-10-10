@@ -12,12 +12,15 @@ Applies to: `EvidenceItem`.
 - **SUPPORT**: The cited evidence supports the attached claim.
 - **REFUTE**: The cited evidence contradicts the attached claim.
 - **PARTIAL**: The cited evidence supports only part of the claim or only under stated conditions.
-- **NO_EVIDENCE**: The citation provides no relevant evidence for the attached claim; not proof of a negative result.
-- **WRONG_STATEMENT**: The attached claim was assessed as incorrect; retain the assessment and its explanation.
+- **NO_EVIDENCE**: The paper is on-topic, but no passage supporting or contradicting the attached claim was found; retain the closest on-topic excerpt examined. This is not proof of a negative result.
+- **WRONG_STATEMENT**: The cited reference is misattributed and does not address the attached claim (for example, a wrong DOI/PMID or a paper about a different system). This does not establish that the claim itself is false.
 
-Omitted optional assessments mean **unassessed**, not SUPPORT or OTHER. Existing
-required assessments remain required. Explain PARTIAL, REFUTE, NO_EVIDENCE and
-WRONG_STATEMENT in the evidence's existing `notes` or `explanation` field.
+These values describe the relationship between the citation and the claim,
+not the truth of the claim independently of that citation. REFUTE requires
+evidence that actively contradicts the claim; it is not citation misattribution.
+Both `supports` and `evidence_source` are required on `EvidenceItem`, without
+defaults. Explain PARTIAL, REFUTE, NO_EVIDENCE and WRONG_STATEMENT in its
+`explanation` field (`EvidenceItem` does not have a `notes` field).
 A failed experiment is not automatically NO_EVIDENCE: it may refute a claim or
 support a claim about the absence of an effect in a particular setting.
 
@@ -40,16 +43,22 @@ support a claim about the absence of an effect in a particular setting.
 Choose the most specific defensible category. IN_VITRO and IN_VIVO preserve the
 existing microbial-study distinction. LABORATORY is available when the study
 is known to be laboratory-based but that distinction is not established.
-REVIEW and META_ANALYSIS are separate; DATABASE identifies a database assertion
-without promoting it to primary literature. Unknown source types stay omitted
-where optional; OTHER requires a known type that does not fit the vocabulary.
+For new annotations, prefer FIELD_STUDY for natural-system observations and
+META_ANALYSIS for systematic synthesis. The existing schema meanings are retained:
+legacy IN_VIVO also includes field studies, and legacy REVIEW also includes
+meta-analysis. Those annotations remain valid; this extension does not reclassify
+them automatically. DATABASE identifies a database assertion without promoting it
+to primary literature. OTHER requires a known type outside these categories, with
+an explanation. An unknown source type needs assessment before an `EvidenceItem`
+can be completed; do not omit its required field or invent a classification.
 
 ## Compatibility and curation
 
 No existing citation format, required field, evidence type, or provenance slot
-has been removed. Newly introduced assessment fields are optional, with no
-default and no automatic backfill. Populate them only after checking the source
-against its attached claim. A citation's mere presence must not be interpreted
+has been removed. This change only adds eight `EvidenceSourceEnum` values; it
+introduces no assessment fields, defaults, or record backfills. Populate existing
+fields only after checking the source against its attached claim. A citation's
+mere presence must not be interpreted
 as positive support when its assessment is REFUTE or NO_EVIDENCE.
 
 These fields belong to primary claim evidence. The imported shared
@@ -62,4 +71,7 @@ to this enum. Likewise, typed strain/genome-link provenance and existing
 
 Motivated by [EcoMech's evidence schema](https://github.com/diatomsRcool/ecomech/blob/5d3f55467f3caaa6e88eb7f33037e4a8103873a7/src/ecomech/schema/ecomech.yaml)
 and the existing CommunityMech, CultureMech and MediaIngredientMech assessment
-models. Fleet agreement: [CLAW evidence contract](https://github.com/CultureBotAI/culturebotai-claw/blob/26d083901922650688aaa4937c34c7e68856183a/docs/standards/evidence_assessment.yaml).
+models. The [CLAW evidence proposal](https://github.com/CultureBotAI/culturebotai-claw/blob/26d083901922650688aaa4937c34c7e68856183a/docs/standards/evidence_assessment.yaml)
+provides the added study-source vocabulary. CommunityMech's existing
+`EvidenceItemSupportEnum` remains authoritative for support meanings, including
+the local distinction between citation misattribution and contradictory evidence.

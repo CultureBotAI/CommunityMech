@@ -1,0 +1,161 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: fbd0ad08df5251ded93706420bf57d41d94ced64
+scope:
+- kb/communities/High_Ammonia_Biogas_0B_Butyrate_Oxidizing_Enrichment.yaml
+- kb/communities/High_Solids_Switchgrass_Methanogenic_Microbiome.yaml
+- kb/communities/Honeybee_Core20_Defined_Microbiota.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-enrichments-core20-batch51.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch51.json
+findings:
+- issue: 1497
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound MAG-resolved syntrophy while retaining positive 0B conversion.
+  disposition: Close only after protected main merge.
+- issue: 1498
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate CAZyme protein profiles and inferred methanogenic routes from demonstrated mediation.
+  disposition: Close only after protected main merge.
+- issue: 1499
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate positive Core-20 transcripts and pathogen reduction from proposed immune mediation.
+  disposition: Close only after protected main merge.
+adversarial_checks:
+- Whole661-line ammonia,475-line switchgrass and192-line Core-20 records and all nine nodes/six arrows
+  reviewed. Complete cached primary main bodies, Methods and embedded figure captions read, plus ammonia
+  Table1. No original figure images, supplements, raw data or code audited.
+- 0B positive single-culture butyrate-to-methane conversion remains SUPPORT/IN_VITRO, separate from PARTIAL
+  MAG-resolved syntrophy. Canonical source/target directions and three SYNTROPHY hypotheses retained.
+  Do not transfer YB replication, carbon balance or yeast-extract results to 0B.
+- MAG2 incomplete Wood-Ljungdahl annotation is not filled using its relative. MAG-specific flux, carrier
+  partition and partner necessity remain unresolved. Relative Methanothermobacter succession is not rate
+  improvement; proposed MAG5 acetate assimilation is not acetoclastic methane formation. Existing gap/evidence
+  extended, not duplicated or erased.
+- Switchgrass maintains positive bulk solubilization and methane outcomes; one sequential reactor and
+  changed vitamins, medium, mixing and adaptation do not isolate a solids-only mechanism. Protein abundance
+  is not catalytic activity, and hydrogenotrophic protein dominance is not a measured methane-flux share.
+- Fraction-associated CAZyme profiles remain positive observations supporting the authors' suggested niches,
+  not demonstrated competitive partitioning or a Chloroflexota-to-Thermotogota pair. Explicit participants
+  are the canonical five-member subset for the community phenotype, two profile groups and the archaeal
+  capacity group. All three nodes remain community-scoped.
+- Core-20 preserves positive qPCR immune transcripts and the reported78-fold pathogen-load reduction.
+  Transcript abundance is not AMP protein activity, qPCR load is not viable-cell count, and composition
+  differences do not isolate richness. Rename the terminal outcome and qualify proposed immune mediation
+  without falsely claiming that the original incoming edge lacked interpretation wording.
+- Core-20 W8131 non-detection was already bounded and remains so. Four passages with changed diversity
+  and relative abundance do not prove unchanged composition or protective efficacy in every passage. Existing
+  broad Bacteria participant remains a placeholder, not a complete strain/host/pathogen roster or newly
+  minted CURIE.
+- 'Structural completeness considered explicitly: proposed direct MAG1 carrier routes, alternative MAG9
+  functions, AA6/Fenton accessibility and PTS/nutrient competition remain acknowledged gaps. This batch
+  repairs existing claims, not exhaustive mechanism expansion. No new node, arrow or paid Edison job;
+  no speculative route represented as experimentally established.'
+- Inspected complete record diffs and focused tests. Nine nodes retained and all six existing arrows explicitly
+  PARTIAL. Three guarded writes and append-only history artifacts; all457 other records and920 caches
+  unchanged. Non-graph raw blocks and canonical taxonomy preserved, not certified. One participant registry
+  entry added; measured connectivity census unchanged.
+- Actual schema, strict, terms, references, snippets, rank and history gates passed. Network equals baseline
+  with34 prior findings and zero structural errors. Deterministic renders and exact node/arrow descriptions
+  across456 pages parser-checked, not browser screenshots. Actual post-commit docs-current is a separate
+  publication gate.
+- Dedup checked806 all-state issue titles/bodies and25 ignored/hidden local files, not every comment or
+  PR review. Closed401/366 concern taxonomy tooling, not these graph repairs. Issues1497/1498/1499 stay
+  open until protected main merge. Self-adversarial review is not independent approval.
+verification:
+  combined_regressions: 489 passed in 185.39s (0:03:05)
+  new_regression_tests: 5
+  schema_strict_terms_history: Passed with actual output digests
+  references: CLI Total checks counts reported issues, not executed checks. Exit0 is no reported issues,
+    not source verification. SupportingReference coverage (#476), Linux DOI-cache lookup (#1091) and selected-cache
+    provenance (#1362) remain limitations.
+  snippet_counts_by_record:
+    kb/communities/High_Ammonia_Biogas_0B_Butyrate_Oxidizing_Enrichment.yaml:
+      MATCH: 33
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/High_Solids_Switchgrass_Methanogenic_Microbiome.yaml:
+      MATCH: 25
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Honeybee_Core20_Defined_Microbiota.yaml:
+      MATCH: 9
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network:
+    existing_findings_preserved: 34
+    added_findings: {}
+    removed_findings: {}
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-enrichments-core20-batch51.yaml: ba9263151489fa4b4e0b3ee95eb3b9eadb3edbec4183c1ce04780a0d3474e00e
+    tests/test_causal_review_batch51.py: 976accbf36a466289e467ee8d82d4c058e29d280da217f61e632bccabc4248b6
+    tests/test_participating_taxa.py: f990f589edb8aca67486464f99e18edfe185c6fd13f5c6c81dc36d007bd046f6
+    kb/communities/High_Ammonia_Biogas_0B_Butyrate_Oxidizing_Enrichment.yaml: 9c1ecf68184260fe68327386dea7b0ca0c056fb610975b21cb9cbd8352042f14
+    kb/communities/High_Solids_Switchgrass_Methanogenic_Microbiome.yaml: 89902153cb8c0086b9305528173ec5147c6dcc6c0fa0c9ba9980011a559b7aac
+    kb/communities/Honeybee_Core20_Defined_Microbiota.yaml: 9f955b7498ec80ad343cc5afc8ee5121fd0f9370d456bb94009088d8fcd6efae
+    reports/causal_graph_review/README.md: e3c342a142ae58c193195452d9df52e4c871977c9e9ec749be5e7f7611ac0a46
+  post_commit_docs_current: Separate publication gate; not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 389
+      mixed: 127
+      community_level_only: 262
+      taxa: 1498
+      credited_solely_by_the_rule: 1222
+    current:
+      records: 460
+      with_community_level: 389
+      mixed: 127
+      community_level_only: 262
+      taxa: 1498
+      credited_solely_by_the_rule: 1222
+  interpretation: Three ammonia pairwise and six community nodes retain their scopes. Switchgrass participants
+    made explicit, with one registry entry added; census unchanged. No production matching or census-bound
+    changes.
+corpus:
+  records: 460
+  nodes: 1465
+  edges: 674
+  review_status_counts:
+    needs_research: 14
+    pending: 267
+    reviewed: 179
+limitations:
+- Whole three records and all nine nodes/six arrows reviewed against complete cached primary main bodies,
+  Methods and embedded captions. Ammonia main Table1 read. No original figure images, supplements, raw
+  data or code audited.
+- 'Existing-structure repair only: nine nodes and six arrows retained; all arrows explicitly PARTIAL.
+  No new causal structure or paid Edison job. Unrepresented proposed MAG1 carrier routes, AA6/Fenton chemistry
+  and PTS/nutrient competition are acknowledged gaps, not new demonstrated mechanisms or an exhaustive
+  expansion.'
+- 0B is one long-term culture, distinct from replicated YB. Bulk conversion and genomic potential do not
+  resolve MAG flux, carrier partition, MAG2 pathway completeness or partner necessity. Canonical labels
+  and CURIEs unchanged.
+- Switchgrass single sequential reactor, changed operational conditions, enriched fractions and annotation-based
+  protein functions do not selectively establish niche partitioning, catalytic activity or methane-route
+  shares. Cache abstract-only metadata does not describe its appended full-body content.
+- Core-20 positive qPCR transcripts and pathogen-load reduction retained; immune mediation remains PARTIAL.
+  Existing W8131 caveat retained. Serial passage is separate from protective efficacy, and broad Bacteria
+  grounding is not a complete strain/host/pathogen roster.
+- Non-graph blocks and all920 cache files preserved, not certified. SupportingReference coverage (#476),
+  Linux DOI-cache lookup (#1091), selected-cache provenance (#1362) and unrelated writer-audit artifact
+  issue (#1095) remain outside scope. Reference CLI Total checks counts reported issues, not executed
+  checks.
+- Dedup checked806 all-state issue titles/bodies and25 ignored/hidden local files, not all comments or
+  PR reviews. Closed401/366 concern taxonomy tooling, not these graph repairs. Self-adversarial review
+  is not independent approval; protected-main merge and corpus completion remain pending.

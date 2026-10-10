@@ -192,11 +192,10 @@ taxonomy:
     explanation: Names peanut as the host and the nodulation endpoint measured in it.
 ecological_interactions:
 - name: SynCom ARC Suppression of Aspergillus flavus
-  description: >
-    The four-strain community inhibits growth of the aflatoxin-producing fungus Aspergillus flavus
-    and lowers peanut aflatoxin levels by 85.6% over four years of field trials, with the abstract
-    additionally reporting that the community acts on multiple targets in the fungus.
-  interaction_type: COMPETITION
+  description: The four-member ARC community inhibited A. flavus in the reported assays. In multi-year field comparisons,
+    harvested peanuts showed lower aflatoxigenic fungal abundance, and the reported mean 85.6% aflatoxin reduction
+    was measured after 12 months of natural storage. These protective outcomes do not demonstrate reciprocal-negative
+    competition or resolve the individual inhibitory compounds.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
@@ -204,23 +203,45 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
   downstream:
-  - target: Coupled Aflatoxin Prevention and Nodulation-Supported Yield
-    description: >
-      A. flavus suppression supplies the pathogen-control branch of ARC's coupled
-      peanut field phenotype.
+  - target: Concurrent aflatoxin reduction, nodulation and yield outcomes
+    description: 'HYPOTHESIZED/PARTIAL: fungal suppression contributes to the aflatoxin-control component of the
+      combined protective phenotype. Its contribution to the joint nodulation and yield outcome is not isolated
+      from the other effects of ARC.'
   evidence:
   - reference: PMID:42099455
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: SynCom ARC inhibits A. flavus growth and reduces peanut aflatoxin levels by 85.6% in 4
-      year field trials
-    explanation: Supports community-level antagonism of the pathogen with a quantified field
-      outcome.
+    snippet: SynCom ARC inhibits A. flavus growth and reduces peanut aflatoxin levels by 85.6% in 4 year field trials
+    explanation: Supports community-level antagonism of the pathogen with a quantified field outcome.
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: After 12 months of natural storage, aflatoxin levels were reduced by an average of 85.6%
+    explanation: Locates the quantitative aflatoxin endpoint after storage rather than asserting an immediate field-stage
+      reduction.
+  participating_taxa:
+  - preferred_term: Bacillus (ARC strains Bl13-2C11, Ba13-20E05, Bm14-5G09)
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+  - preferred_term: Enterobacter (ARC strain El17-4B09)
+    term:
+      id: NCBITaxon:547
+      label: Enterobacter
+  - preferred_term: Aspergillus flavus
+    term:
+      id: NCBITaxon:5059
+      label: Aspergillus flavus
+  - preferred_term: peanut
+    term:
+      id: NCBITaxon:3818
+      label: Arachis hypogaea
 - name: SynCom ARC Induction of Rhizobia-Legume Nodulation
-  description: >
-    Alongside pathogen suppression, the community enhances peanut nodulation and nitrogenase
-    activity and keeps nodules active through to harvest, so the same consortium that antagonises
-    the fungus facilitates colonisation by the nitrogen-fixing symbiont.
+  description: ARC enhanced peanut nodulation, nitrogenase activity and retention of active nodules. The laboratory
+    comparison found no nodulation with ARC alone but more nodules when ARC accompanied rhizobia, supporting facilitation
+    of the rhizobial-host association rather than nitrogen fixation by the four ARC members themselves. The source
+    also reports increased rhizobial abundance; strain-specific persistence and the responsible compounds are not
+    resolved.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
   biological_processes:
@@ -233,31 +254,48 @@ ecological_interactions:
       id: GO:0009399
       label: nitrogen fixation
   downstream:
-  - target: Coupled Aflatoxin Prevention and Nodulation-Supported Yield
-    description: >
-      Enhanced rhizobia-legume nodulation supplies the nitrogen-fixation branch
-      of ARC's coupled peanut field phenotype.
+  - target: Concurrent aflatoxin reduction, nodulation and yield outcomes
+    description: 'HYPOTHESIZED/PARTIAL: enhanced rhizobial nodulation and nitrogenase activity are proposed to support
+      the higher-yield phenotype alongside improved photosynthesis and carbon allocation. Parallel endpoints and
+      omics associations do not isolate the contribution of nitrogen fixation or prove the proposed feedback quantitatively.'
   evidence:
   - reference: PMID:42099455
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: SynCom ARC enhances peanut nodulation and nitrogenase activity, retains active nodules
-      at harvest
-    explanation: Supports facilitation of the rhizobia-legume symbiosis as a community-level effect
-      distinct from the antifungal activity.
-- name: Coupled Aflatoxin Prevention and Nodulation-Supported Yield
-  description: >
-    SynCom ARC joins A. flavus inhibition with rhizobia-legume nodulation
-    induction, enhanced nitrogenase activity, retained active nodules, and
-    improved photosynthesis and carbon supply, producing lower aflatoxin and
-    higher yield without a super-nodulation penalty in field trials.
-  interaction_type: COLONIZATION_FACILITATION
+    snippet: SynCom ARC enhances peanut nodulation and nitrogenase activity, retains active nodules at harvest
+    explanation: Supports facilitation of the rhizobia-legume symbiosis as a community-level effect distinct from
+      the antifungal activity.
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Laboratory tests showed ARC alone did not induce nodulation but promoted significantly more nodules
+      when co-inoculated with rhizobia
+    explanation: Distinguishes facilitation of rhizobia-dependent nodulation from nodulation by ARC alone.
+  participating_taxa:
+  - preferred_term: Bacillus (ARC strains Bl13-2C11, Ba13-20E05, Bm14-5G09)
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+  - preferred_term: Enterobacter (ARC strain El17-4B09)
+    term:
+      id: NCBITaxon:547
+      label: Enterobacter
+  - preferred_term: Bradyrhizobium PHNZY-24-6
+    term:
+      id: NCBITaxon:374
+      label: Bradyrhizobium
+  - preferred_term: peanut
+    term:
+      id: NCBITaxon:3818
+      label: Arachis hypogaea
+- name: Concurrent aflatoxin reduction, nodulation and yield outcomes
+  description: ARC-treated field systems combined reduced aflatoxin, greater nodulation and nitrogenase activity,
+    retained active nodules, improved photosynthetic measures and higher yield. These positive outcomes support
+    the reported multifunctional phenotype. The proposed carbon-nitrogen feedback and precise contributions of fungal
+    inhibition versus rhizobial facilitation remain preliminary mechanisms, not an independently demonstrated feedback
+    loop or host antifungal immune response.
   scope: COMMUNITY_LEVEL
   biological_processes:
-  - preferred_term: defense response to fungus
-    term:
-      id: GO:0050832
-      label: defense response to fungus
   - preferred_term: nodulation
     term:
       id: GO:0009877
@@ -272,15 +310,18 @@ ecological_interactions:
       label: photosynthesis
   evidence:
   - reference: PMID:42099455
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: SynCom ARC inhibits multiple targets in A. flavus, recruits and activates nodulation and nitrogen fixation
+      in rhizobia and peanut, and improves photosynthesis and carbon supply for aflatoxin prevention and nodulation
+      induction, balancing yield increase
+    explanation: The source proposes coupling of several measured outcomes; it does not isolate each mediator or
+      quantify the proposed feedback.
+  - reference: PMID:42099455
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: SynCom ARC inhibits multiple targets in A. flavus, recruits and activates nodulation
-      and nitrogen fixation in rhizobia and peanut, and improves photosynthesis and carbon supply
-      for aflatoxin prevention and nodulation induction, balancing yield increase
-    explanation: >
-      Supports the field outcome as a coupled product of pathogen inhibition,
-      rhizobial activation, peanut nitrogen fixation, and improved
-      photosynthetic carbon supply.
+    snippet: Building upon the phenotypic effects and preliminary mechanisms revealed in this study
+    explanation: The source distinguishes phenotypic effects from preliminary mechanistic interpretation.
 environmental_factors:
 - name: Multi-year multi-site field trial
   value: 4 years; 325 sites across 19 provinces
@@ -434,3 +475,33 @@ cultivation_setup:
     snippet: "The final concentrations of A. flavus was 5\xD7105 spores/mL and that of the bacterial strain\
       \ was 1\xD7107 colony-forming units (CFU)/mL."
     explanation: Gives what was inoculated at what density.
+discussions:
+- discussion_id: arc-protective-endpoints-versus-causal-coupling
+  prompt: Which mechanisms quantitatively connect ARC suppression and rhizobial facilitation to the combined field
+    phenotype?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#SynCom ARC Suppression of Aspergillus flavus
+  - ecological_interactions#SynCom ARC Induction of Rhizobia-Legume Nodulation
+  - ecological_interactions#Concurrent aflatoxin reduction, nodulation and yield outcomes
+  rationale: The positive suppression, nodulation and yield findings remain. The study describes preliminary mechanisms
+    and leaves specific compounds and host regulation unresolved. Retain qualified contributions rather than a demonstrated
+    feedback or host-defense mechanism. Counter-selected candidates remain outside the interaction graph; no toxin-production
+    methods or optimization instructions are added.
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Building upon the phenotypic effects and preliminary mechanisms revealed in this study
+    explanation: The source distinguishes phenotypic effects from preliminary mechanistic interpretation.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-08T03:27:20Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain protective fungal/aflatoxin endpoints with the storage-time boundary, without reciprocal competition.;
+    Retain rhizobia-dependent nodulation facilitation with participant scope excluding the fungal target.; Retain
+    combined positive outcomes, qualifying causal coupling and removing misplaced colonization/host-defense typing.
+    Issue#1840; reports/causal_graph_review/decisions/20261008-four-records-batch107.yaml
+  llm_assisted: true

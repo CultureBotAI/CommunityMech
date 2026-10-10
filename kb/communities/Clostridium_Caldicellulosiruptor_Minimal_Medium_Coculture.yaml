@@ -207,12 +207,11 @@ related_ingredients:
     explanation: Anchors ethanol as a measured fermentation product in the study.
 ecological_interactions:
 - name: Reduced-Nutrient Defined Cellulose-Xylan Medium
-  description: >
-    Nitrogen, sulfur, phosphate, and vitamin loads were reduced into a
-    low-ionic-strength defined minimal medium that supported cellobiose,
-    cellulose, acid-pretreated Populus, and the cellulose/xylan coculture
-    condition used to maintain both thermophilic cellulolytic bacteria.
-  interaction_type: COLONIZATION_FACILITATION
+  description: A low-ionic-strength defined medium with reduced nitrogen, sulfur, phosphate and vitamin supplements
+    was developed after nutrient-response experiments. The primary abstract reports cellobiose, cellulose and acid-pretreated
+    Populus fermentation and separately reports coculture maintenance on cellulose/xylan substrates. These statements
+    do not establish that every substrate or nutrient-response experiment used the coculture. Medium development
+    is cultivation context, not demonstrated partner-to-partner colonization facilitation.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Clostridium thermocellum ATCC 27405
@@ -236,37 +235,26 @@ ecological_interactions:
     term:
       id: CHEBI:16189
       label: sulfate
-  biological_processes:
-  - preferred_term: cellulose catabolic process
-    term:
-      id: GO:0030245
-      label: cellulose catabolic process
-  downstream:
-  - target: Stable Co-Maintenance On Cellulose And Xylan
-    description: >
-      The reduced defined medium was the chemical setting in which the
-      C. thermocellum and C. bescii populations were maintained together.
   evidence:
   - reference: PMID:23306120
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >
-      From these results, a low ionic strength, defined minimal nutrient medium
-      with decreased nitrogen, sulfur, phosphate and vitamin supplements was
-      developed
-    explanation: >
-      Supports development of the reduced-nutrient defined medium.
+    snippet: 'From these results, a low ionic strength, defined minimal nutrient medium with decreased nitrogen,
+      sulfur, phosphate and vitamin supplements was developed
+
+      '
+    explanation: Supports medium development; it does not establish an ecological facilitation mechanism or a nutrient-reduction
+      intervention causing coexistence.
   - reference: PMID:23306120
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: fermentation of cellobiose, cellulose and acid-pretreated Populus
-    explanation: >
-      Identifies the cellulosic substrates fermented in the defined medium.
-- name: Stable Co-Maintenance On Cellulose And Xylan
-  description: The two bacterial populations were maintained together in the
-    defined medium when the coculture was supplied with cellulose and xylan,
-    showing compatible coexistence under mixed-polysaccharide conditions.
-  interaction_type: COLONIZATION_FACILITATION
+    explanation: Lists substrates for medium evaluation, without assigning every test to the coculture.
+- name: Observed Co-Maintenance On Cellulose And Xylan
+  description: Both populations were reported to be maintained in cocultures on substrates containing cellulose
+    and xylan in defined medium with sulfate and basal vitamins. This is an observed co-maintenance endpoint. The
+    accessible exact-system abstract does not resolve the duration, population trajectories or perturbations needed
+    to establish long-term stability, reciprocal benefit, colonization facilitation or a unique maintenance mechanism.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Clostridium thermocellum ATCC 27405
@@ -286,32 +274,24 @@ ecological_interactions:
     term:
       id: CHEBI:37166
       label: xylan
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  - preferred_term: cellulose catabolic process
-    term:
-      id: GO:0030245
-      label: cellulose catabolic process
   evidence:
   - reference: PMID:23306120
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Both bacterial populations were maintained in co-cultures
-    explanation: Supports coexistence of both populations in the exact two-member coculture.
+    explanation: Direct abstract support for the co-maintenance endpoint, not an unbounded stability or fitness-sign
+      claim.
   - reference: PMID:23306120
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: substrates containing cellulose and xylan
     explanation: Supports the mixed-polysaccharide substrate context for coculture maintenance.
 - name: Thermophilic Plant-Polysaccharide Conversion Capacity
-  description: C. thermocellum provides cellulolytic growth on crystalline
-    cellulose, while C. bescii DSM 6725 has genome-supported capacity to use
-    multiple plant polysaccharides, including cellulose- and xylan-associated
-    responses that make it relevant to mixed lignocellulose substrates.
-  interaction_type: NICHE_PARTITIONING
+  description: 'Separate member-level evidence supports plant-polysaccharide conversion: C. thermocellum was grown
+    on crystalline cellulose in the nutrient study, and C. bescii DSM 6725 was studied by genome analysis plus experimental
+    transcriptomics and proteomics on polysaccharide substrates. Cellulose-responsive expression and cellulose/xylan-associated
+    proteins are measured results, while functions of some hypothetical proteins remain inferred. These member assays
+    do not demonstrate niche partitioning, interspecies substrate transfer or mediation of coculture maintenance.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Caldicellulosiruptor bescii DSM 6725
@@ -336,27 +316,25 @@ ecological_interactions:
     term:
       id: GO:0030245
       label: cellulose catabolic process
+    notes: Member-level substrate-conversion context, not evidence for a causal division of labor in the coculture.
   - preferred_term: xylan catabolic process
     term:
       id: GO:0045493
       label: xylan catabolic process
-  downstream:
-  - target: Stable Co-Maintenance On Cellulose And Xylan
-    description: >
-      The cellulose/xylan assay paired C. thermocellum cellulose fermentation
-      with C. bescii plant-polysaccharide capacity in the defined mixed-substrate
-      coculture.
+    notes: Member-level substrate-conversion context, not evidence for a causal division of labor in the coculture.
   evidence:
   - reference: PMID:23306120
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: C. thermocellum was grown on crystalline cellulose
-    explanation: Supports the cellulose-growth role for C. thermocellum in the same defined-medium study.
+    explanation: Supports the C. thermocellum cellulose-growth assay, not partner-resolved flux or division of labor
+      in coculture.
   - reference: PMID:21227922
     supports: SUPPORT
-    evidence_source: COMPUTATIONAL
+    evidence_source: IN_VITRO
     snippet: overproduced on cellulose or xylan
-    explanation: Supports C. bescii molecular responses to cellulose and xylan relevant to the coculture substrates.
+    explanation: The quoted overproduction is an experimental protein-response observation in C. bescii member cultures;
+      proposed protein functions and an effect on coculture maintenance remain unproven.
 environmental_factors:
 - name: Reduced-nutrient defined medium
   value: Low-ionic-strength defined medium with decreased nitrogen, sulfur,
@@ -489,3 +467,34 @@ external_resources:
   url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA29407
 metals_present: []
 metal_relevance: NOT_APPLICABLE
+curation_history:
+- timestamp: '2026-10-02T06:15:13Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Removed the thermophilic plant-polysaccharide capacity to stable co-maintenance edge because its support
+    joined a separate C. bescii genome capability to the cellulose/xylan assay rather than a tested causal interaction.
+  llm_assisted: true
+- timestamp: '2026-10-05T23:24:12Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain reduced-medium development as context; remove context-only arrow and unsupported facilitation/process
+    annotations.; Preserve observed population maintenance with explicit abstract-only scope, without categorical
+    facilitation or indefinite stability.; Preserve measured member transcript/protein responses; remove unsupported
+    ecological niche partitioning and retain the earlier edge removal. Issue #1320; reports/causal_graph_review/decisions/20261005-three-records-batch18.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: minimal_medium_coculture_maintenance_mechanism
+  prompt: Which exact-system population measurements and nutrient or substrate perturbations explain co-maintenance?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Reduced-Nutrient Defined Cellulose-Xylan Medium
+  - ecological_interactions#Observed Co-Maintenance On Cellulose And Xylan
+  - ecological_interactions#Thermophilic Plant-Polysaccharide Conversion Capacity
+  rationale: PMID:23306120 is abstract-bounded in this review; its full body was not obtained through the attempted
+    public routes. The abstract reports maintenance, not its duration or an isolated ecological mechanism. PMID:21227922
+    contains empirical C. bescii molecular responses as well as genomic inference, but does not test this coculture.
+    Full-method access and partner-resolved time courses are needed before claiming nutrient-reduction causality,
+    stability or niche partitioning. The earlier removed capacity-to-maintenance arrow remains absent.
+  posed_by: codex
+  posed_date: '2026-10-05'

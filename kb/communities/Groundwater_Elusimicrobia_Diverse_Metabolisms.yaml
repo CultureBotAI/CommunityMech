@@ -86,118 +86,130 @@ taxonomy:
     explanation: Supports the animal-associated clades and their nested
       phylogenetic placement.
 ecological_interactions:
-- name: Groundwater Elusimicrobia Metabolic Expansion
-  description: Free-living groundwater-associated Elusimicrobia encode a broader
-    inferred metabolic repertoire than animal-associated Elusimicrobia, spanning
-    heterotrophic and autotrophic respiration, Rnf-dependent acetogenesis, and
-    radical-SAM/nitrogenase-paralog loci predicted to modify tetrapyrroles.
-  interaction_type: NICHE_PARTITIONING
+- name: Comparative Elusimicrobia Genomic Metabolic Repertoires
+  description: The 94-genome survey compares habitat-associated groups with different inferred metabolic repertoires.
+    These genomes represent multiple sites and lineages, not a demonstrated coexisting community. Both canonical
+    habitat labels are retained despite sharing a taxon CURIE; the comparison does not establish niche partitioning
+    or a causal sequence among the component findings.
   scope: COMMUNITY_LEVEL
-  downstream:
-  - target: Versatile Heterotrophic/Autotrophic Respiration
-    description: Groundwater-associated clades contribute oxygen- or
-      nitrate/nitrite-dependent respiration and use a variety of organic
-      compounds as respiratory substrates.
-  - target: Rnf-Dependent Acetogenesis from H2 and CO2
-    description: The groundwater-associated repertoire includes Rnf-dependent
-      acetogenesis using hydrogen and carbon dioxide as substrates.
-  - target: Novel Nitrogenase Paralog and Radical SAM Cluster
-    description: Two groundwater-associated clades encode the novel
-      nitrogenase-paralog/radical-SAM gene clusters predicted to reduce a
-      tetrapyrrole cofactor precursor.
   evidence:
   - reference: PMID:32681159
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Groundwater Elusimicrobia are metabolically diverse compared to
-      gut microbiome Elusimicrobia
-    explanation: Supports the broader metabolic repertoire curated for
-      groundwater-associated Elusimicrobia.
-- name: Versatile Heterotrophic/Autotrophic Respiration
-  description: Groundwater Elusimicrobia can perform heterotrophic or
-    autotrophic respiration with oxygen or nitrate/nitrite as terminal
-    electron acceptors and a variety of organic compounds as substrates.
-  interaction_type: CROSS_FEEDING
-  scope: COMMUNITY_LEVEL
+    evidence_source: COMPUTATIONAL
+    snippet: Groundwater Elusimicrobia are metabolically diverse compared to gut microbiome Elusimicrobia
+    explanation: Supports comparative genomic diversity, not experimentally demonstrated community niche partitioning.
+  participating_taxa:
+  - preferred_term: groundwater-associated Elusimicrobia
+    term:
+      id: NCBITaxon:641853
+      label: Elusimicrobia
+  - preferred_term: animal-associated Elusimicrobia
+    term:
+      id: NCBITaxon:641853
+      label: Elusimicrobia
+- name: Predicted Lineage-Specific Respiratory Capacities
+  description: Selected groundwater-associated lineages encode respiratory machinery consistent with oxygen or nitrogen-oxide
+    use. Capacities differ by lineage; they are not a universal complete respiratory or denitrification route and
+    are not demonstrated cross-feeding. These are source-only genomic predictions, not measured growth or electron
+    flux.
+  scope: PAIRWISE
   metabolites:
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
+    notes: Associated with a predicted intrinsic pathway, not measured interspecies exchange.
   - preferred_term: nitrite
     term:
       id: CHEBI:16301
       label: nitrite
+    notes: Associated with a predicted intrinsic pathway, not measured interspecies exchange.
   - preferred_term: dioxygen
     term:
       id: CHEBI:15379
       label: dioxygen
+    notes: Associated with a predicted intrinsic pathway, not measured interspecies exchange.
   evidence:
   - reference: PMID:32681159
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: reliant on oxygen or nitrate/nitrite-dependent respiration, or a
-      variety of organic compounds
-    explanation: Supports the curated heterotrophic/autotrophic respiration
-      modes.
-- name: Rnf-Dependent Acetogenesis from H2 and CO2
-  description: Some groundwater Elusimicrobia encode Rhodobacter nitrogen
-    fixation (Rnf) complex-dependent acetogenesis using H2 and CO2 as
-    substrates.
-  interaction_type: CROSS_FEEDING
-  scope: COMMUNITY_LEVEL
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: reliant on oxygen or nitrate/nitrite-dependent respiration, or a variety of organic compounds
+    explanation: Supports predicted capacities across different genomes, not a measured universal pathway or donor-recipient
+      exchange.
+  source_taxon:
+    preferred_term: groundwater-associated Elusimicrobia
+    term:
+      id: NCBITaxon:641853
+      label: Elusimicrobia
+- name: Predicted Rnf-Associated Acetogenesis from H2 and CO2
+  description: Genomic features in lineages VII, VIII and IX support predicted hydrogen/carbon-dioxide acetogenesis
+    involving Wood-Ljungdahl and Rnf components. The study does not demonstrate acetogenic flux, obligatory Rnf
+    dependence or transfer of acetate to a partner. The Rnf name is not evidence of nitrogen fixation.
+  scope: PAIRWISE
   metabolites:
   - preferred_term: dihydrogen
     term:
       id: CHEBI:18276
       label: dihydrogen
+    notes: Associated with a predicted intrinsic pathway, not measured interspecies exchange.
   - preferred_term: carbon dioxide
     term:
       id: CHEBI:16526
       label: carbon dioxide
+    notes: Associated with a predicted intrinsic pathway, not measured interspecies exchange.
   - preferred_term: acetate
     term:
       id: CHEBI:30089
       label: acetate
+    notes: Associated with a predicted intrinsic pathway, not measured interspecies exchange.
   biological_processes:
   - preferred_term: carbon fixation
     term:
       id: GO:0015977
       label: carbon fixation
+    notes: Predicted carbon-fixation potential; no measured flux assigned.
   evidence:
   - reference: PMID:32681159
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Rhodobacter nitrogen fixation (Rnf) complex-dependent acetogenesis
-      with hydrogen and carbon dioxide as the substrates
-    explanation: Supports Rnf-dependent acetogenesis from H2 and CO2.
-- name: Novel Nitrogenase Paralog and Radical SAM Cluster
-  description: Two groundwater Elusimicrobia clades encode a novel nitrogenase
-    paralog co-occurring with an extensive suite of radical S-Adenosylmethionine
-    proteins; similar genomic loci occur in Gracilibacteria and Myxococcales
-    and are predicted to reduce a tetrapyrrole, possibly to form a novel
-    cofactor.
-  interaction_type: COMMENSALISM
-  scope: COMMUNITY_LEVEL
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Rhodobacter nitrogen fixation (Rnf) complex-dependent acetogenesis with hydrogen and carbon dioxide
+      as the substrates
+    explanation: Supports a genomic acetogenesis prediction, not measured carbon fixation, pathway necessity or
+      cross-feeding.
+  source_taxon:
+    preferred_term: groundwater-associated Elusimicrobia
+    term:
+      id: NCBITaxon:641853
+      label: Elusimicrobia
+- name: Nitrogenase-Paralog Loci with Predicted Tetrapyrrole Function
+  description: Genomic neighborhoods contain divergent nitrogenase-paralog genes, often near radical-SAM genes.
+    Their proposed tetrapyrrole-related function remains unresolved. These loci do not demonstrate nitrogen fixation,
+    a chemically identified cofactor, metabolite donation or commensalism.
+  scope: PAIRWISE
   biological_processes:
   - preferred_term: tetrapyrrole metabolic process
     term:
       id: GO:0033013
       label: tetrapyrrole metabolic process
+    notes: Hypothesized biochemical function, not an experimentally assigned product or activity.
   evidence:
   - reference: PMID:32681159
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: a new group of nitrogenase paralogs that co-occur with an
-      extensive suite of radical S-Adenosylmethionine (SAM) proteins
-    explanation: Supports the curated nitrogenase-paralog and radical-SAM
-      cluster.
+    evidence_source: COMPUTATIONAL
+    snippet: a new group of nitrogenase paralogs that co-occur with an extensive suite of radical S-Adenosylmethionine
+      (SAM) proteins
+    explanation: Supports encoded gene neighborhoods; it does not establish their biochemical products or ecological
+      effects.
   - reference: PMID:32681159
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: predict that the gene clusters reduce a tetrapyrrole, possibly to
-      form a novel cofactor
-    explanation: Supports the predicted tetrapyrrole-reductase function.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: predict that the gene clusters reduce a tetrapyrrole, possibly to form a novel cofactor
+    explanation: The source explicitly predicts function; it does not report catalytic validation or cofactor identification.
+  source_taxon:
+    preferred_term: groundwater-associated Elusimicrobia
+    term:
+      id: NCBITaxon:641853
+      label: Elusimicrobia
 environmental_factors:
 - name: Habitat diversity
   value: animal-associated, sediments, soils, groundwater
@@ -302,3 +314,29 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   Elusimicrobia community.
+discussions:
+- discussion_id: elusimicrobia_genomic_capacity_and_ecological_context
+  prompt: Which predicted capacities operate in these organisms and their actual communities?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Comparative Elusimicrobia Genomic Metabolic Repertoires
+  - ecological_interactions#Predicted Lineage-Specific Respiratory Capacities
+  - ecological_interactions#Predicted Rnf-Associated Acetogenesis from H2 and CO2
+  - ecological_interactions#Nitrogenase-Paralog Loci with Predicted Tetrapyrrole Function
+  rationale: Genome annotation and pathway-completeness thresholds are not cultivation, catalytic activity or exchange
+    measurements. Determine strain-level pathway activity, partner identities and co-occurrence before assigning
+    ecological interaction mechanisms. Establish the paralog product experimentally before equating it with nitrogen
+    fixation or a specific cofactor. Preserve the two distinct habitat labels sharing one CURIE; groundwater predictions
+    must not silently propagate to animal-associated organisms. The three former arrows were overview inclusion
+    links, not causal evidence. Non-graph functional roles and evidence classifications are preserved outside this
+    graph review, not certified.
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T13:58:36Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate genomic capacities from ecological labels and remove three overview inclusion arrows. Issue
+    #1491; reports/causal_graph_review/decisions/20261006-wetup-elusimicrobia-batch49.yaml'
+  llm_assisted: true

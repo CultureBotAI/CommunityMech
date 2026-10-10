@@ -106,8 +106,10 @@ taxonomy:
     explanation: Supports the cross-feeding role of C. kluyveri consuming ethanol from the acetogen.
 ecological_interactions:
 - name: Acetogenic CO and Syngas Fermentation
-  description: C. autoethanogenum converts CO or syngas into acetate and ethanol, producing the
-    substrates that support chain elongation by C. kluyveri.
+  description: C. autoethanogenum converts CO or syngas to acetate and ethanol that support C. kluyveri chain elongation.
+    Product profiles and pure-culture comparisons support this cross-feeding model. In the 2019 chemostat study,
+    partner ethanol production and electron allocation in coculture were reverse-calculated from measured chain-elongated
+    products and assumed stoichiometry, not directly measured partner-specific fluxes.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -144,24 +146,28 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Ethanol-Driven Chain Elongation
-    description: >
-      C. autoethanogenum supplies ethanol and acetate that C. kluyveri consumes
-      for chain elongation to C4 and C6 products.
+    description: 'C. autoethanogenum supplies ethanol and acetate that C. kluyveri consumes for chain elongation
+      to C4 and C6 products.
+
+      '
   evidence:
   - reference: PMID:27042211
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Acetate and ethanol are main products
-    explanation: Supports acetate and ethanol as syngas-fermentation products used by the chain
-      elongation partner.
+    explanation: Supports the substrate-product relationship; the 2016 primary pure-culture and coculture comparisons
+      support the partner assignments.
   - reference: PMID:31792266
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: converted CO to acetate and traces of ethanol
-    explanation: Supports C. autoethanogenum production of cross-fed substrates from CO.
+    explanation: The quoted acetate and trace ethanol concentrations describe the monoculture; coculture ethanol
+      production was reverse-calculated from chain-elongated products.
 - name: Ethanol-Driven Chain Elongation
-  description: C. kluyveri consumes ethanol and acetate produced by C. autoethanogenum, enabling
-    formation of butyrate, caproate, butanol, and hexanol from CO or syngas.
+  description: C. kluyveri uses ethanol and acetate for chain elongation to butyrate and caproate, which can supply
+    C. autoethanogenum for reduction to butanol and hexanol. The 2016 study demonstrated acid formation by C. kluyveri
+    and higher-alcohol formation by acid-supplemented C. autoethanogenum pure cultures. Higher alcohols are therefore
+    coculture products, not products assigned to C. kluyveri alone; this attribution is bounded to the tested conditions.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -192,21 +198,31 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: converting CO and syngas to a mixture
-    explanation: Supports conversion of gas substrates into chain-elongated products by the coculture.
+    explanation: Supports the overall coculture conversion. Primary pure-culture comparisons distinguish acid-forming
+      C. kluyveri from alcohol-reducing C. autoethanogenum.
   - reference: PMID:27042211
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: butyrate and caproate
-    explanation: Supports production of C4 and C6 fatty acids.
+    explanation: Supports the observed C4/C6 acids; the primary pure-culture comparisons attribute chain elongation
+      to C. kluyveri.
   - reference: PMID:27042211
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Butanol and hexanol were produced
-    explanation: Supports production of higher alcohols in the coculture.
-- name: Thermodynamic Ethanol Pull by C. kluyveri
-  description: C. kluyveri removal of ethanol during co-cultivation shifts C. autoethanogenum metabolism
-    toward solventogenesis, improving the electron flow into chain-elongated products.
-  interaction_type: CROSS_FEEDING
+    explanation: Supports coculture higher alcohols. The primary acid-supplemented C. autoethanogenum controls,
+      not C. kluyveri controls, formed these alcohols.
+  target_taxon:
+    preferred_term: Clostridium autoethanogenum
+    term:
+      id: NCBITaxon:84023
+      label: Clostridium autoethanogenum
+- name: Proposed thermodynamic ethanol pull by C. kluyveri
+  description: HYPOTHESIZED - ethanol consumption by C. kluyveri lowers its extracellular concentration and thermodynamically
+    favors further ethanol formation by C. autoethanogenum. Chemostat products, reverse-calculated ethanol flux,
+    hydrogen and acetate additions, and the absence of a major uniform central-metabolism transcript response support
+    this interpretation. They do not exclude protein abundance or post-translational regulation. This node represents
+    a proposed feedback effect of product removal, not ethanol donation from C. kluyveri to the acetogen.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium kluyveri
@@ -230,22 +246,26 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Acetogenic CO and Syngas Fermentation
-    description: >
-      Continuous ethanol removal by C. kluyveri pulls C. autoethanogenum
-      metabolism toward solventogenesis and improves electron flow from CO or
-      syngas into chain-elongated products.
+    description: HYPOTHESIZED - C. kluyveri consumption keeps ethanol low and could favor C. autoethanogenum solventogenesis,
+      supplying further ethanol for chain elongation. Stoichiometric flux estimates and perturbations support this
+      feedback model, but do not uniquely establish thermodynamics as its mediator.
   evidence:
   - reference: PMID:31792266
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: shifted its metabolism significantly towards solventogenesis
-    explanation: Supports a coculture-induced metabolic shift in C. autoethanogenum.
+    explanation: The metabolic shift is inferred from measured products and chain-elongation stoichiometry; the
+      thermodynamic mechanism is the authors' supported interpretation, not an exclusive demonstrated cause.
   - reference: PMID:31792266
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: continuous removal of ethanol by C. kluyveri
-    explanation: Supports the inferred thermodynamic pull mechanism caused by C. kluyveri ethanol
-      consumption.
+    explanation: Supports the proposed product-removal feedback, not reverse ethanol cross-feeding to C. autoethanogenum.
+  - reference: PMID:31792266
+    snippet: protein levels or post-translational modifications cannot be ruled out
+    explanation: The primary Discussion explicitly retains these alternative explanations for the metabolic shift.
+    evidence_source: IN_VITRO
+    supports: PARTIAL
 cultivation_setup:
 - cultivation_mode: CHEMOSTAT
   system_type: STIRRED_TANK_BIOREACTOR
@@ -532,3 +552,28 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this syngas fermentation
   coculture.
+discussions:
+- discussion_id: autoethanogenum_kluyveri_ethanol_feedback_mediation
+  prompt: Does ethanol removal directly mediate the solventogenic shift independently of protein-level regulation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Acetogenic CO and Syngas Fermentation
+  - ecological_interactions#Ethanol-Driven Chain Elongation
+  - ecological_interactions#Proposed thermodynamic ethanol pull by C. kluyveri
+  rationale: PMID:31792266 combines measured product pools, stoichiometric reverse-calculation, transcriptomics
+    and hydrogen/acetate perturbations. The thermodynamic explanation is supported but not exclusive. Selective
+    ethanol-removal perturbations with partner-resolved flux and protein-level measurements would distinguish it
+    from alternative regulation. PMID:33240469 remains computational support, not a new experimentally demonstrated
+    interaction.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T23:24:11Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve supported C2 product supply and its existing chain-elongation arrow; distinguish product pools
+    from inferred partner flux.; Resolve the existing cross-feeding recipient and acid-versus-alcohol producers
+    using the primary pure-culture comparisons.; Retain feedback as an explicitly hypothesized mechanism, not reverse
+    ethanol donation or proof of exclusive thermodynamic regulation. Issue #1319; reports/causal_graph_review/decisions/20261005-three-records-batch18.yaml'
+  llm_assisted: true

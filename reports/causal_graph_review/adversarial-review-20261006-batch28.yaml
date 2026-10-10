@@ -1,0 +1,161 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: d82bf3ed87f5166e7ae41d763f90ff4d2bd8cccc
+scope:
+- kb/communities/Cultivated_Meat_Contaminant_SynCom.yaml
+- kb/communities/Cyantraniliprole_Fahmy_Consortium_T4.yaml
+- kb/communities/Cyprus_Copper_Sulphide_Bioleaching_Consortium.yaml
+- kb/communities/DIETsimp_Lignocellulose_to_Methane_DIET_Consortia.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-four-records-batch28.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch28.json
+findings:
+- issue: 1368
+  severity: P2
+  status: addressed_in_this_change
+  finding: Fahmy T4 prediction and parent-removal observations were labelled mutualism without reciprocal
+    fitness evidence.
+  disposition: Remove both types, preserve all six canonical participants and positive recovery-based
+    HPLC outcome, and distinguish predicted enzyme coverage from measured activity, flux, detoxification
+    or mineralization.
+- issue: 1369
+  severity: P2
+  status: addressed_in_this_change
+  finding: Cyprus recovery-context and general-to-specific arrows were not causal; plasmid annotations
+    and CRISPR matches were overinterpreted as fitness and co-resident competition.
+  disposition: Remove two arrows, keep positive composition observations, qualify plasmid functional potential
+    and unresolved host assignments, and represent CRISPR as a hypothetical host-associated source-only
+    capability.
+- issue: 1370
+  severity: P2
+  status: addressed_in_this_change
+  finding: DIETsimp donor routes were asserted as measured, the intrinsic methanogen step was community-scoped,
+    and the knowledge gap incorrectly claimed no downstream arrows.
+  disposition: Retain two parallel explicitly hypothesized donor arrows; qualify partner-specific flux
+    and carrier uncertainty, preserve positive conductivity evidence, and repair exact names/anchors and
+    contradictory gap wording.
+- issue: 1371
+  severity: P2
+  status: open_nongraph_followup
+  finding: Fahmy non-graph salinity and diamide-assay temperature statements conflict across primary sections.
+  disposition: Tracked separately. Non-graph blocks are byte-preserved, not certified by this graph review.
+- issue: 1372
+  severity: P2
+  status: open_nongraph_followup
+  finding: Cyprus non-graph ingredient oxidation-state and Fe-specific attribution wording requires separate
+    repair.
+  disposition: Tracked separately. Non-graph blocks are byte-preserved, not certified by this graph review.
+- issue: 1373
+  severity: P2
+  status: open_nongraph_followup
+  finding: DIETsimp non-graph taxon roles and performance-versus-protocol language overstate what the
+    abstract establishes.
+  disposition: Tracked separately. Non-graph blocks are byte-preserved, not certified by this graph review.
+adversarial_checks:
+- All ten original nodes and four original arrows have decisions. Six renames propagate to exact targets
+  and anchors; two Cyprus arrows are removed and two DIETsimp arrows retained as hypotheses.
+- Cultivated-meat predicted complementarity is not measured exchange. The exogenous antimicrobial outcome
+  is not member antagonism; MIC is not the unspecified effective long-term dose. The unchanged review
+  invents no event or history.
+- Fahmy T4 retains positive HPLC parent removal, the 57.79 mg/L starting recovery and native-community
+  context. Prediction Table 8 wording does not establish enzyme expression, minimum-member necessity,
+  reciprocal fitness or mineralization.
+- Cyprus relative pooled-DNA profiles and mineral treatments do not isolate Fe or establish niche flux.
+  The four named groups are an aggregate, not all twelve MAGs.
+- Named plasmid participants are only a known-host subset. Alphaproteobacteria-linked copper-resistance
+  candidates are not grounded to Rhodospirillales or archaea. CRISPR spacer matches do not demonstrate
+  cleavage, exclusion, co-residence or microbial competition.
+- DIETsimp positive pH-dependent conductivity and cytochrome-associated spectra are not discarded; the
+  abstract explicitly proposes the mechanism. Donor-specific substrates, direct electron carriers and
+  M. mazei-specific methane contribution remain unresolved.
+- DIETsimp intrinsic methanogenesis uses the existing source-only PAIRWISE convention, not an invented
+  enum or whole-community syntrophy. Neither retained arrow links one bacterial donor relationship causally
+  to the other.
+- Three guarded edits each have one llm-assisted event and one append-only history. All non-graph blocks,
+  the other 457 records and all 920 caches are byte-preserved.
+- The exact participating_taxa registry gains only Fahmy T4 and Cyprus, 168 to 170 users. Both connectivity
+  surveys are measured; mixed scope remains 124 without changed numeric bounds or algorithms.
+- Issue deduplication searched 700 all-state titles/bodies plus ignored/hidden local review/history scopes,
+  not all comments or the whole filesystem. Earlier cultivated-meat and Fahmy fixes are preserved.
+- All 456 community pages have exact node/arrow descriptions checked by HTML parser and repeat renders.
+  Browser screenshots, figure images and supplements were not inspected.
+verification:
+  combined_regressions: 336 passed in 306.36s (0:05:06)
+  new_regression_tests: 6
+  schema_strict_terms_history: passed for applicable targets; complete commands and raw results retained
+  snippet_counts_by_record:
+    kb/communities/Cultivated_Meat_Contaminant_SynCom.yaml:
+      MATCH: 14
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Cyantraniliprole_Fahmy_Consortium_T4.yaml:
+      MATCH: 24
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Cyprus_Copper_Sulphide_Bioleaching_Consortium.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/DIETsimp_Lignocellulose_to_Methane_DIET_Consortia.yaml:
+      MATCH: 11
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero structural errors; same 25 warnings with raw warning exits retained.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-four-records-batch28.yaml: b6c1f9081c2d4a75c3db896187e3e20dffac6d339c7ad455c03e07719c17a29f
+    tests/test_causal_review_batch28.py: 6e0f1bf11083032868200230d907e72e43df4451cfe9773b98bc74df161939c9
+    tests/test_participating_taxa.py: 3f68fe32489b09369c902fc3355c21c4bb5eec21d10ce9c8700559003cc8a00d
+    kb/communities/Cultivated_Meat_Contaminant_SynCom.yaml: 432da24bbdadb8fb88ea3c7aec46d75743748ef94449b645a1a199bd651d047e
+    kb/communities/Cyantraniliprole_Fahmy_Consortium_T4.yaml: 0ecd37ff8b4675764844c6d704c634832fecd8635b80e6f9c5759c217345595c
+    kb/communities/Cyprus_Copper_Sulphide_Bioleaching_Consortium.yaml: c914e6ebd91d24dbb0b18b48b2aff7979e6528900cc282824d40b8da8afb29c8
+    kb/communities/DIETsimp_Lignocellulose_to_Methane_DIET_Consortia.yaml: 41e06f6c3fa5433a002180badb92870c4664a3863c394d4c7d25acf38a23a3be
+  post_commit_docs_current: Separate publication gate; not yet claimed by this pre-commit artifact.
+  protected_ci_and_merge: Require live exact-head status and protected main queue; not asserted here.
+participant_census:
+  connectivity_before:
+    community_level_only: 265
+    credited_solely_by_the_rule: 1217
+    mixed: 124
+    records: 460
+    taxa: 1499
+    with_community_level: 389
+  connectivity_after:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1216
+    mixed: 124
+    records: 460
+    taxa: 1496
+    with_community_level: 388
+  exact_change: 168 -> 170 users; only Fahmy T4 and Cyprus added
+  numeric_bounds_changed: false
+corpus:
+  records: 460
+  nodes: 1474
+  edges: 708
+  review_status_counts:
+    needs_research: 4
+    pending: 327
+    reviewed: 129
+limitations:
+- 'Four graph reviews: three changed and one unchanged. Ten existing nodes retained; two unsupported Cyprus
+  arrows removed and two DIETsimp arrows qualified. No new graph structure or Edison spend.'
+- Two complete primary main bodies and two complete primary abstracts reviewed. No figure images or supplementary
+  files inspected; no new full text or PDF added to git.
+- Cultivated-meat and DIETsimp conclusions remain abstract-bounded, with exact-species/protocol and direct-transfer
+  gaps left open respectively.
+- Non-graph blocks are preserved, not certified; three separate metadata follow-ups remain open.
+- Source-based self-adversarial review is not independent approval, protected CI success, or full-corpus
+  completion.

@@ -46,7 +46,7 @@
   footer{border-top:1px solid var(--line);background:rgba(255,255,255,.45);
          padding:30px 24px;text-align:center;font-size:.9rem;color:var(--muted)}
   footer .fam{margin:.2em 0}
-  footer .fam a{margin:0 .45em;white-space:nowrap}
+  footer .fam a{margin:0 .45em;white-space:nowrap;display:inline-block}
   footer strong{color:var(--ink)}
 /* ---- Dark theme (OS default; superseded by the toggle) ---- */
 @media (prefers-color-scheme: dark){
@@ -78,7 +78,7 @@
     <p class="tagline">Microbial community knowledge base — curated, evidence-backed interaction networks.</p>
     <div class="stats">
       <a class="stat" href="browser.html"><b>{{ num_communities }}</b><span>communities</span></a>
-      <a class="stat" href="browser.html#category-facet"><b>16</b><span>categories</span></a>
+      <a class="stat" href="browser.html#category-facet"><b>{{ num_categories }}</b><span>categories</span></a>
       <a class="stat" href="community_umap.html"><b>512-D</b><span>v3 embeddings</span></a>
     </div>
   </header>
@@ -102,6 +102,7 @@
     </div>
   </main>
   <footer>
+    <p><a href="https://culturebotai.github.io/mechs/">All Mech projects</a></p>
     <div class="fam"><strong>KG-Microbe Mechs:</strong>
       <a href="https://culturebotai.github.io/CultureMech/">CultureMech</a>&middot;<a href="https://culturebotai.github.io/MediaIngredientMech/">MediaIngredientMech</a>&middot;<span aria-current="page">CommunityMech</span>&middot;<a href="https://culturebotai.github.io/TraitMech/">TraitMech</a>&middot;<a href="https://culturebotai.github.io/proteintraitsmech/">ProteinTraitsMech</a>
     </div>

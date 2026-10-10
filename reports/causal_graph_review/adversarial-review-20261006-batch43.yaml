@@ -1,0 +1,150 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 22b5b12c2386a949d1ec4ddb1f79ee288085bd1c
+scope:
+- kb/communities/GLBRC_Populus_Variovorax_SynCom28.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-variovorax-batch43.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch43.json
+findings:
+- issue: 1471
+  severity: P2
+  status: addressed_in_this_change
+  finding: Relative community enrichment and a separate CF313 mutant result were overstated as competitive
+    partitioning and interstrain facilitation.
+  disposition: Three existing nodes bounded/renamed, both unsupported arrows removed, exact canonical
+    participants, focused gap and history. No new graph structure. Close only after protected main merge.
+- issue: 1472
+  severity: P2
+  status: addressed_in_this_change
+  finding: Legacy test census credited every shared-genus strain to a precisely named single-strain endpoint.
+  disposition: Reuse existing exact-name-aware ranker resolver; production auditor/ranker unchanged. Compare
+    both algorithms on both corpus versions, retain synthetic shared-CURIE canaries and add live CF313
+    test. Historical counts retained but not certified as exact strain counts. Close only after main merge.
+adversarial_checks:
+- Whole 1,210-line original record and all three nodes/two arrows read. All 28 canonical members retain
+  their strain preferred names with the shared genus CURIE; no invented strain/species IDs or genus self-edge.
+- Complete cached primary main body, Methods and embedded captions read despite stale abstract_only front
+  matter. Primary public PMC request presented reCAPTCHA, with no bypass. No figure images, supplementary
+  files, raw data, code or complementation rescue independently inspected.
+- Compartment metagenomics measures relative DNA enrichment and normalized abundance, not absolute viable
+  colonization or experimentally reduced competition. A draft absolute-read-abundance phrase was caught
+  during self-review, corrected before commit and followed by fresh complete verification. Initial run
+  and its hashes remain archived.
+- Resource competition remains HYPOTHESIZED and evidence PARTIAL. The source proposes alternative metabolic/regulatory
+  strategies but does not selectively measure resource-mediated partner harm. Shared genus is not proof
+  of a single species; no intraspecific category retained.
+- CF313 PMI12_01353 deletion abolishes sole-fucose growth and reduces recovered root CFUs in P. deltoides,
+  reported P=0.0022. This existing node is source-only CF313; not partner facilitation, priority effects,
+  whole-panel compartment causation or proven entry/flux mechanism. Other intact-pathway strains fail
+  growth; pathway possession alone is not sufficient. Host fucose not quantified.
+- Both downstream arrows removed because their targets represent relative community compartment profiles
+  rather than the separate mutant root-recovery endpoint. No new causal nodes/arrows, no Edison job or
+  provider spend. Canonical L-fucose grounding reused from this record.
+- The historic all-community-level auditor fixture is now explicitly synthetic, preserving exact-name
+  versus ambiguous-CURIE behavior tests without freezing scientific data. The live record has two full-panel
+  observations and one intrinsic source. New test verifies one of 28 precise matches and no fan-out for
+  ambiguous ID-only pairwise endpoints.
+- 'Census legacy/current and corrected/baseline comparisons distinguish algorithm correction from biology.
+  Mixed count changes 124 to 125 and CL-only 263 to 262; only that bound changes. Historical raw numeric
+  outputs are not rewritten or represented as exact strain-aware counts. README and issue document correction;
+  broader #524 remains open.'
+- 459 other records, 920 source caches, taxonomy and all non-graph raw blocks preserved. Prior history
+  artifacts byte-identical; one append-only event/artifact. Both initially selected UFMP/GOM records remain
+  pending, not silently counted as reviewed.
+- Schema, strict semantics, term correspondence, reference, snippet, history and rank checks passed on
+  final bytes. No new audit findings; all 33 baseline warnings preserved, zero structural errors. Repeat
+  renders deterministic and all published node/edge descriptions checked. No browser screenshot claimed.
+- 'Five new focused tests plus the combined historical batch/shared suite pass. The initial run passed
+  445 tests but failed Ruff on import ordering and dict-constructor style; fixes and its actual failure
+  output are retained, followed by a fresh complete run. Positive/negative reference-validator canaries
+  remain included. Total checks:0 is an issue count, not a no-op; SupportingReference #476 remains incomplete.
+  Text matching is not source-grounding validation.'
+- All-state 788 issue title/body snapshot and ignored/hidden local search used. Relevant biological and
+  census matches read; initial mistaken data/history scan corrected to history/ before concluding dedup.
+  Not every issue comment or PR review inspected.
+- Self-adversarial review is not independent approval. Exact-head COMMENT and actual post-commit docs-current
+  are publication steps; protected main checks and dependent-parent merges remain mandatory. Neither complete
+  corpus review nor completed merge is asserted here.
+verification:
+  combined_regressions: 445 passed in 176.93s (0:02:56)
+  new_regression_tests: 5
+  schema_strict_terms_history: passed with actual outputs and digests
+  references: 'CLI Total checks counts reported issues, not executed checks. This record exits 0 with
+    no reported issues; 44 snippet-audit matches are textual matching, not proof of scientific support
+    or independently verified provenance. SupportingReference coverage remains incomplete under #476;
+    earlier counter interpretation is corrected by batch42.'
+  snippet_counts_by_record:
+    kb/communities/GLBRC_Populus_Variovorax_SynCom28.yaml:
+      MATCH: 44
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero errors; exactly 33 existing warnings, none added.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-variovorax-batch43.yaml: 8740238b2df4bbb42e8cdceb7e8ca47dd1734b96a96fc161b766f5ccb7973f41
+    tests/test_causal_review_batch43.py: 3444fc98c3cf63e9dcaf90de30f761252799087b74821b3ac155b995ec138afe
+    tests/test_participating_taxa.py: c78bbb89bc2afc5c6a9e646bb9c5103e1cbb22d0f19b09f9fa7001e7ed2ba8a5
+    tests/test_community_level_connectivity_credit.py: a9ba9fbacb9edaffbd1590ecc2f8fbc1b4ab36a3caf358f90c943c8a64fd76fd
+    kb/communities/GLBRC_Populus_Variovorax_SynCom28.yaml: c251f6d716591cd391dbb09ad961f6ccb7b123988b9c677d925356b8463d2c28
+    reports/causal_graph_review/README.md: 494d79788f9b4c63def8d22ef421081ea2facff92a709d5ca577b4ede46958f3
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    corrected_baseline:
+      community_level_only: 263
+      credited_solely_by_the_rule: 1222
+      mixed: 124
+      records: 460
+      taxa: 1494
+      with_community_level: 387
+    corrected_current:
+      community_level_only: 262
+      credited_solely_by_the_rule: 1221
+      mixed: 125
+      records: 460
+      taxa: 1494
+      with_community_level: 387
+    legacy_baseline:
+      community_level_only: 263
+      credited_solely_by_the_rule: 1219
+      mixed: 124
+      records: 460
+      taxa: 1494
+      with_community_level: 387
+    legacy_current:
+      community_level_only: 262
+      credited_solely_by_the_rule: 1191
+      mixed: 125
+      records: 460
+      taxa: 1494
+      with_community_level: 387
+  correction_issue: 1472
+  scientific_issue: 1471
+  interpretation: Production auditor/ranker unchanged. Legacy survey falsely credits all 28 shared-genus
+    members to CF313; corrected algorithm credits exactly CF313. Historical survey outputs are retained
+    but withdrawn as exact strain-resolved counts. One new participant record, 189 to 190. Mixed-scope
+    ceiling increases only 124 to 125; other bounds unchanged.
+corpus:
+  records: 460
+  nodes: 1468
+  edges: 684
+  review_status_counts:
+    needs_research: 12
+    pending: 284
+    reviewed: 164
+limitations:
+- Complete cached primary main body, Methods and embedded captions read despite stale abstract_only front
+  matter; no figure images, separate supplements, raw data or analysis code independently inspected. Public
+  PMC browser path presented reCAPTCHA; no bypass.
+- Three existing nodes retained/renamed, two unsupported arrows removed. No new causal structure or Edison
+  spend.
+- Canonical taxonomy, non-graph raw blocks, historical records and all original caches preserved, not
+  certified. Both initially selected UFMP/GOM candidates remain pending.
+- 'The reference CLI Total checks counter counts reported issues, not executed checks; SupportingReference
+  coverage remains incomplete under #476. Text matching is not scientific support or independent cache
+  provenance.'
+- Source-based self-adversarial review is not independent approval or corpus completion.

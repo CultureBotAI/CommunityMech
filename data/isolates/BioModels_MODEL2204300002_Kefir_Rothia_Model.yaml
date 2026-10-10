@@ -69,73 +69,11 @@ taxonomy:
     snippet: NDFM00000000 for R. kefirresidentii KRP
     explanation: Reports the DDBJ/ENA/GenBank whole-genome shotgun accession for strain KRP.
 ecological_interactions:
-- name: Rothia KRP GAM Agar Isolation
-  description: >-
-    Rothia kefirresidentii KRP was recovered from ground kefir grains after serial
-    dilution and two days of growth on GAM agar at 30 degrees C. That isolate is
-    the biological input for the genome sequencing and model-building steps
-    represented downstream.
-  scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Rothia kefirresidentii KRP
-    term:
-      id: NCBITaxon:32207
-      label: Rothia <high G+C Gram-positive bacteria>
-  biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
-  downstream:
-  - target: Rothia KRP Whole-Genome Assembly
-    description: The cultured KRP isolate supplied genomic DNA for draft genome sequencing.
-  evidence:
-  - reference: PMID:28963201
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: R. kefirresidentii KRP (ISC 156) was isolated from ground kefir grains, plated
-      in serial dilutions on GAM agar and grown for 2 days at 30°C
-    explanation: Establishes the strain code and the GAM agar isolation condition for KRP.
-- name: Rothia KRP Whole-Genome Assembly
-  description: >-
-    Genome sequencing and assembly of the Rothia KRP isolate produced an 81-contig
-    draft genome of 2,522,693 bp with 58.47% GC, then deposited the assembly at
-    DDBJ/ENA/GenBank under accession NDFM00000000. The accession ties the recovered
-    isolate to the genome-scale reconstruction archived in BioModels.
-  scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Rothia kefirresidentii KRP
-    term:
-      id: NCBITaxon:32207
-      label: Rothia <high G+C Gram-positive bacteria>
-  metabolites:
-  - preferred_term: deoxyribonucleic acid
-    term:
-      id: CHEBI:16991
-      label: deoxyribonucleic acid
-  downstream:
-  - target: Rothia KRP Genome-Scale Amino-Acid Flux Model
-    description: The deposited KRP genome supported strain-specific metabolic reconstruction.
-  evidence:
-  - reference: PMID:28963201
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The draft genome sizes are 5,057,314 bp (GC content, 45.62%) for
-      B. kefirresidentii Opo, 2,522,693 bp (GC content, 58.47%) for
-      R. kefirresidentii KRP
-    explanation: Reports the Rothia KRP draft genome size and GC content.
-  - reference: PMID:28963201
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: NDFM00000000 for R. kefirresidentii KRP
-    explanation: Reports the DDBJ/ENA/GenBank accession for the KRP WGS assembly.
 - name: Rothia KRP Genome-Scale Amino-Acid Flux Model
-  description: >-
-    The Blasche kefir workflow reconstructed bacterial genome-scale metabolic
-    models with CarveMe and used flux balance analysis to simulate expected
-    amino-acid uptake and secretion rates through fermentation time. BioModels
-    MODEL2204300002 archives the Rothia kefirresidentii KRP SBML model from that
-    workflow.
+  description: COMPUTATIONAL POTENTIAL - the kefir workflow reconstructed bacterial metabolic models with CarveMe and used
+    FBA to predict amino-acid uptake and secretion. The authors' model m_156_03182016 maps to Rothia kefirresidentii KRP.
+    These predictions do not establish a measured KRP-to-partner exchange or fitness effect; the exact BioModels deposit was
+    not independently retrieved in this review.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Rothia kefirresidentii KRP
@@ -161,7 +99,8 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: Genome-scale metabolic models were reconstructed for all bacterial species
-    explanation: Supports reconstruction of bacterial kefir genome-scale metabolic models.
+    explanation: Supports the reconstruction workflow; the authors' species mapping identifies the KRP model. This is not
+      a measured interaction.
     computational_provenance:
       prediction_type: GENOME_SCALE_METABOLIC_MODEL
       tools:
@@ -173,9 +112,8 @@ ecological_interactions:
   - reference: PMID:33398099
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: The models were used to simulate the expected uptake/secretion rates of amino
-      acids using flux balance analysis
-    explanation: Supports the FBA step that predicted amino-acid exchange potential.
+    snippet: The models were used to simulate the expected uptake/secretion rates of amino acids using flux balance analysis
+    explanation: Supports predicted amino-acid uptake and secretion, not validated partner-specific transfer.
     computational_provenance:
       prediction_type: FLUX_BALANCE_ANALYSIS
       tools:
@@ -236,3 +174,21 @@ external_resources:
     evidence_source: COMPUTATIONAL
     snippet: Metabolic cooperation and spatiotemporal niche partitioning in a kefir microbial community.
     explanation: Supports the kefir community interaction modeling context.
+discussions:
+- discussion_id: rothia_model_exchange_validation
+  prompt: Which predicted KRP amino-acid exchanges occur with identified kefir partners?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Rothia KRP Genome-Scale Amino-Acid Flux Model
+  rationale: PMID:28963201 establishes isolation and assembly provenance, preserved in growth_media and associated_datasets.
+    PMID:33398099 describes CarveMe/FBA modeling; the authors' species_list.tsv maps 156_03182016 to KRP. Isolation and sequencing
+    dependencies are not ecological arrows. Strain-resolved exchange and perturbation measurements are needed before adding
+    partner-specific causation. Byte equivalence to BioModels MODEL2204300002 remains unverified.
+curation_history:
+- timestamp: '2026-10-05T07:14:39Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Remove laboratory provenance arrows from the Rothia ecological graph; complete node/edge decisions: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1240'
+  llm_assisted: true

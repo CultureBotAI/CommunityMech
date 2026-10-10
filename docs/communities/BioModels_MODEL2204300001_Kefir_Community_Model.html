@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>BioModels MODEL2204300001 Kefir Community Model</h1>
         </div>
     </header>
@@ -439,6 +462,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -578,7 +602,7 @@
 
                     <tr>
                         <td>
-                            <strong>Lactobacillus kefiri</strong>
+                            <strong>Lactobacillus kefiri<span class="ontology-label"> — ontology label: Lentilactobacillus kefiri</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=33962"
@@ -662,7 +686,7 @@
 
                     <tr>
                         <td>
-                            <strong>Kazachstania exigua</strong>
+                            <strong>Kazachstania exigua<span class="ontology-label"> — ontology label: Maudiozyma exigua</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34358"
@@ -704,18 +728,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for BioModels MODEL2204300001 Kefir Community Model</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding, mutualism. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -733,8 +759,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -745,6 +771,7 @@
                     <h3>L. kefiranofaciens Proteolytic Support for L. mesenteroides</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">Experimental pairwise growth and supplementation support reciprocal benefit between L. kefiranofaciens and L. mesenteroides in liquid milk. Proteolysis, casein peptides and amino-acid supplementation support L. mesenteroides growth. PARTIAL - partner-specific transfer and its necessity are inferred from these assays, not resolved donor-tracer flux. MUTUALISM retains the measured paired benefits.</p>
 
 
                 <p><strong>Source Taxon:</strong> Lactobacillus kefiranofaciens</p>
@@ -776,6 +803,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> L. mesenteroides Lactate Provisioning to L. kefiranofaciens
+                        <p class="prewrap causal-description">PARTIAL - proteolytic support of L. mesenteroides growth can enable lactate production that benefits L. kefiranofaciens in the proposed reciprocal mechanism. Growth and supplementation support this model, but donor-resolved transfer and selective molecular necessity were not established at this review scope.</p>
                     </div>
 
                 </div>
@@ -818,8 +846,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>L. kefiranofaciens Suppression of L. kefiri</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
+                <p class="prewrap interaction-description">L. kefiranofaciens suppressed L. kefiri in liquid-milk pairwise assays. This measured directional inhibition is retained without assigning the local reciprocal-negative COMPETITION type: the inspected main-text claim does not establish both partners&#39; negative responses. Solid milk-agar interactions are a separate experimental condition.</p>
 
 
                 <p><strong>Source Taxon:</strong> Lactobacillus kefiranofaciens</p>
@@ -872,6 +900,7 @@
                     <h3>L. mesenteroides Lactate Provisioning to L. kefiranofaciens</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
+                <p class="prewrap interaction-description">Lactate supplementation increased L. kefiranofaciens growth about three-fold, and living partners showed reciprocal benefit. PARTIAL - L. mesenteroides-derived lactate is the source&#39;s proposed return metabolite, supported by modeling, supplementation and partner assays. Supplementation is not donor-resolved flux or proof of necessity. The 7-12 mg/ml range reported for Acetobacter does not belong to this recipient.</p>
 
 
                 <p><strong>Source Taxon:</strong> Leuconostoc mesenteroides</p>
@@ -884,28 +913,15 @@
 
                 <p><strong>Metabolites:</strong>
 
-                    L-lactate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=422"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:422</a>)
+                    lactate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=24996"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:24996</a>)
 
                 </p>
 
 
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Acetobacter Lactate Cross-Feeding
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Kazachstania Lactate-Promoted Growth
-                    </div>
-
-                </div>
 
 
 
@@ -947,17 +963,28 @@
                     <h3>Acetobacter Lactate Cross-Feeding</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">PARTIAL - lactate-producer partnerships, conditioned-medium assays and supplementation support the authors&#39; Acetobacter cross-feeding model. Acetobacter growth benefited most at 7-12 mg/ml supplied lactate. GC-MS did not detect appreciable lactate consumption in the tested conditioned media, although amino-acid consumption was measured; limited analytical sensitivity is a proposed explanation. Supplementation and late growth do not uniquely resolve the donor-specific lactate flux.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Lactococcus lactis,
+
+                    Leuconostoc mesenteroides,
+
+                    Acetobacter fabarum
+
+                </p>
 
 
 
                 <p><strong>Metabolites:</strong>
 
-                    L-lactate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=422"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:422</a>)
+                    lactate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=24996"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:24996</a>)
 
                 </p>
 
@@ -976,7 +1003,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/33398099/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33398099</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"The majority of the mutualistic interactions, 8 in total, involved A. fabarum and a lactate-producing partner, supporting its dependency on lactate and late onset during fermentation."</div>
@@ -1005,17 +1032,28 @@
                     <h3>Kazachstania Lactate-Promoted Growth</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">Lactate supplementation promoted K. exigua at lower concentrations than Acetobacter, and its growth timing was compatible with changing organic-acid levels. PARTIAL - bacterial lactate support is a proposed community cross-feeding route, not directly measured producer-to-yeast uptake or necessity. Yeasts were among the organisms able to grow appreciably in plain whey, so lactate is not established as their sole enabling substrate.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Kazachstania exigua,
+
+                    Lactococcus lactis,
+
+                    Leuconostoc mesenteroides
+
+                </p>
 
 
 
                 <p><strong>Metabolites:</strong>
 
-                    L-lactate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=422"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:422</a>)
+                    lactate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=24996"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:24996</a>)
 
                 </p>
 
@@ -1047,7 +1085,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/33398099/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33398099</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"the time-windows of yeast and Acetobacter growth align well with the beneficial or inhibitory range of lactate and acetate concentration"</div>
@@ -1065,6 +1103,7 @@
 
         <section>
             <h2>Associated Datasets</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Associated Datasets">
             <table>
                 <thead>
                     <tr>
@@ -1110,13 +1149,34 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which donor-specific fluxes and reciprocal fitness responses resolve the inferred kefir mechanisms?
+                </h3>
+                <p class="prewrap">Preserve experimental pairwise mutualism and supplementation responses. Recipient-directed lactate delivery to L. kefiranofaciens does not cause the general pool supporting Acetobacter or yeast, so those two arrows were removed. Source main text and captions read; figure image and supplementary-table access was not obtained, and reciprocal inhibition of the L. kefiri pair was not independently resolved. The source XML was retrieved to inspect Fig. 4 metadata, not to claim its image or Table 8 was reviewed. Non-graph follow-up remains #1262.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#L. kefiranofaciens Proteolytic Support for L. mesenteroides</code>, <code>ecological_interactions#L. kefiranofaciens Suppression of L. kefiri</code>, <code>ecological_interactions#L. mesenteroides Lactate Provisioning to L. kefiranofaciens</code>, <code>ecological_interactions#Acetobacter Lactate Cross-Feeding</code>, <code>ecological_interactions#Kazachstania Lactate-Promoted Growth</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
         <section>
             <h2>External Resources</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="External Resources">
             <table>
                 <thead>
                     <tr>
@@ -1175,6 +1235,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -1262,12 +1323,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1280,7 +1344,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1402,7 +1465,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1444,7 +1507,7 @@
             var metabolites = [];
 
 
-            metabolites.push("L-lactate");
+            metabolites.push("lactate");
 
 
             var processes = [];
@@ -1482,7 +1545,7 @@
             var metabolites = [];
 
 
-            metabolites.push("L-lactate");
+            metabolites.push("lactate");
 
 
             var processes = [];
@@ -1502,6 +1565,21 @@
 
 
 
+            var participantKeys = [
+
+                "Lactococcus lactis",
+
+                "Leuconostoc mesenteroides",
+
+                "Acetobacter fabarum"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1510,7 +1588,7 @@
             var metabolites = [];
 
 
-            metabolites.push("L-lactate");
+            metabolites.push("lactate");
 
 
             var processes = [];
@@ -1530,6 +1608,21 @@
 
 
 
+            var participantKeys = [
+
+                "Kazachstania exigua",
+
+                "Lactococcus lactis",
+
+                "Leuconostoc mesenteroides"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
 
@@ -1543,6 +1636,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

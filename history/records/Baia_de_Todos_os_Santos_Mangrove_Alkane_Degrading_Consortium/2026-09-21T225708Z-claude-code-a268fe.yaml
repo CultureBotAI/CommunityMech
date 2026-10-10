@@ -1,0 +1,27 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Baia_de_Todos_os_Santos_Mangrove_Alkane_Degrading_Consortium.yaml
+  slug: Baia_de_Todos_os_Santos_Mangrove_Alkane_Degrading_Consortium
+session:
+  id: 2026-09-21T225708Z-claude-code-a268fe
+  timestamp: '2026-09-21T22:57:08Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: gpt-5-codex
+    agent_tool: codex
+links:
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/1034
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - ecological_interactions
+  summary: Fix dangling Baia downstream edges
+  details: Removed two downstream edges whose targets were phenotypic alkane-degradation
+    endpoints rather than names of ecological interactions. The network-integrity CI
+    check treats InteractionDownstream.target values as causal-graph references to
+    EcologicalInteraction.name, so these endpoints were intentionally left in the
+    interaction descriptions and evidence rather than modeled as downstream edges.

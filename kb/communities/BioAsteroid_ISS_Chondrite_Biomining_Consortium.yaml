@@ -147,15 +147,12 @@ taxonomy:
     explanation: Establishes the fungus as the primary bioleaching driver for platinum-group elements in microgravity.
 ecological_interactions:
 - name: Fungal bioleaching of platinum-group and critical elements from L-chondrite
-  description: >
-    Penicillium simplicissimum catalyses the release of platinum-group elements
-    (palladium, platinum, ruthenium) and other critical elements (including
-    phosphorus, vanadium and copper) from the L-chondrite meteorite, enhancing
-    leaching relative to non-biological controls under microgravity. This is
-    interpreted as heterotrophic bioleaching through proton, organic-acid and
-    complexing-compound release.
+  description: P. simplicissimum showed higher mean release of several elements from L-chondrite in ISS incubations.
+    Most pairwise ISS comparisons were nonsignificant; phosphorus release relative to the non-biological control
+    was significant. PARTIAL - carboxylic-acid signals support proposed fungal bioleaching chemistry, not necessary
+    mediation by specific acids. Canonical acids such as citrate were not detected in the inspected study; bulk
+    elemental measurements do not establish ionic speciation.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   participating_taxa:
   - preferred_term: Penicillium simplicissimum DSM 1078
     term:
@@ -165,15 +162,11 @@ ecological_interactions:
   - preferred_term: palladium
     term:
       id: CHEBI:33363
-      label: palladium
+      label: palladium atom
   - preferred_term: vanadium
     term:
       id: CHEBI:27698
       label: vanadium atom
-  - preferred_term: copper(2+)
-    term:
-      id: CHEBI:29036
-      label: copper(2+)
   - preferred_term: carboxylic acid
     term:
       id: CHEBI:33575
@@ -183,27 +176,26 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Penicillium simplicissimum enhanced the release of palladium, platinum and other elements in microgravity
-    explanation: Documents fungal enhancement of platinum-group element release in microgravity.
+    explanation: Reports the directional leaching pattern; do not interpret every element/control comparison as
+      statistically significant.
   - reference: PMID:41617698
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: enhanced bioleaching of phosphorus, vanadium and copper compared to the bacterium
-    explanation: Documents fungal enhancement of phosphorus, vanadium and copper leaching.
+    explanation: Supports the reported elemental comparison, with element-specific significance limits stated in
+      the description.
   - reference: PMID:41617698
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: increased production of carboxylic acids
-    explanation: Links the fungus to increased carboxylic acid production, a candidate leaching mechanism.
+    explanation: Carboxylic-acid signals motivate a chemical mechanism but do not establish which compound necessarily
+      mediates leaching.
 - name: Bacterial and fungal biofilm colonization of the meteorite surface
-  description: >
-    Both the bacterium Sphingomonas desiccabilis and the fungus Penicillium
-    simplicissimum colonize the L-chondrite surface. In consortium, the bacterium
-    and the fungus interact in a similar fashion in both gravity conditions,
-    forming a mixed filamentous (fungus) and rod-shaped-cell (bacterium) biofilm
-    on the rock, providing the physical microbe-mineral contact required for
-    bioleaching.
+  description: S. desiccabilis and P. simplicissimum colonized the meteorite surface; images showed bacterial rods
+    and fungal filaments together in consortium samples under both gravity conditions. Co-colonization does not
+    show that either partner enhances the other's establishment or that biofilm formation is required for the measured
+    leaching. The source explicitly could not associate observed biofilm growth with leaching yield.
   scope: COMMUNITY_LEVEL
-  interaction_type: COLONIZATION_FACILITATION
   participating_taxa:
   - preferred_term: Sphingomonas desiccabilis CP1D
     term:
@@ -218,19 +210,6 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
-  downstream:
-  - target: Fungal bioleaching of platinum-group and critical elements from L-chondrite
-    description: >
-      Fungal growth as mycelia on the meteorite surface provides the
-      microbe-mineral contact through which P. simplicissimum releases
-      carboxylic acids and other complexing metabolites that enhance elemental
-      dissolution from the L-chondrite under microgravity.
-  - target: Bacterial antagonism of fungal palladium leaching in the consortium
-    description: >
-      Mixed biofilm formation places rod-shaped S. desiccabilis cells and
-      P. simplicissimum filaments on the same meteorite surface in the
-      consortium treatment where the bacterium was inferred to antagonize
-      fungal palladium leaching.
   evidence:
   - reference: PMID:41617698
     supports: SUPPORT
@@ -242,13 +221,11 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: the bacterium and the fungus interacting in a similar fashion in both gravity conditions
     explanation: Documents co-colonization of the rock by the bacterium and the fungus in the consortium.
-- name: Bacterial antagonism of fungal palladium leaching in the consortium
-  description: >
-    In the two-member consortium, palladium leaching was lower than for the
-    fungus alone: Penicillium simplicissimum alone outperformed the consortium
-    for palladium, an outcome the authors attribute to an antagonistic effect of
-    the bacterium Sphingomonas desiccabilis on fungal palladium extraction.
-  interaction_type: COMPETITION
+- name: Candidate Bacterial Antagonism of Fungal Palladium Leaching
+  description: PARTIAL - mean palladium extraction was lower for the mixed consortium than for the fungus alone,
+    and the authors proposed bacterial antagonism. The ISS pairwise difference was nonsignificant. This extraction
+    endpoint does not establish suppression of fungal growth, reciprocal negative fitness, or an independently tested
+    mediator of the same leaching outcome.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Sphingomonas desiccabilis CP1D
@@ -264,18 +241,14 @@ ecological_interactions:
   - preferred_term: palladium
     term:
       id: CHEBI:33363
-      label: palladium
-  downstream:
-  - target: Fungal bioleaching of platinum-group and critical elements from L-chondrite
-    description: >
-      Sphingomonas antagonism in the two-member consortium specifically reduced
-      the palladium-leaching output relative to the Penicillium-alone treatment.
+      label: palladium atom
   evidence:
   - reference: PMID:41617698
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: the fungus alone outperformed the consortium, possibly due to the antagonistic effects of the bacterium
-    explanation: Documents bacterial antagonism of fungal palladium leaching in the consortium.
+    explanation: The source says possibly; lower mean extraction is not significant proof of bacterial inhibition
+      of fungal fitness.
 environmental_factors:
 - name: Microgravity (ISS spaceflight)
   value: microgravity
@@ -451,7 +424,7 @@ related_ingredients:
 - preferred_term: palladium
   chebi_term:
     id: CHEBI:33363
-    label: palladium
+    label: palladium atom
   relevance: >
     Palladium is a platinum-group element and a primary target of the BioAsteroid
     biomining experiment; Penicillium simplicissimum enhanced its release from the
@@ -499,3 +472,35 @@ metal_notes: >
   Platinum, ruthenium, molybdenum and manganese are also reported in the source
   but have no corresponding schema enum value and are therefore omitted from the
   structured metal lists.
+curation_history:
+- timestamp: '2026-10-02T05:25:02Z'
+  curator: codex
+  action: PRUNE_UNEVIDENCED_CAUSAL_EDGES
+  changes: 'Removed the downstream edge from mixed bacterial/fungal meteorite biofilm colonization to bacterial
+    antagonism of fungal palladium leaching because the source documents co-colonization and palladium antagonism
+    in the same consortium treatment, but not a causal link from biofilm mixing to that antagonism; normalized three
+    CHEBI:33363 labels to palladium atom so the edited record passes canonical term-label validation.
+
+    '
+  llm_assisted: true
+- timestamp: '2026-10-05T12:49:55Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound BioAsteroid leaching to measured element patterns and untested mechanisms; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1259'
+  llm_assisted: true
+discussions:
+- discussion_id: bioasteroid_biofilm_acid_and_antagonism
+  prompt: Do partner fitness, acid perturbations and biofilm interventions resolve the proposed leaching mechanisms?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Fungal bioleaching of platinum-group and critical elements from L-chondrite
+  - ecological_interactions#Bacterial and fungal biofilm colonization of the meteorite surface
+  - ecological_interactions#Candidate Bacterial Antagonism of Fungal Palladium Leaching
+  rationale: 'Whole cached main text, tables and captions were reviewed, not figure images, supplements or raw metabolomics.
+    Most ISS contrasts are nonsignificant, and biomass images were not linked to extraction yield. Specific acid
+    mediation, partner inhibition and the supplemental contamination assessment remain unresolved. Preserve #1217
+    canonical palladium labels and previously pruned biofilm-to-antagonism linkage.'
+  posed_by: codex
+  posed_date: '2026-10-05'

@@ -1,0 +1,351 @@
+id: CommunityMech:000407
+name: Microhabitat Mineral Fungal-Bacterial SOM SynCom
+description: A four-member artificial soil-organic-matter microcosm inoculum consisting of Curtobacterium sp. PTCC 1316,
+  Trichoderma harzianum IBRC-M30059, Phanerochaete chrysosporium IBRC-M30144, and Pseudomonas fluorescens IBRC-M10752.
+  Maqami et al. 2026 used the synthetic fungi-plus-bacteria consortium as an experimentally simplified alternative to a
+  native agricultural-soil microbiome in 500 mL glass-jar microcosms containing sterilized bentonite or palygorskite clay,
+  calcium carbonate, quartz sand, and wheat-straw or alfalfa-shoot litter, then quantified respiration kinetics and microbial
+  biomass carbon over a 90-day incubation.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Construct a simplified cross-kingdom soil inoculum to test how selected bacterial and fungal litter-decomposition
+    guilds respond to clay mineralogy, calcium carbonate level, and plant-litter quality in artificial SOM microcosms.
+  assembly_strategy: Combine two fast-growing copiotrophic bacteria, Curtobacterium sp. and P. fluorescens, with two saprotrophic
+    fungi, T. harzianum and P. chrysosporium, to represent soluble-carbon use and extracellular-enzyme attack on structural
+    carbohydrates and lignin.
+  inoculation_strategy: Inoculate the bacterial community into mineral-litter microcosms at 10^8 cells per gram of clay and
+    the fungal community at 20 mg of mycelia per gram of clay.
+  perturbation_design: Compare the fungi-plus-bacteria consortium with a native agricultural-soil microbiome across palygorskite
+    versus bentonite clay, 0%, 10%, and 20% clay, 7.5% and 15% calcium carbonate, and wheat versus alfalfa litter additions.
+  measurement_endpoints:
+  - soil microbial respiration
+  - cumulative carbon dioxide evolution over 90 days
+  - wheat-litter first-order mineralization parameters
+  - alfalfa-litter sigmoidal mineralization parameters
+  - microbial biomass carbon at 15, 30, 60, and 90 days
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We constructed an artificial microbial inoculum consisting of Curtobacterium sp., Trichoderma harzianum, Phanerochaete
+      chrysosporium and Pseudomonas fluorescens
+    explanation: Identifies the four-member artificial fungal-bacterial inoculum.
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The four species are functionally important in SOM cycling and were selected to represent complementary stages of litter
+      decomposition.
+    explanation: Supports the design rationale for combining bacterial soluble-carbon users with saprotrophic fungal decomposers.
+environment_term:
+  preferred_term: artificial mineral-litter microcosm
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The synthetic community was added to sterilized clay, quartz sand, CaCO3, and plant litter in controlled 500 mL glass-jar
+    microcosms rather than to intact field soil.
+modeled_environment:
+- preferred_term: agricultural soil
+  term:
+    id: ENVO:00001998
+    label: soil
+  notes: The artificial microcosms modeled mineral-associated plant-litter turnover in soil organic matter systems and were compared
+    with a native microbiome inoculum from a wheat-cultivated Isfahan University of Technology research-farm soil.
+taxonomy:
+- taxon_term:
+    preferred_term: Curtobacterium sp. PTCC 1316
+    term:
+      id: NCBITaxon:2034
+      label: Curtobacterium
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Curtobacterium
+      gtdb_taxon: Curtobacterium
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Microbacteriaceae;g__Curtobacterium
+      ncbi_source_id: NCBITaxon:2034
+      majority_fraction: 1.0
+      support_genomes: 1
+      total_genomes: 1
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB
+        taxon under the NCBI taxon]
+  strain_designation:
+    strain_name: PTCC 1316
+    notes: The article identifies this Curtobacterium isolate by PTCC culture-collection accession; original isolation source
+      was not reported.
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Curtobacterium sp. (PTCC 1316)
+    explanation: Names Curtobacterium sp. PTCC 1316 as a bacterial member of the artificial inoculum.
+- taxon_term:
+    preferred_term: Trichoderma harzianum IBRC-M30059
+    term:
+      id: NCBITaxon:5544
+      label: Trichoderma harzianum
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Fungal member of the artificial SOM SynCom; GTDB does not classify eukaryotes.
+  strain_designation:
+    strain_name: IBRC-M30059
+    notes: The article identifies this T. harzianum isolate by IBRC culture-collection accession; original isolation source
+      was not reported.
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Trichoderma harzianum (IBRC- M30059 )
+    explanation: Names T. harzianum IBRC-M30059 as a fungal member of the artificial inoculum.
+- taxon_term:
+    preferred_term: Phanerochaete chrysosporium IBRC-M30144
+    term:
+      id: NCBITaxon:2822231
+      label: Phanerodontia chrysosporium
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Fungal member of the artificial SOM SynCom; Phanerochaete chrysosporium is the basionym for the current NCBI taxon
+      Phanerodontia chrysosporium, and GTDB does not classify eukaryotes.
+  strain_designation:
+    strain_name: IBRC-M30144
+    notes: The article identifies this P. chrysosporium isolate by IBRC culture-collection accession; original isolation source
+      was not reported.
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Phanerochaete chrysosporium (IBRC- M30144 )
+    explanation: Names P. chrysosporium IBRC-M30144 as a fungal member of the artificial inoculum.
+- taxon_term:
+    preferred_term: Pseudomonas fluorescens IBRC-M10752
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Pseudomonas_E_alvandae
+    - GTDB:s__Pseudomonas_E_asgharzadehiana
+    - GTDB:s__Pseudomonas_E_azotoformans_A
+    - GTDB:s__Pseudomonas_E_brassicacearum
+    - GTDB:s__Pseudomonas_E_crudilactis
+    - GTDB:s__Pseudomonas_E_edaphica
+    - GTDB:s__Pseudomonas_E_fluorescens
+    - GTDB:s__Pseudomonas_E_fluorescens_AP
+    - GTDB:s__Pseudomonas_E_fluorescens_AQ
+    - GTDB:s__Pseudomonas_E_fluorescens_B
+    - GTDB:s__Pseudomonas_E_fluorescens_H
+    - GTDB:s__Pseudomonas_E_fluorescens_S
+    - GTDB:s__Pseudomonas_E_kilonensis
+    - GTDB:s__Pseudomonas_E_lactis
+    - GTDB:s__Pseudomonas_E_lactucae
+    - GTDB:s__Pseudomonas_E_paracarnis
+    - GTDB:s__Pseudomonas_E_petroselini
+    - GTDB:s__Pseudomonas_E_poae
+    - GTDB:s__Pseudomonas_E_protegens
+    - GTDB:s__Pseudomonas_E_reactans
+    - GTDB:s__Pseudomonas_E_salomonii
+    - GTDB:s__Pseudomonas_E_simiae
+    - GTDB:s__Pseudomonas_E_sp002874965
+  strain_designation:
+    strain_name: IBRC-M10752
+    notes: The article identifies this P. fluorescens isolate by IBRC culture-collection accession; original isolation source
+      was not reported.
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas fluorescens (IBRC- M10752 )
+    explanation: Names P. fluorescens IBRC-M10752 as a bacterial member of the artificial inoculum.
+ecological_interactions:
+- name: Mineral-litter SOM turnover by the fungal-bacterial inoculum
+  description: The synthetic Curtobacterium / Trichoderma / Phanerochaete / Pseudomonas inoculum was assayed for net wheat-
+    and alfalfa-litter turnover in clay-CaCO3-quartz microcosms, where total CO2 efflux and microbial biomass carbon were
+    shaped by clay mineralogy, calcium carbonate level, litter chemistry, and comparison to native-soil inoculum.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Curtobacterium sp. PTCC 1316
+    term:
+      id: NCBITaxon:2034
+      label: Curtobacterium
+  - preferred_term: Trichoderma harzianum IBRC-M30059
+    term:
+      id: NCBITaxon:5544
+      label: Trichoderma harzianum
+  - preferred_term: Phanerochaete chrysosporium IBRC-M30144
+    term:
+      id: NCBITaxon:2822231
+      label: Phanerodontia chrysosporium
+  - preferred_term: Pseudomonas fluorescens IBRC-M10752
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: native communities generated higher cumulative C loss but lower rate constants, while the synthetic consortium drove faster
+      mineralization and higher biomass on palygorskite.
+    explanation: Summarizes the article's core comparison between native-soil microbiome and synthetic fungi-plus-bacteria
+      inocula.
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In contrast, mixed fungal and bacterial inocula generally supported higher MBC in both litter types.
+    explanation: Supports higher microbial biomass carbon for the mixed fungal-bacterial inoculum.
+environmental_factors:
+- name: Clay mineral type and content
+  value: bentonite or palygorskite at 0, 10, or 20
+  unit: '% w/w'
+  description: Sterilized bentonite and palygorskite were supplied as factorial habitat-structure treatments.
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: clay (palygorskite or bentonite at three levels of 0, 10, and 20% w/w)
+    explanation: Reports the clay types and dose series used in the mineral-litter microcosms.
+- name: Calcium carbonate content
+  value: 7.5 or 15
+  unit: '% w/w'
+  description: Calcium carbonate was supplied as a second mineral treatment to test carbonate modulation of clay-microbe-litter
+    dynamics.
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: calcium carbonate (at two levels of 7.5 and 15% w/w)
+    explanation: Reports the two CaCO3 treatments used in the microcosms.
+- name: Litter quality
+  value: wheat straw or alfalfa shoots
+  unit: plant litter type
+  description: Wheat straw represented a recalcitrant high-C:N litter, while alfalfa shoots represented a more labile nitrogen-rich
+    litter.
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: litter (wheat or alfalfa, equivalent of 2% carbon w/w)
+    explanation: Reports the wheat and alfalfa litter treatments and carbon-standardized amendment rate.
+- name: Controlled incubation
+  value: 22
+  unit: °C
+  description: Mineral-litter microcosms were incubated at 22 °C with moisture controlled to 33 kPa for 90 days, then destructively
+    sampled at 15, 30, 60, and 90 days.
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: incubated at 22 C under controlled moisture conditions corresponding to a matric potential of 33 kPa throughout the incubation
+      period
+    explanation: Supports the incubation temperature, moisture target, and 90-day experiment duration.
+growth_media:
+- name: clay-CaCO3-quartz plant-litter microcosm
+  temperature: 22
+  temperature_unit: °C
+  incubation_time: 90
+  incubation_time_unit: days
+  vessel_type: 500 mL glass jar
+  preparation_notes: Each 100 g microcosm contained wheat or alfalfa litter equivalent to 2% carbon w/w, 0-20% w/w palygorskite
+    or bentonite, 7.5% or 15% w/w calcium carbonate, and quartz sand as filler.
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each microcosm was made of 500 ml glass Jar
+    explanation: Identifies the glass-jar vessel used for the artificial microbial microcosms.
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: quartz sand as a filler to adjust final weight to 100 g
+    explanation: Supports the 100 g final mass and quartz-sand filler used to complete each mineral-litter mixture.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: static 500 mL glass-jar soil microcosm
+  operating_temperature: 22
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: Moisture was held at 33 kPa matric potential and destructive batches were retrieved at 15, 30, 60, and 90
+    days.
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: retrieved in batches of 144 at 15, 30, 60, and 90 days post-incubation
+    explanation: Reports the destructive sampling schedule for the static microcosms.
+external_resources:
+- name: PubMed record for the mineral microhabitat SOM SynCom article
+  repository: OTHER
+  resource_id: PMID:42218210
+  url: https://pubmed.ncbi.nlm.nih.gov/42218210/
+  description: PubMed record for the 2026 Scientific Reports clay-mineralogy artificial SOM microcosm article.
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Interactive roles of mineralogy, microbial community composition and litter quality in regulating organic matter turnover
+    explanation: Identifies the primary publication used to curate the artificial SOM SynCom.
+- name: DOI for the mineral microhabitat SOM SynCom article
+  repository: OTHER
+  resource_id: doi:10.1038/s41598-026-49740-4
+  url: https://doi.org/10.1038/s41598-026-49740-4
+  description: Publisher DOI for the primary Scientific Reports article.
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1038/s41598-026-49740-4'
+    explanation: Links the DOI resource to the PubMed record for the primary SOM SynCom publication.
+- name: PubMed Central full text for the mineral microhabitat SOM SynCom article
+  repository: OTHER
+  resource_id: PMCID:PMC13458411
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13458411/
+  description: Open-access PubMed Central full text used for method and result snippets.
+  evidence:
+  - reference: PMID:42218210
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'PMCID: PMC13458411'
+    explanation: Identifies the PubMed Central full-text record used for artificial SOM SynCom curation.
+discussions:
+- discussion_id: som_syncom_no_abiotic_carbonate_partition
+  prompt: What fraction of CaCO3-amended CO2 efflux was microbial respiration rather than abiotic carbonate-derived CO2?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Mineral-litter SOM turnover by the fungal-bacterial inoculum
+  - environmental_factors#Calcium carbonate content
+  rationale: The study measured total CO2 efflux but explicitly reports that abiotic CO2 release from CaCO3 was not separated,
+    so carbonate-associated respiration endpoints are curated as net microcosm outcomes.
+  posed_by: codex
+  posed_date: '2026-09-21'
+- discussion_id: som_syncom_unquantified_mineral_mechanisms
+  prompt: Which enzyme-sorption or molecular-scale organo-mineral stabilization pathways drove the palygorskite and CaCO3
+    effects?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Mineral-litter SOM turnover by the fungal-bacterial inoculum
+  rationale: The authors interpret respiration and biomass patterns through clay microhabitat engineering, enzyme retention,
+    and stabilization hypotheses, but state that the underlying enzyme-sorption and molecular-scale stabilization pathways
+    were not directly quantified.
+  posed_by: codex
+  posed_date: '2026-09-21'
+curation_history:
+- timestamp: '2026-09-21T12:41:56Z'
+  curator: codex
+  action: CREATE_COMMUNITY_RECORD
+  changes: Created CommunityMech:000407 for the four-member fungal-bacterial artificial SOM microcosm SynCom from PMID:42218210.
+  llm_assisted: true
+- timestamp: '2026-09-21T12:52:16Z'
+  curator: codex
+  action: ADDRESS_ADVERSARIAL_REVIEW
+  changes: 'Reworded the net microcosm respiration interaction and moved PTCC/IBRC collection accessions out of isolation_source;
+    fixes #1011 and #1012.'
+  llm_assisted: true

@@ -1,0 +1,141 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: a4ca06d433a89666e12c662b24e7fa488c200355
+scope:
+- kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+- kb/communities/Dehalococcoides_Desulfovibrio_Pelosinus_Corrinoid_Triculture.yaml
+- kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch30.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch30.json
+findings:
+- issue: 1382
+  severity: P2
+  status: addressed_in_this_change
+  finding: Recipient dechlorination was duplicated as transfer; sulfate-related inhibition was conflated
+    with hydrogen competition.
+  disposition: Keep three nodes/two arrows; source-only Dhc phenotype and conditional sulfide inhibition,
+    with donor-excess and donor-limited systems distinguished.
+- issue: 1383
+  severity: P2
+  status: addressed_in_this_change
+  finding: Recipient remodeling was assigned as donor transfer and the required external DMB condition
+    was incompletely represented.
+  disposition: Keep four nodes/three arrows; source-only Dhc remodeling, measured transcript evidence,
+    explicit canonical triculture and DMB coinput, with donor cobalamin production retained as an alternative
+    contribution.
+- issue: 1384
+  severity: P2
+  status: addressed_in_this_change
+  finding: BAV1 phenotype was reverse cross-feeding and native cofactor insufficiency was signed as commensalism.
+  disposition: Keep three nodes/two arrows; recipient phenotype and conditional cofactor compatibility,
+    without active toxicity or exclusive cell-resolved route claims.
+- issue: 1385
+  severity: P3
+  status: open_nongraph_followup
+  finding: Non-graph measured transcript evidence classifications and supplementation-arm prose need separate
+    curation.
+  disposition: Metadata blocks preserved, not certified by this graph review.
+- issue: 1386
+  severity: P2
+  status: open_nongraph_followup
+  finding: BAV1/Fusaro medium conflates the cobalamin control, DMB rescue and strain-specific substrates.
+  disposition: Metadata blocks preserved; source-access and exact-system limitations retained.
+adversarial_checks:
+- Actual scientific diffs read against primary sources at the recorded access scope. All ten original
+  nodes and seven arrows retained; the one rename and exact anchors resolve. No invented new causal structure
+  or paid research.
+- Source-only PAIRWISE entries encode recipient capabilities under the existing schema convention, not
+  self-edges or reverse exchange. The DvH fermentation and PfR7 corrinoid transfer observations remain
+  positive.
+- The roughly threefold rate comparison is not extended to cell yield. Sulfide-associated inhibition under
+  donor excess is not inferred from electron allocation alone; the donor-limited butyrate triculture is
+  not the lactate coculture.
+- DMB is an external coinput on all three triculture arrows. PfR7 can form some cobalamin when DMB is
+  supplied; recipient remodeling is not claimed to be the sole route. Measured expression is IN_VITRO
+  and does not establish genetic necessity.
+- Native factor-III insufficiency is not active toxicity. DMB rescue is conditional partner support, and
+  direct compatible cobalamin can bypass the missing input. BAV1, GT, FL2 and different donor populations
+  are not pooled into the curated pair.
+- No figure images or supplements inspected. The 2012 source remains abstract-only; the 2013 source includes
+  partial indexed main-body excerpts, not a complete body. Primary 2014/2017 text access and failed local
+  PDF download are explicit. Textual MATCH is not scientific validation.
+- Exactly three guarded writes, llm-assisted events and append-only histories. All non-graph raw blocks,
+  457 other records and 920 reference caches preserved. No full article/PDF is committed.
+- Participant registry changes only 173 to 174 users. Measured connectivity survey and all 31 baseline
+  network warnings are unchanged; no numeric bounds or algorithms changed.
+- Deterministic repeated rendering and exact-description parser coverage across 456 pages; no browser
+  screenshot QA claimed. Independent snippet audit and raw reference-validator diagnostics retained separately.
+- 'Deduplication includes 712 all-state issue titles/bodies, broader synonyms and ignored/hidden scoped
+  local files, not every issue comment. Non-graph issues #1385/#1386 remain open.'
+verification:
+  combined_regressions: 348 passed in 189.71s (0:03:09)
+  new_regression_tests: 6
+  schema_strict_terms_history: passed; commands and raw results retained
+  snippet_counts_by_record:
+    kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml:
+      MATCH: 30
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Dehalococcoides_Desulfovibrio_Pelosinus_Corrinoid_Triculture.yaml:
+      MATCH: 28
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml:
+      MATCH: 27
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network: Zero structural errors; all 31 baseline warnings unchanged, expected warning exit retained.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch30.yaml: cb60e4a113592fd34842090d5f2db473831a31066febb469d2438a8d8b217c3c
+    tests/test_causal_review_batch30.py: 748df86257f0a17c58fa5633d672aefed827ccf0a685056a711c874b1a650d2c
+    tests/test_participating_taxa.py: 804367466cbbfb68d80865d601ab113d1796dcdfadcb9736fa033e085693d17c
+    kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml: bc9eebbdf57b937cc87c72ee439f404bb7ab51b99b2f06e2f11fd240a454c629
+    kb/communities/Dehalococcoides_Desulfovibrio_Pelosinus_Corrinoid_Triculture.yaml: 2d771dc7df594f59d55d100bdf4e7ed6bbc571dfea0a4e37a774583e831910dc
+    kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml: fbf9a3612c04d172cd46cc210b069e03e627b5dcec722682651abfe6e0e6afb7
+  post_commit_docs_current: Separate publication gate; not yet claimed by this pre-commit record.
+  protected_ci_and_merge: Require exact-head protected checks and main queue; not asserted here.
+participant_census:
+  connectivity_before:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1220
+    mixed: 124
+    records: 460
+    taxa: 1496
+    with_community_level: 388
+  connectivity_after:
+    community_level_only: 264
+    credited_solely_by_the_rule: 1220
+    mixed: 124
+    records: 460
+    taxa: 1496
+    with_community_level: 388
+  exact_change: 173 -> 174 users; only the Dhc195/DvH/PfR7 triculture added
+  numeric_bounds_changed: false
+corpus:
+  records: 460
+  nodes: 1470
+  edges: 705
+  review_status_counts:
+    needs_research: 4
+    pending: 321
+    reviewed: 135
+limitations:
+- Three graph reviews; all ten nodes and seven arrows retained. No new graph structure or Edison job/spend.
+- Primary-source access differs by study and is recorded per reference. Textual snippet matching is not
+  a scientific endorsement. No figure images or supplements were inspected in this batch.
+- No new article body/PDF is committed. All reference caches and non-graph raw record blocks are preserved.
+  Two separately scoped metadata follow-ups remain open.
+- Source-only PAIRWISE entries represent intrinsic recipient capabilities under the established schema
+  convention, not self-edges or reverse nutrient exchange. This self-review is not independent approval,
+  protected CI success or full-corpus completion.

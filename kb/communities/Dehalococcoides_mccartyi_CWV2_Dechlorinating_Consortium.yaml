@@ -46,9 +46,9 @@ taxonomy:
     explanation: Identifies D. mccartyi strain CWV2 as the keystone dechlorinating member.
 ecological_interactions:
 - name: BC600 Biochar-Consortium Coupling
-  description: The remediation strategy combined Zizania latifolia husk biochar
-    produced at 600 degrees C with a native microbial consortium enriched in
-    D. mccartyi CWV2 to treat TCE-contaminated groundwater.
+  description: The strategy amends a native Dhc-containing groundwater consortium with Zizania latifolia husk biochar
+    produced at 600 degrees C. The author-uploaded proof distinguishes consortium D345 from CWV2; the graph does
+    not treat the isolate and the complete community as identical.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: trichloroethene
@@ -57,21 +57,20 @@ ecological_interactions:
       label: trichloroethene
   downstream:
   - target: BC600 Colonization and Activity Enhancement
-    description: Coupling BC600 to the native dechlorinating consortium lets the
-      biochar combine adsorption with enhanced microbial colonization and
-      activity.
+    description: BC600 amendment supplies sorptive surfaces and is associated with enhanced microbial colonization
+      and activity in the tested consortium. Amendment effects depend on dose and inoculum conditions; this does
+      not establish that adsorption itself is biological dechlorination.
   evidence:
   - reference: PMID:41442978
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: integrates biochar derived from Zizania latifolia (water
-      bamboo) husks with a native microbial consortium
-    explanation: Supports amendment of the native D. mccartyi-containing
-      consortium with Zizania-derived biochar.
+    snippet: integrates biochar derived from Zizania latifolia (water bamboo) husks with a native microbial consortium
+    explanation: Supports amendment of the native D. mccartyi-containing consortium with Zizania-derived biochar.
 - name: BC600 Colonization and Activity Enhancement
-  description: BC600 provided the strongest adsorptive support in the study and
-    increased microbial colonization and activity in the dechlorinating
-    consortium.
+  description: BC600 was selected for adsorption performance and practical cost considerations and was associated
+    with enhanced microbial colonization and activity. The proof reports slightly greater sorption for BC700, so
+    BC600 is not asserted to have the strongest adsorption. Sorption and biological transformation remain distinct
+    processes.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: trichloroethene
@@ -80,19 +79,20 @@ ecological_interactions:
       label: trichloroethene
   downstream:
   - target: Biochar-Accelerated TCE Degradation
-    description: Biochar-associated colonization and activity were linked to
-      faster TCE degradation.
+    description: PARTIAL - biochar-associated microbial colonization and activity could contribute to faster TCE
+      transformation, alongside sorption and bioavailability effects. The amendment comparison does not selectively
+      isolate colonization as the causal mediator, and TCE disappearance through adsorption is not itself degradation.
   evidence:
   - reference: PMID:41442978
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Biochar (BC600) demonstrated optimal adsorption while enhancing
-      microbial colonization and activity
-    explanation: Supports BC600 adsorption plus microbial colonization and
-      activity enhancement in the consortium.
+    snippet: Biochar (BC600) demonstrated optimal adsorption while enhancing microbial colonization and activity
+    explanation: The abstract supports adsorption and enhanced colonization/activity. Its optimal wording does not
+      establish that BC600 sorption exceeds BC700 or selectively isolate colonization from adsorption as the mediator.
 - name: Biochar-Accelerated TCE Degradation
-  description: BC600 amendment accelerated trichloroethene removal by the native
-    D. mccartyi CWV2-enriched consortium.
+  description: BC600 amendment accelerated TCE transformation in the tested native-consortium experiments. Removal
+    includes a sorption contribution and must not be equated wholesale with biological degradation. Dose and inoculum
+    comparisons differ; faster TCE transformation alone does not imply lower vinyl-chloride accumulation.
   scope: COMMUNITY_LEVEL
   target_taxon:
     preferred_term: Dehalococcoides mccartyi strain CWV2
@@ -104,20 +104,18 @@ ecological_interactions:
     term:
       id: CHEBI:16602
       label: trichloroethene
-  downstream:
-  - target: Vinyl Chloride Accumulation Mitigation
-    description: Accelerated TCE degradation was part of the BC600 response that
-      also limited accumulation of the carcinogenic intermediate vinyl chloride.
   evidence:
   - reference: PMID:41442978
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: leading to accelerated TCE degradation
-    explanation: Supports faster TCE degradation after BC600 amendment.
+    explanation: Supports the reported amendment-associated degradation outcome, not a general causal arrow from
+      faster TCE loss to lower vinyl chloride across all assay conditions.
 - name: Vinyl Chloride Accumulation Mitigation
-  description: Complete vinyl chloride dechlorination by the CWV2-containing
-    consortium, assisted by BC600, mitigated accumulation of the toxic TCE
-    intermediate.
+  description: A separate high-inoculum BC600 experiment reported lower peak vinyl-chloride accumulation, consistent
+    with support for downstream dechlorination. In lower-inoculum comparisons, biochar could instead increase vinyl
+    chloride while unamended controls retained TCE. CWV2 vinyl-chloride-to-ethene capability and the consortium
+    amendment outcome are related but distinct observations.
   scope: COMMUNITY_LEVEL
   target_taxon:
     preferred_term: Dehalococcoides mccartyi strain CWV2
@@ -133,29 +131,23 @@ ecological_interactions:
     term:
       id: CHEBI:18153
       label: ethene
-  downstream:
-  - target: Hydrogen- and Electroactive-Guild Dechlorination Stability
-    description: Lower VC accumulation coincided with a community structure in
-      which syntrophic hydrogen producers and electroactive bacteria supported
-      longer-term dechlorination stability.
   evidence:
   - reference: PMID:41442978
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: a strain capable of completely dechlorinating VC to non-toxic
-      ethene
+    snippet: a strain capable of completely dechlorinating VC to non-toxic ethene
     explanation: Supports VC-to-ethene dechlorination by D. mccartyi CWV2.
   - reference: PMID:41442978
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: 50 % reduction of VC accumulation
-    explanation: Supports the decrease in vinyl chloride accumulation under the
-      biochar-assisted strategy.
+    explanation: The abstract reports a reduction greater than 50 percent. The author-uploaded proof places this
+      in a separate high-inoculum experiment; it is not a universal effect at every dose, inoculum or time point.
 - name: Hydrogen- and Electroactive-Guild Dechlorination Stability
-  description: Biochar promoted unnamed syntrophic hydrogen producers and
-    electroactive bacteria in the native consortium, a community shift
-    associated with long-term dechlorination stability.
-  interaction_type: SYNTROPHY
+  description: Community profiling associated biochar with relative-abundance shifts among putative hydrogen-producing
+    and electroactive guilds. HYPOTHESIZED - those guilds could support dechlorination through reducing-equivalent
+    supply. Relative profiles do not demonstrate hydrogen or electron flux, direct interspecies electron transfer,
+    selective guild necessity or long-term field stability.
   scope: COMMUNITY_LEVEL
   target_taxon:
     preferred_term: Dehalococcoides mccartyi strain CWV2
@@ -169,12 +161,13 @@ ecological_interactions:
       label: dihydrogen
   evidence:
   - reference: PMID:41442978
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Microbial community analysis further indicated that biochar promoted syntrophic
-      hydrogen producers and electroactive bacteria, ensuring long-term dechlorination stability.
-    explanation: Supports promotion of syntrophic hydrogen-producing and
-      electroactive guilds in the stable biochar-amended consortium.
+    snippet: Microbial community analysis further indicated that biochar promoted syntrophic hydrogen producers
+      and electroactive bacteria, ensuring long-term dechlorination stability.
+    explanation: Supports community-composition observations and the authors' proposed interpretation. Relative
+      abundance is not measured reducing-equivalent flux or a selective guild perturbation, and field persistence
+      requires separate validation.
 growth_media:
 - name: "biochar-amended TCE groundwater enrichment (unspecified medium)"
   inoculum_source: "native TCE-contaminated groundwater consortium enriched in Dehalococcoides mccartyi strain CWV2"
@@ -185,3 +178,38 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: "integrates biochar derived from Zizania latifolia (water bamboo) husks with a native microbial consortium enriched in Dehalococcoides mccartyi (Dhc) strain CWV2"
     explanation: "Documents the native groundwater consortium inoculum and biochar amendment used for enrichment."
+curation_history:
+- timestamp: '2026-10-02T06:15:13Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Removed the vinyl-chloride mitigation to hydrogen/electroactive guild stability edge because it pointed
+    from a measured lower-VC endpoint to a biochar-associated community-structure explanation.
+  llm_assisted: true
+- timestamp: '2026-10-06T06:18:23Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain the biochar amendment with consortium/isolate scope explicit.; Retain activity enhancement with
+    adsorption and mediation uncertainty.; Retain the TCE outcome but remove the unsupported causal arrow to lower
+    VC.; Retain the condition-specific lower-VC observation without generalizing across inocula.; Retain measured
+    composition and hypothesized guild contribution without demonstrated flux or stability. Issue #1390; reports/causal_graph_review/decisions/20261006-three-records-batch31.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: cwv2_biochar_mediation_and_condition_limits
+  prompt: Which biochar effects and community members causally mediate condition-specific dechlorination?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#BC600 Biochar-Consortium Coupling
+  - ecological_interactions#BC600 Colonization and Activity Enhancement
+  - ecological_interactions#Biochar-Accelerated TCE Degradation
+  - ecological_interactions#Vinyl Chloride Accumulation Mitigation
+  - ecological_interactions#Hydrogen- and Electroactive-Guild Dechlorination Stability
+  rationale: 'The published abstract and complete author-uploaded uncorrected-proof body were read, not the complete
+    final published body. Colonization, sorption, bioavailability and putative guild activity were not selectively
+    separated. Faster TCE transformation and lower peak VC are not a demonstrated directed causal sequence and differ
+    by inoculum condition. Proof units and concentrations are inconsistent between methods, results and captions,
+    so none are normalized here. Figure captions and Table 1 text were read, not figure images or supplements. Consortium
+    D345/CWV2 identity, named-member and metadata claims remain open under #1391; no new taxa or compensating arrows
+    are invented.'
+  posed_by: codex
+  posed_date: '2026-10-06'

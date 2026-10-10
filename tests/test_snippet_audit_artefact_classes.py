@@ -116,6 +116,196 @@ def test_main_accepts_explicit_record_paths(audit, tmp_path, monkeypatch):
     assert str(first) not in out.getvalue()
 
 
+@pytest.mark.parametrize("heading", ["## Cached Evidence Snippets", "## Content", "## Abstract"])
+@pytest.mark.parametrize(
+    "content_type", ["selected_excerpts", '"selected_excerpts"', "'SELECTED_EXCERPTS'"]
+)
+def test_selected_excerpts_are_not_independent_source_text(
+    audit, tmp_path, monkeypatch, heading, content_type
+):
+    cache = tmp_path / "references_cache"
+    cache.mkdir()
+    (cache / "PMID_1.md").write_text(
+        f"---\ncontent_type: {content_type}\n---\n"
+        + heading
+        + "\n"
+        + "A selected phrase without independent retrieved context. " * 12,
+        encoding="utf-8",
+    )
+    record = tmp_path / "record.yaml"
+    _write_record(record, "A selected phrase without independent retrieved context.")
+    monkeypatch.setattr(audit, "CACHE", cache)
+
+    assert audit.cache_text("PMID:1") == ("", False)
+    report = audit.audit_records([record])
+    assert report.stats["NOCONTENT"] == 1
+    assert report.stats["MATCH"] == 0
+
+
+def test_selected_excerpts_do_not_hide_independently_retrieved_text(audit, tmp_path, monkeypatch):
+    cache = tmp_path / "references_cache"
+    cache.mkdir()
+    (cache / "PMID_1.md").write_text(
+        "---\ncontent_type: selected_excerpts\n---\n## Content\n" + "Excerpt-only phrase. " * 20,
+        encoding="utf-8",
+    )
+    (cache / "PMID_1.txt").write_text("Independent retrieved abstract.", encoding="utf-8")
+    monkeypatch.setattr(audit, "CACHE", cache)
+
+    assert audit.cache_text("PMID:1") == ("Independent retrieved abstract.", True)
+
+
+SELECTED_MARKERS = [
+    "===== SELECTED PUBLIC PMC ARTICLE EXCERPTS (PMC13485441) =====",
+    "===== SELECTED FULL-TEXT EXCERPTS FROM PMC12816627 =====",
+]
+
+
+@pytest.mark.parametrize("marker", SELECTED_MARKERS)
+@pytest.mark.parametrize("suffix", [".txt", ".md"])
+def test_appended_selected_excerpts_cannot_certify_a_quote(
+    audit, tmp_path, monkeypatch, marker, suffix
+):
+    cache = tmp_path / "references_cache"
+    cache.mkdir()
+    abstract = "Independent abstract measuring community productivity. " * 8
+    selected = "Curator-only staging phrase without any separately retrieved context."
+    prefix = "---\ncontent_type: abstract_only\n---\n## Content\n" if suffix == ".md" else ""
+    (cache / ("PMID_1" + suffix)).write_text(
+        prefix + abstract + "\n\n" + marker + "\n\n" + selected, encoding="utf-8"
+    )
+    source_record = tmp_path / "kb/communities/source.yaml"
+    selected_record = tmp_path / "data/isolates/selected.yaml"
+    _write_record(source_record, "Independent abstract measuring community productivity.")
+    _write_record(selected_record, selected)
+    monkeypatch.setattr(audit, "CACHE", cache)
+
+    text, trusted = audit.cache_text("PMID:1")
+    assert trusted
+    assert abstract in text
+    assert selected not in text
+    assert marker not in text
+    report = audit.audit_records([source_record, selected_record])
+    assert report.stats["MATCH"] == 1
+    assert report.stats["MISMATCH"] == 1
+
+
+@pytest.mark.parametrize("marker", SELECTED_MARKERS)
+@pytest.mark.parametrize("suffix", [".txt", ".md"])
+def test_selected_only_cache_is_not_real_content(audit, tmp_path, monkeypatch, marker, suffix):
+    cache = tmp_path / "references_cache"
+    cache.mkdir()
+    (cache / ("PMID_1" + suffix)).write_text(
+        marker + "\n" + "Curator-selected phrase without retrieved source context. " * 20,
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(audit, "CACHE", cache)
+
+    assert audit.cache_text("PMID:1") == ("", False)
+
+
+@pytest.mark.parametrize(
+    "real_marker",
+    [
+        "===== OPEN-ACCESS FULL TEXT (Europe PMC PMC123) =====",
+        "Full text (re-fetched from NCBI BioC):",
+    ],
+)
+@pytest.mark.parametrize("suffix", [".txt", ".md"])
+def test_selected_section_does_not_hide_later_retrieved_full_text(
+    audit, tmp_path, monkeypatch, real_marker, suffix
+):
+    cache = tmp_path / "references_cache"
+    cache.mkdir()
+    selected = "Curator-selected staging phrase."
+    full_text = "Independent full text describing an experimentally measured result. " * 10
+    (cache / ("PMID_1" + suffix)).write_text(
+        SELECTED_MARKERS[0] + "\n" + selected + "\n" + real_marker + "\n" + full_text,
+        encoding="utf-8",
+    )
+    record = tmp_path / "kb/communities/source.yaml"
+    _write_record(record, "Independent full text describing an experimentally measured result.")
+    monkeypatch.setattr(audit, "CACHE", cache)
+
+    text, trusted = audit.cache_text("PMID:1")
+    assert trusted
+    assert full_text in text
+    assert selected not in text
+    assert audit.audit_records([record]).stats["MATCH"] == 1
+
+
+def test_selected_marker_case_crlf_and_multiple_sections(audit, tmp_path, monkeypatch):
+    cache = tmp_path / "references_cache"
+    cache.mkdir()
+    body = (
+        "Independent abstract.\r\n"
+        "  " + SELECTED_MARKERS[0].lower() + "\r\n"
+        "Curated first phrase.\r\n"
+        "===== OPEN-ACCESS FULL TEXT (Europe PMC PMC123) =====\r\n"
+        "Independent article body.\r\n" + SELECTED_MARKERS[1] + "\r\nCurated second phrase.\r\n"
+    )
+    (cache / "PMID_1.txt").write_bytes(body.encode())
+    monkeypatch.setattr(audit, "CACHE", cache)
+
+    text, trusted = audit.cache_text("PMID:1")
+    assert trusted
+    assert "Independent abstract." in text
+    assert "Independent article body." in text
+    assert "Curated" not in text
+
+
+@pytest.mark.parametrize("text", ["", " \n\t", SELECTED_MARKERS[0]])
+def test_empty_or_marker_only_txt_is_not_source_text(audit, tmp_path, monkeypatch, text):
+    cache = tmp_path / "references_cache"
+    cache.mkdir()
+    (cache / "PMID_1.txt").write_text(text, encoding="utf-8")
+    monkeypatch.setattr(audit, "CACHE", cache)
+
+    assert audit.cache_text("PMID:1") == ("", False)
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "Independent abstract about selected excerpts and microbial communities.",
+        "Independent abstract.\n===== OPEN-ACCESS FULL TEXT (Europe PMC PMC123) =====\n"
+        "Independent article body.",
+        "A source sentence mentioning " + SELECTED_MARKERS[0] + " within its prose.",
+    ],
+)
+def test_retrieved_txt_without_curated_sections_is_unchanged(audit, tmp_path, monkeypatch, text):
+    cache = tmp_path / "references_cache"
+    cache.mkdir()
+    (cache / "PMID_1.txt").write_text(text, encoding="utf-8")
+    monkeypatch.setattr(audit, "CACHE", cache)
+
+    assert audit.cache_text("PMID:1") == (text, True)
+
+
+@pytest.mark.parametrize(
+    "fake_marker",
+    [
+        "==== OPEN-ACCESS FULL TEXT (only four delimiter characters)",
+        "  ===== OPEN-ACCESS FULL TEXT (indented, not a retrieval marker)",
+        "===== open-access full text (not the retrieval marker's case)",
+    ],
+)
+def test_only_established_fulltext_markers_end_selected_sections(
+    audit, tmp_path, monkeypatch, fake_marker
+):
+    cache = tmp_path / "references_cache"
+    cache.mkdir()
+    (cache / "PMID_1.txt").write_text(
+        SELECTED_MARKERS[0] + "\nCurated paragraph.\n" + fake_marker + "\n"
+        "Still part of the selected appendix, not independently retrieved text.",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(audit, "CACHE", cache)
+    assert not audit.FULLTEXT_MARKER.search(fake_marker)
+
+    assert audit.cache_text("PMID:1") == ("", False)
+
+
 def test_write_report_honors_injected_output_for_assembled(audit, capsys):
     report = audit.AuditReport(
         record_count=1,

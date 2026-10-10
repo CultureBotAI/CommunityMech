@@ -105,11 +105,11 @@ taxonomy:
     explanation: Supports treating E. coli as an interacting partner rather than only a contaminant.
 ecological_interactions:
 - name: Bacterial Enhancement of Algal Biomass
-  description: >
-    E. coli presence was associated with faster C. minutissima growth and
-    higher algal biomass density than axenic algal cultures under mixotrophic
-    substrate conditions.
-  interaction_type: COMMENSALISM
+  description: PARTIAL - in five-day separate-substrate assays, the alga reported as C. minutissima UTEX 2341 had
+    200-587% greater qPCR-partitioned biomass productivity at 10 g/L substrate with E. coli ATCC 25922. Higher bacterial
+    viable CFU at 96 hours supports a mutualism interpretation, not bacterial neutrality; bacterial total dry biomass
+    was not uniformly enhanced. Benefits were concentration-dependent, and exact mediators were not isolated.
+  interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
     preferred_term: Escherichia coli
@@ -134,42 +134,34 @@ ecological_interactions:
     term:
       id: CHEBI:30089
       label: acetate
-  biological_processes:
-  - preferred_term: photosynthesis
-    term:
-      id: GO:0015979
-      label: photosynthesis
   downstream:
   - target: Increased Biofuel-Precursor Productivity
-    description: Faster algal growth and higher Chlorella biomass provide the cell
-      material that underlies higher lipid and starch productivity in coculture.
+    description: PARTIAL - greater algal biomass can increase volumetric lipid and starch yield. The bulk product
+      assays include both partners, and kanamycin suppressed starch in axenic glucose controls; biomass enhancement
+      does not establish that every product-content difference is bacteria-mediated.
   evidence:
   - reference: PMID:24805253
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: grew more rapidly and to higher densities in the presence of E. coli
-    explanation: Supports positive bacterial effect on algal growth.
+    explanation: Supports algal growth benefit, not bacterial neutrality or a resolved mediator. Reciprocal benefit
+      is supported separately by viable bacterial counts, not uniformly greater bacterial biomass.
   - reference: PMID:24805253
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: produced 200-587% more algal biomass than the axenic C. minutissima cultures
-    explanation: Supports increased algal biomass in coculture.
+    explanation: Supports the 10 g/L algal productivity comparison; lower-substrate outcomes are not uniformly enhanced.
+  - reference: PMID:24805253
+    snippet: viable cell counts at 96 hours at 10 g/L substrate were 51, 1600, and 6400 times higher in co-cultures
+    explanation: Primary Results and Table 2 support higher viable bacterial counts. Tables 3-4 distinguish viability
+      from total biomass; mechanism remains unresolved.
+    evidence_source: IN_VITRO
+    supports: PARTIAL
 - name: Enhanced Mixotrophic Carbon Substrate Consumption
-  description: >
-    Cocultures consumed more of the available mixotrophic carbon substrate than
-    the combined substrate consumption of the two members grown separately.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Chlorella minutissima
-    term:
-      id: NCBITaxon:3071
-      label: Chlorella
-  target_taxon:
-    preferred_term: Escherichia coli
-    term:
-      id: NCBITaxon:562
-      label: Escherichia coli
+  description: At 10 g/L initial glucose, glycerol or acetate, five-day cocultures consumed 23-737% more bulk substrate
+    than the summed monocultures. Lower-dose depletion limits that comparison. This is community-level substrate
+    disappearance, not measured algal-to-bacterial carbon transfer.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: D-glucose
     term:
@@ -190,25 +182,34 @@ ecological_interactions:
       label: carbohydrate metabolic process
   downstream:
   - target: Increased Biofuel-Precursor Productivity
-    description: Enhanced mixotrophic carbon use increases carbon flow through the
-      coculture and feeds the lipid and starch productivity endpoint.
+    description: HYPOTHESIZED - additional consumed substrate could supply carbon for increased lipid and starch
+      production. Bulk uptake and product measurements do not trace carbon into either partner or separate this
+      contribution from altered biomass and antibiotic-sensitive starch accumulation.
   evidence:
   - reference: PMID:24805253
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: consumed 23-737% more of the available carbon substrate
-    explanation: Supports enhanced carbon substrate consumption in coculture.
+    explanation: Supports bulk substrate consumption at 10 g/L, not donor-recipient cross-feeding.
   - reference: PMID:24805253
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: than the sum of substrate consumed by E. coli and C. minutissima alone
-    explanation: Supports community-level enhancement beyond additive monoculture consumption.
+    explanation: Supports comparison with summed monoculture consumption, not a resolved carbon-transfer route.
+  participating_taxa:
+  - preferred_term: Chlorella minutissima
+    term:
+      id: NCBITaxon:3071
+      label: Chlorella
+  - preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
 - name: Increased Biofuel-Precursor Productivity
-  description: >
-    Cocultivation increased total lipid and starch productivity, indicating
-    improved biofuel-precursor production under the tested mixotrophic
-    conditions.
-  interaction_type: MUTUALISM
+  description: At 10 g/L substrate, bulk coculture lipid and starch productivities exceeded axenic algal controls.
+    These are combined-biomass endpoints, not reciprocal fitness measurements. In separate glucose controls, kanamycin
+    suppressed starch at 10 g/L; untreated axenic algae had starch content comparable to cocultures. The product-content
+    difference is therefore not wholly attributable to E. coli, although biomass and lipid benefits remain supported.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lipid
@@ -233,12 +234,20 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: total lipid and starch productivity were elevated in co-cultures compared to axenic cultures
-    explanation: Supports increased lipid and starch productivity in coculture.
+    explanation: Supports combined-culture productivity, not exclusively algal product content or a mutualism type.
+      Table 5 identifies the starch-control confound.
   - reference: PMID:24805253
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: bacterial contamination was not detrimental to the production of biofuel precursors
-    explanation: Supports the biofuel-precursor interpretation of the coculture phenotype.
+    explanation: Supports production feasibility in this defined laboratory system, not a general reciprocal-fitness
+      mechanism.
+  - reference: PMID:24805253
+    snippet: kanamycin appeared to significantly suppress starch levels
+    explanation: Primary Results and Table 5 identify an antibiotic effect in the axenic controls; no matched glycerol
+      or acetate antibiotic factorial is reported.
+    evidence_source: IN_VITRO
+    supports: SUPPORT
 environmental_factors:
 - name: Mixotrophic carbon substrates
   value: glucose, glycerol, and acetate
@@ -391,3 +400,25 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element processing role is curated for this
   mixotrophic algal-bacterial biofuel-precursor coculture.
+discussions:
+- discussion_id: ecoli_chlorella_transfer_and_matched_product_controls
+  prompt: Which partner-resolved transfers mediate growth, and how much product change persists with matched controls?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Bacterial Enhancement of Algal Biomass
+  - ecological_interactions#Enhanced Mixotrophic Carbon Substrate Consumption
+  - ecological_interactions#Increased Biofuel-Precursor Productivity
+  rationale: Gas, vitamin/hormone and organic-carbon exchange remain candidate mechanisms, not measured fluxes.
+    Viable CFU and total bacterial biomass differ. Carbon tracing and matched antibiotic controls across substrates
+    are needed to partition product effects. UTEX 2341 legacy identity is a separate grounding followup (#1300);
+    the existing canonical taxon is not reverified here.
+  posed_by: codex
+  posed_date: '2026-10-05'
+curation_history:
+- timestamp: '2026-10-05T20:47:02Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Bound Ecoli-Chlorella mutualism, bulk carbon use and antibiotic-confounded product assays; reports/causal_graph_review/decisions/20261005-two-records-batch13.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1299
+  llm_assisted: true

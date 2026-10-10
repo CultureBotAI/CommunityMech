@@ -5,12 +5,48 @@ Generates individual HTML pages for each community with full metadata,
 taxonomy, ecological interactions, and evidence.
 """
 
+import json
+import re
+from functools import lru_cache
 from pathlib import Path
+from urllib.parse import quote
 
 import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from markupsafe import Markup
 
 from communitymech.paths import DOCS
+
+
+@lru_cache(maxsize=1)
+def culturemech_links() -> dict[str, str]:
+    return json.loads(Path(__file__).with_name("culturemech-record-links.json").read_text())[
+        "links"
+    ]
+
+
+def reference_url(reference: str | None) -> str:
+    value = str(reference or "")
+    if value.startswith(("https://", "http://")):
+        return value
+    if re.fullmatch(r"CultureMech:\d{6}", value):
+        return culturemech_links().get(value, "")
+    if value.startswith("PMID:") and value[5:].isdigit():
+        return "https://pubmed.ncbi.nlm.nih.gov/" + value[5:] + "/"
+    if re.match(r"(?i)^doi:10\.\d{4,9}/", value):
+        return "https://doi.org/" + quote(value.split(":", 1)[1], safe="/():;._-")
+    if re.match(r"^GITHUB:[A-Za-z0-9][A-Za-z0-9_.-]*/[A-Za-z0-9][A-Za-z0-9_.-]*(?:/|$)", value):
+        return "https://github.com/" + quote(value[7:], safe="/")
+    return ""
+
+
+def reference_link(reference: str | None) -> Markup:
+    url = reference_url(reference)
+    if url:
+        return Markup('<a href="{}" rel="noreferrer">{}</a>').format(url, reference or "")
+    if str(reference or "").startswith("CultureMech:"):
+        return Markup('{} <span class="muted">(record link unresolved)</span>').format(reference)
+    return Markup("{}").format(reference or "")
 
 
 def _strip_trailing_whitespace(html: str) -> str:
@@ -35,6 +71,8 @@ class CommunityRenderer:
             loader=FileSystemLoader(str(template_dir)),
             autoescape=select_autoescape(["html", "xml"]),
         )
+        self.env.filters["reference_link"] = reference_link
+        self.env.globals["reference_url"] = reference_url
 
     def render_community(
         self,
@@ -154,6 +192,8 @@ class CommunityRenderer:
                     }
                 )
 
+        communities.sort(key=lambda row: (row["name"].casefold(), row["id"]))
+
         # Render the faceted browser (templates/index.html) to docs/browser.html
         browser_template = self.env.get_template("index.html")
         browser_html = browser_template.render(communities=communities)
@@ -167,7 +207,12 @@ class CommunityRenderer:
 
         # Render the landing page (templates/landing.html) to docs/index.html
         landing_template = self.env.get_template("landing.html")
-        landing_html = landing_template.render(num_communities=len(communities))
+        landing_html = landing_template.render(
+            num_communities=len(communities),
+            num_categories=len(
+                {c["community_category"] for c in communities if c["community_category"]}
+            ),
+        )
 
         index_path = output_dir.parent / "index.html"  # docs/index.html
         with open(index_path, "w") as f:

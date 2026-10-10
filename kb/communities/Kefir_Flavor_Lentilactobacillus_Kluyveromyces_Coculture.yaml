@@ -85,67 +85,10 @@ taxonomy:
     snippet: Two strains, Kluyveromyces marxianus SLAM 005Y and Lentilactobacillus kefiri SLAM 023B, were isolated from Korean household milk kefir.
     explanation: Independently identifies the same K. marxianus strain in the exact two-strain probiotic study; the paper inserts a space in the strain designation.
 ecological_interactions:
-- name: Dominant Kefir Genera Prioritization
-  description: >
-    Metagenomic profiling of the source kefir grains and fermented milk kefir
-    identified Lactobacillus and Kluyveromyces as predominant genera, focusing
-    downstream flavor-metabolism work on lactic acid bacteria and yeast from the
-    same milk-kefir ecosystem.
+- name: Genome-Predicted Flavor Metabolic Potential
+  description: Genome annotation predicts amino-acid, fatty-acid and alcohol/aldehyde/acid metabolism in SLAM023B
+    and SLAM005Y. This is metabolic capacity, not measured expression, flux or exchanged precursors.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: fermentation
-    term:
-      id: GO:0006113
-      label: fermentation
-  downstream:
-  - target: SLAM023B-SLAM005Y Coculture Genome Sequencing
-    description: >
-      The dominant bacterial and yeast genera guided isolation and sequencing
-      of L. kefiri SLAM023B and K. marxianus SLAM005Y from milk kefir.
-  evidence:
-  - reference: PMID:42217781
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Metagenomic analysis identified Lactobacillus and Kluyveromyces as predominant
-      genera in both kefir grains and fermented milk kefir
-    explanation: >
-      Supports the strain-selection context linking the defined two-strain
-      coculture to predominant bacteria and yeast in the source kefir.
-- name: SLAM023B-SLAM005Y Coculture Genome Sequencing
-  description: >
-    Lentilactobacillus kefiri SLAM023B and Kluyveromyces marxianus SLAM005Y were
-    isolated from milk kefir and hybrid sequenced, creating a strain-resolved
-    genomic basis for interpreting metabolic cooperation in their defined
-    coculture.
-  scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
-  biological_processes:
-  - preferred_term: fermentation
-    term:
-      id: GO:0006113
-      label: fermentation
-  downstream:
-  - target: KEGG Flavor Pathway Reconstruction
-    description: >
-      The hybrid genome sequences supplied the isolate genomes used for KEGG
-      flavor-pathway functional annotation.
-  evidence:
-  - reference: PMID:42217781
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Lentilactobacillus kefiri SLAM023B and Kluyveromyces marxianus SLAM005Y were
-      isolated and subjected to hybrid genome sequencing
-    explanation: >
-      Identifies the exact isolates and supports their genome sequencing before
-      the strain-resolved functional analysis.
-- name: KEGG Flavor Pathway Reconstruction
-  description: >
-    KEGG functional annotation of the L. kefiri and K. marxianus genomes
-    identified amino-acid and fatty-acid metabolism plus alcohol, aldehyde, and
-    acid interconversion pathways that can generate kefir flavor compounds.
-  scope: COMMUNITY_LEVEL
-  interaction_type: CROSS_FEEDING
   metabolites:
   - preferred_term: amino acid
     term:
@@ -156,69 +99,63 @@ ecological_interactions:
     term:
       id: GO:0006520
       label: amino acid metabolic process
-  downstream:
-  - target: Strain-Resolved Flavor Precursor Partitioning
-    description: >
-      The pathway reconstruction provided the basis for assigning fruity fusel
-      alcohol production to K. marxianus and fatty-acid-derived precursor
-      production to L. kefiri.
   evidence:
   - reference: PMID:42217781
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Functional annotation via Kyoto Encyclopedia of Genes and Genomes pathway mapping
-      revealed featured pathways including AA and fatty acid metabolism
-    explanation: >
-      Supports the genome-based reconstruction of strain pathways relevant to
-      flavor metabolism.
+    evidence_source: COMPUTATIONAL
+    snippet: Functional annotation via Kyoto Encyclopedia of Genes and Genomes pathway mapping revealed featured
+      pathways including AA and fatty acid metabolism
+    explanation: Supports annotated metabolic potential, not observed cross-feeding or pathway flux.
   - reference: PMID:42217781
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: interconversion of alcohol, aldehyde, and acid, contributing to the formation
-      and generation of flavor compounds
-    explanation: >
-      Supports the annotated pathway classes that connect the genomes to flavor
-      compound formation.
-- name: Strain-Resolved Flavor Precursor Partitioning
-  description: >
-    The two kefir isolates partitioned flavor-metabolic roles, with K. marxianus
-    SLAM005Y contributing fruity fusel alcohols and L. kefiri SLAM023B
-    contributing fatty-acid-derived precursors for coculture flavor formation.
+    evidence_source: COMPUTATIONAL
+    snippet: interconversion of alcohol, aldehyde, and acid, contributing to the formation and generation of flavor
+      compounds
+    explanation: Supports annotated metabolic potential, not observed cross-feeding or pathway flux.
+  participating_taxa:
+  - preferred_term: Lentilactobacillus kefiri SLAM023B
+    term:
+      id: NCBITaxon:33962
+      label: Lentilactobacillus kefiri
+  - preferred_term: Kluyveromyces marxianus SLAM005Y
+    term:
+      id: NCBITaxon:4911
+      label: Kluyveromyces marxianus
+- name: Strain-Resolved Flavor Metabolite Profiles
+  description: Milk assays show strain-associated volatile profiles. Yeast-associated alcohols and esters contrast
+    with bacterial-associated aliphatic alcohol patterns. PARTIAL - predicted precursor roles and metabolite correlations
+    do not establish transfer from bacterium to yeast or ecological niche partitioning.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   biological_processes:
   - preferred_term: fermentation
     term:
       id: GO:0006113
       label: fermentation
-  downstream:
-  - target: Coculture Acetate-Ester Enhancement
-    description: >
-      The complementary alcohol and fatty-acid precursor roles were observed in
-      the same defined pair whose coculture significantly enhanced acetate ester
-      synthesis.
-  - target: Correlation-Supported Potential Cross-Feeding
-    description: >
-      The strain-resolved roles and coculture metabolite profiles were analyzed
-      for correlation support of potential cross-feeding between the bacterial
-      and yeast isolates.
   evidence:
   - reference: PMID:42217781
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: K. marxianus SLAM005Y produced fruity fusel alcohols, whereas L. kefiri SLAM023B
-      contributed fatty acid-derived precursors
-    explanation: >
-      Supports the reported partitioning of flavor-associated metabolic roles
-      between the yeast and bacterial isolates.
-- name: Coculture Acetate-Ester Enhancement
-  description: >
-    Coculturing SLAM023B and SLAM005Y significantly increased ester synthesis,
-    especially ethyl acetate and isoamyl acetate, and also shifted additional
-    flavor metabolites toward fruity, creamy, and cheese-like fermentation
-    characteristics.
+    snippet: K. marxianus SLAM005Y produced fruity fusel alcohols, whereas L. kefiri SLAM023B contributed fatty
+      acid-derived precursors
+    explanation: Abstract-level role interpretation; indexed Results distinguish strain-associated profiles from
+      traced precursor transfer.
+  participating_taxa:
+  - preferred_term: Lentilactobacillus kefiri SLAM023B
+    term:
+      id: NCBITaxon:33962
+      label: Lentilactobacillus kefiri
+  - preferred_term: Kluyveromyces marxianus SLAM005Y
+    term:
+      id: NCBITaxon:4911
+      label: Kluyveromyces marxianus
+- name: Coculture Flavor And Growth Responses
+  description: In static milk at 25 degrees C for 48 hours, coculture increased viable counts and changed volatile
+    profiles. Results report interactions for selected fatty-acid/aldehyde endpoints, but not for five yeast-associated
+    volatiles including ethyl acetate and isoamyl acetate. Measurements are normalized GC-MS peak areas, not sensory-panel
+    scores. PARTIAL - abstract enhancement wording, Table3 means and a later Discussion comparator conflict; original
+    figures need reconciliation. Higher counts and modest acidification do not identify a transferred growth factor
+    or reproduce complete kefir fermentation.
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   metabolites:
   - preferred_term: ethyl acetate
     term:
@@ -233,50 +170,59 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
-  downstream:
-  - target: Correlation-Supported Potential Cross-Feeding
-    description: >
-      The enhanced and shifted coculture flavor-metabolite profile was included
-      in the correlation analysis that supported complementary roles and
-      potential cross-feeding.
   evidence:
   - reference: PMID:42217781
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: The coculture of the 2 strains significantly enhanced ester synthesis, particularly
-      ethyl acetate and isoamyl acetate
-    explanation: >
-      Supports the two-strain coculture as the context for enhanced acetate
-      ester synthesis and names the principal esters.
+    snippet: no significant effect of L. kefiri SLAM023B or strain interaction was detected
+    explanation: Results, five yeast-associated volatiles; absence of a bacterial main effect or strain interaction,
+      not absence of yeast production.
   - reference: PMID:42217781
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: increases in ethyl octanoate and C6 and C8 fatty acids introduced fruity and
-      cheese-like characteristics, whereas levels of grassy aldehydes were reduced
-    explanation: >
-      Supports the broader coculture flavor-metabolite shift accompanying the
-      acetate ester increase.
-- name: Correlation-Supported Potential Cross-Feeding
-  description: >
-    Correlation analysis linked the strain-resolved flavor roles and coculture
-    metabolite shifts, supporting complementary metabolism and potential
-    bacterial-yeast cross-feeding as an explanation for kefir flavor development.
+    snippet: with notable interaction effects
+    explanation: Results, heptanal, hexanal, 1-hexanol, hexanoic acid and octanoic acid; distinct from the ester
+      result.
+  - reference: PMID:42217781
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cocultivation increased viable cell counts
+    explanation: Discussion, viable counts; modest acidification and a simplified milk system limit generalization.
+  participating_taxa:
+  - preferred_term: Lentilactobacillus kefiri SLAM023B
+    term:
+      id: NCBITaxon:33962
+      label: Lentilactobacillus kefiri
+  - preferred_term: Kluyveromyces marxianus SLAM005Y
+    term:
+      id: NCBITaxon:4911
+      label: Kluyveromyces marxianus
+- name: Potential Bacterial-Yeast Metabolite Exchange
+  description: HYPOTHESIZED - genomic potential and Spearman associations suggest complementary metabolism and possible
+    cross-feeding. Neither donor-resolved transfer nor its necessary mediation of flavor or growth was established.
+    Preserve positive coculture responses without converting correlation into a directed causal arrow.
   scope: COMMUNITY_LEVEL
-  interaction_type: CROSS_FEEDING
   biological_processes:
-  - preferred_term: interspecies interaction between organisms
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:42217781
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: Correlation analysis supported the complementary metabolic roles and potential
-      cross-feeding mechanisms between the strains
-    explanation: >
-      Supports potential cross-feeding as a correlation-backed interpretation,
-      not as a directly resolved metabolite-transfer pathway.
+    snippet: Correlation analysis supported the complementary metabolic roles and potential cross-feeding mechanisms
+      between the strains
+    explanation: Supports a proposed interpretation of in-vitro associations, not a traced exchange mechanism.
+  participating_taxa:
+  - preferred_term: Lentilactobacillus kefiri SLAM023B
+    term:
+      id: NCBITaxon:33962
+      label: Lentilactobacillus kefiri
+  - preferred_term: Kluyveromyces marxianus SLAM005Y
+    term:
+      id: NCBITaxon:4911
+      label: Kluyveromyces marxianus
 environmental_factors:
 - name: Enhanced ethyl acetate and isoamyl acetate synthesis
   value: significantly enhanced in coculture
@@ -321,3 +267,34 @@ external_resources:
     explanation: Establishes that this separate publication uses the same exact species and strain composition.
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare-earth processing role is reported for this kefir-derived coculture.
+curation_history:
+- timestamp: '2026-10-02T06:10:22Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Removed five downstream edges that encoded Kefir strain-prioritization, genome-sequencing, KEGG annotation,
+    and correlation-analysis workflow order rather than source-backed ecological causality.
+  llm_assisted: true
+- timestamp: '2026-10-06T19:53:40Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Remove kefir procedure nodes and bound compound-specific flavor and exchange claims. Issue #1535; reports/causal_graph_review/decisions/20261006-kefir-dairy-batch59.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: kefir_flavor_comparators_and_transfer
+  prompt: Which metabolite transfers explain the responses, and how should conflicting ester comparisons be reconciled?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Genome-Predicted Flavor Metabolic Potential
+  - ecological_interactions#Strain-Resolved Flavor Metabolite Profiles
+  - ecological_interactions#Coculture Flavor And Growth Responses
+  - ecological_interactions#Potential Bacterial-Yeast Metabolite Exchange
+  rationale: 'Retain positive strain-associated profiles, fatty-acid/aldehyde interactions and higher viable counts.
+    Results report no bacterial main effect or strain interaction for ethyl acetate, isobutanol, isoamyl alcohol,
+    isoamyl acetate and ethyl octanoate. Abstract/Table3/Discussion comparator wording conflicts; original figures,
+    exact contrasts and raw data need verification. Genomic annotation and correlations do not trace transfer. Remove
+    the two procedural nodes without restoring the five Oct02 workflow arrows. Public indexed body sections were
+    read with gaps, not a complete body, original figures or supplements. Non-graph comparator and protocol metadata
+    remain unresolved under #1536. No new causal structure or provider spend.'
+  posed_by: codex
+  posed_date: '2026-10-06'

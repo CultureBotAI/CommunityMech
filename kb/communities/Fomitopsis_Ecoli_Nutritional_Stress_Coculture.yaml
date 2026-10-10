@@ -1,0 +1,287 @@
+id: CommunityMech:000457
+name: Fomitopsis-E. coli Nutritional-Stress Coculture
+description: >-
+  A defined two-member fungal-bacterial coculture pairing the brown-rot
+  basidiomycete Fomitopsis betulina CIRM-BRFM 860 with Escherichia coli ATCC
+  25922 to probe bacterial competition as a trigger for fungal nutritional
+  stress and secondary metabolism. Albert et al. 2026 tested the pair in malt
+  extract agar confrontations, where F. betulina inhibited distant E. coli
+  growth, and in malt extract broth, where E. coli addition after 3 days of
+  fungal growth depleted glucose within 1 day, reduced fungal dry biomass, and
+  shifted F. betulina transcription toward carbon acquisition, transport,
+  stress adaptation, and multiple biosynthetic gene clusters.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: >-
+    Use a two-member F. betulina-E. coli coculture to test how bacterial
+    nutrient competition affects fungal growth, extracellular metabolite
+    profiles, carbon starvation, stress adaptation, and specialized-metabolite
+    biosynthetic pathways.
+  assembly_strategy: >-
+    Pair a subcultured F. betulina CIRM-BRFM 860 mycelial inoculum with
+    E. coli ATCC 25922 grown from an ATCC stock revived in Mueller Hinton II
+    broth; assay the pair both on malt extract agar and in shaken malt extract
+    broth.
+  inoculation_strategy: >-
+    For the liquid assay, inoculate 100 mL malt extract broth with three
+    5 x 5 mm F. betulina plugs, grow the fungus alone for 3 days at 30 C and
+    120 rpm, then add 1 mL of E. coli preculture standardized to OD600 0.1.
+  perturbation_design: >-
+    Compare F. betulina-E. coli cocultures with fungal and bacterial
+    monoculture controls on agar and with fungal and bacterial pure cultures in
+    the liquid malt extract broth experiment.
+  measurement_endpoints:
+  - agar inhibition-zone phenotype and surface pH
+  - UHPLC-HRMS metabolomics of agar confrontation zones
+  - fungal dry biomass, survival, pH, and glucose concentration in liquid culture
+  - E. coli viable counts after liquid coculture
+  - F. betulina RNA-seq and biosynthetic-gene-cluster expression after coculture
+  notes: >-
+    The study used the fast-growing E. coli partner to test whether rapid
+    bacterial consumption of available carbon sources imposed nutritional stress
+    on F. betulina; the authors inferred nutrient competition from rapid glucose
+    depletion and reduced fungal biomass, while the exact fungal metabolites
+    mediating the agar inhibition zone remained unresolved.
+  evidence:
+  - reference: doi:10.64898/2026.09.14.751415
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      using co-cultures with Escherichia coli
+    explanation: Supports use of E. coli coculture to study F. betulina.
+  - reference: doi:10.64898/2026.09.14.751415
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      After 3 days, we added 1 mL of a standardized inoculum of bacteria
+    explanation: Supports the staged addition of E. coli to established fungal MEB cultures.
+environment_term:
+  preferred_term: fungal-bacterial laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >-
+    The defined pair was assayed in controlled malt extract agar plates and
+    shaken malt extract broth, not as a sampled natural birch-polypore microbiome.
+taxonomy:
+- taxon_term:
+    preferred_term: Fomitopsis betulina CIRM-BRFM 860
+    term:
+      id: NCBITaxon:40450
+      label: Fomitopsis betulina
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: >-
+      Eukaryotic basidiomycete fungus; GTDB classifies Bacteria and Archaea,
+      not fungi.
+  strain_designation:
+    strain_name: CIRM-BRFM 860
+    culture_collections:
+    - collection: OTHER
+      accession: CIRM-BRFM 860
+      notes: Purchased from the CIRM-CF Bioresource Center.
+  evidence:
+  - reference: doi:10.64898/2026.09.14.751415
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The fungal strain F. betulina CIRM-BRFM 860 was purchased from the
+      Bioresource Center CIRM-CF
+    explanation: Identifies the F. betulina CIRM-BRFM 860 fungal member.
+- taxon_term:
+    preferred_term: Escherichia coli ATCC 25922
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      total_genomes: 166397
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: ATCC 25922
+    culture_collections:
+    - collection: ATCC
+      accession: '25922'
+  evidence:
+  - reference: doi:10.64898/2026.09.14.751415
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The E. coli strain ATCC25922 was purchased from the American Type Culture
+      Collection
+    explanation: Identifies the E. coli ATCC 25922 bacterial member.
+ecological_interactions:
+- name: E. coli-Associated Glucose Depletion and F. betulina Stress
+  description: 'PARTIAL: E. coli addition to established F. betulina liquid MEB cultures was followed by glucose
+    depletion within one day, fungal biomass of 34 mg (reported as 44% lower), and stress-related fungal transcription
+    after three days of coculture. These observations support nutrient competition as an interpretation, but the
+    inspected selected primary excerpts do not describe selective glucose rescue establishing mediation. BGC expression
+    indicates transcriptional response, not production or identification of an active secreted metabolite. Endpoint
+    bacterial counts were not reduced in this liquid assay.'
+  interaction_type: COMPETITION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Escherichia coli ATCC 25922
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  target_taxon:
+    preferred_term: Fomitopsis betulina CIRM-BRFM 860
+    term:
+      id: NCBITaxon:40450
+      label: Fomitopsis betulina
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  evidence:
+  - reference: doi:10.64898/2026.09.14.751415
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the glucose concentration was reduced to zero within 1 day
+    explanation: Measured glucose depletion after bacterial addition; the causal explanation remains PARTIAL without
+      a selective rescue described in the inspected excerpts.
+  - reference: doi:10.64898/2026.09.14.751415
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the growth of F. betulina was reduced to 34 mg dry weight
+    explanation: Measured fungal dry-biomass reduction, not a uniquely isolated glucose-mediated mechanism.
+  - reference: doi:10.64898/2026.09.14.751415
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The bacterial count on agar medium at the end of the experiment did not reveal any impact of the coculture
+      on the bacterial growth.
+    explanation: Counts from the liquid experiment distinguish its bacterial endpoint from the separate agar inhibition
+      phenotype.
+- name: F. betulina distal inhibition of E. coli on malt extract agar
+  description: 'F. betulina inhibited distal E. coli growth on malt extract agar. Inhibition-zone UHPLC-HRMS features
+    were putatively identified as a Sumiki''s acid derivative, calcium diformate and sulfuric acid; these are not
+    confirmed active compounds. HYPOTHESIZED: acid-associated local pH changes mediate inhibition. The inspected
+    selected excerpts describe a pH gradient but no selective neutralization or defined-compound rescue establishing
+    necessity. Piptamine was not detected under these conditions, not shown to be universally absent. This agar
+    phenotype is distinct from liquid-culture stress transcription and unchanged endpoint bacterial counts.'
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Fomitopsis betulina CIRM-BRFM 860
+    term:
+      id: NCBITaxon:40450
+      label: Fomitopsis betulina
+  target_taxon:
+    preferred_term: Escherichia coli ATCC 25922
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  evidence:
+  - reference: doi:10.64898/2026.09.14.751415
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We observed a clear inhibition of the bacterial growth at distance from the mycelium
+    explanation: Supports distal inhibition of E. coli in the agar confrontation assay.
+  - reference: doi:10.64898/2026.09.14.751415
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: The features detected in the inhibition zone were putatively identified as a Sumiki's acid derivative,
+      calcium diformate, and sulfuric acid.
+    explanation: Preserves tentative metabolite identification; feature association does not establish the active
+      inhibitory molecule.
+growth_media:
+- name: malt extract broth liquid coculture
+  temperature: '30'
+  temperature_unit: C
+  incubation_time: '3'
+  incubation_time_unit: d after E. coli addition
+  shaking_speed: '120'
+  shaking_speed_unit: rpm
+  inoculum_size: '1'
+  inoculum_unit: mL OD600 0.1 E. coli inoculum into a 3-day F. betulina culture
+  preparation_notes: >-
+    Three 5 x 5 mm F. betulina plugs were grown for 3 days in 100 mL MEB before
+    addition of 1 mL E. coli OD600 0.1 inoculum; cocultures were then incubated at
+    30 C and 120 rpm for another 3 days alongside fungal and bacterial
+    pure-culture controls.
+  evidence:
+  - reference: doi:10.64898/2026.09.14.751415
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Three fungal plug (5 x 5 mm) were harvested from a fungal subculture on
+      MEA and used to inoculate 100 mL of MEB
+    explanation: Supports the malt extract broth liquid-coculture setup.
+- name: malt extract agar confrontation medium
+  temperature: '25'
+  temperature_unit: C
+  incubation_time: '4'
+  incubation_time_unit: d fungal pregrowth plus 12 h E. coli confrontation
+  vessel_type: Petri dish
+  preparation_notes: >-
+    F. betulina was pregrown from a 5 x 5 mm plug on the left side of MEA plates
+    for 4 days before 50 uL of normalized E. coli inoculum was spread on the
+    right side and incubated for 12 h.
+  evidence:
+  - reference: doi:10.64898/2026.09.14.751415
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      A fungal plug (5 x 5 mm) was harvested from a fungal subculture and
+      inoculated on the left side of Petri dishes
+    explanation: Supports the staged agar confrontation protocol.
+external_resources:
+- name: Primary Fomitopsis-E. coli nutritional-stress coculture preprint
+  repository: OTHER
+  resource_id: doi:10.64898/2026.09.14.751415
+  url: https://doi.org/10.64898/2026.09.14.751415
+  description: >-
+    bioRxiv DOI for the 2026 preprint describing Fomitopsis betulina CIRM-BRFM
+    860 coculture with Escherichia coli ATCC 25922.
+  evidence:
+  - reference: doi:10.64898/2026.09.14.751415
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >-
+      The coculture of Fomitopsis betulina with Escherichia coli induces a
+      nutritional stress and triggers secondary metabolism pathways
+    explanation: Records the primary DOI-backed preprint for the coculture.
+metal_relevance: NOT_APPLICABLE
+metal_notes: >-
+  Albert et al. 2026 studied fungal-bacterial nutritional competition and
+  secondary metabolism, not metal or rare-earth transformation.
+curation_history:
+- timestamp: '2026-09-28T01:39:09Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: Created a doi:10.64898/2026.09.14.751415-backed Fomitopsis betulina CIRM-BRFM 860 and Escherichia coli
+    ATCC 25922 coculture record with agar inhibition and liquid glucose-competition evidence from the accessible
+    bioRxiv PDF.
+  llm_assisted: true
+- timestamp: '2026-10-06T10:43:40Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain liquid glucose depletion and fungal stress with PARTIAL nutrient-competition mediation.; Retain
+    observed distal agar inhibition with putative identities and HYPOTHESIZED acid mediation; no cross-regime arrow.
+    Issue #1460; reports/causal_graph_review/decisions/20261006-three-records-batch41.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: fomitopsis_regime_specific_mediators
+  prompt: Which mediators cause liquid fungal stress and separate agar bacterial inhibition?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#E. coli-Associated Glucose Depletion and F. betulina Stress
+  - ecological_interactions#F. betulina distal inhibition of E. coli on malt extract agar
+  rationale: 'Selected primary preprint excerpts support measured glucose depletion, fungal biomass loss and transcription
+    in liquid, versus distal bacterial inhibition and putative acid features on agar. No selective glucose rescue
+    or pH neutralization is described in those excerpts; the full paper was not re-read because the public PDF request
+    returned HTTP 429, so this is not a claim of universal experimental absence. Piptamine nondetection is condition-specific;
+    BGC induction is not active-product identification. Preserve two nodes and zero arrows rather than connect different
+    assay regimes. Prior cache-support fixes #1169/#1170/#1171 and the natural-partner caveat removal #1173 remain
+    intact.'
+  posed_by: codex
+  posed_date: '2026-10-06'

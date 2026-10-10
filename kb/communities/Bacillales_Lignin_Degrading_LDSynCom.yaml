@@ -275,9 +275,10 @@ taxonomy:
     snippet: '"S11": "Paenibacillus_sp_11B"'
     explanation: Maps the paper-linked S identifier used in the proteomics analysis code to Paenibacillus sp. 11B.
 ecological_interactions:
-- name: LDSynCom lignin phenolic release
-  description: The complete 11-member Bacillales LDSynCom released a higher Folin-Ciocalteu total-phenolic signal from lignin
-    than the uninoculated, Paenibacillus sp. 11B-only, and 11B-dropout controls.
+- name: LDSynCom lignin-associated phenolic signal
+  description: The complete LDSynCom produced a higher Folin-Ciocalteu phenolic signal than uninoculated, 11B-only
+    and 11B-dropout controls in lignin-containing medium. The authors explicitly treat this as an indirect lignin-associated
+    signal, not direct structural depolymerization or a carbon mineralization measurement.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lignin
@@ -285,21 +286,17 @@ ecological_interactions:
       id: CHEBI:6457
       label: lignin
     concentration: 0.1% in the 41- to 42-day dropout assay; 1 g/L in the screening, SEM, and proteomics assays
-  biological_processes:
-  - preferred_term: lignin catabolic process
-    term:
-      id: GO:0046274
-      label: lignin catabolic process
   evidence:
   - reference: doi:10.64898/2026.08.24.746789
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: The LDSynCom samples produced significantly higher phenolic signals than the uninoculated control
-    explanation: Supports community-level lignin-associated phenolic release measured by the Folin-Ciocalteu assay.
+    explanation: Supports the higher measured Folin-Ciocalteu signal; it does not chemically establish release from
+      lignin or structural cleavage.
 - name: Paenibacillus 11B contribution to LDSynCom phenolic accumulation
-  description: 'Paenibacillus sp. 11B contributed to, but did not alone explain, the community phenotype: removing 11B decreased
-    overall growth and phenolic accumulation relative to full LDSynCom, while 11B alone accumulated less biomass than the
-    complete consortium.'
+  description: Removing Paenibacillus 11B reduced community growth and phenolic accumulation relative to the full
+    consortium; 11B alone produced less biomass than the consortium. This supports a contribution to the measured
+    phenotype, not an exclusive depolymerization function or reciprocal benefits to every strain.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Paenibacillus sp. 11B
@@ -311,11 +308,6 @@ ecological_interactions:
     term:
       id: CHEBI:6457
       label: lignin
-  biological_processes:
-  - preferred_term: lignin catabolic process
-    term:
-      id: GO:0046274
-      label: lignin catabolic process
   evidence:
   - reference: doi:10.64898/2026.08.24.746789
     supports: SUPPORT
@@ -323,8 +315,8 @@ ecological_interactions:
     snippet: Removing strain 11B from the LDSynCom reduced the overall growth
     explanation: Supports the 11B dropout effect without asserting that all lignin degradation is exclusive to 11B.
 - name: LDSynCom lignin-particle biofilm formation
-  description: After growth in M9 medium with beechwood lignin, LDSynCom cells formed extracellular-matrix-associated biofilm
-    structures attached to lignin particles.
+  description: After growth in M9 medium with beechwood lignin, LDSynCom cells formed extracellular-matrix-associated
+    biofilm structures attached to lignin particles.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lignin
@@ -341,7 +333,8 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: well-developed biofilm structures could be observed attached to the surface of lignin particles
-    explanation: Supports lignin-particle biofilm formation as an observed community-level phenotype in the SEM assay.
+    explanation: Supports lignin-particle biofilm formation as an observed community-level phenotype in the SEM
+      assay.
 environmental_factors:
 - name: beechwood organosolv lignin
   value: '1'
@@ -503,34 +496,48 @@ external_resources:
     explanation: Identifies the paper-linked downstream-analysis file that maps S01-S11 to strain names.
 discussions:
 - discussion_id: ldsyncom_functional_partitioning
-  prompt: Which LDSynCom strains make unique versus redundant causal contributions to lignin-particle biofilm formation and
-    aromatic lignin-product metabolism?
+  prompt: Which LDSynCom strains make unique versus redundant causal contributions to lignin-particle biofilm formation
+    and aromatic lignin-product metabolism?
   kind: INTERPRETATION
   status: OPEN
   attaches_to:
-  - ecological_interactions#LDSynCom lignin phenolic release
+  - ecological_interactions#LDSynCom lignin-associated phenolic signal
   - ecological_interactions#Paenibacillus 11B contribution to LDSynCom phenolic accumulation
-  rationale: The source reports a targeted 11B dropout and community-level proteomic profiling, but explicitly cautions that
-    roles in the consortium are not strictly partitioned.
+  rationale: The source reports a targeted 11B dropout and community-level proteomic profiling, but explicitly cautions
+    that roles in the consortium are not strictly partitioned.
   evidence:
   - reference: doi:10.64898/2026.08.24.746789
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: functional roles within the consortium are not strictly partitioned
-    explanation: Supports keeping strain-specific lignin roles as a knowledge gap rather than asserting a full set of pairwise
-      or exclusive division-of-labor edges.
+    explanation: Supports keeping strain-specific lignin roles as a knowledge gap rather than asserting a full set
+      of pairwise or exclusive division-of-labor edges.
   posed_by: codex
   posed_date: '2026-09-15'
 - discussion_id: biorxiv_table1_rate_limit
-  prompt: Can the BioRxiv Table 1 and supplementary endpoints be cached directly once the article server allows follow-up
-    requests?
+  prompt: Can the BioRxiv Table 1 and supplementary endpoints be cached directly once the article server allows
+    follow-up requests?
   kind: CURATION_TODO
   status: OPEN
-  rationale: During curation, BioRxiv Highwire Table 1 and supplementary material endpoints returned HTTP 429 rate-limit responses.
-    The final composition was reconstructed from paper-linked GitHub source spreadsheets, analysis code, and NCBI BioSample
-    records.
+  rationale: During curation, BioRxiv Highwire Table 1 and supplementary material endpoints returned HTTP 429 rate-limit
+    responses. The final composition was reconstructed from paper-linked GitHub source spreadsheets, analysis code,
+    and NCBI BioSample records.
   posed_by: codex
   posed_date: '2026-09-15'
+- discussion_id: ldsyncom_structural_lignin_and_biofilm
+  prompt: Do structural chemical assays confirm lignin depolymerization, and does biofilm formation cause that activity?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#LDSynCom lignin-associated phenolic signal
+  - ecological_interactions#Paenibacillus 11B contribution to LDSynCom phenolic accumulation
+  - ecological_interactions#LDSynCom lignin-particle biofilm formation
+  rationale: The preprint explicitly describes A280 and Folin-Ciocalteu assays as indirect. Structural/specific
+    product analyses would distinguish depolymerization from other lignin-associated changes. SEM establishes attached
+    biofilm, not its causal contribution. The targeted 11B dropout does not resolve all strain functions; prior
+    mutualism and dangling-readout removals remain intact.
+  posed_by: codex
+  posed_date: '2026-10-05'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -539,7 +546,13 @@ curation_history:
 - timestamp: '2026-09-15T07:59:50Z'
   curator: codex
   action: ADD_COMMUNITY_RECORD
-  changes: Created CommunityMech:000383 for the DOI:10.64898/2026.08.24.746789 eleven-member Bacillales lignin-degrading LDSynCom,
-    including BioProject-backed strain membership, cautious 11B dropout and lignin-particle biofilm interactions, M9-lignin
-    batch flask metadata, and exact evidence snippets from the selected BioRxiv and GitHub caches.
+  changes: Created CommunityMech:000383 for the DOI:10.64898/2026.08.24.746789 eleven-member Bacillales lignin-degrading
+    LDSynCom, including BioProject-backed strain membership, cautious 11B dropout and lignin-particle biofilm interactions,
+    M9-lignin batch flask metadata, and exact evidence snippets from the selected BioRxiv and GitHub caches.
+  llm_assisted: true
+- timestamp: '2026-10-05T10:11:47Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Distinguish LDSynCom phenolic proxies from structural lignin depolymerization; complete decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1250'
   llm_assisted: true

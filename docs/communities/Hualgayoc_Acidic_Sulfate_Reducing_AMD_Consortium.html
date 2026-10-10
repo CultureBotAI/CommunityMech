@@ -28,6 +28,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .container {
@@ -116,6 +117,17 @@
             border-radius: 4px;
         }
 
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         table {
             width: 100%;
             background: var(--card);
@@ -162,6 +174,8 @@
 
         .interaction-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
@@ -187,6 +201,10 @@
 
         .flow-item {
             margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
         }
 
         .flow-arrow {
@@ -310,6 +328,8 @@
         }
 
         .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
             gap: 0.35rem;
@@ -321,6 +341,8 @@
             border-radius: 3px;
             display: inline-block;
         }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
 
         .legend-circle {
             border-radius: 50%;
@@ -372,6 +394,7 @@
     <header>
         <div class="container">
             <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
             <h1>Hualgayoc Acidic Sulfate-Reducing AMD Consortium</h1>
         </div>
     </header>
@@ -400,7 +423,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
-                        acidophilic sulfate-reducing synthetic AMD enrichment
+                        acidophilic sulfate-reducing synthetic AMD enrichment<span class="ontology-label"> — ontology label: active anaerobic enrichment culturing unit</span>
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001825"
                            class="term-link" target="_blank" rel="noopener noreferrer">
@@ -439,6 +462,7 @@
 
         <section>
             <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
             <table>
                 <thead>
                     <tr>
@@ -452,7 +476,7 @@
 
                     <tr>
                         <td>
-                            <strong>Desulfosporosinus sp. MAG003</strong>
+                            <strong>Desulfosporosinus sp. MAG003<span class="ontology-label"> — ontology label: Desulfosporosinus</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=79206"
@@ -520,7 +544,7 @@
 
                     <tr>
                         <td>
-                            <strong>Acididesulfobacillus sp. MAG013</strong>
+                            <strong>Acididesulfobacillus sp. MAG013<span class="ontology-label"> — ontology label: Acididesulfobacillus</span></strong>
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2924872"
@@ -588,18 +612,20 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
 
 
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Hualgayoc Acidic Sulfate-Reducing AMD Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -619,9 +645,16 @@
                     <h3>Glycerol-to-Acetate Sulfate Reduction</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">PARTIAL - the authors propose Desulfosporosinus sp. MAG003 as an initiator of glycerol-associated sulfate reduction and acetate production near pH 3. Bulk chemistry and taxon profiles support this model, but both dominant MAGs encode glycerol-to-acetate potential and do not establish exclusive MAG003 flux. The canonical participant remains MAG003 for this proposed initiating role; possible minor acidogens remain unresolved. Inoculum was added again on days 32 and 86, so the time course is not unassisted succession.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Desulfosporosinus sp. MAG003
+
+                </p>
 
 
 
@@ -665,6 +698,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Acetate-Fed Acididesulfobacillus Sulfate Reduction
+                        <p class="prewrap causal-description">PARTIAL - proposed glycerol oxidation can supply acetate to the later MAG013-associated sulfate-reducing route as the medium becomes less acidic. Bulk chemistry and genomes support the model, but do not resolve the exact donor-to-recipient flux, demonstrate acetate-toxicity rescue or isolate pH from reinoculation and other time-varying conditions.</p>
                     </div>
 
                 </div>
@@ -680,7 +714,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42029028/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42029028</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Desulfosporosinus initiated sulfate reduction at pH ~3.0 with glycerol as the carbon source and acetate as the waste product."</div>
@@ -693,7 +727,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42029028/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42029028</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"While genes coding for glycerol, pyruvate, and acetyl-CoA oxidation (from glycerol to acetate) were found in both MAGs"</div>
@@ -709,9 +743,18 @@
                     <h3>Acetate-Fed Acididesulfobacillus Sulfate Reduction</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
+                <p class="prewrap interaction-description">PARTIAL - the authors propose that Acididesulfobacillus sp. MAG013 consumes acetate while reducing sulfate after pH rises toward 4. TCA-cycle annotations support a potential acetate-oxidation route, not measured MAG013-specific carbon dioxide flux, an exclusive substrate role or a selectively established pH threshold. Acetate removal could relieve organic-acid stress, but toxicity mediation and complete carbon mineralization were not demonstrated; residual acetate remained at day 160.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Desulfosporosinus sp. MAG003,
+
+                    Acididesulfobacillus sp. MAG013
+
+                </p>
 
 
 
@@ -763,7 +806,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42029028/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42029028</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Once pH rose to ~4.0, Acididesulfobacillus continued with sulfate reduction with acetate as a carbon source"</div>
@@ -776,7 +819,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42029028/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42029028</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"genes for the TCA cycle (from acetate to CO2) were mainly found in Acididesulfobacillus-MAG"</div>
@@ -794,6 +837,7 @@
 
         <section>
             <h2>Associated Datasets</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Associated Datasets">
             <table>
                 <thead>
                     <tr>
@@ -823,10 +867,11 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -843,12 +888,28 @@
 
             </div>
 
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which MAGs drive carbon flow, and how should the positive remediation outcome enter the graph?
+                </h3>
+                <p class="prewrap">Biotic treatment versus abiotic controls supports positive sulfate-reducing chemistry, pH increase and dissolved-metal removal, independently of inferred MAG assignments. Bulk 16S rRNA transcripts were measured; this is not MAG-resolved metabolic expression. Relative amplicon and metagenome profiles are different measurements and do not resolve flux. Both dominant MAGs have glycerol-to-acetate potential; other acidogens and organic amendments prevent assuming a closed two-member carbon balance. Mineral saturation modeling and poorly crystalline XRD do not prove exact precipitate identities; cell coating does not identify every coated cell as a sulfate reducer or exclude sulfide/acetate toxicity. The missing positive metal-removal/neutralization outcome structure remains unresolved under #1504. The original #815 rendering complaint was addressed by removal in merged PR814; restoring source-backed outcome structure is a distinct task. One-community Edison dry run succeeded without API calls or charges; the report and source-backed node/arrow extension remain pending specific provider authorization. Preserve #816&#39;s already-present MAG003-only initiating participant. Existing minor-acidogen discussion and non-graph blocks remain unchanged, not recertified.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Glycerol-to-Acetate Sulfate Reduction</code>, <code>ecological_interactions#Acetate-Fed Acididesulfobacillus Sulfate Reduction</code></p>
+
+
+
+
+            </div>
+
         </section>
 
         <!-- Environmental Factors -->
 
         <section>
             <h2>External Resources</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="External Resources">
             <table>
                 <thead>
                     <tr>
@@ -896,12 +957,14 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
 
         <section>
             <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
             <table>
                 <thead>
                     <tr>
@@ -992,6 +1055,7 @@
 
                 </tbody>
             </table>
+            </div>
         </section>
 
 
@@ -1033,6 +1097,7 @@
 
 
                 <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <div class="table-scroll" role="region" tabindex="0" aria-label="pH-2.5 glycerol sulfate aSRB enrichment medium composition">
                 <table>
                     <thead>
                         <tr>
@@ -1093,6 +1158,7 @@
 
                     </tbody>
                 </table>
+                </div>
 
 
 
@@ -1194,6 +1260,7 @@
 
 
                 <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <div class="table-scroll" role="region" tabindex="0" aria-label="glycerol synthetic acid mine drainage medium composition">
                 <table>
                     <thead>
                         <tr>
@@ -1235,6 +1302,7 @@
 
                     </tbody>
                 </table>
+                </div>
 
 
 
@@ -1317,12 +1385,15 @@
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
+        if (typeof d3 === 'undefined') {
+            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            return;
+        }
         var interactionColors = {
             "CROSS_FEEDING": "#57c7ab",
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1335,7 +1406,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1423,6 +1493,17 @@
 
 
 
+            var participantKeys = [
+
+                "Desulfosporosinus sp. MAG003"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1461,6 +1542,19 @@
 
 
 
+            var participantKeys = [
+
+                "Desulfosporosinus sp. MAG003",
+
+                "Acididesulfobacillus sp. MAG013"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
 
@@ -1474,6 +1568,9 @@
             return n.type === "interaction" || connectedIds.has(n.id);
         });
 
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
         // D3 setup
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");

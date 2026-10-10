@@ -1,0 +1,248 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 7ec537d56ef438e86391971c9237d7df47bd7486
+scope:
+- kb/communities/PPCP_Wastewater_Sphingopyxis_Ochrobactrum_Apiotrichum_SMC.yaml
+- kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml
+- kb/communities/PSY_Transgenic_Rice_Rhizosphere_Methane_Community.yaml
+- kb/communities/Panax_Bacillus_Serratia_RootRot_Biocontrol_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch81.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch81.json
+findings:
+- issue: 1668
+  severity: P2
+  status: addressed_in_this_change
+  finding: PPCP aggregate removal incorrectly typed as resolved cross-feeding.
+  disposition: Close only after protected-main merge.
+- issue: 1669
+  severity: P2
+  status: addressed_in_this_change
+  finding: PPHET integration, production and stress assay boundaries and unsupported ecological types.
+  disposition: Close only after protected-main merge.
+- issue: 1670
+  severity: P2
+  status: addressed_in_this_change
+  finding: Rice measured methane/exudate outcomes conflated with inferred H2 mediation.
+  disposition: Close only after protected-main merge.
+- issue: 1671
+  severity: P2
+  status: addressed_in_this_change
+  finding: Panax separate assays, mixed filtrates and root/network response overclaims.
+  disposition: Close only after protected-main merge.
+- issue: 1672
+  severity: P2
+  status: unresolved_research
+  finding: Authorized PPCP full text and transformation/ARG extension.
+  disposition: Keep OPEN after repair merge.
+- issue: 1673
+  severity: P2
+  status: unresolved_research
+  finding: Missing direct whole-exudate-to-methane topology and scoped Edison workflow.
+  disposition: Keep OPEN after repair merge.
+- issue: 1674
+  severity: P2
+  status: unresolved_non_graph
+  finding: Non-graph guild, colonization and assay metadata.
+  disposition: Keep OPEN after graph repair merge.
+adversarial_checks:
+- Fresh both-root baseline and whole-record reads preceded paper-based curation. Every13existing node and4arrow
+  has a retained decision; sparse graphs also reviewed. No new topology or paid provider job.
+- PPCP retains aggregate aerobic/anoxic and simulated/real-wastewater removal, with8h tied only to aerobic SW. No
+  complete mineralization, universal strain-specific transformation or metabolite handoff follows from removal.
+  Preserve prior1048-1050roles/ranks/ARG evidence fixes.
+- Abstract transformation and ARG statements are genuine research leads, not dismissed as nonexistent because full
+  text was inaccessible. Authorized full-text follow-up1672is required before extending mechanistic topology. Genus
+  read fractions do not prove strain persistence or a shared bacterial/fungal denominator.
+- PPHET integration is a real composition manipulation, supported by main-text microscopy/plating/propagation/PCR
+  reports, not merely a workflow step. Preserve its high-PHB contribution arrow and48%hybrid versus50%axenic versus10%WCRM
+  comparison. Avoid adding unsupported colonization facilitation.
+- PHB HPLC quantifies the bulk culture; BODIPY localization suggests additional cell contributors, not individual
+  flux. Dark acetate38%/~23mg/L differs from light55%/~250mg/L. Distinct production conditions do not prove reduced
+  competition through niche partitioning. Prior cross-feeding and workflow removals remain.
+- High-light and38Cheat perturbations support positive community-associated resilience. Nonsterility alone had minor
+  small-scale effects; scaled PPT1 collapse followed increased illumination. Keep4L33%/~250mg/L versus8L22%/~70mg/L
+  separate. Neither non-aerated nor the authors fermentation word establishes measured anaerobiosis. Oxygen scavenging
+  is proposed, and OTHER/PARTIAL repairs the discussion provenance without claiming a validator failure.
+- Rice whole-exudate addition experimentally lowers CH4 for PSY1/PSY2 compared with Kitaake, with water controls.
+  Do not erase that positive evidence while qualifying the specific amino-acid/H2 route. The plant is living, and
+  hydroponic seedling exudate composition is distinct from mature soil-grown root flux.
+- Rice microbial omics/modeling focuses PSY1, while the methane phenotype includes PSY2. Cumulative CH4 is integrated
+  per tub because plants are destructively sampled. Preserve38/58%reductions without implying all pots/timepoints
+  are independent repeated samples.
+- H2-producing/consuming gene transcripts, genomic substrate preference and individual dFBA models are not directly
+  measured H2 pools or an experimentally isolated pairwise competition. Models show oxygen-sensitive H2 consumption
+  and exudate-associated biomass/production effects; do not state that exudate enrichment itself strongly raises
+  H2 oxidation. Keep all3existing arrows explicitly partial/hypothesized.
+- The direct exudate-to-methane arrow is still missing;1673tracks extension with the scoped15422character dry run.
+  No provider submission, actual report or scoped approval exists. This record remains needs_research, despite its
+  repaired existing arrows passing structural checks.
+- Panax initial56%and LP2follow-up61%are distinct positive disease assays. The single-strain comparison does not
+  by itself establish formal synergy or -/-competition. Mixed filtrates were produced separately and combined1:1;
+  the100%application is surface-spread unlike2.5/40%PDA incorporation. Preserve24/30/38%inhibition without induced
+  coculture biosynthesis.
+- Panax root biomarkers support antioxidant response, not a proven distal systemic pathway or disease mediator.
+  Results assign POD133/173%and SOD155/62%, differing from the abstract. Explicitly disclose the conflict rather
+  than silently treating one abstract enzyme value as universal.
+- Fungal richness, relative abundances and correlation-network complexity remain real outcomes, not direct cooperation,
+  absolute abundance, strain-resolved colonization or experimentally tested resilience. Remove the unsupported symbiotic
+  GO annotation. No new arrows between separate endpoints; prior1184-1186scope/type fixes remain.
+- All28graph quotations match fresh primaries and unchanged caches. Three main texts/captions and PPCP abstract
+  read; separate supplements/raw data/original figure pixels uninspected. Bounded reads resolve the initial truncated
+  output without using it for absence claims.947all-state issue titles/bodies and10matched bodies plus622read; local
+  ignored/hidden search is bounded by declared exclusions.
+- Four append-only histories;456other records,920caches, canonical taxa and raw non-graph blocks preserved. No scope-count
+  or auditor-rule change. Full schema/strict/term/reference/snippet/history, both-root inventory/network/rank and
+  related regressions have actual output hashes. Deterministic repeat rendering and description checks across456pages
+  are not browser screenshots.
+- The first combined regression run passed, but Ruff caught twoB023locations in the loop-local test helper. Bind
+  its rename mapping as a default argument; do not suppress the rule. Rerun the combined suite, Black and Ruff,
+  preserving all3superseded outputs including the lint failure. Record/schema/history/source contents are unchanged
+  by this test-only fix.
+- Repairs1668-1671await protected-main merge. Research1672/1673and metadata1674remain open after repair merge. Self-adversarial
+  COMMENT is not independent approval. Require exact remote head/tree/parent, postcommit docs-current and protected
+  stack lifecycle; move dependents before deleting parents.
+verification:
+  combined_regressions: 726 passed in 217.29s (0:03:37)
+  new_regression_tests: 10
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: All four full-record reference validators exit0. CLI Total checks counts issues, not executed checks.
+    Twenty-eight graph quotations independently match fresh primary text/abstract and unchanged caches. Literal
+    matching is not entailment or full provenance certification; non-graph fields/caches are preserved, not globally
+    recertified.
+  snippet_counts_by_record:
+    kb/communities/PPCP_Wastewater_Sphingopyxis_Ochrobactrum_Apiotrichum_SMC.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml:
+      MATCH: 28
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/PSY_Transgenic_Rice_Rhizosphere_Methane_Community.yaml:
+      MATCH: 31
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Panax_Bacillus_Serratia_RootRot_Biocontrol_SynCom.yaml:
+      MATCH: 18
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    source_matched: 28
+    fresh_primary_matched: 28
+    new_nodes_or_arrows: 0
+    retained_nodes: 13
+    retained_arrows: 4
+    complete_fresh_main_bodies_read: 3
+    abstract_only_sources: 1
+    separate_supplements_raw_datasets_original_figure_pixels_audited: false
+  network:
+    existing_findings_preserved: 44
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All44 baseline warnings preserved exactly. Community scope remains aggregate, not resolved member-specific
+      activity. No taxonomy or auditor-rule changes.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch81.yaml: 00a6ded249918441aad8233076bff7d99e99472f1e9134ac7d90aa68055fb2ab
+    tests/test_causal_review_batch81.py: 2154013286d9677fef89e3125f83175c5b3427438907bc7dcfa006bd73dc3ad6
+    kb/communities/PPCP_Wastewater_Sphingopyxis_Ochrobactrum_Apiotrichum_SMC.yaml: 1ec35a19be4bccd263fd578dffe22ebe67642fa9f7a16d8f845176b0afb354b6
+    kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml: 85af3a32baae2c92ed06ee398e552add0b70df7c4e014fb13d7b7ad6f3901cd5
+    kb/communities/PSY_Transgenic_Rice_Rhizosphere_Methane_Community.yaml: 5a3fa99c9184f7631ff2a2eb44892f5cc0dc5af877d13bded8adf7c615d18472
+    kb/communities/Panax_Bacillus_Serratia_RootRot_Biocontrol_SynCom.yaml: 1009ce440481b3b01af2965e9e1e18e64980923b1276133d3fae2fb8923c1eb7
+    reports/causal_graph_review/README.md: 12f998d298c0ed9bce62bc6f88cecafb9d1b2a74ce7ee0005b139ba2b6d63c62
+  unchanged_caches: 920
+  cache_changes: []
+  unchanged_records: 456
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: true
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs:
+    - community_id: CommunityMech:000216
+      job: LITERATURE
+      query_chars: 15422
+      query_sha256: 039c33359011db52769b94cc3675a2a5ce9bbda99afed3632ee473fb84b2e175
+      meta_path: /private/tmp/communitymech-batch81/edison-rice/PSY_Transgenic_Rice_Rhizosphere_Methane_Community-edison-literature-causal-meta.yaml
+      authorization: Scoped asynchronous paid question unanswered; preselection is not approval.
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+    current:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: No scope-count change, taxonomy edit, or auditor-rule change. Aggregate outcomes do not establish
+    member-resolved activity.
+corpus:
+  records: 460
+  nodes: 1444
+  edges: 609
+  review_status_counts:
+    needs_research: 36
+    pending: 168
+    reviewed: 256
+limitations:
+- Fresh pre-paper baseline covers460 records and920 caches across both roots, including ignored/hidden files. Every13existing
+  node and4arrow reviewed and retained with assay/causal bounds. Four guarded repairs/history events;456other records
+  and920caches unchanged.
+- 'Three fresh complete primary main texts, Methods, Results, Discussion and captions read: PPHET, PSY rice and
+  Panax. PPCP primary abstract only; Europe PMC metadata has no PMC full text and normal DOI delivery was unavailable.
+  No inference that unseen full-text experiments do not exist. Separate supplements, raw datasets and original figure
+  pixels not audited.'
+- Twenty-eight graph quotations match fresh primary text and unchanged caches by whitespace-only comparison. Literal
+  matching does not prove entailment. An initial combined web/baseline/helper output was truncated; all relevant
+  paper/record reads used separate bounded chunks, and no absence claim depends on the truncated output.
+- PPCP removal survives with matrix, oxygen and8h aerobic SW boundaries. No resolved inter-member exchange, complete
+  mineralization, individual reaction attribution or strain-resolved persistence follows from the accessible abstract.
+  Research1672covers authorized full text and future topology.
+- PPHET integration-to-production arrow is retained as a real composition intervention, not deleted as workflow.
+  Preserve high-light/heat protection, matched48/50/10%PHB comparison and dark acetate production. Remove unsupported
+  priority-effect/niche-partitioning labels, separate bulk PHB/localization and reactor-specific titers. Nonsterility
+  alone is not the isolated scale-collapse cause; oxygen scavenging remains proposed. Prior835-837 and workflow
+  removals preserved.
+- Rice methane phenotype and whole-exudate soil amendment are positive experiments. Keep3existing mechanistic arrows
+  explicitly partial/hypothesized; distinguish PSY1 omics from PSY1/PSY2 CH4, transcripts from flux, individual
+  models from pairwise competition, oxygen effects from exudate biomass effects, and seedling exudates from mature
+  rhizosphere sampling. Cumulative CH4 is tub-level. Missing direct exudate-to-methane link remains1673pending extension
+  workflow; no blanket downgrade to association.
+- Panax preserves56%initial/61%follow-up protection, mixed monoculture-filtrate inhibition and root MDA/POD/SOD
+  changes. Results enzyme assignments differ from abstract. No induced coculture synthesis, formal synergy, distal
+  systemic requirement, causal fungal cooperation or experimentally tested ecological resilience inferred. Sparse4node0arrow
+  graph is appropriate for separate co-outcomes; missing mediation is recorded, not invented.
+- One15422character PSY rice Edison LITERATURE dry run; zero provider submissions/credits. Scoped paid question
+  unanswered; earlier denied/pending scopes unchanged. Research1672/1673 and metadata1674stay OPEN after repair
+  merge;1668-1671remain OPEN until protected-main merge.
+- Dedup searched947all-state issue titles/bodies and30ignored/hidden-inclusive local matching files excluding git/docs/site/reference-cache.
+  All10matched issue bodies plus622read. No exhaustive historical PR/comment audit. Canonical taxonomy and raw non-graph
+  fields preserved, not certified. Self-review is not independent approval or corpus completion.

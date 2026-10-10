@@ -110,8 +110,8 @@ taxonomy:
     explanation: Supports the same species-pair composition in a follow-up exact-system publication.
 ecological_interactions:
 - name: Acetogenic Lactate Production from CO2 and H2
-  description: Recombinant A. woodii fixes CO2 with H2 and is engineered to route carbon toward
-    lactate, creating the intermediate consumed by C. drakei.
+  description: Recombinant A. woodii fixes CO2 with H2 and is engineered to route carbon toward lactate, creating the intermediate
+    consumed by C. drakei.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -148,9 +148,10 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Lactate-Mediated Chain Elongation to Caproic Acid
-    description: >
-      A. woodii converts CO2 and H2 into lactate, the intermediate that C.
-      drakei consumes for chain elongation to caproic acid in the coculture.
+    description: 'A. woodii converts CO2 and H2 into lactate, the intermediate that C. drakei consumes for chain elongation
+      to caproic acid in the coculture.
+
+      '
   evidence:
   - reference: PMID:36619880
     supports: SUPPORT
@@ -161,11 +162,9 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: production of caproic acid from CO2 and H2 via the intermediate lactic acid
-    explanation: Supports lactate as the cross-fed intermediate connecting CO2/H2 use to caproic
-      acid production.
+    explanation: Supports lactate as the cross-fed intermediate connecting CO2/H2 use to caproic acid production.
 - name: Lactate-Mediated Chain Elongation to Caproic Acid
-  description: C. drakei consumes lactate-derived carbon in the coculture and carries out chain
-    elongation to caproic acid.
+  description: C. drakei consumes lactate-derived carbon in the coculture and carries out chain elongation to caproic acid.
   scope: COMMUNITY_LEVEL
   interaction_type: CROSS_FEEDING
   participating_taxa:
@@ -203,10 +202,9 @@ ecological_interactions:
     snippet: production of caproic acid from CO2 and H2 via the intermediate lactic acid
     explanation: Supports lactate-mediated caproic acid production in the coculture.
 - name: Electrolysis-Generated Hydrogen Supply
-  description: In situ water electrolysis supplies H2 to support autotrophic coculture operation,
-    with hydrogen limitation identified as a process constraint.
+  description: In situ water electrolysis supplies H2 to support autotrophic coculture operation, with hydrogen limitation
+    identified as a process constraint.
   scope: COMMUNITY_LEVEL
-  interaction_type: NICHE_PARTITIONING
   participating_taxa:
   - preferred_term: Acetobacterium woodii
     term:
@@ -219,10 +217,10 @@ ecological_interactions:
       label: dihydrogen
   downstream:
   - target: Acetogenic Lactate Production from CO2 and H2
-    description: >
-      In situ electrolysis supplies the H2 electron donor used with CO2 by the
-      recombinant A. woodii strain to form lactate for the chain-elongating
-      partner.
+    description: 'In situ electrolysis supplies the H2 electron donor used with CO2 by the recombinant A. woodii strain to
+      form lactate for the chain-elongating partner.
+
+      '
   evidence:
   - reference: PMID:36619880
     supports: SUPPORT
@@ -503,3 +501,10 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this CO2/H2 chain-elongation
   coculture.
+curation_history:
+- timestamp: '2026-10-05T05:52:00Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Remove niche-partitioning label from engineered hydrogen supply; complete node/edge decisions under reports/causal_graph_review;
+    issue #1236.'
+  llm_assisted: true

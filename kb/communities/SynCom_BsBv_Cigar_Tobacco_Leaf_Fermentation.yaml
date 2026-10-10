@@ -74,12 +74,11 @@ taxonomy:
       protease activities were screened out, and synthetic communities were constructed.
     explanation: Identifies Bacillus velezensis as a member of the constructed SynCom.
 ecological_interactions:
-- name: Cooperative macromolecule degradation by the BsBv SynCom
-  description: Co-inoculation of the two cellulase/amylase/protease-producing Bacillus members on
-    cigar tobacco leaves accelerated the degradation of key macromolecules, reducing cellulose,
-    protein, and starch contents by 52.48 %, 56.36 %, and 68.47 % respectively, markedly greater than
-    the uninoculated control (a community-level, emergent function of the consortium).
-  interaction_type: MUTUALISM
+- name: Macromolecule degradation after BsBv inoculation
+  description: BsBv inoculation accelerated cellulose, protein and starch loss during the tested leaf fermentation,
+    with reductions of 52.48%, 56.36% and 68.47%, respectively, greater than the uninoculated control. This is a
+    measured consortium-associated process outcome; it does not establish that both bacterial partners benefit or
+    that the mixture exceeds each monoculture.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: cellulose catabolic process
@@ -95,72 +94,70 @@ ecological_interactions:
       id: GO:0030163
       label: protein catabolic process
   downstream:
-  - target: Volatile Flavor Profile Remodeling
-    description: >
-      Faster cellulose, protein, and starch degradation is one SynCom-driven
-      process associated with the volatile flavor-metabolite changes measured
-      during cigar-tobacco leaf fermentation.
+  - target: Volatile flavor and sensory-quality outcomes
+    description: 'HYPOTHESIZED/PARTIAL: macromolecule conversion is proposed to contribute to the altered chemical
+      and sensory outcomes under BsBv inoculation. The abstract reports chemical changes and a path-model interpretation,
+      but does not isolate degradation of any one substrate as the mediator of a specific volatile or sensory change.'
   evidence:
   - reference: doi:10.1016/j.indcrop.2025.122621
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The SynCom significantly accelerated the degradation of key macromolecules, reducing
-      cellulose, protein, and starch contents by 52.48 %, 56.36 %, and 68.47 %, respectively, which
-      were markedly greater reductions than those observed in the uninoculated control.
-    explanation: Measured community-level macromolecule degradation by the two-member SynCom versus
-      control.
+    snippet: The SynCom significantly accelerated the degradation of key macromolecules, reducing cellulose, protein,
+      and starch contents by 52.48 %, 56.36 %, and 68.47 %, respectively, which were markedly greater reductions
+      than those observed in the uninoculated control.
+    explanation: Measured community-level macromolecule degradation by the two-member SynCom versus control.
 - name: SynCom-driven bacterial community succession and Bacillus enrichment
-  description: Inoculation with the SynCom shifted the leaf bacterial community structure, increasing
-    the relative abundance of Firmicutes and significantly enriching the genus Bacillus during
-    fermentation (community-level restructuring driven by the introduced consortium).
-  interaction_type: NICHE_PARTITIONING
+  description: BsBv inoculation shifted bacterial community structure, including greater relative abundance of Firmicutes
+    and enrichment of Bacillus. The authors also used PLS-PM to infer a microbiome-mediated contribution to sensory
+    quality. Relative abundance and modeled mediation do not establish absolute population increases, niche separation
+    or a Bacillus-specific causal mechanism.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   downstream:
-  - target: Volatile Flavor Profile Remodeling
-    description: >
-      BsBv-driven enrichment of Bacillus and Firmicutes is the community
-      succession pattern associated with SynCom flavor metabolism during the
-      42-day leaf fermentation.
+  - target: Volatile flavor and sensory-quality outcomes
+    description: 'HYPOTHESIZED/PARTIAL: community restructuring is proposed to contribute to the sensory component
+      of the BsBv-associated outcome, consistent with the authors beta-diversity path-model interpretation. This
+      does not identify Bacillus enrichment as the necessary mediator of each volatile change, or equate relative-abundance
+      shifts with the modeled beta-diversity variable.'
   evidence:
   - reference: doi:10.1016/j.indcrop.2025.122621
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: inoculation shifted the bacterial community structure, increasing the relative abundance
-      of Firmicutes and significantly enriching the genus Bacillus.
+    snippet: inoculation shifted the bacterial community structure, increasing the relative abundance of Firmicutes
+      and significantly enriching the genus Bacillus.
     explanation: SynCom inoculation restructured the resident bacterial community, enriching Bacillus.
-- name: Volatile Flavor Profile Remodeling
-  description: >
-    BsBv inoculation remodeled volatile flavor metabolites during the 42-day
-    cigar-tobacco fermentation, increasing honey, floral, and baked aroma
-    contributions while reducing irritancy.
-  interaction_type: MUTUALISM
+  - reference: doi:10.1016/j.indcrop.2025.122621
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: indirectly improved sensory quality by mediating shifts in microbial β-diversity
+    explanation: Reports the authors statistical mediation interpretation, not an experimentally isolated taxon
+      effect.
+    computational_provenance:
+      prediction_type: STATISTICAL_INFERENCE
+      model_source: Chemical components, microbial community variation and sensory measurements from the BsBv fermentation
+        study
+      parameters: Partial least squares path modeling (PLS-PM); software, version and model specification are not
+        supplied in the reviewed abstract.
+- name: Volatile flavor and sensory-quality outcomes
+  description: Metabolomics identified 31 differentially accumulated volatile compounds after BsBv inoculation.
+    The source associates increased phenylacetic acid, phytol and farnesol with honey, floral and baked aromas and
+    reduced irritancy. These chemical and sensory outcomes are distinct from reciprocal microbial fitness and from
+    direct measurements of the upstream degradation processes.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: cellulose catabolic process
-    term:
-      id: GO:0030245
-      label: cellulose catabolic process
-  - preferred_term: starch catabolic process
-    term:
-      id: GO:0005983
-      label: starch catabolic process
-  - preferred_term: protein catabolic process
-    term:
-      id: GO:0030163
-      label: protein catabolic process
   evidence:
   - reference: doi:10.1016/j.indcrop.2025.122621
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Metabolomic profiling identified 31 differentially accumulated volatile flavor compounds
-    explanation: >
-      Supports volatile flavor-metabolite remodeling by the two-member BsBv
-      SynCom after application to cigar tobacco leaves.
+    explanation: 'Supports volatile flavor-metabolite remodeling by the two-member BsBv SynCom after application
+      to cigar tobacco leaves.
+
+      '
+  - reference: doi:10.1016/j.indcrop.2025.122621
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: phenylacetic acid, phytol, and farnesol, which were upregulated in the BsBv group and contributed to
+      enhanced honey, floral, and baked aromas, while reducing irritancy.
+    explanation: Supports the reported volatile/sensory association without establishing a specific causal mediator.
 growth_media:
 - name: Solid-state fermentation on cigar tobacco leaves (cultivar QX204)
   composition:
@@ -180,3 +177,32 @@ growth_media:
       42-day fermentation.
     explanation: States the fermentation substrate (cigar tobacco leaves, cultivar QX204) and the
       42-day incubation duration.
+discussions:
+- discussion_id: bsbv-outcomes-versus-modeled-mediation
+  prompt: Which components of the BsBv-associated fermentation response mediate the volatile and sensory outcomes?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Macromolecule degradation after BsBv inoculation
+  - ecological_interactions#SynCom-driven bacterial community succession and Bacillus enrichment
+  - ecological_interactions#Volatile flavor and sensory-quality outcomes
+  rationale: Keep the positive degradation, community and flavor observations and the source path-model hypothesis.
+    The reviewed abstract does not isolate substrate conversion or Bacillus enrichment as the causal mediator. Reciprocal
+    bacterial benefit and spatial or temporal niche separation are not established.
+  evidence:
+  - reference: doi:10.1016/j.indcrop.2025.122621
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: indirectly improved sensory quality by mediating shifts in microbial β-diversity
+    explanation: Reports the authors statistical mediation interpretation, not an experimentally isolated taxon
+      effect.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-08T04:10:38Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Preserve quantified substrate loss versus the control without reciprocal-benefit or monoculture-synergy
+    claims; qualify its existing outcome contribution.; Preserve community shifts and the PLS-PM hypothesis with
+    bounded statistical provenance, not niche separation or a taxon-specific mediator.; Preserve volatile and sensory
+    outcomes; remove mutualism and misplaced upstream degradation-process annotations. Issue#1843; reports/causal_graph_review/decisions/20261008-four-records-batch108.yaml
+  llm_assisted: true

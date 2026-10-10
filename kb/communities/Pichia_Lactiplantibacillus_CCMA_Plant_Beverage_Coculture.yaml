@@ -187,21 +187,43 @@ external_resources:
     explanation: Lists the primary publication for the CCMA co-culture.
 discussions:
 - discussion_id: ccma_beverage_coculture_conditions
-  prompt: >-
-    Which inoculation ratio, beverage ingredient proportions, fermentation
-    temperature, and aeration conditions were used for the CCMA 0743/CCMA 0615
-    plant-based beverage co-culture?
+  prompt: Which inoculation ratio, beverage ingredient proportions, fermentation temperature, and aeration conditions
+    were used for the CCMA 0743/CCMA 0615 plant-based beverage co-culture?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - growth_media#Oat-almond-sunflower plant-based beverage
-  rationale: >-
-    The PubMed abstract identifies the two strains, the oat/almond/sunflower
-    substrate, the 24 h fermentation endpoint, and measured metabolite and host
-    endpoints, but it does not expose the recipe or inoculation parameters
+  rationale: The PubMed abstract identifies the two strains, the oat/almond/sunflower substrate, the 24 h fermentation
+    endpoint, and measured metabolite and host endpoints, but it does not expose the recipe or inoculation parameters
     needed to fully reproduce the fermentation.
   posed_by: codex
   posed_date: '2026-09-11'
+- discussion_id: ccma-beverage-missing-biological-graph
+  prompt: Which source-supported fermentation and host-response nodes belong in this currently absent graph?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - engineering_design
+  - growth_media#Oat-almond-sunflower plant-based beverage
+  rationale: 'Preserve the observed 24 h viable counts (9.32 and 7.05 log CFU/mL), carbohydrate utilization, acidification,
+    increased bioactive compounds and simulated-digestion bioaccessibility. The fermented whole beverage promoted
+    microbial recovery in vancomycin-treated BALB/c mice. These positives do not establish partner-resolved cross-feeding,
+    reciprocal fitness, intestinal colonization, mediation by a specific compound, or benefit in humans. Primary
+    access is abstract-only. New graph structure remains #1707; a one-community Edison dry run is not a reviewed
+    paid report. No node or arrow is added in this discussion-only review.'
+  evidence:
+  - reference: PMID:42637394
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The process facilitated carbohydrate utilization, acidification, and the generation of bioactive metabolites.
+    explanation: Supports fermentation-associated substrate use, acidification, and metabolite production by the
+      defined co-culture.
+  - reference: PMID:42637394
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Administration of the fermented beverage promoted microbial recovery
+    explanation: Supports testing the fermented co-culture beverage in a host dysbiosis recovery assay.
+  posed_by: codex
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -209,3 +231,10 @@ metal_notes: >-
   The cited abstract reports plant-based beverage fermentation and gut
   microbiota recovery endpoints, not metal stress, metal transformation, or
   metal cycling.
+curation_history:
+- timestamp: '2026-10-07T09:58:34Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Document positive findings and assay limits for an empty graph pending scoped Edison research; no topology
+    added. Issue #1707; reports/causal_graph_review/decisions/20261007-four-records-batch85.yaml'
+  llm_assisted: true
