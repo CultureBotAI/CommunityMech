@@ -114,7 +114,12 @@ def test_most_records_carry_a_community_level_interaction(survey):
     # #1901 scopes the E. coli product and equilibria; both members retain pairwise credit.
     # #1910 narrows vitamin provision to the tested pair (415 -> 414).
     # #1965 scopes yogurt fermentation outcomes to both already pairwise-connected members.
-    assert 130 <= survey["with_community_level"] <= 415, survey
+    # The two phage-bacteria records add one community-scoped interaction each
+    # (415 -> 417): kill-the-winner succession in the PHA mixed culture and
+    # competitive release in the four-species community. Both name their
+    # participants explicitly, so neither widens the rule's reach -- removing
+    # just these two records reproduces 415 exactly.
+    assert 130 <= survey["with_community_level"] <= 417, survey
 
 
 def test_the_mixed_records_are_where_the_coarseness_bites(survey):
@@ -136,7 +141,10 @@ def test_the_mixed_records_are_where_the_coarseness_bites(survey):
     # Batch114 adds one mixed record; no additional solely-credited taxa.
     # Batch117 removes that record's community-wide claim (137 -> 136).
     # Batch124 adds yogurt as one mixed record; no additional solely-credited taxa.
-    assert 35 <= survey["mixed"] <= 137, survey
+    # The four-species phage record is mixed-scope (137 -> 138): its pairwise
+    # infection edges sit alongside one community-scoped competitive-release
+    # outcome. The PHA record is community-only, so it does not land here.
+    assert 35 <= survey["mixed"] <= 138, survey
     assert survey["mixed"] + survey["community_level_only"] == survey["with_community_level"]
 
 
