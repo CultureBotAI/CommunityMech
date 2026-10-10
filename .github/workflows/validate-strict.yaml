@@ -61,6 +61,9 @@ jobs:
         # are available for the test step below.
         run: uv sync --frozen --all-extras
 
+      - name: Verify committed graph receipts against the current corpus
+        run: python -S scripts/check_graph_receipts.py
+
       # This lane runs the whole test suite, and parts of it consult NCBITaxon
       # through OAK. Without a cache the runner re-downloads ncbitaxon.db.gz
       # every time -- and when that download returned 0 bytes, main went red for
